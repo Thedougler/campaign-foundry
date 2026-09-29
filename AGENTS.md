@@ -1,14 +1,15 @@
 # Campaign Foundry
 
-## Rules source
+## Sourcing content
 
-Campaign content follows the 2024 D&D 5e rules. Before writing any rules figure into the Wiki or an answer, take it from the first source that has it:
+Campaign content follows the 2024 D&D 5e rules. Reuse before inventing: whether writing a rules figure or creating new content (a Creature, Item, Spell, NPC, Location, adventure idea), take it from the first source that fits the DM's intent:
 
-1. **The Wiki**: homebrew and anything already recorded there is Canon.
+1. **The Wiki**: House Rules, homebrew and anything already recorded there is Canon.
 2. **The SRD**: `dnd5e-srd-api` fetches SRD spell text, stat blocks, class tables and items.
-3. **The web**, for official content outside the SRD.
+3. **The web**: official content outside the SRD, then existing homebrew and published material to co-opt. Search with the project's web skills (`tavily-search`, `exa-search`, `firecrawl-scrape` and the rest).
+4. **Novel content**, only when nothing found fits the intent, and inspired by the closest material the search turned up.
 
-Foundry is never a rules source.
+Foundry is never a source.
 
 ## Domain
 
