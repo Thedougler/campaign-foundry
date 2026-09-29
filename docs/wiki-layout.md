@@ -18,8 +18,8 @@ wiki/
       PCs/  Threads/  Quests/  House Rules/
       Sessions/<Session N>/    Prep, a page per Scene, Recap, Previously On, Handouts
     attachments/               images and map data
-raw/                           Raw: waiting to be ingested (outside the vault)
-archive/                       Archive: already ingested (outside the vault)
+raw/                           Raw: waiting to be ingested; flat, no folders (outside the vault)
+archive/                       Archive: already ingested; flat, no folders (outside the vault)
 ```
 
 ## Pages
