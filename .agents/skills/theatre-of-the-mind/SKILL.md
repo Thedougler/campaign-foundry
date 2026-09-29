@@ -68,6 +68,7 @@ Quote the block's own words for each item.
 - **Told.** Quote every pair of neighbouring sentences that could swap places, and each sentence's first two words: a run of fresh starts (You crossed, In the tower, Back in) is a list.
 - **Speakable.** Is any sentence longer than a breath? Is there a compass word, a foot count, an em dash, a semicolon or a colon?
 - **Echo.** Word by word against the old block and each source page, quote every run of four or more words they share (quoted speech aside). Any quote means a rewrite.
+- **Tells.** On a World page's first meeting, quote the tell for each signature ability or hidden property the page lists. Any without one is added.
 - **Hard lines.** Do all five hold, with the block ending on one event's reaction point?
 - **Length.** Is it inside the band?
 - **Better.** When rewriting a block: is every fact of the old block kept or moved to the DM's side, and is the new block more vivid and more exact?

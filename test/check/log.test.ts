@@ -211,7 +211,7 @@ describe("cf log", () => {
 		const { code, stdout } = await cf(["log", "--help"]);
 		expect(code).toBe(0);
 		for (const option of ["--world", "--op", "--title", "--page", "--stdin", "--date", "--dry-run", "--vault", "--root"]) expect(stdout).toContain(option);
-		expect(stdout).toContain("create, ingest, prep, push, audit, pull, query");
+		expect(stdout.replace(/\s+/g, " ")).toContain("create, ingest, prep, push, audit, pull, query");
 		expect(stdout).toContain("Examples:");
 		expect(stdout).toMatch(/^ {2}cf log --world \S+ --op ingest --title ".+" --page ".+"/m);
 		expect(stdout).toContain("Exit codes:");
