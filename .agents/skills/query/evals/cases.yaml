@@ -7,6 +7,8 @@
     - The answer names Ilse Corran as the Reedrunners' leader and the Bandit Captain as her statistics, citing both pages as wikilinks.
     - Every fact in the answer appears on a fixture page; nothing is invented and presented as Wiki fact.
     - The Wiki diff is empty, because nothing in this answer is a keeper.
+    - How Ilse fought is taken from the Recaps, and anything drawn from a Prep or Scene page is presented as what was planned, not what happened.
+    - The answer stays on the two things asked; it runs no more than about 12 lines before any "Not in the Wiki" line.
 - id: ledger-now
   prompt: Where is the Harbormaster's Ledger right now, and who is going to come after it?
   checks:
@@ -16,6 +18,7 @@
     - The answer says the Party holds the ledger and Odalys Ferro carries it, with a citation.
     - The answer names Ilse Corran or the Reedrunners as coming after it, citing the Thread, the Recap or Ilse's page.
     - The answer leads with the direct answer in one or two sentences before any detail.
+    - Every inference or reading of the Agent's own sits under "Not in the Wiki", not in the body.
 - id: holy-day-gap
   prompt: What is Mother Ebb's holy day, and how do the folk of Reedholt keep it?
   checks:
@@ -35,6 +38,7 @@
     - The answer gives the recorded story (a wreck struck the landing) and the hidden truth (the Reedrunners killed him, learnable from Nib Ashwater) with citations, and names as a gap that the Wiki does not say what Pell himself believes.
     - Wenna is filed on Pell Rushlight's page as a fact in its own section, not as a question-and-answer block, and the answer closes by naming the page edited.
     - The Agent filed Wenna without asking the DM for permission.
+    - Nothing the Wiki doesn't state (such as what story Pell tells, or whether he suspects) appears in the body as fact; readings sit under "Not in the Wiki".
 - id: stale-sable
   prompt: Is Sable still ringing the bell at the Drowned Chapel?
   checks:
@@ -45,3 +49,4 @@
   rubrics:
     - The answer says Sable stopped ringing the bell after giving the Party the ledger, citing the Session 2 Recap.
     - Sable's page is updated so it no longer describes her as still ringing the bell, including its summary, and stays in its template's shape.
+    - The reply never mentions the index or the log.
