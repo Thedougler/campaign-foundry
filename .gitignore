@@ -21,5 +21,15 @@ dist/
 .qmd/index.sqlite*
 .qmd/refresh.*
 
+# Vale: `pnpm run setup` syncs packages into .vale/styles/; only our own Narration style is committed
+.vale/styles/*
+!.vale/styles/Narration/
+
+# Scratch space for experiments
+.scratch/
+
 # Claude Code worktrees for isolated subagents
 .claude/worktrees/
+
+# Per-file check results, keyed by content hash (src/check/cache.ts)
+.cache/

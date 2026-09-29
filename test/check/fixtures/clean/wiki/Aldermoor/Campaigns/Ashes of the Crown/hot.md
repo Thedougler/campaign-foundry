@@ -15,7 +15,7 @@ date: "14 Emberfall 1492"
 
 ## Active Threads
 
-[[The Cold Hearth]] burns low; Mara decides next.
+[[The Cold Hearth]] burns low and Mara decides next.
 
 ## Last Session
 
@@ -24,4 +24,3 @@ The Party reached the bridge.
 ## Next
 
 [[Session 1 - Prep]] is ready.
-

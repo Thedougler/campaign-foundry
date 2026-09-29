@@ -23,7 +23,7 @@ describe("cf --help", () => {
 		const { code, stdout } = await cf(["check", "--help"]);
 		expect(code).toBe(0);
 		for (const option of ["--vault", "--templates", "--root", "--layer", "--fix", "--dry-run", "--json"]) expect(stdout).toContain(option);
-		for (const layer of ["template", "placement", "links", "orphans"]) expect(stdout).toContain(layer);
+		for (const layer of ["template", "placement", "links", "orphans", "markdownlint", "remark-lint", "spelling", "grammar", "style"]) expect(stdout).toContain(layer);
 		expect(stdout).toContain("Examples:");
 		expect(stdout).toMatch(/^ {2}cf check --fix --dry-run$/m);
 		expect(stdout).toMatch(/^ {2}cf check wiki\/\S+\.md$/m);
@@ -35,7 +35,7 @@ describe("cf check: exit codes and output", () => {
 	it("exits 0 on a clean vault, with a summary line", async () => {
 		const { code, stdout } = await cf(["check", ...flags("clean")], repoRoot);
 		expect(code).toBe(0);
-		expect(stdout).toMatch(/^ok: 0 findings, 28 pages, 4 layers \(template, placement, links, orphans\), \d+ms$/m);
+		expect(stdout).toMatch(/^ok: 0 findings, 28 pages, \d+ layers \(template, placement, links, orphans, .*markdownlint, remark-lint, spelling, grammar, style.*\), \d+ms$/m);
 	});
 
 	it("exits 1 on findings and prints path:line  layer/rule  message, then an indented fix hint", async () => {
@@ -117,7 +117,7 @@ describe("cf check: layers and paths", () => {
 });
 
 describe("cf check: speed", () => {
-	it("checks a 300-page vault well under a second", async () => {
+	it("checks a 300-page vault in seconds cold and about a second warm", async () => {
 		const dir = await copyFixture("clean");
 		const npcs = join(dir, "wiki/Aldermoor/NPCs");
 		await mkdir(npcs, { recursive: true });
@@ -138,7 +138,7 @@ creature: ""
 
 ## Play
 
-- **Opens them up.** Weather talk.
+- **Opens them up.** Talk of the weather gets him going.
 
 ## Depth
 
@@ -159,13 +159,19 @@ filters:
 		await Promise.all(
 			Array.from({ length: 300 }, (_, i) => writeFile(join(npcs, `Villager ${i}.md`), body(`${i}`, `Villager ${(i + 1) % 300}`))),
 		);
+		const args = ["check", "--json", "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates];
+		// The prose layers cache per page by content hash: a first run reads every page, a repeat run reads only what changed.
 		const started = performance.now();
-		const result = await cf(["check", "--json", "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates], dir);
-		const wall = performance.now() - started;
-		const report = JSON.parse(result.stdout) as JsonReport & { durationMs: number };
-		expect(report.findings).toEqual([]);
-		expect(report.counts.pages).toBeGreaterThanOrEqual(328);
-		expect(report.durationMs).toBeLessThan(1000);
-		expect(wall).toBeLessThan(2500);
+		const first = JSON.parse((await cf(args, dir)).stdout) as JsonReport & { durationMs: number };
+		const firstWall = performance.now() - started;
+		expect(first.findings).toEqual([]);
+		expect(first.counts.pages).toBeGreaterThanOrEqual(328);
+		expect(firstWall).toBeLessThan(10000);
+		const repeatStarted = performance.now();
+		const repeat = JSON.parse((await cf(args, dir)).stdout) as JsonReport & { durationMs: number };
+		const repeatWall = performance.now() - repeatStarted;
+		expect(repeat.findings).toEqual([]);
+		expect(repeat.durationMs).toBeLessThan(2000);
+		expect(repeatWall).toBeLessThan(3500);
 	});
 });

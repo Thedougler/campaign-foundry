@@ -1,0 +1,8 @@
+extends: existence
+message: "Narration takes no em dash ('%s'). Join clauses with a comma, 'and' or a full stop."
+level: error
+scope: blockquote
+nonword: true
+tokens:
+  - '—'
+  - ' -- '

@@ -26,7 +26,8 @@ interface CheckFlags {
 const collect = (value: string, previous: string[]): string[] => [...previous, value];
 
 export function checkCommand(): Command {
-	const layerLines = layers.map((l) => `  ${l.name.padEnd(12)}${l.description}`).join("\n");
+	const width = Math.max(...layers.map((l) => l.name.length)) + 2;
+	const layerLines = layers.map((l) => `  ${l.name.padEnd(width)}${l.description}`).join("\n");
 	return new Command("check")
 		.description("Gate the Wiki: every layer must pass. Exits 0 clean, 1 findings, 2 usage error.")
 		.argument("[paths...]", "report only findings under these files or folders (the whole Wiki is still checked)")
@@ -54,6 +55,7 @@ Examples:
   cf check
   cf check wiki/Aldermoor/Locations/Ravenhold.md
   cf check wiki/Aldermoor --layer links --layer orphans
+  cf check wiki/Aldermoor/NPCs/Mara\ Voss.md --layer spelling --layer style
   cf check --fix --dry-run
   cf check --fix
   cf check --json --vault test/fixtures/vault --root test/fixtures/vault`,

@@ -1,0 +1,23 @@
+# markdownlint config for the Wiki (an Obsidian vault). Read by the `markdownlint` layer of `pnpm check`
+# and, unchanged, by editors that run markdownlint. Every rule is on unless disabled here with a reason.
+default: true
+
+# MD013 line length: prose paragraphs are one long line each; Obsidian soft-wraps them.
+MD013: false
+
+# MD041 first line is a top-level heading: a page has no H1 by design, because Obsidian shows the
+# file name as the title. Pages open with frontmatter and then `## At a glance`.
+MD041: false
+
+# MD028 blank line inside a blockquote: two callouts in a row (`> [!narration]` then another callout)
+# are separated by a blank line in Obsidian, and markdownlint reads that as one broken quote.
+MD028: false
+
+# MD024 duplicate headings: templates repeat sub-headings such as `### Hidden truths` under different
+# `##` sections. Only headings that share a parent are duplicates.
+MD024:
+  siblings_only: true
+
+# MD033 inline HTML: Obsidian users write `<br>` in table cells and `<sup>` in prose.
+MD033:
+  allowed_elements: [br, sup, sub, kbd, mark]

@@ -12,7 +12,7 @@ sources: []
 - **From.** Text.
 
 > [!narration] Handout text
-> Wanted: the Bandit Captain, for arson.
+> The Bandit Captain is wanted for arson.
 
 ![[wanted-poster.png]]
 

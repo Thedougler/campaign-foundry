@@ -23,7 +23,7 @@ Text.
 
 ### Districts
 
-The chapel ruin lies below: [[The Sunken Chapel]].
+The chapel ruin lies below, at [[The Sunken Chapel]].
 
 ### Services
 

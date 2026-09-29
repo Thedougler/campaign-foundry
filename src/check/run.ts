@@ -6,14 +6,9 @@ import type { Vault } from "../vault/types.ts";
 import { layers as allLayers } from "./layers/index.ts";
 import type { CheckContext, FileEdit, Finding, Fix, Layer } from "./types.ts";
 
-/** Bad invocation: unknown layer, missing path. The CLI exits 2 with `message` and `hint`. */
-export class UsageError extends Error {
-	hint: string;
-	constructor(message: string, hint: string) {
-		super(message);
-		this.hint = hint;
-	}
-}
+import { UsageError } from "./errors.ts";
+
+export { UsageError };
 
 export interface CheckOptions {
 	/** Absolute vault directory. */
