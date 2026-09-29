@@ -31,7 +31,7 @@ export function checkCommand(): Command {
 		.description("Gate the Wiki: every layer must pass. Exits 0 clean, 1 findings, 2 usage error.")
 		.argument("[paths...]", "report only findings under these files or folders (the whole Wiki is still checked)")
 		.option("--vault <dir>", "the Wiki folder to check (default: <root>/wiki)")
-		.option("--templates <dir>", "folder of page templates (default: <root>/wiki/templates)")
+		.option("--templates <dir>", "folder of page templates (default: <root>/wiki/templates, else the repo's)")
 		.option("--root <dir>", "repository root, where sources paths like archive/x.md resolve (default: nearest git root)")
 		.addOption(new Option("--layer <name>", "run only this layer; repeat for several").argParser(collect).default([] as string[], "all layers"))
 		.option("--fix", "apply mechanical fixes, report them, then re-check")
@@ -56,7 +56,7 @@ Examples:
   cf check wiki/Aldermoor --layer links --layer orphans
   cf check --fix --dry-run
   cf check --fix
-  cf check --json --vault test/fixtures/vault --root test/fixtures/vault`,
+  cf check --json --vault test/fixtures/vault --root test/fixtures`,
 		)
 		.action(async (paths: string[], flags: CheckFlags) => {
 			const cwd = process.cwd();
@@ -64,7 +64,15 @@ Examples:
 			const real = (p: string): string => (existsSync(p) ? realpathSync(p) : p);
 			const root = real(flags.root ? resolve(cwd, flags.root) : findRepoRoot(cwd));
 			const vault = real(flags.vault ? resolve(cwd, flags.vault) : join(root, "wiki"));
-			const templates = real(flags.templates ? resolve(cwd, flags.templates) : join(root, "wiki/templates"));
+			// A fixture or eval root usually carries no templates of its own: fall back to the repo's.
+			const rootTemplates = join(root, "wiki/templates");
+			const templates = real(
+				flags.templates
+					? resolve(cwd, flags.templates)
+					: existsSync(rootTemplates)
+						? rootTemplates
+						: join(findRepoRoot(cwd), "wiki/templates"),
+			);
 			const fail = (message: string, hint: string): never => {
 				throw new UsageError(message, hint);
 			};

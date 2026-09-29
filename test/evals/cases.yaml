@@ -1,0 +1,51 @@
+# Sample cases for test/evals/check.test.ts. The format is the one every skill's
+# .agents/skills/<skill>/evals/cases.yaml uses.
+
+- id: fixture-holds
+  prompt: Who leads the Reedrunners, and what stat block do they use?
+  checks:
+    pages:
+      - Lowtide/NPCs/Ilse Corran.md
+      - Lowtide/Creatures/Bandit Captain
+    sections:
+      Lowtide/NPCs/Ilse Corran.md:
+        - At a glance
+        - "## Play"
+        - Depth
+      Lowtide/Creatures/Bandit Captain.md:
+        - Statblock
+    canon:
+      Lowtide/NPCs/Ilse Corran.md:
+        - 'creature: "\[\[Bandit Captain\]\]"'
+        - Ilse Marrow
+      Lowtide/Creatures/Bandit Captain.md:
+        - '/^hp: 52$/m'
+        - 'hit_dice: "8d8 \+ 16"'
+    absent:
+      Lowtide/Lowtide.md:
+        - Emberfen
+  rubrics:
+    - The answer names Ilse Corran as the leader and cites her page.
+
+- id: every-check-fails
+  prompt: A case whose checks all fail, so the failure paths stay covered.
+  checks:
+    pages:
+      - Lowtide/NPCs/Nobody.md
+    sections:
+      Lowtide/NPCs/Ilse Corran.md:
+        - "### Play"
+        - Epilogue
+    canon:
+      Lowtide/NPCs/Ilse Corran.md:
+        - Ilse Marrow was born in Vessen
+    absent:
+      Lowtide/NPCs/Ilse Corran.md:
+        - Bandit Captain
+
+- id: bad-regex
+  prompt: A case with a regex that does not compile.
+  checks:
+    canon:
+      Lowtide/Lowtide.md:
+        - "(unclosed"
