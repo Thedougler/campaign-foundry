@@ -4,6 +4,7 @@ How pages are arranged in the `wiki/` Obsidian vault. Terms are defined in `CONT
 
 ```
 wiki/
+  templates/                   one Obsidian template per page kind
   <World>/
     <World>.md                 World overview
     Locations/  NPCs/  Creatures/  Factions/  Deities/  Items/  Lore/
