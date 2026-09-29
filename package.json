@@ -1,4 +1,9 @@
 {
+	"type": "module",
+	"scripts": {
+		"eval:check": "node evals/check.ts",
+		"test": "vitest run"
+	},
 	"dependencies": {
 		"@flowershow/remark-wiki-link": "^4.0.0",
 		"@tavily/core": "^0.7.13",
@@ -17,7 +22,6 @@
 	"devDependencies": {
 		"cspell": "^10.3.5",
 		"markdownlint-cli2": "^0.23.3",
-		"promptfoo": "^0.123.1",
 		"vitest": "^5.0.2"
 	}
 }
