@@ -30,7 +30,7 @@ archive/                       Archive: already ingested (outside the vault)
 - **Page name = in-world name.** On a real collision anywhere in the vault, add a parenthetical: `Ravenhold (Keep)`.
 - **Links are wikilinks.** Images are embedded as `![[file]]` from the World's `attachments/`.
 - **Anatomy, in table-pressure order:** at a glance (the summary plus the 3–5 facts needed in ten seconds), then Narration in a `[!narration]` callout, then Play (what it does at the table), then Depth (history, hidden truths, Threads), then Links (rendered from properties or an embedded Base).
-- **Schemas generate templates.** Each page kind's schema is the single source of its shape; its template in `templates/` is generated from it.
+- **Templates define pages.** A page kind's template in `templates/` is the single source of its shape. The gate reads each page's required properties and sections from its template, so editing a template changes how every page of that kind is checked. There are no separate schema files.
 
 ## index, log and hot
 
