@@ -55,7 +55,12 @@ describe.skipIf(!installed)("dnd5e 5.3.3 system data shape", () => {
 		}
 	}, 60_000);
 
-	const unknown = (mine: Set<string>, known: Set<string>): string[] => [...norm(mine)].filter((p) => !norm(known).has(p));
+	const normalized = new WeakMap<Set<string>, Set<string>>();
+	const unknown = (mine: Set<string>, known: Set<string>): string[] => {
+		if (!normalized.has(known)) normalized.set(known, norm(known));
+		const ref = normalized.get(known)!;
+		return [...norm(mine)].filter((p) => !ref.has(p));
+	};
 
 	it("emits only key paths the system's own npc Actors have", () => {
 		const actors = plan.docs.filter((d) => d.type === "Actor");

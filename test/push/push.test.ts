@@ -80,7 +80,7 @@ describe("runPush", () => {
 	it("leaves the Wiki as clean for the gate as it found it: its log entry is well formed", async () => {
 		const ws = await workspace();
 		const gate = async (): Promise<string[]> => {
-			const result = await runCheck({ vault: ws.vaultDir, templates: join(import.meta.dirname, "../../wiki/templates"), root: ws.root, cwd: ws.root });
+			const result = await runCheck({ vault: ws.vaultDir, templates: join(import.meta.dirname, "../../wiki/templates"), root: ws.root, cwd: ws.root, layers: ["log", "index", "links", "placement"] });
 			return result.findings.map((f) => `${f.path} ${f.rule}`);
 		};
 		const before = await gate();
