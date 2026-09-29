@@ -28,7 +28,7 @@ Pick the scale from how much table time the NPC will get. It sets how far the st
    - **Fear:** what they dread losing.
    - **Limit:** the oath, lack or line that blocks the easy win.
    - **Contradiction:** two true pressures that can collide in play.
-   - **Secret:** what they hide, from whom and why, what happens if it comes out, and about three ways the Party can learn it (a statement, a trace, a witness, a document, a consequence).
+   - **Secret:** sized to their scale, deepening the Canon around them without overturning another page's truth or a central mystery (unless the DM asks). What they hide, from whom and why, what happens if it comes out, and about three ways the Party can learn it (a statement, a trace, a witness, a document, a consequence).
    - **What they know:** what they share freely, what they sell and what they lie about. For every question their page raises, the true answer, and separately how much of it they know.
    - **If ignored:** what they do next without the Party.
 4. **Make them this person and no other.** Write the stock version in one line ("a gruff dwarf smith") and break it with Canon: a smith who forges only from wreck iron because the Crown taxes ore. Give them a **face**, **voice** and **tells** with [references/craft.md](references/craft.md). Then run the **swap test**: put another NPC from the same place or Faction in their place and rewrite every line that stays true. Done when the twist, face and voice are theirs alone and every hidden truth has a tell.

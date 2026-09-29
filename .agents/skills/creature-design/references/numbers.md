@@ -21,9 +21,11 @@ Where these disagree with the first pass, the Party read wins.
 - **Honest CR.** Find the CR its defence matches (HP, then AC) and the CR its offence matches (damage per round with every attack hitting and every save failing, off-turn actions included, then attack bonus or DC). `cr` is their average. When they sit more than two CR apart, move the weaker side toward the role's trade.
 - **Trade, don't stack.** Higher AC than peers costs HP, damage or control. Broad resistance becomes narrow, temporary or bypassable. Elite HP, Legendary Resistance, high saves, broad immunity, regeneration and escape never all come together.
 
+An Encounter's Low, Moderate or High label comes from the 2024 XP budget (`docs/agents/scene-pages.md`), not from these figures.
+
 ## Three rounds
 
-Script rounds one to three: the opening tell and setup, the best repeat and its reaction use, then the payoff, recharge or escalation. Count expected damage after hit and save chances, realistic targets for areas (start at two), and recharge odds (5–6 recharges one round in three).
+Script rounds one to three, with each PC acting as their Sheet allows (one leveled spell a turn when the other is a Bonus Action spell): the opening tell and setup, the best repeat and its reaction use, then the payoff, recharge or escalation. Count expected damage after hit and save chances, realistic targets for areas (start at two), and recharge odds (5–6 recharges one round in three).
 
 ## Stat block format
 

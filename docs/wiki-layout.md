@@ -38,7 +38,7 @@ archive/                       Archive: already ingested; flat, no folders (outs
   - Authoring guidance lives in `%% %%` comments, which a finished page removes.
 - **Words.** Spelling is British. An in-world name passes by having a page; an in-world word with no page of its own (a month, a minor name) goes in the vault's `.cspell-words.txt`, and a rules term in `.cspell/dnd-terms.txt`.
 - **PC sides.** `cf pull` replaces the `Sheet`, `Spells` and `Inventory` sections whole from the PC's `dndbeyond_url` and never touches `Story`, `Goals and bonds` or `Plans`. It fills `summary` only when blank, and logs a `pull` only when a page changed.
-- **Played Sessions are records.** Once a Session is played and ingested, its Prep, Scenes, Recap and Previously On record what was planned and what happened. Later work changes the pages they link to, never these.
+- **Played Sessions are records.** Once a Session is played and ingested, its Prep, Scenes, Recap and Previously On record what was planned and what happened. Later work changes the pages they link to, never these. Narration the Players have heard at the table belongs to that record too: later work adds to it (a new tell) and rewrites it only when the DM asks.
 - **Handouts.** Push shows Players only a Handout's `[!narration]` callout and the image embedded under it; the rest of the page stays with the DM.
 - **Stat blocks.** A Creature's `## Statblock` holds one Fantasy Statblocks block (`layout: Basic 5e Layout`). Other pages link the Creature (an NPC through `creature`). Only an Encounter where it is fought embeds the block, as `![[Creature#Statblock]]`; no page retypes it.
 
