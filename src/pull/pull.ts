@@ -1,12 +1,12 @@
-import { writeFile } from "node:fs/promises";
-import { join } from "node:path";
+import { mkdir, writeFile } from "node:fs/promises";
+import { dirname, join } from "node:path";
 import { runCheck, UsageError } from "../check/run.ts";
 import type { CheckResult } from "../check/run.ts";
+import { generateIndexes } from "../vault/indexes.ts";
+import { appendLogEntry, today } from "../vault/log.ts";
 import { buildVault, readVaultFiles } from "../vault/vault.ts";
 import { fetchCharacter, PullError } from "./ddb.ts";
 import type { FetchLike } from "./ddb.ts";
-import { fileOperationLog } from "./log.ts";
-import type { OperationLog } from "./log.ts";
 import { rewritePcPage } from "./page.ts";
 import type { PulledSection } from "./page.ts";
 import { computeSheet } from "./sheet.ts";
@@ -26,7 +26,6 @@ export interface PullOptions {
 	pcs?: string[];
 	dryRun: boolean;
 	fetch: FetchLike;
-	log?: OperationLog;
 	now?: () => Date;
 }
 
@@ -49,6 +48,8 @@ export interface PullResult {
 	outcomes: PcOutcome[];
 	/** Vault-relative paths of the `log.md` files written; empty when no page changed. */
 	logged: string[];
+	/** Vault-relative paths of the World `index.md` files regenerated because a page changed. */
+	indexed: string[];
 	/** The gate over the pulled pages; absent under `--dry-run` or when nothing was fetched. */
 	gate?: CheckResult;
 }
@@ -119,23 +120,30 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 		}
 	}
 
-	const result: PullResult = { outcomes, logged: [] };
+	const result: PullResult = { outcomes, logged: [], indexed: [] };
 	if (options.dryRun) return result;
 
 	if (changed.length > 0) {
-		const log = options.log ?? fileOperationLog(options.vault);
-		const date = (options.now ?? (() => new Date()))();
-		for (const world of [...new Set(changed.map((c) => c.world))]) {
-			result.logged.push(await log.append(world, {
-				date,
-				operation: "pull",
-				title: "Pulled PCs from D&D Beyond",
-				pages: changed.filter((c) => c.world === world).map((c) => c.name),
-			}));
+		const date = today((options.now ?? (() => new Date()))());
+		const worlds = [...new Set(changed.map((c) => c.world))];
+		for (const world of worlds) {
+			const entry = { date, op: "pull", title: "Pulled PCs from D&D Beyond", pages: changed.filter((c) => c.world === world).map((c) => c.name) };
+			const appended = await appendLogEntry(options.vault, world, entry, { example: `cf log --world ${world} --op pull --title "Pulled PCs from D&D Beyond"` });
+			if (appended.status === "error") throw new UsageError(appended.message, appended.hint);
+			result.logged.push(appended.path);
+		}
+		// A pull can fill a blank summary, which the World's index lists; regenerate it with `cf index`'s generator.
+		const fresh = buildVault(options.vault, await readVaultFiles(options.vault));
+		for (const [path, content] of generateIndexes(fresh)) {
+			if (!worlds.some((w) => path === `${w}/index.md`) || fresh.pageByPath.get(path)?.source === content) continue;
+			await mkdir(dirname(join(options.vault, path)), { recursive: true });
+			await writeFile(join(options.vault, path), content);
+			result.indexed.push(path);
 		}
 	}
 	if (pulledPaths.length > 0) {
-		result.gate = await runCheck({ vault: options.vault, templates: options.templates, root: options.root, cwd: options.cwd, paths: [...pulledPaths, ...result.logged.map((l) => join(options.vault, l))] });
+		const touched = [...result.logged, ...result.indexed].map((p) => join(options.vault, p));
+		result.gate = await runCheck({ vault: options.vault, templates: options.templates, root: options.root, cwd: options.cwd, paths: [...pulledPaths, ...touched] });
 	}
 	return result;
 }

@@ -2,7 +2,7 @@ import { cp, mkdtemp, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { beforeEach, describe, expect, it } from "vitest";
-import { UsageError } from "../../src/check/run.ts";
+import { runCheck, UsageError } from "../../src/check/run.ts";
 import type { FetchLike } from "../../src/pull/ddb.ts";
 import { runPull } from "../../src/pull/pull.ts";
 import type { PullResult } from "../../src/pull/pull.ts";
@@ -87,6 +87,28 @@ describe("runPull", () => {
 		);
 		expect(result.logged).toEqual(["Aldermoor/log.md"]);
 		expect(result.gate?.findings).toEqual([]);
+	});
+
+	it("regenerates the World index for the summary it filled and leaves the index and log layers clean", async () => {
+		expect((await read("Aldermoor/index.md")).split("\n")).toContain("- [[Wren]]");
+		const result = await pull();
+		expect(result.indexed).toEqual(["Aldermoor/index.md"]);
+		expect((await read("Aldermoor/index.md")).split("\n")).toContain("- [[Wren]] — Halfling Sorcerer 9.");
+
+		// The whole Wiki, not just the pulled pages.
+		const gate = await runCheck({ vault, templates, root: dir, cwd: dir, layers: ["index", "log"] });
+		expect(gate.findings).toEqual([]);
+		expect(result.gate?.findings).toEqual([]);
+	});
+
+	it("writes the log entry exactly as cf log does", async () => {
+		const { cf } = await import("../check/helpers.ts");
+		await pull();
+		const viaPull = await read("Aldermoor/log.md");
+		// The same entry through the command: already logged, so the file is unchanged.
+		const again = await cf(["log", "--world", "Aldermoor", "--op", "pull", "--title", "Pulled PCs from D&D Beyond", "--page", "Vale", "--page", "Wren", "--date", "2026-09-28", "--vault", vault, "--root", dir], dir);
+		expect(again.stdout).toContain("already logged");
+		expect(await read("Aldermoor/log.md")).toBe(viaPull);
 	});
 
 	it("is idempotent: a second pull with the same payload changes nothing and logs nothing", async () => {

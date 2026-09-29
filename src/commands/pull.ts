@@ -50,6 +50,7 @@ export function formatPull(result: PullResult, dryRun: boolean): string {
 	].join(", ");
 	out.push("", `${summary}${dryRun ? " (dry run: nothing written)" : ""}`);
 	for (const path of result.logged) out.push(`log: ${path} (pull entry appended)`);
+	for (const path of result.indexed) out.push(`index: ${path} (regenerated)`);
 	return out.join("\n");
 }
 
@@ -62,6 +63,7 @@ export function pullJson(result: PullResult, dryRun: boolean): string {
 				pc, path, status, sections, summarySet, added, removed, ...(message ? { message } : {}),
 			})),
 			logged: result.logged,
+			indexed: result.indexed,
 			gate: result.gate ? JSON.parse(formatJson(result.gate)) : null,
 		},
 		null,
@@ -87,8 +89,9 @@ export function pullCommand(): Command {
 What it does:
   For each PC page under <World>/Campaigns/<Campaign>/PCs/ with a dndbeyond_url, it fetches the public character from
   D&D Beyond and rewrites the Sheet, Spells and Inventory sections whole. The summary is set only when blank.
-  Afterwards it appends "## [date] pull | Pulled PCs from D&D Beyond" to the World's log.md (only when a page changed)
-  and runs the gate (cf check) over the pulled pages. A second pull with the same character changes nothing.
+  Afterwards, when a page changed, it appends "## [date] pull | Pulled PCs from D&D Beyond" to the World's log.md (as
+  cf log does) and regenerates the World's index.md (as cf index does), then runs the gate (cf check)
+  over the pulled pages. A second pull with the same character changes nothing.
 
 Private characters:
   D&D Beyond only shares public characters. A private or missing one fails with the PC's name and the fix: set the

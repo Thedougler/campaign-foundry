@@ -1,10 +1,9 @@
-import { rename, writeFile } from "node:fs/promises";
 import { join, relative, resolve, sep } from "node:path";
 import { Command, Option } from "commander";
 import { UsageError } from "../check/run.ts";
 import { suggest } from "../check/util.ts";
 import { worldsOf } from "../vault/indexes.ts";
-import { formatEntry, isLogOp, isRealDate, LOG_OPS, parseEntries, today } from "../vault/log.ts";
+import { appendLogEntry, formatEntry, isLogOp, isRealDate, LOG_OPS, today } from "../vault/log.ts";
 import type { Page, Vault } from "../vault/types.ts";
 import { buildVault, readVaultFiles } from "../vault/vault.ts";
 import { resolveVault } from "./vault-flags.ts";
@@ -129,33 +128,16 @@ Examples:
 			}
 
 			const entry = { date, op: flags.op!, title, pages };
-			const logPath = `${flags.world}/log.md`;
-			const source = vault.pageByPath.get(logPath)?.source ?? "";
-			const last = parseEntries(source).at(-1);
 			const show = (path: string): string => relative(process.cwd(), join(vaultDir, path)).split(sep).join("/");
-			const out: string[] = [];
-
-			if (last && last.date === date && last.op === entry.op && last.title === title && [...last.pages].sort().join("\n") === [...pages].sort().join("\n")) {
-				process.stdout.write(`already logged  ${show(logPath)}: ${formatEntry(entry).split("\n")[0]}\n`);
+			const result = await appendLogEntry(vaultDir, flags.world!, entry, { dryRun: flags.dryRun ?? false, show, example });
+			if (result.status === "error") throw new UsageError(result.message, result.hint);
+			if (result.status === "already-logged") {
+				process.stdout.write(`already logged  ${show(result.path)}: ${formatEntry(entry).split("\n")[0]}\n`);
 				return;
 			}
-			if (last && last.date > date) {
-				fail(`The last entry in ${show(logPath)} is dated ${last.date}, later than ${date}; the log is append-only and in date order.`, `Use a --date of ${last.date} or later. ${example} --date ${last.date}`);
-			}
-
-			let base = source;
-			if (last && last.date.slice(0, 4) < date.slice(0, 4)) {
-				const rotated = `${flags.world}/log-${last.date.slice(0, 4)}.md`;
-				if (vault.pageByPath.has(rotated)) {
-					fail(`Cannot rotate ${show(logPath)}: ${show(rotated)} already exists.`, `Merge or move ${show(rotated)} yourself, then run the command again.`);
-				}
-				out.push(`${flags.dryRun ? "would rotate" : "rotated"}  ${show(logPath)} -> ${show(rotated)}`);
-				if (!flags.dryRun) await rename(join(vaultDir, logPath), join(vaultDir, rotated));
-				base = "";
-			}
-			const text = base.trim() === "" ? `${formatEntry(entry)}\n` : `${base.trimEnd()}\n\n${formatEntry(entry)}\n`;
-			if (!flags.dryRun) await writeFile(join(vaultDir, logPath), text);
-			out.push(`${flags.dryRun ? "would log" : "logged"}  ${show(logPath)}`, formatEntry(entry));
+			const out: string[] = [];
+			if (result.rotated) out.push(`${flags.dryRun ? "would rotate" : "rotated"}  ${show(result.rotated.from)} -> ${show(result.rotated.to)}`);
+			out.push(`${flags.dryRun ? "would log" : "logged"}  ${show(result.path)}`, formatEntry(entry));
 			process.stdout.write(`${out.join("\n")}\n`);
 		});
 }
