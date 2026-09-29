@@ -29,7 +29,7 @@ parent: ""
 
 ### Occupants
 
-%% Link NPCs and Creatures, and embed a Creature's statblock only when it is fought here. %%
+%% Link NPCs and Creatures. Stat blocks are embedded only in the Encounter of the Scene where they are fought. %%
 
 ### Likely actions
 

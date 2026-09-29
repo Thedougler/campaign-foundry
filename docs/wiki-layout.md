@@ -38,7 +38,7 @@ archive/                       Archive: already ingested; flat, no folders (outs
   - Authoring guidance lives in `%% %%` comments, which a finished page removes.
 - **PC sides.** A D&D Beyond pull replaces the `Sheet`, `Spells` and `Inventory` sections whole and never touches `Story`, `Goals and bonds` or `Plans`.
 - **Handouts.** Push shows Players only a Handout's `[!narration]` callout and the image embedded under it; the rest of the page stays with the DM.
-- **Stat blocks.** A Creature's `## Statblock` holds one Fantasy Statblocks block (`layout: Basic 5e Layout`). Other pages embed it as `![[Creature#Statblock]]` rather than retyping it.
+- **Stat blocks.** A Creature's `## Statblock` holds one Fantasy Statblocks block (`layout: Basic 5e Layout`). Other pages link the Creature (an NPC through `creature`). Only an Encounter where it is fought embeds the block, as `![[Creature#Statblock]]`; no page retypes it.
 
 ## index, log and hot
 
