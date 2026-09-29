@@ -13,6 +13,6 @@ coverage/
 dist/
 
 # Obsidian per-machine state
-.obsidian/workspace.json
-.obsidian/workspaces.json
+**/.obsidian/workspace.json
+**/.obsidian/workspaces.json
 .trash/
