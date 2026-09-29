@@ -12,7 +12,7 @@ Foundry is never a rules source.
 
 ## Domain
 
-`CONTEXT.md` is the glossary: name every domain concept with its term. `docs/adr/` holds the decisions behind the design; read the ones touching an area before changing it.
+`CONTEXT.md` is the glossary: name every domain concept with its term. `docs/adr/` holds the decisions behind the design; read the ones touching an area before changing it. `docs/wiki-layout.md` sets where every page lives in `wiki/`; read it before creating or moving a page.
 
 ## Working rules
 
