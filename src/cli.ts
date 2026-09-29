@@ -17,7 +17,9 @@ Examples:
   cf narration "Ilse Corran" --callout "First look" --band 60-100
                                  check a Narration draft before filing it
   cf log --world Aldermoor --op ingest --title "Session 3 transcript" --page "Session 3 - Recap"
-                                 append to a World's log.md`,
+                                 append to a World's log.md
+  cf push --campaign "Salt and Lantern" --session 2
+                                 build a Session's Foundry Adventure module`,
 	)
 	.exitOverride();
 

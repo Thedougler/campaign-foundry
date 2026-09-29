@@ -12,6 +12,10 @@ node_modules/
 coverage/
 dist/
 
+# cf push: the Foundry module it builds and its per-Campaign manifest of what was last pushed
+build/
+.push/
+
 # Obsidian per-machine state
 **/.obsidian/workspace.json
 **/.obsidian/workspaces.json

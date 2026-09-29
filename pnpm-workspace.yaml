@@ -1,6 +1,7 @@
 allowBuilds:
   '@playwright/browser-chromium': true
   '@swc/core': true
+  classic-level: true
   esbuild: true
   onnxruntime-node: true
   protobufjs: true

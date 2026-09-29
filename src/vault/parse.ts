@@ -14,7 +14,7 @@ const CALLOUT_TITLE = /^\[!([^\]\s]+)\][+-]?[ \t]*(.*)$/;
 const BLOCK_ID = /(?:^|\s)\^([A-Za-z0-9-]+)\s*$/;
 
 /** Replaces every non-newline character in the ranges with a space, so offsets and lines survive. */
-function blank(source: string, ranges: [number, number][], keepQuoteMarkers: boolean): string {
+export function blank(source: string, ranges: [number, number][], keepQuoteMarkers: boolean): string {
 	if (ranges.length === 0) return source;
 	let out = "";
 	let cursor = 0;
