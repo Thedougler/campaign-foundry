@@ -16,16 +16,18 @@ A skill's cases live in `.agents/skills/<skill>/evals/cases.yaml` (the format is
    cp -R test/fixtures/vault "$W/wiki"; cp -R wiki/templates "$W/wiki/templates"
    cp -R test/fixtures/archive "$W/archive"; cp .qmd/index.yml "$W/.qmd/"
    cp -R .agents/skills/<skill>/evals/raw/<case-id>/. "$W/raw/" 2>/dev/null
+   cp -R .agents/skills/<skill>/evals/seed/<case-id>/. "$W/wiki/" 2>/dev/null
+   cp -R "$W/wiki" "$W/.eval/baseline"
    (cd "$W" && qmd update && qmd embed) >/dev/null
    ```
 
-   A case that needs Raw keeps it in `evals/raw/<case-id>/` beside its `cases.yaml`.
+   A case that needs Raw keeps it in `evals/raw/<case-id>/` beside its `cases.yaml`; a case that needs the World changed first (a seeded contradiction) keeps the changed pages, at their vault paths, in `evals/seed/<case-id>/`.
 2. **Run** every case at once, one background subagent each (Sonnet unless the case says otherwise), with this brief:
 
    > You are the Agent in `AGENTS.md`, working for the DM. For this task the project root is `$W`: the Wiki is `$W/wiki`, Raw is `$W/raw`, the Archive is `$W/archive`, and qmd runs from `$W`. Run repo commands from `/Users/nick/campaign-foundry` with `--vault $W/wiki --root $W` (for example `pnpm check --vault $W/wiki --root $W <page>`). Use the `<skill>` skill. The DM says: "<prompt>". When you're done, write your final reply to the DM, exactly as you'd send it, to `$W/.eval/output.md`.
 
 3. **Check** each finished case: `pnpm eval:check <skill> <case-id> $W/wiki`. Keep its PASS and FAIL lines.
-4. **Grade** each case with a fresh subagent that never saw the run, briefed with the case's rubrics, `$W/.eval/output.md`, and the Wiki diff (`diff -ru test/fixtures/vault $W/wiki -x templates`). It grades each rubric pass or fail with a one-sentence reason quoting the evidence, strictly, as a DM who will run the Session from this output would. It writes `$W/.eval/grades.json` as `[{ "rubric", "pass", "reason" }]`.
+4. **Grade** each case with a fresh subagent that never saw the run, briefed with the case's rubrics, `$W/.eval/output.md`, and the Wiki diff against the case's starting point (`diff -ru $W/.eval/baseline $W/wiki -x templates`). It grades each rubric pass or fail with a one-sentence reason quoting the evidence, strictly, as a DM who will run the Session from this output would. It writes `$W/.eval/grades.json` as `[{ "rubric", "pass", "reason" }]`.
 5. **Report** a table: case, checks passed, rubrics passed, and each failure's reason.
 6. **Improve.** A failure is the skill's fault until shown otherwise. Fix the skill (following `writing-for-agents`), rerun only the failing cases, and repeat until every case passes. Done when a full run passes every check and rubric.
 

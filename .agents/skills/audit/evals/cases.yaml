@@ -1,0 +1,31 @@
+- id: whole-wiki
+  prompt: Give the whole Lowtide Wiki an audit.
+  checks:
+    canon:
+      Lowtide/Locations/Saltwick.md: ['\[\[Hobb Tarrow\]\] is Harbor Warden']
+      Lowtide/NPCs/Hobb Tarrow.md: [Harbor Warden]
+      Lowtide/Items/Ebb Lantern.md: ['/Held by\.\*\* The Party/']
+      Lowtide/NPCs/Nib Ashwater.md: ['/heron|Quill/']
+      Lowtide/log.md: ['/\] audit \|/']
+    absent:
+      Lowtide/NPCs/Sable.md: ['summary: ".*who rings the chapel bell']
+      Lowtide/Locations/Saltwick.md: ['\[\[Pell Rushlight\]\] is Harbor Warden']
+  rubrics:
+    - Saltwick's page again names Hobb Tarrow as Harbor Warden, decided because Hobb's own page and the rest of the Wiki say so, and Pell Rushlight's page is untouched on this point.
+    - The Ebb Lantern's holder is the Party, lent by Hobb, per the Session 1 Recap.
+    - Sable's page no longer says she rings the bell now, and her past ringing stays as history.
+    - Old Nib is recognised as a duplicate of Nib Ashwater and merged into Nib Ashwater's page, keeping the heron Quill and its hidden truth; the Old Nib page is deleted and every link to it points at Nib Ashwater.
+    - Each fix has its own audit log entry whose title says what changed and why.
+    - The report to the DM lists the fixes in a few lines and asks no questions.
+- id: after-ingest
+  prompt: Audit the pages the Session 2 Ingest touched.
+  checks:
+    canon:
+      Lowtide/log.md: ['/\] audit \|/']
+    absent:
+      Lowtide/NPCs/Sable.md: ['summary: ".*who rings the chapel bell']
+  rubrics:
+    - The scope is the pages listed under the Session 2 ingest log entry plus their neighbours, and the reply or log shows that scope was used rather than the whole Wiki.
+    - Stale present-tense claims overtaken by the Session 2 Recap (Sable ringing the bell, the ledger lying in the bell loft) are rewritten to the current truth on every page that states them, with the past kept as history.
+    - Pages outside the scope that nothing required changing are left untouched.
+    - The report asks the DM no questions.
