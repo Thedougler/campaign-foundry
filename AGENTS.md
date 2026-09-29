@@ -21,6 +21,7 @@ Orchestrate with Claude Opus 5.5 and dispatch Claude Sonnet 5.5 subagents. Gener
 
 ## Working rules
 
+- **Install before building.** When an established package does the job, `pnpm add` it and use it; write custom code only for what no package covers.
 - **Holistic design.** Every rule holds everywhere. A rule that needs a carve-out is too rigid: rework the rule until the case fits.
 - **The repo is the memory.** Record every durable fact, preference or decision in the repo: terms in `CONTEXT.md`, decisions in `docs/adr/`, working rules here, rather than in harness memory files.
 - **Intent is not implementation.** `docs/intent/` records what earlier skills and templates were meant to do. Read it for intent and build every v2 from scratch; its README has the rules.
