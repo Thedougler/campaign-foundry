@@ -43,8 +43,20 @@ _Avoid_: group, team, adventurers, players (the humans)
 ### World pages
 
 **Location**:
-A place in a World, at any scale from a plane or continent down to a single room. Locations nest inside larger Locations.
-_Avoid_: place, area, region (as a page kind), map
+A place in a World, always exactly one of three kinds: Region, Settlement or Site. Locations nest inside larger Locations.
+_Avoid_: place, area, map
+
+**Region**:
+A Location spanning a wide area, such as a realm, province, sea or wilderness.
+_Avoid_: zone, territory, land
+
+**Settlement**:
+A Location where people live together, such as a city, town or village.
+_Avoid_: city (as a kind), town (as a kind), hub
+
+**Site**:
+A Location the Party explores or visits within a Region or Settlement, such as a dungeon, ruin, building, landmark or shop. Hazards that can't be carried are part of a Site.
+_Avoid_: place, dungeon (as a kind), point of interest
 
 **NPC**:
 A specific, named person in a World whom the DM plays, with an identity and a story. An NPC's game statistics come from a Creature; many NPCs can share one Creature, and a unique NPC can have a Creature of its own.
@@ -63,8 +75,20 @@ A god or comparable power that is worshipped or bargained with in a World.
 _Avoid_: god, patron, pantheon (as a page kind)
 
 **Item**:
-A distinct object that matters by its rules or its story, such as a magic item, an artifact or a notable mundane object.
+A distinct object that matters by its rules or its story, such as a magic item, an artifact, a notable mundane object or a hazard that can be carried.
 _Avoid_: loot, treasure, equipment, gear
+
+**Spell**:
+A spell that isn't in the rules sources outside the Wiki: homebrew, or a signature spell unique to this World.
+_Avoid_: magic, power, ability
+
+**Vehicle**:
+A craft that carries people, such as a ship, boat or wagon, with its crew and components.
+_Avoid_: ship (as a kind), mount, transport
+
+**House Rule**:
+A change or addition the DM makes to the 2024 5e rules for a World or Campaign. It outranks every other rules source.
+_Avoid_: homebrew rule, variant rule, table rule
 
 **Lore**:
 World knowledge that belongs to no single Location, NPC, Faction, Deity, Creature or Item: history, cosmology, customs, past events.
@@ -129,6 +153,10 @@ _Avoid_: secret, reveal, lore drop
 **Spotlight**:
 A Scene where one PC's goal, bond or fear drives play.
 _Avoid_: PC hook, character moment
+
+**Narration**:
+Prose written for the DM to speak or show to the Players. The Previously On and a Handout's text are Narration.
+_Avoid_: boxed text, read-aloud, flavour text
 
 **Transcript**:
 The full text of one recorded Session, handed to the Agent as Raw.
