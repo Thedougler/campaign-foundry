@@ -10,7 +10,7 @@ The Previously On retells last Session to the Players as the next one starts. It
    rg -n -i "laugh|haha|lol|oh my god|oh no|no way|holy|amazing|nat(ural)? ?(20|1)\b|crit" <transcript>
    ```
 
-   Done when the list holds every big reaction with the concrete action that set it off, and every PC has at least one moment.
+   Done when the list holds every big reaction with the concrete action that set it off, and every PC has at least one moment. A Transcript too thin to show reactions still gives its spoken lines; take the rest of the moments from the Recap.
 2. **Rank them.** Biggest reaction first. Keep each moment as the one concrete thing that happened (he waved a torch at the ogre and set his own beard alight), never its category (he fought bravely).
 3. **Tell it.** The moments get the words, and everything between them passes in a clause or drops out. Link each beat to the last by cause (so, which meant, until) or by a cut across it (but, just as). A string of standalone sentences is a chronicle. For comedy, give the setup its own sentence, then the turn, told straight. Dice and rules become what they looked like: a critical hit is a shot that went exactly where it was aimed. A line someone actually said at the table may be quoted word for word.
 4. **End** inside the moment play stopped: the blade mid-reach, the water at the hatch.

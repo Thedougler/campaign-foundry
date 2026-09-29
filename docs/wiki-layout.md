@@ -16,7 +16,7 @@ wiki/
       <Campaign>.md            Campaign overview; may override DM Settings
       hot.md                   current state of play
       PCs/  Threads/  Quests/  House Rules/
-      Sessions/Session <N>/     Prep, a page per Scene, Recap, Previously On, Handouts
+      Sessions/Session <N>/     Prep, a page per Scene, Recap, Previously On (recounts Session N, read aloud at N+1), Handouts
     attachments/               images and map data
 raw/                           Raw: waiting to be ingested; flat, no folders (outside the vault)
 archive/                       Archive: already ingested; flat, no folders (outside the vault)

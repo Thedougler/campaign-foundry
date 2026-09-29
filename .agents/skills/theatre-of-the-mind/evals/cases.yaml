@@ -8,7 +8,7 @@
     - It ends on her one spoken line, which asks, offers, presses or threatens.
     - It contains no em dash, semicolon or colon, no compass direction and no foot count.
     - No phrase of four or more words is copied from the old First look or the rest of her page (her quoted speech aside).
-    - It is three to five sentences, second person, present tense, and every fact in it traces to a Wiki page.
+    - It is three to five sentences plus her spoken line, second person, present tense, and every fact in it traces to a Wiki page.
 - id: hook-opening
   prompt: The Opening for Session 2 - The Bell Rings Early is flat. Rewrite it so it grabs the table.
   checks:

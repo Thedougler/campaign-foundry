@@ -15,7 +15,7 @@ creature: ""
 - **Found at.**
 
 > [!narration] First look
-> %% Spoken: build and age, two or three face details Players can repeat, one sound or smell, what they are doing, then their first line. Second person. %%
+> %% Spoken: a first read, the one feature a player would use to describe them, what they are doing, then their first line. Second person. %%
 
 ## Play
 
