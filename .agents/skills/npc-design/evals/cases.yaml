@@ -19,8 +19,8 @@
   prompt: Make Ilse Corran a proper villain for the next arc.
   checks:
     canon:
-      Lowtide/NPCs/Ilse Corran.md: ['creature: "\[\[Bandit Captain\]\]"']
+      Lowtide/NPCs/Ilse Corran.md: [Ilse Marrow]
   rubrics:
     - Ilse's plan is filed as a Thread page in the Campaign's Threads/ with steps the Party can see and interrupt, each with a sign and a fallback, and her NPC page links it.
     - The plan has at least three live endings reachable through play, not one required check.
-    - Established facts about Ilse survive (Ilse Marrow, the Bandit Captain statistics, the ledger she wants).
+    - Established facts about Ilse survive (Ilse Marrow, the ledger she wants), and her statistics stay the Bandit Captain or a variant built on it.
