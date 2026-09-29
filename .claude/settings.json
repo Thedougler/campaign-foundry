@@ -1,6 +1,5 @@
 {
   "enabledPlugins": {
-    "ponytail@ponytail": false,
-    "caveman@caveman": false
+    "ponytail@ponytail": false
   }
 }
