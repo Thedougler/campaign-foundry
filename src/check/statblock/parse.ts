@@ -44,6 +44,8 @@ export interface Statblock {
 	/** The optional `proficiency_bonus` key. */
 	proficiencyBonus: number | undefined;
 	features: Feature[];
+	/** Every top-level key of the block as written, for consumers (Push) that read more than the arithmetic fields. */
+	raw: Record<string, unknown>;
 	/** 1-based line within the block for a key or feature; 1 when it cannot be found. */
 	lines: { key(key: string): number; feature(section: string, name: string): number };
 }
@@ -158,6 +160,7 @@ export function parseStatblock(source: string): Parsed {
 		senses: text(map.senses),
 		proficiencyBonus: number(map.proficiency_bonus),
 		features: features(map, issues),
+		raw: map,
 		lines: {
 			key: (key) => find((l) => new RegExp(`^${key}\\s*:`).test(l)) + 1 || 1,
 			feature: (section, name) => {
