@@ -12,7 +12,10 @@ const program = new Command("cf")
 Examples:
   cf check                       gate the whole Wiki
   cf check --fix                 gate it, applying mechanical fixes
-  cf check --help                options, layers and more examples`,
+  cf check --help                options, layers and more examples
+  cf index                       regenerate the index.md files
+  cf log --world Aldermoor --op ingest --title "Session 3 transcript" --page "Session 3 - Recap"
+                                 append to a World's log.md`,
 	)
 	.exitOverride();
 

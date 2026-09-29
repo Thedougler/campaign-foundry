@@ -1,5 +1,5 @@
 import { execFile } from "node:child_process";
-import { cp, mkdtemp } from "node:fs/promises";
+import { cp, mkdtemp, readFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -18,9 +18,11 @@ export interface CliResult {
 }
 
 /** Runs `node src/cli.ts <args>` exactly as an agent would, from `cwd`. */
-export async function cf(args: string[], cwd: string = repoRoot): Promise<CliResult> {
+export async function cf(args: string[], cwd: string = repoRoot, stdin = ""): Promise<CliResult> {
 	try {
-		const { stdout, stderr } = await run("node", [join(repoRoot, "src/cli.ts"), ...args], { cwd });
+		const pending = run("node", [join(repoRoot, "src/cli.ts"), ...args], { cwd });
+		pending.child.stdin?.end(stdin);
+		const { stdout, stderr } = await pending;
 		return { code: 0, stdout, stderr };
 	} catch (error) {
 		const e = error as { code?: number; stdout?: string; stderr?: string };
@@ -62,6 +64,18 @@ export async function copyFixture(fixture: string): Promise<string> {
 	const dir = await mkdtemp(join(tmpdir(), "cf-check-"));
 	await cp(join(fixtures, fixture), dir, { recursive: true });
 	return dir;
+}
+
+/** The `--vault`/`--root` flags that point a command at a (copied) fixture. */
+export function vaultFlags(dir: string): string[] {
+	return ["--vault", join(dir, "wiki"), "--root", dir];
+}
+
+/** The generated root and Aldermoor `index.md` of a fixture, keyed by path relative to `dir`. */
+export async function readIndexes(dir: string): Promise<Map<string, string>> {
+	const out = new Map<string, string>();
+	for (const p of ["wiki/index.md", "wiki/Aldermoor/index.md"]) out.set(p, await readFile(join(dir, p), "utf8"));
+	return out;
 }
 
 /** Findings for a page: a leading "/" matches by path suffix, otherwise the path is relative to the fixture's `wiki/`. */
