@@ -1,0 +1,32 @@
+/* Custom callouts for Foundry Wiki pages. */
+
+/* [!narration]: prose the DM speaks or shows to the Players.
+   Set apart from DM-only text so it is findable at a glance under table pressure. */
+.callout[data-callout="narration"] {
+  --callout-color: 201, 150, 71;
+  --callout-icon: lucide-message-square-quote;
+  --callout-title-color: rgb(var(--callout-color));
+  --callout-content-padding: var(--size-4-2) var(--size-4-4) var(--size-4-3);
+  background-color: rgba(var(--callout-color), 0.09);
+  border: 0;
+  border-left: 4px solid rgb(var(--callout-color));
+  border-radius: 0 var(--callout-radius) var(--callout-radius) 0;
+}
+
+.callout[data-callout="narration"] > .callout-title {
+  font-size: var(--font-smaller);
+  font-weight: var(--font-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.callout[data-callout="narration"] > .callout-content {
+  font-size: 1.05em;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.theme-dark .callout[data-callout="narration"] {
+  --callout-color: 224, 176, 96;
+  background-color: rgba(var(--callout-color), 0.1);
+}

@@ -17,7 +17,7 @@ Foundry is never a source.
 
 ## Models
 
-Orchestrate with Claude Opus 5.5 and dispatch Claude Sonnet 5.5 subagents. Generate images with Codex (luna 5.6) as a subagent through the `codex` CLI. These are current choices, not commitments: evals will revisit them.
+Orchestrate with Claude Opus 5.5 and dispatch Claude Sonnet 5.5 subagents for code, templates and content. The orchestrator writes every skill and agent-facing doc itself, following `writing-for-agents`. Generate images with Codex (luna 5.6) as a subagent through the `codex` CLI. These are current choices, not commitments: evals will revisit them.
 
 ## Working rules
 
