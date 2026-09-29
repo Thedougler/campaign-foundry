@@ -62,9 +62,15 @@ importers:
       remark-preset-lint-recommended:
         specifier: ^7.0.1
         version: 7.0.1
+      sentencex:
+        specifier: ^1.0.31
+        version: 1.0.31
       sharp:
         specifier: ^0.35.5
         version: 0.35.5(@types/node@26.6.3)
+      stopword:
+        specifier: ^3.1.5
+        version: 3.1.5
       tinyglobby:
         specifier: ^0.2.17
         version: 0.2.17
@@ -84,6 +90,9 @@ importers:
       '@types/node':
         specifier: ^26.6.3
         version: 26.6.3
+      '@types/stopword':
+        specifier: ^2.0.3
+        version: 2.0.3
       cspell:
         specifier: ^10.3.5
         version: 10.3.5
@@ -818,6 +827,9 @@ packages:
 
   '@types/node@26.6.3':
     resolution: {integrity: sha512-dsqMQQoeTLqu9wynDD00q573mNzso3IdQOAfHRJqLCcmCFPoGo9A1bDpUcv/9tnKpErQWv9uKeGfl37EIS02Yg==}
+
+  '@types/stopword@2.0.3':
+    resolution: {integrity: sha512-hioMj0lOvISM+EDevf7ijG8EMbU+J3pj4SstCyfQC1t39uPYpAe7beSfBdU6c1d9jeECTQQtR3UJWtVoUO8Weg==}
 
   '@types/unist@2.0.11':
     resolution: {integrity: sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==}
@@ -1870,6 +1882,35 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  sentencex-darwin-arm64@1.0.31:
+    resolution: {integrity: sha512-sEP6DI3mz31XcLX88Mf5WYqpGaOPN+FfPF7p2MX1f1O/EJ0CsVAZuQRkJ2R/IsBnKGFgGCqg+r4gkaDwntzD4Q==}
+    cpu: [arm64]
+    os: [darwin]
+
+  sentencex-darwin-x64@1.0.31:
+    resolution: {integrity: sha512-Sz0BA++b8aQUEI6dz+DKY0DgXtZY9EFmk77DbLcWrQ1p6F9VhBuf7kU+08BY5KRuNssgl9KCLCXZw2gTBWWpKA==}
+    cpu: [x64]
+    os: [darwin]
+
+  sentencex-linux-arm64@1.0.31:
+    resolution: {integrity: sha512-BWyk05OGwMAOl6xZVyBpsvuCT+ih9Dp8DKKVnXItv6xE5IA98/TLq0YCp7I1O/bAcCj7OTH0CLhd91FYH8bwDg==}
+    cpu: [arm64]
+    os: [linux]
+
+  sentencex-linux-x64@1.0.31:
+    resolution: {integrity: sha512-pD3MPHUwot003vg+QxHF+d0sBHQ+YHu5c0rbaNdik203Dm5EJI+GJTaSNP69l4cD3EnBT97Dz+i/J5KJoa1uUg==}
+    cpu: [x64]
+    os: [linux]
+
+  sentencex-win32-x64@1.0.31:
+    resolution: {integrity: sha512-OzHZ6boedYM6rSWNkpWaEz1nkojFS8+xZ3c1RrVQHWRUju9fVt85qat+0143sKO+13ZTgifnchFZLD34uz1J9Q==}
+    cpu: [x64]
+    os: [win32]
+
+  sentencex@1.0.31:
+    resolution: {integrity: sha512-gtvFoz1ECHS5a6Z+LzJlbZ2QGE6nfKo23qN1sfawfIJBssAn9YO/IgWpY94bPQEs/KdrzpxqVN3BPk83jHnffw==}
+    engines: {node: '>=20'}
+
   sharp@0.35.5:
     resolution: {integrity: sha512-Ywn4OnzGukp7CDMrp08RQ50YKmuwG47brZgIVPTvBaaAfQlRlygrRqSrxdCiL9M+LlzLBiJ68IR1QqvzHyjC7g==}
     engines: {node: '>=20.9.0'}
@@ -1900,6 +1941,9 @@ packages:
 
   std-env@4.2.0:
     resolution: {integrity: sha512-oCUKSupKTHX53EyjDtuZQ64pjLJ6yYCtpmEw0goYxtjG9KpbRe8KAsl2tBUGU9DyMcJ0RwJ8GqJAFzMXcXW1Rw==}
+
+  stopword@3.1.5:
+    resolution: {integrity: sha512-OgLYGVFCNa430WOrj9tYZhQge5yg6vd6JsKredveAqEhdLVQkfrpnQIGjx0L9lLqzL4Kq4J8yNTcfQR/MpBwhg==}
 
   string-width@8.2.1:
     resolution: {integrity: sha512-IIaP0g3iy9Cyy18w3M9YcaDudujEAVHKt3a3QJg1+sr/oX96TbaGUubG0hJyCjCBThFH+tFpcIyoUHUn1ogaLA==}
@@ -2655,6 +2699,8 @@ snapshots:
   '@types/node@26.6.3':
     dependencies:
       undici-types: 8.9.0
+
+  '@types/stopword@2.0.3': {}
 
   '@types/unist@2.0.11': {}
 
@@ -4141,6 +4187,29 @@ snapshots:
 
   semver@7.8.5: {}
 
+  sentencex-darwin-arm64@1.0.31:
+    optional: true
+
+  sentencex-darwin-x64@1.0.31:
+    optional: true
+
+  sentencex-linux-arm64@1.0.31:
+    optional: true
+
+  sentencex-linux-x64@1.0.31:
+    optional: true
+
+  sentencex-win32-x64@1.0.31:
+    optional: true
+
+  sentencex@1.0.31:
+    optionalDependencies:
+      sentencex-darwin-arm64: 1.0.31
+      sentencex-darwin-x64: 1.0.31
+      sentencex-linux-arm64: 1.0.31
+      sentencex-linux-x64: 1.0.31
+      sentencex-win32-x64: 1.0.31
+
   sharp@0.35.5(@types/node@26.6.3):
     dependencies:
       '@img/colour': 1.1.0
@@ -4185,6 +4254,8 @@ snapshots:
   space-separated-tokens@2.0.2: {}
 
   std-env@4.2.0: {}
+
+  stopword@3.1.5: {}
 
   string-width@8.2.1:
     dependencies:
