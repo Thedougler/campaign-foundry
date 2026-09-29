@@ -86,6 +86,14 @@ _Avoid_: mission, job, objective
 The plan for an upcoming Session, holding everything the DM needs to run it from the Wiki alone. Prep ends with a Push.
 _Avoid_: session plan, outline, notes
 
+**Strong Start**:
+The opening of a Session: a situation that drops the Players straight into action or tension. It follows the Previously On.
+_Avoid_: hook, cold open, intro
+
+**Secret**:
+A short fact the Players could discover, deliberately not tied to any one Scene, so the DM can reveal it wherever play goes.
+_Avoid_: clue, reveal, lore drop
+
 **Scene**:
 A narrative situation planned in Prep, such as the party confronting the Duke at the masquerade. Never a map.
 _Avoid_: beat, moment, bare "scene" for a Foundry scene
@@ -97,6 +105,10 @@ _Avoid_: fight, battle, combat (as a noun for the plan)
 **Transcript**:
 The full text of one recorded Session, handed to the Agent as Raw.
 _Avoid_: log, recording (that's the audio), notes
+
+**Handout**:
+Anything meant for the Players' eyes, such as a letter, wanted poster, player map or portrait. The only material Push makes visible to Players.
+_Avoid_: prop, player document, reveal
 
 **Recap**:
 The DM-facing account of what happened in one Session, compiled from its Transcript. Ingest applies it to the Wiki.

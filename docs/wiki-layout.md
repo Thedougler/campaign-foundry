@@ -10,8 +10,10 @@ wiki/
     Campaigns/<Campaign>/
       <Campaign>.md            Campaign overview
       PCs/  Plot Threads/  Quests/
-      Sessions/<Session N>/    everything belonging to one Session
+      Sessions/<Session N>/    Prep, Recap, Previously On, Handouts
     attachments/               images and map data
+raw/                           Raw: waiting to be ingested (outside the vault)
+archive/                       Archive: already ingested (outside the vault)
 ```
 
 - **One vault, many Worlds.** A Campaign folder appears only once that Campaign exists.

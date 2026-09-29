@@ -14,6 +14,10 @@ Foundry is never a rules source.
 
 `CONTEXT.md` is the glossary: name every domain concept with its term. `docs/adr/` holds the decisions behind the design; read the ones touching an area before changing it. `docs/wiki-layout.md` sets where every page lives in `wiki/`; read it before creating or moving a page.
 
+## Models
+
+Orchestrate with Claude Opus 5.5 and dispatch Claude Sonnet 5.5 subagents. Generate images with Codex (luna 5.6) as a subagent through the `codex` CLI. These are current choices, not commitments: evals will revisit them.
+
 ## Working rules
 
 - **Holistic design.** Every rule holds everywhere. A rule that needs a carve-out is too rigid: rework the rule until the case fits.
