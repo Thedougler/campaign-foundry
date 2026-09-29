@@ -13,3 +13,7 @@ The skills speak in terms of five canonical triage roles. This file maps those r
 When a skill mentions a role (e.g. "apply the AFK-ready triage label"), use the corresponding label string from this table.
 
 Edit the right-hand column to match whatever vocabulary you actually use.
+
+## External pull requests
+
+External contributors' PRs run through the same five labels. A PR that changes Wiki content (pages, templates or attachments) also gets `content`. Merging a content PR is the DM accepting it, so merged content is Canon like anything the DM says.
