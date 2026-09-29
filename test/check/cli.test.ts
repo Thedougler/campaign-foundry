@@ -23,7 +23,7 @@ describe("cf --help", () => {
 		const { code, stdout } = await cf(["check", "--help"]);
 		expect(code).toBe(0);
 		for (const option of ["--vault", "--templates", "--root", "--layer", "--fix", "--dry-run", "--json"]) expect(stdout).toContain(option);
-		for (const layer of ["template", "placement", "links", "orphans"]) expect(stdout).toContain(layer);
+		for (const layer of ["template", "placement", "links", "orphans", "statblock"]) expect(stdout).toContain(layer);
 		expect(stdout).toContain("Examples:");
 		expect(stdout).toMatch(/^ {2}cf check --fix --dry-run$/m);
 		expect(stdout).toMatch(/^ {2}cf check wiki\/\S+\.md$/m);
@@ -35,7 +35,7 @@ describe("cf check: exit codes and output", () => {
 	it("exits 0 on a clean vault, with a summary line", async () => {
 		const { code, stdout } = await cf(["check", ...flags("clean")], repoRoot);
 		expect(code).toBe(0);
-		expect(stdout).toMatch(/^ok: 0 findings, 28 pages, 4 layers \(template, placement, links, orphans\), \d+ms$/m);
+		expect(stdout).toMatch(/^ok: 0 findings, 28 pages, 5 layers \(template, placement, links, orphans, statblock\), \d+ms$/m);
 	});
 
 	it("exits 1 on findings and prints path:line  layer/rule  message, then an indented fix hint", async () => {
@@ -63,7 +63,7 @@ describe("cf check: exit codes and output", () => {
 
 	it("names valid layers and an example invocation when --layer is wrong", async () => {
 		const { stderr } = await cf(["check", "--layer", "nope"], repoRoot);
-		expect(stderr).toContain("Available layers: template, placement, links, orphans");
+		expect(stderr).toContain("Available layers: template, placement, links, orphans, statblock");
 		expect(stderr).toContain("cf check --layer template");
 	});
 
