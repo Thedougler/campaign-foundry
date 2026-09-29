@@ -1,0 +1,17 @@
+- id: new-settlement
+  prompt: Make Greyholm, a stilt village at the seaward edge of the Brack where eel boats winter. The Party may pass through next Session.
+  rubrics:
+    - A Settlement page exists in Lowtide/Locations/ with `parent` set to The Brack, and the gate passes.
+    - It names a live conflict between two named sides, and what happens, and when, if nobody intervenes.
+    - The Party can arrive, orient and seek at least one service or route on purpose (Districts, Services).
+    - Everyone the Party will deal with is a named NPC with a linked page.
+    - Its twist, rule and signatures tie to Lowtide Canon (the tides, the Compact, the Reedrunners) and would not fit Reedholt.
+- id: deepen-sluice
+  prompt: The Party will go into Crookback Sluice next Session. Get it ready to explore.
+  checks:
+    pages: [Lowtide/Locations/Crookback Sluice.md]
+  rubrics:
+    - The Site is keyed area by area under Areas, each with a spoken cue, occupants, features and truths a DM can find in one glance.
+    - The route graph offers at least two ways in, a loop, a bypass and a way out.
+    - It has a pressure clock with a roll and signs that the Party can change, per dungeon-design.
+    - Established facts on the page survive, and the sluice's secret has three Clues in different areas.

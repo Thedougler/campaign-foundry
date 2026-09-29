@@ -1,0 +1,7 @@
+- id: compact-faction
+  prompt: The Compact that rules Lowtide needs a Faction page. The ledger is going to make them nervous.
+  rubrics:
+    - A Faction page exists in Lowtide/Factions/ and a Thread in the Campaign's Threads/ holds its agenda, with milestones each carrying a time, a sign and a changed fact; the gate passes.
+    - Its want reacts to the ledger (the sluice order signed by Corvin Tarrow) and its collision names another page.
+    - Its leader and faces are NPC pages, and it has a custom and a fracture the Party can use.
+    - Its offer to this Party names an offerer, the pay and the catch.

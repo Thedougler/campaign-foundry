@@ -1,0 +1,6 @@
+- id: long-ebb
+  prompt: What actually causes the Long Ebb? Settle it as Lore.
+  rubrics:
+    - A Lore page states the truth in one plain sentence, and each existing telling in the Wiki (Mother Ebb's breathing, the Calendar) is marked true, distorted or false with who holds it.
+    - At least one named NPC or Faction acts on the truth on their own clock.
+    - Each conclusion the Party needs has three Clues in different places, and the gate passes on every page touched.

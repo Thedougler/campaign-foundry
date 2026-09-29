@@ -20,7 +20,7 @@ The Wiki is the evidence. Every fact in an answer comes from a page read during 
 - Lead with the direct answer in one or two plain sentences the DM could use at the table, then only what the question asked for. A related fact the DM didn't ask about earns one line at most.
 - Cite each fact inline: `[[Page]]`, or `[[Page#Section]]` when the page is long.
 - **Records, not plans.** What happened comes from Recaps, Transcripts and the pages they updated. Prep and Scene pages say what was planned, so a planned outcome is cited as the plan.
-- Name each gap plainly: what the Wiki leaves unsaid. Your own readings, inferences and ideas go under a final **Not in the Wiki** line, each marked as yours.
+- Name each gap plainly: what the Wiki leaves unsaid. An answer that is mostly a gap stays short: the gap, the nearest recorded facts in a line or two, then the suggestions. Your own readings, inferences and ideas go under a final **Not in the Wiki** line, each marked as yours.
 - Where pages disagree, give both with their pages and the version Canon precedence favours: the DM's own words, then the most recent event.
 
 ## Filing back
@@ -39,5 +39,5 @@ Most answers file nothing. A keeper is filed without asking (ADR 0003), and fili
 - **Pages, not the spine.** `hot.md`, `index.md` and `log.md` are never filing targets: Ingest and Prep rewrite `hot.md`, and scripts write the other two.
 
 1. Write the keeper onto the page of its kind, in the section where that page's template puts such a fact, in the page's own voice, linking the pages it came from. The question and answer stay in chat.
-2. Run `pnpm check <page>` until it passes, then `pnpm cf log --op query --title "<the question>"` with a `--page` per page edited (`pnpm cf log --help` has the rest).
+2. Run `pnpm check <page>` until it passes, then `pnpm cf log --world <World> --op query --title "<the question>"` with a `--page` per page edited (`pnpm cf log --help` has the rest).
 3. Close the answer with one line naming each page edited. The index and log are housekeeping the DM never needs to hear about.

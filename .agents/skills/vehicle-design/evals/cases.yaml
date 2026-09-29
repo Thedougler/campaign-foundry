@@ -1,0 +1,6 @@
+- id: tithe-boat
+  prompt: The Reedrunners' fastest tithe boat will chase the Party next Session. Make it.
+  rubrics:
+    - A Vehicle page exists with every statistic filled from a 2024 class of craft, and its captain is an NPC page.
+    - Its signature, quirk and hold pass the swap test, tied to the Reedrunners and the Brack.
+    - A DM could run a chase and a boarding from the page alone, and the gate passes.

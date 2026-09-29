@@ -1,0 +1,22 @@
+- id: new-hunter
+  prompt: During the Long Ebb the Party will cross the exposed flats of the Brack. I need a new Creature that hunts the bared mud at low water, a Hard fight for this Party.
+  rubrics:
+    - A new Creature page exists in Lowtide/Creatures/ with a filled statblock, and the gate passes (including the statblock layer).
+    - The reply states the four figures against this Party of three level-3 PCs (rounds it lasts, rounds to drop the most exposed PC, defensive CR, offensive CR) and they fit a Hard target.
+    - Its signature move has a visible tell, at least two ways for the Party to answer it, and a payoff, all written on the page.
+    - It fills a niche the Mire Drowner and the Brack's other Creatures don't, and its twist draws on Lowtide Canon (the Long Ebb, the drowned city, the mud) rather than generic fantasy.
+    - Each signature ability leaves a sign in the World (Ecology) and has a tell in the First sight Narration.
+- id: retune-drowner
+  prompt: The Mire Drowner felt too soft last Session; the Party took two of them apart. Retune it for this Party.
+  checks:
+    pages: [Lowtide/Creatures/Mire Drowner.md]
+  rubrics:
+    - The reply names what was soft, using the Party read and the Session 2 fight, and each change to the numbers comes with a reason.
+    - The retuned stat block passes the gate's statblock layer, and the reply states the four figures showing it now meets its difficulty target.
+    - Established facts on the page (its look, ecology and role in Canon) survive, and no feature is added that has no answer or payoff.
+- id: reuse-thug
+  prompt: I need stats for an ordinary Reedrunner thug, the kind that rows the tithe boats. Nothing fancy.
+  rubrics:
+    - The Agent searched the Wiki and SRD first and reused an existing stat block (such as the SRD Bandit or Tough) whole or reskinned, rather than designing a new one, and says which and why.
+    - If a page was made, it is a Creature page with the full SRD stat block and passes the gate; if an existing page was reused, no new Creature page was made.
+    - The reply is short and proportionate to "nothing fancy".

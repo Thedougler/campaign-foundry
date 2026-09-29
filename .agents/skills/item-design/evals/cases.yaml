@@ -1,0 +1,14 @@
+- id: eel-charm
+  prompt: I want an uncommon charm Tamsin could find in Reedholt that helps her in the mud and water.
+  rubrics:
+    - The reply lists existing candidate items from the SRD or published sources and says which was co-opted or why none fit.
+    - The Item page has full 2024 rules text within uncommon limits, and its function shows on the object.
+    - It fits Tamsin's niche as a level-3 Rogue without overlapping the Party's other gear, and the gate passes.
+- id: ledger-deepen
+  prompt: The Harbormaster's Ledger is a plot object. Make sure the page gives me everything I need when the Party starts using it as evidence.
+  checks:
+    canon:
+      Lowtide/Items/Harbormaster's Ledger of Vessen.md: [Corvin Tarrow, Odalys Ferro]
+  rubrics:
+    - Established facts survive (who holds it, the signed order, Corvin Tarrow).
+    - The page says what the ledger changes at the table and who reacts when it is shown, linking their pages, without inventing mechanics a plot object doesn't need.

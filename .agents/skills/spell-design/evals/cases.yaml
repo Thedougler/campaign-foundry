@@ -1,0 +1,6 @@
+- id: tide-call
+  prompt: The priests of Mother Ebb should have a signature spell that pulls the tide back for a moment. Make it.
+  rubrics:
+    - The reply checked published spells first and says why none does the job.
+    - The Spell page has every 2024 casting field, an effect within its level's peers, and rulings for the tricks Players will try.
+    - It names a tradition page (Mother Ebb or her church) and a named source the Party can learn it from, at a price; the gate passes.
