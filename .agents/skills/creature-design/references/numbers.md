@@ -27,7 +27,7 @@ Script rounds one to three: the opening tell and setup, the best repeat and its 
 
 ## Stat block format
 
-The `statblock` fields are in the Creature template. The gate recomputes every derived number, so write each one out:
+The `statblock` fields are in the Creature template. The gate's `statblock` layer recomputes every derived number (`pnpm check --layer statblock <page>` runs it alone), so write each one out:
 
 - `stats` in Str, Dex, Con, Int, Wis, Cha order. The proficiency bonus follows `cr`.
 - `saves` and `skillsaves` are one-key maps (`- dex: 5`, `- stealth: 7`), each ability mod + PB, or + twice PB for expertise.

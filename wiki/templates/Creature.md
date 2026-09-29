@@ -19,7 +19,7 @@ sources: []
 
 ## Statblock
 
-%% Fantasy Statblocks, Basic 5e Layout, 2024 rules. Every derived number is written out: ability modifiers, proficiency bonus by CR, attack bonuses, save DCs, passive Perception, HP from Hit Dice and Con. Attacks use the 2024 format. Remove the YAML comments when filled. %%
+%% Fantasy Statblocks, Basic 5e Layout, 2024 rules. Every derived number is written out: ability modifiers, proficiency bonus by CR, attack bonuses, save DCs, passive Perception, HP from Hit Dice and Con (`hit_dice` carries the Con term, as in "8d8 + 16"). Attacks use the 2024 format. Remove the YAML comments when filled. %%
 
 ```statblock
 layout: Basic 5e Layout
