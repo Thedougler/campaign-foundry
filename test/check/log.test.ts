@@ -140,7 +140,7 @@ describe("cf log", () => {
 			const dir = await copyFixture("clean");
 			const { code, stderr } = await log(dir, ["--op", "plan", "--title", "T", "--page", "Mara Voss"]);
 			expect(code).toBe(2);
-			expect(stderr).toContain("ingest, prep, push, audit, pull, query");
+			expect(stderr).toContain("create, ingest, prep, push, audit, pull, query");
 			expect(stderr).toContain('cf log --world Aldermoor --op prep --title "Session 2 Prep" --page');
 			expect(await read(dir)).toBe(FIRST);
 		});
@@ -211,7 +211,7 @@ describe("cf log", () => {
 		const { code, stdout } = await cf(["log", "--help"]);
 		expect(code).toBe(0);
 		for (const option of ["--world", "--op", "--title", "--page", "--stdin", "--date", "--dry-run", "--vault", "--root"]) expect(stdout).toContain(option);
-		expect(stdout).toContain("ingest, prep, push, audit, pull, query");
+		expect(stdout).toContain("create, ingest, prep, push, audit, pull, query");
 		expect(stdout).toContain("Examples:");
 		expect(stdout).toMatch(/^ {2}cf log --world \S+ --op ingest --title ".+" --page ".+"/m);
 		expect(stdout).toContain("Exit codes:");
@@ -254,7 +254,7 @@ describe("log layer", () => {
 	it("flags an unknown op, naming the valid ones", async () => {
 		const { report } = await withLog("## [2026-01-05] plan | Something\n\n- [[Orsa]]\n");
 		expect(rules(report)).toEqual(["1:unknown-op"]);
-		expect(report.findings[0]!.hint).toContain("ingest, prep, push, audit, pull, query");
+		expect(report.findings[0]!.hint).toContain("create, ingest, prep, push, audit, pull, query");
 	});
 
 	it("flags a date that is not a real calendar date", async () => {
