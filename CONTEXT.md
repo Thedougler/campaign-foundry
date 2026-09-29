@@ -99,8 +99,12 @@ The full text of one recorded Session, handed to the Agent as Raw.
 _Avoid_: log, recording (that's the audio), notes
 
 **Recap**:
-The account of what happened in one Session, compiled from its Transcript. It sits beside that Session's Prep.
+The DM-facing account of what happened in one Session, compiled from its Transcript. Ingest applies it to the Wiki.
 _Avoid_: summary, session notes, log
+
+**Previously On**:
+A short account of the last Session, written for the DM to read aloud to the Players at the start of the next one.
+_Avoid_: player recap, read-aloud recap, boxed text
 
 ### Knowledge
 
