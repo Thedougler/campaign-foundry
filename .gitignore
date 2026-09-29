@@ -20,3 +20,6 @@ dist/
 # qmd: local index database and refresh state (config index.yml is tracked)
 .qmd/index.sqlite*
 .qmd/refresh.*
+
+# Claude Code worktrees for isolated subagents
+.claude/worktrees/
