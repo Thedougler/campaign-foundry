@@ -189,7 +189,7 @@ Any file waiting to be ingested into the Wiki, such as a Transcript, a brain-dum
 _Avoid_: inbox, sources, imports
 
 **Ingest**:
-The Agent bringing outside material into the Wiki: a Raw file (afterwards moved to the Archive), or PC updates pulled from D&D Beyond. The only way material enters the Wiki besides the DM editing it.
+The Agent digesting outside material into the Wiki: a Raw file (afterwards moved to the Archive), or PC updates pulled from D&D Beyond. The material is broken into its atomic units, and each unit is merged into the page of its kind in the Wiki's own format. The only way material enters the Wiki besides the DM editing it.
 _Avoid_: import, process, compile, sync
 
 **Archive**:
