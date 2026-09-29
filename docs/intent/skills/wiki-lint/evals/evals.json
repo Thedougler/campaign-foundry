@@ -1,0 +1,362 @@
+{
+  "skill_name": "wiki-lint",
+  "trajectory_records": [
+    {
+      "case_id": "C05",
+      "pair_id": "C05-baseline",
+      "category": "lint",
+      "phase": "baseline",
+      "outcome": "deterministic-not-captured",
+      "observations": [],
+      "actions": [],
+      "turns": 0,
+      "tool_calls": 0,
+      "retrieval_attempts": 0,
+      "duplicate_equivalent_actions": 0,
+      "capability_handoffs": [],
+      "validation_passes": [],
+      "trajectory_tokens": null,
+      "tokenizer": "cl100k_base",
+      "termination_reason": "Baseline fixture run deferred until the full cold case harness is available",
+      "hard_gates": {
+        "captured": false,
+        "selected_scope": null
+      },
+      "semantic_review": null
+    },
+    {
+      "case_id": "C06",
+      "pair_id": "C06-baseline",
+      "category": "lint",
+      "phase": "baseline",
+      "outcome": "deterministic-not-captured",
+      "observations": [],
+      "actions": [],
+      "turns": 0,
+      "tool_calls": 0,
+      "retrieval_attempts": 0,
+      "duplicate_equivalent_actions": 0,
+      "capability_handoffs": [],
+      "validation_passes": [],
+      "trajectory_tokens": null,
+      "tokenizer": "cl100k_base",
+      "termination_reason": "Baseline fixture run deferred until the full cold case harness is available",
+      "hard_gates": {
+        "captured": false,
+        "no_equivalent_retry": null
+      },
+      "semantic_review": null
+    },
+    {
+      "case_id": "C05",
+      "pair_id": "C05-replay",
+      "category": "lint",
+      "phase": "replay",
+      "outcome": "complete",
+      "observations": [
+        "Selected target3.md started with 21 findings; post-fix same-scope result was clean with zero findings."
+      ],
+      "actions": [
+        "Ran scoped lint fix for target3.md; independently linted unrelated.md to confirm it remained dirty and outside the selected scope."
+      ],
+      "turns": 2,
+      "tool_calls": 2,
+      "retrieval_attempts": 0,
+      "duplicate_equivalent_actions": 0,
+      "capability_handoffs": [],
+      "validation_passes": [
+        "post-fix same-scope lint",
+        "unrelated-page scope check"
+      ],
+      "trajectory_tokens": null,
+      "tokenizer": "cl100k_base",
+      "termination_reason": "Selected scope clean; unrelated dirty page preserved",
+      "hard_gates": {
+        "captured": true,
+        "selected_scope": true,
+        "read_isolation": true
+      },
+      "semantic_review": null
+    },
+    {
+      "case_id": "C06",
+      "pair_id": "C06-replay",
+      "category": "lint",
+      "phase": "replay",
+      "outcome": "blocker",
+      "observations": [
+        "Bob.md retained five findings after the unsupported rename fixer; the identical second run retained the same five findings."
+      ],
+      "actions": [
+        "Ran scoped lint fix twice; accepted the contract-level unsupported skip and stopped without an equivalent retry."
+      ],
+      "turns": 2,
+      "tool_calls": 2,
+      "retrieval_attempts": 0,
+      "duplicate_equivalent_actions": 0,
+      "capability_handoffs": [
+        "npc-design for semantic template repair"
+      ],
+      "validation_passes": [
+        "first scoped lint fix",
+        "identical second scoped lint fix"
+      ],
+      "trajectory_tokens": null,
+      "tokenizer": "cl100k_base",
+      "termination_reason": "Unsupported rename fixer plus semantic owner work remained",
+      "hard_gates": {
+        "captured": true,
+        "no_equivalent_retry": true,
+        "specific_blocker": true
+      },
+      "semantic_review": null
+    }
+  ],
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Lint wiki/entities/npc/varn.md — it has broken wikilinks to [[High Eyrie]] and [[the-sentinels]], missing summary frontmatter, and the basename uses snake_case. Fix everything.",
+      "expected_output": "One file: wiki lint on the named path, wiki query related named content then qmd multi-get before any content write, owner skill loaded and followed on this file, every finding closed, final lint clean.",
+      "assertions": [
+        {
+          "text": "Named page: runs wiki lint on that path before making edits; wiki query related names (High Eyrie, the-sentinels) then qmd multi-get those hits, not the FILE title",
+          "type": "process"
+        },
+        {
+          "text": "Broken wikilinks resolved to existing vault pages, not deleted or converted to plain text when a match exists",
+          "type": "content"
+        },
+        {
+          "text": "Missing summary frontmatter added with a default value, not left missing",
+          "type": "structure"
+        },
+        {
+          "text": "Basename renamed from snake_case to kebab-case",
+          "type": "structure"
+        },
+        {
+          "text": "If required template sections are empty, reads linked canon and uses the page owner skill to complete them rather than leaving a blank scaffold",
+          "type": "quality"
+        },
+        {
+          "text": "Queries related named content then qmd multi-get all hits (wiki-query / wiki-context-pack if needed) before any content write",
+          "type": "process"
+        },
+        {
+          "text": "Final page-scoped lint is clean with no findings",
+          "type": "quality"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Run a full vault lint. Report what you find but don't fix anything.",
+      "expected_output": "A full lint result with aggregate counts and every finding, with no files modified; identify next.path as the first file for manual repair.",
+      "assertions": [
+        {
+          "text": "No files are modified — report only, no edits or renames",
+          "type": "guardrail"
+        },
+        {
+          "text": "Runs wiki lint, uses aggregate counts and next.path as the first manual repair target",
+          "type": "process"
+        },
+        {
+          "text": "Findings grouped by check type with counts per category",
+          "type": "structure"
+        },
+        {
+          "text": "Reports every finding in the aggregate output",
+          "type": "structure"
+        },
+        {
+          "text": "Skips _archive, _raw, templates, and _meta directories",
+          "type": "content"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "There are two pages that look like duplicates: wiki/entities/faction/the-passage.md and wiki/entities/faction/passage-guild.md. Lint and resolve them.",
+      "expected_output": "Reads both pages, applies Check 14 duplicate resolution — merge, digest, or differentiate — with manual merge, not a script. Wikilinks rewritten vault-wide to canonical target.",
+      "assertions": [
+        {
+          "text": "Reads both files fully before deciding merge/digest/differentiate verdict",
+          "type": "process"
+        },
+        {
+          "text": "Uses manual merge via Edit/Write tools, not a script or automated merge command",
+          "type": "process"
+        },
+        {
+          "text": "Canonical page absorbs the secondary's title as an alias",
+          "type": "structure"
+        },
+        {
+          "text": "Wikilinks vault-wide rewritten from secondary name to canonical name",
+          "type": "content"
+        },
+        {
+          "text": "Does not create a redirect stub — aliases absorb the old name per Check 14 rules",
+          "type": "guardrail"
+        },
+        {
+          "text": "Updates index.md and hot.md after the merge",
+          "type": "process"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "A faction page has sections in the wrong order, content outside the template, and a missing At a Glance lead sentence. Run lint and repair the page completely.",
+      "expected_output": "One lint repair loop: consults the faction template, preserves and relocates existing content, and completes the At a Glance lead sentence through faction-design with grounded canon.",
+      "assertions": [
+        {
+          "text": "Sections reordered to match wiki/templates/faction.md",
+          "type": "structure"
+        },
+        {
+          "text": "Content outside template sections preserved — relocated to nearest matching section or flagged, not deleted",
+          "type": "guardrail"
+        },
+        {
+          "text": "Missing At a Glance lead sentence is completed with substantive, canon-grounded content through faction-design",
+          "type": "quality"
+        },
+        {
+          "text": "Reruns lint only after every template job is substantive",
+          "type": "process"
+        },
+        {
+          "text": "Consults the template contract before repairing the page",
+          "type": "process"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Lint wiki/entities/item/snakewood.md. Frontmatter type is creature (same as live wiki/entities/creature/snakewood.md) but the file is under entities/item.",
+      "expected_output": "Kind home first: move to wiki/entities/creature/snakewood.md from frontmatter type, then audit the creature page. Do not apply the item template while it sits under entities/item.",
+      "assertions": [
+        {
+          "text": "Reports misplaced_entity and moves the page to wiki/entities/creature/snakewood.md before template or Vale",
+          "type": "process"
+        },
+        {
+          "text": "Does not audit or repair the page as an item while it remains under entities/item",
+          "type": "guardrail"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Lint wiki/entities/place/carpenters-slip.md. The page has valid frontmatter and a few linked canon references, but its required place sections are blank. Repair it completely.",
+      "expected_output": "One file: queries the wiki, loads place-design, writes required place jobs from retrieved canon, reruns wiki lint until this file is clean.",
+      "assertions": [
+        {
+          "text": "Queries related named content then qmd multi-get all those hits (#docid list or brace glob, not qmd:// URIs) before any content write",
+          "type": "process"
+        },
+        {
+          "text": "Uses place-design to complete the page's required place jobs",
+          "type": "process"
+        },
+        {
+          "text": "Follows place-design on this file and writes the place jobs itself",
+          "type": "process"
+        },
+        {
+          "text": "Leaves no blank required place sections",
+          "type": "quality"
+        },
+        {
+          "text": "Final lint is clean only after the page is substantive and actionable",
+          "type": "quality"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Lint a quest page with missing plot content. The user asked for linting, not plot creation.",
+      "expected_output": "Skips plot creation and continues every other lint repair, finishing when no actionable non-plot findings remain.",
+      "assertions": [
+        {
+          "text": "Skips plot creation without an explicit user request",
+          "type": "quality"
+        },
+        {
+          "text": "Continues and completes non-plot lint repairs",
+          "type": "quality"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Lint wiki/entities/place/carpenters-slip.md. Close every remaining finding on this file.",
+      "expected_output": "Stays on this file: wiki lint, query, load place-design, write, rerun until this file is clean.",
+      "assertions": [
+        {
+          "text": "Works only this named file",
+          "type": "process"
+        },
+        {
+          "text": "Queries related named content then qmd multi-get all those hits before any content write",
+          "type": "process"
+        },
+        {
+          "text": "Loads and follows place-design on this file until wiki lint is clean",
+          "type": "process"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Run lint on wiki/entities/place/Belumara.md. It has one registered deterministic finding (noncanonical_basename) and semantic Vale findings (for example VALE_ai-tells.SemicolonUsage).",
+      "expected_output": "One file: wiki lint fix on this path, then query, load place-design, close every remaining finding, rerun wiki lint until this file is clean.",
+      "assertions": [
+        {
+          "text": "Runs wiki lint fix on this file only",
+          "type": "process"
+        },
+        {
+          "text": "Queries related named content then qmd multi-get all those hits before any content write",
+          "type": "process"
+        },
+        {
+          "text": "Loads and follows place-design on this file to close Vale and remaining findings",
+          "type": "process"
+        },
+        {
+          "text": "Reruns wiki lint on this file until clean",
+          "type": "quality"
+        }
+      ],
+      "files": [
+        "wiki/entities/place/Belumara.md"
+      ]
+    },
+    {
+      "id": "skill-selected-vault-health",
+      "prompt": "Check the vault's health and repair the broken links and other findings.",
+      "expected_output": "Selects wiki-lint. wiki health names next:. That path is FILE. Close FILE (lint fix, query, owner skill). wiki health. Repeat until clean.",
+      "assertions": [
+        {
+          "type": "skill_selected",
+          "text": "wiki-lint"
+        },
+        {
+          "type": "process",
+          "text": "wiki health names next:; that path is FILE; close FILE before wiki health again"
+        },
+        {
+          "type": "process",
+          "text": "On FILE: wiki lint fix, wiki query related names then qmd multi-get all hits (#docid or brace glob, not qmd:// URIs), load and follow the owner skill, close every finding"
+        },
+        {
+          "type": "behavior",
+          "text": "When FILE is clean, wiki health again; the new next: is FILE until wiki health prints clean"
+        }
+      ]
+    }
+  ]
+}
