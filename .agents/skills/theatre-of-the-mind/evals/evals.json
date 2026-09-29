@@ -1,0 +1,1135 @@
+{
+ "skill_name": "theatre-of-the-mind",
+ "evals": [
+  {
+   "id": "otter-hole-opening",
+   "prompt": "Rewrite the opening narration (`Initial Narration`) on wiki/journal/sessions/shattered-sea/11/session-11-05-otter-hole.md so it plays at the table; the current one reads like a grid inventory of distances.",
+   "files": [
+    "wiki/journal/sessions/shattered-sea/11/session-11-05-otter-hole.md"
+   ],
+   "expected_output": "A box led by the trapped man and the otters at play, built from the beat, its owner pages, and art.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "process",
+     "text": "Searches wiki/attachments for related art beyond the page's embeds, opens each image, and returns an art note naming the images and the pixel details woven in"
+    },
+    {
+     "type": "quality",
+     "text": "Opens on the situation or the danger (not a terrain caption), with one anchor the block is arranged around"
+    },
+    {
+     "type": "quality",
+     "text": "Shows, not tells: evidence instead of judgment words, moods, or page labels; nobody is named before the party has learned the name; each person or creature is one feature and one behavior, and known companions appear only by doing something that matters now"
+    },
+    {
+     "type": "quality",
+     "text": "Felt and evocative: something is already moving, a nonvisual sense does a second job, something lands on the characters' bodies, and a DM would be glad to read it aloud unchanged"
+    },
+    {
+     "type": "quality",
+     "text": "One paragraph inside its Length band, counted in words, with four to six new details"
+    },
+    {
+     "type": "quality",
+     "text": "Ends on one event's reaction point before contact and before 'What do you do?'; each creature's and person's response to the party is withheld unless the page fixes that the world acts first"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "process",
+     "text": "Returns the point note, the withheld note (each fact with its slot), and the handle note routing every non-entry handle to its slot"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "what-they-ate-opening",
+   "prompt": "Rewrite the opening narration (`Initial Narration`) on the Development beat wiki/journal/sessions/shattered-sea/11/Session-11-04-What-They-Ate.md so it plays at the table.",
+   "files": [
+    "wiki/journal/sessions/shattered-sea/11/Session-11-04-What-They-Ate.md"
+   ],
+   "expected_output": "An empty-scene box led by the evidence of who was here, ending on the detail that does not fit.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "process",
+     "text": "Searches wiki/attachments for related art beyond the page's embeds, opens each image, and returns an art note naming the images and the pixel details woven in"
+    },
+    {
+     "type": "quality",
+     "text": "Opens on the situation or the danger (not a terrain caption), with one anchor the block is arranged around"
+    },
+    {
+     "type": "quality",
+     "text": "With nobody present, the situation is what the place shows was just happening, and the block ends on the detail that does not fit"
+    },
+    {
+     "type": "quality",
+     "text": "Shows, not tells: evidence instead of judgment words, moods, or page labels; nobody is named before the party has learned the name; each person or creature is one feature and one behavior, and known companions appear only by doing something that matters now"
+    },
+    {
+     "type": "quality",
+     "text": "Felt and evocative: something is already moving, a nonvisual sense does a second job, something lands on the characters' bodies, and a DM would be glad to read it aloud unchanged"
+    },
+    {
+     "type": "quality",
+     "text": "One paragraph inside its Length band, counted in words, with four to six new details"
+    },
+    {
+     "type": "quality",
+     "text": "Ends on one event's reaction point before contact and before 'What do you do?'; each creature's and person's response to the party is withheld unless the page fixes that the world acts first"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "process",
+     "text": "Returns the point note, the withheld note (each fact with its slot), and the handle note routing every non-entry handle to its slot"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "dawn-strike-opening",
+   "prompt": "Rewrite the `Opening` narration on the Hook beat wiki/journal/sessions/shattered-sea/12/session-12-01-dawn-strike.md so it plays at the table.",
+   "files": [
+    "wiki/journal/sessions/shattered-sea/12/session-12-01-dawn-strike.md"
+   ],
+   "expected_output": "The resumed fight at its frozen moment: the falcon on Crissdalynn, the hook at the pack straps, the rest of the party down, stopped before the next strap goes.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "quality",
+     "text": "Exceeds the filed Session 12 block it replaces: read side by side, a DM would pick it for being more vivid, more exact (the specific gear, materials, and names the sources give, such as a katana and an ironwood staff rather than a long straight sword and a staff), and tighter (no sentence the table does not need), with nothing the table needs lost and nothing that contradicts the page's canon"
+    },
+    {
+     "type": "process",
+     "text": "Searches wiki/attachments for related art beyond the page's embeds, opens each image, and returns an art note naming the images and the pixel details woven in"
+    },
+    {
+     "type": "quality",
+     "text": "Opens on the situation or the danger (not a terrain caption), with one anchor the block is arranged around"
+    },
+    {
+     "type": "quality",
+     "text": "Resumes on the frozen moment of the fight and brings back only the anchor, what changed, and what the party needs to act this turn; the falcon stays recognizable as the same figure, and varied descriptors (peregrine, monk) that add detail are good"
+    },
+    {
+     "type": "quality",
+     "text": "Shows, not tells: evidence instead of judgment words, moods, or page labels; nobody is named before the party has learned the name; each person or creature is one feature and one behavior, and known companions appear only by doing something that matters now"
+    },
+    {
+     "type": "quality",
+     "text": "Felt and evocative: something is already moving, a nonvisual sense does a second job, something lands on the characters' bodies, and a DM would be glad to read it aloud unchanged"
+    },
+    {
+     "type": "quality",
+     "text": "One paragraph in the 60 to 90 word danger band, counted in words"
+    },
+    {
+     "type": "quality",
+     "text": "Ends on one event's reaction point before contact and before 'What do you do?'; each creature's and person's response to the party is withheld unless the page fixes that the world acts first"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "process",
+     "text": "Returns the point note, the withheld note (each fact with its slot), and the handle note routing every non-entry handle to its slot"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "consume-opening",
+   "prompt": "Rewrite the `Opening` narration on the Climax beat wiki/journal/sessions/shattered-sea/12/session-12-05-consume.md so it plays at the table.",
+   "files": [
+    "wiki/journal/sessions/shattered-sea/12/session-12-05-consume.md"
+   ],
+   "expected_output": "Arrival at the Pantry at dusk, with the invisible falcon present only as what the characters can sense (if at all) and the patron's command to Perrin as the pressure.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "quality",
+     "text": "Exceeds the filed Session 12 block it replaces: read side by side, a DM would pick it for being more vivid, more exact (the specific gear, materials, and names the sources give, such as a katana and an ironwood staff rather than a long straight sword and a staff), and tighter (no sentence the table does not need), with nothing the table needs lost and nothing that contradicts the page's canon"
+    },
+    {
+     "type": "process",
+     "text": "Searches wiki/attachments for related art beyond the page's embeds, opens each image, and returns an art note naming the images and the pixel details woven in"
+    },
+    {
+     "type": "quality",
+     "text": "Opens on the situation or the danger (not a terrain caption), with one anchor the block is arranged around"
+    },
+    {
+     "type": "quality",
+     "text": "The invisible falcon appears only as something the characters sense, or not at all, and his plan and any speech stay out of the block"
+    },
+    {
+     "type": "quality",
+     "text": "The one thing the block exists to carry (the command to eat) lands as pressure; the fruit's rules and effects stay withheld"
+    },
+    {
+     "type": "quality",
+     "text": "Shows, not tells: evidence instead of judgment words, moods, or page labels; nobody is named before the party has learned the name; each person or creature is one feature and one behavior, and known companions appear only by doing something that matters now"
+    },
+    {
+     "type": "quality",
+     "text": "Felt and evocative: something is already moving, a nonvisual sense does a second job, something lands on the characters' bodies, and a DM would be glad to read it aloud unchanged"
+    },
+    {
+     "type": "quality",
+     "text": "One paragraph inside its Length band, counted in words, with four to six new details"
+    },
+    {
+     "type": "quality",
+     "text": "Ends on one event's reaction point before contact and before 'What do you do?'; each creature's and person's response to the party is withheld unless the page fixes that the world acts first"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "process",
+     "text": "Returns the point note, the withheld note (each fact with its slot), and the handle note routing every non-entry handle to its slot"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "way-out-closing-image",
+   "prompt": "Rewrite the `Closing Image: the Spinner kept` narration on the Resolution beat wiki/journal/sessions/shattered-sea/12/session-12-06-the-way-out.md so it plays at the table.",
+   "files": [
+    "wiki/journal/sessions/shattered-sea/12/session-12-06-the-way-out.md"
+   ],
+   "expected_output": "A still closing image that lets the session's change land: the nine leaving, the three staying, companions reacting through what they do.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "quality",
+     "text": "Exceeds the filed Session 12 block it replaces: read side by side, a DM would pick it for being more vivid, more exact (the specific gear, materials, and names the sources give, such as a katana and an ironwood staff rather than a long straight sword and a staff), and tighter (no sentence the table does not need), with nothing the table needs lost and nothing that contradicts the page's canon"
+    },
+    {
+     "type": "process",
+     "text": "Searches wiki/attachments for related art beyond the page's embeds, opens each image, and returns an art note naming the images and the pixel details woven in"
+    },
+    {
+     "type": "quality",
+     "text": "The visible consequence of the session lands in one image, with people reacting through what they do rather than what they feel"
+    },
+    {
+     "type": "quality",
+     "text": "Ends on a still, clear final image, with no question and nothing left for a player to answer"
+    },
+    {
+     "type": "quality",
+     "text": "Shows, not tells: evidence instead of judgment words, moods, or page labels; nobody is named before the party has learned the name; each person or creature is one feature and one behavior, and known companions appear only by doing something that matters now"
+    },
+    {
+     "type": "quality",
+     "text": "One paragraph inside its Length band, counted in words, with four to six new details"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "process",
+     "text": "Returns the point note and the withheld note"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "wolfrabbits-session-ends-here",
+   "prompt": "Write `If the session ends here` for the Cliffhanger wiki/journal/sessions/shattered-sea/11/session-11-03-wolfrabbits.md: the last words of the night if play stops on this beat.",
+   "files": [
+    "wiki/journal/sessions/shattered-sea/11/session-11-03-wolfrabbits.md",
+    "wiki/templates/cliffhanger.md"
+   ],
+   "expected_output": "Three to five sentences: the changed situation in one concrete image, the threat at its sharpest, nothing resolved, cut before anyone can act.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "quality",
+     "text": "One concrete image of the changed situation drawn from the beat's pressure and outcomes"
+    },
+    {
+     "type": "quality",
+     "text": "Ends on the unanswered moment, before any character can act; nothing resolves"
+    },
+    {
+     "type": "quality",
+     "text": "Three to five sentences, one paragraph"
+    },
+    {
+     "type": "quality",
+     "text": "Shows, not tells: evidence instead of judgment words, moods, or page labels; nobody is named before the party has learned the name; each person or creature is one feature and one behavior, and known companions appear only by doing something that matters now"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "hinewai-first-look",
+   "prompt": "Write the NPC first look for the party's first sighting of Hinewai in her woman-in-the-woods form: she stands on a game trail in the rainforest near the Memorial Grove, at night, in the rain. She has not spoken yet.",
+   "files": [
+    "wiki/entities/npc/hinewai.md"
+   ],
+   "expected_output": "Three or four sentences: a first read, one feature, one behavior, unnamed, ending on her behavior with her response to the party withheld.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "process",
+     "text": "Searches wiki/attachments for related art beyond the page's embeds, opens each image, and returns an art note naming the images and the pixel details woven in"
+    },
+    {
+     "type": "quality",
+     "text": "A first read, one feature, and one behavior, not a feature list; three or four sentences"
+    },
+    {
+     "type": "quality",
+     "text": "No name, blight-form features, or undead nature; her response to the party (looking up, turning, speaking) is in the withheld note"
+    },
+    {
+     "type": "quality",
+     "text": "The rain lands on the characters, and one sense does a second job"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "yssenmoor-immediate-fact-bullets",
+   "prompt": "Write the `Opening` for the party's first arrival at Yssenmoor. The party has not chosen how they come in: by boat along the flooded edge, on foot across the wet ground, or following Sir Quackers's calls through the fog. The DM wants one Opening that works for every approach.",
+   "files": [
+    "wiki/entities/place/yssenmoor.md",
+    "wiki/templates/place.md"
+   ],
+   "expected_output": "Three to five italic one-sentence immediate-fact bullets, with every approach-dependent fact and every secret in DM prose outside the callout.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "process",
+     "text": "Files immediate-fact bullets, not a box paragraph, because the approach can still change"
+    },
+    {
+     "type": "quality",
+     "text": "Three to five bullets, each one complete italic sentence the characters perceive on arrival, danger first; none assumes a boat, wading, or following the calls"
+    },
+    {
+     "type": "quality",
+     "text": "The withheld layer sits outside the callout in plain DM prose: what each approach changes and Sir Quackers's response to the party; no ley line, Soul Incarnate, Talon, or reforming in the bullets"
+    },
+    {
+     "type": "quality",
+     "text": "Shows, not tells: evidence instead of judgment words, moods, or page labels; nobody is named before the party has learned the name; each person or creature is one feature and one behavior, and known companions appear only by doing something that matters now"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "spiguar-freeze-frame-split",
+   "prompt": "Rewrite this Hook `Opening` so it plays at the table: 'The grass parts and the spiguar bursts out, knocks Delmar off his feet, drags him toward the thicket, and the otters scatter screaming into the reeds.'",
+   "files": [
+    "wiki/entities/creature/spiguar.md"
+   ],
+   "expected_output": "One box stopped at the spiguar's windup in the grass, with the knockdown, drag, and otters' flight routed to later slots in the notes.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "process",
+     "text": "Names the source as a freeze-frame, keeps only its first event, and routes the knockdown, the drag, and the otters scattering to later slots in the notes"
+    },
+    {
+     "type": "quality",
+     "text": "Ends on the spiguar's windup before contact; nobody is knocked down, grabbed, or dragged, and Delmar does and feels nothing"
+    },
+    {
+     "type": "quality",
+     "text": "The spiguar keeps the face from its page's portrait: silhouette, movement, one dangerous part"
+    },
+    {
+     "type": "quality",
+     "text": "One paragraph in the 60 to 90 word danger band, counted in words"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "spiguar-in-action",
+   "prompt": "Write the optional `In action` narration for wiki/entities/creature/spiguar.md, from the current creature template (wiki/templates/creature.md): the Spiguar mid-fight against the party in its grassland.",
+   "files": [
+    "wiki/entities/creature/spiguar.md",
+    "wiki/templates/creature.md"
+   ],
+   "expected_output": "One short outcome block per signature move, in 'you' address and present tense, read after the DM resolves it: how the move looks and sounds and the state it leaves.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "quality",
+     "text": "Outcome-cell recipe: 'you' address, present tense, one short block per signature move, not a third-person portrait"
+    },
+    {
+     "type": "quality",
+     "text": "Each signature ability shows as what the characters see and hear when it resolves and the state it leaves, never its rule, number, or name"
+    },
+    {
+     "type": "quality",
+     "text": "Keeps the face from the page's portrait so the table recognises the creature"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "gust-casting-declared-action",
+   "prompt": "Write the optional `Casting` narration for wiki/entities/spell/gust.md, from the current spell template (wiki/templates/spell.md): the spell as a player character casts it.",
+   "files": [
+    "wiki/entities/spell/gust.md",
+    "wiki/templates/spell.md"
+   ],
+   "expected_output": "One to three sentences: the caster's body doing the chosen cast, the wind as something a listener can picture, ending with the wind in place before any save resolves.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "quality",
+     "text": "Declared-action recipe: 'you' names only the caster's own body doing the cast, and the world does the rest; one to three sentences"
+    },
+    {
+     "type": "quality",
+     "text": "The wind is a perceivable sensation placed where it settles, and the block ends before any save, push, or held ground resolves"
+    },
+    {
+     "type": "quality",
+     "text": "No numbers, line size, save, Concentration, or rule words"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "stonepear-access-boundary",
+   "prompt": "At the Pantry, a player's character picks up an intact stonepear that has already fallen and asks what they notice. Write the spoken answer the DM gives.",
+   "files": [
+    "wiki/entities/item/stonepear.md"
+   ],
+   "expected_output": "One to three sentences of what holding the intact fruit gives (weight, surface, temperature, sound), stopping where cutting, tasting, or opening would begin.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "quality",
+     "text": "Gives only what holding the intact fruit supports; no interior, taste, magic, history, or function"
+    },
+    {
+     "type": "quality",
+     "text": "Leaves cutting, tasting, or any closer inspection as the player's next declared action"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "fate-spinner-portrait",
+   "prompt": "Rewrite the `[!narration]` portrait on wiki/entities/item/fate-spinner.md so a DM can read it aloud the first time the players see the item.",
+   "files": [
+    "wiki/entities/item/fate-spinner.md"
+   ],
+   "expected_output": "Item portrait carrying every Build item and every seen, held, and active tell, in fresh words.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "process",
+     "text": "Searches wiki/attachments for related art beyond the page's embeds, opens each image, and returns an art note naming the images and the pixel details woven in"
+    },
+    {
+     "type": "quality",
+     "text": "Portrait form: one paragraph, third person, present tense, with no party, viewer, scene, current event, or closing question"
+    },
+    {
+     "type": "quality",
+     "text": "Leads with the plain noun and its most distinctive feature, not the item's name"
+    },
+    {
+     "type": "quality",
+     "text": "Every Build item the sources give and every tell (seen, held, active) appears, the visible sign of magic included and its effects left out"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "bloodhawk-portrait-related-art",
+   "prompt": "Rewrite the `[!narration]` portrait on wiki/entities/creature/bloodhawk.md. The current one narrates a scene instead of describing the creature.",
+   "files": [
+    "wiki/entities/creature/bloodhawk.md"
+   ],
+   "expected_output": "Creature portrait grounded in the bloodhawk art, including art found by name search that the page does not embed.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "process",
+     "text": "Searches wiki/attachments for related art beyond the page's embeds, opens each image, and returns an art note naming the images and the pixel details woven in"
+    },
+    {
+     "type": "quality",
+     "text": "Portrait form: one paragraph, third person, present tense, with no party, viewer, scene, current event, or closing question"
+    },
+    {
+     "type": "process",
+     "text": "Opens bloodhawk-of-aruhe.jpg, which the page does not embed, and carries at least one detail from it"
+    },
+    {
+     "type": "quality",
+     "text": "Silhouette and scale a player could sketch, with no pose or event taken from the art"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "countless-faction-portrait",
+   "prompt": "Rewrite the `[!narration]` portrait on wiki/entities/faction/countless.md: what anyone who has heard of the Countless knows or could see of them.",
+   "files": [
+    "wiki/entities/faction/countless.md"
+   ],
+   "expected_output": "A public faction portrait recognisable by absence: missing names and records, one-job hires, the Talon title in place of a name.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "process",
+     "text": "Searches wiki/attachments for related art beyond the page's embeds, opens each image, and returns an art note naming the images and the pixel details woven in"
+    },
+    {
+     "type": "quality",
+     "text": "Portrait form: one paragraph, third person, present tense, with no party, viewer, scene, current event, or closing question"
+    },
+    {
+     "type": "quality",
+     "text": "Shows the public face through concrete signs anyone could see or hear of (missing names or records, one-job hires, the shared title Talon)"
+    },
+    {
+     "type": "quality",
+     "text": "Keeps the Rule of Two, the current hunt, leadership, and every DM-only section out"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "calders-tooth-cold-place",
+   "prompt": "Rewrite the `[!narration]` portrait on wiki/entities/place/calders-tooth-and-port-tidefall.md.",
+   "files": [
+    "wiki/entities/place/calders-tooth-and-port-tidefall.md"
+   ],
+   "expected_output": "The cliff and the port as one connected, drawable piece of geography, as seen arriving by sea.",
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "process",
+     "text": "Searches wiki/attachments for related art beyond the page's embeds, opens each image, and returns an art note naming the images and the pixel details woven in"
+    },
+    {
+     "type": "quality",
+     "text": "Portrait form: one paragraph, third person, present tense, with no party, viewer, scene, current event, or closing question"
+    },
+    {
+     "type": "quality",
+     "text": "Calder's Tooth and Port Tidefall appear as connected geography a player could sketch, with body-scale relations between them"
+    },
+    {
+     "type": "quality",
+     "text": "No secret, encounter motion, or invented history"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "session-11-recap",
+   "prompt": "Rewrite the player-facing `[!narration] Recap` on wiki/journal/sessions/shattered-sea/11/session-11-recap.md from the play evidence: the transcript companion wiki/journal/sessions/shattered-sea/11/Session-11-Transcript.md and the raw table transcript wiki/_archive/session-11-transcript.md. The players will read it before Session 12.",
+   "files": [
+    "wiki/journal/sessions/shattered-sea/11/session-11-recap.md",
+    "wiki/journal/sessions/shattered-sea/11/Session-11-Transcript.md",
+    "wiki/_archive/session-11-transcript.md"
+   ],
+   "subject_skill": ".agents/skills/session-recap",
+   "expected_output": "An engaging story of Session 11: standout moments in specific detail, every PC credited, mechanics as fiction, ending on Skarn's attack as live pressure.",
+   "outputs": "Write the finished recap narration, plus its notes, in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "assertions": [
+    {
+     "type": "quality",
+     "text": "Retells at least four standout table moments in specific detail: Delmar's shot and the jaw kick on the spiguar, Perrin's leap onto the spiguar, the two otters colliding midair, Crissdalynn carrying the lotus while Matteo runs, Perrin collapsing in laughter while Delmar hunts an invisible caster, the cloak turning the falcon's first strike"
+    },
+    {
+     "type": "quality",
+     "text": "Comedy lands as setup then turn, heroics as risk, choice, payoff; Delmar, Perrin, and Crissdalynn each get credit for a decisive choice"
+    },
+    {
+     "type": "quality",
+     "text": "Story shape, not a beat list: movements with travel compressed to a clause, rhythm varying"
+    },
+    {
+     "type": "quality",
+     "text": "Mechanics become fiction: no rules vocabulary (crit, natural 20, bonus action, saves, DCs, hit points, spell names as verbs, Legendary Resistance, Invisible)"
+    },
+    {
+     "type": "guardrail",
+     "text": "Only played, player-known events; unplayed prep (Farthest Camp, False Help) and DM secrets stay out"
+    },
+    {
+     "type": "quality",
+     "text": "Ends on the cliffhanger as live pressure (the falcon on Crissdalynn, the Spinner at stake)"
+    },
+    {
+     "type": "quality",
+     "text": "No echo of the existing recap or the transcript companion's sentences; table quotes may stay word for word"
+    },
+    {
+     "type": "quality",
+     "text": "Clean page: past tense with 'you' address, breath-length sentences, no em dashes, semicolons, colons, or slop"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "skylight-opening",
+   "prompt": "Rewrite the `Opening` narration on the Development beat wiki/journal/sessions/shattered-sea/12/session-12-02-the-smoking-skylight.md so it plays at the table.",
+   "files": [
+    "wiki/journal/sessions/shattered-sea/12/session-12-02-the-smoking-skylight.md"
+   ],
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "expected_output": "Arrival at the meadow with the smoking hole, the ring of broken mossy stumps around it, and the voices under the ground as the new information source.",
+   "assertions": [
+    {
+     "type": "quality",
+     "text": "Exceeds the filed Session 12 block it replaces: read side by side, a DM would pick it for being more vivid, more exact (the specific gear, materials, and names the sources give, such as a katana and an ironwood staff rather than a long straight sword and a staff), and tighter (no sentence the table does not need), with nothing the table needs lost and nothing that contradicts the page's canon"
+    },
+    {
+     "type": "process",
+     "text": "Searches wiki/attachments for related art beyond the page's embeds, opens each image, and returns an art note naming the images and the pixel details woven in"
+    },
+    {
+     "type": "quality",
+     "text": "Opens on the situation or the danger (not a terrain caption), with one anchor the block is arranged around"
+    },
+    {
+     "type": "quality",
+     "text": "The voices under the ground are given as heard (what they say or do, where they come from), and the broken stumps ring the hole as the page now has them"
+    },
+    {
+     "type": "quality",
+     "text": "Shows, not tells: evidence instead of judgment words, moods, or page labels; nobody is named before the party has learned the name; each person or creature is one feature and one behavior, and known companions appear only by doing something that matters now"
+    },
+    {
+     "type": "quality",
+     "text": "Felt and evocative: something is already moving, a nonvisual sense does a second job, something lands on the characters' bodies, and a DM would be glad to read it aloud unchanged"
+    },
+    {
+     "type": "quality",
+     "text": "One paragraph inside its Length band, counted in words, with four to six new details"
+    },
+    {
+     "type": "quality",
+     "text": "Ends on one event's reaction point before contact and before 'What do you do?'; each creature's and person's response to the party is withheld unless the page fixes that the world acts first"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "process",
+     "text": "Returns the point note, the withheld note (each fact with its slot), and the handle note routing every non-entry handle to its slot"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "terror-bird-creature-slot",
+   "prompt": "Rewrite the `Terror-Bird` creature narration on the Cliffhanger beat wiki/journal/sessions/shattered-sea/12/session-12-03-terror-birds.md so it plays at the table.",
+   "files": [
+    "wiki/journal/sessions/shattered-sea/12/session-12-03-terror-birds.md"
+   ],
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "expected_output": "Three to five sentences: silhouette, how it moves, the one dangerous part about to be used, scale against something familiar, ending on the windup before contact.",
+   "assertions": [
+    {
+     "type": "quality",
+     "text": "Exceeds the filed Session 12 block it replaces: read side by side, a DM would pick it for being more vivid, more exact (the specific gear, materials, and names the sources give, such as a katana and an ironwood staff rather than a long straight sword and a staff), and tighter (no sentence the table does not need), with nothing the table needs lost and nothing that contradicts the page's canon"
+    },
+    {
+     "type": "process",
+     "text": "Searches wiki/attachments for related art beyond the page's embeds, opens each image, and returns an art note naming the images and the pixel details woven in"
+    },
+    {
+     "type": "quality",
+     "text": "Creature-in-scene recipe: three to five sentences giving silhouette, movement, the one dangerous part, and scale against something familiar, in that order of attention"
+    },
+    {
+     "type": "quality",
+     "text": "Ends on the windup before contact; nothing lands and no character is struck or reacts"
+    },
+    {
+     "type": "quality",
+     "text": "Shows, not tells: evidence instead of judgment words, moods, or page labels; nobody is named before the party has learned the name; each person or creature is one feature and one behavior, and known companions appear only by doing something that matters now"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "orders-revelation",
+   "prompt": "Rewrite the `Revelation` narration on the Development beat wiki/journal/sessions/shattered-sea/12/session-12-04-orders-in-the-ash.md so it plays at the table.",
+   "files": [
+    "wiki/journal/sessions/shattered-sea/12/session-12-04-orders-in-the-ash.md"
+   ],
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "expected_output": "The familiar first, then the thing that contradicts it, then the central image of the newest order, and stop with no explanation.",
+   "assertions": [
+    {
+     "type": "quality",
+     "text": "Exceeds the filed Session 12 block it replaces: read side by side, a DM would pick it for being more vivid, more exact (the specific gear, materials, and names the sources give, such as a katana and an ironwood staff rather than a long straight sword and a staff), and tighter (no sentence the table does not need), with nothing the table needs lost and nothing that contradicts the page's canon"
+    },
+    {
+     "type": "quality",
+     "text": "Revelation recipe: the familiar first, then the one thing that contradicts it, then the central image, and nothing after it"
+    },
+    {
+     "type": "quality",
+     "text": "No explanation of what the reveal means; the players draw the conclusion"
+    },
+    {
+     "type": "quality",
+     "text": "Shows, not tells: evidence instead of judgment words, moods, or page labels; nobody is named before the party has learned the name; each person or creature is one feature and one behavior, and known companions appear only by doing something that matters now"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "dawn-previously",
+   "prompt": "Rewrite the `Previously` read-aloud on the Hook beat wiki/journal/sessions/shattered-sea/12/session-12-01-dawn-strike.md from the play evidence in wiki/journal/sessions/shattered-sea/11/session-11-recap.md, so the DM can read it as Session 12 starts.",
+   "files": [
+    "wiki/journal/sessions/shattered-sea/12/session-12-01-dawn-strike.md",
+    "wiki/journal/sessions/shattered-sea/11/session-11-recap.md"
+   ],
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "expected_output": "A read-aloud retelling of Session 11 in the past tense with 'you', built as a story from the recap evidence, specific in its gear and moments, ending inside the falcon's attack.",
+   "assertions": [
+    {
+     "type": "quality",
+     "text": "Exceeds the filed Session 12 block it replaces: read side by side, a DM would pick it for being more vivid, more exact (the specific gear, materials, and names the sources give, such as a katana and an ironwood staff rather than a long straight sword and a staff), and tighter (no sentence the table does not need), with nothing the table needs lost and nothing that contradicts the page's canon"
+    },
+    {
+     "type": "quality",
+     "text": "Past tense with 'you' address, told as a story (movements linked by cause) rather than a list of events"
+    },
+    {
+     "type": "quality",
+     "text": "Specific gear and moments from play (the Blunderbuss to the spiguar's shoulder, Perrin's sword in its back, the shared shimmering plum), with every rule and spell name turned into what it looked like"
+    },
+    {
+     "type": "quality",
+     "text": "Ends inside the cliffhanger (the falcon on Crissdalynn, his blade reaching for the pack), never on a line about the night ending"
+    },
+    {
+     "type": "guardrail",
+     "text": "Only played, player-known events; no DM secrets or unplayed prep"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    }
+   ]
+  },
+  {
+   "id": "terror-birds-opening",
+   "prompt": "Rewrite the `Opening` narration on the Cliffhanger beat wiki/journal/sessions/shattered-sea/12/session-12-03-terror-birds.md so it plays at the table. The DM says the current one is a list of separate facts with no soul, embarrassing to read aloud.",
+   "files": [
+    "wiki/journal/sessions/shattered-sea/12/session-12-03-terror-birds.md"
+   ],
+   "outputs": "Write the finished narration, plus the notes you would return with it (point note, withheld note, art note, and for a situated block the handle note), in {outputs}/response.md. Leave the wiki page itself unwritten.",
+   "expected_output": "One flowing telling of the terror bird rising from its disguise and turning on the party, danger first, building to the charge's windup.",
+   "assertions": [
+    {
+     "type": "quality",
+     "text": "Exceeds the filed Session 12 block it replaces: read side by side, a DM would pick it for being more vivid, more exact (the specific gear, materials, and names the sources give, such as a katana and an ironwood staff rather than a long straight sword and a staff), and tighter (no sentence the table does not need), with nothing the table needs lost and nothing that contradicts the page's canon"
+    },
+    {
+     "type": "quality",
+     "text": "Told, not listed: reads aloud as one flowing telling with feeling, each sentence handing off to the next (by cause, motion, or where the eye goes next) and building to the last; no string of standalone fact sentences that could swap places"
+    },
+    {
+     "type": "process",
+     "text": "Searches wiki/attachments for related art beyond the page's embeds, opens each image, and returns an art note naming the images and the pixel details woven in"
+    },
+    {
+     "type": "quality",
+     "text": "Opens on the situation or the danger (not a terrain caption), with one anchor the block is arranged around"
+    },
+    {
+     "type": "quality",
+     "text": "Shows, not tells: evidence instead of judgment words, moods, or page labels; nobody is named before the party has learned the name; each person or creature is one feature and one behavior, and known companions appear only by doing something that matters now"
+    },
+    {
+     "type": "quality",
+     "text": "Felt and evocative: something is already moving, a nonvisual sense does a second job, something lands on the characters' bodies, and a DM would be glad to read it aloud unchanged"
+    },
+    {
+     "type": "quality",
+     "text": "One paragraph in the 60 to 90 word danger band, counted in words"
+    },
+    {
+     "type": "quality",
+     "text": "Ends on one event's reaction point before contact and before 'What do you do?'; each creature's and person's response to the party is withheld unless the page fixes that the world acts first"
+    },
+    {
+     "type": "quality",
+     "text": "Hands off: nothing is done, said, felt, or concluded for a player character"
+    },
+    {
+     "type": "quality",
+     "text": "No echoes: no phrase of the old block, the parent page, or the owner pages reappears (quoted speech aside), and every color is one plain word or a comparison"
+    },
+    {
+     "type": "quality",
+     "text": "Speakable and clean: every sentence fits one breath; no grid distances, compass directions, semicolons, colons, em dashes, craft labels, or slop-table phrases"
+    },
+    {
+     "type": "quality",
+     "text": "Varied descriptors: each return to the same person, creature, or thing uses a new recognizable descriptor that adds detail (the falcon, the peregrine, the monk), never one label repeated"
+    },
+    {
+     "type": "process",
+     "text": "Returns the point note, the withheld note (each fact with its slot), and the handle note routing every non-entry handle to its slot"
+    }
+   ]
+  }
+ ]
+}
