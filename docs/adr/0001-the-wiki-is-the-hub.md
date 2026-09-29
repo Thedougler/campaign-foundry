@@ -1,0 +1,3 @@
+# The Wiki is the hub: Ingest brings material in, Push sends it out
+
+Everything about a World and its Campaigns, PCs included, lives in the Wiki. Material only ever enters through Ingest: Raw files, Transcripts, and PC updates pulled from D&D Beyond when the DM asks. It only ever leaves through Push, which writes what a Session needs into its Foundry world, Foundry scenes included. Nothing is synced back out of Foundry. An edit made only there is overwritten by the next Push until it is made in the Wiki. We rejected two-way sync because reconciling markdown against Foundry's document database is large and fragile, and one hub keeps the Wiki runnable offline and at the table on its own.

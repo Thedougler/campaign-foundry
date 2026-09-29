@@ -69,7 +69,7 @@ _Avoid_: history, background, notes, setting info
 ### Campaign pages
 
 **PC**:
-A Player's character in a Campaign. The Wiki mirrors the whole character, sheet and story, so content can be built around it.
+A Player's character in a Campaign, sheet and story together. Its sheet is kept current by Ingest from D&D Beyond.
 _Avoid_: player (the human), hero, character
 
 **Plot Thread**:
@@ -83,8 +83,16 @@ _Avoid_: mission, job, objective
 ### Session work
 
 **Prep**:
-The plan for an upcoming Session, holding everything the DM needs to run it from the Wiki alone. Prep ends with the Session's content pushed to its Foundry world.
+The plan for an upcoming Session, holding everything the DM needs to run it from the Wiki alone. Prep ends with a Push.
 _Avoid_: session plan, outline, notes
+
+**Scene**:
+A narrative situation planned in Prep, such as the party confronting the Duke at the masquerade. Never a map.
+_Avoid_: beat, moment, bare "scene" for a Foundry scene
+
+**Encounter**:
+A Scene expected to need Creatures and initiative, usually combat, and balanced against the Party.
+_Avoid_: fight, battle, combat (as a noun for the plan)
 
 **Transcript**:
 The full text of one recorded Session, handed to the Agent as Raw.
@@ -101,7 +109,7 @@ The canonical, human-readable record of Worlds and Campaigns. The DM and the Age
 _Avoid_: vault, notes, knowledge base
 
 **Canon**:
-What is true in a World or Campaign. By precedence: what the DM says, then what the Wiki says, then Raw material being ingested, where it doesn't conflict with the Wiki.
+What is true in a World or Campaign. By precedence: what the DM says (to the Agent, or at the table), then what the Wiki says, then material being ingested.
 _Avoid_: draft, approved, official
 
 **Raw**:
@@ -109,8 +117,8 @@ Source material waiting to be ingested into the Wiki, such as Transcripts, brain
 _Avoid_: inbox, sources, imports
 
 **Ingest**:
-The Agent compiling a piece of Raw material into the Wiki and then moving it to the Archive.
-_Avoid_: import, process, compile
+The Agent bringing outside material into the Wiki: a Raw file (afterwards moved to the Archive), or PC updates pulled from D&D Beyond. The only way material enters the Wiki besides the DM editing it.
+_Avoid_: import, process, compile, sync
 
 **Archive**:
 Raw material that has already been ingested, kept so it is always clear what has been ingested and what hasn't.
@@ -121,3 +129,11 @@ _Avoid_: trash, done
 **Foundry world**:
 The Foundry VTT container that projects one Campaign onto the virtual tabletop. Always written in full.
 _Avoid_: world, VTT world
+
+**Foundry scene**:
+A map canvas in a Foundry world, with its walls, lights and tokens. Always written in full.
+_Avoid_: scene, map (for the canvas)
+
+**Push**:
+The Agent writing everything a Session needs from the Wiki into its Foundry world. The only way material leaves the Wiki.
+_Avoid_: sync, export, publish
