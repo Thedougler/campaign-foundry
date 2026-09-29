@@ -1,13 +1,13 @@
 ---
 type: Scene
 kind: Hook
-summary: "The Gullhook lamp dies as the ferry enters the channel, and the boat grounds on a mudbank."
+summary: "The Gullhook lamp dies as the ferry enters the channel, and the boat grounds on a mud bank."
 sources: []
 ---
 
 ## At a glance
 
-- **Pressure.** The lighthouse goes dark while the Marl Ferry is in the channel, and the boat grounds on a mudbank with the tide falling.
+- **Pressure.** The lighthouse goes dark while the Marl Ferry is in the channel, and the boat grounds on a mud bank with the tide falling.
 - **Choice.** Free the ferry, wade to the mole through the mud, or chase the unlit skiff moving away in the reeds.
 - **Where.** The harbor channel off [[Saltwick]].
 - **Who.** [[Pell Rushlight]] at the pole.
@@ -19,14 +19,14 @@ sources: []
 
 ### Situation
 
-The Party has spent the day on the Marl Ferry from [[Reedholt]]. The tide is falling and will strand the boat in about an hour. Water on the mudbank is knee deep, and the mud beneath it is [[Bog Ground]]. The unlit skiff is 60 yards off and moving slowly.
+The Party has spent the day on the Marl Ferry from [[Reedholt]]. The tide is falling and will strand the boat in about an hour. Water on the mud bank is knee deep, and the mud beneath it is [[Bog Ground]]. The unlit skiff is 60 yards off and moving slowly.
 
 ### Handles
 
-- **Free the ferry.** Pole and rock it off the bank. Upside: Pell keeps his boat and owes the Party. Cost: it takes time, the skiff escapes and everyone gets wet.
-- **Wade to the mole.** Go over the side and pull the boat along the bank. Upside: fast, and the watch sees them come in. Cost: Bog Ground, Prone, and Pell is left with the boat.
-- **Signal the watch.** Light a lantern or fire a flare. Upside: [[Hobb Tarrow]] hears of the Party tonight. Cost: the skiff notes their faces.
-- **Chase the skiff.** Take the ferry's small boat after it. Upside: a chance to catch a goblin scout. Cost: the ferry is left aground and Pell loses trust in them.
+- **Free the ferry.** Pole and rock it off the bank. The upside is that Pell keeps his boat and owes the Party. The cost is time, the skiff escapes and everyone gets wet.
+- **Wade to the mole.** Go over the side and pull the boat along the bank. The upside is speed, and the watch sees them come in. The cost is Bog Ground and the Prone condition, and Pell is left with the boat.
+- **Signal the watch.** Light a lantern or fire a flare. The upside is that [[Hobb Tarrow]] hears of the Party tonight. The cost is the skiff noting their faces.
+- **Chase the skiff.** Take the ferry's small boat after it. The upside is a chance to catch a goblin scout. The cost is a ferry left aground and Pell's lost trust in them.
 
 ### Checks
 

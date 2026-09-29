@@ -11,11 +11,11 @@ parent: "[[The Brack]]"
 - **Size.** About 2,000 people, the only town in the Brack.
 - **Ruled by.** The five-seat Harbor Council. [[Hobb Tarrow]] is Harbor Warden and commands the watch.
 - **Mood.** Busy by day and shuttered by dusk. People prefer not to see what happens on the piers at night.
-- **Unsettled by.** The lamp at [[Gullhook Lighthouse]] keeps going dark, and boats keep running aground on the mudbanks.
+- **Unsettled by.** The lamp at [[Gullhook Lighthouse]] keeps going dark, and boats keep running aground on the mud banks.
 - **Known for.** Salt, smoked eel and the tall white lighthouse.
 
 > [!narration] Arrival
-> Saltwick rises out of the flats as a low wall of grey brick with the lighthouse standing at the end of a long stone mole. Gulls wheel over the fish market. You can smell smoke from the eel sheds before you see the gate. Every roof has a lamp hook under its eaves, and none of them is lit yet.
+> Saltwick rises out of the flats as a low wall of grey brick with the lighthouse standing at the end of a long stone mole. Gulls wheel over the fish market. You can smell smoke from the eel sheds before you see the gate. Lamp hooks hang under the eaves of the roofs, and none of them is lit yet.
 
 ## Play
 
@@ -23,7 +23,7 @@ parent: "[[The Brack]]"
 
 - **The Mole.** A stone arm that shelters the harbor, with the lighthouse at its tip.
 - **Pier Row.** Warehouses, chandlers and the eel sheds. Loud by day and empty after dark.
-- **Weir Street.** Houses of the guild families and the Council hall. Clean, and watched.
+- **Weir Street.** Houses of the guild families and the Council hall, clean and watched.
 - **The Undertow.** Cheap lodging along the back channel, where [[The Reedrunners]] drink.
 
 ### Services
@@ -58,7 +58,7 @@ Saltwick was a fishing village until the Compact chose it as the seat of the slu
 
 ### Hidden truths
 
-- Several Council families descend from the men who signed the order to open the sluice. They do not know the whole story, but they suspect it. The Party can learn this from [[Hobb Tarrow]], whose ancestor was the clerk who copied the order.
+- Several Council families descend from the men who signed the order to open the sluice. They do not know everything, but they suspect it. The Party can learn this from [[Hobb Tarrow]], whose ancestor was the clerk who copied the order.
 
 ### Threads
 

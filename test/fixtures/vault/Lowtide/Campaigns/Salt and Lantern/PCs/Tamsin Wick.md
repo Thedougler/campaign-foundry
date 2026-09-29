@@ -33,7 +33,7 @@ dndbeyond_url: "https://www.dndbeyond.com/characters/000000002"
 
 ## Spells
 
-Tamsin casts no spells.
+Tamsin does not cast spells.
 
 ## Inventory
 

@@ -1,0 +1,8 @@
+extends: existence
+message: "Narration gives no foot or mile count ('%s'). Say it in the body's terms: within reach, a bowshot, a long walk. Keep the figure in the DM's notes."
+level: error
+scope: blockquote
+ignorecase: true
+nonword: true
+raw:
+  - '\b(?:\d[\d,]*(?:\.\d+)?|(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|fifteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand)(?:[- ](?:one|two|three|four|five|six|seven|eight|nine))?)[- ](?:feet|foot|ft\b\.?|miles?|mi\b\.?)\b'

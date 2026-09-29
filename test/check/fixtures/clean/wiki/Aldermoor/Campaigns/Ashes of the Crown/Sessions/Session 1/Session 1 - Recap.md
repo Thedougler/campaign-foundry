@@ -23,4 +23,3 @@ Text.
 ## Threads
 
 Leads into [[Session 2 - Previously On]].
-

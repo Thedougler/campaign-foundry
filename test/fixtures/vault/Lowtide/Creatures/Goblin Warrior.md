@@ -62,7 +62,7 @@ Goblin warriors attack from hiding so their first strike has Advantage, then use
 
 ### Outside a fight
 
-Goblins in Lowtide are ferrymen, tally-keepers, and hired hands. They trade in favors and keep count of debts to the day. A goblin who has been treated fairly will remember it for years.
+Goblins in Lowtide are ferrymen, tally-keepers, and hired hands. They trade in favours and keep count of debts to the day. A goblin who has been treated fairly will remember it for years.
 
 ## Depth
 

@@ -12,10 +12,10 @@ parent: "[[The Brack]]"
 - **Entrance.** A causeway from the north shore, guarded by a gatehouse that has no one in it.
 - **Occupants.** A few gate-hands who watch the water level and say little.
 - **Danger.** Slick footing above open water, and a crushing winch chain.
-- **Prize.** The gate-master's book, which records every opening of the sluice since the Compact.
+- **Prize.** The gate-master's book, which records every time the sluice has been opened since the Compact.
 
 > [!narration] Entering
-> The gate is a wall of black timber and iron thirty feet high, with green weed hanging from the top. Water pours through a gap the width of a wagon with a sound like a crowd holding its breath. A walkway crosses above the gap, and its rail is polished by hands. The winch house at the far end has one window lit.
+> The gate is a wall of black timber and iron as high as a house, with green weed hanging from the top. Water pours through a gap the width of a wagon with a sound like a crowd holding its breath. A walkway crosses above the gap, and its rail is polished by hands. The winch house at the far end has one window lit.
 
 ## Play
 
@@ -51,11 +51,11 @@ The Compact built the sluice in 4 CY. In 271 CY its gates were opened for three 
 ### Hidden truths
 
 - The gate has not closed fully since 271 CY. Each year it leaks a little more, and the gate-hands know. The Party can see this from the silt line on the pier.
-- The book records an opening on 6 Blackwater 271 CY with no reason given. The Party can read this in the winch house.
+- The book records the sluice being opened on 6 Blackwater 271 CY with no reason given. The Party can read this in the winch house.
 
 ### Threads
 
-- [[The Failing Sluice]] is centered here.
+- [[The Failing Sluice]] is centred here.
 - [[The Silent Bell]] is tied to the same night.
 
 ## Links

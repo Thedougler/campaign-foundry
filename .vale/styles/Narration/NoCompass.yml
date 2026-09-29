@@ -1,0 +1,26 @@
+extends: existence
+message: "Narration takes no compass direction ('%s'). Use the body's directions instead: ahead, behind, uphill, left, within reach. Keep the bearing in the DM's notes."
+level: error
+scope: blockquote
+ignorecase: true
+tokens:
+  - north
+  - south
+  - east
+  - west
+  - north-?east
+  - north-?west
+  - south-?east
+  - south-?west
+  - northern
+  - southern
+  - eastern
+  - western
+  - northward
+  - southward
+  - eastward
+  - westward
+  - northwards
+  - southwards
+  - eastwards
+  - westwards

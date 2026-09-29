@@ -1,0 +1,18 @@
+{
+	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+	"version": "0.2",
+	"language": "en-GB",
+	"dictionaries": ["gaming-terms", "dnd-terms"],
+	"dictionaryDefinitions": [
+		{
+			"name": "dnd-terms",
+			"path": "./.cspell/dnd-terms.txt",
+			"description": "D&D 5e rules and published-setting terms a DM's pages routinely use. In-world names come from page names at check time, not from here."
+		}
+	],
+	"ignoreRegExpList": [
+		"/`[^`\\n]*`/",
+		"/\\b\\d+d\\d+(?:[+-]\\d+)?\\b/",
+		"/\\b\\d+(?:st|nd|rd|th)\\b/"
+	]
+}

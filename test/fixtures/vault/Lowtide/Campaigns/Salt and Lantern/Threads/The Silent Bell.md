@@ -32,9 +32,9 @@ The Thread began on 6 Blackwater 271 CY. It has lain still for 141 years, and wo
 
 ### Possible endings
 
-- The Party speaks the names aloud in [[Reedholt]] and the ledger goes to the moot. Sable rests and the bell falls silent.
-- The Party gives the ledger to [[Ilse Corran]] and the Harbor Council falls. The bell rings again at every tide.
-- The Party gives the ledger to [[Hobb Tarrow]] and the Council buries it. The truth is lost, and the drowned remain.
+- The Party speaks the names aloud in [[Reedholt]] and the ledger goes to the moot. Sable rests and the bell stops ringing.
+- The Party gives the ledger to [[Ilse Corran]] and the Harbor Council falls, and the bell rings again at every tide.
+- The Party gives the ledger to [[Hobb Tarrow]] and the Council hides it. Vessen's truth is lost, and the drowned remain.
 
 ## Links
 

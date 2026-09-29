@@ -9,7 +9,7 @@ sources: []
 - **Role at the table.** An ambusher that pins one target in mud or water.
 - **Threat.** CR 1. One attack a round for 11 damage, plus a grapple that restrains. 75 Hit Points.
 - **Tell.** Bubbles rise in still water, and the mud around the ambush point is smoother than the rest.
-- **Weak to.** Dry ground, where Mire Step gives it nothing, and anything that clears the water and silt around it.
+- **Weak to.** Dry ground (where Mire Step gives it nothing) and anything that clears the water and silt around it.
 - **Used by.** [[Sable]].
 
 > [!narration] First sight

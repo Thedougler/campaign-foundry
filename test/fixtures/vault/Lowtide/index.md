@@ -84,7 +84,7 @@
 - [[Session 1 - A Warden's Offer]] — Hobb Tarrow hires the Party to keep the lamp burning and shows them the pattern of wrecks.
 - [[Session 1 - Fire on the Pier]] — Five goblin arsonists burn the oil warehouse on Pier Row while the Party tries to save the barrels.
 - [[Session 1 - Light on the Water]] — The lamp burns again, Hobb lends the Ebb Lantern, and a bell rings once out on the flats.
-- [[Session 1 - The Lamp Goes Dark]] — The Gullhook lamp dies as the ferry enters the channel, and the boat grounds on a mudbank.
+- [[Session 1 - The Lamp Goes Dark]] — The Gullhook lamp dies as the ferry enters the channel, and the boat grounds on a mud bank.
 - [[Session 1 - The Lamp Room]] — Ilse Corran meets the Party in the Gullhook lamp room and asks what the dark is worth.
 - [[Session 2 - Low Water at the Chapel]] — In the bell loft Sable asks the Party to speak the names while Reedrunner hands climb the stair.
 - [[Session 2 - Mud Under the Boards]] — Two Mire Drowners rise from the silt beneath Reedholt as the Party crosses the Under-Boards.

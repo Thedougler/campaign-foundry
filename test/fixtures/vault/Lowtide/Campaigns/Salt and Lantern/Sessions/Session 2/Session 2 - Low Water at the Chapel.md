@@ -7,7 +7,7 @@ sources: []
 
 ## At a glance
 
-- **Question settled.** Who takes the Vessen ledger: the Party, who can speak its truth, or the Reedrunners, who will sell it?
+- **Question settled.** Does the Party take the Vessen ledger and speak its truth, or do the Reedrunners take it and sell it?
 - **Stakes.** The ledger, the rest of Sable's trust and the safety of the Party as the tide returns.
 - **Where.** The bell loft of [[The Drowned Chapel]].
 - **Opposition.** [[Sable]] and three [[Goblin Warrior]] hands of [[The Reedrunners]].
@@ -17,20 +17,20 @@ sources: []
 
 ## Threads
 
-- [[The Silent Bell]]: Sable rings the bell for the last time unless the Party speaks the names.
-- [[Reedrunner Tithe]]: Ilse's hands arrive to take the ledger by force.
+- In [[The Silent Bell]], Sable rings the bell for the last time unless the Party speaks the names.
+- In [[Reedrunner Tithe]], Ilse's hands arrive to take the ledger by force.
 
 ## Play
 
 ### Situation
 
-Sable will hand the ledger to anyone who says the names of the drowned aloud. She does not want a fight, but she will defend the bell. Three Reedrunner hands are climbing the stair. They are under orders to take the ledger, not to kill, and they will run if the Party holds the loft.
+Sable will hand the ledger to anyone who says the names of the drowned aloud. She does not want a fight, but she will defend the bell. Three Reedrunner hands are climbing the stair. They are under orders to take the ledger without killing anyone, and they will run if the Party holds the loft.
 
 ### Pressure
 
-- The goblins reach the loft in 3 rounds.
+- The goblins arrive at the loft in 3 rounds.
 - The tide returns about an hour after the Party arrives. Each hour after that, the nave floods 1 foot deeper.
-- If Sable is attacked she makes a Drowning Grasp and the bell falls silent.
+- If Sable is attacked she makes a Drowning Grasp and the bell stops ringing.
 
 ### Checks
 

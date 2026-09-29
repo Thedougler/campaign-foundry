@@ -15,7 +15,7 @@ status: active
 - **Advances.** [[Reedrunner Tithe]].
 
 > [!narration] The offer
-> A notice hangs on the Warden's door in a careful hand. "Lamp keeper wanted. Pay in coin, meals at the Wet Lantern. Keep the light at Gullhook burning every night through the Long Ebb. Apply within." Underneath, in smaller letters, someone has added: "The last keeper died of it."
+> A notice hangs on the Warden's door in a careful hand. "Lamp keeper wanted. Pay in coin, meals at the Wet Lantern. Light the lamp at Gullhook every night through the Long Ebb. Apply within." Underneath, in smaller letters, someone has added the words "The last keeper died of it."
 
 ## Play
 
@@ -28,7 +28,7 @@ status: active
 
 ### Hidden truths
 
-- Hobb wants the lamp lit because he expects the bell to ring again on the first night of the Long Ebb and does not want the harbor dark when it does. The Party can learn this from his behavior at the lighthouse.
+- Hobb wants the lamp lit because he expects the bell to ring again on the first night of the Long Ebb and does not want the harbor dark when it does. The Party can learn this from his behaviour at the lighthouse.
 - The quest was never the Council's. Hobb paid for the notice from his own pay.
 
 ## Links

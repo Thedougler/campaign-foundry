@@ -6,7 +6,7 @@ sources: []
 
 ## At a glance
 
-- **Role at the table.** A mobile skirmisher and leader that gives a fight a face.
+- **Role at the table.** A mobile skirmisher and leader who gives a fight a face.
 - **Threat.** CR 2. Two attacks a round for about 14 damage, and 52 Hit Points to wear down.
 - **Tell.** Takes the high ground and shouts orders before the first blow.
 - **Weak to.** Being cut off from its crew, and a fair chance to walk away.
@@ -68,7 +68,7 @@ The captain opens with the pistol from behind cover, then closes with the scimit
 
 ### Outside a fight
 
-A captain bargains. It wants a cut, a favor or a debt owed, and it can be talked down if the Party offers a way out that saves face. It keeps its word to people it respects.
+A captain bargains. It wants a cut, a favour or a debt owed, and it can be talked down if the Party offers a way out that saves face. It keeps its word to people it respects.
 
 ## Depth
 

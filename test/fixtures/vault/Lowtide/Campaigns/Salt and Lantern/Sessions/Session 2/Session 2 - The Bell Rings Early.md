@@ -8,7 +8,7 @@ sources: []
 ## At a glance
 
 - **Pressure.** The bell rings under the flats, the tide is a foot low and the village is awake and afraid.
-- **Choice.** Go to the chapel now while the water is low, ask [[Nib Ashwater]] what the village knows, or calm the crowd at the landing.
+- **Choice.** Go to the chapel now while the water is low. Alternatively, ask [[Nib Ashwater]] what the village knows, or calm the crowd at the landing.
 - **Where.** The Landing in [[Reedholt]].
 - **Who.** [[Nib Ashwater]] and [[Pell Rushlight]].
 
@@ -23,7 +23,7 @@ The Long Ebb is fifty days away, yet the water has left the channel under [[Reed
 
 ### Handles
 
-- **Go to the chapel now.** The water is lowest at dawn. Upside: the way is open and the Reedrunners have not arrived. Cost: no route, no rope, and no knowledge of the tower.
+- **Go to the chapel now.** The water is lowest at dawn. Upside: the way is open and the Reedrunners have not arrived. Cost: the Party has no route or rope and knows nothing of the tower.
 - **Ask Nib.** Nib keeps the village's records and knows the old stories. Upside: a route, a warning and the location of the ledger. Cost: time, and the tide comes back in about two hours.
 - **Calm the village.** Stand on Moot Walk and speak. Upside: the moot trusts the Party and Pell offers a boat. Cost: the best hour of low water passes.
 

@@ -13,11 +13,11 @@ sources: []
 - **Table promise.** Each Session has one real choice, one fight that uses the terrain, and one thing the tide gives up.
 
 > [!narration] The World
-> You come to Lowtide by boat, because the land here is mostly water that has not decided yet. The marsh is flat, silver and full of birds. Villages stand on stilts and every door faces the channel. Twice a year the sea draws back for six days and leaves the mud open to the sky. On the third day, the towers of a drowned city stand up out of the flats, and everyone who lives here pretends not to look. People here are kind to strangers and careful with the truth. They have had a long time to practice both.
+> You come to Lowtide by boat, because the land here is mostly water that has not decided yet. The marsh is flat, silver and full of birds. Villages stand on stilts and every door faces the channel. Twice a year the sea draws back for six days and leaves the mud open to the sky. On the third day, the towers of a drowned city stand up out of the flats, and everyone who lives here looks away. People here are kind to strangers and careful with the truth. They have had a long time to practice both.
 
 ## Calendar
 
-The Calendar has ten months of 36 days, so a year is 360 days. The week has six days: Tideday, Reedday, Saltday, Lampday, Marketday and Restday. Six weeks fill a month exactly, so every month begins on Tideday.
+The Calendar has ten months of 36 days, so a year is 360 days. The week has six days, named Tideday, Reedday, Saltday, Lampday, Marketday and Restday. Six weeks fill a month exactly, and every month begins on Tideday.
 
 Years are counted in Compact Years (CY) from the signing of the Sluice Compact, when the river towns agreed to keep the sluice gates together. The present year is 412 CY. Dates are written as `14 Eelrun 412 CY`.
 
@@ -26,12 +26,12 @@ Years are counted in Compact Years (CY) from the signing of the Sluice Compact, 
 | Thawrun    | 36   | Snowmelt floods the upper channels.                       |
 | Sowmoot    | 36   | Planting on the drying flats.                             |
 | Greenwater | 36   | Algae turns the channels green.                           |
-| Highsedge  | 36   | Reeds stand tallest; thatch is cut.                       |
+| Highsedge  | 36   | Reeds stand tallest and thatch is cut.                    |
 | Longlight  | 36   | Longest days. The first Long Ebb begins on its first day. |
 | Reapmoon   | 36   | Salt harvest.                                             |
-| Mudfall    | 36   | First frosts; the mud hardens.                            |
+| Mudfall    | 36   | First frosts come and the mud hardens.                    |
 | Eelrun     | 36   | Eels migrate and the back channels are busiest.           |
-| Blackwater | 36   | Storms; most boats stay in port.                          |
+| Blackwater | 36   | Storms come and most boats stay in port.                  |
 | Hollowdark | 36   | Long nights. The second Long Ebb begins on its first day. |
 
 The Long Ebb lasts six days. The sea draws out on the first day of Longlight and of Hollowdark, and returns on the sixth day. Lamp Night falls on 36 Eelrun, when every window shows a lit lamp for the boats lost.
@@ -44,7 +44,7 @@ The church teaches that the sea is [[Mother Ebb]], who breathes out twice a year
 
 ### History in brief
 
-The river towns signed the Sluice Compact in 0 CY to share the gates that hold the tide out of their fields. The Compact made [[Saltwick]] rich. In 271 CY the river city of Vessen flooded in one night, and the Compact said the sluice at [[Crookback Sluice]] had failed in a storm. The story is in [[The Drowning of Vessen]]. All of this happens in [[The Brack]], the marsh country south of the river mouth.
+The river towns signed the Sluice Compact in 0 CY to share the tide gates, which keep the sea out of their fields. The Compact made [[Saltwick]] rich. In 271 CY the river city of Vessen flooded in one night, and the Compact said the sluice at [[Crookback Sluice]] had failed in a storm. The story is in [[The Drowning of Vessen]]. All of this happens in [[The Brack]], the marsh country south of the river mouth.
 
 ### Hidden truths
 

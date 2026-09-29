@@ -28,6 +28,6 @@ date: "23 Eelrun 412 CY"
 
 ## Next
 
-- Decide whom to tell: [[Hobb Tarrow]], the Harbor Council or the village moot.
+- Decide whom to tell out of [[Hobb Tarrow]], the Harbor Council or the village moot.
 - The quest [[Keep Gullhook Lit]] runs to the end of the Long Ebb, and someone must be at the lighthouse.
 - [[Tamsin Wick]] has an unresolved debt to [[Ilse Corran]].

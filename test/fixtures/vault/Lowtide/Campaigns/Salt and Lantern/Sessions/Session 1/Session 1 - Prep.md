@@ -25,7 +25,7 @@ date: "14 Eelrun 412 CY"
 ## Threads
 
 - [[Reedrunner Tithe]] is active. [[Ilse Corran]] wants the lamp dark on moonless nights. The lever is the cut wick seal, which proves the outage is deliberate.
-- [[The Silent Bell]] has not yet opened for the Party. The lever is a single bell stroke heard from the lighthouse at the end of the night.
+- [[The Silent Bell]] has not yet opened for the Party. The lever is one bell stroke heard from the lighthouse at the end of the night.
 
 ## Opposition
 

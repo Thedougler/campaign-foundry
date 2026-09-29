@@ -13,7 +13,7 @@ sources: []
 - **Reactions.** [[Hobb Tarrow]] is quiet and grateful. [[Pell Rushlight]] arrives by boat with the Party's packs.
 
 > [!narration] Closing image
-> The great lamp turns, and a white beam sweeps the channel from the mole to the reeds and back. In the harbor, boats show their own lamps one by one, small and yellow. Hobb Tarrow stands at the gallery rail with a brass lantern in his hand and says nothing. Far out on the flats, beyond the reach of the light, a bell rings once, low and slow, and stops. Nobody else seems to hear it.
+> The great lamp turns, and a white beam sweeps the channel from the mole to the reeds and back. In the harbor, boats show their own lamps one by one, small and yellow. Hobb Tarrow stands at the gallery rail with a brass lantern in his hand and says nothing. Far out on the flats, beyond the edge of the light, a bell rings once, low and slow, and stops. Nobody else seems to hear it.
 
 ## Play
 

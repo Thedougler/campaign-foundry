@@ -55,7 +55,7 @@ The chapel of Saint Orrin stood in the middle of Vessen and was where the town m
 
 ### Threads
 
-- [[The Silent Bell]] is centered here.
+- [[The Silent Bell]] is centred here.
 - [[The Failing Sluice]] is visible in the new flood lines.
 
 ## Links

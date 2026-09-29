@@ -13,14 +13,14 @@ sources: []
 - **Asks of followers.** Return what the water lends, and never keep what the tide gives up.
 
 > [!narration] Invocation
-> "Mother, you lend and you take. What the water gave me, I give back. What the water took from me, I do not ask for, and I ask you to keep it kind." The devotee touches the stone to the lips, then to the water, and lets it go.
+> "Mother, you lend and you take. What the water gave me, I give back. What the water took from me, I do not ask for, and I ask you to keep it kind." The devotee touches the stone to the lips and then to the water, and lets it go.
 
 ## Play
 
-- **Boons.** A devotee who returns a found object to the water gains Heroic Inspiration once per day. Healers at her shrines treat marsh fever at no charge.
+- **Boons.** A devotee who returns a found object to the water gains Heroic Inspiration once per day. Her shrines have healers who treat marsh fever at no charge.
 - **Costs.** A follower who keeps a found thing for more than a day feels cold and suffers Disadvantage on the next saving throw against being Frightened.
 - **Clergy and shrines.** Small shrines stand in [[Saltwick]] and [[Reedholt]]. They have no bells, by old custom.
-- **How it intervenes.** Through tide and weather, never with a voice. A prayer for calm water may be answered with fog instead.
+- **How it intervenes.** Through tide and weather, never with a voice. Someone who prays for calm water may be answered with fog instead.
 
 ## Depth
 

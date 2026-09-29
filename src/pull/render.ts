@@ -64,7 +64,7 @@ export function renderSheet(sheet: Sheet, player: string): string {
 export function renderSpells(sheet: Sheet): string {
 	const lines = ["## Spells", ""];
 	if (sheet.spellcasting.length === 0 && sheet.spells.length === 0) {
-		return [...lines, "No spells.", ""].join("\n");
+		return [...lines, "This character does not cast spells.", ""].join("\n");
 	}
 	for (const s of sheet.spellcasting) {
 		lines.push(`- **${s.class}.** ${s.ability} spellcasting: save DC ${s.saveDc}, spell attack ${signed(s.attackBonus)}.`);

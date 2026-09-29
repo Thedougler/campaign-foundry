@@ -10,18 +10,18 @@ sources: []
 - **Next move.** Dim [[Gullhook Lighthouse]] on the next dark night and strip whatever the tide brings in.
 - **Led by.** [[Ilse Corran]].
 - **Base.** The eel sheds in the Undertow of [[Saltwick]], and skiffs hidden in the reed beds of [[The Brack]].
-- **Strength.** About forty crew: boatmen, [[Goblin Warrior]] hired hands, and a handful of veterans with pistols.
+- **Strength.** About forty crew: boatmen, [[Goblin Warrior]] hired hands, and a few veterans with pistols.
 
 > [!narration] Public face
-> You notice the skiffs first, low and dark and always a little too close to the ferries. A goblin at a landing hands a boatman a slip of paper, and the boatman pays without reading it. Nobody looks at the man who takes the coin. Along the Undertow they say a boat is safe if it is "run", and that the runners are only being neighborly. They call themselves the Reedrunners.
+> You notice the skiffs first, low and dark and always a little too close to the ferries. A goblin at a landing gives a boatman a slip of paper, and the boatman pays without reading it. Nobody looks at the man who takes the coin. Along the Undertow they say a boat is safe if it is "run", and that the runners are only being neighbourly. They call themselves the Reedrunners.
 
 ## Play
 
-- **When met.** Polite and businesslike. A crew member offers a chart, a favor or a fee, and never makes a threat out loud.
-- **When opposed.** They withdraw, then strike at what the Party depends on: the oil, the ferries, a friend's boat.
+- **When met.** Polite and businesslike. A crew member offers a chart, a favour or a fee, and never makes a threat out loud.
+- **When opposed.** They withdraw, then strike at what the Party depends on, such as the oil, the ferries or a friend's boat.
 - **Offers.** Charts of the back channels, safe passage, salvage shares and information about Saltwick.
-- **Costs.** A favor owed, called in at the worst moment. Refusal costs the tithe doubled.
-- **How to notice or interfere.** Watch which boats never seem to wreck, cut off their supply of lamp oil, or turn the goblin hands with fair pay. See [[Reedrunner Tithe]].
+- **Costs.** A favour owed, called in at the worst moment. Refusal costs the tithe doubled.
+- **How to notice or interfere.** Watch which boats never seem to wreck. Cut off their supply of lamp oil, or turn the goblin hands with fair pay. See [[Reedrunner Tithe]].
 
 ## Depth
 
@@ -31,7 +31,7 @@ The Reedrunners began as fishermen who guided boats through the marsh after Vess
 
 ### Hidden truths
 
-- Half the crew are Saltwick men who owe money to the Council families. Ilse holds their debts, and this is how she keeps them. The Party can learn this from any prisoner or by reading the debt slips in the eel sheds.
+- Half the crew are Saltwick men who owe money to the Council families. Ilse holds their debts, and this is how she keeps them. The Party can learn this from any prisoner or by reading the debt slips kept in the eel sheds.
 - Ilse plans to use the ledger to turn the Council against itself. She does not plan to leave Saltwick.
 
 ### Threads

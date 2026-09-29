@@ -9,13 +9,13 @@ parent: ""
 ## At a glance
 
 - **Character.** Silver flats, reed beds and channels that change course after every storm. The horizon is the same in every direction.
-- **Held by.** No one. [[Saltwick]] collects the tolls, [[Reedholt]] keeps the ferries and [[The Reedrunners]] keep the back channels.
+- **Held by.** Nobody holds it, though [[Saltwick]] collects the tolls, [[Reedholt]] keeps the ferries and [[The Reedrunners]] keep the back channels.
 - **Changing.** The sea has begun to draw out early. Boatmen report a bell ringing under the water. See [[The Silent Bell]].
 - **Crossing.** Saltwick to Reedholt is a day by ferry or two days on foot along the causeway. Off the routes, ground is [[Bog Ground]].
 - **Danger.** Bog Ground, fast tides and [[Mire Drowner]] creatures under the boards.
 
 > [!narration] Arrival
-> The road ends at a post with a bell on it, and past the post there is only water and reeds. The air tastes of salt and rot, and the light comes up off the mud as much as down from the sky. Far out, a single stilt house stands with one lamp lit in its window. A heron watches you from a channel edge and does not move.
+> The road ends at a post with a bell on it, and past the post there is only water and reeds. The air tastes of salt and rot, and the light comes up off the mud as much as down from the sky. Far out, one stilt house stands with one lamp lit in its window. A heron watches you from a channel edge and does not move.
 
 ## Play
 
@@ -43,7 +43,7 @@ Two routes cross the Brack. The causeway from [[Saltwick]] to [[Reedholt]] takes
 ### Rumors
 
 - A bell rings under the water on still nights, a week before each Long Ebb.
-- The Reedrunners will sell a chart of the back channels, but the price is a favor.
+- The Reedrunners will sell a chart of the back channels, but the price is a favour.
 - The sluice at Crookback groans when the wind is from the east.
 
 ## Depth

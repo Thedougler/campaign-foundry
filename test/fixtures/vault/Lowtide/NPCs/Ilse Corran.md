@@ -8,8 +8,8 @@ creature: "[[Bandit Captain]]"
 ## At a glance
 
 - **Role.** Captain of [[The Reedrunners]] and the person Saltwick pays without saying so.
-- **Wants.** The [[Harbormaster's Ledger of Vessen]], which would put the Harbor Council in her debt for good.
-- **Voice.** Quiet, exact and polite. She never raises her voice and never repeats an offer.
+- **Wants.** The [[Harbormaster's Ledger of Vessen]], which would put the Harbor Council in her debt permanently.
+- **Voice.** Quiet, exact and polite. She never raises her voice, and an offer once made is not repeated.
 - **Found at.** The Undertow in [[Saltwick]] by day, and [[Gullhook Lighthouse]] on dark nights when the take is large.
 
 > [!narration] First look
@@ -31,7 +31,7 @@ Ilse was born Ilse Marrow on Weir Street, the daughter of a Council clerk. She k
 
 ### Hidden truths
 
-- Ilse has read part of the Vessen story in the Council's own copy-books and knows the sluice was opened on purpose. She needs the ledger to prove it, because without it she has only a story. The Party can learn this from her own words if they let her talk, or from [[Tamsin Wick]], who worked for her as a child.
+- Ilse has read part of the record of Vessen in the Council's own copy-books and knows the sluice was opened on purpose. She needs the ledger to prove it, because without it she has only hearsay. The Party can learn this from her own words if they let her talk. They can also learn it from [[Tamsin Wick]], who worked for her as a child.
 - She has never used the pistol on anyone. She keeps it for the sound.
 
 ### Threads

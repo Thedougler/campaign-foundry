@@ -32,7 +32,7 @@ dndbeyond_url: "https://www.dndbeyond.com/characters/000000001"
 
 ## Spells
 
-Brannoch casts no spells.
+Brannoch does not cast spells.
 
 ## Inventory
 
@@ -44,7 +44,7 @@ Brannoch casts no spells.
 ## Story
 
 > [!narration] Portrait
-> You are a broad dwarf with a grey-shot beard cut short for the helmet, and a chin that has met a shield more than once. Your chain mail is patched at the shoulder with a different-colored ring. You stand with your feet planted and your eyes on the exits. You carry a wooden token on a cord, and you touch it when you think nobody sees.
+> You are a broad dwarf with a grey-shot beard cut short for the helmet, and a chin that has met a shield more than once. Your chain mail is patched at the shoulder with a different-coloured ring. You stand with your feet planted and your eyes on the exits. You carry a wooden token on a cord, and you touch it when you think nobody sees.
 
 ### Backstory
 
@@ -54,7 +54,7 @@ Brannoch served eight years in a mountain garrison and left when his sergeant re
 
 - **Goal.** Find Corin, last seen crewing a boat that ran the back channels. See [[Reedrunner Tithe]].
 - **Bond.** [[Hobb Tarrow]], who reminds him of his old sergeant and is the first person in Saltwick to hire him.
-- **Fear.** Standing behind a wall while a place floods. It comes from the stories the garrison told about [[The Drowning of Vessen]].
+- **Fear.** Waiting behind a wall while a place floods. It comes from the stories the garrison told about [[The Drowning of Vessen]].
 
 ## Plans
 

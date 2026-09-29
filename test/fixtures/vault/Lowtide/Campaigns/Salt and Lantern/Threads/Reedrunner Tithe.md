@@ -10,7 +10,7 @@ status: active
 - **Driven by.** [[Ilse Corran]] and [[The Reedrunners]].
 - **Stands at.** The Party held the lighthouse and wounded Ilse. The crew failed to take the oil, but the ferries still pay.
 - **If nobody acts.** The Reedrunners dim [[Gullhook Lighthouse]] again on the dark of the moon and take the wrecks.
-- **Levers.** [[Pell Rushlight]], the debt slips in the eel sheds, [[Tamsin Wick]]'s past and the lamp itself.
+- **Levers.** [[Pell Rushlight]], the debt slips kept in the eel sheds, [[Tamsin Wick]]'s past and the lamp itself.
 
 ## Play
 
@@ -27,7 +27,7 @@ The Reedrunners took over the tithe from the old ferry guilds after Vessen drown
 
 ### Hidden truths
 
-- Half the crew are Saltwick men in debt to Ilse. The Party can learn this from the slips in the eel sheds or by asking any prisoner.
+- Half the crew are Saltwick men in debt to Ilse. The Party can learn this from the debt slips kept in the eel sheds or by asking any prisoner.
 - [[Tamsin Wick]] was Ilse's runner as a child. Ilse still thinks of her as one of hers. The Party can learn this by watching how Ilse addresses her.
 
 ### Possible endings

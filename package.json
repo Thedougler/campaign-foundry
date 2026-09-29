@@ -3,6 +3,7 @@
 	"scripts": {
 		"cf": "node src/cli.ts",
 		"check": "node src/cli.ts check",
+		"setup": "vale sync",
 		"typecheck": "tsc",
 		"test": "vitest run",
 		"eval:check": "node evals/check.ts"
@@ -12,17 +13,24 @@
 		"ajv": "^8.20.0",
 		"ajv-formats": "^3.0.1",
 		"commander": "^15.0.0",
+		"cspell-lib": "^10.3.5",
 		"exa-js": "^2.23.0",
 		"fastest-levenshtein": "^1.0.16",
 		"firecrawl": "^4.41.0",
 		"harper.js": "^2.10.0",
+		"markdownlint": "^0.41.1",
 		"mdast-util-to-string": "^4.0.0",
 		"remark-frontmatter": "^5.0.0",
+		"remark-gfm": "^4.0.1",
 		"remark-lint": "^10.0.1",
+		"remark-lint-no-undefined-references": "^5.0.2",
 		"remark-parse": "^11.0.0",
+		"remark-preset-lint-consistent": "^6.0.1",
+		"remark-preset-lint-recommended": "^7.0.1",
 		"sharp": "^0.35.5",
 		"tinyglobby": "^0.2.17",
 		"unified": "^11.0.5",
+		"vfile": "^6.0.3",
 		"yaml": "^2.9.1"
 	},
 	"devDependencies": {

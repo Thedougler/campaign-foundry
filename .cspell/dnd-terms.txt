@@ -1,0 +1,92 @@
+# D&D 5e terms a DM's pages routinely use. One word per line; lines starting with # are comments.
+# In-world names (people, places, factions) are not listed here: the gate builds them from page names.
+# Add a word here only when it is a rules or published-setting term. Keep the list sorted within each group.
+
+# Species and peoples
+aasimar
+dragonborn
+duergar
+firbolg
+genasi
+githyanki
+githzerai
+goliath
+halflings
+kenku
+orcs
+tabaxi
+tieflings
+
+# Creatures
+bugbear
+bugbears
+drow
+gnoll
+gnolls
+illithid
+illithids
+kobolds
+lich
+liches
+myconid
+myconids
+rakshasa
+tarrasque
+
+# Rules and play
+cantrips
+counterspell
+darkvision
+greataxe
+greatsword
+longbow
+shortbow
+statblock
+statblocks
+warhammer
+battlemap
+battlemaps
+tremorsense
+blindsight
+truesight
+spellcasting
+spellbook
+
+# Published settings, planes and authors
+Eberron
+Faerûn
+Faerun
+Mordenkainen
+Neverwinter
+Tasha
+Waterdeep
+Xanathar
+Icewind
+Baldur
+Bahamut
+Tiamat
+Lolth
+Moradin
+Corellon
+Gruumsh
+Pelor
+
+# 2024 rules names that an American-spelt printing fixes (a Fighting Style, a species trait) or that no dictionary has
+defense
+handaxe
+handaxes
+halfling
+reroll
+rerolls
+shortbows
+shortsword
+shortswords
+skillful
+
+# Names D&D Beyond prints in a pulled Sheet (its 2024 spellings, one of them American)
+bloodwell
+metamagic
+traveler's
+unarmored
+waterskin
+waterskins

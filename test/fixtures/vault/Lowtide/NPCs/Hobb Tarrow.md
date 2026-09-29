@@ -13,7 +13,7 @@ creature: "[[Bandit Captain]]"
 - **Found at.** The Harbor Warden's office in [[Saltwick]], or in the keeper's room at [[Gullhook Lighthouse]].
 
 > [!narration] First look
-> He is a heavy man past sixty in a watch coat with the badge worn smooth. His beard is white and cut square, and his hands are scarred from rope. He stands with his weight on one leg, favoring an old wound. The room smells of pipe smoke and wet wool. "I do not have the men," he says. "I have a lamp, and I have coin."
+> He is a heavy man past sixty in a watch coat with the badge worn smooth. His beard is white and cut square, and his hands are scarred from rope. He stands with his weight on one leg, favouring an old wound. The room smells of pipe smoke and wet wool. "I do not have the men," he says. "I have a lamp, and I have coin."
 
 ## Play
 
@@ -32,7 +32,7 @@ Hobb's family has served the harbor for nine generations. One ancestor, Corvin T
 ### Hidden truths
 
 - Hobb knows the sluice was opened on purpose and does not know why. He fears the ledger because it will name his ancestor. The Party can learn this by finding the burned letter's ash in the keeper's stove, or by pressing him after they have found the ledger.
-- He lent the Party the [[Ebb Lantern]] because he believes the bell will ring again, and someone must go down when it does.
+- He loaned the Party the [[Ebb Lantern]] because he believes the bell will ring again, and someone will have to go down when it does.
 
 ### Threads
 

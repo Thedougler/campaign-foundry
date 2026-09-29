@@ -17,7 +17,7 @@ creature: "[[Mire Drowner]]"
 
 ## Play
 
-- **Opens them up.** Ringing the bell, speaking the names of Vessen's dead, and telling the truth.
+- **Opens them up.** Ringing the bell and speaking the names of Vessen's dead, along with telling the truth.
 - **Shuts them down.** Lies, weapons drawn, and anyone from the Reedrunners.
 - **Will share.** What happened in the tower on the night of the flood and where the ledger lies.
 - **Will not share.** Her own name, until the Party has rung the bell.
@@ -27,7 +27,7 @@ creature: "[[Mire Drowner]]"
 
 ### History
 
-The harbormaster of Vessen hid his ledger in the bell loft on 3 Blackwater 271 CY and told Sable to keep it safe. On the night of 6 Blackwater she rang the bell to warn the city. The water rose past the door before anyone could open it, and she has kept the bell since.
+The harbormaster of Vessen hid his ledger in the bell loft on 3 Blackwater 271 CY and told Sable to guard it. On the night of 6 Blackwater she rang the bell to warn the city. The water rose past the door before anyone could open it, and she has kept the bell since.
 
 ### Hidden truths
 

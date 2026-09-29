@@ -27,7 +27,7 @@ Text.
 
 ### Cosmology
 
-Lore: [[Crown Fire]]. Rules: [[Old Crossing Rules]]. Region: [[Ashen Reach]]. Campaign: [[Ashes of the Crown]].
+See [[Crown Fire]], [[Old Crossing Rules]], [[Ashen Reach]] and [[Ashes of the Crown]].
 
 ### History in brief
 
@@ -35,7 +35,7 @@ The Crown burned in a night.
 
 ### Hidden truths
 
-The Lantern remembers: [[Ashen Lantern]], [[Cinder Ward]], [[Gull's Errand]].
+The Lantern remembers [[Ashen Lantern]], [[Cinder Ward]] and [[Gull's Errand]].
 
 ## Links
 

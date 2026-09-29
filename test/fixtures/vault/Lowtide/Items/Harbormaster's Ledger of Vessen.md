@@ -13,7 +13,7 @@ sources: []
 - **Held by.** The Party. [[Odalys Ferro]] carries it, taken from the bell loft of [[The Drowned Chapel]].
 
 > [!narration] First look
-> The book is the size of two hands, bound in green oilcloth gone black at the edges. The pages are thick and stiff with wax, and the ink has faded to brown. It smells of candle smoke and damp. A strip of red cord marks a page near the end, and on the cover, in a clerk's neat hand, is a single word: "Vessen."
+> The book is the size of two hands, bound in green oilcloth gone black at the edges. The pages are thick and stiff with wax, and the ink has faded to brown. It smells of candle smoke and damp. A strip of red cord marks a page near the end, and on the cover, in a clerk's neat hand, is one word, "Vessen."
 
 ## Play
 

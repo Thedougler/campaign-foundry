@@ -39,7 +39,7 @@ dndbeyond_url: "https://www.dndbeyond.com/characters/000000003"
 
 - Scale mail and a shield with the mark of [[Mother Ebb]].
 - Mace, a healer's kit and a priest's pack.
-- A holy symbol: a reed and a river stone on a cord.
+- A reed and a river stone on a cord, worn as a holy symbol.
 - The [[Harbormaster's Ledger of Vessen]], wrapped in oilcloth.
 - 18 gold pieces.
 

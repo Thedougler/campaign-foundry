@@ -12,7 +12,7 @@ sources: []
 
 ## Play
 
-Bog Ground is any marsh, mud flat or silt-covered floor the DM names as such. It is Difficult Terrain: every foot of movement costs 1 extra foot.
+Any marsh, mud flat or silt-covered floor that the DM declares to be Bog Ground counts as Difficult Terrain, and every foot of movement across it costs 1 extra foot.
 
 When a creature takes the Dash action and moves across Bog Ground, it must succeed on a DC 10 Dexterity saving throw at the end of that movement or have the Prone condition. A creature wearing Heavy armor has Disadvantage on the save.
 

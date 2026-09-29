@@ -17,14 +17,14 @@ sources: []
 
 ## Threads
 
-- [[Reedrunner Tithe]]: the cut wick seal proves the outage is deliberate, and Ilse wants a deal, not a fight.
+- In [[Reedrunner Tithe]], the cut wick seal proves the outage is deliberate, and Ilse wants a deal and would avoid a fight.
 - [[The Silent Bell]]: on still nights the bell can be heard clearly from this room, and Ilse listens for it.
 
 ## Play
 
 ### Situation
 
-Ilse is here to make a point. She has the pistol out but has not used it. The oil trail runs to the door, and she holds a lit lantern in her other hand. If the Party attacks, she drops the lantern and the room burns. If they talk, she offers a fee, a favor owed, or a warning.
+Ilse is here to make a point. She has the pistol out but has not used it. The oil trail runs to the door, and she holds a lit lantern in her other hand. If the Party attacks, she drops the lantern and the room burns. If they talk, she offers a fee, a favour owed, or a warning.
 
 ### Pressure
 
@@ -34,9 +34,9 @@ Ilse is here to make a point. She has the pistol out but has not used it. The oi
 
 ### Checks
 
-- Persuading Ilse to stand down takes a DC 15 Charisma (Persuasion) check, or DC 12 if the Party offers something she wants.
+- Persuading Ilse to withdraw takes a DC 15 Charisma (Persuasion) check, or DC 12 if the Party offers something she wants.
 - Stamping out the oil trail takes a DC 12 Dexterity (Acrobatics) check.
-- Reading Ilse's real intent takes a DC 13 Wisdom (Insight) check. She wants a message sent, not a fight.
+- Reading Ilse's real intent takes a DC 13 Wisdom (Insight) check. She wants to send a message and avoid a fight.
 
 ### Encounter
 
@@ -63,5 +63,5 @@ One Bandit Captain and two Goblin Warriors are worth 550 XP. That sits between t
 
 ### Spotlight
 
-- [[Tamsin Wick]]: Ilse greets her by the name she used as a child.
+- Ilse greets [[Tamsin Wick]] by the name she used as a child.
 - [[Brannoch Vell]] can ask Ilse about his brother Corin, and she will deny knowing him a little too quickly.

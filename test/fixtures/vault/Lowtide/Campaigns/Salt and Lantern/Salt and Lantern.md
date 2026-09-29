@@ -19,7 +19,7 @@ session_length_hours: 3
 ## Play
 
 - **Session length.** 3 hours, overriding the DM Settings default of 4. Prep plans about five Scenes.
-- **Table agreements.** Play is in person. The table agreed to keep horror to mood, not gore, and to skip any scene that a Player asks to skip. Players text the DM between Sessions with downtime plans.
+- **Table agreements.** Play is in person. The table agreed that horror stays at mood without gore, and that any scene a Player asks to skip is skipped. Players text the DM between Sessions with downtime plans.
 - **House Rules.** [[Bog Ground]] is in force across [[The Brack]].
 
 ## Depth
@@ -31,7 +31,7 @@ Vessen drowned 141 years ago and the Compact called it an accident. It was not. 
 ### Themes
 
 - What a community agrees not to say, and the price of that silence.
-- Debts, favors and the things that cannot be returned.
+- Debts, favours and the things that cannot be returned.
 - Tide, weather and slow change against the plans of people.
 
 ### Direction

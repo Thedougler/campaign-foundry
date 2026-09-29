@@ -15,7 +15,7 @@ date: "15 Eelrun 412 CY"
 
 ## What happened
 
-The Marl Ferry grounded on a mudbank when the Gullhook lamp went out. [[Tamsin Wick]] recognized the unlit skiff's signal code, and the Party freed the ferry with [[Pell Rushlight]] and reached the [[Saltwick]] stairs.
+The Marl Ferry grounded on a mud bank when the Gullhook lamp went out. [[Tamsin Wick]] recognised the unlit skiff's signal code, and the Party freed the ferry with [[Pell Rushlight]] and reached the [[Saltwick]] stairs.
 
 [[Hobb Tarrow]] hired the Party in his office to keep the lamp lit through the Long Ebb. He agreed to 300 gold pieces after some bargaining. He showed the pattern of wrecks on his chart, and [[Odalys Ferro]] saw that he was holding something back about the last keeper.
 

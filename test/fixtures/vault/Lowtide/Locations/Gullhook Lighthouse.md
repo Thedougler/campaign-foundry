@@ -15,7 +15,7 @@ parent: "[[Saltwick]]"
 - **Prize.** The [[Ebb Lantern]], kept in the keeper's room.
 
 > [!narration] Entering
-> The door swings inward onto a cold stone room that smells of fish oil and old smoke. A spiral stair climbs into the dark, and its lowest steps are wet and green. A chain runs up the wall beside it, and a single oil flask stands on the bottom step with its cork lying next to it. Above you something scrapes across stone.
+> The door swings inward onto a cold stone room that smells of fish oil and old smoke. A spiral stair climbs into the dark, and its lowest steps are wet and green. Beside it a chain runs up the wall, and an oil flask stands on the bottom step with its cork lying next to it. Above you something scrapes across stone.
 
 ## Play
 
@@ -28,8 +28,8 @@ parent: "[[Saltwick]]"
 
 ### Hazards
 
-- **Rotten stair.** Crossing the steps quickly requires a DC 12 Dexterity saving throw; a failure drops the creature 10 feet onto the oil-slick floor for 3 (1d6) Bludgeoning damage.
-- **Eel oil.** The lamp room floor is soaked. Any fire that starts there burns for 3 rounds. A creature that starts its turn in the flames takes 5 (1d10) Fire damage.
+- **Rotten stair.** Crossing the steps quickly requires a DC 12 Dexterity saving throw. On a failure the creature drops 10 feet onto the oil-slick floor for 3 (1d6) Bludgeoning damage.
+- **Eel oil.** The lamp room floor is soaked. Any fire started in the room burns for 3 rounds. A creature that starts its turn in the flames takes 5 (1d10) Fire damage.
 
 ### Occupants
 
@@ -51,7 +51,7 @@ The Compact raised the tower in 60 CY. The last keeper, Old Jory, died in the sp
 ### Hidden truths
 
 - The lamp does not fail by accident. Someone breaks the wick seal each dark moon. The Party can find the cut marks on the seal in the lamp room.
-- The Reedrunners want the light dark so that boats run onto the mudbanks and can be salvaged.
+- The Reedrunners want the light dark so that boats run onto the mud banks and can be salvaged.
 
 ### Threads
 

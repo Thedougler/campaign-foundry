@@ -15,8 +15,8 @@ status: dormant
 ## Play
 
 - **Shows up as.** Higher tides, brackish wells, the groaning of the gate in an east wind and rising silt lines on stone.
-- **Next development.** A spring tide covers the causeway and strands travelers. The Council calls it a freak event.
-- **Levers.** Repair needs the Compact's funds, which need the Council, which needs a reason to spend them. The truth of [[The Drowning of Vessen]] is a reason.
+- **Next development.** A spring tide covers the causeway and leaves travellers cut off. The Council calls it a freak event.
+- **Levers.** Repair needs the Compact's funds, which need the Council, which needs a reason to spend them, and the truth of [[The Drowning of Vessen]] would supply one.
 - **Resolves when.** The gate is repaired, replaced or left to fail.
 
 ## Depth
@@ -31,7 +31,7 @@ The gate was opened for three days in 271 CY and never fully closed afterward. T
 
 ### Possible endings
 
-- The Party forces a full repair, and the Long Ebb exposes Vessen for good.
+- The Party forces a full repair, and the Long Ebb exposes Vessen permanently.
 - The gate fails in the next big storm, and [[Saltwick]] floods.
 - The gate is left as it is, and the marsh grows a little each year.
 

@@ -37,18 +37,18 @@ date: "22 Eelrun 412 CY"
 
 ## Clues
 
-| Clue                                                                      | Can surface in                                                                |
-| ------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| The water under Reedholt dropped a foot overnight.                        | [[Session 2 - The Bell Rings Early]]                                          |
-| The bell rings in threes with a pause.                                    | [[Session 2 - The Bell Rings Early]], [[Session 2 - Low Water at the Chapel]] |
-| Nib keeps tally-sticks with 3,912 names of the drowned.                   | [[Session 2 - Nib's Tally]], [[Session 2 - What the Ledger Says]]             |
-| The ledger lies in a niche in the bell loft.                              | [[Session 2 - Nib's Tally]], [[Session 2 - Low Water at the Chapel]]          |
-| The drowners lie under Reedholt because the Vessen dead drifted.          | [[Session 2 - Mud Under the Boards]], [[Session 2 - Low Water at the Chapel]] |
-| A man found on the plank walk last month wore Vessen-made boots.          | [[Session 2 - The Bell Rings Early]], [[Session 2 - Mud Under the Boards]]    |
-| The lowest stones of the tower carry tidemarks older than the chapel.     | [[Session 2 - Low Water at the Chapel]], [[Session 2 - What the Ledger Says]] |
-| Ilse's boats left Saltwick at dusk.                                       | [[Session 2 - Nib's Tally]], [[Session 2 - Low Water at the Chapel]]          |
-| The order in the ledger is signed Corvin Tarrow.                          | [[Session 2 - Low Water at the Chapel]], [[Session 2 - What the Ledger Says]] |
-| Crookback Sluice no longer closes, and the silt line is over head height. | [[Session 2 - Low Water at the Chapel]], [[Session 2 - What the Ledger Says]] |
+| Clue                                                                       | Can surface in                                                                |
+| -------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| The water under Reedholt dropped a foot overnight.                         | [[Session 2 - The Bell Rings Early]]                                          |
+| The bell rings in threes with a pause.                                     | [[Session 2 - The Bell Rings Early]], [[Session 2 - Low Water at the Chapel]] |
+| Nib keeps tally-sticks with 3,912 names of the drowned.                    | [[Session 2 - Nib's Tally]], [[Session 2 - What the Ledger Says]]             |
+| The ledger lies in a niche in the bell loft.                               | [[Session 2 - Nib's Tally]], [[Session 2 - Low Water at the Chapel]]          |
+| The drowners lie under Reedholt because the Vessen dead drifted.           | [[Session 2 - Mud Under the Boards]], [[Session 2 - Low Water at the Chapel]] |
+| A man found on the plank walk last month wore Vessen-made boots.           | [[Session 2 - The Bell Rings Early]], [[Session 2 - Mud Under the Boards]]    |
+| The lowest stones of the tower carry tidemarks older than the chapel.      | [[Session 2 - Low Water at the Chapel]], [[Session 2 - What the Ledger Says]] |
+| Ilse's boats left Saltwick at dusk.                                        | [[Session 2 - Nib's Tally]], [[Session 2 - Low Water at the Chapel]]          |
+| The order in the ledger is signed Corvin Tarrow.                           | [[Session 2 - Low Water at the Chapel]], [[Session 2 - What the Ledger Says]] |
+| Crookback Sluice no longer closes, and the silt line is above head height. | [[Session 2 - Low Water at the Chapel]], [[Session 2 - What the Ledger Says]] |
 
 ## Links
 

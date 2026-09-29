@@ -32,11 +32,11 @@ Text.
 ## Story
 
 > [!narration] Portrait
-> Tam keeps her shoulders low and her coat buttoned to the throat; a silver thread runs through one braid.
+> Tam keeps her shoulders low and her coat buttoned to the throat, and a silver thread is braided into her hair.
 
 ### Backstory
 
-Raised on the ferry lines of Old Crossing. Café-born, storm-marked. Nothing here is pulled.
+Raised on the ferry lines of Old Crossing. Café-born, storm-marked. The Story side is never pulled.
 
 ## Goals and bonds
 

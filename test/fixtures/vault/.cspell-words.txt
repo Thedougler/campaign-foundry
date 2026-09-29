@@ -1,0 +1,30 @@
+# Lowtide words that no page is named for. One word per line; a line starting with # is a comment.
+# The gate's spelling and grammar layers add these to the page names they already know.
+
+# Calendar months (Lowtide.md)
+Thawrun
+Snowmelt
+Sowmoot
+Greenwater
+Highsedge
+Longlight
+Reapmoon
+Mudfall
+Eelrun
+Hollowdark
+
+# Calendar weekdays (Lowtide.md)
+Tideday
+Reedday
+Saltday
+Lampday
+Marketday
+Restday
+
+# Names and families mentioned in passing
+Corin
+Corvin
+Jory
+Hesk
+Hesk's
+Rushlights

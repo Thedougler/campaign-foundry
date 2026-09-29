@@ -29,7 +29,7 @@ If the oil burns, the lamp at [[Gullhook Lighthouse]] cannot be lit with clean o
 
 ### Terrain
 
-Pier Row is narrow wet planking with barrels along one side and the channel on the other. The warehouse is a single room 30 feet by 40 feet with a raised loft. The roofs of the next two buildings are 10 feet higher and can be reached by a stack of crates.
+Pier Row is narrow wet planking with barrels along one side and the channel on the other. The warehouse is one room 30 feet by 40 feet with a raised loft. The roofs of the next two buildings are 10 feet higher and can be reached by a stack of crates.
 
 ### Checks
 
@@ -47,7 +47,7 @@ The fight covers the warehouse, the pier and the roofs of the buildings on eithe
 
 ![[Goblin Warrior#Statblock]]
 
-Five Goblin Warriors: two with torches at the warehouse, two with shortbows on the roof, and one guarding the door.
+Five Goblin Warriors stand ready. Two hold torches at the warehouse and two aim shortbows from the roof. The fifth watches the door.
 
 ### Balance
 
@@ -57,7 +57,7 @@ Five Goblin Warriors are worth 250 XP. That is under the Low budget of 450 XP fo
 
 | If                                            | Then                                                         | Hands to                      |
 | --------------------------------------------- | ------------------------------------------------------------ | ----------------------------- |
-| The Party beats the goblins and saves the oil | Half the barrels survive, and one goblin is captured         | [[Session 1 - The Lamp Room]] |
+| The Party stops the goblins and saves the oil | Half the barrels survive, and one goblin is captured         | [[Session 1 - The Lamp Room]] |
 | The warehouse burns                           | The oil is lost, and the lamp must be lit with what Hobb has | [[Session 1 - The Lamp Room]] |
 | A goblin flees toward the mole                | The Party follows it to the lighthouse door                  | [[Session 1 - The Lamp Room]] |
 

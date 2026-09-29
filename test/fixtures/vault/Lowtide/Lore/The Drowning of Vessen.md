@@ -6,7 +6,7 @@ sources: []
 
 ## At a glance
 
-- **The truth.** The Sluice Compact ordered the gates of [[Crookback Sluice]] opened on 6 Blackwater 271 CY to flood Vessen, which was under a fever and refused quarantine.
+- **The truth.** The Sluice Compact ordered the gates of [[Crookback Sluice]] opened on 6 Blackwater 271 CY to flood Vessen, a city that was under a fever and had rejected quarantine.
 - **Who knows it.** [[Sable]], [[Hobb Tarrow]] in part, [[Ilse Corran]] in part, and the senior clergy of [[Mother Ebb]].
 - **Limits.** Nobody living has seen the whole order. The city held about 4,000 people, and the flood killed nearly all of them.
 - **Reaches play through.** The [[Harbormaster's Ledger of Vessen]], the tally-sticks in [[Reedholt]], and the bell at [[The Drowned Chapel]].
@@ -17,7 +17,7 @@ sources: []
 ## Play
 
 - **Players notice.** Every village avoids the subject. The shrine to [[Mother Ebb]] has no bell, and the moot reads a list of names at each Long Ebb.
-- **Clues.** The bell under the water. Silt lines too high for a storm flood. Nib's tally-sticks, which name the drowned. The gate-master's book at [[Crookback Sluice]], which records an opening with no reason given.
+- **Clues.** The bell under the water. Silt lines too high for a storm flood. Nib's tally-sticks, which name the drowned. The gate-master's book at [[Crookback Sluice]], which records the sluice being opened with no reason given.
 - **Accounts.** The common telling says storm and rot. The Council says accident. The church says grief. Ilse Corran says nothing.
 
 ## Depth
@@ -26,7 +26,7 @@ sources: []
 
 Vessen was a river city of about 4,000 people with a bell-tower chapel at its heart. In 268 CY a fever called the grey sweat broke out in its lower wards. The Compact demanded a quarantine, and the Vessen council refused because it would ruin the city's trade. In 271 CY the Compact voted in secret to open the gates of [[Crookback Sluice]] and drown the lower city, expecting the flood to end the fever. It did not stop at the lower city. The water took the whole of Vessen in one night.
 
-The Compact hid the order. The Compact's clerk, Corvin Tarrow, copied it into the Council's book. A courier delivered a copy to the Vessen harbormaster by mistake, along with a notice to hold the city's boats at anchor, and the harbormaster copied both into his own ledger. The Council's copy was burned in 300 CY. The harbormaster's copy is [[Harbormaster's Ledger of Vessen]].
+The Compact hid the order. The Compact's clerk, Corvin Tarrow, copied it into the Council's book. A courier delivered a copy to the Vessen harbormaster by mistake, along with a notice to hold the city's boats at anchor. The harbormaster copied both into his own ledger. The Council's copy was burned in 300 CY. The harbormaster's copy is [[Harbormaster's Ledger of Vessen]].
 
 ### Chronology
 

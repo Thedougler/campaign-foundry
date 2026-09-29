@@ -19,7 +19,7 @@ sources: []
 
 ### Situation
 
-Nib knows more than he has ever said. He decided long ago to leave the ledger alone. The bell changed his mind. He will show the Party the tally-sticks if they show respect, and he will share the location of the ledger if they can name one person on the sticks. [[Pell Rushlight]] arrives during the talk with a folded note from [[Hobb Tarrow]], the handout [[Hobb's Warning]].
+Nib decided long ago to leave the ledger alone, though he knows more than he has ever said. The bell changed his mind. He will show the Party the tally-sticks if they show respect, and he will share the location of the ledger if they can say the name of one person on the sticks. [[Pell Rushlight]] arrives during the talk with a folded note from [[Hobb Tarrow]], the handout [[Hobb's Warning]].
 
 ### Handles
 
@@ -61,7 +61,7 @@ Nib knows more than he has ever said. He decided long ago to leave the ledger al
 ### Threads
 
 - [[The Silent Bell]]: the sticks are the only complete list of Vessen's dead.
-- [[Reedrunner Tithe]]: Nib has warned the moot for years and has been ignored.
+- In [[Reedrunner Tithe]], Nib has warned the moot for years and has been ignored.
 
 ### Spotlight
 

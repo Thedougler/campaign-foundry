@@ -27,7 +27,7 @@ Hobb has a lighthouse with no keeper, oil that keeps vanishing and a Council tha
 - Ask about the last keeper. Hobb gives his name, Old Jory, and says he died in the spring.
 - Ask to see the lighthouse. Hobb gives the Party the keys and a warning about the stair.
 - Press on the price. Hobb raises it to 300 gold pieces.
-- Ask to see the keeper's things. Hobb lets them into the keeper's room, where the [[Ebb Lantern]] hangs unused on its hook.
+- Ask to see the keeper's things. Hobb opens the keeper's room for them, and the [[Ebb Lantern]] hangs unused on its hook.
 
 ### Checks
 
@@ -61,9 +61,9 @@ Hobb has a lighthouse with no keeper, oil that keeps vanishing and a Council tha
 
 ### Threads
 
-- [[Reedrunner Tithe]]: Hobb cannot act openly against [[Ilse Corran]].
+- In [[Reedrunner Tithe]], Hobb cannot act openly against [[Ilse Corran]].
 - [[The Silent Bell]]: the keeper's log mentions the bell.
 
 ### Spotlight
 
-- [[Brannoch Vell]] hears that a Reedrunner boat crew went missing two years ago, which matches the date his brother stopped writing.
+- [[Brannoch Vell]] hears that a Reedrunner boat crew disappeared two years ago, which matches the date his brother stopped writing.

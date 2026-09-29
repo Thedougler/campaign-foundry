@@ -1,0 +1,7 @@
+extends: existence
+message: "Narration takes no semicolon. Split the sentence with a full stop, or join it with a comma or 'and'."
+level: error
+scope: blockquote
+nonword: true
+tokens:
+  - ';'
