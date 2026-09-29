@@ -3,3 +3,16 @@ node_modules/
 .env.*
 !.env.example
 .firecrawl/
+
+# OS / editor
+.DS_Store
+*.log
+
+# Test / build output
+coverage/
+dist/
+
+# Obsidian per-machine state
+.obsidian/workspace.json
+.obsidian/workspaces.json
+.trash/
