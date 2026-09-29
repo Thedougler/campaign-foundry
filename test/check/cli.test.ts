@@ -1,9 +1,12 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { layers } from "../../src/check/layers/index.ts";
 import { cf, checkFixture, copyFixture, fixtures, type JsonReport, realTemplates, repoRoot } from "./helpers.ts";
 
 const flags = (fixture: string) => ["--vault", join(fixtures, fixture, "wiki"), "--root", join(fixtures, fixture), "--templates", realTemplates];
+
+const layerNames = layers.map((layer) => layer.name);
 
 describe("cf --help", () => {
 	it("lists subcommands without dumping their manuals", async () => {
@@ -25,7 +28,7 @@ describe("cf --help", () => {
 		const { code, stdout } = await cf(["check", "--help"]);
 		expect(code).toBe(0);
 		for (const option of ["--vault", "--templates", "--root", "--layer", "--fix", "--dry-run", "--json"]) expect(stdout).toContain(option);
-		for (const layer of ["template", "placement", "links", "orphans", "index", "hot", "log"]) expect(stdout).toContain(layer);
+		for (const layer of layerNames) expect(stdout).toContain(layer);
 		expect(stdout).toContain("Examples:");
 		expect(stdout).toMatch(/^ {2}cf check --fix --dry-run$/m);
 		expect(stdout).toMatch(/^ {2}cf check wiki\/\S+\.md$/m);
@@ -37,7 +40,7 @@ describe("cf check: exit codes and output", () => {
 	it("exits 0 on a clean vault, with a summary line", async () => {
 		const { code, stdout } = await cf(["check", ...flags("clean")], repoRoot);
 		expect(code).toBe(0);
-		expect(stdout).toMatch(/^ok: 0 findings, 28 pages, 7 layers \(template, placement, links, orphans, index, hot, log\), \d+ms$/m);
+		expect(stdout).toMatch(new RegExp(`^ok: 0 findings, 28 pages, ${layerNames.length} layers \\(${layerNames.join(", ")}\\), \\d+ms$`, "m"));
 	});
 
 	it("exits 1 on findings and prints path:line  layer/rule  message, then an indented fix hint", async () => {
@@ -65,7 +68,7 @@ describe("cf check: exit codes and output", () => {
 
 	it("names valid layers and an example invocation when --layer is wrong", async () => {
 		const { stderr } = await cf(["check", "--layer", "nope"], repoRoot);
-		expect(stderr).toContain("Available layers: template, placement, links, orphans, index, hot, log");
+		expect(stderr).toContain(`Available layers: ${layerNames.join(", ")}`);
 		expect(stderr).toContain("cf check --layer template");
 	});
 

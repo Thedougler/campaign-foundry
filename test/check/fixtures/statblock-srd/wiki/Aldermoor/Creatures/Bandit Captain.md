@@ -1,6 +1,6 @@
 ---
 type: Creature
-summary: "A veteran raider who leads from the front."
+summary: "Bandit Captain, from the SRD 5.2 monsters."
 sources: []
 ---
 
@@ -10,7 +10,7 @@ sources: []
 - **Threat.** Text.
 - **Tell.** Text.
 - **Weak to.** Text.
-- **Used by.** [[Mara Voss]]
+- **Used by.** Text.
 
 > [!narration] First sight
 > Spoken text for the table.
@@ -70,23 +70,7 @@ legendary_actions: []
 
 Text.
 
-### Tactics
-
-Text.
-
-### Outside a fight
-
-Text.
-
 ## Depth
-
-Text.
-
-### Ecology
-
-Text.
-
-### Hidden truths
 
 Text.
 
@@ -99,10 +83,6 @@ filters:
 views:
   - type: table
     name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
     order:
       - file.name
-      - note.summary
 ```
