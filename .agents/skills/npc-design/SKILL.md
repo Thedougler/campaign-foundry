@@ -40,7 +40,7 @@ Pick the scale from how much table time the NPC will get. It sets how far the st
    - **Play:** what opens them up and what shuts them down, what they will and won't share, what they do if pressed, and the likely asks from step 5.
    - **Depth:** History that still shapes them, Hidden truths (each with its tell and ways to learn it), and the Threads they drive or sit in.
 
-   Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `pnpm check <page>` until it passes, and log the page in the operation's `log.md` entry.
+   Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `pnpm check <page>` until it passes, and log the page in the operation's `cf log` entry (`--op create` when this skill runs on its own).
 
 ## Done
 

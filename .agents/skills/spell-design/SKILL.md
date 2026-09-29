@@ -17,7 +17,7 @@ The Wiki holds only Spells that the rules sources lack: a spell from the SRD or 
 6. **Rulings.** The three to five tricks Players will try with it, each with its answer; how a target or rival caster counters it; and which named NPC or Creature casts it against the Party.
 7. **Discovery.** One named source (an NPC, Item, Site or Faction page) with a reason to hold it, the price of learning it (coin, a favour, a task, a risk), the Clue that tells the Party the source exists, and who notices when a PC first casts it.
 8. **Narration.** Hand `theatre-of-the-mind` the Casting slot with the signature.
-9. **File** to `wiki/templates/Spell.md` in `<World>/Spells/`: the casting fields At a glance; Effect (the full rules text) and Rulings under Play; Tradition and Who knows it (the source and its price) under Depth. Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `pnpm check <page>` until it passes, and list it in the operation's `cf log` entry.
+9. **File** to `wiki/templates/Spell.md` in `<World>/Spells/`: the casting fields At a glance; Effect (the full rules text) and Rulings under Play; Tradition and Who knows it (the source and its price) under Depth. Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `pnpm check <page>` until it passes, and list it in the operation's `cf log` entry (`--op create` when this skill runs on its own).
 
 ## Damage by level
 

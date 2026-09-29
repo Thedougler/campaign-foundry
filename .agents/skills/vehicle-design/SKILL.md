@@ -21,7 +21,7 @@ A Vehicle is a place and a moving thing at once: somewhere to board, sneak throu
    - **Play:** Statistics, Crew and stations, Components and weapons, and Underway (manoeuvres, chase, boarding, decks).
    - **Depth:** history and hidden truths, each with how the Party can learn it.
 
-   Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `pnpm check <page>` until it passes, and list it in the operation's `cf log` entry.
+   Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `pnpm check <page>` until it passes, and list it in the operation's `cf log` entry (`--op create` when this skill runs on its own).
 
 ## Done
 

@@ -20,7 +20,7 @@ Lore is knowledge that belongs to no one Location, NPC, Faction, Deity, Creature
    - **Play:** what Players notice, the Clues with where each lives, and the accounts with their holders.
    - **Depth:** the full truth, with `###` parts named for what they hold (Chronology, How it works, Tenets).
 
-   Link the pages each Clue lives on, and add a line to those pages where the Clue should appear. New facts decided as Canon are listed in your reply. Run `pnpm check` on every page touched until it passes, and list them all in the operation's `cf log` entry.
+   Link the pages each Clue lives on, and add a line to those pages where the Clue should appear. New facts decided as Canon are listed in your reply. Run `pnpm check` on every page touched until it passes, and list them all in the operation's `cf log` entry (`--op create` when this skill runs on its own).
 
 ## Done
 

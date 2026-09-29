@@ -31,7 +31,7 @@ A Creature is rules, never a person: the person is an NPC, whose page links here
    - **Play:** Tactics (opening, signature tell, what it does when countered, what shuts it down, when it flees) and Outside a fight.
    - **Depth:** Ecology (habitat, diet, signs, uses), and Hidden truths, each with how the Party can learn it.
 
-   Run `pnpm check <page>` until it passes (its `statblock` layer checks the arithmetic), and log the page in the operation's `log.md` entry.
+   Run `pnpm check <page>` until it passes (its `statblock` layer checks the arithmetic), and log the page in the operation's `cf log` entry (`--op create` when this skill runs on its own).
 
 ## Done
 

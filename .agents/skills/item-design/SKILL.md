@@ -21,7 +21,7 @@ An Item matters by its rules or its story. A good one fits a niche the Party lac
    - **Play:** Properties (the full rules text) and In use (how it looks and plays when used, the rulings the table will need).
    - **Depth:** maker, past holders, contested claims, and hidden properties or curses, each with how the Party can learn it.
 
-   Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `pnpm check <page>` until it passes, and list it in the operation's `cf log` entry.
+   Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `pnpm check <page>` until it passes, and list it in the operation's `cf log` entry (`--op create` when this skill runs on its own).
 
 ## Done
 

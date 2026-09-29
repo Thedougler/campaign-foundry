@@ -1,0 +1,27 @@
+- id: brain-dump
+  prompt: Ingest what's in raw.
+  checks:
+    canon:
+      Lowtide/NPCs/Hobb Tarrow.md: [Harbor Warden, Gullhook Lighthouse]
+      Lowtide/log.md: ['/\] ingest \|/']
+  rubrics:
+    - Tidewell has a Settlement page with `parent` The Brack, and Marrow Jessup and Ossie Jessup have NPC pages, each written to its template in the Wiki's voice rather than the notes' shape, and each lists `archive/tidewell-notes.md` in sources.
+    - The Tidewell and Reedholt feud reaches the pages it belongs on (both Settlements, Nib Ashwater and Marrow Jessup, or a Thread), including Tidewell's planned answer.
+    - The Marl Eel is a Creature page with a stat block that passes the gate's statblock layer (fixed where the notes' numbers were wrong), and it is linked from where it lives.
+    - The claim that Hobb never kept the lighthouse lost to the Wiki (Hobb's page still says he keeps Gullhook), and a log entry names the claim that was kept out.
+    - Ossie's secret work for the Reedrunners sits on the DM's side of his and Marrow's pages, not in any Narration.
+    - The notes file is in archive/, raw/ is empty, no page summarises the notes file itself, and the whole-Wiki gate passes.
+- id: transcript
+  prompt: Session 3's Transcript is in raw. Ingest it.
+  checks:
+    pages: [Lowtide/Campaigns/Salt and Lantern/Sessions/Session 3/Session 3 - Recap.md, Lowtide/Campaigns/Salt and Lantern/Sessions/Session 3/Session 3 - Previously On.md]
+    canon:
+      Lowtide/NPCs/Hobb Tarrow.md: [Ada Tarrow]
+      Lowtide/log.md: ['/\] ingest \|/']
+  rubrics:
+    - The Session 3 Recap records what happened (Hobb reads the page, the Council meeting, the vote for a dawn reading, the intercepted note) and what changed, and moves each Thread it touched.
+    - The DM's table ruling (Hobb's grandmother was Ada Tarrow, a ferry captain) is filed on Hobb's page as Canon.
+    - Maud Averill has an NPC page, and Ossie is recognised as a Reedrunner messenger from Tidewell even though no page existed for him before.
+    - The Previously On is read-aloud Narration built on the table's moments (the stolen Council sugar on a natural 20, Brannoch's hand on the ledger, Tamsin grabbing Ossie), in past tense, ending inside the moment play stopped.
+    - hot.md is rewritten for the state after Session 3 (the dawn reading, the note), within the gate's cap.
+    - The Transcript is in archive/, the audit ran over the touched pages, and the whole-Wiki gate passes.

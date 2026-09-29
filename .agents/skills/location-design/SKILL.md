@@ -18,7 +18,7 @@ Locations nest through `parent`: a Site sits in a Settlement or Region, a Settle
 5. **Weave the Canon in** with [references/weave.md](references/weave.md): every inventory entry and invention gets a place, a tell, a truth, a use and a find. Done when every entry has a row or a reason it doesn't live here, every secret a choice depends on has three Clues in different spots, and every hazard has sign, trigger, effect, counterplay, bypass and leverage.
 6. **Build it for its kind** with its reference: [Region](references/region.md), [Settlement](references/settlement.md) or [Site](references/site.md). Anyone the Party will talk to, bargain with or be stopped by is a named NPC with a page: reuse one from the Wiki, or make one with `npc-design`. Creatures come from `creature-design`, and each is linked from the page.
 7. **Narration.** Hand `theatre-of-the-mind` the slot (Arrival for a Region or Settlement, Entering for a Site) with the frame, the one image to remember, the ways in and out, a sense beyond sight, and every tell from step 5 as plain appearance.
-8. **File** to `wiki/templates/Location - <Kind>.md` in `<World>/Locations/`, with `parent` set. Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `pnpm check <page>` until it passes, and log the page in the operation's `log.md` entry.
+8. **File** to `wiki/templates/Location - <Kind>.md` in `<World>/Locations/`, with `parent` set. Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `pnpm check <page>` until it passes, and log the page in the operation's `cf log` entry (`--op create` when this skill runs on its own).
 
 ## Done
 
