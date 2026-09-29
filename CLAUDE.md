@@ -1,6 +1,6 @@
 @AGENTS.md
 
-Utilize subagents effectively to manage your context. 
+Utilize sonnet 5.5 subagents effectively to manage your context. 
 
 ## Agent skills
 
