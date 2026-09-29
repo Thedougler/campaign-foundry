@@ -1,0 +1,26 @@
+global_context: "Campaign Foundry: a DM's D&D campaign Wiki. Terms follow CONTEXT.md at the repo root."
+collections:
+  wiki:
+    path: wiki
+    pattern: "**/*.md"
+    ignore:
+      - "templates/**"
+    includeByDefault: true
+    context:
+      "/": "The Wiki: canonical pages for Worlds and their Campaigns. Search here first for anything about the setting or play."
+  raw:
+    path: raw
+    pattern: "**/*.md"
+    includeByDefault: false
+    context:
+      "/": "Raw: material waiting to be ingested. Not yet Canon where it conflicts with the Wiki."
+  archive:
+    path: archive
+    pattern: "**/*.md"
+    includeByDefault: false
+    context:
+      "/": "Archive: Raw material already ingested into the Wiki. Search only to trace where a page came from."
+models:
+  embed: hf:ggml-org/embeddinggemma-300M-GGUF/embeddinggemma-300M-Q8_0.gguf
+  generate: hf:tobil/qmd-query-expansion-1.7B-gguf/qmd-query-expansion-1.7B-q4_k_m.gguf
+  rerank: hf:ggml-org/Qwen3-Reranker-0.6B-Q8_0-GGUF/qwen3-reranker-0.6b-q8_0.gguf

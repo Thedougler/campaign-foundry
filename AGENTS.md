@@ -13,7 +13,7 @@ Foundry is never a source.
 
 ## Domain
 
-`CONTEXT.md` is the glossary: name every domain concept with its term. `docs/adr/` holds the decisions behind the design; read the ones touching an area before changing it. `docs/wiki-layout.md` sets where every page lives in `wiki/`; read it before creating or moving a page. Before working in a World, read the active Campaign's `hot.md`, then the World's `index.md`, then the last 10 `log.md` entries, then the pages the task needs.
+`CONTEXT.md` is the glossary: name every domain concept with its term. `docs/adr/` holds the decisions behind the design; read the ones touching an area before changing it. `docs/wiki-layout.md` sets where every page lives in `wiki/`; read it before creating or moving a page. Find Wiki content with qmd first (the `qmd` skill, or the `qmd` MCP server). The project-local index in `.qmd/` searches `wiki/` by default and `raw/` or `archive/` when named, and refreshes itself on session start and after edits. Before working in a World, read the active Campaign's `hot.md`, then the World's `index.md`, then the last 10 `log.md` entries, then the pages the task needs.
 
 ## Models
 

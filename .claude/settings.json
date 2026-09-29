@@ -1,5 +1,17 @@
 {
   "enabledPlugins": {
     "ponytail@ponytail": false
+  },
+  "enabledMcpjsonServers": ["qmd"],
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [{ "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/scripts/qmd-refresh.sh" }] }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit|Bash",
+        "hooks": [{ "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/scripts/qmd-refresh.sh" }]
+      }
+    ]
   }
 }

@@ -16,3 +16,7 @@ dist/
 **/.obsidian/workspace.json
 **/.obsidian/workspaces.json
 .trash/
+
+# qmd: local index database and refresh state (config index.yml is tracked)
+.qmd/index.sqlite*
+.qmd/refresh.*
