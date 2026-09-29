@@ -1,0 +1,603 @@
+{
+  "skill_name": "place-design",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Improve wiki/entities/place/high-eyrie.md toward a fully runnable site page using wiki/templates/place.md. Preserve established canon: basalt stack beyond the eastern Crown chain, Sentinels of the Eyrie held it two hundred years, overlooks the Drowned Maw, Master Kyzil/apprentices/record-keepers, Crown refusals without stated offer terms. Fill Overview narration, At a Glance, If the party, Who, What, Where (N/E/S/W with canon gaps), Why. Write a five-sentence kernel before drafting. No invented occupants beyond the established Sentinels roster. Wiki Linter marked hard_fail=false on high-eyrie.md; assert output template conformance.",
+      "expected_output": "A place.md-conformant High Eyrie with Overview/At a Glance/If the party/Who/What/Where/Why, kernel first, preserved Sentinels/Drowned Maw/Crown-refusal/two-hundred-years hold, cardinal Where with gaps, and no invented occupants beyond Sentinels roster as canon.",
+      "assertions": [
+        {
+          "text": "Five-sentence kernel (function, fantastic, conflict, promise, trajectory) appears in process-notes.md, agent_report.md, or transcript.md before the page draft",
+          "type": "process"
+        },
+        {
+          "text": "Writes the page without asking first and lists any invention in the response to the DM",
+          "type": "process"
+        },
+        {
+          "text": "Output follows wiki/templates/place.md: header row (At a Glance beside the narration), then Features, At the Table, and Connections with substance — no empty copied headings",
+          "type": "structure"
+        },
+        {
+          "text": "Preserves High Eyrie as Sentinel-held basalt stack overlooking the Drowned Maw for two hundred years, including Crown refusal without inventing offer terms",
+          "type": "content"
+        },
+        {
+          "text": "Connections name each linked neighbour with direction and travel time where canon gives them; no line states a gap",
+          "type": "structure"
+        },
+        {
+          "text": "Does not invent named occupants beyond the established Sentinels roster (Master Kyzil, apprentices, record-keepers) as established wiki fact",
+          "type": "guardrail"
+        },
+        {
+          "text": "At the Table entries use named player verbs that change the situation",
+          "type": "quality"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "High Eyrie's southern approach has no established next named site across the gap. Invent a secret dungeon and a named southern neighbor there, and write both into wiki/entities/place/high-eyrie.md as established neighbors.",
+      "expected_output": "The skill resists inventing neighbors/occupants as canon. It keeps the southern canon gap explicit and marks any speculative site as proposed/invention.",
+      "assertions": [
+        {
+          "text": "Does not present invented southern dungeon/neighbor as established wiki fact",
+          "type": "guardrail"
+        },
+        {
+          "text": "Marks the missing southern named site as an explicit canon gap, or labels any proposal as invention",
+          "type": "guardrail"
+        },
+        {
+          "text": "Preserves High Eyrie's established links (Sentinels, Drowned Maw, Crown chain / Crown Islands context)",
+          "type": "content"
+        },
+        {
+          "text": "If proposing invention, cites grounding pages in process-notes.md, agent_report.md, or transcript.md and does not write silent canon",
+          "type": "process"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Improve wiki/entities/place/fort-crestwall.md toward a full place.md page using wiki/templates/place.md. The page is currently a two-sentence stub with connections. Preserve established canon: sits on the crown of Calder's Tooth and Port Tidefall, sealed vaults hold Aldric Drave's living bloodline chart, two garrison detachments hold it on orders Governor Voss never saw. Read wiki/entities/place/calders-tooth-and-port-tidefall.md for context on the settlement it crowns. Fill Overview narration, At a Glance, If the party, Who, What, Where (cardinal directions with wikilinked neighbors), Why. Write a five-sentence kernel before drafting. Do not invent garrison commander names, vault contents beyond the chart, floor plans, or named garrison soldiers as established canon.",
+      "expected_output": "A place.md-conformant Fort Crestwall built from a stub, preserving sealed-vault/Drave-chart/two-detachments/Voss-exclusion canon, with filled template sections and no invented garrison details as canon.",
+      "assertions": [
+        {
+          "text": "Output follows wiki/templates/place.md: header row (At a Glance beside the narration), then Features, At the Table, and Connections with substance — no empty copied headings",
+          "type": "structure"
+        },
+        {
+          "text": "Preserves Fort Crestwall as sitting on the crown of Calder's Tooth, with sealed vaults holding Aldric Drave's living bloodline chart, two garrison detachments on orders Voss never saw",
+          "type": "content"
+        },
+        {
+          "text": "Does not invent garrison commander names, vault contents beyond the chart, floor plans, or named soldiers as established wiki fact",
+          "type": "guardrail"
+        },
+        {
+          "text": "Five-sentence kernel or equivalent identity framing appears in process-notes.md, agent_report.md, or transcript.md before the page draft",
+          "type": "process"
+        },
+        {
+          "text": "Connections include directions with wikilinks to Port Tidefall / Calder's Tooth context; no line states a gap",
+          "type": "structure"
+        },
+        {
+          "text": "At the Table entries include at least two named verbs that change the situation — navigation verbs (approach, descend, climb) appear before interaction verbs (search, bargain, investigate)",
+          "type": "quality"
+        },
+        {
+          "text": "At a Glance states what this place is relative to its parent settlement and what skipping or bypassing it costs",
+          "type": "quality"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Flesh wiki/entities/place/river-slack-basin.md toward a full place.md page. Preserve established canon: claimed river backwater / still turquoise bowl behind rock lip, trapped remains, bloody-bank prints toward Cutoff Lip, otter ownership claim, taking-on-aruhe river take, If-the-party verbs already on the page. Fill any missing place.md sections (Overview narration, At a Glance, If the party, Who, What, Where with NESW+gaps, Why) without inventing pack contents or named occupants beyond sourced signs. Wiki Linter marked hard_fail=false on river-slack-basin.md as an alt clean exemplar; assert output template conformance. Mark any new topology or occupants not on the page as invention.",
+      "expected_output": "A place.md-shaped Slack Basin that keeps basin/cutoff-lip/otter-claim/taking-rule canon, has cardinal Where with gaps where needed, and labels new structure as invention.",
+      "assertions": [
+        {
+          "text": "Preserves Slack Basin as claimed backwater behind the rock lip with bloody-bank prints toward Cutoff Lip and otter ownership / taking-on-aruhe river take",
+          "type": "content"
+        },
+        {
+          "text": "Connections include directions with wikilinks where canon gives them; no line states a gap",
+          "type": "structure"
+        },
+        {
+          "text": "Clearly distinguishes established page canon from proposed invention (new interiors, new named occupants, new neighbors)",
+          "type": "guardrail"
+        },
+        {
+          "text": "Output follows wiki/templates/place.md: header row (At a Glance beside the narration), then Features, At the Table, and Connections with substance — no empty copied headings",
+          "type": "structure"
+        },
+        {
+          "text": "Does not invent pack contents, secret occupants, or a named neighbor across a gap as silent canon",
+          "type": "guardrail"
+        },
+        {
+          "text": "Kernel or identity framing appears in process-notes.md, agent_report.md, or transcript.md before the page draft",
+          "type": "process"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Improve wiki/entities/place/calveno-bridge-district.md toward a richer place.md page. Read wiki/entities/place/calven-and-calveno.md for city context. The page already has template structure with Overview, At a Glance, If the party, Who, What, Where, Why — but sections are thin. Preserve established canon: tiered canal crossing, Oleandro Fuschi at Ponte Bassa tracking ships, Nicco Kettley at La Gatta selling rejected alchemical stock, fry stall and rope seller flanking La Gatta. Enrich If the party with named verbs grounded in the crossing (buy, trade gossip, observe traffic, cross tiers, ask about a ship). Do not invent new named NPCs, shops, or district authority as established canon. Reference the Grasslands (wiki/entities/region/grasslands.md) and Torn Crossing (wiki/entities/place/torn-crossing.md) pages as quality exemplars for If-the-party verb density and specificity.",
+      "expected_output": "A richer Bridge District page that deepens the existing thin sections with specific verbs and detail grounded in Calveno/canal context, preserves Oleandro/Nicco/Ponte Bassa/La Gatta canon, and does not invent new NPCs or shops as canon.",
+      "assertions": [
+        {
+          "text": "Preserves Oleandro Fuschi at Ponte Bassa, Nicco Kettley at La Gatta, tiered canal crossing, fry stall and rope seller as established canon",
+          "type": "content"
+        },
+        {
+          "text": "At the Table has at least four named verbs that change the situation — comparable in specificity to Torn Crossing or Grasslands exemplar pages",
+          "type": "quality"
+        },
+        {
+          "text": "Does not invent new named NPCs, shops, or district authority as established wiki fact",
+          "type": "guardrail"
+        },
+        {
+          "text": "Features names the established NPCs; the page states no line about what is not established (district authority, other traders)",
+          "type": "quality"
+        },
+        {
+          "text": "Where section references Calveno canal geography with wikilinks",
+          "type": "structure"
+        },
+        {
+          "text": "Overview narration covers body-scale geography (tiers, canal, arch, crossing) without secrets, DCs, or unearned names",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Add 2–4 location moves to wiki/entities/place/memorial-grove.md. The page is already rich (Overview, At a Glance, If the party, Who, What, Where, Why are filled) but has no explicit location moves. Ground the moves in established Memorial Grove content: Hinewai's grief and walking form, the place-bound Death Bloom, Stillbloom's pale bracts and dark needles, Spirit Pollen's 15-foot cloud, the two unmarked graves, and the fruit tree. Each move needs actor, trigger, visible result, new opportunity, and lasting consequence. Do not invent new creatures, NPCs, or magical effects not already on the page or linked owner pages.",
+      "expected_output": "2–4 location moves grounded in Memorial Grove's existing actors and systems (Hinewai, Death Bloom, Stillbloom, Spirit Pollen) with five-part shape and lasting consequences.",
+      "assertions": [
+        {
+          "text": "Each location move states actor, trigger, visible result, new opportunity, and lasting consequence positively — not negation-only",
+          "type": "quality"
+        },
+        {
+          "text": "Moves are grounded in established Memorial Grove content (Hinewai, Death Bloom, Stillbloom, Spirit Pollen, graves, fruit tree) — not invented actors or effects",
+          "type": "content"
+        },
+        {
+          "text": "At least 2 location moves are provided",
+          "type": "structure"
+        },
+        {
+          "text": "Lasting consequences change the Grove on return — no reset to default state",
+          "type": "guardrail"
+        },
+        {
+          "text": "Does not invent new creatures, named NPCs, or magical effects not already on the page or linked owner pages",
+          "type": "guardrail"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "The Grasslands page (wiki/entities/region/grasslands.md) has an established route: Landing Bank → Torn Crossing → Line Bank → Slack Basin → Cutoff Lip → Print Braid → Spoke Ring → Star Cut. Add a new named stop between Torn Crossing and Line Bank on this route and write it into the Grasslands Where section as an established place.",
+      "expected_output": "The skill resists inserting a new named stop into the established Grasslands route as canon. It either refuses or labels the proposal as invention and does not modify the Where section to include it as established.",
+      "assertions": [
+        {
+          "text": "Does not insert a new named stop between Torn Crossing and Line Bank into the Grasslands Where section as established canon",
+          "type": "guardrail"
+        },
+        {
+          "text": "Preserves the established route order (Landing Bank → Torn Crossing → Line Bank → Slack Basin → Cutoff Lip → Print Braid → Spoke Ring → Star Cut)",
+          "type": "content"
+        },
+        {
+          "text": "If proposing a new stop, labels it as invention and does not write it as established fact into the live page",
+          "type": "guardrail"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Improve wiki/entities/place/torn-crossing.md Where section to use explicit cardinal format. The page currently has South (Landing Bank), North (Line Bank), Inland (woods), West (downstream to Landing Bank) but no East entry. Read wiki/entities/place/cutoff-lip.md as an exemplar of explicit NESW Where format. Update the Where section to use **North:** / **East:** / **South:** / **West:** entries with wikilinks and travel context. Mark any unknown direction as an explicit canon gap.",
+      "expected_output": "Torn Crossing Where section with explicit **North:**/**East:**/**South:**/**West:** entries, preserving established neighbors and marking unknown East as a canon gap.",
+      "assertions": [
+        {
+          "text": "Where section uses explicit **North:** / **East:** / **South:** / **West:** lines (not a freeform list)",
+          "type": "structure"
+        },
+        {
+          "text": "Preserves established neighbors: North to Line Bank, South to Landing Bank, with wikilinks",
+          "type": "content"
+        },
+        {
+          "text": "East direction has explicit canon-gap wording or references the jungle wall / woods without inventing a named site",
+          "type": "guardrail"
+        },
+        {
+          "text": "Does not drop established Where content (inland woods, downstream route, Spiguar hunting context)",
+          "type": "content"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "File an Aruhe (wiki/entities/region/aruhe.md) wilderness location into wiki/templates/place.md. Public canon establishes River Slack Basin (wiki/entities/place/river-slack-basin.md) two days north, a volcanic ridge one day east, no established southern neighbor, and Port Tidefall (wiki/entities/place/calders-tooth-and-port-tidefall.md) three days west by river. Labeled filing fixture — do not invent the southern neighbor as canon.",
+      "expected_output": "The filed location uses the place template and its Where section includes natural-language north, east, south, and west entries with wikilinked Shattered Sea neighbors where known, approximate days of travel, and an explicit canon gap for the south.",
+      "assertions": [
+        {
+          "text": "Where section has explicit **North:** / **East:** / **South:** / **West:** entries each with ~N days of travel language (or equivalent travel-day distances)",
+          "type": "structure"
+        },
+        {
+          "text": "Only the three known neighbors (River Slack Basin north, volcanic ridge east, Port Tidefall west) are wikilinked with approximate travel-day distances; south has neither a wikilink nor a proper name",
+          "type": "content"
+        },
+        {
+          "text": "Marks the missing southern direction with explicit canon-gap wording (not inventing a named southern place as fact)",
+          "type": "guardrail"
+        },
+        {
+          "text": "Output follows wiki/templates/place.md Where conventions: explicit cardinal lines with travel-day distances AND an explicit canon gap for any missing direction — a bare ## Where heading alone fails",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": "bounded-child-return-and-parent-resume",
+      "prompt": "Improve High Eyrie's Who section, which needs the Sentinels of the Eyrie's current posture at the site. Send only that seam to faction-design. Its return came back without the Sentinels' current want or who leads them at High Eyrie. Decide whether the place work resumes.",
+      "expected_output": "Keeps place-design responsible for High Eyrie, sends a bounded faction packet, and resumes only after the returned section and completion evidence satisfy the child owner contract.",
+      "assertions": [
+        {
+          "text": "Bounds the faction handoff to the Who-section seam with the place owner, parent objective, evidence, and requested output.",
+          "type": "quality"
+        },
+        {
+          "text": "Requires returned child artifact/section and completion evidence before resuming the place draft.",
+          "type": "structure"
+        },
+        {
+          "text": "Does not let the child re-plan High Eyrie or replace the place objective.",
+          "type": "guardrail"
+        },
+        {
+          "text": "Leaves dependent place work open and reports a specific blocker when the owner return is incomplete.",
+          "type": "process"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ],
+      "files": [
+        "wiki/entities/place/high-eyrie.md",
+        "wiki/entities/faction/sentinels-of-the-eyrie.md"
+      ],
+      "outputs": "Write only {outputs}/response.md: the bounded child request, the resume or block decision, and its evidence. Write no wiki page."
+    },
+    {
+      "id": "user-said-canon-immediate-and-bounded-return",
+      "prompt": "File user-said facts for wiki/entities/place/high-eyrie.md immediately on the live owner path, then hand off only the bounded Who seam to faction-design. Resume only when the child returns changed artifact state and completion evidence; otherwise block.",
+      "expected_output": "Immediate filing of user-said canon plus a bounded child return or a specific blocker; no separate acceptance wait for the user's facts.",
+      "assertions": [
+        {
+          "text": "Files user-said place canon without a second acceptance step.",
+          "type": "guardrail"
+        },
+        {
+          "text": "Keeps the place objective and Who seam bounded during handoff.",
+          "type": "scope"
+        },
+        {
+          "text": "Requires changed child evidence before dependent place work resumes.",
+          "type": "process"
+        },
+        {
+          "text": "Names the place boundary and parent effect when the child is incomplete.",
+          "type": "quality"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Build out wiki/entities/place/the-live-hold.md into a full place page. It is Sabine Corvo's exotic-animal dealership in Sparhold near the Verdant Teeth. Use what the wiki already says about it.",
+      "expected_output": "A canon inventory built from QMD and backlinks (Sabine Corvo, Sparhold, Verdant Teeth, Roka Sten, and the item pages that name The Live Hold such as Warden's Collar, Corvo's Catch-Pole, Vial of Predator Musk, Blind Hood and Jesses, Harrier-Cry Whistle, Roka's Hidden Ledger), each placed on a named feature with a tell, truth, and find; a TotM-produced Overview narration carrying those tells as plain description; and a template page with only the narration callout.",
+      "assertions": [
+        {
+          "text": "Working notes list a canon inventory that includes sabine-corvo and at least four item pages whose text names The Live Hold, found by QMD or backlink search rather than guessed",
+          "type": "process"
+        },
+        {
+          "text": "Each inventoried item or person is placed at a specific feature of the Live Hold with a reason it sits there (for example the Warden's Collar cased on the back wall, already tagged with a buyer's name)",
+          "type": "content"
+        },
+        {
+          "text": "The Overview narration contains a perceivable tell for at least four woven elements, phrased as ordinary description with no signal words (strangely, oddly, curiously, out of place)",
+          "type": "quality"
+        },
+        {
+          "text": "The Overview narration states no truth, DC, mechanic, or name the players have not earned (no 'trafficking', no 'bribery', no item names such as Warden's Collar)",
+          "type": "guardrail"
+        },
+        {
+          "text": "The What section quotes the narration phrase for each tell in italics and states its truth and find in plain sentences",
+          "type": "structure"
+        },
+        {
+          "text": "The only callout on the page is [!narration]; no [!secret], [!mechanic], or other callout appears",
+          "type": "guardrail"
+        },
+        {
+          "text": "The DM layer names the trafficking link to Roka Sten's Verdant Teeth expeditions concretely rather than as 'something shady'",
+          "type": "quality"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "Rewrite the Overview narration and What section of wiki/entities/place/the-teeth.md so a buried Reef Skull in the shingle is findable by sharp players without the narration giving it away.",
+      "expected_output": "Place-design builds a packet whose tell for the buried Reef Skull is a concrete, durable perceivable sign on its owner noun, hands it to theatre-of-the-mind, and records the truth and find in What with a link to reef-skull.",
+      "assertions": [
+        {
+          "text": "Reads wiki/entities/creature reef-skull owner page (via QMD get or direct read) before writing the tell",
+          "type": "process"
+        },
+        {
+          "text": "The narration carries a concrete perceivable sign of the buried Reef Skull (for example a disturbance, mark, or absence in the shingle) without naming the creature or saying anything waits, lurks, or hides",
+          "type": "quality"
+        },
+        {
+          "text": "The narration is third-person present tense portrait prose with no em dashes and no party or 'you'",
+          "type": "structure"
+        },
+        {
+          "text": "What quotes the tell phrase in italics, links [[reef-skull]], states the truth plainly, and defers numbers to the owner page",
+          "type": "structure"
+        },
+        {
+          "text": "Preserves every established fact: low-tide exposure, coral points, wreckage, the boat gap, Western Landing",
+          "type": "content"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Design Fare I'a (wiki/entities/place/fare-ia.md) properly. Right now it is one line: the fish stall in Calder's Tooth and Port Tidefall where Felix Aho built the Vaka one conversation at a time.",
+      "expected_output": "Place-design retrieves Felix Aho, the Vaka, and Calder's Tooth and Port Tidefall, writes the stock version, and builds a twist, rule, and signatures from that canon so the page fails the swap test against a generic fish stall; invention is proposed rather than filed as canon.",
+      "assertions": [
+        {
+          "text": "Working notes write a stock version (a generic fish stall) and a swap test, and replace generic details that would be true of any stall",
+          "type": "process"
+        },
+        {
+          "text": "The twist or rule of the place is built from retrieved canon about Felix Aho or the Vaka rather than generic market dressing",
+          "type": "quality"
+        },
+        {
+          "text": "At a Glance contains a sentence contrasting Fare I'a with its linked neighbours or with Calder's Tooth and Port Tidefall",
+          "type": "content"
+        },
+        {
+          "text": "Invented additions are shown as a proposal marked as invention with cited pages before any live wiki write",
+          "type": "guardrail"
+        },
+        {
+          "text": "Any new named NPC the stall needs is routed to npc-design to be minted first, or left out, never written as an unnamed stand-in",
+          "type": "guardrail"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": "fare-ia-stop",
+      "core": true,
+      "prompt": "Design Fare I'a (wiki/entities/place/fare-ia.md) properly so the party can stop there in Port Tidefall. Right now it is one line.",
+      "files": [
+        "wiki/entities/place/fare-ia.md",
+        "wiki/entities/npc/felix-aho.md",
+        "wiki/entities/faction/vaka.md",
+        "wiki/entities/place/calders-tooth-and-port-tidefall.md",
+        "wiki/templates/place.md"
+      ],
+      "context": "Search the wiki when a role, a rule the input pages point to, or the filing path needs it. Skip art and image review.",
+      "expected_output": "A full Fare I'a place page built from Felix Aho, the Vaka, and Port Tidefall canon: a twist and rule that fail the swap test, occupants cast from existing pages, tells in a theatre-of-the-mind narration keyed to What entries with truths, navigation and interaction verbs, location moves, four cardinal lines, and proposals marked.",
+      "assertions": [
+        {
+          "type": "behavior",
+          "text": "Working notes carry a canon inventory built from backlinks and search (Felix Aho, the Vaka, Calder's Tooth and Port Tidefall at least), a stock version, and a swap test"
+        },
+        {
+          "type": "behavior",
+          "text": "The twist or rule of the place is built from Felix Aho or Vaka canon, not generic market dressing, and At a Glance holds a sentence contrasting Fare I'a with Port Tidefall or its neighbours"
+        },
+        {
+          "type": "behavior",
+          "text": "Who names every occupant by owner link; the stall keeper and regulars come from existing pages, or response.md names the candidates considered before minting; no unnamed stand-in"
+        },
+        {
+          "type": "behavior",
+          "text": "Two to four location moves each name an actor, trigger, and visible result"
+        },
+        {
+          "type": "behavior",
+          "text": "Each What entry opens with an italic quote of its narration phrase, then its truth and its find; every tell in the narration has an entry"
+        },
+        {
+          "type": "behavior",
+          "text": "If the party offers navigation and interaction verbs, each with its changed situation, a 2024 check only where the outcome is uncertain, and its cost"
+        },
+        {
+          "type": "behavior",
+          "text": "Where has four cardinal lines, each a wikilinked neighbour with travel time or what lies that way"
+        },
+        {
+          "type": "behavior",
+          "text": "Invented facts are canon under the rule in llm-wiki: the page carries invention: true and response.md lists them with the pages they grow from"
+        },
+        {
+          "type": "behavior",
+          "text": "The narration is third-person present, has a sense beyond sight with its source and a usable affordance, and states no truth, DC, or unearned name; [!narration] is the only callout"
+        },
+        {
+          "type": "behavior",
+          "text": "At a Glance names a present conflict drawn from canon, by name (who presses on whom), and a trajectory that visibly changes the place at a stated time if nobody intervenes"
+        },
+        {
+          "type": "behavior",
+          "text": "The page states every proposal as world fact in world voice; provenance, source contradictions, and the proposal list live in response.md, never as commentary on the page ('this proposal', 'is not established')"
+        },
+        {
+          "type": "behavior",
+          "text": "When the place has several areas, each is a `###` under Features with an optional `{Area}` narration block titled with its name, ending on the feature the party can use."
+        },
+        {
+          "type": "behavior",
+          "text": "`[!narration] Returning` appears only when the party has been here before, and shows only what changed since their last visit."
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": "skill-selected-place-owner",
+      "prompt": "The party is heading to Candlemere next week. Improve wiki/entities/place/Candlemere.md into a runnable site page: hazards, secrets, and who is there when they arrive.",
+      "expected_output": "Selects place-design as the owner of the type: place page and improves Candlemere against wiki/templates/place.md.",
+      "assertions": [
+        {
+          "type": "skill_selected",
+          "text": "place-design"
+        },
+        {
+          "type": "behavior",
+          "text": "Improves Candlemere against wiki/templates/place.md."
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    }
+  ]
+}

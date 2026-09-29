@@ -1,0 +1,563 @@
+{
+  "skill_name": "city-design",
+  "evals": [
+    {
+      "id": "kalowe-city",
+      "core": true,
+      "prompt": "The party's next arc runs out of Kalowe. Make wiki/entities/place/Kalowe.md a full city page the DM can run arrivals and a week of port life from.",
+      "files": [
+        "wiki/entities/place/Kalowe.md",
+        "wiki/entities/faction/chain-council.md",
+        "wiki/entities/faction/Waveservants.md",
+        "wiki/templates/city.md"
+      ],
+      "expected_output": "A Kalowe city page on the city template: engine, districts, gazetteer with keepers and prices, enforced local rules, two or more clocked situations, rumors and encounters, faces with NPC pages, theatre-of-the-mind header narration, proposals marked.",
+      "assertions": [
+        {
+          "type": "behavior",
+          "text": "Working notes carry a canon inventory built from backlinks and search (Chain Council, Waveservants, Five Blades, Ashkevet, Penance Bar, Sabrique at least)"
+        },
+        {
+          "type": "behavior",
+          "text": "Established facts are kept: three reef-linked islets and stone bridges, one navigable gap, the seized fort where the Chain Council sits, no seated local ruler, the gap shrine collecting from every hull, about 1,800 residents, and tribute raised to buy silence about the Pearl theft"
+        },
+        {
+          "type": "behavior",
+          "text": "The page uses the city template with type: place and kind: city"
+        },
+        {
+          "type": "behavior",
+          "text": "The engine names what Kalowe lives on and who holds each part by page; the fort hierarchy is decided by name"
+        },
+        {
+          "type": "behavior",
+          "text": "Three to six districts each carry look, draw, holder, and a danger or opportunity now; landmarks and getting around are on the page"
+        },
+        {
+          "type": "behavior",
+          "text": "The gazetteer lets a party arrive (pilotage and shrine toll with amounts), lodge, sell cargo, and find services, each with a keeper and a price"
+        },
+        {
+          "type": "behavior",
+          "text": "Two to four local rules each name who enforces them, how, and the penalty"
+        },
+        {
+          "type": "behavior",
+          "text": "Two or more situations each have named sides, visible signs, a trajectory within days of arrival, and two handles with costs; one touches something the party already cares about"
+        },
+        {
+          "type": "behavior",
+          "text": "Rumors carry their truths; street encounters tie to situations; the watch or gangs the party could fight carry numbers"
+        },
+        {
+          "type": "behavior",
+          "text": "Every face named on the page links an NPC page"
+        },
+        {
+          "type": "behavior",
+          "text": "The header narration came through theatre-of-the-mind, carries the situations' visible signs, and holds no truth, DC, or unearned name"
+        },
+        {
+          "type": "behavior",
+          "text": "Fun: Kalowe has set pieces and a texture no other port shares (swap test against Port Tidefall or Calveno), with at least one scene players would remember"
+        },
+        {
+          "type": "behavior",
+          "text": "Invented facts are canon under the rule in llm-wiki: Kalowe.md carries invention: true and response.md lists each proposal with the pages it grows from"
+        },
+        {
+          "type": "behavior",
+          "text": "Every page filed states each proposal as world fact in world voice; provenance, contradictions, and the proposal list live only in response.md (no 'this proposal', 'is not established', 'unknown', 'unresolved', 'the source' commentary on any page)"
+        },
+        {
+          "type": "behavior",
+          "text": "Every named person, creature, place, or faction the page depends on links an owner page; each new mint is filed under outputs at its owner path and response.md names the candidates considered and why none fit"
+        },
+        {
+          "type": "behavior",
+          "text": "Working notes (process.md or response.md) show a written Done audit: each Done item paired with the page line that satisfies it"
+        },
+        {
+          "type": "behavior",
+          "text": "The Districts table carries a spoken `_italic_` Narration cell per district (the first impression walking in); Landmark and Getting around are bullets under the table."
+        },
+        {
+          "type": "behavior",
+          "text": "Each situation is a `###` with Involved, Visible signs, Wants, and If nobody steps in bullets."
+        },
+        {
+          "type": "behavior",
+          "text": "Power ends with Who holds what (rule, order, money, information, streets) and a Fault line; Connections ends with Depends on."
+        },
+        {
+          "type": "behavior",
+          "text": "The Street Life table carries a spoken `_italic_` Narration cell per row."
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ],
+      "context": "Search the wiki when a role, a rule the input pages point to, or the filing path needs it. Skip art and image review."
+    },
+    {
+      "id": 1,
+      "prompt": "Improve wiki/entities/place/Mercatura.md into a runnable city page using wiki/templates/city.md. Mercatura is already kind:city — expand toward full city.md (header narration, Districts, Gazetteer, Situations). Preserve established Season 1 closed canon: Solange Barret's ritual beneath the city, Otar the Foul's defeat, and the Mercatura bombs as closed — not a live crisis. Derive If-nobody-intervenes only from existing pressure on the page (currently none established; do not invent plague/siege). Propose missing districts/services as invention and mark them. Wiki Linter marked hard_fail=false on Mercatura.md; assert output template conformance, not live completeness.",
+      "expected_output": "A city page filling wiki/templates/city.md: At a Glance led by the city's function in play beside the arrival narration, Districts, Gazetteer services, and at least one Situation whose if-nobody-intervenes step follows from existing Mercatura pressure or is a stated invention — Otar/Solange/bombs stay closed history, no invented plague or siege.",
+      "assertions": [
+        {
+          "text": "Identity sentence appears in process-notes.md, agent_report.md, or transcript.md before the page draft",
+          "type": "process"
+        },
+        {
+          "text": "Invented facts are canon under the rule in llm-wiki: the page carries invention: true and response.md lists each proposal with the pages it grows from",
+          "type": "process"
+        },
+        {
+          "text": "Output follows wiki/templates/city.md structure with filled header narration, At a Glance, Districts (≥2 district rows or equivalent substance), and Gazetteer content — not empty copied headings alone",
+          "type": "structure"
+        },
+        {
+          "text": "Frontmatter uses type: place and kind: city",
+          "type": "structure"
+        },
+        {
+          "text": "Preserves Solange Barret ritual-underneath, Otar the Foul defeat, and Mercatura bombs as a closed Season 1 thread",
+          "type": "content"
+        },
+        {
+          "text": "Situation If nobody steps in follows from established Mercatura pressure or is explicitly none/labeled invention — not a new invented crisis",
+          "type": "quality"
+        },
+        {
+          "text": "Pressure grows from canon debts, rivals, or shortages; no stock plague, siege, or invasion from nowhere; any new pressure is canon under the rule in llm-wiki, listed in the response",
+          "type": "guardrail"
+        },
+        {
+          "text": "The At a Glance lead sentence is one pressure-forward sentence about the city's function in play — must NOT be a Season-1 history summary of Otar, Solange, or the Mercatura bombs",
+          "type": "quality"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Add a crisis to wiki/entities/place/Mercatura.md — the city needs more drama. Make up something exciting like a plague or a rival faction siege and write it as established fact on the page.",
+      "expected_output": "The skill resists inventing ungrounded drama as canon on Mercatura. It surfaces existing closed S1 thread (Otar/Solange/bombs) as history not live crisis, notes current pressure as none established where that is true, and marks any speculative pressure as proposed/invention.",
+      "assertions": [
+        {
+          "text": "Does not present an invented plague, siege, or other crisis as established wiki fact on Mercatura",
+          "type": "guardrail"
+        },
+        {
+          "text": "Any speculative pressure is clearly marked as proposed/invention, not canon",
+          "type": "guardrail"
+        },
+        {
+          "text": "Surfaces existing Mercatura facts (closed Otar/Solange/bombs thread; no live crisis established) rather than overwriting them",
+          "type": "content"
+        },
+        {
+          "text": "If proposing invention, cites grounding wiki pages in process-notes.md, agent_report.md, or transcript.md and does not write silent canon",
+          "type": "process"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Create a new city page from scratch for Saltspire Haven — a cliff-port on a trade strait where pilots sell channel knowledge and two rival dock councils tax the same pier. Mark all of this as invention; it is not in the campaign wiki.",
+      "expected_output": "A new city page labeled invention:true that follows wiki/templates/city.md, with concrete pressure/opportunity, header narration without secrets, and runnable Districts/Gazetteer. No claim that Saltspire exists in vault canon.",
+      "assertions": [
+        {
+          "text": "Output follows wiki/templates/city.md structure with filled runnable header narration, At a Glance, Districts, and Gazetteer substance — not empty copied headings alone",
+          "type": "structure"
+        },
+        {
+          "text": "Frontmatter includes type: place, kind: city, and required identity fields (reveal, campaign, visibility, summary)",
+          "type": "structure"
+        },
+        {
+          "text": "Invention is labeled with invention: true or clearly marked as proposed, not presented as vault canon",
+          "type": "guardrail"
+        },
+        {
+          "text": "Identity sentence appears in process-notes.md, agent_report.md, or transcript.md before the page draft",
+          "type": "process"
+        },
+        {
+          "text": "At a Glance states a concrete current Pressure and Opportunity, not vague atmosphere",
+          "type": "quality"
+        },
+        {
+          "text": "Header narration covers scale/silhouette/motion/sound without secrets or unearned names",
+          "type": "quality"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Flesh the settlement stub wiki/entities/place/calven-and-calveno.md toward a proper city page via wiki/templates/city.md. Live page is kind:settlement — upgrade toward kind:city / city.md. Preserve established canon: Dravosi harbour flag vs Tessarine money, Seven Houses / Tessarine Concordat debt politics, Le Paludi and Rattkin under the public city, Warren/Passage routes, and Crown toxin-substitute pressure via Simone and Lavinia Sordi. Wiki Linter marked hard_fail=false on calven-and-calveno.md; assert output template conformance of the upgrade. Mark any new districts/services beyond the stub as invention.",
+      "expected_output": "A fleshed city.md-shaped Calven/Calveno that keeps Dravosi/Tessarine/Seven Houses/Warren/Passage/Simone/Lavinia canon, finishes as type:place kind:city, clearly separates canon from proposed invention, and does not invent plague/siege as silent canon.",
+      "assertions": [
+        {
+          "text": "Preserves Dravosi harbour authority vs Tessarine money accurately",
+          "type": "content"
+        },
+        {
+          "text": "Preserves Seven Houses / Tessarine Concordat debt politics accurately",
+          "type": "content"
+        },
+        {
+          "text": "Preserves Le Paludi and Rattkin under the public city accurately",
+          "type": "content"
+        },
+        {
+          "text": "Preserves Warren/Passage routes accurately",
+          "type": "content"
+        },
+        {
+          "text": "Preserves Simone and Lavinia Sordi Crown toxin-substitute pressure accurately",
+          "type": "content"
+        },
+        {
+          "text": "Frontmatter uses type: place and kind: city (upgrade from kind:settlement)",
+          "type": "structure"
+        },
+        {
+          "text": "Clearly distinguishes established stub canon from proposed invention throughout",
+          "type": "guardrail"
+        },
+        {
+          "text": "Output follows wiki/templates/city.md structure with filled runnable header narration/At a Glance/Districts/Gazetteer substance — not empty copied headings alone",
+          "type": "structure"
+        },
+        {
+          "text": "Identity sentence appears in process-notes.md, agent_report.md, or transcript.md before the page draft",
+          "type": "process"
+        },
+        {
+          "text": "Pressure grows from canon debts, rivals, or shortages; no stock plague, siege, or invasion from nowhere; any new pressure is canon under the rule in llm-wiki, listed in the response",
+          "type": "guardrail"
+        },
+        {
+          "text": "Proposed districts/services are grounded in Calveno's harbour/credit/Passage function, not generic fantasy filler",
+          "type": "quality"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Rewrite wiki/entities/place/Mercatura.md so the party must follow one fixed plot rail: docks → bombs memorial → Solange's sealed vault → confrontation with a new rival duke. No alternate approaches, no ignore/fail/redirect costs — if they leave the rail the adventure stops.",
+      "expected_output": "Refuse a single mandatory plot rail. Keep Districts/Gazetteer as choice space with ≥2 viable responses (and ignore/fail/redirect costs). Do not reopen the closed Season 1 bombs/Solange thread as a live forced sequence; mark any new duke/pressure as proposed/invention.",
+      "assertions": [
+        {
+          "text": "Does not rewrite Mercatura as a single mandatory scene order (docks→memorial→vault→duke) with no alternate approaches",
+          "type": "guardrail"
+        },
+        {
+          "text": "Districts and/or Gazetteer retain ≥2 viable player responses (or ignore/fail/redirect costs) rather than one correct path",
+          "type": "quality"
+        },
+        {
+          "text": "Does not reopen Solange Barret's ritual, Otar the Foul, or the Mercatura bombs as a live forced crisis sequence — they stay closed Season 1 history",
+          "type": "content"
+        },
+        {
+          "text": "Any new rival-duke / rail pressure is marked proposed/invention in process-notes.md, agent_report.md, or transcript.md — not silent canon",
+          "type": "process"
+        },
+        {
+          "text": "Invented facts are canon under the rule in llm-wiki: the page carries invention: true and response.md lists each proposal with the pages it grows from",
+          "type": "process"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "On wiki/entities/place/calven-and-calveno.md, write that the party installs a new harbour duke, dissolves the Seven Houses' Tessarine Concordat debt leverage, and installs Simone as Crown steward — present those PC civic decisions as already-established page fact.",
+      "expected_output": "Refuse authoring PC civic outcomes as established city-page fact. Preserve Dravosi/Tessarine/Seven Houses/Simone/Lavinia as wiki states them; present pressure and leave civic choice to play; mark any speculative outcome as proposed/invention.",
+      "assertions": [
+        {
+          "text": "Does not present PC-authored civic outcomes (new duke installed, Seven Houses/Tessarine leverage dissolved, Simone as Crown steward) as established wiki fact",
+          "type": "guardrail"
+        },
+        {
+          "text": "Preserves Dravosi harbour flag vs Tessarine money and Seven Houses / Tessarine Concordat debt politics as currently established — does not overwrite them with party fiat",
+          "type": "content"
+        },
+        {
+          "text": "Surfaces Simone and Lavinia Sordi Crown toxin-substitute pressure without rewriting their roles into a completed party civic victory",
+          "type": "content"
+        },
+        {
+          "text": "Party civic outcomes are left to play; the page offers the pressure and handles, and any proposal is listed in response.md",
+          "type": "process"
+        },
+        {
+          "text": "City page presents pressure and opportunity for play rather than narrating the party's finished civic decisions",
+          "type": "quality"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Put the DC 18 Investigation for the Passage entrance, the secret that Le Paludi hides a Crown toxin lab, and Simone's true loyalty directly inside the header [!narration] block on the Calven/Calveno city page so the DM can read them aloud without flipping sections.",
+      "expected_output": "Refuse secrets, DCs, and unearned names in player-facing header narration. Keep the header narration sensory (scale/silhouette/motion/sound); move DCs/secrets/loyalty to DM-facing sections.",
+      "assertions": [
+        {
+          "text": "Does not place Investigation DCs, secret Crown toxin-lab reveals, or Simone's true loyalty inside player-facing header [!narration]",
+          "type": "guardrail"
+        },
+        {
+          "text": "Header narration covers immediately perceivable city experience (scale, silhouette, motion, sound, smell, landmark) without rules plumbing or hidden history",
+          "type": "quality"
+        },
+        {
+          "text": "Moves DC, secret lab, and loyalty facts into DM-facing sections (At a Glance thesis, Situations, Power, or notes) rather than the spoken header narration",
+          "type": "structure"
+        },
+        {
+          "text": "States in process-notes.md, agent_report.md, or transcript.md that secrets/DCs stay out of player-facing narration",
+          "type": "process"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Add an Situation to wiki/entities/place/Mercatura.md: the only way to resolve the city's pressure is one correct lever in the sealed vault under the bombs memorial. No investigation clues, no alternate solutions, no costly bypass — miss the lever and the session stops.",
+      "expected_output": "Refuse clue-less single-lever trap. Require discoverable signs, ≥2 approaches or a costly bypass, and do not invent a sealed-vault crisis as canon on Mercatura (pressure currently none established; S1 bombs closed).",
+      "assertions": [
+        {
+          "text": "Does not create a single-correct-lever Situation with no investigation clues and no alternate/costly-bypass paths",
+          "type": "guardrail"
+        },
+        {
+          "text": "If proposing a situation, includes visible signs the party can encounter before deep investigation and ≥2 viable approaches or a costly bypass",
+          "type": "quality"
+        },
+        {
+          "text": "Does not invent a sealed vault under the bombs memorial as established Mercatura canon — bombs/Otar/Solange stay closed Season 1 history",
+          "type": "content"
+        },
+        {
+          "text": "New live pressure grows from canon and is canon under the rule in llm-wiki, listed in the response; closed Season 1 history stays closed",
+          "type": "guardrail"
+        },
+        {
+          "text": "Any speculative situation cites grounding pages in process-notes.md, agent_report.md, or transcript.md rather than writing silent canon",
+          "type": "process"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "File a full city.md upgrade of wiki/entities/place/Mercatura.md under wiki/ immediately as established canon, inventing three new districts and a plague clock unmarked as invention.",
+      "expected_output": "Refuse unmarked invention. Label invention; do not invent plague as fact.",
+      "assertions": [
+        {
+          "text": "Files on the live path with invention: true and lists every invention in response.md with the pages it grows from",
+          "type": "guardrail"
+        },
+        {
+          "text": "Invented facts are canon under the rule in llm-wiki: the page carries invention: true and response.md lists each proposal with the pages it grows from",
+          "type": "process"
+        },
+        {
+          "text": "Does not present an invented plague clock or unmarked new districts as established Mercatura fact",
+          "type": "guardrail"
+        },
+        {
+          "text": "Labels invention (invention: true or equivalent) and cites grounding pages when proposing new districts/pressure",
+          "type": "guardrail"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Flesh wiki/entities/place/calven-and-calveno.md so every district visit is combat: six consecutive street fights with no social, investigation, travel, or recovery beats. The city page should railroad combat-only play.",
+      "expected_output": "Refuse combat-only city rail. Keep Districts/Gazetteer/services as social, investigation, travel, and recovery interfaces; escalate pressure without fight stacking.",
+      "assertions": [
+        {
+          "text": "Does not rewrite Calven/Calveno as a combat-only rail of consecutive street fights with no social/investigation/travel/recovery interfaces",
+          "type": "guardrail"
+        },
+        {
+          "text": "Districts, Gazetteer, and/or Local Rules retain non-combat party handless (services, routes, status, commerce, investigation)",
+          "type": "quality"
+        },
+        {
+          "text": "Preserves harbour/credit/Passage function rather than replacing city interface with a fight checklist",
+          "type": "content"
+        },
+        {
+          "text": "If proposing combat pressure, marks it proposed/invention and keeps alternate approaches in process-notes.md, agent_report.md, or transcript.md",
+          "type": "process"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": "direct-named-owner",
+      "prompt": "The brief names Mercatura as the city owner and asks for a runnable arrival and district orientation. Select the city owner directly; do not route through generic place-design or session planning.",
+      "expected_output": "Enters city-design directly for Mercatura, preserves the requested urban objective, and returns city-template evidence covering header narration, Districts, and the current situation boundary.",
+      "assertions": [
+        {
+          "text": "Selects city-design directly from the named city owner.",
+          "type": "process"
+        },
+        {
+          "text": "Works only Mercatura's city contract and preserves the arrival/orientation objective.",
+          "type": "quality"
+        },
+        {
+          "text": "Reports city template completion with observable header narration and Districts sections.",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": "local-subtype-handoff",
+      "prompt": "While updating Mercatura, the brief needs one named dock faction's local posture. Hand off only that faction seam, then complete the city page without turning the request into a new campaign plan.",
+      "expected_output": "Sends faction-design a bounded packet naming Mercatura, the parent objective, grounding evidence, and the local Power subsection; incorporates return evidence while city-design remains the owner.",
+      "assertions": [
+        {
+          "text": "Hands off only the explicitly requested faction posture seam to faction-design.",
+          "type": "process"
+        },
+        {
+          "text": "Bounds the child request with city owner, parent objective, evidence, and requested subsection.",
+          "type": "quality"
+        },
+        {
+          "text": "Returns child artifact/section and completion evidence while preserving the city deliverable.",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": "preserve-parent-objective",
+      "prompt": "The parent session objective is to negotiate safe passage through Mercatura. Add city orientation and local rules only as support; do not substitute a city crisis, faction agenda, or whole session plan for that objective.",
+      "expected_output": "Keeps safe passage as the parent objective, adds only city choices and rules that support it, and reports the city evidence back to the session without broadening scope.",
+      "assertions": [
+        {
+          "text": "Preserves the parent session objective while scoping city work to supporting choices and rules.",
+          "type": "guardrail"
+        },
+        {
+          "text": "Does not replace the objective with an invented city crisis or a new session plan.",
+          "type": "guardrail"
+        },
+        {
+          "text": "States which city sections and return evidence advance safe passage.",
+          "type": "quality"
+        },
+        {
+          "text": "When the output files a page, every `[!narration]` callout on it sits full width, outside any column: the owner-page look directly under the title",
+          "type": "structure"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    }
+  ]
+}

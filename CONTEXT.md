@@ -25,12 +25,16 @@ A setting (its places, people, factions, history and powers) that exists indepen
 _Avoid_: setting, universe, bare "world" for a Foundry world
 
 **Campaign**:
-One group of Players moving through a World over a series of Sessions, with its own Party, Plot Threads and timeline. A World has at most one active Campaign.
+One group of Players moving through a World over a series of Sessions, with its own Party, Threads and timeline. A World has at most one active Campaign.
 _Avoid_: game, adventure, run
 
 **Session**:
 One real-world meeting where the DM runs play for the Players, in person.
 _Avoid_: game, game night, sitting
+
+**Calendar**:
+A World's reckoning of in-world time: its months, weekdays and year numbering. Every Session and every event carries an in-world date on it.
+_Avoid_: timeline, dates, time system
 
 **Party**:
 The PCs of one Campaign, taken together.
@@ -72,35 +76,59 @@ _Avoid_: history, background, notes, setting info
 A Player's character in a Campaign, sheet and story together. Its sheet is kept current by Ingest from D&D Beyond.
 _Avoid_: player (the human), hero, character
 
-**Plot Thread**:
-A storyline that runs across Sessions and moves whether or not the Party engages with it, such as a cult's plan or a brewing war.
-_Avoid_: arc, storyline, hook, plot
+**Thread**:
+A live strand of the story, such as a PC's goal, a Faction's agenda, a mystery, a relationship under strain or a dwindling resource. It can open in one Session and resolve many Sessions later, and it moves whether or not the Party engages with it.
+_Avoid_: plot thread, arc, storyline, plot, hook
 
 **Quest**:
-A concrete task the Party has been offered or has taken on, with a clear point where it is done or failed. A Quest often advances a Plot Thread.
+A concrete task the Party has been offered or has taken on, with a clear point where it is done or failed. A Quest often advances a Thread.
 _Avoid_: mission, job, objective
 
 ### Session work
 
 **Prep**:
-The plan for an upcoming Session, holding everything the DM needs to run it from the Wiki alone. Prep ends with a Push.
+The plan for an upcoming Session: one page holding its Scene Chart, Threads, opposition and Clues, plus a page for each Scene. Everything the DM needs to run the Session from the Wiki alone. Prep ends with a Push.
 _Avoid_: session plan, outline, notes
 
-**Strong Start**:
-The opening of a Session: a situation that drops the Players straight into action or tension. It follows the Previously On.
-_Avoid_: hook, cold open, intro
-
-**Secret**:
-A short fact the Players could discover, deliberately not tied to any one Scene, so the DM can reveal it wherever play goes.
-_Avoid_: clue, reveal, lore drop
+**Scene Chart**:
+The planned order of a Session's Scenes: a Hook first, then alternating Developments and Cliffhangers, then a Climax and a Resolution. It paces the Session and never fixes outcomes.
+_Avoid_: beat chart, outline, running order
 
 **Scene**:
-A narrative situation planned in Prep, such as the party confronting the Duke at the masquerade. Never a map.
+A chunk of play of about half an hour, planned in Prep as exactly one of five kinds: Hook, Development, Cliffhanger, Climax or Resolution. Never a map.
 _Avoid_: beat, moment, bare "scene" for a Foundry scene
 
+**Hook**:
+The first Scene of a Session: one opening pressure that pulls the Party in within minutes.
+_Avoid_: strong start, cold open, intro, "hook" for a Thread or a PC's goal
+
+**Development**:
+A non-action Scene that changes what the Party knows, can reach or can choose between, such as a revelation, a conversation, an alliance or a betrayal.
+_Avoid_: roleplay scene, downtime, bump
+
+**Cliffhanger**:
+An action Scene: a contest whose outcome stays in doubt and puts bodies, a vehicle or a place at physical risk, such as a chase, a fight or a hazard.
+_Avoid_: combat scene, action beat
+
+**Climax**:
+The Session's highest-stakes Scene, earned by the Scenes before it, where its Threads converge.
+_Avoid_: finale, boss fight
+
+**Resolution**:
+The short Scene after the Climax that shows what changed.
+_Avoid_: epilogue, denouement, wrap-up
+
 **Encounter**:
-A Scene expected to need Creatures and initiative, usually combat, and balanced against the Party.
+The Creatures and battlefield of a Cliffhanger or Climax, balanced against the Party under the 5e rules.
 _Avoid_: fight, battle, combat (as a noun for the plan)
+
+**Clue**:
+A true, concrete fact the Players can discover, deliberately revealable in more than one Scene.
+_Avoid_: secret, reveal, lore drop
+
+**Spotlight**:
+A Scene where one PC's goal, bond or fear drives play.
+_Avoid_: PC hook, character moment
 
 **Transcript**:
 The full text of one recorded Session, handed to the Agent as Raw.
@@ -129,7 +157,7 @@ What is true in a World or Campaign. By precedence: what the DM says (to the Age
 _Avoid_: draft, approved, official
 
 **Raw**:
-Source material waiting to be ingested into the Wiki, such as Transcripts, brain-dumps and reference text.
+Any file waiting to be ingested into the Wiki, such as a Transcript, a brain-dump, a PDF or an image.
 _Avoid_: inbox, sources, imports
 
 **Ingest**:
