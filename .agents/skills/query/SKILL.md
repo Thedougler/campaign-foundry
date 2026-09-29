@@ -10,7 +10,7 @@ The Wiki is the evidence. Every fact in an answer comes from a page read during 
 ## Steps
 
 1. **Orient** with the read order in `AGENTS.md`: `hot.md`, the World's `index.md`, the `log.md` tail. `hot.md` points at pages; cite the page behind it.
-2. **Search** with qmd (the `qmd` skill), from the project root that holds the Wiki: `intent` set to the DM's question, a `lex` search on the names and key terms, and a `vec` search on the question in plain words. Add matching `index.md` entries to the hits.
+2. **Search** with qmd (the `qmd` skill), from the project root that holds the Wiki (from the CLI, `qmd query --no-rerank`, which answers in about a second): `intent` set to the DM's question, a `lex` search on the names and key terms, and a `vec` search on the question in plain words. Add matching `index.md` entries to the hits.
 3. **Read** the hits in full (`qmd multi-get`, or the MCP `multi_get`); snippets are leads. Follow wikilinks one hop where the answer runs through a linked page (an NPC's Faction, a Location's `parent`, the Creature behind an NPC). Done when every part of the question has a page that answers it, or a gap confirmed by both a name search and a meaning search.
 4. **Answer** in the shape below.
 5. **File back** a keeper (below). Any other answer ends the run at step 4.
@@ -24,14 +24,19 @@ The Wiki is the evidence. Every fact in an answer comes from a page read during 
 
 ## Filing back
 
-A **keeper** is either:
+A **keeper** is one of:
 
-- a fact the answer assembled from several pages, which the DM will want again and which belongs on one page that lacks it (where an NPC is now, after three Recaps moved them; which Clues point at a hidden truth); or
+- a fact the answer assembled from several pages, which the DM will want again and which belongs on one page that lacks it (where an NPC is now, after three Recaps moved them; which Clues point at a hidden truth);
+- a stale page the answer exposed: a later event (a Recap, the DM's word) changed something the page still states as current; or
 - anything new the DM states while asking. The DM's word is Canon.
 
-File it without asking (ADR 0003):
+Most answers file nothing. A keeper is filed without asking (ADR 0003), and filing is **surgical**:
 
-1. Write it onto the page of its kind, in the section where that page's template puts such a fact, in the page's own voice, linking the pages it came from. The fact joins the page; the question and answer stay in chat.
-2. Hand any contradiction the answer uncovered to the `audit` skill, over the pages involved.
-3. Run `pnpm check <page>` until it passes, and append a `query` entry to the World's `log.md` in the format from `docs/wiki-layout.md`.
-4. Close the answer with one line naming the page edited.
+- **Stated facts only.** File what a page or the DM states. Your inferences and suggestions stay in the answer.
+- **Link, don't copy.** A fact that already lives on its own page gets a link from here, never a second telling.
+- **Stale means contradicted.** Rewrite only the statement a later event contradicts, summary included, and leave the rest of the page as it was.
+- **Pages, not the spine.** `hot.md`, `index.md` and `log.md` are never filing targets: Ingest and Prep rewrite `hot.md`, and scripts write the other two.
+
+1. Write the keeper onto the page of its kind, in the section where that page's template puts such a fact, in the page's own voice, linking the pages it came from. The question and answer stay in chat.
+2. Run `pnpm check <page>` until it passes, then `pnpm cf log --op query --title "<the question>"` with a `--page` per page edited (`pnpm cf log --help` has the rest).
+3. Close the answer with one line naming each page edited.

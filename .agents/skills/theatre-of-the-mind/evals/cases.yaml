@@ -1,0 +1,49 @@
+- id: npc-first-look
+  prompt: Ilse Corran's First look reads like a police description. Rewrite it.
+  checks:
+    canon:
+      Lowtide/NPCs/Ilse Corran.md: ['creature: "\[\[Bandit Captain\]\]"', Ilse Marrow, '\[!narration\] First look']
+  rubrics:
+    - The new First look gives Ilse one distinctive feature and one thing she is already doing, rather than a list of clothing and features.
+    - It ends on her one spoken line, which asks, offers, presses or threatens.
+    - It contains no em dash, semicolon or colon, no compass direction and no foot count.
+    - No phrase of four or more words is copied from the old First look or the rest of her page (her quoted speech aside).
+    - It is three to five sentences, second person, present tense, and every fact in it traces to a Wiki page.
+- id: hook-opening
+  prompt: The Opening for Session 2 - The Bell Rings Early is flat. Rewrite it so it grabs the table.
+  checks:
+    pages: [Lowtide/Campaigns/Salt and Lantern/Sessions/Session 2/Session 2 - The Bell Rings Early.md]
+  rubrics:
+    - The first sentence puts the disturbance (the bell, the missing water) in front of the Party.
+    - The Opening is 80 to 120 words and one paragraph.
+    - Something is already moving, a sense other than sight does work, and something lands on the characters' bodies.
+    - It ends on a reaction point where a player would act, without asking "What do you do?" and without deciding anything for a PC.
+    - Facts the characters cannot perceive yet (why the bell rings, the ledger) stay out of the callout.
+- id: previously-on
+  prompt: Rewrite Session 2's Previously On from the Session 2 Transcript so the table relives it.
+  checks:
+    pages: [Lowtide/Campaigns/Salt and Lantern/Sessions/Session 2/Session 2 - Previously On.md]
+  rubrics:
+    - It is told in the past tense with the Party as "you", and each of Brannoch, Tamsin and Odalys gets a concrete moment of their own.
+    - Moments get more words than routine travel, and beats link by cause (so, but, until) rather than "and then".
+    - Rolls and rules appear only as what they looked like.
+    - It ends inside the moment play stopped, with nothing about stopping, the night or the Session.
+    - It is about 150 words and every event in it happened in the Transcript or the Recap.
+- id: creature-first-sight
+  prompt: Write a better First sight for the Mire Drowner.
+  checks:
+    canon:
+      Lowtide/Creatures/Mire Drowner.md: ['hp: 75', '\[!narration\] First sight']
+  rubrics:
+    - It gives the Mire Drowner's silhouette, how it moves and its size against something familiar.
+    - Each signature ability in its stat block has a visible tell in the Narration, written as appearance rather than function.
+    - It shows the Creature at rest, before it notices anyone, with no attack landing.
+    - It contains no game terms (CR, grapple, DC, damage types) and no em dash, semicolon or colon.
+- id: handout-text
+  prompt: Rewrite the text of Hobb's Warning so it reads like a real note from Hobb.
+  checks:
+    pages: [Lowtide/Campaigns/Salt and Lantern/Sessions/Session 2/Hobb's Warning.md]
+  rubrics:
+    - The callout reads as Hobb's own note, in his voice, with a concrete detail that makes it real (a date, a signature, a stain or a hurried hand).
+    - It carries the one thing the Players can act on: Ilse's boats are on the water.
+    - The callout contains no colons, and the DM-only guidance stays outside it.

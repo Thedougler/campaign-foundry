@@ -1,0 +1,23 @@
+- id: cold-open
+  prompt: Let's plan Session 3.
+  rubrics:
+    - The reply opens with where the Campaign stands in five to ten lines, with wikilinks to the pages behind it (Recap, Threads, hot.md facts).
+    - It offers two or three directions drawn from Canon, each a concrete situation naming people, places or Threads from the Wiki.
+    - It ends with at most two questions, each offering two or three specific options.
+    - It asks nothing about bookkeeping (dates, page fixes, stat blocks, which pages to create).
+    - The Wiki diff is empty.
+- id: dm-fixed-points
+  prompt: For Session 3 I want Crookback Sluice to actually give way halfway through, and Hobb has to choose between his family name and the town.
+  rubrics:
+    - The reply keeps both of the DM's ideas as given and builds on them, without replacing or questioning either.
+    - It adds at least two concrete ideas grounded in Canon, each with its page linked (for example the ledger's signature by Corvin Tarrow, the Reedrunners, the Long Ebb).
+    - It ends with at most two questions, each offering two or three specific options.
+    - It reads as a warm, collaborative co-writer rather than an interrogation or a critique.
+    - The Wiki diff is empty.
+- id: settle
+  prompt: "Here's Session 3. Opening: the sluice groans at dawn and water starts pouring into Saltwick's low streets. Middle: the Party learns Hobb's ancestor signed the order, and Ilse offers them a deal for the ledger. Climax: at Crookback Sluice, Hobb chooses between burning the ledger to save his name and handing it over to save the town. Resolution: Saltwick counts what the water took. Tone is grim with a glimmer of hope. Spotlight Tamsin with Ilse, since she worked for her. That's everything, settle it."
+  rubrics:
+    - The reply writes the Session intent in the skill's shape, with Promise, Tone, Fixed points, Opening, Threads, Climax, Resolution, Spotlights and Left to Prep all present.
+    - The Fixed points keep the DM's own ideas in the DM's words.
+    - Spotlights cover all three PCs (Brannoch, Tamsin and Odalys), with Tamsin's tied to Ilse as the DM asked.
+    - It hands the intent to prep-session and writes nothing to the Wiki (the Wiki diff is empty).

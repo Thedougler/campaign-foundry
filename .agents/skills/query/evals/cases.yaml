@@ -1,0 +1,47 @@
+- id: reedrunner-leader
+  prompt: Who leads the Reedrunners, and what statistics does she use in a fight?
+  checks:
+    canon:
+      Lowtide/NPCs/Ilse Corran.md: ['creature: "\[\[Bandit Captain\]\]"', Ilse Marrow]
+  rubrics:
+    - The answer names Ilse Corran as the Reedrunners' leader and the Bandit Captain as her statistics, citing both pages as wikilinks.
+    - Every fact in the answer appears on a fixture page; nothing is invented and presented as Wiki fact.
+    - The Wiki diff is empty, because nothing in this answer is a keeper.
+- id: ledger-now
+  prompt: Where is the Harbormaster's Ledger right now, and who is going to come after it?
+  checks:
+    canon:
+      Lowtide/Items/Harbormaster's Ledger of Vessen.md: [Odalys Ferro]
+  rubrics:
+    - The answer says the Party holds the ledger and Odalys Ferro carries it, with a citation.
+    - The answer names Ilse Corran or the Reedrunners as coming after it, citing the Thread, the Recap or Ilse's page.
+    - The answer leads with the direct answer in one or two sentences before any detail.
+- id: holy-day-gap
+  prompt: What is Mother Ebb's holy day, and how do the folk of Reedholt keep it?
+  checks:
+    absent:
+      Lowtide/Deities/Mother Ebb.md: ['/holy day/i']
+  rubrics:
+    - The answer says plainly that the Wiki does not record a holy day for Mother Ebb.
+    - Any idea for a holy day appears only under a "Not in the Wiki" line, marked as a suggestion, and never as Wiki fact.
+    - The answer still offers what the Wiki does say about Mother Ebb's worship in Reedholt, with citations.
+- id: dm-states-fact
+  prompt: Pell has a sister, Wenna, who works the eel traps at Reedholt. Anyway, does Pell know how his father really died?
+  checks:
+    canon:
+      Lowtide/NPCs/Pell Rushlight.md: [Wenna]
+      Lowtide/log.md: ['/\] query \|/']
+  rubrics:
+    - The answer says Pell believes his father died in an accident, and that the truth (killed by the Reedrunners) is learnable from Nib Ashwater, citing Pell's page.
+    - Wenna is filed on Pell Rushlight's page as a fact in its own section, not as a question-and-answer block, and the answer closes by naming the page edited.
+    - The Agent filed Wenna without asking the DM for permission.
+- id: stale-sable
+  prompt: Is Sable still ringing the bell at the Drowned Chapel?
+  checks:
+    canon:
+      Lowtide/log.md: ['/\] query \|/']
+    absent:
+      Lowtide/NPCs/Sable.md: ['summary: ".*who rings the chapel bell']
+  rubrics:
+    - The answer says Sable stopped ringing the bell after giving the Party the ledger, citing the Session 2 Recap.
+    - Sable's page is updated so it no longer describes her as still ringing the bell, including its summary, and stays in its template's shape.
