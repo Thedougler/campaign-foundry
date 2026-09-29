@@ -22,7 +22,7 @@ A skill's cases live in `.agents/skills/<skill>/evals/cases.yaml` (the format is
    ```
 
    A case that needs Raw keeps it in `evals/raw/<case-id>/` beside its `cases.yaml`; a case that needs the World changed first (a seeded contradiction) keeps the changed pages, at their vault paths, in `evals/seed/<case-id>/`.
-2. **Run** every case at once, one background subagent each (Sonnet unless the case says otherwise), with this brief:
+2. **Run** the cases, one background subagent each on Haiku (unless the case names a model), at most four at a time, with this brief:
 
    > You are the Agent in `AGENTS.md`, working for the DM. For this task the project root is `$W`: the Wiki is `$W/wiki`, Raw is `$W/raw`, the Archive is `$W/archive`, and qmd runs from `$W`. Run repo commands from `/Users/nick/campaign-foundry` with `--vault $W/wiki --root $W` (for example `pnpm check --vault $W/wiki --root $W <page>`). Use the `<skill>` skill. The DM says: "<prompt>". When you're done, write your final reply to the DM, exactly as you'd send it, to `$W/.eval/output.md`.
 
