@@ -36,6 +36,7 @@ archive/                       Archive: already ingested; flat, no folders (outs
   - Every frontmatter key in a template is required on the page. `type` and `kind` carry their literal values; `summary` is never blank; any other key may be blank where it doesn't apply (`parent` on a top-level Region).
   - Every `##` heading in a template is a required section, in template order. `###` headings are optional structure: a page keeps the ones it has content for. Every callout type in a template is required on the page.
   - Authoring guidance lives in `%% %%` comments, which a finished page removes.
+- **Words.** Spelling is British. An in-world name passes by having a page; an in-world word with no page of its own (a month, a minor name) goes in the vault's `.cspell-words.txt`, and a rules term in `.cspell/dnd-terms.txt`.
 - **PC sides.** `cf pull` replaces the `Sheet`, `Spells` and `Inventory` sections whole from the PC's `dndbeyond_url` and never touches `Story`, `Goals and bonds` or `Plans`. It fills `summary` only when blank, and logs a `pull` only when a page changed.
 - **Handouts.** Push shows Players only a Handout's `[!narration]` callout and the image embedded under it; the rest of the page stays with the DM.
 - **Stat blocks.** A Creature's `## Statblock` holds one Fantasy Statblocks block (`layout: Basic 5e Layout`). Other pages link the Creature (an NPC through `creature`). Only an Encounter where it is fought embeds the block, as `![[Creature#Statblock]]`; no page retypes it.
