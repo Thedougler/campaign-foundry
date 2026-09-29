@@ -36,7 +36,7 @@ dndbeyond_url: ""
 %% Story side, never pulled. %%
 
 > [!narration] Portrait
-> %% Spoken: face, build, clothing, posture and one detail beyond sight. Second person. %%
+> %% Spoken: how the other characters see this PC: face, build, clothing, posture and one detail beyond sight. Third person. %%
 
 ### Backstory
 
