@@ -3,7 +3,7 @@ type: Location
 kind: Region
 summary: "A chart-edge trench where currents reverse, the Pearl lies below the waterline and a planar fissure strains containment."
 sources:
-  - "archive/drowned-maw.md"
+ - "archive/drowned-maw.md"
 parent: "[[Midchain]]"
 ---
 
@@ -45,7 +45,7 @@ The Maw is a trench-floor puncture through the Border Ethereal into the Elementa
 
 ### History
 
-The Antheri built into the western wall roughly two thousand years before the current era. Sentinels have watched the Maw since 1295 DR.
+The Antheri built into the far sidewall roughly two thousand years before the current era. Sentinels have watched the Maw since 1295 DR.
 
 ### Hidden truths
 
@@ -59,29 +59,29 @@ Umberlee's claim stops at the living blue-green line. Beyond it depth and instru
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

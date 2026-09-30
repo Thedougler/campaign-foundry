@@ -2,17 +2,16 @@
 type: Item
 summary: "A rare Aruhe fruit that grants Resistance to all damage for 1 minute."
 sources:
-  - "archive/Aruhe - Stonepear.md"
-  - "archive/stonepear.md"
+ - "archive/Aruhe - Stonepear.md"
+ - "archive/stonepear.md"
 ---
 
 ## At a glance
 
 - **Kind.** Consumable.
 - **Rarity.** Rare.
-- **Attunement.** Not required.
-- **Changes.** Eating it grants Resistance to all damage for 1 minute.
-- **Held by.** The fallen fruit is safe to take; [[Auralis]] urges [[Perrin Black-Jaw|Perrin]] to eat one.
+- **Attunement.** - **Changes.** Eating it grants Resistance to all damage for 1 minute.
+- **Held by.** The fallen fruit is safe to take. [[Auralis]] urges [[Perrin Black-Jaw|Perrin]] to eat one.
 
 > [!narration] First look
 > A stonepear hangs like a heavy pear with fitted grey and moss-green stone scales. Its chipped plates scrape like pumice against your palm, and it weighs twice what its size promises.
@@ -31,7 +30,7 @@ A fruit picked from its stem is a claim under [[Taking on Aruhe]]. A fallen frui
 
 ### History
 
-Stonepears grow in [[The Quiet]], [[Old Gardens]] and [[The Pantry]]. The Party first saw one at [[River Slack Basin]] in Session 11 and did not eat it.
+Stonepears grow in [[The Quiet]], [[Old Gardens]] and [[The Pantry]]. The Party first saw one at River Slack Basin in Session 11 and did not eat it.
 
 ### Hidden truths
 
@@ -41,15 +40,15 @@ Auralis's Session 12 “CONSUME” command was meant to prepare Perrin for Talon
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

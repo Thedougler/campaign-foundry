@@ -1,9 +1,9 @@
 ---
 type: NPC
-summary: "Master of the Countless and former Sentinel Osset, seeking the Soul Incarnate transformation through Crissdalynn."
+summary: "Master of the faction and former Sentinel Osset, seeking the Soul Incarnate transformation through Crissdalynn."
 sources:
-  - "archive/talon-vantyrus.md"
-creature: "[[Talon Vantyrus]]"
+ - "archive/talon-vantyrus.md"
+creature: "[[Talon Vantyrus (Creature)]]"
 ---
 
 ## At a glance
@@ -43,15 +43,15 @@ He drives **Drowned Maw Awakening**, the **Rule of Two**, and the order's hunt f
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

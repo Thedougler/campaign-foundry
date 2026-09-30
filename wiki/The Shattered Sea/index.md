@@ -18,7 +18,7 @@
 
 ### Settlements
 
-- [[Calder's Tooth and Port Tidefall]] — A cliff-tier fortress-port whose docks, trade shelf and Crestwall guns watch the western Strait.
+- [[Calder's Tooth and Port Tidefall]] — A cliff-tier fortress-port whose docks, trade shelf and Crestwall guns watch the far side Strait.
 - [[Calven and Calveno]] — Calven's marsh, tidal flats and farms rise to Calveno, a canal city whose harbour flies the Dravosi flag while debt controls its politics.
 - [[Kalowe]] — Three reef-linked islets joined by stone bridges, with one navigable gap, a seized fort council and a shrine that charges every hull.
 - [[Mercatura]] — A functioning Calveno city whose closed Season 1 crisis leaves its durable urban identity only partly recorded.
@@ -88,8 +88,8 @@
 - [[Shepherd Grigori]] — Korabl of the Flock, a healer whose blood-anchor survival trick feeds an undead ascension.
 - [[Simone Tabarnack]] — Purple-caste Grung officer pursuing Jean-Claude while an unmaintained rite threatens her rise to Gold.
 - [[Solange Barret]] — Red-caste Grung ritual specialist whose circle summoned Otar beneath Mercatura.
-- [[Talon Skarn]] — Peregrine Countless apprentice hunting Crissdalynn's Fate Spinner under the Rule of Two.
-- [[Talon Vantyrus]] — Master of the Countless and former Sentinel Osset, seeking the Soul Incarnate transformation through Crissdalynn.
+- [[Talon Skarn]] — Peregrine the faction apprentice hunting Crissdalynn's Fate Spinner under the Rule of Two.
+- [[Talon Vantyrus]] — Master of the faction and former Sentinel Osset, seeking the Soul Incarnate transformation through Crissdalynn.
 - [[Thunk]] — Enormous orc master gunner whose uncanny powder sense keeps the Uncertainty's guns working.
 - [[Umberlee - Branca]] — Senior Calveno Waveservant who delivers Umberlee's command about the Pearl of Souls.
 - [[Vashu, the Weeping Veil]] — Blind purple-caste Grung master of the Still-Water Discipline and former Magazine Gamma guardian.
@@ -97,19 +97,33 @@
 
 ## Creatures
 
+- [[Barnaby Rook (Creature)]] — Barnaby Rook, a unique Creature stat block from the archived NPC record.
+- [[Bazzoth the Steeped]] — Bazzoth the Steeped, a unique Creature stat block from the archived NPC record.
+- [[Beaumont Sel (Creature)]] — Beaumont Sel, a unique Creature stat block from the archived NPC record.
 - [[Bloodhawk]] — A Bloodhawk creature (CR 11) used as a skirmisher in The Shattered Sea.
 - [[Commoner]] — An ordinary untrained person represented by the standard commoner statblock.
 - [[Crown Squid]] — A Crown Squid creature (CR 17) used as a controller in The Shattered Sea.
 - [[Deer-Stalker]] — A Deer-Stalker creature (CR 8) used as a ambusher in The Shattered Sea.
+- [[Dravosi Enforcer]] — A Dravosi Enforcer Creature (CR 1/8) adapted from the 2024 SRD Guard.
+- [[Geoffrey Draves (Creature)]] — Geoffrey Draves, a unique Creature stat block from the archived NPC record.
 - [[Grung]] — A Grung creature (CR 1/4) used as a scout in The Shattered Sea.
 - [[Grung Elite Warrior]] — A Grung Elite Warrior creature (CR 2) used as a warrior in The Shattered Sea.
+- [[Hinewai the Blight]] — Hinewai the Blight, a unique Creature stat block from the archived NPC record.
 - [[Leviathan]] — A named elemental horror that hunts the open water around the Drowned Maw.
+- [[Master Kyzil (Creature)]] — Master Kyzil, a unique Creature stat block from the archived NPC record.
 - [[Minor Slaad]] — A Minor Slaad creature (CR 1/2) used as a bruiser in The Shattered Sea.
+- [[Moucheron]] — A Moucheron Creature (CR 1/8) adapted from the 2024 SRD Stirge.
+- [[Otar the Foul (Creature)]] — Otar the Foul, a unique Creature stat block from the archived NPC record.
+- [[Ozzeth the Twiceborn]] — Ozzeth the Twiceborn, a unique Creature stat block from the archived NPC record.
 - [[River Otter]] — A River Otter creature (CR 4) used as a controller in The Shattered Sea.
 - [[Snakewood]] — A carnivorous canopy vine colony that grips travellers and feeds with acid.
+- [[Solange Barret (Creature)]] — Solange Barret, a unique Creature stat block from the archived NPC record.
 - [[Spiguar]] — A Spiguar creature (CR 11) used as a ambusher in The Shattered Sea.
+- [[Talon Skarn (Creature)]] — Talon Skarn (Creature), a unique Creature stat block from the archived NPC record.
+- [[Talon Vantyrus (Creature)]] — Talon Vantyrus (Creature), a unique Creature stat block from the archived NPC record.
 - [[Terror-Bird]] — A Terror-Bird creature (CR 13) used as a bruiser in The Shattered Sea.
 - [[Unsaid Macaw]] — A macaw that echoes surface thoughts and can briefly compel a truthful sentence.
+- [[Vashu the Weeping Veil]] — Vashu the Weeping Veil, a unique Creature stat block from the archived NPC record.
 - [[Vine Lash]] — A Vine Lash creature (CR 3) used as a controller in The Shattered Sea.
 - [[Whip Shark]] — A Whip Shark creature (CR 8) used as a controller in The Shattered Sea.
 - [[Wolfrabbit]] — A Wolfrabbit creature (CR 4) used as a skirmisher in The Shattered Sea.
@@ -118,7 +132,7 @@
 ## Factions
 
 - [[Countless]] — Breakaway Sentinel order that erases names and hunts Fate Spinner carriers through one-job agents.
-- [[Dravosi Crown]] — Tethyr colonial court and naval service that enforces inspection law across the western approaches.
+- [[Dravosi Crown]] — Tethyr colonial court and naval service that enforces inspection law across the far side approaches.
 - [[Grung Clans]] — Political Grung clans that keep the Verdant Teeth closed, trade toxin and raid for captives as their water power declines.
 - [[Passage]] — Rescue and smuggling network that moves people off official routes without treating them as property.
 - [[Sentinels of the Eyrie]] — Aarakocra monks at High Eyrie who watch and record the Drowned Maw without interpreting or intervening.
@@ -131,12 +145,11 @@
 ## Items
 
 - [[A Sliver of the Unstable Form]] — A warm fragment of Otar the Foul's hide that grants conditional regeneration to its attuned bearer.
-- [[Fate Spinner]] — A thumb-sized quartz top that watches one known creature from afar and lends it luck; Crissdalynn carries it and Countless hunts it.
+- [[Fate Spinner]] — A thumb-sized quartz top that watches one known creature from afar and lends it luck. Crissdalynn carries it and the faction hunts it.
 - [[Fleet Commanders Chair]] — An unbreakable command chair that grants Charisma advantage while occupied and is secretly an elder mimic.
 - [[Flying Boots]] — Winged Boots that grant Delmar a 30-foot Fly Speed for 1 hour per charge.
 - [[Ghost Plum]] — A rare Aruhe fruit that makes its eater Invisible for 1 hour, while its pollen reveals invisible creatures as a shimmer.
 - [[Giant's Guava]] — A rare Aruhe fruit that sets the eater's primary ability score to 25 for 1 hour.
-- [[Grubnade]] — A volatile Aruhe caterpillar that detonates when disturbed, scattering harmless juveniles and igniting nearby growth.
 - [[Grung Authority Seal]] — Spent gold seals that compelled lower-caste Grung onto Aruhe and preserve each bearer's whole order chain.
 - [[Letters of Marque]] — Crown parchment licensing Barnaby Rook as a privateer and carrying a 30,000 gp Crown bond.
 - [[Nightmantle]] — A cursed cloak of displacement that redirects nearby ranged attacks to its wearer.
@@ -186,3 +199,61 @@
 - [[Rule of Two]] — Keep Crissdalynn out of the contest between Skarn and Vantyrus for control of Countless.
 - [[Take on Aruhe]] — Learn Aruhe's law and reach its survivors without claiming living island life or drawing the island's responders.
 - [[The Hound of God]] — Aleksander Malone pursues Shepherd Grigori through the Midchain and tightens the trail towards the crew's wake.
+
+## Preps
+
+- [[Session 11 - Prep]] — Aruhe crossing from the Crown Squid's flight to a night watch ambush.
+- [[Session 12 - Prep]] — Four-hour inland rescue through Hinewai's garden, ending with Skarn's last attempt at the Fate Spinner and Perrin's choice to consume.
+
+## Scenes
+
+- [[Session 11 - Aftermath]] — The theft attempt remains unresolved as play ends in the river camp.
+- [[Session 11 - Angry Birds]] — An adult Bloodhawk stoops on the Crown Squid while the Party flees inland.
+- [[Session 11 - Birds of a Feather]] — The Party pursues the Crown Squid over Aruhe's terraces.
+- [[Session 11 - False Help]] — A garden voice offers help while the Party camps beside the river.
+- [[Session 11 - Farthest Camp]] — The planned inland survivor camp remains beyond the Party's route.
+- [[Session 11 - Landing Sign]] — The Party lands at a cold stone ring and sees smoke inland.
+- [[Session 11 - Night Watch]] — The Party sets a watch, cooks porcupine and learns the lantern's value.
+- [[Session 11 - Otter Hole]] — The Party pulls Matteo Scola from three giant river otters.
+- [[Session 11 - Theft on the Watch]] — Talon Skarn attacks Crissdalynn's pack for the Fate Spinner.
+- [[Session 11 - What They Ate]] — The Party learns Aruhe's fallen-fruit rule and drives off a Spiguar.
+- [[Session 11 - Wolfrabbits]] — Living fruit triggers a wolfrabbit hunt and young Bloodhawks.
+- [[Session 12 - Consume]] — At dusk in the Pantry, Perrin must consume the island's fruit as invisible Skarn makes his last attempt at the Fate Spinner.
+- [[Session 12 - Dawn Strike]] — At first light Talon Skarn cuts at Crissdalynn's harness for the Fate Spinner, and the Party must drive him off before he takes it.
+- [[Session 12 - Orders in the Ash]] — On the Burnt Road, Jean-Claude reads Gold-caste orders from eleven dead Grung while Hinewai calls him a kidnapper.
+- [[Session 12 - Terror-Birds]] — Two Terror-Birds charge the rescued column across the Long Meadow, forcing the Party to protect civilians and a carried man.
+- [[Session 12 - The Smoking Skylight]] — Four Calveno trapped in a lava tube reveal that the rest of their camp followed Hinewai's voice north-east, while a terror-bird waits above.
+- [[Session 12 - The Way Out]] — At first light nine Calveno leave the Pantry with the Party, while three choose to stay beneath Hinewai's vine.
+
+## Recaps
+
+- [[Session 0 - Recap]] — The Shattered Sea primer established the sea's powers, the wreck over the Drowned Maw, and four strangers aboard the Saltwright as a Crown inspection began.
+- [[Session 1 - Recap]] — The crew defended the Saltwright, recruited Geoffrey Draves, and left Barnaby Rook on the HCS Surety with a spent flintlock.
+- [[Session 2 - Recap]] — The crew took the HCS Surety, freed Ket, specified its prize crew, and suffered three hull strikes from below in a tropical storm.
+- [[Session 3 - Recap]] — The crew killed the whip-shark, renamed the prize Uncertainty, and made landfall at Calveno with Nona's favour unpaid.
+- [[Session 4 - Recap]] — Delmar confessed the Pearl theft, Umberlee named her price, and the Warren raid took Felix Aho two days before the festival bombs.
+- [[Session 5 - Recap]] — Calveno's artificer helped with the magazine raid, Magazine Beta went into the water, and Room 8 held a live ritual under Solange Barret.
+- [[Session 6 - Recap]] — Vashu and Ozzeth died defending Solange's ritual, and Agni opened the primary chamber ceiling.
+- [[Session 7 - Recap]] — Otar died in the Mercatura crater, and Iacopo Fieschi signed the crew as Calveno's Defenders.
+- [[Session 8 - Recap]] — Nona's missing-persons list passed 314, Osset was named twice, and Uncertainty's refit was twelve hours out.
+- [[Session 9 - Recap]] — Uncertainty reached for Sparhold with three Calveno captives aboard after the HCS Ordinance inspection was turned towards Calveno.
+- [[Session 10 - Recap]] — Shepherd Grigori warned of a Fate Spinner hunt, the follower ship was left listing, and two Aruhe survivors came aboard.
+- [[Session 11 - Recap]] — The Party fled a bloodhawk, rescued Matteo Scola from otters, and ended the night with Talon Skarn attacking Crissdalynn.
+
+## Previously On
+
+- [[Session 0 - Previously On]] — The prologue brought four strangers aboard the Saltwright as the Crown cutter HCS Surety began its inspection.
+- [[Session 1 - Previously On]] — The Party defended the Saltwright, recruited Geoffrey Draves, and left Barnaby Rook aboard the Surety with the gangplank fight unresolved.
+- [[Session 2 - Previously On]] — The Party captured the Surety, freed Ket, and named a prize crew before three impacts from below turned the cutter in a storm.
+- [[Session 3 - Previously On]] — The crew took the HCS Surety, freed Ket, named a prize crew, and survived three blows from below.
+- [[Session 4 - Previously On]] — The crew killed the whip-shark, reached Calveno, reported Vestra's loss to Nona, and met Master Kyzil.
+- [[Session 5 - Previously On]] — Delmar confessed the Pearl theft, Umberlee named her price, and Felix revealed the festival attack.
+- [[Session 6 - Previously On]] — The crew destroyed Magazine Beta and reached Solange Barret's ritual in Room 8.
+- [[Session 7 - Previously On]] — Solange Barret spoke Agni, the chamber ceiling fell, and she stood remade at twelve feet.
+- [[Session 8 - Previously On]] — Otar died in the Mercatura crater, Fieschi made the crew Calveno's Defenders, and Nona called them home.
+- [[Session 9 - Previously On]] — Otar died in the Mercatura crater, Fieschi made the Party Calveno's Defenders, and Nona began the pursuit of the raiders.
+- [[Session 10 - Previously On]] — The Party escaped the HCS Ordinance inspection with three captives and sent the Crown towards Calveno.
+
+## Other
+
+- [[Grubnade]]

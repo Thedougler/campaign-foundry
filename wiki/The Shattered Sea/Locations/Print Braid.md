@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A braid of packed paths along the Quiet's edge where only one strand carries the Calveno trail north."
 sources:
-  - "archive/print-braid.md"
+ - "archive/print-braid.md"
 parent: "[[Grasslands]]"
 ---
 
@@ -54,29 +54,29 @@ The macaw's stretched echo is not a voice in the forest. The absence of human pr
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

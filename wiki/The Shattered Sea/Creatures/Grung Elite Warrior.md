@@ -2,13 +2,13 @@
 type: Creature
 summary: "A Grung Elite Warrior creature (CR 2) used as a warrior in The Shattered Sea."
 sources:
-  - "archive/grung-elite-warrior.md"
+ - "archive/grung-elite-warrior.md"
 ---
 
 ## At a glance
 
 - **Role at the table.** Warrior.
-- **Threat.** CR 2; use its attack range, movement, or control to pressure the Party.
+- **Threat.** CR 2. Use its attack range, movement, or control to pressure the Party.
 - **Tell.** Its body advertises its next attack before it commits.
 - **Weak to.** Cover, terrain, and breaking its preferred range or formation.
 - **Used by.** [[Minor Slaad]] patrols the same territory.
@@ -53,7 +53,7 @@ actions:
   - name: "Multiattack"
     desc: "The grung makes two attacks with its dagger or shortbow."
   - name: "Dagger"
-    desc: "Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 5 (1d4 + 3) piercing damage plus 5 (2d4) poison damage."
+    desc: "Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. Or range 20/60 ft., one target. Hit: 5 (1d4 + 3) piercing damage plus 5 (2d4) poison damage."
   - name: "Shortbow"
     desc: "Ranged Weapon Attack: +5 to hit, range 80/320 ft., one target. Hit: 6 (1d6 + 3) piercing damage plus 5 (2d4) poison damage."
   - name: "Mesmerizing Chirr (Recharge 6)"
@@ -84,15 +84,15 @@ A careful examination of its remains or territory reveals its habits and weaknes
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

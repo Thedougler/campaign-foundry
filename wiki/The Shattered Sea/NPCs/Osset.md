@@ -8,27 +8,27 @@ creature: "[[Talon Vantyrus]]"
 
 ## At a glance
 
-- **Role.** Former Sentinel master and hidden leader of the Countless.
+- **Role.** Former Sentinel master and hidden leader of the faction.
 - **Wants.** A complete read on Crissdalynn's Long Sight without recognition by Kyzil.
 - **Voice.** Composed, quiet, and precise. He speaks like a teacher.
-- **Found at.** Countless routes under the alias Talon Vantyrus. His original name is unrevealed.
+- **Found at.** the faction routes under the alias Talon Vantyrus. His original name is unrevealed.
 
 > [!narration] First look
 > An aged snowy-owl aarakocra wears Sentinel martial robes stripped of their marks. His pale plumage is mottled with age, and his yellow-gold eyes hold the controlled bearing of a master who once taught the Sentinels.
 
 ## Play
 
-- **Opens them up.** A plea that stops immediate harm or an argument accepting the cost of action.
+- **Opens them up.** A plea that stops immediate harm or an argument taking the loss of action.
 - **Shuts them down.** Patience, doctrine, or an interrogation about his name.
 - **Will share.** His doctrine of intervention and consequence.
-- **Will not share.** His original name, the Countless's routes, or what he is reading in Crissdalynn.
+- **Will not share.** His original name, the faction's routes, or what he is reading in Crissdalynn.
 - **If pressed.** He redirects to the work, leaves, or acts through intermediaries.
 
 ## Depth
 
 ### History
 
-Osset was once a senior master at High Eyrie and Kyzil's teacher. He broke from the Sentinels because they recorded deaths without preventing them, then became Talon Vantyrus, master of the Countless. He sold Lavinia Sordi the cursed Cloak of Displacement.
+Osset was once a senior master at High Eyrie and Kyzil's teacher. He broke from the Sentinels because they recorded deaths without preventing them. Talon Vantyrus then became master of the faction. He sold Lavinia Sordi the cursed Cloak of Displacement.
 
 ### Hidden truths
 
@@ -37,21 +37,21 @@ Osset was once a senior master at High Eyrie and Kyzil's teacher. He broke from 
 
 ### Threads
 
-He drives the conflict in **Drowned Maw Awakening** and the Countless's **Rule of Two**.
+He drives the conflict in **Drowned Maw Awakening** and the faction's **Rule of Two**.
 
 ## Links
 
 ```base
-filters:
-  and:
-    - file.hasLink(this.file)
-views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+Filters:
+ and:
+  - file.hasLink(this.file)
+Views:
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

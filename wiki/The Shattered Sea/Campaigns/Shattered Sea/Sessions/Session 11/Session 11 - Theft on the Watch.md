@@ -1,0 +1,70 @@
+---
+type: Scene
+kind: Climax
+summary: "Talon Skarn attacks Crissdalynn's pack for the Fate Spinner."
+sources:
+  - "archive/Session-11-09-Theft-on-the-Watch.md"
+  - "archive/Session-11-09-Theft-on-the-Watch-archived-version.md"
+---
+## At a glance
+
+- **Contest.** Keep the Fate Spinner through Skarn's ambush.
+- **At risk.** Crissdalynn and the Spinner.
+- **Where.** River camp, Crissdalynn's watch.
+- **Opposition.** [[Talon Skarn]].
+
+> [!narration] Opening
+> A falcon drops from the dark. Its first strike misses, then its talons turn toward the pack.
+>
+## Play
+
+### Stakes
+
+The Fate Spinner may be stolen.
+
+### Pressure
+
+Skarn stays in Crissdalynn's face after her stunning strike.
+
+### Terrain
+
+Camp, water and darkness.
+
+### Checks
+
+Cloak and armour matter to the first strike.
+
+## Encounter
+
+### Battlefield
+
+Slack basin camp.
+
+### Creatures
+
+[[Talon Skarn (Creature)]].
+
+### Balance
+
+Play stops mid-fight; one Legendary Resistance is spent.
+
+## Outcomes
+
+| If | Then | Hands to |
+| --- | --- | --- |
+| Hold the Spinner | Skarn remains engaged | [[Session 11 - Aftermath]] |
+| Lose it | The hunters advance | [[Session 11 - Aftermath]] |
+
+## Depth
+
+### Hidden truths
+
+The attacker is Talon Skarn, not Talon Vantyrus.
+
+### Threads
+
+[[Perrin and Nona]]
+
+### Spotlight
+
+Crissdalynn's stunning strike.

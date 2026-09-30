@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A Velo Quarter curio shop where Prospero Morsani sells rare objects together with the stories of those who lost them."
 sources:
-  - "archive/cabinet-of-morsani.md"
+ - "archive/cabinet-of-morsani.md"
 parent: "[[Calven and Calveno]]"
 ---
 
@@ -54,29 +54,29 @@ Prospero distributes objects to the right hands. Each ring holds a prior owner's
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A basalt sea-stack beyond the Crown chain held by the Sentinels for two centuries above the Drowned Maw."
 sources:
-  - "archive/high-eyrie.md"
+ - "archive/high-eyrie.md"
 parent: "[[Crown Islands]]"
 ---
 
@@ -44,7 +44,7 @@ The Sentinels have watched the Maw continuously since 1295 DR and refused three 
 
 ### Hidden truths
 
-The order observes without interpreting or intervening. The faction called [[Countless]] remains connected through existing faction history.
+The order observes without interpreting or intervening. The faction called the faction remains connected through existing faction history.
 
 ### Threads
 
@@ -54,29 +54,29 @@ The order observes without interpreting or intervening. The faction called [[Cou
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

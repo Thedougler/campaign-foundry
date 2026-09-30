@@ -2,7 +2,7 @@
 type: NPC
 summary: "Eldest Calveno survivor who teaches Aruhe's fallen-fruit rule and will stay at the Pantry."
 sources:
-  - "archive/renzo-canale.md"
+ - "archive/renzo-canale.md"
 creature: "[[Commoner]]"
 ---
 
@@ -42,15 +42,15 @@ He anchors the survivor strand of **Taking on Aruhe**.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

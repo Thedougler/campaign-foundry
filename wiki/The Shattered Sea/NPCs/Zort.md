@@ -2,7 +2,7 @@
 type: NPC
 summary: "Armless goblin animal dealer who trades Midchain names for work he cannot do himself."
 sources:
-  - "archive/zort.md"
+ - "archive/zort.md"
 creature: "[[Commoner]]"
 ---
 
@@ -43,15 +43,15 @@ He is a contact in Calveno's animal trade and the lead toward Roka Sten.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

@@ -2,7 +2,7 @@
 type: PC
 summary: "Chad's level 5 Gloom Stalker ranger and blue-caste Grung fugitive, one island ahead of Simone's hunters."
 sources:
-  - "archive/jean-claude-tabarnack.md"
+ - "archive/jean-claude-tabarnack.md"
 dndbeyond_url: ""
 ---
 
@@ -62,15 +62,15 @@ Born blue caste among the Grung of Botukuri, Jean-Claude fled after Pell died in
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

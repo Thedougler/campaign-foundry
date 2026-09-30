@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A vibration-triggered Aruhe plant that launches venomous spines at fast grounded creatures and rewards careful passage."
 sources:
-  - "archive/stillbloom.md"
+ - "archive/stillbloom.md"
 parent: "[[The Quiet]]"
 ---
 
@@ -54,29 +54,29 @@ Exposure spreads from local numbness to Poisoned, Restrained or Paralysed states
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

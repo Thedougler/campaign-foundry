@@ -2,13 +2,13 @@
 type: Creature
 summary: "A Crown Squid creature (CR 17) used as a controller in The Shattered Sea."
 sources:
-  - "archive/crown-squid.md"
+ - "archive/crown-squid.md"
 ---
 
 ## At a glance
 
 - **Role at the table.** Controller.
-- **Threat.** CR 17; use its attack range, movement, or control to pressure the Party.
+- **Threat.** CR 17. Use its attack range, movement, or control to pressure the Party.
 - **Tell.** Its body advertises its next attack before it commits.
 - **Weak to.** Cover, terrain, and breaking its preferred range or formation.
 - **Used by.** [[Deer-Stalker]] patrols the same territory.
@@ -105,15 +105,15 @@ A careful examination of its remains or territory reveals its habits and weaknes
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

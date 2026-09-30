@@ -2,8 +2,8 @@
 type: Thread
 summary: "Crown sailors board the Saltwright under HCS Surety's flag, forcing the new crew to choose between surrender, deception, and taking the ship."
 sources:
-  - "archive/story-so-far.md"
-  - "archive/campaign-timeline.md"
+ - "archive/story-so-far.md"
+ - "archive/campaign-timeline.md"
 status: active
 ---
 
@@ -40,15 +40,15 @@ The Party gives up the Saltwright and scatters. It escapes under false papers. O
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

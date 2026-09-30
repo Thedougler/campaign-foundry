@@ -2,13 +2,13 @@
 type: Creature
 summary: "A Minor Slaad creature (CR 1/2) used as a bruiser in The Shattered Sea."
 sources:
-  - "archive/minor-slaad.md"
+ - "archive/minor-slaad.md"
 ---
 
 ## At a glance
 
 - **Role at the table.** Bruiser.
-- **Threat.** CR 1/2; use its attack range, movement, or control to pressure the Party.
+- **Threat.** CR 1/2. Use its attack range, movement, or control to pressure the Party.
 - **Tell.** Its body advertises its next attack before it commits.
 - **Weak to.** Cover, terrain, and breaking its preferred range or formation.
 - **Used by.** [[Whip Shark]] patrols the same territory.
@@ -69,15 +69,15 @@ A careful examination of its remains or territory reveals its habits and weaknes
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

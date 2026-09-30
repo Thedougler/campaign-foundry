@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A concealed Black-Jaw dry dock in Le Paludi, disguised as a defunct tannery and maintained by Cobb."
 sources:
-  - "archive/la-vasca.md"
+ - "archive/la-vasca.md"
 parent: "[[Le Paludi]]"
 ---
 
@@ -54,29 +54,29 @@ Every use reaches Nona within an hour. The defunct tannery is the working dock's
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

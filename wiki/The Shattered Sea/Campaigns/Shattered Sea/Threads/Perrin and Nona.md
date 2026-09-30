@@ -2,9 +2,9 @@
 type: Thread
 summary: "Perrin's return to Nona Black-Jaw reconnects the Party to the Passage rescue network and an obligation to report on the lost Vestra."
 sources:
-  - "archive/story-so-far.md"
-  - "archive/perrin-black-jaw.md"
-  - "archive/Cobb.md"
+ - "archive/story-so-far.md"
+ - "archive/perrin-black-jaw.md"
+ - "archive/Cobb.md"
 status: active
 ---
 
@@ -41,15 +41,15 @@ Perrin may bind the Party to the Passage or preserve the network while making a 
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

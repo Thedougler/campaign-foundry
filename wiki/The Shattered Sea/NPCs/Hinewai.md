@@ -2,8 +2,8 @@
 type: NPC
 summary: "Undead elf archdruid bound to Aruhe, whose grief became the island's law."
 sources:
-  - "archive/hinewai.md"
-creature: "[[Hinewai, the Blight]]"
+ - "archive/hinewai.md"
+creature: "[[Hinewai the Blight]]"
 ---
 
 ## At a glance
@@ -43,15 +43,15 @@ She drives **Taking on Aruhe** and the island's conflict with the Grung.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

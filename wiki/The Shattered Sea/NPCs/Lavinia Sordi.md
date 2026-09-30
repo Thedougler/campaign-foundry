@@ -2,7 +2,7 @@
 type: NPC
 summary: "Seller of cursed goods who named Osset a second time."
 sources:
-  - "archive/lavinia-sordi.md"
+ - "archive/lavinia-sordi.md"
 creature: "[[Commoner]]"
 ---
 
@@ -37,21 +37,21 @@ Lavinia sells unusual and cursed goods at La Cenere. She sold Nightmantle and na
 
 ### Threads
 
-She is a contact in the investigation around Osset and the Countless order.
+She is a contact in the investigation around Osset and the faction order.
 
 ## Links
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

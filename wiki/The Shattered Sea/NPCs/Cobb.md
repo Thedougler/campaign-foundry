@@ -2,7 +2,7 @@
 type: NPC
 summary: "A young rattkin dockworker and Nona Black-Jaw's runner who keeps La Vasca's refit on schedule."
 sources:
-  - "archive/Cobb.md"
+ - "archive/Cobb.md"
 creature: ""
 ---
 
@@ -43,15 +43,15 @@ Cobb runs the Basin dock operations for Nona's Warren account. He has known Perr
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

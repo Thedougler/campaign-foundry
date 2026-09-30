@@ -2,7 +2,7 @@
 type: Item
 summary: "A cursed cloak of displacement that redirects nearby ranged attacks to its wearer."
 sources:
-  - "archive/nightmantle.md"
+ - "archive/nightmantle.md"
 ---
 
 ## At a glance
@@ -14,7 +14,7 @@ sources:
 - **Held by.** [[Crissdalynn Khinriss]].
 
 > [!narration] First look
-> A dark cloak swallows nearby light and settles across your shoulders with cold, deliberate weight. A faint shimmer ripples at its edges like heat off stone, gone when you look straight at it.
+> A dark cloak swallows nearby light and settles across your shoulders with cold, deliberate weight, while a faint shimmer at its edges vanishes when you look straight at it.
 
 ## Play
 
@@ -24,13 +24,13 @@ The cloak projects an illusion, giving creatures attacking the wearer Disadvanta
 
 ### In use
 
-Redirection is automatic and cannot be declined or used for melee attacks. The original target must be within 10 feet when the attack is declared; the cloak grants that ally no other benefit. Crissdalynn carries the cursed variant in her kit.
+Redirection is automatic and cannot be declined or used for melee attacks. The original target must be within 10 feet when the attack is declared. The cloak grants that ally no other benefit. Crissdalynn carries the cursed variant in her kit.
 
 ## Depth
 
 ### History
 
-[[Lavinia Sordi]] sold it to Crissdalynn for 900 gp at [[La Cenere]] in [[Le Paludi]], believing it a Cloak of Protection. She acquired it from the falcon-featured [[Osset]]. Play identified it as a cursed Cloak of Displacement.
+[[Lavinia Sordi]] sold it to Crissdalynn for 900 gp at La Cenere in [[Le Paludi]], believing it a Cloak of Protection. She acquired it from the falcon-featured [[Osset]]. Play identified it as a cursed Cloak of Displacement.
 
 ### Hidden truths
 
@@ -40,15 +40,15 @@ The curse is layered over the displacement protection, so the seller's misidenti
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

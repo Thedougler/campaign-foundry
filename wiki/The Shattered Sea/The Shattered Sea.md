@@ -2,7 +2,7 @@
 type: World
 summary: "A remote archipelago where storm belts, unfinished charts, and competing powers make every crossing a negotiation."
 sources:
-  - "archive/shattered-sea.md"
+ - "archive/shattered-sea.md"
 ---
 
 ## At a glance
@@ -30,11 +30,11 @@ Weekdays are not established in the source material. Dates may be recorded by DR
 
 ### Cosmology
 
-The Drowned Maw is a planar fissure linked to the Elemental Plane of Water. The ancient Antheri built into its western wall, and their vanished works remain part of the sea's machinery. Auralis, the deep machine or guardian beneath the Maw, is tied to the breach and to the power that answers from below.
+The Drowned Maw is a planar fissure linked to the Elemental Plane of Water. The ancient Antheri built into its far sidewall, and their vanished works remain part of the sea's machinery. Auralis, the deep machine or guardian beneath the Maw, is tied to the breach and to the power that answers from below.
 
 ### History in brief
 
-The Antheri expanded towards the Elemental Plane of Water around 2000 years before the current era and vanished in 495 DR. The Sentinels began watching the Maw in 1295 DR. The Dravosi Crown, Tessarine Concordat, Passage, and Scatter formed the modern political routes. In 1495 DR Admiral Fisk's fleet stole the Pearl of Souls; Umberlee destroyed the fleet over the Maw, waking older dangers.
+The Antheri expanded towards the Elemental Plane of Water around 2000 years before the current era and vanished in 495 DR. The Sentinels began watching the Maw in 1295 DR. The Dravosi Crown, Tessarine Concordat, Passage, and Scatter formed the modern political routes. In 1495 DR Admiral Fisk's fleet stole the Pearl of Souls. Umberlee destroyed the fleet over the Maw, waking older dangers.
 
 ### Hidden truths
 
@@ -44,32 +44,32 @@ The tribute system may help hold the Maw fissure, while the Grung fleet has take
 
 ```base
 filters:
-  and:
-    - file.inFolder(this.file.folder)
+ and:
+  - file.inFolder(this.file.folder)
 views:
-  - type: table
-    name: Regions
-    filters:
-      and:
-        - 'note.type == "Location"'
-        - 'note.kind == "Region"'
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Campaigns
-    filters:
-      and:
-        - 'note.type == "Campaign"'
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: House Rules
-    filters:
-      and:
-        - 'note.type == "House Rule"'
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Regions
+  filters:
+   and:
+    - 'note.type == "Location"'
+    - 'note.kind == "Region"'
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Campaigns
+  filters:
+   and:
+    - 'note.type == "Campaign"'
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: House Rules
+  filters:
+   and:
+    - 'note.type == "House Rule"'
+  order:
+   - file.name
+   - note.summary
 ```

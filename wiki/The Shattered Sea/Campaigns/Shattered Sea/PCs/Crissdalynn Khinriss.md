@@ -2,7 +2,7 @@
 type: PC
 summary: "Courtney's level 5 aarakocra Kensei monk: a cartographer, aerial skirmisher, and fiercely protective member of the crew."
 sources:
-  - "archive/crissdalynn-khinriss.md"
+ - "archive/crissdalynn-khinriss.md"
 dndbeyond_url: ""
 ---
 
@@ -58,15 +58,15 @@ Banished from High Eyrie at fourteen, Crissdalynn joined Delmar Fisk's crew aboa
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

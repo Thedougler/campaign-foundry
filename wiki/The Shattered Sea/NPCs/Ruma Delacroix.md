@@ -2,7 +2,7 @@
 type: NPC
 summary: "Blue-caste Grung handler who became an ally while hiding the party in a sewer nap room."
 sources:
-  - "archive/ruma-delacroix.md"
+ - "archive/ruma-delacroix.md"
 creature: "[[Commoner]]"
 ---
 
@@ -43,15 +43,15 @@ She is a living informant in **Simone's Hunters**.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

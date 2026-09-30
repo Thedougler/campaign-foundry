@@ -2,15 +2,13 @@
 type: Item
 summary: "An unbreakable command chair that grants Charisma advantage while occupied and is secretly an elder mimic."
 sources:
-  - "archive/fleet-commanders-chair.md"
+ - "archive/fleet-commanders-chair.md"
 ---
 
 ## At a glance
 
 - **Kind.** Wondrous item, rarity not established.
-- **Rarity.** Not established.
-- **Attunement.** Not required.
-- **Changes.** Grants Advantage on Charisma checks and saving throws while seated.
+- **Rarity.** - **Attunement.** - **Changes.** Grants Advantage on Charisma checks and saving throws while seated.
 - **Held by.** [[Delmar Fisk]], aboard [[Uncertainty]].
 
 > [!narration] First look
@@ -30,25 +28,25 @@ The chair stands aft in the former captain's cabin. Anyone who sits in it straig
 
 ### History
 
-Delmar recovered or claimed it during the Calveno refit; the sources disagree between the Mercatura crater and [[La Vasca]]. Catarina's Bag of Holding moved it in one account.
+Delmar recovered or claimed it during the Calveno refit. The sources disagree between the Mercatura crater and [[La Vasca]]. Catarina's Bag of Holding moved it in one account.
 
 ### Hidden truths
 
-The chair is an [[Elder Mimic]] in object form. *Identify* reports only the chair and Seated Authority. Touch can trigger Adhesive and a bite; the mimic wants to remain undiscovered and be carried somewhere safer.
+The chair is an Elder Mimic in object form. *Identify* reports only the chair and Seated Authority. Touch can trigger Adhesive and a bite. The mimic wants to remain undiscovered and be carried somewhere safer.
 
 ## Links
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

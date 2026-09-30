@@ -3,7 +3,7 @@ type: Location
 kind: Settlement
 summary: "A timber fortress-market and harbour stop on the raiding-fleet trail, where route information is currency."
 sources:
-  - "archive/Sparhold.md"
+ - "archive/Sparhold.md"
 parent: "[[Midchain]]"
 ---
 
@@ -58,29 +58,29 @@ A berth ledger, wake, rope fibre, tincture vessel or false cargo entry can separ
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

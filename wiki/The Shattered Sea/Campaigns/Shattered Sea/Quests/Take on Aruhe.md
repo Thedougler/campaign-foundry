@@ -2,7 +2,7 @@
 type: Quest
 summary: "Learn Aruhe's law and reach its survivors without claiming living island life or drawing the island's responders."
 sources:
-  - "archive/taking-on-aruhe.md"
+ - "archive/taking-on-aruhe.md"
 status: offered
 ---
 
@@ -37,15 +37,15 @@ status: offered
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

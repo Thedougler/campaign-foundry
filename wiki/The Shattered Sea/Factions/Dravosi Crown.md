@@ -1,39 +1,39 @@
 ---
 type: Faction
-summary: "Tethyr colonial court and naval service that enforces inspection law across the western approaches."
+summary: "Tethyr colonial court and naval service that enforces inspection law across the far side approaches."
 sources:
-  - "archive/dravosi-crown.md"
+ - "archive/dravosi-crown.md"
 ---
 
 ## At a glance
 
-- **Goal.** Keep western approaches under Crown inspection law.
+- **Goal.** Keep far side approaches under Crown inspection law.
 - **Next move.** Continue compulsory harbour stops and trace the substitute-toxin pipeline.
-- **Led by.** The Dravosi Admiralty; [[Governor Voss]] holds local authority.
-- **Base.** [[Harwick]] Naval Yard and Admiralty.
+- **Led by.** The Dravosi Admiralty. Governor Voss holds local authority.
+- **Base.** Harwick Naval Yard and Admiralty.
 - **Strength.** Crown hulls, garrisons, inspectors, ratings and legal authority.
 
 > [!narration] Public face
-> Grey Crown hulls with white Admiralty stripes and brass work the western harbours. Inspection papers, garrison stamps and dockside shrine smoke mark where Crown law still claims the water.
+> Grey Crown hulls with white Admiralty stripes and brass work the far side harbours. Inspection papers, garrison stamps and dockside shrine smoke mark where Crown law still claims the water.
 
 ## Play
 
-- **When met.** Inspectors demand papers, record a vessel rating and call enforcers when a crew contests the stop.
+- **When met.** Inspectors demand papers, record a vessel rating number and call enforcers when a crew contests the stop.
 - **When opposed.** The Crown protects the inspection record, escalating from officers to enforcers, garrisons or court.
 - **Offers.** Papers, ratings, commissions and access through Crown harbours.
 - **Costs.** Compulsory stops, recorded ratings, debt to Crown law and possible seizure.
-- **How to notice or interfere.** Watch grey hulls and garrison stamps; contest a rating, expose the toxin pipeline or exploit Crown–Tessarine friction.
+- **How to notice or interfere.** Watch grey hulls and garrison stamps. Contest rating, expose the toxin pipeline or exploit friction between the Crown and Tessarine.
 
 ## Depth
 
 ### History
 
-The Crown began as a Tethyr colonial court and naval service. Calven, Harwick, Aldenmere and Stenmark became the Crown Islands, with Tidefall as an inspection gate. Its service swears by [[Tyr]] for oaths, commissions, courts martial and warrants, while sailors still pay [[Umberlee]] at dockside shrines.
+The Crown began as a Tethyr colonial court and naval service. Calven, Harwick, Aldenmere and Stenmark became the Crown Islands, with Tidefall as an inspection gate. Its service swears by Tyr for oaths, commissions, courts martial and warrants, while sailors still pay [[Umberlee]] at dockside shrines.
 
 ### Hidden truths
 
-- [[Aldric Drave]] founded the colonial project as a bloodline map; sealed vaults under [[Fort Crestwall]] hold the living chart. The public service does not know this.
-- Two garrison detachments hold Fort Crestwall on orders Governor Voss never saw; investigating the fort reveals them.
+- Aldric Drave founded the colonial project as a bloodline map. Sealed vaults under Fort Crestwall hold the living chart, which the public service does not know about.
+- Two garrison detachments hold Fort Crestwall on orders Governor Voss never saw. Investigating the fort reveals them.
 - [[Aleksander Malone]] is reserved for confirmed heresy, not ordinary crime. Crown court records establish the distinction.
 
 ### Threads
@@ -46,15 +46,15 @@ The Crown began as a Tethyr colonial court and naval service. Calven, Harwick, A
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

@@ -3,9 +3,9 @@ type: Location
 kind: Region
 summary: "The Crown-controlled island chain where harbour authority, trade credit and old routes meet."
 sources:
-  - "archive/calven-and-calveno.md"
-  - "archive/high-eyrie.md"
-  - "archive/calders-tooth-and-port-tidefall.md"
+ - "archive/calven-and-calveno.md"
+ - "archive/high-eyrie.md"
+ - "archive/calders-tooth-and-port-tidefall.md"
 parent: ""
 ---
 
@@ -63,29 +63,29 @@ Sealed Crestwall orders and the fort vaults are separate Crown secrets. Harbour 
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

@@ -2,8 +2,8 @@
 type: NPC
 summary: "Ancient red slaad summoned through Solange Barret to destroy Mercatura."
 sources:
-  - "archive/otar-the-foul.md"
-creature: "[[Otar the Foul]]"
+ - "archive/otar-the-foul.md"
+creature: "[[Otar the Foul (Creature)]]"
 ---
 
 ## At a glance
@@ -43,15 +43,15 @@ He was the climax of **Simone's Hunters** and the Mercatura raid.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

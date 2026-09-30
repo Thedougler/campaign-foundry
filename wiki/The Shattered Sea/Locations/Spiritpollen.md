@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A pale pollen stand whose cloud makes breathing creatures hallucinate hostile spirits and attack their companions."
 sources:
-  - "archive/spiritpollen.md"
+ - "archive/spiritpollen.md"
 parent: "[[Aruhe]]"
 ---
 
@@ -54,29 +54,29 @@ Only a successful save grants one hour's immunity. Avoidance leaves immunity unc
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

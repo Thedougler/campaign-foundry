@@ -2,18 +2,18 @@
 type: Quest
 summary: "Aleksander Malone pursues Shepherd Grigori through the Midchain and tightens the trail towards the crew's wake."
 sources:
-  - "archive/the-hound-of-god.md"
+ - "archive/the-hound-of-god.md"
 status: active
 ---
 
 ## At a glance
 
 - **Offered by.** The Dravosi Crown's confirmed-heretic response, through [[Aleksander Malone|Malone]].
-- **Reward.** No reward; the Party may gain an ally, avoid exposure or redirect the Crown.
+- **Reward.** The Party may gain an ally, avoid exposure or redirect the Crown.
 - **Deadline.** Before Malone reaches [[Shepherd Grigori]].
 - **Done when.** The Party protects, opposes or avoids the inspection and its Grigori fork.
 - **Failed when.** Malone reaches Grigori unopposed.
-- **Advances.** [[Khlysty / the Flock]] and [[The Crown Inspection]].
+- **Advances.** Khlysty / the Flock and [[The Crown Inspection]].
 
 > [!narration] The offer
 > The Crown keeps a man in reserve for heresy. He has already decided to act. He knows a ship and a port, and soon he will ask whether you carried the healer he hunts.
@@ -22,8 +22,8 @@ status: active
 
 - **Leads.** Crown pronouncements, ports Malone passes and evidence of the Flock's healing.
 - **Opposition.** Malone, a Crown-backed zealot and [[Dravosi Crown|Crown]] authority to detain.
-- **Complications.** Delmar is on record as fleet admiral; Perrin's Auralis pact may become heresy; Crissdalynn and Jean-Claude sailed with Grigori to Calveno.
-- **Payoff.** The Party can ally with Grigori, oppose the Crown, avoid the inspection or choose a different consequence.
+- **Complications.** Delmar is on record as fleet admiral. Perrin's Auralis pact may become heresy. Crissdalynn and Jean-Claude sailed with Grigori to Calveno.
+- **Payoff.** The Party can ally with Grigori or oppose the Crown. The Party can also avoid the inspection or choose another consequence.
 
 ## Depth
 
@@ -35,15 +35,15 @@ Malone wants Grigori dead, acts on his own authority and pronounces what he know
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

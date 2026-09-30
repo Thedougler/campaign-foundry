@@ -2,9 +2,9 @@
 type: Thread
 summary: "Delmar's theft of the Pearl of Souls destroyed his fleet and left Umberlee with a price that the new crew may inherit."
 sources:
-  - "archive/story-so-far.md"
-  - "archive/campaign-timeline.md"
-  - "archive/delmar-fisk.md"
+ - "archive/story-so-far.md"
+ - "archive/campaign-timeline.md"
+ - "archive/delmar-fisk.md"
 status: active
 ---
 
@@ -41,15 +41,15 @@ The Party returns the Pearl and faces Umberlee's terms. It hides or destroys the
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

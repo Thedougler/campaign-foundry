@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A still turquoise pool owned by an otter family, where Matteo's camp and a bloody Calveno trail mark the route into the Quiet."
 sources:
-  - "archive/river-slack-basin.md"
+ - "archive/river-slack-basin.md"
 parent: "[[The River]]"
 ---
 
@@ -54,29 +54,29 @@ The otters keep the pack and sleeve as toys, not treasure. The dozen boot and ba
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

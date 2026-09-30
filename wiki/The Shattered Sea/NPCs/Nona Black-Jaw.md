@@ -2,7 +2,7 @@
 type: NPC
 summary: "Passage patron and Black-Jaw Run matriarch who turns trust into routes and obligations."
 sources:
-  - "archive/nona-black-jaw.md"
+ - "archive/nona-black-jaw.md"
 creature: "[[Commoner]]"
 ---
 
@@ -43,15 +43,15 @@ She drives **Perrin and Nona** and the recovery work around **Taking on Aruhe**.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

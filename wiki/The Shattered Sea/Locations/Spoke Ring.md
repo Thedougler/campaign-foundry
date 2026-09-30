@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "The Calveno survivors' last camp under the Quiet, a round fire hub where trails leave like spokes toward Hinewai's voice."
 sources:
-  - "archive/spoke-ring.md"
+ - "archive/spoke-ring.md"
 parent: "[[The Quiet]]"
 ---
 
@@ -54,29 +54,29 @@ Four mats and space for a dozen sleepers reveal the camp's size. The trail marks
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

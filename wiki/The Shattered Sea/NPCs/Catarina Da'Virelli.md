@@ -2,7 +2,7 @@
 type: NPC
 summary: "Calveno artificer and salvage engineer who keeps her workshop in the city."
 sources:
-  - "archive/catarina-davirelli.md"
+ - "archive/catarina-davirelli.md"
 creature: "[[Commoner]]"
 ---
 
@@ -32,7 +32,7 @@ Catarina works on mechanisms and Antheri salvage from her permanent Calveno work
 
 ### Hidden truths
 
-- Her completed work is with its recipients. The source records no unfinished commission.
+- Her completed work is with its recipients, and the source doesn't record unfinished commission.
 - Her workshop's permanence is a boundary. No faction claims her.
 
 ### Threads
@@ -43,15 +43,15 @@ She is a practical contact in the Calveno aftermath of **Simone's Hunters**.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "Ancient stone terraces rising from Western Landing, crowded with fruit, water channels and things that hunt among them."
 sources:
-  - "archive/old-gardens.md"
+ - "archive/old-gardens.md"
 parent: "[[Aruhe]]"
 ---
 
@@ -54,29 +54,29 @@ Following the edge preserves a safer route while the tempting centre tests wheth
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

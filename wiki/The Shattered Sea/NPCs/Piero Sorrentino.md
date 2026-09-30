@@ -2,7 +2,7 @@
 type: NPC
 summary: "Weathered Calveno net-mender trapped in a lava tube, waiting for salt water."
 sources:
-  - "archive/piero-sorrentino.md"
+ - "archive/piero-sorrentino.md"
 creature: "[[Commoner]]"
 ---
 
@@ -42,15 +42,15 @@ He is a survivor and practical guide in **Taking on Aruhe**.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

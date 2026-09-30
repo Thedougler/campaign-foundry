@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "Aruhe's heart: one fruit tree over two unmarked graves in a ring of black flowers, the Death Bloom that is Hinewai's body."
 sources:
-  - "archive/memorial-grove.md"
+ - "archive/memorial-grove.md"
 parent: "[[Aruhe]]"
 ---
 
@@ -54,29 +54,29 @@ The Death Bloom is not portable: tree, graves, flowers and bound soil form one b
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

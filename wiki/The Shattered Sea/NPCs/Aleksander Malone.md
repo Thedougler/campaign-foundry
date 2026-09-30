@@ -2,7 +2,7 @@
 type: NPC
 summary: "A reserved Hound of Tyr whom the Dravosi Crown releases only for confirmed Flock infiltration and righteous judgement."
 sources:
-  - "archive/aleksander-malone.md"
+ - "archive/aleksander-malone.md"
 creature: ""
 ---
 
@@ -45,15 +45,15 @@ Malone trains at Blackrule and leaves only when formal confirmation reaches him.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

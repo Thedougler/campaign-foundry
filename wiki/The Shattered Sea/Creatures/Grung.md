@@ -2,13 +2,13 @@
 type: Creature
 summary: "A Grung creature (CR 1/4) used as a scout in The Shattered Sea."
 sources:
-  - "archive/grung.md"
+ - "archive/grung.md"
 ---
 
 ## At a glance
 
 - **Role at the table.** Scout.
-- **Threat.** CR 1/4; use its attack range, movement, or control to pressure the Party.
+- **Threat.** CR 1/4. Use its attack range, movement, or control to pressure the Party.
 - **Tell.** Its body advertises its next attack before it commits.
 - **Weak to.** Cover, terrain, and breaking its preferred range or formation.
 - **Used by.** [[Grung Elite Warrior]] patrols the same territory.
@@ -51,7 +51,7 @@ traits:
     desc: "The grung's long jump is up to 25 feet and its high jump is up to 15 feet, with or without a running start."
 actions:
   - name: "Dagger"
-    desc: "Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage plus 5 (2d4) poison damage."
+    desc: "Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. Or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage plus 5 (2d4) poison damage."
 ```
 
 ## Play
@@ -78,15 +78,15 @@ A careful examination of its remains or territory reveals its habits and weaknes
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

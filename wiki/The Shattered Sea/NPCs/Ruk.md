@@ -2,7 +2,7 @@
 type: NPC
 summary: "Nona Black-Jaw's literal-minded lizardfolk guardian, a patient physical shield who never ignores a lie or threat."
 sources:
-  - "archive/Ruk.md"
+ - "archive/Ruk.md"
 creature: ""
 ---
 
@@ -44,15 +44,15 @@ Ruk has guarded Nona for twenty years, understanding her through territory, loya
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

@@ -2,8 +2,8 @@
 type: NPC
 summary: "Presumed-dead Crown privateer captain who enforced surrender aboard the Surety."
 sources:
-  - "archive/barnaby-rook.md"
-creature: "[[Barnaby Rook]]"
+ - "archive/barnaby-rook.md"
+creature: "[[Barnaby Rook (Creature)]]"
 ---
 
 ## At a glance
@@ -43,15 +43,15 @@ He sits in **The Crown Inspection** and **Simone's Hunters**, and his presumed d
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

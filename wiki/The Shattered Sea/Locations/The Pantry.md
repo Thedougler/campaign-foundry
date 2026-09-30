@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A clearing deep in the Quiet roofed by one fruit-heavy vine, where seven Calveno survivors live on what falls."
 sources:
-  - "archive/the-pantry.md"
+ - "archive/the-pantry.md"
 parent: "[[The Quiet]]"
 ---
 
@@ -54,29 +54,29 @@ Beppe is wrong that Hinewai's protection ends at the clearing. It covers those s
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

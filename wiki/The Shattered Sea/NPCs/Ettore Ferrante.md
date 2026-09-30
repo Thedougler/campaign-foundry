@@ -2,7 +2,7 @@
 type: NPC
 summary: "Injured Calveno survivor trapped in a lava tube with his son and two companions."
 sources:
-  - "archive/ettore-ferrante.md"
+ - "archive/ettore-ferrante.md"
 creature: "[[Commoner]]"
 ---
 
@@ -14,14 +14,14 @@ creature: "[[Commoner]]"
 - **Found at.** The lava-tube ledge beneath the smoking skylight.
 
 > [!narration] First look
-> A heavy man lies against black rock. His left leg is splinted straight out. He tries to rise, then sags back and lifts a hand in apology. “Forgive me. I would stand, but the leg has other opinions.”
+> A heavy man lies against black rock. His left leg of is splinted straight out. He tries to rise, then sags back and lifts a hand in apology. “Forgive me. I would stand, but the leg of has other opinions.”
 
 ## Play
 
 - **Opens them up.** A promise that the party will carry him.
 - **Shuts them down.** Mentioning the woman in the woods.
 - **Will share.** Why the birds drove them underground and that Carlo walked toward the voice.
-- **Will not share.** How badly the broken leg hurts or how much he blames himself.
+- **Will not share.** How badly the broken leg of hurts or how much he blames himself.
 - **If pressed.** He sends the party away with Luca rather than slow them down.
 
 ## Depth
@@ -43,15 +43,15 @@ He is a survivor in **Taking on Aruhe** and the centre of Carlo's reunion.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

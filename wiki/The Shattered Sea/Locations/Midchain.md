@@ -3,8 +3,8 @@ type: Location
 kind: Region
 summary: "The remote island chain whose reefs, harbours and rival powers shape every crossing."
 sources:
-  - "archive/aruhe.md"
-  - "archive/Sparhold.md"
+ - "archive/aruhe.md"
+ - "archive/Sparhold.md"
 parent: ""
 ---
 
@@ -66,29 +66,29 @@ The charts omit islands and borders. Passage demands time, tribute and trust, an
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

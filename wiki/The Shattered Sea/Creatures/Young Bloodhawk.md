@@ -2,13 +2,13 @@
 type: Creature
 summary: "A Young Bloodhawk creature (CR 2) used as a skirmisher in The Shattered Sea."
 sources:
-  - "archive/young-bloodhawk.md"
+ - "archive/young-bloodhawk.md"
 ---
 
 ## At a glance
 
 - **Role at the table.** Skirmisher.
-- **Threat.** CR 2; use its attack range, movement, or control to pressure the Party.
+- **Threat.** CR 2. Use its attack range, movement, or control to pressure the Party.
 - **Tell.** Its body advertises its next attack before it commits.
 - **Weak to.** Cover, terrain, and breaking its preferred range or formation.
 - **Used by.** [[Commoner]] patrols the same territory.
@@ -79,15 +79,15 @@ Related page, [[Commoner]].
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

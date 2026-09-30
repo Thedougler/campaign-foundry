@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A Rattkin settlement beneath Le Paludi and deepest Passage anchor, reached through learned routes and trust."
 sources:
-  - "archive/warren.md"
+ - "archive/warren.md"
 parent: "[[Le Paludi]]"
 ---
 
@@ -54,29 +54,29 @@ Different witnesses know different slices of where the taken moved. A coded less
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

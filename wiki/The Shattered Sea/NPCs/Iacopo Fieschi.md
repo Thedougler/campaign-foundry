@@ -2,7 +2,7 @@
 type: NPC
 summary: "Tessarine factor who turned Calveno's victory into Concordat credit."
 sources:
-  - "archive/iacopo-fieschi.md"
+ - "archive/iacopo-fieschi.md"
 creature: "[[Commoner]]"
 ---
 
@@ -43,15 +43,15 @@ He is a contact for the Concordat's pressure in Calveno and the reward that foll
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

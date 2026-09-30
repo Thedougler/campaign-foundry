@@ -3,7 +3,7 @@ type: Location
 kind: Region
 summary: "Aruhe's silent inland rainforest, where silence moths ate small singers and the Calveno trail runs to the Pantry."
 sources:
-  - "archive/the-quiet.md"
+ - "archive/the-quiet.md"
 parent: "[[Aruhe]]"
 ---
 
@@ -54,29 +54,29 @@ Her welcome follows the fruit law across Aruhe, not only inside the Pantry. Kara
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

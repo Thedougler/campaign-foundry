@@ -2,7 +2,7 @@
 type: Item
 summary: "Winged Boots that grant Delmar a 30-foot Fly Speed for 1 hour per charge."
 sources:
-  - "archive/flying-boots.md"
+ - "archive/flying-boots.md"
 ---
 
 ## At a glance
@@ -30,7 +30,7 @@ Spend a charge for boarding, escape or a theatrical entrance and track the hour 
 
 ### History
 
-Session 04 records [[Jean-Claude Tabarnack]] buying them for Delmar after selling whip-shark eggs. Another item note says [[Perrin Black-Jaw]] passed them to Delmar; the handover remains contested.
+Session 04 records [[Jean-Claude Tabarnack]] buying them for Delmar after selling whip-shark eggs. Another item note says [[Perrin Black-Jaw]] passed them to Delmar. The handover remains contested.
 
 ### Hidden truths
 
@@ -40,15 +40,15 @@ The live sheet treats these as Winged Boots. The unresolved provenance can revea
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

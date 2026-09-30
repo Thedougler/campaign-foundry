@@ -2,8 +2,8 @@
 type: NPC
 summary: "Blind purple-caste Grung master of the Still-Water Discipline and former Magazine Gamma guardian."
 sources:
-  - "archive/vashu-the-weeping-veil.md"
-creature: "[[Vashu, the Weeping Veil]]"
+ - "archive/vashu-the-weeping-veil.md"
+creature: "[[Vashu the Weeping Veil]]"
 ---
 
 ## At a glance
@@ -43,15 +43,15 @@ She was a guardian in **Simone's Hunters** and the Calveno sewer raid.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

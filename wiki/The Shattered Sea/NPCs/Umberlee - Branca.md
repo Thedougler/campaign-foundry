@@ -2,7 +2,7 @@
 type: NPC
 summary: "Senior Calveno Waveservant who delivers Umberlee's command about the Pearl of Souls."
 sources:
-  - "archive/umberlee-branca.md"
+ - "archive/umberlee-branca.md"
 creature: "[[Commoner]]"
 ---
 
@@ -43,15 +43,15 @@ She sits in **Bring the Pearl of Souls to Umberlee**.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

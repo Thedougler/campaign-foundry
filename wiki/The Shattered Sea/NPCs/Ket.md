@@ -2,7 +2,7 @@
 type: NPC
 summary: "Freed Moucheron prisoner who traded blood and information for a flight home."
 sources:
-  - "archive/ket.md"
+ - "archive/ket.md"
 creature: "[[Moucheron]]"
 ---
 
@@ -43,15 +43,15 @@ He is a freed witness to **The Crown Inspection**.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

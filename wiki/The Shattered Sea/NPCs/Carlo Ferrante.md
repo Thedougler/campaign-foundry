@@ -2,7 +2,7 @@
 type: NPC
 summary: "Calveno dock foreman who led survivors to the Pantry and believes his brother died behind him."
 sources:
-  - "archive/carlo-ferrante.md"
+ - "archive/carlo-ferrante.md"
 creature: "[[Commoner]]"
 ---
 
@@ -43,15 +43,15 @@ He anchors the survivor strand of **Taking on Aruhe**.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

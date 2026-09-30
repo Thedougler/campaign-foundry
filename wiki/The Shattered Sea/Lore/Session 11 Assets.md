@@ -2,7 +2,7 @@
 type: Lore
 summary: "A routing record that keeps Session 11 recap, transcript, and recording assets distinct until their owning ingest workflow promotes them."
 sources:
-  - "archive/assets.md"
+ - "archive/assets.md"
 ---
 
 ## At a glance
@@ -29,21 +29,21 @@ The drop map classifies supplied material. A recap belongs to the Session Recap 
 
 ### Chronology
 
-The record was made for Session 11 post-play assets. Its route remains valid until each supplied asset is promoted by its owning workflow; the actual ending, unresolved pressure, and next opening belong in the reconciled Session record.
+The record was made for Session 11 post-play assets. Its route remains valid until each supplied asset is promoted by its owning workflow. The actual ending, unresolved pressure, and next opening belong in the reconciled Session record.
 
 ## Links
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

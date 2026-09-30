@@ -2,7 +2,7 @@
 type: NPC
 summary: "Captured green-caste Grung labourer who traded bombing intelligence for protection."
 sources:
-  - "archive/felix-aho.md"
+ - "archive/felix-aho.md"
 creature: "[[Commoner]]"
 ---
 
@@ -43,15 +43,15 @@ He is a living witness in **Simone's Hunters** and the Calveno raid aftermath.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A mature magic-feeding bloom in Aruhe that clamps shut, drains spell slots and can yield a Black Lotus Heart."
 sources:
-  - "archive/black-lotus.md"
+ - "archive/black-lotus.md"
 parent: "[[Old Gardens]]"
 ---
 
@@ -54,29 +54,29 @@ The mature bloom is the source of a Heart, but a failed harvest deals force dama
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

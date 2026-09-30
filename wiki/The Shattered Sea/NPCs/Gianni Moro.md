@@ -2,7 +2,7 @@
 type: NPC
 summary: "Calveno cooper who nearly followed Hinewai's voice from the lava tube."
 sources:
-  - "archive/gianni-moro.md"
+ - "archive/gianni-moro.md"
 creature: "[[Commoner]]"
 ---
 
@@ -42,15 +42,15 @@ He is a witness to **Taking on Aruhe** and Hinewai's claim over the fruit-eaters
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

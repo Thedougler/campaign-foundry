@@ -2,15 +2,15 @@
 type: Faction
 summary: "Rescue and smuggling network that moves people off official routes without treating them as property."
 sources:
-  - "archive/Passage.md"
-  - "archive/the-passage.md"
+ - "archive/Passage.md"
+ - "archive/the-passage.md"
 ---
 
 ## At a glance
 
 - **Goal.** Move people, cargo and news beyond Crown inspection, and recover captives.
 - **Next move.** Keep ships on the captive route and open a safe kitchen for rescued people.
-- **Led by.** [[Nona Black-Jaw]] at the Warren anchor Run; the Tangle sets wider policy.
+- **Led by.** [[Nona Black-Jaw]] at the Warren anchor Run. The Tangle sets wider policy.
 - **Base.** [[Warren]] beneath Calveno.
 - **Strength.** Safe kitchens, family couriers, hidden Holds, ships and commercial cover.
 
@@ -23,7 +23,7 @@ sources:
 - **When opposed.** The Passage reroutes people first, then protects route knowledge and negotiates or cuts contact.
 - **Offers.** Shelter, safe kitchens, route knowledge, courier access, ships and introductions.
 - **Costs.** Favors and obligations, though refusal can be reshaped rather than ending the relationship.
-- **How to notice or interfere.** Look for coded marks, commercial cover, sudden kitchen closures and boats carrying more passengers than their lists admit; expose a route, intercept a captive shipment or keep a rescue off Crown books.
+- **How to notice or interfere.** Look for coded marks, commercial cover, sudden kitchen closures and boats carrying more passengers than their lists admit. Expose a route, intercept a captive shipment or keep a rescue off Crown books.
 
 ## Depth
 
@@ -33,29 +33,29 @@ The Passage grew from [[Warren]] around 1240 DR to protect communities that offi
 
 ### Hidden truths
 
-- The network's paper resembles [[Tessarine Concordat]] cover, but no formal Concordat arrangement exists; this is learned by comparing the papers with a Concordat factor's records.
+- The network's paper resembles [[Tessarine Concordat]] cover, but no formal Concordat arrangement exists. This is learned by comparing the papers with a Concordat factor's records.
 - More than 314 fighting-age people are already on a captive route. A courier or rescued captive can confirm this.
 - The Passage's current rescue route crosses Grung raiding routes without sharing the Grung clans' goals. Following a ship or asking Nona reveals the collision.
 
 ### Threads
 
 - [[Bring the Pearl of Souls to Umberlee]] and the captive route press the Party to choose between rescue and Crown control.
-- [[The Taken 314]] is the people the Passage wants recovered.
-- The Party is friendly after Beaumont Sel identified himself as a Friend of the Passage; exposing a kitchen, selling a route or treating people as cargo changes that standing.
+- The Taken 314 is the people the Passage wants recovered.
+- The Party is friendly after Beaumont Sel identified himself as a Friend of the Passage. Exposing a kitchen, selling a route or treating people as cargo changes that standing.
 
 ## Links
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

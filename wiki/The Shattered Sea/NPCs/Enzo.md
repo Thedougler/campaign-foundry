@@ -2,7 +2,7 @@
 type: NPC
 summary: "Nona Black-Jaw's polished tabaxi bodyguard, a quiet enforcer who reads every guest before violence reaches her."
 sources:
-  - "archive/Enzo.md"
+ - "archive/Enzo.md"
 creature: ""
 ---
 
@@ -44,15 +44,15 @@ Enzo has served as Nona's bodyguard from the Black-Jaw network in Le Paludi for 
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

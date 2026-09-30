@@ -2,7 +2,7 @@
 type: Lore
 summary: "A chronology from the Antheri's height through the Pearl theft and the Party's opening aboard the Saltwright."
 sources:
-  - "archive/campaign-timeline.md"
+ - "archive/campaign-timeline.md"
 ---
 
 ## At a glance
@@ -25,11 +25,11 @@ sources:
 
 ### The full truth
 
-The Antheri built into the western wall of the Drowned Maw towards the Elemental Plane of Water around 2000 years before the current era. They vanished in 495 DR. Their departure left the breach and their machinery behind. The Sentinels of the Eyrie began watching the Maw in 1295 DR. The Dravosi Crown, Tessarine Concordat, Passage, and the independent Scatter each influence modern routes. In 1495 DR Admiral Fisk assembled five ships to steal the Pearl of Souls from Umberlee's shrine on Vel-Orn. The theft succeeded on Day -6. Umberlee destroyed the fleet over the Maw on Day -5, and the Pearl's signal drew the Leviathan through the fissure and woke Auralis.
+The Antheri built into the far sidewall of the Drowned Maw towards the Elemental Plane of Water around 2000 years before the current era. They vanished in 495 DR. Their departure left the breach and their machinery behind. The Sentinels of the Eyrie began watching the Maw in 1295 DR. The Dravosi Crown, Tessarine Concordat, Passage, and the independent Scatter each influence modern routes. In 1495 DR Admiral Fisk assembled five ships to steal the Pearl of Souls from Umberlee's shrine on Vel-Orn. The theft succeeded on Day -6. Umberlee destroyed the fleet over the Maw on Day -5, and the Pearl's signal drew the Leviathan through the fissure and woke Auralis.
 
 ### Chronology
 
-- **-2000 DR.** The Antheri build into the western wall of the Drowned Maw. Auralis first appears in this age.
+- **-2000 DR.** The Antheri build into the far sidewall of the Drowned Maw. Auralis first appears in this age.
 - **-495 DR.** The Antheri vanish as the planar breach widens.
 - **895 DR.** The Sentinels begin their Kensei order at High Eyrie.
 - **1195 DR.** The Dravosi Crown occupies the Crown Islands and founds Calders Tooth and Port Tidefall.
@@ -47,15 +47,15 @@ The Antheri built into the western wall of the Drowned Maw towards the Elemental
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

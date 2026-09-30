@@ -2,13 +2,13 @@
 type: Creature
 summary: "A named elemental horror that hunts the open water around the Drowned Maw."
 sources:
-  - "archive/leviathan.md"
+ - "archive/leviathan.md"
 ---
 
 ## At a glance
 
 - **Role at the table.** Bruiser.
-- **Threat.** CR 17; use its attack range, movement, or control to pressure the Party.
+- **Threat.** CR 17. Use its attack range, movement, or control to pressure the Party.
 - **Tell.** Its body advertises its next attack before it commits.
 - **Weak to.** Cover, terrain, and breaking its preferred range or formation.
 - **Used by.** [[Bloodhawk]] patrols the same territory.
@@ -92,15 +92,15 @@ Related page, [[Bloodhawk]].
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

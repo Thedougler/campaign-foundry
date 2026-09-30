@@ -2,8 +2,8 @@
 type: NPC
 summary: "Old red-caste Grung alchemist who guarded a sewer powder magazine until Session 05."
 sources:
-  - "archive/bazzoth-the-steeped.md"
-creature: "[[Bazzoth, the Steeped]]"
+ - "archive/bazzoth-the-steeped.md"
+creature: "[[Bazzoth the Steeped]]"
 ---
 
 ## At a glance
@@ -43,15 +43,15 @@ He was an operative of **Simone's Hunters** and the Grung Clans' sewer magazine 
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

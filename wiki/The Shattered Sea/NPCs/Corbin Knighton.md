@@ -2,7 +2,7 @@
 type: NPC
 summary: "Crown boarder whose false report now drives a quiet hunt for the crew."
 sources:
-  - "archive/corbin-knighton.md"
+ - "archive/corbin-knighton.md"
 creature: "[[Dravosi Enforcer]]"
 ---
 
@@ -43,15 +43,15 @@ He drives **The Crown Inspection** and is a quiet rival hunting the crew alone.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

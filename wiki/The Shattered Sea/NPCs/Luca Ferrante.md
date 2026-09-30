@@ -2,7 +2,7 @@
 type: NPC
 summary: "Sixteen-year-old wreck survivor who counts everything and knows which way his uncle walked."
 sources:
-  - "archive/luca-ferrante.md"
+ - "archive/luca-ferrante.md"
 creature: "[[Commoner]]"
 ---
 
@@ -42,15 +42,15 @@ He is a guide and survivor in **Taking on Aruhe**.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

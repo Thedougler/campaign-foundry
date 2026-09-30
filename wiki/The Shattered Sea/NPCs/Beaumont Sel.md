@@ -2,8 +2,8 @@
 type: NPC
 summary: "Patient tortle captain of the Saltwright and a trusted Friend of the Passage."
 sources:
-  - "archive/beaumont-sel.md"
-creature: "[[Beaumont Sel]]"
+ - "archive/beaumont-sel.md"
+creature: "[[Beaumont Sel (Creature)]]"
 ---
 
 ## At a glance
@@ -33,7 +33,7 @@ Beaumont has run the Saltwright from Kalowe for eleven years. He pulled Crissdal
 ### Hidden truths
 
 - The Salvaged Antheri Plate patched into his shell deflects ranged attacks. It was the reason Rook's shot failed.
-- Bisou's delivery tricks are his real weapon. She can heal an ally, trigger an alchemical item, or soak black powder.
+- Bisou's delivery tricks are his real weapon. She can heal an ally or trigger an alchemical item. It can also soak black powder.
 
 ### Threads
 
@@ -43,15 +43,15 @@ He is the crew's first Passage contact and a practical link into the Passage.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

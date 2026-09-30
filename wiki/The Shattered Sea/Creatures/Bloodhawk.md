@@ -2,13 +2,13 @@
 type: Creature
 summary: "A Bloodhawk creature (CR 11) used as a skirmisher in The Shattered Sea."
 sources:
-  - "archive/bloodhawk.md"
+ - "archive/bloodhawk.md"
 ---
 
 ## At a glance
 
 - **Role at the table.** Skirmisher.
-- **Threat.** CR 11; use its attack range, movement, or control to pressure the Party.
+- **Threat.** CR 11. Use its attack range, movement, or control to pressure the Party.
 - **Tell.** Its body advertises its next attack before it commits.
 - **Weak to.** Cover, terrain, and breaking its preferred range or formation.
 - **Used by.** [[Crown Squid]] patrols the same territory.
@@ -84,15 +84,15 @@ A careful examination of its remains or territory reveals its habits and weaknes
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

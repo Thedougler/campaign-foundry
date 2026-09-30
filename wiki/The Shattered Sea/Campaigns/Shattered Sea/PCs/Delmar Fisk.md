@@ -2,7 +2,7 @@
 type: PC
 summary: "Frederick's level 5 Swashbuckler rogue and former admiral, carrying the secret cost of stealing the Pearl of Souls."
 sources:
-  - "archive/delmar-fisk.md"
+ - "archive/delmar-fisk.md"
 dndbeyond_url: ""
 ---
 
@@ -58,15 +58,15 @@ Delmar assembled a five-ship fleet to steal the Pearl of Souls from Umberlee's s
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

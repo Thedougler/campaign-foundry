@@ -2,15 +2,15 @@
 type: Faction
 summary: "Political Grung clans that keep the Verdant Teeth closed, trade toxin and raid for captives as their water power declines."
 sources:
-  - "archive/grung-clans.md"
+ - "archive/grung-clans.md"
 ---
 
 ## At a glance
 
 - **Goal.** Recover water control while preserving the closed interior and caste-and-rite system.
 - **Next move.** Push another raid and move fighting-age captives through the fleet towards [[Karath]].
-- **Led by.** The gold authority associated with [[Auralis]]; no complete hierarchy is established.
-- **Base.** [[Verdant Teeth]].
+- **Led by.** The gold authority associated with [[Auralis]]. No complete hierarchy is established.
+- **Base.** Verdant Teeth.
 - **Strength.** Biology, terrain, toxins, reef patrols and sanctioned beaches.
 
 > [!narration] Public face
@@ -19,42 +19,42 @@ sources:
 ## Play
 
 - **When met.** Grung move through canopy and water, handle toxin, guard a beach or route captives inland.
-- **When opposed.** They protect the captive route, toxin stock and interior first, poisoning wells or withdrawing through wet vertical terrain.
+- **When opposed.** They protect the captive route and toxin stock first. They then poison wells or withdraw through wet vertical terrain.
 - **Offers.** Sanctioned beach trade in toxin and brief access to blue intermediaries.
 - **Costs.** Poison, reef patrols, closed channels and the demand for obedience.
-- **How to notice or interfere.** Learn beach protocol and colour signals; intercept a shipment, expose Crown toxin purchases or negotiate without accepting interior access.
+- **How to notice or interfere.** Learn beach protocol and colour signals. Intercept a shipment, expose Crown toxin purchases or negotiate without accepting interior access.
 
 ## Depth
 
 ### History
 
-The clans control five rainforest islands as one closed system of canopy routes, pools, flooded cuts and beaches. Their maritime reach is shrinking, so raids, toxin exports and the fighting-age levy sustain a pipeline towards Karath. They captured and tortured a druid whose grief became [[Aruhe]], and later raided festival ports for captives.
+The clans control five rainforest islands as one closed system of canopy routes, pools, flooded cuts and beaches. Their maritime routes is shrinking, so raids, toxin exports and the fighting-age levy sustain a pipeline towards Karath. They captured and tortured a druid whose grief became [[Aruhe]], and later raided festival ports for captives.
 
 ### Hidden truths
 
-- The gold presence linked to Auralis may be a god, construct, conduit, creature or story made effective by congregation; no source decides which.
-- Raids, toxin exports and the captive pipeline are one attempt to keep the caste system sharp while water power fails. A rescued captive or intercepted shipment shows the connection.
+- The gold presence linked to Auralis may be a god, construct, conduit, creature or story made effective by congregation. No source decides which.
+- Raids, toxin exports and the captive pipeline are one attempt to enforce the caste system while water power fails. A rescued captive or intercepted shipment shows the connection.
 - The clans' colour, soaking discipline and censure marks reveal social information but do not prove permanent ancestry or rank.
 
 ### Threads
 
-- [[The Taken 314]] follows the captive pipeline.
+- The Taken 314 follows the captive pipeline.
 - [[Bring the Pearl of Souls to Umberlee]] intersects the clans' routes and the Passage rescue effort.
-- Their conflict with [[Passage]] and the [[Dravosi Crown]] drives the western sea pressure.
+- Their conflict with [[Passage]] and the [[Dravosi Crown]] drives the far side sea pressure.
 
 ## Links
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

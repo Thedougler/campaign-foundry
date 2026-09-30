@@ -2,7 +2,7 @@
 type: NPC
 summary: "Purple-caste Grung officer pursuing Jean-Claude while an unmaintained rite threatens her rise to Gold."
 sources:
-  - "archive/simone-tabarnack.md"
+ - "archive/simone-tabarnack.md"
 creature: "[[Commoner]]"
 ---
 
@@ -43,15 +43,15 @@ She drives **Simone's Hunters** and supplies the hidden poison trail in **The Cr
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

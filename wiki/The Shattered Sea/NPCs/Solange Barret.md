@@ -2,8 +2,8 @@
 type: NPC
 summary: "Red-caste Grung ritual specialist whose circle summoned Otar beneath Mercatura."
 sources:
-  - "archive/solange-barret.md"
-creature: "[[Solange Barret]]"
+ - "archive/solange-barret.md"
+creature: "[[Solange Barret (Creature)]]"
 ---
 
 ## At a glance
@@ -43,15 +43,15 @@ She was the ritual hinge of **Simone's Hunters** and the summoning that released
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

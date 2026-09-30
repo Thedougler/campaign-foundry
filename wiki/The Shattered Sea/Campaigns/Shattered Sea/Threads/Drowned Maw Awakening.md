@@ -2,9 +2,9 @@
 type: Thread
 summary: "The Drowned Maw's fissure and Auralis's awakening are changing the sea, while Perrin hears a patron he does not understand."
 sources:
-  - "archive/story-so-far.md"
-  - "archive/campaign-timeline.md"
-  - "archive/perrin-black-jaw.md"
+ - "archive/story-so-far.md"
+ - "archive/campaign-timeline.md"
+ - "archive/perrin-black-jaw.md"
 status: active
 ---
 
@@ -26,7 +26,7 @@ status: active
 
 ### Origin
 
-The Antheri built into the western wall of the Drowned Maw towards the Elemental Plane of Water. Their disappearance left a breach watched by the Sentinels. The Pearl's theft and the fleet's destruction disturbed the old containment.
+The Antheri built into the far sidewall of the Drowned Maw towards the Elemental Plane of Water. Their disappearance left a breach watched by the Sentinels. The Pearl's theft and the fleet's destruction disturbed the old containment.
 
 ### Hidden truths
 
@@ -41,15 +41,15 @@ The Party can restore a containment bargain. Another ending frees what lies belo
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

@@ -2,7 +2,7 @@
 type: PC
 summary: "Kaden's level 5 rattkin Warlock and Lore Bard, the crew's voice and force multiplier with an unknown bond to Auralis."
 sources:
-  - "archive/perrin-black-jaw.md"
+ - "archive/perrin-black-jaw.md"
 dndbeyond_url: ""
 ---
 
@@ -21,7 +21,7 @@ dndbeyond_url: ""
 ### Features
 
 - Longsword pact weapon (Sap), *Eldritch Blast* +8, Bardic Inspiration d6 (5 per Long Rest), Cutting Words, Cunning Pact, Pack Tactics, Scurry, Boneless, Survivor, and Magical Cunning.
-- Blindsight 5 ft. from whiskers. Small size. Swim speed equals walking speed. Languages include Skittercant and Aquan.
+- Blindsight 5 ft. Small size, with whiskers. Swim speed equals walking speed. Languages include Skittercant and Aquan.
 
 ## Spells
 
@@ -60,15 +60,15 @@ Perrin washed up on Keth-Naar after the Vestra went down and reached the Saltwri
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

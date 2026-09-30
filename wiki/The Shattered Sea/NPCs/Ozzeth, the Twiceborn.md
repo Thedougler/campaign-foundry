@@ -2,8 +2,8 @@
 type: NPC
 summary: "Disgraced Grung mage who maintained Simone's colour rite until his death in the sewer magazines."
 sources:
-  - "archive/ozzeth-the-twiceborn.md"
-creature: "[[Ozzeth, the Twiceborn]]"
+ - "archive/ozzeth-the-twiceborn.md"
+creature: "[[Ozzeth the Twiceborn]]"
 ---
 
 ## At a glance
@@ -43,15 +43,15 @@ His death fires Simone's **Finish Becoming Gold** front in **Simone's Hunters**.
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

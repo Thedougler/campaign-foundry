@@ -2,7 +2,7 @@
 type: Item
 summary: "A warm fragment of Otar the Foul's hide that grants conditional regeneration to its attuned bearer."
 sources:
-  - "archive/a-sliver-of-the-unstable-form.md"
+ - "archive/a-sliver-of-the-unstable-form.md"
 ---
 
 ## At a glance
@@ -20,11 +20,11 @@ sources:
 
 ### Properties
 
-As a Bonus Action, invoke the sliver. For 1 minute, regain 2d8 Hit Points at the start of each turn. Fire or Acid damage taken since the end of the previous turn suppresses that turn's healing; it resumes next turn unless blocked again. Once invoked, it cannot be invoked again until a Long Rest. It works at 0 Hit Points and can end Unconscious.
+As a Bonus Action, invoke the sliver. For 1 minute, regain 2d8 Hit Points at the start of each turn. Fire or Acid damage taken since the end of the previous turn suppresses that turn's healing. It resumes next turn unless blocked again. Once invoked, it cannot be invoked again until a Long Rest. It works at 0 Hit Points and can end Unconscious.
 
 ### In use
 
-The bearer can dismiss it without an action. Invoking it again before the first use ends has no additional effect; only the bearer gains the benefit. Fire and Acid are the clear tactical counter.
+The bearer can dismiss it without an action. Invoking it again before the first use ends has no additional effect. Only the bearer gains the benefit. Fire and Acid are the clear tactical counter.
 
 ## Depth
 
@@ -34,21 +34,21 @@ The sliver tore loose from [[Otar the Foul]] after the creature fell in [[Solang
 
 ### Hidden truths
 
-Its persistence after separation is unexplained. The suppression types mirror the damage that stopped Otar, but whether that connection means more is unknown; Arcana or study of Otar can expose the question.
+Its persistence after separation is unexplained. The suppression types mirror the damage that stopped Otar, but whether that connection means more is unknown. Arcana or study of Otar can expose the question.
 
 ## Links
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

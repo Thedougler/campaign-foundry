@@ -2,8 +2,8 @@
 type: Campaign
 summary: "Four survivors and fugitives seize a chance at a crew aboard the Saltwright while Crown inspection and the Drowned Maw close around them."
 sources:
-  - "archive/story-so-far.md"
-  - "archive/campaign-timeline.md"
+ - "archive/story-so-far.md"
+ - "archive/campaign-timeline.md"
 session_length_hours:
 ---
 
@@ -13,7 +13,7 @@ session_length_hours:
 - **Premise.** Four strangers with debts, pursuers, and secrets become a crew in the Shattered Sea.
 - **Party.** [[Perrin Black-Jaw]], [[Delmar Fisk]], [[Crissdalynn Khinriss]], and [[Jean-Claude Tabarnack]].
 - **Cadence.** Sessions follow the Party's crossings, port bargains, and consequences.
-- **Now.** At the opening, the Party is aboard the Saltwright when the HCS Surety arrives to inspect her; the exact month is not established, in 1495 DR.
+- **Now.** At the opening, the Party is aboard the Saltwright when the HCS Surety arrives to inspect her. The exact month is not established, in 1495 DR.
 
 > [!narration] The Campaign
 > You have each come to the Saltwright by a different road. One survived a wreck, another hides an older name, one was pulled from the sea, and another is one island ahead of hunters. You are together in the hold when Crown sailors come to take the ship. There is no time to explain whose ship it is. Make the hold yours, survive the inspection, and decide what sort of crew can cross a sea where every route belongs to someone else.
@@ -42,51 +42,51 @@ The opening Threads are the Crown inspection and the new crew's survival, Jean-C
 
 ```base
 filters:
-  and:
-    - file.inFolder(this.file.folder)
+ and:
+  - file.inFolder(this.file.folder)
 views:
-  - type: table
-    name: PCs
-    filters:
-      and:
-        - 'note.type == "PC"'
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Threads
-    filters:
-      and:
-        - 'note.type == "Thread"'
-    order:
-      - file.name
-      - note.summary
-      - note.status
-  - type: table
-    name: Quests
-    filters:
-      and:
-        - 'note.type == "Quest"'
-    order:
-      - file.name
-      - note.summary
-      - note.status
-  - type: table
-    name: Prep
-    filters:
-      and:
-        - 'note.type == "Prep"'
-    order:
-      - file.name
-      - note.summary
-      - note.date
-  - type: table
-    name: Recaps
-    filters:
-      and:
-        - 'note.type == "Recap"'
-    order:
-      - file.name
-      - note.summary
-      - note.date
+ - type: table
+  name: PCs
+  filters:
+   and:
+    - 'note.type == "PC"'
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Threads
+  filters:
+   and:
+    - 'note.type == "Thread"'
+  order:
+   - file.name
+   - note.summary
+   - note.status
+ - type: table
+  name: Quests
+  filters:
+   and:
+    - 'note.type == "Quest"'
+  order:
+   - file.name
+   - note.summary
+   - note.status
+ - type: table
+  name: Prep
+  filters:
+   and:
+    - 'note.type == "Prep"'
+  order:
+   - file.name
+   - note.summary
+   - note.date
+ - type: table
+  name: Recaps
+  filters:
+   and:
+    - 'note.type == "Recap"'
+  order:
+   - file.name
+   - note.summary
+   - note.date
 ```

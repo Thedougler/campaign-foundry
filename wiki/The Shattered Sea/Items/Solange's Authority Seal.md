@@ -2,19 +2,18 @@
 type: Item
 summary: "An unused Grung authority seal that can replace one Grung's will with a lifelong order."
 sources:
-  - "archive/solanges-authority-seal.md"
+ - "archive/solanges-authority-seal.md"
 ---
 
 ## At a glance
 
 - **Kind.** Wondrous item, single use.
 - **Rarity.** Rare.
-- **Attunement.** Not required.
-- **Changes.** Compels one Grung's will permanently when applied.
+- **Attunement.** - **Changes.** Compels one Grung's will permanently when applied.
 - **Held by.** [[Jean-Claude Tabarnack]], in his pack.
 
 > [!narration] First look
-> A gold disc the size of your palm is heavier than gold should be. Whole curling script covers its face; the smooth back is faintly warm, as though lifted from skin.
+> A gold disc the size of your palm is heavier than gold should be. Whole curling script covers its face. The smooth back is faintly warm, as though lifted from skin.
 
 ## Play
 
@@ -40,15 +39,15 @@ The seal proves Jean-Claude's knowledge of the same authority system that compel
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

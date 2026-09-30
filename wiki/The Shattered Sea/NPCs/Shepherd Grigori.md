@@ -2,8 +2,8 @@
 type: NPC
 summary: "Korabl of the Flock, a healer whose blood-anchor survival trick feeds an undead ascension."
 sources:
-  - "archive/shepherd-grigori.md"
-creature: "[[Shepherd Grigori]]"
+ - "archive/shepherd-grigori.md"
+creature: "Shepherd Grigori (Creature)"
 ---
 
 ## At a glance
@@ -43,15 +43,15 @@ He drives the **Growing Flock** front and is linked to **Bring the Pearl of Soul
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

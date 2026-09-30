@@ -1,0 +1,70 @@
+---
+type: Scene
+kind: Development
+summary: "The planned inland survivor camp remains beyond the Party's route."
+sources:
+  - "archive/Session-11-06-Farthest-Camp.md"
+  - "archive/Session-11-06-Farthest-Camp-archived-version.md"
+---
+## At a glance
+
+- **Discovery.** Smoke and survivor signs point farther inland.
+- **Choice.** March on or camp at the otter site.
+- **Where.** Route toward the Spoke Ring.
+- **Opposition.** Distance and Aruhe.
+
+> [!narration] Opening
+> The river bends inland. Smoke lies beyond the next ridges, but Matteo's shelter offers the first safe rest since the flight.
+>
+## Play
+
+### Stakes
+
+The Party risks exhaustion by pressing on.
+
+### Pressure
+
+The survivor trail fades with every hour.
+
+### Terrain
+
+Riverbank and inland trail.
+
+### Checks
+
+Survival follows tracks and smoke.
+
+## Encounter
+
+### Battlefield
+
+Inland route.
+
+### Creatures
+
+None required.
+
+### Balance
+
+This planned scene was not reached in play.
+
+## Outcomes
+
+| If | Then | Hands to |
+| --- | --- | --- |
+| Press on | Reach survivor country | [[Session 11 - False Help]] |
+| Camp | Night voices begin | [[Session 11 - Night Watch]] |
+
+## Depth
+
+### Hidden truths
+
+The woman in the woods remains uncontacted.
+
+### Threads
+
+[[Drowned Maw Awakening]]
+
+### Spotlight
+
+Matteo's warning.

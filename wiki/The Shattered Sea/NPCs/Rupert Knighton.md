@@ -2,7 +2,7 @@
 type: NPC
 summary: "Commodore of the Knight Squadron, tightening the Crown net around the crew."
 sources:
-  - "archive/rupert-knighton.md"
+ - "archive/rupert-knighton.md"
 creature: "[[Commoner]]"
 ---
 
@@ -43,15 +43,15 @@ He drives **The Crown Inspection** and is the late-campaign pressure behind Geof
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

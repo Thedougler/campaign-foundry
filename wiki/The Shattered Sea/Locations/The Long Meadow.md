@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "The one Quiet grass cut where the roof breaks open. Two Terror-Birds own its halves and the Calveno trail must cross the Gap."
 sources:
-  - "archive/the-long-meadow.md"
+ - "archive/the-long-meadow.md"
 parent: "[[The Quiet]]"
 ---
 
@@ -54,29 +54,29 @@ Each bird holds one half and will not enter tall grass, deep channel or Razer-Gr
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

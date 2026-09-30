@@ -2,7 +2,7 @@
 type: Lore
 summary: "Aruhe marks anyone who takes from living island life until dawn, while fallen fruit, deadwood, loose stone, and shed shell may be received safely."
 sources:
-  - "archive/taking-on-aruhe.md"
+ - "archive/taking-on-aruhe.md"
 ---
 
 ## At a glance
@@ -37,15 +37,15 @@ Aruhe's law is Hinewai's grief made reflex and holds while the Death Bloom remai
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A flood-scoured Grasslands crossing where prints, slick stone, Razer-Grass, deep water and a Spiguar hunting lane constrain movement."
 sources:
-  - "archive/torn-crossing.md"
+ - "archive/torn-crossing.md"
 parent: "[[Grasslands]]"
 ---
 
@@ -54,29 +54,29 @@ Wolfrabbits jump Razer-Grass rather than land in it, revealing a route through t
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

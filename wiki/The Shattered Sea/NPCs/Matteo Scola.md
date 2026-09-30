@@ -2,7 +2,7 @@
 type: NPC
 summary: "Wreck survivor who lives by Aruhe's fallen-fruit rule and will not approach Hinewai."
 sources:
-  - "archive/matteo-scola.md"
+ - "archive/matteo-scola.md"
 creature: "[[Commoner]]"
 ---
 
@@ -42,15 +42,15 @@ He is a witness in **Taking on Aruhe** and the first sign of Skarn's surveillanc
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

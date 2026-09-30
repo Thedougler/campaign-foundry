@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "Calveno's canal district of taverns, goods, alchemy and discreet routes below the city toward Warren."
 sources:
-  - "archive/le-paludi.md"
+ - "archive/le-paludi.md"
 parent: "[[Calven and Calveno]]"
 ---
 
@@ -54,29 +54,29 @@ The Warren lies below, but each owner controls a different access route rather t
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

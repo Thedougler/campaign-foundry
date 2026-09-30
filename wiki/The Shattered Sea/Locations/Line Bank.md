@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A used fruiting margin on the Aruhe River where a fishing line, fresh prints and three fruit piles mark the route upriver."
 sources:
-  - "archive/line-bank.md"
+ - "archive/line-bank.md"
 parent: "[[Grasslands]]"
 ---
 
@@ -54,29 +54,29 @@ The clean soil beneath fallen fruit distinguishes receiving from the red mud aro
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

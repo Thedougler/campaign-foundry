@@ -2,16 +2,15 @@
 type: Item
 summary: "A rare Aruhe fruit that sets the eater's primary ability score to 25 for 1 hour."
 sources:
-  - "archive/giants-guava.md"
+ - "archive/giants-guava.md"
 ---
 
 ## At a glance
 
 - **Kind.** Consumable.
 - **Rarity.** Rare.
-- **Attunement.** Not required.
-- **Changes.** Sets the eater's primary ability score to 25 for 1 hour.
-- **Held by.** Fallen fruit is safe; [[Auralis]] urges [[Perrin Black-Jaw]] to eat one.
+- **Attunement.** - **Changes.** Sets the eater's primary ability score to 25 for 1 hour.
+- **Held by.** Fallen fruit is safe. [[Auralis]] urges [[Perrin Black-Jaw]] to eat one.
 
 > [!narration] First look
 > A giant's guava is a ribbed fruit the size of a man's head, gold deepening to pink along each rib. Its thick stem bows the branch, and its sweet scent carries a musky edge.
@@ -40,15 +39,15 @@ Auralis wants Perrin at full strength for Skarn's approach but does not understa
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

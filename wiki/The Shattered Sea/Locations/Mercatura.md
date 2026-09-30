@@ -3,7 +3,7 @@ type: Location
 kind: Settlement
 summary: "A functioning Calveno city whose closed Season 1 crisis leaves its durable urban identity only partly recorded."
 sources:
-  - "archive/mercatura.md"
+ - "archive/mercatura.md"
 parent: "[[Calven and Calveno]]"
 ---
 
@@ -58,29 +58,29 @@ The city is deliberately open as an urban hub. Do not reopen the old crisis with
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

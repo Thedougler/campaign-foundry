@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A two-mile Quiet scar burned by a Gold-caste expedition, where eleven compelled Grung lie sunk in black flowers."
 sources:
-  - "archive/the-burnt-road.md"
+ - "archive/the-burnt-road.md"
 parent: "[[The Quiet]]"
 ---
 
@@ -54,29 +54,29 @@ The seals instruct their bearers to report inland and replace silent parties. Th
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

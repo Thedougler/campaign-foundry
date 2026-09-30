@@ -2,8 +2,8 @@
 type: NPC
 summary: "Enormous orc master gunner whose uncanny powder sense keeps the Uncertainty's guns working."
 sources:
-  - "archive/thunk.md"
-creature: "[[Thunk]]"
+ - "archive/thunk.md"
+creature: ""
 ---
 
 ## At a glance
@@ -22,7 +22,7 @@ creature: "[[Thunk]]"
 - **Shuts them down.** Rudeness about the ship's guns or an order to fire without inspection.
 - **Will share.** Every practical fact about casting, fitting, loading, and repairing cannon.
 - **Will not share.** How he reads powder or the chemistry degree he cannot explain.
-- **If pressed.** He says a charge smells wrong and orders everyone not to touch it.
+- **If pressed.** He says a charge smells wrong and orders everyone not touch it.
 
 ## Depth
 
@@ -43,15 +43,15 @@ He is a practical crew contact aboard the Uncertainty and a link to **The Crown 
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

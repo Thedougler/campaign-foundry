@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A canal-side tavern built into Calveno's main crossing, where Oleandro Fuschi serves fish broth and remembers ships."
 sources:
-  - "archive/ponte-bassa.md"
+ - "archive/ponte-bassa.md"
 parent: "[[Calven and Calveno]]"
 ---
 
@@ -54,29 +54,29 @@ The perfect archive is degrading because false manifests are more common. The te
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

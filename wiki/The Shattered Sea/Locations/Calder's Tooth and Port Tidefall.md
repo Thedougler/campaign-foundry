@@ -1,9 +1,9 @@
 ---
 type: Location
 kind: Settlement
-summary: "A cliff-tier fortress-port whose docks, trade shelf and Crestwall guns watch the western Strait."
+summary: "A cliff-tier fortress-port whose docks, trade shelf and Crestwall guns watch the far side Strait."
 sources:
-  - "archive/calders-tooth-and-port-tidefall.md"
+ - "archive/calders-tooth-and-port-tidefall.md"
 parent: "[[Crown Islands]]"
 ---
 
@@ -44,7 +44,7 @@ Extra companies and reef-diving gear are staged for the [[Drowned Maw]], but the
 
 ### History
 
-Calder's Tooth is limestone and basalt at the western mouth of the central strait. The east side slopes to mudflats and mangroves.
+Calder's Tooth is limestone and basalt at the far side mouth of the central strait. The east side slopes to mudflats and mangroves.
 
 ### Hidden truths
 
@@ -58,29 +58,29 @@ Sealed Crestwall orders and the fort vaults are separate Crown secrets. The Tess
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

@@ -3,9 +3,9 @@ type: Location
 kind: Region
 summary: "A vast untamed volcanic island where excessive life distinguishes receiving from taking."
 sources:
-  - "archive/aruhe.md"
-  - "archive/Aruhe - Hungry Isle.md"
-  - "archive/hungry-isle.md"
+ - "archive/aruhe.md"
+ - "archive/Aruhe - Hungry Isle.md"
+ - "archive/hungry-isle.md"
 parent: "[[Midchain]]"
 ---
 
@@ -61,29 +61,29 @@ Pale luminous roots run from Clear Lake through the Marshes into the graves. Des
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

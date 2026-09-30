@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A pale glass-edged stand that cuts movement and bursts into slashing shards and choking dust when shattered."
 sources:
-  - "archive/razer-grass.md"
+ - "archive/razer-grass.md"
 parent: "[[Grasslands]]"
 ---
 
@@ -54,29 +54,29 @@ Terror-Birds will not run through a stand. The sound of shattering means to hurt
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

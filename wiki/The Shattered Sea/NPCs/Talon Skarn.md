@@ -1,9 +1,9 @@
 ---
 type: NPC
-summary: "Peregrine Countless apprentice hunting Crissdalynn's Fate Spinner under the Rule of Two."
+summary: "Peregrine the faction apprentice hunting Crissdalynn's Fate Spinner under the Rule of Two."
 sources:
-  - "archive/talon-skarn.md"
-creature: "[[Talon Skarn]]"
+ - "archive/talon-skarn.md"
+creature: "[[Talon Skarn (Creature)]]"
 ---
 
 ## At a glance
@@ -43,15 +43,15 @@ He drives the **Rule of Two**, **Drowned Maw Awakening**, and the hunt for Criss
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

@@ -2,9 +2,9 @@
 type: Thread
 summary: "Simone's elite Grung unit is hunting Jean-Claude across the Midchain after his escape and the death of Pell."
 sources:
-  - "archive/story-so-far.md"
-  - "archive/campaign-timeline.md"
-  - "archive/jean-claude-tabarnack.md"
+ - "archive/story-so-far.md"
+ - "archive/campaign-timeline.md"
+ - "archive/jean-claude-tabarnack.md"
 status: active
 ---
 
@@ -41,15 +41,15 @@ Jean-Claude is returned or killed. Simone's unit is exposed and the captive rout
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

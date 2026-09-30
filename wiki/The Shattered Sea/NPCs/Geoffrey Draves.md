@@ -2,8 +2,8 @@
 type: NPC
 summary: "Former Crown seaman turned Saltwright carpenter, working to earn Verity Hollowell's hand."
 sources:
-  - "archive/geoffrey-draves.md"
-creature: "[[Geoffrey Draves]]"
+ - "archive/geoffrey-draves.md"
+creature: "[[Geoffrey Draves (Creature)]]"
 ---
 
 ## At a glance
@@ -43,15 +43,15 @@ He is tied to **The Crown Inspection** through his bloodline and to the crew's c
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

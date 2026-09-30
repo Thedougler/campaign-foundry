@@ -2,19 +2,19 @@
 type: Faction
 summary: "Eastern mercantile colonial power that holds the Scatter with paper, debt and courtesy that is always a contract."
 sources:
-  - "archive/tessarine-concordat.md"
+ - "archive/tessarine-concordat.md"
 ---
 
 ## At a glance
 
 - **Goal.** Contain public debt exposure while retaining salvage priority and control through paper.
-- **Next move.** Keep Sunkline funded, bury the Chain Council mail trail and pursue Shelfworks intelligence.
-- **Led by.** The Seven Houses Council; [[Cosimo Verantio]] is the hidden architect.
+- **Next move.** Keep Sunkline funded, record the Chain Council mail trail and pursue Shelfworks intelligence.
+- **Led by.** The Seven Houses Council. Cosimo Verantio is the hidden architect.
 - **Base.** [[Calven and Calveno]] counting houses.
 - **Strength.** Credit, collateral, insured cargo, sealed mail and debt-recovery holds.
 
 > [!narration] Public face
-> Pale canal counting houses and white sails with blue triangles mark Concordat writ. A clerk can sound like an old house; the courtesy is always a contract. A balanced ledger is promised as safer than an honest answer.
+> Pale canal counting houses and white sails with blue triangles mark Concordat writ. A clerk can sound like an old house. The courtesy is always a contract. A balanced ledger is promised as safer than an answer.
 
 ## Play
 
@@ -28,13 +28,13 @@ sources:
 
 ### History
 
-The Tessarine began as an eastern mercantile colonial power shaped by the old Amnian house model. Counting houses and the Seven Houses Council hold visible authority in Calveno; four houses usually vote its way while three can still stall. Its trade house at [[Calder's Tooth and Port Tidefall]] licenses trade and brokers salvage.
+The Tessarine began as an eastern mercantile colonial power shaped by the old Amnian house model. Counting houses and the Seven Houses Council hold visible authority in Calveno. Four houses usually vote its way while three can still stall. Its trade house at [[Calder's Tooth and Port Tidefall]] licenses trade and brokers salvage.
 
 ### Hidden truths
 
-- [[Cosimo Verantio]] is a hidden architect and Magus Dragon who hoards obligation; invalidating debt threatens his structure.
-- The Concordat used the [[chain-council]] to arrange the Pearl theft for control, not protection. The sealed mail trail can prove it.
-- The [[vault-of-the-first-factor]] remains unconfirmed on an uncharted limestone spire, while Sunkline has not passed a true deep trial.
+- Cosimo Verantio is a hidden architect and Magus Dragon who hoards obligation. Invalidating debt threatens his structure.
+- The Concordat used the chain-council to arrange the Pearl theft for control, not protection. The sealed mail trail can prove it.
+- The vault-of-the-first-factor remains unconfirmed on an uncharted limestone spire, while Sunkline has not passed a true deep trial.
 
 ### Threads
 
@@ -46,15 +46,15 @@ The Tessarine began as an eastern mercantile colonial power shaped by the old Am
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

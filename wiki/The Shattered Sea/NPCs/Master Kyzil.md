@@ -2,8 +2,8 @@
 type: NPC
 summary: "Barn-owl Sentinel master testing Crissdalynn while investigating a foul wind beneath Calveno."
 sources:
-  - "archive/master-kyzil.md"
-creature: "[[Master Kyzil]]"
+ - "archive/master-kyzil.md"
+creature: "[[Master Kyzil (Creature)]]"
 ---
 
 ## At a glance
@@ -43,15 +43,15 @@ He drives **Drowned Maw Awakening** and the developing conflict between the Sent
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Linked from
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```

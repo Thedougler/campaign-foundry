@@ -3,7 +3,7 @@ type: Location
 kind: Site
 summary: "A straight Quiet aisle beneath a slit of sky where the Calveno kept watch and the route continues toward Memorial Grove."
 sources:
-  - "archive/star-cut.md"
+ - "archive/star-cut.md"
 parent: "[[The Quiet]]"
 ---
 
@@ -54,29 +54,29 @@ The slit is the only roof gap for a mile, making smoke and sky movement visible 
 
 ```base
 filters:
-  and:
-    - file.hasLink(this.file)
+ and:
+  - file.hasLink(this.file)
 views:
-  - type: table
-    name: Contains
-    filters:
-      and:
-        - parent == this
-    groupBy:
-      property: note.kind
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
-  - type: table
-    name: Linked from
-    filters:
-      and:
-        - parent != this
-    groupBy:
-      property: note.type
-      direction: ASC
-    order:
-      - file.name
-      - note.summary
+ - type: table
+  name: Contains
+  filters:
+   and:
+    - parent == this
+  groupBy:
+   property: note.kind
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+ - type: table
+  name: Linked from
+  filters:
+   and:
+    - parent != this
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
 ```
