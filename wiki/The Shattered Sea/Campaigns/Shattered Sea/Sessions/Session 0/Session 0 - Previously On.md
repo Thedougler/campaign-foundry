@@ -3,7 +3,7 @@ type: Previously On
 summary: "The prologue brought four strangers aboard the Saltwright as the Crown cutter HCS Surety began its inspection."
 sources:
   - "archive/Session-00-Prologue.md"
-date: ""
+date: "1495 DR, date not established"
 ---
 
 ## At a glance

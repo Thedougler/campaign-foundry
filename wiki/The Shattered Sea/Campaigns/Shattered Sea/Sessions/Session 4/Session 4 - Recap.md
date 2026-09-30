@@ -4,7 +4,7 @@ summary: "Delmar confessed the Pearl theft, Umberlee named her price, and the Wa
 sources:
   - "archive/Session 04 - Recap.md"
   - "archive/Session-04-Recap.md"
-date: "2026-05-31"
+date: "1495 DR, date not established"
 ---
 
 ## At a glance

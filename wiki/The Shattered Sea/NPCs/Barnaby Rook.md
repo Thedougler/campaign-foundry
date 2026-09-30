@@ -28,7 +28,7 @@ creature: "[[Barnaby Rook (Creature)]]"
 
 ### History
 
-Rook commanded the HCS Surety under the Dravosi Crown. He knowingly underpaid Geoffrey Draves, held Ket as a specimen while investigating the Five Blades, and carried Grung poison supplied through Simone Tabarnack's network. He boarded the Saltwright, but Delmar Fisk knocked him from the Surety's rigging into the water twice. Something eel-like approached and he did not resurface.
+Rook commanded the HCS Surety under the Dravosi Crown. He knowingly underpaid Geoffrey Draves, held Ket as a specimen while investigating the Five Blades, and carried Grung poison supplied through Simone Tabarnack's network. He boarded the Saltwright, but Delmar Fisk knocked him from the Surety's rigging into the water twice. Something eel-like approached and he did not resurface. He is presumed dead. Earlier, he returned to the Surety with one flintlock spent after firing at Beaumont Sel.
 
 ### Hidden truths
 

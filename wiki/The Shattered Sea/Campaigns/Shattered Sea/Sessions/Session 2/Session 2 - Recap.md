@@ -4,7 +4,7 @@ summary: "The crew took the HCS Surety, freed Ket, specified its prize crew, and
 sources:
   - "archive/Session 02 - Recap.md"
   - "archive/session-02-recap.md"
-date: "2026-05-18"
+date: "1495 DR, date not established"
 ---
 
 ## At a glance

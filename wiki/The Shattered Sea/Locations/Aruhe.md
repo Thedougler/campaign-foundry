@@ -53,6 +53,8 @@ Hinewai preserved a drowned companion at [[Memorial Grove]]. The Death Bloom is 
 
 Pale luminous roots run from Clear Lake through the Marshes into the graves. Destroying the Bloom ends the blight over weeks, months and years, but leaves the memorial's cost.
 
+The Party learned that fallen fruit is safe while living fruit is dangerous. Matteo Scola wants passage off the island, and an unseen watcher remains in the garden.
+
 ### Threads
 
 [[Taking on Aruhe]], [[Perrin and Nona]], [[Drowned Maw Awakening]].

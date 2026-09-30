@@ -33,11 +33,14 @@ Beaumont has run the Saltwright from Kalowe for eleven years. He pulled Crissdal
 ### Hidden truths
 
 - The Salvaged Antheri Plate patched into his shell deflects ranged attacks. It was the reason Rook's shot failed.
+- Rook's shot at Beaumont was deflected by the salvaged shell plate fitted into Beaumont's shell.
 - Bisou's delivery tricks are his real weapon. She can heal an ally or trigger an alchemical item. It can also soak black powder.
 
 ### Threads
 
 He is the crew's first Passage contact and a practical link into the Passage.
+
+Beaumont captains the [[Saltwright]], the Party's first berth.
 
 ## Links
 

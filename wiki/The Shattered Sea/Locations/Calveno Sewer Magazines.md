@@ -22,7 +22,7 @@ parent: "[[Calven and Calveno]]"
 
 ### Areas
 
-Room 5 and Magazine Beta are destroyed. Room 6 was surrendered. Room 8 holds the live ritual. Other cardinal routes are not established.
+Room 5 and Magazine Beta are destroyed. Room 6 was surrendered. Room 8 remains contested after the Primary Chamber's ceiling collapsed and Ragnetto was destroyed. Other cardinal routes are not established.
 
 ### Hazards
 

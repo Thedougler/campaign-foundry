@@ -28,7 +28,7 @@ creature: "[[Talon Skarn (Creature)]]"
 
 ### History
 
-Skarn serves Vantyrus and studies every encounter as practice for killing him. Vantyrus once opened Skarn's throat and stopped. Skarn later watched Matteo vanish after eating a ghost plum, then attacked Crissdalynn at the River Slack Basin for the Fate Spinner.
+Skarn serves Vantyrus and studies every encounter as practice for killing him. Vantyrus once opened Skarn's throat and stopped. Skarn later watched Matteo vanish after eating a ghost plum, then attacked Crissdalynn at the River Slack Basin for the Fate Spinner. He spent one Legendary Resistance during that attack.
 
 ### Hidden truths
 

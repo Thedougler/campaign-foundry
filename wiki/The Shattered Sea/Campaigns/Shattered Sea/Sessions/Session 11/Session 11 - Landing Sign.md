@@ -24,7 +24,7 @@ The Party chooses its route and supplies.
 
 ### Pressure
 
-The beach is behind the predator; inland smoke is the only lead.
+The beach is behind the predator. Inland smoke is the only lead.
 
 ### Terrain
 
@@ -33,6 +33,12 @@ River, grassland and stone ring.
 ### Checks
 
 Investigation identifies recent human use.
+
+## Clues
+
+| Clue | Surfaces through |
+| ---- | ---------------- |
+| Something inland may have survived. | The cold camp |
 
 ## Encounter
 

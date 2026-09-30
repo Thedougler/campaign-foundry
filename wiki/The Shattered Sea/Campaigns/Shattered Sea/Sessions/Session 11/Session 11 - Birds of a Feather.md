@@ -10,7 +10,7 @@ sources:
 - **Pressure.** The Crown Squid is fleeing through the treetops.
 - **Goal.** Keep moving inland.
 - **Where.** Above Aruhe's Old Gardens.
-- **Opposition.** [[Crown Squid]] and a descending [[Bloodhawk]].
+- **Opposition.** [[Crown Squid]] and a [[Bloodhawk]] that dives.
 
 > [!narration] Opening
 > The stone terraces fall away beneath you. Ahead, the translucent squid pushes through the last crowns, and the air darkens above it.

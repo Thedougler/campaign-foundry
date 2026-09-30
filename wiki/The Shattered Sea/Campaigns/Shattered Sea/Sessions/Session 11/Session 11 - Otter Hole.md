@@ -46,7 +46,7 @@ River hole.
 
 ### Balance
 
-De-escalation is the winning route.
+Avoidance is the winning route.
 
 ## Outcomes
 

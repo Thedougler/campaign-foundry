@@ -16,6 +16,10 @@ sources:
 > [!narration] Opening
 > A falcon drops from the dark. Its first strike misses, then its talons turn toward the pack.
 >
+## Threads
+
+[[Perrin and Nona]]
+
 ## Play
 
 ### Stakes
@@ -46,7 +50,7 @@ Slack basin camp.
 
 ### Balance
 
-Play stops mid-fight; one Legendary Resistance is spent.
+Play stops mid-fight. One Legendary Resistance is spent.
 
 ## Outcomes
 

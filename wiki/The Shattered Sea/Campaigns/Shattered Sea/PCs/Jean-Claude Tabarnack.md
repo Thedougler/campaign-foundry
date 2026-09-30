@@ -47,6 +47,8 @@ dndbeyond_url: ""
 
 Born blue caste among the Grung of Botukuri, Jean-Claude fled after Pell died in reprisal. His red beret marks him as censured, and his family still hunts him through Simone's elite unit. He stowed aboard the Saltwright one island ahead of them.
 
+After the garden, Jean-Claude became catatonic and travels inside Delmar's coat.
+
 ## Goals and bonds
 
 - **Goal.** Stay ahead of Simone's hunters and keep other people from being chained or abused.

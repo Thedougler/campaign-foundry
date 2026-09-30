@@ -24,7 +24,7 @@ As a Bonus Action, eat the fruit to gain Resistance to all damage for 1 minute.
 
 ### In use
 
-A fruit picked from its stem is a claim under [[Taking on Aruhe]]. A fallen fruit is safe to take and keeps until eaten.
+Under [[Taking on Aruhe|Aruhe's law]], fallen fruit is safe to take, but fruit picked from its stem is a claim and the fallen fruit keeps until eaten.
 
 ## Depth
 

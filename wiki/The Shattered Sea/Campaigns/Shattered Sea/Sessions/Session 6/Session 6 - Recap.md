@@ -4,7 +4,7 @@ summary: "Vashu and Ozzeth died defending Solange's ritual, and Agni opened the 
 sources:
   - "archive/Session 06 - Recap.md"
   - "archive/session-06-recap.md"
-date: "2026-07-19"
+date: "1495 DR, date not established"
 ---
 
 ## At a glance

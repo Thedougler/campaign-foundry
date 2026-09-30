@@ -28,7 +28,7 @@ sources:
 
 ### History
 
-The Tessarine began as an eastern mercantile colonial power shaped by the old Amnian house model. Counting houses and the Seven Houses Council hold visible authority in Calveno. Four houses usually vote its way while three can still stall. Its trade house at [[Calder's Tooth and Port Tidefall]] licenses trade and brokers salvage.
+The Tessarine began as an eastern mercantile colonial power shaped by the old Amnian house model. Counting houses and the Seven Houses Council hold visible authority in Calveno. Four houses usually vote its way while three can still stall. Its trade house at [[Calder's Tooth and Port Tidefall]] licenses trade and brokers salvage. After Mercatura, the Party signed as Calveno's Defenders on Tessarine letterhead.
 
 ### Hidden truths
 

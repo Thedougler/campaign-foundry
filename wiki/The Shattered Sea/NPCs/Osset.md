@@ -11,7 +11,7 @@ creature: "[[Talon Vantyrus]]"
 - **Role.** Former Sentinel master and hidden leader of the faction.
 - **Wants.** A complete read on Crissdalynn's Long Sight without recognition by Kyzil.
 - **Voice.** Composed, quiet, and precise. He speaks like a teacher.
-- **Found at.** the faction routes under the alias Talon Vantyrus. His original name is unrevealed.
+- **Found at.** The faction routes under the alias Talon Vantyrus. His original name is unrevealed.
 
 > [!narration] First look
 > An aged snowy-owl aarakocra wears Sentinel martial robes stripped of their marks. His pale plumage is mottled with age, and his yellow-gold eyes hold the controlled bearing of a master who once taught the Sentinels.

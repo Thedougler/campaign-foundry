@@ -4,7 +4,7 @@ summary: "Nona's missing-persons list passed 314, Osset was named twice, and Unc
 sources:
   - "archive/Session 08 - Recap.md"
   - "archive/Session-08-Recap.md"
-date: "2026-08-02"
+date: "1495 DR, date not established"
 ---
 
 ## At a glance

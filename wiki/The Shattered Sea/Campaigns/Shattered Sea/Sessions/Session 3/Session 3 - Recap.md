@@ -4,7 +4,7 @@ summary: "The crew killed the whip-shark, renamed the prize Uncertainty, and mad
 sources:
   - "archive/Session 03 - Recap.md"
   - "archive/session-03-recap.md"
-date: "2026-05-25"
+date: "1495 DR, date not established"
 ---
 
 ## At a glance

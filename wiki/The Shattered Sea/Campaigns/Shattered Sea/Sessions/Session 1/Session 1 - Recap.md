@@ -4,7 +4,7 @@ summary: "The crew defended the Saltwright, recruited Geoffrey Draves, and left 
 sources:
   - "archive/Session 01 - Recap.md"
   - "archive/session-01-recap.md"
-date: "2026-05-10"
+date: "1495 DR, date not established"
 ---
 
 ## At a glance

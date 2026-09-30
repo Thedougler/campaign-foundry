@@ -30,8 +30,7 @@ Aruhe's law is Hinewai's grief made reflex and holds while the Death Bloom remai
 ### Chronology
 
 - **Since Hinewai bound herself to Aruhe.** The law has governed living growth, animals, and fresh water on the island.
-- **Session 11.** Fallen red heart berry was safe. Picking one from its stem drew wolf rabbits.
-- **Session 12 preparation.** The response procedure was clarified. The mark lasts until dawn. Fighting back is allowed. Hinewai's fed are spared. Sea fish and loose bodies are not claims.
+- **Session 11.** Fallen red heart berry was safe. Picking one from its stem drew wolf rabbits. Matteo confirmed the fallen-fruit rule.
 
 ## Links
 

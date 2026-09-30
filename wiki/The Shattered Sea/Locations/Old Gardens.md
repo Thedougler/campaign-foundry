@@ -46,6 +46,8 @@ The terraces are older than Hinewai's law and once carried water through planted
 
 Following the edge preserves a safer route while the tempting centre tests whether travellers understand receiving and taking.
 
+An unseen watcher remains in the garden after lantern light drove it from a dead porcupine.
+
 ### Threads
 
 [[Taking on Aruhe]].

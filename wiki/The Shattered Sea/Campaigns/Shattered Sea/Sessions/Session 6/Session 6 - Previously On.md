@@ -4,7 +4,7 @@ summary: "The crew destroyed Magazine Beta and reached Solange Barret's ritual i
 sources:
   - "archive/Session 05 - Recap.md"
   - "archive/Session-05-Recap.md"
-date: "2026-07-05"
+date: "1495 DR, date not established"
 ---
 
 ## At a glance

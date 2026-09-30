@@ -20,6 +20,8 @@ date: "1495 DR, date not established"
 - **Length.** 4 hours.
 - **Threads in play.** The Calveno survivors, [[Fate Spinner]] and [[Talon Skarn]], [[Two-Grave Orders]], [[Hinewai]] and the Grung, and Perrin and [[Auralis]].
 
+The next Session begins with [[Session 12 - Previously On]].
+
 ## Scene Chart
 
 | # | Scene | Kind | Minutes | Threads |

@@ -30,6 +30,8 @@ creature: "[[Geoffrey Draves (Creature)]]"
 
 His father pushed him toward the water and Crown connections secured a carpenter's post aboard the HCS Surety. When Barnaby Rook threatened him for dropping his sword, Delmar Fisk offered protection. Geoffrey became the crew's first recruit. He now works under Sem Holst on the Saltwright.
 
+After Delmar offered protection, Geoffrey dropped his Crown sword and joined the Party. During the night crossing Delmar trained him.
+
 ### Hidden truths
 
 - Geoffrey danced with Verity Hollowell on shore leave and has spent a year trying to earn the means to win her back. Her father Cedric demanded a man able to support a family.

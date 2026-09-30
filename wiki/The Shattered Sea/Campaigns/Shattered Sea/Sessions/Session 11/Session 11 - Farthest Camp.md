@@ -34,6 +34,12 @@ Riverbank and inland trail.
 
 Survival follows tracks and smoke.
 
+## Clues
+
+| Clue | Surfaces through |
+| ---- | ---------------- |
+| The woman in the woods has not been found. | The inland route |
+
 ## Encounter
 
 ### Battlefield
@@ -59,7 +65,7 @@ This planned scene was not reached in play.
 
 ### Hidden truths
 
-The woman in the woods remains uncontacted.
+The woman in the woods remains beyond the Party's path.
 
 ### Threads
 

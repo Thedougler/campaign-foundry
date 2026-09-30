@@ -3,7 +3,7 @@ type: Recap
 summary: "The Shattered Sea primer established the sea's powers, the wreck over the Drowned Maw, and four strangers aboard the Saltwright as a Crown inspection began."
 sources:
   - "archive/Session-00-Prologue.md"
-date: ""
+date: "1495 DR, date not established"
 ---
 
 ## At a glance

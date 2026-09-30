@@ -32,6 +32,8 @@ Redirection is automatic and cannot be declined or used for melee attacks. The o
 
 [[Lavinia Sordi]] sold it to Crissdalynn for 900 gp at La Cenere in [[Le Paludi]], believing it a Cloak of Protection. She acquired it from the falcon-featured [[Osset]]. Play identified it as a cursed Cloak of Displacement.
 
+The Party acquired the Nightmantle in Session 8.
+
 ### Hidden truths
 
 The curse is layered over the displacement protection, so the seller's misidentification is the hidden friction. The next ranged attack aimed at a nearby ally makes the curse plain.

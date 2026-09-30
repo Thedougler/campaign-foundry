@@ -10,7 +10,7 @@ status: active
 ## At a glance
 
 - **Driven by.** The Dravosi Crown's naval law and Barnaby Rook's inspection of the Saltwright.
-- **Stands at.** The Party is in the hold as the boarding crew comes down. The ship and its papers are not secure.
+- **Stands at.** The Party defeated the boarding party, Geoffrey Draves defected, and the fight continued on the gangplank between Saltwright and HCS Surety.
 - **If nobody acts.** Rook's men take control, expose the fugitives, and decide who is a lawful passenger.
 - **Levers.** The hold's cover, Geoffrey Draves's choice, the ship's papers, and the Party's willingness to seize the deck.
 
@@ -19,7 +19,7 @@ status: active
 - **Shows up as.** Inspection demands, Crown papers, armed sailors in the hold, and the question of whose ship this is.
 - **Next development.** Rook's boarding party reaches the hold and the Party must act before the inspection becomes a capture.
 - **Levers.** Deception, confined-space tactics, the ship's crew, and weather-deck access.
-- **Resolves when.** The Party either accepts Crown control or wins a ship and a route under its own name.
+- **Resolves when.** The Party defeated the boarding party and took the HCS Surety as a prize, while Geoffrey Draves joined them and Rook fled.
 
 ## Depth
 

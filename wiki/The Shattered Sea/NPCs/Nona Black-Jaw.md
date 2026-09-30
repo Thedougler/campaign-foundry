@@ -28,7 +28,9 @@ creature: "[[Commoner]]"
 
 ### History
 
-Nona has fed the Warren and kept Crown inspectors from mapping its kitchens for forty years. After the Mercatura raid she made the crater a missing-persons desk, dispatched two Passage ships, and gave Perrin a favour instead of cash. More than 314 fighting-age men remain missing.
+Nona has fed the Warren and kept Crown inspectors from mapping its kitchens for forty years. After the Mercatura raid she made the crater a missing-persons desk, dispatched two Passage ships, and gave Perrin a favour instead of cash. More than 314 fighting-age men remain missing. She called the Party home while hundreds remained missing, and protects Felix for one month under Ruk's guard.
+
+Nona was warned by sending stone about the HCS Ordinance and the Hound.
 
 ### Hidden truths
 

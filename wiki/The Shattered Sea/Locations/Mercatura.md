@@ -44,7 +44,7 @@ The bombs and Otar's defeat are closed Season 1 history, not a current crisis.
 
 ### History
 
-Solange Barret's ritual ran beneath the city. Otar was defeated and the Mercatura bombs closed.
+Solange Barret's ritual ran beneath the city. Otar emerged in the Mercatura crater and died there. Five Minor Slaads spawned and were killed by [[Master Kyzil]]. Hundreds of residents disappeared in the disaster.
 
 ### Hidden truths
 

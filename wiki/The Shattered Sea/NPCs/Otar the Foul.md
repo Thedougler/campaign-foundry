@@ -28,7 +28,7 @@ creature: "[[Otar the Foul (Creature)]]"
 
 ### History
 
-Simone Tabarnack contracted the summoning beneath Mercatura. Solange Barret completed the circle, and Otar consumed her body without killing her or taking her mind. The adventurers killed him in the crater after Kyzil arrived and the Warren's Rattle joined the fight.
+Simone Tabarnack contracted the summoning beneath Mercatura. Solange Barret completed the circle, and Otar consumed her body without killing her or taking her mind. The adventurers killed him in the crater after Kyzil arrived and the Warren's Rattle joined the fight. Otar emerged in the Mercatura crater and died there.
 
 ### Hidden truths
 

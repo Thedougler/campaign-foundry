@@ -32,7 +32,7 @@ Slack basin, brush and firelight.
 
 ### Checks
 
-Perception finds no speaker.
+Perception finds the speaker nowhere.
 
 ## Encounter
 

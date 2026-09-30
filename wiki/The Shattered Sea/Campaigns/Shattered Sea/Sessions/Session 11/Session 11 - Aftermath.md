@@ -34,6 +34,10 @@ Dark riverbank and campfire.
 
 Carry forward conditions and resources.
 
+## Threads
+
+[[Perrin and Nona]], [[Drowned Maw Awakening]]
+
 ## Encounter
 
 ### Battlefield

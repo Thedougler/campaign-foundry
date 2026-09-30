@@ -28,6 +28,8 @@ status: active
 
 Delmar assembled the Red Lady, the Narrow, Heft, Fernen, and Loud Argument to steal the Pearl from Umberlee's shrine on Vel-Orn. The fleet succeeded and then sank over the Drowned Maw when Umberlee struck it.
 
+Delmar later confessed the theft to the Party. Umberlee named the Pearl as her price after the five-ship fleet sank.
+
 ### Hidden truths
 
 - The Pearl's signal drew the Leviathan through the fissure and woke Auralis. The Party can learn this by comparing wreck charts with shrine testimony and the Maw's changes.

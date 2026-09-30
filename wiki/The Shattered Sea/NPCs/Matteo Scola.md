@@ -27,7 +27,7 @@ creature: "[[Commoner]]"
 
 ### History
 
-The party pulled Matteo from three river otters' game at the Slack Basin. He taught them Aruhe's rule, ate a ghost plum, vanished, and returned. He splits from Renzo's camp when Renzo begins listening to Hinewai's voice.
+The party pulled Matteo from three river otters' game at the Slack Basin. He taught them Aruhe's rule, ate a ghost plum, vanished, and returned. He splits from Renzo's camp when Renzo begins listening to Hinewai's voice. He is now at camp and wants passage off Aruhe.
 
 ### Hidden truths
 
@@ -37,6 +37,8 @@ The party pulled Matteo from three river otters' game at the Slack Basin. He tau
 ### Threads
 
 He is a witness in **Taking on Aruhe** and the first sign of Skarn's surveillance.
+
+Matteo carries [[Ghost Plum]].
 
 ## Links
 

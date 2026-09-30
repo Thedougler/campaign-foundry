@@ -4,7 +4,7 @@ summary: "The Party captured the Surety, freed Ket, and named a prize crew befor
 sources:
   - "archive/Session 02 - Recap.md"
   - "archive/session-02-recap.md"
-date: "2026-05-18"
+date: "1495 DR, date not established"
 ---
 
 ## At a glance

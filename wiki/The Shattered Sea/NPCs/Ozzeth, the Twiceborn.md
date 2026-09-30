@@ -28,7 +28,7 @@ creature: "[[Ozzeth the Twiceborn]]"
 
 ### History
 
-Gold caste branded Ozzeth Twiceborn after his self-cast colour rite stalled. He found the rite before Simone and maintained hers for years by Sending. He guarded the Primary Chamber while Solange summoned Otar, then died after Jean-Claude and Delmar broke through.
+Gold caste branded Ozzeth Twiceborn after his self-cast colour rite stalled. He found the rite before Simone and maintained hers for years by Sending. He guarded the Primary Chamber while Solange summoned Otar, then died after Jean-Claude and Delmar broke through. He protected Solange and told her, “do it now,” before dying.
 
 ### Hidden truths
 

@@ -30,6 +30,8 @@ creature: "[[Vashu the Weeping Veil]]"
 
 Vashu leads the Still-Water Discipline, whose masters fight blind and wear the veil as achievement. She guarded Magazine Gamma with a purple-caste enforcer before joining Solange's defence. Crissdalynn killed her in Session 06.
 
+- Vashu died defending Solange's ritual.
+
 ### Hidden truths
 
 - Her tongue-click is echolocation, not nervousness. Within 40 feet she ignores darkness, fog, invisibility, and her own Weeping Veil.

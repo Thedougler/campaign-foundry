@@ -24,7 +24,7 @@ The Party must reach grass, river or canopy.
 
 ### Pressure
 
-The adult follows exposed targets; young hawks flush them downward.
+The adult follows exposed targets. Young hawks flush them downward.
 
 ### Terrain
 

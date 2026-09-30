@@ -87,6 +87,8 @@ legendary_actions:
 
 Use the archived tactics and signature abilities. Telegraph the strongest option and let the Party answer with positioning, cover, or focused fire. It withdraws when its objective is lost or its advantage is gone.
 
+Talon attacked Crissdalynn at the River Slack Basin. One Legendary Resistance is spent.
+
 ### Outside a fight
 
 Its appearance, habits, and traces identify it before an encounter. It acts according to the NPC's established role and habitat.

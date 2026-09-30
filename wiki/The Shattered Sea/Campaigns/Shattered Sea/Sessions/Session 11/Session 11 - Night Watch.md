@@ -14,7 +14,7 @@ sources:
 - **Opposition.** The unseen watcher.
 
 > [!narration] Opening
-> The lantern catches a shape by the dead porcupine. It slips away as the light reaches it.
+> Lantern light reveals a dead porcupine at the camp edge. Something that watched from the brush withdraws as the light reaches it.
 >
 ## Play
 
@@ -33,6 +33,12 @@ Bank, fire, brush and water.
 ### Checks
 
 Survival prepares the porcupine meat and quills.
+
+## Clues
+
+| Clue | Surfaces through |
+| ---- | ---------------- |
+| An unseen watcher left when lantern light reached the dead porcupine. | The camp perimeter |
 
 ## Encounter
 

@@ -28,6 +28,8 @@ status: active
 
 The Antheri built into the far sidewall of the Drowned Maw towards the Elemental Plane of Water. Their disappearance left a breach watched by the Sentinels. The Pearl's theft and the fleet's destruction disturbed the old containment.
 
+The wreck over the Drowned Maw changed the water, and something crossed the seal. Later, the Maw struck the hull, spoke to Perrin, and left an unexplained chart and sea evidence. No direct Maw sign appeared during the Magazine Beta raid.
+
 ### Hidden truths
 
 - Perrin is bound to Auralis without knowing what the patron is. The Party can learn this by comparing the patron's words with Antheri records.

@@ -23,7 +23,7 @@ Eating a ghost plum takes a Bonus Action and grants the Invisible condition for 
 
 ### In use
 
-A picked fruit is a claim under [[Taking on Aruhe]]. A fallen fruit is safe to take. Pollen makes the fruit both an escape tool and a way to reveal an invisible pursuer.
+Under [[Taking on Aruhe|Aruhe's law]], fallen fruit is safe to take, but fruit picked from a living stem is a claim. Pollen makes the fruit both an escape tool and a way to reveal an invisible pursuer.
 
 ## Depth
 

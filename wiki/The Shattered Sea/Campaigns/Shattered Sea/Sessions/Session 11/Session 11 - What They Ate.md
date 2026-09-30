@@ -8,7 +8,7 @@ sources:
 ---
 ## At a glance
 
-- **Discovery.** Fallen fruit heals; living fruit summons danger.
+- **Discovery.** Fallen fruit heals. Living fruit summons danger.
 - **Choice.** Leave the wounded Spiguar or pursue it.
 - **Where.** River grassland.
 - **Opposition.** [[Spiguar]].
@@ -33,6 +33,12 @@ Brush and grass beside the river.
 ### Checks
 
 Perception reveals the ambush.
+
+## Clues
+
+| Clue | Surfaces through |
+| ---- | ---------------- |
+| Fallen fruit is safe. Living fruit summons danger. | The river grassland |
 
 ## Encounter
 

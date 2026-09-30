@@ -51,6 +51,8 @@ Perrin washed up on Keth-Naar after the Vestra went down and reached the Saltwri
 - **Bond.** Nona, the Passage, and the Black-Jaw rescue network are family obligations he cannot simply abandon.
 - **Fear.** Failing his obligations and losing the crew, then learning what his patron expects him to become.
 
+Perrin's patron answered his call with “Not yet” again.
+
 ## Plans
 
 - [[Perrin and Nona]] begins with a reunion and Nona's request for news and a survey.

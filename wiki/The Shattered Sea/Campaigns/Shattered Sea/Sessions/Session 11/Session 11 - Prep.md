@@ -53,7 +53,7 @@ date: "1495 DR, date not established"
 
 | Clue | Can surface in |
 | --- | --- |
-| Fallen fruit is safe; living fruit is dangerous. | [[Session 11 - What They Ate]] |
+| Fallen fruit is safe. Living fruit is dangerous. | [[Session 11 - What They Ate]] |
 | A woman in the woods commands obedience. | [[Session 11 - Farthest Camp]] |
 | The Fate Spinner is under threat at night. | [[Session 11 - Theft on the Watch]] |
 

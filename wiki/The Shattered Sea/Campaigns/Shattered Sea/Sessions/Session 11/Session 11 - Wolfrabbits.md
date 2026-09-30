@@ -24,7 +24,7 @@ The Party can be driven into the birds' line.
 
 ### Pressure
 
-Wolfrabbits erupt; young hawks descend.
+Wolfrabbits erupt. Young hawks descend.
 
 ### Terrain
 
@@ -59,7 +59,7 @@ Escape by distraction, not extermination.
 
 ### Hidden truths
 
-Fallen fruit is safe; living fruit is not.
+Fallen fruit is safe. Living fruit is not.
 
 ### Threads
 

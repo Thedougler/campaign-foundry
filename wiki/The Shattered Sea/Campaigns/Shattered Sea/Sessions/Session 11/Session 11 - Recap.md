@@ -11,8 +11,8 @@ date: "1495 DR, date not established"
 
 - **Session.** 11.
 - **Party at.** The River's slack basin on Aruhe.
-- **Big moments.** Jean-Claude went catatonic; the Party fled a bloodhawk, rescued Matteo, and survived a night ambush.
-- **Left open.** Talon Skarn remains in Crissdalynn's face; inland survivors and the woman in the woods remain unreached.
+- **Big moments.** The Party fled a bloodhawk. Matteo was rescued, and a night ambush followed.
+- **Left open.** Talon Skarn remains in Crissdalynn's face. Inland survivors and the woman in the woods remain undiscovered.
 
 ## What happened
 
@@ -20,21 +20,23 @@ Above Aruhe's terraces, Jean-Claude stopped responding and Delmar carried him wr
 
 At a cold stone ring, Crissdalynn ate fallen redheart fruit and healed, then picked living fruit. Wolfrabbits erupted from the grass and young Bloodhawks joined the hunt. The Party used bird calls, illusions and a false, fat Perrin to draw them away. A Spiguar attacked Delmar and fled when driven off.
 
-At the slack basin, three giant otters held Matteo Scola in a game. Crissdalynn pulled him free; the Party tired the otters through play. Matteo confirmed that fallen fruit is safe, described a woman in the woods who punishes refusal, and vanished after eating a ghost plum. Stonepear grants resistance to every damage type for one minute.
+At the slack basin, three giant otters held Matteo Scola in a game. Crissdalynn pulled him free. The Party tired the otters through play. Matteo confirmed that fallen fruit is safe and described a woman in the woods who punishes refusal. He vanished after eating a ghost plum. Stonepear grants resistance to every damage type for one minute.
 
-The Party camped at Matteo's site. Perrin moved a Lesser Black Lotus to the river; its failed handling cast Tasha's Hideous Laughter before it drifted away. A voice invited them to admire its garden, and lantern light drove an unseen watcher from a dead porcupine. They cooked the meat and saved the quills.
+The Party camped at Matteo's site. Perrin moved a Lesser Black Lotus to the river. Its failed handling cast Tasha's Hideous Laughter before it drifted away. A voice invited them to admire its garden, and lantern light drove an unseen watcher from a dead porcupine. They cooked the meat and saved the quills.
 
-On Crissdalynn's watch, Talon Skarn stooped for the pack that might contain the Fate Spinner. His first strike missed; Crissdalynn stunned him, but he spent Legendary Resistance and remained in her face when play stopped.
+On Crissdalynn's watch, Talon Skarn stooped for the pack that might contain the Fate Spinner. His first strike missed. Crissdalynn stunned him, but he spent Legendary Resistance and remained in her face when play stopped.
 
 ## Changes
 
 - [[Jean-Claude Tabarnack]] is catatonic and travels in Delmar's coat.
 - [[Matteo Scola]] is at the camp and wants passage off Aruhe.
 - The Party learned the fallen-fruit rule and ghost-plum invisibility.
-- [[Talon Skarn]] has attacked; one Legendary Resistance is spent.
+- [[Talon Skarn]] has attacked. One Legendary Resistance is spent.
 
 ## Threads
 
-- [[Drowned Maw Awakening]] moved: Aruhe's hazards and garden voice are active.
-- [[Perrin and Nona]] moved: Skarn's theft attempt is unresolved; the Fate Spinner remains with Crissdalynn.
+- [[Drowned Maw Awakening]] moved. Aruhe's hazards and garden voice are active.
+- [[Perrin and Nona]] moved. Skarn's theft attempt is unresolved. The Fate Spinner remains with Crissdalynn.
+
+- [[Session 11 - Prep]]
 - [[Simone's Hunters]] still: the Party has not returned to the ship or reached the inland survivors.

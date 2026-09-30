@@ -61,6 +61,8 @@ Its tracks, feeding signs, and territorial behaviour warn the Party before an en
 
 The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
 
+Five Minor Slaads spawned in the Mercatura crater and were killed by [[Master Kyzil]].
+
 ### Hidden truths
 
 A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.

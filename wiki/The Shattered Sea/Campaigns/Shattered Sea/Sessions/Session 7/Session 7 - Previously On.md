@@ -4,7 +4,7 @@ summary: "Solange Barret spoke Agni, the chamber ceiling fell, and she stood rem
 sources:
   - "archive/Session 06 - Recap.md"
   - "archive/session-06-recap.md"
-date: "2026-07-19"
+date: "1495 DR, date not established"
 ---
 
 ## At a glance

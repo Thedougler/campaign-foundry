@@ -29,7 +29,7 @@ sources:
 
 ### History
 
-The Passage grew from [[Warren]] around 1240 DR to protect communities that official papers and debt priced out. Its One Law is that people are moved to freedom, never as property. It operates through travelling families, Runs, Holds, kitchens and trusted fronts rather than a public hierarchy.
+The Passage grew from [[Warren]] around 1240 DR to protect communities that official papers and debt priced out. Its One Law is that people are moved to freedom, never as property. It operates through travelling families, Runs, Holds, kitchens and trusted fronts rather than a public hierarchy. After Mercatura, the missing-person list passed 314 fighting-age men; two Passage ships pursued the raiders, and Perrin received a favour.
 
 ### Hidden truths
 

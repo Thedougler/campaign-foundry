@@ -51,6 +51,8 @@ The Gold caste has used authority seals to compel lower-caste Grung and conceal 
 
 Gold farms are secret even from lower castes. Raid trails, unusual poison or a captive's testimony connect Karath to the Midchain's losses.
 
+Karath was identified as the Grung fleet's captive destination.
+
 ### Threads
 
 [[The Crown Inspection]], [[Taking on Aruhe]], and [[Perrin and Nona]].
