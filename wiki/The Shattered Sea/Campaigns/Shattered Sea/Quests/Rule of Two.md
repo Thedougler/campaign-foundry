@@ -1,0 +1,49 @@
+---
+type: Quest
+summary: "Keep Crissdalynn out of the contest between Skarn and Vantyrus for control of Countless."
+sources:
+  - "archive/rule-of-two.md"
+status: active
+---
+
+## At a glance
+
+- **Offered by.** Unknown.
+- **Reward.** No promised reward; leverage over Countless's routes is possible.
+- **Deadline.** None fixed; pressure rises when either Talon cuts off the other.
+- **Done when.** Crissdalynn is protected or the contest redirects or breaks the hunt.
+- **Failed when.** Countless reaches the Fate Spinner carrier and gives Vantyrus its transformation path.
+- **Advances.** [[Countless]] and the [[Fate Spinner]] hunt.
+
+> [!narration] The offer
+> Two Talons claim the same order. One wants the master gone; the other treats the apprentice as a standing threat. Names disappear from ledgers, and Crissdalynn is the target the contest can turn into a weapon.
+
+## Play
+
+- **Leads.** Missing names, blank ledgers, the Fate Spinner hunt and an approach through either Talon.
+- **Opposition.** [[Talon Skarn|Skarn]], [[Talon Vantyrus|Vantyrus]] and Countless's one-job contacts.
+- **Complications.** Helping one Talon may hand Countless a stronger leader; breaking a route can create another blank record.
+- **Payoff.** Protect Crissdalynn, expose the order chain or redirect an agent away from the target.
+
+## Depth
+
+### Hidden truths
+
+Vantyrus leads Countless and wants the Fate Spinner's gift tied to Soul Incarnate transformation. Skarn hunts for him now but will try to kill him once trained enough; both know this. Whoever wins controls the surviving routes, while one-job contacts continue only assignments they already know.
+
+## Links
+
+```base
+filters:
+  and:
+    - file.hasLink(this.file)
+views:
+  - type: table
+    name: Linked from
+    groupBy:
+      property: note.type
+      direction: ASC
+    order:
+      - file.name
+      - note.summary
+```

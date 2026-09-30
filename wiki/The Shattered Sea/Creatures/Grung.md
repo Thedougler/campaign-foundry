@@ -1,0 +1,92 @@
+---
+type: Creature
+summary: "A Grung creature (CR 1/4) used as a scout in The Shattered Sea."
+sources:
+  - "archive/grung.md"
+---
+
+## At a glance
+
+- **Role at the table.** Scout.
+- **Threat.** CR 1/4; use its attack range, movement, or control to pressure the Party.
+- **Tell.** Its body advertises its next attack before it commits.
+- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Used by.** [[Grung Elite Warrior]] patrols the same territory.
+
+> [!narration] First sight
+> The grung reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+
+## Statblock
+
+```statblock
+layout: Basic 5e Layout
+name: "Grung"
+size: Small
+type: humanoid
+subtype: grung
+alignment: Typically Neutral Evil
+ac: 12
+hp: 11
+hit_dice: 2d6 + 4
+speed: "25 ft., climb 25 ft."
+stats: [7, 14, 15, 10, 11, 10]
+saves:
+  - dexterity: 4
+skillsaves:
+  - athletics: 2
+  - perception: 2
+  - stealth: 4
+  - survival: 2
+damage_immunities: "poison"
+condition_immunities: "poisoned"
+senses: "passive Perception 12"
+languages: "Grung"
+cr: "1/4"
+traits:
+  - name: "Amphibious"
+    desc: "The grung can breathe air and water."
+  - name: "Poisonous Skin"
+    desc: "Any creature that grapples the grung or otherwise comes into direct contact with the grung's skin must succeed on a DC 12 Constitution saving throw or become poisoned for 1 minute. A poisoned creature no longer in direct contact with the grung can repeat the saving throw at the end of each of its turns, ending the effect on a success."
+  - name: "Standing Leap"
+    desc: "The grung's long jump is up to 25 feet and its high jump is up to 15 feet, with or without a running start."
+actions:
+  - name: "Dagger"
+    desc: "Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage plus 5 (2d4) poison damage."
+```
+
+## Play
+
+### Tactics
+
+Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+
+### Outside a fight
+
+Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+
+## Depth
+
+### Ecology
+
+The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+
+### Hidden truths
+
+A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+
+## Links
+
+```base
+filters:
+  and:
+    - file.hasLink(this.file)
+views:
+  - type: table
+    name: Linked from
+    groupBy:
+      property: note.type
+      direction: ASC
+    order:
+      - file.name
+      - note.summary
+```
