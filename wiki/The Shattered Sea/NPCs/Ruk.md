@@ -1,0 +1,58 @@
+---
+type: NPC
+summary: "Nona Black-Jaw's literal-minded lizardfolk guardian, a patient physical shield who never ignores a lie or threat."
+sources:
+  - "archive/Ruk.md"
+creature: ""
+---
+
+## At a glance
+
+- **Role.** Contact and bodyguard. Physical shield for Nona Black-Jaw.
+- **Wants.** To protect Nona and the young people under her protection with his body and presence.
+- **Voice.** Measured, flat, and literal. He states threats and lies plainly.
+- **Found at.** Nona's kitchen and safe house in Le Paludi and the Warren, Calven and Calveno.
+
+> [!narration] First look
+> Dark olive-green scales with darker banding make Ruk broad and large for a lizard folk. Scars cover his forearms and the left side of his neck. He braces against the wall with both hands flat on the table, watching every door. “Who sent you?”
+
+## Play
+
+- **Opens them up.** Direct statements, food offered before demands, and respect for territory and the safety of the young.
+- **Shuts them down.** Lies, threats to Nona or a protected person, and crossing him twice.
+- **Will share.** What he has literally observed, including the fear-sweat of a liar and the position of a threat.
+- **Will not share.** A way past the people or territory he is guarding.
+- **If pressed.** He names the threat without raising his voice. “You threatened her. I heard you.”
+- **Combat profile.** AC 16, 104 HP, speed 30 ft. Swim speed 30 ft. CR 6. He grapples with a great club and bite. He then uses Pin Down. Relentless Endurance, Hungry Jaws, Hold Breath, and Territorial Senses keep him standing.
+
+## Depth
+
+### History
+
+Ruk has guarded Nona for twenty years, understanding her through territory, loyalty, feeding rituals, and care for the young. He and Enzo divide the work. Ruk reads physical danger while Enzo reads social danger. At the safe house he guards Felix Aho, a captured Grung prisoner.
+
+### Hidden truths
+
+- Ruk cannot ignore a lie or threat he observes. A direct question can expose what a more diplomatic guard would conceal.
+- His loyalty is built from repeated acts of protection rather than a contract. The Party can see it when he places his body between Nona and danger.
+
+### Threads
+
+- [[Perrin and Nona]], where Ruk is present at Perrin's reunion with Nona and enforces the family's protection.
+
+## Links
+
+```base
+filters:
+  and:
+    - file.hasLink(this.file)
+views:
+  - type: table
+    name: Linked from
+    groupBy:
+      property: note.type
+      direction: ASC
+    order:
+      - file.name
+      - note.summary
+```
