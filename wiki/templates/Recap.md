@@ -24,4 +24,4 @@ date: ""
 
 ## Threads
 
-%% Threads that opened, moved or resolved, one line each. %%
+%% Every Thread of the Campaign, one line each: moved, opened, resolved or still. %%
