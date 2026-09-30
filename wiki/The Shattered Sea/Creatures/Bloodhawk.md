@@ -5,6 +5,12 @@ sources:
  - "archive/bloodhawk.md"
 ---
 
+![[Bloodhawk - Token.jpg]]
+
+![[Bloodhawk - Portrait.jpg]]
+
+![[Bloodhawk - Handout Art.jpg]]
+
 ## At a glance
 
 - **Role at the table.** Skirmisher.

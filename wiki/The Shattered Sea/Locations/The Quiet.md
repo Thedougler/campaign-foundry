@@ -7,6 +7,8 @@ sources:
 parent: "[[Aruhe]]"
 ---
 
+![[The Quiet - Handout Art.jpg]]
+
 ## At a glance
 
 - **Character.** Dense rainforest with sight failing beyond ten feet.

@@ -7,6 +7,10 @@ sources:
 parent: "[[Aruhe]]"
 ---
 
+![[Western Landing - Battle Map.jpg]]
+
+![[Western Landing - Battle Map Alternative.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** It is the only usable boat gap and route inland.

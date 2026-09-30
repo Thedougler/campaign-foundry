@@ -6,6 +6,8 @@ sources:
 dndbeyond_url: ""
 ---
 
+![[Delmar Fisk - Reference Sheet.png]]
+
 ## Sheet
 
 - **Player.** Frederick

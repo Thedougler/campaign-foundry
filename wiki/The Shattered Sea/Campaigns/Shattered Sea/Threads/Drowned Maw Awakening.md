@@ -8,6 +8,8 @@ sources:
 status: active
 ---
 
+![[Drowned Maw Awakening - Handout Art.png]]
+
 ## At a glance
 
 - **Driven by.** The Antheri breach, the lost Pearl, and the power beneath the Drowned Maw.

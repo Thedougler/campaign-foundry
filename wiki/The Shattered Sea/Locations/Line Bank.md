@@ -7,6 +7,8 @@ sources:
 parent: "[[Grasslands]]"
 ---
 
+![[Line Bank - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** Fallen food, a working line and the trail ahead offer clues.

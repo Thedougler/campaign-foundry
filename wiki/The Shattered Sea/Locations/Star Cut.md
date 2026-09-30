@@ -7,6 +7,8 @@ sources:
 parent: "[[The Quiet]]"
 ---
 
+![[Star Cut - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** It is the last open sight line and straight route to the Grove.

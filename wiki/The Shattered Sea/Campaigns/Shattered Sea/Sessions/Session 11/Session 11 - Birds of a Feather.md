@@ -5,6 +5,8 @@ summary: "The Party pursues the Crown Squid over Aruhe's terraces."
 sources:
   - "archive/Session-11-00-Birds-of-a-Feather.md"
 ---
+
+![[Session 11 - Birds of a Feather - Handout Art.png]]
 ## At a glance
 
 - **Pressure.** The Crown Squid is fleeing through the treetops.

@@ -5,6 +5,8 @@ sources:
  - "archive/crown-squid.md"
 ---
 
+![[Crown Squid - Portrait.jpg]]
+
 ## At a glance
 
 - **Role at the table.** Controller.

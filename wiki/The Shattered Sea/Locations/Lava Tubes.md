@@ -7,6 +7,8 @@ sources:
 parent: "[[Aruhe]]"
 ---
 
+![[Lava Tubes - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** Four Calveno survivors need rescue from a ledge.

@@ -6,6 +6,8 @@ sources:
   - "archive/Session-11-04-What-They-Ate.md"
   - "archive/Session-11-04-What-They-Ate-archived-version.md"
 ---
+
+![[Session 11 - What They Ate - Handout Art.jpg]]
 ## At a glance
 
 - **Discovery.** Fallen fruit heals. Living fruit summons danger.

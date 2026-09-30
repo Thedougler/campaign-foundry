@@ -7,6 +7,8 @@ sources:
 parent: "[[Grasslands]]"
 ---
 
+![[Torn Crossing - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** Fresh prints and river water continue inland.

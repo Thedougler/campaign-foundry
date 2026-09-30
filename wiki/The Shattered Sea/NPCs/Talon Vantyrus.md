@@ -6,6 +6,12 @@ sources:
 creature: "[[Talon Vantyrus (Creature)]]"
 ---
 
+![[Talon Vantyrus - Reference Sheet.png]]
+
+![[Talon Vantyrus - Portrait.png]]
+
+![[Talon Vantyrus - Portrait Banner.png]]
+
 ## At a glance
 
 - **Role.** Master of the order and the party's unseen rival.

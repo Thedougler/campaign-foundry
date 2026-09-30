@@ -7,6 +7,8 @@ sources:
 parent: "[[The River]]"
 ---
 
+![[Slack Basin - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** It holds the survivor trail and a marked warning.

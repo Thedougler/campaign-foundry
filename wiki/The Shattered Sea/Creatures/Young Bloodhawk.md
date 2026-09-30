@@ -5,6 +5,10 @@ sources:
  - "archive/young-bloodhawk.md"
 ---
 
+![[Young Bloodhawk - Token.jpg]]
+
+![[Young Bloodhawk - Handout Art.jpg]]
+
 ## At a glance
 
 - **Role at the table.** Skirmisher.

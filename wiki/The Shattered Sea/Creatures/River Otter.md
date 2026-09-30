@@ -5,6 +5,10 @@ sources:
  - "archive/river-otter.md"
 ---
 
+![[River Otter - Token.png]]
+
+![[River Otter - Reference Sheet.jpg]]
+
 ## At a glance
 
 - **Role at the table.** Controller.

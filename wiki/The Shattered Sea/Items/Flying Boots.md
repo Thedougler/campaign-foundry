@@ -5,6 +5,8 @@ sources:
  - "archive/flying-boots.md"
 ---
 
+![[Flying Boots - Handout Art.png]]
+
 ## At a glance
 
 - **Kind.** Wondrous item.

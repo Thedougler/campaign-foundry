@@ -7,6 +7,8 @@ sources:
 parent: "[[The Quiet]]"
 ---
 
+![[Cutoff Lip - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** The Calveno trail is clear and northbound.

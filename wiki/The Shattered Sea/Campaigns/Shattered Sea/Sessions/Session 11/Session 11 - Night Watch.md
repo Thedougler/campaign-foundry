@@ -6,6 +6,8 @@ sources:
   - "archive/Session-11-08-Night-Watch.md"
   - "archive/Session-11-08-Night-Watch-archived-version.md"
 ---
+
+![[Session 11 - Night Watch - Handout Art.jpg]]
 ## At a glance
 
 - **Discovery.** Lantern light drives a watcher from a dead porcupine.

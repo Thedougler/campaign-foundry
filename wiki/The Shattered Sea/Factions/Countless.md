@@ -5,6 +5,8 @@ sources:
  - "archive/countless.md"
 ---
 
+![[Countless - Handout Art.png]]
+
 ## At a glance
 
 - **Goal.** Find [[Crissdalynn Khinriss]] or another Fate Spinner carrier.

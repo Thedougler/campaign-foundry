@@ -7,6 +7,8 @@ sources:
 parent: "[[Aruhe]]"
 ---
 
+![[Spiritpollen - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** It turns a crossing or touch into a choice with visible counter play.

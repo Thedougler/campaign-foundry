@@ -5,6 +5,8 @@ sources:
  - "archive/redheart-berry.md"
 ---
 
+![[Redheart Berry - Handout Art.jpg]]
+
 ## At a glance
 
 - **Kind.** Consumable.

@@ -5,6 +5,8 @@ sources:
  - "archive/grung-authority-seal.md"
 ---
 
+![[Grung Authority Seal - Handout Art.png]]
+
 ## At a glance
 
 - **Kind.** Wondrous plot item, single use.

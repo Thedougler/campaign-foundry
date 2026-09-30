@@ -6,6 +6,8 @@ sources:
  - "archive/stonepear.md"
 ---
 
+![[Stonepear - Handout Art.jpg]]
+
 ## At a glance
 
 - **Kind.** Consumable.

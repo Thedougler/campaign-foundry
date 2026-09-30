@@ -5,6 +5,8 @@ sources:
  - "archive/fate-spinner.md"
 ---
 
+![[Fate Spinner - Handout Art.png]]
+
 ## At a glance
 
 - **Kind.** Wondrous item, artifact.

@@ -7,6 +7,8 @@ sources:
 parent: "[[The Quiet]]"
 ---
 
+![[Stillbloom - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** It makes speed, cover and movement choices matter.

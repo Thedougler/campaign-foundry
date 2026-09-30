@@ -6,6 +6,8 @@ sources:
 creature: "[[Commoner]]"
 ---
 
+![[Nona Black-Jaw - Portrait.jpg]]
+
 ## At a glance
 
 - **Role.** Passage patron and Black-Jaw Run family face.

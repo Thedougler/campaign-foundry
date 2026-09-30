@@ -5,6 +5,8 @@ sources:
  - "archive/terror-bird.md"
 ---
 
+![[Terror-Bird - Portrait.jpg]]
+
 ## At a glance
 
 - **Role at the table.** Bruiser.

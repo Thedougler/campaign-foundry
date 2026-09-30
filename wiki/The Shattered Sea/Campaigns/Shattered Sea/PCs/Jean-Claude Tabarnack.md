@@ -6,6 +6,8 @@ sources:
 dndbeyond_url: ""
 ---
 
+![[Jean-Claude Tabarnack - Reference Sheet.png]]
+
 ## Sheet
 
 - **Player.** Chad

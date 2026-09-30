@@ -5,6 +5,8 @@ sources:
   - "archive/grubnade.md"
 ---
 
+![[Grubnade - Handout Art.jpg]]
+
 ## At a glance
 
 - **Kind.** Living flora hazard.

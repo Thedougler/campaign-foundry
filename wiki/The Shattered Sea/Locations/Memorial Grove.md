@@ -7,6 +7,8 @@ sources:
 parent: "[[Aruhe]]"
 ---
 
+![[Memorial Grove - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** It is the answer to Aruhe's law and the place where Hinewai can end.

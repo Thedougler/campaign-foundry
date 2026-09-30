@@ -7,6 +7,10 @@ sources:
 parent: "[[Aruhe]]"
 ---
 
+![[Grasslands - Portrait.jpg]]
+
+![[Grasslands - Handout Art.jpg]]
+
 ## At a glance
 
 - **Character.** Open river valleys inside Aruhe's jungle.

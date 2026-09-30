@@ -6,6 +6,8 @@ sources:
 dndbeyond_url: ""
 ---
 
+![[Crissdalynn Khinriss - Reference Sheet.png]]
+
 ## Sheet
 
 - **Player.** Courtney

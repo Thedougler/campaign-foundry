@@ -6,6 +6,8 @@ sources:
 creature: "[[Commoner]]"
 ---
 
+![[Matteo Scola - Portrait.png]]
+
 ## At a glance
 
 - **Role.** Calveno wreck survivor and guide to Aruhe's survival rule.

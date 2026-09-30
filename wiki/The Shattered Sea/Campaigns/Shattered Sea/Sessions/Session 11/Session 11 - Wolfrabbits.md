@@ -6,6 +6,8 @@ sources:
   - "archive/Session-11-03-Wolfrabbits.md"
   - "archive/Session-11-03-Wolfrabbits-archived-version.md"
 ---
+
+![[Session 11 - Wolfrabbits - Handout Art.jpg]]
 ## At a glance
 
 - **Contest.** Survive the grassland hunt.

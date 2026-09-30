@@ -5,6 +5,8 @@ sources:
  - "archive/auralis.md"
 ---
 
+![[Auralis - Reference Sheet.png]]
+
 ## At a glance
 
 - **The truth.** Auralis is a machine built about -2000 DR to hold the fissure into the Elemental Plane of Water shut.

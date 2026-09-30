@@ -7,6 +7,8 @@ sources:
 parent: "[[The Quiet]]"
 ---
 
+![[Spoke Ring - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** The abandoned camp shows who followed and who refused.

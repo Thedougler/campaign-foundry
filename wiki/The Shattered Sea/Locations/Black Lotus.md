@@ -7,6 +7,8 @@ sources:
 parent: "[[Old Gardens]]"
 ---
 
+![[Black Lotus - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** Its heart is valuable magical material.

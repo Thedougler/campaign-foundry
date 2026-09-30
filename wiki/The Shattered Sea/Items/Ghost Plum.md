@@ -5,6 +5,8 @@ sources:
  - "archive/ghost-plum.md"
 ---
 
+![[Ghost Plum - Handout Art.jpg]]
+
 ## At a glance
 
 - **Kind.** Consumable.

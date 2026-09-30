@@ -5,6 +5,8 @@ sources:
  - "archive/giants-guava.md"
 ---
 
+![[Giant's Guava - Handout Art.jpg]]
+
 ## At a glance
 
 - **Kind.** Consumable.

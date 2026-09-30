@@ -5,6 +5,8 @@ sources:
  - "archive/shattered-sea.md"
 ---
 
+![[The Shattered Sea - Handout Art.jpg]]
+
 ## At a glance
 
 - **Tone.** Remote, exposed, and politically unfinished. Harbours levy a price.

@@ -7,6 +7,8 @@ sources:
 parent: "[[Midchain]]"
 ---
 
+![[Karath - Handout Art.png]]
+
 ## At a glance
 
 - **Character.** Rainforest island with black river mouths, reef gaps and hidden inland works.

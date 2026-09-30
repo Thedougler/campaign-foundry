@@ -7,6 +7,8 @@ sources:
 parent: "[[Grasslands]]"
 ---
 
+![[Print Braid - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** It is the point where the survivor trail can be lost.

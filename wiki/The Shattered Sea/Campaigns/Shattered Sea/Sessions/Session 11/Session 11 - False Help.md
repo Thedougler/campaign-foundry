@@ -6,6 +6,13 @@ sources:
   - "archive/Session-11-07-False-Help.md"
   - "archive/Session-11-07-False-Help-archived-version.md"
 ---
+
+![[Session 11 - False Help - Handout Art 2.jpg]]
+
+![[Session 11 - False Help - Handout Art.jpg]]
+
+![[Session 11 - False Help - Battle Map.jpg]]
+
 ## At a glance
 
 - **Contest.** Decide whether to answer the unseen voice.

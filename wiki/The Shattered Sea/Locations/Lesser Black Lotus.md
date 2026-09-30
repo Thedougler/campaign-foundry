@@ -8,6 +8,8 @@ sources:
 parent: "[[Old Gardens]]"
 ---
 
+![[Lesser Black Lotus - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** Four unstable harvests can refine into a Black Lotus Heart.

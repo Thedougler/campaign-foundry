@@ -5,6 +5,18 @@ sources:
  - "archive/deer-stalker.md"
 ---
 
+![[Deer-Stalker - Token.png]]
+
+![[Deer-Stalker - Reference Sheet.png]]
+
+![[Deer-Stalker - Portrait.jpg]]
+
+![[Deer-Stalker - Portrait 3.jpg]]
+
+![[Deer-Stalker - Portrait 2.jpg]]
+
+![[Deer-Stalker - Portrait 1.jpg]]
+
 ## At a glance
 
 - **Role at the table.** Ambusher.

@@ -6,6 +6,14 @@ sources:
 creature: "[[Hinewai the Blight]]"
 ---
 
+![[Hinewai - Token.jpg]]
+
+![[Hinewai - Reference Sheet.jpg]]
+
+![[Hinewai - Portrait.png]]
+
+![[Hinewai - Handout Art.jpg]]
+
 ## At a glance
 
 - **Role.** Undead guardian bound to Aruhe and the Death Bloom.

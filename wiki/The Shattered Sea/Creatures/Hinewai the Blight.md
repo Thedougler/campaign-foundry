@@ -5,6 +5,8 @@ sources:
  - "archive/hinewai.md"
 ---
 
+![[Hinewai the Blight - Portrait.png]]
+
 ## At a glance
 
 - **Role at the table.** Unique named Creature represented by the NPC.

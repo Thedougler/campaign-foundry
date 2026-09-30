@@ -6,6 +6,8 @@ sources:
   - "archive/Session-11-06-Farthest-Camp.md"
   - "archive/Session-11-06-Farthest-Camp-archived-version.md"
 ---
+
+![[Session 11 - Farthest Camp - Handout Art.jpg]]
 ## At a glance
 
 - **Discovery.** Smoke and survivor signs point farther inland.

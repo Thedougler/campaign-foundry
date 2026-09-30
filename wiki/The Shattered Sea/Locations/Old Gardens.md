@@ -7,6 +7,10 @@ sources:
 parent: "[[Aruhe]]"
 ---
 
+![[Old Gardens - Portrait.jpg]]
+
+![[Old Gardens - Handout Art.jpg]]
+
 ## At a glance
 
 - **Draws the Party because.** It is the first inland route and the terrace road to Grasslands.

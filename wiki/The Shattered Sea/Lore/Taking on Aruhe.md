@@ -5,6 +5,8 @@ sources:
  - "archive/taking-on-aruhe.md"
 ---
 
+![[Taking on Aruhe - Handout Art.png]]
+
 ## At a glance
 
 - **The truth.** Taking living growth, fresh water life, or an island animal's flesh marks the taker until the next dawn.

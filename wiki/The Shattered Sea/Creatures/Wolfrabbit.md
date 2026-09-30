@@ -5,6 +5,14 @@ sources:
  - "archive/wolfrabbit.md"
 ---
 
+![[Wolfrabbit - Token.jpg]]
+
+![[Wolfrabbit - Reference Sheet.jpg]]
+
+![[Wolfrabbit - Portrait.jpg]]
+
+![[Wolfrabbit - Portrait 2.jpg]]
+
 ## At a glance
 
 - **Role at the table.** Skirmisher.

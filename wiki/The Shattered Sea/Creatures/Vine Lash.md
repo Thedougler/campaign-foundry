@@ -5,6 +5,8 @@ sources:
  - "archive/vine-lash.md"
 ---
 
+![[Vine Lash - Portrait.png]]
+
 ## At a glance
 
 - **Role at the table.** Controller.

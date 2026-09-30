@@ -6,6 +6,8 @@ sources:
 creature: "[[Master Kyzil (Creature)]]"
 ---
 
+![[Master Kyzil - Portrait.png]]
+
 ## At a glance
 
 - **Role.** Senior master of the Sentinels of the Eyrie.

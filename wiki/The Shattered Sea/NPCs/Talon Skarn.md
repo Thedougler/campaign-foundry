@@ -6,6 +6,12 @@ sources:
 creature: "[[Talon Skarn (Creature)]]"
 ---
 
+![[Talon Skarn - Token.png]]
+
+![[Talon Skarn - Reference Sheet.jpg]]
+
+![[Talon Skarn - Portrait.jpg]]
+
 ## At a glance
 
 - **Role.** Vantyrus's apprentice and flying skirmisher.

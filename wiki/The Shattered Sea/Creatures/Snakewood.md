@@ -5,6 +5,8 @@ sources:
  - "archive/snakewood.md"
 ---
 
+![[Snakewood - Handout Art.jpg]]
+
 ## At a glance
 
 - **Role at the table.** Hazard.

@@ -5,6 +5,14 @@ sources:
  - "archive/spiguar.md"
 ---
 
+![[Spiguar - Token.jpg]]
+
+![[Spiguar - Token Stand.jpg]]
+
+![[Spiguar - Reference Sheet.png]]
+
+![[Spiguar - Portrait.jpg]]
+
 ## At a glance
 
 - **Role at the table.** Ambusher.

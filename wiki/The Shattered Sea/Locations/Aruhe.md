@@ -9,6 +9,8 @@ sources:
 parent: "[[Midchain]]"
 ---
 
+![[Aruhe - Handout Art.jpg]]
+
 ## At a glance
 
 - **Character.** An untamed volcanic island about 500 miles long and 150 miles across.

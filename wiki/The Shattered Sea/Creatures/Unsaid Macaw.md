@@ -5,6 +5,8 @@ sources:
  - "archive/unsaid-macaw.md"
 ---
 
+![[Unsaid Macaw - Portrait.jpg]]
+
 ## At a glance
 
 - **Role at the table.** Social hazard.

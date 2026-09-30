@@ -5,6 +5,8 @@ sources:
  - "archive/two-grave-orders.md"
 ---
 
+![[Two-Grave Orders - Handout Art.png]]
+
 ## At a glance
 
 - **The truth.** Four Gold-caste orders drove expeditions inland: report, replace, destroy and finally burn.
