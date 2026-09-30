@@ -4,6 +4,7 @@ summary: "Four survivors and fugitives seize a chance at a crew aboard the Saltw
 sources:
  - "archive/story-so-far.md"
  - "archive/campaign-timeline.md"
+ - "archive/session-11-transcript.md"
 session_length_hours:
 ---
 
@@ -13,7 +14,7 @@ session_length_hours:
 - **Premise.** Four strangers with debts, pursuers, and secrets become a crew in the Shattered Sea.
 - **Party.** [[Perrin Black-Jaw]], [[Delmar Fisk]], [[Crissdalynn Khinriss]], and [[Jean-Claude Tabarnack]].
 - **Cadence.** Sessions follow the Party's crossings, port bargains, and consequences.
-- **Now.** At the opening, the Party is aboard the Saltwright when the HCS Surety arrives to inspect her. The exact month is not established, in 1495 DR.
+- **Now.** After Session 11, the Party is camped at the River's slack basin on [[Aruhe]]. [[Jean-Claude Tabarnack]] is catatonic in [[Delmar Fisk]]'s coat, [[Matteo Scola]] wants passage off the island, and [[Talon Skarn]]'s attack on [[Crissdalynn Khinriss]] for the [[Fate Spinner]] remains unresolved. Session 12 Prep begins from this camp.
 
 > [!narration] The Campaign
 > You have each come to the Saltwright by a different road. One survived a wreck, another hides an older name, one was pulled from the sea, and another is one island ahead of hunters. You are together in the hold when Crown sailors come to take the ship. There is no time to explain whose ship it is. Make the hold yours, survive the inspection, and decide what sort of crew can cross a sea where every route belongs to someone else.
@@ -36,7 +37,7 @@ Found family versus inherited obligation. Freedom versus systems that demand pap
 
 ### Direction
 
-The opening Threads are the Crown inspection and the new crew's survival, Jean-Claude's hunters, Delmar's hidden Pearl debt, Perrin's connection to Nona and the Passage, and the awakening pressure around the Drowned Maw. The Party's choices determine which route and power claim them next. [[Take on Aruhe]] is an offered later task when the route reaches Aruhe.
+The Party is crossing [[Aruhe]] toward inland survivors while keeping the Fate Spinner from its hunters and protecting the Calveno survivors. Session 12 continues from the River's slack basin, with Hinewai's garden, the Grung orders, and Perrin's patron pressing the route. [[Take on Aruhe]] remains active. The [[Campaign Timeline]] orders the causes behind those pressures. [[Session 11 Assets]] records the later evidence-routing procedure.
 
 ## Links
 

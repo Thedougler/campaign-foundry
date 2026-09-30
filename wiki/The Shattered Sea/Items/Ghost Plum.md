@@ -12,7 +12,7 @@ sources:
 - **Kind.** Consumable.
 - **Rarity.** Rare.
 - **Attunement.** - **Changes.** Eating it grants Invisible for 1 hour.
-- **Held by.** [[Matteo Scola]] carries two. [[Talon Skarn]] gathers fallen fruit.
+- **Held by.** [[Matteo Scola]] carries one after eating one in Session 11. [[Talon Skarn]] gathers fallen fruit.
 
 > [!narration] First look
 > A ghost plum is as big as two fists, with clear purple-grey skin showing leaves through it like a picture in soap. Pale pollen clings to the skin. Once fallen, the skin clouds to dull purple.
@@ -31,7 +31,7 @@ Under [[Taking on Aruhe|Aruhe's law]], fallen fruit is safe to take, but fruit p
 
 ### History
 
-Ghost plums grow in [[Old Gardens]] and the treelines of [[The Quiet]]. Matteo carries two in a sailcloth sling. Skarn watched him vanish and later gathered two fallen plums while hunting the [[Fate Spinner]].
+Ghost plums grow in [[Old Gardens]] and the treelines of [[The Quiet]]. Matteo carried two in a sailcloth sling and ate one during Session 11. One remains. Skarn watched him vanish and later gathered two fallen plums while hunting the [[Fate Spinner]].
 
 ### Hidden truths
 

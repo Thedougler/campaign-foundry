@@ -28,9 +28,9 @@ creature: "[[Geoffrey Draves (Creature)]]"
 
 ### History
 
-His father pushed him toward the water and Crown connections secured a carpenter's post aboard the HCS Surety. When Barnaby Rook threatened him for dropping his sword, Delmar Fisk offered protection. Geoffrey became the crew's first recruit. He now works under Sem Holst on the Saltwright.
+His father pushed him toward the water and Crown connections secured a carpenter's post aboard the HCS Surety. When Barnaby Rook threatened him for dropping his sword, Delmar Fisk offered protection. Geoffrey became the crew's first recruit. After the capture and renaming of the Surety, he works under Sem Holst aboard [[Uncertainty]]. Delmar trained him during the night crossing.
 
-After Delmar offered protection, Geoffrey dropped his Crown sword and joined the Party. During the night crossing Delmar trained him.
+After Delmar offered protection, Geoffrey dropped his Crown sword and joined the Party.
 
 ### Hidden truths
 

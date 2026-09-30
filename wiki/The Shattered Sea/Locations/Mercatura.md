@@ -11,12 +11,12 @@ parent: "[[Calven and Calveno]]"
 
 - **Size.** Functioning city. Population and districts are not established.
 - **Ruled by.** City authority is unknown.
-- **Mood.** An available urban hub rather than an active crisis.
-- **Unsettled by.** No current pressure is established.
+- **Mood.** Partly disrupted by the crater and missing-persons work, with ordinary city life continuing.
+- **Unsettled by.** The Mercatura crater, missing people and the aftermath of the raid.
 - **Known for.** Solange Barret's ritual, Otar the Foul and the closed Mercatura bombs.
 
 > [!narration] Arrival
-> Mercatura is a functioning city of Calveno. Its approach, skyline and recurring landmarks remain for play to establish. The old crisis remains out of sight in the present streets.
+> Mercatura is a functioning city of Calveno built around a crater left by the old crisis. Families still search there while ordinary streets work around the damage.
 
 ## Play
 
@@ -30,7 +30,7 @@ Ordinary urban movement and connected investigations are available. Specific inn
 
 ### Factions here
 
-No current civic faction is established. [[Solange Barret]] and [[Otar the Foul]] belong to closed history.
+No permanent civic faction is established. Nona Black-Jaw's missing-persons desk and the Defenders' writ remain recent aftermath structures.
 
 ### Local rules
 
@@ -38,7 +38,7 @@ Law, commerce, curfew and local custom remain unknown.
 
 ### Rumors
 
-The bombs and Otar's defeat are closed Season 1 history, not a current crisis.
+The bombs and Otar's defeat remain history, but the crater and missing-person search still shape the city.
 
 ## Depth
 
@@ -48,7 +48,7 @@ Solange Barret's ritual ran beneath the city. Otar emerged in the Mercatura crat
 
 ### Hidden truths
 
-The city is deliberately open as an urban hub. Do not reopen the old crisis without play establishing a new situation.
+The city is an urban hub under the aftermath of the crater and missing-person search. Future play can establish how those pressures change it.
 
 ### Threads
 

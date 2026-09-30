@@ -10,16 +10,16 @@ status: active
 ## At a glance
 
 - **Driven by.** The Dravosi Crown's naval law and Barnaby Rook's inspection of the Saltwright.
-- **Stands at.** The Party defeated the boarding party, Geoffrey Draves defected, and the fight continued on the gangplank between Saltwright and HCS Surety.
-- **If nobody acts.** Rook's men take control, expose the fugitives, and decide who is a lawful passenger.
+- **Stands at.** The Party defeated the boarding party, captured the HCS Surety as [[Uncertainty]], and left Crown attention on the crew after Rook went overboard and did not resurface.
+- **If nobody acts.** Crown ships continue tracing the renamed prize and the crew after the Party's deception aboard the HCS Ordinance.
 - **Levers.** The hold's cover, Geoffrey Draves's choice, the ship's papers, and the Party's willingness to seize the deck.
 
 ## Play
 
 - **Shows up as.** Inspection demands, Crown papers, armed sailors in the hold, and the question of whose ship this is.
-- **Next development.** Rook's boarding party reaches the hold and the Party must act before the inspection becomes a capture.
+- **Next development.** Crown ships continue to pursue the crew's trail after the Party deceived the HCS Ordinance.
 - **Levers.** Deception, confined-space tactics, the ship's crew, and weather-deck access.
-- **Resolves when.** The Party defeated the boarding party and took the HCS Surety as a prize, while Geoffrey Draves joined them and Rook fled.
+- **Resolves when.** The opening inspection resolved when the Party captured the HCS Surety and Geoffrey Draves joined them. Crown pursuit remains active around the renamed prize.
 
 ## Depth
 
@@ -34,7 +34,7 @@ The Crown's inspection is ordinary naval law made urgent by a ship carrying fugi
 
 ### Possible endings
 
-The Party gives up the Saltwright and scatters. It escapes under false papers. Or it takes the ship and becomes a crew with Crown attention attached.
+The Party took the ship, and Crown attention remains attached to the renamed prize.
 
 ## Links
 

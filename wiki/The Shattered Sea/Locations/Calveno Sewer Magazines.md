@@ -9,20 +9,20 @@ parent: "[[Calven and Calveno]]"
 
 ## At a glance
 
-- **Draws the Party because.** Powder infrastructure and a live ritual remain below the city.
+- **Draws the Party because.** Destroyed magazines and the collapsed chamber hold evidence of the Grung operation.
 - **Entrance.** Calveno's sewer network.
-- **Occupants.** Solange Barret, Grung guards and evidence of Bazzoth's operation.
-- **Danger.** Powder, fire, water and an unfinished ritual.
-- **Prize.** Destroyed supplies, prisoners, and knowledge of the network.
+- **Occupants.** No current occupants are established. Remains of Bazzoth's operation lie below.
+- **Danger.** Collapsed masonry, powder residue, fire and water.
+- **Prize.** Surviving evidence of the network and the collapsed primary chamber.
 
 > [!narration] Entering
-> The sewer opens into rooms built to hold powder. Barrels and scaffolding fill the chambers. Fire and water have damaged the route, and farther in a ritual continues under guard.
+> The sewer opens into rooms built to hold powder. Barrels and scaffolding lie among fire and water damage, and farther in the primary chamber lies open beneath its collapsed ceiling.
 
 ## Play
 
 ### Areas
 
-Room 5 and Magazine Beta are destroyed. Room 6 was surrendered. Room 8 remains contested after the Primary Chamber's ceiling collapsed and Ragnetto was destroyed. Other cardinal routes are not established.
+Room 5 and Magazine Beta are destroyed. Room 6 was surrendered. Room 8's ritual ended when Solange was consumed and Otar emerged. The Primary Chamber's ceiling collapsed and Ragnetto was destroyed. Other cardinal routes are not established.
 
 ### Hazards
 
@@ -34,7 +34,7 @@ Powder stores make fire dangerous. The party must preserve the destroyed state r
 
 ### Likely actions
 
-Search stores, push toward Room 8, destroy powder, take prisoners or interrupt the ritual.
+Search stores, follow surviving evidence, or cross the collapse while preserving the destroyed state.
 
 ## Depth
 

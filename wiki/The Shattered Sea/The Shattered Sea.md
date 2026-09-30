@@ -12,7 +12,7 @@ sources:
 - **Tone.** Remote, exposed, and politically unfinished. Harbours levy a price.
 - **Magic and technology.** Working sails, firearms, magical navigation, ancient Antheri machinery, and supernatural currents share the sea.
 - **Era.** 1495 DR, after the Second Sundering and while the Drowned Maw's pressure rises.
-- **Powers.** The Dravosi Crown, Tessarine Concordat, local councils, Waveservants, Passage, Grung clans, and Sentinels of the Eyrie all contest the routes.
+- **Powers.** The Dravosi Crown, Tessarine Concordat, local councils, Waveservants, Passage, [[Grung Clans]], and Sentinels of the Eyrie all contest the routes.
 - **Table promise.** Navigate, bargain, investigate, and choose which system or allegiance to trust while discovering what the charts omit.
 
 > [!narration] The World

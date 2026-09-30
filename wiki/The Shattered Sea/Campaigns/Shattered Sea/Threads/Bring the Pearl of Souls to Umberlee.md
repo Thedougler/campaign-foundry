@@ -11,14 +11,14 @@ status: active
 ## At a glance
 
 - **Driven by.** Delmar Fisk's theft, the destruction of the five-ship fleet, and Umberlee's unresolved claim.
-- **Stands at.** Delmar survived the wreck with the Pearl's debt hidden behind the name Admiral Fisk.
+- **Stands at.** Delmar confessed the theft to the Party, and Umberlee named the Pearl as her price. The Pearl and its debt remain unresolved.
 - **If nobody acts.** Umberlee's anger and the Drowned Maw's pressure follow the Party from harbour to harbour.
 - **Levers.** The Pearl, Delmar's old crew and records, Umberlee's Waveservants, and the Drowned Maw charts.
 
 ## Play
 
 - **Shows up as.** Wrecks, hostile water, shrine rumours, and the consequences of a missing sacred object.
-- **Next development.** A Waveservants representative or survivor connects Delmar to the theft and demands a choice before the Party can use another harbour safely.
+- **Next development.** The Party must decide how to answer Umberlee's price while the Pearl remains beyond reach in the Drowned Maw.
 - **Levers.** Confession, restitution, investigation of the wreck route, or bargaining with Umberlee.
 - **Resolves when.** The Pearl is returned, its theft is answered another way, or Umberlee takes payment from the Party.
 
@@ -33,7 +33,7 @@ Delmar later confessed the theft to the Party. Umberlee named the Pearl as her p
 ### Hidden truths
 
 - The Pearl's signal drew the Leviathan through the fissure and woke Auralis. The Party can learn this by comparing wreck charts with shrine testimony and the Maw's changes.
-- Delmar has not told the new crew the full account. His evasions and the records of the five ships reveal the missing pieces.
+- Delmar has not told the new crew who ordered the theft. Umberlee read that answer from him, but the Party did not hear it.
 
 ### Possible endings
 

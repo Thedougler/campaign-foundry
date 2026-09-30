@@ -8,7 +8,7 @@ sources:
 ## At a glance
 
 - **Goal.** Recover water control while preserving the closed interior and caste-and-rite system.
-- **Next move.** Push another raid and move fighting-age captives through the fleet towards [[Karath]].
+- **Next move.** Recover or reroute surviving captives after the Aruhe wrecks. [[Karath]] remains the identified destination for the captive route.
 - **Led by.** The gold authority associated with [[Auralis]]. No complete hierarchy is established.
 - **Base.** Verdant Teeth.
 - **Strength.** Biology, terrain, toxins, reef patrols and sanctioned beaches.
@@ -40,7 +40,7 @@ The clans control five rainforest islands as one closed system of canopy routes,
 
 - The Taken 314 follows the captive pipeline.
 - [[Bring the Pearl of Souls to Umberlee]] intersects the clans' routes and the Passage rescue effort.
-- Their conflict with [[Passage]] and the [[Dravosi Crown]] drives the far side sea pressure.
+- Their conflict with [[Passage]] and the [[Dravosi Crown]] creates pressure across the far side sea.
 
 ## Links
 

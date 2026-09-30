@@ -12,7 +12,7 @@ sources:
 - **Kind.** Consumable.
 - **Rarity.** Rare.
 - **Attunement.** - **Changes.** Restores 8d4 + 8 Hit Points.
-- **Held by.** [[Crissdalynn Khinriss]] carries five.
+- **Held by.** [[Crissdalynn Khinriss]] carries four after eating one in Session 11.
 
 > [!narration] First look
 > A glossy red berry hangs from a short thick stem, ridged beneath curled leaves. Clear water beads on its tight skin, and dark juice bursts when the fruit splits.
@@ -25,13 +25,13 @@ As a Bonus Action, eat the berry to regain 8d4 + 8 Hit Points. It is consumed.
 
 ### In use
 
-A fallen berry is safe under [[Taking on Aruhe]]. The source records Crissdalynn eating one in Session 11 and regaining 30 Hit Points.
+A fallen berry is safe under [[Taking on Aruhe|Aruhe's law]]. The source records Crissdalynn eating one in Session 11 and regaining 30 Hit Points.
 
 ## Depth
 
 ### History
 
-Redheart berries grow in [[Old Gardens]] and other Aruhe growth. Crissdalynn carries five after the Party found them.
+Redheart berries grow in [[Old Gardens]] and other Aruhe growth. Crissdalynn carried five after the Party found them and ate one during Session 11, leaving four.
 
 ### Hidden truths
 

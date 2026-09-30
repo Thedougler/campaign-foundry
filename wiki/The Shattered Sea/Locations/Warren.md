@@ -11,7 +11,7 @@ parent: "[[Le Paludi]]"
 
 - **Draws the Party because.** It shelters people and holds routes beneath Calveno.
 - **Entrance.** A learned descent from Le Paludi or a run opened by a trusted Passage contact.
-- **Occupants.** Rattkin elders, Passage contacts, Nona, Felix, Ruma and Bazzoth.
+- **Occupants.** Rattkin elders, Passage contacts, Nona and Felix.
 - **Danger.** Exposure closes routes. Every descent spends trust.
 - **Prize.** A route, witness or lead on the taken 314.
 
@@ -30,7 +30,7 @@ Tight passages are Difficult Terrain and cover. Crown scrutiny or a wrong mark c
 
 ### Occupants
 
-Rattkin elders and community. [[Passage]], [[Nona Black-Jaw]], Felix Aho, Ruma Delacroix and Bazzoth.
+Rattkin elders and community. [[Passage]], [[Nona Black-Jaw]] and Felix Aho.
 
 ### Likely actions
 

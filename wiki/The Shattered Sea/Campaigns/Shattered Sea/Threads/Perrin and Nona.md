@@ -11,16 +11,16 @@ status: active
 ## At a glance
 
 - **Driven by.** Nona Black-Jaw's family bond, the Passage, and Perrin's survival after the Vestra sank.
-- **Stands at.** Perrin is separated from his family while the new crew's ship and identity are not yet secure.
-- **If nobody acts.** Nona's information and protection remain unavailable, while Perrin's debt to the rescue network grows.
+- **Stands at.** Perrin reported the Vestra's loss to Nona, accepted a favour and carries her sending stone. Nona later called the Party home, opened the Mercatura missing-persons desk and sent two Passage ships after the raiders.
+- **If nobody acts.** Nona's pursuit of the raiders and the Party's rescue obligation continue while the Party remains on Aruhe.
 - **Levers.** The sending stone, Cobb's messages, Passage routes, and knowledge of the Vestra.
 
 ## Play
 
 - **Shows up as.** Safe houses, coded messages, people Nona has rescued, and questions about what happened to the Vestra.
-- **Next development.** The Party reaches a Passage harbour and Perrin must decide what to tell Nona about the wreck and his patron.
+- **Next development.** The Party returns to [[Uncertainty]] with Matteo and can report what Aruhe revealed to Nona.
 - **Levers.** Perrin's family name, the Party's need for a berth, and the Passage's willingness to hide fugitives.
-- **Resolves when.** Perrin reports the Vestra's fate and chooses whether to serve, reform, or leave the Black-Jaw network.
+- **Resolves when.** Perrin decides how far to bind the Party to Passage rescue work and what to reveal about the Vestra and Auralis.
 
 ## Depth
 
@@ -33,7 +33,7 @@ Perrin reached the Saltwright without reporting to Nona. He later reported Vestr
 ### Hidden truths
 
 - The Passage operates as an independent route and refuge beyond a family business. It formed after colonial pressure. The Party can learn this from Nona's safe houses and rescued witnesses.
-- Perrin is still chasing the Vestra and has not told the whole crew. The missing details surface when the Drowned Maw and the ship's fate intersect.
+- Perrin reported the Vestra's loss to Nona, but the full account remains private from the crew. The missing details surface when the Drowned Maw and the ship's fate intersect.
 
 ### Possible endings
 

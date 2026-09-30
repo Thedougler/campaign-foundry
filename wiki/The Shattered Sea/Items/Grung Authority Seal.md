@@ -12,7 +12,7 @@ sources:
 - **Kind.** Wondrous plot item, single use.
 - **Rarity.** Spent examples are inert.
 - **Attunement.** - **Changes.** A whole seal can replace one Grung's will with a lifelong order.
-- **Held by.** Spent seals lie beside Grung remains on Aruhe.
+- **Held by.** The Party holds one spent seal. Other spent seals lie beside Grung remains on Aruhe.
 
 > [!narration] First look
 > A spent seal is a palm-wide gold disc cracked into curved plates. Curling script and raised dots fill its face. Dirt packs every groove, and torn edges clink where it once fused to skin.
