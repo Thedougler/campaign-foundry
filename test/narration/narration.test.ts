@@ -1,8 +1,8 @@
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
+import { analyzeCallout } from "../../src/narration/analyze.ts";
 import { cf, repoRoot } from "../check/helpers.ts";
-
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "fixtures");
 const vault = join(root, "wiki");
@@ -185,7 +185,7 @@ describe("cf narration: warnings", () => {
 	it("warns on judgement words, with exit 0", async () => {
 		const { code, callout } = await narrate("Judgement");
 		expect(callout.judgementWords).toEqual(["ancient", "mysterious", "sense of", "can't help but", "angry"]);
-		expect(rules(callout, "warning")).toEqual(["judgement-words"]);
+		expect(rules(callout, "warning")).toEqual(["judgement-words", "evaluative-adjectives"]);
 		expect(code).toBe(0);
 	});
 
@@ -245,5 +245,47 @@ describe("cf narration: the repo's fixture vault", () => {
 		expect(stdout).toContain("First look");
 		expect(stdout).toContain("sentences (narration): 5, spoken lines: 2");
 		expect([0, 1]).toContain(code);
+	});
+});
+
+describe("cf narration: spoken craft checks", () => {
+	const inspect = (body: string) => analyzeCallout({ body, sources: [] });
+
+	it("warns on evaluative adjective stacks and chained relative clauses", () => {
+		const report = inspect("A beautiful mysterious tower that leans toward the road which climbs the hill.");
+		expect(report.evaluativeAdjectiveStacks).toEqual(["beautiful mysterious tower"]);
+		expect(report.relativeClauseChains).toHaveLength(1);
+		expect(report.findings.filter((finding) => finding.severity === "warning").map((finding) => finding.rule)).toEqual([
+			"judgement-words",
+			"evaluative-adjectives",
+			"relative-clauses",
+		]);
+	});
+
+	it("caps proper-name candidates per block", () => {
+		const report = inspect("Mara meets Tovin beside Eileen Dover while Ghazrim DuLoc watches.");
+		expect(report.inventedProperNouns).toEqual(["Mara", "Tovin", "Eileen Dover", "Ghazrim DuLoc"]);
+		expect(report.findings.map((finding) => finding.rule)).toContain("invented-names");
+	});
+
+	it("flags alliteration, tongue-twisters, pun names and homophones", () => {
+		const report = inspect("Six slick silver snakes slide past Eileen Dover, who must ring the wring bell.");
+		expect(report.spokenWordTraps.map((trap) => trap.type)).toEqual(
+			expect.arrayContaining(["alliteration", "tongue-twister", "pun-name", "homophone"]),
+		);
+		expect(report.findings.map((finding) => finding.rule)).toContain("spoken-word-traps");
+	});
+
+	it("flags a speech tag after a quoted line", () => {
+		const report = inspect('The ferryman says, "Coins first," he mutters.');
+		expect(report.dialogueAttributions).toEqual(['" he mutters']);
+		expect(report.findings.map((finding) => finding.rule)).toContain("dialogue-attribution");
+	});
+
+	it("flags mechanical collisions and perception hedges outside speech", () => {
+		const report = inspect('The guard seems to be frightened, but she says, "I am frightened."');
+		expect(report.mechanicalTerms).toEqual(["frightened"]);
+		expect(report.perceptionHedges).toEqual(["seems to be"]);
+		expect(report.findings.map((finding) => finding.rule)).toEqual(["mechanical-terms", "perception-hedges"]);
 	});
 });

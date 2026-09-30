@@ -4,7 +4,7 @@ One recipe per narration slot, found by the callout's title. Each gives the **Jo
 
 ## Scene openings
 
-A Scene's `Opening` carries only what the Players need for their first decision: immediate danger, what the decision turns on, the ways out, the people and Creatures who matter, the things most likely to be grabbed, the anchor and one sense. What a closer look would show belongs in the Scene's Play section, for the DM to give when asked.
+ A Scene's `Opening` carries only what the Players need for their first decision: immediate danger or any immediately blocking feature, what the decision turns on, the ways out, the people and Creatures who matter, the things most likely to be grabbed, the anchor and one sense. Put an obvious lethal or blocking hazard in this first look even if the map shows it. What a closer look would show belongs in the Scene's Play section, for the DM to give when asked. The text assumes no particular entrance, lighting state or current occupancy.
 
 ### Hook
 
@@ -39,6 +39,12 @@ Shape to match (never its words):
 - **Job:** Show what the Session changed, and let it land.
 - **Build:** Time and place after the Climax, the visible consequence, the cost still showing, and people reacting through what they do. Each PC's reaction belongs to its player.
 - **End:** A still, clear image, with no question and no new threat.
+
+### Transition
+
+- **Job:** Move the action across an unplayed stretch of time or space and place the Party at the next decision.
+- **Build:** Name what has changed since the last slot, the route or duration only as much as the table needs, and one sensory or physical cue at the destination. Keep constants and neighbour areas to a clause. Put travel complications, secrets and NPC plans in DM-side notes or a later Scene.
+- **End:** The first perceivable cue at the new place, before the next player action.
 
 ## Inside a Scene
 

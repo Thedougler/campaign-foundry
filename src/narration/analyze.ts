@@ -16,7 +16,21 @@ export interface Band {
 }
 
 export interface Finding {
-	rule: "band" | "echo" | "punctuation" | "compass" | "foot-mile-counts" | "fresh-starts" | "judgement-words";
+	rule:
+		| "band"
+		| "echo"
+		| "punctuation"
+		| "compass"
+		| "foot-mile-counts"
+		| "fresh-starts"
+		| "judgement-words"
+		| "evaluative-adjectives"
+		| "relative-clauses"
+		| "invented-names"
+		| "spoken-word-traps"
+		| "dialogue-attribution"
+		| "mechanical-terms"
+		| "perception-hedges";
 	severity: "error" | "warning";
 	message: string;
 	hint: string;
@@ -38,6 +52,13 @@ export interface CalloutReport {
 	footMileCounts: string[];
 	freshStarts: { starts: string[]; runs: { from: number; to: number; starts: string[] }[] };
 	judgementWords: string[];
+	mechanicalTerms: string[];
+	perceptionHedges: string[];
+	evaluativeAdjectiveStacks: string[];
+	relativeClauseChains: string[];
+	inventedProperNouns: string[];
+	spokenWordTraps: { type: "tongue-twister" | "alliteration" | "pun-name" | "homophone"; text: string }[];
+	dialogueAttributions: string[];
 	findings: Finding[];
 	ok: boolean;
 }
@@ -112,6 +133,103 @@ function listOpener(first: string[]): boolean {
 
 const JUDGEMENT =
 	/\b(?:abandoned|ancient|mysterious|ominous|eerie|strange|bustling|dangerous|angry|afraid|sense of|can['’]t help but)\b/gi;
+const MECHANICAL_TERMS = /\b(?:stunned|frightened|reaction|action|incapacitated)\b/gi;
+const PERCEPTION_HEDGES = /\b(?:seems? to be|appears? to be)\b/gi;
+const EVALUATIVE_ADJECTIVES = new Set(
+	`abandoned ancient beautiful bleak bustling dangerous dreadful eerie elegant enormous extraordinary fierce grim horrible impressive lovely magnificent mysterious ominous perfect remarkable strange terrible tiny ugly vast wonderful`.split(
+		" ",
+	),
+);
+const PROPER_NAME_MAX = 3;
+const PUN_NAME_FIRST = new Set(`Amanda Anita Barry Carrie Dewey Dustin Eileen Ella Justin Paige Sue`.split(" "));
+const HOMOPHONE_GROUPS = [
+	["allowed", "aloud"],
+	["bare", "bear"],
+	["break", "brake"],
+	["dear", "deer"],
+	["fair", "fare"],
+	["flower", "flour"],
+	["grate", "great"],
+	["hole", "whole"],
+	["knight", "night"],
+	["knot", "not"],
+	["pair", "pare", "pear"],
+	["peace", "piece"],
+	["right", "rite", "write"],
+	["ring", "wring"],
+	["road", "rode"],
+	["sale", "sail"],
+	["seam", "seem"],
+	["sight", "site"],
+	["sole", "soul"],
+	["steel", "steal"],
+	["their", "there", "they're"],
+	["to", "too", "two"],
+	["weak", "week"],
+	["wear", "where"],
+	["whose", "who's"],
+];
+
+const COMMON_SENTENCE_STARTS = new Set(`A An And But Cold Creature DM Each He In It Item Long NPC Once Party Players Scene Session She Some The They This You World`.split(" "));
+function evaluativeStacks(text: string): string[] {
+	const result = new Set<string>();
+	for (const sentence of narrationSentences(text)) {
+		const tokens = (sentence.match(WORD) ?? []).map((word) => word.toLowerCase());
+		for (let i = 0; i < tokens.length - 2; i++) {
+			if (!EVALUATIVE_ADJECTIVES.has(tokens[i] ?? "")) continue;
+			let j = i + 1;
+			while (j < tokens.length && (tokens[j] === "and" || EVALUATIVE_ADJECTIVES.has(tokens[j] ?? ""))) j++;
+			if (tokens.slice(i, j).filter((word) => EVALUATIVE_ADJECTIVES.has(word)).length >= 2 && tokens[j]) {
+				result.add(tokens.slice(i, j + 1).join(" "));
+			}
+		}
+	}
+	return [...result];
+}
+
+function relativeChains(text: string): string[] {
+	return narrationSentences(text).filter((sentence) => count(sentence, /\b(?:which|that)\b/gi) >= 2);
+}
+
+function properNouns(text: string): string[] {
+	const result = new Set<string>();
+	for (const match of text.matchAll(/\b[A-Z][\p{L}'’-]*(?:[- ][A-Z][\p{L}'’-]*)*/gu)) {
+		const at = match.index ?? 0;
+		const previous = text.slice(0, at).trimEnd().at(-1);
+		const value = match[0].trim();
+		if ((previous === "." || previous === "!" || previous === "?" || previous === undefined) && COMMON_SENTENCE_STARTS.has(value)) continue;
+		if (value.length > 1) result.add(value);
+	}
+	return [...result];
+}
+
+function spokenTraps(text: string): { type: "tongue-twister" | "alliteration" | "pun-name" | "homophone"; text: string }[] {
+	const traps: { type: "tongue-twister" | "alliteration" | "pun-name" | "homophone"; text: string }[] = [];
+	const words = [...text.matchAll(/\b[\p{L}][\p{L}'’-]*\b/gu)].map((match) => match[0]);
+	for (let i = 0; i + 2 < words.length; i++) {
+		const window = words.slice(i, i + 3);
+		const initials = window.map((word) => word[0]?.toLowerCase());
+		if (initials.every((initial) => initial === initials[0])) {
+			const type = i + 3 < words.length && words[i + 3]?.[0]?.toLowerCase() === initials[0] ? "tongue-twister" : "alliteration";
+			traps.push({ type, text: window.join(" ") });
+		}
+	}
+	for (const match of text.matchAll(/\b([A-Z][\p{L}'’-]*)\s+([A-Z][\p{L}'’-]*)\b/gu)) {
+		if (PUN_NAME_FIRST.has(match[1]!)) traps.push({ type: "pun-name", text: match[0] });
+	}
+	const lower = text.toLowerCase();
+	for (const group of HOMOPHONE_GROUPS) {
+		const found = group.filter((word) => new RegExp(`\\b${word.replace("'", "['’]")}\\b`, "i").test(lower));
+		if (found.length > 1) traps.push({ type: "homophone", text: found.join(" / ") });
+	}
+	return traps;
+}
+
+function findDialogueAttributions(text: string): string[] {
+	return [...text.matchAll(/[”"][, ]+\s*(?:he|she|they|it|[A-Z][\p{L}'’-]*)\s+(?:says?|said|asks?|asked|replies?|replied|mutters?|muttered|shouts?|shouted|whispers?|whispered)\b/gu)].map(
+		(match) => match[0].trim(),
+	);
+}
 
 /** Runs of `MIN_RUN`+ words `words` share with `source`, as `[start in words, length, start in source]`. */
 function sharedRuns(words: string[], source: SourceWords): [number, number, number][] {
@@ -170,6 +288,11 @@ export function analyzeCallout({ body, sources, band }: AnalyzeInput): CalloutRe
 	const { outside, spoken } = splitSpeech(text);
 	const sentences = narrationSentences(text);
 	const unspoken = outside.join(" ");
+	const evaluativeAdjectiveStacks = evaluativeStacks(unspoken);
+	const relativeClauseChains = relativeChains(unspoken);
+	const inventedProperNouns = properNouns(outside.join(" "));
+	const spokenWordTraps = spokenTraps(text);
+	const dialogueAttributions = findDialogueAttributions(text);
 
 	const echo = findEcho(outside, sources);
 	const punctuation = {
@@ -194,6 +317,8 @@ export function analyzeCallout({ body, sources, band }: AnalyzeInput): CalloutRe
 		i = end + 1;
 	}
 	const judgementWords = matches(unspoken, JUDGEMENT).map((w) => w.toLowerCase().replace("’", "'"));
+	const mechanicalTerms = matches(unspoken, MECHANICAL_TERMS).map((w) => w.toLowerCase());
+	const perceptionHedges = matches(unspoken, PERCEPTION_HEDGES).map((w) => w.toLowerCase());
 
 	const bandResult = band ? { ...band, pass: words >= band.min && words <= band.max } : null;
 	const findings: Finding[] = [];
@@ -254,6 +379,62 @@ export function analyzeCallout({ body, sources, band }: AnalyzeInput): CalloutRe
 			hint: "Give the evidence that led to the conclusion instead of the conclusion.",
 		});
 	}
+	if (mechanicalTerms.length > 0) {
+		findings.push({
+			rule: "mechanical-terms",
+			severity: "warning",
+			message: `Mechanical terms may imply rules effects: ${mechanicalTerms.map((term) => `"${term}"`).join(", ")}.`,
+			hint: "Use the rules term only for its rules meaning. Otherwise describe what the characters perceive.",
+		});
+	}
+	if (perceptionHedges.length > 0) {
+		findings.push({
+			rule: "perception-hedges",
+			severity: "warning",
+			message: `Perception hedges: ${perceptionHedges.map((hedge) => `"${hedge}"`).join(", ")}.`,
+			hint: "State what reaches the characters directly and reserve uncertainty for a Perception or Investigation result.",
+		});
+	}
+	if (evaluativeAdjectiveStacks.length > 0) {
+		findings.push({
+			rule: "evaluative-adjectives",
+			severity: "warning",
+			message: `Evaluative adjectives stack before a noun: ${evaluativeAdjectiveStacks.map((stack) => `"${stack}"`).join(", ")}.`,
+			hint: "Keep one evaluative adjective and use specific nouns or physical evidence for the rest.",
+		});
+	}
+	if (relativeClauseChains.length > 0) {
+		findings.push({
+			rule: "relative-clauses",
+			severity: "warning",
+			message: `A sentence chains two or more which/that clauses: ${relativeClauseChains.map((sentence) => `"${sentence}"`).join(", ")}.`,
+			hint: "Make the second fact a direct sentence with a precise verb.",
+		});
+	}
+	if (inventedProperNouns.length > PROPER_NAME_MAX) {
+		findings.push({
+			rule: "invented-names",
+			severity: "warning",
+			message: `The block introduces ${inventedProperNouns.length} proper-name candidates, over the ${PROPER_NAME_MAX}-name limit: ${inventedProperNouns.join(", ")}.`,
+			hint: "Keep only names the Players need now. Put the rest in the DM-side notes.",
+		});
+	}
+	if (spokenWordTraps.length > 0) {
+		findings.push({
+			rule: "spoken-word-traps",
+			severity: "warning",
+			message: `Spoken-word traps: ${spokenWordTraps.map((trap) => `${trap.type} "${trap.text}"`).join(", ")}.`,
+			hint: "Read the block once at the table and replace tongue-twisters, accidental alliteration, pun names and ambiguous homophones.",
+		});
+	}
+	if (dialogueAttributions.length > 0) {
+		findings.push({
+			rule: "dialogue-attribution",
+			severity: "warning",
+			message: `Speech is followed by a mid-block attribution: ${dialogueAttributions.map((tag) => `"${tag}"`).join(", ")}.`,
+			hint: "Lead in with the speaker, then give the complete line without a mid-block speech tag.",
+		});
+	}
 
 	return {
 		words,
@@ -265,6 +446,13 @@ export function analyzeCallout({ body, sources, band }: AnalyzeInput): CalloutRe
 		footMileCounts,
 		freshStarts: { starts: starts.map((s) => s.join(" ")), runs },
 		judgementWords,
+		mechanicalTerms,
+		perceptionHedges,
+		evaluativeAdjectiveStacks,
+		relativeClauseChains,
+		inventedProperNouns,
+		spokenWordTraps,
+		dialogueAttributions,
 		findings,
 		ok: findings.every((f) => f.severity !== "error"),
 	};
