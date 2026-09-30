@@ -213,3 +213,32 @@ _Avoid_: scene, map (for the canvas)
 **Push**:
 The Agent writing everything a Session needs from the Wiki into its Foundry world. The only way material leaves the Wiki.
 _Avoid_: sync, export, publish
+
+### Evals
+
+**Runner**:
+The model that executes an eval or benchmark entry. The cheap tier runs ordinary skill evals; the top tier runs the Prose Benchmark. Never the Judge.
+
+**Judge**:
+The grader that scores every Prose Benchmark sample — Opus 5.5 when the claude CLI answers, otherwise one seated substitute from the Matrix — blind and independent, on anonymized samples.
+
+**Matrix**:
+The families under test and their pinned cheap and top models, kept in `evals/models.yaml`.
+
+**Prose Benchmark**:
+The rarely-run, cached ranking of Matrix families by Narration quality, one sample per content type. Every prompt in it is committed and rendered deterministically (Runner brief, Judge brief).
+
+**Runner brief**:
+The committed, byte-exact prompt a benchmark entry runs from: the entry's `context`, then its `prompt` verbatim, rendered by `cf bench briefs` into `evals/benchmark-samples/<bench_version>/<id>/<id>.brief.md`.
+
+**Judge brief**:
+The committed scoring prompt `evals/bench/judge-brief.md`, filled per anonymized sample by `cf bench judge-brief`. The Judge sees the writer's brief, the sample and the rubrics — nothing that names a family or model.
+
+**prompt_sha**:
+First 12 hex of a runner brief's sha256: the byte identity a cached row must match to count. Distinct from `bench_version`, which hashes the whole prompt set.
+
+**Leaderboard**:
+The standing ranked record of Prose Benchmark runs: `evals/benchmark.json`, with `evals/benchmark.md` as its rendered view, regenerated only by `cf bench record` and `cf bench render`.
+
+**dark**:
+A Matrix family over its usage limit for the rest of a session: skipped without retry, never cached, back next session.

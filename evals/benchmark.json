@@ -1,0 +1,5 @@
+{
+  "schema": 1,
+  "hit_rule": "a scored row matches the current bench_version, entry id, family and top pin, and the rendered brief's prompt_sha",
+  "results": []
+}

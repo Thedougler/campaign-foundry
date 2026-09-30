@@ -1,0 +1,252 @@
+# Prose Benchmark prompt set: one Narration sample per content type, grounded
+# in a fixture page from test/fixtures/vault/. bench_version is the first 12
+# hex of this file's sha256; any edit here moves it and invalidates the cache.
+# Entries are self-contained: `context` is pasted fact content from the fixture
+# page (existing [!narration] blocks and ## Play onward stripped) and no
+# SKILL.md is loaded, so a run measures the model's raw ability to write D&D
+# content, not skill mediation. The rubrics list is identical across entries so
+# scores are comparable.
+- id: npc-first-look
+  fixture_page: NPCs/Nib Ashwater.md
+  context: |
+    summary: "The goblin tally-keeper of Reedholt, who records every boat and remembers where the old ledger lies."
+
+    ## At a glance
+
+    - **Role.** Tally-keeper of [[Reedholt]], keeper of the boat tally and of the village's old records.
+    - **Wants.** The village left in peace, and the names of the Vessen dead read aloud at the next Long Ebb.
+    - **Voice.** Soft and careful. He repeats a number before he answers a question.
+    - **Found at.** The tally house in [[Reedholt]].
+  prompt: |
+    You are writing for a home D&D 5e campaign wiki. Using only the facts
+    above, write the [!narration] First look block for this NPC: the prose a
+    DM reads aloud when the Players first see them. Second person, present
+    tense, sensory, no game mechanics, no meta-commentary.
+    Reply with only the [!narration] callout block, nothing before or after it.
+  rubrics:
+    - "Stays true to every given fact and invents nothing that contradicts them"
+    - "Second person, present tense, concrete sensory detail over abstraction"
+    - "No game mechanics, stats, or meta-commentary in the prose"
+    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+
+- id: creature-first-look
+  fixture_page: Creatures/Mire Drowner.md
+  context: |
+    summary: "A drowned dead thing that lies in silt and drags the living down by the ankle."
+
+    ## At a glance
+
+    - **Role at the table.** An ambusher that pins one target in mud or water.
+    - **Threat.** CR 1. One attack a round for 11 damage, plus a grapple that restrains. 75 Hit Points.
+    - **Tell.** Bubbles rise in still water, and the mud around the ambush point is smoother than the rest.
+    - **Weak to.** Dry ground (where Mire Step gives it nothing) and anything that clears the water and silt around it.
+    - **Used by.** [[Sable]].
+  prompt: |
+    You are writing for a home D&D 5e campaign wiki. Using only the facts
+    above, write the first-sight Narration block for this Creature: the prose
+    a DM reads aloud when the Players first see it. Second person, present
+    tense, sensory, no game mechanics, no meta-commentary.
+    Reply with only the [!narration] callout block, nothing before or after it.
+  rubrics:
+    - "Stays true to every given fact and invents nothing that contradicts them"
+    - "Second person, present tense, concrete sensory detail over abstraction"
+    - "No game mechanics, stats, or meta-commentary in the prose"
+    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+
+- id: item-first-look
+  fixture_page: Items/Ebb Lantern.md
+  context: |
+    summary: "A brass lantern from Gullhook Lighthouse that can make shallow water and mud draw away for a minute."
+
+    ## At a glance
+
+    - **Kind.** Wondrous item.
+    - **Rarity.** Uncommon.
+    - **Attunement.** None.
+    - **Changes.** Whether water or mud blocks the Party's way.
+    - **Held by.** The Party, lent by [[Hobb Tarrow]]. It belongs to [[Gullhook Lighthouse]].
+  prompt: |
+    You are writing for a home D&D 5e campaign wiki. Using only the facts
+    above, write the [!narration] First look block for this Item: the prose a
+    DM reads aloud when the Players first take it up. Second person, present
+    tense, sensory, no game mechanics, no meta-commentary.
+    Reply with only the [!narration] callout block, nothing before or after it.
+  rubrics:
+    - "Stays true to every given fact and invents nothing that contradicts them"
+    - "Second person, present tense, concrete sensory detail over abstraction"
+    - "No game mechanics, stats, or meta-commentary in the prose"
+    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+
+- id: location-arrival
+  fixture_page: Locations/The Drowned Chapel.md
+  context: |
+    summary: "A bell-tower chapel from drowned Vessen that stands clear of the mud only at low water."
+
+    ## At a glance
+
+    - **Draws the Party because.** The bell that rings under the water rings here, and the ledger of Vessen lies in its loft.
+    - **Entrance.** The tower door at ground level, open at low water and flooded to the lintel otherwise.
+    - **Occupants.** [[Sable]], the last bell-ringer, and any crew [[The Reedrunners]] send for relics.
+    - **Danger.** Rising water, silt-slick floors and [[Mire Drowner]] creatures in the nave.
+    - **Prize.** The [[Harbormaster's Ledger of Vessen]] in the bell loft.
+  prompt: |
+    You are writing for a home D&D 5e campaign wiki. Using only the facts
+    above, write the [!narration] Arrival block for this Site: the prose a DM
+    reads aloud when the Party first arrives. Second person, present tense,
+    sensory, no game mechanics, no meta-commentary.
+    Reply with only the [!narration] callout block, nothing before or after it.
+  rubrics:
+    - "Stays true to every given fact and invents nothing that contradicts them"
+    - "Second person, present tense, concrete sensory detail over abstraction"
+    - "No game mechanics, stats, or meta-commentary in the prose"
+    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+
+- id: lore-common-telling
+  fixture_page: Lore/The Drowning of Vessen.md
+  context: |
+    summary: "In 271 CY the Compact opened Crookback Sluice on purpose and drowned the river city of Vessen in one night."
+
+    ## At a glance
+
+    - **The truth.** The Sluice Compact ordered the gates of [[Crookback Sluice]] opened on 6 Blackwater 271 CY to flood Vessen, a city that was under a fever and had rejected quarantine.
+    - **Who knows it.** [[Sable]], [[Hobb Tarrow]] in part, [[Ilse Corran]] in part, and the senior clergy of [[Mother Ebb]].
+    - **Limits.** Nobody living has seen the whole order. The city held about 4,000 people, and the flood killed nearly all of them.
+    - **Reaches play through.** The [[Harbormaster's Ledger of Vessen]], the tally-sticks in [[Reedholt]], and the bell at [[The Drowned Chapel]].
+  prompt: |
+    You are writing for a home D&D 5e campaign wiki. Using only the facts
+    above, write the [!narration] Common telling block for this Lore in a
+    tavern voice: the version of the story the ferrymen and villagers say
+    aloud, which a DM speaks when the tale comes up over drinks. Write it as
+    the teller speaks it. Sensory, no game mechanics, no meta-commentary.
+    Reply with only the [!narration] callout block, nothing before or after it.
+  rubrics:
+    - "Stays true to every given fact and invents nothing that contradicts them"
+    - "Second person, present tense, concrete sensory detail over abstraction"
+    - "No game mechanics, stats, or meta-commentary in the prose"
+    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+
+- id: scene-opening
+  fixture_page: Sessions/Session 2/Session 2 - The Bell Rings Early.md
+  context: |
+    type: Scene, kind: Hook
+    summary: "Before dawn the water under Reedholt drops a foot and the drowned bell rings three strokes at a time."
+
+    ## At a glance
+
+    - **Pressure.** The bell rings under the flats, the tide is a foot low and the village is awake and afraid.
+    - **Choice.** Go to the chapel now while the water is low. Alternatively, ask [[Nib Ashwater]] what the village knows, or calm the crowd at the landing.
+    - **Where.** The Landing in [[Reedholt]].
+    - **Who.** [[Nib Ashwater]] and [[Pell Rushlight]].
+  prompt: |
+    You are writing for a home D&D 5e campaign wiki. Using only the facts
+    above, write this Scene's opening Narration: the block a DM reads aloud to
+    open the Scene, before the Players first act. Second person, present
+    tense, sensory, no game mechanics, no meta-commentary.
+    Reply with only the [!narration] callout block, nothing before or after it.
+  rubrics:
+    - "Stays true to every given fact and invents nothing that contradicts them"
+    - "Second person, present tense, concrete sensory detail over abstraction"
+    - "No game mechanics, stats, or meta-commentary in the prose"
+    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+
+- id: scene-closing-image
+  fixture_page: Sessions/Session 2/Session 2 - Low Water at the Chapel.md
+  context: |
+    type: Scene, kind: Climax
+    summary: "In the bell loft Sable asks the Party to speak the names while Reedrunner hands climb the stair."
+
+    ## At a glance
+
+    - **Question settled.** Does the Party take the Vessen ledger and speak its truth, or do the Reedrunners take it and sell it?
+    - **Stakes.** The ledger, the rest of Sable's trust and the safety of the Party as the tide returns.
+    - **Where.** The bell loft of [[The Drowned Chapel]].
+    - **Opposition.** [[Sable]] and three [[Goblin Warrior]] hands of [[The Reedrunners]].
+  prompt: |
+    You are writing for a home D&D 5e campaign wiki. Using only the facts
+    above, write this Scene's closing image: the short Narration a DM reads
+    aloud once the confrontation resolves, showing what changed. Second
+    person, present tense, sensory, no game mechanics, no meta-commentary.
+    Reply with only the [!narration] callout block, nothing before or after it.
+  rubrics:
+    - "Stays true to every given fact and invents nothing that contradicts them"
+    - "Second person, present tense, concrete sensory detail over abstraction"
+    - "No game mechanics, stats, or meta-commentary in the prose"
+    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+
+- id: previously-on
+  fixture_page: Sessions/Session 2/Session 2 - Recap.md
+  context: |
+    type: Recap
+    summary: "The Party crossed the Under-Boards, spoke the names of the drowned and took the Vessen ledger from Sable."
+    date: "23 Eelrun 412 CY"
+
+    ## At a glance
+
+    - **Session.** Session 2, played on 22 and 23 Eelrun 412 CY.
+    - **Party at.** The tally house in [[Reedholt]], on the evening of 23 Eelrun.
+    - **Big moments.** The Party beat two Mire Drowners in the mud, spoke the names of Vessen's dead to [[Sable]] and took the ledger.
+    - **Left open.** Whom to tell about the ledger, and the groan of Crookback Sluice.
+
+    ## What happened
+
+    The bell rang before dawn and the water under [[Reedholt]] dropped a foot. [[Odalys Ferro]] calmed the crowd on the plank walk while [[Nib Ashwater]] pulled the Party into the tally house. Nib showed them the tally-sticks of the drowned, and Odalys read the Vessen knots. Nib told them the ledger lay in the bell loft. [[Pell Rushlight]] brought a note from [[Hobb Tarrow]] warning that [[Ilse Corran]]'s boats were on the water.
+
+    The Party crossed the Under-Boards along a shell ridge. Two [[Mire Drowner]] creatures attacked from the mud. [[Brannoch Vell]] held the ridge while [[Tamsin Wick]] and Odalys dragged a grappled ally clear, and the Party used one charge of the [[Ebb Lantern]] to cross the last stretch dry.
+
+    In the chapel tower the Party met [[Sable]]. Three goblin hands of [[The Reedrunners]] climbed the stair behind them. Odalys spoke the names of the drowned aloud, and Sable gave her the ledger. The goblins fled when Brannoch held the stair. The tide returned as the Party left the chapel.
+
+    Back in the tally house the Party read the marked page. The ledger records the Compact's order to open Crookback Sluice and is signed Corvin Tarrow. At dusk a groan rolled in from the east.
+
+    ## Changes
+
+    - [[Harbormaster's Ledger of Vessen]] is now held by the Party, and [[Odalys Ferro]] carries it.
+    - [[Sable]] gave up the ledger and has stopped ringing the bell.
+    - [[Ebb Lantern]] has 2 charges left until dawn.
+    - [[Nib Ashwater]] trusts the Party and has shown them the tally-sticks.
+    - [[Hobb Tarrow]] is confirmed as a descendant of the clerk who signed the order. The Party has not told him.
+    - [[The Drowned Chapel]] is now known to the Party, with its tidemarks and the empty niche in the loft.
+    - [[Crookback Sluice]] groaned at dusk, and Pell says it has never done so in his lifetime.
+
+    ## Threads
+
+    - [[The Silent Bell]] moved. The Party holds the ledger, and the bell has stopped.
+    - [[Reedrunner Tithe]] moved. Ilse's crew failed to take the ledger and will look for the Party.
+    - [[The Failing Sluice]] opened its first sign, the groan at dusk.
+  prompt: |
+    You are writing for a home D&D 5e campaign wiki. Using only the facts
+    above, write the Previously On Narration that opens Session 3: last
+    Session retold as the story the Players would tell a friend who missed
+    it, past tense with the Party as "you", ending where play stopped. Each
+    PC named when they act. No game mechanics, dice or meta-commentary.
+    Reply with only the [!narration] callout block, nothing before or after it.
+  rubrics:
+    - "Stays true to every given fact and invents nothing that contradicts them"
+    - "Second person, present tense, concrete sensory detail over abstraction"
+    - "No game mechanics, stats, or meta-commentary in the prose"
+    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+
+- id: handout-text
+  fixture_page: Threads/Reedrunner Tithe.md
+  context: |
+    type: Thread
+    summary: "The Reedrunners squeeze the ferries and the harbor lamp, and one PC owes them a debt."
+    status: active
+
+    ## At a glance
+
+    - **Driven by.** [[Ilse Corran]] and [[The Reedrunners]].
+    - **Stands at.** The Party held the lighthouse and wounded Ilse. The crew failed to take the oil, but the ferries still pay.
+    - **If nobody acts.** The Reedrunners dim [[Gullhook Lighthouse]] again on the dark of the moon and take the wrecks.
+    - **Levers.** [[Pell Rushlight]], the debt slips kept in the eel sheds, [[Tamsin Wick]]'s past and the lamp itself.
+  prompt: |
+    You are writing for a home D&D 5e campaign wiki. Using only the facts
+    above, write the text of a tithe notice the Reedrunners post where the
+    ferrymen will read it, as Handout Narration: the document's own words,
+    exactly as the Players read them on the page. Formatted for reading, no
+    game mechanics, no meta-commentary.
+    Reply with only the [!narration] callout block, nothing before or after it.
+  rubrics:
+    - "Stays true to every given fact and invents nothing that contradicts them"
+    - "Second person, present tense, concrete sensory detail over abstraction"
+    - "No game mechanics, stats, or meta-commentary in the prose"
+    - "Economical: every sentence earns its place; a DM could read it aloud as-is"

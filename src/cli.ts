@@ -18,6 +18,7 @@ Examples:
                                  check a Narration draft before filing it
   cf log --world Aldermoor --op ingest --title "Session 3 transcript" --page "Session 3 - Recap"
                                  append to a World's log.md
+  cf bench status                 plan the Prose Benchmark: cache hits and run commands
   cf push --campaign "Salt and Lantern" --session 2
                                  build a Session's Foundry Adventure module`,
 	)

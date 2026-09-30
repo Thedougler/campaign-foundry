@@ -1,0 +1,2 @@
+> [!narration] First look
+> A goblin sits at the tally house desk, ear almost to the slate, scratching a new mark into a column crowded with others while the day's last boat thumps against the landing outside. Shelves of ledgers rise behind him, the oldest swollen with damp, and the room smells of charcoal and cold water. He sets down his stub, counts the column again under his breath, and only then looks up at you. "Fourteen," he says, barely louder than the scratch of his charcoal. "Fourteen boats out, and fourteen home by dark. Now, what would you be wanting to know?"

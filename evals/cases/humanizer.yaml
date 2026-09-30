@@ -1,0 +1,11 @@
+- id: tells-first-look
+  prompt: Nib Ashwater's First look reads like AI wrote it. Humanize it.
+  checks:
+    canon:
+      Lowtide/NPCs/Nib Ashwater.md: [spectacles, hinge, Ink, cedar, '"Forty-one boats since dawn," he says. "One of them was not on my list."']
+    absent:
+      Lowtide/NPCs/Nib Ashwater.md: ['/not just/i', '/testament/i', '/bustling/i', '/tribute/i', '—', '/And then he looks up/']
+  rubrics:
+    - Every fact in the seeded First look survives (grey-eared goblin, round spectacles mended at one hinge, ink to the wrists, notching a cedar stick, counting, his exact spoken line), and nothing new is asserted.
+    - The rewritten block reads as a DM telling it at the table, with the not-X-but-Y opener, the triad, the em dash and the one-line closer gone.
+    - The page's gate passes, including the style layer's ai-tells and Narration rules.
