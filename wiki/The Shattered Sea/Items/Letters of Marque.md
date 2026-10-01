@@ -9,7 +9,8 @@ sources:
 
 - **Kind.** Plot item, document.
 - **Rarity.** Common.
-- **Attunement.** - **Changes.** Proves a Crown licence to take enemy shipping as prize.
+- **Attunement.**
+- **Changes.** Proves a Crown licence to take enemy shipping as prize.
 - **Held by.** The Party took them from [[Uncertainty]].
 
 > [!narration] First look
@@ -19,7 +20,7 @@ sources:
 
 ### Properties
 
-The letters have no charges, activation or magic. They name [[Barnaby Rook]] and authorise taking enemy shipping as prize in the Crown's name, under admiralty law, covering no ship but that ship. The bond behind them is 30,000 gp.
+The letters have no charges, activation or magic. They name [[Barnaby Rook]] and licence him to take that one enemy ship as prize under admiralty law in the Crown's name. The bond behind them is 30,000 gp.
 
 ### In use
 
@@ -29,7 +30,7 @@ Showing them can bluff a Dravosi patrol until it asks which ship the Party comma
 
 ### History
 
-The commission was in the HCS Surety cabin with 45 gp and a blunderbuss. 110 gp and two garnets were under the floor. Barnaby Rook is the licensee, though the Party now holds the papers. The Party captured the letters when it took the HCS Surety as a prize; the guns were silenced and a prize crew was specified.
+The commission was in the HCS Surety cabin with 45 gp and a blunderbuss. 110 gp and two garnets were under the floor. Barnaby Rook is the licensee, though the Party now holds the papers. The Party captured the letters when it took the HCS Surety as a prize. The guns were silenced and a prize crew was specified.
 
 ### Hidden truths
 

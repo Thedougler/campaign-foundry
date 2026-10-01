@@ -8,7 +8,7 @@ creature: "[[Barnaby Rook (Creature)]]"
 
 ## At a glance
 
-- **Role.** Crown privateer captain and boarding officer.
+- **Role.** Crown privateer captain and boarding officer, licensed by the [[Letters of Marque]].
 - **Wants.** To choke irregular captains out of the inspection corridor and punish defection.
 - **Voice.** Flat commands. A quiet threat becomes lethal when disobeyed.
 - **Found at.** The HCS Surety and the Crown inspection corridor. Presumed dead after falling into dark water.

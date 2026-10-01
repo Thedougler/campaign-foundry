@@ -1,33 +1,37 @@
 ---
 type: hot
-summary: "Starting position: four strangers share the Saltwright's hold in 1495 DR as the HCS Surety begins a Crown inspection."
+summary: "Post-Session 11: the Party camps on Aruhe's Slack Basin edge above the garden; Session 12's dawn strike is prepped."
 sources:
-  - "archive/story-so-far.md"
-  - "archive/campaign-timeline.md"
-date: "1495 DR, Day 0 (month unknown)"
+  - "archive/Session-11-Transcript.md"
+  - "archive/session-11-recap.md"
+  - "archive/session-12-index.md"
+date: "1495 DR, date not established"
 ---
 
 ## At a glance
 
-- **In-world date.** 1495 DR, Day 0. The source establishes no month or weekday.
-- **Party at.** The Saltwright's hold, aboard ship in the Shattered Sea.
-- **Active Threads.** [[The Crown Inspection]], [[Simone's Hunters]], [[Bring the Pearl of Souls to Umberlee]], [[Drowned Maw Awakening]], and [[Perrin and Nona]].
-- **Last Session.** This is the Campaign's starting position. No earlier Session is part of this Campaign skeleton.
-- **Next.** Survive or exploit the HCS Surety's inspection before Rook's boarding crew takes the ship.
+- **In-world date.** 1495 DR. No month or weekday is established in the sources.
+- **Party at.** The farthest camp on Aruhe, at the Slack Basin's edge above the garden.
+- **Active Threads.** [[The Crown Inspection]], [[Simone's Hunters]], [[Bring the Pearl of Souls to Umberlee]], [[Drowned Maw Awakening]], [[Perrin and Nona]].
+- **Last Session.** Session 11: the crossing to Aruhe and the garden's upper reaches.
+- **Next.** Session 12 is prepared: a dawn strike into the garden's burning keep.
 
 ## Active Threads
 
-- [[The Crown Inspection]]. Rook's sailors are coming through the hold. The Party must decide how to meet them.
-- [[Simone's Hunters]]. Jean-Claude is one island ahead of Simone's Grung hunters. The new crew is his only safe route for now.
-- [[Bring the Pearl of Souls to Umberlee]]. Delmar's fleet and its theft are hidden history. The sea's answer follows him.
-- [[Drowned Maw Awakening]]. The Maw, Auralis, and the wrecks have begun a chain that the Party does not yet understand.
-- [[Perrin and Nona]]. Perrin's family and the Passage can offer refuge. He has not yet reported the Vestra's loss.
+- [[The Crown Inspection]]. Opened and overtaken: the Party took HCS Surety as [[Uncertainty]], and the Crown pursuit continues after the Ordinance's deception. Next: stay ahead of the pursuit while on Aruhe.
+- [[Simone's Hunters]]. Jean-Claude lies catatonic in Delmar's coat after the garden. The hunters' last known trail runs the captive route toward Karath. Next: protect Jean-Claude and reach Uncertainty.
+- [[Bring the Pearl of Souls to Umberlee]]. Delmar confessed, and Umberlee named the Pearl as her price. The debt stands and the Pearl lies beyond reach. Next: the choice cannot wait forever.
+- [[Drowned Maw Awakening]]. The Maw struck the hull, spoke to Perrin, and the chart evidence is unexplained. Next: what the Maw wants.
+- [[Perrin and Nona]]. Perrin holds Nona's sending stone and owes her the Aruhe rescue. Nona's desk hunts the missing of Mercatura. Next: report home when the stone can reach her.
 
 ## Last Session
 
-- The Campaign has not yet played a Session.
-- Perrin reached the Saltwright after the Vestra sank. Delmar and Crissdalynn were taken aboard as survivors. Jean-Claude stowed aboard while fleeing the Grung hunt.
+- The Party crossed to Aruhe, met the garden's birds and wolfrabbits, and learned its law: fallen fruit is safe, living fruit is deadly.
+- Ghost plum turned its eater unseen. Stonepear shrugs off every damage.
+- [[Talon Skarn]] attacked Crissdalynn and spent one Legendary Resistance before breaking off.
+- Jean-Claude fell catatonic inside Delmar's coat. Matteo Scola, rescued at camp, wants ship passage.
+- An unseen watcher keeps the garden. The Lesser Black Lotus poisons the water downstream.
 
 ## Next
 
-The Hook is the Crown inspection. Rook's men are in the hold, and the Party must meet the boarding crew before it takes the ship. Open questions concern ownership, Geoffrey Draves's choice, and the Crown's knowledge.
+Session 12 opens with the dawn strike on the burning keep, with terror-birds in the ash. Open questions: the watcher, Skarn's return, the captives' route to Karath, and who fired the keep.

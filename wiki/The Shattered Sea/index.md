@@ -150,6 +150,7 @@
 - [[Flying Boots]] — Winged Boots that grant Delmar a 30-foot Fly Speed for 1 hour per charge.
 - [[Ghost Plum]] — A rare Aruhe fruit that makes its eater Invisible for 1 hour, while its pollen reveals invisible creatures as a shimmer.
 - [[Giant's Guava]] — A rare Aruhe fruit that sets the eater's primary ability score to 25 for 1 hour.
+- [[Grubnade]] — A volatile Aruhe caterpillar that detonates when disturbed, scattering harmless juveniles and igniting nearby growth.
 - [[Grung Authority Seal]] — Spent gold seals that compelled lower-caste Grung onto Aruhe and preserve each bearer's whole order chain.
 - [[Letters of Marque]] — Crown parchment licensing Barnaby Rook as a privateer and carrying a 30,000 gp Crown bond.
 - [[Nightmantle]] — A cursed cloak of displacement that redirects nearby ranged attacks to its wearer.
@@ -163,6 +164,7 @@
 ## Vehicles
 
 - [[HCS Ordinance]] — A three-deck Crown court warship carrying 96 guns and enforcing Admiralty authority across the lanes.
+- [[Saltwright]] — Beaumont Sel's battered brig and the Party's first berth, carrying four strangers toward Calveno when the Crown inspection began.
 - [[Uncertainty]] — A Crown cutter taken as HCS Surety, renamed Uncertainty and kept moving as the Party's mobile base.
 
 ## Lore
@@ -253,7 +255,4 @@
 - [[Session 8 - Previously On]] — Otar died in the Mercatura crater, Fieschi made the crew Calveno's Defenders, and Nona called them home.
 - [[Session 9 - Previously On]] — Otar died in the Mercatura crater, Fieschi made the Party Calveno's Defenders, and Nona began the pursuit of the raiders.
 - [[Session 10 - Previously On]] — The Party escaped the HCS Ordinance inspection with three captives and sent the Crown towards Calveno.
-
-## Other
-
-- [[Grubnade]]
+- [[Session 12 - Previously On]] — The Party crossed Aruhe's living hazards, rescued Matteo Scola, and faced Talon Skarn at the river camp.

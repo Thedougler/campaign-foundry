@@ -16,7 +16,7 @@ parent: "[[Aruhe]]"
 - **Draws the Party because.** It is the only usable boat gap and route inland.
 - **Entrance.** The reef gap at the western coast.
 - **Occupants.** Reef-Skulls, giant crabs, giant sharks and Bloodhawks.
-- **Danger.** Tide, surf, reef creatures, Grubnade and Spiritpollen.
+- **Danger.** Tide, surf, reef creatures, [[Grubnade]]s and Spiritpollen.
 - **Prize.** A route to [[Old Gardens]] and a way back to [[Uncertainty]].
 
 > [!narration] Entering

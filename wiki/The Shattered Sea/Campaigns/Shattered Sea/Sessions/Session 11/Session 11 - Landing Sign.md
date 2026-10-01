@@ -12,6 +12,7 @@ sources:
 ![[Session 11 - Landing Sign - Battle Map.jpg]]
 
 ![[Session 11 - Landing Sign - Battle Map Valley.jpg]]
+
 ## At a glance
 
 - **Discovery.** A cold camp and half-eaten fruit mark prior travellers.

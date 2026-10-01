@@ -102,7 +102,7 @@ function formatHuman(pagePath: string, results: CalloutResult[]): string {
 
 export function narrationCommand(): Command {
 	return new Command("narration")
-		.description("Check a Narration draft before filing it: length, echo of the sources, banned punctuation, compass and foot counts, list-like starts. Exits 0 clean, 1 findings, 2 usage error.")
+		.description("Check a Narration draft before filing it: length, echo of the sources, banned punctuation, compass and foot counts, list-like starts, and spoken-word traps. Exits 0 clean, 1 findings, 2 usage error.")
 		.argument("<page>", "the page holding the [!narration] callout: its name, vault path, or a path from here")
 		.option("--callout <title>", "check only the callout with this title (default: every [!narration] callout on the page)")
 		.addOption(new Option("--source <file>", "a file the callout must not echo; repeat for several (default: the page minus the callout, and every page it links to)").argParser(collect).default([] as string[], "the page and its linked pages"))
@@ -126,10 +126,12 @@ Reports, per callout:
                 preposition and its place, or a bare noun phrase (the list pattern)
   judgement words   abandoned, ancient, mysterious, ominous, eerie, strange, bustling, dangerous, angry,
                 afraid, sense of, can't help but (quoted speech is exempt)
+  spoken-word traps   mechanical terms, perception hedges, evaluative-adjective stacks, chained which/that clauses, dense proper names,
+                alliteration, tongue-twisters, pun-style names, homophones and mid-block speech attributions
 
 Findings:
   Hard (exit 1): echo, punctuation, compass, foot and mile counts, band.
-  Soft (a warning, exit 0): fresh starts, judgement words.
+  Soft (a warning, exit 0): fresh starts, judgement words and spoken-word traps.
 
 Sources:
   With no --source, the page itself (minus the callout being checked) and every page it links to, in

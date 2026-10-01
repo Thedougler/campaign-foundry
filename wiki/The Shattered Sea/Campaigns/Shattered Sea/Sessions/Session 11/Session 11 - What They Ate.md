@@ -8,6 +8,7 @@ sources:
 ---
 
 ![[Session 11 - What They Ate - Handout Art.jpg]]
+
 ## At a glance
 
 - **Discovery.** Fallen fruit heals. Living fruit summons danger.

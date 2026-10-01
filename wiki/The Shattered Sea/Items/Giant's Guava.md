@@ -25,7 +25,7 @@ Eating it takes a Bonus Action. For 1 hour the eater's primary ability score bec
 
 ### In use
 
-A guava picked from its stem is a claim under [[Taking on Aruhe]]. A fallen guava is safe to take and keeps until eaten.
+Picking a guava from its stem is a claim of [[Taking on Aruhe]]. Fallen fruit can be taken freely and keeps until eaten.
 
 ## Depth
 

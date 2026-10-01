@@ -11,7 +11,7 @@ creature: "[[Commoner]]"
 - **Role.** Tessarine Concordat factor and diplomatic functionary.
 - **Wants.** To restore his credit after publicly admitting Concordat debt.
 - **Voice.** Flat, careful, and contract-like. He speaks from prepared notes.
-- **Found at.** His factor house and the correspondence routes of Calveno.
+- **Found at.** His factor house, the correspondence routes of Calveno, and the [[Il Gioco delle Beffe]] marks as a first-year Tessarine entry.
 
 > [!narration] First look
 > A well-dressed factor comes down before the crowd clears, refolding a letter while he speaks. His voice is flat and careful, as though every sentence has already been entered into a contract.

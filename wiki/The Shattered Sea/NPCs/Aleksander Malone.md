@@ -8,7 +8,7 @@ creature: ""
 
 ## At a glance
 
-- **Role.** Rival and Crown hunter, Hound of Tyr.
+- **Role.** Rival and Crown hunter, Hound of Tyr, running the [[Grigori and the Crown hunt]].
 - **Wants.** To hunt confirmed Khlysty Flock infiltration and deliver judgement.
 - **Voice.** Clipped, formal sentences with the finality of a verdict.
 - **Found at.** Blackrule, a chapter house cut into volcanic terrace-rock in the southern Midchain. The Dravosi Crown deploys him from there.

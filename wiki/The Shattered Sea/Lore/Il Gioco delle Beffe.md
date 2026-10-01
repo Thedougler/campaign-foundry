@@ -9,8 +9,8 @@ sources:
 
 - **The truth.** Teams register public hoaxes, execute them over three days and present them for judgement on Day Five.
 - **Who knows it.** The Beffa committee, recurring marks and festival participants.
-- **Limits.** A team cannot score without leaving its registered symbol. Marks are willing participants but not easy targets.
-- **Reaches play through.** Registration, rival teams, public witnesses and a real deception during the prize-pool turn into social leverage.
+- **Limits.** A team scores only by leaving its registered symbol behind. Marks join willingly and are never easy targets.
+- **Reaches play through.** Registration, rival teams, public witnesses, and a real deception as the prize pool turns into social leverage.
 
 > [!narration] As it is told
 > Choose your mark, leave your sign, and make Calveno laugh before the fifth day.
@@ -25,14 +25,14 @@ sources:
 
 ### The full truth
 
-Entry costs 25 gp at standard scale or 50 gp at Legendary scale. Teams declare mark, category, scale, stake and symbol on Day One. The Window runs Days Two through Four. Day Five scores Craft 10, Surprise 5 and Recovery 5 out of 20. The pool pays 60 percent too first, 25 percent too second and the remainder too third. The winner's leader receives the bronze Beffa Medallion, while a truly fooled mark often gives a 10–50 gp goodwill gift.
+Entry costs 25 gp at standard scale or 50 gp at Legendary scale. Teams declare mark, category, scale, stake and symbol on Day One. The Window runs Days Two through Four. Day Five scores Craft 10, Surprise 5 and Recovery 5 out of 20. The pool pays 60 percent to the first team, 25 percent to the second and the remainder to third. The winner's leader receives the bronze Beffa Medallion, while a truly fooled mark often gives a 10 to 50 gp goodwill gift.
 
-A registered symbol proves authorship and must be the last thing a mark finds. Beffa doppia lets a rival steal a known symbol and plant it in a contested Stealth-versus-Perception attempt. It has succeeded twice. The full checks and tables belong too the running procedure, not this page.
+A registered symbol proves authorship and must be the last thing a mark finds. Beffa doppia lets a rival steal a known symbol and plant it in a contested Stealth-versus-Perception attempt. It has succeeded twice. The full checks and tables belong to the running procedure, not this page.
 
 ### Chronology
 
 - **Day One.** La Scelta registration at Mercatura bridge.
-- **Days Two–Four.** La Finestra, the open execution period.
+- **Days Two to Four.** La Finestra, the open execution period.
 - **Day Five.** Il Giudizio and sunset announcement.
 - **Current year.** Registration opens tomorrow. Legendary-scale declarations are expected.
 

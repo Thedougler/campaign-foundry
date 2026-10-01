@@ -32,8 +32,8 @@ None recorded.
 
 ## Inventory
 
-- **Attuned.** Cloak of the Manta Ray. Winged Boots with 4 charges, regaining 1d4 at dawn.
-- **Carried.** Leather armour, +1 blunderbuss with 5 bullets, 4 pistols with 40 musket bullets, rapier, 2 daggers, Bag of Holding, one Potion of Greater Healing, and the Fleet Commander's Chair.
+- **Attuned.** Cloak of the Manta Ray. [[Flying Boots|Winged Boots]] with 4 charges, regaining 1d4 at dawn.
+- **Carried.** Leather armour, +1 blunderbuss with 5 bullets, 4 pistols with 40 musket bullets, rapier, 2 daggers, Bag of Holding, one Potion of Greater Healing, and the [[Fleet Commanders Chair|Fleet Commander's Chair]].
 - **Stowed.** Common clothes, iron pot, shovel, Tinker's Tools, Thieves' Tools, 7 flasks of oil, 1,000 ball bearings, 5 rations, rope, bell, tinderbox, hooded lantern, 10 candles, crowbar.
 
 ## Story

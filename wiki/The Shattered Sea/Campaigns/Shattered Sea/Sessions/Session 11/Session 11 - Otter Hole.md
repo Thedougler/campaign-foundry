@@ -8,6 +8,7 @@ sources:
 ---
 
 ![[Session 11 - Otter Hole - Battle Map.jpg]]
+
 ## At a glance
 
 - **Contest.** Rescue Matteo without killing the otters.

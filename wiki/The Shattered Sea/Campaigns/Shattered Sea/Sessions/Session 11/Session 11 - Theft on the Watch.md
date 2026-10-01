@@ -8,6 +8,7 @@ sources:
 ---
 
 ![[Session 11 - Theft on the Watch - Battle Map.jpg]]
+
 ## At a glance
 
 - **Contest.** Keep the Fate Spinner through Skarn's ambush.

@@ -22,7 +22,7 @@ creature: "[[Commoner]]"
 
 - **Opens them up.** A workable route, recovered people, and evidence she can use.
 - **Shuts them down.** Threats to the network or open-ended promises.
-- **Will share.** Safe houses, couriers, ships, bodyguards, and a sending stone, at a price.
+- **Will share.** Safe houses, couriers, ships, bodyguards, and a [[Sending Stone (Nona's)|sending stone]], at a price.
 - **Will not share.** The whole Passage to save one request.
 - **If pressed.** She turns family language into business terms and calls the network to protect it.
 

@@ -21,7 +21,7 @@ sources:
 ## Play
 
 - **When met.** A Talon offers or carries out a one-job assignment while the Party chooses whether to follow it or investigate the missing name behind it.
-- **When opposed.** the faction protects routes and taken names, redirecting pressure through another contact.
+- **When opposed.** The faction protects routes and taken names, redirecting pressure through another contact.
 - **Offers.** Payment, hired blades and access to covert routes.
 - **Costs.** Helpers receive only the immediate job and become entangled in the Fate Spinner hunt.
 - **How to notice or interfere.** Track blank ledger entries, erased names and jobs around Yssenmoor. Protect the carrier, expose the order chain or exploit the contest between the two Talons.

@@ -12,6 +12,7 @@ sources:
 ![[Session 11 - Angry Birds - Battle Map Descent.jpg]]
 
 ![[Session 11 - Angry Birds - Battle Map Canopy Valley.jpg]]
+
 ## At a glance
 
 - **Contest.** Escape the adult Bloodhawk's hunting line.

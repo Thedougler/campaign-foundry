@@ -12,8 +12,8 @@ status: active
 - **Reward.** No promised reward. Leverage over the faction's routes is possible.
 - **Deadline.** None fixed. Pressure rises when either Talon cuts off the other.
 - **Done when.** Crissdalynn is protected or the contest redirects or breaks the hunt.
-- **Failed when.** the faction reaches the Fate Spinner carrier and gives Vantyrus its transformation path.
-- **Advances.** the faction and the [[Fate Spinner]] hunt.
+- **Failed when.** The faction reaches the Fate Spinner carrier and gives Vantyrus its transformation path.
+- **Advances.** The faction and the [[Fate Spinner]] hunt.
 
 > [!narration] The offer
 > Two Talons claim the same order. One wants the master gone. The other treats the apprentice as a standing threat. Names disappear from ledgers, and Crissdalynn is the target the contest can turn into a weapon.
@@ -22,7 +22,7 @@ status: active
 
 - **Leads.** Missing names, blank ledgers, the Fate Spinner hunt and an approach through either Talon.
 - **Opposition.** [[Talon Skarn|Skarn]], [[Talon Vantyrus|Vantyrus]] and the faction's one-job contacts.
-- **Complications.** Helping one Talon may hand the faction a stronger leader. Breaking a route can create another blank record.
+- **Complications.** Helping one Talon may hand [[Countless]] a stronger leader. Breaking a route can create another blank record.
 - **Payoff.** Protect Crissdalynn, expose the order chain or redirect an agent away from the target.
 
 ## Depth

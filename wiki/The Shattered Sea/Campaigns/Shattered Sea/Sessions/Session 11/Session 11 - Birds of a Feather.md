@@ -7,6 +7,7 @@ sources:
 ---
 
 ![[Session 11 - Birds of a Feather - Handout Art.png]]
+
 ## At a glance
 
 - **Pressure.** The Crown Squid is fleeing through the treetops.

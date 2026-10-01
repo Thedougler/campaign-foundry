@@ -8,6 +8,7 @@ sources:
 ---
 
 ![[Session 11 - Farthest Camp - Handout Art.jpg]]
+
 ## At a glance
 
 - **Discovery.** Smoke and survivor signs point farther inland.

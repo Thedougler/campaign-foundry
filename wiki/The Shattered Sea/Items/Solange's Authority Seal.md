@@ -19,7 +19,7 @@ sources:
 
 ### Properties
 
-As an action, press it to a willing, Grappled, Restrained or Incapacitated Grung within 5 feet and speak an order of up to 25 words. There is no save. The seal fuses to the skin, replaces the target's will like permanent *modify memory*, and is spent. It does nothing to another creature. Death ends the compulsion and leaves a spent seal.
+As an action, press it to a willing, Grappled, Restrained or Incapacitated Grung within 5 feet and speak an order of up to 25 words. There is no save. Pressing it bonds the seal to the skin and replaces the target's will as permanent *modify memory* does. The seal is spent. It does nothing to another creature. Death ends the compulsion and leaves a spent seal.
 
 ### In use
 
