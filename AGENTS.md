@@ -17,7 +17,7 @@ Foundry is never a source.
 
 ## Models
 
-Orchestrate with Claude Opus 5.5 and dispatch Claude Sonnet 5.5 subagents for code, templates and content. Skill-eval runners are a cheap Codex or GLM model — the `cheap` pin of `openai` or `glm` in `evals/models.yaml` — one family per run, rotating openai → glm. Grade skill evals with GLM 5.3 Flash: the `glm` `cheap` pin, then its `fallback`. Keep at most four subagents running at once. The dedicated skill author follows `writing-for-agents`: Claude Opus 5.5, otherwise GLM 5.3. The orchestrator writes every other agent-facing doc itself. Generate images with Codex (luna 5.6). These are current choices, not commitments: evals will revisit them.
+Model selection belongs in harness configuration, native agent frontmatter, and `evals/models.yaml`, not shared instructions. Eval runners use the configured cheap pin and fallback, one family per run with the configured rotation; graders use the configured grader pin and fallback. Keep at most four subagents running at once. Every skill modification is delegated to the dedicated `skill-writer` subagent, which follows `writing-for-agents`; the orchestrator writes every other agent-facing document and never edits skill files itself. Image generation uses the configured image workflow. Claude-specific instructions belong in `CLAUDE.md` and are maintained by Claude.
 
 ## Working rules
 

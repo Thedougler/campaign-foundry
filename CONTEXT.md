@@ -217,7 +217,7 @@ _Avoid_: sync, export, publish
 ### Evals
 
 **Runner**:
-The model that executes an eval or benchmark entry. The cheap tier runs ordinary skill evals; the top tier runs the Prose Benchmark. Never the Judge.
+The model that executes an eval or benchmark entry. A cheap Codex or GLM model runs ordinary skill evals; the top tier runs the Prose Benchmark. Never the Judge.
 
 **Judge**:
 The grader that scores every Prose Benchmark sample — Opus 5.5 when the claude CLI answers, otherwise one seated substitute from the Matrix — blind and independent, on anonymized samples.

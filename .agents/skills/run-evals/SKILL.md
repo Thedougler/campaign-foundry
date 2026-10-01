@@ -29,7 +29,7 @@ A skill's cases live in `.agents/skills/<skill>/evals/cases.yaml` (the format is
 3. **Check** each finished case: `pnpm eval:check <skill> <case-id> $W/wiki`. Keep its PASS and FAIL lines.
 4. **Grade** each case with a fresh GLM 5.3 Flash grader — the `glm` `cheap` pin in `evals/models.yaml`, then its `fallback` — that never saw the run. Inside oh-my-pi, dispatch the `skill-eval-grader` agent from `.omp/agents/`, confirming its definition resolves to that pin; on the CLI leg, launch it the same way as the runner, with `--model` set to that pin. Brief it with the case's rubrics, `$W/.eval/output.md`, and the Wiki diff against the case's starting point (`diff -ru $W/.eval/baseline $W/wiki -x templates`). It grades each rubric pass or fail with a one-sentence reason quoting the evidence, strictly, as a DM who will run the Session from this output would. It writes `$W/.eval/grades.json` as `[{ "rubric", "pass", "reason" }]`.
 5. **Report** a table: case, checks passed, rubrics passed, and each failure's reason.
-6. **Improve.** A failure is the skill's fault until shown otherwise. Fix the skill (following `writing-for-agents`), rerun only the failing cases, and repeat until every case passes. Done when a full run passes every check and rubric.
+6. **Improve.** A failure is the skill's fault until shown otherwise. Delegate the fix to the `skill-writer` subagent (it follows `writing-for-agents` and owns the edit), rerun only the failing cases, and repeat until every case passes. Done when a full run passes every check and rubric.
 
 ## Prose benchmark
 

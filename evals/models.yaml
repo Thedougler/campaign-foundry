@@ -1,8 +1,8 @@
 # Cross-family model matrix. Read by .agents/skills/run-evals and
 # .agents/skills/skill-creator. Values are exact `provider/model-id` pins from
 # `omp models` (which lists bare model ids under provider headers — join the
-# header and the id). cheap = ordinary skill-eval testers (default, rotated per run).
-# top = Prose Benchmark runners (rare, leaderboard). Runners are reasoning
+# header and the id). `cheap` on `openai` and `glm` = ordinary skill-eval runners
+# (one family per run, rotating openai → glm). top = Prose Benchmark runners (rare, leaderboard). Runners are reasoning
 # models: every omp run passes `--thinking high` (the DM requires luna at
 # thinking >= high); a pin whose `omp models` thinking tiers lack `high` is
 # invalid — re-pin or record SKIPPED. On a dead pin try `fallback` once; if
