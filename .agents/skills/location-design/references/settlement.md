@@ -13,3 +13,5 @@ Use this branch for a Settlement. A village may have a landing, market and share
 ## Table-use criterion
 
 The Party can arrive, orient, obtain the relevant services at known costs and decide whom to approach from this page alone. Authority has faces and enforceable consequences; opposed situations advance at stated times and offer more than one response. The number of districts and service pages matches the Settlement and requested visit, not a city-sized checklist imposed on a hamlet.
+
+Each is stated on the page: every offered service with its keeper, access terms and cost, or the linked nearest alternative; every live dispute with opposed wants, noticeable signs, at least two approaches or a costly bypass, and its timed next consequence. Services listed without keepers or prices are directory labels, not table use.

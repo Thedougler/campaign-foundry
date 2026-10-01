@@ -13,3 +13,5 @@ Use this branch for a Region. Work at the scale of the requested journey: a real
 ## Table-use criterion
 
 From this page, the DM can orient the Party, compare real journey costs, resolve uncertain navigation, find rest/supply and advance the powers without choosing the Party's itinerary. Encounters and rumours lead to something the Party can discover or change, and every listed destination is reachable by an explained connection.
+
+These facts must be stated on the page, not gestured at: each compared route with its endpoints, time and cost; each uncertain navigation with its check, DC and failure consequence; rest and supply as named stops with their costs; each power's next move with its timing; each rumour as spoken claim, DM truth and a way to investigate. Travel prose that promises choices without stating them is a gazetteer entry, not table use.

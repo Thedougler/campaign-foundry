@@ -1,5 +1,5 @@
-# Existing Location Kind branches grounded for issue #31, not table feedback.
-- id: deepen-aruhe
+# One packed run: Region, Settlement, and compact Site.
+- id: three-kinds
   source_pages:
     - The Shattered Sea/The Shattered Sea.md
     - The Shattered Sea/Campaigns/Shattered Sea/hot.md
@@ -11,190 +11,104 @@
     - The Shattered Sea/Lore/Taking on Aruhe.md
     - The Shattered Sea/NPCs/Matteo Scola.md
     - The Shattered Sea/Campaigns/Shattered Sea/Quests/Take on Aruhe.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-  prompt: >-
-    Deepen Aruhe as a Region so I can run choices between the current Slack
-    Basin camp, inland survivors and the return to Uncertainty. Keep the
-    established island scale, Western Landing approach, River direction and
-    recorded route costs. Make travel alternatives, navigation, rest, supply,
-    rumours and the powers' next moves usable without imposing a fixed Session
-    itinerary. Jean-Claude is catatonic in Delmar's coat and Matteo wants ship
-    passage, not an inland adventure. Respect the taking law and preserve
-    played events and the prepared Session 12 outcome uncertainty. No art or
-    Foundry connection is needed.
-  checks:
-    pages: [The Shattered Sea/Locations/Aruhe.md]
-    canon:
-      The Shattered Sea/Locations/Aruhe.md:
-        - '^type:\s*Location\s*$'
-        - '^kind:\s*Region\s*$'
-        - '^parent:\s*"\[\[Midchain\]\]"\s*$'
-        - '\[\[Western Landing\]\]'
-        - '\[\[Old Gardens\]\]'
-        - '\[\[The River\]\]'
-        - '\[\[Lava Tubes\]\]'
-        - '/\b500\b/'
-        - '/\b150\b/'
-    sections:
-      The Shattered Sea/Locations/Aruhe.md:
-        - "## At a glance"
-        - "## Play"
-        - "### Travel"
-        - "### Places worth reaching"
-        - "### Encounters"
-        - "### Rumors"
-        - "## Depth"
-        - "## Links"
-  rubrics:
-    - >-
-      The Region retains its Midchain parent, approximately 500-by-150-mile
-      scale, lack of a settlement/state and Western Landing sea approach.
-      Routes have meaningful time/risk/cost differences and usable destination
-      links. The River flows from Clear Lake toward Marshes, broad crossings
-      still take many days or weeks, and the Long Meadow's hour-cost bypass
-      remains an option. Added local timings are explicit new rulings, not
-      falsely quoted source measurements.
-    - >-
-      Navigation rolls occur only for uncertainty and have Ability (Skill),
-      DC and concrete failure consequences. Rest and supply specify reachable
-      stops, costs, exposure and concurrent change. Fallen fruit remains
-      receiving; living growth invokes the law. The real Party's mobility,
-      Jean-Claude's carried state and Matteo's refusal to go inland affect
-      travel rather than disappearing from the brief.
-    - >-
-      Active powers have sourced wants, observable next moves and relative
-      times or triggers, without inventing 1495 DR months or weekdays. Rumours
-      distinguish a spoken claim from the DM truth and give reachable ways to
-      investigate. The Region is not converted into an obligatory dungeon or
-      Scene sequence, and prepared rescue outcomes stay conditional.
-    - >-
-      The actual Region template, resolved owner links and honest provenance
-      are used. The full scratch-root gate and one create log cover the operation;
-      hot, played Narration and all Session records remain unchanged.
-
-- id: deepen-sparhold
-  source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
     - The Shattered Sea/Locations/Sparhold.md
-    - The Shattered Sea/Locations/Aruhe.md
     - The Shattered Sea/Factions/Passage.md
     - The Shattered Sea/Factions/Dravosi Crown.md
     - The Shattered Sea/Campaigns/Shattered Sea/Threads/Perrin and Nona.md
     - The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md
     - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
-  prompt: >-
-    Enrich the existing Settlement Sparhold for a possible later return after
-    Aruhe. Keep its timber fortress-market, harbour compact, raiding-fleet
-    information role and established local rules. Make arrival, resupply,
-    pilots, departure records and witness interviews runnable, with named
-    keepers and a choice-driven local information dispute. Reuse existing
-    people and Factions when they fit; new keeper identities or prices are
-    requested design, not previously met people or completed purchases.
-    Do not move the Party from Aruhe or claim a return already occurred.
-    This is Settlement worldbuilding, not Prep. No art or Foundry connection
-    is needed.
-  checks:
-    pages: [The Shattered Sea/Locations/Sparhold.md]
-    canon:
-      The Shattered Sea/Locations/Sparhold.md:
-        - '^type:\s*Location\s*$'
-        - '^kind:\s*Settlement\s*$'
-        - '^parent:\s*"\[\[Midchain\]\]"\s*$'
-        - '/timber/i'
-        - '/reciprocal question/i'
-    sections:
-      The Shattered Sea/Locations/Sparhold.md:
-        - "## At a glance"
-        - "## Play"
-        - "### Districts"
-        - "### Services"
-        - "### Factions here"
-        - "### Local rules"
-        - "## Depth"
-        - "## Links"
-  rubrics:
-    - >-
-      The Settlement remains a timber fortress-market on the raiding-fleet
-      trail, not a new village replacing Canon. Outer berth, work yard,
-      meeting place and rear landing orient arriving visitors. Recurring
-      services have linked Site and keeper pages, concrete access terms and
-      costs, and useful information is available through trust or payment.
-    - >-
-      Local Factions have actual linked NPC faces or explicitly authored new
-      owners. Public violence still closes the berth and a reciprocal question
-      remains a normal answer price. Enforcers, penalties and workarounds are
-      usable without copying an unrelated Settlement's institutions.
-    - >-
-      The information dispute has opposed wants, observable signs, at least
-      two materially different approaches or a costly bypass, and a next
-      consequence at a relative time or trigger. A planted lead can be tested
-      against the recorded ledger, wake, rope, tincture or false cargo evidence;
-      Sparhold remains a relay, not an asserted final captive destination.
-    - >-
-      The current Settlement template and resolved owner pages are complete,
-      new decisions are identified, and the full target-root gate and one
-      create log cover all touched pages. The Party's post-Session 11 Aruhe
-      state, hot and Session records remain unchanged.
-
-- id: deepen-la-vasca
-  source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
     - The Shattered Sea/Locations/La Vasca.md
     - The Shattered Sea/NPCs/Cobb.md
     - The Shattered Sea/NPCs/Nona Black-Jaw.md
     - The Shattered Sea/Vehicles/Uncertainty.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Perrin and Nona.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
   prompt: >-
-    Deepen La Vasca for a possible practical return visit: arranging a repair
-    with Cobb, checking what a vouched vessel can use and asking about the
-    low-tide route to Warren. Keep its disguised tannery, ninety-foot cradle,
-    garden password and one-hour reporting to Nona. Uncertainty is currently
-    off Aruhe; its Calveno refit is history, not a ship still waiting on the
-    cradle. This is a compact visit and repair brief, not a dungeon expedition
-    or a claim that the Party has already returned. No art or Foundry
-    connection is needed.
+    Three Location jobs in this World, one reply. The Party is still on Aruhe;
+    none of this has already happened. (1) Deepen Aruhe as a Region so I can
+    run choices between the Slack Basin camp, inland survivors and the return
+    to Uncertainty. Keep island scale, Western Landing approach, River
+    direction and recorded route costs. Make travel alternatives, navigation,
+    rest, supply, rumours and the powers' next moves usable without a fixed
+    Session itinerary. Jean-Claude is catatonic in Delmar's coat. Matteo wants
+    ship passage, not an inland adventure. Respect the taking law. (2) Enrich
+    Sparhold for a possible later return. Keep timber fortress-market, harbour
+    compact, raiding-fleet information role and local rules. Make arrival,
+    resupply, pilots, departure records and witness interviews runnable, with
+    named keepers and a choice-driven local information dispute. Reuse existing
+    people and Factions when they fit; new keepers or prices are requested
+    design, not previously met people or completed purchases. (3) Deepen La
+    Vasca for a possible later repair with Cobb, what a vouched vessel can use,
+    and the low-tide route to Warren. Keep disguised tannery, ninety-foot
+    cradle, garden password and one-hour reporting to Nona. Uncertainty is off
+    Aruhe; its Calveno refit is history. Compact visit, not a dungeon. Do not
+    rewrite played events, prepared Session 12 outcome uncertainty, hot, or
+    Session records. No art or Foundry work.
   checks:
-    pages: [The Shattered Sea/Locations/La Vasca.md]
+    pages:
+      - The Shattered Sea/Locations/Aruhe.md
+      - The Shattered Sea/Locations/Sparhold.md
+      - The Shattered Sea/Locations/La Vasca.md
+    sections:
+      The Shattered Sea/Locations/Aruhe.md:
+        - "## At a glance"
+        - "## Play"
+        - "## Depth"
+        - "## Links"
+      The Shattered Sea/Locations/Sparhold.md:
+        - "## At a glance"
+        - "## Play"
+        - "## Depth"
+        - "## Links"
+      The Shattered Sea/Locations/La Vasca.md:
+        - "## At a glance"
+        - "## Play"
+        - "## Depth"
+        - "## Links"
     canon:
+      The Shattered Sea/Locations/Aruhe.md:
+        - '^type:\s*Location\s*$'
+        - '^kind:\s*Region\s*$'
+        - '^parent:\s*"\[\[Midchain\]\]"\s*$'
+      The Shattered Sea/Locations/Sparhold.md:
+        - '^type:\s*Location\s*$'
+        - '^kind:\s*Settlement\s*$'
+        - '^parent:\s*"\[\[Midchain\]\]"\s*$'
       The Shattered Sea/Locations/La Vasca.md:
         - '^type:\s*Location\s*$'
         - '^kind:\s*Site\s*$'
         - '^parent:\s*"\[\[Le Paludi\]\]"\s*$'
-        - '\[\[Cobb\]\]'
-        - '\[\[Nona Black-Jaw\]\]'
-        - '/\b(?:ninety|90)\b/i'
-        - '/\bgarden\b/i'
-        - '/low tide|low-tide/i'
-    sections:
-      The Shattered Sea/Locations/La Vasca.md:
-        - "## At a glance"
-        - "## Play"
-        - "### Areas"
-        - "### Hazards"
-        - "### Likely actions"
-        - "## Depth"
-        - "## Links"
     absent:
       The Shattered Sea/Locations/La Vasca.md: ['^```statblock\b']
   rubrics:
     - >-
-      The compact key preserves canal arch, covered basin, iron-and-timber
-      cradle, tools/stock and aft passage, with spoken cues, current activity,
-      usable objects and adjacent DM answers. Low-tide and vouching constraints
-      on the Warren passage, defunct-tannery cover, three-generation operation,
-      ninety-foot vessel limit and Nona's one-hour reporting remain true.
+      Aruhe stays a Midchain Region without a settlement/state, with Western
+      Landing as the sea approach and usable destination links. Routes differ
+      in time, risk or cost. River direction, broad-crossing cost and the Long
+      Meadow bypass remain options. Navigation rolls only for uncertainty, with
+      Ability (Skill), DC and failure cost. Rest and supply name stops, costs
+      and concurrent change. Fallen fruit is receiving; living growth invokes
+      the law. Jean-Claude carried and Matteo refusing inland change travel.
+      Powers have sourced next moves without inventing 1495 DR months. Rumours
+      separate spoken claim from DM truth. Not a dungeon or Session itinerary.
     - >-
-      Repair, registry removal and route access have concrete terms, local
-      opposed wants and a visible next change at a relative time or trigger.
-      Any new operational hazard has sign, trigger, effect, counterplay, bypass
-      and leverage, with sourced mechanics where needed. The brief does not
-      impose enemies, expedition clocks or unnecessary room-by-room machinery.
+      Sparhold stays a timber fortress-market on the raiding-fleet trail.
+      Arrival orients visitors. Recurring services have keepers, access terms
+      and costs. Public violence still closes the berth; a reciprocal question
+      remains a normal answer price. The information dispute has opposed wants,
+      at least two approaches or a costly bypass, and a next consequence. A
+      planted lead can be tested. Sparhold is a relay, not a claimed captive
+      destination. New keepers or prices are design, not completed meetings.
     - >-
-      Current notes keep Uncertainty offshore near Aruhe and treat its prior
-      refit as history. Cobb's instructions, loyalty and Nona reporting remain
-      coherent; new missing statistics stay with linked Creature owners.
-      Template, provenance, full scratch-root gate and one create log are
-      complete while hot, PC state and Session records remain unchanged.
+      La Vasca keeps canal arch, covered basin, cradle, tools and aft passage
+      as a compact visit: spoken cues, current activity, usable objects.
+      Low-tide and vouching constraints, tannery cover, ninety-foot limit and
+      Nona's one-hour reporting remain. Repair, registry and route access have
+      terms and opposed wants. No expedition clock or room-by-room dungeon.
+      Uncertainty remains offshore near Aruhe; the prior refit is history.
+    - >-
+      Current templates, resolved links and honest provenance. Full scratch-root
+      gate and one create log. hot, played Narration and Session records
+      unchanged. Prepared rescue outcomes stay conditional.

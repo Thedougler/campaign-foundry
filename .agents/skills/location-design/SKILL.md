@@ -5,15 +5,15 @@ description: Location authoring — create or deepen a Region for travel choices
 
 # Location design
 
-Produce a page the DM can use during play, not a gazetteer of disconnected facts. Keep the DM's requested purpose and existing Canon; choose exactly one Location Kind. Containment is a `parent` link, including Site within Site, rather than a folder hierarchy.
+Produce a page the DM can use during play, not a gazetteer of disconnected facts. The page itself carries the Kind's table-use facts; the reply only names where. Keep the DM's requested purpose and existing Canon; choose exactly one Location Kind. Containment is a `parent` link, including Site within Site, rather than a folder hierarchy.
 
 ## Workflow
 
 1. **Establish the brief and evidence.** Read sections 1–2 of [references/authoring.md](references/authoring.md) before design for orientation, Canon, the current template and sourcing. A composed request may reuse the caller's completed setup; fill only the missing evidence. **Done when** the requested use, Kind, containing Location, preserved facts and sources are known.
 2. **Make the situation spatial.** Name who wants a concrete change here, who opposes it, and what changes next at a stated time if nobody acts. Derive the pressure from retrieved Canon or the DM's intent. Show how geography, construction, work or a local custom makes that struggle playable: what visitors can notice, reach, use or change. Keep a quiet shop or refuge at its own scale. **Done when** the DM has named opposed wants, a timed consequence, and physical details that change a choice rather than merely decorate it.
-3. **Design the selected Kind.** Follow the matching section below and its conditional reference. Scope a partial request to the affected content without changing the caller's objective. **Done when** that branch's table-use criterion is satisfied and any required child procedure has returned its actual artifacts.
+3. **Design the selected Kind.** Follow the matching section below and its conditional reference. Scope a partial request to the affected content without changing the caller's objective. **Done when** the design has produced every fact that branch's table-use criterion names, ready to file on the page, and any required child procedure has returned its actual artifacts.
 4. **Expose truths through evidence.** When placing hidden truths, hazards, Items, inhabitants or historical traces, read [references/weave.md](references/weave.md). Put the observable tell where the Party can encounter it and the explicit answer where the DM will look it up. **Done when** every important element has a location and a usable reveal or interaction, and every hazard can be noticed and answered.
-5. **Author and finish.** Follow sections 3–4 of [references/authoring.md](references/authoring.md) when writing, linking, composing Narration, checking and logging. **Done when** the pages meet the template and branch criteria, the standalone gate/log are complete, or the caller has the full composed return for its single gate/log.
+5. **Author and finish.** Follow sections 3–4 of [references/authoring.md](references/authoring.md) when writing, linking, composing Narration, checking and logging. **Done when** the pages meet the template and branch criteria with every table-use fact filed on the page, the standalone gate/log are complete, or the caller has the full composed return for its single gate/log.
 
 ## Region
 
@@ -31,6 +31,6 @@ When the Site needs room-by-room exploration with interconnected areas and exped
 
 ## Return
 
-Give a concise reply naming the Location and any dependent pages, the important Canon decisions and their grounding pages, and the observed gate/log result. For composition, return those artifacts and touched paths under the caller's operation instead of appending a child log. State any real blocker precisely.
+Give a concise reply naming the Location and any dependent pages, the important Canon decisions and their grounding pages, and the observed gate/log result. Before returning, check every fact the reply offers against the pages: a route, cost, DC, keeper or key that lives only in the reply is undelivered. For composition, return those artifacts and touched paths under the caller's operation instead of appending a child log. State any real blocker precisely.
 
-When evaluation is explicitly requested, use the three grounded Kind cases in [evals/cases.yaml](evals/cases.yaml). Read [the eval workflow](../../../evals/README.md) before preparing a scratch run or authoring a case; use `run-evals` for the artifact and grading contract.
+When evaluation is explicitly requested, use the packed case `three-kinds` in [evals/cases.yaml](evals/cases.yaml). Read [the eval workflow](../../../evals/README.md) before preparing a scratch run or authoring a case; use `run-evals` for the artifact and grading contract.

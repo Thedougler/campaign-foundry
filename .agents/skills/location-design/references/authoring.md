@@ -42,7 +42,7 @@ Once the DM-facing facts are on the page, use `theatre-of-the-mind` for a new or
 
 Write British English. Add an in-world word without its own page to the vault's `.cspell-words.txt` only when appropriate; rules terms belong in `.cspell/dnd-terms.txt`. Preserve `hot.md` and played Sessions: Location work changes current owner pages, not those records.
 
-**Complete when** the Location and its dependencies are authored, the old facts are retained or explicitly advanced by recorded events, every link resolves, and the selected branch's table-use criteria hold.
+**Complete when** the Location and its dependencies are authored, the old facts are retained or explicitly advanced by recorded events, every link resolves, and the selected branch's table-use criterion holds on the page: each fact it names is filed in the section a DM will read at the table, with owned rules on their linked owner pages. A fact that lives only in the reply or working notes is unfiled — file it or cut the claim.
 
 ## 4. Gate and record the operation
 

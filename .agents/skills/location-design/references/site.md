@@ -13,3 +13,5 @@ Use this branch for an ordinary Site: a shop, landmark, small building or other 
 ## Table-use criterion
 
 The DM can find a feature's occupants, object, hazard or hidden truth quickly, resolve likely actions and identify where the Party can go next. Important interactions change something even without enemies, the timed situation has a visible consequence, and a basic visit remains runnable without expedition machinery.
+
+Each is on the page: every space is its own keyed entry, opening with the spoken cue, then occupants and activity, usable objects, immediate danger, hidden answers and onward connections. A run of space names in one sentence is an inventory, not a key.
