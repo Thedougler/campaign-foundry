@@ -24,10 +24,10 @@
     tense, sensory, no game mechanics, no meta-commentary.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
-    - "Stays true to every given fact and invents nothing that contradicts them"
-    - "Second person, present tense, concrete sensory detail over abstraction"
-    - "No game mechanics, stats, or meta-commentary in the prose"
-    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+    - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
+    - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
+    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: creature-first-look
   fixture_page: Creatures/Mire Drowner.md
@@ -48,10 +48,10 @@
     tense, sensory, no game mechanics, no meta-commentary.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
-    - "Stays true to every given fact and invents nothing that contradicts them"
-    - "Second person, present tense, concrete sensory detail over abstraction"
-    - "No game mechanics, stats, or meta-commentary in the prose"
-    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+    - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
+    - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
+    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: item-first-look
   fixture_page: Items/Ebb Lantern.md
@@ -72,10 +72,10 @@
     tense, sensory, no game mechanics, no meta-commentary.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
-    - "Stays true to every given fact and invents nothing that contradicts them"
-    - "Second person, present tense, concrete sensory detail over abstraction"
-    - "No game mechanics, stats, or meta-commentary in the prose"
-    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+    - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
+    - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
+    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: location-arrival
   fixture_page: Locations/The Drowned Chapel.md
@@ -96,10 +96,10 @@
     sensory, no game mechanics, no meta-commentary.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
-    - "Stays true to every given fact and invents nothing that contradicts them"
-    - "Second person, present tense, concrete sensory detail over abstraction"
-    - "No game mechanics, stats, or meta-commentary in the prose"
-    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+    - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
+    - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
+    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: lore-common-telling
   fixture_page: Lore/The Drowning of Vessen.md
@@ -120,10 +120,10 @@
     the teller speaks it. Sensory, no game mechanics, no meta-commentary.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
-    - "Stays true to every given fact and invents nothing that contradicts them"
-    - "Second person, present tense, concrete sensory detail over abstraction"
-    - "No game mechanics, stats, or meta-commentary in the prose"
-    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+    - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
+    - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
+    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: scene-opening
   fixture_page: Sessions/Session 2/Session 2 - The Bell Rings Early.md
@@ -144,10 +144,10 @@
     tense, sensory, no game mechanics, no meta-commentary.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
-    - "Stays true to every given fact and invents nothing that contradicts them"
-    - "Second person, present tense, concrete sensory detail over abstraction"
-    - "No game mechanics, stats, or meta-commentary in the prose"
-    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+    - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
+    - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
+    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: scene-closing-image
   fixture_page: Sessions/Session 2/Session 2 - Low Water at the Chapel.md
@@ -168,10 +168,10 @@
     person, present tense, sensory, no game mechanics, no meta-commentary.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
-    - "Stays true to every given fact and invents nothing that contradicts them"
-    - "Second person, present tense, concrete sensory detail over abstraction"
-    - "No game mechanics, stats, or meta-commentary in the prose"
-    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+    - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
+    - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
+    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: previously-on
   fixture_page: Sessions/Session 2/Session 2 - Recap.md
@@ -220,10 +220,10 @@
     PC named when they act. No game mechanics, dice or meta-commentary.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
-    - "Stays true to every given fact and invents nothing that contradicts them"
-    - "Second person, present tense, concrete sensory detail over abstraction"
-    - "No game mechanics, stats, or meta-commentary in the prose"
-    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+    - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
+    - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
+    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: handout-text
   fixture_page: Threads/Reedrunner Tithe.md
@@ -246,7 +246,7 @@
     game mechanics, no meta-commentary.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
-    - "Stays true to every given fact and invents nothing that contradicts them"
-    - "Second person, present tense, concrete sensory detail over abstraction"
-    - "No game mechanics, stats, or meta-commentary in the prose"
-    - "Economical: every sentence earns its place; a DM could read it aloud as-is"
+    - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
+    - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
+    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."

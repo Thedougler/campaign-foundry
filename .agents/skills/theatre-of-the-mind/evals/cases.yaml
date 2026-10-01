@@ -5,10 +5,13 @@
       Lowtide/NPCs/Ilse Corran.md: ['creature: "\[\[Bandit Captain\]\]"', Ilse Marrow, '\[!narration\] First look']
   rubrics:
     - The new First look gives Ilse one distinctive feature and one thing she is already doing, rather than a list of clothing and features.
-    - It ends on her one spoken line, which asks, offers, presses or threatens.
+    - "It ends on her one spoken line, which asks, offers, presses or threatens: a speaker or action lead-in comes before the complete line, with no speech tag inside or trailing it and no action narrated after the line."
     - It contains no em dash, semicolon or colon, no compass direction and no foot count.
     - No phrase of four or more words is copied from the old First look or the rest of her page (her quoted speech aside).
+    - "It invents no PC action or feeling and assumes nothing of the listeners' bodies or senses: only grounded details the Party could perceive are spoken."
+    - It introduces at most three proper names new to the listeners, each traceable to a Wiki page.
     - It is three to five sentences plus her spoken line, second person, present tense, and every fact in it traces to a Wiki page.
+    - "It is speakable on one hearing: no forced re-read or spelling, no ambiguous spoken-word trap (tongue-twister, accidental alliteration, pun name, homophone), no perception hedge, no mechanical word used as a metaphor, no stacked evaluative adjectives and no chained relative clauses."
 - id: hook-opening
   prompt: The Opening for Session 2 - The Bell Rings Early is flat. Rewrite it so it grabs the table.
   checks:
@@ -16,9 +19,14 @@
   rubrics:
     - The first sentence puts the disturbance (the bell, the missing water) in front of the Party.
     - The Opening is 80 to 120 words and one paragraph.
-    - Something is already moving, a sense other than sight does work, and something lands on the characters' bodies.
+    - Motion and grounded sensory evidence carry the situation through channels available to the actual Party; use a nonvisual cue when the sources and capabilities support it, without assuming a shared anatomy or forcing a bodily reaction.
+    - Each named opening detail earns its place as an action, a route, a Clue or the anchor, keeping the anchor's specific nouns rather than any-room filler.
+    - Immediately perceivable blocking or lethal hazards and relevant positions are explicit whenever the sources carry them.
+    - A multi-beat event stops at the first actionable reaction; nothing later is narrated as a completed outcome.
+    - Where a map or art is shown, the Narration is read first and the tactical aid follows immediately, spending its words on what the art cannot carry rather than an inventory of obvious artwork detail, without dropping the first-look hazard and route obligations.
     - It ends on a reaction point where a player would act, without asking "What do you do?" and without deciding anything for a PC.
     - Facts the characters cannot perceive yet (why the bell rings, the ledger) stay out of the callout.
+    - "The spoken prose is clear on one hearing: no forced re-read, ambiguous spoken-word trap, perception hedge, mechanical metaphor, stacked evaluative adjectives or chained relative clauses, and at most three proper names new to the listeners, each with a Canon source; no NPC line is required where none is sourced."
 - id: previously-on
   prompt: Rewrite Session 2's Previously On from the Session 2 Transcript so the table relives it.
   checks:
@@ -27,6 +35,8 @@
     - It is told in the past tense with the Party as "you", and each of Brannoch, Tamsin and Odalys gets a concrete moment of their own.
     - Moments get more words than routine travel, and beats link by cause (so, but, until) rather than "and then".
     - Rolls and rules appear only as what they looked like.
+    - Lines quoted from the Transcript or the table appear word for word, and the block introduces no event the table never played, no imposed emotion and no new present-time threat.
+    - "One hearing and one retelling stay clear: stable salient names and concise clauses, with no forced sensory quota or physical-first-look shape; the PCs' own names are familiar, not new introductions."
     - It ends inside the moment play stopped, with nothing about stopping, the night or the Session.
     - It is about 150 words and every event in it happened in the Transcript or the Recap.
 - id: creature-first-sight
@@ -37,8 +47,10 @@
   rubrics:
     - It gives the Mire Drowner's silhouette, how it moves and its size against something familiar.
     - Each signature ability in its stat block has a visible tell in the Narration, written as appearance rather than function.
-    - It shows the Creature at rest, before it notices anyone, with no attack landing.
+    - "Sensory cues are grounded in its page and safe for any Party: no assumed anatomy, sense or capability, no inferred history and no perception hedge."
+    - "No contact or attack advances past the ending: it shows the Creature at rest, before it notices anyone."
     - It contains no game terms (CR, grapple, DC, damage types) and no em dash, semicolon or colon.
+    - "The spoken prose is clear on one hearing: no forced re-read, ambiguous spoken-word trap, stacked evaluative adjectives or chained relative clauses, and at most three proper names new to the listeners, each with a Canon source; no NPC speech is required."
 - id: handout-text
   prompt: Rewrite the text of Hobb's Warning so it reads like a real note from Hobb.
   checks:
@@ -46,4 +58,7 @@
   rubrics:
     - The callout reads as Hobb's own note, in his voice, with a concrete detail that makes it real (a date, a signature, a stain or a hurried hand).
     - "It carries the one thing the Players can act on: Ilse's boats are on the water."
+    - "The reusable written words stand as a document in Hobb's voice: his claims are his own, with no omniscient truth claim and no imposed PC response."
     - The callout contains no colons, and the DM-only guidance stays outside it.
+    - Completion is judged by the document's formatting and payload, not by one-paragraph spoken form, a sensory quota or a reaction-point ending.
+    - If the text is a riddle or puzzle, it does not depend on a single language's spelling, sound or pun; no riddle is created just to exercise this.
