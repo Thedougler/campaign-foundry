@@ -18,6 +18,10 @@ _Avoid_: user, PC (the character, not the human)
 The AI assistant that does worldbuilding, Prep and Ingest between Sessions. Never present at the table.
 _Avoid_: co-DM, AI DM, assistant
 
+**omp**:
+oh-my-pi, the default harness the Agent runs in.
+_Avoid_: OpenMP
+
 ### Setting and play
 
 **World**:

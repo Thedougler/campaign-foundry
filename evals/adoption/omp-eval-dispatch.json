@@ -1,0 +1,40 @@
+{
+  "issue": 28,
+  "harness": "oh-my-pi standard task agents",
+  "runners": [
+    {
+      "agent": "test-subject",
+      "label": "NativeAuditClaim",
+      "case": "named-claim",
+      "isolated": true,
+      "worktree": "/Users/nick/.omp/wt/t9ea819f96/m",
+      "hasRootChanges": false,
+      "model": "openai-codex/gpt-6-luna",
+      "thinking": "high",
+      "resolvedModelIsFallback": false,
+      "scratch": "/private/var/folders/kf/r581r2qj62x3b_4thcvddv0w0000gn/T/campaign-foundry-eval-7iFsbI",
+      "checks": "6 passed, 2 failed (CONSUME token deleted from Auralis; style ColonUsage)",
+      "rubrics": "5/6 pass"
+    },
+    {
+      "agent": "test-subject",
+      "label": "NativeAuditIngest",
+      "case": "after-ingest",
+      "isolated": true,
+      "worktree": "/Users/nick/.omp/wt/tbcbab8f3e/m",
+      "hasRootChanges": false,
+      "model": "openai-codex/gpt-6-luna",
+      "thinking": "high",
+      "resolvedModelIsFallback": false,
+      "scratch": "/private/var/folders/kf/r581r2qj62x3b_4thcvddv0w0000gn/T/campaign-foundry-eval-pgylSl",
+      "checks": "0 passed, 1 failed (style SemicolonUsage on Auralis)",
+      "rubrics": "8/8 pass"
+    }
+  ],
+  "graders": [
+    {"agent": "prose-grader", "label": "GradeNamedClaim", "isolated": true},
+    {"agent": "prose-grader", "label": "GradeAfterIngest", "isolated": true}
+  ],
+  "ompCliChildProcesses": 0,
+  "cliPathPreserved": ".agents/skills/run-evals/SKILL.md still documents the other-harness CLI runner"
+}
