@@ -1,27 +1,46 @@
-# Existing branch coverage grounded for issue #31, not reported table feedback.
-- id: new-hunter
+# One packed run: new hunter, Skarn retune, and ordinary reuse.
+- id: party-threats
   source_pages:
     - The Shattered Sea/The Shattered Sea.md
     - The Shattered Sea/Campaigns/Shattered Sea/hot.md
     - The Shattered Sea/Locations/Old Gardens.md
     - The Shattered Sea/Lore/Taking on Aruhe.md
     - The Shattered Sea/Creatures/Spiguar.md
+    - The Shattered Sea/Creatures/Talon Skarn (Creature).md
+    - The Shattered Sea/NPCs/Talon Skarn.md
+    - The Shattered Sea/Items/Fate Spinner.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Quests/Rule of Two.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+    - The Shattered Sea/Factions/Dravosi Crown.md
+    - The Shattered Sea/NPCs/Corbin Knighton.md
+    - The Shattered Sea/Creatures/Dravosi Enforcer.md
     - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
     - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
     - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
   prompt: >-
-    Design a Creature called Terrace Stalker for a possible later encounter in
-    Aruhe's Old Gardens: one hunter that uses irrigation ditches and collapsed
-    steps, with a Hard fight if the Party chooses to confront it. This is a
-    requested new design, not an animal already encountered. Source fitting
-    Creatures before deciding how much invention is needed. Use the current
-    Party and account explicitly for Jean-Claude being catatonic and carried
-    by Delmar. Preserve flight, escape, rescue and the island's taking law as
-    usable choices. Do not insert this encounter into Session 12 or rewrite
-    played records. No art or Foundry connection is needed.
+    Three Creature jobs in this World, one reply. (1) Design Terrace Stalker
+    for a possible later Old Gardens hunter that uses irrigation ditches and
+    collapsed steps; Hard if the Party confronts it; requested new design, not
+    an animal already encountered. Source fitting Creatures before deciding how
+    much invention is needed. (2) Retune Talon Skarn's Creature for an
+    interruptible theft of Crissdalynn's Fate Spinner, not overwhelming damage.
+    Prospective design, not a report that Session 11 was too easy or too hard.
+    Keep the one spent Legendary Resistance, identity, ignorance and withdrawal
+    condition. Audit every linked NPC and unplayed consumer; change only an
+    unplayed consumer that needs a consequential adjustment. (3) For an ordinary
+    Dravosi Crown boarding guard in a spear-and-shield inspection line, reuse
+    what fits; do not retune Corbin Knighton or mint a duplicate page for a
+    rank-and-file name. Use the current Party, including Jean-Claude catatonic
+    and carried by Delmar. Preserve flight, escape, rescue and Aruhe's taking
+    law. Do not insert these into Session 12 or rewrite played records, hot, or
+    heard Narration. No art or Foundry work.
   checks:
-    pages: [The Shattered Sea/Creatures/Terrace Stalker.md]
+    pages:
+      - The Shattered Sea/Creatures/Terrace Stalker.md
+      - The Shattered Sea/Creatures/Talon Skarn (Creature).md
+      - The Shattered Sea/Creatures/Dravosi Enforcer.md
     sections:
       The Shattered Sea/Creatures/Terrace Stalker.md:
         - "## At a glance"
@@ -33,126 +52,55 @@
       The Shattered Sea/Creatures/Terrace Stalker.md:
         - '^type:\s*Creature\s*$'
         - 'layout: Basic 5e Layout'
-  rubrics:
-    - >-
-      The source record distinguishes retrieved Wiki, 2024 SRD and web
-      candidates from requested new output, names the selected reuse, reskin,
-      variant or new-design path and explains why earlier candidates do not
-      meet the role. A failed retrieval is not evidence that no candidate exists;
-      sources frontmatter contains only actual archived Raw paths.
-    - >-
-      The dossier reads all four level-5 PC Sheets and applicable House Rules,
-      separates membership from current combat participation and accounts for
-      Jean-Claude's catatonia and Delmar carrying him. It states one opponent,
-      terrain and resources, maps Hard to the 2024 High XP budget and shows
-      legal three-round actions, attack/save chances, burst versus sustained
-      output, survival and time-to-drop estimates against a retrieved CR peer.
-      No unsupported 2024 CR formula or fictional turn record is claimed.
-    - >-
-      The hunter has a ditch-and-terrace niche distinguishable from the
-      Spiguar's tall-grass ambush. Each signature has an ecological sign,
-      visible tell before danger, two mechanically different answers and a
-      payoff. Flight, allied rescue and retreat work under their sourced rules;
-      new statistics do not erase recorded PC strengths or Aruhe's taking law.
-    - >-
-      The actual Creature template is filled with one complete Basic 5e Layout
-      block in 2024 wording, explicit timing, targets and condition endings,
-      Player-safe First sight and a real incoming link. All mandatory gate
-      layers are run in the supplied scratch root and the standalone operation
-      is logged once after success. New Canon is identified; hot and Session
-      records, including prepared Session 12, remain unchanged.
-
-- id: retune-skarn
-  source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
-    - The Shattered Sea/Creatures/Talon Skarn (Creature).md
-    - The Shattered Sea/NPCs/Talon Skarn.md
-    - The Shattered Sea/Items/Fate Spinner.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Quests/Rule of Two.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-  prompt: >-
-    Retune Talon Skarn's Creature for the current Party before his next
-    appearance. I want an interruptible theft attempt against Crissdalynn's
-    Fate Spinner, not overwhelming damage that forces a defeat. This is a
-    prospective design request, not a report that a played fight was too easy
-    or too hard. Use Session 11's evidence, preserve the one spent Legendary
-    Resistance and Skarn's established identity, ignorance and withdrawal
-    condition. Account for Jean-Claude being catatonic in Delmar's coat.
-    Audit every linked NPC and unplayed consumer; update only an unplayed
-    consumer that needs a consequential adjustment. Leave hot and all played
-    records and heard Narration alone. No art or Foundry connection is needed.
-  checks:
-    pages: [The Shattered Sea/Creatures/Talon Skarn (Creature).md]
-    canon:
       The Shattered Sea/Creatures/Talon Skarn (Creature).md:
         - 'layout: Basic 5e Layout'
-        - '/(?:one|1) Legendary Resistance[^\n.]{0,60}(?:spent|used)|(?:spent|used)[^\n.]{0,60}(?:one|1) Legendary Resistance/i'
       The Shattered Sea/NPCs/Talon Skarn.md:
         - 'creature: "\[\[Talon Skarn \(Creature\)\]\]"'
-        - 'Vantyrus'
-        - 'Soul Incarnate'
-      The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md:
-        - 'His first strike missed'
-        - 'remained in her face when play stopped'
+      The Shattered Sea/NPCs/Corbin Knighton.md:
+        - 'creature: "\[\[Dravosi Enforcer\]\]"'
     absent:
       The Shattered Sea/NPCs/Talon Skarn.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
   rubrics:
     - >-
-      Every changed feature or value serves the DM's prospective theft objective
-      and is justified against all four real PC Sheets, current participation,
-      equipment, control, mobility and rescue options. The reply distinguishes
-      that request from Session 11 evidence; it does not invent table feedback,
-      damage totals or rounds. Where hot implies a breakoff, the played Recap's
-      unresolved endpoint is retained rather than rewritten to reconcile it.
+      Source records distinguish Wiki, 2024 SRD and web candidates from new
+      output. Terrace Stalker names reuse, reskin, variant or new-design and
+      why earlier candidates fail the ditch-and-terrace hunter role. Skarn
+      changes serve the theft objective, justified against all four real PC
+      Sheets, current participation, equipment, control, mobility and rescue,
+      and are distinguished from Session 11 evidence with no invented table
+      feedback, damage totals or rounds. The boarding-guard job finds and
+      reuses Dravosi Enforcer's 2024 SRD Guard baseline without silently
+      raising published numbers or minting a custom/duplicate Creature. Failed
+      retrieval is not proof a candidate is absent. sources frontmatter holds
+      only archived Raw paths.
     - >-
-      The revised arithmetic and 2024 rules text are complete. A realistic
-      three-round model states one Skarn, distance, cover, carried Jean-Claude,
-      resources, budget and retrieved peer, and separates attack/save chances,
-      burst, sustained damage and CR estimates. Crissdalynn's Stunning Strike,
-      flight and the Party's counterplay remain consequential.
+      The dossier reads all four level-5 Sheets and applicable House Rules,
+      separates membership from combat participation, and accounts for
+      Jean-Claude's catatonia and Delmar carrying him. Terrace Stalker is one
+      opponent on ditches and steps; Hard maps to the 2024 High XP budget.
+      Skarn is one thief with distance, cover, carried Jean-Claude, resources,
+      budget and a retrieved peer. Both models show legal three-round actions,
+      attack/save chances, burst versus sustained output, survival and
+      time-to-drop estimates. No unsupported 2024 CR formula or fictional turn
+      record. Crissdalynn's Stunning Strike, flight and Party counterplay stay
+      consequential. Guard reuse does not fabricate a retune or create log.
     - >-
-      Skarn remains a peregrine apprentice who targets gear, wants the Spinner
-      for Vantyrus, does not know its purpose and withdraws below half health.
-      His one spent Legendary Resistance is a current resource fact, not an
-      automatic refill. Appearance, established history and heard Narration
-      survive. The shared Creature is changed once, never copied onto an NPC.
+      Terrace Stalker's niche is distinguishable from the Spiguar's tall-grass
+      ambush. Each new signature has an ecological sign, visible tell, two
+      mechanically different answers and a payoff. Skarn remains a peregrine
+      apprentice who targets gear, wants the Spinner for Vantyrus, does not
+      know its purpose and withdraws below half health; one spent Legendary
+      Resistance is current, not refilled. Appearance, history and heard
+      Narration survive. Flight, allied rescue, retreat and Aruhe's taking law
+      remain usable; new statistics do not erase recorded PC strengths. The
+      shared Skarn Creature is changed once, never copied onto an NPC. Corbin's
+      identity and shared Enforcer statistics are preserved.
     - >-
-      The reply enumerates the NPC and every unplayed consumer from actual
-      backlinks, reports each consequential adjustment or reason for no change,
-      and keeps played Session pages and hot byte-unchanged. The current template,
-      incoming links, full target-root gate, attribution and single operation
-      log are complete.
-
-- id: reuse-enforcer
-  source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
-    - The Shattered Sea/Factions/Dravosi Crown.md
-    - The Shattered Sea/NPCs/Corbin Knighton.md
-    - The Shattered Sea/Creatures/Dravosi Enforcer.md
-  prompt: >-
-    I need statistics for an ordinary Dravosi Crown boarding guard, the kind
-    that forms a spear-and-shield line during inspection. Nothing fancy.
-    Reuse what fits; do not retune Corbin Knighton or create a duplicate page
-    merely to give a rank-and-file guard a new name.
-  checks:
-    pages: [The Shattered Sea/Creatures/Dravosi Enforcer.md]
-    canon:
-      The Shattered Sea/NPCs/Corbin Knighton.md:
-        - 'creature: "\[\[Dravosi Enforcer\]\]"'
-  rubrics:
-    - >-
-      Recorded retrieval finds and reads the existing Dravosi Enforcer,
-      explains its 2024 SRD Guard baseline and chooses proportionate reuse.
-      It does not silently increase published numbers or manufacture a custom
-      block, unique NPC or duplicate Creature for this ordinary role.
-    - >-
-      The reply supplies the resolving Creature path and complete existing
-      rules rather than a name-only external reference. Any necessary page
-      maintenance uses the current Creature template and target-root gate;
-      unchanged reuse does not fabricate a create log or claim unrun checks.
-      Corbin's identity, shared statistics, hot and played records are preserved.
+      Terrace Stalker uses the current Creature template, one complete Basic 5e
+      Layout block in 2024 wording, explicit timing/targets/condition endings,
+      Player-safe First sight and a real incoming link. The reply enumerates
+      Skarn's NPC and every unplayed consumer from actual backlinks, with each
+      consequential adjustment or reason for none. Played Session pages, hot
+      and prepared Session 12 stay byte-unchanged. Full scratch-root gate runs;
+      standalone work logs once after success; new Canon is identified. Where
+      hot implies a Skarn breakoff, the Recap's unresolved endpoint is kept.

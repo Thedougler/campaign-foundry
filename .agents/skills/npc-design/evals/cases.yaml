@@ -1,24 +1,51 @@
-# Existing NPC scale branches grounded for issue #31, not table feedback.
-- id: oleandro-records
+# One packed run: new Site NPC, recurring deepen, and villain plan.
+- id: after-aruhe-people
   source_pages:
     - The Shattered Sea/Campaigns/Shattered Sea/hot.md
     - The Shattered Sea/Locations/The Ponte Bassa.md
     - The Shattered Sea/Locations/Calven and Calveno.md
     - The Shattered Sea/Creatures/Commoner.md
+    - The Shattered Sea/NPCs/Nona Black-Jaw.md
+    - The Shattered Sea/Factions/Passage.md
+    - The Shattered Sea/NPCs/Cobb.md
+    - The Shattered Sea/Items/Sending Stone (Nona's).md
     - The Shattered Sea/Campaigns/Shattered Sea/Threads/Perrin and Nona.md
+    - The Shattered Sea/NPCs/Simone Tabarnack.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md
     - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
   prompt: >-
-    Give Oleandro Fuschi, the keeper already recorded at The Ponte Bassa,
-    an NPC page for a possible later meeting about Calveno hull movements.
-    Preserve his twenty years of unwritten vessel memory, fish broth,
-    direct answers and the problem of increasingly false manifests. Make
-    his likely conversations, limits, leverage and uncertain requests usable
-    at the table. Reuse fitting shared Creature statistics; his name does
-    not make him a unique fighter. The Party is still on Aruhe, so do not
-    claim this meeting or a new discovery already happened. No art or
-    Foundry connection is needed.
+    Three NPC jobs in this World, one reply. The Party is still on Aruhe; none
+    of this has happened yet. (1) Give Oleandro Fuschi, already recorded at
+    The Ponte Bassa, an NPC page for a possible later meeting about Calveno
+    hull movements. Keep twenty years of unwritten vessel memory, fish broth,
+    direct answers and increasingly false manifests. Make conversations,
+    limits, leverage and uncertain requests table-ready. Reuse fitting shared
+    Creature statistics; his name does not make him a unique fighter. (2)
+    Deepen Nona Black-Jaw as a recurring NPC for the crew's rescue obligation
+    after Aruhe. Keep her history, kitchen voice, Passage limits,
+    missing-persons desk, two dispatched ships, protection of Felix and
+    unresolved Vestra knowledge. Ground invitations in the actual PCs' Goals
+    and bonds or Plans, give a next move if ignored, and distinct discovery
+    for hidden truths. Keep Perrin's sending stone and the existing Perrin and
+    Nona Thread; invent no past ties to the other PCs and do not assume a
+    completed return. (3) Make Simone Tabarnack a runnable villain for the
+    pursuit after Aruhe. Deepen her existing person and put her interruptible
+    future plan on Simone's Hunters, not a parallel Thread. Keep purple-caste
+    identity, incomplete Gold rite, dead maintainer Ozzeth, Crown toxin
+    bargain, restraint with soldiers and the goal to capture Jean-Claude. He
+    is catatonic in Delmar's coat; the captive trail points toward Karath.
+    Multiple endings, no omniscience, no scripted win. Do not retune linked
+    statistics. No art or Foundry work. Do not rewrite hot or Session records.
   checks:
-    pages: [The Shattered Sea/NPCs/Oleandro Fuschi.md]
+    pages:
+      - The Shattered Sea/NPCs/Oleandro Fuschi.md
+      - The Shattered Sea/NPCs/Nona Black-Jaw.md
+      - The Shattered Sea/NPCs/Simone Tabarnack.md
+      - The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md
     sections:
       The Shattered Sea/NPCs/Oleandro Fuschi.md:
         - "## At a glance"
@@ -28,156 +55,60 @@
     canon:
       The Shattered Sea/NPCs/Oleandro Fuschi.md:
         - '^type:\s*NPC\s*$'
-        - '\[\[The Ponte Bassa\]\]'
         - '^creature:\s*"\[\[[^\]]+\]\]"\s*$'
-    absent:
-      The Shattered Sea/NPCs/Oleandro Fuschi.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
-  rubrics:
-    - >-
-      The existing person on the Site is materialised rather than replaced
-      by an invented clerk. The Agent searches actual NPC candidates and
-      reuses fitting shared statistics, considering Commoner before creating
-      any new Creature. Rules and social archetypes follow the 2024 source
-      ladder where needed; provenance distinguishes Site facts from newly
-      authored identity and contains only actual archived Raw in sources.
-    - >-
-      A present want, costly leverage, limit and explicit secret with
-      discoverable evidence support the hull-record role without changing
-      the twenty-year memory, false-manifest problem or distinction between
-      remembered claims and true motives. A memorable visible detail,
-      current activity and speakable opening grow from this real work.
-    - >-
-      The DM can run likely ship-record, manifest-comparison and payment
-      requests. Attitude is separate from willingness; automatic yes/no
-      answers follow the NPC's goals. Hesitant requests use retrieved 2024
-      Influence, its DC, applicable attitude modifiers and meaningful
-      success/miss consequences. Essential information has three independent
-      discovery paths rather than one compulsory roll.
-    - >-
-      The NPC follows the current template, links a complete actual Creature
-      through creature and gains a non-index incoming link from The Ponte
-      Bassa. No NPC statblock or embed appears. The full scratch-root gate
-      and one create log cover every touched owner; hot and Session records
-      remain unchanged and the possible meeting stays future.
-
-- id: deepen-nona
-  source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
-    - The Shattered Sea/NPCs/Nona Black-Jaw.md
-    - The Shattered Sea/Factions/Passage.md
-    - The Shattered Sea/NPCs/Cobb.md
-    - The Shattered Sea/Items/Sending Stone (Nona's).md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Perrin and Nona.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-  prompt: >-
-    Deepen Nona Black-Jaw as a recurring NPC for the crew's rescue obligation
-    after Aruhe. Preserve her existing history, kitchen voice, Passage limits,
-    missing-persons desk, two dispatched ships, protection of Felix and
-    unresolved Vestra knowledge. Give her actionable invitations grounded
-    in the actual PCs' Goals and bonds or Plans, a next move if ignored and
-    distinct ways to discover her hidden truths. Keep Perrin's sending stone
-    and the real existing Perrin and Nona Thread; do not invent past ties to
-    the other PCs or assume a completed return from Aruhe. No art or Foundry
-    connection is needed.
-  checks:
-    pages: [The Shattered Sea/NPCs/Nona Black-Jaw.md]
-    canon:
       The Shattered Sea/NPCs/Nona Black-Jaw.md:
         - 'creature: "\[\[Commoner\]\]"'
-        - 'Calveno Candle'
-        - 'Vestra'
-        - '/\b314\b/'
-        - '\[\[Sending Stone \(Nona''s\)(?:\|[^\]]+)?\]\]'
-    absent:
-      The Shattered Sea/NPCs/Nona Black-Jaw.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
-  rubrics:
-    - >-
-      Established facts survive, including forty years feeding the Warren,
-      the Mercatura desk, more than 314 missing fighting-age men, two Passage
-      ships, Felix alive under a one-month protection arrangement, Nona's
-      private Calveno Candle history and incomplete knowledge of the Vestra.
-      Her existing First look and Commoner link remain, and played pages and
-      hot are byte-unchanged.
-    - >-
-      Every relevant PC receives a distinct invitation or explicit none based
-      on their real Goals, bonds or Plans: rescue/family obligations, crew
-      freedom, mapping/protection and fugitive protection are not fabricated
-      prior relationships. Current catatonic Jean-Claude is not treated as
-      freely conversing. Invitations offer choices and costs, and the ignored
-      next move reuses the existing Thread instead of duplicating its plan.
-    - >-
-      Each hidden truth has a testable tell and three distinct discovery
-      routes with concrete evidence. What Nona knows, hides and can grant
-      stays separate from DM truth. The sending stone is already Perrin's;
-      the page does not hand him a second copy or invent a resolved favour.
-    - >-
-      New depth is identified as design, filed through the actual NPC and
-      owner templates with resolving links, and covered by the full target-root
-      gate and one operation log. New Narration is Player-safe without
-      replacing the already-heard First look.
-
-- id: simone-villain
-  source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
-    - The Shattered Sea/NPCs/Simone Tabarnack.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-  prompt: >-
-    Make Simone Tabarnack a runnable villain for the continuing pursuit after
-    Aruhe. Deepen her existing person and put her interruptible future plan
-    on Simone's Hunters, not a parallel Thread. Preserve her purple-caste
-    identity, incomplete Gold rite, dead maintainer Ozzeth, Crown toxin
-    bargain, restraint with her soldiers and desire to capture Jean-Claude.
-    Jean-Claude is currently catatonic in Delmar's coat; the captive trail
-    points toward Karath. Give the real Party choices, costs and multiple
-    possible endings without making Simone omniscient or a scripted winner.
-    Do not retune her linked statistics or rewrite hot and Session records.
-    No art or Foundry connection is needed.
-  checks:
-    pages:
-      - The Shattered Sea/NPCs/Simone Tabarnack.md
-      - The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md
-    canon:
       The Shattered Sea/NPCs/Simone Tabarnack.md:
         - 'creature: "\[\[Commoner\]\]"'
-        - 'Ozzeth'
-        - 'Ossketh'
-        - '/Crown/i'
       The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md:
         - '^status:\s*active\s*$'
-        - 'Karath'
-        - 'Jean-Claude'
     absent:
+      The Shattered Sea/NPCs/Oleandro Fuschi.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
+      The Shattered Sea/NPCs/Nona Black-Jaw.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
       The Shattered Sea/NPCs/Simone Tabarnack.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
   rubrics:
     - >-
-      The future plan lives on the existing active Simone's Hunters Thread
-      with a resolving link from the NPC. Every step has trigger/time, sign,
-      resource or cost, ignored consequence, Party interruption, fallback and
-      Simone reaction. It acts between appearances without asserting scouts
-      already found the current camp or giving Simone unearned knowledge.
+      Oleandro is the Site's keeper, not an invented clerk. Actual NPC
+      candidates are searched; Commoner is considered before any new Creature.
+      Nona's established facts survive: forty years feeding the Warren, the
+      Mercatura desk, more than 314 missing fighting-age men, two Passage
+      ships, Felix under a one-month protection, private Calveno Candle
+      history, incomplete Vestra knowledge, existing First look and Commoner
+      link. Simone's history survives: she reported Jean-Claude and Pell,
+      refuses to waste soldiers, independently found the rite, remains
+      incompletely transformed after Ozzeth's death, supplied Crown toxin;
+      capture-not-kill is distinguished from hunters killing Grung leavers.
+      Provenance separates Site/Wiki facts from new identity; sources hold
+      only archived Raw. Statistics stay on linked Commoner pages unless
+      separately requested.
     - >-
-      At least three distinct endings can be reached by Party choices rather
-      than a required roll, guaranteed capture or cutscene. The plan respects
-      all four real PC goals and present capability, especially Jean-Claude's
-      inability to scout or negotiate now, without assuming his recovery.
+      Oleandro has a present want, costly leverage, limit and explicit secret
+      with discoverable evidence, without changing the twenty-year memory or
+      false-manifest problem. Nona: every relevant PC gets a distinct
+      invitation or explicit none from real Goals, bonds or Plans; catatonic
+      Jean-Claude is not freely conversing; invitations have choice and cost;
+      the ignored next move reuses the existing Thread. Simone's plan lives on
+      Simone's Hunters with a resolving NPC link; every step has
+      trigger/time, sign, resource or cost, ignored consequence, Party
+      interruption, fallback and her reaction; it does not assert scouts
+      already found the current camp or grant unearned knowledge.
     - >-
-      Established history and knowledge survive: Simone reported Jean-Claude
-      and Pell, refuses to waste soldiers, independently found the rite,
-      remains incompletely transformed after Ozzeth's death and supplied
-      Crown toxin. Her personal capture-not-kill goal is distinguished from
-      reports of the hunters killing Grung leavers. Future rite maintenance
-      or alliances are design, not invented completed events.
+      Oleandro's likely ship-record, manifest-comparison and payment requests
+      are runnable. Attitude is separate from willingness; automatic answers
+      follow goals; Hesitant requests use retrieved 2024 Influence, its DC,
+      attitude modifiers and meaningful success/miss. Essential information
+      has three independent paths. Each of Nona's hidden truths has a testable
+      tell and three distinct discovery routes; what she knows, hides and can
+      grant stays separate from DM truth; no second sending stone. Simone has
+      at least three endings reachable by Party choice, not a required roll,
+      guaranteed capture or cutscene, respecting present capability and
+      Jean-Claude's inability to scout or negotiate now.
     - >-
-      Statistics stay on the unchanged linked Commoner unless separately
-      requested; a named villain does not silently gain unique combat rules.
-      The NPC and Thread use current templates, complete resolving dependencies,
-      honest provenance, full scratch-root gate and one create log. Hot,
-      already-heard Narration and all Session records remain unchanged.
+      Oleandro follows the current NPC template, links a complete Creature,
+      and gains a non-index incoming link from The Ponte Bassa. Nona's new
+      depth is identified as design, filed through actual owner templates,
+      Player-safe without replacing already-heard First look. Simone does not
+      silently gain unique combat rules. All three pages and the Thread have
+      resolving dependencies, honest provenance, full scratch-root gate and
+      one operation log covering touched owners. Hot, already-heard Narration
+      and Session records remain unchanged; meetings and plans stay future.
