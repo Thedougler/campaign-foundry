@@ -1,5 +1,5 @@
-# Existing Item branches grounded for issue #31, not reported table feedback.
-- id: rescue-line-charm
+# One packed run: new rescue charm and existing plot papers.
+- id: charm-and-letters
   source_pages:
     - The Shattered Sea/Campaigns/Shattered Sea/hot.md
     - The Shattered Sea/Locations/Lava Tubes.md
@@ -8,62 +8,6 @@
     - The Shattered Sea/Lore/Taking on Aruhe.md
     - The Shattered Sea/Items/The Snap.md
     - The Shattered Sea/Items/Flying Boots.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-  prompt: >-
-    Design an uncommon Item called Rescue Line Charm for Perrin's work keeping
-    the crew and rescued people alive. It should help with rope rescues on
-    wet ledges like the Lava Tubes, not simply give him flight or a Swim Speed
-    he already has. Source existing Items before deciding whether to reskin
-    or adapt one. Keep it useful beside Delmar's Flying Boots, Crissdalynn's
-    flight and Perrin's current equipment. The charm is requested new output:
-    do not claim it was found, purchased, or already carried, and do not add it
-    to a PC Inventory or a prepared Session as an acquired reward. Aruhe's
-    taking law still applies. No art or Foundry connection is needed.
-  checks:
-    pages: [The Shattered Sea/Items/Rescue Line Charm.md]
-    sections:
-      The Shattered Sea/Items/Rescue Line Charm.md:
-        - "## At a glance"
-        - "## Play"
-        - "## Depth"
-        - "## Links"
-    canon:
-      The Shattered Sea/Items/Rescue Line Charm.md:
-        - '^type:\s*Item\s*$'
-        - '/uncommon/i'
-  rubrics:
-    - >-
-      The source ledger reads the real bearer, Party Inventory and existing
-      Item candidates before 2024 SRD, official/web and new design. It gives
-      three to five retrieved candidates with provenance, rarity, function and
-      fit, then names the reuse/reskin/adaptation decision or why none fits.
-      Missing retrieval is honest, not proof that a published effect is absent.
-    - >-
-      Perrin is a level-5 Warlock/Lore Bard with a Swim Speed and rescue goal,
-      not a fictional Rogue. The design fills a rope-rescue niche without
-      duplicating Delmar's boots, Crissdalynn's flight or The Snap's shield.
-      Attunement assumptions acknowledge differences between recorded Item
-      ownership and the current Sheet instead of silently editing the Sheet.
-    - >-
-      Full 2024 rules text specifies relevant action costs, targets, reach,
-      anchoring, load limits, uses/recovery, duration and failure/counterplay.
-      Rarity is assessed against retrieved peers; the bearer's three strongest
-      uses are checked for stacking, action economy and unpriced multiplication.
-      It offers a consequential choice, visibly expresses its function and
-      does not waive living-growth claims or make Ettore's rescue already happen.
-    - >-
-      The actual Item template, Player-safe First look, resolving owner links
-      and archived-only sources are used. The reply identifies new Canon and
-      intended availability separately from acquired gear, reports the full
-      scratch-root gate and single create log, and leaves PC Inventories, hot
-      and all Session records unchanged.
-
-- id: letters-as-evidence
-  source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
     - The Shattered Sea/Items/Letters of Marque.md
     - The Shattered Sea/NPCs/Barnaby Rook.md
     - The Shattered Sea/NPCs/Corbin Knighton.md
@@ -71,44 +15,65 @@
     - The Shattered Sea/Factions/Dravosi Crown.md
     - The Shattered Sea/Vehicles/Uncertainty.md
     - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
   prompt: >-
-    The Party holds Barnaby Rook's Letters of Marque. Deepen that existing
-    plot Item so I can run their use as evidence, a bluff, a bargaining chip
-    or forgery stock during continuing Crown pursuit. Preserve the licence,
-    30,000 gp bond, nonmagical nature, custody and recorded seal and bluff
-    consequences. Make actual people and institutions react according to
-    what they know now; do not invent a sale or legal acquittal that has
-    already happened. No art or Foundry connection is needed.
+    Two Item jobs, one reply. (1) Design an uncommon Item called Rescue Line
+    Charm for Perrin's work keeping the crew and rescued people alive. Help
+    with rope rescues on wet ledges like the Lava Tubes, not flight or a Swim
+    Speed he already has. Source existing Items before deciding whether to
+    reskin or adapt one. Keep it useful beside Delmar's Flying Boots,
+    Crissdalynn's flight and Perrin's current equipment. Do not claim it was
+    found, purchased or already carried, and do not add it to a PC Inventory
+    or a prepared Session as an acquired reward. Aruhe's taking law still
+    applies. (2) The Party holds Barnaby Rook's Letters of Marque. Deepen that
+    existing plot Item so I can run their use as evidence, a bluff, a bargaining
+    chip or forgery stock during continuing Crown pursuit. Preserve the
+    licence, 30,000 gp bond, nonmagical nature, custody and recorded seal and
+    bluff consequences. Make actual people react according to what they know
+    now; do not invent a sale or legal acquittal that has already happened.
+    No art or Foundry work. Do not edit hot or Session records.
   checks:
-    pages: [The Shattered Sea/Items/Letters of Marque.md]
+    pages:
+      - The Shattered Sea/Items/Rescue Line Charm.md
+      - The Shattered Sea/Items/Letters of Marque.md
     sections:
+      The Shattered Sea/Items/Rescue Line Charm.md:
+        - "## At a glance"
+        - "## Play"
+        - "## Depth"
+        - "## Links"
       The Shattered Sea/Items/Letters of Marque.md:
         - "## At a glance"
         - "## Play"
         - "## Depth"
         - "## Links"
     canon:
+      The Shattered Sea/Items/Rescue Line Charm.md:
+        - '^type:\s*Item\s*$'
       The Shattered Sea/Items/Letters of Marque.md:
-        - '\[\[Barnaby Rook\]\]'
-        - '\[\[Uncertainty\]\]'
-        - '30,000 gp'
-        - '/(?:DC\s*15[^\n]{0,80}Deception|Deception[^\n]{0,80}DC\s*15)/i'
+        - '^type:\s*Item\s*$'
   rubrics:
     - >-
-      The original Item facts survive: the Party took the papers from the
-      captured Surety, Rook is the licensee, the commission concerns the named
-      enemy prize, the bond is 30,000 gp, the parchment is nonmagical, altering
-      its name visibly breaks the seal and impersonation is capital in Crown
-      courts. The existing Deception DC 15 bluff remains usable.
+      Source ledger reads bearer, Party Inventory and existing Item candidates
+      before 2024 SRD, official/web and new design. Names the reuse/reskin/
+      adaptation decision or why none fits. Missing retrieval is honest.
+      Perrin is a level-5 Warlock/Lore Bard with Swim Speed and a rescue goal.
+      The charm fills a rope-rescue niche without duplicating boots, flight or
+      The Snap. It is not already acquired. Letters keep Rook as licensee,
+      30,000 gp bond, nonmagical parchment, visible seal-break on name change,
+      capital impersonation, and the existing Deception bluff.
     - >-
-      The page gives concrete reactions, risks, evidence requirements and
-      consequences for showing, concealing, bargaining with, returning or
-      altering the papers, linking actual NPC/Faction owners. Corbin's private
-      knowledge and Rupert's ignorance remain separate; carrying the papers
-      does not automatically grant their authority. No unnecessary charges,
-      activation mechanics or invented prior transaction turns a plot object
-      into a magic item.
+      Charm: full 2024 rules with action, targets, reach, anchoring, load,
+      uses/recovery, duration and failure. Rarity against peers. Does not waive
+      living-growth claims or complete Ettore's rescue. Letters: concrete
+      reactions for showing, concealing, bargaining, returning or altering,
+      linked to actual people. Corbin's private knowledge and Rupert's
+      ignorance stay separate. Carrying the papers does not grant their
+      authority. No invented prior sale.
     - >-
-      The current Item template and provenance are preserved. New design is
-      reported as such, the full target-root gate and one operation log are
-      observed, and hot, PC Inventories and played records remain unchanged.
+      Actual Item templates, Player-safe First look, archived-only sources.
+      New Canon vs acquired gear is identified. Full scratch-root gate and one
+      create log. PC Inventories, hot and Session records unchanged.
