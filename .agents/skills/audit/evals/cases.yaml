@@ -1,30 +1,45 @@
+# Real-source consistency checks, not newly reported table failures.
 - id: named-claim
-  prompt: Audit Saltwick's claim about who is Harbor Warden.
+  source_pages:
+    - The Shattered Sea/Lore/Auralis.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Shattered Sea.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
+  prompt: Audit the claim that Auralis has already said CONSUME to Perrin in Session 12. Compare the Lore's full truth and chronology with the Campaign state and prepared Scene. Audit that temporal claim only.
   checks:
     canon:
-      Lowtide/Locations/Saltwick.md: ['\[\[Hobb Tarrow\]\] is Harbor Warden']
-      Lowtide/NPCs/Hobb Tarrow.md: [Harbor Warden]
-      Lowtide/log.md: ['/\] audit \|/']
+      The Shattered Sea/Lore/Auralis.md: [CONSUME, Grow, Not yet, Giant, Stonepear]
+      The Shattered Sea/log.md: ['/\] audit \|/']
     absent:
-      Lowtide/Locations/Saltwick.md: ['\[\[Pell Rushlight\]\] is Harbor Warden']
+      The Shattered Sea/Lore/Auralis.md: ['His words have been.*CONSUME']
   rubrics:
-    - Saltwick's page again names Hobb Tarrow as Harbor Warden, decided because Hobb's own page and the rest of the Wiki say so, and Pell Rushlight's page is untouched on this point.
-    - Only the named office-holder claim is audited; unrelated content and both NPC pages stay byte-for-byte unchanged.
-    - Each fix has its own audit log entry whose title says what changed and why.
-    - The report to the DM lists the fixes in a few lines and asks no questions.
-    - Every factual change is supported by a DM statement, a recorded event that changes that claim, or a winning Wiki claim; unresolved motives and facts the evidence does not change survive.
+    - The named temporal question alone bounds the audit. Session 12 is prepared, not played, so CONSUME and the fruit instruction are restated as planned rather than a message already heard.
+    - Both the full-truth paragraph and chronology on Auralis are checked, together with other present assertions of that same claim. One corrected sentence with another past-event assertion left behind fails.
+    - Grow and Not yet remain recorded past speech. Auralis's origin, limits, unwitting pact, motives and ignorance of Aruhe's law keep their meanings; the future plan is not deleted.
+    - The Campaign state and prepared Scene provide the temporal evidence. Played records, the Scene's planned content and unrelated claims stay byte-for-byte unchanged.
+    - Each actual fix has its own audit log entry naming what changed and why. No invented finding, synthetic overlay or fresh table-feedback claim is added.
+    - The short report names the temporal scope and asks no questions.
 - id: after-ingest
-  prompt: Audit the pages the Session 2 Ingest touched.
-  checks:
-    canon:
-      Lowtide/log.md: ['/\] audit \|/']
-    absent:
-      Lowtide/NPCs/Sable.md: ['summary: ".*who rings the chapel bell']
-      Lowtide/Items/Ebb Lantern.md: [Odalys Ferro]
+  source_pages:
+    - The Shattered Sea/log.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Shattered Sea.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Perrin and Nona.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Bring the Pearl of Souls to Umberlee.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Drowned Maw Awakening.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Lore/Auralis.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+  prompt: "Audit the pages under the 2026-09-30 Ingest entry titled 'First Ingest: session deltas applied to World, Thread, PC, NPC, Vehicle and Item pages, with images attached and Saltwright created', plus their linked neighbours. Keep played records immutable and distinguish Session 12 plans from current state."
   rubrics:
-    - The scope is the pages listed under the Session 2 ingest log entry plus their neighbours, and the reply or log shows that scope was used rather than the whole Wiki.
-    - Stale present-tense claims overtaken by the Session 2 Recap (Sable ringing the bell, the ledger lying in the bell loft) are rewritten to the current truth on every page that states them, with the past kept as history.
-    - Pages outside the scope that nothing required changing are left untouched.
-    - The report asks the DM no questions.
-    - Every factual change is supported by a DM statement, a recorded event that changes that claim, or a winning Wiki claim; unresolved motives and facts the evidence does not change survive.
-    - The lantern remains on loan to the Party from Hobb; no individual bearer or later transfer is invented. Session 2 names Odalys as the ledger's carrier, not the lantern's.
+    - The scope starts with the eight bullets under that exact Ingest entry and grows through linked neighbours, rather than assuming all First Ingest entries or the whole Wiki are the scope.
+    - The audit checks actual present-state consistency against played Recaps, preserving the post-Session 11 state and the 1495 DR date uncertainty.
+    - Session 12 rescue, departure and level-6 rewards remain planned outcomes. They do not overwrite the four level-5 PCs or assert that the rescue has happened.
+    - The actual hot claim that Skarn broke off is compared with the Recap's unresolved attack. The audit preserves hot as tool-owned and preserves the played Recap, reporting the discrepancy for its owner rather than treating hot as a later played event.
+    - Auralis's already-heard CONSUME claim is corrected to the prepared Session 12 plan on mutable Lore, without deleting the plan or changing the earlier Grow and Not yet history.
+    - The existing First Ingest audit entry is historical evidence, not proof that the current scratch run found the same defects or received fresh DM feedback.
+    - Every actual finding is settled by Canon precedence, with independent facts and overtaken history preserved and one log entry per fix. Current pages and played records remain byte-for-byte unchanged.
+    - The short report names the Ingest slice, reports only actual fixes or a current result, and asks no questions.

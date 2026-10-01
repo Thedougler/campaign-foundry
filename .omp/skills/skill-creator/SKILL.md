@@ -40,9 +40,9 @@ Dispatch `skill-writer` with `brief.md`'s intent, trigger branches, inputs/outpu
 
 ### 4. Paired evals
 
-Read [`references/eval-loop.md`](references/eval-loop.md) before planning paired evaluations. Create 2–4 realistic cases in `<skill-path>/evals/evals.json`; follow the reference through dispatch, evidence capture, independent grading, aggregation and static DM review.
+Read `evals/README.md` before authoring or preparing eval data, then [`references/eval-loop.md`](references/eval-loop.md) for paired execution. Select the smallest regression set justified by reported weekly home Session feedback under that contract; retain `evals/evals.json`'s artifact schema and map each selected case to its grounded `cases.yaml` preparation input. Follow the reference through dispatch, evidence capture, independent grading, aggregation and static DM review. If no eligible regression or paired run is requested, record that branch as skipped; skill revision and data migration do not automatically benchmark current skills.
 
-**Done when** the reference's evidence, grading, aggregation and DM-review criteria are met for every case, and `feedback.json` is imported.
+**Done when** the requested pair set meets the reference's evidence, grading, aggregation and DM-review criteria and `feedback.json` is imported, or the skipped branch has its reason recorded.
 
 ### 5. Revise and repeat
 

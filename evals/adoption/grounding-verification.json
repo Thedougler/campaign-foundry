@@ -1,0 +1,20 @@
+{
+  "issue": 31,
+  "preparationEvidence": ".scratch/grounded-eval-smoke.json",
+  "preparedCases": 35,
+  "suites": 15,
+  "benchmarkInputs": 9,
+  "promptVersion": "51d14f52cbe4",
+  "inheritedEvidence": "Issue #31 comment 5928315640 reports independent frozen clones, 549 SHA-256-identical source files, 27 passing public-interface tests, TypeScript and six validated skill packages. These checks were not repeated merely to confirm the reported result.",
+  "observedCommands": [
+    {"command": "env -u QMD_CONFIG_DIR qmd status", "result": "Scratch-local .qmd/index.sqlite; 404 indexed files and 1126 vectors."},
+    {"command": "env -u QMD_CONFIG_DIR qmd collection list/show wiki/raw/archive", "result": "All three collections resolve inside the prepared scratch root; index.yml has no update hooks."},
+    {"command": "env -u QMD_CONFIG_DIR qmd update", "result": "205 Wiki and 199 Archive documents unchanged; no Raw documents."},
+    {"command": "env -u QMD_CONFIG_DIR qmd embed", "result": "All content hashes already have embeddings."},
+    {"command": "env -u QMD_CONFIG_DIR qmd search 'Talon Skarn' -c wiki", "result": "Retrieved the scratch NPC and related Session/Quest pages."},
+    {"command": "bun run eval:prepare --verify <prepared-root>", "result": "ok: true after QMD update/embed/search; case named-claim."},
+    {"command": "bun run cf bench briefs --check", "result": "All nine committed briefs match their current input bytes."}
+  ],
+  "scratchRoot": "/private/var/folders/kf/r581r2qj62x3b_4thcvddv0w0000gn/T/campaign-foundry-eval-fPqSC4",
+  "modelEvaluation": "No model benchmark, baseline or full model-eval suite executed for this data migration. Benchmarks deferred until all skill migrations are complete."
+}

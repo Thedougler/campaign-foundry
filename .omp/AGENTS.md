@@ -19,10 +19,10 @@ Use an external CLI only when native delegation cannot provide the required mode
 Three omp-native skills split the evaluation surface, each owning its workflow:
 
 - **Skill authoring** — read `skill://skill-creator` before creating or revising a skill, planning paired baselines or feedback iterations, or testing its description.
-- **Fixture evals** — read `skill://run-evals` before planning or executing committed `evals/cases.yaml` cases in scratch Worlds with deterministic checks and rubric grading.
+- **Campaign evals** — read `skill://run-evals` before planning or executing committed `evals/cases.yaml` cases in scratch Worlds with deterministic checks and rubric grading.
 - **Prose Benchmark** — read `skill://dnd-benchmark` before planning, running or resuming cross-family Matrix Narration ranking or refreshing its leaderboard.
 
-Their workflows dispatch native `task` subagents exclusively — no omp or Claude CLI invocation, even when a provider is unavailable (that is an execution error to report). The `.agents/` skills of the same names serve other harnesses and stay unchanged.
+Their workflows dispatch native `task` subagents exclusively — no omp or Claude CLI invocation, even when a provider is unavailable (that is an execution error to report). The `.agents/` equivalents serve other harnesses; shared eval-data policy lives in `evals/README.md`.
 
 ## Jev judgment
 

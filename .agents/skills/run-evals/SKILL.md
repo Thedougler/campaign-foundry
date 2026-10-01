@@ -1,39 +1,51 @@
 ---
 name: run-evals
-description: Evaluates a skill against the fixture World, alongside `pnpm eval:check`. Use when a skill is new or changed, when an issue's Done asks for evals, or when the DM asks how well a skill works.
+description: Fixture evals — execute committed cases in isolated Shattered Sea copies, check artifacts and independently grade rubrics. Use when the DM requests committed case verification or an issue requires it. Paired skill measurement belongs to skill-creator.
 ---
 
 # Run evals
 
-A skill's cases live in `.agents/skills/<skill>/evals/cases.yaml` (the format is in `evals/check.ts` and `test/evals/cases.yaml`). Every case runs in its own scratch copy of the fixture World, `test/fixtures/`, so no run touches `wiki/`. You orchestrate: test subjects execute the cases, independent prose graders grade them, scripts check. Inside oh-my-pi, ordinary runs use native `test-subject` (`@TEST-SUBJECT`) and `prose-grader` (`@PROSE-GRADER`) agents with harness-configured role assignments and fallback chains, not Matrix pins or rotation. Native `task` delegation is the transport (`.omp/AGENTS.md` owns the policy); the omp CLI serves other harnesses or a stated native capability gap.
+Committed cases may live beside a skill or under `evals/cases/`; the resolution step below selects the suite. Before authoring or preparing eval data, read `evals/README.md` for the shared grounding contract; `evals/check.ts` owns the checker schema. Inside oh-my-pi, read `.omp/skills/run-evals/SKILL.md` and use its native runners and graders instead of the CLI workflow below. Other harnesses preserve the Matrix pins and artifact contracts here. Fixture results stay separate from the Narration benchmark cache.
 
 ## Steps
 
-1. **Workspaces.** For each case, from the repo root:
+1. **Validate and prepare.** Use an explicitly supplied cases-file path (`--cases` or equivalent) when present; a missing or invalid explicit file is a preparation error. Otherwise resolve `.agents/skills/<skill>/evals/cases.yaml`, then `.omp/skills/<skill>/evals/cases.yaml`, then `evals/cases/<skill>.yaml`; report all searched paths and stop only if none exists. Record the absolute cases-file, target skill and repo paths independently. Read and call `loadCases` in `evals/check.ts`, require a nonempty suite and compile its `canon`/`absent` patterns using `toRegExp`'s convention. For each validated case, from the real repo:
 
    ```bash
-   W=$(mktemp -d)/<case-id>; mkdir -p "$W/raw" "$W/.eval" "$W/.qmd"
-   cp -R test/fixtures/vault "$W/wiki"; cp -R wiki/templates "$W/wiki/templates"
-   cp -R test/fixtures/archive "$W/archive"; cp .qmd/index.yml "$W/.qmd/"
-   cp -R .agents/skills/<skill>/evals/raw/<case-id>/. "$W/raw/" 2>/dev/null
-   cp -R .agents/skills/<skill>/evals/seed/<case-id>/. "$W/wiki/" 2>/dev/null
-   cp -R "$W/wiki" "$W/.eval/baseline"
-   (cd "$W" && qmd update && qmd embed) >/dev/null
+   bun run eval:prepare --cases <absolute-cases.yaml> --case <case-id>
    ```
 
-   A case that needs Raw keeps it in `evals/raw/<case-id>/` beside its `cases.yaml`; a case that needs the World changed first (a seeded contradiction) keeps the changed pages, at their vault paths, in `evals/seed/<case-id>/`.
-2. **Run** the cases, one runner each, at most four at a time. Inside oh-my-pi, dispatch `test-subject` for each case or baseline; its configured `@TEST-SUBJECT` role and fallback chain select the model. Record the result's actual `resolvedModel`, not the role alias. The `task` wire has no `model` argument. A case-named model remains a required pin: use native routing only if it can supply that model and confirm the actual `resolvedModel`; otherwise state the missing capability and use the CLI leg. Outside oh-my-pi, use the `cheap` pin of `openai` or `glm` in `evals/models.yaml`, one family per run, rotating openai → glm (record the family), unless the case names a model. For paired baseline/with-skill runs, record both actual models and compare only when they match; otherwise report the pair as noncomparable or missed. The brief is the one below with `Use the \`<skill>\` skill.` replaced by `Read and follow /Users/nick/campaign-foundry/.agents/skills/<skill>/SKILL.md and use it.` CLI leg, from the repo root: `omp -p --auto-approve --no-session --max-time 900 --thinking high --model <pin> "$(cat $W/.eval/brief.md)" > $W/.eval/omp-events.jsonl 2> $W/.eval/omp-error.log`, pre-creating `$W/.eval/output.md` first (`: > "$W/.eval/output.md"`): omp print mode diverts the final reply into any file path the brief names, and a run killed before producing one (quota, auth, dead pin) exits rc=1 with a `failed to redirect` error that masks the real cause sitting in the error log. Record the CLI result's actual `resolvedModel` too. A Matrix-selected dead pin retries once on that family's `fallback`; a case-named model is not silently substituted. If the permitted models are unavailable — or the CLI leg is required and omp is absent — record the miss. Brief:
+   Save the JSON response and use its absolute `root`, `wiki`, `raw`, `archive`, `baseline` and `manifest` paths; `$W` below is `root`, and `$BASELINE` is the returned Wiki `baseline` path. Follow `evals/README.md`'s scratch-local QMD and isolation gate before dispatch.
+   **Done when** every case has a manifest, baseline and observed scratch-local index, or a named preparation error stops it before execution.
 
-   > You are the Agent in `AGENTS.md`, working for the DM. For this task the project root is `$W`: the Wiki is `$W/wiki`, Raw is `$W/raw`, the Archive is `$W/archive`, and qmd runs from `$W`. Run repo commands from `/Users/nick/campaign-foundry` with `--vault $W/wiki --root $W` (for example `pnpm check --vault $W/wiki --root $W <page>`). Use the `<skill>` skill. The DM says: "<prompt>". When you're done, write your final reply to the DM, exactly as you'd send it, to `$W/.eval/output.md`.
+2. **Run.** Launch one runner per case, at most four at once. Outside oh-my-pi, read `evals/models.yaml` and use one family's `cheap` pin, rotating openai → glm and recording the family, unless the case names a model. Read the `omp` skill for the supported CLI launch. A dead pin retries once on its `fallback`; preserve a miss if neither answers. Record actual completion model evidence, not the intended pin. Supply this brief with absolute paths:
 
-3. **Check** each finished case: `pnpm eval:check <skill> <case-id> $W/wiki`. Keep its PASS and FAIL lines.
-4. **Grade** each case with a fresh grader that never saw the run. Inside oh-my-pi, dispatch `prose-grader`; its configured `@PROSE-GRADER` role and fallback chain select the model, and record its actual `resolvedModel`. Outside oh-my-pi, use the `glm` `cheap` pin in `evals/models.yaml`, then its `fallback`, launching the CLI the same way as the runner with `--model` set to that pin and recording the actual `resolvedModel`. A native grading capability gap takes the documented CLI leg with the gap and required model stated, rather than silently switching to Matrix routing. Brief it with the case's rubrics, `$W/.eval/output.md`, and the Wiki diff against the case's starting point (`diff -ru $W/.eval/baseline $W/wiki -x templates`). It grades each rubric pass or fail with a one-sentence reason quoting the evidence, strictly, as a DM who will run the Session from this output would. It writes `$W/.eval/grades.json` as `[{ "rubric", "pass", "reason" }]`.
-5. **Report** a table: case, actual runner and grader `resolvedModel`, checks passed, rubrics passed, and each failure's reason. Include misses and noncomparable baseline/with-skill pairs; they do not count as passing comparisons.
-6. **Improve.** A failure is the skill's fault until shown otherwise. Delegate the fix to the `skill-writer` subagent (it follows `writing-for-agents` and owns the edit), rerun only the failing cases, and repeat until every case passes. Done when a full run passes every check and rubric.
+   > You are the Agent in `AGENTS.md`, working for the DM. The orchestrator's prepared project root is `$W` and its manifest is `<absolute-manifest-path-returned-by-eval:prepare>`; read that manifest before execution. Wiki is `$W/wiki`, Raw is `$W/raw`, Archive is `$W/archive`. Use these filesystem paths, not the live vault or inherited QMD MCP. Run QMD from `$W` with `env -u QMD_CONFIG_DIR qmd <command>` for scratch-local discovery. An explicit named index overrides local discovery; use the observed status/collection-path gate in `evals/README.md` before update/embed. Run executable repo tooling from `<absolute-repo-root>` with explicit `--vault $W/wiki --root $W` flags. Use `<absolute-skill-path>/SKILL.md`. The DM says: "<case prompt>". Keep content mutations and outputs inside `$W`; save your final DM reply to `$W/.eval/output.md`.
+
+   **Done when** every case has its output and observed model evidence, or a preserved execution error.
+
+3. **Check.** From the real repo, run:
+
+   ```bash
+   bun run eval:check <skill> <case-id> "$W/wiki" --cases <absolute-cases.yaml> --root "$W" --templates "$W/wiki/templates"
+   diff -ru "$BASELINE" "$W/wiki" -x templates
+   ```
+
+   Preserve PASS/FAIL lines and the diff. A diff showing changes is evidence; checker usage errors require corrected preparation.
+   **Done when** every executed case's deterministic checks and starting-state diff are recorded.
+
+4. **Grade.** Launch a fresh independent grader with the `glm` `cheap` pin in `evals/models.yaml`, then its `fallback` if needed; record its actual model separately. Give it the case rubrics, `$W/.eval/output.md` and baseline diff. Require `$W/.eval/grades.json` as `[{"rubric":"<verbatim rubric>","pass":true,"reason":"<quoted evidence>"}]`, exactly one valid entry per rubric.
+   **Done when** every rubric has a valid judgment or its execution/grading error is explicit.
+
+5. **Verify and report.** Run `bun run eval:prepare --verify "$W"` after execution and grading; failed source/isolation verification invalidates that run. Report every case, actual runner/grader models, checks and rubrics passed/total, and failure reasons. Keep preparation/execution errors separate from skill failures; unexecuted cases are not passes.
+   **Done when** every case and criterion is accounted for and originals pass verification.
+
+6. **Improve.** Give failing evidence to `skill-writer`, rerun failing cases in fresh preparations, then run the entire committed suite against the final revision.
+   **Done when** one complete final run passes every check and rubric with no invalid or unexecuted cases.
 
 ## Prose benchmark
 
-The Prose Benchmark ranks Matrix families on Narration quality (the DM's "boxed text"). It runs rarely — on the DM's ask, or when the Matrix's `top` pins or `evals/prose-bench.yaml` change (`bench_version`, the yaml's hash, moves with it). Every prompt is committed: `cf bench briefs` renders each entry's brief byte-exact from the yaml into `evals/benchmark-samples/<bench_version>/`, and the Judge scores from the committed template `evals/bench/judge-brief.md`. A cached row counts only when its `prompt_sha` matches the rendered brief — the `cf bench` subcommands own every byte; each `--help` documents its own flags. Ordinary skill evals never enter the benchmark cache. Work goes Round by Round — the whole benchmark is deliberately beyond any one command — so cost and results stay observable.
+The Prose Benchmark ranks Matrix families on Narration quality. Run it on the DM's request; prompt or pin changes invalidate affected cache entries but do not request a run. Before authoring or refreshing benchmark inputs, read `evals/README.md` for real-source grounding and explicit source refresh, and `docs/adr/0012-benchmark-prompts-are-committed-and-deterministic.md` for byte/cache identity. Migration alone does not benchmark current skills. Every run consumes committed bytes: `cf bench briefs` renders the YAML into `evals/benchmark-samples/<bench_version>/`, and the Judge uses `evals/bench/judge-brief.md`. Historical sample versions remain immutable. The subcommands own rendering and caching; their `--help` documents flags. Ordinary skill evals never enter this cache. Complete and report every family in a Round before starting the next.
 
 1. **Preflight.** `cf bench status` from the repo root: `bench_version`, the Judge fallback pool, whether `omp` answers, and every Round's per-family HIT/MISS with the exact omp command each MISS runs. `omp` missing → "benchmark SKIPPED: no omp on PATH", stop. Seat the Judge once for the whole run: a fresh native Opus 5.5 subagent when the claude CLI answers; otherwise one random pick from the Matrix's `judge_fallback_pool` holds the whole run (recorded as `judge`), through omp with `--thinking high`.
 2. **Briefs.** `cf bench briefs --check` must pass. On DRIFT, run `cf bench briefs`, commit the briefs, and re-run `status` — a moved `prompt_sha` is a MISS by design. Then run every MISS's omp command verbatim from the repo root, at most four omp processes at once, one Round (one content type, every family's `top` pin, yaml order) at a time. A dead pin retries once on the family's `fallback`, then the entry is SKIPPED and uncached.
@@ -44,4 +56,4 @@ The Prose Benchmark ranks Matrix families on Narration quality (the DM's "boxed 
 
 ## Writing cases
 
-Three to six cases per skill, each one distinct branch of the skill: a fresh page, an update to an existing fixture page, a Canon conflict, a thin or odd request. Deterministic `checks` cover what a script can see (pages, sections, fixture Canon that must survive, text that must be absent). `rubrics` cover craft, each a single observable claim a grader can mark pass or fail from the output and the diff. Assert against the fixture's own facts: `test/fixtures/README.md` points to them.
+Before adding or revising cases, read `evals/README.md`; it owns source provenance and the weekly home Session regression policy. Select the smallest set covering the reported issue, not a case quota. Use the checker's existing schema: deterministic `checks` cover observable artifacts and preserved Canon; each `rubric` states one claim decidable from output and the starting-state diff. **Done when** each case has real source paths, traceable reported evidence where required, and criteria that distinguish the reported defect from success.

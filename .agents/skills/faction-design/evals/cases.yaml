@@ -1,7 +1,75 @@
-- id: compact-faction
-  prompt: The Compact that rules Lowtide needs a Faction page. The ledger is going to make them nervous.
+# Existing agenda branch grounded for issue #31, not reported table feedback.
+- id: crown-pursuit
+  source_pages:
+    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Factions/Dravosi Crown.md
+    - The Shattered Sea/Factions/Tessarine Concordat.md
+    - The Shattered Sea/Factions/Passage.md
+    - The Shattered Sea/NPCs/Corbin Knighton.md
+    - The Shattered Sea/NPCs/Rupert Knighton.md
+    - The Shattered Sea/NPCs/Aleksander Malone.md
+    - The Shattered Sea/Items/Letters of Marque.md
+    - The Shattered Sea/Vehicles/Uncertainty.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+  prompt: >-
+    Deepen the Dravosi Crown into an opposition Faction I can run while the
+    Party is on Aruhe. The Party captured HCS Surety as Uncertainty and holds
+    Rook's Letters of Marque; Crown pursuit continued after the Ordinance
+    deception. Give the Crown faces, an exploitable fracture and custom,
+    an offer to this Party and a timed, interruptible pursuit agenda on the
+    existing The Crown Inspection Thread. Preserve what Corbin knows privately
+    versus what Rupert and the public service know. Malone is reserved for
+    confirmed heresy, not an automatic response to ordinary ship theft.
+    Future moves are design, not events already played. Do not alter hot,
+    played records or the prepared Session 12 Scenes. No art or Foundry
+    connection is needed.
+  checks:
+    pages:
+      - The Shattered Sea/Factions/Dravosi Crown.md
+      - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
+    sections:
+      The Shattered Sea/Factions/Dravosi Crown.md:
+        - "## At a glance"
+        - "## Play"
+        - "## Depth"
+        - "## Links"
+    canon:
+      The Shattered Sea/Factions/Dravosi Crown.md:
+        - '^type:\s*Faction\s*$'
+        - '\[\[The Crown Inspection\]\]'
+        - '\[\[Tessarine Concordat\]\]'
+      The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md:
+        - '^status:\s*active\s*$'
+        - '\[\[Uncertainty\]\]'
   rubrics:
-    - A Faction page exists in Lowtide/Factions/ and a Thread in the Campaign's Threads/ holds its agenda, with milestones each carrying a time, a sign and a changed fact; the gate passes.
-    - Its want reacts to the ledger (the sluice order signed by Corvin Tarrow) and its collision names another page.
-    - Its leader and faces are NPC pages, and it has a custom and a fracture the Party can use.
-    - Its offer to this Party names an offerer, the pay and the catch.
+    - >-
+      The Crown's inspection-law want and collision with Passage or Tessarine
+      have concrete current stakes and resolving pages. The existing pursuit
+      Thread is reused without reopening the completed boarding or creating a
+      duplicate agenda. Three to five future milestones each have a relative
+      time or trigger, observable sign, changed fact and Party interruption;
+      the first matters soon without inventing a month or weekday in 1495 DR.
+    - >-
+      Leadership and accessible faces resolve to actual NPC pages; Corbin and
+      Rupert's unequal information is preserved. Corbin has privately recognised
+      the alias but withheld his correction; Rupert's ships followed the false
+      Calveno trail and he has not learned Rook's fate. Public service knowledge
+      does not silently include the living-chart secret. Confirmed heresy, not
+      ordinary crime, is the threshold for Malone.
+    - >-
+      The custom and internal fracture are usable levers grounded in Crown
+      paperwork, authority and competing interests, not interchangeable faction
+      colour. Meeting, opposition, ignored pressure and a broken deal have
+      concrete consequences. An offer names an actual offerer, pay and catch
+      relevant to the real Party's current goals and papers; hidden truth has
+      three distinct discoverable Clues.
+    - >-
+      The Faction and Thread use their actual Wiki templates and resolving
+      owner links, with fighting ranks counted and linked to Creatures rather
+      than copied statistics. New design decisions are separated from sourced
+      facts. The full scratch-root gate and one create log cover every touched
+      page; hot and Session records remain unchanged.

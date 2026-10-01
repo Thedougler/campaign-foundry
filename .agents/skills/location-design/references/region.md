@@ -1,18 +1,15 @@
-# Region
+# Region: choosing a journey
 
-A Region answers "which way do you go?": lasting geography, routes that trade against each other, the powers that can change it, and what is changing in it now. Prepare at the scale play needs: a realm lists its Regions and main roads; a stretch of coast lists its Sites.
+Use this branch for a Region. Work at the scale of the requested journey: a realm connects its major Locations; a local marsh gives the crossings and stopping points the Party can use now. Populate the current Region template with the results, rather than introducing a second page shape.
 
-## Page
+## Design
 
-- **At a glance:** character of the land, who holds it, what's changing now (the live pressure by name), crossing time on the route that matters, and the main danger.
-- **Travel:** shape and borders, and what changes across them; landmarks that help navigate or decide; travel pace, weather, rest and supply where they change a choice; at least two routes with different time, cost, risk or discovery.
-- **Places worth reaching:** each child Location linked with the one line that makes the Party want to go there. A place detailed enough to need keys gets its own Site page.
-- **Encounters:** a d6 table of Creatures, NPCs and Factions met on the road, each linked, each doing something rather than waiting to be fought.
-- **Rumors:** what travellers say, true and false, each with its truth on the DM's side.
-- **Depth:** history that still bites, hidden truths each with the Clue that reveals it, and the Threads that touch the Region with their next visible move.
+1. **Make orientation possible.** Establish the extent, borders and what changes beyond them, using distance or crossing time. Give navigators recognisable landmarks with positions and uses. Link reachable Locations with the reason to go and the route that reaches them; preserve known geography and travel times.
+2. **Compare routes.** Offer at least two meaningful alternatives where the geography permits. For each, state endpoints, mode, time, cost or supply needs, warning signs, and what it gains or risks compared with the others. Include a ferry, shortcut, tide window or detour only when its access conditions are explicit. If Canon offers one crossing, provide meaningful choices of timing, preparation or approach without inventing a second road through a known barrier.
+3. **Run travel.** Explain how the Party keeps its course, finds shelter and replenishes supplies. Where navigation is uncertain, give the relevant 2024 check, DC and concrete failure consequence; known safe travel needs no roll. Weather, tide or terrain rules need limits, signs and what changes at the table. Explain what makes a rest safe or exposed and what a delayed journey costs.
+4. **Put powers on the map.** For each active power, link its owner and state what it controls, its present want, its next move and when that happens. Place signs of those moves along affected routes or at affected Locations. Keep full Faction agendas on their own pages; this page carries the regional consequences and ways the Party can intervene.
+5. **Make the road informative.** Fill the template's encounter table with travellers, Creatures, Factions and environmental events that belong here. Each result supplies an observable sign, the current activity, a possible interaction and what happens if ignored; use linked owner pages and counts when opposition can be fought. Rumours give the spoken claim, explicit DM truth and a reachable way to investigate it. Hidden routes, resources or historical evidence must be discoverable, not merely listed as secrets.
 
-## Done
+## Table-use criterion
 
-- The Party can arrive and choose a route without the DM inventing the map.
-- Every power that can change the Region has a next move and a visible sign of it.
-- The pressure grows from something already on a page (a debt, a hunt, a shortage), with a time.
+From this page, the DM can orient the Party, compare real journey costs, resolve uncertain navigation, find rest/supply and advance the powers without choosing the Party's itinerary. Encounters and rumours lead to something the Party can discover or change, and every listed destination is reachable by an explained connection.

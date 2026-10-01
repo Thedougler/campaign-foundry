@@ -26,7 +26,8 @@ Model selection belongs in harness configuration, native agent frontmatter, and 
 - **The repo is the memory.** Record every durable fact, preference or decision in the repo: terms in `CONTEXT.md`, decisions in `docs/adr/`, working rules here, rather than in harness memory files.
 - **Intent is not implementation.** `docs/intent/` records what earlier skills and templates were meant to do. Read it for intent and build every v2 from scratch; its README has the rules.
 - **Writing for agents.** You MUST read `writing-for-agents` before writing any text intended for agent consumption — skills, agent documents, runbooks, pointers — and follow it.
-- **Evals.** Create evals only for issues the DM has observed and reported. Use the smallest set of high-quality evals that covers the reported issue.
+- **Skill verification.** Evals are the verification mechanism for agent skill changes; software tests are unnecessary for instruction-only changes. Verify executable code changes with software tests at their public interfaces.
+- **Dogfooding evals.** Read `evals/README.md` when authoring, preparing or refreshing skill evals, or processing home-Session feedback; it defines real Shattered Sea grounding, scratch isolation and reported-issue regressions.
 - **Clean slate.** Facts come from this repo, the installed tools and the user. Earlier DM-assistant projects elsewhere on this machine are out of bounds: never read, cite or borrow from them.
 - **User edits are intentional.** When the DM changes their own harness configuration — model roles, `cfg://` settings, `.omp/` files, agent definitions, eval pins — assume it is intended and proceed. Never audit, re-validate or investigate those changes unless the DM asks.
 - **Commit everything.** When committing, include all tracked and untracked worktree changes, including the DM's edits. User changes are intentional work worth committing.

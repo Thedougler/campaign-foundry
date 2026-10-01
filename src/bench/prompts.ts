@@ -8,7 +8,7 @@ export const PERSONA_LINE = "You are writing for a home D&D 5e campaign wiki.";
 
 export interface BenchEntry {
 	id: string;
-	/** Fixture page the `context` was pasted from; provenance only. */
+	/** Wiki-relative source page the committed `context` was excerpted from; provenance only. */
 	fixture_page?: string;
 	context: string;
 	prompt: string;
@@ -54,7 +54,7 @@ export function loadPromptSet(path: string): PromptSet {
 		seen.add(entry.id);
 		for (const field of ["context", "prompt"] as const) {
 			if (typeof entry[field] !== "string" || entry[field]!.trim() === "") {
-				throw new UsageError(`Entry \`${entry.id}\` has an empty \`${field}\`.`, "Each entry is self-contained: paste the fixture facts into `context`, the whole task into `prompt`.");
+				throw new UsageError(`Entry \`${entry.id}\` has an empty \`${field}\`.`, "Each entry is self-contained: excerpt the real Wiki facts into `context`, the whole task into `prompt`.");
 			}
 		}
 		if (!Array.isArray(entry.rubrics) || entry.rubrics.length === 0 || entry.rubrics.some((r) => typeof r !== "string" || r.trim() === "")) {

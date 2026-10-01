@@ -1,52 +1,70 @@
-- id: reedrunner-leader
-  prompt: Who leads the Reedrunners, and what statistics does she use in a fight?
+- id: countless-leader
+  source_pages:
+    - The Shattered Sea/Factions/Countless.md
+    - The Shattered Sea/NPCs/Talon Vantyrus.md
+    - The Shattered Sea/Creatures/Talon Vantyrus (Creature).md
+    - The Shattered Sea/NPCs/Talon Skarn.md
+  prompt: Who leads Countless, and what statistics does he use in a fight? Is Skarn already its leader?
+  rubrics:
+    - The direct answer names Talon Vantyrus as leader, his Talon Vantyrus (Creature) statistics, and Skarn as the apprentice who contests his master, citing the Faction and NPC/Creature pages.
+    - The Rule of Two's eventual contest is not asserted as an accomplished succession. Vantyrus's identity as Osset is disclosed to the DM only as supported Wiki knowledge, not claimed Player knowledge.
+    - Every factual statement is traceable to a page read, and the answer stays on leadership and statistics in about twelve lines.
+    - The Wiki diff is empty because these facts already live on their owning pages.
+- id: spinner-now
+  source_pages:
+    - The Shattered Sea/Items/Fate Spinner.md
+    - The Shattered Sea/NPCs/Talon Skarn.md
+    - The Shattered Sea/Factions/Countless.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+  prompt: Who holds the Fate Spinner right now, and who is trying to take it? Did Skarn's attempt end yet?
   checks:
     canon:
-      Lowtide/NPCs/Ilse Corran.md: ['creature: "\[\[Bandit Captain\]\]"', Ilse Marrow]
+      The Shattered Sea/Items/Fate Spinner.md: ['\*\*Held by\.\*\* \[\[Crissdalynn Khinriss\]\]']
   rubrics:
-    - The answer names Ilse Corran as the Reedrunners' leader and the Bandit Captain as her statistics, citing both pages as wikilinks.
-    - Every fact in the answer appears on a fixture page; nothing is invented and presented as Wiki fact.
-    - The Wiki diff is empty, because nothing in this answer is a keeper.
-    - How Ilse fought is taken from the Recaps, and anything drawn from a Prep or Scene page is presented as what was planned, not what happened.
-    - The answer stays on the two things asked; it runs no more than about 12 lines before any "Not in the Wiki" line.
-- id: ledger-now
-  prompt: Where is the Harbormaster's Ledger right now, and who is going to come after it?
-  checks:
-    canon:
-      Lowtide/Items/Harbormaster's Ledger of Vessen.md: [Odalys Ferro]
-  rubrics:
-    - The answer says the Party holds the ledger and Odalys Ferro carries it, with a citation.
-    - The answer names Ilse Corran or the Reedrunners as coming after it, citing the Thread, the Recap or Ilse's page.
-    - The answer leads with the direct answer in one or two sentences before any detail.
-    - Every inference or reading of the Agent's own sits under "Not in the Wiki", not in the body.
+    - The answer leads with Crissdalynn holding the Spinner and Skarn trying to steal it for Vantyrus, with inline page citations.
+    - Session 11 ends with Skarn still in Crissdalynn's face after spending one Legendary Resistance. The answer identifies hot's conflicting breaking-off claim and favours the played Recap and Campaign state, not a speculative escape or theft.
+    - Session 12's capture, flight and theft outcomes are described only as prepared possibilities.
+    - No keeper is filed onto hot or played records; existing current Item custody is preserved. Inferences appear under Not in the Wiki, and bookkeeping is not narrated to the DM.
 - id: holy-day-gap
-  prompt: What is Mother Ebb's holy day, and how do the folk of Reedholt keep it?
-  checks:
-    absent:
-      Lowtide/Deities/Mother Ebb.md: ['/holy day/i']
+  source_pages:
+    - The Shattered Sea/Deities/Umberlee.md
+    - The Shattered Sea/NPCs/Umberlee - Branca.md
+  prompt: What is Umberlee's holy day, and how do her harbour worshippers keep it?
   rubrics:
-    - The answer says plainly that the Wiki does not record a holy day for Mother Ebb.
-    - Any idea for a holy day appears only under a "Not in the Wiki" line, marked as a suggestion, and never as Wiki fact.
-    - The answer still offers what the Wiki does say about Mother Ebb's worship in Reedholt, with citations.
+    - The answer plainly says the Wiki records no holy day for Umberlee, after checking the Deity and related clergy sources rather than importing Forgotten Realms lore from elsewhere.
+    - It still supplies the recorded harbour practice of paying tribute before casting off, with basins, booklets and Waveservants, citing the sources.
+    - Any proposed holiday is marked as a suggestion under Not in the Wiki and is not filed as Canon. The Wiki diff is empty.
 - id: dm-states-fact
-  prompt: Pell has a sister, Wenna, who works the eel traps at Reedholt. Anyway, does Pell know how his father really died?
+  source_pages:
+    - The Shattered Sea/NPCs/Cobb.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Perrin and Nona.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 8/Session 8 - Recap.md
+  prompt: "Cobb negotiated a future discount with the crew during Session 6, as archive/Cobb.md records. Keep that historical fact. Anyway, what does he tell Perrin about Nona's sending stone?"
   checks:
     canon:
-      Lowtide/NPCs/Pell Rushlight.md: [Wenna]
-      Lowtide/log.md: ['/\] query \|/']
+      The Shattered Sea/NPCs/Cobb.md: ['/discount/i']
+      The Shattered Sea/log.md: ['/\] query \|/']
   rubrics:
-    - The answer gives the recorded story (a wreck struck the landing) and the hidden truth (the Reedrunners killed him, learnable from Nib Ashwater) with citations, and names as a gap that the Wiki does not say what Pell himself believes.
-    - Wenna is filed on Pell Rushlight's page in the section its template gives family and history facts, not as a question-and-answer block, and the answer closes by naming the page edited.
-    - The Agent filed Wenna without asking the DM for permission.
-    - Nothing the Wiki doesn't state (such as what story Pell tells, or whether he suspects) appears in the body as fact; readings sit under "Not in the Wiki".
-- id: stale-sable
-  prompt: Is Sable still ringing the bell at the Drowned Chapel?
+    - The stated discount is a real historical fact from archive/Cobb.md, not a new fabricated DM ruling. It is filed surgically in Cobb's History without asking permission or adding terms, amount or redemption that the source does not state.
+    - The answer explains that Cobb says the stone is live and Nona did not send it as decoration, citing Cobb and the Perrin and Nona Thread.
+    - Current refit timing is not reset to the old three-day wait, and unrelated prose and played records remain unchanged.
+    - The answer closes by naming the page edited, with no index or log discussion. Unstated details remain gaps or marked suggestions.
+- id: premature-consume
+  source_pages:
+    - The Shattered Sea/Lore/Auralis.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Shattered Sea.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
+  prompt: Has Perrin already heard Auralis say CONSUME, or is that still in our Session 12 plan?
   checks:
     canon:
-      Lowtide/log.md: ['/\] query \|/']
+      The Shattered Sea/Lore/Auralis.md: [CONSUME, Grow, Not yet]
     absent:
-      Lowtide/NPCs/Sable.md: ['summary: ".*who rings the chapel bell']
+      The Shattered Sea/Lore/Auralis.md: ['His words have been.*CONSUME']
   rubrics:
-    - The answer says Sable stopped ringing the bell after giving the Party the ledger, citing the Session 2 Recap.
-    - Sable's page is updated so it no longer describes her as still ringing the bell, including its summary, and stays in its template's shape.
-    - The reply never mentions the index or the log.
+    - The answer identifies the actual disagreement between Auralis's past-tense claim and the Campaign's post-Session 11 state. CONSUME belongs to the prepared Session 12 Scene, not played history.
+    - This real keeper corrects the mutable Lore's full truth and chronology surgically, retaining CONSUME as planned and preserving the earlier Grow and Not yet messages and every independent fact.
+    - Prep, Scenes, Previously On and played Recaps remain unchanged; hot is not a filing target. The short answer cites its evidence and names the Lore page edited, not the housekeeping.

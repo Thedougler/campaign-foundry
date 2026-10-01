@@ -1,6 +1,6 @@
 ---
 name: dnd-benchmark
-description: Prose Benchmark — run or resume the cross-family Matrix Narration ranking; refresh its leaderboard after a top-pin or committed prompt change. Scratch-World fixture cases use run-evals; skill authoring uses skill-creator.
+description: Prose Benchmark — run or resume requested cross-family Matrix Narration ranking, or refresh its source-grounded prompts and leaderboard on the DM's request. Scratch-World fixture cases use run-evals; skill authoring uses skill-creator.
 ---
 
 # D&D Prose Benchmark
@@ -14,6 +14,12 @@ Every family's `top` pin answers the committed prompts; an anonymous Judge score
 - **Rounds** — one Round = one prompt-set entry, every family's top pin, yaml order. Every family is closed and reported before the next Round begins; stopping after any Round is clean — the cache resumes the rest.
 - **Anonymity** — integer 1–5 rubric scores from a fresh Judge that sees only the anonymized brief.
 - **One ledger** — `evals/benchmark.json` and `evals/benchmark.md`, written only by `cf bench record` / `render`, are the recorded results. Read these paths when checking recorded rows or presenting the leaderboard.
+
+## Refresh source context
+
+Before authoring or refreshing benchmark inputs, read `evals/README.md` for the shared grounding and source-refresh contract. Refresh only on an explicit request: read the real Wiki sources, update the committed fact excerpts and their provenance, then use the existing deterministic brief pipeline below. A benchmark run consumes committed bytes; it does not refresh them from the live Wiki. Historical sample directories and grades remain immutable. Data migration alone does not trigger benchmarking current skills.
+
+**Done when** every changed prompt is grounded in its recorded source, its regenerated brief belongs to the new prompt version, and historical artifacts are unchanged.
 
 ## Before benchmarking
 

@@ -1,6 +1,70 @@
-- id: long-ebb
-  prompt: What actually causes the Long Ebb? Settle it as Lore.
+# Existing truth/accounts/Clues branch grounded for issue #31, not table feedback.
+- id: taking-on-aruhe
+  source_pages:
+    - The Shattered Sea/The Shattered Sea.md
+    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Lore/Taking on Aruhe.md
+    - The Shattered Sea/NPCs/Hinewai.md
+    - The Shattered Sea/NPCs/Matteo Scola.md
+    - The Shattered Sea/Locations/Old Gardens.md
+    - The Shattered Sea/Locations/Memorial Grove.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Quests/Take on Aruhe.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+  prompt: >-
+    Deepen Taking on Aruhe so I can answer what causes the island's taking
+    law, what counts as a claim, and why survivors disagree about it. Preserve
+    the established truth: Hinewai's grief and the Death Bloom bind the law,
+    fallen fruit can be received, fighting back is allowed, and taking living
+    island life marks the taker until dawn. Catalogue the existing accounts
+    and their holders, distinguishing what they believe from DM truth. Make
+    the important conclusions discoverable through independent Clues on
+    real owner pages and give a named actor a usable next move. Do not
+    invent a past discovery or change Session 11 or prepared Session 12
+    outcomes. No art or Foundry connection is needed.
+  checks:
+    pages: [The Shattered Sea/Lore/Taking on Aruhe.md]
+    sections:
+      The Shattered Sea/Lore/Taking on Aruhe.md:
+        - "## At a glance"
+        - "## Play"
+        - "## Depth"
+        - "## Links"
+    canon:
+      The Shattered Sea/Lore/Taking on Aruhe.md:
+        - '^type:\s*Lore\s*$'
+        - 'Hinewai'
+        - 'Death Bloom'
+        - 'Matteo Scola'
+        - '/\bdawn\b/i'
+        - '/\b30 feet\b/i'
+        - '/\b60 feet\b/i'
   rubrics:
-    - A Lore page states the truth in one plain sentence, and each existing telling in the Wiki (Mother Ebb's breathing, the Calendar) is marked true, distorted or false with who holds it.
-    - At least one named NPC or Faction acts on the truth on their own clock.
-    - Each conclusion the Party needs has three Clues in different places, and the gate passes on every page touched.
+    - >-
+      One plain sentence states the existing cause rather than replacing it
+      with a new cosmology. The full truth preserves the claim/receiving
+      boundary, mark until next dawn, plant and silence tells, responders'
+      scent/root-touch detection even when Invisible, one-minute or distance
+      ending, half-HP withdrawal and grounded reach limits. The Death Bloom
+      remains place-bound, and the Lore does not invent an established date
+      or promote a future destruction into history.
+    - >-
+      Every telling found on relevant Wiki pages is inventoried, attributed
+      and marked true, distorted with the distortion explained, or false.
+      Matteo's survival practice, Oren Vask's every-cut belief and Celia Parel's
+      respect account remain distinct. Hinewai's possessive claims are not
+      confused with what the Party already knows from Session 11. Named
+      account holders without existing owner pages may receive requested
+      design pages, but are not retroactively established as met NPCs.
+    - >-
+      Each needed conclusion has three genuinely independent Clues in
+      different places or interactions, not three rolls on one witness.
+      The Clues resolve to real owner pages and appear where the DM will
+      run them. Spoken accounts are Player-safe; explicit answers, misleading
+      beliefs and mechanical tells remain in DM-facing material.
+    - >-
+      At least one actual named NPC or Faction acts on the truth through
+      an observable next move, with relative time/trigger, stakes and a
+      Party lever. New moves and Clues are identified as design rather than
+      reported discoveries. The current Lore and owner templates, provenance,
+      full scratch-root gate and one create log are complete; hot, played
+      Narration and all Session records remain unchanged.

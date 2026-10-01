@@ -1,14 +1,114 @@
-- id: eel-charm
-  prompt: I want an uncommon charm Tamsin could find in Reedholt that helps her in the mud and water.
-  rubrics:
-    - The reply lists existing candidate items from the SRD or published sources and says which was co-opted or why none fit.
-    - The Item page has full 2024 rules text within uncommon limits, and its function shows on the object.
-    - It fits Tamsin's niche as a level-3 Rogue without overlapping the Party's other gear, and the gate passes.
-- id: ledger-deepen
-  prompt: The Harbormaster's Ledger is a plot object. Make sure the page gives me everything I need when the Party starts using it as evidence.
+# Existing Item branches grounded for issue #31, not reported table feedback.
+- id: rescue-line-charm
+  source_pages:
+    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Locations/Lava Tubes.md
+    - The Shattered Sea/Locations/The Long Meadow.md
+    - The Shattered Sea/NPCs/Ettore Ferrante.md
+    - The Shattered Sea/Lore/Taking on Aruhe.md
+    - The Shattered Sea/Items/The Snap.md
+    - The Shattered Sea/Items/Flying Boots.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+  prompt: >-
+    Design an uncommon Item called Rescue Line Charm for Perrin's work keeping
+    the crew and rescued people alive. It should help with rope rescues on
+    wet ledges like the Lava Tubes, not simply give him flight or a Swim Speed
+    he already has. Source existing Items before deciding whether to reskin
+    or adapt one. Keep it useful beside Delmar's Flying Boots, Crissdalynn's
+    flight and Perrin's current equipment. The charm is requested new output:
+    do not claim it was found, purchased, or already carried, and do not add it
+    to a PC Inventory or a prepared Session as an acquired reward. Aruhe's
+    taking law still applies. No art or Foundry connection is needed.
   checks:
+    pages: [The Shattered Sea/Items/Rescue Line Charm.md]
+    sections:
+      The Shattered Sea/Items/Rescue Line Charm.md:
+        - "## At a glance"
+        - "## Play"
+        - "## Depth"
+        - "## Links"
     canon:
-      Lowtide/Items/Harbormaster's Ledger of Vessen.md: [Corvin Tarrow, Odalys Ferro]
+      The Shattered Sea/Items/Rescue Line Charm.md:
+        - '^type:\s*Item\s*$'
+        - '/uncommon/i'
   rubrics:
-    - Established facts survive (who holds it, the signed order, Corvin Tarrow).
-    - The page says what the ledger changes at the table and who reacts when it is shown, linking their pages, without inventing mechanics a plot object doesn't need.
+    - >-
+      The source ledger reads the real bearer, Party Inventory and existing
+      Item candidates before 2024 SRD, official/web and new design. It gives
+      three to five retrieved candidates with provenance, rarity, function and
+      fit, then names the reuse/reskin/adaptation decision or why none fits.
+      Missing retrieval is honest, not proof that a published effect is absent.
+    - >-
+      Perrin is a level-5 Warlock/Lore Bard with a Swim Speed and rescue goal,
+      not a fictional Rogue. The design fills a rope-rescue niche without
+      duplicating Delmar's boots, Crissdalynn's flight or The Snap's shield.
+      Attunement assumptions acknowledge differences between recorded Item
+      ownership and the current Sheet instead of silently editing the Sheet.
+    - >-
+      Full 2024 rules text specifies relevant action costs, targets, reach,
+      anchoring, load limits, uses/recovery, duration and failure/counterplay.
+      Rarity is assessed against retrieved peers; the bearer's three strongest
+      uses are checked for stacking, action economy and unpriced multiplication.
+      It offers a consequential choice, visibly expresses its function and
+      does not waive living-growth claims or make Ettore's rescue already happen.
+    - >-
+      The actual Item template, Player-safe First look, resolving owner links
+      and archived-only sources are used. The reply identifies new Canon and
+      intended availability separately from acquired gear, reports the full
+      scratch-root gate and single create log, and leaves PC Inventories, hot
+      and all Session records unchanged.
+
+- id: letters-as-evidence
+  source_pages:
+    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Items/Letters of Marque.md
+    - The Shattered Sea/NPCs/Barnaby Rook.md
+    - The Shattered Sea/NPCs/Corbin Knighton.md
+    - The Shattered Sea/NPCs/Rupert Knighton.md
+    - The Shattered Sea/Factions/Dravosi Crown.md
+    - The Shattered Sea/Vehicles/Uncertainty.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
+  prompt: >-
+    The Party holds Barnaby Rook's Letters of Marque. Deepen that existing
+    plot Item so I can run their use as evidence, a bluff, a bargaining chip
+    or forgery stock during continuing Crown pursuit. Preserve the licence,
+    30,000 gp bond, nonmagical nature, custody and recorded seal and bluff
+    consequences. Make actual people and institutions react according to
+    what they know now; do not invent a sale or legal acquittal that has
+    already happened. No art or Foundry connection is needed.
+  checks:
+    pages: [The Shattered Sea/Items/Letters of Marque.md]
+    sections:
+      The Shattered Sea/Items/Letters of Marque.md:
+        - "## At a glance"
+        - "## Play"
+        - "## Depth"
+        - "## Links"
+    canon:
+      The Shattered Sea/Items/Letters of Marque.md:
+        - '\[\[Barnaby Rook\]\]'
+        - '\[\[Uncertainty\]\]'
+        - '30,000 gp'
+        - '/(?:DC\s*15[^\n]{0,80}Deception|Deception[^\n]{0,80}DC\s*15)/i'
+  rubrics:
+    - >-
+      The original Item facts survive: the Party took the papers from the
+      captured Surety, Rook is the licensee, the commission concerns the named
+      enemy prize, the bond is 30,000 gp, the parchment is nonmagical, altering
+      its name visibly breaks the seal and impersonation is capital in Crown
+      courts. The existing Deception DC 15 bluff remains usable.
+    - >-
+      The page gives concrete reactions, risks, evidence requirements and
+      consequences for showing, concealing, bargaining with, returning or
+      altering the papers, linking actual NPC/Faction owners. Corbin's private
+      knowledge and Rupert's ignorance remain separate; carrying the papers
+      does not automatically grant their authority. No unnecessary charges,
+      activation mechanics or invented prior transaction turns a plot object
+      into a magic item.
+    - >-
+      The current Item template and provenance are preserved. New design is
+      reported as such, the full target-root gate and one operation log are
+      observed, and hot, PC Inventories and played records remain unchanged.

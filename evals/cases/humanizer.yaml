@@ -1,11 +1,13 @@
 - id: tells-first-look
-  prompt: Nib Ashwater's First look reads like AI wrote it. Humanize it.
+  source_pages:
+    - The Shattered Sea/NPCs/Cobb.md
+  prompt: Humanize Cobb's existing First look in the real Wiki, changing only that callout's prose. Keep every factual detail and his exact spoken line. Use the existing source as it stands, without planting extra AI copy to rewrite.
   checks:
     canon:
-      Lowtide/NPCs/Nib Ashwater.md: [spectacles, hinge, Ink, cedar, '"Forty-one boats since dawn," he says. "One of them was not on my list."']
-    absent:
-      Lowtide/NPCs/Nib Ashwater.md: ['/not just/i', '/testament/i', '/bustling/i', '/tribute/i', '—', '/And then he looks up/']
+      The Shattered Sea/NPCs/Cobb.md: ['\[!narration\] First look', You wanted to see what a week bought]
   rubrics:
-    - Every fact in the seeded First look survives (grey-eared goblin, round spectacles mended at one hinge, ink to the wrists, notching a cedar stick, counting, his exact spoken line), and nothing new is asserted.
-    - The rewritten block reads as a DM telling it at the table, with the not-X-but-Y opener, the triad, the em dash and the one-line closer gone.
-    - The page's gate passes, including the style layer's ai-tells and Narration rules.
+    - The actual source facts survive in the callout, including a young rattkin halfway down the cradle ladder, grey-brown fur blackened at the wrists by pitch and paint, caulking calluses on his palms, a loose-shouldered dockworker coat, the rag over one shoulder, and turpentine and hot pitch in the air.
+    - The complete spoken line You wanted to see what a week bought? remains word-for-word, with no replacement, expansion or added response.
+    - Edits remove only tells actually present in the real callout, such as stacked list rhythm or strained phrasing. A sourced physical detail is not dropped merely because the sentence has several items, and absent not-X-but-Y or inflated claims are not fabricated as preconditions.
+    - The result is natural table prose with no invented opinion, fact, action, emotion, reaction or outcome. File mode changes only this Narration, leaving YAML metadata, paths, links, code and unrelated prose unchanged.
+    - The source is read directly with no synthetic seed overlay. The report describes the actual edit, not a supposed newly observed table failure.

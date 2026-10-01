@@ -1,27 +1,29 @@
-# Prose Benchmark prompt set: one Narration sample per content type, grounded
-# in a fixture page from test/fixtures/vault/. bench_version is the first 12
-# hex of this file's sha256; any edit here moves it and invalidates the cache.
-# Entries are self-contained: `context` is pasted fact content from the fixture
-# page (existing [!narration] blocks and ## Play onward stripped) and no
-# SKILL.md is loaded, so a run measures the model's raw ability to write D&D
-# content, not skill mediation. The rubrics list is identical across entries so
-# scores are comparable.
+# Nine comparable Narration branches grounded in the real Shattered Sea Wiki.
+# fixture_page stays the schema field and is relative to wiki/, not a test vault.
+# Contexts are self-contained fact briefs with provenance, not existing Narration.
+# bench_version is the first 12 hex of this file's sha256; cache is historical.
+# No SKILL.md is loaded. The identical rubrics keep branch scores comparable.
 - id: npc-first-look
-  fixture_page: NPCs/Nib Ashwater.md
+  fixture_page: The Shattered Sea/NPCs/Cobb.md
   context: |
-    summary: "The goblin tally-keeper of Reedholt, who records every boat and remembers where the old ledger lies."
-
-    ## At a glance
-
-    - **Role.** Tally-keeper of [[Reedholt]], keeper of the boat tally and of the village's old records.
-    - **Wants.** The village left in peace, and the names of the Vessen dead read aloud at the next Long Ebb.
-    - **Voice.** Soft and careful. He repeats a number before he answers a question.
-    - **Found at.** The tally house in [[Reedholt]].
+    Provenance: The Shattered Sea/NPCs/Cobb.md, At a glance and physical facts
+    from First look (lines 9-17); archive/Cobb.md, opening move (lines 68-70).
+    Facts only; the source Narration's wording is intentionally omitted.
+    NPC: Cobb, a young rattkin dockworker and Nona Black-Jaw's runner.
+    Place: La Vasca's cradle ladder, halfway down it.
+    Physical cues: grey-brown fur; pitch and paint blackening the wrists;
+    caulking calluses on palms; dockworker coat loose at shoulders; shoulder rag.
+    Air: turpentine and hot pitch.
+    Want: finish Uncertainty's work properly, with paint hardened beforehand.
+    Voice: light scratchy tenor, warm Italian accent; quick and proud about work.
+    Sourced complete speech: "You wanted to see what a week bought?"
+    Audience: the four level-5 PCs of Shattered Sea, not a presumed human group.
   prompt: |
     You are writing for a home D&D 5e campaign wiki. Using only the facts
     above, write the [!narration] First look block for this NPC: the prose a
     DM reads aloud when the Players first see them. Second person, present
-    tense, sensory, no game mechanics, no meta-commentary.
+    tense, sensory, no game mechanics, no meta-commentary. Keep the complete
+    sourced speech, placing its speaker lead-in before it and stopping there.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
@@ -30,22 +32,27 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: creature-first-look
-  fixture_page: Creatures/Mire Drowner.md
+  fixture_page: The Shattered Sea/Creatures/Terror-Bird.md
   context: |
-    summary: "A drowned dead thing that lies in silt and drags the living down by the ankle."
-
-    ## At a glance
-
-    - **Role at the table.** An ambusher that pins one target in mud or water.
-    - **Threat.** CR 1. One attack a round for 11 damage, plus a grapple that restrains. 75 Hit Points.
-    - **Tell.** Bubbles rise in still water, and the mud around the ambush point is smoother than the rest.
-    - **Weak to.** Dry ground (where Mire Step gives it nothing) and anything that clears the water and silt around it.
-    - **Used by.** [[Sable]].
+    Provenance: The Shattered Sea/Creatures/Terror-Bird.md, Statblock
+    (lines 25-60), not the placeholder First sight.
+    Creature: Terror-Bird. Huge monstrosity, a ground-running bird.
+    Physical evidence: moss-grown camouflage that can resemble a mossy stump
+    in forest or jungle; serrated beak; raking talons.
+    Signature properties: ground tremors give warning when it approaches;
+    straight charges cannot turn sharply; it stops at taller grass, deep water
+    or Razer-Grass. Its beak can hold prey, and it can swallow a human-sized
+    or smaller creature. These are capacity facts, not an attack happening now.
+    Mechanical provenance: 200 HP, CR 13, speed 60 feet. Keep these out of speech.
+    Stage: first sight before it notices anyone or attacks. No victim is supplied.
+    Audience: four level-5 PCs, human, aarakocra, Grung and rattkin; do not
+    prescribe their anatomy, movement, awareness or sensory experience.
   prompt: |
     You are writing for a home D&D 5e campaign wiki. Using only the facts
     above, write the first-sight Narration block for this Creature: the prose
     a DM reads aloud when the Players first see it. Second person, present
-    tense, sensory, no game mechanics, no meta-commentary.
+    tense, sensory, no game mechanics, no meta-commentary. Show supported
+    physical evidence before notice or attack, not a completed charge or swallow.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
@@ -54,22 +61,27 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: item-first-look
-  fixture_page: Items/Ebb Lantern.md
+  fixture_page: The Shattered Sea/Items/Fate Spinner.md
   context: |
-    summary: "A brass lantern from Gullhook Lighthouse that can make shallow water and mud draw away for a minute."
-
-    ## At a glance
-
-    - **Kind.** Wondrous item.
-    - **Rarity.** Uncommon.
-    - **Attunement.** None.
-    - **Changes.** Whether water or mud blocks the Party's way.
-    - **Held by.** The Party, lent by [[Hobb Tarrow]]. It belongs to [[Gullhook Lighthouse]].
+    Provenance: The Shattered Sea/Items/Fate Spinner.md, physical facts
+    extracted from First look (lines 18-19), Properties, In use and History
+    (lines 25-39). Existing Narration wording is omitted.
+    Item: Fate Spinner, a four-sided quartz top the size of a thumb.
+    Physical cues: cool despite a warm hand; amber, blue and violet light pools
+    when spun in sunlight; glass-on-glass ticking that continues unusually long.
+    Holder: Crissdalynn Khinriss. Master Kyzil gave it to her before pilgrimage.
+    Rules, not instantly visible: it watches one personally known creature on
+    the same plane and lends luck; it cannot speak through the vision or help
+    its holder's own rolls. Ordinary force cannot damage one; two Spinners
+    spun face to face shatter. Do not stage that destruction without a declaration.
+    Hidden: Countless hunts carriers for Vantyrus's transformation technique.
+    The first look shows the object, not this secret or an undeclared activation.
   prompt: |
     You are writing for a home D&D 5e campaign wiki. Using only the facts
     above, write the [!narration] First look block for this Item: the prose a
     DM reads aloud when the Players first take it up. Second person, present
-    tense, sensory, no game mechanics, no meta-commentary.
+    tense, sensory, no game mechanics, no meta-commentary. Distinguish its
+    observable cues from what requires use or hidden knowledge.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
@@ -78,22 +90,28 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: location-arrival
-  fixture_page: Locations/The Drowned Chapel.md
+  fixture_page: The Shattered Sea/Locations/Western Landing.md
   context: |
-    summary: "A bell-tower chapel from drowned Vessen that stands clear of the mud only at low water."
-
-    ## At a glance
-
-    - **Draws the Party because.** The bell that rings under the water rings here, and the ledger of Vessen lies in its loft.
-    - **Entrance.** The tower door at ground level, open at low water and flooded to the lintel otherwise.
-    - **Occupants.** [[Sable]], the last bell-ringer, and any crew [[The Reedrunners]] send for relics.
-    - **Danger.** Rising water, silt-slick floors and [[Mire Drowner]] creatures in the nave.
-    - **Prize.** The [[Harbormaster's Ledger of Vessen]] in the bell loft.
+    Provenance: The Shattered Sea/Locations/Western Landing.md, summary,
+    At a glance, Areas, Hazards, Occupants and History (lines 4-47).
+    Site: Western Landing, Aruhe's one known usable sea approach.
+    Route: one boat gap through the reef, a short shingle beach, a stream,
+    fruit shade and an inland slope leading toward Old Gardens.
+    Positions: reef half a mile offshore; Uncertainty waits beyond the reef.
+    Hazards: tide and surf at the gap; reef creatures; Grubnades and Spiritpollen
+    among the landing's growth. The source lists Reef-Skulls, giant crabs,
+    giant sharks and Bloodhawks as occupants but does not establish that any
+    particular creature is visible at this arrival. Keep unseen occupants unseen.
+    Choices: read gap and tide, pilot in, mark the route, forage fallen fruit,
+    or retreat before tide and claims change the exit.
+    Taking living reef life counts as a claim under Aruhe's law, not a fact
+    the arrival can reveal omnisciently. No PC has chosen a route yet.
   prompt: |
     You are writing for a home D&D 5e campaign wiki. Using only the facts
     above, write the [!narration] Arrival block for this Site: the prose a DM
     reads aloud when the Party first arrives. Second person, present tense,
-    sensory, no game mechanics, no meta-commentary.
+    sensory, no game mechanics, no meta-commentary. Preserve the immediate
+    surf-and-reef hazard and boat route without deciding that the PCs land.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
@@ -102,22 +120,27 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: lore-common-telling
-  fixture_page: Lore/The Drowning of Vessen.md
+  fixture_page: The Shattered Sea/Lore/Two-Grave Orders.md
   context: |
-    summary: "In 271 CY the Compact opened Crookback Sluice on purpose and drowned the river city of Vessen in one night."
-
-    ## At a glance
-
-    - **The truth.** The Sluice Compact ordered the gates of [[Crookback Sluice]] opened on 6 Blackwater 271 CY to flood Vessen, a city that was under a fever and had rejected quarantine.
-    - **Who knows it.** [[Sable]], [[Hobb Tarrow]] in part, [[Ilse Corran]] in part, and the senior clergy of [[Mother Ebb]].
-    - **Limits.** Nobody living has seen the whole order. The city held about 4,000 people, and the flood killed nearly all of them.
-    - **Reaches play through.** The [[Harbormaster's Ledger of Vessen]], the tally-sticks in [[Reedholt]], and the bell at [[The Drowned Chapel]].
+    Provenance: The Shattered Sea/Lore/Two-Grave Orders.md, At a glance,
+    Accounts, The full truth and Chronology (lines 12-15, 24, 30-39).
+    Lore: Karath's Gold caste sent successive lower-caste Grung expeditions
+    onto Aruhe. Gold seals made the bearers believe orders were their own wishes.
+    Sequence: report inland, replace missing parties, find and destroy the two
+    graves beneath the memorial tree, then burn through obstructing forest.
+    The last eleven Grung died along the Burnt Road and were pulled into soil.
+    Attributed accounts: the Gold caste calls Aruhe cursed and wants it reopened;
+    Hinewai says every Grung wanted her graves destroyed. These are their claims.
+    Limits: seals record objectives, not Hinewai or the Death Bloom. The secret
+    identity and contents of the graves are not part of this telling.
+    Voice requested: a Grung collective account of these recorded orders,
+    spoken when the story comes up. No new named teller or witnessed event.
   prompt: |
     You are writing for a home D&D 5e campaign wiki. Using only the facts
-    above, write the [!narration] Common telling block for this Lore in a
-    tavern voice: the version of the story the ferrymen and villagers say
-    aloud, which a DM speaks when the tale comes up over drinks. Write it as
-    the teller speaks it. Sensory, no game mechanics, no meta-commentary.
+    above, write the [!narration] Common telling block for this Lore in an
+    informal spoken voice: the Grung account of the orders, which a DM speaks
+    when the tale comes up. Write as the teller speaks, keeping attributed
+    claims distinct from hidden truth. No game mechanics or meta-commentary.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
@@ -126,22 +149,30 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: scene-opening
-  fixture_page: Sessions/Session 2/Session 2 - The Bell Rings Early.md
+  fixture_page: The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
   context: |
-    type: Scene, kind: Hook
-    summary: "Before dawn the water under Reedholt drops a foot and the drowned bell rings three strokes at a time."
-
-    ## At a glance
-
-    - **Pressure.** The bell rings under the flats, the tide is a foot low and the village is awake and afraid.
-    - **Choice.** Go to the chapel now while the water is low. Alternatively, ask [[Nib Ashwater]] what the village knows, or calm the crowd at the landing.
-    - **Where.** The Landing in [[Reedholt]].
-    - **Who.** [[Nib Ashwater]] and [[Pell Rushlight]].
+    Provenance: Session 12 - Dawn Strike, At a glance and Situation
+    (lines 12-15, 24), in the Wiki path named above. Physical fact keywords
+    from its Opening (line 18), not a copy of existing Narration.
+    Type: Scene, kind Hook. Prepared Session 12, not played history.
+    Where: River Slack Basin camp at first light, above a deep still pool.
+    Threat: Talon Skarn chest to chest with Crissdalynn, cutting at her harness
+    for the Fate Spinner in a pouch. His sword is against her staff; his other
+    blade works at the buckles. Stop before a strap parts or the Spinner moves.
+    Environment: dead coals, grey dawn, rapid spray and whitewater noise;
+    a sheer bank beside the fight, pool below it, tall grass along one side,
+    old prints leading up into trees. Matteo sleeps on a mat with his sling.
+    Other PCs: Delmar, Perrin and Jean-Claude; the Scene starts them in bedrolls.
+    Jean-Claude's last played state is catatonic; do not invent his recovery.
+    Choices: hide, hand off, defend or surrender the Spinner. None chosen yet.
+    DM-only: pool drop ten feet; a fall can later bring River Otters; Skarn's
+    retreat and any theft are contingent, not narrated opening outcomes.
   prompt: |
     You are writing for a home D&D 5e campaign wiki. Using only the facts
     above, write this Scene's opening Narration: the block a DM reads aloud to
     open the Scene, before the Players first act. Second person, present
-    tense, sensory, no game mechanics, no meta-commentary.
+    tense, sensory, no game mechanics, no meta-commentary. Lead with the
+    threat and retain the immediate sheer-bank hazard, stopping before a cut lands.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
@@ -150,22 +181,28 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: scene-closing-image
-  fixture_page: Sessions/Session 2/Session 2 - Low Water at the Chapel.md
+  fixture_page: The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
   context: |
-    type: Scene, kind: Climax
-    summary: "In the bell loft Sable asks the Party to speak the names while Reedrunner hands climb the stair."
-
-    ## At a glance
-
-    - **Question settled.** Does the Party take the Vessen ledger and speak its truth, or do the Reedrunners take it and sell it?
-    - **Stakes.** The ledger, the rest of Sable's trust and the safety of the Party as the tide returns.
-    - **Where.** The bell loft of [[The Drowned Chapel]].
-    - **Opposition.** [[Sable]] and three [[Goblin Warrior]] hands of [[The Reedrunners]].
+    Provenance: Session 12 - The Way Out, At a glance, Payoffs, Reactions
+    and Stinger (lines 12-15, 24-30, 41), in the Wiki path named above.
+    Type: Scene, kind Resolution. This is prospective text for prepared Session 12.
+    Delivery condition: the planned rescue/departure state is reached at the table.
+    Do not report it as already played or invent any earlier fight outcome.
+    Place and time: Pantry clearing at first light; departure toward Uncertainty.
+    Planned changed state: nine Calveno ready to leave; three choose to stay.
+    Carlo and Luca carry injured Ettore on a litter. Matteo walks toward the ship
+    he wanted. Renzo Canale stays under the vine, with Beppe Sarti and Marco Lenzi.
+    The leaving nine include Ettore, Luca, Piero, Gianni, Matteo, Carlo,
+    Tommaso Brasca, Sandrino Vale and Ilario Pozzo; names need not all be spoken.
+    The crew's resources and any actual losses remain costs, but none are specified.
+    No Skarn fate, Spinner transfer, PC farewell or emotion has been supplied.
+    End on this departure image, not an invented travel result or new threat.
   prompt: |
     You are writing for a home D&D 5e campaign wiki. Using only the facts
     above, write this Scene's closing image: the short Narration a DM reads
-    aloud once the confrontation resolves, showing what changed. Second
-    person, present tense, sensory, no game mechanics, no meta-commentary.
+    aloud once the stated departure condition is reached, showing what changed.
+    Second person, present tense, sensory, no game mechanics, no meta-commentary.
+    Keep the image's supplied nine-leave/three-stay state and unspecified costs.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
@@ -174,50 +211,36 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: previously-on
-  fixture_page: Sessions/Session 2/Session 2 - Recap.md
+  fixture_page: The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
   context: |
-    type: Recap
-    summary: "The Party crossed the Under-Boards, spoke the names of the drowned and took the Vessen ledger from Sable."
-    date: "23 Eelrun 412 CY"
-
-    ## At a glance
-
-    - **Session.** Session 2, played on 22 and 23 Eelrun 412 CY.
-    - **Party at.** The tally house in [[Reedholt]], on the evening of 23 Eelrun.
-    - **Big moments.** The Party beat two Mire Drowners in the mud, spoke the names of Vessen's dead to [[Sable]] and took the ledger.
-    - **Left open.** Whom to tell about the ledger, and the groan of Crookback Sluice.
-
-    ## What happened
-
-    The bell rang before dawn and the water under [[Reedholt]] dropped a foot. [[Odalys Ferro]] calmed the crowd on the plank walk while [[Nib Ashwater]] pulled the Party into the tally house. Nib showed them the tally-sticks of the drowned, and Odalys read the Vessen knots. Nib told them the ledger lay in the bell loft. [[Pell Rushlight]] brought a note from [[Hobb Tarrow]] warning that [[Ilse Corran]]'s boats were on the water.
-
-    The Party crossed the Under-Boards along a shell ridge. Two [[Mire Drowner]] creatures attacked from the mud. [[Brannoch Vell]] held the ridge while [[Tamsin Wick]] and Odalys dragged a grappled ally clear, and the Party used one charge of the [[Ebb Lantern]] to cross the last stretch dry.
-
-    In the chapel tower the Party met [[Sable]]. Three goblin hands of [[The Reedrunners]] climbed the stair behind them. Odalys spoke the names of the drowned aloud, and Sable gave her the ledger. The goblins fled when Brannoch held the stair. The tide returned as the Party left the chapel.
-
-    Back in the tally house the Party read the marked page. The ledger records the Compact's order to open Crookback Sluice and is signed Corvin Tarrow. At dusk a groan rolled in from the east.
-
-    ## Changes
-
-    - [[Harbormaster's Ledger of Vessen]] is now held by the Party, and [[Odalys Ferro]] carries it.
-    - [[Sable]] gave up the ledger and has stopped ringing the bell.
-    - [[Ebb Lantern]] has 2 charges left until dawn.
-    - [[Nib Ashwater]] trusts the Party and has shown them the tally-sticks.
-    - [[Hobb Tarrow]] is confirmed as a descendant of the clerk who signed the order. The Party has not told him.
-    - [[The Drowned Chapel]] is now known to the Party, with its tidemarks and the empty niche in the loft.
-    - [[Crookback Sluice]] groaned at dusk, and Pell says it has never done so in his lifetime.
-
-    ## Threads
-
-    - [[The Silent Bell]] moved. The Party holds the ledger, and the bell has stopped.
-    - [[Reedrunner Tithe]] moved. Ilse's crew failed to take the ledger and will look for the Party.
-    - [[The Failing Sluice]] opened its first sign, the groan at dusk.
+    Provenance: Session 11 - Recap, What happened, Changes and Threads
+    (lines 19-39), in the Wiki path named above. Archive evidence companion
+    archive/Session-11-Transcript.md, lines 38-96, corroborates these events.
+    No Previously On Narration is included as an answer sample.
+    Played Session: 11. Date: 1495 DR, month and weekday not established.
+    Party: four level-5 PCs, Delmar, Perrin, Crissdalynn and Jean-Claude.
+    Jean-Claude stopped responding; Delmar carried him in his coat, not a bag.
+    Adult Bloodhawk killed the Crown Squid; Party fled inland rather than fought.
+    Crissdalynn ate fallen redheart fruit, then picked living fruit. Wolfrabbits
+    and young Bloodhawks came. Illusions and a false fat Perrin drew them away.
+    Delmar drove off a Spiguar; it was not killed.
+    At the Slack Basin, Crissdalynn freed Matteo from three giant otters. The
+    Party tired them through play. Matteo confirmed fallen fruit was safe,
+    ate a ghost plum and vanished. He wanted passage off Aruhe.
+    At Matteo's camp, Perrin moved a Lesser Black Lotus into the river; failed
+    handling caused Tasha's Hideous Laughter and the flower drifted away.
+    A garden voice called; lantern light drove an unseen watcher off a porcupine.
+    On Crissdalynn's watch, Skarn missed a strike for the pack and used one
+    Legendary Resistance against her stunning strike. Play stopped with him
+    still in her face and the Spinner still hers, not after a completed theft.
+    Inland survivors were not reached; Session 12's rescue and CONSUME are unplayed.
   prompt: |
     You are writing for a home D&D 5e campaign wiki. Using only the facts
-    above, write the Previously On Narration that opens Session 3: last
+    above, write the Previously On Narration that opens Session 12: last
     Session retold as the story the Players would tell a friend who missed
     it, past tense with the Party as "you", ending where play stopped. Each
-    PC named when they act. No game mechanics, dice or meta-commentary.
+    PC named for their supported moment, without inventing an action for the
+    catatonic Jean-Claude. No game mechanics, dice or meta-commentary.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
@@ -226,24 +249,30 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: handout-text
-  fixture_page: Threads/Reedrunner Tithe.md
+  fixture_page: The Shattered Sea/Lore/Two-Grave Orders.md
   context: |
-    type: Thread
-    summary: "The Reedrunners squeeze the ferries and the harbor lamp, and one PC owes them a debt."
-    status: active
-
-    ## At a glance
-
-    - **Driven by.** [[Ilse Corran]] and [[The Reedrunners]].
-    - **Stands at.** The Party held the lighthouse and wounded Ilse. The crew failed to take the oil, but the ferries still pay.
-    - **If nobody acts.** The Reedrunners dim [[Gullhook Lighthouse]] again on the dark of the moon and take the wrecks.
-    - **Levers.** [[Pell Rushlight]], the debt slips kept in the eel sheds, [[Tamsin Wick]]'s past and the lamp itself.
+    Provenance: The Shattered Sea/Lore/Two-Grave Orders.md, Chronology
+    (lines 36-39), and The Shattered Sea/Items/Grung Authority Seal.md,
+    In use (line 28). This payload is original recorded document speech,
+    not copied Narration prose or an existing Handout answer.
+    Requested document: Jean-Claude's written rendering of a spent seal's
+    Gold-caste order chain, oldest first, for prepared Session 12.
+    Four exact lines from the source:
+    "Report what lies inland."
+    "Replace the parties that stopped reporting."
+    "Find the two graves beneath the memorial tree and destroy them."
+    "If the forest stands between, burn it."
+    Jean-Claude reads seals without a roll. Others need Investigation.
+    No seal names Hinewai, the Death Bloom or its officer. No signature, date,
+    issuer name, decorative stain or player reaction is supplied.
+    The words are Gold-caste commands, not an omniscient account of the graves.
   prompt: |
     You are writing for a home D&D 5e campaign wiki. Using only the facts
-    above, write the text of a tithe notice the Reedrunners post where the
-    ferrymen will read it, as Handout Narration: the document's own words,
-    exactly as the Players read them on the page. Formatted for reading, no
-    game mechanics, no meta-commentary.
+    above, write the seal's order-chain text as Handout Narration: the document's
+    own words, exactly as the Players can read and reuse them on the page.
+    Preserve all four lines verbatim and in order, with no added explanation,
+    game mechanics or meta-commentary. This is a requested new scratch Handout,
+    not a claim that it already exists or was delivered in played history.
     Reply with only the [!narration] callout block, nothing before or after it.
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."

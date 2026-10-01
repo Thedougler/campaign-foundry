@@ -1,38 +1,183 @@
-- id: harbour-clerk
-  prompt: The Party is going to the Saltwick harbour office to ask about old boat records. Give me the clerk who works there, named Mara Kett.
+# Existing NPC scale branches grounded for issue #31, not table feedback.
+- id: oleandro-records
+  source_pages:
+    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Locations/The Ponte Bassa.md
+    - The Shattered Sea/Locations/Calven and Calveno.md
+    - The Shattered Sea/Creatures/Commoner.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Perrin and Nona.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
+  prompt: >-
+    Give Oleandro Fuschi, the keeper already recorded at The Ponte Bassa,
+    an NPC page for a possible later meeting about Calveno hull movements.
+    Preserve his twenty years of unwritten vessel memory, fish broth,
+    direct answers and the problem of increasingly false manifests. Make
+    his likely conversations, limits, leverage and uncertain requests usable
+    at the table. Reuse fitting shared Creature statistics; his name does
+    not make him a unique fighter. The Party is still on Aruhe, so do not
+    claim this meeting or a new discovery already happened. No art or
+    Foundry connection is needed.
   checks:
-    pages: [Lowtide/NPCs/Mara Kett.md]
+    pages: [The Shattered Sea/NPCs/Oleandro Fuschi.md]
     sections:
-      Lowtide/NPCs/Mara Kett.md: ["## At a glance", "## Play", "## Depth", "## Links"]
-    absent:
-      Lowtide/NPCs/Mara Kett.md: ['```statblock', '!\[\[[^]]+#Statblock\]\]']
-  rubrics:
-    - Mara Kett is a named NPC whose creature property resolves to a complete Creature; a fitting Wiki Creature is reused without making statistics unique merely because the person has a name.
-    - The Agent records why existing Wiki people do not fill the requested Saltwick role, then sources applicable 2024 rules or archetypes before web co-option or novel identity; provenance is honest and sources holds only archived Raw.
-    - The clerk has a concrete present-tense want, leverage with a cost, a limit and an explicit secret with discoverable evidence, without contradicting the Vessen ledger's established truth.
-    - First look gives a distinctive visible detail, an activity and a spoken line; the voice grows from the clerk's concerns rather than an accent.
-    - Play answers the Party's likely boat-record requests, distinguishes automatic willingness from uncertainty, and uses sourced 2024 Influence with attitude, DC and meaningful success or failure consequences.
-- id: deepen-hobb
-  prompt: Hobb Tarrow is going to be a big part of the next arc. Deepen him.
-  checks:
+      The Shattered Sea/NPCs/Oleandro Fuschi.md:
+        - "## At a glance"
+        - "## Play"
+        - "## Depth"
+        - "## Links"
     canon:
-      Lowtide/NPCs/Hobb Tarrow.md: [Corvin Tarrow, 'burned it', 'nine generations', 'does not know why', 'loaned the Party', 'creature: "\[\[Bandit Captain\]\]"']
+      The Shattered Sea/NPCs/Oleandro Fuschi.md:
+        - '^type:\s*NPC\s*$'
+        - '\[\[The Ponte Bassa\]\]'
+        - '^creature:\s*"\[\[[^\]]+\]\]"\s*$'
     absent:
-      Lowtide/NPCs/Hobb Tarrow.md: ['```statblock', '!\[\[[^]]+#Statblock\]\]']
+      The Shattered Sea/NPCs/Oleandro Fuschi.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
   rubrics:
-    - Every established fact survives, including the burned letter, his ignorance of the motive, his family history and the heard First look; played Session pages and hot.md are unchanged.
-    - Hobb gains actionable invitations tied to each relevant PC's existing Goals and bonds or Plans, a next move if ignored and a testable tell for each hidden truth, without inventing prior PC relationships.
-    - His secret has three distinct discovery routes with concrete evidence; the original ash and post-ledger questioning routes remain usable.
-- id: ilse-villain
-  prompt: Make Ilse Corran a proper villain for the next arc.
+    - >-
+      The existing person on the Site is materialised rather than replaced
+      by an invented clerk. The Agent searches actual NPC candidates and
+      reuses fitting shared statistics, considering Commoner before creating
+      any new Creature. Rules and social archetypes follow the 2024 source
+      ladder where needed; provenance distinguishes Site facts from newly
+      authored identity and contains only actual archived Raw in sources.
+    - >-
+      A present want, costly leverage, limit and explicit secret with
+      discoverable evidence support the hull-record role without changing
+      the twenty-year memory, false-manifest problem or distinction between
+      remembered claims and true motives. A memorable visible detail,
+      current activity and speakable opening grow from this real work.
+    - >-
+      The DM can run likely ship-record, manifest-comparison and payment
+      requests. Attitude is separate from willingness; automatic yes/no
+      answers follow the NPC's goals. Hesitant requests use retrieved 2024
+      Influence, its DC, applicable attitude modifiers and meaningful
+      success/miss consequences. Essential information has three independent
+      discovery paths rather than one compulsory roll.
+    - >-
+      The NPC follows the current template, links a complete actual Creature
+      through creature and gains a non-index incoming link from The Ponte
+      Bassa. No NPC statblock or embed appears. The full scratch-root gate
+      and one create log cover every touched owner; hot and Session records
+      remain unchanged and the possible meeting stays future.
+
+- id: deepen-nona
+  source_pages:
+    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/NPCs/Nona Black-Jaw.md
+    - The Shattered Sea/Factions/Passage.md
+    - The Shattered Sea/NPCs/Cobb.md
+    - The Shattered Sea/Items/Sending Stone (Nona's).md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Perrin and Nona.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+  prompt: >-
+    Deepen Nona Black-Jaw as a recurring NPC for the crew's rescue obligation
+    after Aruhe. Preserve her existing history, kitchen voice, Passage limits,
+    missing-persons desk, two dispatched ships, protection of Felix and
+    unresolved Vestra knowledge. Give her actionable invitations grounded
+    in the actual PCs' Goals and bonds or Plans, a next move if ignored and
+    distinct ways to discover her hidden truths. Keep Perrin's sending stone
+    and the real existing Perrin and Nona Thread; do not invent past ties to
+    the other PCs or assume a completed return from Aruhe. No art or Foundry
+    connection is needed.
   checks:
+    pages: [The Shattered Sea/NPCs/Nona Black-Jaw.md]
     canon:
-      Lowtide/NPCs/Ilse Corran.md: [Ilse Marrow, 'twenty years', 'never used the pistol', 'does not know', 'creature: "\[\[Bandit Captain\]\]"']
-      Lowtide/Campaigns/Salt and Lantern/Threads/Reedrunner Tithe.md: [Tamsin]
+      The Shattered Sea/NPCs/Nona Black-Jaw.md:
+        - 'creature: "\[\[Commoner\]\]"'
+        - 'Calveno Candle'
+        - 'Vestra'
+        - '/\b314\b/'
+        - '\[\[Sending Stone \(Nona''s\)(?:\|[^\]]+)?\]\]'
     absent:
-      Lowtide/NPCs/Ilse Corran.md: ['```statblock', '!\[\[[^]]+#Statblock\]\]']
+      The Shattered Sea/NPCs/Nona Black-Jaw.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
   rubrics:
-    - Ilse's plan lives on an appropriate active-Campaign Thread page, reusing Reedrunner Tithe when it fits, with visible interruptible steps, costs and fallbacks, and the NPC links it.
-    - At least three distinct endings are reachable through Party choices rather than a required single roll or scripted villain success.
-    - Established facts survive, including Ilse Marrow, the ledger she wants, her unused pistol, twenty years of back-channel taxes and lack of knowledge that Sable guards the ledger; statistics stay linked to the shared Bandit Captain.
-    - The plan respects current hot.md state and all three PCs' recorded concerns, without rewriting hot.md, played Scenes or Recaps.
+    - >-
+      Established facts survive, including forty years feeding the Warren,
+      the Mercatura desk, more than 314 missing fighting-age men, two Passage
+      ships, Felix alive under a one-month protection arrangement, Nona's
+      private Calveno Candle history and incomplete knowledge of the Vestra.
+      Her existing First look and Commoner link remain, and played pages and
+      hot are byte-unchanged.
+    - >-
+      Every relevant PC receives a distinct invitation or explicit none based
+      on their real Goals, bonds or Plans: rescue/family obligations, crew
+      freedom, mapping/protection and fugitive protection are not fabricated
+      prior relationships. Current catatonic Jean-Claude is not treated as
+      freely conversing. Invitations offer choices and costs, and the ignored
+      next move reuses the existing Thread instead of duplicating its plan.
+    - >-
+      Each hidden truth has a testable tell and three distinct discovery
+      routes with concrete evidence. What Nona knows, hides and can grant
+      stays separate from DM truth. The sending stone is already Perrin's;
+      the page does not hand him a second copy or invent a resolved favour.
+    - >-
+      New depth is identified as design, filed through the actual NPC and
+      owner templates with resolving links, and covered by the full target-root
+      gate and one operation log. New Narration is Player-safe without
+      replacing the already-heard First look.
+
+- id: simone-villain
+  source_pages:
+    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/NPCs/Simone Tabarnack.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+  prompt: >-
+    Make Simone Tabarnack a runnable villain for the continuing pursuit after
+    Aruhe. Deepen her existing person and put her interruptible future plan
+    on Simone's Hunters, not a parallel Thread. Preserve her purple-caste
+    identity, incomplete Gold rite, dead maintainer Ozzeth, Crown toxin
+    bargain, restraint with her soldiers and desire to capture Jean-Claude.
+    Jean-Claude is currently catatonic in Delmar's coat; the captive trail
+    points toward Karath. Give the real Party choices, costs and multiple
+    possible endings without making Simone omniscient or a scripted winner.
+    Do not retune her linked statistics or rewrite hot and Session records.
+    No art or Foundry connection is needed.
+  checks:
+    pages:
+      - The Shattered Sea/NPCs/Simone Tabarnack.md
+      - The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md
+    canon:
+      The Shattered Sea/NPCs/Simone Tabarnack.md:
+        - 'creature: "\[\[Commoner\]\]"'
+        - 'Ozzeth'
+        - 'Ossketh'
+        - '/Crown/i'
+      The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md:
+        - '^status:\s*active\s*$'
+        - 'Karath'
+        - 'Jean-Claude'
+    absent:
+      The Shattered Sea/NPCs/Simone Tabarnack.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
+  rubrics:
+    - >-
+      The future plan lives on the existing active Simone's Hunters Thread
+      with a resolving link from the NPC. Every step has trigger/time, sign,
+      resource or cost, ignored consequence, Party interruption, fallback and
+      Simone reaction. It acts between appearances without asserting scouts
+      already found the current camp or giving Simone unearned knowledge.
+    - >-
+      At least three distinct endings can be reached by Party choices rather
+      than a required roll, guaranteed capture or cutscene. The plan respects
+      all four real PC goals and present capability, especially Jean-Claude's
+      inability to scout or negotiate now, without assuming his recovery.
+    - >-
+      Established history and knowledge survive: Simone reported Jean-Claude
+      and Pell, refuses to waste soldiers, independently found the rite,
+      remains incompletely transformed after Ozzeth's death and supplied
+      Crown toxin. Her personal capture-not-kill goal is distinguished from
+      reports of the hunters killing Grung leavers. Future rite maintenance
+      or alliances are design, not invented completed events.
+    - >-
+      Statistics stay on the unchanged linked Commoner unless separately
+      requested; a named villain does not silently gain unique combat rules.
+      The NPC and Thread use current templates, complete resolving dependencies,
+      honest provenance, full scratch-root gate and one create log. Hot,
+      already-heard Narration and all Session records remain unchanged.

@@ -1,23 +1,45 @@
 - id: cold-open
-  prompt: Let's plan Session 3.
+  source_pages:
+    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Shattered Sea.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+  prompt: Let's talk through Session 12's existing plan before we run it.
   rubrics:
-    - The reply opens with where the Campaign stands in five to ten lines, with wikilinks to the pages behind it (Recap, Threads, hot.md facts).
-    - It offers two or three directions drawn from Canon, each a concrete situation naming people, places or Threads from the Wiki.
-    - It ends with at most two questions, each offering two or three specific options.
-    - It asks nothing about bookkeeping (dates, page fixes, stat blocks, which pages to create).
-    - The Wiki diff is empty.
+    - The reply opens with the Campaign's current state in five to ten lines with links, using the played Recap's unresolved Skarn attack rather than hot's inconsistent breaking-off claim.
+    - It offers two or three concrete directions grounded in Aruhe's fruit law, inland survivors, the Spinner hunt, Grung orders or Perrin's patron, distinguishing current facts from prepared possibilities.
+    - All four PCs are level 5; Jean-Claude's last played state is catatonic in Delmar's coat. No recovery, rescue outcome or level-6 reward is asserted as already played.
+    - It ends with at most two questions offering two or three specific options, asks nothing about bookkeeping, and keeps the Wiki diff empty.
 - id: dm-fixed-points
-  prompt: For Session 3 I want Crookback Sluice to actually give way halfway through, and Hobb has to choose between his family name and the town.
+  source_pages:
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
+    - The Shattered Sea/Lore/Two-Grave Orders.md
+    - The Shattered Sea/Items/Fate Spinner.md
+  prompt: For Session 12 I want the two-grave orders to land hard, and Perrin's choice about CONSUME to be the emotional centre. Build on those two points in the existing Prep.
   rubrics:
-    - The reply keeps both of the DM's ideas as given and builds on them, without replacing or questioning either.
-    - It adds at least two concrete ideas grounded in Canon, each with its page linked (for example the ledger's signature by Corvin Tarrow, the Reedrunners, the Long Ebb).
-    - It ends with at most two questions, each offering two or three specific options.
-    - It reads as a warm, collaborative co-writer rather than an interrogation or a critique.
-    - The Wiki diff is empty.
+    - Both DM preferences are accepted as fixed points and developed rather than replaced, challenged or silently turned into outcomes the PCs must choose.
+    - At least two concrete additions have Canon page links, using the seals' order chain, the Spinner hunt or Aruhe's law as grounding. New staging is clearly a pitch rather than prior play.
+    - The reply is a warm, tight co-writing turn with at most two questions offering specific choices, not an interrogation or bookkeeping checklist.
+    - The Wiki diff is empty and Session 12 remains unplayed.
 - id: settle
-  prompt: "Here's Session 3. Opening: the sluice groans at dawn and water starts pouring into Saltwick's low streets. Middle: the Party learns Hobb's ancestor signed the order, and Ilse offers them a deal for the ledger. Climax: at Crookback Sluice, Hobb chooses between burning the ledger to save his name and handing it over to save the town. Resolution: Saltwick counts what the water took. Tone is grim with a glimmer of hope. Spotlight Tamsin with Ilse, since she worked for her. That's everything, settle it."
+  source_pages:
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+  prompt: "Settle Session 12 using the existing six-Scene route. Opening is Skarn cutting at Crissdalynn's harness at the Slack Basin. Middle is the lava-tube rescue, Terror-Birds and reading the Gold-caste orders. Climax is the Pantry, Skarn's last Spinner attempt and Perrin's choice to consume. Resolution is the survivors choosing who leaves and who stays. Tone is consequential rescue and found family. Keep Perrin's choice central, Crissdalynn on the Spinner, Delmar protecting civilians and Jean-Claude on the Grung orders. Treat his ability to act as a Prep question because his last played state was catatonic. That's everything, settle it."
   rubrics:
-    - The reply writes the Session intent in the skill's shape, with Promise, Tone, Fixed points, Opening, Threads, Climax, Resolution, Spotlights and Left to Prep all present.
-    - The Fixed points keep the DM's own ideas in the DM's words.
-    - Spotlights cover all three PCs (Brannoch, Tamsin and Odalys), with Tamsin's tied to Ilse as the DM asked.
-    - It hands the intent to prep-session and writes nothing to the Wiki (the Wiki diff is empty).
+    - The settled intent contains Promise, Tone, Fixed points, Opening, Threads, Climax, Resolution, Spotlights and Left to Prep.
+    - Fixed points preserve the DM's words and existing route. The survivors' and PCs' choices remain situations for play, not guaranteed results asserted as Canon.
+    - Spotlights account for all four named PCs, with Perrin's consume choice central and Jean-Claude's unresolved capability retained under Left to Prep rather than an invented recovery.
+    - It hands the intent to prep-session without writing the Wiki; the Wiki diff is empty and played Session 11 records stay unchanged.

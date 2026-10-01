@@ -1,24 +1,15 @@
-# Site
+# Site: running a visit
 
-A Site is keyed like a published adventure keys a location: the DM finds any area's truth in one glance. A dungeon, ruin or other place explored room by room also runs the `dungeon-design` procedure for its areas, pressure and rest.
+Use this branch for an ordinary Site: a shop, landmark, small building or other compact visit. A Site explored room by room with an area network and expedition pressure takes the SKILL.md dungeon-design handoff instead; dungeon-design owns its stocking and key details. Do not require a dungeon graph for a single service counter or monument.
 
-## Structure before prose
+## Design
 
-Sketch the Site as situations joined by routes: `node --(route; cost; danger; what it reveals)--> node`. Aim for two or more ways in, a loop, a bypass, a way to retreat, and a route that trades speed against safety. Every significant area passes the **verb test**: it invites something the Party can do (cross, question, bargain, hide, study, climb, steal, sabotage) that changes a route, a Clue, a resource, a relationship or the pressure. With every enemy removed, the Party still has things to learn, use, change or choose.
+1. **Set the approach.** Describe where the Site sits within its containing Location, how visitors reach the entrance and leave, what is visible before entry, and what currently limits access. State useful distances, light, levels and obstacles at the scale of the visit. For several spaces, explain their connections before filling them.
+2. **Key for retrieval.** Choose a stable entry order the DM can follow from the entrance, with consistent feature names and area identifiers where needed. A one-space Site needs one compact entry; several spaces need distinguishable entries. Each entry opens with a short spoken cue, then identifies current occupants and activity, usable objects, immediate danger, hidden answers and onward connections. Put the answer next to the feature a Player would ask about; cross-reference a shared hazard or owner rather than retyping it in every entry.
+3. **Make use consequential.** Explain what visitors can buy, learn, repair, cross, alter or bargain over, and what changes when they do. Apply a check only where the result is uncertain and state the consequence of failure. A useful choice must remain even with every hostile removed; a service, Clue, route, resource or relationship can supply it.
+4. **Account for people and objects.** Give the keeper or inhabitants a location, immediate purpose, offer and response to likely approaches; link the NPCs and Creatures needed for interaction. Put notable Items where they can be reached, with their owners and access conditions. Hazards that cannot be carried belong to this Site, with their full running procedure in its DM-facing content.
+5. **Prepare change and return.** Connect the opposed wants to a visible next event at a stated time. Give an inhabitant or the Site an actionable response to likely intervention, with a trigger and lasting change in access, stock, trust or evidence. On a revisited Site, preserve established history and consequences, showing what is different now instead of resetting a cleared or repaired feature.
 
-## Life and moves
+## Table-use criterion
 
-Who is here now, doing what, wanting what, or the sign of who is gone. A working place has its keeper on duty. Prepare two to four **moves** the place or its people make, at least one on its own clock whatever the Party does: the actor, the trigger, what the Party notices, the new opening it gives, and what stays changed.
-
-## Page
-
-- **At a glance:** why the Party comes here, the way in, who occupies it, the danger and the prize.
-- **Areas:** one `####` per area, in route order. Each opens with a spoken cue, then who is here and what they're doing, then features, Items and hazards. Each entry opens with its tell in italics, quoting the Narration where the tell appears there, then its truth, what a closer look finds, the check where the outcome is uncertain, and what it costs.
-- **Hazards, Occupants, Likely actions:** the hazards' six answers, the occupants' moves and triggers, and what the Party will likely try, with the answer to each.
-- **Depth:** history that changes what the Party finds, hidden truths each with its Clue, and the Threads in play.
-
-## Done
-
-- Every significant area passes the verb test and holds its rows from the weave.
-- Everyone the Party will deal with is a named NPC page, linked.
-- At least one move runs on its own clock.
+The DM can find a feature's occupants, object, hazard or hidden truth quickly, resolve likely actions and identify where the Party can go next. Important interactions change something even without enemies, the timed situation has a visible consequence, and a basic visit remains runnable without expedition machinery.

@@ -1,64 +1,79 @@
 - id: npc-first-look
-  prompt: Ilse Corran's First look reads like a police description. Rewrite it.
+  source_pages:
+    - The Shattered Sea/NPCs/Talon Skarn.md
+    - The Shattered Sea/Creatures/Talon Skarn (Creature).md
+  prompt: Rewrite Talon Skarn's First look with fresh, speakable prose. Keep its factual cues and his complete spoken line, and change no other part of the page.
   checks:
     canon:
-      Lowtide/NPCs/Ilse Corran.md: ['creature: "\[\[Bandit Captain\]\]"', Ilse Marrow, '\[!narration\] First look']
+      The Shattered Sea/NPCs/Talon Skarn.md: ['creature: "\[\[Talon Skarn \(Creature\)\]\]"', '\[!narration\] First look', Set the toy on the stone]
   rubrics:
-    - The new First look gives Ilse one distinctive feature and one thing she is already doing, rather than a list of clothing and features.
-    - "It ends on her one spoken line, which asks, offers, presses or threatens: a speaker or action lead-in comes before the complete line, with no speech tag inside or trailing it and no action narrated after the line."
-    - It contains no em dash, semicolon or colon, no compass direction and no foot count.
-    - No phrase of four or more words is copied from the old First look or the rest of her page (her quoted speech aside).
-    - "It invents no PC action or feeling and assumes nothing of the listeners' bodies or senses: only grounded details the Party could perceive are spoken."
-    - It introduces at most three proper names new to the listeners, each traceable to a Wiki page.
-    - It is three to five sentences plus her spoken line, second person, present tense, and every fact in it traces to a Wiki page.
-    - "It is speakable on one hearing: no forced re-read or spelling, no ambiguous spoken-word trap (tongue-twister, accidental alliteration, pun name, homophone), no perception hedge, no mechanical word used as a metaphor, no stacked evaluative adjectives and no chained relative clauses."
+    - The new First look uses grounded evidence from Skarn's page and linked art, with one distinctive feature beside one behaviour rather than an inventory. Supported details omitted from spoken prose remain on the DM side.
+    - The speaker or action leads into the complete sourced line Set the toy on the stone, with no intervening or trailing speech tag and nothing after the line.
+    - It has three to five sentences plus the line, second-person viewpoint and present tense, without prescribed PC action, feeling or shared anatomy.
+    - No four-word run echoes the old callout or source prose except the preserved speech. No em dash, semicolon, colon, compass bearing or foot count enters Narration.
+    - Every stated detail has a Canon source; his master's hidden name and the Spinner's secret purpose do not enter the spoken block. At most three unfamiliar proper names appear.
+    - The block is clear on one hearing, without a perception hedge, rules metaphor, stacked evaluative adjectives, chained relative clauses or confusing sound trap. Unrelated prose and statistics stay unchanged.
 - id: hook-opening
-  prompt: The Opening for Session 2 - The Bell Rings Early is flat. Rewrite it so it grabs the table.
-  checks:
-    pages: [Lowtide/Campaigns/Salt and Lantern/Sessions/Session 2/Session 2 - The Bell Rings Early.md]
-  rubrics:
-    - The first sentence puts the disturbance (the bell, the missing water) in front of the Party.
-    - The Opening is 80 to 120 words and one paragraph.
-    - Motion and grounded sensory evidence carry the situation through channels available to the actual Party; use a nonvisual cue when the sources and capabilities support it, without assuming a shared anatomy or forcing a bodily reaction.
-    - Each named opening detail earns its place as an action, a route, a Clue or the anchor, keeping the anchor's specific nouns rather than any-room filler.
-    - Immediately perceivable blocking or lethal hazards and relevant positions are explicit whenever the sources carry them.
-    - A multi-beat event stops at the first actionable reaction; nothing later is narrated as a completed outcome.
-    - Where a map or art is shown, the Narration is read first and the tactical aid follows immediately, spending its words on what the art cannot carry rather than an inventory of obvious artwork detail, without dropping the first-look hazard and route obligations.
-    - It ends on a reaction point where a player would act, without asking "What do you do?" and without deciding anything for a PC.
-    - Facts the characters cannot perceive yet (why the bell rings, the ledger) stay out of the callout.
-    - "The spoken prose is clear on one hearing: no forced re-read, ambiguous spoken-word trap, perception hedge, mechanical metaphor, stacked evaluative adjectives or chained relative clauses, and at most three proper names new to the listeners, each with a Canon source; no NPC line is required where none is sourced."
-- id: previously-on
-  prompt: Rewrite Session 2's Previously On from the Session 2 Transcript so the table relives it.
-  checks:
-    pages: [Lowtide/Campaigns/Salt and Lantern/Sessions/Session 2/Session 2 - Previously On.md]
-  rubrics:
-    - It is told in the past tense with the Party as "you", and each of Brannoch, Tamsin and Odalys gets a concrete moment of their own.
-    - Moments get more words than routine travel, and beats link by cause (so, but, until) rather than "and then".
-    - Rolls and rules appear only as what they looked like.
-    - Lines quoted from the Transcript or the table appear word for word, and the block introduces no event the table never played, no imposed emotion and no new present-time threat.
-    - "One hearing and one retelling stay clear: stable salient names and concise clauses, with no forced sensory quota or physical-first-look shape; the PCs' own names are familiar, not new introductions."
-    - It ends inside the moment play stopped, with nothing about stopping, the night or the Session.
-    - It is about 150 words and every event in it happened in the Transcript or the Recap.
-- id: creature-first-sight
-  prompt: Write a better First sight for the Mire Drowner.
+  source_pages:
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+    - The Shattered Sea/NPCs/Talon Skarn.md
+    - The Shattered Sea/Items/Fate Spinner.md
+    - The Shattered Sea/NPCs/Matteo Scola.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+  prompt: Rewrite the Opening of the prepared Session 12 - Dawn Strike so the table can answer the threat immediately. Preserve the Scene's facts and all DM-side rules, and change no played records.
   checks:
     canon:
-      Lowtide/Creatures/Mire Drowner.md: ['hp: 75', '\[!narration\] First sight']
+      The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md: ['\[!narration\] Opening', '150 of 195 HP', '97 HP']
   rubrics:
-    - It gives the Mire Drowner's silhouette, how it moves and its size against something familiar.
-    - Each signature ability in its stat block has a visible tell in the Narration, written as appearance rather than function.
-    - "Sensory cues are grounded in its page and safe for any Party: no assumed anatomy, sense or capability, no inferred history and no perception hedge."
-    - "No contact or attack advances past the ending: it shows the Creature at rest, before it notices anyone."
-    - It contains no game terms (CR, grapple, DC, damage types) and no em dash, semicolon or colon.
-    - "The spoken prose is clear on one hearing: no forced re-read, ambiguous spoken-word trap, stacked evaluative adjectives or chained relative clauses, and at most three proper names new to the listeners, each with a Canon source; no NPC speech is required."
-- id: handout-text
-  prompt: Rewrite the text of Hobb's Warning so it reads like a real note from Hobb.
+    - The first sentence puts Skarn's pressure on Crissdalynn and her harness in front of the Party, not a landscape caption.
+    - The Opening is one paragraph of 80 to 120 words. Grounded motion and accessible sensory evidence carry the threat without assuming that all four PCs are humans or declaring that catatonic Jean-Claude acts or feels it.
+    - The nearby sheer bank and deep pool are explicit before a Player must choose a route. Salient nouns remain stable, and directions and measurements stay in DM notes.
+    - The event stops before a strap is cut, the Spinner is taken, a PC moves or a blow lands. It ends where a Player could interrupt without asking What do you do.
+    - Skarn's exact HP, retreat threshold, unseen otter timing and later outcomes remain DM-side. Prepared possibilities are not narrated as completed events.
+    - Any tactical image follows immediately after Narration rather than replacing the first-look threat and route information. The prose survives one hearing, with no rules metaphor, hedge, chained clauses or unsupported names.
+- id: previously-on
+  source_pages:
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
+  prompt: "In scratch only, I explicitly authorize rewriting Session 12's existing Previously on callout from the real Session 11 table Transcript at archive/session-11-transcript-archived-version.md. Read the full Transcript and keep its actual stopping point. Do not rewrite the Recap or other played records."
   checks:
-    pages: [Lowtide/Campaigns/Salt and Lantern/Sessions/Session 2/Hobb's Warning.md]
+    pages:
+      - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
   rubrics:
-    - The callout reads as Hobb's own note, in his voice, with a concrete detail that makes it real (a date, a signature, a stain or a hurried hand).
-    - "It carries the one thing the Players can act on: Ilse's boats are on the water."
-    - "The reusable written words stand as a document in Hobb's voice: his claims are his own, with no omniscient truth claim and no imposed PC response."
-    - The callout contains no colons, and the DM-only guidance stays outside it.
-    - Completion is judged by the document's formatting and payload, not by one-paragraph spoken form, a sensory quota or a reaction-point ending.
-    - If the text is a riddle or puzzle, it does not depend on a single language's spelling, sound or pun; no riddle is created just to exercise this.
+    - The retelling is past tense with the Party as you, naming Delmar, Perrin and Crissdalynn when they take supported concrete actions. Jean-Claude's recorded catatonia is represented without inventing a Player-declared action for him.
+    - The table's moments get more space than routine travel, with causal links instead of a sequence of and-then summaries. Rolls and mechanics are rendered as the events looked.
+    - Quoted table speech stays word-for-word from the Transcript. No unplayed inland rescue, later CONSUME event, imposed PC emotion or new present threat is added.
+    - It ends with Skarn still in Crissdalynn's face after his unresolved theft attempt, not breaking off because hot says so, and says nothing about stopping or the Session ending.
+    - The block is 120 to 160 words and clear on one hearing, with familiar PC names distinguished from unfamiliar introductions and no forced sensory quota or physical-first-look shape.
+    - Only the authorized callout changes; its title spelling and date uncertainty survive, and the played Recap remains byte-for-byte unchanged.
+- id: creature-first-sight
+  source_pages:
+    - The Shattered Sea/Creatures/Terror-Bird.md
+  prompt: Replace the placeholder First sight on the Terror-Bird Creature page with grounded Narration. Show it before it notices anyone, using its actual form and visible signature tells without adding a victim or an attack outcome.
+  checks:
+    canon:
+      The Shattered Sea/Creatures/Terror-Bird.md: ['hp: 200', '\[!narration\] First sight', Tremor Stride, Moss-Grown, Straight Charge, Swallow]
+  rubrics:
+    - The silhouette, Huge size, moss-grown camouflage, serrated beak and talons are grounded in the Creature's block and linked art; scale is a familiar comparison rather than a foot count or game term.
+    - Supported signature tells appear as physical evidence, with mechanics kept in DM notes. No swallowed victim, acid smell, colour or feeding history is invented because the statblock has an ability.
+    - It stays before notice or attack, with no attack landing or PC approach decided, and no shared anatomy or sense assumed for the Party.
+    - Narration has no CR, DC, damage-type vocabulary, em dash, semicolon or colon. The prose is clear on one hearing without hedges, stacked evaluations or chained clauses.
+    - Every factual cue has a page or actual art source. The statblock and unrelated page content remain unchanged.
+- id: handout-text
+  source_pages:
+    - The Shattered Sea/Lore/Two-Grave Orders.md
+    - The Shattered Sea/Items/Grung Authority Seal.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
+  prompt: "Create a scratch Handout named Gold-Caste Order Chain under Session 12, using the current Handout template. Its Handout text is Jean-Claude's written rendering of the four verbatim order lines in Two-Grave Orders, oldest first. Preserve that payload without inventing a signature, date, officer or hidden explanation. Link it to the prepared Orders in the Ash Scene."
+  checks:
+    canon:
+      The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Gold-Caste Order Chain.md: ['type: Handout', '\[!narration\] Handout text', Report what lies inland, Replace the parties that stopped reporting, Find the two graves beneath the memorial tree and destroy them, If the forest stands between, burn it]
+  rubrics:
+    - The newly requested Handout is a template-shaped output, not claimed to be an existing source or a prop already handed out at the table. Its sources and Scene link identify its real provenance.
+    - The callout preserves all four exact order lines in chronological order as reusable written words, without a colon or explanatory narrator.
+    - The Gold-caste commands remain attributed document claims, not an omniscient narrator's conclusions or instructions controlling the PCs.
+    - Hinewai's identity, the Death Bloom, the issuing officer and the compulsion explanation stay outside the player document. No unsupported date, signature or stain is added.
+    - Completion is judged by the written payload and Handout template, not by a spoken paragraph, sensory quota, reaction-point ending or invented riddle.

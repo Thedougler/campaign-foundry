@@ -7,7 +7,8 @@
 		"setup": "vale sync",
 		"typecheck": "tsc",
 		"test": "vitest run",
-		"eval:check": "node evals/check.ts"
+		"eval:check": "node evals/check.ts",
+		"eval:prepare": "node evals/prepare.ts"
 	},
 	"dependencies": {
 		"@tavily/core": "^0.7.13",

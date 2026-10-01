@@ -32,9 +32,10 @@ Options:
 cases.yaml is a list of { id, prompt, checks, rubrics }. checks holds any of:
   pages     list of vault-relative page paths that must exist
   sections  page -> headings that must exist (a leading "##" also fixes the level)
-  canon     page -> regexes that must still match (fixture facts)
+  canon     page -> regexes that must still match (Canon facts)
   absent    page -> regexes that must not match
 A regex is plain text (multiline) or /pattern/flags. The ".md" extension is optional.
+Skill eval preparation additionally requires source_pages provenance; see evals/README.md.
 
 Exit codes: 0 all passed, 1 a check failed, 2 usage or cases-file error.
 

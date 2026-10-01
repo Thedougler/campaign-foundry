@@ -1,0 +1,176 @@
+# Existing exploration branches grounded for issue #31, not table feedback.
+- id: stock-lava-tubes
+  source_pages:
+    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Locations/Lava Tubes.md
+    - The Shattered Sea/Locations/The Long Meadow.md
+    - The Shattered Sea/Locations/Memorial Grove.md
+    - The Shattered Sea/NPCs/Ettore Ferrante.md
+    - The Shattered Sea/NPCs/Luca Ferrante.md
+    - The Shattered Sea/Lore/Taking on Aruhe.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+  prompt: >-
+    Stock the existing Lava Tubes for exploration and rescue from the Long
+    Meadow smoking skylight. Make the established ledge, east and west tubes,
+    daylight wells, seep and vents navigable, with Clues, hazards, occupants,
+    pressure and rest. Preserve the four trapped Calveno survivors, Ettore's
+    injury, Luca's tally, the recorded climb and footing DCs, and the option
+    to haul all four out in ten minutes. Link existing owner pages before
+    inventing dependencies. This is Site worldbuilding, not Session Prep:
+    neither the rescue nor an expedition has happened yet. Account for the
+    current Party, including Jean-Claude carried in Delmar's coat. Do not
+    change hot or Session records. No art or Foundry connection is needed.
+  checks:
+    pages: [The Shattered Sea/Locations/Lava Tubes.md]
+    sections:
+      The Shattered Sea/Locations/Lava Tubes.md:
+        - "## At a glance"
+        - "## Play"
+        - Areas
+        - Pressure
+        - Rest
+        - "## Depth"
+        - "## Links"
+    canon:
+      The Shattered Sea/Locations/Lava Tubes.md:
+        - '^type:\s*Location\s*$'
+        - '^kind:\s*Site\s*$'
+        - '^parent:\s*"\[\[Aruhe\]\]"\s*$'
+        - '\[\[Luca Ferrante\]\]'
+        - '\[\[Ettore Ferrante\]\]'
+        - '\[\[Piero Sorrentino\]\]'
+        - '\[\[Gianni Moro\]\]'
+        - '/(?:DC\s*10[^\n]{0,80}Acrobatics|Acrobatics[^\n]{0,80}DC\s*10)/i'
+        - '/(?:DC\s*15[^\n]{0,80}Athletics|Athletics[^\n]{0,80}DC\s*15)/i'
+        - '/\b(?:ten|10)\s+minutes\b/i'
+    absent:
+      The Shattered Sea/Locations/Lava Tubes.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
+  rubrics:
+    - >-
+      Comparison with real source pages preserves entrances from the Long
+      Meadow skylight, marsh and roots, the 15-foot skylight and 40-foot ledge,
+      all established areas, the nineteen-day stranding, four named survivors,
+      Ettore's broken shin and inability to stand, Luca's twentieth-day resolve,
+      the existing footing/climb DCs and ten-minute rope extraction. None of
+      Session 12's prepared rescue outcomes becomes an observed event.
+    - >-
+      From the route graph and keys alone, the grader can trace entry, rescue,
+      an underground investigation and retreat. Every edge agrees at both
+      endpoints on travel cost, exposure and useful information; physically
+      supported alternatives differ meaningfully. Flight, ropes, healing,
+      carried Jean-Claude and island law affect choices without being cancelled.
+    - >-
+      Every area has an observable cue, current activity, usable interaction,
+      find or truth, relevant uncertainty mechanics and exits. Each essential
+      revelation has three independent Clues, and progress is not gated by a
+      single roll. Each hazard has a sign, trigger, effect, counterplay, distinct
+      bypass and leverage; existing mechanics remain intact.
+    - >-
+      Occupants have wants, offers and responses. Confrontations have a purpose,
+      terrain, consequences, nonviolent resolution and retreat. Numerical
+      encounter estimates use the actual four level-5 PCs, current participation
+      and retrieved 2024 guidance with calculation evidence. Creature, NPC and
+      Item rules remain on resolving owner pages, not the Site.
+    - >-
+      The DM can advance search time, an alarm and a rest from explicit triggers
+      through visible signs to consequences, and Party actions can change the
+      pressure. Short/Long Rest timing and interruption rules are sourced;
+      shelter, discovery risk, costs and concurrent changes are explicit.
+      Custom pressure cadence is Site-specific, not a universal 2024 rule.
+    - >-
+      The actual Site template, resolved owner links and honest provenance are
+      used. One standalone create operation covers all touched pages after the
+      full scratch-root gate, with no duplicate child log, new permanent Scenes,
+      changed hot or changed Session records.
+
+- id: nested-refuge-return
+  source_pages:
+    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Locations/Lava Tubes.md
+    - The Shattered Sea/Locations/The Long Meadow.md
+    - The Shattered Sea/Locations/Memorial Grove.md
+    - The Shattered Sea/NPCs/Ettore Ferrante.md
+    - The Shattered Sea/NPCs/Luca Ferrante.md
+    - The Shattered Sea/Lore/Taking on Aruhe.md
+    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+  prompt: >-
+    Develop a nested Site called Lava Tube Refuge around the established
+    smoking-skylight ledge inside the Lava Tubes. This is a new playable
+    subdivision of the real Site, not a new discovered expedition. Prepare
+    the accessible refuge and adjoining east/west approaches for repeat visits,
+    with the deeper Clear Lake route as a discoverable frontier. Give distinct
+    reasons to return besides fighting. Keep the four survivors trapped until
+    play resolves their rescue, and show how extraction, secured ropes, damaged
+    access or bargains would persist if those choices occur. Add the entrance
+    and cross-Site routes to Lava Tubes without changing its established facts.
+    Do not invent a past survey, elapsed absence or completed rescue. This is
+    one create operation, not Ingest or Prep; leave hot and Session records
+    alone. No art or Foundry connection is needed.
+  checks:
+    pages:
+      - The Shattered Sea/Locations/Lava Tubes.md
+      - The Shattered Sea/Locations/Lava Tube Refuge.md
+    sections:
+      The Shattered Sea/Locations/Lava Tube Refuge.md:
+        - "## At a glance"
+        - "## Play"
+        - Areas
+        - Pressure
+        - Rest
+        - Return state
+        - "## Depth"
+        - "## Links"
+    canon:
+      The Shattered Sea/Locations/Lava Tubes.md:
+        - '^parent:\s*"\[\[Aruhe\]\]"\s*$'
+        - '\[\[Lava Tube Refuge(?:#[^\]|]+)?(?:\|[^\]]+)?\]\]'
+      The Shattered Sea/Locations/Lava Tube Refuge.md:
+        - '^type:\s*Location\s*$'
+        - '^kind:\s*Site\s*$'
+        - '^parent:\s*"\[\[Lava Tubes\]\]"\s*$'
+        - '\[\[Ettore Ferrante\]\]'
+        - '\[\[Luca Ferrante\]\]'
+    absent:
+      The Shattered Sea/Locations/Lava Tubes.md: ['^```statblock\b']
+      The Shattered Sea/Locations/Lava Tube Refuge.md: ['^```statblock\b']
+  rubrics:
+    - >-
+      Parent and child use the current flat Location/Site layout, with Aruhe
+      containing Lava Tubes and Lava Tubes containing the new refuge. Named
+      areas are keys rather than new page kinds. Cross-Site routes name entry
+      keys, travel costs, restrictions and return directions at both endpoints.
+    - >-
+      The stocked frontier supports a complete goal-and-return expedition with
+      alternative routes, interaction, Clues and concrete information, access or
+      relationship rewards. The Clear Lake direction is discoverable and useful
+      without prewriting an entire island campaign or promising empty pages.
+    - >-
+      Return state clearly separates existing evidence from conditional play:
+      Ettore, Luca, Piero and Gianni are still trapped; rope installation,
+      rescue, damage and bargains are possible actions, not invented history.
+      Conditional gains persist. Every repair, replacement or change during
+      absence requires a named actor/process, motive, resources, elapsed time
+      and visible sign rather than resetting the Site on return.
+    - >-
+      The ledger covers learned routes, access, damage, rewards, relationships,
+      pressure and frontier. Shared mechanisms have one authoritative home;
+      area transitions, boundary crossings and rests advance them consistently,
+      with concrete ways for the Party to influence pressure. The grader can
+      walk a rescue, departure, rest and conditional return using the pages alone.
+    - >-
+      The parent Site's hazards, survivor facts, nineteen-day tally and
+      ten-minute extraction remain usable; Aruhe's receiving/taking distinction
+      and the current Party's flight, healing and carried Jean-Claude matter.
+      No played record, heard Narration or hot is changed to manufacture a survey.
+    - >-
+      Both Sites and any necessary owner dependencies use current templates,
+      resolved links and honest provenance. One full scratch-root gate and one
+      create log cover the whole operation; common authoring and stocking do
+      not recursively invoke one another or require new permanent Scene Prep.
