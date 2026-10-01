@@ -1,22 +1,30 @@
-# A villain's plan
+# Active villain plan
 
-A villain's plan is a Thread: it moves whether or not the Party engages. File it as a Thread page in the Campaign, linked from the villain's Depth, with its steps the Players can see, interrupt, redirect or exploit. It is an active plan, never a script for the villain to win.
+A villain plan is a live Thread, not a script. In an active Campaign, use a suitable existing Campaign Thread. Create a new Campaign Thread only when no suitable one exists. With no Campaign, keep the plan on the NPC's World page and never invent a Campaign container.
 
-## On the NPC page
+## Plan steps
 
-Public face and private truth, want, fear, means, limit, contradiction, allies who could defect, and a tell that shows their presence or strain.
+For every step write:
 
-## On the Thread page
+- trigger and objective;
+- target or Location;
+- resource or cost spent;
+- visible sign;
+- consequence if nobody interferes;
+- Party interruption;
+- fallback that changes the situation;
+- villain reaction based only on what the villain knows.
 
-- **Steps.** For each: what triggers it, its goal and target, what it spends, the sign the Players can see, what happens if nobody interferes, how the Party can interrupt it, the fallback, and how the villain reacts.
-- **Escalation**, taken only as far as pressure earns: rumour, trace, a minor move, a costly response to the Party, a public consequence, confrontation.
-- **Reaction after each Party choice.** What the villain knows (and only fears), the smallest response that protects the plan, a resource spent or a tell exposed, the plan advanced, delayed or changed, and a new chance for the Party to interrupt.
-- **Endings.** At least three live ones (defeat, escape, compromise, exposure, alliance, surrender), each reachable through play rather than one required check. Redemption has conditions play can meet: acknowledged harm, restitution, a costly refusal.
+The plan advances, stalls, or changes between appearances. The villain is not omniscient, and a fallback is not an automatic win.
 
-## Presence before the Climax
+## Pressure
 
-Show the villain through a consequence, a rumour, an agent, a changed place, an intercepted message, a survivor or a brief meeting. Each appearance reveals their want, means, limit or contradiction and gives the Party something to act on.
+Use only pressure earned by play. A useful escalation can move from rumour to trace, minor move, costly response, public consequence, and confrontation. Each visible stage gives the Party something they can investigate, protect, bargain with, or interrupt.
 
-## Betrayal
+After each meaningful Party choice, state what the villain knows and fears, choose the smallest protective response, spend a resource or expose a tell, change the plan's clock, and leave a new interruption point.
 
-Only where incentives and past behaviour support it: seed at least two readable signs and one plausible alternative, and let the Party test loyalty, change the deal or prepare.
+## Endings
+
+Write at least three live endings, each reachable through choices and consequences: for example defeat, escape, exposure, compromise, alliance, sacrifice, or surrender. Do not require one roll, a cutscene, or a predetermined redemption. If reform is possible, require recognition of harm, restitution, a costly refusal, and changed conduct; the villain may still reject it.
+
+**Check:** the Thread or World plan has a visible trigger, sign, cost, ignored consequence, interruption, fallback, and three distinct endings. The NPC links it without duplicating an existing future plan.

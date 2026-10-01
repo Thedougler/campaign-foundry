@@ -1,44 +1,207 @@
 ---
 name: creature-design
-description: Makes or retunes a Creature page, a 2024-rules stat block tuned against the current Party, sourced Wiki first, then SRD, then the web, then new design. Use when a Creature is needed for a Scene, an NPC or a Location, when an NPC needs statistics, or when the DM says a Creature felt too soft or too hard.
+description: >-
+  Design, reuse, reskin, variant, or retune a D&D 2024 Creature: a complete
+  statblock page tuned against the active Party and grounded in World canon.
+  Use when a Creature is needed for an Encounter, NPC, Location or Scene, when
+  an NPC needs shared statistics, or when the DM reports a Creature was too
+  soft or too hard.
 ---
 
 # Creature design
 
-A Creature is rules, never a person: the person is an NPC, whose page links here through `creature`. A good Creature is, in order:
+A **Creature** is rules: a statblock for a kind of being or one unique being. An
+**NPC** is the named person who uses those rules. Keep the NPC's identity on its
+NPC page and link it to the shared Creature. The target is a runnable 2024
+Creature page that gives the Party a legible choice, a fair answer, and a place
+in the World.
 
-1. **A fight worth having** against the Party the DM actually has, not the average party its CR assumes, with every feature a question the Players must answer.
-2. **A real thing in the World** that eats, nests, hunts and leaves signs, which the World's people have names, rules and uses for.
-3. **A look the table remembers,** where every ability shows on the body as a **tell** a sharp player can read.
+Use [references/sourcing-and-rules.md](references/sourcing-and-rules.md) for
+source records and rules reconciliation, [references/tuning-and-budget.md](references/tuning-and-budget.md)
+for Party math, and [references/filing-and-operations.md](references/filing-and-operations.md)
+for the page and CLI contract.
 
 ## Steps
 
-1. **Read the Party.** From each PC's `## Sheet` in the active Campaign, note level, AC, HP, weak saves, best first-round damage, signature trick and mobility. Then total their **nova** (everyone's best first round), their sustained damage per round, their healing and their hard control. With no active Campaign, tune to the CR's assumed party and say so. Done when every PC has a row and the totals are written.
-2. **Read the Canon.** With qmd, find the Creature's page if it exists, every page that links to it, its home Region and Sites, its prey and predators, and every Faction that hunts, fears, tames or worships it. Note the other Creatures in its Region and the niche each fills. Done when every hit is either used or set aside with a reason.
-3. **Source it** in the order `AGENTS.md` sets. A Wiki Creature that fits is reused. Otherwise look for a peer: the SRD first (the `dnd5e-srd-api` skill), then official and homebrew material on the web. Choose the path and write one line saying why it is enough:
-   - **Reuse** a stat block whole (ADR 0005 puts full text in the Wiki), when the fight and the fiction both fit. A reused block gets a lean page: At a glance, the block, a Tactics line and a line of Ecology, with the reply to match.
-   - **Reskin** when only the fiction changes. The numbers stay, though step 6 may still retune them.
-   - **Variant** when one or two features change.
-   - **New design**, built from the closest peers, when neither the role nor the fight can be reached otherwise.
-4. **Make it this Creature and no other** (variant and new design). Write the stock version in one line ("a big wolf"). Break one rule it keeps, using Canon: the lich whose phylactery is a place. Give it a niche no neighbour fills, or the same niche taken another way (another time of day, another prey). Draw each signature ability from a body part or habit the Players can see. Then run the **swap test**: put a neighbour's name in place of this Creature's, and rewrite every line that stays true. Done when its twist, niche and signature are true of this Creature only.
-5. **Retuning** starts from the fight that felt wrong: name what happened in it (its Recap and Scene), then give each changed number its reason. List in your reply every NPC whose `creature` is this one, since they change too.
-6. **Build the fight** with [references/fight.md](references/fight.md): difficulty target, one role, a signature move written as tell, threat, at least two answers and payoff, escalation for a solo or boss, and when it flees or bargains. Cut every feature that has no answer or payoff.
-7. **Set the numbers** with [references/numbers.md](references/numbers.md), then script its first three rounds against the Party. Done when you can state four figures, each inside the difficulty target: the rounds it lasts, the rounds it needs to drop the most exposed PC, the CR its defence matches, and the CR its offence matches, with the stat block's `cr` their average.
-8. **Place it in the World.** Each ability leaves a sign before anyone meets it (tracks, kills, sheds, a sound that stops). Decide its habitat, what it eats and leaves behind, how it lives (alone, pack, court), what locals call it and guard against, what its body is traded for, and its origin and secrets. Wikilink every page involved. New facts the Canon lacks are decided now, as Canon (ADR 0003), and listed in your reply.
-9. **Narration.** Hand `theatre-of-the-mind` the First sight slot with its facts: body plan and size against something familiar, the striking feature (usually the twist), colour and texture tied to the body part carrying them, one sound or smell, what it does at rest, and each signature ability's tell as plain appearance.
-10. **File** to `wiki/templates/Creature.md` in `<World>/Creatures/`:
-   - **At a glance:** role at the table, threat (CR and what it does to a Party), tell, what it is weak to, and the NPCs it stands behind.
-   - **Statblock:** one `statblock` block in the 2024 phrasing, every derived number written out ([references/numbers.md](references/numbers.md) has the field format).
-   - **Play:** Tactics (opening, signature tell, what it does when countered, what shuts it down, when it flees) and Outside a fight.
-   - **Depth:** Ecology (habitat, diet, signs, uses), and Hidden truths, each with how the Party can learn it.
+### 1. Establish scope and read the target World
 
-   Run `pnpm check <page>` until it passes (its `statblock` layer checks the arithmetic), and log the page in the operation's `cf log` entry (`--op create` when this skill runs on its own).
+Capture the caller's Creature name, purpose, existing page, requested role and
+difficulty, number of Creatures, terrain, encounter objective, and whether this
+is reuse, creation, or retune. Resolve the caller's root, vault and World
+explicitly; all retrieval and writes stay there.
 
-## Done
+Read the target World overview and index, the active Campaign overview and
+`hot.md`, the last ten entries of `log.md`, applicable House Rules, and every
+page the request touches. Read qmd results and retrieve the full target-root
+pages they identify. In a scratch or eval vault, use only that vault and its
+root, not an ambient Obsidian vault.
 
-- The Party read and the Canon read are written.
-- The path has a one-line reason; a variant or new design passes the swap test.
-- The signature move has a tell, two answers and a payoff, and every feature asks the Players something.
-- The four figures are stated against this Party and sit inside the difficulty target.
-- Every signature ability has a sign in the World and a tell in the Narration.
-- `pnpm check` passes on the page, and the reply lists every new fact decided as Canon, with the pages it grew from.
+For a retune, read the existing Creature and its complete backlink set. Include
+every NPC whose `creature` property names it and every planned or unplayed
+Encounter, Prep or Scene that consumes it. Mark played Session records and
+already-heard Narration as fixed evidence.
+
+**Gate:** the working notes name the target path, World, Campaign, encounter
+count, terrain, difficulty mapping, House Rules, source pages, and every
+shared-stat consumer; no required page is an unqualified search snippet.
+
+### 2. Build the Party dossier
+
+Read every active-Campaign PC, not a sample. From the current Sheet and recent
+records, record level, HP, AC, saving throws, attacks and actions, spell slots
+and other resources, healing, hard control, concentration, mobility, escape
+options, round-1 damage, sustained damage, and signature strengths. Record
+unknown values as explicit assumptions.
+
+Summarise the Party's nova, sustained damage, healing, control, mobility,
+resource state, and the strengths that must remain useful. Include the
+encounter's cover, elevation, water, hazards, civilians, objectives, allies,
+rest and retreat conditions. Use the actual Party for tuning; if no active
+Campaign exists, state that the estimate uses the retrieved peer's intended
+party instead.
+
+**Gate:** every PC has a filled row and the combined Party assumptions, terrain,
+encounter count and relevant House Rules are written before numbers are chosen.
+
+### 3. Retrieve candidates and choose the path
+
+Search in this order: an existing fitting Creature in the target Wiki; the
+2024 SRD through `dnd5e-srd-api`; official material outside the SRD; suitable
+homebrew retrieved from the web; then a new design inspired by the closest
+retrieved peers. Search by rules function and fantasy, not only by name.
+
+Record candidates actually retrieved, their source tier, what fits, what fails,
+and the decision. An unavailable provider or incomplete retrieval remains an
+unknown; it does not prove that a source has no fitting candidate. Choose and
+state one path:
+
+- **Reuse** a fitting statblock unchanged.
+- **Reskin** fiction only, preserving published numbers and rules.
+- **Variant** with a named, limited set of feature changes.
+- **New design** from retrieved peers when the role or decision loop cannot be
+  reached by reuse, reskin or variant.
+- **Retune** only where Party evidence justifies each changed value or feature.
+
+Put only archived Raw paths in `sources` frontmatter. Put external attribution,
+candidate names, the chosen path, and each deliberate change in the page body
+or working record. ADR 0005 requires full sourced rules text in the Wiki.
+
+**Gate:** the source ledger contains the retrieved candidate set, honest
+retrieval status, one path decision, and a reason the earlier path is
+insufficient; a reskin has no silent numerical changes.
+
+### 4. Make the Creature specific and playable
+
+For a variant or new design, write a stock version in one line, then define the
+World-grown twist, ecological niche, role, goal, fear or limit, and the body
+part or habit that exposes each signature. Run a swap test against a regional
+neighbour: rewrite every line that remains true under the neighbour's name.
+
+Give the Creature one concrete primary role and a morale or ending condition.
+Build the signature as **Tell → Threat → Answers → Payoff**: Players see the
+wind-up before the danger, have at least two mechanically usable answers, and
+gain a concrete opening or changed choice when they answer it. Give a solo or
+boss a relevant escalation. Cut features that express no concept or ask for no
+player response.
+
+**Gate:** the role appears on its first turn; the signature has a fair visible
+tell, two distinct mechanical answers and a payoff; the twist, niche and
+signature fail the swap test; morale and boss escalation are stated where
+applicable.
+
+### 5. Tune a legal 2024 Encounter
+
+Read [references/tuning-and-budget.md](references/tuning-and-budget.md). Use the
+2024 Low, Moderate or High XP budget for the actual Party, creature count and
+levels. When the caller asks for **Hard**, write that this maps to the 2024
+**High** budget. Keep the budget label separate from the Creature's CR.
+
+Model three legal rounds with explicit assumptions: initiative, distance,
+terrain, target selection, PC resources and concentration, allies, recharge,
+area target count, healing, control, and each side's strongest reasonable
+response. Apply 2024's one-spell-slot-per-turn rule; do not apply the 2014
+Bonus Action spell restriction. Separate round-1 burst from sustained output.
+
+Compute attack chances once, clamped to 5%–95% for natural 1 and natural 20;
+do not multiply accuracy into damage twice. Show save failure and success
+branches using the applicable 2024 rule. Include survival rounds and estimated
+time to drop the most exposed PC, with healing, action economy, control and
+mobility assumptions. These are estimates, not fixed-round promises, and they
+must leave PC strengths usable.
+
+Ground defensive and offensive CR estimates in a retrieved published peer and
+label both as estimates. Do not invent a 2024 CR formula or force defensive and
+offensive estimates into an average. State why the chosen `cr` label is the
+honest published anchor or deliberate design choice. Trade durability, damage,
+control, mobility and action economy instead of stacking defences without a
+fiction-backed answer.
+
+**Gate:** the notes show Low/Moderate/High budget, requested difficulty mapping,
+encounter count and terrain, legal round-one and sustained actions, attack/save
+chances, resources, estimated survival, time-to-drop, sourced peer, and
+separately labelled CR estimates.
+
+### 6. Put the Creature in the World and hand off Narration
+
+Give it a habitat, diet, social life, local name or use, predators or prey,
+ecology, and a niche that differs from neighbours. For every signature ability,
+write a trace players can find before contact: tracks, kills, shed material,
+damaged terrain, smell, sound, or a changed pattern of prey. State origin and
+hidden truths with concrete ways the Party can learn them.
+
+Prepare a First sight packet for `theatre-of-the-mind`: body and size against a
+familiar object, striking feature, surface, one sound or smell, behaviour at
+rest, and the visible appearance behind every signature. Request optional
+in-action narration only when the page's Tactics needs it. The player-facing
+packet contains appearance and earned sensory information, not rules, numbers,
+secrets or unearned names.
+
+**Gate:** every signature has an ecological sign and a visible Narration tell;
+habitat, niche, ecology, origin, learnable truths and morale agree with the
+statblock and canon.
+
+### 7. File, account for consumers, and preserve records
+
+Follow [references/filing-and-operations.md](references/filing-and-operations.md)
+and copy `wiki/templates/Creature.md` exactly to `<World>/Creatures/<Name>.md`.
+Fill its existing sections in order: At a glance, the First sight Narration,
+Statblock, Play, Depth and Links. Keep one `statblock` fence with `Basic 5e
+Layout`, complete 2024 rules text, explicit derived values, and the template's
+Base view. Add at least one real incoming wikilink besides the generated index;
+an NPC's `creature` property counts.
+
+For a retune, enumerate every affected NPC and unplayed consumer in the reply.
+Change the shared Creature once. Preserve each NPC's identity, history,
+personality and link, and preserve established appearance, ecology, origin,
+non-speaking behaviour, counterplay and heard Narration. Played Session Prep,
+Scenes, Recaps, Previously On pages, Transcript-derived records and `hot.md`
+remain unchanged. Never place a duplicate statblock on an NPC or Encounter.
+
+Keep ordinary reused statistics proportionate: complete sourced rules text, the
+required template facts, and concise fiction; reserve detailed tuning notes
+for a design or retune.
+
+**Gate:** the page has every template property and required heading, one valid
+statblock, one incoming link, complete source attribution, and no changed
+played record or NPC identity.
+
+### 8. Run the actual gate and finish the operation
+
+Before commands, read the installed syntax with `pnpm cf index --help`,
+`pnpm cf check --help`, and `pnpm cf log --help`. Regenerate indexes with the
+scoped `cf index` command. Run the full `cf check` with no `--layer`; all layers
+are mandatory. A scoped path may report the changed page, but it does not
+replace the global check for stale links, index, orphans, hot, log, template,
+placement, statblock, markdown, spelling, grammar and style findings. Use
+`--fix` only for mechanical repairs, then rerun the full check.
+
+Log only after the standalone check is green. The enclosing caller owns its
+operation log; append a `create` log entry only when this invocation is
+explicitly standalone and responsible for logging. Report the page path, source
+candidates and decision, tuning assumptions and estimates, affected consumers,
+new canon and verification result.
+
+**Final gate:** the target-root page, global Wiki check, generated indexes,
+links, source record, Party dossier, three-round model, and consumer audit are
+all complete; every pointer in this skill resolves to an existing file or
+installed skill.

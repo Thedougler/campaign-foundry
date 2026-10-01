@@ -1,48 +1,43 @@
-# Face, voice and tells
+# Face, voice, and tells
 
-## Function at the table
+Use this reference for the person branch, not for Creature rules.
 
-What the NPC brings to play shapes the design.
+## Function
 
-| Function | Brings | Pressure |
-| --- | --- | --- |
-| Informant | a lead or missing context | accuracy, safety, price |
-| Gatekeeper | access to a person, place or thing | proof, etiquette, time |
-| Patron | a job and resources | terms, reputation, a competing duty |
-| Rival | a goal like the Party's | a race, sabotage, grudging respect |
-| Ally | skill and a point of view | cost, limits, an aim of their own |
-| Witness | a contested account | fear, memory, credibility |
-| Foil | another answer to a PC's values | example, challenge, temptation |
-| Faction face | an institution's weight | policy against personal need |
-| Ward | stakes and vulnerability | safety, agency, escape |
+Choose what the NPC does in play: informant, gatekeeper, patron, rival, ally, witness, faction face, ward, or villain. The function creates pressure; it is not a YAML property and never replaces the person's identity.
 
-## A varied cast
+## Distinction
 
-Casts drift toward the same polite, able-bodied, middle-aged person. Set each new NPC apart from the others in the same place or Faction on at least two of: age and body, status, temperament, the one thing they do better than anyone in the room, their stance toward power, how they speak, and what they carry (a tool, a debt, a relic, a child, a grudge). Ancestry shapes circumstance, never personality: a trait of the person is what the Players remember.
+Compare the NPC with people already in the same Location or Faction. Vary at least two of age or body, status, temperament, competence, relationship to power, speech, and what they carry. Ancestry can shape circumstance, never personality. A trait of this person is what the Players remember.
 
 ## Face
 
-Two or three details a player could repeat next Session, one sound or smell with its source, and what their hands are usually doing. Strong details are specific, visible across a room and tied to the person's life.
+Write two or three specific details visible across a room, one sound or smell with its source, and what the NPC's hands do at rest. Tie each detail to work, want, fear, or history. Reuse the details each time the NPC appears.
 
-| Generic | Specific |
-| --- | --- |
-| a grizzled sailor | a woman with rope burns across both palms who counts under her breath as she coils line |
-| an elegant noble | a young lord in gloves a size too large, his dead father's, the fingertips packed with wool |
-| a shifty merchant | a halfling who keeps one hand flat on his strongbox lid and smells of clove oil |
+Weak: `a grizzled sailor`.
 
-The face is reused every time they appear, said fresh each time.
+Strong: `a woman with rope burns across both palms who counts under her breath while she coils line`.
 
 ## Voice
 
-Voice grows from what they care about: their trade's words, their rhythm (clipped, winding, answering questions with questions), one verbal habit, and the subject they steer away from. An accent or a gag is a costume, not a voice. Prove it with three lines: the **ask** (what they want from the Party), the **refusal**, and the line **under pressure**, when the secret or the limit is touched. Put the three lines in Play.
+Build voice from what the NPC cares about:
+
+- word choice from trade, status, or obsession;
+- rhythm such as clipped answers, winding explanations, or questions returned with questions;
+- one repeatable verbal habit;
+- one subject or name they avoid.
+
+Prove it with three short lines in Play: the **ask**, the **refusal**, and the line **under pressure** when the limit or secret is touched. An accent or gag is not a voice.
 
 ## Tells
 
-A tell is an ordinary, specific detail that points at something hidden, with its truth written on the DM's side of the page and a way for the Party to test it.
+A tell is an ordinary, specific visible detail or habit that points to one hidden truth. Put the truth, stakes, and a way to test it in the DM-facing text. Keep the tell's appearance, not its interpretation, in Narration.
 
-| Hidden | Tell |
-| --- | --- |
-| she is married to the smuggler she informs on | a ring on a cord under her collar, touched when his crew is named |
-| he can read, though he says he can't | ink under his fingernails |
-| the priest has lost his faith | his holy symbol polished on the front only |
-| the captain takes bribes | new boots too fine for her pay |
+Examples:
+
+- a ring on a cord touched whenever a smuggler's crew is named;
+- ink under the fingernails of someone who claims not to read;
+- a holy symbol polished only on its front;
+- new boots too fine for the guard captain's pay.
+
+**Check:** another NPC from the same place or Faction cannot inherit the face, voice, and tells without rewriting them.
