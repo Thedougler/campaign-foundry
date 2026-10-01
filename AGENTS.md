@@ -30,3 +30,4 @@ Model selection belongs in harness configuration, native agent frontmatter, and 
 - **Clean slate.** Facts come from this repo, the installed tools and the user. Earlier DM-assistant projects elsewhere on this machine are out of bounds: never read, cite or borrow from them.
 - **User edits are intentional.** When the DM changes their own harness configuration — model roles, `cfg://` settings, `.omp/` files, agent definitions, eval pins — assume it is intended and proceed. Never audit, re-validate or investigate those changes unless the DM asks.
 - **Commit everything.** When committing, include all tracked and untracked worktree changes, including the DM's edits. User changes are intentional work worth committing.
+- **Close completed issues.** Once a GitHub issue's acceptance criteria are met and the work is verified and committed, close it with a brief completion comment citing the commit and verification.
