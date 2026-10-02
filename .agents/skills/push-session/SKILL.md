@@ -9,7 +9,7 @@ Push is the only way material leaves the Wiki (ADR 0001). `cf push` compiles eve
 
 ## Steps
 
-1. **Preview.** `pnpm cf push --campaign "<Campaign>" --session <N> --dry-run --json`. Read the counts and the warnings.
+1. **Preview.** `bun run cf push --campaign "<Campaign>" --session <N> --dry-run --json`. Read the counts and the warnings.
 2. **Warnings first.** A Scene without walls lacks map data (`<Page> - Battle Map.uvtt` beside the image); a link left as text points at a page outside the Session's reach; an Actor that didn't build has a stat block the parser couldn't read. Fix what the Wiki can fix, then preview again. Report the rest to the DM.
 3. **Build.** Run the same command without `--dry-run`. Add `--install <Foundry Data/modules folder>` only when the DM has named that folder.
 4. **Tell the DM** the report's next steps: enable the module in the Foundry world (first Push only), open its compendium, and import the Adventure with overwrite on. A re-imported document is replaced whole, so hand tweaks made in Foundry are lost.

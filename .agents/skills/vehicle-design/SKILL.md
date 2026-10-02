@@ -21,7 +21,7 @@ A Vehicle is a place and a moving thing at once: somewhere to board, sneak throu
    - **Play:** Statistics, Crew and stations, Components and weapons, and Underway (manoeuvres, chase, boarding, decks).
    - **Depth:** history and hidden truths, each with how the Party can learn it.
 
-   Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `pnpm check <page>` until it passes, and list it in the operation's `cf log` entry (`--op create` when this skill runs on its own).
+   Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `bun run cf check --fix`, then `bun run cf check`, until the full gate passes with the page clear, and list it in the operation's `cf log` entry (`--op create` when this skill runs on its own).
 
 ## Done
 
@@ -29,4 +29,4 @@ A Vehicle is a place and a moving thing at once: somewhere to board, sneak throu
 - The signature, quirk and hold pass the swap test.
 - Every statistic holds a number, and every fighting crew member links a Creature.
 - A DM could run a chase, a boarding and a stowaway's sneak from the page.
-- `pnpm check` passes, and the reply lists every new fact decided as Canon.
+- The full `bun run cf check` passes, and the reply lists every new fact decided as Canon.

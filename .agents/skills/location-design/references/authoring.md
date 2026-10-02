@@ -49,15 +49,15 @@ Write British English. Add an in-world word without its own page to the vault's 
 Read `package.json` and these help commands before running the gate or logging, so paths and flags match the installed CLI:
 
 ```bash
-bun run check --help
+bun run cf check --help
 bun run cf log --help
 ```
 
 From the repo root, apply mechanical fixes and resolve the remaining findings without changing Canon, then run the full gate without path or layer filters:
 
 ```bash
-bun run check --fix
-bun run check
+bun run cf check --fix
+bun run cf check
 ```
 
 Path arguments only filter findings; they do not make the check local. A filtered report is not completion evidence. The full `--fix` run also regenerates indexes; never edit generated indexes by hand. When operating on a scratch World, add the caller's `--vault`, `--root` and `--templates` paths to both commands, and `--vault`/`--root` to logging.

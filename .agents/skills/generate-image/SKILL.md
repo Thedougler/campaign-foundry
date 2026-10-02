@@ -26,7 +26,7 @@ Codex (the model set in `AGENTS.md`) draws; you write the spec, check the result
    node -e "require('sharp')(process.argv[1]).webp({quality:85}).toFile(process.argv[2])" "<file>.png" "<file>.webp"
    ```
 
-7. **Embed** `![[<Name> - <Kind>.webp]]` where the kind's table row says, then run `pnpm check <page>` until it passes. List the page in the log entry of the operation this image is part of.
+7. **Embed** `![[<Name> - <Kind>.webp]]` where the kind's table row says, then run `bun run cf check --fix` and `bun run cf check` until the full gate passes with the page clear. List the page in the log entry of the operation this image is part of.
 
 ## Kinds
 

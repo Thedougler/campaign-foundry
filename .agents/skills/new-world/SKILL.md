@@ -50,8 +50,8 @@ A World exists independently of a Campaign. Create just enough to start one: a t
 
    ```sh
    bun run cf index
-   bun run check --fix
-   bun run check
+   bun run cf check --fix
+   bun run cf check
    ```
 
    Use the caller's bound capabilities when execution is confined. For an explicitly assigned filesystem target, pass its `--vault`, `--root` and `--templates` to check, and its `--vault`/`--root` to index and log. Preserve those paths throughout child handoffs.

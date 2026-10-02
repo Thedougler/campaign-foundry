@@ -21,7 +21,7 @@ A Faction is a group with shared goals that changes the World whether or not the
    - **Play:** when met, when opposed, what they offer, what they cost, and how to notice or interfere.
    - **Depth:** history, the fracture, hidden truths with their Clues, and the Threads they drive.
 
-   Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `pnpm check <page>` on the Faction and its Thread until both pass, and list both in the operation's `cf log` entry (`--op create` when this skill runs on its own).
+   Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `bun run cf check --fix`, then `bun run cf check`, until the full gate passes with no findings on the Faction or its Thread, and list both in the operation's `cf log` entry (`--op create` when this skill runs on its own).
 
 ## Done
 
@@ -29,4 +29,4 @@ A Faction is a group with shared goals that changes the World whether or not the
 - Every face is an NPC page, and the custom passes the swap test.
 - The agenda Thread has milestones with times, signs and changed facts, the first near enough to matter next Session.
 - The offer has an offerer, pay and a catch, and every Play case says what the World does.
-- `pnpm check` passes on both pages, and the reply lists every new fact decided as Canon.
+- The full `bun run cf check` passes with both pages clear, and the reply lists every new fact decided as Canon.

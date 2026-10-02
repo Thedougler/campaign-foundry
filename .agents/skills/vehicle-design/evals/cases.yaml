@@ -53,8 +53,7 @@
     - The Shattered Sea/Vehicles/Uncertainty.md
   prompt: >-
     Make the Saltwright runnable for the Crown inspection: decks, hold,
-    gangplank, stations and ship numbers. Beaumont is at the wheel. Do
-    not turn this into Uncertainty or replay Session 01 as a new outcome.
+    gangplank, stations and ship numbers. Beaumont is at the wheel.
   checks:
     pages:
       - The Shattered Sea/Vehicles/Saltwright.md

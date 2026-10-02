@@ -132,11 +132,12 @@ export function operationalInstructions(worldRoot: string, skillRoot: string): s
 		"Preferences:",
 		"- Active World: The Shattered Sea",
 		"- Active Campaign: Shattered Sea",
-		"Read the start-here sources and the assigned skill with the references it selects. Read further $W pages only when a deliverable needs their facts.",
+		"Start as a production Wiki session does: read the Campaign's campaign-config.md and hot.md, the World's index.md and the last ten log.md entries in $W, then the start-here sources and the assigned skill with the references it selects. Search the Wiki proactively with qmd_query and qmd_get for the people, places, Threads and Sessions the request touches, reading further pages as they bear on the deliverables.",
 		"",
 		`Write root $W: ${worldRoot}`,
 		`Assigned skill: ${skillRoot} (${basename(skillRoot)}). Follow it for this task.`,
 		"Use only the supplied capabilities. Additional read-only source lookups may use the granted live Wiki, Raw, Archive, templates and assigned skill/reference files.",
+		"Create a new page from its template in $W/wiki/templates; when updating a page, conform it to its template.",
 		"",
 'Complete File through `cf check --fix` then `cf check` against this World with --vault "$W/wiki" --root "$W" --templates "$W/wiki/templates" and all 13 layers. A page filter is not File completion. Then save the DM reply at $W/.eval/output.md.',
 	].join("\n");

@@ -29,13 +29,13 @@ Resolve the caller's explicit root, vault and World first. All reads, qmd search
 
 Add at least one incoming wikilink from a real relevant page besides the generated index; an NPC's `creature` property counts. Verify every link target exists. Create or change the World index only through the CLI.
 
-Discover exact CLI syntax from the installed program before using it: `pnpm cf index --help`, `pnpm cf check --help`, and `pnpm cf log --help`. The supported forms are scoped by `--root <dir>` and `--vault <dir>`:
+Discover exact CLI syntax from the installed program before using it: `bun run cf index --help`, `bun run cf check --help`, and `bun run cf log --help`. The supported forms are scoped by `--root <dir>` and `--vault <dir>`:
 
 ```text
-pnpm cf index --root "$ROOT" --vault "$VAULT"
-pnpm cf check --root "$ROOT" --vault "$VAULT" --fix
-pnpm cf check --root "$ROOT" --vault "$VAULT"
-pnpm cf log --root "$ROOT" --vault "$VAULT" --world "$WORLD" --op create --title "Create <Name>" --page "<Name>"
+bun run cf index --root "$ROOT" --vault "$VAULT"
+bun run cf check --root "$ROOT" --vault "$VAULT" --templates "$VAULT/templates" --fix
+bun run cf check --root "$ROOT" --vault "$VAULT" --templates "$VAULT/templates"
+bun run cf log --root "$ROOT" --vault "$VAULT" --world "$WORLD" --op create --title "Create <Name>" --page "<Name>"
 ```
 
 Use `--fix` only for mechanical repairs, then rerun. The final check runs all layers with no `--layer`; a scoped path may narrow displayed findings but never replaces the global check for stale links, orphans, index, hot, log, spelling, grammar, style, markdown, template, placement and statblock layers. Run the standalone check before logging. The caller owns the enclosing operation log; append a `create` entry only when this invocation is explicitly standalone and responsible for its own log, after green verification.

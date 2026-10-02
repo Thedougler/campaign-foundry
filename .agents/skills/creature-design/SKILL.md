@@ -187,8 +187,8 @@ played record or NPC identity.
 
 ### 8. Run the actual gate and finish the operation
 
-Before commands, read the installed syntax with `pnpm cf index --help`,
-`pnpm cf check --help`, and `pnpm cf log --help`. Regenerate indexes with the
+Before commands, read the installed syntax with `bun run cf index --help`,
+`bun run cf check --help`, and `bun run cf log --help`. Regenerate indexes with the
 scoped `cf index` command. Run the full `cf check` with no `--layer`; all layers
 are mandatory. A scoped path may report the changed page, but it does not
 replace the global check for stale links, index, orphans, hot, log, template,

@@ -17,9 +17,8 @@
       title: First sight
       body: Draft.
   prompt: >-
-    Improve upon the Session 12 narration blocks comprehensively. Include the
-    Scene openings, the Previously On, Skarn's first look, and the terror-bird
-    first sight.
+    improve upon the session 12 narration blocks comprehensively, and the
+    npc and creature ones the session uses
   checks:
     canon:
       The Shattered Sea/NPCs/Talon Skarn.md:

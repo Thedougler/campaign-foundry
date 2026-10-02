@@ -1,7 +1,7 @@
 - id: tells-first-look
   source_pages:
     - The Shattered Sea/NPCs/Cobb.md
-  prompt: Humanize Cobb's existing First look in the real Wiki, changing only that callout's prose. Keep every factual detail and his exact spoken line. Use the existing source as it stands, without planting extra AI copy to rewrite.
+  prompt: Humanize Cobb's First look. Keep his line exactly as he says it.
   checks:
     canon:
       The Shattered Sea/NPCs/Cobb.md: ['\[!narration\] First look', You wanted to see what a week bought]

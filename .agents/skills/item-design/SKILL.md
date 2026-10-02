@@ -21,7 +21,7 @@ An Item matters by its rules or its story. A good one fits a niche the Party lac
    - **Play:** Properties (the full rules text) and In use (how it looks and plays when used, the rulings the table will need).
    - **Depth:** maker, past holders, contested claims, and hidden properties or curses, each with how the Party can learn it.
 
-   Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `pnpm check <page>` until it passes, and list it in the operation's `cf log` entry (`--op create` when this skill runs on its own).
+   Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `bun run cf check --fix`, then `bun run cf check`, until the full gate passes with the page clear, and list it in the operation's `cf log` entry (`--op create` when this skill runs on its own).
 
 ## Done
 
@@ -29,4 +29,4 @@ An Item matters by its rules or its story. A good one fits a niche the Party lac
 - Its twist, visible function and pitch pass the swap test.
 - The text is complete in 2024 wording, rarity is a ceiling reached on one axis, and nothing multiplies unpriced.
 - Every branch has its tell, its truth and a way out or through.
-- `pnpm check` passes, and the reply lists every new fact decided as Canon.
+- The full `bun run cf check` passes, and the reply lists every new fact decided as Canon.

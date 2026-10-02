@@ -22,9 +22,9 @@ Repair Wiki mechanics autonomously: template shape, placement, links and index. 
 Run from the Campaign Foundry project owning the live Wiki:
 
 ```bash
-pnpm cf lint --world "<World>" --fix
-pnpm cf log --world "<World>" --op lint --title "<what changed>" --page "<Page>"
-pnpm check
+bun run cf lint --world "<World>" --fix
+bun run cf log --world "<World>" --op lint --title "<what changed>" --page "<Page>"
+bun run cf check
 ```
 
 Repeat `--page "<Page>"` for the complete touched-page list.
