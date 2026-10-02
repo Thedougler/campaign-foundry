@@ -36,8 +36,8 @@
   prompt: "Audit the pages under the 2026-09-30 Ingest entry titled 'First Ingest: session deltas applied to World, Thread, PC, NPC, Vehicle and Item pages, with images attached and Saltwright created', plus their linked neighbours. Keep played records immutable and distinguish Session 12 plans from current state."
   rubrics:
     - The scope starts with the eight bullets under that exact Ingest entry and grows through linked neighbours, rather than assuming all First Ingest entries or the whole Wiki are the scope.
-    - The audit checks actual present-state consistency against played Recaps, preserving the post-Session 11 state and the 1495 DR date uncertainty.
-    - Session 12 rescue, departure and level-6 rewards remain planned outcomes. They do not overwrite the four level-5 PCs or assert that the rescue has happened.
+    - The audit checks actual present-state consistency against played Recaps, preserving this run's last played Session and date uncertainty.
+    - Session 12 rescue, departure and later-level rewards remain planned outcomes. They do not overwrite this run's PC Sheets or assert that the rescue has happened.
     - The actual hot claim that Skarn broke off is compared with the Recap's unresolved attack. The audit preserves hot as tool-owned and preserves the played Recap, reporting the discrepancy for its owner rather than treating hot as a later played event.
     - Auralis's already-heard CONSUME claim is corrected to the prepared Session 12 plan on mutable Lore, without deleting the plan or changing the earlier Grow and Not yet history.
     - The existing First Ingest audit entry is historical evidence, not proof that the current scratch run found the same defects or received fresh DM feedback.

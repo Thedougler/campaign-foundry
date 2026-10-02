@@ -97,7 +97,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 	const pages = prosePages(ctx.vault);
 	// A page's answer depends on its text, Harper's version, the disabled rules and the name dictionary.
 	const salt = hash(`${await lockfileSalt()}|${DISABLED_RULES.join(",")}|${words.join(",")}`);
-	const byPage = await cachedByPage(LAYER, salt, pages, async (misses) => {
+	const byPage = await cachedByPage(ctx.root, LAYER, salt, pages, async (misses) => {
 		const l = await linter();
 		await l.importWords(words);
 		return lintPages(l, misses);

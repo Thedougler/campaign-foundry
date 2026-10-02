@@ -2,6 +2,8 @@
 
 Notes for skill-eval **runners** (the model under test), not graders. Graders and `eval:check` still see checks and rubrics. The runner must not.
 
+**Current contract.** `evals/README.md` owns access, lifetime and grounding; ADR 0013 records the decision. The implementation uses OS-temp Session Worlds, private control/authoring/audit storage, an immutable public descriptor and enforced per-run capabilities. QMD reads the existing real-project index as-is; copying/rebuilding an index in scratch is superseded advice. Close the returned `sessionRoot` after Grade/reporting and settled child jobs; evidence survives only through explicitly requested export.
+
 Local observations that prompted this: `theatre-of-the-mind` `narration-slots` briefs coach the slot, name the defect, and say “do not rewrite X”; `run-evals` and `test-subject` repeat negatives the harness should make impossible; `pnpm check` failed in an isolated runner with `Unsupported package manager specification (bun@1.3.14)` instead of one gate CLI.
 
 ## Tasks look like production
@@ -32,15 +34,15 @@ Runner brief: the DM task, allowed write root, and which pages to start from. No
 
 ## Tools
 
-Reading: wide (Wiki, Raw, Archive, skill text, templates). Writing: only the eval write root. Subagents get the tools the job needs; missing File/check tools are a harness defect.
+Reading uses granted Wiki/Raw/Archive, templates and assigned skill/reference files; writing is confined to the assigned temporary World. Parent-kernel capabilities bind the real-project QMD index for read-only queries/retrieval and map edit paths into scratch. `test-subject` declares only `yield`; dispatch supplies its exact per-run capabilities. Missing File/check capabilities are a harness prerequisite, not permission to substitute unrestricted tools.
 
-`eval:prepare` should plant the files the agent must correct, marked wrong without saying how (placeholder callout, broken Handout, stale Opening). The subject notices and applies the skill. SWE-bench’s failing tests before the patch are the same shape: broken state, hidden oracle.
+Preparation seeds only assigned current-page callout bodies before freezing the private baseline. The Runner sees the resulting unfinished page through its public task inputs, not the defect diagnosis or expected answer. Natural DM requests and short start-here paths keep production task shape while runtime grants hide private comparison material.
 
 ## One lint CLI
 
 The gate already has every layer, in order: template, placement, links, orphans, statblock, index, hot, log, markdownlint, remark-lint, spelling, grammar, style (`src/check/layers/index.ts`). `cf check` runs them; `cf check --fix` applies mechanical fixes.
 
-Agents still get told `pnpm check <page>`, which is not that CLI and can fail before any layer runs. Eval File steps should call one agent-stable command that runs **all** layers, plus one fix command, with scratch `--vault` / `--root`. No per-tool Vale/cspell/Harper/markdownlint invocations.
+File uses the full `cf check` / `cf check --fix` gate with bound `--vault <W>/wiki --root <W> --templates <W>/wiki/templates`, through fixed native capabilities. A page/layer filter is not completion evidence. Cache and Vale intermediates stay beneath the invocation root; operator setup and missing-tool remediation stay with the parent.
 
 ## Related
 

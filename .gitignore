@@ -37,3 +37,7 @@ build/
 
 # Per-file check results, keyed by content hash (src/check/cache.ts)
 .cache/
+
+# Residual eval/authoring dumps; live artifacts belong in OS-temp Sessions
+**/*-workspace/
+/evals/audit/

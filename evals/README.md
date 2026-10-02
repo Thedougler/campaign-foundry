@@ -1,10 +1,22 @@
 # Shattered Sea skill evals
 
+This document owns skill-eval access, lifetime and grounding. Read it before preparing, dispatching or grading a run, authoring paired measurements, or processing home-Session feedback.
+
+1. **Eval** a skill — `skill://run-evals`. Run active `cases.yaml` tasks in independent temporary Worlds; the parent runs **Check**, then independent **Grade**.
+2. **Benchmark** Narration — `skill://dnd-benchmark`. Rank Matrix families on anonymized samples with 1–5 Grades.
+3. **Grade** writing — native `prose-grader`. Read the authored prose and quote it. Skill-eval Grades are pass/fail; Benchmark Grades are 1–5.
+
+Native delegation preserves configured model roles and approvals. Runner dispatch uses enforced per-run capabilities, `isolated: true` and `apply: false`; prepared Campaign content stays outside the omp worktree. Require observed `hasRootChanges: false`. Worktree isolation is an additional boundary, not an access policy.
+
+**Check** is `eval:check` (pages, sections, canon/absent regex) for constrained artifacts: a page exists, `type: Handout`, a quoted line that must survive. **Grade** is reading the Narration. A rubric that restates a Check is a defective rubric; move it to `checks`.
+
+**Jev** (`judge` / `judge_batch` in `eval`) is bounded labels over a small state. It is not a Grade of Narration.
+
 ## Grounding
 
 The DM's weekly home Sessions playtest the Wiki and the skills that produce it. **The Shattered Sea** World and its **Shattered Sea** Campaign are the input source for every active skill eval: committed cases, paired authoring evals and Narration benchmark prompts. The Agent works between Sessions; the DM and Players supply table evidence.
 
-Before selecting inputs, search with QMD, then read the Campaign's `hot.md`, World `index.md`, available last ten `log.md` entries and the source pages. Read current templates for output shape. Canon comes from the Wiki; Raw and Archive establish provenance. Distinguish played events from Prep, missing information from established facts, and requested new output from existing Canon.
+Before selecting inputs, search with QMD and retrieve the hits, then read the Campaign's `hot.md`, World `index.md`, available last ten `log.md` entries and source pages. Read current templates for output shape. Canon comes from the Wiki; Raw and Archive establish provenance. Distinguish played events from Prep, missing information from established facts, and requested new output from existing Canon. Judge changing facts and quotations against the current run's private starting inputs, not cached factual literals.
 
 Each committed case records:
 
@@ -16,25 +28,54 @@ Retain useful existing branch coverage while migrating it to real sources. New r
 
 ## Isolation
 
-Paired authoring evals keep their existing `evals.json` schema. Map each JSON eval ID to a grounded `cases.yaml` case in its saved brief, prepare that case, and clone it with `--from <prepared-root>` for both configurations. The brief records the cases-file path, case ID and manifest path; JSON input files resolve inside the assigned clone. Reuse the grounded case's task and criteria rather than maintaining competing copies.
+### Session storage
 
-Use `bun run eval:prepare --help` for preparation, cloning and verification commands. Preparation snapshots real content into a generated scratch root, records source hashes and the case inputs in `.eval/manifest.json`, and freezes Wiki, Raw, Archive and local QMD configuration in `.eval/baseline/`. Its returned `baseline` path points to the starting Wiki for diffs. It copies content rather than linking to live files. Ingest replay stages byte-identical files under collision-free scratch names; the manifest's `replaySources` maps each original to its scratch Raw and future Archive paths.
+The owning main Session opens temporary storage with `eval_session` operation `open`. Other harnesses use `bun run eval:prepare --session-start` and explicitly close it. Preparation and clones take `--session-root <S>`; standalone preparation returns its own `sessionRoot`. Use `bun run eval:prepare --help` for current CLI forms.
 
-Before dispatch, require the manifest and every case source to resolve, and keep all content, artifacts and external-service mutations inside the assigned scratch workspace. Supply absolute scratch paths for Wiki, Raw and Archive; use the real repo only for executable tooling with explicit scratch flags. For paired comparisons, clone one frozen preparation into independent run workspaces so both configurations receive identical inputs.
+`<S>` is a marked `campaign-foundry-eval-*` directory beneath canonical OS `tmpdir()`, outside the repository:
 
-Paired-review tooling keeps its existing iteration layout. Runners save content and deliverables in their assigned clone; the orchestrator may copy evidence and outputs into the experiment's review directory, outside the live Wiki, Raw and Archive. Saved briefs identify the scratch root and manifest. These review copies are artifacts, not new Campaign inputs.
+| Path | Contents |
+| --- | --- |
+| `<S>/worlds/<id>/` (`$W`) | Independent writable `wiki/`, `raw/`, `archive/`, public descriptor and `.eval/output.md` |
+| `<S>/control/<id>/` | Private schema-version-2 manifest, frozen baseline, criteria, grant, Grades and completion/history evidence |
+| `<S>/authoring/<skill>/` | Brief, skill snapshots, `evals.json`-shaped input and iteration/description-eval artifacts |
+| `<S>/audit/<skill>/<case-id>.md` | Temporary human-review sample and criteria |
 
-**Live originals are read-only.** Runners use assigned filesystem paths rather than `vault://_/` or inherited QMD MCP tools. Run QMD from the scratch root with `env -u QMD_CONFIG_DIR qmd <command>` so it discovers local `.qmd/`. Before indexing, inspect configuration and observe `status`, `collection list` and `collection show <name>`: require the database at `<scratch>/.qmd/index.sqlite`, every collection path to resolve inside that scratch root and no update hooks. Then update/embed the scratch index and retain evidence. Shared downloaded models are not proof of index isolation.
+Preparation copies complete current content with independent inodes, stages Ingest replay inputs under collision-free names, applies assigned preparation seeds and then freezes the baseline. Returned `root`, `wiki`, `raw`, `archive`, `baseline`, `manifest`, `sessionRoot` and `runnerInput` are parent-side preparation data. `$W/.eval/runner-input.json` is read-only (`0o444`): it exposes the natural DM ask, start-here paths, assigned replay inputs/Archive destinations and output paths only. Checks, rubrics, baseline, seed explanations and history stay private. Parents keep full manifests out of Runner briefs.
 
-On the installed QMD, explicit `--index index` selects the named global index even from a scratch root; cwd-local discovery requires omitting that flag. If the observed database differs, stop before update/embed and inspect `qmd --help` and `qmd skill show` for the installed version.
+Prepare once per case; paired measurements clone that frozen preparation into independent Worlds. Build authoring's existing `evals.json` shape from selected active YAML case IDs and private criteria inside `<S>/authoring/<skill>/`, recording the mapping there. Historical `docs/intent/**/evals/evals.json` is intent, not an executable input source.
 
-After execution and grading, run preparation's `--verify` command. A source-hash or isolation mismatch invalidates the run; preserve the failure and stop. Check source immutability separately from outcome quality: successful preparation is not a skill pass.
+### Runner access
 
-### omp isolation
+Start with the supplied preferences and project instructions, then `$W`'s Campaign `hot.md`, World `index.md`, last ten `log.md` entries and task sources. `$W` is the only Campaign write root. Use the assigned start-here paths and capabilities; additional read-only source lookups may use the granted live Wiki/Raw/Archive, templates and assigned skill/reference files. A baseline receives its assigned snapshot or no target skill; grants exclude the live candidate and aliases for baseline runs.
 
-For oh-my-pi eval runners and graders, request omp isolation with `isolated: true` on the built-in `task` interface when available. Prepare the real-source snapshot before dispatch and pass absolute content/output paths outside the isolated workspace. omp isolation adds a workspace boundary; it does not replace Campaign snapshots or make inherited live vault/QMD tools safe.
+The parent calls `bindRunnerTools` in `evals/runner-tools.ts` using the installed parent JS tool registrar. `.omp/extensions/eval-access-control.ts` binds the resulting private grant to the native `test-subject` once, strips evaluator-only inherited context and the machine grant line, and permits only that grant's capability names plus `yield`. `.omp/agents/test-subject.md` declares `tools: [yield]`; the dispatch supplies the confined operations.
 
-Keep the isolated workspace unchanged: configured isolation may apply successful root changes back to the parent. Preserve completion isolation/patch metadata and require evidence of isolation with no root changes; unexpected root changes invalidate the run. Pin the assigned skill version explicitly. If omp isolation is unavailable, record the limitation and retain the full scratch-path and source-verification gates. Read `omp://tools/task.md` only when resolving omp isolation setup, capture or merge behavior; preserve existing harness configuration.
+Capabilities enforce reads/searches and File operations, reject private evaluator data and other runs, and permit writes/deletion/Raw→Archive moves only inside `$W`. Moves use confined filesystem operations, not `git mv`. Live `vault://_/`, inherited parent QMD MCP, arbitrary shell/eval/task tools and alternate internal-URI routes are unavailable. Optional source-network capabilities are read-only. Unsupported external File operations are explicit capability errors, not successful fallbacks.
+
+### QMD and grounding proof
+
+Preparation returns `qmd: {mode: "live-read-only", index: <existing-real-project-index>}`. It reads the current real-project `.qmd` configuration/index as-is; `$W` has no `.qmd`. Eval work neither copies/builds an index nor runs `qmd update`, `qmd embed` or creates scratch collections.
+
+Parent-side status, collection inspection and a query/retrieval demonstrate the installed source index and real `wiki`, `raw`, `archive` collections. Trusted CLI commands run from the real project with `env -u QMD_CONFIG_DIR qmd <command>` and omit `--index`. Protected Runner QMD capabilities bind that cwd/config themselves, accept typed lexical/semantic queries with explicit intent, and retrieve granted sources. Results distinguish live-source paths from mapped scratch edit paths. Runners use those capabilities rather than a CLI or MCP bypass.
+
+Missing current sources/index resources or absent/ambiguous preparation targets are named PREPARATION errors. Source drift invalidates the comparison; prepare afresh from current sources instead of repairing Canon or refreshing the index for the eval.
+
+### File and output
+
+Complete File with the full unified `cf check` / `cf check --fix`; a page/layer filter is not completion evidence. The granted gate runs fixed `node <repo>/src/cli.ts check` with `--vault "$W/wiki" --root "$W" --templates "$W/wiki/templates"` and all 13 layers. Check caches and Vale intermediates stay beneath `$W/.cache/check`. Confined index/log capabilities bind the same root/vault. Operator tooling setup belongs to the parent; unavailable prerequisites remain failures.
+
+Save the requested pages and DM reply at `$W/.eval/output.md`; this output is assigned by preparation. File completion does not require a Narration extraction command or writing `docs/intent/**`. Runner briefs carry the natural DM request verbatim and operational start-here/capability/File/output instructions; Checks, Grades, failure coaching and isolation proof belong to the parent.
+
+### Verification and lifetime
+
+The parent runs `eval:prepare --verify "$W"`, `eval:check` and the frozen-baseline diff; independent graders read the writing and source-relative excerpts needed for their rubrics. Grades, complete histories and capability evidence remain in private control/authoring storage. Preserve actual model identity/thinking, source hashes, skill version and available exact completion metrics; compare pairs only when source inputs and actual identity/thinking match.
+
+Capture observed `isolated: true`, `hasRootChanges: false` and available patch/branch metadata. Missing enforcement or native isolation is an explicit prerequisite gap; preserve harness configuration and do not dispatch an unrestricted substitute. After execution and Grade, verify again. Source, baseline or access mismatches invalidate the run separately from quality failures.
+
+Temporary Worlds and evidence expire with their creating Session. After all children, Grades and reporting settle, close the owning storage with `eval_session` operation `close`, or `bun run eval:prepare --session-close "<sessionRoot>"` for a standalone harness. Close the returned Session root, not just `$W`; never keep or commit scratch Worlds. Main-Session shutdown/replacement also cleans up after child jobs settle; compaction and child shutdown preserve the owner root. Cross-Session continuation requires an explicit DM-requested durable export.
+
+Crash recovery uses the validated `eval:prepare --reap-stale` CLI. Review `--dry-run` selections before removal with `--yes`; legacy unmarked roots require `--include-legacy`. This retains live/uncertain owners and unsafe roots rather than sweeping arbitrary temporary directories.
 
 ## Weekly feedback
 

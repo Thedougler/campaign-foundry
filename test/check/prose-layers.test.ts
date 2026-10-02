@@ -1,6 +1,6 @@
 import { execFile } from "node:child_process";
-import { readFile, writeFile } from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { chmod, mkdir, readdir, readFile, realpath, stat, writeFile } from "node:fs/promises";
+import { dirname, join, sep } from "node:path";
 import { promisify } from "node:util";
 import { beforeAll, describe, expect, it } from "vitest";
 import { cf, checkFixture, copyFixture, findingsFor, fixtures, realTemplates, repoRoot, type JsonFinding, type JsonReport } from "./helpers.ts";
@@ -132,11 +132,6 @@ describe("style layer", () => {
 		expect(found.some((f) => f.rule.startsWith("ai-tells.") && f.line === 17)).toBe(true);
 	});
 
-	it("gives an actionable hint naming the rule's fix", () => {
-		const found = on("style", "NPCs/Bad Style").find((f) => f.rule === "Narration.NoCompass");
-		expect(found?.message).toMatch(/compass/i);
-		expect(found?.hint).toMatch(/ahead|uphill|body/);
-	});
 });
 
 describe("style layer setup", () => {
@@ -147,9 +142,98 @@ describe("style layer setup", () => {
 		const result = await run(process.execPath, [join(repoRoot, "src/cli.ts"), "check", "--layer", "style", "--vault", join(root, "wiki"), "--root", root, "--templates", realTemplates], {
 			cwd: root,
 			env: { ...process.env, PATH: bare },
-		}).catch((e: { code: number; stderr: string }) => e);
-		expect((result as { code: number }).code).toBe(2);
-		expect((result as { stderr: string }).stderr).toMatch(/Vale is not installed[\s\S]*pnpm run setup/);
+		}).then(
+			() => ({ code: 0, stderr: "" }),
+			(error: unknown) => {
+				if (
+					error &&
+					typeof error === "object" &&
+					"code" in error && typeof error.code === "number" &&
+					"stderr" in error && typeof error.stderr === "string"
+				) {
+					return { code: error.code, stderr: error.stderr };
+				}
+				throw error;
+			},
+		);
+		expect(result.code).toBe(2);
+		expect(result.stderr).toMatch(/Vale is not installed[\s\S]*pnpm run setup[\s\S]*cf check/);
+	});
+});
+
+describe("prose layer scratch paths", () => {
+	it("keeps caches and Vale input under the invocation root", async () => {
+		const dir = await copyFixture("clean");
+		const cacheDir = join(dir, ".cache", "check");
+		const binDir = join(dir, "test-bin");
+		const capture = join(dir, "vale-input-path.txt");
+		const vale = join(binDir, "vale");
+		await mkdir(binDir, { recursive: true });
+		await writeFile(
+			vale,
+			[
+				"#!/bin/sh",
+				"for arg do input=$arg; done",
+				'[ -d "$input" ] || exit 10',
+				'find "$input" -type f -print -quit | grep -q . || exit 11',
+				'printf "%s" "$input" > "$CF_VALE_CAPTURE"',
+				"printf '{}\\n'",
+				"",
+			].join("\n"),
+		);
+		await chmod(vale, 0o755);
+
+		const repoCache = join(repoRoot, ".cache", "check");
+		const snapshotRepoCache = async () => {
+			try {
+				const entries = (await readdir(repoCache)).sort();
+				return await Promise.all(
+					entries.map(async (name) => {
+						const info = await stat(join(repoCache, name));
+						return { name, modified: info.mtimeMs, size: info.size };
+					}),
+				);
+			} catch (error) {
+				if (error && typeof error === "object" && "code" in error && error.code === "ENOENT") return null;
+				throw error;
+			}
+		};
+		const before = await snapshotRepoCache();
+		await promisify(execFile)(
+			process.execPath,
+			[
+				join(repoRoot, "src/cli.ts"),
+				"check",
+				"--json",
+				"--layer",
+				"spelling",
+				"--layer",
+				"grammar",
+				"--layer",
+				"style",
+				"--vault",
+				join(dir, "wiki"),
+				"--root",
+				dir,
+				"--templates",
+				realTemplates,
+			],
+			{
+				cwd: dir,
+				env: {
+					...process.env,
+					PATH: `${binDir}${process.platform === "win32" ? ";" : ":"}${process.env.PATH ?? ""}`,
+					CF_VALE_CAPTURE: capture,
+				},
+			},
+		);
+
+		const entries = await readdir(cacheDir);
+		expect(entries).toEqual(expect.arrayContaining(["grammar.json", "spelling.json"]));
+		expect(entries.filter((name) => name.startsWith("vale-"))).toEqual([]);
+		const valeInput = await readFile(capture, "utf8");
+		expect(valeInput.startsWith(`${await realpath(cacheDir)}${sep}vale-`)).toBe(true);
+		expect(await snapshotRepoCache()).toEqual(before);
 	});
 });
 

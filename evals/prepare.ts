@@ -3,20 +3,21 @@
  *
  *   bun run eval:prepare --cases /absolute/path/cases.yaml --case <id>
  *   bun run eval:prepare --from <prepared-root>
- *   bun run eval:prepare --verify <scratch-root>
+ *   bun run eval:prepare --verify <world-root>
  */
+import "../src/env.ts";
 import { createHash, randomUUID } from "node:crypto";
 import { constants, createReadStream } from "node:fs";
-import { access, copyFile, cp, lstat, mkdir, mkdtemp, readFile, readdir, realpath, rm, unlink, writeFile } from "node:fs/promises";
+import { access, chmod, copyFile, cp, lstat, mkdir, readFile, readdir, realpath, rm, unlink, writeFile } from "node:fs/promises";
 import { Command, CommanderError } from "commander";
 import { basename, dirname, extname, isAbsolute, join, relative, resolve, sep } from "node:path";
-import { tmpdir } from "node:os";
 import { fileURLToPath } from "node:url";
-import YAML from "yaml";
+import { calloutLines } from "../src/narration/sources.ts";
+import { parsePage } from "../src/vault/parse.ts";
 import { loadCases } from "./check.ts";
+import { allocateEvalRun, closeEvalSession, createEvalSession, evalRunFromWorld, evalRunPaths, reapEvalSessions, validateEvalSessionRoot } from "./workspaces.ts";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const workspacePrefix = "campaign-foundry-eval-";
 const dataRoots = ["wiki", "raw", "archive"] as const;
 type DataRoot = (typeof dataRoots)[number];
 
@@ -25,6 +26,7 @@ type EvalCase = Record<string, unknown> & {
 	prompt: string;
 	source_pages: string[];
 	raw_sources?: string[];
+	seed_callouts?: Array<{ page: string; title: string; body: string }>;
 };
 
 interface SourceFile {
@@ -48,7 +50,8 @@ interface ReplaySource {
 }
 
 interface Manifest {
-	schemaVersion: 1;
+	schemaVersion: 2;
+	sessionRoot: string;
 	workspaceRoot: string;
 	sourceRoot: string;
 	createdAt: string;
@@ -63,6 +66,11 @@ interface Manifest {
 	baselineFiles: BaselineFile[];
 }
 
+export interface QmdIndex {
+	mode: "live-read-only";
+	index: string;
+}
+
 export interface PreparedWorkspace {
 	root: string;
 	wiki: string;
@@ -72,11 +80,14 @@ export interface PreparedWorkspace {
 	manifest: string;
 	caseId: string;
 	case: EvalCase;
+	sessionRoot: string;
+	runnerInput: string;
+	qmd: QmdIndex;
 }
 
 export interface PreparationOptions {
 	repositoryRoot?: string;
-	scratchParent?: string;
+	sessionRoot?: string;
 }
 
 export interface VerificationResult {
@@ -97,7 +108,7 @@ interface LocalFile {
 class PreparationError extends Error {}
 
 function fail(message: string): never {
-	throw new PreparationError(message);
+	throw new PreparationError(message.startsWith("PREPARATION:") ? message : `PREPARATION: ${message}`);
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -215,30 +226,6 @@ async function copyIndependent(source: string, destination: string, label: strin
 	}
 }
 
-function buildIsolatedQmdConfig(sourceText: string): string {
-	const sourceConfig: unknown = YAML.parse(sourceText);
-	const configRecord = isRecord(sourceConfig) ? sourceConfig : {};
-	const sourceCollections = isRecord(configRecord.collections) ? configRecord.collections : {};
-	const collections = Object.fromEntries(dataRoots.map((name) => {
-		const sourceCollection = isRecord(sourceCollections[name]) ? sourceCollections[name] : {};
-		const collection: Record<string, unknown> = { path: name };
-		for (const key of ["pattern", "ignore", "includeByDefault", "context"] as const) {
-			if (sourceCollection[key] !== undefined) collection[key] = sourceCollection[key];
-		}
-		return [name, collection];
-	}));
-	const safeConfig: Record<string, unknown> = { collections };
-	if (typeof configRecord.global_context === "string") safeConfig.global_context = configRecord.global_context;
-	if (isRecord(configRecord.models)) safeConfig.models = configRecord.models;
-	return YAML.stringify(safeConfig);
-}
-
-async function writeIsolatedQmdConfig(root: string, configText: string): Promise<void> {
-	const qmd = join(root, ".qmd");
-	await mkdir(qmd, { recursive: true });
-	await writeFile(join(qmd, "index.yml"), configText, { flag: "wx" });
-}
-
 function asEvalCase(value: unknown, caseId: string): EvalCase {
 	if (!isRecord(value) || value.id !== caseId || typeof value.prompt !== "string" || value.prompt.length === 0) {
 		fail(`case "${caseId}" must be a mapping with its id and a non-empty prompt`);
@@ -251,19 +238,35 @@ function asEvalCase(value: unknown, caseId: string): EvalCase {
 	if (rawSources !== undefined && (!Array.isArray(rawSources) || !rawSources.every((source): source is string => typeof source === "string" && source.length > 0))) {
 		fail(`case "${caseId}" raw_sources must be a list of repo-relative raw/ or archive/ file paths`);
 	}
+	let seedCallouts: Array<{ page: string; title: string; body: string }> | undefined;
+	if (value.seed_callouts !== undefined) {
+		if (!Array.isArray(value.seed_callouts)) fail(`case "${caseId}" seed_callouts must be a list`);
+		seedCallouts = value.seed_callouts.map((seed, index) => {
+			if (!isRecord(seed) || typeof seed.page !== "string" || typeof seed.title !== "string" || typeof seed.body !== "string"
+				|| seed.title.trim() === "" || seed.body.trim() === "") {
+				fail(`case "${caseId}" seed_callouts[${index}] requires a page, non-empty title, and non-empty body`);
+			}
+			return {
+				page: safeRelativePath(seed.page, `case "${caseId}" seed_callouts[${index}].page`),
+				title: seed.title,
+				body: seed.body,
+			};
+		});
+	}
 	const input: EvalCase = {
 		...value,
 		id: value.id,
 		prompt: value.prompt,
-		source_pages: sourcePages,
+		source_pages: sourcePages.map((page) => safeRelativePath(page, `case "${caseId}" source_pages`)),
 		...(rawSources === undefined ? {} : { raw_sources: rawSources }),
+		...(seedCallouts === undefined ? {} : { seed_callouts: seedCallouts }),
 	};
 	validateRegexes(input);
 	return input;
 }
 
 function checkCaseSources(caseInput: EvalCase, wikiFiles: LocalFile[], repoFiles: LocalFile[], sourceRoot: string): { pages: string[]; rawSources: LocalFile[] } {
-	const pages = caseInput.source_pages.map((page) => safeRelativePath(page, `case "${caseInput.id}" source_pages`));
+	const pages = caseInput.source_pages;
 	for (const page of pages) {
 		const pagePath = page.endsWith(".md") ? page : `${page}.md`;
 		if (!wikiFiles.some((file) => file.relativePath === pagePath)) {
@@ -290,38 +293,88 @@ async function assertDirectorySafe(path: string, label: string): Promise<void> {
 	if (info.isSymbolicLink() || !info.isDirectory()) fail(`${label} is not a real directory: ${path}`);
 }
 
-async function createScratchRoot(parentArgument: string | undefined, protectedRoots: string[]): Promise<string> {
-	const requestedParent = parentArgument ?? tmpdir();
-	if (!isAbsolute(requestedParent)) fail(`scratch parent must be an absolute directory: ${requestedParent}`);
-	const parent = await realpath(resolve(requestedParent)).catch(() => fail(`scratch parent directory not found: ${requestedParent}`));
-	await assertDirectorySafe(parent, "scratch parent");
-	if (protectedRoots.some((protectedRoot) => parent === protectedRoot || inTree(protectedRoot, parent))) {
-		fail(`scratch parent must be outside protected source data: ${parent}`);
-	}
-	const created = await mkdtemp(join(parent, workspacePrefix));
-	const root = await realpath(created);
-	if (protectedRoots.some((protectedRoot) => root === protectedRoot || inTree(protectedRoot, root) || inTree(root, protectedRoot))) {
-		await rm(root, { recursive: true, force: true });
-		fail(`generated scratch root overlaps protected source data: ${root}`);
-	}
-	return root;
+function manifestPath(controlRoot: string): string {
+	return join(controlRoot, "manifest.json");
 }
 
-function manifestPath(root: string): string {
-	return join(root, ".eval", "manifest.json");
+function runnerInputPath(root: string): string {
+	return join(root, ".eval", "runner-input.json");
 }
 
-function outputPaths(root: string, manifest: Manifest): PreparedWorkspace {
+function outputPaths(root: string, controlRoot: string, sessionRoot: string, manifest: Manifest, index: string): PreparedWorkspace {
 	return {
 		root,
 		wiki: join(root, "wiki"),
 		raw: join(root, "raw"),
 		archive: join(root, "archive"),
-		baseline: join(root, ".eval", "baseline", "wiki"),
-		manifest: manifestPath(root),
+		baseline: join(controlRoot, "baseline", "wiki"),
+		manifest: manifestPath(controlRoot),
 		caseId: manifest.caseId,
 		case: manifest.caseInput,
+		sessionRoot,
+		runnerInput: runnerInputPath(root),
+		qmd: { mode: "live-read-only", index },
 	};
+}
+
+const PREPARE_EXAMPLES = `Examples:
+  bun run eval:prepare --session-start
+  bun run eval:prepare --session-close "$SESSION_ROOT"
+  bun run eval:prepare --reap-stale --include-legacy --older-than-hours 24 --dry-run
+  bun run eval:prepare --reap-stale --include-legacy --older-than-hours 24 --yes
+  bun run eval:prepare --cases "$PWD/.agents/skills/audit/evals/cases.yaml" --case named-claim --session-root "$SESSION_ROOT"
+  bun run eval:prepare --from "$PREPARED_ROOT" --session-root "$SESSION_ROOT"
+  bun run eval:prepare --verify "$WORLD_ROOT"`;
+
+async function writeRunnerInput(root: string, manifest: Manifest, pages: string[]): Promise<string> {
+	const directory = join(root, ".eval");
+	await mkdir(directory, { mode: 0o700 });
+	const path = runnerInputPath(root);
+	const descriptor = {
+		caseId: manifest.caseId,
+		prompt: manifest.caseInput.prompt,
+		startHere: pages,
+		replaySources: manifest.replaySources.map(({ scratchPath, archivePath }) => ({ input: scratchPath, archiveDestination: archivePath })),
+		outputPaths: {
+			workspace: root,
+			wiki: join(root, "wiki"),
+			raw: join(root, "raw"),
+			archive: join(root, "archive"),
+			output: join(root, ".eval", "output.md"),
+		},
+	};
+	await writeFile(path, `${JSON.stringify(descriptor, null, 2)}\n`, { flag: "wx", mode: 0o444 });
+	await chmod(path, 0o444);
+	return path;
+}
+
+async function seedCallouts(root: string, caseInput: EvalCase): Promise<void> {
+	for (const seed of caseInput.seed_callouts ?? []) {
+		const pagePath = seed.page.endsWith(".md") ? seed.page : `${seed.page}.md`;
+		const file = join(root, "wiki", ...pagePath.split("/"));
+		const info = await lstat(file).catch(() => fail(`case "${caseInput.id}" seed_callouts page not found in wiki/: ${pagePath}`));
+		if (info.isSymbolicLink() || !info.isFile() || info.nlink !== 1) fail(`case "${caseInput.id}" seed_callouts page is not an independent regular file: ${pagePath}`);
+		const source = await readFile(file, "utf8");
+		const page = parsePage(pagePath, source);
+		const matches = page.callouts.filter((callout) => callout.type === "narration" && callout.title === seed.title);
+		if (matches.length !== 1) fail(`case "${caseInput.id}" seed_callouts ${pagePath} title ${JSON.stringify(seed.title)} matched ${matches.length} narration callouts; expected exactly one`);
+		const callout = matches[0];
+		if (!callout) fail(`case "${caseInput.id}" seed_callouts has no matching callout in ${pagePath}`);
+		const [firstLine, lastLine] = calloutLines(page, callout);
+		const lines = source.split("\n");
+		const replacement = seed.body.split("\n").map((line) => `> ${line}`);
+		lines.splice(firstLine, lastLine - firstLine, ...replacement);
+		await writeFile(file, lines.join("\n"));
+	}
+}
+
+async function requireIndependentFile(path: string, label: string): Promise<void> {
+	const info = await lstat(path).catch((error: NodeJS.ErrnoException) => {
+		if (error.code === "ENOENT") fail(`PREPARATION: missing ${label}: ${path}`);
+		throw error;
+	});
+	if (info.isSymbolicLink() || !info.isFile() || info.nlink !== 1) fail(`${label} must be an independent regular file: ${path}`);
+	if (await realpath(path) !== path) fail(`${label} must not resolve through a symlink: ${path}`);
 }
 
 function sameFiles(expected: Array<{ path: string; sha256: string; bytes: number }>, actual: LocalFile[], label: string): void {
@@ -333,13 +386,19 @@ function sameFiles(expected: Array<{ path: string; sha256: string; bytes: number
 	}
 }
 
-async function readManifest(rootArgument: string): Promise<{ root: string; manifest: Manifest }> {
+async function readManifest(rootArgument: string): Promise<{ root: string; sessionRoot: string; runId: string; controlRoot: string; manifest: Manifest }> {
+	if (rootArgument.split(sep).includes("..")) fail(`eval World path must not contain traversal components: ${rootArgument}`);
 	const root = resolve(rootArgument);
-	await assertDirectorySafe(root, "scratch root");
-	if (await realpath(root) !== root) fail(`scratch root must not resolve through a symlink: ${root}`);
-	const evalDirectory = join(root, ".eval");
-	await assertDirectorySafe(evalDirectory, "scratch .eval directory");
-	const manifestFile = manifestPath(root);
+	const { sessionRoot, runId } = evalRunFromWorld(root);
+	const validatedSessionRoot = await validateEvalSessionRoot(sessionRoot);
+	if (validatedSessionRoot !== sessionRoot) fail(`eval session root is not canonical: ${sessionRoot}`);
+	const paths = evalRunPaths(sessionRoot, runId);
+	if (paths.worldRoot !== root) fail(`eval World path does not match session layout: ${root}`);
+	await assertDirectorySafe(root, "eval World root");
+	if (await realpath(root) !== root) fail(`eval World root must not resolve through a symlink: ${root}`);
+	await assertDirectorySafe(paths.controlRoot, "private eval control root");
+	if (await realpath(paths.controlRoot) !== paths.controlRoot) fail(`private eval control root must not resolve through a symlink: ${paths.controlRoot}`);
+	const manifestFile = manifestPath(paths.controlRoot);
 	const info = await lstat(manifestFile);
 	if (info.isSymbolicLink() || !info.isFile() || info.nlink !== 1) fail(`manifest must be an independent regular file: ${manifestFile}`);
 	let parsed: unknown;
@@ -349,8 +408,9 @@ async function readManifest(rootArgument: string): Promise<{ root: string; manif
 		fail(`could not read preparation manifest ${manifestFile}: ${(error as Error).message}`);
 	}
 	if (!isRecord(parsed)
-		|| parsed.schemaVersion !== 1
-		|| typeof parsed.workspaceRoot !== "string"
+		|| parsed.schemaVersion !== 2
+		|| parsed.sessionRoot !== sessionRoot
+		|| parsed.workspaceRoot !== root
 		|| typeof parsed.sourceRoot !== "string"
 		|| typeof parsed.createdAt !== "string"
 		|| typeof parsed.caseId !== "string"
@@ -364,19 +424,17 @@ async function readManifest(rootArgument: string): Promise<{ root: string; manif
 		fail(`unsupported or invalid preparation manifest: ${manifestFile}`);
 	}
 	const sourceTrees = parsed.sourceTrees;
-	if (!isAbsolute(parsed.workspaceRoot) || !isAbsolute(parsed.sourceRoot) || !isAbsolute(parsed.casesFile)
+	if (!isAbsolute(parsed.sourceRoot) || !isAbsolute(parsed.casesFile)
 		|| parsed.caseInput.id !== parsed.caseId
 		|| dataRoots.some((name) => typeof sourceTrees[name] !== "boolean")
-		|| !parsed.sourceFiles.every((file) => isRecord(file) && typeof file.origin === "string" && typeof file.sha256 === "string" && typeof file.bytes === "number" && Number.isSafeInteger(file.bytes) && (file.repoPath === undefined || typeof file.repoPath === "string"))
-		|| !parsed.baselineFiles.every((file) => isRecord(file) && typeof file.path === "string" && typeof file.sha256 === "string" && typeof file.bytes === "number" && Number.isSafeInteger(file.bytes))
+		|| !parsed.sourceFiles.every((file) => isRecord(file) && typeof file.origin === "string" && typeof file.sha256 === "string" && /^[0-9a-f]{64}$/u.test(file.sha256) && typeof file.bytes === "number" && Number.isSafeInteger(file.bytes) && (file.repoPath === undefined || typeof file.repoPath === "string"))
+		|| !parsed.baselineFiles.every((file) => isRecord(file) && typeof file.path === "string" && typeof file.sha256 === "string" && /^[0-9a-f]{64}$/u.test(file.sha256) && typeof file.bytes === "number" && Number.isSafeInteger(file.bytes))
 		|| !parsed.replaySources.every((source) => isRecord(source) && typeof source.origin === "string" && typeof source.scratchPath === "string" && typeof source.archivePath === "string" && typeof source.sha256 === "string")) {
 		fail(`preparation manifest contains invalid fields: ${manifestFile}`);
 	}
-	if (resolve(parsed.workspaceRoot) !== root) fail(`manifest belongs to ${parsed.workspaceRoot}, not ${root}`);
 	const caseInput = asEvalCase(parsed.caseInput, parsed.caseId);
-	// These runtime guards validate the format-versioned JSON boundary before the typed manifest is used.
 	const manifest = parsed as unknown as Manifest;
-	return { root, manifest: { ...manifest, caseInput } };
+	return { root, sessionRoot, runId, controlRoot: paths.controlRoot, manifest: { ...manifest, caseInput } };
 }
 
 async function compareSourceOrigins(manifest: Manifest): Promise<Set<string>> {
@@ -395,9 +453,8 @@ async function compareSourceOrigins(manifest: Manifest): Promise<Set<string>> {
 			if (file.origin !== expectedOrigin || !inTree(sourceRoot, expectedOrigin)) fail(`manifest source escapes its repository: ${file.origin}`);
 			expectedByTree.get(rootName)?.push({ path: repoPath.slice(rootName.length + 1), sha256: file.sha256, bytes: file.bytes });
 		} else {
-			if (file.origin !== manifest.casesFile && file.origin !== join(sourceRoot, ".qmd", "index.yml")) {
-				fail(`manifest contains an unrecognized external source: ${file.origin}`);
-			}
+			const allowed = [manifest.casesFile, join(sourceRoot, ".qmd", "index.yml"), join(sourceRoot, ".qmd", "index.sqlite")];
+			if (!allowed.includes(file.origin)) fail(`manifest contains an unrecognized external source: ${file.origin}`);
 			if (externalSources.has(file.origin)) fail(`manifest repeats external source: ${file.origin}`);
 			externalSources.set(file.origin, file);
 		}
@@ -418,13 +475,11 @@ async function compareSourceOrigins(manifest: Manifest): Promise<Set<string>> {
 			if (actual.length > 0 || appeared) fail(`source ${rootName} appeared after preparation`);
 		}
 	}
-	const qmdConfig = join(sourceRoot, ".qmd", "index.yml");
-	for (const origin of [manifest.casesFile, qmdConfig]) {
+	for (const origin of [manifest.casesFile, join(sourceRoot, ".qmd", "index.yml"), join(sourceRoot, ".qmd", "index.sqlite")]) {
 		const expected = externalSources.get(origin);
 		if (!expected) fail(`manifest is missing external source hash: ${origin}`);
-		const info = await lstat(origin).catch(() => fail(`recorded source is missing: ${origin}`));
-		if (info.isSymbolicLink() || !info.isFile() || info.nlink !== 1) fail(`recorded source is no longer an independent regular file: ${origin}`);
-		if (await realpath(origin) !== origin) fail(`recorded source now resolves through a symlink: ${origin}`);
+		await requireIndependentFile(origin, `recorded source`);
+		const info = await lstat(origin);
 		const digest = await digestFile(origin);
 		if (digest.sha256 !== expected.sha256 || digest.bytes !== expected.bytes) fail(`source changed after preparation: ${origin}`);
 		originIdentities.add(`${info.dev}:${info.ino}`);
@@ -439,25 +494,31 @@ async function compareSourceOrigins(manifest: Manifest): Promise<Set<string>> {
 
 /** Validate original source hashes, frozen baseline integrity, and workspace isolation. */
 export async function verifyWorkspace(rootArgument: string): Promise<VerificationResult> {
-	const { root, manifest } = await readManifest(rootArgument);
+	const { root, controlRoot, manifest } = await readManifest(rootArgument);
 	const sourceRoot = resolve(manifest.sourceRoot);
-	if (inTree(sourceRoot, root) || inTree(root, sourceRoot) || root === sourceRoot) fail(`scratch workspace overlaps the source repository: ${root}`);
+	if (inTree(sourceRoot, root) || inTree(root, sourceRoot) || root === sourceRoot) fail(`eval World overlaps the source repository: ${root}`);
 	const originIdentities = await compareSourceOrigins(manifest);
-	const allWorkspaceFiles = await walkFiles(root, "scratch workspace", true);
+	const allWorkspaceFiles = await walkFiles(root, "eval World", true);
+	if (await lstat(join(root, ".qmd")).then(() => true, (error: NodeJS.ErrnoException) => {
+		if (error.code === "ENOENT") return false;
+		throw error;
+	})) fail(`eval World must not contain a .qmd directory: ${root}`);
 	for (const file of allWorkspaceFiles) {
-		if (originIdentities.has(`${file.dev}:${file.ino}`)) fail(`scratch workspace shares an inode with a source original: ${file.path}`);
+		if (originIdentities.has(`${file.dev}:${file.ino}`)) fail(`eval World shares an inode with a source original: ${file.path}`);
 	}
-	const baselinePrefix = ".eval/baseline/";
-	const baselineFiles = allWorkspaceFiles.filter((file) => file.relativePath.startsWith(baselinePrefix)).map((file) => ({
-		...file,
-		relativePath: file.relativePath.slice(baselinePrefix.length),
-	}));
+	const baseline = join(controlRoot, "baseline");
+	await assertDirectorySafe(baseline, "private frozen baseline");
+	const baselineFiles = await walkFiles(baseline, "private frozen baseline", true);
 	sameFiles(manifest.baselineFiles, baselineFiles, "frozen baseline");
-	const expectedQmdConfig = manifest.baselineFiles.find((file) => file.path === ".qmd/index.yml");
-	if (!expectedQmdConfig) fail("frozen baseline is missing .qmd/index.yml");
-	const liveQmdConfig = allWorkspaceFiles.find((file) => file.relativePath === ".qmd/index.yml");
-	if (!liveQmdConfig || liveQmdConfig.sha256 !== expectedQmdConfig.sha256 || liveQmdConfig.bytes !== expectedQmdConfig.bytes) {
-		fail("scratch .qmd/index.yml changed from its isolated frozen config");
+	const worldInodes = new Set(allWorkspaceFiles.map((file) => `${file.dev}:${file.ino}`));
+	for (const file of baselineFiles) {
+		const identity = `${file.dev}:${file.ino}`;
+		if (worldInodes.has(identity) || originIdentities.has(identity)) fail(`frozen baseline shares an inode with an eval World or source original: ${file.path}`);
+	}
+	const descriptor = runnerInputPath(root);
+	const descriptorInfo = await lstat(descriptor);
+	if (descriptorInfo.isSymbolicLink() || !descriptorInfo.isFile() || descriptorInfo.nlink !== 1 || (descriptorInfo.mode & 0o222) !== 0) {
+		fail(`runner input must be an independent read-only regular file: ${descriptor}`);
 	}
 	return { ok: true, root, caseId: manifest.caseId };
 }
@@ -506,7 +567,6 @@ async function stageRawSources(root: string, token: string, sources: LocalFile[]
 	return staged;
 }
 
-
 /** Create a fresh workspace from a real case and immutable source trees. */
 export async function prepareCase(casesFileArgument: string, caseId: string, options: PreparationOptions = {}): Promise<PreparedWorkspace> {
 	if (!isAbsolute(casesFileArgument)) fail(`--cases requires an absolute path: ${casesFileArgument}`);
@@ -524,15 +584,14 @@ export async function prepareCase(casesFileArgument: string, caseId: string, opt
 	if (!isAbsolute(repositoryRoot)) fail(`repository root must be an absolute path: ${repositoryRoot}`);
 	const sourceRoot = await realpath(resolve(repositoryRoot)).catch(() => fail(`repository root not found: ${repositoryRoot}`));
 	const sourceQmdDirectory = join(sourceRoot, ".qmd");
-	const sourceQmdInfo = await lstat(sourceQmdDirectory);
+	const sourceQmdInfo = await lstat(sourceQmdDirectory).catch(() => fail(`PREPARATION: missing live QMD config directory: ${sourceQmdDirectory}`));
 	if (sourceQmdInfo.isSymbolicLink() || !sourceQmdInfo.isDirectory()) fail(`source .qmd must be a real directory: ${sourceQmdDirectory}`);
 	const sourceQmdConfig = join(sourceQmdDirectory, "index.yml");
-	const sourceQmdConfigInfo = await lstat(sourceQmdConfig);
-	if (sourceQmdConfigInfo.isSymbolicLink() || !sourceQmdConfigInfo.isFile() || sourceQmdConfigInfo.nlink !== 1) fail(`source QMD config must be an independent regular file: ${sourceQmdConfig}`);
-	if (await realpath(sourceQmdConfig) !== sourceQmdConfig) fail(`source QMD config must not resolve through a symlink: ${sourceQmdConfig}`);
-	const sourceQmdText = await readFile(sourceQmdConfig, "utf8");
-	const qmdConfigText = buildIsolatedQmdConfig(sourceQmdText);
+	await requireIndependentFile(sourceQmdConfig, "live QMD config");
+	const sourceQmdIndex = join(sourceQmdDirectory, "index.sqlite");
+	await requireIndependentFile(sourceQmdIndex, "live QMD index");
 	const qmdConfigDigest = await digestFile(sourceQmdConfig);
+	const qmdIndexDigest = await digestFile(sourceQmdIndex);
 	const sourceTrees = {} as Record<DataRoot, boolean>;
 	const sourceFiles: SourceFile[] = [];
 	const localTrees = new Map<DataRoot, LocalFile[]>();
@@ -559,29 +618,41 @@ export async function prepareCase(casesFileArgument: string, caseId: string, opt
 	const validated = checkCaseSources(caseInput, wikiFiles, repoFiles, sourceRoot);
 	const caseDigest = await digestFile(casesFile);
 	if (caseDigest.sha256 !== caseDigestBefore.sha256) fail(`cases file changed while it was being read: ${casesFile}`);
-	if (createHash("sha256").update(sourceQmdText).digest("hex") !== qmdConfigDigest.sha256) fail(`source QMD config changed while it was being read: ${sourceQmdConfig}`);
+	if (await digestFile(sourceQmdConfig).then((digest) => digest.sha256) !== qmdConfigDigest.sha256) fail(`source QMD config changed while it was being read: ${sourceQmdConfig}`);
+	if (await digestFile(sourceQmdIndex).then((digest) => digest.sha256) !== qmdIndexDigest.sha256) fail(`live QMD index changed while it was being read: ${sourceQmdIndex}`);
 	sourceFiles.push({ origin: casesFile, sha256: caseDigest.sha256, bytes: caseDigest.bytes });
 	sourceFiles.push({ origin: sourceQmdConfig, sha256: qmdConfigDigest.sha256, bytes: qmdConfigDigest.bytes });
-	const replayRootName = randomUUID().replaceAll("-", "").slice(0, 10);
-	const canonicalRoot = await createScratchRoot(options.scratchParent, [sourceRoot]);
+	sourceFiles.push({ origin: sourceQmdIndex, sha256: qmdIndexDigest.sha256, bytes: qmdIndexDigest.bytes });
+	let sessionRoot: string;
+	let standaloneSession = false;
+	if (options.sessionRoot !== undefined) sessionRoot = await validateEvalSessionRoot(options.sessionRoot);
+	else {
+		const session = await createEvalSession({ sessionId: randomUUID(), pid: process.pid });
+		sessionRoot = session.root;
+		standaloneSession = true;
+	}
+	let allocated: Awaited<ReturnType<typeof allocateEvalRun>> | undefined;
 	try {
+		if (sessionRoot === sourceRoot || inTree(sourceRoot, sessionRoot) || inTree(sessionRoot, sourceRoot)) fail(`eval session root must be outside source repository: ${sessionRoot}`);
+		allocated = await allocateEvalRun(sessionRoot);
+		sessionRoot = evalRunFromWorld(allocated.worldRoot).sessionRoot;
+		const { worldRoot, controlRoot } = allocated;
 		for (const rootName of dataRoots) {
 			const sourceDirectory = join(sourceRoot, rootName);
-			if (sourceTrees[rootName]) await copyIndependent(sourceDirectory, join(canonicalRoot, rootName), `source ${rootName}`);
-			else await mkdir(join(canonicalRoot, rootName));
+			if (sourceTrees[rootName]) await copyIndependent(sourceDirectory, join(worldRoot, rootName), `source ${rootName}`);
+			else await mkdir(join(worldRoot, rootName));
 		}
-		await writeIsolatedQmdConfig(canonicalRoot, qmdConfigText);
-		const replaySources = await stageRawSources(canonicalRoot, replayRootName, validated.rawSources);
-		const evalDirectory = join(canonicalRoot, ".eval");
-		await mkdir(evalDirectory);
-		const baseline = join(evalDirectory, "baseline");
-		await mkdir(baseline);
-		for (const rootName of dataRoots) await copyIndependent(join(canonicalRoot, rootName), join(baseline, rootName), `baseline ${rootName}`);
-		await copyIndependent(join(canonicalRoot, ".qmd"), join(baseline, ".qmd"), "baseline QMD config");
+		await seedCallouts(worldRoot, caseInput);
+		const replayRootName = randomUUID().replaceAll("-", "").slice(0, 10);
+		const replaySources = await stageRawSources(worldRoot, replayRootName, validated.rawSources);
+		const baseline = join(controlRoot, "baseline");
+		await mkdir(baseline, { mode: 0o700 });
+		for (const rootName of dataRoots) await copyIndependent(join(worldRoot, rootName), join(baseline, rootName), `baseline ${rootName}`);
 		const baselineFiles = (await walkFiles(baseline, "frozen baseline", true)).map((file) => ({ path: file.relativePath, sha256: file.sha256, bytes: file.bytes }));
 		const manifest: Manifest = {
-			schemaVersion: 1,
-			workspaceRoot: canonicalRoot,
+			schemaVersion: 2,
+			sessionRoot,
+			workspaceRoot: worldRoot,
 			sourceRoot,
 			createdAt: new Date().toISOString(),
 			caseId,
@@ -593,80 +664,166 @@ export async function prepareCase(casesFileArgument: string, caseId: string, opt
 			replaySources,
 			baselineFiles,
 		};
-		await writeFile(manifestPath(canonicalRoot), `${JSON.stringify(manifest, null, 2)}\n`, { flag: "wx" });
-		await verifyWorkspace(canonicalRoot);
-		return outputPaths(canonicalRoot, manifest);
+		await writeFile(manifestPath(controlRoot), `${JSON.stringify(manifest, null, 2)}\n`, { flag: "wx", mode: 0o600 });
+		await writeRunnerInput(worldRoot, manifest, validated.pages);
+		await verifyWorkspace(worldRoot);
+		return outputPaths(worldRoot, controlRoot, sessionRoot, manifest, sourceQmdIndex);
 	} catch (error) {
-		await rm(canonicalRoot, { recursive: true, force: true });
+		if (standaloneSession) await closeEvalSession(sessionRoot);
+		else if (allocated) {
+			await rm(allocated.worldRoot, { recursive: true, force: true });
+			await rm(allocated.controlRoot, { recursive: true, force: true });
+		}
 		throw error;
 	}
 }
 
 /** Create another independent workspace using only a prepared root's frozen input snapshot. */
-export async function clonePreparedWorkspace(sourceRootArgument: string, options: Pick<PreparationOptions, "scratchParent"> = {}): Promise<PreparedWorkspace> {
+export async function clonePreparedWorkspace(sourceRootArgument: string, options: Pick<PreparationOptions, "sessionRoot"> = {}): Promise<PreparedWorkspace> {
 	const sourceRootArgumentResolved = resolve(sourceRootArgument);
-	await verifyWorkspace(sourceRootArgumentResolved);
-	const { root: sourceRoot, manifest: original } = await readManifest(sourceRootArgumentResolved);
-	const sourceBaseline = join(sourceRoot, ".eval", "baseline");
-	const root = await createScratchRoot(options.scratchParent, [sourceRoot, original.sourceRoot]);
+	await verifyWorkspace(sourceRootArgument);
+	const { root: sourceRoot, controlRoot: sourceControlRoot, manifest: original } = await readManifest(sourceRootArgumentResolved);
+	const sourceBaseline = join(sourceControlRoot, "baseline");
+	let sessionRoot: string;
+	let standaloneSession = false;
+	if (options.sessionRoot !== undefined) sessionRoot = await validateEvalSessionRoot(options.sessionRoot);
+	else {
+		const session = await createEvalSession({ sessionId: randomUUID(), pid: process.pid });
+		sessionRoot = session.root;
+		standaloneSession = true;
+	}
+	let allocated: Awaited<ReturnType<typeof allocateEvalRun>> | undefined;
 	try {
-		for (const rootName of dataRoots) await copyIndependent(join(sourceBaseline, rootName), join(root, rootName), `cloned ${rootName}`);
-		await copyIndependent(join(sourceBaseline, ".qmd"), join(root, ".qmd"), "cloned QMD config");
-		const evalDirectory = join(root, ".eval");
-		await mkdir(evalDirectory);
-		await copyIndependent(sourceBaseline, join(evalDirectory, "baseline"), "cloned frozen baseline");
+		if (sessionRoot === original.sourceRoot || inTree(original.sourceRoot, sessionRoot) || inTree(sessionRoot, original.sourceRoot)) {
+			fail(`eval session root must be outside source repository: ${sessionRoot}`);
+		}
+		allocated = await allocateEvalRun(sessionRoot);
+		sessionRoot = evalRunFromWorld(allocated.worldRoot).sessionRoot;
+		const { worldRoot, controlRoot } = allocated;
+		for (const rootName of dataRoots) await copyIndependent(join(sourceBaseline, rootName), join(worldRoot, rootName), `cloned ${rootName}`);
+		const baseline = join(controlRoot, "baseline");
+		await copyIndependent(sourceBaseline, baseline, "cloned frozen baseline");
 		const manifest: Manifest = {
 			...original,
-			workspaceRoot: root,
+			schemaVersion: 2,
+			sessionRoot,
+			workspaceRoot: worldRoot,
 			createdAt: new Date().toISOString(),
 			clonedFrom: sourceRoot,
 		};
-		await writeFile(manifestPath(root), `${JSON.stringify(manifest, null, 2)}\n`, { flag: "wx" });
-		await verifyWorkspace(root);
-		return outputPaths(root, manifest);
+		await writeFile(manifestPath(controlRoot), `${JSON.stringify(manifest, null, 2)}\n`, { flag: "wx", mode: 0o600 });
+		const runnerInput = await writeRunnerInput(worldRoot, manifest, original.caseInput.source_pages);
+		await verifyWorkspace(worldRoot);
+		const qmdIndex = join(manifest.sourceRoot, ".qmd", "index.sqlite");
+		const prepared = outputPaths(worldRoot, controlRoot, sessionRoot, manifest, qmdIndex);
+		return { ...prepared, runnerInput };
 	} catch (error) {
-		await rm(root, { recursive: true, force: true });
+		if (standaloneSession) await closeEvalSession(sessionRoot);
+		else if (allocated) {
+			await rm(allocated.worldRoot, { recursive: true, force: true });
+			await rm(allocated.controlRoot, { recursive: true, force: true });
+		}
 		throw error;
 	}
 }
 
 function buildCommand(): Command {
 	const command = new Command("eval:prepare")
-		.description("Prepare, clone, or verify an isolated real-source skill-eval workspace.")
+		.description("Prepare, clone, verify, and manage Session-scoped skill-eval workspaces.")
 		.option("--cases <absolute-file>", "absolute skill cases.yaml path (preparation mode)")
 		.option("--case <id>", "active case id (preparation mode)")
 		.option("--from <prepared-root>", "clone a frozen prepared snapshot into a new independent workspace")
-		.option("--verify <scratch-root>", "verify source hashes, frozen baseline, and workspace isolation")
+		.option("--verify <world-root>", "verify source hashes, frozen baseline, and workspace isolation")
+		.option("--session-root <root>", "reuse an open Session workspace (prepare/clone only)")
+		.option("--session-start", "create a Session-scoped temporary workspace root")
+		.option("--session-close <root>", "close and remove a validated Session workspace root")
+		.option("--reap-stale", "select and optionally remove stale eval Session roots")
+		.option("--older-than-hours <number>", "minimum age for marked stale roots (default: 24)")
+		.option("--include-legacy", "include unmarked roots at least 24 hours old")
+		.option("--dry-run", "show eligible roots without removing them")
+		.option("--yes", "confirm stale-root removal")
 		.addHelpText("after", `
-Examples:
-  bun run eval:prepare --cases "$PWD/.agents/skills/audit/evals/cases.yaml" --case named-claim
-  bun run eval:prepare --from "$PREPARED_ROOT"
-  bun run eval:prepare --verify "$SCRATCH_ROOT"
 
-Preparation and clone modes print one JSON object with absolute root, wiki, raw, archive,
-baseline, manifest, caseId, and case fields. Each preparation creates a fresh scratch root.
-For a paired run, prepare once and invoke --from twice; both clones use the same frozen baseline.
+${PREPARE_EXAMPLES}
+
+Preparation and clone read the live project QMD index without updating it. Each run
+has independent Wiki/Raw/Archive copies and a private control record under sessionRoot.
+Use --session-root to keep related runs and evidence in one Session lifetime.
 
 Exit codes: 0 success; 2 invalid usage, unsafe/missing sources, or failed verification.
 `)
-		.action(async (options: { cases?: string; case?: string; from?: string; verify?: string }) => {
+		.action(async (options: {
+			cases?: string;
+			case?: string;
+			from?: string;
+			verify?: string;
+			sessionRoot?: string;
+			sessionStart?: boolean;
+			sessionClose?: string;
+			reapStale?: boolean;
+			olderThanHours?: string;
+			includeLegacy?: boolean;
+			dryRun?: boolean;
+			yes?: boolean;
+		}) => {
 			try {
-				const modes = Number(options.verify !== undefined) + Number(options.from !== undefined) + Number(options.cases !== undefined || options.case !== undefined);
-				if (modes !== 1) fail("choose exactly one mode: --cases with --case, --from, or --verify");
+				if (!options.reapStale && (options.olderThanHours !== undefined || options.includeLegacy || options.dryRun || options.yes)) {
+					fail("--older-than-hours, --include-legacy, --dry-run, and --yes require --reap-stale");
+				}
+				const lifecycleModes = Number(Boolean(options.sessionStart)) + Number(options.sessionClose !== undefined) + Number(Boolean(options.reapStale));
+				const preparationModes = Number(options.verify !== undefined) + Number(options.from !== undefined) + Number(options.cases !== undefined || options.case !== undefined);
+				if (lifecycleModes + preparationModes !== 1) fail("choose exactly one lifecycle mode (--session-start, --session-close, --reap-stale) or preparation mode (--cases with --case, --from, --verify)");
+				if (lifecycleModes > 0 && (options.sessionRoot !== undefined || options.cases !== undefined || options.case !== undefined || options.from !== undefined || options.verify !== undefined)) {
+					fail("Session lifecycle modes cannot be combined with preparation, clone, verify, or --session-root");
+				}
+				if (options.sessionStart) {
+					const session = await createEvalSession({ sessionId: randomUUID(), pid: process.pid });
+					process.stdout.write(`${JSON.stringify(session)}\n`);
+					return;
+				}
+				if (options.sessionClose !== undefined) {
+					const root = await realpath(options.sessionClose).catch(() => resolve(options.sessionClose as string));
+					await closeEvalSession(options.sessionClose);
+					process.stdout.write(`${JSON.stringify({ closed: root })}\n`);
+					return;
+				}
+				if (options.reapStale) {
+					const ageArgument = options.olderThanHours ?? "24";
+					const hours = Number(ageArgument);
+					const olderThanMs = hours * 60 * 60 * 1000;
+					if (ageArgument.trim() === "" || !Number.isFinite(hours) || hours < 0 || !Number.isFinite(olderThanMs)) {
+						fail("--older-than-hours must be a finite nonnegative number");
+					}
+					if (!options.dryRun && !options.yes) fail("--yes is required to remove stale roots; use --dry-run to preview");
+					const result = await reapEvalSessions({
+						olderThanMs,
+						dryRun: Boolean(options.dryRun),
+						includeLegacy: Boolean(options.includeLegacy),
+					});
+					process.stdout.write(`${JSON.stringify(result)}\n`);
+					return;
+				}
+				if (options.sessionRoot !== undefined && options.verify !== undefined) fail("--session-root can be used only with preparation or clone, not --verify");
+				if (options.sessionRoot !== undefined && options.from === undefined && options.cases === undefined && options.case === undefined) fail("--session-root requires --cases with --case or --from");
+				if (options.sessionRoot !== undefined && !isAbsolute(options.sessionRoot)) fail(`--session-root must be absolute: ${options.sessionRoot}`);
 				if (options.verify !== undefined) {
-					if (options.cases !== undefined || options.case !== undefined) fail("--verify cannot be combined with --cases or --case");
+					if (options.cases !== undefined || options.case !== undefined || options.from !== undefined) fail("--verify cannot be combined with --cases, --case, or --from");
 					process.stdout.write(`${JSON.stringify(await verifyWorkspace(options.verify))}\n`);
 					return;
 				}
 				if (options.from !== undefined) {
 					if (options.cases !== undefined || options.case !== undefined) fail("--from cannot be combined with --cases or --case");
-					process.stdout.write(`${JSON.stringify(await clonePreparedWorkspace(options.from))}\n`);
+					const prepared = await clonePreparedWorkspace(options.from, options.sessionRoot === undefined ? {} : { sessionRoot: options.sessionRoot });
+					process.stdout.write(`${JSON.stringify(prepared)}\n`);
 					return;
 				}
 				if (!options.cases || !options.case) fail("preparation requires both --cases <absolute-file> and --case <id>");
-				process.stdout.write(`${JSON.stringify(await prepareCase(options.cases, options.case))}\n`);
+				const prepared = await prepareCase(options.cases, options.case, {
+					...(options.sessionRoot === undefined ? {} : { sessionRoot: options.sessionRoot }),
+				});
+				process.stdout.write(`${JSON.stringify(prepared)}\n`);
 			} catch (error) {
-				process.stderr.write(`Error: ${(error as Error).message}\n\nExamples:\n  bun run eval:prepare --cases "$PWD/.agents/skills/audit/evals/cases.yaml" --case named-claim\n  bun run eval:prepare --from "$PREPARED_ROOT"\n  bun run eval:prepare --verify "$SCRATCH_ROOT"\n`);
+				process.stderr.write(`Error: ${(error as Error).message}\n\n${PREPARE_EXAMPLES}\n`);
 				process.exitCode = 2;
 			}
 		});

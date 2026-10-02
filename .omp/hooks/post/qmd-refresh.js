@@ -1,8 +1,83 @@
+import { lstatSync, realpathSync } from "node:fs";
 import { spawnSync } from "node:child_process";
+import { dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
+const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
 const script = fileURLToPath(new URL("../../../scripts/qmd-refresh.sh", import.meta.url));
-const mutations = new Set(["write", "edit", "apply_patch", "bash", "eval"]);
+const liveRoots = ["wiki", "raw", "archive"].map((name) => {
+  try {
+    return realpathSync(join(repoRoot, name));
+  } catch {
+    return null;
+  }
+}).filter(Boolean);
+const mutations = new Set(["write", "edit", "apply_patch"]);
+
+function isInside(parent, candidate) {
+  const path = relative(parent, candidate);
+  return path === "" || (path !== ".." && !path.startsWith(`..${sep}`) && !isAbsolute(path));
+}
+
+function isEvalPath(value) {
+  const parts = resolve(value).split(sep).filter(Boolean);
+  return parts.some((part) => part.startsWith("campaign-foundry-eval-"));
+}
+
+function protectedRunner(ctx) {
+  if (ctx?.agent?.kind === "sub" && String(ctx.agent.name).toLowerCase() === "test-subject") return true;
+  return typeof ctx?.cwd === "string" && isEvalPath(ctx.cwd);
+}
+
+function fileInputPath(value, cwd) {
+  if (typeof value !== "string" || value.length === 0 || value.includes("\0")) return null;
+  if (value.startsWith("vault://_/")) {
+    const relativePath = value.slice("vault://_/".length);
+    if (relativePath.split(/[\\/]/u).some((part) => part === ".." || part === ".")) return null;
+    return join(repoRoot, "wiki", ...relativePath.split(/[\\/]/u));
+  }
+  if (/^[a-z][a-z\d+.-]*:\/\//iu.test(value)) return null;
+  return resolve(isAbsolute(value) ? value : join(cwd, value));
+}
+
+function nearestCanonicalPath(candidate) {
+  let probe = candidate;
+  const suffix = [];
+  while (true) {
+    try {
+      const info = lstatSync(probe);
+      if (info.isSymbolicLink()) return null;
+      return resolve(realpathSync(probe), ...suffix);
+    } catch (error) {
+      if (error?.code !== "ENOENT") return null;
+      const parent = dirname(probe);
+      if (parent === probe) return null;
+      suffix.unshift(probe.slice(parent.length + 1));
+      probe = parent;
+    }
+  }
+}
+
+function canonicalLiveWrite(value, cwd) {
+  const candidate = fileInputPath(value, cwd);
+  if (!candidate || isEvalPath(candidate)) return null;
+  const canonical = nearestCanonicalPath(candidate);
+  if (!canonical || isEvalPath(canonical)) return null;
+  return liveRoots.some((root) => root && isInside(root, canonical)) ? canonical : null;
+}
+
+function writePaths(toolName, input) {
+  if (!input || typeof input !== "object" || Array.isArray(input)) return [];
+  const value = input;
+  const paths = [];
+  for (const key of ["path", "file_path", "filePath", "target", "destination"]) {
+    if (typeof value[key] === "string") paths.push(value[key]);
+  }
+  if (toolName === "apply_patch" && typeof value.patch === "string") {
+    for (const match of value.patch.matchAll(/^\*\*\* (?:Update|Add|Delete) File: (.+)$/gmu)) paths.push(match[1].trim());
+  }
+  return paths;
+}
 
 export default function qmdRefresh(pi) {
   const refresh = (payload) => {
@@ -16,15 +91,20 @@ export default function qmdRefresh(pi) {
     }
   };
 
-  pi.on("session_start", () => refresh({ hook_event_name: "SessionStart" }));
-  pi.on("tool_result", (event) => {
-    if (event.isError || !mutations.has(event.toolName)) return;
-    const input = JSON.stringify(event.input ?? {});
+  pi.on("session_start", (_event, ctx) => {
+    if (protectedRunner(ctx)) return;
+    refresh({ hook_event_name: "SessionStart" });
+  });
+  pi.on("tool_result", (event, ctx) => {
+    if (event.isError || !mutations.has(event.toolName) || protectedRunner(ctx)) return;
+    const livePath = writePaths(event.toolName, event.input ?? {})
+      .map((path) => canonicalLiveWrite(path, ctx.cwd))
+      .find((path) => path !== null);
+    if (!livePath) return;
     refresh({
       hook_event_name: "PostToolUse",
       tool_name: event.toolName,
-      tool_input: event.input ?? {},
-      ...(input.includes("vault://") ? { file_path: "wiki/" } : {}),
+      file_path: livePath,
     });
   });
 }

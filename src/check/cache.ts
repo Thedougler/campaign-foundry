@@ -16,8 +16,6 @@ interface CacheFile {
 /** Bump when a prose view or a layer's mapping changes shape, so stale entries are never reused. */
 const CACHE_VERSION = 1;
 
-const cacheDir = join(toolRoot, ".cache", "check");
-
 export const hash = (text: string): string => createHash("sha256").update(text).digest("hex");
 
 let lockSalt: Promise<string> | undefined;
@@ -28,17 +26,18 @@ export function lockfileSalt(): Promise<string> {
 	return lockSalt;
 }
 
-async function read(layer: string, salt: string): Promise<Record<string, CachedFinding[]>> {
+async function read(root: string, layer: string, salt: string): Promise<Record<string, CachedFinding[]>> {
 	try {
-		const file = JSON.parse(await readFile(join(cacheDir, `${layer}.json`), "utf8")) as CacheFile;
+		const file = JSON.parse(await readFile(join(root, ".cache", "check", `${layer}.json`), "utf8")) as CacheFile;
 		return file.salt === salt ? file.entries : {};
 	} catch {
 		return {};
 	}
 }
 
-async function write(layer: string, salt: string, entries: Record<string, CachedFinding[]>): Promise<void> {
+async function write(root: string, layer: string, salt: string, entries: Record<string, CachedFinding[]>): Promise<void> {
 	try {
+		const cacheDir = join(root, ".cache", "check");
 		await mkdir(cacheDir, { recursive: true });
 		const target = join(cacheDir, `${layer}.json`);
 		const scratch = `${target}.${process.pid}.${Math.random().toString(36).slice(2)}`;
@@ -50,18 +49,19 @@ async function write(layer: string, salt: string, entries: Record<string, Cached
 }
 
 /**
- * Per-page memo for a slow layer. Each page's findings are stored by the hash of its source, in the gitignored
- * `.cache/check/<layer>.json`. `salt` must change whenever anything but the page can change the answer: the tool's
- * version, its config, the name dictionary. `compute` receives only the pages that missed and returns each page's findings.
+ * Per-page memo for a slow layer under the invocation root's `.cache/check`. Each page's findings are stored by the
+ * hash of its source, so a moved page still hits the cache. `salt` must change whenever anything but the page can
+ * change the answer: the tool's version, its config or the name dictionary. `compute` receives only cache misses.
  */
 export async function cachedByPage(
+	root: string,
 	layer: string,
 	salt: string,
 	pages: Page[],
 	compute: (misses: Page[]) => Promise<Map<Page, CachedFinding[]>>,
 ): Promise<Map<Page, CachedFinding[]>> {
 	const fullSalt = `${CACHE_VERSION}:${salt}`;
-	const stored = await read(layer, fullSalt);
+	const stored = await read(root, layer, fullSalt);
 	const keyOf = new Map(pages.map((page) => [page, hash(page.source)]));
 	const result = new Map<Page, CachedFinding[]>();
 	const misses: Page[] = [];
@@ -77,6 +77,7 @@ export async function cachedByPage(
 	// Keep only what this run used, so deleted and edited pages do not pile up.
 	const next: Record<string, CachedFinding[]> = {};
 	for (const page of pages) next[keyOf.get(page) ?? ""] = result.get(page) ?? [];
-	if (misses.length > 0 || Object.keys(next).length !== Object.keys(stored).length) await write(layer, fullSalt, next);
+	if (misses.length > 0 || Object.keys(next).length !== Object.keys(stored).length) await write(root, layer, fullSalt, next);
 	return result;
 }
+

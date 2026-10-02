@@ -7,6 +7,7 @@
  * a case are not run here: the orchestrator's grader reads them from the YAML (ADR 0010).
  * Exit codes: 0 every check passed, 1 a check failed, 2 usage or cases-file error.
  */
+import "../src/env.ts";
 import { spawnSync } from "node:child_process";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";

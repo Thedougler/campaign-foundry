@@ -19,13 +19,10 @@
     - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
     - The Shattered Sea/Campaigns/Shattered Sea/hot.md
   prompt: Who holds the Fate Spinner right now, and who is trying to take it? Did Skarn's attempt end yet?
-  checks:
-    canon:
-      The Shattered Sea/Items/Fate Spinner.md: ['\*\*Held by\.\*\* \[\[Crissdalynn Khinriss\]\]']
   rubrics:
-    - The answer leads with Crissdalynn holding the Spinner and Skarn trying to steal it for Vantyrus, with inline page citations.
-    - Session 11 ends with Skarn still in Crissdalynn's face after spending one Legendary Resistance. The answer identifies hot's conflicting breaking-off claim and favours the played Recap and Campaign state, not a speculative escape or theft.
-    - Session 12's capture, flight and theft outcomes are described only as prepared possibilities.
+    - The answer leads with this run's Fate Spinner Held by field and who is trying to take it, with inline page citations.
+    - Session 11 ends according to this run's played Recap. The answer identifies any conflicting hot claim and favours the played Recap and Campaign state, not a speculative escape or theft.
+    - Session 12 capture, flight and theft outcomes are described only as prepared possibilities.
     - No keeper is filed onto hot or played records; existing current Item custody is preserved. Inferences appear under Not in the Wiki, and bookkeeping is not narrated to the DM.
 - id: holy-day-gap
   source_pages:

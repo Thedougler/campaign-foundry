@@ -7,7 +7,7 @@ description: Skill authoring — create or revise a skill, iterate through paire
 
 Capture intent, author through `skill-writer`, measure paired baselines, and revise from grades and DM feedback. Read `.omp/AGENTS.md` before dispatching for shared native-task policy.
 
-Boundary: a skill's committed fixture cases (`evals/cases.yaml`, run in scratch Worlds and checked with `bun run eval:check`) are `run-evals`' surface; the cross-family Narration Prose Benchmark is `dnd-benchmark`'s. Route the DM there for those.
+Boundary: `evals/README.md` owns the three-job split — committed fixture cases are `run-evals`' surface, the cross-family Narration Benchmark is `dnd-benchmark`'s, and Grades of writing are the native `prose-grader` reading the prose. Route each request to the skill that owns it.
 
 ## Reused assets
 
@@ -22,7 +22,7 @@ The legacy tree `.agents/skills/skill-creator/` holds the machinery — reach it
 
 Pin down what the skill should do, which user phrases and contexts trigger it (one branch per distinct case), its inputs and outputs, and the acceptance criteria the DM will judge by. When the DM points at a workflow already in the conversation, extract these from the history first — tools used, sequence, corrections, formats — and ask only for the gaps.
 
-Resolve the target from the DM's explicit path or the active catalog's actual path for the requested skill. Check existing homes in `.omp/skills/` and `.agents/skills/`; when both contain the name, the catalog path decides an unqualified request, not directory order. If the catalog does not disambiguate and the DM has not named a path, ask which existing skill they intend before editing. A new skill goes to `.omp/skills/<name>/` unless the DM names another home. Write everything to `<skill-name>-workspace/brief.md` (sibling of the skill directory; if that would land inside `.omp/skills/` or `.agents/skills/`, put the workspace at the repo root — a `skill-snapshot/` holding a SKILL.md doesn't belong in a skills tree).
+Resolve the target from the DM's explicit path or active catalog's actual path. Check existing homes in `.omp/skills/` and `.agents/skills/`; the catalog decides an unqualified request, not directory order. If neither catalog nor DM disambiguates, ask which existing skill they intend. A new skill goes to `.omp/skills/<name>/` unless the DM names another home. Open Session storage under `evals/README.md` and write `<S>/authoring/<skill>/brief.md`; this is `<workspace>` for snapshots, iterations and description-eval artifacts.
 
 **Done when** `brief.md` names the target path, the trigger branches, inputs/outputs, and acceptance criteria.
 
@@ -40,7 +40,7 @@ Dispatch `skill-writer` with `brief.md`'s intent, trigger branches, inputs/outpu
 
 ### 4. Paired evals
 
-Read `evals/README.md` before authoring or preparing eval data, then [`references/eval-loop.md`](references/eval-loop.md) for paired execution. Select the smallest regression set justified by reported weekly home Session feedback under that contract; retain `evals/evals.json`'s artifact schema and map each selected case to its grounded `cases.yaml` preparation input. Follow the reference through dispatch, evidence capture, independent grading, aggregation and static DM review. If no eligible regression or paired run is requested, record that branch as skipped; skill revision and data migration do not automatically benchmark current skills.
+Read `evals/README.md` before preparing or dispatching, then [`references/eval-loop.md`](references/eval-loop.md) for paired execution. Select the smallest regression set justified by reported home-Session feedback. Build `<workspace>/evals.json` in the existing schema from selected active YAML case IDs and private criteria, recording each mapping in the authoring brief; historical intent files are not live eval inputs. Follow the reference through protected dispatch, evidence, independent grading, aggregation and DM review. If no eligible regression or paired run is requested, record that branch as skipped; instruction revision does not automatically run description evals or benchmarks.
 
 **Done when** the requested pair set meets the reference's evidence, grading, aggregation and DM-review criteria and `feedback.json` is imported, or the skipped branch has its reason recorded.
 
@@ -55,3 +55,5 @@ Feed `feedback.json` and the grades — plus comparison and analysis results, wh
 Offer once the skill body is stable; run only if the DM accepts, and read [`references/description-evals.md`](references/description-evals.md) first. The shape: 20 realistic positive and near-miss queries, DM-reviewed in the browser; a 12/8 train/held-out split; three fresh observations per query; trigger rates computed from observed candidate-skill reads only.
 
 **Done when** every reported trigger rate derives from candidate reads counted in run histories.
+
+After requested Grades, review and reporting settle, close Session storage under `evals/README.md`. Briefs, snapshots, iterations and description-eval evidence share that temporary lifetime; cross-Session continuation requires an explicit durable export.

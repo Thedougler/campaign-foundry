@@ -224,6 +224,19 @@ _Avoid_: sync, export, publish
 
 ### Evals
 
+**Fixture eval**:
+A committed `cases.yaml` run in a scratch World: the Runner writes, Checks run, then Grades. Distinct from the Prose Benchmark.
+_Avoid_: benchmark, unit test
+
+**Check**:
+A deterministic assertion `eval:check` runs on the scratch Wiki: pages exist, headings exist, canon/absent regexes. Constrained artifacts only.
+_Avoid_: scoring speakability with a Check
+
+**Grade**:
+Independent reading of authored prose. Fixture-eval Grades are pass/fail. Benchmark Grades are the Judge's 1–5 scores.
+_Avoid_: keyword search as a substitute for reading
+
+
 **Runner**:
 The model that executes an eval or benchmark entry. A cheap Codex or GLM model runs ordinary skill evals; the top tier runs the Prose Benchmark. Never the Judge.
 

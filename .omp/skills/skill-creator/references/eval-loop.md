@@ -5,7 +5,7 @@ Read this when planning or running skill-creator step 4. Before authoring or pre
 ## Layout
 
 ```
-<skill-name>-workspace/
+<S>/authoring/<skill>/
 ├── brief.md                          from step 1
 ├── skill-snapshot/                   from step 2, revisions only
 └── iteration-<N>/
@@ -23,47 +23,27 @@ Read this when planning or running skill-creator step 4. Before authoring or pre
 
 ## Prepare frozen inputs
 
-Map each selected `evals.json` ID to one grounded `cases.yaml` case as `evals/README.md` specifies. From the real repo, prepare that case once:
+Build `<workspace>/evals.json` in the existing schema from selected active YAML case IDs and private criteria, recording the ID-to-case mapping in the authoring brief. From the real repo, prepare each grounded case once in the open Session:
 
 ```bash
-bun run eval:prepare --cases <absolute-cases.yaml> --case <case-id>
-bun run eval:prepare --from <prepared-root>
-bun run eval:prepare --from <prepared-root>
+bun run eval:prepare --cases <absolute-cases.yaml> --case <case-id> --session-root <S>
+bun run eval:prepare --from <prepared-root> --session-root <S>
+bun run eval:prepare --from <prepared-root> --session-root <S>
 ```
 
 Save all three JSON responses. Assign the two clones to with-skill and baseline; neither runs in the frozen parent. Repeat observations and later iterations clone that same parent, keeping source inputs fixed across the comparison. Refreshing sources is a separate explicit preparation, identified as a new input snapshot.
 
-For each clone, use the returned absolute paths and perform the QMD/isolation gate in `evals/README.md` before dispatch. Record the eval ID, cases-file path, case ID, clone root and manifest path in its saved brief. Inputs resolve inside that clone. Runners save deliverables to `<scratch-root>/.eval/outputs/`; after execution, mirror them into `<run-dir>/outputs/` for grading and the viewer, alongside the Wiki diff against the returned Wiki `baseline` path. Preserve preparation evidence in the run directory.
+For each clone, retain returned paths, `sessionRoot`, `runnerInput`, source hashes and live-read-only QMD evidence under `evals/README.md`. Save case mappings and private manifest paths in parent evidence, separate from `<run-dir>/brief.md`'s Runner-visible operational text. Runners save requested pages and `$W/.eval/output.md`; mirror needed deliverables into `<run-dir>/outputs/` for temporary review, alongside the private starting-baseline diff.
 
 **Done when** each pair has two independent prepared roots with the same frozen source inputs and case, both isolation gates passed, and its ID-to-case mapping is saved.
 
 ## Dispatch
 
-Create every run directory before dispatching, then send both configurations of every eval out in ONE `task` batch as separate `test-subject` items with `isolated: true` when supported. Prepared roots and all runner outputs stay outside the omp isolation workspaces; repository files remain read-only. The parent performs initial preparation, both clones and final verification from the original real repo, not from a task workspace. Preserve that preparation snapshot and explicit absolute candidate/snapshot skill paths, including the declared uncommitted candidate version; omp isolation must not silently substitute another skill version. Record omp isolation status and declared skill versions in the saved briefs/evidence. If omp isolation is unavailable, state that capability gap and keep the scratch-path/QMD gates without changing harness configuration. Read `omp://tools/task.md` only when troubleshooting omp isolation. omp isolation does not make live vault or inherited QMD MCP access safe. Brief template — the task item text and `<run-dir>/brief.md` are identical:
+Create every run directory before dispatch. Follow `evals/README.md`'s enforced dispatch: bind each clone with `bindRunnerTools`, then call native `agent(runnerBrief, {agent: "test-subject", isolated: true, apply: false, tools: toolNames})`. Batch independent handles in waves of at most four. Prepared Worlds stay outside omp worktrees; preparation and verification run from the real repo. Pin exact candidate/snapshot paths, including the declared uncommitted candidate version. Missing isolation or enforcement is an explicit prerequisite gap, not permission to dispatch unrestricted runners.
 
-```
-Execute this task:
-- Skill: read and follow <skill-path>/SKILL.md
-- Task: <eval prompt>
-- Project root: <scratch-root>; Wiki: <scratch-wiki>; Raw: <scratch-raw>; Archive: <scratch-archive>
-- Preparation: <absolute-cases.yaml>, case <case-id>, manifest <scratch-manifest>
-- Input files: <clone-local eval files, or "none">
-- Save outputs to: <scratch-root>/.eval/outputs/
-- Outputs to save: <what the DM cares about>
-- Use assigned filesystem paths, not live vault access or inherited QMD MCP. Run QMD from <scratch-root> with env -u QMD_CONFIG_DIR qmd <command> for scratch-local discovery. An explicit named index overrides local discovery; observe the status/collection-path gate in evals/README.md before update/embed. Run repo tooling from <absolute-repo-root> with explicit scratch flags.
-- omp isolation: <enabled, or explicit unavailable capability>; repository/omp isolation workspace files remain read-only. Read the declared absolute skill path, not an implicit workspace-relative replacement.
-Keep every file you create or modify inside <scratch-root>/.
-```
+Save the model-facing operational text as `<run-dir>/brief.md`; keep the machine grant line/path/token in private control storage. The model receives the natural DM ask verbatim, start-here source paths, supplied preferences, assigned skill when present, write root, available capabilities, full File completion and `$W/.eval/output.md`. Parent-side criteria, source hashes, isolation proof and failure coaching remain separate.
 
-The with-skill run uses the live candidate path. The baseline drops the Skill line and adds:
-
-```
-This run is a baseline without the skill under test. Do not read
-<skill-path> or any copy of it anywhere; solve the task with your
-own approach.
-```
-
-The `old_skill` baseline keeps a Skill line pointing at the snapshot and still prohibits the live candidate. Task children inherit the parent's skill catalog, so this prohibition is what makes a baseline a baseline — the control is instructional, and the contamination check below verifies it held.
+For with-skill, grant `skillRoot === targetSkillRoot`. For `old_skill`, grant `<workspace>/skill-snapshot/` while denying the live target and aliases. For `without_skill`, omit `skillRoot` and deny the target entirely. Catalog access is not baseline isolation: the grant enforces the assignment, and complete histories/capability evidence establish that it held.
 
 **Done when** every case has both run directories and saved briefs identifying its declared skill version and omp isolation status, and both configurations are dispatched with prepared roots outside their omp isolation workspaces.
 
@@ -95,9 +75,9 @@ Keep every excluded pair visible in `benchmark.json` `runs[]`; `notes[]` names i
 
 ## Grading
 
-While the runs execute, normalize the case list: `evals/evals.json` may carry `assertions` or `expectations`; unify each case into ONE `expectations` list (update `evals.json` to match) and grade every run of that case against exactly this list.
+Normalize `<workspace>/evals.json` into one `expectations` list per selected case. It is authoring input generated from active YAML, not a live repository intent file. Grade both configurations against the identical private criteria.
 
-For each run with usable outputs, dispatch a fresh `prose-grader` that has not seen the run, with `.agents/skills/skill-creator/agents/grader.md` (read when preparing the grading brief), the run's `outputs/` directory and normalized expectations. It writes `grading.json` with `{text, passed, evidence}` expectations. Capture its completion under the rules above, keeping grader provenance separate from runner provenance. Execution errors without gradable outputs remain explicit errors.
+For each usable output, dispatch a fresh `prose-grader` with `.agents/skills/skill-creator/agents/grader.md`, the authored writing and normalized expectations. Include private current-run source excerpts where fidelity requires them; the grader quotes the writing/source evidence for each verdict. Transcripts, gate logs and Check verdicts stay parent evidence. Save `grading.json` with `{text, passed, evidence}` expectations in the private authoring run directory, and capture separate grader provenance. Execution errors without gradable outputs remain explicit errors.
 
 After grading, run `bun run eval:prepare --verify <scratch-root>` for each clone and preserve the result. Finalize the matching gate before aggregation; a failed source/isolation verification invalidates the run and stops the workflow under `evals/README.md`.
 
@@ -150,3 +130,9 @@ Then:
 For "is the revision actually better?" on a comparable pair, read `.agents/skills/skill-creator/agents/comparator.md` and dispatch a fresh `prose-grader` with that brief and outputs labeled A/B. Remove version identity and revealing path headers before dispatch. It writes `comparison.json` in the iteration directory. When diagnosing the result, read `.agents/skills/skill-creator/agents/analyzer.md` and dispatch its brief with the benchmark data for `analysis.json`. Capture each completion under the rules above.
 
 **Done when** the requested comparison/analysis artifacts and their separate observed provenance are saved.
+
+## Close Session storage
+
+After requested grading, review and reporting settle, close the returned `sessionRoot` under `evals/README.md`. Review mirrors, histories, frozen parents, clones and authoring artifacts share the creating Session's temporary lifetime. Durable export or cross-Session continuation requires an explicit DM request.
+
+**Done when** all child jobs have settled, the coverage/comparability report is delivered and temporary storage has been closed, or the explicitly requested durable export has been recorded before closing.

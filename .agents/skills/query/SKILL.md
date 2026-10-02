@@ -7,11 +7,13 @@ description: Answers the DM's questions about a World or Campaign from the Wiki,
 
 The Wiki is the evidence. Every fact in an answer comes from a page read during this run and carries its citation.
 
+Parent preparation/review reads `evals/README.md` for assigned-World access, grounding and lifetime. During execution use supplied QMD/source capabilities and scratch edit paths; production CLI search uses `env -u QMD_CONFIG_DIR qmd <command>` from the index-owning project without `--index`. Protected runs use neither live vault access nor inherited parent QMD MCP.
+
 ## Steps
 
 1. **Orient** with the read order in `AGENTS.md`: `hot.md`, the World's `index.md`, the `log.md` tail. `hot.md` points at pages; cite the page behind it.
-2. **Search** with qmd (the `qmd` skill), from the project root that holds the Wiki (from the CLI, `qmd query --no-rerank`, which answers in about a second): `intent` set to the DM's question, a `lex` search on the names and key terms, and a `vec` search on the question in plain words. Add matching `index.md` entries to the hits.
-3. **Read** the hits in full (`qmd multi-get`, or the MCP `multi_get`); snippets are leads. Follow wikilinks one hop where the answer runs through a linked page (an NPC's Faction, a Location's `parent`, the Creature behind an NPC). Done when every part of the question has a page that answers it, or a gap confirmed by both a name search and a meaning search.
+2. **Search** with QMD (read the `qmd` skill for mechanics). Set explicit `intent` to the DM's question, use a lexical search on names/key terms and a semantic search on the plain question. Add matching `index.md` entries to the hits. Done when the question's named subjects and meaning have both been searched.
+3. **Read** the hits through the assigned retrieval capability, or production `qmd multi-get` / trusted MCP `multi_get`; snippets are leads. Follow wikilinks one hop where the answer runs through a linked page (an NPC's Faction, a Location's parent, the Creature behind an NPC). Done when every part of the question has a page that answers it, or a gap confirmed by both name and meaning searches.
 4. **Answer** in the shape below.
 5. **File back** a keeper (below). Any other answer ends the run at step 4.
 
@@ -39,5 +41,5 @@ Most answers file nothing. A keeper is filed without asking (ADR 0003), and fili
 - **Pages, not the spine.** `hot.md`, `index.md` and `log.md` are never filing targets: Ingest and Prep rewrite `hot.md`, and scripts write the other two.
 
 1. Write the keeper onto the page of its kind, in the section where that page's template puts such a fact, in the page's own voice, linking the pages it came from. The question and answer stay in chat.
-2. Run `pnpm check <page>` until it passes, then `pnpm cf log --world <World> --op query --title "<the question>"` with a `--page` per page edited (`pnpm cf log --help` has the rest).
+2. Run the full `cf check --fix` / `cf check` with `--vault <wiki> --root <root> --templates <wiki>/templates`, resolving findings or reporting what remains; protected work uses its supplied gate. Then run confined `cf log --world <World> --op query --title "<the question>"` with a `--page` per page edited and the same root/vault. Done when filing has observed full-gate results and its log entry; a page filter is not completion evidence.
 3. Close the answer with one line naming each page edited. The index and log are housekeeping the DM never needs to hear about.

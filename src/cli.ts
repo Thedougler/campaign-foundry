@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import "./env.ts";
 import { Command, CommanderError } from "commander";
 import { UsageError } from "./check/run.ts";
 import { commands } from "./commands/index.ts";
@@ -16,6 +17,8 @@ Examples:
   cf index                       regenerate the index.md files
   cf narration "Ilse Corran" --callout "First look" --band 60-100
                                  check a Narration draft before filing it
+  cf eval extract "Ilse Corran" --callout "First look"
+                                 dump a callout body for a grader to read (not a Grade)
   cf log --world Aldermoor --op ingest --title "Session 3 transcript" --page "Session 3 - Recap"
                                  append to a World's log.md
   cf bench status                 plan the Prose Benchmark: cache hits and run commands

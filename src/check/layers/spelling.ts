@@ -79,7 +79,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 	const config = await Promise.all([".cspell/dnd-terms.txt", "cspell.json"].map((file) => readFile(join(toolRoot, file), "utf8").catch(() => "")));
 	// A page's answer depends on its text, cspell's version, the committed config and word list, and the name dictionary.
 	const salt = hash(`${await lockfileSalt()}|${config.join("\n")}|${words.join(",")}`);
-	const byPage = await cachedByPage(LAYER, salt, pages, async (misses) => {
+	const byPage = await cachedByPage(ctx.root, LAYER, salt, pages, async (misses) => {
 		const settings = await settingsFor(words);
 		const issues = await misspellings(ctx.vault.dir, misses, settings);
 		const distinct = [...new Set(issues.map((i) => i.word))].slice(0, MAX_SUGGESTED_WORDS);

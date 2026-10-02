@@ -10,7 +10,7 @@ One recipe per narration slot. Resolve the slot from the page's **type or kind p
 - A `Previously on` callout, whatever spelling the caller used, follows [previously-on.md](previously-on.md); the slot stays the Previously On.
 - Every other uniquely named title keeps its recipe below.
 
-Each recipe gives the **Job** (what the block must do), the **Build** (what goes in) and the **End** (where it stops). Second person and present tense unless the recipe says otherwise.
+Each recipe gives the **Job** (what the block must do), the **Build** (what goes in) and the **End** (where it stops). Every spoken recipe is told from where the Party stands, the Party as **you**, in the present tense, unless the recipe names another tense or voice: the Previously On's past, the Handout's document, the Portrait's third person.
 
 ## Openings and first looks
 
@@ -73,7 +73,7 @@ A Scene skill adds these as extra `[!narration]` callouts under the Scene's Play
 ### NPC entering
 
 - **Job:** Make this person memorable and approachable here.
-- **Build:** Take their feature from their page's First look so the table recognises them, said fresh, plus what this Scene has changed (a wound, wet clothes, a new companion) and what they are doing now. They sit or stand somewhere in the room.
+- **Build:** Take their feature from their page's First look so the table recognises them, said fresh, plus what this Scene has changed (a wound, wet clothes, a new companion) and what they are doing now. They sit or stand somewhere in the room, placed in the Party's sight from the first sentence.
 - **End:** Their attention landing on the Party with their one line (**People** in the skill), when the meeting is fixed; otherwise on what they are doing.
 
 ### Creature entering
@@ -90,11 +90,11 @@ A Scene skill adds these as extra `[!narration]` callouts under the Scene's Play
 
 ## First meetings on World pages
 
-The Party meeting the subject as it usually is, with no event. Second person, present tense. A Scene that uses the subject later says it fresh from these facts.
+The Party meeting the subject as it usually is, with no event. The Party is **you**: the first sentence places the subject in your sight, and the look is what you see them doing. A Scene that uses the subject later says it fresh from these facts.
 
 - **First look (NPC).** Build: a first read (the harbourmaster, a broad woman in a coat two sizes too big), the one feature, what they are usually doing, then their first line in their own voice. End: the line.
 
-  > A broad woman in a harbour coat two sizes too big sits on an upturned crate, opening oysters with a knife worn thin as a leaf. Each empty shell she flicks into the water. She splits the next one loose and holds it out to whoever is nearest. "You're standing in my light."
+  > Down the quay from you, a broad woman in a harbour coat two sizes too big sits on an upturned crate, opening oysters with a knife worn thin as a leaf. Each empty shell she flicks into the water. She splits the next one loose and holds it out to whoever is nearest. "You're standing in my light."
 
 - **First sight (Creature).** Build: silhouette, movement, its strangest feature, the part about to be used, its size against something familiar, a sound or smell, what it does at rest, and a visible sign of each signature ability. End: at rest, before it notices anyone.
 - **First look (Item).** Build: the plain noun, its size against a hand, material, wear and marks, one sense beyond sight, and a visible sign of each hidden property. End: the sign that invites a closer look.
@@ -110,5 +110,5 @@ The Party meeting the subject as it usually is, with no event. Second person, pr
 - **As it is told (Lore).** The version people in the World say aloud, in a teller's voice and words. It may differ from the truth on the DM's side. End: the line tellers always finish on.
 - **Invocation (Deity).** A devotee's words, or the sign that the Deity is present, as a bystander meets it. End: the sign.
 - **Casting (Spell).** What a bystander sees, hears and feels as the Spell takes hold, with no caster, target or Party named. End: the effect in place, before any save or hit.
-- **Handout text.** The document's own words, verbatim, in the voice of whoever wrote it, with the specifics that make it real (a date, a name, a stain, a signature) and the one thing the Players can act on. Formatted for reading, not speaking. Its claims are its author's, true or not: the block never asserts them as the World's truth and never prescribes a PC's response. The punctuation hard line still holds, so write around colons. End: when it has given its payload.
+- **Handout text.** Job: Give the Players a document they can reread and use. Build: the document's own words in its author's voice, preserving supplied payload verbatim and including only source-backed document details. Format for reading, not speaking. Its claims belong to its author, true or not, rather than the World's narrator. A requested new page uses the Wiki's `templates/Handout.md`; fill provenance from the named sources and link only where requested. The punctuation hard line still holds. End: when the document has given its payload.
 - **The World / The Campaign.** A pitch to the Players: what this World feels like, or the Party's situation as the Campaign opens, and the promise of what they will do. About 100 words. End: the promise.

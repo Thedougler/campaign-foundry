@@ -1,7 +1,6 @@
 import { execFile } from "node:child_process";
 import { existsSync } from "node:fs";
 import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { UsageError } from "../errors.ts";
 import { proseView, prosePages, toolRoot } from "../prose.ts";
@@ -65,10 +64,12 @@ function runVale(args: string[]): Promise<{ stdout: string; missing: boolean }> 
 export async function run(ctx: CheckContext): Promise<Finding[]> {
 	const config = join(toolRoot, ".vale.ini");
 	if (!existsSync(join(toolRoot, ".vale/styles/ai-tells"))) {
-		setupError("The Vale ai-tells package is not installed.", "Run `pnpm run setup` (it runs `vale sync`), then `pnpm check` again.");
+		setupError("The Vale ai-tells package is not installed.", "Run `pnpm run setup` (it runs `vale sync`), then `cf check` again.");
 	}
 	const pages = prosePages(ctx.vault);
-	const scratch = await mkdtemp(join(tmpdir(), "cf-vale-"));
+	const cacheDir = join(ctx.root, ".cache", "check");
+	await mkdir(cacheDir, { recursive: true });
+	const scratch = await mkdtemp(join(cacheDir, "vale-"));
 	try {
 		await Promise.all(
 			pages.map(async (page) => {
@@ -79,7 +80,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 		);
 		const { stdout, missing } = await runVale(["--config", config, "--output=JSON", "--no-exit", scratch]);
 		if (missing) {
-			setupError("Vale is not installed.", "Install Vale 3.23 or newer (https://vale.sh/docs/install; on macOS `brew install vale`), then run `pnpm run setup` and `pnpm check` again.");
+			setupError("Vale is not installed.", "Install Vale 3.23 or newer (https://vale.sh/docs/install; on macOS `brew install vale`), then run `pnpm run setup` and `cf check` again.");
 		}
 		const results = (stdout.trim() === "" ? {} : JSON.parse(stdout)) as Record<string, ValeAlert[]>;
 		const byFile = new Map(Object.entries(results).map(([file, alerts]) => [file.startsWith(scratch) ? file.slice(scratch.length + 1) : file, alerts]));
