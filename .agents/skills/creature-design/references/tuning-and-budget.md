@@ -8,7 +8,7 @@ Summarise the Party's combined nova, sustained damage, healing, hard control, mo
 
 ## 2024 encounter budget
 
-Use the 2024 Low, Moderate and High XP budget for the actual Party size and levels. Count the requested number of Creatures and account for the encounter's terrain and objective. If the caller says **Hard**, map it to **High** explicitly in the working notes and response; do not call it a 2014 difficulty category or derive it from a 2014 CR table. Keep the budget label separate from the Creature's CR estimate.
+Run `bun run cf encounter-budget --help`, then print the actual Party's Low, Moderate and High totals (`--levels` of every participating PC). Pass `--creature "Name,CR,XP,count"` for the requested count using XP from the retrieved statblock. If the caller says **Hard**, map it to **High** in the notes; that is a 2024 High budget, not a 2014 category. Keep the budget label separate from the Creature's CR estimate. The printout classifies Creature XP; it does not choose the Creature, rewrite Canon, or measure terrain, hazards or objectives — account for those in the three-round model.
 
 ## Three-round model
 

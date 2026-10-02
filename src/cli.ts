@@ -19,6 +19,8 @@ Examples:
   cf index                       regenerate the index.md files
   cf narration "Ilse Corran" --callout "First look" --band 60-100
                                  check a Narration draft before filing it
+  cf encounter-budget --levels 5,5,5,5 --creature "Orc,1/2,100,3"
+                                 2024 Encounter XP budgets and Creature spend
   cf eval extract "Ilse Corran" --callout "First look"
                                  dump a callout body for a grader to read (not a Grade)
   cf log --world Aldermoor --op ingest --title "Session 3 transcript" --page "Session 3 - Recap"
