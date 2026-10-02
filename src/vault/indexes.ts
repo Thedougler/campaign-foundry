@@ -38,6 +38,7 @@ const SECTIONS: Section[] = [
 	{ heading: "Lore", type: "Lore" },
 	{ heading: "House Rules", type: "House Rule", campaign: false },
 	{ heading: "Campaigns", type: "Campaign" },
+	{ heading: "Campaign config", type: "campaign-config" },
 	{ heading: "PCs", type: "PC" },
 	{ heading: "Threads", type: "Thread" },
 	{ heading: "Quests", type: "Quest" },

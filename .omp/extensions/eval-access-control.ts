@@ -111,8 +111,8 @@ function stripMachineLineFromMessage<T>(message: T): T {
 
 
 function parseGrantLine(prompt: string): { path: string; token: string } | null {
-	const lines = prompt.match(/^Eval grant: (\S+) (\S+)$/gmu) ?? [];
-	if (lines.length !== 1 || !prompt.startsWith(`${lines[0]}\n`)) return null;
+	const lines = prompt.match(/^Eval grant: (\S+) ([A-Za-z0-9_-]{32,})$/gmu) ?? [];
+	if (lines.length !== 1) return null;
 	const match = lines[0]!.match(/^Eval grant: (\S+) ([A-Za-z0-9_-]{32,})$/u);
 	return match ? { path: match[1]!, token: match[2]! } : null;
 }

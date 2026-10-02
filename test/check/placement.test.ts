@@ -27,11 +27,13 @@ describe("placement layer: failure classes", () => {
 			`${A}/House Rules/Old Crossing Rules.md`,
 			`${C}/Ashes of the Crown.md`,
 			`${C}/hot.md`,
+			`${C}/campaign-config.md`,
 			`${C}/PCs/Tam Brightwater.md`,
 			`${C}/House Rules/Fire Watch.md`,
 			`${C}/Sessions/Session 1/Session 1 - Storm at the Crossing.md`,
 			`${C}/Sessions/Session 1/Session 1 Map.md`,
 			`${C}/Sessions/Session 1/Session 1 - Prep.md`,
+			`${A}/Locations/black-lotus.md`,
 			"Ironvale/log.md",
 			"Ironvale/index.md",
 			"index.md",
@@ -54,7 +56,6 @@ describe("placement layer: failure classes", () => {
 		[`${C}/Sessions/Session 1/Session 2 - Recap.md`, ["session-page-name"]],
 		[`${C}/Sessions/Session 1/Session 1 Previously On.md`, ["session-page-name"]],
 		[`${C}/Sessions/Session 1/Wrong Prefix.md`, ["session-page-name"]],
-		[`${A}/Locations/black-lotus.md`, ["slug-name"]],
 		[`${A}/NPCs/black_lotus.md`, ["slug-name"]],
 		[`${A}/Locations/Doubled.md`, ["duplicate-name"]],
 		[`${A}/NPCs/Doubled.md`, ["duplicate-name"]],
@@ -79,7 +80,7 @@ describe("placement layer: failure classes", () => {
 		const stuck = findingsFor(report, `${A}/Loose Scene.md`)[0];
 		expect(stuck?.hint).toContain("Sessions/Session 1/");
 		expect(stuck?.hint).not.toContain("--fix");
-		expect(findingsFor(report, `${A}/Locations/black-lotus.md`)[0]?.hint).toContain("Black Lotus");
+		expect(findingsFor(report, `${A}/NPCs/black_lotus.md`)[0]?.hint).toContain("black-lotus");
 		expect(findingsFor(report, `${A}/Locations/Doubled.md`)[0]?.hint).toContain("Doubled (Keep)");
 	});
 });

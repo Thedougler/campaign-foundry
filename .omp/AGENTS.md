@@ -1,10 +1,11 @@
 # Campaign Foundry in oh-my-pi
 
 @../AGENTS.md
+@../user-config.md
 
 ## Domain
 
-At the start of every run, read `user-config.md` for the DM's preferences, then the Campaign/World/log sequence in the shared instructions. An assigned write root supplies those Campaign pages; protected Runner access and lifetime follow `evals/README.md`.
+Before Wiki work, read `user-config.md` for the DM's preferences, then that Campaign's `campaign-config.md` when the work is in a Campaign. Continue with the Campaign/World/log sequence in the shared instructions. An assigned write root supplies those Campaign pages; protected Runner access and lifetime follow `evals/README.md`.
 
 **QMD-first.** Read the `qmd` skill before Wiki search; retrieve a returned path/docid rather than answering from snippets. In a trusted production session, run from the project owning the live index:
 

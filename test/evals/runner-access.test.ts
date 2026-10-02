@@ -15,18 +15,22 @@ const mockState = vi.hoisted(() => ({
 	commandOutput: "",
 }));
 
-vi.mock("node:child_process", () => ({
-	execFile(file: string, args: string[], options: Record<string, unknown>, callback: (error: Error | null, stdout: string, stderr: string) => void) {
-		mockState.commands.push({ file, args, options });
-		const output = file === "qmd" ? mockState.qmdOutput : mockState.commandOutput;
-		callback(null, output, file === "qmd" ? "qmd stderr" : "cf stderr");
-		return {};
-	},
-	spawnSync(file: string, args: string[], options: Record<string, unknown>) {
-		mockState.refreshes.push({ file, args, options });
-		return { status: 0, stdout: "", stderr: "", error: undefined };
-	},
-}));
+vi.mock("node:child_process", async (importOriginal) => {
+	const actual = await importOriginal<typeof import("node:child_process")>();
+	return {
+		execFile(file: string, args: string[], options: Record<string, unknown>, callback: (error: Error | null, stdout: string, stderr: string) => void) {
+			mockState.commands.push({ file, args, options });
+			const output = file === "qmd" ? mockState.qmdOutput : mockState.commandOutput;
+			callback(null, output, file === "qmd" ? "qmd stderr" : "cf stderr");
+			return {};
+		},
+		spawnSync(file: string, args: string[], options: Record<string, unknown>) {
+			if (file !== "bash") return actual.spawnSync(file, args, options);
+			mockState.refreshes.push({ file, args, options });
+			return { status: 0, stdout: "", stderr: "", error: undefined };
+		},
+	};
+});
 
 interface Fixture {
 	root: string;
@@ -310,6 +314,28 @@ describe("eval Runner inherited hook policy", () => {
 			expect(await gateTool({ toolName: binding.toolNames[0] } as never, other as never)).toMatchObject({ block: true });
 			expect(await gateTool({ toolName: "yield" } as never, other as never)).toMatchObject({ block: true });
 			expect(definition.some((item) => item.name === "eval_session")).toBe(true);
+		});
+	});
+
+	it("binds a grant when the harness wraps the Eval grant line", async () => {
+		await withFixture(async (fixture) => {
+			const { binding } = await bind(fixture);
+			const handlers = new Map<string, (event: never, ctx: never) => unknown>();
+			evalAccessControl({
+				zod: { object: (value: unknown) => value, enum: (value: unknown) => value },
+				registerTool: () => {},
+				on: (event: string, handler: (event: never, ctx: never) => unknown) => handlers.set(event, handler),
+			} as never);
+			const beforeAgentStart = handlers.get("before_agent_start");
+			const gateTool = handlers.get("tool_call");
+			if (!beforeAgentStart || !gateTool) throw new Error("Runner enforcement hooks were not registered");
+			const agentContext = { agent: { kind: "sub", name: "test-subject", id: "wrapped-runner" }, sessionManager: { getSessionId: () => "parent-session" } };
+			await beforeAgentStart({
+				systemPrompt: "Production instructions.",
+				prompt: `Harness preamble\n${binding.runnerBrief}`,
+			} as never, agentContext as never);
+			const readName = binding.toolNames.find((name) => name.endsWith("_read"));
+			expect(await gateTool({ toolName: readName } as never, agentContext as never)).toBeUndefined();
 		});
 	});
 });

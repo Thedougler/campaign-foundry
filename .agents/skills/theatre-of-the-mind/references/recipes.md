@@ -90,9 +90,13 @@ A Scene skill adds these as extra `[!narration]` callouts under the Scene's Play
 
 ## First meetings on World pages
 
-The Party meeting the subject as it usually is, with no event. The Party is **you**: the first sentence places the subject in your sight, and the look is what you see them doing. A Scene that uses the subject later says it fresh from these facts.
+The Party meeting the subject as it usually is, with no event. A Scene that uses the subject later says it fresh from these facts. Use the selected Build and End below through this construction:
 
-- **First look (NPC).** Build: a first read (the harbourmaster, a broad woman in a coat two sizes too big), the one feature, what they are usually doing, then their first line in their own voice. End: the line.
+1. **Frame.** Write the first sentence with the subject acting or positioned in the world. In second-person recipes, place it in relation to **you** or **your**, in the present tense; the Portrait keeps its third-person voice. Leave PC perception, action and feeling to the Players. Done when you can quote the actual opening's subject, world action or position, and listener-facing words where required.
+2. **Develop.** Before adding speech, build three to five substantive narration sentences. Each contributes a distinct sourced cue, action or spatial relation from the selected Build, with a hand-off to the next. Give those details complete sentences rather than packing them into compound clauses; develop the same situation, within the recipe's End. Done when you can number three to five sentences in the actual draft and name each one's contribution and source. Quoted speech and a speech-only lead-in contribute zero to this count.
+3. **Finish and check.** Where the recipe ends on speech, append the speaker's lead-in and complete line in their own voice, preserving supplied speech word for word, then stop. Otherwise stop at the selected End. After any revision, recount the substantive narration and recheck the opening in the finished block. Done when that block still contains three to five sourced narration sentences, its opening satisfies Frame without prescribing PC behaviour, and any supplied line is exact, separately accounted for and last.
+
+- **First look (NPC).** Build: a first read (the harbourmaster, a broad woman in a coat two sizes too big), the one feature and what they are usually doing. End: their complete first line.
 
   > Down the quay from you, a broad woman in a harbour coat two sizes too big sits on an upturned crate, opening oysters with a knife worn thin as a leaf. Each empty shell she flicks into the water. She splits the next one loose and holds it out to whoever is nearest. "You're standing in my light."
 

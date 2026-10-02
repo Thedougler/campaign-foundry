@@ -18,6 +18,7 @@ const LINK_FROM: Record<string, string> = {
 	Lore: "a Location, NPC or Faction page that draws on it",
 	"House Rule": "the World or Campaign overview, under `- **House Rules.**`",
 	PC: "the Campaign overview, on its `- **Party.**` line",
+	"campaign-config": "the Campaign overview",
 	Thread: "`hot.md` under `## Active Threads`",
 	Quest: "the Thread it advances, or `hot.md`",
 	Prep: "`hot.md` under `## Next`",

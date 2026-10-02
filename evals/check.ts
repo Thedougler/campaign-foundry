@@ -7,13 +7,12 @@
  * a case are not run here: the orchestrator's grader reads them from the YAML (ADR 0010).
  * Exit codes: 0 every check passed, 1 a check failed, 2 usage or cases-file error.
  */
-import "../src/env.ts";
 import { spawnSync } from "node:child_process";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
-import YAML from "yaml";
+import YAML from "./yaml.ts";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -46,21 +45,22 @@ Example:
 
 class UsageError extends Error {}
 
-interface Checks {
+export interface Checks {
 	pages?: string[];
 	sections?: Record<string, string[]>;
 	canon?: Record<string, string[]>;
 	absent?: Record<string, string[]>;
 }
 
-interface Case {
+export interface Case {
 	id: string;
 	prompt: string;
+	source_pages?: string[];
 	checks?: Checks;
 	rubrics?: string[];
 }
 
-interface Result {
+export interface Result {
 	ok: boolean;
 	skip?: boolean;
 	kind: string;
@@ -117,7 +117,7 @@ function pageFile(vault: string, page: string): string | undefined {
 	return undefined;
 }
 
-function toRegExp(source: string): RegExp {
+export function toRegExp(source: string): RegExp {
 	const literal = source.match(/^\/(.+)\/([a-z]*)$/s);
 	try {
 		return literal ? new RegExp(literal[1] as string, literal[2]) : new RegExp(source, "m");

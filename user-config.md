@@ -1,6 +1,6 @@
 # User config
 
-The DM's machine-local preferences. Agents read this file at the start of a run, before World pages. Scripts do not: they read `.env`.
+The DM's machine-local preferences. Agents read this file at the start of a run, then the active Campaign's `campaign-config.md`, before World pages. Scripts do not: they read `.env`.
 
 Change values here; do not fork shared rules in `AGENTS.md` to match a preference.
 

@@ -5,8 +5,11 @@ import type { CheckContext, Finding, Fix, FixResult, Layer } from "../types.ts";
 import { dirOf, isSpecialPage } from "../util.ts";
 
 const LAYER = "placement";
-/** Names that legitimately repeat across Worlds and Campaigns: generated and per-World pages. */
-const REPEATABLE = (name: string): boolean => name === "hot" || name === "index" || name === "log" || /^log-\d{4}$/.test(name);
+/** Exact file names the placement table requires, plus generated index and log pages. They repeat across Worlds and Campaigns. */
+const FIXED_NAME = new Set(
+	Object.values(PLACEMENTS).flatMap((locs) => locs.flatMap((l) => (typeof l.name === "string" ? [l.name] : []))),
+);
+const REPEATABLE = (name: string): boolean => FIXED_NAME.has(name) || name === "index" || name === "log" || /^log-\d{4}$/.test(name);
 
 const segmentsOf = (page: Page): string[] => dirOf(page.path).split("/").filter(Boolean);
 const wikiType = (page: Page): string | undefined => {
@@ -14,18 +17,13 @@ const wikiType = (page: Page): string | undefined => {
 	return typeof t === "string" && t in PLACEMENTS ? t : undefined;
 };
 
-/** `black-lotus` and `black_lotus` become `Black Lotus`. */
+/** `black_lotus` becomes `black-lotus`. */
 function unslug(name: string): string {
-	return name
-		.split(/[-_\s]+/)
-		.filter(Boolean)
-		.map((w) => w[0]!.toUpperCase() + w.slice(1))
-		.join(" ");
+	return name.replaceAll("_", "-");
 }
 
 function isSlug(name: string): boolean {
-	if (/\s/.test(name)) return false;
-	return name.includes("_") || (name.includes("-") && name === name.toLowerCase());
+	return name.includes("_");
 }
 
 interface Verdict {
@@ -111,7 +109,7 @@ export function run(ctx: CheckContext): Finding[] {
 			continue;
 		}
 		if (!REPEATABLE(page.name) && isSlug(page.name)) {
-			add("slug-name", `Page name \`${page.name}\` is a file slug, not an in-world name.`, `Name pages as the World names them, with spaces and capitals: rename to \`${unslug(page.name)}.md\`. Links use the name (\`[[${unslug(page.name)}]]\`), so update them too.`);
+			add("slug-name", `Page name \`${page.name}\` uses underscores.`, `Use kebab-case: rename to \`${unslug(page.name)}.md\`. Links use the name (\`[[${unslug(page.name)}]]\`), so update them too.`);
 		}
 		const type = wikiType(page);
 		if (!type) continue;

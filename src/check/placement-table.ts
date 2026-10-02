@@ -42,6 +42,7 @@ export const PLACEMENTS: Record<string, Location[]> = {
 	"House Rule": [...inCampaign("House Rules"), ...inWorld("House Rules")],
 	Campaign: [{ dir: [WORLD, CAMPAIGN], name: { bind: "campaign" } }],
 	hot: [{ dir: [WORLD, CAMPAIGN], name: "hot" }],
+	"campaign-config": [{ dir: [WORLD, CAMPAIGN], name: "campaign-config" }],
 	PC: inCampaign("PCs"),
 	Thread: inCampaign("Threads"),
 	Quest: inCampaign("Quests"),

@@ -8,7 +8,7 @@ import { checkServerIdentity } from "node:tls";
 import { randomBytes } from "node:crypto";
 import { isIP } from "node:net";
 import { basename, dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
-import YAML from "yaml";
+import YAML from "./yaml.ts";
 import { evalRunFromWorld } from "./workspaces.ts";
 
 const evaluatorTreeNames = new Set(["evals", "answers", "answer", "graders", "grader", "grades", "snapshots", ".snapshots"]);

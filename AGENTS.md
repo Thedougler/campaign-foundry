@@ -13,7 +13,7 @@ Foundry is never a source.
 
 ## Domain
 
-At the start of every run, read `user-config.md` for the DM's preferences, then the active Campaign's `hot.md`, the World's `index.md`, the last ten `log.md` entries and task pages. When a write root is assigned, use its Campaign pages and filesystem paths; it is the only Campaign write root.
+At the start of every run, read `user-config.md` for the DM's preferences before any Wiki operation. When the work is in a Campaign, read that Campaign's `campaign-config.md` next. Then read the active Campaign's `hot.md`, the World's `index.md`, the last ten `log.md` entries and task pages. When a write root is assigned, use its Campaign pages and filesystem paths; it is the only Campaign write root.
 
 `CONTEXT.md` is the glossary: name every domain concept with its term. `docs/adr/` holds design decisions; read the ones touching an area before changing it. Read `docs/wiki-layout.md` before creating or moving a page. Find Wiki content with QMD first and retrieve the hits; the `qmd` skill owns mechanics. Trusted production sessions may use QMD MCP and `vault://_/` for the active vault. Protected Runners use their assigned capabilities under `evals/README.md`, including read-only live-source search; their write root has no QMD index. Production indexing follows actual canonical source writes, not temporary World edits.
 
@@ -29,6 +29,7 @@ Model selection belongs in harness configuration, native agent frontmatter, and 
 - **Intent is not implementation.** `docs/intent/` records what earlier skills and templates were meant to do. Read it for intent and build every v2 from scratch; its README has the rules.
 - **Writing for agents.** You MUST read `writing-for-agents` before writing any text intended for agent consumption — skills, agent documents, runbooks, pointers — and follow it. Route that surface through `skill-writer`.
 - **Skill verification.** Evals are the verification mechanism for agent skill changes; software tests are unnecessary for instruction-only changes. Verify executable code changes with software tests at their public interfaces.
+- **Skill iteration.** Report the failures by the test-subject and have skill-writer fix them. Repeat this until all evals pass.
 - **Dogfooding evals.** Read `evals/README.md` before authoring, preparing, dispatching or grading skill evals, or processing home-Session feedback; it owns Shattered Sea grounding, enforced Runner access and Session-root lifetime.
 - **Clean slate.** Facts come from this repo, the installed tools and the user. Earlier DM-assistant projects elsewhere on this machine are out of bounds: never read, cite or borrow from them.
 - **User edits are intentional.** When the DM changes their own harness configuration — model roles, `cfg://` settings, `.omp/` files, agent definitions, eval pins — assume it is intended and proceed. Never audit, re-validate or investigate those changes unless the DM asks.

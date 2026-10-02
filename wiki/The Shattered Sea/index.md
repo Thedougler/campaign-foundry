@@ -180,6 +180,10 @@
 
 - [[Shattered Sea]] — Four survivors and fugitives seize a chance at a crew aboard the Saltwright while Crown inspection and the Drowned Maw close around them.
 
+## Campaign config
+
+- [[campaign-config]] — Dark heroic fantasy: rebellion, grey morality, freedom from slavery, and power that corrupts.
+
 ## PCs
 
 - [[Crissdalynn Khinriss]] — Courtney's level 5 aarakocra Kensei monk: a cartographer, aerial skirmisher, and fiercely protective member of the crew.

@@ -222,3 +222,8 @@
 - [[Ghost Plum]]
 - [[Geoffrey Draves]]
 - [[Shattered Sea]]
+
+## [2026-10-01] create | Add Campaign tone and themes
+
+- [[campaign-config|Tone and themes]]
+- [[Shattered Sea]]

@@ -24,6 +24,7 @@ session_length_hours:
 - **Session length.** Inherits DM Settings unless session_length_hours is set.
 - **Table agreements.** The Campaign follows the World tone of consequential travel, hard choices, and discoveries that remain useful beyond one Session.
 - **House Rules.** None established in the supplied material.
+- **Tone and themes.** [[campaign-config|Tone and themes]]
 
 ## Depth
 

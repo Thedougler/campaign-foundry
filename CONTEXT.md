@@ -184,6 +184,10 @@ _Avoid_: player recap, read-aloud recap, boxed text
 The DM's defaults for every World and Campaign, kept on one page at the root of the Wiki, such as Session length. A Campaign may override them.
 _Avoid_: config, preferences, settings (bare)
 
+**campaign-config**:
+The DM's tone and themes for one Campaign, kept as `campaign-config.md` in that Campaign's folder. Agents read it after `user-config.md` before Wiki work in the Campaign.
+_Avoid_: DM Settings, user-config
+
 **Wiki**:
 The canonical, human-readable record of Worlds and Campaigns. The DM and the Agent both edit it, and the DM must be able to run a Session from it alone.
 _Avoid_: vault, notes, knowledge base
