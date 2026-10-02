@@ -38,13 +38,15 @@
 		"tinyglobby": "^0.2.17",
 		"unified": "^11.0.5",
 		"vfile": "^6.0.3",
-		"yaml": "^2.9.1"
+		"yaml": "^2.9.1",
+		"yazl": "^3.3.1"
 	},
 	"devDependencies": {
 		"@foundryvtt/foundryvtt-cli": "^3.0.4",
 		"@types/mdast": "^4.0.4",
 		"@types/node": "^26.6.3",
 		"@types/stopword": "^2.0.3",
+		"@types/yazl": "^3.3.1",
 		"cspell": "^10.3.5",
 		"markdownlint-cli2": "^0.23.3",
 		"typescript": "^7.0.2",

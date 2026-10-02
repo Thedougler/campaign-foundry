@@ -1,0 +1,49 @@
+[
+  {
+    "id": "charted-conditional-scene",
+    "source_pages": [
+      "The Shattered Sea/The Shattered Sea.md",
+      "The Shattered Sea/Shattered Sea/hot.md",
+      "The Shattered Sea/Shattered Sea/Shattered Sea.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md",
+      "The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md",
+      "The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md",
+      "The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md",
+      "The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md"
+    ],
+    "prompt": "Rebuild The Way Out for all reachable Consume endings, including Spinner retained/lost, capture, refusal, civilian loss and withdrawal. Nine departing and three staying is a possible prepared ending, not an event that already happened. Keep wounds, expended resources and unavailable escape means. Give Players closing choices and grounded next steps; preserve current hot and played records. This is requested revision of unplayed Prep only, not a report of table events. Leave other Scene pages, played Session records and hot unchanged. No art or Foundry work. Finish this direct Scene operation with the full gate and create log.",
+    "checks": {
+      "pages": [
+        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md"
+      ],
+      "sections": {
+        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md": [
+          "## At a glance",
+          "## Play",
+          "## Threads"
+        ]
+      },
+      "canon": {
+        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md": [
+          "^type:\\s*Scene\\s*$",
+          "^kind:\\s*Resolution\\s*$"
+        ]
+      },
+      "absent": {
+        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md": [
+          "^```statblock\\b"
+        ]
+      }
+    },
+    "rubrics": [
+      "Closing images, survivor decisions, rewards and Thread states are conditional on the preceding ending. Lost people/resources and stolen Spinner are not reset. Each touched Thread has concrete resulting state and next pressure; closing opportunities leave PC choices/feelings to Players. Plain closure is valid; any stinger is planted, not a compulsory new threat.",
+      "Narration is speakable and concrete, anchored in the retrieved Location and people, preserving uncertainty and Player agency. Current templates, linked cast and honest provenance are used. The full scratch-root gate and one create operation log are observed; played records and hot are unchanged."
+    ]
+  }
+]

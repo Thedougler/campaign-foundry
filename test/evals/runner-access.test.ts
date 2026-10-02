@@ -1,9 +1,10 @@
 import { link, mkdir, mkdtemp, readFile, readdir, realpath, rm, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { basename, join } from "node:path";
 import { randomUUID } from "node:crypto";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { bindRunnerTools, type RunnerToolRegistrar } from "../../evals/runner-tools.ts";
+import { runSkillEvals, type DispatchFn } from "../../evals/run.ts";
 import { allocateEvalRun, closeEvalSession, createEvalSession } from "../../evals/workspaces.ts";
 import evalAccessControl from "../../.omp/extensions/eval-access-control.ts";
 const qmdRefresh = (await import(new URL("../../.omp/hooks/post/qmd-refresh.js", import.meta.url).href)).default;
@@ -13,6 +14,7 @@ const mockState = vi.hoisted(() => ({
 	refreshes: [] as Array<{ file: string; args: string[]; options: Record<string, unknown> }>,
 	qmdOutput: "",
 	commandOutput: "",
+	node: null as null | ((args: string[]) => { status: number | null; stdout: string; stderr: string }),
 }));
 
 vi.mock("node:child_process", async (importOriginal) => {
@@ -25,9 +27,14 @@ vi.mock("node:child_process", async (importOriginal) => {
 			return {};
 		},
 		spawnSync(file: string, args: string[], options: Record<string, unknown>) {
-			if (file !== "bash") return actual.spawnSync(file, args, options);
-			mockState.refreshes.push({ file, args, options });
-			return { status: 0, stdout: "", stderr: "", error: undefined };
+			if (file === "bash") {
+				mockState.refreshes.push({ file, args, options });
+				return { status: 0, stdout: "", stderr: "", error: undefined };
+			}
+			if (file === "node" && mockState.node && typeof args[0] === "string" && /\/evals\/(prepare|check)\.ts$/u.test(args[0])) {
+				return mockState.node(args as string[]);
+			}
+			return actual.spawnSync(file, args, options);
 		},
 	};
 });
@@ -253,6 +260,58 @@ describe("eval Runner capabilities", () => {
 			const get = capability(registered.tools, "https_get");
 			await expect(get({ url: "https://localhost/private" })).rejects.toThrow();
 			await expect(get({ url: "https://[::ffff:127.0.0.1]/private" })).rejects.toThrow();
+		});
+	});
+
+	it("forwards network options from runSkillEvals to the bound Runner capabilities", async () => {
+		await withFixture(async (fixture) => {
+			const casesFile = join(fixture.root, "cases.yaml");
+			await writeFile(casesFile, "- id: runner-access\n  prompt: Create a short grounded note from the assigned source.\n");
+			const dispatch: DispatchFn = (_prompt, _options) => ({ wait: async () => ({}) });
+			const runOnce = async (network?: { https?: boolean; search?: boolean }) => {
+				const registered = registerTools();
+				try {
+					await rm(join(fixture.sessionRoot, "control", basename(fixture.worldRoot)), { recursive: true, force: true });
+					await mkdir(join(fixture.sessionRoot, "control", basename(fixture.worldRoot)), { recursive: true });
+					mockState.node = (args) => {
+						const script = args.find((arg) => arg.endsWith("evals/prepare.ts") || arg.endsWith("evals/check.ts"));
+						if (script?.endsWith("prepare.ts")) {
+							if (args.includes("--session-start")) {
+								return { status: 0, stdout: JSON.stringify({ root: fixture.sessionRoot }), stderr: "" };
+							}
+							if (args.includes("--verify")) return { status: 0, stdout: "", stderr: "" };
+							return {
+								status: 0,
+								stdout: JSON.stringify({
+									root: fixture.worldRoot,
+									runnerInput: join(fixture.worldRoot, ".eval", "runner-input.json"),
+									qmd: { mode: "live-read-only", index: join(fixture.repositoryRoot, ".qmd", "index.sqlite") },
+									baseline: join(fixture.sessionRoot, "baseline"),
+								}),
+								stderr: "",
+							};
+						}
+						return { status: 0, stdout: "", stderr: "" };
+					};
+					await runSkillEvals({
+						skill: "creature-design",
+						casesFile,
+						closeSession: false,
+						...(network ? { network } : {}),
+						register: registered.register,
+						dispatch,
+						waitAll: async () => [],
+					});
+				} finally {
+					mockState.node = null;
+				}
+				return [...registered.tools.keys()];
+			};
+			const enabled = await runOnce({ https: true });
+			expect(enabled.some((name) => name.endsWith("_https_get"))).toBe(true);
+			expect(enabled.some((name) => name.endsWith("_web_search"))).toBe(false);
+			const disabled = await runOnce();
+			expect(disabled.some((name) => name.endsWith("_https_get") || name.endsWith("_web_search"))).toBe(false);
 		});
 	});
 

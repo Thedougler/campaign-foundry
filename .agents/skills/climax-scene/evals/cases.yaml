@@ -1,0 +1,50 @@
+[
+  {
+    "id": "charted-conditional-scene",
+    "source_pages": [
+      "The Shattered Sea/The Shattered Sea.md",
+      "The Shattered Sea/Shattered Sea/hot.md",
+      "The Shattered Sea/Shattered Sea/Shattered Sea.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md",
+      "The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md",
+      "The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md",
+      "The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md",
+      "The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md"
+    ],
+    "prompt": "Rebuild Consume from the Prep row as the earned highest-stakes Scene. Perrin may eat or refuse; Skarn may already have escaped with the Spinner or been captured. Do not revive a missing attacker or automatically mark Perrin. Bring survivor rescue, the Spinner, Hinewai and Auralis choices together, with sourced 2024 arithmetic for each reachable force and carry each ending to The Way Out. This is requested revision of unplayed Prep only, not a report of table events. Leave other Scene pages, played Session records and hot unchanged. No art or Foundry work. Finish this direct Scene operation with the full gate and create log.",
+    "checks": {
+      "pages": [
+        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md"
+      ],
+      "sections": {
+        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md": [
+          "## At a glance",
+          "## Play",
+          "## Outcomes",
+          "## Depth"
+        ]
+      },
+      "canon": {
+        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md": [
+          "^type:\\s*Scene\\s*$",
+          "^kind:\\s*Climax\\s*$"
+        ]
+      },
+      "absent": {
+        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md": [
+          "^```statblock\\b"
+        ]
+      }
+    },
+    "rubrics": [
+      "Earlier clues and decisions supply actual leverage in the highest-stakes question. Perrin can refuse without false coercion; absent/captured/dead Skarn stays absent. Each alternative force is budgeted for the actual Party; multiple phases/reinforcements are accounted for. At least three reachable endings resolve or move every converging Thread with explicit costs, possessions and Resolution entry conditions.",
+      "Narration is speakable and concrete, anchored in the retrieved Location and people, preserving uncertainty and Player agency. Current templates, linked cast and honest provenance are used. The full scratch-root gate and one create operation log are observed; played records and hot are unchanged."
+    ]
+  }
+]

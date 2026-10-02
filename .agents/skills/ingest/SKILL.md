@@ -11,7 +11,7 @@ Parent preparation/review reads `evals/README.md` for assigned-World access, ful
 
 ## Steps
 
-1. **Queue.** List `raw/`. Order: the DM's order, else Transcripts in Session order, then everything else by name. Files go one at a time, each closed before the next opens; a long queue goes to fresh subagents one file after another, never two at once, since each file's Canon feeds the next.
+1. **Queue.** List `raw/`. Order: the DM's order, else Transcripts in Session order, then everything else by name. Dependent Canon writes consume the completed Canon from preceding files in that order; conflicting page writes have a single owner. Done when the queue is ordered and its Canon dependencies and page-write ownership are assigned.
 2. **Read** the file. Markdown and text as they are; a PDF through `pdftotext` (or reading its pages); an image by viewing it. A stat block (a `statblock` fence, a 5etools or published block) is one Creature's unit. Decide which World it belongs to from its content.
 3. **Units.** List every atomic unit with the page it belongs on, found with qmd by name and by meaning: an existing page, or a new page of its kind. Done when every statement in the file has a unit and every unit has a page.
 4. **Canon.** Split each statement into its separate claims first, then compare each claim with the Wiki:

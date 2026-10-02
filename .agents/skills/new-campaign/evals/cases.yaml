@@ -1,0 +1,62 @@
+- id: successor-campaign
+  source_pages:
+    - The Shattered Sea/The Shattered Sea.md
+    - The Shattered Sea/Shattered Sea/Shattered Sea.md
+    - The Shattered Sea/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/campaign-config.md
+    - The Shattered Sea/Factions/Dravosi Crown.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+  prompt: >-
+    For this scratch World, end the original Campaign without inventing a
+    played ending, and start its successor Next Wake with the same four Players
+    and PCs at the current Aruhe camp. Preserve every earlier Campaign page and
+    played record. The current Party state and starting date are those in hot;
+    nothing from prepared Session 12 has happened. The premise is keeping the
+    crew free while rescuing the missing Calveno and confronting their debts;
+    retain the current Campaign tone, boundaries and Party formation. Four-hour
+    weekly Sessions, no changed House Rules. I delegate the initial three to
+    five Faction/PC Threads and their next developments to you. Use the existing
+    PC story and public D&D Beyond links if recorded; never manufacture a link
+    or claim a pull that did not occur. All creative intent is settled. Make
+    the overview, config, initial hot and PC pages, pull the actual sheets when
+    possible, and complete the index, creation log and full gate. Keep the new
+    folder directly under the World, creating no Sessions or Quests yet. Use
+    parenthetical page-name qualifiers for collisions with the retained PCs.
+  checks:
+    pages:
+      - The Shattered Sea/Next Wake/Next Wake.md
+      - The Shattered Sea/Next Wake/campaign-config.md
+      - The Shattered Sea/Next Wake/hot.md
+    sections:
+      The Shattered Sea/Next Wake/Next Wake.md:
+        - '## At a glance'
+        - '## Play'
+        - '## Depth'
+        - '## Links'
+    canon:
+      The Shattered Sea/Next Wake/Next Wake.md:
+        - '^type:\s*Campaign\s*$'
+      The Shattered Sea/log.md:
+        - '^## \[\d{4}-\d{2}-\d{2}\] create \| New Campaign: Next Wake'
+  rubrics:
+    - >-
+      The settled successor intent produces a compact Campaign with actual
+      starting conditions, all four PC stories and current Faction-derived
+      Threads with opposed wants, actionable next developments and unattended
+      consequences. The original Campaign and played records remain intact.
+    - >-
+      Every new PC has an observed successful public D&D Beyond pull or
+      unchanged result, with Story, Goals and bonds and Plans unchanged by the
+      pull. Missing URLs, inaccessible public characters or unavailable pull
+      capabilities fail this acceptance criterion; a copied or invented sheet
+      and a named blocker are not substitutes for a real pull.
+    - >-
+      The new Campaign has correct direct-World placement, initial hot/config,
+      three to five active Threads and no speculative future folders. Date and
+      Party state follow this run's sources, without manufactured Session 12
+      outcomes or Jean-Claude recovery. One creation log, generated index and
+      full scratch-root gate completion are observed. The reply distinguishes
+      unavailable prerequisites from successful creation.

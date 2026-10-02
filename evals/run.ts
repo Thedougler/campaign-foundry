@@ -29,6 +29,7 @@ export interface SkillEvalRunOptions {
 	skillRoot?: string;
 	snapshotRoot?: string;
 	closeSession?: boolean;
+	network?: { https?: boolean; search?: boolean };
 	register?: RunnerToolRegistrar;
 	dispatch?: DispatchFn;
 	waitAll?: (handles: DispatchHandle[]) => Promise<unknown[]>;
@@ -288,6 +289,9 @@ export async function runSkillEvals(options: SkillEvalRunOptions): Promise<Skill
 				const toolOptions: RunnerToolOptions = {
 					targetSkillRoot: target.skillRoot,
 					skillRoot: assignedSkill,
+					...(options.network
+						? { network: { https: options.network.https === true, search: options.network.search === true } }
+						: {}),
 				};
 				const bound = await bindRunnerTools(run.prepared, toolOptions, boundRegister);
 				const runnerBrief = `${bound.runnerBrief}\n\n${operationalInstructions(run.prepared.root, assignedSkill)}\n`;

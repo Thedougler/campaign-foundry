@@ -1,6 +1,8 @@
 import { relative, resolve, sep } from "node:path";
 import { Command } from "commander";
 import { UsageError } from "../check/run.ts";
+import { packageCommand, validateCommand } from "./eval-authoring.ts";
+import { descriptionReviewCommand, reviewCommand } from "./eval-review.ts";
 import { suggest } from "../check/util.ts";
 import type { Callout, Page, Vault } from "../vault/types.ts";
 import { buildVault, readVaultFiles } from "../vault/vault.ts";
@@ -99,13 +101,19 @@ Examples:
 
 export function evalCommand(): Command {
 	return new Command("eval")
-		.description("Fixture-eval helpers. extract dumps Narration text for a grader to read; it is not a Grade.")
+		.description("Eval helpers: extract Narration, validate/package skills, and render static authoring reviews.")
 		.addHelpText(
 			"after",
 			`
 Examples:
   cf eval extract "Ilse Corran" --callout "First look"
-  cf eval extract --help`,
+  cf eval validate .omp/skills/skill-creator
+  cf eval review --help
+  cf eval description-review --help`,
 		)
-		.addCommand(extractCommand());
+		.addCommand(extractCommand())
+		.addCommand(validateCommand())
+		.addCommand(packageCommand())
+		.addCommand(reviewCommand())
+		.addCommand(descriptionReviewCommand());
 }

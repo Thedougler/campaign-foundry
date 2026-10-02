@@ -20,5 +20,7 @@ skills:
     - vault-skill-factory
     - "vercel-*"
     - "wiki-*"
-    - "agents/skill-creator*"
+    - tavily-*
+    - exa-search
+    - firecrawl-scrape
     - "agents/run-evals*"

@@ -1,31 +1,33 @@
 ---
 name: hook-scene
-description: Fills a Session's Hook, its first Scene, from its Scene Chart row, with one opening pressure that pulls the Party in within minutes. Use when Prep reaches the Hook, or when the DM wants a stronger opening for a Session.
+description: Hook authoring — fill Prep's first Scene from its Scene Chart row, or build a Session opening directly for the DM, including resuming interrupted play. One immediate pressure invites commitment and opens the question the Climax will answer.
 ---
 
 # Hook Scene
 
-The Hook starts the Session in motion: one pressure, in the Players' faces within the first minutes, that they can't ignore and that points at the Session's Threads. Follow `docs/agents/scene-pages.md`, with this craft.
+The Hook puts one pressure within the Party's reach and ends when they commit to a response, not when the Session's problem is solved. Use Mike Pondsmith's *Scripting the Game*: the Hook sets the pace, the middle changes the stakes, and the Climax answers its question. Read and follow [the shared Scene procedure](../../../docs/agents/scene-pages.md); apply these kind-specific criteria at its design, writing and cold-read steps.
 
 ## Craft
 
-- **In motion from the first line.** The Party starts inside the disturbance, not on the way to it. When play resumes mid-scene from last Session, open on that frozen moment.
-- **One pressure.** A single demand, threat or discovery that asks something of the Party now.
-- **Two or three handles.** Ways to engage that each lead somewhere different: a person to talk to, a thing to chase, a place to go. Every handle reaches the next Scene on the chart.
-- **Pace sets what follows.** An action Hook hands to a Development; a quiet, cerebral Hook hands to a Cliffhanger.
-- **A Spotlight when it fits.** Tie the pressure to one PC's goal, bond or fear when the chart row names one.
-- **Short.** About half an hour at the table.
+1. **Choose the opening.** Start from the previous Session's ending or a live Thread. Select a card below and identify the Session question it opens, a memorable perceivable detail, and whether the pressure is action or cerebral. A resumed Scene keeps its recorded positions, initiative, conditions, resources and unresolved action. **Done when** one pressure connects the entry state to something the Session will use later, with about thirty minutes allotted rather than a whole investigation or journey.
+2. **Make commitment playable.** Under `### Situation`, state what the opposition wants, what changes next on its clock, and the observable commitment that ends this Hook. Under `### Handles`, provide at least three materially different responses, each with an upside, a cost and a World response; include an obvious first move and an alternative that rewards using the cast or space. Give each PC present an available first action; the row's Spotlight sharpens one PC's personal pull without sidelining the others. **Done when** the Party can act within minutes, and the page rules hesitation, refusal and interference as well as the expected approach.
+3. **Open at the decision.** Supply `theatre-of-the-mind` with the finished Situation and owner pages. The Hook Opening starts inside the disturbance and stops before an unresolved seizure, attack or escape succeeds. Already-played events remain established; new events remain answerable. A memory gap or revelation that rewrites a PC's history needs that Player's established agreement; otherwise make the uncertainty external evidence the PC can investigate. **Done when** the first spoken sentence presents the pressure, the table has something to act on, and no callout chooses a PC's response or resolves the live contest.
+4. **Cut on commitment.** Use `## Outcomes` for each handle's result, a concrete pressure advance if the Party waits, and the World response if they refuse. Carry the changed state into the linked destination or standalone carry-forward instead of forcing every approach through the same success. An action Hook normally starts the middle with a Development; a cerebral Hook starts it with a Cliffhanger. With no middle Scenes, use the chart's Climax destination. **Done when** every prepared result has a trigger and conditional handoff, the Climax's question has been planted, and the shared cold read and completion branch are satisfied.
 
 ## Cards
 
-| Card | The pressure |
-| --- | --- |
-| Kidnapped | someone the Party cares about, or is paid to protect, is taken in front of them |
-| Discovery | the Party finds something that demands action: a body, a message, a map, a door that shouldn't exist |
-| Crisis | disaster breaks around the Party: fire, flood, riot, collapse |
-| Looming Threat | a danger announces itself before it arrives: an ultimatum, an omen, a fleet on the horizon |
-| Revelation | a truth lands that changes what the Party thought they were doing |
-| Murder | someone dies, and the Party is there or is sent for |
-| False Accusation | the Party is blamed for something and must clear their names |
-| Stranger | someone arrives with a problem only the Party can solve, and a clock |
-| Resume | play restarts at last Session's cliffhanger, on the frozen moment |
+Choose the shape that serves the fiction; it governs design, not the Party's answer. Keep the card choice in Prep's planning material, or the standalone return for later charting, outside spoken Narration and the Scene's minimal properties. The catalogue paraphrases *Scripting the Game* for 2024 D&D play; **Stranger** also covers a direct opening request built around an urgent offer.
+
+| Card | Build the pressure | Keep the result in play |
+| --- | --- | --- |
+| Kidnapped | A seizure in progress or a sourced abduction's aftermath: name the taker, captive, motive, route and deadline; leave usable traces. | If the grab is live, rule rescue, pursuit, negotiation and escape. An abduction already established by play can stand; a new one succeeds only through the contest. |
+| Coronet Blue | An agreed memory gap places the Party in a role others expect them to understand. Give immediate demands and recoverable evidence of what happened. | Use only with established Player buy-in; clues restore access to the truth while each Player decides whether to accept the assumed role. |
+| Play a Cliffhanger | A brief physical contest introduces an ally or opponent and an objective beyond killing. For interrupted action, resume the recorded unresolved moment. | Consult `cliffhanger-scene` for the selected contest's craft and card only; retain `kind: Hook`, use shared Encounter balance where Creatures can be fought, and stop on commitment. |
+| Play a Development | A meeting, mistaken identity, alliance or betrayal puts a major relationship in question immediately. | Consult `development-scene` for the selected turn's craft and card only; retain `kind: Hook` and end when the Party chooses what to do with the information or offer. |
+| Discovery | A concrete find matters to a later Scene. State what it shows or does, who wants it, how they learn of it and distinct leads onward. | Keeping, using, hiding, trading or surrendering it changes who acts next and what the Party carries forward. |
+| Crisis | A disaster is already moving. Place people at risk, exits, a discoverable cause and triggered stages of deterioration. | Saving someone, limiting damage and leaving each have ruled costs and different aftermaths; the opening stops before an avoidable loss lands. |
+| Looming Threat | Visible signs announce a danger. State its arrival clock and how preparation, warning or intervention can change it. | Preparation earns concrete changes in timing, access or severity rather than merely delaying a fixed catastrophe. |
+| Revelation | Evidence changes a live Thread's meaning. State what it grants, endangers or demands, and who else knows. | Establish the truth on the DM side; let the Party decide whether to expose, exploit, contest or ignore it. Preserve Player ownership of PC history. |
+| Murder | An established death or a preventable attack draws the Party into a question. Name the victim, means, culprit and independent leads; explain any already-established absence of the killer. | Clues are true and usable. A present killer can be caught or confronted; their future escape is not guaranteed. |
+| False Accusation | An accuser presents persuasive false evidence. State their motive, the authorities' actual means, the real culprit and ways to expose the lie. | Contesting the charge, submitting, bargaining and fleeing each have a consequence and a route onward; innocence need not be proved by one roll. |
+| Stranger | A person makes an urgent request or offer with terms, evidence and a deadline. | Acceptance, renegotiation, investigation and rejection get concrete World responses; the NPC cannot decide that the Party takes the job. |

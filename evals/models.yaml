@@ -1,15 +1,15 @@
-# Cross-family model matrix. Read by .agents/skills/run-evals and
-# .agents/skills/skill-creator. Values are exact `provider/model-id` pins from
-# `omp models` (which lists bare model ids under provider headers — join the
-# header and the id). Outside oh-my-pi, `cheap` on `openai` and `glm` supplies
-# ordinary skill-eval runners (one family per run, rotating openai → glm).
-# Inside oh-my-pi, ordinary evals use the configured TEST-SUBJECT and
-# PROSE-GRADER roles instead. top = Prose Benchmark runners (rare, leaderboard). Runners are reasoning
-# models: every omp run passes `--thinking high` (the DM requires luna at
-# thinking >= high); a pin whose `omp models` thinking tiers lack `high` is
-# invalid — re-pin or record SKIPPED. On a dead pin try `fallback` once; if
-# that also fails record SKIPPED with a reason and continue. No copilot and
-# no openrouter-backed providers.
+# Cross-family model matrix for other-harness committed evals and explicitly
+# model-pinned Narration Benchmark runs. Values are exact `provider/model-id`
+# pins from `omp models` (join each provider header and bare model id).
+# Outside oh-my-pi, `cheap` on `openai` and `glm` supplies ordinary skill-eval
+# runners (one family per run, rotating openai → glm). Native committed evals
+# and skill authoring use configured TEST-SUBJECT and PROSE-GRADER roles;
+# authoring edits use SKILL-WRITER. top = Prose Benchmark runners (rare,
+# leaderboard). Matrix CLI runs pass `--thinking high` (the DM requires luna
+# at thinking >= high); a pin whose `omp models` tiers lack `high` is invalid:
+# re-pin or record SKIPPED. On a dead matrix pin try `fallback` once; if that
+# also fails record SKIPPED with a reason and continue. Native role dispatch
+# preserves harness thinking/fallback settings. No copilot or openrouter-backed providers.
 families:
   openai:
     top:    {model: openai-codex/gpt-6.1-sol, fallback: opencode-zen/gpt-6.1-sol}

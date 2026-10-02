@@ -1,38 +1,56 @@
 ---
 name: development-scene
-description: Fills a Development Scene from its Scene Chart row: a non-action Scene that changes what the Party knows, can reach or can choose between, such as a revelation, a conversation, an alliance or a betrayal. Use when Prep reaches a Development, or when a Session needs a talk, clue or turn Scene.
+description: >-
+  Development — fill or revise a non-action Scene from its Scene Chart row, or create one for a direct DM request: revelations, conversations, investigations, alliances and betrayals that change the Party's options.
 ---
 
 # Development Scene
 
-A Development changes the Party's options: after it, they know something, can reach something, or face a choice they didn't before. It is never a fight; its tension comes from people, secrets and decisions. Follow `docs/agents/scene-pages.md`, with this craft.
+A Development changes what the Party knows, can reach or can choose between. Its tension comes from evidence, people and decisions. Follow `docs/agents/scene-pages.md` for grounding, cast, page placement, Narration, outcomes and the completion gate; apply the craft below while filling the Development template.
+
+Scripting the Game governs the Scene Chart: this is the non-action turn between physical contests, not an Encounter. A threatening meeting can reveal danger or offer terms here; a fight, chase or hazardous journey belongs in a Cliffhanger. Keep the Scene to its charted half-hour: once the Party has a usable direction and has chosen what to do with it, hand on.
 
 ## Craft
 
-- **The turn.** Name what the Scene changes, in one line: the new knowledge, access or choice. Everything on the page serves it.
-- **Clues, not a key.** What the Party must learn arrives through at least three Clues across this Scene and the chart (a person, an object, a place). Each goes in the page's `## Clues` with how it's found; the Prep's Clues list links back.
-- **People who want things.** Every NPC here has a want in this Scene, what opens and shuts them, and what they'll share, sell or lie about (from their page, sharpened for this moment).
-- **Tests the last Cliffhanger.** When it follows a Cliffhanger, it opens on that result: winning opens options, losing opens constraints.
-- **Sets up the next contest.** The Party leaves knowing what the next Cliffhanger will cost or risk.
-- **A Spotlight when it fits.** A PC's goal, bond or secret made the heart of the conversation.
+1. **Turn.** From the row's live Threads, preceding outcomes and selected card, write the one-sentence turn in `At a glance`: what new fact, access or choice changes the Party's next move. Keep unsettled preceding outcomes conditional; a victory may open options, while a loss leaves costs and constraints in place. Use the assigned Spotlight to make a PC's goal, bond or fear drive the decision, with the PC's response left to their Player. **Done when** each supported entry state has a coherent opening and the turn changes an actionable option rather than merely adding background.
+2. **Evidence.** Put the full truth on the DM side and give the Party a physical anchor to examine, handle or witness: a marked map, a document, a body, a meal with a speaker, or a ritual. In `Clues`, record each true, concrete fact, where it surfaces, and the action that reveals it. For every conclusion the Session needs, provide three independent discovery routes across this Scene and the chart, such as a person, an object and a Location; link the other routes and the Prep's Clues list rather than demanding three copies here. A lie belongs to its speaker; the Clue is the evidence exposing or testing it. **Done when** each necessary conclusion survives a missed roll or unavailable source, the anchor yields a usable Clue, and every lead names where its answer can be found with the answer recorded for the DM.
+3. **People.** Under `Play`, give each participating NPC a compact, linked handle: what they want now, what they know, what they offer, what they withhold or lie about, the tell of any lie, their price, and what changes their posture. Ground these in their page and the current situation. Put cooperation, refusal and renegotiation within the Party's reach; an NPC's intended betrayal is a plan with tells and an intervention point, not a fixed Party defeat. **Done when** the DM can answer likely questions and play each person's response to help, pressure or rejection from this page.
+4. **Choices and rulings.** Fill `Situation`, `Handles` and `Checks` with the actions this source of information invites. Straightforward examination or a willing answer yields its Clue; roll only where the result is genuinely uncertain. Each uncertain action states its trigger, Ability (Skill), DC, success, failure and cost. Consult `dnd5e-srd-api` when an action, condition, Item or learned advantage needs 2024 rules, with Canon House Rules taking precedence. State the price of valuable help or preparation in concrete terms: time, a favour, a promise, exposure or resources. Give a puzzle its answer, discoverable reasoning, wrong-attempt consequence and costly bypass. **Done when** the Party can choose among distinct approaches, every roll has a ruled consequence, and an essential lead remains reachable after refusal or failure.
+5. **Pressure and handoff.** State what happens if the Party ignores the lead, and what ends circular talk: a speaker's deadline, a departure or another concrete pressure tick. In `Outcomes`, cover the plausible decisions and uncertain results, including refusal and delay where offered. Each row names what changes and the exact linked receiving Scene, carrying the Party's new knowledge, chosen direction, position, time, resources and access that matter there. A preparation Scene distinguishes the actual preparations and their different effects on the next contest. The next Scene is ordinarily a Cliffhanger, or the Climax at the end of the alternating middle; reveal its stakes and a real edge without deciding how the Party wins. **Done when** each exit provides a runnable receiving state, earlier costs remain paid, and the next contest tests what the Party learned or chose.
+6. **Cold read and repair.** Apply the shared procedure's Narration and Completion steps to the finished page. Check that the Opening presents the information source before the Party reacts, a major reveal has its own Revelation callout, and hidden answers stay in the DM layer until discovered. Read each entry and exit branch separately. Treat grammar, spelling, style and conformance findings as unfinished authoring: read the reported locations, repair the passages while preserving their facts and rulings, then rerun the full unfiltered gate. Recheck repaired wording against the affected branch. An unavailable prerequisite requires evidence of a missing capability, service or source; prose findings call for another repair pass. For standalone work, append the operation log only after the full gate exits 0; for composed work, return artifacts and diagnostics to the explicit completion owner under the shared contract. **Done when** the Party can discover a changed option, choose a response and reach the next Scene without the DM inventing a truth, motive, price or ruling, and the shared Completion criteria hold for the assigned owner.
 
 ## Cards
 
-| Card | The turn |
+Choose the card whose turn fits the grounded fiction. These are Development uses of Scripting the Game's catalogue; the card guides construction and stays off the finished Scene page. For cards involving physical danger, write the discovery, negotiation or preparation here and hand the physical contest to its action Scene.
+
+| Card | Turn and runnable requirements |
 | --- | --- |
-| Clue | evidence that points somewhere new |
-| Revelation | a truth that reframes what came before |
-| Warning | someone tells the Party what is coming, at a cost to themselves |
-| Hidden Weakness | the Party learns how the opposition can be beaten |
-| Advantage Revealed | the Party learns what they have that the opposition fears |
-| Alliance | an unlikely helper offers terms |
-| Betrayal | a trusted person turns, or is revealed to have turned |
-| Secret Meeting | a meeting the Party wasn't meant to see or join |
-| Personal Stake | the Session's trouble reaches a PC's own life |
-| Not What It Seems | the job, the victim or the villain is something else |
-| Retreat | after a lost Cliffhanger, the Party regroups under new constraints |
-| Hesitation | the opposition pauses, giving the Party a window and a question |
-| Sabotage | someone undermines the Party's plan, and the Party finds out |
-| Foreshadowing | a sign of the Climax the Party can read and prepare for |
-| Puzzle | a problem solved by thinking, with more than one answer |
-| Strange Bedfellows | the Party must work with someone they oppose |
+| Warning | Name the coming threat, its timing and strength, the source's reason for warning, and what heeding or ignoring it changes in the next contest. |
+| Hidden Weakness | Reveal a real weakness, how it is discovered, its exact rules effect, and the requirements or risk of exploiting it. Carry that effect into the receiving contest. |
+| Revelation | Give the whole relevant story: who, what and why, a source able to establish it, and the changed next move. The obstacles between knowing and succeeding remain playable. |
+| Advantage Revealed | Expose a useful ability, Item or technique the Party already possesses. State its sourced rules, limits, cost and where it matters; the Party decides when to use it. |
+| Clue | Give one true piece of evidence, its full meaning for the DM and a followable lead. Supply the other discovery routes when progress depends on the conclusion. |
+| Retreat | The opposition withdraws after the preceding contest. Give its true reason, discoverable tell, destination and what it leaves behind. Preserve the contest's actual result; any dangerous pursuit or delaying obstacle hands to a Cliffhanger. |
+| Hesitation | The opposition pauses and offers a truce. State the terms, real motive, any intended betrayal and its tells, the window gained, and what acceptance, counteroffer or refusal changes. |
+| Mistaken Identity | Someone takes a PC for a named important person. Establish the resemblance, what the mistake offers or costs, and the consequences of correcting, exploiting or sustaining it. |
+| Villain's Monologue | From an established position of power, the opposition reveals its plan. Separate truth, boast and lie for the DM; give the Party something usable, an interruption ruling and a next move. Establish captivity only if an incoming outcome supports it. |
+| Secret Meeting | Give the caller, secrecy's reason, linked meeting Location, discreet approach, watchers, each participant's terms, and consequences of exposure or walking out. An attack is the receiving Cliffhanger, not a predetermined ending. |
+| Personal Stake | Connect the trouble to an established PC tie. State the stake, its timetable or rules where relevant, and routes to addressing it. The Player chooses what the PC feels and does. |
+| Second Chance | After a setback, introduce a fiction-grounded new source or route and its price. Keep the original loss and costs; the new opportunity changes how the Party can try again. |
+| Gain Mastery | Offer learning through a linked teacher or source, its price and duration, choices in the learning, and the exact sourced benefit and limits. Carry elapsed time and the chosen benefit forward; fit a montage into the Scene's pacing. |
+| Alliance | Offer allies with their own interests. State terms, manpower or capabilities, limits, and what breaks the arrangement; show precisely what their help changes without letting them decide the next contest alone. |
+| Betrayal | Establish the betrayer's motive, intended act, planted tells and the Party's chance to interrupt or expose it. Outcomes distinguish prevention, discovery and the cost of an undetected act. |
+| Sabotage | Reveal damage to an Item, device or Vehicle: culprit, access, signs, exact lost function, and repair requirements, time and consequences. Detection, prevention or repair changes the receiving Scene's conditions. |
+| Foreshadowing | Present an interpretable omen rather than an explicit Warning. Fix its true meaning for the DM, what preparation it suggests and the later linked Scene where it pays off; keep the evidence consistent with that payoff. |
+| Not What It Seems | Reinterpret an earlier action through a fixed underlying truth and supporting evidence. State what the Party believed, what really happened and which choice the correction changes. Preserve established Canon. |
+| Strange Bedfellows | Prove a common threat and offer cooperation with an opponent. State each side's terms, withheld interests and the truce's end; acceptance, refusal and renegotiation remain live choices. |
+| Turnabout | A member of the opposition offers help for a reason of their own. Give proof or tells of that motive, the information, access or manpower offered, their price and the risk of trusting them. |
+| Romance | An NPC offers affection with a complication tied to a live Thread. Ground their interest and the complication; follow the Campaign's boundaries and leave reciprocation and pace to the Player. |
+| Lie Revealed | Evidence disproves a believed claim without necessarily revealing the whole truth. Give the original speaker and motive, decisive evidence, the actual truth for the DM and a reachable source for the next answer. |
+| Hazardous Quest | Reveal the goal, route, supplies, dangers and meaningful preparation choices for a difficult journey. Give each choice a concrete cost or edge; the physical journey and hazards are resolved in linked Cliffhangers. |
+| Puzzle | Present a non-action problem with a defined solution, three discoverable hints, consequences of wrong attempts and a costly bypass. Accept other approaches that satisfy the problem's actual constraints. |
+| Framed | Present the false charge, planted evidence, framer and motive, and the authorities' response and timetable. Give three independent routes to proof and distinct choices for contesting or evading the accusation. |
+| Obsession | Someone persistently seeks a PC's attention without physical confrontation here. State their motive, how they approach, what useful fact or offer they carry, and what boundaries, engagement or rejection change. |
+| Back from the Dead | Reveal an opponent thought dead through evidence and an explanation consistent with what the Party actually established. Give the changed opponent's plan and the Party's new options; preserve the earlier victory's consequences. |
+| Rescuers | Reveal who needs rescue, why they matter, their captor or constraint, Location and danger's timetable. Give at least two viable approaches and their preparation costs; hand the physical rescue to its Cliffhanger. |
+| Vengeance | Reveal an opponent's grievance against a PC and the evidence of their intended retaliation. State how that fixation changes the next contest and how the Party can exploit or address it; physical retaliation remains conditional on play. |

@@ -1,6 +1,6 @@
 # Eval loop — paired with-skill/baseline runs
 
-Read this when planning or running skill-creator step 4. Before authoring or preparing eval data, read `evals/README.md` for the grounding contract. Before writing artifacts, read `.agents/skills/skill-creator/references/schemas.md` for evals.json, grading.json, timing.json, benchmark.json, comparison.json and analysis.json. The native provenance and capture rules below govern observed completion evidence; `.omp/AGENTS.md` governs delegation.
+Read this when planning or running skill-creator step 4. Before authoring or preparing eval data, read `evals/README.md` for the grounding contract. Before writing artifacts, read [`schemas.md`](schemas.md) for evals.json, grading.json, timing.json, benchmark.json, comparison.json and analysis.json. The native provenance and capture rules below govern observed completion evidence; `.omp/AGENTS.md` governs delegation.
 
 ## Layout
 
@@ -23,7 +23,11 @@ Read this when planning or running skill-creator step 4. Before authoring or pre
 
 ## Prepare frozen inputs
 
-Build `<workspace>/evals.json` in the existing schema from selected active YAML case IDs and private criteria, recording the ID-to-case mapping in the authoring brief. From the real repo, prepare each grounded case once in the open Session:
+Build `<workspace>/evals.json` in the existing schema from selected active YAML case IDs and private criteria, recording the ID-to-case mapping in the authoring brief.
+
+Save `<iteration-dir>/<eval-name>/eval_metadata.json` with `eval_id`, `eval_name`, the natural `prompt` and `assertions` copied from the normalized expectations. This private review metadata keeps the static viewer's prompt and criteria aligned with the selected case.
+
+From the real repo, prepare each grounded case once in the open Session:
 
 ```bash
 bun run eval:prepare --cases <absolute-cases.yaml> --case <case-id> --session-root <S>
@@ -39,7 +43,7 @@ For each clone, retain returned paths, `sessionRoot`, `runnerInput`, source hash
 
 ## Dispatch
 
-Create every run directory before dispatch. Follow `evals/README.md`'s enforced dispatch: bind each clone with `bindRunnerTools`, then call native `agent(runnerBrief, {agent: "test-subject", isolated: true, apply: false, tools: toolNames})`. Batch independent handles in waves of at most four. Prepared Worlds stay outside omp worktrees; preparation and verification run from the real repo. Pin exact candidate/snapshot paths, including the declared uncommitted candidate version. Missing isolation or enforcement is an explicit prerequisite gap, not permission to dispatch unrestricted runners.
+Create every run directory before dispatch. Follow `evals/README.md`'s enforced dispatch: bind each clone with `bindRunnerTools`, then call native `agent(runnerBrief, {agent: "test-subject", isolated: true, apply: false, tools: toolNames})`. Batch independent handles. Prepared Worlds stay outside omp worktrees; preparation and verification run from the real repo. Pin exact candidate/snapshot paths, including the declared uncommitted candidate version. Missing isolation or enforcement is an explicit prerequisite gap, not permission to dispatch unrestricted runners.
 
 Save the model-facing operational text as `<run-dir>/brief.md`; keep the machine grant line/path/token in private control storage. The model receives the natural DM ask verbatim, start-here source paths, supplied preferences, assigned skill when present, write root, available capabilities, full File completion and `$W/.eval/output.md`. Parent-side criteria, source hashes, isolation proof and failure coaching remain separate.
 
@@ -55,7 +59,7 @@ For each runner, grader, comparator or analyzer completion:
 2. Capture observed `resolvedModelIdentity` and thinking evidence separately from the raw `resolvedModel` selector in `task-result.json` and `evidence-notes.md`. The provenance contract is `{runner_family, model}`: `model` copies the complete observed selector verbatim, including a reported suffix such as `:high`; derive `runner_family` from the observed provider prefix. Runner provenance is `model.json`; grader provenance is `grader-model.json`; comparison/analysis provenance lives beside its artifact. Configured roles or pins are not observed identity.
 3. Write `timing.json` from actual task completion fields only: `tokens` → `total_tokens`; `durationMs` → `duration_ms` and `total_duration_seconds` (`durationMs/1000`). Omit missing exact metrics rather than substituting zero or estimating.
 4. When completion fields are absent, save reachable raw session evidence separately as `session-evidence.json` and record sources and missing fields in `evidence-notes.md`. Explicit session identity/selector and thinking evidence may establish provenance; omit fields that remain unavailable. Label transcript usage **transcript-derived usage**, record its scope, and keep it separate from task metrics—even a whole-session sum need not equal task `tokens`.
-5. For each omp isolation runner, preserve completion metadata `isolated`, `hasRootChanges`, `patchPath` and `branchName`. Require observed `isolated: true` and evidence of no repository-root changes (`hasRootChanges: false` or an observed absence of root patch changes). Missing metadata cannot establish omp isolation. Unexpected root changes invalidate the run: retain recovery artifacts and stop without assuming whether they were applied. If omp isolation was unavailable, preserve that explicit capability gap and the scratch-path isolation evidence instead.
+5. For each omp isolation runner, preserve completion metadata `isolated`, `hasRootChanges`, `patchPath` and `branchName`. Require observed `isolated: true` and `hasRootChanges: false`. Missing metadata cannot establish omp isolation. Unexpected root changes invalidate the run: retain recovery artifacts and stop without assuming whether they were applied. Missing omp isolation is an explicit prerequisite gap; scratch-path isolation is additional evidence, not a substitute.
 
 **Done when** each completion has preserved payload/history evidence and provenance/timing artifacts whose populated fields have identified observed sources, and omp isolation runners have observed isolation/no-root-change evidence.
 
@@ -77,7 +81,11 @@ Keep every excluded pair visible in `benchmark.json` `runs[]`; `notes[]` names i
 
 Normalize `<workspace>/evals.json` into one `expectations` list per selected case. It is authoring input generated from active YAML, not a live repository intent file. Grade both configurations against the identical private criteria.
 
-For each usable output, dispatch a fresh `prose-grader` with `.agents/skills/skill-creator/agents/grader.md`, the authored writing and normalized expectations. Include private current-run source excerpts where fidelity requires them; the grader quotes the writing/source evidence for each verdict. Transcripts, gate logs and Check verdicts stay parent evidence. Save `grading.json` with `{text, passed, evidence}` expectations in the private authoring run directory, and capture separate grader provenance. Execution errors without gradable outputs remain explicit errors.
+Before Grade, run `bun run eval:prepare --verify <scratch-root>` for every clone and preserve the result; verify the frozen baseline and run `eval:check` against its selected case. A source/isolation failure stops the workflow separately from quality failures.
+
+For each usable output, read [`grader.md`](grader.md) and dispatch a fresh native `prose-grader` with that brief, the authored writing and identical normalized expectations, using its `{grades:[{rubric,pass,reason}]}` `outputSchema`. Include private current-run starting-source excerpts where fidelity requires them; the grader quotes the writing/source evidence for each verdict. Transcripts, gate logs and Check verdicts stay parent evidence.
+
+The parent validates rubric text/count/order and maps the native result once into `grading.json`'s `{text, passed, evidence}` expectations plus computed summary; the grader yields rather than writing that file. Capture separate grader provenance. Execution errors without gradable outputs remain explicit errors.
 
 After grading, run `bun run eval:prepare --verify <scratch-root>` for each clone and preserve the result. Finalize the matching gate before aggregation; a failed source/isolation verification invalidates the run and stops the workflow under `evals/README.md`.
 
@@ -85,49 +93,53 @@ After grading, run `bun run eval:prepare --verify <scratch-root>` for each clone
 
 ## Aggregate
 
-Build `<iteration-dir>/benchmark.json` in one Python `eval` operation using the schemas.md shape and the existing `calculate_stats` helper below. The legacy aggregation CLI estimates missing metrics and bypasses the matching gate; reuse only its stats helper.
+Build `<iteration-dir>/benchmark.json` in one parent-controlled Node operation using [`schemas.md`](schemas.md) and `calculateStats(values)` from `evals/authoring.ts`. Node owns the import; the omp JS Eval package loader does not load this helper. The parent owns the matching gate and selects observed metric values before calling it. To calculate one selected metric, set `metric_values_json` to its saved JSON-array path and run from the repo:
 
-```python
-import sys
-sys.path.insert(0, '<absolute-repo-root>/.agents/skills/skill-creator/scripts')
-from aggregate_benchmark import calculate_stats
-# calculate_stats([values]) -> {"mean", "stddev", "min", "max"}
+```bash
+node --input-type=module -e '
+  import { calculateStats } from "./evals/authoring.ts";
+  import { readFileSync } from "node:fs";
+  const values = JSON.parse(readFileSync(process.argv[1], "utf8"));
+  console.log(JSON.stringify(calculateStats(values)));
+' "$metric_values_json"
 ```
+
+The helper returns `{mean, stddev, min, max}` with sample standard deviation. Use the same Node import in the parent aggregation operation; selected arrays contain only observed, comparable values.
 
 Populate from the iteration's artifacts:
 
 - `metadata` — skill name and path, timestamp, evals run, runs per configuration; `executor_model` only when observed with-skill identities establish a common model. Record an observed analyzer identity only after analysis runs. Derive identities and counts from artifacts; mixed/missing identities are explained in `notes`, not assigned a fictitious common model.
 - `runs[]` — one entry per dispatched run, none silently dropped. Preserve schema fields `eval_id`, `eval_name`, `configuration`, `run_number`, nested `result`, `expectations` and per-run `notes`. `configuration` is the directory name (`with_skill` / `without_skill` / `old_skill`); order with-skill before its baseline counterpart. Populate observed grading counts/rate and observed `time_seconds`, `tokens`, `tool_calls`, `errors` only; unavailable grades or metrics are omitted, with errors/evidence limitations in notes. Keep model identities in provenance artifacts and mention pair mismatches in notes rather than adding a new benchmark schema.
-- `run_summary` — insert `with_skill` then the baseline configuration; each contains `calculate_stats` results for `pass_rate`, `time_seconds`, `tokens` from comparable pairs only. For each metric, include a pair only when both sides have that metric, so the two means use identical paired observations. Omit unobserved metric summaries.
+- `run_summary` — insert `with_skill` then the baseline configuration; each contains `calculateStats` results for `pass_rate`, `time_seconds`, `tokens` from comparable pairs only. For each metric, include a pair only when both sides have that metric, so the two means use identical paired observations. Omit unobserved metric summaries rather than calling the helper with an empty list or fabricated values.
 - `run_summary.delta` — INSIDE `run_summary`, after the configurations, never top-level. With-skill mean minus baseline mean for the same paired observations, formatted as schema strings (`pass_rate`: `"+0.50"`, `time_seconds`: `"+13.0"`, `tokens`: `"+1700"`); omit unavailable metrics.
 - `notes[]` — pair exclusions established by the matching gate, plus evidence limitations. With no comparable pairs, omit `run_summary` and its delta and report “Paired summary and delta unavailable” in Markdown.
 
-Write `<iteration-dir>/benchmark.md` from the same data. The reused module's `generate_markdown(benchmark)` requires `run_summary` and defaults missing metrics to zero: use it only when both summaries contain every metric it renders. Otherwise write a concise report in the same `eval` operation containing observed per-run results, available paired stats/deltas and exclusion notes; label missing values unavailable.
+Write the existing `<iteration-dir>/benchmark.md` from the same data in that parent operation: observed per-run results, available paired stats/deltas and exclusion notes. Label missing values unavailable; a Markdown report is a view of the saved data, not another aggregation pipeline.
 
 **Done when** both benchmark artifacts account for every dispatched run and agree on observed metrics, paired summaries and exclusions.
 
 ## Viewer and feedback
 
 ```bash
-python3 .agents/skills/skill-creator/eval-viewer/generate_review.py <iteration-dir> \
+cf eval review <iteration-dir> \
   --skill-name <name> \
   --benchmark <iteration-dir>/benchmark.json \
   --static <iteration-dir>/review.html
 ```
 
-From iteration 2 on, add `--previous-workspace <workspace>/iteration-<N-1>`. `--static` writes a standalone file instead of starting a server, whose startup evicts unrelated processes from its port.
+From iteration 2 on, add `--previous-workspace <workspace>/iteration-<N-1>`. Review always writes a standalone static file; omitting `--static` uses `<iteration-dir>/review.html`. Use the JSON-reported path for browser review.
 
 Then:
 
 1. Open the file in the browser and confirm the Outputs and Benchmark tabs render this iteration's runs and stats.
-2. Hand the DM the controls: the Outputs tab walks each case (prompt, outputs, formal grades, feedback box, previous iteration's output and feedback from iteration 2 on); the Benchmark tab shows the per-configuration stats and notes. Submit All Reviews downloads `feedback.json`.
+2. Hand the DM the controls: the Outputs tab walks each case (prompt, outputs, formal grades, feedback box, previous iteration's output and feedback from iteration 2 on); the Benchmark tab shows the per-configuration stats and notes. **Download feedback.json** downloads the review export.
 3. Import the download verbatim as `<iteration-dir>/feedback.json`. Its `reviews[]` entries carry `run_id` and `feedback`; empty feedback means the run looked fine.
 
 **Done when** both tabs visibly show this iteration, the DM has reviewed the outputs, and the downloaded feedback is saved verbatim. Rendering a viewer alone is not human review.
 
 ## Optional blind comparison
 
-For "is the revision actually better?" on a comparable pair, read `.agents/skills/skill-creator/agents/comparator.md` and dispatch a fresh `prose-grader` with that brief and outputs labeled A/B. Remove version identity and revealing path headers before dispatch. It writes `comparison.json` in the iteration directory. When diagnosing the result, read `.agents/skills/skill-creator/agents/analyzer.md` and dispatch its brief with the benchmark data for `analysis.json`. Capture each completion under the rules above.
+For "is the revision actually better?" on a comparable pair, read [`comparator.md`](comparator.md) and dispatch a fresh native `prose-grader` with that blind assignment's `outputSchema` and outputs labeled A/B. Keep the label-to-configuration mapping private; remove version identity and revealing path headers from copies while preserving substantive text. The parent saves the yielded winner (`A`, `B` or `tie`) and quoted evidence as `comparison.json`; comparison is advisory, separate from pass/fail Grades and summaries. When diagnosis is requested, read [`analyzer.md`](analyzer.md): the parent analyzes the saved evidence or briefs a fresh `prose-grader` with its analysis `outputSchema`, then maps the result into `analysis.json`. Use the configured native role, not another agent definition. Capture separate dispatch evidence whenever a grader is used.
 
 **Done when** the requested comparison/analysis artifacts and their separate observed provenance are saved.
 

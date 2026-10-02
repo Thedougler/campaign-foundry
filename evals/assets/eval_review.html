@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- Adapted from Anthropic skill-creator/assets/eval_review.html, Apache-2.0.
+     Modified for Campaign Foundry: offline-only and DOM-safe query/description rendering.
+     License: https://www.apache.org/licenses/LICENSE-2.0 (copy in LICENSE.txt). -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Eval Set Review</title>
+  <style>
+    * { box-sizing:border-box; }
+    body { font-family:Georgia,serif; background:#faf9f5; padding:2rem; color:#141413; margin:auto; max-width:1400px; }
+    h1,button,th,label { font-family:system-ui,sans-serif; }
+    h1 { font-size:1.5rem; } .description { color:#66645d; margin-bottom:1.5rem; white-space:pre-wrap; overflow-wrap:anywhere; }
+    .controls { display:flex; gap:.5rem; margin:1rem 0; }
+    button { padding:.5rem 1rem; border:1px solid #e8e6dc; border-radius:6px; cursor:pointer; background:white; }
+    #export-btn { background:#b85836; color:white; } .delete { color:#a32929; }
+    table { width:100%; border-collapse:collapse; background:white; }
+    th { background:#141413; color:#faf9f5; text-align:left; } th,td { padding:.75rem; border:1px solid #e8e6dc; vertical-align:top; }
+    .section-header { background:#e8e6dc; font-family:system-ui,sans-serif; }
+    textarea { width:100%; padding:.5rem; border:1px solid #e8e6dc; min-height:5rem; resize:vertical; font:inherit; }
+    .summary { color:#66645d; } .toggle { display:flex; align-items:center; gap:.5rem; } input[type="checkbox"] { width:1.2rem; height:1.2rem; }
+    @media(max-width:650px) { body { padding:1rem; } th,td { padding:.4rem; } }
+  </style>
+</head>
+<body>
+  <h1>Eval Set Review: <span id="skill-name"></span></h1>
+  <p class="description">Current description: <span id="skill-desc"></span></p>
+  <p>Edit queries and whether each should trigger this skill. Export eval_set.json when done. This page works offline; edits stay in the open page until exported.</p>
+  <div class="controls"><button id="add-btn">+ Add Query</button><button id="export-btn">Export Eval Set</button></div>
+  <table><thead><tr><th style="width:65%">Query</th><th>Should Trigger</th><th>Actions</th></tr></thead><tbody id="eval-body"></tbody></table>
+  <p class="summary" id="summary" aria-live="polite"></p>
+  <script>
+    /*__EMBEDDED_DATA__*/
+    const evalItems = EMBEDDED_DATA.queries.map(item => ({ ...item }));
+    const byId = id => document.getElementById(id);
+    function element(tag, text, className) {
+      const node = document.createElement(tag);
+      if (text !== undefined) node.textContent = String(text);
+      if (className) node.className = className;
+      return node;
+    }
+    function updateSummary() {
+      const trigger = evalItems.filter(item => item.should_trigger).length;
+      byId('summary').textContent = `${evalItems.length} queries total: ${trigger} should trigger, ${evalItems.length - trigger} should not trigger`;
+    }
+    function render(focusItem) {
+      const body = byId('eval-body');
+      body.replaceChildren();
+      const sorted = [...evalItems].sort((a, b) => Number(b.should_trigger) - Number(a.should_trigger));
+      let group = null;
+      let focusInput;
+      for (const item of sorted) {
+        if (group !== item.should_trigger) {
+          group = item.should_trigger;
+          const header = element('tr', undefined, 'section-header');
+          const cell = element('td', group ? 'Should Trigger' : 'Should NOT Trigger');
+          cell.colSpan = 3;
+          header.append(cell);
+          body.append(header);
+        }
+        const row = element('tr');
+        const queryCell = element('td');
+        const query = element('textarea');
+        query.setAttribute('aria-label', 'Query ' + (evalItems.indexOf(item) + 1));
+        query.value = item.query;
+        query.addEventListener('input', () => { item.query = query.value; });
+        queryCell.append(query);
+        const triggerCell = element('td');
+        const label = element('label', undefined, 'toggle');
+        const trigger = element('input');
+        trigger.type = 'checkbox';
+        trigger.checked = item.should_trigger;
+        trigger.setAttribute('aria-label', 'Should trigger for query ' + (evalItems.indexOf(item) + 1));
+        trigger.addEventListener('change', () => { item.should_trigger = trigger.checked; render(); });
+        label.append(trigger, element('span', item.should_trigger ? 'Yes' : 'No'));
+        triggerCell.append(label);
+        const actionCell = element('td');
+        const remove = element('button', 'Delete', 'delete');
+        remove.addEventListener('click', () => { evalItems.splice(evalItems.indexOf(item), 1); render(); });
+        actionCell.append(remove);
+        row.append(queryCell, triggerCell, actionCell);
+        body.append(row);
+        if (item === focusItem) focusInput = query;
+      }
+      updateSummary();
+      if (focusInput) focusInput.focus();
+    }
+    function addRow() {
+      const item = { query: '', should_trigger: true };
+      evalItems.push(item);
+      render(item);
+    }
+    function exportEvalSet() {
+      const data = evalItems.filter(item => item.query.trim()).map(item => ({ query: item.query.trim(), should_trigger: item.should_trigger }));
+      const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }));
+      const link = element('a');
+      link.href = url;
+      link.download = 'eval_set.json';
+      document.body.append(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+    byId('skill-name').textContent = EMBEDDED_DATA.skill_name;
+    byId('skill-desc').textContent = EMBEDDED_DATA.description;
+    document.title = 'Eval Set Review: ' + EMBEDDED_DATA.skill_name;
+    byId('add-btn').addEventListener('click', addRow);
+    byId('export-btn').addEventListener('click', exportEvalSet);
+    render();
+  </script>
+</body>
+</html>

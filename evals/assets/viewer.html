@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<!-- Adapted from Anthropic skill-creator/eval-viewer/viewer.html, Apache-2.0.
+     Modified for Campaign Foundry: offline-only, recursive outputs and DOM-safe rendering.
+     License: https://www.apache.org/licenses/LICENSE-2.0 (copy in LICENSE.txt). -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Eval Review</title>
+  <style>
+    :root { color-scheme: light; --bg:#faf9f5; --surface:#fff; --border:#e8e6dc; --text:#141413; --muted:#66645d; --accent:#b85836; --pass:#367339; --fail:#a32929; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:Georgia,serif; }
+    header { padding:1rem 2rem; background:#141413; color:#faf9f5; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    h1 { margin:0; font-size:1.3rem; } h1,h2,h3,button,th,label { font-family:system-ui,sans-serif; }
+    header p { margin:.5rem 0 0; font-size:.85rem; }
+    nav,.actions { display:flex; gap:.5rem; padding:1rem 2rem; flex-wrap:wrap; }
+    button { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:.6rem 1rem; cursor:pointer; }
+    button:disabled { opacity:.5; cursor:default; } button[aria-selected="true"],.primary { background:var(--accent); color:white; }
+    main { padding:0 2rem 2rem; max-width:1500px; margin:auto; } section,.output-file,details { background:var(--surface); border:1px solid var(--border); border-radius:6px; margin:1rem 0; padding:1rem; }
+    h2 { font-size:1.1rem; margin:0 0 .75rem; } h3 { font-size:1rem; }
+    pre,.prompt,.evidence { white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.5; }
+    pre { font-family:ui-monospace,monospace; font-size:.85rem; max-height:40rem; overflow:auto; }
+    .output-file header { background:var(--bg); color:var(--text); padding:.5rem; font-family:ui-monospace,monospace; overflow-wrap:anywhere; }
+    a { color:var(--accent); } img { max-width:100%; max-height:45rem; object-fit:contain; }
+    textarea { width:100%; min-height:8rem; padding:.75rem; font:inherit; border:1px solid var(--border); border-radius:6px; }
+    .muted { color:var(--muted); } .pass { color:var(--pass); } .fail { color:var(--fail); }
+    .grade { margin:.75rem 0; } .evidence { margin:.4rem 0 0 1rem; color:var(--muted); }
+    table { border-collapse:collapse; width:100%; margin:1rem 0; font-family:system-ui,sans-serif; font-size:.85rem; }
+    th,td { padding:.65rem; text-align:left; border:1px solid var(--border); vertical-align:top; overflow-wrap:anywhere; }
+    th { background:var(--bg); } summary { cursor:pointer; font-family:system-ui,sans-serif; }
+    [hidden] { display:none !important; } .table-wrap { overflow:auto; } #feedback-status { font-size:.85rem; }
+    @media(max-width:650px) { header { align-items:flex-start; flex-direction:column; } header,nav,.actions { padding:1rem; } main { padding:0 1rem 1rem; } }
+  </style>
+</head>
+<body>
+  <header><div><h1>Eval Review: <span id="skill-name"></span></h1><p>Review deliverables and grading, then download feedback.json. This page works offline; nothing is sent to a server.</p></div><span id="progress"></span></header>
+  <nav role="tablist" aria-label="Review views"><button id="outputs-tab" role="tab" aria-controls="outputs-view" aria-selected="true">Outputs</button><button id="benchmark-tab" role="tab" aria-controls="benchmark-view" aria-selected="false">Benchmark</button></nav>
+  <main>
+    <div id="outputs-view" role="tabpanel" aria-labelledby="outputs-tab">
+      <div class="actions"><button id="prev-btn">← Previous</button><select id="run-select" aria-label="Select run"></select><button id="next-btn">Next →</button><button id="done-btn" class="primary">Download feedback.json</button></div>
+      <section><h2 id="run-title"></h2><h3>Prompt</h3><div id="prompt-text" class="prompt"></div></section>
+      <section><h2>Outputs</h2><div id="outputs-body"></div></section>
+      <details id="grades-section"><summary>Grading</summary><div id="grades-content"></div></details>
+      <details id="prev-outputs-section"><summary>Previous outputs</summary><div id="prev-outputs-content"></div></details>
+      <section><h2><label for="feedback">Feedback</label></h2><textarea id="feedback" placeholder="Issues, suggestions, or things that worked well"></textarea><p id="feedback-status" class="muted"></p><div id="prev-feedback" hidden><h3>Previous feedback</h3><div id="prev-feedback-text" class="prompt"></div></div></section>
+    </div>
+    <div id="benchmark-view" role="tabpanel" aria-labelledby="benchmark-tab" hidden><section id="benchmark-content"></section></div>
+  </main>
+  <script>
+    /*__EMBEDDED_DATA__*/
+    const byId = id => document.getElementById(id);
+    const feedbackMap = Object.assign(Object.create(null), EMBEDDED_DATA.feedback);
+    const visitedRuns = new Set();
+    let currentIndex = 0;
+    const storageKey = 'cf-eval-feedback:' + location.href;
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
+      if (saved && Array.isArray(saved.reviews)) {
+        for (const review of saved.reviews) {
+          if (typeof review.run_id === 'string' && typeof review.feedback === 'string') feedbackMap[review.run_id] = review.feedback;
+        }
+      }
+    } catch { /* Browser storage is optional; downloads are always available. */ }
+
+    function element(tag, text, className) {
+      const node = document.createElement(tag);
+      if (text !== undefined) node.textContent = String(text);
+      if (className) node.className = className;
+      return node;
+    }
+
+    function renderOutputs(container, outputs) {
+      container.replaceChildren();
+      if (!outputs.length) container.append(element('p', 'No output files', 'muted'));
+      for (const file of outputs) {
+        const wrapper = element('div', undefined, 'output-file');
+        const header = element('header');
+        header.append(element('span', file.name));
+        const download = element('a', 'Download');
+        download.download = file.name.split('/').pop();
+        download.href = file.data_uri;
+        header.append(download);
+        wrapper.append(header);
+        if (file.type === 'text') wrapper.append(element('pre', file.content));
+        else if (file.type === 'image') {
+          const image = element('img');
+          image.src = file.data_uri;
+          image.alt = file.name;
+          wrapper.append(image);
+        } else wrapper.append(element('p', 'Binary deliverable (' + file.mime + '). Download to inspect.', 'muted'));
+        container.append(wrapper);
+      }
+    }
+
+    function renderGrades(grading) {
+      const section = byId('grades-section');
+      const container = byId('grades-content');
+      section.hidden = !grading;
+      section.open = false;
+      container.replaceChildren();
+      if (!grading) return;
+      const summary = grading.summary || {};
+      if (summary.total != null) container.append(element('p', `${summary.passed ?? '?'} passed, ${summary.failed ?? '?'} failed of ${summary.total}`));
+      const expectations = Array.isArray(grading.expectations) ? grading.expectations : [];
+      for (const expectation of expectations) {
+        const row = element('div', undefined, 'grade');
+        row.append(element('strong', expectation.passed === true ? 'PASS: ' : expectation.passed === false ? 'FAIL: ' : 'UNAVAILABLE: ', expectation.passed === true ? 'pass' : 'fail'));
+        row.append(element('span', expectation.text));
+        if (expectation.evidence) row.append(element('div', expectation.evidence, 'evidence'));
+        container.append(row);
+      }
+      const detail = element('details');
+      detail.append(element('summary', 'Full grading data'), element('pre', JSON.stringify(grading, null, 2)));
+      container.append(detail);
+    }
+
+    function showRun(index) {
+      currentIndex = index;
+      const run = EMBEDDED_DATA.runs[index];
+      visitedRuns.add(run.id);
+      byId('progress').textContent = `${index + 1} of ${EMBEDDED_DATA.runs.length} · ${visitedRuns.size} visited`;
+      byId('run-title').textContent = run.id;
+      byId('run-select').value = String(index);
+      byId('prompt-text').textContent = run.prompt;
+      renderOutputs(byId('outputs-body'), run.outputs);
+      renderGrades(run.grading);
+      const previousOutputs = Object.hasOwn(EMBEDDED_DATA.previous_outputs, run.id) ? EMBEDDED_DATA.previous_outputs[run.id] : [];
+      byId('prev-outputs-section').hidden = !previousOutputs.length;
+      byId('prev-outputs-section').open = false;
+      renderOutputs(byId('prev-outputs-content'), previousOutputs);
+      const previousFeedback = Object.hasOwn(EMBEDDED_DATA.previous_feedback, run.id) ? EMBEDDED_DATA.previous_feedback[run.id] : '';
+      byId('prev-feedback').hidden = !previousFeedback;
+      byId('prev-feedback-text').textContent = previousFeedback;
+      byId('feedback').value = feedbackMap[run.id] || '';
+      byId('feedback-status').textContent = 'Download feedback.json to save a portable copy. Local browser drafts are best effort.';
+      byId('prev-btn').disabled = index === 0;
+      byId('next-btn').disabled = index === EMBEDDED_DATA.runs.length - 1;
+    }
+
+    function feedbackDocument(complete) {
+      const timestamp = new Date().toISOString();
+      return {
+        reviews: EMBEDDED_DATA.runs.map(run => ({ run_id: run.id, feedback: feedbackMap[run.id] || '', timestamp, reviewed: visitedRuns.has(run.id) })),
+        status: complete && visitedRuns.size === EMBEDDED_DATA.runs.length ? 'complete' : 'in_progress',
+      };
+    }
+
+    function saveCurrentFeedback() {
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      feedbackMap[run.id] = byId('feedback').value;
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(feedbackDocument(false)));
+        byId('feedback-status').textContent = 'Draft saved in this browser. Download feedback.json to save it to disk.';
+      } catch {
+        byId('feedback-status').textContent = 'Draft kept for this page only. Download feedback.json before closing.';
+      }
+    }
+
+    function navigate(index) {
+      if (index < 0 || index >= EMBEDDED_DATA.runs.length) return;
+      saveCurrentFeedback();
+      showRun(index);
+    }
+
+    function downloadFeedback() {
+      saveCurrentFeedback();
+      const payload = JSON.stringify(feedbackDocument(true), null, 2);
+      const url = URL.createObjectURL(new Blob([payload], { type: 'application/json' }));
+      const link = element('a');
+      link.href = url;
+      link.download = 'feedback.json';
+      document.body.append(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      byId('feedback-status').textContent = 'Downloaded feedback.json. Save it in this workspace to include it next time.';
+    }
+
+    function switchView(view) {
+      for (const name of ['outputs', 'benchmark']) {
+        byId(name + '-tab').setAttribute('aria-selected', String(name === view));
+        byId(name + '-view').hidden = name !== view;
+      }
+    }
+
+    function table(container, headings, rows) {
+      const wrap = element('div', undefined, 'table-wrap');
+      const node = element('table');
+      const head = element('tr');
+      for (const heading of headings) head.append(element('th', heading));
+      const thead = element('thead');
+      thead.append(head);
+      node.append(thead);
+      const body = element('tbody');
+      for (const values of rows) {
+        const row = element('tr');
+        for (const value of values) row.append(element('td', value));
+        body.append(row);
+      }
+      node.append(body);
+      wrap.append(node);
+      container.append(wrap);
+    }
+
+    function formatStat(stat, percentage) {
+      if (!stat || typeof stat.mean !== 'number' || !Number.isFinite(stat.mean)) return '—';
+      const scale = percentage ? 100 : 1;
+      const suffix = percentage ? '%' : '';
+      const mean = (stat.mean * scale).toFixed(percentage ? 0 : 1) + suffix;
+      return typeof stat.stddev === 'number' && Number.isFinite(stat.stddev)
+        ? mean + ' ± ' + (stat.stddev * scale).toFixed(percentage ? 0 : 1) + suffix : mean;
+    }
+
+    function renderBenchmark() {
+      const data = EMBEDDED_DATA.benchmark;
+      const container = byId('benchmark-content');
+      container.append(element('h2', 'Benchmark Results'));
+      const metadata = data.metadata || {};
+      container.append(element('pre', JSON.stringify(metadata, null, 2), 'muted'));
+      const summary = data.run_summary || {};
+      const configs = Object.keys(summary).filter(name => name !== 'delta');
+      const metrics = [['pass_rate', 'Pass rate', true], ['time_seconds', 'Time (s)', false], ['tokens', 'Tokens', false]];
+      const rows = [];
+      for (const [key, label, percentage] of metrics) {
+        if (!configs.some(config => summary[config] && summary[config][key])) continue;
+        const delta = summary.delta && summary.delta[key];
+        rows.push([label, ...configs.map(config => formatStat(summary[config][key], percentage)), delta == null ? '—' : typeof delta === 'object' ? JSON.stringify(delta) : String(delta)]);
+      }
+      if (rows.length) table(container, ['Metric', ...configs, 'Delta'], rows);
+      const runs = Array.isArray(data.runs) ? data.runs : [];
+      const evalIds = [...new Set(runs.map(run => run.eval_id))];
+      for (const evalId of evalIds) {
+        const evalRuns = runs.filter(run => run.eval_id === evalId);
+        container.append(element('h3', evalRuns[0].eval_name || 'Eval ' + evalId));
+        const configurations = [...new Set(evalRuns.map(run => run.configuration))];
+        const runRows = [];
+        for (const configuration of configurations) {
+          const configuredRuns = evalRuns.filter(run => run.configuration === configuration);
+          for (const run of configuredRuns) {
+            const result = run.result || {};
+            const rate = typeof result.pass_rate === 'number' ? (result.pass_rate * 100).toFixed(0) + '%' : '—';
+            const counts = result.passed != null && result.total != null ? ` (${result.passed}/${result.total})` : '';
+            runRows.push([run.configuration, run.run_number, rate + counts, result.time_seconds ?? '—', result.tokens ?? '—', result.errors ?? '—']);
+          }
+          const averages = ['pass_rate', 'time_seconds', 'tokens'].map(metric => {
+            const values = configuredRuns.map(run => (run.result || {})[metric]).filter(value => typeof value === 'number' && Number.isFinite(value));
+            if (!values.length) return '—';
+            const mean = values.reduce((sum, value) => sum + value, 0) / values.length;
+            return metric === 'pass_rate' ? (mean * 100).toFixed(0) + '%' : mean.toFixed(1);
+          });
+          runRows.push([configuration, 'Average (observed)', ...averages, '—']);
+        }
+        table(container, ['Configuration', 'Run', 'Pass rate', 'Time (s)', 'Tokens', 'Execution errors'], runRows);
+        const assertions = [...new Set(evalRuns.flatMap(run => Array.isArray(run.expectations) ? run.expectations.map(expectation => expectation.text) : []))];
+        if (assertions.length) table(container, ['Assertion', ...configurations], assertions.map(assertion => [assertion, ...configurations.map(configuration => evalRuns.filter(run => run.configuration === configuration).map(run => {
+          const expectation = (Array.isArray(run.expectations) ? run.expectations : []).find(item => item.text === assertion);
+          return expectation ? `Run ${run.run_number}: ${expectation.passed === true ? 'PASS' : expectation.passed === false ? 'FAIL' : 'UNAVAILABLE'}\n${expectation.evidence || ''}` : `Run ${run.run_number}: —`;
+        }).join('\n\n'))]));
+      }
+      if (Array.isArray(data.notes) && data.notes.length) {
+        container.append(element('h3', 'Analysis Notes'));
+        const list = element('ul');
+        for (const note of data.notes) list.append(element('li', typeof note === 'string' ? note : JSON.stringify(note)));
+        container.append(list);
+      }
+      const detail = element('details');
+      detail.append(element('summary', 'Full benchmark data'), element('pre', JSON.stringify(data, null, 2)));
+      container.append(detail);
+    }
+
+    byId('skill-name').textContent = EMBEDDED_DATA.skill_name;
+    document.title = 'Eval Review: ' + EMBEDDED_DATA.skill_name;
+    EMBEDDED_DATA.runs.forEach((run, index) => {
+      const option = element('option', run.id);
+      option.value = String(index);
+      byId('run-select').append(option);
+    });
+    byId('prev-btn').addEventListener('click', () => navigate(currentIndex - 1));
+    byId('next-btn').addEventListener('click', () => navigate(currentIndex + 1));
+    byId('run-select').addEventListener('change', event => navigate(Number(event.target.value)));
+    byId('feedback').addEventListener('input', saveCurrentFeedback);
+    byId('done-btn').addEventListener('click', downloadFeedback);
+    byId('outputs-tab').addEventListener('click', () => switchView('outputs'));
+    byId('benchmark-tab').addEventListener('click', () => switchView('benchmark'));
+    document.addEventListener('keydown', event => {
+      if (['TEXTAREA', 'INPUT', 'SELECT', 'BUTTON'].includes(event.target.tagName) || event.target.isContentEditable || byId('outputs-view').hidden) return;
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        navigate(currentIndex + (event.key === 'ArrowRight' ? 1 : -1));
+      }
+    });
+    showRun(0);
+    renderBenchmark();
+  </script>
+</body>
+</html>

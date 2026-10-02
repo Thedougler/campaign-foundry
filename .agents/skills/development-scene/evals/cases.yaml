@@ -1,0 +1,50 @@
+[
+  {
+    "id": "charted-conditional-scene",
+    "source_pages": [
+      "The Shattered Sea/The Shattered Sea.md",
+      "The Shattered Sea/Shattered Sea/hot.md",
+      "The Shattered Sea/Shattered Sea/Shattered Sea.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md",
+      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md",
+      "The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md",
+      "The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md",
+      "The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md",
+      "The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md"
+    ],
+    "prompt": "Rebuild The Smoking Skylight as a non-action rescue/information Development. Use its Prep row and survivor owner pages. Make the rope rescue, Matteo conflict, Ettore care and north-east lead runnable with non-roll routes for essential information. The bird danger is a trigger into Terror-Birds, not a fight hidden inside Development. Accept Dawn Strike outcomes without restoring lost resources or the Spinner. This is requested revision of unplayed Prep only, not a report of table events. Leave other Scene pages, played Session records and hot unchanged. No art or Foundry work. Finish this direct Scene operation with the full gate and create log.",
+    "checks": {
+      "pages": [
+        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md"
+      ],
+      "sections": {
+        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md": [
+          "## At a glance",
+          "## Play",
+          "## Outcomes",
+          "## Depth"
+        ]
+      },
+      "canon": {
+        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md": [
+          "^type:\\s*Scene\\s*$",
+          "^kind:\\s*Development\\s*$"
+        ]
+      },
+      "absent": {
+        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md": [
+          "^```statblock\\b"
+        ]
+      }
+    },
+    "rubrics": [
+      "The turn changes accessible choices, not just exposition. Linked people have knowable answers, opposed wants and negotiation costs. Essential north-east information survives failed optional checks or refused rescue through independent evidence. Extraction and optional checks have actual procedures, DCs and costs; loss/refusal carries forward, and physical action belongs to the receiving Cliffhanger.",
+      "Narration is speakable and concrete, anchored in the retrieved Location and people, preserving uncertainty and Player agency. Current templates, linked cast and honest provenance are used. The full scratch-root gate and one create operation log are observed; played records and hot are unchanged."
+    ]
+  }
+]

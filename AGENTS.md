@@ -19,7 +19,7 @@ At the start of every run, read `user-config.md` for the DM's preferences before
 
 ## Models
 
-Model selection belongs in harness configuration, native agent frontmatter, and `evals/models.yaml`, not shared instructions. Inside oh-my-pi, use its role-backed eval agents and configured fallbacks; other harnesses use the Matrix's cheap runner pins, rotation and grader pins. Keep at most four subagents running at once. Every large change or novel addition to agent-facing text — skills, native agent definitions, `AGENTS.md`, runbooks, pointers — is delegated to `skill-writer`, which follows `writing-for-agents`. The orchestrator writes briefs and owns eval fixtures, Wiki, and integration; it never authors those instruction files itself. Image generation uses the configured image workflow. Claude-specific instructions belong in `CLAUDE.md` and are maintained by Claude.
+Model selection belongs in harness configuration, native agent frontmatter, and `evals/models.yaml`, not shared instructions. Inside oh-my-pi, use its role-backed eval agents and configured fallbacks; other harnesses use the Matrix's cheap runner pins, rotation and grader pins. Every large change or novel addition to agent-facing text — skills, native agent definitions, `AGENTS.md`, runbooks, pointers — is delegated to `skill-writer`, which follows `writing-for-agents`. The orchestrator writes briefs and owns eval fixtures, Wiki, and integration; it never authors those instruction files itself. Image generation uses the configured image workflow. Claude-specific instructions belong in `CLAUDE.md` and are maintained by Claude.
 
 ## Working rules
 

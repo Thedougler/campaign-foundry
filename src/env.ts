@@ -4,4 +4,4 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-config({ path: resolve(repoRoot, ".env") });
+config({ path: resolve(repoRoot, ".env"), quiet: true });
