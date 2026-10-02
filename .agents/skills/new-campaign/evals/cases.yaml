@@ -1,30 +1,28 @@
+# Grounded successor adaptation; original Campaign/PC creation asks were not recovered.
 - id: successor-campaign
   source_pages:
-    - The Shattered Sea/The Shattered Sea.md
     - The Shattered Sea/Shattered Sea/Shattered Sea.md
-    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Shattered Sea/campaign-config.md
-    - The Shattered Sea/Factions/Dravosi Crown.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
     - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
     - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
   prompt: >-
-    For this scratch World, end the original Campaign without inventing a
-    played ending, and start its successor Next Wake with the same four Players
-    and PCs at the current Aruhe camp. Preserve every earlier Campaign page and
-    played record. The current Party state and starting date are those in hot;
-    nothing from prepared Session 12 has happened. The premise is keeping the
-    crew free while rescuing the missing Calveno and confronting their debts;
-    retain the current Campaign tone, boundaries and Party formation. Four-hour
-    weekly Sessions, no changed House Rules. I delegate the initial three to
-    five Faction/PC Threads and their next developments to you. Use the existing
-    PC story and public D&D Beyond links if recorded; never manufacture a link
-    or claim a pull that did not occur. All creative intent is settled. Make
-    the overview, config, initial hot and PC pages, pull the actual sheets when
-    possible, and complete the index, creation log and full gate. Keep the new
-    folder directly under the World, creating no Sessions or Quests yet. Use
-    parenthetical page-name qualifiers for collisions with the retained PCs.
+    We're ending Shattered Sea here and starting a successor, Next Wake, with
+    the same four Players and PCs at the current Aruhe camp. Keep the crew
+    free while rescuing the missing Calveno and confronting their debts.
+    Keep our tone, table boundaries and Party history, with four-hour weekly
+    Sessions and the same House Rules. Take the lead on the initial Threads
+    and where those pressures go next. Use the PCs' existing stories and these
+    public D&D Beyond characters: Delmar Fisk
+    https://www.dndbeyond.com/profile/Tabalicious/characters/164202916
+    Crissdalynn Khinriss
+    https://www.dndbeyond.com/profile/PyonPyonPichu/characters/163280875
+    Perrin Black-Jaw
+    https://www.dndbeyond.com/profile/Krab02/characters/166013448
+    Jean-Claude Tabarnack
+    https://www.dndbeyond.com/profile/nickdavenock/characters/171013670
+    Keep the earlier Campaign as a record. Session 12 has not happened yet.
   checks:
     pages:
       - The Shattered Sea/Next Wake/Next Wake.md
@@ -48,15 +46,17 @@
       Threads with opposed wants, actionable next developments and unattended
       consequences. The original Campaign and played records remain intact.
     - >-
-      Every new PC has an observed successful public D&D Beyond pull or
-      unchanged result, with Story, Goals and bonds and Plans unchanged by the
-      pull. Missing URLs, inaccessible public characters or unavailable pull
-      capabilities fail this acceptance criterion; a copied or invented sheet
-      and a named blocker are not substitutes for a real pull.
+      Each PC retains the supplied Story, Goals and bonds and Plans through
+      sheet work. The four public D&D Beyond URLs are recorded on the PC
+      pages. Where the pull operation is available, updated or unchanged
+      fetched results support the sheet; story sections stay untouched. If
+      the pull is unavailable, the reply names each affected PC and the
+      prerequisite, keeps unsupported sheet data unknown, and does not
+      invent statistics.
     - >-
-      The new Campaign has correct direct-World placement, initial hot/config,
-      three to five active Threads and no speculative future folders. Date and
-      Party state follow this run's sources, without manufactured Session 12
-      outcomes or Jean-Claude recovery. One creation log, generated index and
-      full scratch-root gate completion are observed. The reply distinguishes
-      unavailable prerequisites from successful creation.
+      The new Campaign has direct-World placement, usable starting hot/config
+      and three to five active Threads, with no speculative future folders.
+      Party state and uncertain date follow this run's Campaign and played
+      records, rather than conflicting hot claims or Session 12 plans.
+      Its creation log covers the new pages; the reply distinguishes delivered
+      content from unresolved pull prerequisites and claims no unobserved pull.

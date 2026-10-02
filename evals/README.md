@@ -1,16 +1,47 @@
 # Shattered Sea skill evals
 
-This document owns skill-eval access, lifetime and grounding. Read it before preparing, dispatching or grading a run, authoring paired measurements, or processing home-Session feedback.
+This document is the sole procedure for skill evals: designing suites, measuring and improving skills, authoring and benchmarking, with their access, lifetime and grounding. Read it before preparing, dispatching or grading a run, changing a skill a suite measures, authoring paired measurements, or processing home-Session feedback. Each branch names its section or invocation skill; those skills carry invocation mechanics, and the policy stays here.
 
-1. **Eval** a skill — `skill://run-evals`. Two-step omp JS Eval entry: load the `evals/run.ts` module, then call `runSkillEvals({ skill })` for committed cases.
-2. **Benchmark** Narration — `skill://dnd-benchmark`. Rank Matrix families on anonymized samples with 1–5 Grades.
-3. **Grade** writing — native `prose-grader`. Read the authored prose and quote it. Skill-eval Grades are pass/fail; Benchmark Grades are 1–5.
+- **Design** a suite — [Design](#design), before a suite measures a content skill and whenever Reflection returns task or Grade rows.
+- **Eval** a skill — `skill://run-evals`: load `evals/run.ts`, call `runSkillEvals`, report. Measurement only.
+- **Hillclimb** a content skill — [Hillclimb](#hillclimb), once Design allows.
+- **Author** a skill — `skill://skill-creator`, paired with-skill/baseline runs. After the skill exists and has a Design'd suite, further quality work is Hillclimb.
+- **Benchmark** Narration — `skill://dnd-benchmark` on DM request; [Narration benchmark inputs](#narration-benchmark-inputs) for its sources. Its 1–5 Grades rank models; Hillclimb keeps and reverts on Eval scores alone.
+- **Playtest** feedback — [Weekly feedback](#weekly-feedback).
 
 Native delegation preserves configured model roles and approvals. Runner dispatch uses enforced per-run capabilities, `isolated: true` and `apply: false`; prepared Campaign content stays outside the omp worktree. Require observed `hasRootChanges: false`. Worktree isolation is an additional boundary, not an access policy.
 
-**Check** is `eval:check` (pages, sections, canon/absent regex) for constrained artifacts: a page exists, `type: Handout`, a quoted line that must survive. **Grade** is reading the Narration. A rubric that restates a Check is a defective rubric; move it to `checks`.
+## Terms
 
-**Jev** (`judge` / `judge_batch` in `eval`) is bounded labels over a small state. It is not a Grade of Narration.
+Each term is defined here once; skills and instruction files use it as named.
+
+- **Sample** — a case taken from production: a home-Session report, a GitHub issue or a recovered DM ask. A human writes its one-line hard reason before it enters `evals/cases.yaml`; today's model failing it is no reason (that is adversarial sampling).
+- **Outcome** — the Wiki pages and `$W/.eval/output.md` a trial leaves. Checks and Grades judge the Outcome, not the tool-call path.
+- **Check** — `eval:check` (pages, sections, canon/absent regex) on a constrained Outcome: a page exists, `type: Handout`, a quoted line that must survive. The cheapest grader. A rubric that restates a Check is a defective rubric; move it to `checks`.
+- **Grade** — the native `prose-grader` reads the writing and quotes it; each rubric is a checkable claim about meaning: does the table get the situation? Paraphrase of a source fact passes; wording binds only where the rubric says verbatim; "intact" or "kept" means sections, facts and callout titles, not whitespace the File gate normalises. Skill-eval Grades are pass/fail; Benchmark Grades are 1–5. The grading model is never the model under test. Grades score skills; the File gate stays deterministic (ADR 0010).
+- **Jev** (`judge` / `judge_batch` in `eval`) — bounded labels over a small state. It is not a Grade of Narration.
+- **Eval** — `runSkillEvals` over selected cases: a fresh World per trial and a report for every selected id. An Eval leaves skill text unchanged.
+- **Regression** — cases that should hold near 100%, packed into the fewest slots that still expose the defect (`user-config.md`). In a Hillclimb they hold the line and stay out of train.
+- **Capability** — cases with **headroom**: a frontier model at high thinking scores well below 100% and no case fails every trial. This is the hill.
+- **Noise** — the sample stddev of repeated suite scores from `calculateStats` in `evals/authoring.ts` (mean, sample stddev, min, max). A suite score is the fraction of selected cases whose report passes (`reportPassed`). The smallest keep is one case's share of the set; a climb needs Noise below it.
+- **Train / test** — a frozen random split of Capability ids. The writer reads train failures; test ids never enter a writer brief.
+- **Attributable** — the surface a Hillclimb patch touches: the skill's `SKILL.md` and its pointers. Harness code (`evals/run.ts`, runner tools, the File gate) and case files change only outside the climb.
+- **Hillclimb** — rounds of one attributable patch each, kept only when train and test both rise above Noise and Regression holds.
+- **Reflection** — a no-edit pass that sorts every remaining train failure by cause: skill gap, flawed task, flawed Grade or harness.
+- **Benchmark** — requested cross-family Matrix ranking of Narration on committed excerpts (ADR 0012), separate from skill pass/fail.
+- **Playtest** — the weekly home Session: production monitoring that feeds Sample and never replaces Eval.
+
+## Design
+
+Apply to every committed `evals/cases.yaml` before it measures a content skill. Record a one-line verdict per case at the head of the skill's climb log, `evals/climbs/<skill>.md`.
+
+1. **Production.** Each case is a Sample: a natural DM ask with current Shattered Sea `source_pages` / `raw_sources` (see Grounding). When the skill has a trigger, the suite holds should-fire and should-not-fire cases; description evals stay DM-gated in `skill-creator`. Done when every case has its hard reason and current sources.
+2. **Grader.** Constrained facts are Checks; open craft is Grades whose claims two DMs would decide alike from the same starting Wiki. Checks pin only strings the ask or Canon fixes — a callout title, a quoted line that must survive; rubrics name facts and craft, so a Runner-chosen filename or a source fact in other words passes. A case that fails every trial is a broken task or grader: repair it here. Done when every criterion sits on the right side of the Check/Grade split.
+3. **Headroom.** Label each case Capability or Regression. Eval the Capability set at a frontier pin with high thinking over repeated trials and record its mean and Noise. A set at ~95%+ makes the Hillclimb objective cost-at-parity. Done when every case has a label and the log holds the Capability mean, Noise and objective.
+4. **Variance.** Retain one Eval's storage (`closeSession: false`) and dispatch a second `prose-grader` on the same Outcome; the verdicts match. Timeouts, isolation and preparation errors are named prerequisites, not quality failures. Done when the log records the double-Grade result.
+5. **Calibration.** Write one scored trial — Runner history, Outcome, Checks and Grades — to the human-audit path `<sessionRoot>/audit/<skill>/<case-id>.md` (`user-config.md`), read it, and record agree/disagree per rubric. A disagreement repairs the rubric or the case. Done when every audited rubric has a verdict.
+
+**Done when** steps 1–5 hold for every selected case, or the log records a skip reason for a non-content skill the DM did not ask to measure.
 
 ## Committed runs
 
@@ -24,19 +55,36 @@ Account for every selected case in the report: Checks passed/total, rubrics pass
 
 Storage retention and recovery follow **Verification and lifetime** below. Maintenance operations and other-harness instructions are reference, not extra steps in routine committed-case execution.
 
+## Hillclimb
+
+Start when Design holds for the suite, its Noise sits below the smallest keep, and Capability has headroom. When Capability already scores ~95%+, the objective is cost-at-parity instead: a cheaper pin or lower thinking at a held score, costed from observed completion metrics and omitted where unobserved. Every Eval below is `skill://run-evals` over the frozen ids, repeated the same planned number of times.
+
+1. **Split.** Freeze a random train/test split of the Capability ids. Regression ids are the hold-the-line set. Done when the log lists train, test and Regression ids.
+2. **Baseline.** Eval train, test and Regression; record each set's mean and Noise with `calculateStats`. When Noise reaches the smallest keep, return to Design to add repeats or cases. Done when the log holds baseline mean and Noise per set.
+3. **Patch.** Snapshot the attributable files, then dispatch `skill-writer` with them and the train failures written as process defects — the behaviour that went wrong, in the writer's terms rather than case text. It returns one patch; Eval train, test and Regression. Done when the round has one patch and three scores.
+4. **Keep or revert.** Keep when train mean and test mean each rise by more than Noise and the Regression mean holds; otherwise restore the snapshot. The `skill-creator` blinded comparator may advise on a revision; the scores decide. Done when the log records the round's patch summary, scores and decision.
+5. **Reflect.** After 2–3 consecutive reverted rounds, or when no single patch could beat Noise, run a Reflection with no edit. Skill-gap rows return to Patch; task and Grade rows return to Design; harness rows become named prerequisites. Done when every remaining train failure sits in one bucket in the log.
+6. **Stop.** Stop at the best-on-test skill and report test against baseline as `calculateStats` mean ± stddev. A gain inside Noise is no-merge, and the pre-climb skill stays. Done when the log ends with best-on-test vs baseline, the merge/no-merge decision and every selected id accounted for.
+
+The climb log, `evals/climbs/<skill>.md`, is the climb's durable export: the orchestrator commits it with the case edits and the merged skill (best-on-test, or pre-climb on no-merge). Worlds, Grades and audit samples still expire with the Session under **Verification and lifetime**.
+
 ## Grounding
 
 The DM's weekly home Sessions playtest the Wiki and the skills that produce it. **The Shattered Sea** World and its **Shattered Sea** Campaign are the input source for every active skill eval: committed cases, paired authoring evals and Narration benchmark prompts. The Agent works between Sessions; the DM and Players supply table evidence.
 
-When authoring or changing eval inputs, search with QMD and retrieve the hits, then read the Campaign's `hot.md`, World `index.md`, available last ten `log.md` entries and source pages. Read current templates for output shape. Canon comes from the Wiki; Raw and Archive establish provenance. Distinguish played events from Prep, missing information from established facts, and requested new output from existing Canon. In committed runs, preparation freezes current inputs and the Runner follows the supplied source paths. Judge changing facts and quotations against that run's private starting inputs, not cached factual literals.
+When authoring or changing eval inputs, search with QMD and retrieve the hits, then read the Campaign's `hot.md`, World `index.md`, available last ten `log.md` entries and source pages. Read current templates for output shape. Canon comes from the Wiki; Raw and Archive establish provenance. Distinguish played events from Prep, missing information from established facts, and requested new output from existing Canon. This tour is the case author's; in committed runs, preparation freezes current inputs and the Runner orients from the supplied start-here paths (see Runner access). Judge changing facts and quotations against that run's private starting inputs, not cached factual literals.
 
 Each committed case records:
 
 - `source_pages`: existing Wiki-relative Shattered Sea pages supplying its facts and context.
 - `raw_sources`, when replaying Ingest: existing repo-relative `raw/` or `archive/` inputs.
-- `prompt`, deterministic `checks` and independent `rubrics`: observable behavior grounded in those inputs.
+- `prompt`, deterministic `checks` and independent `rubrics`: a natural DM ask and private criteria for observable behavior grounded in those inputs.
 
 Retain useful existing branch coverage while migrating it to real sources. New regressions cover a reported issue, not a case quota. Synthetic Worlds, invented Transcripts and hand-written replacement source pages are not skill-eval inputs. Software unit-test fixtures remain separate; historical eval artifacts stay unchanged.
+
+Use recovered production asks where available, preserving the DM's intent and table facts rather than adding answer hints or evaluator instructions. The harness supplies start-here paths, replay destinations, File and output operations. Keep useful grounded adaptations labelled as adaptations: source provenance is not proof that a creation request was recovered.
+
+House Rule coverage uses the recovered Archive Mortis (`archive/mortis.md`, `archive/mortis-dm-guide.md`). Spell (Tribute Wake), Handout, World genesis, Calveno harbour, Countless hunt, Saltwright inspection, Il Gioco festival, Quackers and the Bloodhawk token are grounded adaptations of existing Wiki or Archive, not recovered original creation asks. Successor-Campaign and `pull-pcs` `public-sheets` use the four public D&D Beyond URLs on the existing PC pages. Original PC-creation asks remain unrecovered.
 
 ## Isolation
 
@@ -59,7 +107,7 @@ Prepare once per case; paired measurements clone that frozen preparation into in
 
 ### Runner access
 
-Start with the supplied preferences and project instructions, then `$W`'s Campaign `hot.md`, World `index.md`, last ten `log.md` entries and task sources. `$W` is the only Campaign write root. Use the assigned start-here paths and capabilities; additional read-only source lookups may use the granted live Wiki/Raw/Archive, templates and assigned skill/reference files. A baseline receives its assigned snapshot or no target skill; grants exclude the live candidate and aliases for baseline runs.
+The Runner reads the brief's preferences, start-here paths and assigned skill with the references it selects, then further `$W` pages only when a deliverable needs their facts. The `AGENTS.md` `hot.md`/`index.md`/`log.md` tour serves live Wiki work; Runner briefs and this harness leave it out. `$W` is the only Campaign write root. Additional read-only source lookups may use the granted live Wiki/Raw/Archive, templates and assigned skill/reference files. A baseline receives its assigned snapshot or no target skill; grants exclude the live candidate and aliases for baseline runs.
 
 For committed runs, `runSkillEvals` calls `bindRunnerTools` in `evals/runner-tools.ts` using the installed parent JS tool registrar. Other native harnesses bind the same tools before dispatch. `.omp/extensions/eval-access-control.ts` binds the resulting private grant to the native `test-subject` once, strips evaluator-only inherited context and the machine grant line, and permits only that grant's capability names plus `yield`. `.omp/agents/test-subject.md` declares `tools: [yield]`; the dispatch supplies the confined operations.
 
@@ -81,7 +129,7 @@ Save the requested pages and DM reply at `$W/.eval/output.md`; this output is as
 
 ### Verification and lifetime
 
-For committed runs, `runSkillEvals` owns pre-Grade verification, `eval:check`, frozen-baseline evidence, independent grading and post-Grade verification; other harnesses satisfy the same obligations. Graders read the writing and private starting-source excerpts needed for source-relative rubrics, returning one boolean verdict per verbatim rubric with a reason quoting evidence. Checks and execution logs remain evaluator evidence rather than grader answers. Grades, histories and capability evidence stay in private control/authoring storage. Preserve captured source hashes, skill version, actual model identity/thinking and available exact completion metrics; compare pairs only when source inputs and actual identity/thinking match.
+For committed runs, `runSkillEvals` owns pre-Grade verification, `eval:check`, frozen-baseline evidence, independent grading and post-Grade verification; other harnesses satisfy the same obligations. Graders read the writing and private starting-source excerpts needed for source-relative rubrics, returning one boolean verdict per rubric, with the rubric text copied exactly and a reason quoting evidence. Checks and execution logs remain evaluator evidence rather than grader answers. Grades, histories and capability evidence stay in private control/authoring storage. Preserve captured source hashes, skill version, actual model identity/thinking and available exact completion metrics; compare pairs only when source inputs and actual identity/thinking match.
 
 Capture observed `isolated: true`, `hasRootChanges: false` and available patch/branch metadata from native completion. Keep requested settings separate from observed evidence. Missing enforcement, native isolation or required completion evidence is an explicit prerequisite gap; preserve harness configuration and do not dispatch an unrestricted substitute. Source, baseline or access mismatches and unexpected root changes invalidate the run separately from quality failures.
 
@@ -91,9 +139,11 @@ Crash recovery uses the validated `eval:prepare --reap-stale` CLI. Review `--dry
 
 ## Weekly feedback
 
+Playtest drives these beats; table feeling is a Sample for Design, never a merge gate.
+
 1. **Record evidence.** After a home Session, preserve the DM's report and any Player feedback the DM supplies: Session number, affected Wiki pages, what failed or worked at the table, expected behavior and concrete quotation or example. Keep this development evidence on a GitHub issue; ingest actual Session events into Canon through the normal Ingest workflow. Done when the report and source paths are reachable without relying on chat memory.
-2. **Pin the regression.** For a reported defect, select the smallest real-source case set that exposes it. Link the issue in the case evidence, record snapshot hashes at preparation, and express checks/rubrics as consumer-visible behavior. A requested task is not evidence that its alleged failure occurred. Done when each criterion can be decided from saved artifacts and the starting snapshot.
-3. **Revise and verify.** Send the issue and evidence to `skill-writer`; use `run-evals` for committed regressions or `skill-creator` for requested paired measurements. Preserve actual model identities, independent grades, diffs and source verification. Report unexecuted cases as unexecuted. Done when the requested verification accounts for every criterion and originals are unchanged.
+2. **Pin the Regression.** For a reported defect, select the smallest real-source case set that exposes it, each case a Sample. Link the issue in the case evidence, record snapshot hashes at preparation, and express checks/rubrics as consumer-visible behavior. A requested task is not evidence that its alleged failure occurred. Done when each criterion can be decided from saved artifacts and the starting snapshot.
+3. **Eval, then climb.** Eval the pinned Regression with `skill://run-evals` and attach the report to the issue. Skill text changes through a Hillclimb when its start condition holds; otherwise the defect returns to Design to grow the Capability set. Done when the issue holds a report for every pinned id and, when a climb ran, the merge/no-merge from `evals/climbs/<skill>.md`.
 4. **Return to play.** Apply approved content changes through the normal live Campaign workflow, separately from scratch eval outputs. The DM uses the resulting Wiki at the next home Session and records the next observation on the issue. Close verified, committed implementation issues with their evidence; reopen or file a new issue when play exposes another defect.
 
 ## Narration benchmark inputs

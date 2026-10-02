@@ -132,13 +132,13 @@ export function operationalInstructions(worldRoot: string, skillRoot: string): s
 		"Preferences:",
 		"- Active World: The Shattered Sea",
 		"- Active Campaign: Shattered Sea",
-		"Read the supplied preferences, then $W's Campaign hot.md, World index.md and last ten log.md entries, then the start-here sources and assigned skill/reference files.",
+		"Read the start-here sources and the assigned skill with the references it selects. Read further $W pages only when a deliverable needs their facts.",
 		"",
 		`Write root $W: ${worldRoot}`,
 		`Assigned skill: ${skillRoot} (${basename(skillRoot)}). Follow it for this task.`,
 		"Use only the supplied capabilities. Additional read-only source lookups may use the granted live Wiki, Raw, Archive, templates and assigned skill/reference files.",
 		"",
-		'Complete File through the full check/fix capability against this World with --vault "$W/wiki" --root "$W" --templates "$W/wiki/templates" and all 13 layers. A page filter is not File completion. Then save the DM reply at $W/.eval/output.md.',
+'Complete File through `cf check --fix` then `cf check` against this World with --vault "$W/wiki" --root "$W" --templates "$W/wiki/templates" and all 13 layers. A page filter is not File completion. Then save the DM reply at $W/.eval/output.md.',
 	].join("\n");
 }
 

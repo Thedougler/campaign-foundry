@@ -3,7 +3,7 @@ type: PC
 summary: "Chad's level 5 Gloom Stalker ranger and blue-caste Grung fugitive, one island ahead of Simone's hunters."
 sources:
  - "archive/jean-claude-tabarnack.md"
-dndbeyond_url: ""
+dndbeyond_url: "https://www.dndbeyond.com/profile/nickdavenock/characters/171013670"
 ---
 
 ![[Jean-Claude Tabarnack - Reference Sheet.png]]

@@ -29,7 +29,7 @@ Model selection belongs in harness configuration, native agent frontmatter, and 
 - **Intent is not implementation.** `docs/intent/` records what earlier skills and templates were meant to do. Read it for intent and build every v2 from scratch; its README has the rules.
 - **Writing for agents.** You MUST read `writing-for-agents` before writing any text intended for agent consumption — skills, agent documents, runbooks, pointers — and follow it. Route that surface through `skill-writer`.
 - **Skill verification.** Evals are the verification mechanism for agent skill changes; software tests are unnecessary for instruction-only changes. Verify executable code changes with software tests at their public interfaces.
-- **Skill iteration.** Report the failures by the test-subject and have skill-writer fix them. Repeat this until all evals pass.
+- **Skill iteration.** Follow `evals/README.md`: an Eval reports failures, and a Hillclimb is what edits skill text.
 - **Dogfooding evals.** Read `evals/README.md` before authoring, preparing, dispatching or grading skill evals, or processing home-Session feedback; it owns Shattered Sea grounding, enforced Runner access and Session-root lifetime.
 - **Clean slate.** Facts come from this repo, the installed tools and the user. Earlier DM-assistant projects elsewhere on this machine are out of bounds: never read, cite or borrow from them.
 - **User edits are intentional.** When the DM changes their own harness configuration — model roles, `cfg://` settings, `.omp/` files, agent definitions, eval pins — assume it is intended and proceed. Never audit, re-validate or investigate those changes unless the DM asks.

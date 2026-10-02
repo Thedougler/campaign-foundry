@@ -3,7 +3,7 @@ type: PC
 summary: "Courtney's level 5 aarakocra Kensei monk: a cartographer, aerial skirmisher, and fiercely protective member of the crew."
 sources:
  - "archive/crissdalynn-khinriss.md"
-dndbeyond_url: ""
+dndbeyond_url: "https://www.dndbeyond.com/profile/PyonPyonPichu/characters/163280875"
 ---
 
 ![[Crissdalynn Khinriss - Reference Sheet.png]]

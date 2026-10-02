@@ -1,114 +1,74 @@
-# One packed run: new Site NPC, recurring deepen, and villain plan.
-- id: after-aruhe-people
+# Malone is the recovered scale-up ask. Quackers fills the missing flavour-NPC request.
+- id: malone-scale
   source_pages:
-    - The Shattered Sea/Shattered Sea/hot.md
-    - The Shattered Sea/Locations/The Ponte Bassa.md
-    - The Shattered Sea/Locations/Calven and Calveno.md
-    - The Shattered Sea/Creatures/Commoner.md
-    - The Shattered Sea/NPCs/Nona Black-Jaw.md
-    - The Shattered Sea/Factions/Passage.md
-    - The Shattered Sea/NPCs/Cobb.md
-    - The Shattered Sea/Items/Sending Stone (Nona's).md
-    - The Shattered Sea/Shattered Sea/Threads/Perrin and Nona.md
-    - The Shattered Sea/NPCs/Simone Tabarnack.md
-    - The Shattered Sea/Shattered Sea/Threads/Simone's Hunters.md
-    - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/NPCs/Aleksander Malone.md
+    - The Shattered Sea/Shattered Sea/Quests/The Hound of God.md
   prompt: >-
-    Three NPC jobs in this World, one reply. The Party is still on Aruhe; none
-    of this has happened yet. (1) Give Oleandro Fuschi, already recorded at
-    The Ponte Bassa, an NPC page for a possible later meeting about Calveno
-    hull movements. Keep twenty years of unwritten vessel memory, fish broth,
-    direct answers and increasingly false manifests. Make conversations,
-    limits, leverage and uncertain requests table-ready. Reuse fitting shared
-    Creature statistics; his name does not make him a unique fighter. (2)
-    Deepen Nona Black-Jaw as a recurring NPC for the crew's rescue obligation
-    after Aruhe. Keep her history, kitchen voice, Passage limits,
-    missing-persons desk, two dispatched ships, protection of Felix and
-    unresolved Vestra knowledge. Ground invitations in the actual PCs' Goals
-    and bonds or Plans, give a next move if ignored, and distinct discovery
-    for hidden truths. Keep Perrin's sending stone and the existing Perrin and
-    Nona Thread; invent no past ties to the other PCs and do not assume a
-    completed return. (3) Make Simone Tabarnack a runnable villain for the
-    pursuit after Aruhe. Deepen her existing person and put her interruptible
-    future plan on Simone's Hunters, not a parallel Thread. Keep purple-caste
-    identity, incomplete Gold rite, dead maintainer Ozzeth, Crown toxin
-    bargain, restraint with soldiers and the goal to capture Jean-Claude. He
-    is catatonic in Delmar's coat; the captive trail points toward Karath.
-    Multiple endings, no omniscience, no scripted win. Do not retune linked
-    statistics. No art or Foundry work. Do not rewrite hot or Session records.
+    Scale up the Aleksander Malone statblock. He should be roughly equivalent
+    in power to a level 12 player character, an optimized cleric, fighter,
+    rogue multiclass built for exorcising fiends and killing heretics. Keep
+    it an easy to run monster statblock for the DM.
   checks:
     pages:
-      - The Shattered Sea/NPCs/Oleandro Fuschi.md
-      - The Shattered Sea/NPCs/Nona Black-Jaw.md
-      - The Shattered Sea/NPCs/Simone Tabarnack.md
-      - The Shattered Sea/Shattered Sea/Threads/Simone's Hunters.md
-    sections:
-      The Shattered Sea/NPCs/Oleandro Fuschi.md:
-        - "## At a glance"
-        - "## Play"
-        - "## Depth"
-        - "## Links"
+      - The Shattered Sea/Creatures/Aleksander Malone (Creature).md
+      - The Shattered Sea/NPCs/Aleksander Malone.md
     canon:
-      The Shattered Sea/NPCs/Oleandro Fuschi.md:
-        - '^type:\s*NPC\s*$'
-        - '^creature:\s*"\[\[[^\]]+\]\]"\s*$'
-      The Shattered Sea/NPCs/Nona Black-Jaw.md:
-        - 'creature: "\[\[Commoner\]\]"'
-      The Shattered Sea/NPCs/Simone Tabarnack.md:
-        - 'creature: "\[\[Commoner\]\]"'
-      The Shattered Sea/Shattered Sea/Threads/Simone's Hunters.md:
-        - '^status:\s*active\s*$'
+      The Shattered Sea/Creatures/Aleksander Malone (Creature).md:
+        - '^type:\s*Creature\s*$'
+        - 'layout: Basic 5e Layout'
+      The Shattered Sea/NPCs/Aleksander Malone.md:
+        - 'creature: "\[\[Aleksander Malone \(Creature\)\]\]"'
     absent:
-      The Shattered Sea/NPCs/Oleandro Fuschi.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
-      The Shattered Sea/NPCs/Nona Black-Jaw.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
-      The Shattered Sea/NPCs/Simone Tabarnack.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
+      The Shattered Sea/NPCs/Aleksander Malone.md:
+        - '^```statblock\b'
+        - '!\[\[[^\]]+#Statblock\]\]'
   rubrics:
     - >-
-      Oleandro is the Site's keeper, not an invented clerk. Actual NPC
-      candidates are searched; Commoner is considered before any new Creature.
-      Nona's established facts survive: forty years feeding the Warren, the
-      Mercatura desk, more than 314 missing fighting-age men, two Passage
-      ships, Felix under a one-month protection, private Calveno Candle
-      history, incomplete Vestra knowledge, existing First look and Commoner
-      link. Simone's history survives: she reported Jean-Claude and Pell,
-      refuses to waste soldiers, independently found the rite, remains
-      incompletely transformed after Ozzeth's death, supplied Crown toxin;
-      capture-not-kill is distinguished from hunters killing Grung leavers.
-      Provenance separates Site/Wiki facts from new identity; sources hold
-      only archived Raw. Statistics stay on linked Commoner pages unless
-      separately requested.
+      The Creature is a runnable unique antagonist around an optimized
+      level-12 cleric/fighter/rogue exorcist, with clear timing, targets,
+      limits and condition endings. The table can run him from the statblock
+      without reconstructing a Player character sheet.
     - >-
-      Oleandro has a present want, costly leverage, limit and explicit secret
-      with discoverable evidence, without changing the twenty-year memory or
-      false-manifest problem. Nona: every relevant PC gets a distinct
-      invitation or explicit none from real Goals, bonds or Plans; catatonic
-      Jean-Claude is not freely conversing; invitations have choice and cost;
-      the ignored next move reuses the existing Thread. Simone's plan lives on
-      Simone's Hunters with a resolving NPC link; every step has
-      trigger/time, sign, resource or cost, ignored consequence, Party
-      interruption, fallback and her reaction; it does not assert scouts
-      already found the current camp or grant unearned knowledge.
+      Identity, Crown confirmation leash, hunt for Grigori and heretic-judgement
+      role survive. Shared rules live on the Creature page; the NPC keeps
+      person, voice and wants.
     - >-
-      Oleandro's likely ship-record, manifest-comparison and payment requests
-      are runnable. Attitude is separate from willingness; automatic answers
-      follow goals; Hesitant requests use retrieved 2024 Influence, its DC,
-      attitude modifiers and meaningful success/miss. Essential information
-      has three independent paths. Each of Nona's hidden truths has a testable
-      tell and three distinct discovery routes; what she knows, hides and can
-      grant stays separate from DM truth; no second sending stone. Simone has
-      at least three endings reachable by Party choice, not a required roll,
-      guaranteed capture or cutscene, respecting present capability and
-      Jean-Claude's inability to scout or negotiate now.
+      The scale-up is design, not a completed judgement or played encounter.
+      Existing Session records stay intact.
+
+- id: quackers-flavour
+  source_pages:
+    - The Shattered Sea/The Shattered Sea.md
+    - The Shattered Sea/Shattered Sea/Shattered Sea.md
+  prompt: >-
+    Add Quackers as an npc. If asked he will happily talk at length about his
+    former master the great Wizard RTLB, master of duomancy (magic which
+    allows two to act as one), master of transfiguration and conjuration,
+    rescuer of the dragon clans, tamer of faeries, his original creator, and
+    the greatest wizard quackers has known of, none he has met since have
+    surpassed the might of the two gnomes in a trenchcoat known as RTLB
+  checks:
+    pages:
+      - The Shattered Sea/NPCs/Quackers.md
+    canon:
+      The Shattered Sea/NPCs/Quackers.md:
+        - '^type:\s*NPC\s*$'
+        - RTLB
+        - duomancy
+    absent:
+      The Shattered Sea/NPCs/Quackers.md:
+        - '^```statblock\b'
+  rubrics:
     - >-
-      Oleandro follows the current NPC template, links a complete Creature,
-      and gains a non-index incoming link from The Ponte Bassa. Nona's new
-      depth is identified as design, filed through actual owner templates,
-      Player-safe without replacing already-heard First look. Simone does not
-      silently gain unique combat rules. All three pages and the Thread have
-      resolving dependencies, honest provenance, full scratch-root gate and
-      one operation log covering touched owners. Hot, already-heard Narration
-      and Session records remain unchanged; meetings and plans stay future.
+      Quackers is a playable NPC who, if asked, talks at length about RTLB
+      using the supplied titles, duomancy as two acting as one, and the two
+      gnomes in a trenchcoat. That talk is flavour he offers, not a dumped
+      secret or a required scene.
+    - >-
+      Identity, voice and wants fit a familiar or companion rather than a
+      combat antagonist. Statistics, if any, stay on a linked Creature.
+      RTLB is not filed as an already-met World power beyond what Quackers
+      claims.
+    - >-
+      New details are design. Played records stay intact, and a resolving
+      incoming link makes the NPC reachable.

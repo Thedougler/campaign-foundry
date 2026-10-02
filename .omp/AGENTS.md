@@ -34,20 +34,20 @@ Use an external CLI only when native delegation cannot provide the required mode
 
 **Eval default.** This overrides the imported root **Skill verification** rule: require evals by default only for skills whose job is generating D&D content in the Wiki, such as Narration, NPCs, locations, creatures, items, and sessions. For all other skills and agent-facing documents, instruction revision is complete when the body matches the brief. For that non-creative work, require, create, or wait on `evals/cases.yaml` only when the DM asks.
 
-Three omp-native skills split the evaluation surface. Shared policy is `evals/README.md`. Dispatch with native `task` (`context` + `tasks[]`); no second omp process and no Claude CLI.
+Skill measurement and improvement follow `evals/README.md`, the sole procedure: Design, Eval, Hillclimb, Author, Benchmark and Playtest. Three omp-native skills are its invocation points. Dispatch with native `task` (`context` + `tasks[]`); no second omp process and no Claude CLI.
 
-- **Eval a skill** — read `skill://run-evals` before running committed `evals/cases.yaml` in scratch Worlds (Check, then Grade).
+- **Eval a skill** — read `skill://run-evals` before running committed `evals/cases.yaml` in scratch Worlds and reporting.
 - **Benchmark Narration** — read `skill://dnd-benchmark` before ranking Matrix families or refreshing the leaderboard.
 - **Author a skill** — read `skill://skill-creator` before creating or revising a skill, planning paired baselines, or testing its description.
 
-**Grade writing** by dispatching `prose-grader` with `outputSchema`. It reads the prose. Checks stay on `eval:check`. Bounded labels over a small state use Jev (`xd://eval/judge`). The `.agents/` skill copies serve other harnesses.
+The `.agents/` skill copies serve other harnesses.
 
 ## Jev judgment
 
 - Use scoped `find` for unknown behavior locations; `grep` for known literals and LSP for references/definitions.
 - For bounded classification, yes/no, or ranking over a small state, read `xd://eval/judge` once and use `judge`. Batch independent questions over the same evidence into one call; use `judge_batch` for multiple states.
 - Send only the evidence the criteria need. A failed judge item is a tool failure: inspect `item.error` before concluding.
-- **Grade** Narration and other authored prose with `prose-grader`: it reads the writing. Jev is not that Grade. Execution, diffs, isolation and `eval:check` stay with the orchestrator.
+- **Grade** Narration and other authored prose with `prose-grader`, dispatched with `outputSchema`: it reads the writing. Jev is not that Grade. Execution, diffs, isolation and `eval:check` stay with the orchestrator.
 
 ## Configuration
 

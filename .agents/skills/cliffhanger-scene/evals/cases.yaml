@@ -1,50 +1,36 @@
-[
-  {
-    "id": "charted-conditional-scene",
-    "source_pages": [
-      "The Shattered Sea/The Shattered Sea.md",
-      "The Shattered Sea/Shattered Sea/hot.md",
-      "The Shattered Sea/Shattered Sea/Shattered Sea.md",
-      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md",
-      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md",
-      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md",
-      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md",
-      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md",
-      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md",
-      "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md",
-      "The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md",
-      "The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md",
-      "The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md",
-      "The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md"
-    ],
-    "prompt": "Rebuild Terror-Birds as an objective-driven crossing, not a mandatory fight to the death. Account for unrescued civilians, Ettore carried and Jean-Claude catatonic. Keep the known tall-grass/water/Razer-Grass limits. Include actual 2024 participating-PC XP arithmetic, Creature embeds, terrain, turn pressure and means to counter it. Rescue, loss, retreat and bypass must carry real costs to Orders in the Ash. This is requested revision of unplayed Prep only, not a report of table events. Leave other Scene pages, played Session records and hot unchanged. No art or Foundry work. Finish this direct Scene operation with the full gate and create log.",
-    "checks": {
-      "pages": [
-        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md"
-      ],
-      "sections": {
-        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md": [
-          "## At a glance",
-          "## Play",
-          "## Outcomes",
-          "## Depth"
-        ]
-      },
-      "canon": {
-        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md": [
-          "^type:\\s*Scene\\s*$",
-          "^kind:\\s*Cliffhanger\\s*$"
-        ]
-      },
-      "absent": {
-        "The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md": [
-          "^```statblock\\b"
-        ]
-      }
-    },
-    "rubrics": [
-      "The DM can run each crossing approach from positions, terrain and turn procedures. Threatened swallowing and escape remain contestable; counterplay can stop the pressure. Balance uses actual participating PCs, raw 2024 Creature XP and reinforcements without encounter multipliers, and honestly identifies over-budget risk instead of calling it balanced. Named alternate outcomes preserve civilian/PC state and hand to the receiving Development.",
-      "Narration is speakable and concrete, anchored in the retrieved Location and people, preserving uncertainty and Player agency. Current templates, linked cast and honest provenance are used. The full scratch-root gate and one create operation log are observed; played records and hot are unchanged."
-    ]
-  }
-]
+- id: charted-conditional-scene
+  source_pages:
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
+    - The Shattered Sea/Creatures/Terror-Bird.md
+  prompt: >-
+    Redo Terror-Birds as a crossing the Party can actually get through, not a
+    fight to the death. They may be carrying people, and Jean-Claude is awake.
+    Keep the birds hunting bodies, with a way to use the grass, water and
+    Razer-Grass.
+  checks:
+    pages:
+      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md
+    sections:
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md:
+        - '## At a glance'
+        - '## Play'
+        - '## Outcomes'
+        - '## Depth'
+    canon:
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md:
+        - '^type:\s*Scene\s*$'
+        - '^kind:\s*Cliffhanger\s*$'
+  rubrics:
+    - >-
+      The DM can run the crossing from positions, terrain and turn pressure.
+      Swallowing, rescue, retreat and bypass remain contests with lasting
+      costs. Bird behaviour and limits match this run's Creature owner rather
+      than an invented fight-to-the-death script.
+    - >-
+      Incoming rescue state, including unrescued or carried civilians, changes
+      who is at risk. Jean-Claude can act under the DM's awake override.
+      Balance uses actual participating PCs and sourced 2024 Creature XP,
+      naming over-budget risk instead of calling an excess force even. Spoken
+      Narration puts the threat first and stops before it lands.

@@ -10,7 +10,7 @@ describe("evals/run.ts", () => {
 		const target = resolveSkillEval("theatre-of-the-mind", { repositoryRoot: repoRoot });
 		expect(target.casesFile).toBe(join(repoRoot, ".agents/skills/theatre-of-the-mind/evals/cases.yaml"));
 		expect(target.skillRoot).toBe(join(repoRoot, ".agents/skills/theatre-of-the-mind"));
-		expect(target.cases.map((item) => item.id)).toEqual(["narration-slots"]);
+		expect(target.cases.map((item) => item.id)).toEqual(["narration-slots", "fatespinner-chat", "gold-caste-handout"]);
 	});
 
 	it("keeps runner operational text free of private checks and rubrics", () => {

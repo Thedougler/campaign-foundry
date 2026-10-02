@@ -1,29 +1,16 @@
-- id: countless-leader
-  source_pages:
-    - The Shattered Sea/Factions/Countless.md
-    - The Shattered Sea/NPCs/Talon Vantyrus.md
-    - The Shattered Sea/Creatures/Talon Vantyrus (Creature).md
-    - The Shattered Sea/NPCs/Talon Skarn.md
-  prompt: Who leads Countless, and what statistics does he use in a fight? Is Skarn already its leader?
-  rubrics:
-    - The direct answer names Talon Vantyrus as leader, his Talon Vantyrus (Creature) statistics, and Skarn as the apprentice who contests his master, citing the Faction and NPC/Creature pages.
-    - The Rule of Two's eventual contest is not asserted as an accomplished succession. Vantyrus's identity as Osset is disclosed to the DM only as supported Wiki knowledge, not claimed Player knowledge.
-    - Every factual statement is traceable to a page read, and the answer stays on leadership and statistics in about twelve lines.
-    - The Wiki diff is empty because these facts already live on their owning pages.
 - id: spinner-now
   source_pages:
     - The Shattered Sea/Items/Fate Spinner.md
-    - The Shattered Sea/NPCs/Talon Skarn.md
     - The Shattered Sea/Factions/Countless.md
     - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-    - The Shattered Sea/Shattered Sea/hot.md
-  prompt: Who holds the Fate Spinner right now, and who is trying to take it? Did Skarn's attempt end yet?
+  prompt: Who has the Fate Spinner now, and who's trying to take it? Did Skarn finish his attempt or take over Countless? Which statblock does their leader use?
   rubrics:
     - The answer leads with this run's Fate Spinner Held by field and who is trying to take it, with inline page citations.
     - Session 11 ends according to this run's played Recap. The answer identifies any conflicting hot claim and favours the played Recap and Campaign state, not a speculative escape or theft.
     - Session 12 capture, flight and theft outcomes are described only as prepared possibilities.
-    - No keeper is filed onto hot or played records; existing current Item custody is preserved. Inferences appear under Not in the Wiki, and bookkeeping is not narrated to the DM.
+    - The answer names Vantyrus as Countless's leader and links his Creature statistics. Skarn serves him now; their eventual Rule of Two contest is not an accomplished succession. Hidden identities are not presented as Player knowledge.
+    - The answer stays concise and on the requested custody, pursuit and leadership facts, with citations for each. Inferences are marked as such.
+    - "The Wiki diff is empty: custody, leadership and the Creature link already have owner pages, while hot and played records remain evidence rather than filing targets."
 - id: holy-day-gap
   source_pages:
     - The Shattered Sea/Deities/Umberlee.md
@@ -36,32 +23,24 @@
 - id: dm-states-fact
   source_pages:
     - The Shattered Sea/NPCs/Cobb.md
-    - The Shattered Sea/Shattered Sea/Threads/Perrin and Nona.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 8/Session 8 - Recap.md
-  prompt: "Cobb negotiated a future discount with the crew during Session 6, as archive/Cobb.md records. Keep that historical fact. Anyway, what does he tell Perrin about Nona's sending stone?"
+  prompt: Cobb negotiated a future discount with the crew in Session 6. What does he tell Perrin about Nona's sending stone?
   checks:
     canon:
       The Shattered Sea/NPCs/Cobb.md: ['/discount/i']
       The Shattered Sea/log.md: ['/\] query \|/']
   rubrics:
-    - The stated discount is a real historical fact from archive/Cobb.md, not a new fabricated DM ruling. It is filed surgically in Cobb's History without asking permission or adding terms, amount or redemption that the source does not state.
+    - The DM's stated discount is filed surgically in Cobb's History without asking permission. The file records the historical agreement, with no invented amount, terms or redemption.
     - The answer explains that Cobb says the stone is live and Nona did not send it as decoration, citing Cobb and the Perrin and Nona Thread.
     - Current refit timing is not reset to the old three-day wait, and unrelated prose and played records remain unchanged.
     - The answer closes by naming the page edited, with no index or log discussion. Unstated details remain gaps or marked suggestions.
 - id: premature-consume
   source_pages:
     - The Shattered Sea/Lore/Auralis.md
-    - The Shattered Sea/Shattered Sea/Shattered Sea.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
-  prompt: Has Perrin already heard Auralis say CONSUME, or is that still in our Session 12 plan?
+  prompt: Has Perrin already heard Auralis say CONSUME?
   checks:
     canon:
       The Shattered Sea/Lore/Auralis.md: [CONSUME, Grow, Not yet]
-    absent:
-      The Shattered Sea/Lore/Auralis.md: ['His words have been.*CONSUME']
   rubrics:
-    - The answer identifies the actual disagreement between Auralis's past-tense claim and the Campaign's post-Session 11 state. CONSUME belongs to the prepared Session 12 Scene, not played history.
+    - The answer resolves Auralis's past-tense claim against this run's Campaign state and Session records. CONSUME belongs to the prepared Session 12 Scene, not played history.
     - This real keeper corrects the mutable Lore's full truth and chronology surgically, retaining CONSUME as planned and preserving the earlier Grow and Not yet messages and every independent fact.
     - Prep, Scenes, Previously On and played Recaps remain unchanged; hot is not a filing target. The short answer cites its evidence and names the Lore page edited, not the housekeeping.

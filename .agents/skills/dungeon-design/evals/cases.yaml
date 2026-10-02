@@ -1,93 +1,51 @@
-# One packed run: stock the tubes and nest a returnable refuge.
+# Grounded adaptation: rescue and a returnable refuge share one exploration Site.
 - id: tubes-and-refuge
   source_pages:
-    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Locations/Lava Tubes.md
     - The Shattered Sea/Locations/The Long Meadow.md
-    - The Shattered Sea/Locations/Memorial Grove.md
-    - The Shattered Sea/NPCs/Ettore Ferrante.md
-    - The Shattered Sea/NPCs/Luca Ferrante.md
-    - The Shattered Sea/Lore/Taking on Aruhe.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
   prompt: >-
-    Two stocking jobs, one reply, one create operation. Neither rescue nor an
-    expedition has happened. (1) Stock the existing Lava Tubes for exploration
-    and rescue from the Long Meadow smoking skylight. Make the ledge, east and
-    west tubes, daylight wells, seep and vents navigable, with Clues, hazards,
-    occupants, pressure and rest. Keep the four trapped Calveno survivors,
-    Ettore's injury, Luca's tally, the recorded climb and footing DCs, and the
-    option to haul all four out in ten minutes. Link existing owner pages
-    before inventing dependencies. (2) Add a nested Site, Lava Tube Refuge,
-    around the smoking-skylight ledge. Subdivision of the real Site, not a new
-    discovered expedition. Prepare the accessible refuge and adjoining
-    east/west approaches for repeat visits, with the deeper Clear Lake route as
-    a discoverable frontier. Distinct reasons to return besides fighting. Keep
-    the four survivors trapped until play resolves rescue. Show how extraction,
-    secured ropes, damaged access or bargains would persist if those choices
-    occur. Add entrance and cross-Site routes to Lava Tubes without changing
-    its established facts. Account for the current Party, including Jean-Claude
-    carried in Delmar's coat. Do not invent a past survey, elapsed absence or
-    completed rescue. Leave hot and Session records alone. No art or Foundry
-    work.
+    Stock the Lava Tubes so I can run the rescue from the smoking skylight
+    and exploration beyond it. Make the ledge a small nested Site called
+    Lava Tube Refuge that the crew could secure and return to, with routes
+    deeper toward Clear Lake and reasons to come back besides fighting.
   checks:
     pages:
       - The Shattered Sea/Locations/Lava Tubes.md
       - The Shattered Sea/Locations/Lava Tube Refuge.md
-    sections:
-      The Shattered Sea/Locations/Lava Tubes.md:
-        - "## At a glance"
-        - "## Play"
-        - "## Depth"
-        - "## Links"
-      The Shattered Sea/Locations/Lava Tube Refuge.md:
-        - "## At a glance"
-        - "## Play"
-        - "## Depth"
-        - "## Links"
     canon:
       The Shattered Sea/Locations/Lava Tubes.md:
         - '^type:\s*Location\s*$'
         - '^kind:\s*Site\s*$'
-        - '^parent:\s*"\[\[Aruhe\]\]"\s*$'
       The Shattered Sea/Locations/Lava Tube Refuge.md:
         - '^type:\s*Location\s*$'
         - '^kind:\s*Site\s*$'
         - '^parent:\s*"\[\[Lava Tubes\]\]"\s*$'
     absent:
-      The Shattered Sea/Locations/Lava Tubes.md: ['^```statblock\b']
-      The Shattered Sea/Locations/Lava Tube Refuge.md: ['^```statblock\b']
+      The Shattered Sea/Locations/Lava Tubes.md:
+        - '^```statblock\b'
+      The Shattered Sea/Locations/Lava Tube Refuge.md:
+        - '^```statblock\b'
   rubrics:
     - >-
-      Lava Tubes keep Long Meadow skylight, marsh and roots entrances, the
-      established ledge and areas, nineteen-day stranding, four named
-      survivors, Ettore's broken shin, Luca's twentieth-day resolve, existing
-      footing/climb DCs and ten-minute rope extraction. Session 12 prepared
-      rescue outcomes are not observed events. From the keys, a reader can
-      trace entry, rescue, underground investigation and retreat. Edges agree
-      at both ends. Flight, ropes, healing, carried Jean-Claude and island law
-      still work.
+      The starting entrances, ledge, tube connections, hazards and survivors'
+      condition remain consistent. Rescue and retreat are traceable through
+      the keys, with existing extraction options and mechanics usable.
+      The actual Party's movement, flight, ropes, healing and participation
+      inform challenges, and the island's taking law reaches underground.
     - >-
-      Every area has cue, activity, interaction, find or truth, relevant
-      uncertainty and exits. Essential revelations have three independent
-      Clues; progress is not one roll. Hazards have sign, trigger, effect,
-      counterplay, bypass and leverage; existing mechanics stay. Occupants have
-      wants and responses. Confrontations have purpose, terrain, consequences,
-      nonviolent resolution and retreat. Creature/NPC/Item rules stay on owner
-      pages. Pressure and rest have explicit triggers, signs, consequences and
-      sourced Short/Long Rest rules. Custom pressure is Site-specific.
+      Areas have distinctive cues, activity, interactions, discoverable
+      information and exits. Essential progress has independent paths.
+      Hazards offer warnings, triggers, effects, bypasses and counterplay;
+      occupants have wants and responses. Pressure and rest have explicit
+      conditions and consequences rather than an arbitrary expedition clock.
     - >-
-      Flat Location/Site layout: Aruhe contains Lava Tubes contains Lava Tube
-      Refuge. Areas are keys. Cross-Site routes name both ends. The refuge
-      supports a goal-and-return visit with alternative routes and non-combat
-      reasons to return. Clear Lake is discoverable without prewriting the
-      island. Return state separates current evidence from conditional play:
-      survivors still trapped; ropes, rescue, damage and bargains persist if
-      chosen. Repair or restock needs actor, resources, time and a sign.
+      The nested refuge and its approaches form a coherent, returnable Site.
+      Routes name both ends and agree with the parent Site. Noncombat reasons
+      to return and the frontier toward Clear Lake are discoverable. Rescue,
+      secured ropes, damage or bargains would leave persistent changes, with
+      repair or restocking tied to actors, resources and time.
     - >-
-      Current templates, resolved links, honest provenance. One full
-      scratch-root gate and one create log. No recursive location/dungeon
-      loop, no new permanent Scenes, no changed hot or Session records.
+      Owner pages hold NPC, Creature and Item rules, and dependencies resolve.
+      New exploration details are prospective design: the trapped survivors
+      have not been rescued, the refuge has not been secured and prepared
+      Session outcomes have not become history.

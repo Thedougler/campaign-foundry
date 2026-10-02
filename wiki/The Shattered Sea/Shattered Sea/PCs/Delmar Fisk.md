@@ -3,7 +3,7 @@ type: PC
 summary: "Frederick's level 5 Swashbuckler rogue and former admiral, carrying the secret cost of stealing the Pearl of Souls."
 sources:
  - "archive/delmar-fisk.md"
-dndbeyond_url: ""
+dndbeyond_url: "https://www.dndbeyond.com/profile/Tabalicious/characters/164202916"
 ---
 
 ![[Delmar Fisk - Reference Sheet.png]]

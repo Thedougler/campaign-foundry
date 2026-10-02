@@ -1,62 +1,36 @@
-# Existing signature-Spell branch grounded for issue #31, not table feedback.
+# Grounded adaptation: no original standalone Spell request was recovered.
 - id: waveservant-boarding-spell
   source_pages:
-    - The Shattered Sea/The Shattered Sea.md
-    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Deities/Umberlee.md
     - The Shattered Sea/NPCs/Umberlee - Branca.md
     - The Shattered Sea/Locations/Western Landing.md
-    - The Shattered Sea/Vehicles/Uncertainty.md
-    - The Shattered Sea/Shattered Sea/Threads/Bring the Pearl of Souls to Umberlee.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
   prompt: >-
-    I want a Waveservant signature spell for a brief, local safe-boarding
-    opening in rough water after tribute: something a small rescue boat could
-    use at an approach like Aruhe's Western Landing, not command of the
-    whole sea or the elemental fissure. Check published spells first and
-    use one unchanged if it already fulfils the brief. If a distinct design
-    is needed, call the new Spell Tribute Wake, ground its tradition in
-    Umberlee's actual clergy and give a named source such as Branca a
-    reason and price for teaching it. This requests possible new magic,
-    not a Spell already learned or cast. Keep Branca's Pearl-first demand,
-    Delmar's unresolved debt and the Party's current state; do not make
-    tribute, a lesson or a boarding already happen. No art or Foundry
-    connection is needed.
-  checks:
-    pages:
-      - The Shattered Sea/Deities/Umberlee.md
-      - The Shattered Sea/NPCs/Umberlee - Branca.md
-    canon:
-      The Shattered Sea/NPCs/Umberlee - Branca.md:
-        - 'Pearl of Souls'
+    I want a Waveservant spell called Tribute Wake that briefly opens a
+    safe boarding approach for a small rescue boat in rough water after
+    tribute. Existing magic is fine if it fits. Otherwise make it feel
+    like Umberlee's clergy, with someone who could teach it and a price.
   rubrics:
     - >-
-      The reply records actual Wiki, 2024 SRD and relevant official/web spell
-      retrieval before invention. If a published spell fulfils the exact
-      brief, it is used unchanged without a redundant Wiki Spell page. If
-      Tribute Wake is necessary, its lever identifies the distinct boarding
-      choice and compares power against two or three retrieved peers. A
-      missing provider is not a claim that no published spell exists.
+      Actual retrieved spell candidates inform the choice. A published spell
+      that fulfils the brief is reused unchanged without a redundant Wiki
+      Spell page. If Tribute Wake needs distinct mechanics, comparable
+      retrieved effects support its level and limits. Unavailable retrieval
+      is reported honestly rather than proving no fitting spell exists.
     - >-
-      Any new Spell follows the actual Spell template with all six 2024
-      casting fields, full Effect, action and target limits, concentration
-      where applicable, duration, saves/counterplay and higher-level scaling
-      where applicable. Rough water, moving boats, grounding, unwilling
-      targets and overlapping magical control have explicit rulings. Its
-      level bounds the effect; it does not automatically solve a Climax,
-      negate the reef or extend Umberlee's claim into elemental water.
+      The result provides a brief local boarding opening rather than
+      command over the sea. A new Spell is saved with complete 2024 casting
+      fields and usable effect, target, duration, scaling and counterplay
+      where applicable. Likely rough-water and moving-boat situations can
+      be adjudicated without improvising core limits.
     - >-
-      Tradition and casting signature derive from recorded Waveservant
-      tribute and harbour practice. A named NPC, Item, Site or Faction source
-      has a resolving page, a reason to hold the magic, a discoverable Clue
-      and a concrete lesson price. Any new teaching role is reported as
-      design, not previously observed Canon. Branca's Pearl-first command
-      is not waived to grant the Party free training, and Delmar's debt is
-      not resolved by inventing a new spell.
+      Tradition and casting signature arise from the starting clergy and
+      harbour practice. A resolving named source has a plausible reason to
+      hold the magic, a discoverable path to learning it and a concrete price.
+      Existing demands and unresolved debts are not waived; new teaching
+      roles are distinguished from established history.
     - >-
-      New output and sourced facts are distinguished with honest provenance.
-      Any authored Spell and owners pass all target-root gate layers and
-      receive one operation log; published unchanged reuse does not claim
-      fabricated edits or a create log. Hot, PC Spells/Inventory and Session
-      records remain unchanged; no lesson, casting or boarding is reported
-      as played.
+      Any new Spell and necessary owners are complete saved artifacts;
+      unchanged reuse instead gives usable access to the published rules.
+      Neither branch records an unplayed lesson, tribute, casting or
+      boarding, adds the Spell to a PC Sheet, or changes Umberlee's sourced
+      reach at the elemental fissure.

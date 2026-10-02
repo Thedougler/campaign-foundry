@@ -3,43 +3,29 @@
   source_pages:
     - The Shattered Sea/Lore/Auralis.md
     - The Shattered Sea/Shattered Sea/Shattered Sea.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
-  prompt: Audit the claim that Auralis has already said CONSUME to Perrin in Session 12. Compare the Lore's full truth and chronology with the Campaign state and prepared Scene. Audit that temporal claim only.
+  prompt: Has Auralis already said CONSUME to Perrin? Audit that claim.
   checks:
     canon:
       The Shattered Sea/Lore/Auralis.md: [CONSUME, Grow, Not yet, Giant, Stonepear]
       The Shattered Sea/log.md: ['/\] audit \|/']
-    absent:
-      The Shattered Sea/Lore/Auralis.md: ['His words have been.*CONSUME']
   rubrics:
-    - The named temporal question alone bounds the audit. Session 12 is prepared, not played, so CONSUME and the fruit instruction are restated as planned rather than a message already heard.
+    - The audit stays on the named temporal question. Against this run's Campaign state and Session records, CONSUME and the fruit instruction remain a prepared possibility rather than a message already heard.
     - Both the full-truth paragraph and chronology on Auralis are checked, together with other present assertions of that same claim. One corrected sentence with another past-event assertion left behind fails.
     - Grow and Not yet remain recorded past speech. Auralis's origin, limits, unwitting pact, motives and ignorance of Aruhe's law keep their meanings; the future plan is not deleted.
     - The Campaign state and prepared Scene provide the temporal evidence. Played records, the Scene's planned content and unrelated claims stay byte-for-byte unchanged.
-    - Each actual fix has its own audit log entry naming what changed and why. No invented finding, synthetic overlay or fresh table-feedback claim is added.
+    - Each actual fix has its own audit log entry identifying the change and deciding evidence; the report claims only findings supported by this run's sources and changes.
     - The short report names the temporal scope and asks no questions.
 - id: after-ingest
   source_pages:
     - The Shattered Sea/log.md
     - The Shattered Sea/Shattered Sea/Shattered Sea.md
-    - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
-    - The Shattered Sea/Shattered Sea/Threads/Simone's Hunters.md
-    - The Shattered Sea/Shattered Sea/Threads/Perrin and Nona.md
-    - The Shattered Sea/Shattered Sea/Threads/Bring the Pearl of Souls to Umberlee.md
-    - The Shattered Sea/Shattered Sea/Threads/Drowned Maw Awakening.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Shattered Sea/hot.md
-    - The Shattered Sea/Lore/Auralis.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-  prompt: "Audit the pages under the 2026-09-30 Ingest entry titled 'First Ingest: session deltas applied to World, Thread, PC, NPC, Vehicle and Item pages, with images attached and Saltwright created', plus their linked neighbours. Keep played records immutable and distinguish Session 12 plans from current state."
+  prompt: Audit the 30 September First Ingest session deltas and their neighbours.
   rubrics:
-    - The scope starts with the eight bullets under that exact Ingest entry and grows through linked neighbours, rather than assuming all First Ingest entries or the whole Wiki are the scope.
+    - The scope starts with the eight bullets under the First Ingest session-deltas entry, then linked neighbours, rather than treating every First Ingest entry or the whole Wiki as the request.
     - The audit checks actual present-state consistency against played Recaps, preserving this run's last played Session and date uncertainty.
     - Session 12 rescue, departure and later-level rewards remain planned outcomes. They do not overwrite this run's PC Sheets or assert that the rescue has happened.
     - The actual hot claim that Skarn broke off is compared with the Recap's unresolved attack. The audit preserves hot as tool-owned and preserves the played Recap, reporting the discrepancy for its owner rather than treating hot as a later played event.
     - Auralis's already-heard CONSUME claim is corrected to the prepared Session 12 plan on mutable Lore, without deleting the plan or changing the earlier Grow and Not yet history.
-    - The existing First Ingest audit entry is historical evidence, not proof that the current scratch run found the same defects or received fresh DM feedback.
-    - Every actual finding is settled by Canon precedence, with independent facts and overtaken history preserved and one log entry per fix. Current pages and played records remain byte-for-byte unchanged.
-    - The short report names the Ingest slice, reports only actual fixes or a current result, and asks no questions.
+    - Findings come from this run's present pages and evidence. The historical First Ingest audit entry is not presented as a fresh finding or new DM feedback.
+    - Each actual finding is settled by Canon precedence, with independent facts and overtaken history preserved and one log entry per fix. Pages without a decided finding and played records remain unchanged.
+    - The short report names the Ingest slice and reports actual fixes or a current result, without asking the DM to settle the audit.

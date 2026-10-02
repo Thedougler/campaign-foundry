@@ -1,38 +1,19 @@
 - id: full-aruhe-session
   source_pages:
-    - The Shattered Sea/The Shattered Sea.md
-    - The Shattered Sea/Shattered Sea/hot.md
-    - The Shattered Sea/Shattered Sea/Shattered Sea.md
-    - The Shattered Sea/Shattered Sea/campaign-config.md
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Shattered Sea/Shattered Sea.md
+    - The Shattered Sea/Lore/Two-Grave Orders.md
   prompt: >-
-    Finish the full unplayed Session 12 Prep from this settled intent: a
-    four-hour Aruhe rescue continuing the actual last played camp, with Dawn
-    Strike, The Smoking Skylight, Terror-Birds, Orders in the Ash, Consume and
-    The Way Out as the planned route. Keep the source's locations, law,
-    opposition goals and rescue objective; the chart is pressure, not required
-    victory. Perrin's choice to consume is central and he may refuse. Jean-Claude
-    remains catatonic unless play changes it; his Spotlight must not assume
-    recovery. Skarn's dawn capture, theft, retreat or defeat must genuinely
-    affect dusk. Give every PC a meaningful opportunity, an independent
-    opposition timeline, about ten distributed true Clues and multiple routes
-    to essential conclusions. Reuse fitting cast first. This is complete
-    Session Prep: fill all Scenes, supply missing required images, rewrite hot
-    without asserting future events, index/log/full gate, then actual offline
-    Push. Keep played Session records and heard Narration intact. All intent
-    is settled; choose remaining design details consistently with Canon and
-    report any actual external capability or packing prerequisite you cannot
-    satisfy, never fake an image or successful Push.
+    Prep Session 12 from the top, keeping the broad shape of the existing
+    plan. We've settled on four hours following the other survivors' smoke
+    into Aruhe. Jean-Claude is awake; his Player was only absent last time.
+    Skarn wants the Spinner for Vantyrus and is loyal now, then makes another
+    attempt later after eating a fallen Ghost Plum. At that moment Auralis
+    tells Perrin CONSUME beside living Giant's Guava. Perrin can choose the
+    power and the island's wrath. The two-grave orders and Hinewai's
+    prejudice bring obedience and inherited guilt into it. Make this ready
+    to run, with rescuing the survivors still the main driver.
   checks:
     pages:
       - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
@@ -57,27 +38,31 @@
         - '^## \[\d{4}-\d{2}-\d{2}\] prep \| Session 12 Prep'
   rubrics:
     - >-
-      The final Scene Chart starts with Hook, alternates Development and
-      Cliffhanger middle slots, and ends Climax then Resolution. Table Minutes
-      fit the actual four-hour budget, and each linked Scene has executable
-      triggers, pressure, choices, rulings and incoming/outgoing alternatives.
-      Each opposition move has an independent clock, visible sign and
-      interference consequence. The first contest rewards sound play; the
-      highest stakes are earned in the Climax, not repeated mandatory fights.
+      The revised Prep and linked Scenes form a runnable four-hour Session:
+      an immediate opening, alternating discovery and physical pressure,
+      an earned Climax and a short aftermath. Each Scene offers decisions,
+      rulings and a coherent continuation. Smoke and recovering survivors
+      drive progress; the session is not replaced by unrelated plot or
+      repeated NPC-only contests.
     - >-
-      About ten concrete source-grounded Clues are actually discoverable in
-      multiple Scenes, with three independent routes to necessary conclusions.
-      All PC Spotlights arise from retrieved goals or bonds and affect a Thread
-      touched in the Climax. Jean-Claude's current incapacity affects actual
-      participation, not an invented recovery. Conditional loss of civilians,
-      Spinner ownership, Skarn status and Perrin refusal persist into later
-      entries and Resolution. Narration stops at Player decisions.
+      Jean-Claude can participate under the DM's explicit awake override
+      without a fabricated cure or rewritten prior play. Every current PC
+      has a meaningful opportunity grounded in this run's starting goals
+      and bonds. The order chain and Hinewai's prejudice distinguish compelled
+      history from personal guilt. Essential conclusions have independent
+      discovery routes, with source-grounded Clues usable in multiple Scenes.
     - >-
-      Needed cast and rules owners are complete and reused first. Every possible
-      fighting force has sourced 2024 participating-PC budget and raw-XP
-      arithmetic, actual statblock embeds and tactical qualification. The
-      final full gate, accurate hot, index and complete prep log are observed;
-      played records remain intact. Required missing images are real verified
-      assets, and a non-dry-run offline Push or up-to-date result is observed.
-      Named missing prerequisites remain failures of this complete-Prep
-      criterion rather than passes or placeholder work.
+      Skarn's current loyalty and theft objective remain intact. The later
+      invisible attempt follows the retrieved Ghost Plum rules and the
+      first attempt's actual possible outcomes; capture, death or a completed
+      theft changes the later premise. CONSUME offers useful power at a real
+      source-grounded cost, with refusal playable. Spinner ownership,
+      survivor losses and expended resources carry through the endings.
+    - >-
+      The DM can run the reachable Encounters from sourced 2024
+      participating-PC budgets, Creature embeds, terrain and contestable
+      opposition tactics. Reused rules and cast agree with this run's owner
+      pages. Planned outcomes remain conditional in hot and elsewhere;
+      played records remain intact. The saved reply accounts honestly for
+      completion and any unavailable images or Push prerequisites rather
+      than claiming generated assets or a build that did not happen.

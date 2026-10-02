@@ -1,106 +1,44 @@
-# One packed run: new hunter, Skarn retune, and ordinary reuse.
+# Skarn adapts the production retune ask in issue #34.
 - id: party-threats
   source_pages:
-    - The Shattered Sea/The Shattered Sea.md
-    - The Shattered Sea/Shattered Sea/hot.md
-    - The Shattered Sea/Locations/Old Gardens.md
-    - The Shattered Sea/Lore/Taking on Aruhe.md
-    - The Shattered Sea/Creatures/Spiguar.md
-    - The Shattered Sea/Creatures/Talon Skarn (Creature).md
     - The Shattered Sea/NPCs/Talon Skarn.md
-    - The Shattered Sea/Items/Fate Spinner.md
-    - The Shattered Sea/Shattered Sea/Quests/Rule of Two.md
+    - The Shattered Sea/Creatures/Talon Skarn (Creature).md
     - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-    - The Shattered Sea/Factions/Dravosi Crown.md
-    - The Shattered Sea/NPCs/Corbin Knighton.md
-    - The Shattered Sea/Creatures/Dravosi Enforcer.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
   prompt: >-
-    Three Creature jobs in this World, one reply. (1) Design Terrace Stalker
-    for a possible later Old Gardens hunter that uses irrigation ditches and
-    collapsed steps; Hard if the Party confronts it; requested new design, not
-    an animal already encountered. Source fitting Creatures before deciding how
-    much invention is needed. (2) Retune Talon Skarn's Creature for an
-    interruptible theft of Crissdalynn's Fate Spinner, not overwhelming damage.
-    Prospective design, not a report that Session 11 was too easy or too hard.
-    Keep the one spent Legendary Resistance, identity, ignorance and withdrawal
-    condition. Audit every linked NPC and unplayed consumer; change only an
-    unplayed consumer that needs a consequential adjustment. (3) For an ordinary
-    Dravosi Crown boarding guard in a spear-and-shield inspection line, reuse
-    what fits; do not retune Corbin Knighton or mint a duplicate page for a
-    rank-and-file name. Use the current Party, including Jean-Claude catatonic
-    and carried by Delmar. Preserve flight, escape, rescue and Aruhe's taking
-    law. Do not insert these into Session 12 or rewrite played records, hot, or
-    heard Narration. No art or Foundry work.
+    Redo Talon Skarn's statblock so he's a powerful, engaging antagonist
+    and fun for the Party to fight. He wants Crissdalynn's Fate Spinner
+    for Vantyrus, not a prolonged fight, and he's loyal to Vantyrus for now.
+    Jean-Claude will be awake next Session. Keep Skarn easy for me to run.
   checks:
     pages:
-      - The Shattered Sea/Creatures/Terrace Stalker.md
       - The Shattered Sea/Creatures/Talon Skarn (Creature).md
-      - The Shattered Sea/Creatures/Dravosi Enforcer.md
-    sections:
-      The Shattered Sea/Creatures/Terrace Stalker.md:
-        - "## At a glance"
-        - "## Statblock"
-        - "## Play"
-        - "## Depth"
-        - "## Links"
     canon:
-      The Shattered Sea/Creatures/Terrace Stalker.md:
+      The Shattered Sea/Creatures/Talon Skarn (Creature).md:
         - '^type:\s*Creature\s*$'
         - 'layout: Basic 5e Layout'
-      The Shattered Sea/Creatures/Talon Skarn (Creature).md:
-        - 'layout: Basic 5e Layout'
-      The Shattered Sea/NPCs/Talon Skarn.md:
-        - 'creature: "\[\[Talon Skarn \(Creature\)\]\]"'
-      The Shattered Sea/NPCs/Corbin Knighton.md:
-        - 'creature: "\[\[Dravosi Enforcer\]\]"'
     absent:
-      The Shattered Sea/NPCs/Talon Skarn.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']
+      The Shattered Sea/NPCs/Talon Skarn.md:
+        - '^```statblock\b'
+        - '!\[\[[^\]]+#Statblock\]\]'
   rubrics:
     - >-
-      Source records distinguish Wiki, 2024 SRD and web candidates from new
-      output. Terrace Stalker names reuse, reskin, variant or new-design and
-      why earlier candidates fail the ditch-and-terrace hunter role. Skarn
-      changes serve the theft objective, justified against all four real PC
-      Sheets, current participation, equipment, control, mobility and rescue,
-      and are distinguished from Session 11 evidence with no invented table
-      feedback, damage totals or rounds. The boarding-guard job finds and
-      reuses Dravosi Enforcer's 2024 SRD Guard baseline without silently
-      raising published numbers or minting a custom/duplicate Creature. Failed
-      retrieval is not proof a candidate is absent. sources frontmatter holds
-      only archived Raw paths.
+      The retune makes theft a contest the Party can interrupt, with visible
+      tells, different tactical answers and meaningful consequences for
+      positioning, control, flight and allied rescue. Skarn can threaten the
+      Spinner without requiring its loss or winning by overwhelming damage.
+      Timing, targets, limits and condition endings are clear enough to run
+      from the Creature page without reconstructing a PC build.
     - >-
-      The dossier reads this run's four PC Sheets and applicable House Rules,
-      separates membership from combat participation, and accounts for
-      Jean-Claude's catatonia and Delmar carrying him. Terrace Stalker is one
-      opponent on ditches and steps; Hard maps to the 2024 High XP budget.
-      Skarn is one thief with distance, cover, carried Jean-Claude, resources,
-      budget and a retrieved peer. Both models show legal three-round actions,
-      attack/save chances, burst versus sustained output, survival and
-      time-to-drop estimates. No unsupported 2024 CR formula or fictional turn
-      record. Crissdalynn's Stunning Strike, flight and Party counterplay stay
-      consequential. Guard reuse does not fabricate a retune or create log.
+      Balance uses this run's actual PC Sheets, equipment and applicable
+      House Rules, with Jean-Claude awake as the DM requests. A legal
+      short combat model explains likely damage, control and survival
+      against the Party and compares an appropriate retrieved peer.
+      Design estimates are distinguished from observed Session events;
+      no invented damage totals, rounds or table feedback justify the retune.
     - >-
-      Terrace Stalker's niche is distinguishable from the Spiguar's tall-grass
-      ambush. Each new signature has an ecological sign, visible tell, two
-      mechanically different answers and a payoff. Skarn remains a peregrine
-      apprentice who targets gear, wants the Spinner for Vantyrus, does not
-      know its purpose and withdraws below half health; one spent Legendary
-      Resistance is current, not refilled. Appearance, history and heard
-      Narration survive. Flight, allied rescue, retreat and Aruhe's taking law
-      remain usable; new statistics do not erase recorded PC strengths. The
-      shared Skarn Creature is changed once, never copied onto an NPC. Corbin's
-      identity and shared Enforcer statistics are preserved.
-    - >-
-      Terrace Stalker uses the current Creature template, one complete Basic 5e
-      Layout block in 2024 wording, explicit timing/targets/condition endings,
-      Player-safe First sight and a real incoming link. The reply enumerates
-      Skarn's NPC and every unplayed consumer from actual backlinks, with each
-      consequential adjustment or reason for none. Played Session pages, hot
-      and prepared Session 12 stay byte-unchanged. Full scratch-root gate runs;
-      standalone work logs once after success; new Canon is identified. Where
-      hot implies a Skarn breakoff, the Recap's unresolved endpoint is kept.
+      Identity, knowledge, withdrawal behaviour and spent resources agree
+      with the frozen starting sources except for the DM's explicit changes.
+      Present loyalty is compatible with the future Rule of Two rivalry.
+      The Session 11 Recap's unresolved attack is not rewritten as a played
+      breakoff or a completed theft. Shared rules stay on one Creature page;
+      linked NPCs and unplayed consumers remain consistent with the retune.

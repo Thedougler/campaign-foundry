@@ -1,32 +1,42 @@
 ---
 name: run-evals
-description: Run or rerun committed skill evals after a request or reported regression. Paired authoring belongs to skill-creator; Matrix Narration ranking belongs to dnd-benchmark.
+description: Eval — run or rerun committed skill evals after a request or reported regression, and report. Authoring goes to skill-creator; Matrix ranking to dnd-benchmark; improving a live content skill to the Hillclimb in evals/README.md.
 ---
 
 # Run skill evals
 
-Read `evals/README.md` for shared access, grounding, Check/Grade, evidence and lifetime policy. Use the native roles and protected grants it requires.
+This skill is the Eval branch of `evals/README.md`, which defines the terms and owns grounding, isolation, Check/Grade, evidence and lifetime. An Eval measures and reports; skill text stays as found. After the report, the parent decides whether Design allows a Hillclimb.
+
+`runSkillEvals` owns one skill/case-selection run. `./evals/eval-queue.ts` is plumbing: `EVAL_QUEUE_DEFAULTS`, `jobsForSkill`, and `reportPassed`.
 
 ## Steps
 
-1. **Load.** In omp JS Eval, from the repository root:
+1. **Load.** From the repository root in omp JS Eval:
 
    ```js
    const { runSkillEvals } = await import("./evals/run.ts");
+   const { EVAL_QUEUE_DEFAULTS, jobsForSkill, reportPassed } = await import("./evals/eval-queue.ts");
    ```
 
-   Done when the module's entry is available, or its exact loading error is recorded.
-2. **Run and report.** Set the JS Eval call's deadline to `0`, then:
+   Done when those four names are in scope, or the exact load error is recorded.
+
+2. **Queue.** Expand a requested skill with `jobsForSkill(skill)`. When the DM or parent named case ids, those ids are the queue. Each job is one run cell: `runSkillEvals({ skill, caseIds: [id] })`.
+
+   Done when the pending list is one job per selected case.
+
+3. **Fly.** Start run cells until in-flight evals equal `EVAL_QUEUE_DEFAULTS.evalConcurrency` or the pending list is empty. Each run cell uses deadline `0` and returns the report with `reportPassed(report)`:
 
    ```js
-   const report = await runSkillEvals({ skill: "theatre-of-the-mind" });
-   report;
+   const report = await runSkillEvals({ skill: "<skill>", caseIds: ["<id>"] });
+   ({ report, passed: reportPassed(report) });
    ```
 
-   Substitute the requested skill. The entry owns preparation, protected native dispatch, Checks, independent Grades, completion verification and cleanup. For targeted reruns, add `caseIds: ["<case-id>"]`; omit it for the full suite. Report every selected case using the README's evidence rules. Done when the returned report accounts for every selected case, or the exact prerequisite/execution error is reported.
+   Done when every started cell is a single-id `runSkillEvals` call and in-flight evals sit at the default cap, or at the remaining job count when that is smaller.
 
-## Failure-driven iteration
+4. **Refill.** The moment a case finishes — pass, Check or Grade quality failure, or named harness, access, isolation or preparation prerequisite — record its report as it stands and start the next pending job, so in-flight evals return to `evalConcurrency` until the queue is empty.
 
-For quality failures, send evidence to native `skill-writer` as a process-revision brief. Keep evaluator criteria and failure coaching out of Runner requests. Rerun affected cases in fresh Worlds through the same entry; after targeted passes, run the entire committed suite afresh against the final skill revision. Harness or access failures need their exact prerequisite resolved, not a skill workaround or unrestricted CLI substitute.
+   Done when every finished case has a recorded report and in-flight evals sit at the cap, or at the remaining job count when that is smaller.
 
-Done when one complete final suite passes every Check and Grade, or the requested report explicitly accounts for unresolved quality failures and unavailable prerequisites.
+5. **Report.** Account for every selected case using the README evidence rules.
+
+   Done when the account covers every selected case, including quality failures, named prerequisites and unexecuted ids; every skill file is byte-identical to its state at Load; and Session storage is closed per the README unless the DM asked to retain it.

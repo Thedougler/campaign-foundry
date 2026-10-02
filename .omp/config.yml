@@ -1,9 +1,15 @@
 task:
-  maxConcurrency: 4
   enableLsp: true
+providers:
+  maxInFlightRequests:
+    anthropic: 4
+    openai: 4
+    openai-codex: 4
 skills:
   ignoredSkills:
-    - "*-history-ingest"
+    - copilot-history-ingest
+    - hermes-history-ingest
+    - openclaw-history-ingest
     - code-understand
     - cross-linker
     - daily-update

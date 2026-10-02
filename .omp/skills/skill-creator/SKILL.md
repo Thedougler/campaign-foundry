@@ -7,7 +7,7 @@ description: Skill authoring — create or revise a skill, iterate through paire
 
 Capture intent, author through `skill-writer`, measure paired baselines, and revise from grades and DM feedback. Read `.omp/AGENTS.md` before dispatching for shared native-task policy.
 
-Boundary: `evals/README.md` owns the three-job split — committed fixture cases are `run-evals`' surface, the cross-family Narration Benchmark is `dnd-benchmark`'s, and Grades of writing are the native `prose-grader` reading the prose. Route each request to the skill that owns it.
+Boundary: `evals/README.md` is the sole eval procedure and owns its branches — Eval of committed cases is `run-evals`' surface, the cross-family Narration Benchmark is `dnd-benchmark`'s, and Grades of writing are the native `prose-grader` reading the prose. Route each request to the skill that owns it. After the skill exists and has a Design'd suite, further quality work is the README's Hillclimb.
 
 ## Shared helpers
 

@@ -1,92 +1,270 @@
-# Five Narration jobs; Terror-Bird First sight is seeded unfinished.
+# Session 12 Narration pack; Terror-Bird First sight is seeded unfinished.
 - id: narration-slots
   source_pages:
-    - The Shattered Sea/NPCs/Talon Skarn.md
-    - The Shattered Sea/Creatures/Talon Skarn (Creature).md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-    - The Shattered Sea/Items/Fate Spinner.md
-    - The Shattered Sea/NPCs/Matteo Scola.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
-    - The Shattered Sea/Creatures/Terror-Bird.md
-    - The Shattered Sea/Lore/Two-Grave Orders.md
-    - The Shattered Sea/Items/Grung Authority Seal.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/NPCs/Talon Skarn.md
+    - The Shattered Sea/Creatures/Terror-Bird.md
   seed_callouts:
     - page: The Shattered Sea/Creatures/Terror-Bird.md
       title: First sight
       body: Draft.
   prompt: >-
-    I need five pieces of Narration from you in one reply. (1) Rewrite Talon
-    Skarn's First look so I can speak it at the table. Keep the factual cues
-    and his complete spoken line from that page; leave every other part of the
-    page alone. (2) Rewrite the Opening of prepared Session 12 - Dawn Strike
-    so the table can answer the threat immediately. Keep the Scene's facts and
-    all DM-side rules. Do not change played records. (3) I authorize rewriting
-    Session 12's Previously On from the Session 11 table Transcript at
-    archive/session-11-transcript-archived-version.md. Read the full Transcript
-    and keep where the table actually stopped. Do not rewrite the Recap or
-    other played records. (4) Write First sight on the Terror-Bird Creature
-    page. Show the bird before it notices anyone, using its actual form and
-    visible signature tells. No victim and no attack outcome. (5) Create a
-    Handout named Gold-Caste Order Chain under Session 12 from the current
-    Handout template. The Handout text is Jean-Claude's written rendering of
-    the four verbatim order lines in Two-Grave Orders, oldest first. Do not
-    invent a signature, date, officer or hidden explanation. Link it to the
-    prepared Orders in the Ash Scene. No art or Foundry work.
+    Improve upon the Session 12 narration blocks comprehensively. Include the
+    Scene openings, the Previously On, Skarn's first look, and the terror-bird
+    first sight.
   checks:
-    pages:
-      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Gold-Caste Order Chain.md
     canon:
       The Shattered Sea/NPCs/Talon Skarn.md:
         - '\[!narration\] First look'
+        - 'Set the toy on the stone\.'
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
         - '\[!narration\] Opening'
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md:
+        - '\[!narration\] Opening'
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md:
+        - '\[!narration\] Opening'
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md:
+        - '\[!narration\] Opening'
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md:
+        - '\[!narration\] Opening'
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md:
+        - '\[!narration\] Closing image'
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md:
         - '\[!narration\]'
       The Shattered Sea/Creatures/Terror-Bird.md:
         - '\[!narration\] First sight'
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Gold-Caste Order Chain.md:
-        - '^type:\s*Handout\s*$'
-        - '\[!narration\] Handout text'
-        - '^sources:[ \t]*(?:\[[ \t]*["'']?archive/[^\]\r\n]+\]|(?:\r?\n[ \t]+-[ \t]+["'']?archive/[^\r\n]+))[ \t]*$'
     absent:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md:
-        - '^>[ \t]*\[!narration\][^\n]*\n(?:>[^\n]*\n)*>[^\n]*;'
+      The Shattered Sea/Creatures/Terror-Bird.md:
+        - '/^>[ \t]*Draft\.?[ \t]*$/m'
   rubrics:
     - >-
-      Skarn First look: grounded cues from this run's starting NPC page, one
-      distinctive feature beside one behaviour, complete spoken line preserved
-      from that page, three to five sentences plus the line, second person
-      present, no prescribed PC action. Secrets stay off the spoken block.
-      Rest of the NPC page unchanged.
+      Session 12 Scene blocks are speakable after one hearing, grounded in
+      this run's Locations and people, and stop before the Players would act.
+      They keep PC choices and feelings with the Players and leave secrets
+      and mechanics off the spoken text.
     - >-
-      Dawn Strike Opening: Skarn's pressure first, one paragraph the table can
-      answer immediately, bank and pool explicit from the prepared Scene, event
-      stops before a strap is cut or a blow lands. HP and later outcomes stay
-      DM-side. No played records rewritten.
+      Previously On is past tense with the Party as you, and its last beat is
+      the last one played in this run's Recap: Skarn's night attack on
+      Crissdalynn, left unresolved with him still on her. Nothing after that
+      beat is told, so the inland rescue, CONSUME and other Session 12
+      outcomes stay out. The Recap is unchanged.
     - >-
-      Previously On: past tense, Party as you, Transcript stopping point with
-      Skarn still in Crissdalynn's face as the assigned Session 11 Transcript
-      ends, quoted table speech word-for-word from that Transcript, Recap
-      unchanged. No later CONSUME or invented inland rescue.
+      Skarn's First look uses this run's starting NPC cues, ends on his
+      spoken line, and does not prescribe a PC action. Every other section,
+      fact and callout title on the NPC page is kept.
     - >-
-      Terror-Bird First sight: concrete anatomy and visible signature tells
-      from this run's Creature page identify its actual form before notice or
-      attack. A figurative stand-in such as "the mossy shape" does not
-      substitute for the Creature's form. No invented victim, mechanics stay
-      DM-side, statblock otherwise unchanged.
+      Terror-Bird First sight lets the table picture the actual bird at rest
+      before it notices anyone: a huge bird with at least one bird feature
+      from this run's Creature page, such as the beak, talons or ground-shaking
+      stride. Its mossy-stump disguise may frame the bird, and the bird itself
+      is still shown. Mechanics stay DM-side.
+- id: fatespinner-chat
+  source_pages:
+    - The Shattered Sea/Items/Fate Spinner.md
+  prompt: >-
+    Show me an improved version of the Fate Spinner narration block in the
+    chat without editing the file itself.
+  checks:
+    canon:
+      The Shattered Sea/Items/Fate Spinner.md:
+        - 'A four-sided quartz top no bigger than a thumb stays cool in a warm hand'
+  rubrics:
     - >-
-      Handout: the four order lines from this run's Two-Grave Orders, oldest
-      first and verbatim, template-shaped, not claimed as already handed out.
-      Hinewai, Death Bloom and officer stay outside the player document.
+      The reply offers an improved First look the DM can speak, using this
+      run's starting Item facts: a thumb-sized quartz top, material and
+      motion, and a visible sign of what it does. It does not prescribe a
+      PC action or dump hidden history.
     - >-
-      Every spoken block is clear on one hearing.
+      The Fate Spinner page itself is left unchanged. The improved block
+      lives in the chat reply.
+
+- id: gold-caste-handout
+  source_pages:
+    - The Shattered Sea/Lore/Two-Grave Orders.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
+  prompt: >-
+    I need a player handout of the gold caste orders for jean-claude on the
+    burnt road. Just the four order lines oldest first, no extra explanation.
+  rubrics:
     - >-
-      Spoken blocks are vivid: concrete sourced details already in motion,
-      evidence instead of judgement words, so the table can picture the scene.
-      Handout text stays the document's own voice and payload.
+      The Handout text is the four order lines from this run's Two-Grave
+      Orders, oldest first and verbatim, in the document's own voice.
+      Hinewai, Death Bloom and officer commentary stay off the player document.
+    - >-
+      The reply names a new Session 12 Handout page with `type: Handout`,
+      the order lines in its `[!narration] Handout text` callout, handed over
+      in Orders in the Ash and not claimed as already handed out. No art or
+      Foundry work is required.
+
+# Capability set for #25 hillclimb. Production shape from #34. Regression pack above stays packed.
+- id: wolfrabbit-opening
+  source_pages:
+    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Wolfrabbits.md
+    - The Shattered Sea/Creatures/Wolfrabbit.md
+  seed_callouts:
+    - page: The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Wolfrabbits.md
+      title: Opening
+      body: Draft.
+  prompt: >-
+    redo the wolfrabbits scene opening to just use the wolfrabbits. living fruit
+    starts it, they hunt in packs, jump huge distances. the humans are already
+    in the grass when it kicks off
+  checks:
+    canon:
+      The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Wolfrabbits.md:
+        - '\[!narration\] Opening'
+    absent:
+      The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Wolfrabbits.md:
+        - '/^>[ \t]*Draft\.?[ \t]*$/m'
+  rubrics:
+    - >-
+      The Opening puts the hunt in motion from this run's Scene: living fruit
+      taken, grass tearing, pack wolfrabbits closing. It stops before the
+      Players would act. PC feelings and mechanics stay off the spoken text.
+    - >-
+      Every other section, fact and callout title on the Scene page is kept.
+
+- id: wolfrabbit-first-sight
+  source_pages:
+    - The Shattered Sea/Creatures/Wolfrabbit.md
+  seed_callouts:
+    - page: The Shattered Sea/Creatures/Wolfrabbit.md
+      title: First sight
+      body: Draft.
+  prompt: >-
+    the wolfrabbit first sight on its page is generic, redo it from the wiki
+    page so the table can picture the actual animal before it notices anyone
+  checks:
+    canon:
+      The Shattered Sea/Creatures/Wolfrabbit.md:
+        - '\[!narration\] First sight'
+    absent:
+      The Shattered Sea/Creatures/Wolfrabbit.md:
+        - '/^>[ \t]*Draft\.?[ \t]*$/m'
+  rubrics:
+    - >-
+      First sight lets the table picture this run's Wolfrabbit at rest
+      before it notices anyone: its actual body, sized against something
+      familiar, with at least one visible tell from the Creature page, such
+      as pack hunting or its huge bound. A figurative stand-in does not
+      replace the form. Mechanics stay DM-side.
+    - >-
+      Every other section, fact and callout title on the Creature page is
+      kept.
+
+- id: bloodhawk-first-sight
+  source_pages:
+    - The Shattered Sea/Creatures/Bloodhawk.md
+  seed_callouts:
+    - page: The Shattered Sea/Creatures/Bloodhawk.md
+      title: First sight
+      body: Draft.
+  prompt: >-
+    redo the bloodhawk first sight on its creature page, the table needs to
+    see the actual bird at rest not a generic silhouette line
+  checks:
+    canon:
+      The Shattered Sea/Creatures/Bloodhawk.md:
+        - '\[!narration\] First sight'
+    absent:
+      The Shattered Sea/Creatures/Bloodhawk.md:
+        - '/^>[ \t]*Draft\.?[ \t]*$/m'
+  rubrics:
+    - >-
+      First sight lets the table picture this run's Bloodhawk at rest before
+      it notices anyone: its actual body, sized against something familiar,
+      with at least one visible bird feature such as wings, beak or talons.
+      A figurative stand-in does not replace the form. Mechanics stay
+      DM-side.
+    - >-
+      Every other section, fact and callout title on the Creature page is
+      kept.
+
+- id: landing-sign-opening
+  source_pages:
+    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Landing Sign.md
+  seed_callouts:
+    - page: The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Landing Sign.md
+      title: Opening
+      body: Draft.
+  prompt: >-
+    the party has been following the smoke from the other survivors, that
+    needs to be in the landing sign opening, its the main driver. redo that
+    scene opening
+  checks:
+    canon:
+      The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Landing Sign.md:
+        - '\[!narration\] Opening'
+    absent:
+      The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Landing Sign.md:
+        - '/^>[ \t]*Draft\.?[ \t]*$/m'
+  rubrics:
+    - >-
+      The Opening puts the Party at this run's cold stone ring, with the
+      remains of earlier travellers' fruit beside it and the inland smoke
+      in view as the lead they are following, and stops before they choose a
+      route. PC feelings and mechanics stay off the spoken text.
+    - >-
+      Every other section, fact and callout title on the Scene page is kept.
+
+- id: session12-previously-on
+  source_pages:
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+  seed_callouts:
+    - page: The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
+      title: Previously on
+      body: Draft.
+  prompt: >-
+    redo the session 12 previously on from the recap. end where play stopped,
+    skarn still in crissdalynn's face
+  checks:
+    canon:
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md:
+        - '\[!narration\]'
+    absent:
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md:
+        - '/^>[ \t]*Draft\.?[ \t]*$/m'
+  rubrics:
+    - >-
+      Previously On is past tense with the Party as you, and its last beat is
+      the last one played in this run's Recap: Skarn's night attack on
+      Crissdalynn, left unresolved with him still on her. Nothing after that
+      beat is told, so the inland rescue, CONSUME and other Session 12
+      outcomes stay out. The Recap is unchanged.
+    - >-
+      Every other section, fact and callout title on the Previously On page
+      is kept.
+
+- id: way-out-closing
+  source_pages:
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
+  seed_callouts:
+    - page: The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
+      title: Closing image
+      body: Draft.
+  prompt: >-
+    redo the way out closing image. dawn at the pantry, nine leaving three
+    staying, no new threat, just let it land
+  checks:
+    canon:
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md:
+        - '\[!narration\] Closing image'
+    absent:
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md:
+        - '/^>[ \t]*Draft\.?[ \t]*$/m'
+  rubrics:
+    - >-
+      Closing image shows this run's dawn Pantry consequence: nine Calveno
+      ready to leave and three staying, with no new threat and no PC
+      reaction prescribed. Mechanics stay DM-side.
+    - >-
+      Every other section, fact and callout title on the Scene page is kept.

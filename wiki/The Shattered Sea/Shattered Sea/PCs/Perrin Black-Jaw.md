@@ -3,7 +3,7 @@ type: PC
 summary: "Kaden's level 5 rattkin Warlock and Lore Bard, the crew's voice and force multiplier with an unknown bond to Auralis."
 sources:
  - "archive/perrin-black-jaw.md"
-dndbeyond_url: ""
+dndbeyond_url: "https://www.dndbeyond.com/profile/Krab02/characters/166013448"
 ---
 
 ![[Perrin Black-Jaw - Reference Sheet.png]]

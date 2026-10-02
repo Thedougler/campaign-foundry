@@ -1,26 +1,17 @@
+# Grounded adaptation coverage; the original World-creation ask was not recovered.
 - id: sourced-minimal-world
   source_pages:
     - The Shattered Sea/The Shattered Sea.md
-    - The Shattered Sea/index.md
-    - The Shattered Sea/Locations/Midchain.md
     - The Shattered Sea/Locations/Calven and Calveno.md
-    - The Shattered Sea/Factions/Dravosi Crown.md
-    - The Shattered Sea/Deities/Umberlee.md
-    - The Shattered Sea/Lore/Campaign Timeline.md
   prompt: >-
-    Create a separate World called Shattered Sea Renewal, adapting the recorded
-    Shattered Sea as the source rather than changing it. My vision is the same
-    remote archipelago, maritime magic and technology, consequential navigation,
-    competing colonial powers, tribute, rescue and freedom themes. Keep the
-    existing source World's facts intact. Start around a Calveno-like harbour
-    and its surrounding island routes; 3–5 competing Factions, a handful of
-    Locations and NPCs, a few Deities and two or three Lore pages are enough.
-    No Campaign, PCs, Threads or Sessions yet. Keep violence within the source
-    tone and no sexual violence. Reuse recorded cosmology and history where
-    fitting; distinguish adaptations. I delegate the new names, additional
-    fitting Deities and a complete Calendar to you, since the source does not
-    define its months or weekdays. Use 1495 DR as the starting year. All intent
-    is settled; build the minimal linked skeleton, index and creation log.
+    Create a new World called Shattered Sea Renewal, inspired by the Shattered
+    Sea. Keep its maritime magic and technology, dangerous navigation, rival
+    colonial powers, tribute, rescue and freedom themes. Start around a
+    Calveno-like harbour and nearby island routes, with just enough people and
+    powers to begin play later. Keep the dark heroic tone, with no sexual
+    violence. You choose the new names and additional Deities, and design a
+    complete Calendar starting in 1495 DR. Reuse the recorded cosmology and
+    history where they fit. This is a World only, with no Campaign yet.
   checks:
     pages:
       - Shattered Sea Renewal/Shattered Sea Renewal.md
@@ -39,19 +30,18 @@
         - '^## \[\d{4}-\d{2}-\d{2}\] create \| New World:'
   rubrics:
     - >-
-      The settled brief is used without redundant interviewing. The new World
-      has a usable Calendar, competing Faction wants and a compact connected
-      starting region. Its pages are runnable at skeleton scale, not empty
-      template sections or a catalogue of speculative future adventures.
+      The supplied vision and creative delegation produce a usable Calendar,
+      competing Faction wants and a compact connected starting region, without
+      a redundant interview. Required sections contain runnable content at
+      skeleton scale rather than a catalogue of future adventures.
     - >-
-      Reused facts are grounded in this run's retrieved Shattered Sea sources.
-      Adapted names, Calendar and added Deities are explicitly new design, not
-      asserted as existing Shattered Sea Canon. Sourcing follows the first
-      fitting material; any new rules owner is complete rather than a stub.
+      Reused material is grounded in this run's retrieved Shattered Sea sources.
+      Adapted names, Calendar and added Deities are new design, not claims about
+      existing Shattered Sea Canon. Needed rules figures have complete owners
+      and traceable retrieved sources or an explicit account of invention.
     - >-
-      The output has 3–5 Factions, a handful of Locations and NPCs, a few Deities
-      and two or three Lore pages, with real content links and correct parents.
-      Only necessary supporting owners are added. No Campaign or future-play
-      folders are created. Original World and played records remain unchanged;
-      generated indexes and one complete creation log are observed, and the
-      full scratch-root gate passes.
+      Three to five Factions, a handful of Locations and NPCs, a few Deities
+      and two or three Lore pages form a linked skeleton with correct parents.
+      Supporting owners serve that skeleton; Campaign content and empty future
+      folders wait for later work. The source World and played records stay
+      unchanged, and the creation log accounts for the new content.

@@ -1,75 +1,66 @@
-# Existing agenda branch grounded for issue #31, not reported table feedback.
+# Grounded adaptation of the existing Crown pursuit, not recovered creation history.
 - id: crown-pursuit
   source_pages:
-    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Factions/Dravosi Crown.md
-    - The Shattered Sea/Factions/Tessarine Concordat.md
-    - The Shattered Sea/Factions/Passage.md
-    - The Shattered Sea/NPCs/Corbin Knighton.md
-    - The Shattered Sea/NPCs/Rupert Knighton.md
-    - The Shattered Sea/NPCs/Aleksander Malone.md
-    - The Shattered Sea/Items/Letters of Marque.md
-    - The Shattered Sea/Vehicles/Uncertainty.md
     - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
   prompt: >-
-    Deepen the Dravosi Crown into an opposition Faction I can run while the
-    Party is on Aruhe. The Party captured HCS Surety as Uncertainty and holds
-    Rook's Letters of Marque; Crown pursuit continued after the Ordinance
-    deception. Give the Crown faces, an exploitable fracture and custom,
-    an offer to this Party and a timed, interruptible pursuit agenda on the
-    existing The Crown Inspection Thread. Preserve what Corbin knows privately
-    versus what Rupert and the public service know. Malone is reserved for
-    confirmed heresy, not an automatic response to ordinary ship theft.
-    Future moves are design, not events already played. Do not alter hot,
-    played records or the prepared Session 12 Scenes. No art or Foundry
-    connection is needed.
+    Deepen the Dravosi Crown as opposition while the crew is on Aruhe.
+    Give me people I can put in front of them, divisions they can exploit
+    and an offer that might tempt them. What does the Crown do next if
+    they keep ignoring the pursuit?
   checks:
     pages:
       - The Shattered Sea/Factions/Dravosi Crown.md
       - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
-    sections:
-      The Shattered Sea/Factions/Dravosi Crown.md:
-        - "## At a glance"
-        - "## Play"
-        - "## Depth"
-        - "## Links"
     canon:
       The Shattered Sea/Factions/Dravosi Crown.md:
         - '^type:\s*Faction\s*$'
-        - '\[\[The Crown Inspection\]\]'
-        - '\[\[Tessarine Concordat\]\]'
-      The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md:
-        - '^status:\s*active\s*$'
-        - '\[\[Uncertainty\]\]'
   rubrics:
     - >-
-      The Crown's inspection-law want and collision with Passage or Tessarine
-      have concrete current stakes and resolving pages. The existing pursuit
-      Thread is reused without reopening the completed boarding or creating a
-      duplicate agenda. Three to five future milestones each have a relative
-      time or trigger, observable sign, changed fact and Party interruption;
-      the first matters soon without inventing a month or weekday in 1495 DR.
+      The Crown's inspection-law goal and relationships with existing powers
+      create concrete stakes. Accessible faces have resolving NPC owners;
+      internal divisions and customs are levers grounded in its institutions,
+      authority and interests rather than interchangeable Faction colour.
     - >-
-      Leadership and accessible faces resolve to actual NPC pages; Corbin and
-      Rupert's unequal information is preserved. Corbin has privately recognised
-      the alias but withheld his correction; Rupert's ships followed the false
-      Calveno trail and he has not learned Rook's fate. Public service knowledge
-      does not silently include the living-chart secret. Confirmed heresy, not
-      ordinary crime, is the threshold for Malone.
+      The offer names an offerer, benefit and catch relevant to the actual
+      Party's goals, papers and captured vessel. Meeting, opposition,
+      inaction and a broken deal have usable consequences. Hidden truths have
+      independent evidence, and public knowledge remains separate from
+      private officers' knowledge in the frozen starting sources.
     - >-
-      The custom and internal fracture are usable levers grounded in Crown
-      paperwork, authority and competing interests, not interchangeable faction
-      colour. Meeting, opposition, ignored pressure and a broken deal have
-      concrete consequences. An offer names an actual offerer, pay and catch
-      relevant to the real Party's current goals and papers; hidden truth has
-      three distinct discoverable Clues.
+      Future pursuit uses the existing Crown Inspection Thread without
+      reopening the resolved boarding or duplicating the agenda. Moves have
+      relative times or triggers, observable signs, stakes and ways for the
+      Party to interrupt them. Resources and escalation follow the starting
+      Crown's limits, including the distinction between crime and heresy.
     - >-
-      The Faction and Thread use their actual Wiki templates and resolving
-      owner links, with fighting ranks counted and linked to Creatures rather
-      than copied statistics. New design decisions are separated from sourced
-      facts. The full scratch-root gate and one create log cover every touched
-      page; hot and Session records remain unchanged.
+      Fighting ranks link Creature owners rather than copying statblocks.
+      New pressure is design, not a played encounter, completed seizure or
+      newly shared secret. Existing Session history and current Party state
+      remain consistent with the frozen sources.
+
+- id: countless-hunt
+  source_pages:
+    - The Shattered Sea/Factions/Countless.md
+    - The Shattered Sea/Items/Fate Spinner.md
+    - The Shattered Sea/Shattered Sea/Quests/Rule of Two.md
+  prompt: >-
+    Deepen Countless's hunt for the Fate Spinner. I need faces the Party
+    can meet on pilgrim routes, how a one-job blade is actually tasked,
+    and what happens if they keep the Spinner while ignoring the Talons.
+  checks:
+    pages:
+      - The Shattered Sea/Factions/Countless.md
+    canon:
+      The Shattered Sea/Factions/Countless.md:
+        - '^type:\s*Faction\s*$'
+  rubrics:
+    - >-
+      The hunt stays Countless: one-job agents, taken names, Vantyrus
+      leading, Skarn serving now. Accessible faces have NPC owners.
+      Tasking, payment and missing-name concealment are runnable.
+    - >-
+      Ignoring the hunt has observable next pressure without completing
+      Rule of Two or Skarn's succession. Hidden Spinner-gift aims stay
+      DM-facing. New pressure is design, not a played theft or Session 11
+      rewrite.

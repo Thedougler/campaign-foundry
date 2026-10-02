@@ -1,79 +1,31 @@
-# One packed run: new rescue charm and existing plot papers.
+# Grounded adaptation; no original Item-creation ask was recovered. Fate Spinner chat-only lives on theatre-of-the-mind.
 - id: charm-and-letters
   source_pages:
-    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Locations/Lava Tubes.md
-    - The Shattered Sea/Locations/The Long Meadow.md
-    - The Shattered Sea/NPCs/Ettore Ferrante.md
-    - The Shattered Sea/Lore/Taking on Aruhe.md
-    - The Shattered Sea/Items/The Snap.md
-    - The Shattered Sea/Items/Flying Boots.md
-    - The Shattered Sea/Items/Letters of Marque.md
-    - The Shattered Sea/NPCs/Barnaby Rook.md
-    - The Shattered Sea/NPCs/Corbin Knighton.md
-    - The Shattered Sea/NPCs/Rupert Knighton.md
-    - The Shattered Sea/Factions/Dravosi Crown.md
-    - The Shattered Sea/Vehicles/Uncertainty.md
-    - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
     - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
   prompt: >-
-    Two Item jobs, one reply. (1) Design an uncommon Item called Rescue Line
-    Charm for Perrin's work keeping the crew and rescued people alive. Help
-    with rope rescues on wet ledges like the Lava Tubes, not flight or a Swim
-    Speed he already has. Source existing Items before deciding whether to
-    reskin or adapt one. Keep it useful beside Delmar's Flying Boots,
-    Crissdalynn's flight and Perrin's current equipment. Do not claim it was
-    found, purchased or already carried, and do not add it to a PC Inventory
-    or a prepared Session as an acquired reward. Aruhe's taking law still
-    applies. (2) The Party holds Barnaby Rook's Letters of Marque. Deepen that
-    existing plot Item so I can run their use as evidence, a bluff, a bargaining
-    chip or forgery stock during continuing Crown pursuit. Preserve the
-    licence, 30,000 gp bond, nonmagical nature, custody and recorded seal and
-    bluff consequences. Make actual people react according to what they know
-    now; do not invent a sale or legal acquittal that has already happened.
-    No art or Foundry work. Do not edit hot or Session records.
+    Design an uncommon Rescue Line Charm for Perrin to help keep people
+    alive during rope rescues on wet ledges. I want something useful
+    alongside the crew's flight, not another way to fly or swim.
   checks:
     pages:
       - The Shattered Sea/Items/Rescue Line Charm.md
-      - The Shattered Sea/Items/Letters of Marque.md
-    sections:
-      The Shattered Sea/Items/Rescue Line Charm.md:
-        - "## At a glance"
-        - "## Play"
-        - "## Depth"
-        - "## Links"
-      The Shattered Sea/Items/Letters of Marque.md:
-        - "## At a glance"
-        - "## Play"
-        - "## Depth"
-        - "## Links"
     canon:
       The Shattered Sea/Items/Rescue Line Charm.md:
         - '^type:\s*Item\s*$'
-      The Shattered Sea/Items/Letters of Marque.md:
-        - '^type:\s*Item\s*$'
   rubrics:
     - >-
-      Source ledger reads bearer, Party Inventory and existing Item candidates
-      before 2024 SRD, official/web and new design. Names the reuse/reskin/
-      adaptation decision or why none fits. Missing retrieval is honest.
-      Perrin's class, level, Swim Speed and rescue goal match this run's Sheet.
-      The charm fills a rope-rescue niche without duplicating boots, flight or
-      The Snap. It is not already acquired. Letters keep Rook as licensee,
-      30,000 gp bond, nonmagical parchment, visible seal-break on name change,
-      capital impersonation, and the existing Deception bluff.
+      The design uses the starting bearer and Party capabilities and
+      equipment, with retrieved Item candidates informing reuse, reskin or
+      adaptation. Its rope-rescue niche adds a meaningful choice rather than
+      duplicating existing flight, swimming or defensive equipment.
+      Uncommon power is justified against suitable retrieved peers.
     - >-
-      Charm: full 2024 rules with action, targets, reach, anchoring, load,
-      uses/recovery, duration and failure. Rarity against peers. Does not waive
-      living-growth claims or complete Ettore's rescue. Letters: concrete
-      reactions for showing, concealing, bargaining, returning or altering,
-      linked to actual people. Corbin's private knowledge and Rupert's
-      ignorance stay separate. Carrying the papers does not grant their
-      authority. No invented prior sale.
+      Mechanics give the table usable action costs, targets, reach,
+      anchoring, load, duration, uses, recovery and failure consequences as
+      relevant to the chosen effect. It helps a rescue without guaranteeing
+      extraction or waiving Aruhe's established taking law.
     - >-
-      Actual Item templates, Player-safe First look, archived-only sources.
-      New Canon vs acquired gear is identified. Full scratch-root gate and one
-      create log. PC Inventories, hot and Session records unchanged.
+      A Player-safe introduction and discoverable properties support use.
+      The charm is a requested design, not an already found or purchased
+      Item: PC Inventories, played rescues and Session outcomes stay unchanged.

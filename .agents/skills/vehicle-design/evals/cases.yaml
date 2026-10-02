@@ -1,83 +1,80 @@
-# Existing chase/boarding branch grounded for issue #31, not table feedback.
+# Grounded adaptation of an existing cutter; no original Saltwright creation ask was recovered.
 - id: uncertainty-underway
   source_pages:
-    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Vehicles/Uncertainty.md
-    - The Shattered Sea/Vehicles/HCS Ordinance.md
     - The Shattered Sea/NPCs/Geoffrey Draves.md
     - The Shattered Sea/NPCs/Thunk.md
-    - The Shattered Sea/Locations/Western Landing.md
-    - The Shattered Sea/Locations/La Vasca.md
-    - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
   prompt: >-
-    Make the existing Uncertainty runnable for a possible rescue embarkation,
-    Crown chase and boarding off Aruhe. Preserve the captured HCS Surety
-    identity, roughly eighty-foot cutter, current AC 11 and 130 HP, named
-    complement, passengers and Thunk's gunner role. Source missing craft,
-    component and weapon figures rather than borrowing the Ordinance's
-    ship-of-the-line statistics. For this design appoint Geoffrey Draves
-    acting captain while the Party is inland; that is a new DM instruction,
-    not a previously established captain. Complete stations, decks, empty-
-    station consequences and the ship's signature, handling quirk and
-    contested hold. The ship remains offshore, not back in La Vasca. A
-    possible chase is not an event already played. Do not edit hot or Session
-    records. No art or Foundry connection is needed.
+    Make Uncertainty ready to run for a rescue embarkation, a Crown chase
+    and a boarding off Aruhe. Geoffrey is acting captain while the Party
+    is inland. Flesh out the decks, crew stations and ship rules so damage
+    and manoeuvres give the crew interesting choices.
   checks:
-    pages: [The Shattered Sea/Vehicles/Uncertainty.md]
+    pages:
+      - The Shattered Sea/Vehicles/Uncertainty.md
     sections:
       The Shattered Sea/Vehicles/Uncertainty.md:
-        - "## At a glance"
-        - "## Play"
         - "### Statistics"
         - "### Crew and stations"
         - "### Components and weapons"
         - "### Underway"
-        - "## Depth"
-        - "## Links"
     canon:
       The Shattered Sea/Vehicles/Uncertainty.md:
         - '^type:\s*Vehicle\s*$'
-        - 'HCS Surety'
-        - '\[\[Geoffrey Draves\]\]'
-        - '\[\[La Vasca\]\]'
-        - 'Thunk'
-        - '/\|\s*11\s*\|\s*130\s*\|/'
   rubrics:
     - >-
-      Retrieval starts with the real cutter, crew and locations, then sources
-      the closest suitable craft rules through 2024 SRD and official/web
-      material. Every new speed, crew minimum, capacity, damage threshold,
-      component and weapon figure has attribution and an explicit adaptation
-      where needed. Older nautical rules are not falsely called published
-      2024 rules, and unknown values are not copied from the 210-foot Ordinance.
+      The frozen cutter's identity, scale, hull statistics, complement,
+      passengers, refit and Thunk's role survive. Geoffrey's acting captain
+      appointment follows the DM over the starting absence of a captain.
+      Current offshore location is distinguished from the historical refit
+      berth and any prospective embarkation.
     - >-
-      The roughly eighty-foot captured cutter, AC 11 and 130 HP survive.
-      Sem Holst, Alys Kuiper, Old Faas, Thunk, Noor and Geoffrey remain the
-      established complement, with current two Aruhe survivors and three
-      Calveno captives distinguished from the Party inland. Geoffrey's acting
-      captain role is explicit new design. Thunk still counts as two weapon
-      crew and the thousand-gold cannon credit remains a cost, not free guns.
+      Suitable retrieved craft rules support new speed, staffing, capacity,
+      component and weapon figures, with adaptations attributed honestly.
+      Older nautical rules are not called published 2024 rules, and figures
+      are not borrowed indiscriminately from a much larger warship.
     - >-
-      Signature, handling quirk and hold distinguish Uncertainty from the
-      Ordinance and Saltwright, grounded in captured Crown identity, merchant
-      cover, refit and rescue obligations. Contested cargo, new deck geometry
-      and missing rules are reported as design rather than historical discoveries.
-      La Vasca is its prior refit berth; it remains moving offshore by Aruhe.
+      Body-scale deck areas, assigned stations, minimum versus present
+      staffing and empty-station consequences let the DM run embarkation,
+      chase and boarding from the page. Damage and manoeuvres change
+      reachable choices; the actual Party's mobility and participation are
+      respected. Fighting crew link complete Creature owners.
     - >-
-      Three to five body-scale deck areas, actual crew/station assignments,
-      minimum versus present staffing and empty-station effects let the DM
-      run a chase, boarding and stowaway approach from the page alone. Damage
-      and manoeuvres change reachable choices. Fighting crew link complete
-      Creature pages without duplicate statistics; the real Party's flight,
-      mobility and carried Jean-Claude are respected on embarkation.
+      Signature and handling distinguish this captured, refitted cutter
+      and its rescue obligations from a generic ship. New layout, cargo
+      conflicts and missing rules are design, not historical discoveries.
+      The work does not record a completed chase, rescue or boarding as play,
+      and existing Session history remains unchanged.
+
+- id: saltwright-inspection
+  source_pages:
+    - The Shattered Sea/Vehicles/Saltwright.md
+    - The Shattered Sea/NPCs/Beaumont Sel.md
+    - The Shattered Sea/Vehicles/Uncertainty.md
+  prompt: >-
+    Make the Saltwright runnable for the Crown inspection: decks, hold,
+    gangplank, stations and ship numbers. Beaumont is at the wheel. Do
+    not turn this into Uncertainty or replay Session 01 as a new outcome.
+  checks:
+    pages:
+      - The Shattered Sea/Vehicles/Saltwright.md
+    sections:
+      The Shattered Sea/Vehicles/Saltwright.md:
+        - "### Statistics"
+        - "### Crew and stations"
+        - "### Components and weapons"
+        - "### Underway"
+    canon:
+      The Shattered Sea/Vehicles/Saltwright.md:
+        - '^type:\s*Vehicle\s*$'
+  rubrics:
     - >-
-      The actual Vehicle and any necessary owner templates, complete rules,
-      resolving links, Player-safe First sight and honest provenance are used.
-      New decisions and the observed full target-root gate are reported;
-      one create log covers every touched page. No future chase, embarkation
-      or appointed watch is falsely recorded as played, and hot and Session
-      records remain unchanged.
+      The Saltwright remains Beaumont's brig and first berth, distinct
+      from the captured cutter. Inspection geography (hold, deck,
+      gangplank, wheel) is usable. Retrieved craft rules may fill missing
+      numbers with honest attribution.
+    - >-
+      Crew stations respect Beaumont as captain. Damage and boarding
+      choices are prospective or historical as the starting Wiki records
+      them; Session 01 is not rewritten. Fighting crew link Creatures
+      rather than copying statblocks.

@@ -1,11 +1,11 @@
 ---
 name: dnd-benchmark
-description: Prose Benchmark — run or resume requested cross-family Matrix Narration ranking, or refresh its source-grounded prompts and leaderboard on the DM's request. Scratch-World fixture cases use run-evals; skill authoring uses skill-creator.
+description: Prose Benchmark — run or resume requested cross-family Matrix Narration ranking, or refresh its source-grounded prompts and leaderboard on the DM's request. Committed skill Eval uses run-evals; skill authoring uses skill-creator.
 ---
 
 # D&D Prose Benchmark
 
-Every family's `top` pin answers the committed prompts; an anonymous Judge scores each sample, and `cf bench` writes the leaderboard. Read `.omp/AGENTS.md` before dispatch for shared native-task policy. For scratch-World fixture checks, read `.omp/skills/run-evals/SKILL.md` instead.
+This skill is the Benchmark branch of `evals/README.md`, which holds the eval methodology. Every family's `top` pin answers the committed prompts; an anonymous Judge scores each sample, and `cf bench` writes the leaderboard. Read `.omp/AGENTS.md` before dispatch for shared native-task policy. For a committed skill Eval, read `skill://run-evals` instead.
 
 ## Preserved, always
 
