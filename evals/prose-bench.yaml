@@ -149,7 +149,7 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: scene-opening
-  fixture_page: The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+  fixture_page: The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
   context: |
     Provenance: Session 12 - Dawn Strike, At a glance and Situation
     (lines 12-15, 24), in the Wiki path named above. Physical fact keywords
@@ -181,7 +181,7 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: scene-closing-image
-  fixture_page: The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
+  fixture_page: The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
   context: |
     Provenance: Session 12 - The Way Out, At a glance, Payoffs, Reactions
     and Stinger (lines 12-15, 24-30, 41), in the Wiki path named above.
@@ -211,7 +211,7 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: previously-on
-  fixture_page: The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+  fixture_page: The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
   context: |
     Provenance: Session 11 - Recap, What happened, Changes and Threads
     (lines 19-39), in the Wiki path named above. Archive evidence companion

@@ -2,14 +2,14 @@
 - id: taking-on-aruhe
   source_pages:
     - The Shattered Sea/The Shattered Sea.md
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Lore/Taking on Aruhe.md
     - The Shattered Sea/NPCs/Hinewai.md
     - The Shattered Sea/NPCs/Matteo Scola.md
     - The Shattered Sea/Locations/Old Gardens.md
     - The Shattered Sea/Locations/Memorial Grove.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Quests/Take on Aruhe.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Shattered Sea/Quests/Take on Aruhe.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
   prompt: >-
     Deepen Taking on Aruhe so I can answer what causes the island's taking
     law, what counts as a claim, and why survivors disagree about it. Preserve

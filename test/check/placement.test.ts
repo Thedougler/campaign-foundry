@@ -13,7 +13,7 @@ beforeAll(async () => {
 const rules = (path: string): string[] => findingsFor(report, path).map((f) => f.rule).sort();
 const fixtureHas = (path: string) => access(join(fixtures, "placement/wiki", path));
 const A = "Aldermoor";
-const C = `${A}/Campaigns/Ashes of the Crown`;
+const C = `${A}/Ashes of the Crown`;
 
 describe("placement layer: failure classes", () => {
 	it("exits 1", () => expect(code).toBe(1));

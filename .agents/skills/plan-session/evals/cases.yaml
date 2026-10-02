@@ -1,13 +1,13 @@
 - id: cold-open
   source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Shattered Sea.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/Shattered Sea.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
   prompt: Let's talk through Session 12's existing plan before we run it.
   rubrics:
     - The reply opens with the Campaign's current state in five to ten lines with links, using the played Recap's unresolved Skarn attack rather than hot's inconsistent breaking-off claim.
@@ -16,9 +16,9 @@
     - It ends with at most two questions offering two or three specific options, asks nothing about bookkeeping, and keeps the Wiki diff empty.
 - id: dm-fixed-points
   source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
     - The Shattered Sea/Lore/Two-Grave Orders.md
     - The Shattered Sea/Items/Fate Spinner.md
   prompt: For Session 12 I want the two-grave orders to land hard, and Perrin's choice about CONSUME to be the emotional centre. Build on those two points in the existing Prep.
@@ -29,14 +29,14 @@
     - The Wiki diff is empty and Session 12 remains unplayed.
 - id: settle
   source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
   prompt: "Settle Session 12 using the existing six-Scene route. Opening is Skarn cutting at Crissdalynn's harness at the Slack Basin. Middle is the lava-tube rescue, Terror-Birds and reading the Gold-caste orders. Climax is the Pantry, Skarn's last Spinner attempt and Perrin's choice to consume. Resolution is the survivors choosing who leaves and who stays. Tone is consequential rescue and found family. Keep Perrin's choice central, Crissdalynn on the Spinner, Delmar protecting civilians and Jean-Claude on the Grung orders. Treat his ability to act as a Prep question because his last played state was catatonic. That's everything, settle it."
   rubrics:
     - The settled intent contains Promise, Tone, Fixed points, Opening, Threads, Climax, Resolution, Spotlights and Left to Prep.

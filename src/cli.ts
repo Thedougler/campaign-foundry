@@ -14,6 +14,8 @@ Examples:
   cf check                       gate the whole Wiki
   cf check --fix                 gate it, applying mechanical fixes
   cf check --help                options, layers and more examples
+  cf lint --world Aldermoor --fix
+                                 mechanical template, links, placement, index
   cf index                       regenerate the index.md files
   cf narration "Ilse Corran" --callout "First look" --band 60-100
                                  check a Narration draft before filing it

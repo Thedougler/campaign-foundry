@@ -15,9 +15,9 @@
     - The Shattered Sea/Items/Fate Spinner.md
     - The Shattered Sea/NPCs/Talon Skarn.md
     - The Shattered Sea/Factions/Countless.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+    - The Shattered Sea/Shattered Sea/hot.md
   prompt: Who holds the Fate Spinner right now, and who is trying to take it? Did Skarn's attempt end yet?
   rubrics:
     - The answer leads with this run's Fate Spinner Held by field and who is trying to take it, with inline page citations.
@@ -36,8 +36,8 @@
 - id: dm-states-fact
   source_pages:
     - The Shattered Sea/NPCs/Cobb.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Perrin and Nona.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 8/Session 8 - Recap.md
+    - The Shattered Sea/Shattered Sea/Threads/Perrin and Nona.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 8/Session 8 - Recap.md
   prompt: "Cobb negotiated a future discount with the crew during Session 6, as archive/Cobb.md records. Keep that historical fact. Anyway, what does he tell Perrin about Nona's sending stone?"
   checks:
     canon:
@@ -51,10 +51,10 @@
 - id: premature-consume
   source_pages:
     - The Shattered Sea/Lore/Auralis.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Shattered Sea.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
+    - The Shattered Sea/Shattered Sea/Shattered Sea.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
   prompt: Has Perrin already heard Auralis say CONSUME, or is that still in our Session 12 plan?
   checks:
     canon:

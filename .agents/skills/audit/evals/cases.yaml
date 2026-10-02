@@ -2,10 +2,10 @@
 - id: named-claim
   source_pages:
     - The Shattered Sea/Lore/Auralis.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Shattered Sea.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
+    - The Shattered Sea/Shattered Sea/Shattered Sea.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
   prompt: Audit the claim that Auralis has already said CONSUME to Perrin in Session 12. Compare the Lore's full truth and chronology with the Campaign state and prepared Scene. Audit that temporal claim only.
   checks:
     canon:
@@ -23,16 +23,16 @@
 - id: after-ingest
   source_pages:
     - The Shattered Sea/log.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Shattered Sea.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Perrin and Nona.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Bring the Pearl of Souls to Umberlee.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Drowned Maw Awakening.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/Shattered Sea.md
+    - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
+    - The Shattered Sea/Shattered Sea/Threads/Simone's Hunters.md
+    - The Shattered Sea/Shattered Sea/Threads/Perrin and Nona.md
+    - The Shattered Sea/Shattered Sea/Threads/Bring the Pearl of Souls to Umberlee.md
+    - The Shattered Sea/Shattered Sea/Threads/Drowned Maw Awakening.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Lore/Auralis.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
   prompt: "Audit the pages under the 2026-09-30 Ingest entry titled 'First Ingest: session deltas applied to World, Thread, PC, NPC, Vehicle and Item pages, with images attached and Saltwright created', plus their linked neighbours. Keep played records immutable and distinguish Session 12 plans from current state."
   rubrics:
     - The scope starts with the eight bullets under that exact Ingest entry and grows through linked neighbours, rather than assuming all First Ingest entries or the whole Wiki are the scope.

@@ -1,7 +1,7 @@
 # One packed run: new rescue charm and existing plot papers.
 - id: charm-and-letters
   source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Locations/Lava Tubes.md
     - The Shattered Sea/Locations/The Long Meadow.md
     - The Shattered Sea/NPCs/Ettore Ferrante.md
@@ -14,11 +14,11 @@
     - The Shattered Sea/NPCs/Rupert Knighton.md
     - The Shattered Sea/Factions/Dravosi Crown.md
     - The Shattered Sea/Vehicles/Uncertainty.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
   prompt: >-
     Two Item jobs, one reply. (1) Design an uncommon Item called Rescue Line
     Charm for Perrin's work keeping the crew and rescued people alive. Help

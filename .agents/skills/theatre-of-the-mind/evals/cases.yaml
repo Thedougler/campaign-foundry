@@ -3,19 +3,19 @@
   source_pages:
     - The Shattered Sea/NPCs/Talon Skarn.md
     - The Shattered Sea/Creatures/Talon Skarn (Creature).md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
     - The Shattered Sea/Items/Fate Spinner.md
     - The Shattered Sea/NPCs/Matteo Scola.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
     - The Shattered Sea/Creatures/Terror-Bird.md
     - The Shattered Sea/Lore/Two-Grave Orders.md
     - The Shattered Sea/Items/Grung Authority Seal.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
   seed_callouts:
     - page: The Shattered Sea/Creatures/Terror-Bird.md
       title: First sight
@@ -40,22 +40,22 @@
     prepared Orders in the Ash Scene. No art or Foundry work.
   checks:
     pages:
-      - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Gold-Caste Order Chain.md
+      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Gold-Caste Order Chain.md
     canon:
       The Shattered Sea/NPCs/Talon Skarn.md:
         - '\[!narration\] First look'
-      The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
         - '\[!narration\] Opening'
-      The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md:
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md:
         - '\[!narration\]'
       The Shattered Sea/Creatures/Terror-Bird.md:
         - '\[!narration\] First sight'
-      The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Gold-Caste Order Chain.md:
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Gold-Caste Order Chain.md:
         - '^type:\s*Handout\s*$'
         - '\[!narration\] Handout text'
         - '^sources:[ \t]*(?:\[[ \t]*["'']?archive/[^\]\r\n]+\]|(?:\r?\n[ \t]+-[ \t]+["'']?archive/[^\r\n]+))[ \t]*$'
     absent:
-      The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md:
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md:
         - '^>[ \t]*\[!narration\][^\n]*\n(?:>[^\n]*\n)*>[^\n]*;'
   rubrics:
     - >-

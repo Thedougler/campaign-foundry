@@ -2,13 +2,13 @@
 - id: waveservant-boarding-spell
   source_pages:
     - The Shattered Sea/The Shattered Sea.md
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Deities/Umberlee.md
     - The Shattered Sea/NPCs/Umberlee - Branca.md
     - The Shattered Sea/Locations/Western Landing.md
     - The Shattered Sea/Vehicles/Uncertainty.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Bring the Pearl of Souls to Umberlee.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/Threads/Bring the Pearl of Souls to Umberlee.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
   prompt: >-
     I want a Waveservant signature spell for a brief, local safe-boarding
     opening in rough water after tribute: something a small rescue boat could

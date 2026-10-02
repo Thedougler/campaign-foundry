@@ -1,18 +1,18 @@
 # One packed run: stock the tubes and nest a returnable refuge.
 - id: tubes-and-refuge
   source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Locations/Lava Tubes.md
     - The Shattered Sea/Locations/The Long Meadow.md
     - The Shattered Sea/Locations/Memorial Grove.md
     - The Shattered Sea/NPCs/Ettore Ferrante.md
     - The Shattered Sea/NPCs/Luca Ferrante.md
     - The Shattered Sea/Lore/Taking on Aruhe.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
   prompt: >-
     Two stocking jobs, one reply, one create operation. Neither rescue nor an
     expedition has happened. (1) Stock the existing Lava Tubes for exploration

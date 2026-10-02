@@ -15,6 +15,8 @@ env -u QMD_CONFIG_DIR qmd get '#6105a3'
 
 The docid is an example; retrieve the actual result of this query. Omit `--index`. Trusted MCP queries likewise carry explicit `intent`; protected Runners instead use their bound QMD capabilities, which select the existing source index and map scratch edit paths.
 
+**Lint** — read `skill://wiki-lint` after Ingest, after Prep, after page create, or after page move.
+
 ## Native delegation
 
 Use oh-my-pi's native `task` subagents for authors, runners, graders and reviewers. The `omp` skill primarily serves agents in other harnesses; do not launch another omp process for work the current harness can delegate.

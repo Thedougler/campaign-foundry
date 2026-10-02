@@ -9,7 +9,7 @@ import type { PullResult } from "../../src/pull/pull.ts";
 
 const fixtures = join(import.meta.dirname, "fixtures");
 const templates = join(import.meta.dirname, "../../wiki/templates");
-const pcDir = "Aldermoor/Campaigns/Ashes of the Crown/PCs";
+const pcDir = "Aldermoor/Ashes of the Crown/PCs";
 
 const recorded = async (name: string): Promise<unknown> => JSON.parse(await readFile(join(fixtures, name), "utf8"));
 

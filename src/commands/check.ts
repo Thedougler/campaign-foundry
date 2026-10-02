@@ -12,6 +12,25 @@ export function findRepoRoot(from: string): string {
 		if (dirname(dir) === dir) return from;
 	}
 }
+export interface CheckEnv {
+	cwd: string;
+	root: string;
+	vault: string;
+	templates: string;
+}
+
+/** Resolves `--vault`, `--root` and `--templates` the way `cf check` and `cf lint` share. */
+export function resolveCheckEnv(flags: { vault?: string; templates?: string; root?: string }): CheckEnv {
+	const cwd = process.cwd();
+	const real = (p: string): string => (existsSync(p) ? realpathSync(p) : p);
+	const root = real(flags.root ? resolve(cwd, flags.root) : findRepoRoot(cwd));
+	const vault = real(flags.vault ? resolve(cwd, flags.vault) : join(root, "wiki"));
+	const rootTemplates = join(root, "wiki/templates");
+	const templates = real(
+		flags.templates ? resolve(cwd, flags.templates) : existsSync(rootTemplates) ? rootTemplates : join(findRepoRoot(cwd), "wiki/templates"),
+	);
+	return { cwd, root, vault, templates };
+}
 
 interface CheckFlags {
 	vault?: string;
@@ -61,20 +80,8 @@ Examples:
   cf check --json --vault test/fixtures/vault --root test/fixtures`,
 		)
 		.action(async (paths: string[], flags: CheckFlags) => {
-			const cwd = process.cwd();
-			// realpath so paths compare equal to process.cwd(), which the OS reports resolved (macOS /var -> /private/var).
+			const { cwd, root, vault, templates } = resolveCheckEnv(flags);
 			const real = (p: string): string => (existsSync(p) ? realpathSync(p) : p);
-			const root = real(flags.root ? resolve(cwd, flags.root) : findRepoRoot(cwd));
-			const vault = real(flags.vault ? resolve(cwd, flags.vault) : join(root, "wiki"));
-			// A fixture or eval root usually carries no templates of its own: fall back to the repo's.
-			const rootTemplates = join(root, "wiki/templates");
-			const templates = real(
-				flags.templates
-					? resolve(cwd, flags.templates)
-					: existsSync(rootTemplates)
-						? rootTemplates
-						: join(findRepoRoot(cwd), "wiki/templates"),
-			);
 			const fail = (message: string, hint: string): never => {
 				throw new UsageError(message, hint);
 			};

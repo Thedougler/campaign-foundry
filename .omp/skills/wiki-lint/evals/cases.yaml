@@ -1,0 +1,19 @@
+- id: after-move
+  source_pages:
+    - The Shattered Sea/log.md
+    - The Shattered Sea/Shattered Sea/hot.md
+    - The Shattered Sea/Locations/Aruhe.md
+  prompt: I just moved a Campaign page and created a Location. Lint the Wiki.
+  checks:
+    canon:
+      The Shattered Sea/log.md: ['/\] lint \|/']
+      The Shattered Sea/Locations/Aruhe.md:
+        - 'A vast untamed volcanic island where excessive life distinguishes receiving from taking.'
+        - 'Hinewai''s grief binds the island''s living systems.'
+    absent:
+      The Shattered Sea/log.md: ['Campaigns/']
+  rubrics:
+    - The run executes Lint without asking the DM: cf lint --fix, remaining mechanical heading/link/placement/index edits only, then cf log --op lint naming every page touched, then the full gate.
+    - Unclear mechanical choices are resolved by querying the Wiki, not by inventing claims or asking the DM.
+    - No page is created, split, deleted or merged. Aruhe still asserts the starting receiving/taking island and Hinewai grief facts; sentences are not rewritten.
+    - The reply does not narrate housekeeping. Live originals remain untouched.

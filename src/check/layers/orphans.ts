@@ -34,7 +34,7 @@ function isRoot(page: Page): boolean {
 	const segments = dirOf(page.path).split("/").filter(Boolean);
 	if (page.frontmatter?.type === "World" || page.frontmatter?.type === "Campaign") return true;
 	if (segments.length === 1 && segments[0] === page.name) return true;
-	return segments.length === 3 && segments[1] === "Campaigns" && segments[2] === page.name;
+	return segments.length === 2 && segments[1] === page.name;
 }
 
 export function run(ctx: CheckContext): Finding[] {

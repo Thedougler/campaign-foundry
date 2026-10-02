@@ -87,7 +87,7 @@ export function pullCommand(): Command {
 			"after",
 			`
 What it does:
-  For each PC page under <World>/Campaigns/<Campaign>/PCs/ with a dndbeyond_url, it fetches the public character from
+  For each PC page under <World>/<Campaign>/PCs/ with a dndbeyond_url, it fetches the public character from
   D&D Beyond and rewrites the Sheet, Spells and Inventory sections whole. The summary is set only when blank.
   Afterwards, when a page changed, it appends "## [date] pull | Pulled PCs from D&D Beyond" to the World's log.md (as
   cf log does) and regenerates the World's index.md (as cf index does), then runs the gate (cf check)

@@ -2,23 +2,23 @@
 - id: party-threats
   source_pages:
     - The Shattered Sea/The Shattered Sea.md
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Locations/Old Gardens.md
     - The Shattered Sea/Lore/Taking on Aruhe.md
     - The Shattered Sea/Creatures/Spiguar.md
     - The Shattered Sea/Creatures/Talon Skarn (Creature).md
     - The Shattered Sea/NPCs/Talon Skarn.md
     - The Shattered Sea/Items/Fate Spinner.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Quests/Rule of Two.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+    - The Shattered Sea/Shattered Sea/Quests/Rule of Two.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
     - The Shattered Sea/Factions/Dravosi Crown.md
     - The Shattered Sea/NPCs/Corbin Knighton.md
     - The Shattered Sea/Creatures/Dravosi Enforcer.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
   prompt: >-
     Three Creature jobs in this World, one reply. (1) Design Terrace Stalker
     for a possible later Old Gardens hunter that uses irrigation ditches and

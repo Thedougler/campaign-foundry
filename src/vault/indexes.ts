@@ -1,4 +1,5 @@
 import { isSpecialPage } from "../check/util.ts";
+import { isWorldRootFolder } from "../check/placement-table.ts";
 import type { Page, Vault } from "./types.ts";
 
 /** The first line of every generated index file; the gate compares whole files, so it is part of the output. */
@@ -82,7 +83,8 @@ const isHot = (page: Page): boolean => page.name === "hot";
 /** Where a page sits in the World index: its section, and its `###` sub-group when the section has one. */
 function place(page: Page): { section: string; sub?: string } {
 	const type = page.frontmatter?.type;
-	const inCampaign = segmentsOf(page)[1] === "Campaigns";
+	const folder = segmentsOf(page)[1];
+	const inCampaign = folder !== undefined && !isWorldRootFolder(folder);
 	const section = SECTIONS.find((s) => s.type === type && (s.campaign === undefined || s.campaign === inCampaign));
 	if (!section) return { section: OTHER };
 	if (!section.kinds) return { section: section.heading };

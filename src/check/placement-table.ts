@@ -23,8 +23,8 @@ const CAMPAIGN: Segment = { bind: "campaign" };
 const SESSION: Segment = { bind: "session" };
 
 const inWorld = (folder: string): Location[] => [{ dir: [WORLD, folder] }];
-const inCampaign = (folder: string): Location[] => [{ dir: [WORLD, "Campaigns", CAMPAIGN, folder] }];
-const inSession: Location[] = [{ dir: [WORLD, "Campaigns", CAMPAIGN, "Sessions", SESSION] }];
+const inCampaign = (folder: string): Location[] => [{ dir: [WORLD, CAMPAIGN, folder] }];
+const inSession: Location[] = [{ dir: [WORLD, CAMPAIGN, "Sessions", SESSION] }];
 
 /** Keyed by frontmatter `type`. Where a kind has several valid locations, the most specific comes first. */
 export const PLACEMENTS: Record<string, Location[]> = {
@@ -40,8 +40,8 @@ export const PLACEMENTS: Record<string, Location[]> = {
 	Vehicle: inWorld("Vehicles"),
 	Lore: inWorld("Lore"),
 	"House Rule": [...inCampaign("House Rules"), ...inWorld("House Rules")],
-	Campaign: [{ dir: [WORLD, "Campaigns", CAMPAIGN], name: { bind: "campaign" } }],
-	hot: [{ dir: [WORLD, "Campaigns", CAMPAIGN], name: "hot" }],
+	Campaign: [{ dir: [WORLD, CAMPAIGN], name: { bind: "campaign" } }],
+	hot: [{ dir: [WORLD, CAMPAIGN], name: "hot" }],
 	PC: inCampaign("PCs"),
 	Thread: inCampaign("Threads"),
 	Quest: inCampaign("Quests"),
@@ -80,13 +80,31 @@ export function nameOk(location: Location, name: string, bound: Bindings): boole
 	return name === bound[location.name.bind];
 }
 
+/** Folders that sit directly under a World and are not a Campaign folder. */
+export const WORLD_ROOT_FOLDERS: ReadonlySet<string> = (() => {
+	const folders = new Set<string>(["attachments"]);
+	for (const locations of Object.values(PLACEMENTS)) {
+		for (const loc of locations) {
+			const [world, folder] = loc.dir;
+			if (world !== undefined && typeof world !== "string" && world.bind === "world" && typeof folder === "string") {
+				folders.add(folder);
+			}
+		}
+	}
+	return folders;
+})();
+
+export const isWorldRootFolder = (name: string): boolean => WORLD_ROOT_FOLDERS.has(name);
+
 /** The placeholders a page's current path already fixes: its World folder, and Campaign and Session folders if it sits in them. */
 export function bindingsFromPath(segments: string[]): Bindings {
 	const bound: Bindings = {};
 	if (segments[0] !== undefined) bound.world = segments[0];
-	if (segments[1] === "Campaigns" && segments[2] !== undefined) bound.campaign = segments[2];
-	if (bound.campaign !== undefined && segments[3] === "Sessions" && segments[4] !== undefined && SESSION_FOLDER.test(segments[4])) {
-		bound.session = segments[4];
+	if (segments[1] !== undefined && !isWorldRootFolder(segments[1])) {
+		bound.campaign = segments[1];
+		if (segments[2] === "Sessions" && segments[3] !== undefined && SESSION_FOLDER.test(segments[3])) {
+			bound.session = segments[3];
+		}
 	}
 	return bound;
 }

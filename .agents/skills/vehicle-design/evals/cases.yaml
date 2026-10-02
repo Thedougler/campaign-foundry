@@ -1,18 +1,18 @@
 # Existing chase/boarding branch grounded for issue #31, not table feedback.
 - id: uncertainty-underway
   source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Vehicles/Uncertainty.md
     - The Shattered Sea/Vehicles/HCS Ordinance.md
     - The Shattered Sea/NPCs/Geoffrey Draves.md
     - The Shattered Sea/NPCs/Thunk.md
     - The Shattered Sea/Locations/Western Landing.md
     - The Shattered Sea/Locations/La Vasca.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
   prompt: >-
     Make the existing Uncertainty runnable for a possible rescue embarkation,
     Crown chase and boarding off Aruhe. Preserve the captured HCS Surety

@@ -47,7 +47,7 @@ describe("orphans layer", () => {
 	});
 
 	it("exempts the roots: vault index, DM Settings, World and Campaign overviews, log, hot, World index", () => {
-		for (const root of ["index.md", "DM Settings.md", `${A}/${A}.md`, `${A}/log.md`, `${A}/index.md`, `${A}/Campaigns/Ashes/hot.md`, `${A}/Campaigns/Ashes/Ashes.md`]) {
+		for (const root of ["index.md", "DM Settings.md", `${A}/${A}.md`, `${A}/log.md`, `${A}/index.md`, `${A}/Ashes/hot.md`, `${A}/Ashes/Ashes.md`]) {
 			expect(findingsFor(report, root), root).toEqual([]);
 		}
 	});

@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { basename, extname, join } from "node:path";
 import sharp from "sharp";
 import { UsageError } from "../check/run.ts";
+import { isWorldRootFolder } from "../check/placement-table.ts";
 import { buildLinkGraph } from "../vault/links.ts";
 import type { LinkGraph, Resolution } from "../vault/links.ts";
 import type { Page, Vault, WikiLink } from "../vault/types.ts";
@@ -87,27 +88,27 @@ interface Located {
 function locate(vault: Vault, options: PlanOptions): Located {
 	const campaigns = new Map<string, string>();
 	for (const page of vault.pages) {
-		const m = /^([^/]+)\/Campaigns\/([^/]+)\//.exec(page.path);
-		if (m) campaigns.set(m[2]!, m[1]!);
+		const m = /^([^/]+)\/([^/]+)\//.exec(page.path);
+		if (m && !isWorldRootFolder(m[2]!)) campaigns.set(m[2]!, m[1]!);
 	}
 	const world = campaigns.get(options.campaign);
 	if (!world) {
 		const names = [...campaigns.keys()];
 		throw new UsageError(
 			`No Campaign named "${options.campaign}".`,
-			names.length > 0 ? `Campaigns: ${names.join(", ")}. Example: cf push --campaign "${names[0]}" --session 1` : "Add a Campaign under <World>/Campaigns/<Campaign>/ first.",
+			names.length > 0 ? `Campaigns: ${names.join(", ")}. Example: cf push --campaign "${names[0]}" --session 1` : "Add a Campaign under <World>/<Campaign>/ first.",
 		);
 	}
-	const prefix = `${world}/Campaigns/${options.campaign}/Sessions/Session ${options.session}/`;
+	const prefix = `${world}/${options.campaign}/Sessions/Session ${options.session}/`;
 	const sessionPages = vault.pages.filter((p) => p.path.startsWith(prefix));
 	if (sessionPages.length === 0) {
-		const sessions = [...new Set(vault.pages.flatMap((p) => (p.path.startsWith(`${world}/Campaigns/${options.campaign}/Sessions/`) ? [/Session (\d+)\//.exec(p.path)?.[1] ?? ""] : [])))].filter(Boolean);
+		const sessions = [...new Set(vault.pages.flatMap((p) => (p.path.startsWith(`${world}/${options.campaign}/Sessions/`) ? [/Session (\d+)\//.exec(p.path)?.[1] ?? ""] : [])))].filter(Boolean);
 		throw new UsageError(
 			`No pages for Session ${options.session} of ${options.campaign}.`,
 			sessions.length > 0 ? `Sessions with pages: ${sessions.join(", ")}. Example: cf push --campaign "${options.campaign}" --session ${sessions[0]}` : "Run Prep for the Session first.",
 		);
 	}
-	return { world, sessionPages, campaignPath: `${world}/Campaigns/${options.campaign}/${options.campaign}.md` };
+	return { world, sessionPages, campaignPath: `${world}/${options.campaign}/${options.campaign}.md` };
 }
 
 /** The pages a link resolves to, by the link's exact text, for one page. */

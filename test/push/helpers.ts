@@ -9,7 +9,7 @@ export const fixtureVault = join(import.meta.dirname, "../fixtures/vault");
 const pushFixtures = join(import.meta.dirname, "fixtures");
 
 export const CAMPAIGN = "Salt and Lantern";
-export const SESSIONS = `Lowtide/Campaigns/${CAMPAIGN}/Sessions`;
+export const SESSIONS = `Lowtide/${CAMPAIGN}/Sessions`;
 export const MUD = `${SESSIONS}/Session 2/Session 2 - Mud Under the Boards.md`;
 export const HANDOUT = `${SESSIONS}/Session 2/Hobb's Warning.md`;
 export const MAP = "Session 2 - Mud Under the Boards - Battle Map";

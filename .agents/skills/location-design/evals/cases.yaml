@@ -2,7 +2,7 @@
 - id: three-kinds
   source_pages:
     - The Shattered Sea/The Shattered Sea.md
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Locations/Aruhe.md
     - The Shattered Sea/Locations/The River.md
     - The Shattered Sea/Locations/Old Gardens.md
@@ -10,21 +10,21 @@
     - The Shattered Sea/Locations/The Long Meadow.md
     - The Shattered Sea/Lore/Taking on Aruhe.md
     - The Shattered Sea/NPCs/Matteo Scola.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Quests/Take on Aruhe.md
+    - The Shattered Sea/Shattered Sea/Quests/Take on Aruhe.md
     - The Shattered Sea/Locations/Sparhold.md
     - The Shattered Sea/Factions/Passage.md
     - The Shattered Sea/Factions/Dravosi Crown.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Perrin and Nona.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
+    - The Shattered Sea/Shattered Sea/Threads/Perrin and Nona.md
+    - The Shattered Sea/Shattered Sea/Threads/Simone's Hunters.md
+    - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
     - The Shattered Sea/Locations/La Vasca.md
     - The Shattered Sea/NPCs/Cobb.md
     - The Shattered Sea/NPCs/Nona Black-Jaw.md
     - The Shattered Sea/Vehicles/Uncertainty.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
   prompt: >-
     Three Location jobs in this World, one reply. The Party is still on Aruhe;
     none of this has already happened. (1) Deepen Aruhe as a Region so I can

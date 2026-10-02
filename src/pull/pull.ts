@@ -54,7 +54,7 @@ export interface PullResult {
 	gate?: CheckResult;
 }
 
-const PC_PATH = /^([^/]+)\/Campaigns\/([^/]+)\/PCs\/[^/]+\.md$/;
+const PC_PATH = /^([^/]+)\/([^/]+)\/PCs\/[^/]+\.md$/;
 
 export async function runPull(options: PullOptions): Promise<PullResult> {
 	const files = await readVaultFiles(options.vault);
@@ -68,7 +68,7 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 	if (options.campaign !== undefined && !campaigns.includes(options.campaign)) {
 		throw new UsageError(
 			`No Campaign named "${options.campaign}" with PCs.`,
-			campaigns.length > 0 ? `Campaigns with PCs: ${campaigns.join(", ")}. Example: cf pull --campaign "${campaigns[0]}"` : "Add a PC page under <World>/Campaigns/<Campaign>/PCs/ first.",
+			campaigns.length > 0 ? `Campaigns with PCs: ${campaigns.join(", ")}. Example: cf pull --campaign "${campaigns[0]}"` : "Add a PC page under <World>/<Campaign>/PCs/ first.",
 		);
 	}
 	const inCampaign = all.filter((p) => options.campaign === undefined || p.campaign === options.campaign);
@@ -77,7 +77,7 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 		if (!inCampaign.some((p) => p.page.name.toLowerCase() === name.toLowerCase())) {
 			throw new UsageError(
 				`No PC named "${name}".`,
-				inCampaign.length > 0 ? `PCs: ${inCampaign.map((p) => p.page.name).join(", ")}. Example: cf pull --pc "${inCampaign[0]!.page.name}"` : "Add a PC page under <World>/Campaigns/<Campaign>/PCs/ first.",
+				inCampaign.length > 0 ? `PCs: ${inCampaign.map((p) => p.page.name).join(", ")}. Example: cf pull --pc "${inCampaign[0]!.page.name}"` : "Add a PC page under <World>/<Campaign>/PCs/ first.",
 			);
 		}
 	}

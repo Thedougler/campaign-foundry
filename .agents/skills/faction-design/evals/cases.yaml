@@ -1,7 +1,7 @@
 # Existing agenda branch grounded for issue #31, not reported table feedback.
 - id: crown-pursuit
   source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Factions/Dravosi Crown.md
     - The Shattered Sea/Factions/Tessarine Concordat.md
     - The Shattered Sea/Factions/Passage.md
@@ -10,11 +10,11 @@
     - The Shattered Sea/NPCs/Aleksander Malone.md
     - The Shattered Sea/Items/Letters of Marque.md
     - The Shattered Sea/Vehicles/Uncertainty.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
   prompt: >-
     Deepen the Dravosi Crown into an opposition Faction I can run while the
     Party is on Aruhe. The Party captured HCS Surety as Uncertainty and holds
@@ -30,7 +30,7 @@
   checks:
     pages:
       - The Shattered Sea/Factions/Dravosi Crown.md
-      - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
+      - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
     sections:
       The Shattered Sea/Factions/Dravosi Crown.md:
         - "## At a glance"
@@ -42,7 +42,7 @@
         - '^type:\s*Faction\s*$'
         - '\[\[The Crown Inspection\]\]'
         - '\[\[Tessarine Concordat\]\]'
-      The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md:
+      The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md:
         - '^status:\s*active\s*$'
         - '\[\[Uncertainty\]\]'
   rubrics:

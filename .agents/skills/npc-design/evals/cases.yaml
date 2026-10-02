@@ -1,7 +1,7 @@
 # One packed run: new Site NPC, recurring deepen, and villain plan.
 - id: after-aruhe-people
   source_pages:
-    - The Shattered Sea/Campaigns/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/hot.md
     - The Shattered Sea/Locations/The Ponte Bassa.md
     - The Shattered Sea/Locations/Calven and Calveno.md
     - The Shattered Sea/Creatures/Commoner.md
@@ -9,14 +9,14 @@
     - The Shattered Sea/Factions/Passage.md
     - The Shattered Sea/NPCs/Cobb.md
     - The Shattered Sea/Items/Sending Stone (Nona's).md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Perrin and Nona.md
+    - The Shattered Sea/Shattered Sea/Threads/Perrin and Nona.md
     - The Shattered Sea/NPCs/Simone Tabarnack.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md
-    - The Shattered Sea/Campaigns/Shattered Sea/Threads/The Crown Inspection.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Campaigns/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/Threads/Simone's Hunters.md
+    - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
   prompt: >-
     Three NPC jobs in this World, one reply. The Party is still on Aruhe; none
     of this has happened yet. (1) Give Oleandro Fuschi, already recorded at
@@ -45,7 +45,7 @@
       - The Shattered Sea/NPCs/Oleandro Fuschi.md
       - The Shattered Sea/NPCs/Nona Black-Jaw.md
       - The Shattered Sea/NPCs/Simone Tabarnack.md
-      - The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md
+      - The Shattered Sea/Shattered Sea/Threads/Simone's Hunters.md
     sections:
       The Shattered Sea/NPCs/Oleandro Fuschi.md:
         - "## At a glance"
@@ -60,7 +60,7 @@
         - 'creature: "\[\[Commoner\]\]"'
       The Shattered Sea/NPCs/Simone Tabarnack.md:
         - 'creature: "\[\[Commoner\]\]"'
-      The Shattered Sea/Campaigns/Shattered Sea/Threads/Simone's Hunters.md:
+      The Shattered Sea/Shattered Sea/Threads/Simone's Hunters.md:
         - '^status:\s*active\s*$'
     absent:
       The Shattered Sea/NPCs/Oleandro Fuschi.md: ['^```statblock\b', '!\[\[[^\]]+#Statblock\]\]']

@@ -3,7 +3,7 @@ import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 
 /** The Agent operations a World's `log.md` records, in the order `docs/wiki-layout.md` lists them. */
-export const LOG_OPS = ["create", "ingest", "prep", "push", "audit", "pull", "query"] as const;
+export const LOG_OPS = ["create", "ingest", "prep", "push", "audit", "pull", "query", "lint"] as const;
 export type LogOp = (typeof LOG_OPS)[number];
 
 /** `## [YYYY-MM-DD] op | Title`. The op is captured loosely so the gate can name a wrong one. */

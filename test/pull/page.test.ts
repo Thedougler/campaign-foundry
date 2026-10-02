@@ -7,7 +7,7 @@ import { computeSheet } from "../../src/pull/sheet.ts";
 
 const fixtures = join(import.meta.dirname, "fixtures");
 const character = (name: string): DdbCharacter => (JSON.parse(readFileSync(join(fixtures, name), "utf8")) as { data: DdbCharacter }).data;
-const pcPath = (name: string): string => join(fixtures, "vault/wiki/Aldermoor/Campaigns/Ashes of the Crown/PCs", `${name}.md`);
+const pcPath = (name: string): string => join(fixtures, "vault/wiki/Aldermoor/Ashes of the Crown/PCs", `${name}.md`);
 const page = (name: string): string => readFileSync(pcPath(name), "utf8");
 const from = (source: string, heading: string): string => source.slice(source.indexOf(heading));
 const before = (source: string, heading: string): string => source.slice(0, source.indexOf(heading));
@@ -15,7 +15,7 @@ const before = (source: string, heading: string): string => source.slice(0, sour
 describe("rewritePcPage", () => {
 	const original = page("Wren");
 	const sheet = computeSheet(character("character-sorcerer.json"));
-	const result = rewritePcPage(original, "Aldermoor/Campaigns/Ashes of the Crown/PCs/Wren.md", sheet);
+	const result = rewritePcPage(original, "Aldermoor/Ashes of the Crown/PCs/Wren.md", sheet);
 
 	it("replaces the Sheet, Spells and Inventory sections with the pulled sheet", () => {
 		expect(result.sections).toEqual(["Sheet", "Spells", "Inventory"]);
@@ -46,13 +46,13 @@ describe("rewritePcPage", () => {
 
 	it("does not overwrite a summary the DM wrote", () => {
 		const vale = page("Vale");
-		const out = rewritePcPage(vale, "Aldermoor/Campaigns/Ashes of the Crown/PCs/Vale.md", computeSheet(character("character-rogue.json")));
+		const out = rewritePcPage(vale, "Aldermoor/Ashes of the Crown/PCs/Vale.md", computeSheet(character("character-rogue.json")));
 		expect(out.summarySet).toBe(false);
 		expect(out.source).toContain("summary: \"The crew's quiet knife.\"");
 	});
 
 	it("is idempotent: pulling the same payload again changes nothing", () => {
-		const again = rewritePcPage(result.source, "Aldermoor/Campaigns/Ashes of the Crown/PCs/Wren.md", sheet);
+		const again = rewritePcPage(result.source, "Aldermoor/Ashes of the Crown/PCs/Wren.md", sheet);
 		expect(again.source).toBe(result.source);
 		expect(again.sections).toEqual([]);
 		expect(again.summarySet).toBe(false);
