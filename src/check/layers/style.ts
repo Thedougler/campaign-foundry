@@ -64,7 +64,7 @@ function runVale(args: string[]): Promise<{ stdout: string; missing: boolean }> 
 export async function run(ctx: CheckContext): Promise<Finding[]> {
 	const config = join(toolRoot, ".vale.ini");
 	if (!existsSync(join(toolRoot, ".vale/styles/ai-tells"))) {
-		setupError("The Vale ai-tells package is not installed.", "Run `pnpm run setup` (it runs `vale sync`), then `cf check` again.");
+		setupError("The Vale ai-tells package is not installed.", "Run `bun run setup` (it runs `vale sync`), then `cf check` again.");
 	}
 	const pages = prosePages(ctx.vault);
 	const cacheDir = join(ctx.root, ".cache", "check");
@@ -80,7 +80,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 		);
 		const { stdout, missing } = await runVale(["--config", config, "--output=JSON", "--no-exit", scratch]);
 		if (missing) {
-			setupError("Vale is not installed.", "Install Vale 3.23 or newer (https://vale.sh/docs/install; on macOS `brew install vale`), then run `pnpm run setup` and `cf check` again.");
+			setupError("Vale is not installed.", "Install Vale 3.23 or newer (https://vale.sh/docs/install; on macOS `brew install vale`), then run `bun run setup` and `cf check` again.");
 		}
 		const results = (stdout.trim() === "" ? {} : JSON.parse(stdout)) as Record<string, ValeAlert[]>;
 		const byFile = new Map(Object.entries(results).map(([file, alerts]) => [file.startsWith(scratch) ? file.slice(scratch.length + 1) : file, alerts]));

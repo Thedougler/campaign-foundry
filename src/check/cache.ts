@@ -20,9 +20,9 @@ export const hash = (text: string): string => createHash("sha256").update(text).
 
 let lockSalt: Promise<string> | undefined;
 
-/** A hash of `pnpm-lock.yaml`: any change to a linter's version changes it, so cached answers from an old version are dropped. */
+/** A hash of `bun.lock`: any change to a linter's version changes it, so cached answers from an old version are dropped. */
 export function lockfileSalt(): Promise<string> {
-	lockSalt ??= readFile(join(toolRoot, "pnpm-lock.yaml"), "utf8").then(hash, () => "no-lockfile");
+	lockSalt ??= readFile(join(toolRoot, "bun.lock"), "utf8").then(hash, () => "no-lockfile");
 	return lockSalt;
 }
 

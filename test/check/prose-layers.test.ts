@@ -113,6 +113,10 @@ describe("grammar layer", () => {
 		expect(reports.grammar.findings.some((f) => f.rule === "SpellCheck")).toBe(false);
 		expect(on("grammar", "NPCs/Bad Spelling")).toEqual([]);
 	});
+
+	it("does not merge a possessive or preposition into the page name beside it", () => {
+		expect(on("grammar", "NPCs/Good Prose")).toEqual([]);
+	});
 });
 
 describe("style layer", () => {
@@ -157,7 +161,7 @@ describe("style layer setup", () => {
 			},
 		);
 		expect(result.code).toBe(2);
-		expect(result.stderr).toMatch(/Vale is not installed[\s\S]*pnpm run setup[\s\S]*cf check/);
+		expect(result.stderr).toMatch(/Vale is not installed[\s\S]*bun run setup[\s\S]*cf check/);
 	});
 });
 

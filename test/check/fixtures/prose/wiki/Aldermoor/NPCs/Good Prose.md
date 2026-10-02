@@ -7,8 +7,8 @@ creature: ""
 
 ## At a glance
 
-- **Role.** Harbourmaster of [[Zorvath Keep]] who organised the docks. ^role
-- **Found at.** [[Zorvath Keep#Docks|The docks]] and Zorvath's ferry.
+- **Role.** Harbourmaster of [[Zorvath Keep]] who organised Session 12's Hook at the docks. ^role
+- **Found at.** [[Zorvath Keep#Docks|The docks]] and under [[Taking on Aruhe]].
 
 > [!narration] First look
 > A broad woman in a salt-stiff coat hauls on a rope. She glances at [[Zorvath Keep|the newcomer]], then back at the tide.

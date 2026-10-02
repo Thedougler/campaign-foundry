@@ -8,7 +8,7 @@ import { runCheck, UsageError } from "../check/run.ts";
 /** The repository root: nearest ancestor of `from` holding `.git`, else `from`. */
 export function findRepoRoot(from: string): string {
 	for (let dir = from; ; dir = dirname(dir)) {
-		if (existsSync(join(dir, ".git")) || existsSync(join(dir, "pnpm-workspace.yaml"))) return dir;
+		if (existsSync(join(dir, ".git")) || existsSync(join(dir, "bun.lock"))) return dir;
 		if (dirname(dir) === dir) return from;
 	}
 }

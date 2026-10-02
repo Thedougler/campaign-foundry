@@ -25,7 +25,7 @@ build/
 .qmd/index.sqlite*
 .qmd/refresh.*
 
-# Vale: `pnpm run setup` syncs packages into .vale/styles/; only our own Narration style is committed
+# Vale: `bun run setup` syncs packages into .vale/styles/; only our own Narration style is committed
 .vale/styles/*
 !.vale/styles/Narration/
 

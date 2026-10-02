@@ -22,8 +22,12 @@ const LAYER = "grammar";
  *   they are (a feat called `...of the Blood Rapture`). The Unicode `…` is a typing preference, not a grammar fault.
  * - `OrthographicConsistency`: the 5e coin abbreviations are lower case (`5 gp`, `10 sp`), and Harper insists on
  *   `GP`. It also second-guesses the capitalisation of in-world names.
+ * - `MergeWords`: a possessive against a page or Scene name (`Session 12's Hook`) is read as `s` plus the next word
+ *   (`sHook`). The spelling is already English.
+ * - `DisjointPrefixes`: a preposition against a page name (`under [[Taking on Aruhe]]`) is read as a split compound
+ *   (`underTaking`). The name is not the DM's wording.
  */
-const DISABLED_RULES = ["SpellCheck", "UseTitleCase", "OxfordComma", "PhrasalVerbAsCompoundNoun", "UseEllipsisCharacter", "OrthographicConsistency"] as const;
+const DISABLED_RULES = ["SpellCheck", "UseTitleCase", "OxfordComma", "PhrasalVerbAsCompoundNoun", "UseEllipsisCharacter", "OrthographicConsistency", "MergeWords", "DisjointPrefixes"] as const;
 
 let linterPromise: Promise<LocalLinter> | undefined;
 

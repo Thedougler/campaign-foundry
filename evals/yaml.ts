@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
-// Eval's module loader cannot resolve the project's pnpm packages. Keep package
+// Eval's module loader cannot resolve the project's packages. Keep package
 // resolution in the same Node runtime used by preparation and the check gate.
 export default {
 	parse(source: string): unknown {
