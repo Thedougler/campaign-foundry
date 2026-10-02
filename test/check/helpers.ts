@@ -1,7 +1,7 @@
 import { execFile } from "node:child_process";
 import { cp, mkdtemp, readFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { dirname, join, resolve } from "node:path";
+import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
 
@@ -59,10 +59,10 @@ export async function checkFixture(
 	return { ...result, report: JSON.parse(result.stdout) as JsonReport };
 }
 
-/** Copies a fixture to a temp dir so `--fix` can rewrite it. */
+/** Copies a fixture to a temp dir so `--fix` can rewrite it. Skips `.cache`: other tests write it concurrently. */
 export async function copyFixture(fixture: string): Promise<string> {
 	const dir = await mkdtemp(join(tmpdir(), "cf-check-"));
-	await cp(join(fixtures, fixture), dir, { recursive: true });
+	await cp(join(fixtures, fixture), dir, { recursive: true, filter: (src) => basename(src) !== ".cache" });
 	return dir;
 }
 

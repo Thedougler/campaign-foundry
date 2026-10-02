@@ -33,8 +33,7 @@ explicitly; all retrieval and writes stay there.
 Read the target World overview and index, the active Campaign overview and
 `hot.md`, the last ten entries of `log.md`, applicable House Rules, and every
 page the request touches. Read qmd results and retrieve the full target-root
-pages they identify. In a scratch or eval vault, use only that vault and its
-root, not an ambient Obsidian vault.
+pages they identify.
 
 For a retune, read the existing Creature and its complete backlink set. Include
 every NPC whose `creature` property names it and every planned or unplayed

@@ -56,7 +56,6 @@ const BINARY_MIMES: Record<string, string> = {
 const METADATA_FILES: Record<string, true> = { "transcript.md": true, "user_notes.md": true, "metrics.json": true };
 const SKIP_DIRECTORIES: Record<string, true> = {
 	node_modules: true, ".git": true, __pycache__: true, skill: true, inputs: true,
-	wiki: true, raw: true, archive: true, baseline: true,
 };
 
 interface QueryItem { query: string; should_trigger: boolean }
@@ -149,11 +148,11 @@ async function embedOutputs(outputsDirectory: string, directory = outputsDirecto
 	return result;
 }
 
-async function buildRun(root: string, runDirectory: string): Promise<ReviewRun> {
+async function buildRun(root: string, runDirectory: string, outputDirectory = join(runDirectory, "outputs"), controlDirectory = runDirectory): Promise<ReviewRun> {
 	let prompt = "";
 	let evalId: string | number | null = null;
 	let grading: Record<string, unknown> | null = null;
-	const parents = ancestors(root, runDirectory);
+	const parents = [controlDirectory, ...ancestors(root, runDirectory)];
 	for (const parent of parents) {
 		const metadataPath = join(parent, "eval_metadata.json");
 		if (await fileExists(metadataPath)) {
@@ -180,17 +179,20 @@ async function buildRun(root: string, runDirectory: string): Promise<ReviewRun> 
 		}
 	}
 	for (const parent of parents) {
-		const path = join(parent, "grading.json");
-		if (await fileExists(path)) {
-			grading = await readObject(path);
-			break;
+		for (const name of ["grades.json", "grading.json"]) {
+			const path = join(parent, name);
+			if (await fileExists(path)) { grading = await readObject(path); break; }
 		}
+		if (grading) break;
 	}
+	const briefPath = join(controlDirectory, "runner-brief.md");
+	if (await fileExists(briefPath)) prompt = (await readFile(briefPath, "utf8")).replace(/^Eval grant:.*(?:\r?\n|$)/gmu, "").trim();
+	const outputs = await embedOutputs(outputDirectory);
 	return {
 		id: relative(root, runDirectory).split(sep).join("-") || "root",
 		prompt: prompt || "(No prompt found)",
 		eval_id: evalId,
-		outputs: await embedOutputs(join(runDirectory, "outputs")),
+		outputs,
 		grading,
 	};
 }
@@ -212,7 +214,15 @@ export async function findReviewRuns(workspace: string): Promise<ReviewRun[]> {
 			if (entry.isDirectory() && !entry.isSymbolicLink() && !Object.hasOwn(SKIP_DIRECTORIES, entry.name)) await visit(join(directory, entry.name));
 		}
 	}
-	await visit(root);
+	if (await fileExists(join(root, ".session.json"))) {
+		const outputDirectory = join(root, "outputs");
+		await requireDirectory(outputDirectory);
+		for (const entry of (await readdir(outputDirectory, { withFileTypes: true })).sort((a, b) => a.name.localeCompare(b.name))) {
+			const path = join(outputDirectory, entry.name);
+			if (!entry.isDirectory() || entry.isSymbolicLink()) throw new Error(`Run outputs must be a real directory: ${path}`);
+			runs.push(await buildRun(root, path, path, join(root, "control", entry.name)));
+		}
+	} else await visit(root);
 	const ids = new Set<string>();
 	for (const run of runs) {
 		if (ids.has(run.id)) throw new Error(`Run paths produce a duplicate feedback ID: ${run.id}. Rename the conflicting run directories.`);
@@ -255,7 +265,7 @@ async function writePage(asset: string, data: unknown, output: string): Promise<
 export async function generateReview(options: ReviewOptions): Promise<{ workspace: string; review: string; runs: number; outputs: number }> {
 	const workspace = resolve(options.workspace);
 	const runs = await findReviewRuns(workspace);
-	if (runs.length === 0) throw new Error(`No authoring runs with outputs/ found in ${workspace}. Save deliverables beneath <workspace>/<eval>/<configuration>/outputs/.`);
+	if (runs.length === 0) throw new Error(`No authoring runs found in ${workspace}. Save deliverables and reply.md in each run's output directory.`);
 	const benchmark = await readObject(resolve(options.benchmark));
 	const previousFeedback = options.previousWorkspace ? await loadFeedback(resolve(options.previousWorkspace)) : {};
 	const previousOutputs: Record<string, ReviewOutput[]> = Object.create(null);

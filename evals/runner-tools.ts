@@ -1,5 +1,5 @@
-import { constants } from "node:fs";
-import { chmod, lstat, link, mkdir, open, readFile, realpath, readdir, unlink, writeFile } from "node:fs/promises";
+import type { Stats } from "node:fs";
+import { chmod, lstat, readFile, realpath, readdir, writeFile } from "node:fs/promises";
 import { execFile as execFileCallback } from "node:child_process";
 import { lookup } from "node:dns/promises";
 import { request as httpsRequest } from "node:https";
@@ -9,26 +9,31 @@ import { randomBytes } from "node:crypto";
 import { isIP } from "node:net";
 import { basename, dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
 import YAML from "./yaml.ts";
-import { evalRunFromWorld } from "./workspaces.ts";
+import { evalRunPaths, validateEvalSessionRoot } from "./workspaces.ts";
+import { deleteRunnerPage, outputPagePath, writeRunnerOutput } from "./outputs.ts";
 
-const evaluatorTreeNames = new Set(["evals", "answers", "answer", "graders", "grader", "grades", "snapshots", ".snapshots"]);
+const evaluatorTreeNames: Record<string, true> = {
+	evals: true, answers: true, answer: true, graders: true, grader: true,
+	grades: true, snapshots: true, ".snapshots": true,
+};
 const protectedFileName = /(?:^|[._-])(?:answers?|grader|grades?|rubric)(?:[._-]|$)/iu;
 const MAX_READ_BYTES = 5 * 1024 * 1024;
 const MAX_RESULT_LINES = 200;
 const ROOT_COLLECTIONS = ["wiki", "raw", "archive"] as const;
 
-const LOG_OPERATIONS = new Set(["create", "ingest", "prep", "push", "audit", "pull", "query"]);
+const CAPABILITIES = ["read", "grep", "glob", "find", "qmd_query", "qmd_get", "write", "delete_page", "https_get", "web_search"];
 
 type Collection = (typeof ROOT_COLLECTIONS)[number];
 type JsonSchema = Record<string, unknown>;
 type ToolHandler = (input: Record<string, unknown>) => Promise<unknown>;
 export type RunnerToolRegistrar = (handler: ToolHandler, options: { name: string; description: string; parameters: JsonSchema }) => unknown;
 
-export interface RunnerPreparedWorkspace {
-	root: string;
-	runnerInput: string;
+export interface RunnerPreparedRun {
+	repositoryRoot: string;
+	sessionRoot: string;
+	runId: string;
 	caseId: string;
-	case: { prompt: string };
+	case: { prompt: string; source_pages?: string[]; raw_sources?: string[] };
 	qmd: { mode: "live-read-only"; index: string };
 }
 
@@ -38,28 +43,14 @@ export interface RunnerToolOptions {
 	network?: { https: boolean; search: boolean };
 }
 
-interface Descriptor {
-	caseId: string;
-	prompt: string;
-	startHere: string[];
-	replaySources: Array<{ input: string; archiveDestination: string }>;
-	outputPaths: { workspace: string; wiki: string; raw: string; archive: string; output: string };
-}
-
-interface RootAccess {
-	path: string;
-	kind: "workspace" | "source" | "template" | "skill";
-	writable: boolean;
-}
-
-interface Grant {
+export interface Grant {
 	schemaVersion: 1;
 	token: string;
 	capabilityNames: string[];
 	sessionRoot: string;
 	runId: string;
-	worldRoot: string;
 	controlRoot: string;
+	outputRoot: string;
 	repositoryRoot: string;
 	targetSkillRoot: string;
 	targetSkillName: string;
@@ -70,8 +61,7 @@ interface Grant {
 interface SafeTarget {
 	path: string;
 	root: string;
-	writable: boolean;
-	info?: Awaited<ReturnType<typeof lstat>>;
+	info?: Stats;
 }
 
 interface ExecResult {
@@ -111,15 +101,10 @@ function isPrivateControlPath(path: string): boolean {
 
 function assertNoEvaluatorTree(path: string, allowedSkillRoot?: string): void {
 	if (isPrivateControlPath(path)) rejectPath();
-	const parts = resolve(path).split(sep).filter(Boolean);
-	for (let i = 0; i < parts.length; i++) {
-		const part = parts[i]!.toLowerCase();
-		if (evaluatorTreeNames.has(part)) {
-			const allowedRoot = allowedSkillRoot && isInside(allowedSkillRoot, resolve(path));
-			if (!allowedRoot || part === "evals" || part === "answers" || part === "answer" || part === "grader" || part === "graders" || part === "grades" || part === "snapshots" || part === ".snapshots") rejectPath();
-		}
+	const checked = allowedSkillRoot && isInside(allowedSkillRoot, resolve(path)) ? relative(allowedSkillRoot, resolve(path)) : resolve(path);
+	for (const part of checked.split(sep).filter(Boolean)) {
+		if (Object.hasOwn(evaluatorTreeNames, part.toLowerCase()) || protectedFileName.test(part)) rejectPath();
 	}
-	if (protectedFileName.test(basename(path))) rejectPath();
 }
 
 async function realDirectory(path: string, label: string): Promise<string> {
@@ -129,7 +114,15 @@ async function realDirectory(path: string, label: string): Promise<string> {
 	return await realpath(resolved);
 }
 
-async function assertNoLinksFrom(root: string, target: string, allowMissing: boolean): Promise<Awaited<ReturnType<typeof lstat>> | undefined> {
+async function realSkillDirectory(path: string, label: string): Promise<string> {
+	const root = await realDirectory(path, label);
+	assertNoEvaluatorTree(root);
+	const entry = await assertNoLinksFrom(root, join(root, "SKILL.md"));
+	if (!entry.isFile()) throw new Error(`${label} must contain a regular SKILL.md`);
+	return root;
+}
+
+async function assertNoLinksFrom(root: string, target: string): Promise<Stats> {
 	if (!isInside(root, target)) rejectPath();
 	const rel = relative(root, target);
 	const parts = rel === "" ? [] : rel.split(sep);
@@ -138,12 +131,7 @@ async function assertNoLinksFrom(root: string, target: string, allowMissing: boo
 	if (info.isSymbolicLink() || !info.isDirectory()) rejectPath();
 	for (let index = 0; index < parts.length; index++) {
 		current = join(current, parts[index]!);
-		try {
-			info = await lstat(current);
-		} catch (error) {
-			if ((error as NodeJS.ErrnoException).code === "ENOENT" && allowMissing) return undefined;
-			throw error;
-		}
+		info = await lstat(current);
 		if (info.isSymbolicLink()) rejectPath("Symbolic links are not available to Runner capabilities");
 		if (index < parts.length - 1 && !info.isDirectory()) rejectPath();
 	}
@@ -152,79 +140,39 @@ async function assertNoLinksFrom(root: string, target: string, allowMissing: boo
 	return info;
 }
 
-async function canonicalAllowedRoots(grant: Grant): Promise<RootAccess[]> {
-	const roots: RootAccess[] = [{ path: grant.worldRoot, kind: "workspace", writable: true }];
-	for (const collection of ROOT_COLLECTIONS) {
-		roots.push({ path: join(grant.repositoryRoot, collection), kind: "source", writable: false });
-	}
-	roots.push({ path: join(grant.repositoryRoot, "wiki", "templates"), kind: "template", writable: false });
-	for (const catalog of [join(grant.repositoryRoot, ".agents", "skills"), join(grant.repositoryRoot, ".omp", "skills")]) {
-		try {
-			const entries = await readdir(catalog, { withFileTypes: true });
-			for (const entry of entries) {
-				if (!entry.isDirectory() || entry.name === grant.targetSkillName) continue;
-				const candidate = join(catalog, entry.name);
-				const canonical = await realpath(candidate).catch(() => "");
-				if (canonical && canonical === candidate) roots.push({ path: canonical, kind: "skill", writable: false });
-			}
-		} catch {
-			// A missing skill catalogue does not grant access to arbitrary paths.
-		}
-	}
-	if (grant.skillRoot) roots.push({ path: grant.skillRoot, kind: "skill", writable: false });
-	return roots.sort((a, b) => b.path.length - a.path.length);
+function allowedRoots(grant: Grant): string[] {
+	return [
+		...ROOT_COLLECTIONS.map((collection) => join(grant.repositoryRoot, collection)),
+		grant.outputRoot,
+		...(grant.skillRoot ? [grant.skillRoot] : []),
+	].sort((a, b) => b.length - a.length);
 }
 
-async function resolveSkillUri(input: string, grant: Grant): Promise<string> {
+function resolveSkillUri(input: string, grant: Grant): string {
 	const match = input.match(/^skill:\/\/([^/]+)(?:\/(.*))?$/u);
-	if (!match) rejectPath("Only the installed skill:// catalogue scheme is supported");
-	let skillName: string;
-	let relativePath: string;
-	try {
-		skillName = decodeURIComponent(match[1]!);
-		relativePath = decodeURIComponent(match[2] ?? "") || "SKILL.md";
-	} catch {
-		rejectPath("The skill URI contains invalid percent-encoding");
-	}
-	if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/u.test(skillName)) rejectPath();
-	assertSafePathText(relativePath);
-	if (skillName === grant.targetSkillName) {
-		if (!grant.skillRoot) rejectPath("The target skill is denied for this no-skill baseline");
-		return join(grant.skillRoot, ...relativePath.split("/"));
-	}
-	for (const catalog of [join(grant.repositoryRoot, ".agents", "skills"), join(grant.repositoryRoot, ".omp", "skills")]) {
-		const root = join(catalog, skillName);
-		try {
-			const canonical = await realpath(root);
-			if (canonical !== root) continue;
-			return join(root, ...relativePath.split("/"));
-		} catch {
-			// Try the other installed catalogue.
-		}
-	}
-	rejectPath("The requested skill is not in the installed catalogue");
+	if (!match || match[1] !== grant.targetSkillName || !grant.skillRoot) rejectPath("Only the assigned skill is available");
+	let path: string;
+	try { path = decodeURIComponent(match[2] ?? "") || "SKILL.md"; } catch { rejectPath(); }
+	assertSafePathText(path);
+	if (isAbsolute(path)) rejectPath();
+	return join(grant.skillRoot, path);
 }
 
-async function resolveTarget(input: unknown, worldRoot: string, grant: Grant, writable: boolean, expectDirectory = false): Promise<SafeTarget> {
+async function resolveTarget(input: unknown, grant: Grant, expectDirectory = false): Promise<SafeTarget> {
 	if (typeof input !== "string") rejectPath();
 	let requested = input;
-	if (requested.startsWith("skill://")) {
-		if (writable) rejectPath("Skill references are read-only");
-		requested = await resolveSkillUri(requested, grant);
-	} else {
-		assertSafePathText(requested);
-	}
-	const absolute = resolve(isAbsolute(requested) ? requested : join(worldRoot, requested));
+	if (requested.startsWith("skill://")) requested = resolveSkillUri(requested, grant);
+	else assertSafePathText(requested);
+	const absolute = resolve(grant.repositoryRoot, requested);
 	assertNoEvaluatorTree(absolute, grant.skillRoot);
-	const roots = await canonicalAllowedRoots(grant);
-	const root = roots.find((candidate) => isInside(candidate.path, absolute));
-	if (!root || (writable && (!root.writable || root.kind !== "workspace"))) rejectPath();
-	const info = await assertNoLinksFrom(root.path, absolute, writable);
-	if (!info && !writable) rejectPath("The requested source file does not exist");
-	if (info && expectDirectory && !info.isDirectory()) rejectPath("The requested search root is not a directory");
-	if (info && !expectDirectory && !info.isFile()) rejectPath("The requested path is not a regular file");
-	if (absolute === join(worldRoot, ".eval", "runner-input.json") && writable) rejectPath("The prepared Runner descriptor is immutable");
-	return { path: absolute, root: root.path, writable: root.writable, ...(info ? { info } : {}) };
+	// Even a snapshot/no-skill run excludes the live candidate.
+	if (grant.skillRoot !== grant.targetSkillRoot && isInside(grant.targetSkillRoot, absolute)) rejectPath();
+	const root = allowedRoots(grant).find((candidate) => isInside(candidate, absolute));
+	if (!root) rejectPath();
+	const info = await assertNoLinksFrom(root, absolute);
+	if (!info) rejectPath("The requested source does not exist");
+	if (expectDirectory ? !info.isDirectory() : !info.isFile()) rejectPath("The requested path has the wrong file type");
+	return { path: absolute, root, info };
 }
 
 function relativePosix(root: string, path: string): string {
@@ -237,14 +185,14 @@ function globRegex(pattern: string): RegExp {
 }
 
 async function listFiles(root: string, grant: Grant): Promise<string[]> {
-	const rootTarget = await resolveTarget(root, grant.worldRoot, grant, false, true);
+	const rootTarget = await resolveTarget(root, grant, true);
 	const files: string[] = [];
 	const visit = async (directory: string): Promise<void> => {
 		for (const entry of await readdir(directory, { withFileTypes: true })) {
 			const path = join(directory, entry.name);
 			try {
 				assertNoEvaluatorTree(path, grant.skillRoot);
-				const target = await resolveTarget(path, grant.worldRoot, grant, false, entry.isDirectory());
+				const target = await resolveTarget(path, grant, entry.isDirectory());
 				if (target.info?.isDirectory()) await visit(path);
 				else if (target.info?.isFile()) files.push(path);
 			} catch {
@@ -263,45 +211,6 @@ async function readTextFile(target: SafeTarget, startLine = 1, lineCount = 400):
 	const start = Math.max(1, Math.floor(startLine));
 	const count = Math.min(2000, Math.max(1, Math.floor(lineCount)));
 	return lines.slice(start - 1, start - 1 + count).map((line, index) => `${start + index}: ${line}`).join("\n");
-}
-
-async function validateDestination(input: unknown, grant: Grant, allowMissing: boolean): Promise<SafeTarget> {
-	if (typeof input !== "string") rejectPath();
-	assertSafePathText(input);
-	const absolute = resolve(isAbsolute(input) ? input : join(grant.worldRoot, input));
-	assertNoEvaluatorTree(absolute, grant.skillRoot);
-	if (absolute === join(grant.worldRoot, ".eval", "runner-input.json")) rejectPath("The prepared Runner descriptor is immutable");
-	const relativePath = relative(grant.worldRoot, absolute).split(sep);
-	if (relativePath[0] === ".eval" && absolute !== join(grant.worldRoot, ".eval", "output.md")) {
-		rejectPath("Only .eval/output.md is writable in the Runner-private evaluation directory");
-	}
-	if (!isInside(grant.worldRoot, absolute)) rejectPath();
-	const info = await assertNoLinksFrom(grant.worldRoot, absolute, allowMissing);
-	if (info && !info.isFile()) rejectPath("Writes may target regular files only");
-	return { path: absolute, root: grant.worldRoot, writable: true, ...(info ? { info } : {}) };
-}
-
-async function writeInsideWorld(input: unknown, contentInput: unknown, grant: Grant): Promise<{ path: string; bytes: number }> {
-	if (typeof contentInput !== "string") throw new Error("File content must be text");
-	const target = await validateDestination(input, grant, true);
-	await mkdir(dirname(target.path), { recursive: true });
-	await assertNoLinksFrom(grant.worldRoot, dirname(target.path), false);
-	let handle;
-	try {
-		handle = await open(target.path, constants.O_WRONLY | (constants.O_NOFOLLOW ?? 0));
-	} catch (error) {
-		if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
-		handle = await open(target.path, constants.O_WRONLY | constants.O_CREAT | constants.O_EXCL | (constants.O_NOFOLLOW ?? 0), 0o600);
-	}
-	try {
-		const info = await handle.stat();
-		if (!info.isFile() || info.nlink !== 1) rejectPath("Only independent regular files may be written");
-		await handle.truncate(0);
-		await handle.writeFile(contentInput, "utf8");
-		return { path: relativePosix(grant.worldRoot, target.path), bytes: Buffer.byteLength(contentInput, "utf8") };
-	} finally {
-		await handle.close();
-	}
 }
 
 async function runExecFile(file: string, args: string[], cwd: string, env: NodeJS.ProcessEnv, timeout = 120_000): Promise<ExecResult> {
@@ -327,19 +236,8 @@ function commandEnv(repositoryRoot: string, qmd = false): NodeJS.ProcessEnv {
 	return env;
 }
 
-async function writeReport(reportPath: unknown, result: ExecResult, grant: Grant): Promise<void> {
-	if (reportPath === undefined) return;
-	const target = await validateDestination(reportPath, grant, true);
-	await mkdir(dirname(target.path), { recursive: true });
-	await assertNoLinksFrom(grant.worldRoot, dirname(target.path), false);
-	await writeInsideWorld(relativePosix(grant.worldRoot, target.path), result.stdout, grant);
-}
 
-function resultObject(result: ExecResult): ExecResult {
-	return { stdout: result.stdout, stderr: result.stderr, exitCode: result.exitCode, ...(result.error ? { error: result.error } : {}) };
-}
-
-async function validateLiveQmd(prepared: RunnerPreparedWorkspace, worldRoot: string): Promise<{ repositoryRoot: string; qmdEnv: NodeJS.ProcessEnv }> {
+async function validateLiveQmd(prepared: RunnerPreparedRun): Promise<{ repositoryRoot: string; qmdEnv: NodeJS.ProcessEnv }> {
 	if (prepared.qmd?.mode !== "live-read-only" || typeof prepared.qmd.index !== "string" || !isAbsolute(prepared.qmd.index)) {
 		throw new Error("Runner preparation must provide the existing live-read-only QMD index");
 	}
@@ -349,12 +247,12 @@ async function validateLiveQmd(prepared: RunnerPreparedWorkspace, worldRoot: str
 	if (indexInfo.isSymbolicLink() || !indexInfo.isFile() || indexInfo.nlink !== 1) throw new Error("The existing QMD index must be an independent regular file");
 	const index = await realpath(indexPath);
 	const repositoryRoot = await realDirectory(dirname(dirname(index)), "QMD repository root");
-	if (isInside(worldRoot, repositoryRoot) || isInside(repositoryRoot, worldRoot)) throw new Error("The live QMD repository must be separate from the Runner workspace");
+	if (repositoryRoot !== await realDirectory(prepared.repositoryRoot, "Runner live repository")) throw new Error("QMD must use the assigned live repository");
 	if (isPrivateControlPath(repositoryRoot)) throw new Error("The existing QMD index cannot be inside private evaluation storage");
 	const qmdDirectory = join(repositoryRoot, ".qmd");
 	const qmdDirectoryInfo = await lstat(qmdDirectory);
 	if (qmdDirectoryInfo.isSymbolicLink() || !qmdDirectoryInfo.isDirectory()) throw new Error("The live QMD .qmd directory must be a real project directory");
-	await assertNoLinksFrom(repositoryRoot, index, false);
+	await assertNoLinksFrom(repositoryRoot, index);
 	const configPath = join(repositoryRoot, ".qmd", "index.yml");
 	const configInfo = await lstat(configPath);
 	if (configInfo.isSymbolicLink() || !configInfo.isFile() || configInfo.nlink !== 1) throw new Error("The live QMD configuration must be an independent regular file");
@@ -371,12 +269,6 @@ async function validateLiveQmd(prepared: RunnerPreparedWorkspace, worldRoot: str
 }
 
 
-function validateAssignedSkillRoot(skillRoot: string, targetSkillRoot: string, sessionRoot: string, targetSkillName: string): void {
-	if (basename(skillRoot) !== targetSkillName) throw new Error("Assigned skill root must identify the target skill");
-	if (skillRoot !== targetSkillRoot && !isInside(join(sessionRoot, "authoring", targetSkillName), skillRoot)) {
-		throw new Error("A non-live target skill assignment must be under this Session's authoring snapshot root");
-	}
-}
 
 async function assertGrantFile(grantPath: string, token: string): Promise<Grant> {
 	if (!isAbsolute(grantPath) || !/^[A-Za-z0-9_-]{32,}$/u.test(token)) throw new Error("Invalid Runner grant credentials");
@@ -394,32 +286,33 @@ async function assertGrantFile(grantPath: string, token: string): Promise<Grant>
 	const capabilities = parsed.capabilityNames;
 	const sessionRoot = parsed.sessionRoot;
 	const runId = parsed.runId;
-	const worldRoot = parsed.worldRoot;
 	const controlRoot = parsed.controlRoot;
+	const outputRoot = parsed.outputRoot;
 	const repositoryRoot = parsed.repositoryRoot;
 	const targetSkillRoot = parsed.targetSkillRoot;
 	const targetSkillName = parsed.targetSkillName;
 	const skillRoot = parsed.skillRoot;
 	const network = parsed.network;
 	if (parsed.schemaVersion !== 1 || parsed.token !== token || !Array.isArray(capabilities)
-		|| !capabilities.every((name: unknown): name is string => typeof name === "string" && /^cf_eval_[a-f0-9]{16}_[a-z_]+$/u.test(name))
+		|| !capabilities.every((name: unknown): name is string => typeof name === "string" && /^cf_eval_[a-f0-9]{16}_[a-z_]+$/u.test(name) && CAPABILITIES.some((suffix) => name.endsWith(`_${suffix}`)))
 		|| typeof sessionRoot !== "string" || !isAbsolute(sessionRoot) || typeof runId !== "string"
-		|| typeof worldRoot !== "string" || !isAbsolute(worldRoot) || typeof controlRoot !== "string" || !isAbsolute(controlRoot)
+		|| typeof controlRoot !== "string" || !isAbsolute(controlRoot)
+		|| typeof outputRoot !== "string" || !isAbsolute(outputRoot)
 		|| typeof repositoryRoot !== "string" || !isAbsolute(repositoryRoot) || typeof targetSkillRoot !== "string" || !isAbsolute(targetSkillRoot)
 		|| typeof targetSkillName !== "string" || (skillRoot !== undefined && (typeof skillRoot !== "string" || !isAbsolute(skillRoot)))
 		|| !record(network) || typeof network.https !== "boolean" || typeof network.search !== "boolean") {
 		throw new Error("Runner grant has an invalid private record");
 	}
-	const world = await evalRunFromWorld(worldRoot);
-	if (world.sessionRoot !== sessionRoot || world.runId !== runId
-		|| resolve(controlRoot) !== join(world.sessionRoot, "control", world.runId)
-		|| resolve(grantPath) !== join(controlRoot, "runner-grant.json")) throw new Error("Runner grant does not match its validated World/control layout");
+	if (await validateEvalSessionRoot(sessionRoot) !== sessionRoot
+		|| evalRunPaths(sessionRoot, runId).controlRoot !== controlRoot
+		|| evalRunPaths(sessionRoot, runId).outputRoot !== outputRoot
+		|| resolve(grantPath) !== join(controlRoot, "runner-grant.json")) throw new Error("Runner grant does not match its validated private control layout");
 	await realDirectory(controlRoot, "Runner private control root");
+	if (await realDirectory(outputRoot, "Runner output root") !== outputRoot) throw new Error("Runner output root is not canonical");
 	if (await realDirectory(repositoryRoot, "Runner live repository") !== repositoryRoot) throw new Error("Runner live repository root is not canonical");
-	if (await realDirectory(targetSkillRoot, "Target skill root") !== targetSkillRoot || basename(targetSkillRoot) !== targetSkillName) throw new Error("Runner grant has an invalid target skill identity");
+	if (await realSkillDirectory(targetSkillRoot, "Target skill root") !== targetSkillRoot || basename(targetSkillRoot) !== targetSkillName) throw new Error("Runner grant has an invalid target skill identity");
 	if (typeof skillRoot === "string") {
-		if (await realDirectory(skillRoot, "Assigned skill snapshot") !== skillRoot) throw new Error("Assigned skill snapshot is not canonical");
-		validateAssignedSkillRoot(skillRoot, targetSkillRoot, sessionRoot, targetSkillName);
+		if (await realSkillDirectory(skillRoot, "Assigned skill snapshot") !== skillRoot) throw new Error("Assigned skill snapshot is not canonical");
 	}
 	return {
 		schemaVersion: 1,
@@ -427,8 +320,8 @@ async function assertGrantFile(grantPath: string, token: string): Promise<Grant>
 		capabilityNames: capabilities,
 		sessionRoot,
 		runId,
-		worldRoot,
 		controlRoot,
+		outputRoot,
 		repositoryRoot,
 		targetSkillRoot,
 		targetSkillName,
@@ -467,13 +360,11 @@ function isCanonicalSourcePath(path: string, repositoryRoot: string): { collecti
 	return null;
 }
 
-async function mapQmdSource(livePath: string, worldRoot: string, repositoryRoot: string, grant: Grant): Promise<{ liveSource: string; scratchPath: string }> {
-	await resolveTarget(livePath, worldRoot, grant, false);
+async function qmdSource(livePath: string, repositoryRoot: string, grant: Grant): Promise<{ liveSource: string; path: string }> {
+	await resolveTarget(livePath, grant);
 	const source = isCanonicalSourcePath(livePath, repositoryRoot);
 	if (!source) rejectPath("QMD retrieval is limited to live Wiki, Raw, and Archive sources");
-	const scratchPath = join(worldRoot, source.collection, ...source.relative.split("/"));
-	await resolveTarget(scratchPath, worldRoot, grant, false);
-	return { liveSource: `${source.collection}/${source.relative}`, scratchPath: `${source.collection}/${source.relative}` };
+	return { liveSource: `${source.collection}/${source.relative}`, path: livePath };
 }
 
 function qmdRefToLivePath(reference: string, repositoryRoot: string): string {
@@ -495,69 +386,6 @@ function qmdRefToLivePath(reference: string, repositoryRoot: string): string {
 }
 
 
-async function readPublicDescriptor(prepared: RunnerPreparedWorkspace, worldRoot: string): Promise<Descriptor> {
-	const expectedPath = join(worldRoot, ".eval", "runner-input.json");
-	if (resolve(prepared.runnerInput) !== expectedPath) throw new Error("Preparation runnerInput must be $W/.eval/runner-input.json");
-	const info = await assertNoLinksFrom(worldRoot, expectedPath, false);
-	if (!info?.isFile() || info.nlink !== 1 || (Number(info.mode) & 0o222) !== 0) throw new Error("The Runner descriptor must be an immutable independent regular file");
-	let value: unknown;
-	try {
-		value = JSON.parse(await readFile(expectedPath, "utf8"));
-	} catch {
-		throw new Error("The Runner descriptor is invalid JSON");
-	}
-	if (!record(value)) throw new Error("The Runner descriptor must be a JSON object");
-	const caseId = value.caseId;
-	const prompt = value.prompt;
-	const sourcePaths = value.startHere;
-	const rawReplaySources = value.replaySources;
-	const rawOutputs = value.outputPaths;
-	if (typeof caseId !== "string" || caseId !== prepared.caseId || typeof prompt !== "string" || prompt !== prepared.case.prompt
-		|| !Array.isArray(sourcePaths) || !sourcePaths.every((path: unknown): path is string => typeof path === "string")
-		|| !Array.isArray(rawReplaySources) || !record(rawOutputs)) throw new Error("The Runner descriptor does not match the prepared case");
-	const outputs = rawOutputs;
-	const workspace = outputs.workspace;
-	const wiki = outputs.wiki;
-	const raw = outputs.raw;
-	const archive = outputs.archive;
-	const output = outputs.output;
-	if (workspace !== worldRoot || wiki !== join(worldRoot, "wiki") || raw !== join(worldRoot, "raw")
-		|| archive !== join(worldRoot, "archive") || output !== join(worldRoot, ".eval", "output.md")) throw new Error("The Runner descriptor output paths do not match its assigned World");
-	for (const collectionRoot of [wiki, raw, archive]) {
-		const rootInfo = await assertNoLinksFrom(worldRoot, collectionRoot, false);
-		if (!rootInfo?.isDirectory()) throw new Error("Runner descriptor source roots must be independent World directories");
-	}
-	const outputInfo = await assertNoLinksFrom(worldRoot, output, true);
-	if (outputInfo && !outputInfo.isFile()) throw new Error("Runner output path must be a regular file or a missing path");
-	const startHere: string[] = [];
-	for (const path of sourcePaths) {
-		assertSafePathText(path);
-		if (isAbsolute(path) || path.startsWith("wiki/")) rejectPath("Start-here source paths must be Wiki-relative");
-		const sourcePath = resolve(wiki, path);
-		if (!isInside(wiki, sourcePath)) rejectPath();
-		const sourceInfo = await assertNoLinksFrom(worldRoot, sourcePath, false);
-		if (!sourceInfo?.isFile()) throw new Error("Each start-here source must be an independent World Wiki file");
-		startHere.push(path);
-	}
-	const replaySources: Descriptor["replaySources"] = [];
-	for (const source of rawReplaySources) {
-		if (!record(source) || typeof source.input !== "string" || typeof source.archiveDestination !== "string") throw new Error("Runner descriptor replay entries are invalid");
-		assertSafePathText(source.input);
-		assertSafePathText(source.archiveDestination);
-		if (!source.input.startsWith("raw/") || !source.archiveDestination.startsWith("archive/")) throw new Error("Runner replay inputs and Archive destinations must use the assigned Raw and Archive trees");
-		const sourcePath = resolve(worldRoot, source.input);
-		const destinationPath = resolve(worldRoot, source.archiveDestination);
-		if (!isInside(worldRoot, sourcePath) || !isInside(worldRoot, destinationPath)) rejectPath();
-		const sourceInfo = await assertNoLinksFrom(worldRoot, sourcePath, false);
-		if (!sourceInfo?.isFile()) throw new Error("Each assigned replay source must be an independent Raw file");
-		const destinationInfo = await assertNoLinksFrom(worldRoot, destinationPath, true);
-		if (destinationInfo) throw new Error("Each assigned Archive destination must be unused");
-		replaySources.push({ input: source.input, archiveDestination: source.archiveDestination });
-	}
-	if (Object.keys(value).sort().join(",") !== ["caseId", "outputPaths", "prompt", "replaySources", "startHere"].sort().join(",")) throw new Error("Runner descriptor contains fields outside the safe public projection");
-	if (Object.keys(outputs).sort().join(",") !== ["archive", "output", "raw", "wiki", "workspace"].sort().join(",")) throw new Error("Runner descriptor outputPaths contain unexpected fields");
-	return { caseId, prompt, startHere, replaySources, outputPaths: { workspace, wiki, raw, archive, output } };
-}
 
 function isPrivateUrlPath(url: URL): boolean {
 	let path = url.pathname;
@@ -714,22 +542,20 @@ async function searchWeb(query: string, limit: number): Promise<{ status: number
 }
 
 export async function bindRunnerTools(
-	prepared: RunnerPreparedWorkspace,
+	prepared: RunnerPreparedRun,
 	options: RunnerToolOptions,
 	register: RunnerToolRegistrar,
 ): Promise<{ token: string; toolNames: string[]; runnerBrief: string }> {
-	const worldRoot = await realDirectory(prepared.root, "Runner World root");
-	const run = await evalRunFromWorld(worldRoot);
-	const controlRoot = join(run.sessionRoot, "control", run.runId);
+	const sessionRoot = await validateEvalSessionRoot(prepared.sessionRoot);
+	const { controlRoot, outputRoot } = evalRunPaths(sessionRoot, prepared.runId);
 	await realDirectory(controlRoot, "Runner private control root");
-	const descriptor = await readPublicDescriptor(prepared, worldRoot);
-	const { repositoryRoot, qmdEnv } = await validateLiveQmd(prepared, worldRoot);
+	if (await realDirectory(outputRoot, "Runner output root") !== outputRoot) throw new Error("Runner output root is not canonical");
+	const { repositoryRoot, qmdEnv } = await validateLiveQmd(prepared);
 	if (typeof prepared.case?.prompt !== "string" || !prepared.case.prompt.length) throw new Error("Prepared case is missing its natural DM request");
-	const targetSkillRoot = await realDirectory(resolve(options.targetSkillRoot), "Target skill root");
+	const targetSkillRoot = await realSkillDirectory(resolve(options.targetSkillRoot), "Target skill root");
 	const targetSkillName = basename(targetSkillRoot);
 	let skillRoot: string | undefined;
-	if (options.skillRoot !== undefined) skillRoot = await realDirectory(resolve(options.skillRoot), "Assigned skill snapshot");
-	if (skillRoot) validateAssignedSkillRoot(skillRoot, targetSkillRoot, run.sessionRoot, targetSkillName);
+	if (options.skillRoot !== undefined) skillRoot = await realSkillDirectory(resolve(options.skillRoot), "Assigned skill snapshot");
 	const network = { https: options.network?.https === true, search: options.network?.search === true };
 	const token = randomBytes(32).toString("base64url");
 	const runTag = randomBytes(8).toString("hex");
@@ -740,10 +566,10 @@ export async function bindRunnerTools(
 		schemaVersion: 1,
 		token,
 		capabilityNames,
-		sessionRoot: run.sessionRoot,
-		runId: run.runId,
-		worldRoot,
+		sessionRoot,
+		runId: prepared.runId,
 		controlRoot,
+		outputRoot,
 		repositoryRoot,
 		targetSkillRoot,
 		targetSkillName,
@@ -759,22 +585,44 @@ export async function bindRunnerTools(
 			return await handler(input);
 		}, { name, description, parameters });
 	};
-	const filePath = stringSchema("A path relative to the assigned World, or an explicitly granted source path");
-	bind("read", "Read a file inside the assigned World or an allowed live source/skill path.", schema({ path: filePath, startLine: { type: "integer", minimum: 1 }, lineCount: { type: "integer", minimum: 1, maximum: 2000 } }, ["path"]), async (input) => {
+	// Mutations are serial per run so deletion manifests and draft writes cannot race.
+	let mutation: Promise<unknown> = Promise.resolve();
+	const mutate = (operation: () => Promise<void>): Promise<unknown> => {
+		const next = mutation.then(operation);
+		mutation = next.catch(() => undefined);
+		return next;
+	};
+	const outputPath = stringSchema("Wiki-relative .md page path (optional wiki/ prefix), or reply.md for the DM reply");
+	bind("write", "Write a complete page or DM reply only into this run's output directory.", schema({ path: outputPath, content: stringSchema("Complete UTF-8 file text") }, ["path", "content"]), async (input) => {
+		const path = outputPagePath(input.path, true);
+		assertNoEvaluatorTree(join(outputRoot, path));
+		if (typeof input.content !== "string") throw new Error("Output content must be text");
+		const content = input.content;
+		await mutate(() => writeRunnerOutput(outputRoot, path, content));
+		return { path: join(outputRoot, path) };
+	});
+	bind("delete_page", "Record a Wiki page removal in this run's output directory.", schema({ path: outputPath }, ["path"]), async (input) => {
+		const path = outputPagePath(input.path);
+		assertNoEvaluatorTree(join(outputRoot, path));
+		await mutate(() => deleteRunnerPage(outputRoot, path));
+		return { deleted: path };
+	});
+	const filePath = stringSchema("A live repository-relative source path, assigned skill path, or absolute path under this run's output directory");
+	bind("read", "Read a live Wiki, Raw, Archive, template, assigned skill file, or this run's output draft.", schema({ path: filePath, startLine: { type: "integer", minimum: 1 }, lineCount: { type: "integer", minimum: 1, maximum: 2000 } }, ["path"]), async (input) => {
 		const startLine = boundedInteger(input, "startLine", 1, 1, Number.MAX_SAFE_INTEGER);
 		const lineCount = boundedInteger(input, "lineCount", 400, 1, 2000);
-		const target = await resolveTarget(input.path, worldRoot, grant, false);
+		const target = await resolveTarget(input.path, grant);
 		return await readTextFile(target, startLine, lineCount);
 	});
-	bind("grep", "Find literal text in files under one granted directory; private evaluator paths are filtered.", schema({ query: stringSchema("Literal case-insensitive text"), path: stringSchema("Optional granted directory; defaults to the assigned World"), limit: { type: "integer", minimum: 1, maximum: MAX_RESULT_LINES } }, ["query"]), async (input) => {
+	bind("grep", "Find literal text under a granted live or output directory.", schema({ query: stringSchema("Literal case-insensitive text"), path: stringSchema("Optional granted directory; defaults to wiki/"), limit: { type: "integer", minimum: 1, maximum: MAX_RESULT_LINES } }, ["query"]), async (input) => {
 		if (typeof input.query !== "string" || !input.query) throw new Error("grep query must be nonempty text");
 		if (input.path !== undefined && typeof input.path !== "string") throw new Error("grep path must be text");
-		const root = typeof input.path === "string" ? input.path : worldRoot;
+		const root = typeof input.path === "string" ? input.path : join(repositoryRoot, "wiki");
 		const limit = boundedInteger(input, "limit", MAX_RESULT_LINES, 1, MAX_RESULT_LINES);
 		const files = await listFiles(root, grant);
 		const matches: Array<{ path: string; line: number; text: string }> = [];
 		for (const path of files) {
-			const target = await resolveTarget(path, worldRoot, grant, false);
+			const target = await resolveTarget(path, grant);
 			if (!target.info || target.info.size > MAX_READ_BYTES) continue;
 			const lines = (await readFile(path, "utf8")).split(/\r?\n/u);
 			for (let index = 0; index < lines.length; index++) {
@@ -784,64 +632,26 @@ export async function bindRunnerTools(
 		}
 		return matches;
 	});
-	bind("glob", "List granted files matching a relative glob pattern; private evaluator paths are filtered.", schema({ pattern: stringSchema("Glob relative to the assigned search directory"), path: stringSchema("Optional granted directory; defaults to the assigned World"), limit: { type: "integer", minimum: 1, maximum: 1000 } }, ["pattern"]), async (input) => {
+	bind("glob", "List granted live and output files matching a relative glob pattern.", schema({ pattern: stringSchema("Glob relative to the search directory"), path: stringSchema("Optional granted directory; defaults to wiki/"), limit: { type: "integer", minimum: 1, maximum: 1000 } }, ["pattern"]), async (input) => {
 		if (typeof input.pattern !== "string" || !input.pattern) throw new Error("glob pattern must be nonempty text");
 		assertSafePathText(input.pattern);
 		if (input.path !== undefined && typeof input.path !== "string") throw new Error("glob path must be text");
-		const rootPath = typeof input.path === "string" ? input.path : worldRoot;
-		const rootTarget = await resolveTarget(rootPath, worldRoot, grant, false, true);
+		const rootPath = typeof input.path === "string" ? input.path : join(repositoryRoot, "wiki");
+		const rootTarget = await resolveTarget(rootPath, grant, true);
 		const matcher = globRegex(input.pattern);
 		const files = await listFiles(rootTarget.path, grant);
 		const limit = boundedInteger(input, "limit", 200, 1, 1000);
 		return files.filter((path) => matcher.test(relativePosix(rootTarget.path, path))).slice(0, limit).map((path) => ({ path, relative: relativePosix(rootTarget.path, path) }));
 	});
-	bind("find", "Find granted files by filename; private evaluator paths are filtered before results are returned.", schema({ query: stringSchema("Case-insensitive filename fragment"), path: stringSchema("Optional granted directory; defaults to the assigned World"), limit: { type: "integer", minimum: 1, maximum: 1000 } }, ["query"]), async (input) => {
+	bind("find", "Find granted live and output files by filename.", schema({ query: stringSchema("Case-insensitive filename fragment"), path: stringSchema("Optional granted directory; defaults to wiki/"), limit: { type: "integer", minimum: 1, maximum: 1000 } }, ["query"]), async (input) => {
 		if (typeof input.query !== "string" || !input.query) throw new Error("find query must be nonempty text");
 		if (input.path !== undefined && typeof input.path !== "string") throw new Error("find path must be text");
-		const rootPath = typeof input.path === "string" ? input.path : worldRoot;
-		const rootTarget = await resolveTarget(rootPath, worldRoot, grant, false, true);
+		const rootPath = typeof input.path === "string" ? input.path : join(repositoryRoot, "wiki");
+		const rootTarget = await resolveTarget(rootPath, grant, true);
 		const files = await listFiles(rootTarget.path, grant);
 		const query = input.query.toLocaleLowerCase();
 		const limit = boundedInteger(input, "limit", 200, 1, 1000);
 		return files.filter((path) => basename(path).toLocaleLowerCase().includes(query)).slice(0, limit).map((path) => ({ path, relative: relativePosix(rootTarget.path, path) }));
-	});
-	bind("write", "Write UTF-8 text to a regular file inside the assigned World; the prepared descriptor is immutable.", schema({ path: stringSchema("World-relative target path"), content: stringSchema("Complete UTF-8 file content") }, ["path", "content"]), async (input) => {
-		return await writeInsideWorld(input.path, input.content, grant);
-	});
-	bind("edit", "Replace the complete contents of a regular file inside the assigned World (not hashline editing).", schema({ path: stringSchema("World-relative target path"), content: stringSchema("Complete replacement UTF-8 file content") }, ["path", "content"]), async (input) => {
-		return await writeInsideWorld(input.path, input.content, grant);
-	});
-	bind("delete", "Delete one regular file inside the assigned World; directories and the prepared descriptor cannot be removed.", schema({ path: stringSchema("World-relative file path") }, ["path"]), async (input) => {
-		const target = await validateDestination(input.path, grant, false);
-		if (!target.info?.isFile()) rejectPath("Only regular files may be deleted");
-		await unlink(target.path);
-		return { deleted: relativePosix(worldRoot, target.path) };
-	});
-	bind("archive_move", "Move one Raw file into the assigned Archive without overwriting an existing destination.", schema({ source: stringSchema("Raw-relative source path, beginning with raw/"), destination: stringSchema("Archive-relative destination path, beginning with archive/") }, ["source", "destination"]), async (input) => {
-		const source = await validateDestination(input.source, grant, false);
-		const destination = await validateDestination(input.destination, grant, true);
-		if (!relativePosix(worldRoot, source.path).startsWith("raw/") || !relativePosix(worldRoot, destination.path).startsWith("archive/")) throw new Error("Archive moves are limited to Raw → Archive inside the assigned World");
-		if (!source.info?.isFile()) rejectPath("Only regular Raw files can be moved");
-		if (destination.info) throw new Error("Archive destination already exists; refusing to overwrite it");
-		await mkdir(dirname(destination.path), { recursive: true });
-		await assertNoLinksFrom(worldRoot, dirname(destination.path), false);
-		await link(source.path, destination.path);
-		try {
-			const linkedInfo = await lstat(destination.path);
-			const sourceInfo = await lstat(source.path);
-			if (!linkedInfo.isFile() || linkedInfo.dev !== sourceInfo.dev || linkedInfo.ino !== sourceInfo.ino || linkedInfo.nlink !== 2) {
-				throw new Error("Raw source changed during the Archive move");
-			}
-			await unlink(source.path);
-		} catch (error) {
-			const [linkedInfo, sourceInfo] = await Promise.all([
-				lstat(destination.path).catch(() => undefined),
-				lstat(source.path).catch(() => undefined),
-			]);
-			if (linkedInfo?.isFile() && sourceInfo?.isFile() && linkedInfo.dev === sourceInfo.dev && linkedInfo.ino === sourceInfo.ino) await unlink(destination.path).catch(() => {});
-			throw error;
-		}
-		return { moved: relativePosix(worldRoot, source.path), archived: relativePosix(worldRoot, destination.path) };
 	});
 	bind("qmd_query", "Query only the existing live QMD index's wiki, raw, and archive collections using typed lexical/semantic searches.", schema({ intent: stringSchema("Explicit retrieval intent"), searches: { type: "array", minItems: 1, maxItems: 8, items: { type: "object", properties: { type: { type: "string", enum: ["lex", "vec"] }, query: stringSchema("Single-line search text") }, required: ["type", "query"], additionalProperties: false } }, limit: { type: "integer", minimum: 1, maximum: 20 } }, ["intent", "searches"]), async (input) => {
 		if (typeof input.intent !== "string" || !input.intent.trim() || /[\r\n\u0000]/u.test(input.intent) || !Array.isArray(input.searches) || input.searches.length < 1 || input.searches.length > 8) throw new Error("QMD requires a nonempty explicit intent and typed search list");
@@ -854,73 +664,39 @@ export async function bindRunnerTools(
 		const args = ["query", lines.join("\n"), "--format", "json", "--no-rerank", "--full-path", "-n", String(limit)];
 		for (const collection of ROOT_COLLECTIONS) args.push("-c", collection);
 		const result = await runExecFile("qmd", args, repositoryRoot, qmdEnv);
-		let hits: unknown[] = [];
+		if (result.exitCode !== 0) throw new Error(`QMD query failed: ${result.stderr || result.error || result.exitCode}`);
 		const jsonStart = result.stdout.indexOf("[");
 		const jsonEnd = result.stdout.lastIndexOf("]");
-		if (jsonStart >= 0 && jsonEnd >= jsonStart) {
-			try {
-				const parsed: unknown = JSON.parse(result.stdout.slice(jsonStart, jsonEnd + 1));
-				if (Array.isArray(parsed)) hits = parsed;
-			} catch {
-				throw new Error("QMD returned malformed JSON results");
-			}
-		}
-		const mapped = [];
+		if (jsonStart < 0 || jsonEnd < jsonStart) throw new Error("QMD returned no JSON results");
+		const hits: unknown = JSON.parse(result.stdout.slice(jsonStart, jsonEnd + 1));
+		if (!Array.isArray(hits)) throw new Error("QMD results must be a list");
+		const results = [];
 		for (const hit of hits) {
 			if (!record(hit) || typeof hit.file !== "string") continue;
-			const sourcePath = qmdRefToLivePath(hit.file, repositoryRoot);
-			if (typeof sourcePath !== "string") rejectPath("QMD search returned a result without a source path");
-			const sourcePair = await mapQmdSource(sourcePath, worldRoot, repositoryRoot, grant);
-			mapped.push({ ...hit, ...sourcePair });
+			try {
+				const sourcePair = await qmdSource(qmdRefToLivePath(hit.file, repositoryRoot), repositoryRoot, grant);
+				results.push({ ...hit, ...sourcePair });
+			} catch {
+				// Omit protected results and their snippets; never return unfiltered stdout.
+			}
 		}
-		return { ...resultObject(result), results: mapped };
+		return { exitCode: 0, results };
 	});
 	bind("qmd_get", "Retrieve one document from the existing live Wiki, Raw, or Archive QMD index by document ID or source path.", schema({ reference: stringSchema("QMD document ID, qmd://wiki|raw|archive path, or live repo collection path") }, ["reference"]), async (input) => {
 		if (typeof input.reference !== "string") throw new Error("QMD reference must be text");
 		const source = qmdRefToLivePath(input.reference, repositoryRoot);
+		if (!source.startsWith("#")) await qmdSource(source, repositoryRoot, grant);
 		const args = ["get", source, "--full-path", "--line-numbers"];
 		for (const collection of ROOT_COLLECTIONS) args.push("-c", collection);
 		const result = await runExecFile("qmd", args, repositoryRoot, qmdEnv);
-		if (result.exitCode !== 0) return resultObject(result);
+		if (result.exitCode !== 0) throw new Error(`QMD get failed: ${result.stderr || result.error || result.exitCode}`);
 		const firstLine = result.stdout.split(/\r?\n/u, 1)[0] ?? "";
 		const printedPath = firstLine.startsWith("./") ? resolve(repositoryRoot, firstLine.slice(2)) : firstLine;
 		const sourcePath = input.reference.startsWith("#") ? printedPath : source;
-		const sourcePair = await mapQmdSource(sourcePath, worldRoot, repositoryRoot, grant);
-		return { ...resultObject(result), ...sourcePair };
-	});
-	bind("check", "Run the complete 13-layer cf check or check --fix against the assigned World.", schema({ fix: { type: "boolean", description: "Apply mechanical fixes before reporting." }, reportPath: stringSchema("Optional World-relative output file for stdout") }), async (input) => {
-		if (input.fix !== undefined && typeof input.fix !== "boolean") throw new Error("check fix must be boolean");
-		const args = [join(repositoryRoot, "src", "cli.ts"), "check", "--json", "--root", worldRoot, "--vault", join(worldRoot, "wiki"), "--templates", join(worldRoot, "wiki", "templates")];
-		if (input.fix === true) args.push("--fix");
-		const result = await runExecFile("node", args, repositoryRoot, commandEnv(repositoryRoot));
-		await writeReport(input.reportPath, result, grant);
-		return resultObject(result);
-	});
-	bind("index", "Run cf index only for the assigned World; its writes stay under the assigned Wiki.", schema({ reportPath: stringSchema("Optional World-relative output file for stdout") }), async (input) => {
-		const args = [join(repositoryRoot, "src", "cli.ts"), "index", "--root", worldRoot, "--vault", join(worldRoot, "wiki")];
-		const result = await runExecFile("node", args, repositoryRoot, commandEnv(repositoryRoot));
-		await writeReport(input.reportPath, result, grant);
-		return resultObject(result);
-	});
-	bind("log", "Run cf log with typed fields against the assigned World only.", schema({ world: stringSchema("World name in the assigned Wiki"), op: { type: "string", enum: ["create", "ingest", "prep", "push", "audit", "pull", "query"] }, title: stringSchema("One-line log entry title"), pages: { type: "array", minItems: 1, items: stringSchema("Page name or Wiki-relative path") }, reportPath: stringSchema("Optional World-relative output file for stdout") }, ["world", "op", "title", "pages"]), async (input) => {
-		if (typeof input.world !== "string" || !input.world.trim() || /[\/\\\u0000-\u001f]/u.test(input.world) || typeof input.op !== "string" || !LOG_OPERATIONS.has(input.op) || typeof input.title !== "string" || !input.title.trim() || /[\r\n\u0000]/u.test(input.title) || !Array.isArray(input.pages) || input.pages.length === 0 || input.pages.length > 64) throw new Error("log requires a World, valid operation, one-line title, and one to 64 pages");
-		const pages: string[] = [];
-		for (const page of input.pages) {
-			if (typeof page !== "string" || !page.trim()) throw new Error("log page references must be nonempty text");
-			pages.push(page);
-		}
-		for (const page of pages) {
-			assertSafePathText(page);
-			if (page.includes("/")) {
-				const wikiPath = page.startsWith("wiki/") ? page : `wiki/${page}`;
-				await resolveTarget(wikiPath, worldRoot, grant, false);
-			}
-		}
-		const args = [join(repositoryRoot, "src", "cli.ts"), "log", `--world=${input.world}`, `--op=${input.op}`, `--title=${input.title}`, "--root", worldRoot, "--vault", join(worldRoot, "wiki")];
-		for (const page of pages) args.push(`--page=${page}`);
-		const result = await runExecFile("node", args, repositoryRoot, commandEnv(repositoryRoot));
-		await writeReport(input.reportPath, result, grant);
-		return resultObject(result);
+		const sourcePair = await qmdSource(sourcePath, repositoryRoot, grant);
+		const target = await resolveTarget(sourcePair.path, grant);
+		if (!target.info || target.info.size > MAX_READ_BYTES) throw new Error("QMD source exceeds the Runner read limit");
+		return { exitCode: 0, ...sourcePair, content: await readFile(target.path, "utf8") };
 	});
 	if (network.https) {
 		bind("https_get", "Retrieve one public HTTPS page with GET only; private/local hosts, redirects, and mutation methods are unavailable.", schema({ url: stringSchema("Public HTTPS URL") }, ["url"]), async (input) => {
@@ -937,12 +713,10 @@ export async function bindRunnerTools(
 	}
 	await writeFile(grantPath, JSON.stringify(grant, null, 2), { encoding: "utf8", flag: "wx", mode: 0o600 });
 	await chmod(grantPath, 0o600);
-	const operationDescriptor = {
-		caseId: descriptor.caseId,
-		startHere: descriptor.startHere,
-		replaySources: descriptor.replaySources,
-		outputPaths: descriptor.outputPaths,
-	};
-	const runnerBrief = `Eval grant: ${grantPath} ${token}\n\nOperational workspace descriptor:\n${JSON.stringify(operationDescriptor, null, 2)}\nStart-here paths are relative to outputPaths.wiki; read them as wiki/<path>.\n\nDM request (verbatim):\n${descriptor.prompt}`;
+	const startHere = [
+		...(prepared.case.source_pages ?? []).map((path) => `wiki/${path.endsWith(".md") ? path : `${path}.md`}`),
+		...(prepared.case.raw_sources ?? []),
+	];
+	const runnerBrief = `Eval grant: ${grantPath} ${token}\n\nLive repository: ${repositoryRoot}\nOutput directory: ${outputRoot}\nUse write for complete Wiki-relative .md pages and reply.md; use delete_page for page removals. Read your drafts using their absolute output paths.\nStart-here sources:\n${startHere.map((path) => `- ${path}`).join("\n")}\n\nDM request (verbatim):\n${prepared.case.prompt}`;
 	return { token, toolNames, runnerBrief };
 }

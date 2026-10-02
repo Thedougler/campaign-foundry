@@ -9,9 +9,9 @@ A World exists independently of a Campaign. Create just enough to start one: a t
 
 ## Steps
 
-1. **Orient.** Read `user-config.md`, `AGENTS.md`, `CONTEXT.md`, `docs/wiki-layout.md` and ADRs 0003, 0004 and 0010. Resolve the caller's repository root and Wiki write root before any Wiki operation; an assigned root takes precedence over the active World in preferences. Use the installed capabilities for that target, keeping read-only source material separate from writable pages. A new World has no Campaign: existing Campaign orientation belongs only to a source World you consult, not to the new World.
+1. **Orient.** Read `user-config.md`, `AGENTS.md`, `CONTEXT.md`, `docs/wiki-layout.md` and ADRs 0003, 0004 and 0010. Resolve the repository root and target Wiki before any Wiki operation; a caller-assigned filesystem target takes precedence over the active World in preferences. A new World has no Campaign: existing Campaign orientation belongs only to a source World you consult, not to the new World.
 
-   **Done when** the write target, page-placement rules, Canon precedence and available source/write capabilities are known.
+   **Done when** the target Wiki, page-placement rules and Canon precedence are known.
 
 2. **Talk before building.** Start with the DM's supplied vision and ask only about missing intent. Keep the exchange warm and collaborative rather than presenting a questionnaire. Offer possibilities grounded in what they said, with options when those help them choose. Gather:
    - the World's name, premise, feel and inspirations;
@@ -25,7 +25,7 @@ A World exists independently of a Campaign. Create just enough to start one: a t
 
    **Done when** every intent point has the DM's answer or explicit leave to decide, and no Wiki construction has begun before that boundary.
 
-3. **Source and bound the skeleton.** Follow `AGENTS.md`'s reuse order: retrieve fitting Wiki material first, use the 2024 SRD for needed rules, then search official, published and homebrew material before inventing what remains. Load `qmd` for Wiki discovery and the applicable search/retrieval skills for external material. Read relied-on hits and relevant linked pages; a search snippet is not a source. Stop at the first fitting source and distinguish preserved facts from adaptations to this new World. Where a source World supplies material, read its index and available last ten log entries, plus its Campaign orientation when relevant.
+3. **Source and bound the skeleton.** Follow `AGENTS.md`'s reuse order: retrieve fitting Wiki material first, use the 2024 SRD for needed rules, then search official, published and homebrew material before inventing what remains. Load `qmd` for Wiki discovery and use the harness's web search and fetch tools for external material. Read relied-on hits and relevant linked pages; a search snippet is not a source. Stop at the first fitting source and distinguish preserved facts from adaptations to this new World. Where a source World supplies material, read its index and available last ten log entries, plus its Campaign orientation when relevant.
 
    Make a working inventory of the pages below, their sources, owner paths and links. Reuse a retrieved Calendar, Faction, Deity or other fitting design rather than independently rebuilding it. Put external attribution in the page body where relevant; frontmatter `sources` contains only repo-relative archived Raw paths, or `[]` when none was used. If a required source or retrieval capability is unavailable, identify the missing prerequisite and any material actually retrieved; do not present an unverified attribution or rule as sourced.
 
@@ -54,7 +54,7 @@ A World exists independently of a Campaign. Create just enough to start one: a t
    bun run cf check
    ```
 
-   Use the caller's bound capabilities when execution is confined. For an explicitly assigned filesystem target, pass its `--vault`, `--root` and `--templates` to check, and its `--vault`/`--root` to index and log. Preserve those paths throughout child handoffs.
+   For an explicitly assigned filesystem target, pass its `--vault`, `--root` and `--templates` to check, and its `--vault`/`--root` to index and log. Preserve those paths throughout child handoffs.
 
    Run the full gate without path or layer filters: path arguments only filter reported findings, not the Wiki being checked. Resolve findings without changing the DM's intended facts, regenerate indexes when pages change and repeat until the full check exits 0. Indexes are generated, not hand-authored.
 
@@ -64,7 +64,7 @@ A World exists independently of a Campaign. Create just enough to start one: a t
    bun run cf log --world "<World>" --op create --title "New World: <World>" --page "<World>/<World>.md"
    ```
 
-   Observe the entry written, then run the full check once more so the finished artifacts, including the log, are covered. Missing tooling or capabilities remain a named blocker, not a successful gate or log.
+   Observe the entry written, then run the full check once more so the finished artifacts, including the log, are covered. Missing tooling remains a named blocker, not a successful gate or log.
 
    **Done when** the generated root index lists the World, its World index lists the skeleton, one creation log entry records every touched content page, and the final full gate exits 0 at the assigned target.
 

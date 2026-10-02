@@ -15,7 +15,8 @@ function report(pass: boolean, extra: Partial<SkillEvalReport["cases"][0]> = {})
 		cases: [
 			{
 				id: "a",
-				worldRoot: "/tmp/a",
+				controlRoot: "/tmp/a",
+				outputRoot: "/tmp/outputs/a",
 				checks: [],
 				checkFailed: 0,
 				grades: pass ? [{ rubric: "ok", pass: true, reason: "ok" }] : [{ rubric: "ok", pass: false, reason: "fail" }],

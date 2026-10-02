@@ -11,7 +11,7 @@ Location-design uses sections 1â€“2 before kind-specific design and sections 3â€
 
 Canon precedence is DM statements, then the Wiki, then material being ingested. Preserve established geography, inhabitants, mechanics and events while moving them into the template's current shape. Distinguish a superseded state from a contradiction: a recorded event advances the World, while closed events remain history. Decide missing design facts consistently with the retrieved Canon and list those decisions in the reply; no draft approval queue or extra invention property is required. Keep inventory and source-comparison notes out of the page.
 
-Use live `vault://` reads/edits in omp. For a scratch eval, obey the caller's explicit filesystem and scratch-local qmd instructions instead; do not reach the live vault or inherited search index.
+Use live `vault://` reads/edits in omp.
 
 **Complete when** the requested Kind and parent are resolved, orientation is read in order, every relied-on source is retrieved, and the inventory identifies the facts that must survive the edit.
 
@@ -21,7 +21,7 @@ For each needed element, use the first fitting source in this order:
 
 1. **Wiki:** Canon, House Rules and reusable pages.
 2. **2024 SRD:** use `dnd5e-srd-api` when travel, hazards, prices, Creatures, Items or other rules content needs a rules source.
-3. **Official/web/homebrew:** use the project's search and extraction skills for official material beyond the SRD, then existing homebrew or published designs suited to the DM's purpose.
+3. **Official/web/homebrew:** use the harness's web search and fetch tools for official material beyond the SRD, then existing homebrew or published designs suited to the DM's purpose.
 4. **Novel:** only after the search finds no fit; build from the closest useful material and the World's Canon.
 
 Stop when a source fits the need. Skip a source only when it has no applicable content; if relevant material does not fit, record why before proceeding. Foundry is never a source. Keep the selected source and any adaptation in working evidence or a body attribution; `sources` contains only repo-relative paths to archived Raw, never external URLs. Preserve valid existing provenance.
@@ -60,7 +60,7 @@ bun run cf check --fix
 bun run cf check
 ```
 
-Path arguments only filter findings; they do not make the check local. A filtered report is not completion evidence. The full `--fix` run also regenerates indexes; never edit generated indexes by hand. When operating on a scratch World, add the caller's `--vault`, `--root` and `--templates` paths to both commands, and `--vault`/`--root` to logging.
+Path arguments only filter findings; they do not make the check local. A filtered report is not completion evidence. The full `--fix` run also regenerates indexes; never edit generated indexes by hand. When the caller assigns an explicit filesystem target, add its `--vault`, `--root` and `--templates` paths to both commands, and `--vault`/`--root` to logging.
 
 After a successful standalone operation, append exactly one entry listing each touched content page, using its vault-relative path. For example, replace the placeholders and repeat `--page` as needed:
 

@@ -16,8 +16,8 @@ Use `location-design` to create or deepen a Region, Settlement or Site. It reads
 
 Use `dungeon-design` when a Site needs area-by-area exploration, keyed routes, pressure and rest procedures. It stocks a Site rather than defining a Dungeon page kind; `location-design` invokes it for dungeon-like Sites.
 
-Both skills have Campaign-grounded definitions in their `evals/cases.yaml`. When execution is requested, use `run-evals` for scratch snapshots, page checks and independent grading.
+Both skills have Campaign-grounded definitions in their `evals/cases.yaml`. When execution is requested, use `run-evals` for read-only runs, page checks and independent grading.
 
 ## Home-Session dogfooding
 
-All skill evals use real Shattered Sea content in independent scratch copies. `evals/README.md` defines source provenance, isolation and the weekly DM/Player feedback loop. `bun run eval:prepare --help` lists preparation and source-immutability verification commands. Live Wiki, Raw and Archive originals stay unchanged during evals; Narration benchmarks run only when requested.
+All skill evals use real Shattered Sea content: Runners read the live Wiki, Raw and Archive read-only and save their pages and DM reply to a per-run output directory in temporary Session storage, so the originals stay unchanged. `evals/README.md` defines source provenance, isolation and the weekly DM/Player feedback loop; `bun run eval:prepare --help` lists the Session maintenance commands. Narration benchmarks run only when requested.

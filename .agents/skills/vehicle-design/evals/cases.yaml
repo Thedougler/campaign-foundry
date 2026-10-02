@@ -23,7 +23,7 @@
         - '^type:\s*Vehicle\s*$'
   rubrics:
     - >-
-      The frozen cutter's identity, scale, hull statistics, complement,
+      The starting cutter's identity, scale, hull statistics, complement,
       passengers, refit and Thunk's role survive. Geoffrey's acting captain
       appointment follows the DM over the starting absence of a captain.
       Current offshore location is distinguished from the historical refit

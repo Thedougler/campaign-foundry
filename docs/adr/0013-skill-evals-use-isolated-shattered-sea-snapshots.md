@@ -1,5 +1,7 @@
 # Skill evals use isolated Shattered Sea snapshots
 
+> Copied Worlds, baselines, clones, seeds and confined writes are superseded by [ADR 0014](0014-skill-eval-runners-read-live-wiki-and-return-pages.md). Real Shattered Sea grounding and the benchmark and fixture rules below still hold.
+
 The synthetic Lowtide fixture World exercised invented Campaign situations while the DM's home Shattered Sea Campaign held the content actually used at the table. Skill regressions could pass without testing current Wiki practices. GitHub issue [#31](https://github.com/Thedougler/campaign-foundry/issues/31) requests real Campaign grounding and preservation of the originals.
 
 All active skill evaluation inputs now come from the real Shattered Sea Wiki, Raw and Archive. The DM and Players playtest the Wiki in weekly home Sessions; the Agent processes their reports between Sessions. `evals/README.md` owns the grounding, isolation and feedback contract. Project and skill instructions point to it when authoring, preparing or refreshing eval data or processing feedback.

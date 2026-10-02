@@ -2,7 +2,7 @@
 
 Notes for skill-eval **runners** (the model under test), not graders. Graders and `eval:check` still see checks and rubrics. The runner must not.
 
-**Current contract.** `evals/README.md` owns access, lifetime and grounding; ADR 0013 records the decision. The implementation uses OS-temp Session Worlds, private control/authoring/audit storage, an immutable public descriptor and enforced per-run capabilities. QMD reads the existing real-project index as-is; copying/rebuilding an index in scratch is superseded advice. Close the returned `sessionRoot` after Grade/reporting and settled child jobs; evidence survives only through explicitly requested export.
+**Current contract.** `evals/README.md` owns access, lifetime and grounding; ADR 0014 records the decision. Runners read the live Wiki, Raw, Archive, templates and their assigned skill read-only and save every new or changed page, removal and the DM reply to their own output directory, the only place their `write` and `delete_page` reach. A private OS-temp Session root holds the evaluator artifacts and run outputs; source hashes recorded before dispatch and rechecked after invalidate a run whose sources changed.
 
 Local observations that prompted this: `theatre-of-the-mind` `narration-slots` briefs coach the slot, name the defect, and say “do not rewrite X”; `run-evals` and `test-subject` repeat negatives the harness should make impossible; `pnpm check` failed in an isolated runner with `Unsupported package manager specification (bun@1.3.14)` instead of one gate CLI.
 
@@ -30,23 +30,21 @@ Positive directives outperform “don’t do X”; token generation selects the 
 
 Governance (who may read, who may write) is a runtime variable. Prompt-based “never edit live Wiki” is probabilistic; the harness must deny the write. ([Harness-MU](https://arxiv.org/html/2606.21856v1); [Australian Signals Directorate on agentic harnesses](https://www.cyber.gov.au/business-government/secure-design/artificial-intelligence/agentic-ai-harnesses); [Augment: rules files plus deterministic outer constraints](https://www.augmentcode.com/guides/harness-engineering-ai-coding-agents).)
 
-Runner brief: the DM task, allowed write root, and which pages to start from. Not a list of forbidden files.
+Runner brief: the DM task and which pages to start from. Not a list of forbidden files.
 
 ## Tools
 
-Reading uses granted Wiki/Raw/Archive, templates and assigned skill/reference files; writing is confined to the assigned temporary World. Parent-kernel capabilities bind the real-project QMD index for read-only queries/retrieval and map edit paths into scratch. `test-subject` declares only `yield`; dispatch supplies its exact per-run capabilities. Missing File/check capabilities are a harness prerequisite, not permission to substitute unrestricted tools.
-
-Preparation seeds only assigned current-page callout bodies before freezing the private baseline. The Runner sees the resulting unfinished page through its public task inputs, not the defect diagnosis or expected answer. Natural DM requests and short start-here paths keep production task shape while runtime grants hide private comparison material.
+Runners get read, search and QMD query/retrieval over the live sources, and `write`/`delete_page` scoped to their run's output directory (ADR 0014). `test-subject` declares only `yield`; dispatch supplies its exact per-run capabilities. Cases ask about pages as they stand.
 
 ## One lint CLI
 
 The gate already has every layer, in order: template, placement, links, orphans, statblock, index, hot, log, markdownlint, remark-lint, spelling, grammar, style (`src/check/layers/index.ts`). `cf check` runs them; `cf check --fix` applies mechanical fixes.
 
-File uses the full `cf check` / `cf check --fix` gate with bound `--vault <W>/wiki --root <W> --templates <W>/wiki/templates`, through fixed native capabilities. A page/layer filter is not completion evidence. Cache and Vale intermediates stay beneath the invocation root; operator setup and missing-tool remediation stay with the parent.
+Production File uses the full `cf check` / `cf check --fix` gate; a page/layer filter is not completion evidence. Eval runs skip the gate: Checks run on the Outcome assembled from the run's output directory.
 
 ## Related
 
 - #25 Anthropic eval-design + hillclimbing
 - #33 live Wiki read-only search vs re-embed
-- #34 eval runners: production-like tasks, harness isolation, seeded defects, one lint CLI
+- #34 eval runners: production-like tasks, read-only live Runners, one lint CLI
 - #15 theatre-of-the-mind evals

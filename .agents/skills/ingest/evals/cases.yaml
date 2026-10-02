@@ -1,4 +1,4 @@
-# Replays of real Archive inputs; preparation supplies the Raw paths and destinations.
+# Ingests of real Archive inputs, asked as the DM hands them over.
 - id: brain-dump
   source_pages:
     - The Shattered Sea/NPCs/Cobb.md
@@ -10,10 +10,10 @@
       The Shattered Sea/log.md: ['/\] ingest \|/']
   rubrics:
     - Factual units reach their existing owner pages in the current template shape. Against this run's starting sources, Cobb remains the young rattkin dockworker and Nona's runner at La Vasca, with his childhood connection to Perrin.
-    - Touched pages cite the assigned Archive destination while preserving existing provenance. The output contains no duplicate Cobb, file-summary page, legacy voice-profile page or executable copy of the Raw's UI widgets.
+    - Touched pages cite archive/Cobb.md while preserving existing provenance. The output contains no duplicate Cobb, file-summary page, legacy voice-profile page or executable copy of the Raw's UI widgets.
     - The three-day paint wait remains historical rather than replacing later refit and departure facts in the starting Wiki. Current Campaign state and PC levels are preserved.
     - Hidden loyalty and message limits remain DM knowledge. Cobb gains no unsupported combat statistics or Creature.
-    - The Raw copy reaches its assigned Archive destination without overwriting the original or processing unrelated Raw. Touched pages and neighbours agree on the ingested facts.
+    - Only archive/Cobb.md is ingested. Touched pages and neighbours agree on the ingested facts.
     - Played records remain unchanged. The reply names actual changes and any real conflicts settled, without inventing a table ruling.
 - id: transcript
   source_pages:
@@ -33,12 +33,12 @@
         - '## Threads'
   rubrics:
     - The Recap accounts for every active Thread in this run's Campaign, including those that stayed still, and distinguishes played changes from unresolved pressures.
-    - "Actual events follow the assigned Session 11 Transcript: flight from the adult Bloodhawk, living fruit drawing hunters, Matteo's rescue from playful otters, ghost-plum invisibility, the Lesser Black Lotus drifting downstream and the unresolved Skarn attack. Unreached inland survivors and a completed theft are not narrated as played."
+    - "Actual events follow the Session 11 Transcript: flight from the adult Bloodhawk, living fruit drawing hunters, Matteo's rescue from playful otters, ghost-plum invisibility, the Lesser Black Lotus drifting downstream and the unresolved Skarn attack. Unreached inland survivors and a completed theft are not narrated as played."
     - Jean-Claude, Matteo, Spinner custody and catatonia match this run's starting Wiki. The table's ambiguous attacker labels do not create a second attacker or override the Canon identity Skarn.
-    - The Previously On comes from the full assigned Transcript, with concrete supported acts for Delmar, Perrin and Crissdalynn. Jean-Claude is represented through his recorded state, not assigned an action he never took. It ends where that Transcript stops, with Skarn still in Crissdalynn's face.
-    - Quoted table speech is word-for-word from the assigned Transcript. Narrative events and character reactions are supported by it, rather than invented to complete an arc.
-    - Both regenerated records cite the assigned Archive destination. Other played records and Session 12's existing Previously On stay unchanged; Session 12 outcomes and later rewards remain plans.
-    - The Raw copy reaches its assigned Archive destination without overwriting the original or processing unrelated Raw. Touched pages and neighbours agree with the Transcript and later Canon; hot, PC levels and the uncertain 1495 DR date remain consistent with this run's starting state.
+    - The Previously On comes from the full Transcript, with concrete supported acts for Delmar, Perrin and Crissdalynn. Jean-Claude is represented through his recorded state, not assigned an action he never took. It ends where that Transcript stops, with Skarn still in Crissdalynn's face.
+    - Quoted table speech is word-for-word from the Transcript. Narrative events and character reactions are supported by it, rather than invented to complete an arc.
+    - Both regenerated records cite archive/session-11-transcript-archived-version.md. Other played records and Session 12's existing Previously On stay unchanged; Session 12 outcomes and later rewards remain plans.
+    - Only that Transcript is ingested. Touched pages and neighbours agree with the Transcript and later Canon; hot, PC levels and the uncertain 1495 DR date remain consistent with this run's starting state.
 
 - id: the-mortis
   source_pages:
@@ -61,7 +61,7 @@
       The Shattered Sea/log.md: ['/\] ingest \|/']
   rubrics:
     - >-
-      The player-facing Mortis from the assigned Archive is a World House
+      The player-facing Mortis from archive/mortis.md is a World House
       Rule: optional at character creation, a Mark and Gift as two sides of
       one fact, one Mortis per character, standard-rules expression that
       fits a line on the sheet, rebalance once in the first few sessions
@@ -77,7 +77,7 @@
     - >-
       Party examples from the DM guide, if used, remain examples on the
       House Rule. PC Sheets are not rewritten. The rule is homebrew, not a
-      published 2024 variant. Both Raws reach Archive destinations; the
+      published 2024 variant. Both archive files are cited as sources; the
       reply names the House Rule page.
 
 - id: bloodhawk-token
@@ -96,9 +96,9 @@
       The Shattered Sea/log.md: ['/\] ingest \|/']
   rubrics:
     - >-
-      The assigned Foundry token reaches the existing Bloodhawk Creature as
-      its token image, with the Raw copied to its Archive destination.
-      Statistics, role and other art on that page survive.
+      The archived Foundry token is embedded on the existing Bloodhawk
+      Creature as its token image. Statistics, role and other art on that
+      page survive.
     - >-
       No second Bloodhawk Creature is created. Played records stay
-      unchanged. The reply names the Creature page and image destination.
+      unchanged. The reply names the Creature page and where the image file goes.

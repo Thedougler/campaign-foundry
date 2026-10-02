@@ -4,7 +4,7 @@ Read only for a requested qualitative comparison of an already comparable pair. 
 
 ## Parent preparation
 
-1. **Admit the pair.** Apply `eval-loop.md`'s completion, contamination, identity/thinking, frozen-input and verification gates first. Supply the natural task and its prose expectations, plus anonymized frozen starting-source evidence needed to judge fidelity. Done when the pair is comparable and both outputs have the same task and starting context.
+1. **Admit the pair.** Apply `eval-loop.md`'s comparability decision first. Supply the natural task and its prose expectations, plus the anonymized live source passages needed to judge fidelity; both runs read the same live sources. Done when the pair is comparable and both outputs have the same task and starting context.
 2. **Blind.** Randomly assign A/B and keep the mapping private. Make temporary output copies without model/version identities, configuration labels or revealing path headers; retain substantive writing unchanged. Use neutral artifact names and source labels. Supply the actual A/B outputs, not Grade counts, histories or a summary of their quality. Done when the grader-visible brief and paths reveal neither candidate nor baseline.
 3. **Dispatch.** Give a fresh native `prose-grader` the steps below and a strict `outputSchema` for `schemas.md`'s `{winner,reasoning,evidence:[{criterion,a,b}]}`. Required winner values are `A`, `B`, `tie`; other fields are strings, with quoted evidence for both sides. This blind assignment yields a result rather than writing an artifact. Done when the fresh grader has both complete outputs and the declared qualitative comparison contract.
 

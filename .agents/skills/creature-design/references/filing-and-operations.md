@@ -25,7 +25,7 @@ Never edit a played Session Prep, Scene, Recap, Previously On, Transcript-derive
 
 ## Scope and verification
 
-Resolve the caller's explicit root, vault and World first. All reads, qmd searches, scratch writes and checks use that target; never fall through to an ambient Obsidian vault. In an eval or scratch vault, do not write the live Wiki. Before editing a World, read its active Campaign `hot.md`, that World's `index.md`, the last ten entries of its `log.md`, and the target pages needed by the request.
+Resolve the caller's explicit root, vault and World first. All reads, qmd searches, writes and checks use that target. Before editing a World, read its active Campaign `hot.md`, that World's `index.md`, the last ten entries of its `log.md`, and the target pages needed by the request.
 
 Add at least one incoming wikilink from a real relevant page besides the generated index; an NPC's `creature` property counts. Verify every link target exists. Create or change the World index only through the CLI.
 

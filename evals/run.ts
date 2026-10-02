@@ -4,425 +4,263 @@
  *   const { runSkillEvals } = await import("./evals/run.ts");
  *   await runSkillEvals({ skill: "theatre-of-the-mind" });
  */
-import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
 import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { loadCases, runChecks, toRegExp, type Case, type Result } from "./check.ts";
-import { bindRunnerTools, type RunnerPreparedWorkspace, type RunnerToolOptions, type RunnerToolRegistrar } from "./runner-tools.ts";
-import { closeEvalSession } from "./workspaces.ts";
+import { loadCases, createOutcome, runChecks, toRegExp, type Case, type Result } from "./check.ts";
+import { bindRunnerTools, type RunnerToolRegistrar } from "./runner-tools.ts";
+import { allocateEvalRun, closeEvalSession, createEvalSession } from "./workspaces.ts";
+import { assertSourcesUnchanged, caseSourcePaths, recordSourceHashes, type SourceHashes } from "./sources.ts";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 export interface SkillEvalTarget {
-	skill: string;
-	skillRoot: string;
-	casesFile: string;
-	cases: Case[];
+ skill: string;
+ skillRoot: string;
+ casesFile: string;
+ cases: Case[];
 }
 
 export interface SkillEvalRunOptions {
-	skill: string;
-	casesFile?: string;
-	caseIds?: string[];
-	skillRoot?: string;
-	snapshotRoot?: string;
-	closeSession?: boolean;
-	network?: { https?: boolean; search?: boolean };
-	register?: RunnerToolRegistrar;
-	dispatch?: DispatchFn;
-	waitAll?: (handles: DispatchHandle[]) => Promise<unknown[]>;
+ skill: string;
+ casesFile?: string;
+ caseIds?: string[];
+ skillRoot?: string;
+ snapshotRoot?: string;
+ baseline?: boolean;
+ repositoryRoot?: string;
+ closeSession?: boolean;
+ network?: { https?: boolean; search?: boolean };
+ register?: RunnerToolRegistrar;
+ dispatch?: DispatchFn;
+ waitAll?: (handles: DispatchHandle[]) => Promise<unknown[]>;
 }
 
 export interface SkillEvalCaseReport {
-	id: string;
-	worldRoot: string;
-	checks: Result[];
-	checkFailed: number;
-	grades?: Array<{ rubric: string; pass: boolean; reason: string }>;
-	gradeError?: string;
-	executionError?: string;
+ id: string;
+ controlRoot: string;
+ outputRoot: string;
+ completionEvidence?: { isolated: true; apply: false; hasRootChanges: false };
+ checks: Result[];
+ checkFailed: number;
+ grades?: Array<{ rubric: string; pass: boolean; reason: string }>;
+ gradeError?: string;
+ executionError?: string;
 }
 
 export interface SkillEvalReport {
-	skill: string;
-	skillRoot: string;
-	casesFile: string;
-	sessionRoot: string;
-	cases: SkillEvalCaseReport[];
+ skill: string;
+ skillRoot: string;
+ casesFile: string;
+ sessionRoot: string;
+ cases: SkillEvalCaseReport[];
 }
 
 export interface DispatchHandle {
-	wait: (timeout?: number) => Promise<unknown>;
+ wait: (timeout?: number) => Promise<unknown>;
 }
 
 export type DispatchFn = (
-	prompt: string,
-	options: { agent: string; isolated: boolean; apply: boolean; tools?: string[]; schema?: Record<string, unknown> },
+ prompt: string,
+ options: { agent: string; isolated: boolean; apply: boolean; tools?: string[]; schema?: Record<string, unknown> },
 ) => DispatchHandle | Promise<DispatchHandle>;
 
 function failPrepare(message: string): never {
-	throw new Error(message.startsWith("PREPARATION:") ? message : `PREPARATION: ${message}`);
+ throw new Error(message.startsWith("PREPARATION:") ? message : `PREPARATION: ${message}`);
 }
 
-function stdio(value: string | Buffer | null | undefined): string {
-	if (value == null) return "";
-	return typeof value === "string" ? value : value.toString("utf8");
-}
-
-function nodeScript(script: string, args: string[]): { status: number | null; stdout: string; stderr: string } {
-	const run = spawnSync("node", [join(repoRoot, script), ...args], { cwd: repoRoot, encoding: "utf8", maxBuffer: 16 * 1024 * 1024 });
-	if (run.error) throw run.error;
-	return { status: run.status, stdout: stdio(run.stdout), stderr: stdio(run.stderr) };
-}
-
-export function parseJsonObject(stdout: string, stderr: string, status: number | null, label: string): Record<string, unknown> {
-	if (status !== 0) failPrepare(`${label} failed (${status ?? "null"}): ${(stderr || stdout).trim()}`);
-	const start = stdout.indexOf("{");
-	const end = stdout.lastIndexOf("}");
-	if (start < 0 || end < start) failPrepare(`${label} returned no JSON`);
-	let parsed: unknown;
-	try {
-		parsed = JSON.parse(stdout.slice(start, end + 1));
-	} catch (error) {
-		failPrepare(`${label} returned malformed JSON: ${(error as Error).message}`);
-	}
-	if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) failPrepare(`${label} JSON must be an object`);
-	const record: Record<string, unknown> = {};
-	for (const [key, value] of Object.entries(parsed)) record[key] = value;
-	return record;
-}
 
 export function resolveSkillEval(skill: string, options: { casesFile?: string; skillRoot?: string; repositoryRoot?: string } = {}): SkillEvalTarget {
-	const root = resolve(options.repositoryRoot ?? repoRoot);
-	if (options.casesFile !== undefined && !options.casesFile.startsWith("/")) failPrepare(`cases file must be absolute: ${options.casesFile}`);
-	const casesCandidates = options.casesFile
-		? [options.casesFile]
-		: [
-			join(root, ".omp/skills", skill, "evals/cases.yaml"),
-			join(root, ".agents/skills", skill, "evals/cases.yaml"),
-			join(root, "evals/cases", `${skill}.yaml`),
-		];
-	const casesFile = casesCandidates.find((path) => existsSync(path));
-	if (!casesFile) failPrepare(`no cases.yaml for ${skill} (looked in ${casesCandidates.join(", ")})`);
-	const skillCandidates = options.skillRoot
-		? [options.skillRoot]
-		: [join(root, ".omp/skills", skill), join(root, ".agents/skills", skill)];
-	const skillRoot = skillCandidates.find((path) => existsSync(join(path, "SKILL.md")));
-	if (!skillRoot) failPrepare(`no SKILL.md for ${skill}`);
-	const cases = loadCases(casesFile);
-	validateCaseRegexes(cases);
-	return { skill, skillRoot, casesFile, cases };
+ const root = resolve(options.repositoryRoot ?? repoRoot);
+ if (options.casesFile !== undefined && !options.casesFile.startsWith("/")) failPrepare(`cases file must be absolute: ${options.casesFile}`);
+ const casesCandidates = options.casesFile
+  ? [options.casesFile]
+  : [
+   join(root, ".omp/skills", skill, "evals/cases.yaml"),
+   join(root, ".agents/skills", skill, "evals/cases.yaml"),
+  ];
+ const casesFile = casesCandidates.find((path) => existsSync(path));
+ if (!casesFile) failPrepare(`no cases.yaml for ${skill} (looked in ${casesCandidates.join(", ")})`);
+ const skillCandidates = options.skillRoot
+  ? [options.skillRoot]
+  : [join(root, ".omp/skills", skill), join(root, ".agents/skills", skill)];
+ const skillRoot = skillCandidates.find((path) => existsSync(join(path, "SKILL.md")));
+ if (!skillRoot) failPrepare(`no SKILL.md for ${skill}`);
+ const cases = loadCases(casesFile);
+ validateCaseRegexes(cases);
+ return { skill, skillRoot, casesFile, cases };
 }
 
 export function validateCaseRegexes(cases: Case[]): void {
-	for (const item of cases) {
-		for (const kind of ["canon", "absent"] as const) {
-			const map = item.checks?.[kind] ?? {};
-			for (const patterns of Object.values(map)) {
-				for (const pattern of patterns) toRegExp(pattern);
-			}
-		}
-	}
+ for (const item of cases) {
+  for (const kind of ["canon", "absent"] as const) {
+   const map = item.checks?.[kind] ?? {};
+   for (const patterns of Object.values(map)) {
+    for (const pattern of patterns) toRegExp(pattern);
+   }
+  }
+ }
 }
 
-export function operationalInstructions(worldRoot: string, skillRoot: string): string {
-	return [
-		"Preferences:",
-		"- Active World: The Shattered Sea",
-		"- Active Campaign: Shattered Sea",
-		"Start as a production Wiki session does: read the Campaign's campaign-config.md and hot.md, the World's index.md and the last ten log.md entries in $W, then the start-here sources and the assigned skill with the references it selects. Search the Wiki proactively with qmd_query and qmd_get for the people, places, Threads and Sessions the request touches, reading further pages as they bear on the deliverables.",
-		"",
-		`Write root $W: ${worldRoot}`,
-		`Assigned skill: ${skillRoot} (${basename(skillRoot)}). Follow it for this task.`,
-		"Use only the supplied capabilities. Additional read-only source lookups may use the granted live Wiki, Raw, Archive, templates and assigned skill/reference files.",
-		"Create a new page from its template in $W/wiki/templates; when updating a page, conform it to its template.",
-		"",
-'Complete File through `cf check --fix` then `cf check` against this World with --vault "$W/wiki" --root "$W" --templates "$W/wiki/templates" and all 13 layers. A page filter is not File completion. Then save the DM reply at $W/.eval/output.md.',
-	].join("\n");
+export function operationalInstructions(repositoryRoot: string, outputRoot: string, skillRoot?: string): string {
+ return [
+  "Preferences:",
+  "- Active World: The Shattered Sea",
+  "- Active Campaign: Shattered Sea",
+  `Live repository: ${repositoryRoot}`,
+  `Read the live repository with the supplied capabilities. Deliver files in your output directory: ${outputRoot}`,
+  "Start as a production Wiki session: read wiki/The Shattered Sea/Shattered Sea/campaign-config.md and hot.md in that same Campaign folder, wiki/The Shattered Sea/index.md and the last ten entries in wiki/The Shattered Sea/log.md, then the start-here sources and the assigned skill with the references it selects.",
+  "Search the Wiki proactively with qmd_query and qmd_get for people, places, Threads and Sessions the request touches. Read further pages as they bear on the deliverables.",
+  ...(skillRoot ? [`Assigned skill: ${skillRoot} (${basename(skillRoot)}). Follow it for this task.`] : []),
+  "Start every new page from its template in wiki/templates; updated pages conform to their template.",
+  "Use write to save every new or changed page as complete text at its Wiki-relative .md path in the output directory; an optional leading wiki/ is accepted.",
+  "Use write with path reply.md for your DM reply, and delete_page with a Wiki-relative .md path for each page removal.",
+  "Read your output drafts using their absolute output paths. Finish with a short yield summary once all deliverables are saved.",
+ ].join("\n");
 }
 
 function evalGlobals(): { tool: RunnerToolRegistrar; agent: DispatchFn; waitAll?: SkillEvalRunOptions["waitAll"] } {
-	const bag = globalThis as unknown as {
-		tool?: RunnerToolRegistrar;
-		agent?: DispatchFn;
-		wait?: (handles: DispatchHandle[], options?: { timeout?: number }) => Promise<unknown>;
-	};
-	if (typeof bag.tool !== "function" || typeof bag.agent !== "function") {
-		throw new Error("runSkillEvals needs the omp eval kernel (tool + agent). Import evals/run.ts then await runSkillEvals({ skill })");
-	}
-	const waitFn = bag.wait;
-	return {
-		tool: bag.tool,
-		agent: bag.agent,
-		waitAll: typeof waitFn === "function"
-			? async (handles) => {
-				const result = await waitFn(handles);
-				return Array.isArray(result) ? result : [result];
-			}
-			: undefined,
-	};
+ const bag = globalThis as unknown as {
+  tool?: RunnerToolRegistrar;
+  agent?: DispatchFn;
+  wait?: (handles: DispatchHandle[], options?: { timeout?: number }) => Promise<unknown>;
+ };
+ if (typeof bag.tool !== "function" || typeof bag.agent !== "function") {
+  throw new Error("runSkillEvals needs the omp eval kernel (tool + agent). Import evals/run.ts then await runSkillEvals({ skill })");
+ }
+ const waitFn = bag.wait;
+ return {
+  tool: bag.tool,
+  agent: bag.agent,
+  waitAll: typeof waitFn === "function"
+   ? async (handles) => {
+    const result = await waitFn(handles);
+    return Array.isArray(result) ? result : [result];
+   }
+   : undefined,
+ };
 }
 
-function asString(value: unknown, label: string): string {
-	if (typeof value !== "string" || value === "") failPrepare(`${label} missing`);
-	return value;
-}
-
-function liveQmd(value: unknown, label: string): RunnerPreparedWorkspace["qmd"] {
-	if (typeof value !== "object" || value === null) failPrepare(`${label} is missing live-read-only QMD`);
-	if (!("mode" in value) || !("index" in value)) failPrepare(`${label} is missing live-read-only QMD`);
-	if (value.mode !== "live-read-only" || typeof value.index !== "string" || value.index === "") {
-		failPrepare(`${label} is missing live-read-only QMD`);
-	}
-	return { mode: "live-read-only", index: value.index };
-}
-
-async function waitHandle(handle: DispatchHandle): Promise<unknown> {
-	return await handle.wait();
-}
-
-function wave<T>(items: T[], size: number): T[][] {
-	const groups: T[][] = [];
-	for (let index = 0; index < items.length; index += size) groups.push(items.slice(index, index + size));
-	return groups;
-}
-
-function writingPages(item: Case): string[] {
-	const pages = new Set<string>(item.checks?.pages ?? []);
-	for (const map of [item.checks?.canon, item.checks?.sections, item.checks?.absent]) {
-		for (const page of Object.keys(map ?? {})) pages.add(page);
-	}
-	return [...pages];
-}
-
-async function collectWriting(worldRoot: string, item: Case): Promise<string> {
-	const chunks: string[] = [];
-	const output = join(worldRoot, ".eval", "output.md");
-	if (existsSync(output)) chunks.push(`# output.md\n${await readFile(output, "utf8")}`);
-	for (const page of writingPages(item)) {
-		const file = join(worldRoot, "wiki", page.endsWith(".md") ? page : `${page}.md`);
-		if (existsSync(file)) chunks.push(`# ${page}\n${await readFile(file, "utf8")}`);
-	}
-	return chunks.join("\n\n");
-}
-
-async function collectSources(baselineWiki: string, item: Case): Promise<string> {
-	const chunks: string[] = [];
-	for (const page of item.source_pages ?? []) {
-		const file = join(baselineWiki, page.endsWith(".md") ? page : `${page}.md`);
-		if (!existsSync(file)) continue;
-		const text = await readFile(file, "utf8");
-		chunks.push(`# ${page}\n${text}`);
-	}
-	return chunks.join("\n\n");
-}
 
 function parseGrades(value: unknown, rubrics: string[]): Array<{ rubric: string; pass: boolean; reason: string }> {
-	let list: unknown;
-	if (typeof value === "object" && value !== null && "grades" in value) list = value.grades;
-	else list = value;
-	if (!Array.isArray(list)) throw new Error("grader returned no grades");
-	const grades = list.map((entry) => {
-		if (typeof entry !== "object" || entry === null) throw new Error("grader grade is not an object");
-		if (!("rubric" in entry) || !("pass" in entry) || !("reason" in entry)) throw new Error("grader grade missing rubric, pass, or reason");
-		if (typeof entry.rubric !== "string" || typeof entry.pass !== "boolean" || typeof entry.reason !== "string") {
-			throw new Error("grader grade missing rubric, pass, or reason");
-		}
-		return { rubric: entry.rubric, pass: entry.pass, reason: entry.reason };
-	});
-	if (grades.length !== rubrics.length) throw new Error(`grader returned ${grades.length} grades, expected ${rubrics.length}`);
-	for (const [index, rubric] of rubrics.entries()) {
-		if (grades[index]?.rubric !== rubric) throw new Error("grader rubric text does not match the case");
-	}
-	return grades;
+ let list: unknown;
+ if (typeof value === "object" && value !== null && "grades" in value) list = value.grades;
+ else list = value;
+ if (!Array.isArray(list)) throw new Error("grader returned no grades");
+ const grades = list.map((entry) => {
+  if (typeof entry !== "object" || entry === null) throw new Error("grader grade is not an object");
+  if (!("rubric" in entry) || !("pass" in entry) || !("reason" in entry)) throw new Error("grader grade missing rubric, pass, or reason");
+  if (typeof entry.rubric !== "string" || typeof entry.pass !== "boolean" || typeof entry.reason !== "string") {
+   throw new Error("grader grade missing rubric, pass, or reason");
+  }
+  return { rubric: entry.rubric, pass: entry.pass, reason: entry.reason };
+ });
+ if (grades.length !== rubrics.length) throw new Error(`grader returned ${grades.length} grades, expected ${rubrics.length}`);
+ for (const [index, rubric] of rubrics.entries()) {
+  if (grades[index]?.rubric !== rubric) throw new Error("grader rubric text does not match the case");
+ }
+ return grades;
 }
 
+const ISOLATION_LINE = "\n\nIsolation: no changes captured.";
+
+
 export async function runSkillEvals(options: SkillEvalRunOptions): Promise<SkillEvalReport> {
-	const target = resolveSkillEval(options.skill, { casesFile: options.casesFile, skillRoot: options.skillRoot });
-	const selected = options.caseIds
-		? options.caseIds.map((id) => {
-			const found = target.cases.find((item) => item.id === id);
-			if (!found) failPrepare(`no case "${id}" in ${target.casesFile}`);
-			return found;
-		})
-		: target.cases;
-	const register = options.register;
-	const dispatch = options.dispatch;
-	const kernel = register && dispatch ? { tool: register, agent: dispatch, waitAll: options.waitAll } : evalGlobals();
-	const boundRegister = register ?? kernel.tool;
-	const boundDispatch = dispatch ?? kernel.agent;
-	const waitAll = options.waitAll ?? kernel.waitAll;
-
-	const started = nodeScript("evals/prepare.ts", ["--session-start"]);
-	const sessionPayload = parseJsonObject(started.stdout, started.stderr, started.status, "session-start");
-	const sessionRoot = asString(sessionPayload.root, "sessionRoot");
-
-	const reports: SkillEvalCaseReport[] = [];
-	try {
-		for (const group of wave(selected, 4)) {
-			const preparedRuns = group.map((item) => {
-				const preparedRun = nodeScript("evals/prepare.ts", [
-					"--cases",
-					target.casesFile,
-					"--case",
-					item.id,
-					"--session-root",
-					sessionRoot,
-				]);
-				const payload = parseJsonObject(preparedRun.stdout, preparedRun.stderr, preparedRun.status, `prepare ${item.id}`);
-				const worldRoot = asString(payload.root, `${item.id} root`);
-				const runnerInput = asString(payload.runnerInput, `${item.id} runnerInput`);
-				const prepared: RunnerPreparedWorkspace = {
-					root: worldRoot,
-					runnerInput,
-					caseId: item.id,
-					case: { prompt: item.prompt },
-					qmd: liveQmd(payload.qmd, item.id),
-				};
-				return { item, prepared, payload };
-			});
-
-			const dispatched = [];
-			for (const run of preparedRuns) {
-				const assignedSkill = options.snapshotRoot ?? target.skillRoot;
-				const toolOptions: RunnerToolOptions = {
-					targetSkillRoot: target.skillRoot,
-					skillRoot: assignedSkill,
-					...(options.network
-						? { network: { https: options.network.https === true, search: options.network.search === true } }
-						: {}),
-				};
-				const bound = await bindRunnerTools(run.prepared, toolOptions, boundRegister);
-				const runnerBrief = `${bound.runnerBrief}\n\n${operationalInstructions(run.prepared.root, assignedSkill)}\n`;
-				const controlRoot = join(sessionRoot, "control", basename(run.prepared.root));
-				await mkdir(controlRoot, { recursive: true });
-				await writeFile(join(controlRoot, "runner-brief.md"), runnerBrief);
-				dispatched.push({
-					...run,
-					bound,
-					handle: await boundDispatch(runnerBrief, {
-						agent: "test-subject",
-						isolated: true,
-						apply: false,
-						tools: bound.toolNames,
-					}),
-				});
-			}
-
-			const handles = dispatched.map((run) => run.handle);
-			if (waitAll) await waitAll(handles);
-			else {
-				for (const batch of wave(handles, 4)) {
-					await Promise.all(batch.map((handle) => waitHandle(handle)));
-				}
-			}
-
-			for (const run of dispatched) {
-				const worldRoot = run.prepared.root;
-				const verify = nodeScript("evals/prepare.ts", ["--verify", worldRoot]);
-				if (verify.status !== 0) {
-					reports.push({
-						id: run.item.id,
-						worldRoot,
-						checks: [],
-						checkFailed: 0,
-						executionError: `verify failed: ${(verify.stderr || verify.stdout).trim()}`,
-					});
-					continue;
-				}
-				const checkRun = nodeScript("evals/check.ts", [
-					target.skill,
-					run.item.id,
-					join(worldRoot, "wiki"),
-					"--cases",
-					target.casesFile,
-					"--root",
-					worldRoot,
-					"--templates",
-					join(worldRoot, "wiki", "templates"),
-				]);
-				const checks = runChecks(run.item.checks ?? {}, join(worldRoot, "wiki"));
-				if (checkRun.status !== 0) {
-					checks.push({ ok: false, kind: "gate", detail: (checkRun.stdout || checkRun.stderr).trim().slice(0, 500) });
-				}
-				const report: SkillEvalCaseReport = {
-					id: run.item.id,
-					worldRoot,
-					checks,
-					checkFailed: checks.filter((result) => !result.ok).length,
-				};
-				const rubrics = run.item.rubrics ?? [];
-				if (rubrics.length > 0) {
-					try {
-						const writing = await collectWriting(worldRoot, run.item);
-						const sources = await collectSources(asString(run.payload.baseline, "baseline"), run.item);
-						const gradeBrief = [
-							"Skill-eval Grade — pass/fail per rubric. Read the writing and quote it.",
-							"Return {grades:[{rubric,pass,reason}]} with exactly one entry per rubric, verbatim rubric text.",
-							`Frozen starting-source root: ${dirname(asString(run.payload.baseline, "baseline"))}. Read needed Wiki/Archive passages there, including full assigned Transcripts. Use these frozen sources, not the live Wiki or your worktree.`,
-							`Authored World root: ${worldRoot}. Read output and checked pages here. Keep both roots unchanged.`,
-							`Original assignment: ${run.item.prompt}`,
-							"",
-							"## Rubrics",
-							...rubrics.map((rubric, index) => `${index + 1}. ${rubric}`),
-							"",
-							"## Authored writing",
-							writing || "(no output.md or checked pages)",
-							"",
-							"## Starting-source excerpts",
-							sources || "(none)",
-						].join("\n");
-						const gradeHandle = await boundDispatch(gradeBrief, {
-							agent: "prose-grader",
-							isolated: true,
-							apply: false,
-							schema: {
-								type: "object",
-								required: ["grades"],
-								properties: {
-									grades: {
-										type: "array",
-										items: {
-											type: "object",
-											required: ["rubric", "pass", "reason"],
-											properties: {
-												rubric: { type: "string" },
-												pass: { type: "boolean" },
-												reason: { type: "string" },
-											},
-										},
-									},
-								},
-							},
-						});
-						const graded = waitAll ? (await waitAll([gradeHandle]))[0] : await waitHandle(gradeHandle);
-						report.grades = parseGrades(graded, rubrics);
-						await writeFile(
-							join(sessionRoot, "control", basename(worldRoot), "grades.json"),
-							`${JSON.stringify({ grades: report.grades }, null, 2)}\n`,
-						);
-					} catch (error) {
-						report.gradeError = (error as Error).message;
-					}
-				}
-				const verifyAfter = nodeScript("evals/prepare.ts", ["--verify", worldRoot]);
-				if (verifyAfter.status !== 0) {
-					report.executionError = `post-grade verify failed: ${(verifyAfter.stderr || verifyAfter.stdout).trim()}`;
-				}
-				reports.push(report);
-			}
-		}
-	} finally {
-		if (options.closeSession !== false) await closeEvalSession(sessionRoot);
-	}
-
-	return {
-		skill: target.skill,
-		skillRoot: target.skillRoot,
-		casesFile: target.casesFile,
-		sessionRoot,
-		cases: reports,
-	};
+ const repositoryRoot = resolve(options.repositoryRoot ?? repoRoot);
+ if (options.baseline && options.snapshotRoot) failPrepare("baseline and snapshotRoot cannot be combined");
+ const target = resolveSkillEval(options.skill, { casesFile: options.casesFile, skillRoot: options.skillRoot, repositoryRoot });
+ const selected = options.caseIds ? options.caseIds.map((id) => {
+  const item = target.cases.find((candidate) => candidate.id === id);
+  if (!item) failPrepare(`no case "${id}" in ${target.casesFile}`);
+  return item;
+ }) : target.cases;
+ const kernel = options.register && options.dispatch ? { tool: options.register, agent: options.dispatch, waitAll: options.waitAll } : evalGlobals();
+ const register = options.register ?? kernel.tool;
+ const dispatch = options.dispatch ?? kernel.agent;
+ const waitAll = options.waitAll ?? kernel.waitAll;
+ const { root: sessionRoot } = await createEvalSession({ sessionId: `skill-eval-${target.skill}-${Date.now()}`, pid: process.pid });
+ const reports: SkillEvalCaseReport[] = [];
+ const running: Array<{ item: Case; controlRoot: string; outputRoot: string; hashes: SourceHashes; handle: DispatchHandle; report: SkillEvalCaseReport }> = [];
+ try {
+  // Native provider configuration owns concurrency limits, independently per provider.
+  for (const item of selected) {
+   const run = await allocateEvalRun(sessionRoot);
+   const report: SkillEvalCaseReport = { id: item.id, controlRoot: run.controlRoot, outputRoot: run.outputRoot, checks: [], checkFailed: 0 };
+   reports.push(report);
+   try {
+    const hashes = await recordSourceHashes(repositoryRoot, item, run.controlRoot);
+    const skillRoot = options.baseline ? undefined : options.snapshotRoot ?? target.skillRoot;
+    const bound = await bindRunnerTools({
+     repositoryRoot, sessionRoot, runId: run.runId, caseId: item.id, case: item,
+     qmd: { mode: "live-read-only", index: join(repositoryRoot, ".qmd/index.sqlite") },
+    }, {
+     targetSkillRoot: target.skillRoot, ...(skillRoot ? { skillRoot } : {}),
+     ...(options.network ? { network: { https: options.network.https === true, search: options.network.search === true } } : {}),
+    }, register);
+    const brief = `${operationalInstructions(repositoryRoot, run.outputRoot, skillRoot)}\n\n${bound.runnerBrief}`;
+    await writeFile(join(run.controlRoot, "runner-brief.md"), brief, { mode: 0o600 });
+    const handle = await dispatch(brief, { agent: "test-subject", isolated: true, apply: false, tools: bound.toolNames });
+    running.push({ item, controlRoot: run.controlRoot, outputRoot: run.outputRoot, hashes, handle, report });
+   } catch (error) { report.executionError = (error as Error).message; }
+  }
+  const handles = running.map((run) => run.handle);
+  let settled: unknown[];
+  try {
+   settled = waitAll ? await waitAll(handles) : await Promise.all(handles.map((handle) => handle.wait().catch((error: unknown) => error)));
+  } catch {
+   // A failed group wait still leaves each native handle available for settlement.
+   settled = await Promise.all(handles.map((handle) => handle.wait().catch((error: unknown) => error)));
+  }
+  for (const [index, run] of running.entries()) {
+   try {
+    await assertSourcesUnchanged(repositoryRoot, run.hashes);
+    if (typeof settled[index] !== "string" || !(settled[index] as string).endsWith(ISOLATION_LINE)) {
+     throw new Error("INVALIDATED: isolated dispatch did not report no changes captured");
+    }
+    run.report.completionEvidence = { isolated: true, apply: false, hasRootChanges: false };
+    run.report.checks = runChecks(run.item.checks ?? {}, createOutcome(join(repositoryRoot, "wiki"), run.outputRoot));
+    run.report.checkFailed = run.report.checks.filter((result) => !result.ok).length;
+    const rubrics = run.item.rubrics ?? [];
+    if (!rubrics.length) continue;
+    try {
+     await assertSourcesUnchanged(repositoryRoot, run.hashes);
+     const gradeBrief = [
+      "Skill-eval Grade — pass/fail per rubric. Read the writing holistically and quote it.",
+      "Return JSON {grades:[{rubric,pass,reason}]} with exactly one entry per rubric, verbatim rubric text.",
+      `Read all delivered pages and reply.md in ${run.outputRoot}. The .deleted.json file, when present, lists page removals.`,
+      `Read the live sources in ${repositoryRoot}: ${caseSourcePaths(run.item).join("; ") || "(none)"}, and any further live pages a rubric needs.`,
+      `Original assignment: ${run.item.prompt}`,
+      "## Rubrics", ...rubrics.map((rubric, i) => `${i + 1}. ${rubric}`),
+     ].join("\n\n");
+     const gradeHandle = await dispatch(gradeBrief, {
+      agent: "prose-grader", isolated: true, apply: false,
+      schema: {
+       type: "object", required: ["grades"], properties: {
+        grades: {
+         type: "array", items: {
+          type: "object", required: ["rubric", "pass", "reason"],
+          properties: { rubric: { type: "string" }, pass: { type: "boolean" }, reason: { type: "string" } },
+         }
+        }
+       }
+      },
+     });
+     const graded = waitAll ? (await waitAll([gradeHandle]))[0] : await gradeHandle.wait();
+     await assertSourcesUnchanged(repositoryRoot, run.hashes);
+     run.report.grades = parseGrades(typeof graded === "string" ? JSON.parse(graded) : graded, rubrics);
+     await writeFile(join(run.controlRoot, "grades.json"), `${JSON.stringify({ grades: run.report.grades }, null, 2)}\n`, { mode: 0o600 });
+    } catch (error) {
+     const message = (error as Error).message;
+     if (message.startsWith("INVALIDATED:")) run.report.executionError = message;
+     else run.report.gradeError = message;
+    }
+   } catch (error) { run.report.executionError = (error as Error).message; }
+  }
+ } finally {
+  // A bind/dispatch failure must not remove grants while earlier children still run.
+  await Promise.all(running.map((run) => run.handle.wait().catch(() => undefined)));
+  if (options.closeSession !== false) await closeEvalSession(sessionRoot);
+ }
+ return { skill: target.skill, skillRoot: target.skillRoot, casesFile: target.casesFile, sessionRoot, cases: reports };
 }

@@ -1,5 +1,5 @@
 import { closeEvalSession, createEvalSession } from "../../evals/workspaces.ts";
-import { verifyEvalRunnerGrant } from "../../evals/runner-tools.ts";
+import { verifyEvalRunnerGrant, type Grant } from "../../evals/runner-tools.ts";
 
 interface AgentContext {
 	agent: { kind: string; name: string; id: string };
@@ -31,10 +31,9 @@ interface SessionRoot {
 	root: string;
 }
 
-type BoundGrant = Awaited<ReturnType<typeof verifyEvalRunnerGrant>>;
 
 const sessionRoots = new Map<string, SessionRoot>();
-const runnerBindings = new Map<string, BoundGrant>();
+const runnerBindings = new Map<string, Grant>();
 const rejectedRunnerIds = new Set<string>();
 let activeMainSessionId: string | undefined;
 

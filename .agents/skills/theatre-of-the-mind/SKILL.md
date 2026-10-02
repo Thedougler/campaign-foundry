@@ -13,7 +13,7 @@ The caller names the work: a page and its callout, a Transcript for the Previous
 
 **Read only:**
 
-- the production start-here context required by `AGENTS.md`, then the caller's named pages/files and Transcript; the assigned Wiki's `templates/Handout.md` for a requested new Handout
+- the production start-here context required by `AGENTS.md`, then the caller's named pages/files and Transcript; `wiki/templates/Handout.md` for a requested new Handout
 - this SKILL.md and one recipe file: [references/previously-on.md](references/previously-on.md) for the Previously On; [references/recipes.md](references/recipes.md) for every other slot, including Handout text
 - an image only where a page you were given already points at it and the file is readable
 
@@ -21,10 +21,10 @@ The caller names the work: a page and its callout, a Transcript for the Previous
 
 - the callout's body on the caller's named pages, title kept, the rest of each page as it is
 - a new Handout page from the template, only when the caller asks for one, linked only where the caller asked
-- mechanical fixes from the full `cf check --fix` gate across the assigned World, including a stale World `index.md`
-- the DM reply and designated output file when supplied
+- mechanical fixes from the full `cf check --fix` gate across the World, including a stale World `index.md`
+- the DM reply
 
-For an assigned write root, use the supplied filesystem paths and capabilities. Read the production start-here context in `AGENTS.md`, then stay within the caller's named Narration sources. Protected execution, output and lifetime follow `evals/README.md`; its full gate may apply mechanical fixes across the assigned World. This task writes Narration, not art or Foundry content.
+This task writes Narration, not art or Foundry content.
 
 Done when you can list every file this run will read and every page it will write, and each is on these lists.
 
@@ -34,7 +34,7 @@ Done when you can list every file this run will read and every page it will writ
 2. **Gather.** Read the named page and only the caller-supplied source pages the slot needs for perceivable facts. Links select relevant subjects from that set, not further reading. Use an image only when the subject page already points at it and the file is readable. Keep source-backed facts and the old block in context, not a scratch file. Done when every candidate detail has a named source and every read stays within the allowed input.
 3. **Draft.** Stand where the Party stands. Choose the **point**, the one thing the block delivers, and the **anchor**, the feature that carries it. Draft to the recipe's Job/Build/End and length band using the craft below; for a World-page first meeting, follow its ordered construction before moving to Revise. Keep secrets and mechanics in existing DM-side material. Done when every detail is sourced, the actual draft satisfies the recipe's construction checks where given, and the block stops at its End.
 4. **Revise.** Read silently, read aloud and retell from memory. Rewrite forced pauses, re-reads and paraphrases; keep supported counts, timing, uncertainty and names, and preserve exact document payload and quoted table speech. Apply the hard lines and final check below. Done when the block survives one hearing and every applicable check is answered with quoted evidence.
-5. **File.** Replace only the callout body and keep its title. A requested new Handout uses the template; add links only where the caller asked. Run the full `cf check --fix` then `cf check` with supplied `--vault <wiki> --root <root> --templates <wiki>/templates`; protected runs use the assigned gate capability. Resolve findings and repeat. A page filter is not File completion evidence. Skip the gate only when the caller explicitly skips tooling; run it even when software suites are skipped. Done when the requested callouts are filed, unrelated content is unchanged apart from full-gate mechanical fixes, the full gate passes or its remaining findings/explicit skip are reported, and the DM reply is ready.
+5. **File.** Replace only the callout body and keep its title. A requested new Handout uses the template; add links only where the caller asked. Run the full `cf check --fix` then `cf check`. Resolve findings and repeat. A page filter is not File completion evidence. Skip the gate only when the caller explicitly skips tooling; run it even when software suites are skipped. Done when the requested callouts are filed, unrelated content is unchanged apart from full-gate mechanical fixes, the full gate passes or its remaining findings/explicit skip are reported, and the DM reply is ready.
 
 ## Craft
 

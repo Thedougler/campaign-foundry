@@ -6,7 +6,6 @@ import {
 	allocateEvalRun,
 	closeEvalSession,
 	createEvalSession,
-	evalRunFromWorld,
 	evalRunPaths,
 	evalSessionLayout,
 	reapEvalSessions,
@@ -36,26 +35,27 @@ async function setOwnerAge(root: string, pid: number, ageMs: number): Promise<vo
 }
 
 describe("eval Session workspaces", () => {
-	it("opens a canonical session, allocates paired runs, and closes idempotently", async () => {
+	it("opens a canonical session, allocates controls and outputs, and closes idempotently", async () => {
 		await withPrivateTempRoot(async () => {
 			const session = await createEvalSession({ sessionId: "session-open", pid: process.pid });
 			const marker = JSON.parse(await readFile(join(session.root, ".session.json"), "utf8")) as Record<string, unknown>;
 			const layout = evalSessionLayout(session.root);
-			expect(await readdir(session.root)).toEqual(expect.arrayContaining([".session.json", "worlds", "control", "authoring", "audit"]));
+			expect(await readdir(session.root)).toEqual(expect.arrayContaining([".session.json", "control", "audit", "outputs"]));
+			expect(await readdir(session.root)).not.toContain("worlds");
 			const run = await allocateEvalRun(session.root);
 
 			expect(marker).toMatchObject({ schemaVersion: 1, root: session.root, sessionId: "session-open", pid: process.pid });
 			expect(typeof marker.createdAt).toBe("string");
-			expect(layout.worlds).toBe(join(session.root, "worlds"));
-			expect(evalRunFromWorld(run.worldRoot)).toEqual({ sessionRoot: session.root, runId: run.runId });
-			expect(evalRunPaths(session.root, run.runId)).toEqual({ worldRoot: run.worldRoot, controlRoot: run.controlRoot });
-			expect(run.controlRoot).toBe(join(layout.control, basename(run.worldRoot)));
+			expect(evalRunPaths(session.root, run.runId)).toEqual({ controlRoot: run.controlRoot, outputRoot: run.outputRoot });
+			expect(run.controlRoot).toBe(join(layout.control, run.runId));
+			expect(run.outputRoot).toBe(join(layout.outputs, run.runId));
+			await writeFile(join(run.outputRoot, "reply.md"), "A saved DM reply.");
 			expect(() => evalSessionLayout(`${session.root}/../${basename(session.root)}`)).toThrow(/traversal/);
-			expect(() => evalRunFromWorld(`${run.worldRoot}/../${run.runId}`)).toThrow(/traversal/);
 
 			await closeEvalSession(session.root);
 			await closeEvalSession(session.root);
 			await expect(lstat(session.root)).rejects.toMatchObject({ code: "ENOENT" });
+			await expect(lstat(run.outputRoot)).rejects.toMatchObject({ code: "ENOENT" });
 		});
 	});
 

@@ -3,54 +3,66 @@
 @../AGENTS.md
 @../user-config.md
 
-## Domain
+## Wiki access
 
-Before Wiki work, read `user-config.md` for the DM's preferences, then that Campaign's `campaign-config.md` when the work is in a Campaign. Continue with the Campaign/World/log sequence in the shared instructions. An assigned write root supplies those Campaign pages; protected Runner access and lifetime follow `evals/README.md`.
-
-**QMD-first.** Read the `qmd` skill before Wiki search; retrieve a returned path/docid rather than answering from snippets. In a trusted production session, run from the project owning the live index:
+**QMD-first.** Read the `qmd` skill before Wiki search. Search with the mounted QMD MCP tools (`query`, `get`, `multi_get`), giving each query an explicit `intent`, and retrieve each returned path or docid rather than answering from snippets. The CLI equivalent runs from this project, which owns the live index:
 
 ```bash
 env -u QMD_CONFIG_DIR qmd query $'intent: Find active Shattered Sea Campaign context, not unrelated Campaigns.\nlex: "Shattered Sea" hot' -c wiki --format json --no-rerank -n 3
 env -u QMD_CONFIG_DIR qmd get '#6105a3'
 ```
 
-The docid is an example; retrieve the actual result of this query. Omit `--index`. Trusted MCP queries likewise carry explicit `intent`; protected Runners instead use their bound QMD capabilities, which select the existing source index and map scratch edit paths.
+The docid is an example; retrieve the actual result of this query. Omit `--index`. Skill-eval Runners use their bound read-only `qmd_query`/`qmd_get` capabilities over the same live index (`evals/README.md`).
 
-**Lint** — read `skill://wiki-lint` after Ingest, after Prep, after page create, or after page move.
+Read and edit Wiki pages through `vault://_/` (the active vault) or their `wiki/` paths. The `qmd-refresh` post hook re-indexes QMD after each `write` or `edit` under `wiki/`, `raw/` or `archive/`, so filing needs no manual `qmd update`.
+
+**Lint** — read `skill://lint` after Ingest, after Prep, after page create, or after page move.
+
+## Project decision memory
+
+The `sharpshooter` memory backend injects friction-earned DM decisions at session start as the **Project decision memory** block. A background model extracts them from the conversation, so the way a decision is worded is the way it is captured.
+
+- **Follow** each injected decision as standing DM direction; the DM's current instruction overrides it. Check it against current repo state before acting on it.
+- **Restate** each DM correction, rejection or decision back in one durable sentence: what to do and where it applies, leaving out this task's paths, ids and values.
+- **Promote** a decision that is a durable project rule to its repo owner in the same change: a term to `CONTEXT.md`, a decision to `docs/adr/`, a working rule to `AGENTS.md`. Where repo text and an injected decision differ, follow the repo and name the stale decision to the DM.
+- **Brief** native subagents with the injected decisions that bear on their slice; they start without the block.
+- **Capture** runs through the conversation alone: the consolidator owns the decision files, and the `recall`/`retain`/`learn` tools of other memory backends play no part.
 
 ## Native delegation
 
-Use oh-my-pi's native `task` subagents for authors, runners, graders and reviewers. The `omp` skill primarily serves agents in other harnesses; do not launch another omp process for work the current harness can delegate.
+Delegate through native `task` (`context` + `tasks[]`) or eval `agent()`/`workpool()`; all subagent work stays inside this omp session. Give each item the `effort` (`lo`/`med`/`hi`) its work needs. Models come from native agent frontmatter, configured model roles and `task.agentModelOverrides`; configured fallback chains and usage-reset waits absorb rate limits, so keep the configured model. Concurrency is capped per provider in configuration (four in-flight requests each for Anthropic, OpenAI and OpenAI Codex), with no global cap: dispatch every independent item and let each provider queue its own.
 
-Select an agent by its responsibility. Model selection belongs in native agent frontmatter or configured model roles, not invented `task` arguments. The dedicated `skill-writer` subagent owns large or novel work on the agent-facing surface: skills, `.omp/agents/`, `AGENTS.md`, runbooks, and pointers. Every such modification routes through it; the orchestrator never authors those files itself. The orchestrator owns briefs, acceptance criteria and integration.
+Give writers disjoint files and pass briefs and artifact paths explicitly. Set `isolated: true` when parallel writers may touch the same files or a change needs review before it lands. Steer a worker with `agent://`, send follow-up work to an idle agent that already holds the context, collect completion notifications, and `wait` only when nothing else is actionable.
 
-Skill evals use three native agents: `skill-writer` → `@SKILL-WRITER` for skill edits, `test-subject` → `@TEST-SUBJECT` for each case or baseline, and `prose-grader` → `@PROSE-GRADER` for independent rubric grading. Harness role assignments and fallback chains select their models; `evals/models.yaml` governs other harnesses and explicitly model-pinned runs such as the cross-family Prose Benchmark. Preserve each native completion's model selector, identity and thinking level; pair only matching identities and thinking levels. Blocking runners and graders retain exact completion metrics in `details.results`; batch dispatch still runs independent items concurrently.
+Select an agent by its responsibility:
 
-Batch independent slices, give writers disjoint files, and pass the brief and artifact paths explicitly. Each eval case gets its own scratch Wiki; writer, test subject and grader are separate agents. Use `agent://` to steer a worker, completion notifications to collect results, and `wait` only when nothing else is actionable.
+- `skill-writer` (`@SKILL-WRITER`) authors every large or novel change to agent-facing text: skills, `.omp/agents/`, `AGENTS.md`, runbooks and pointers. The orchestrator writes its briefs, owns acceptance criteria, eval fixtures, Wiki and integration, and leaves those files to it.
+- `test-subject` (`@TEST-SUBJECT`) runs each eval case or baseline; `prose-grader` (`@PROSE-GRADER`) grades rubrics independently; `dnd-benchmark-*` serve `skill://dnd-benchmark`.
+- `creative-writer` (`@CREATIVE-WRITER`) takes explicit creative-writing dispatches outside skill evals.
 
-Use an external CLI only when native delegation cannot provide the required model, isolation or execution capability. State the missing capability and use the documented command. Do not silently change an eval model or build a custom launcher.
+Preserve each native completion's model selector, identity and thinking level; pair only matching identities and thinking levels. Blocking runners and graders keep exact completion metrics in `details.results`.
+
+Delegation stays native. When a run needs a model or isolation native delegation cannot provide, such as a Benchmark Matrix pin, name the missing capability and use the command the owning skill documents.
+
+## Tools
+
+- **Search code** with scoped `find` for unknown locations, `grep` for known literals, `ast_grep` for structural patterns and `lsp` for references and definitions. Edits report no diagnostics, so request `lsp` diagnostics on touched TypeScript before reporting code complete.
+- **Judge** bounded classification, yes/no or ranking over a small state with eval `judge`: read `xd://eval/judge` once, batch independent questions over the same evidence into one call and use `judge_batch` for multiple states. Send only the evidence the criteria need; a failed judge item is a tool failure, so inspect `item.error` before concluding.
+- **Grade** Narration and other authored prose with `prose-grader`, dispatched with `outputSchema`: it reads the writing, which Jev does not. Execution, diffs, isolation and `eval:check` stay with the orchestrator.
+- **Long work.** Keep `context_notes` current with the goal, decisions, touched paths and next step, and call `new_context` at phase boundaries. Eval cells running past a minute move to the background and deliver their result on their own; continue other work meanwhile.
 
 ## Skill tooling
 
-**Eval default.** This overrides the imported root **Skill verification** rule: require evals by default only for skills whose job is generating D&D content in the Wiki, such as Narration, NPCs, locations, creatures, items, and sessions. For all other skills and agent-facing documents, instruction revision is complete when the body matches the brief. For that non-creative work, require, create, or wait on `evals/cases.yaml` only when the DM asks.
+Skill measurement and improvement follow `evals/README.md`, the sole procedure: Design, Eval, Hillclimb, Author, Benchmark and Playtest. Three omp-native skills are its invocation points:
 
-Skill measurement and improvement follow `evals/README.md`, the sole procedure: Design, Eval, Hillclimb, Author, Benchmark and Playtest. Three omp-native skills are its invocation points. Dispatch with native `task` (`context` + `tasks[]`); no second omp process and no Claude CLI.
-
-- **Eval a skill** — read `skill://run-evals` before running committed `evals/cases.yaml` in scratch Worlds and reporting.
+- **Eval a skill** — read `skill://run-evals` before running a skill's committed `evals/cases.yaml` and reporting.
 - **Benchmark Narration** — read `skill://dnd-benchmark` before ranking Matrix families or refreshing the leaderboard.
 - **Author a skill** — read `skill://skill-creator` before creating or revising a skill, planning paired baselines, or testing its description.
 
-The `.agents/` skill copies serve other harnesses.
-
-## Jev judgment
-
-- Use scoped `find` for unknown behavior locations; `grep` for known literals and LSP for references/definitions.
-- For bounded classification, yes/no, or ranking over a small state, read `xd://eval/judge` once and use `judge`. Batch independent questions over the same evidence into one call; use `judge_batch` for multiple states.
-- Send only the evidence the criteria need. A failed judge item is a tool failure: inspect `item.error` before concluding.
-- **Grade** Narration and other authored prose with `prose-grader`, dispatched with `outputSchema`: it reads the writing. Jev is not that Grade. Execution, diffs, isolation and `eval:check` stay with the orchestrator.
+Project skills live in `.omp/skills/` and `.agents/skills/`; where both hold a skill, the `.omp/` copy is the source of truth. `manage_skill` holds the DM's cross-project procedures; project skills, rules and decisions live in the repo.
 
 ## Configuration
 
-Native agent definitions live in `.omp/agents/`. Create or revise them through `skill-writer`. The same writer takes large or novel instruction-file work the orchestrator assigns. Use descriptive agent names and narrow responsibilities; do not override bundled agents for a single job. Inspect the effective settings and agent definitions before changing configuration, preserve unrelated overrides, and never weaken approvals or disable providers to make a task run.
+Native agent definitions live in `.omp/agents/`, with descriptive names and narrow responsibilities; add a project agent rather than overriding a bundled one for a single job. Before changing configuration, inspect the effective settings and agent definitions and preserve unrelated overrides. Keep approvals and providers as configured when making a task run.
 
-This file imports the shared root instructions because native context shadows a root `AGENTS.md` at the same directory depth. Keep shared project facts in that root file and only oh-my-pi behavior here.
+This file imports the shared root instructions because native context shadows a root `AGENTS.md` at the same directory depth. Keep project rules in that root file and tool, agent and configuration mechanics here.

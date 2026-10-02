@@ -1,4 +1,4 @@
-# Session 12 Narration pack; Terror-Bird First sight is seeded unfinished.
+# Session 12 Narration pack.
 - id: narration-slots
   source_pages:
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
@@ -12,10 +12,6 @@
     - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
     - The Shattered Sea/NPCs/Talon Skarn.md
     - The Shattered Sea/Creatures/Terror-Bird.md
-  seed_callouts:
-    - page: The Shattered Sea/Creatures/Terror-Bird.md
-      title: First sight
-      body: Draft.
   prompt: >-
     improve upon the session 12 narration blocks comprehensively, and the
     npc and creature ones the session uses
@@ -40,9 +36,6 @@
         - '\[!narration\]'
       The Shattered Sea/Creatures/Terror-Bird.md:
         - '\[!narration\] First sight'
-    absent:
-      The Shattered Sea/Creatures/Terror-Bird.md:
-        - '/^>[ \t]*Draft\.?[ \t]*$/m'
   rubrics:
     - >-
       Session 12 Scene blocks are speakable after one hearing, grounded in
@@ -108,10 +101,6 @@
   source_pages:
     - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Wolfrabbits.md
     - The Shattered Sea/Creatures/Wolfrabbit.md
-  seed_callouts:
-    - page: The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Wolfrabbits.md
-      title: Opening
-      body: Draft.
   prompt: >-
     redo the wolfrabbits scene opening to just use the wolfrabbits. living fruit
     starts it, they hunt in packs, jump huge distances. the humans are already
@@ -120,9 +109,6 @@
     canon:
       The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Wolfrabbits.md:
         - '\[!narration\] Opening'
-    absent:
-      The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Wolfrabbits.md:
-        - '/^>[ \t]*Draft\.?[ \t]*$/m'
   rubrics:
     - >-
       The Opening puts the hunt in motion from this run's Scene: living fruit
@@ -134,10 +120,6 @@
 - id: wolfrabbit-first-sight
   source_pages:
     - The Shattered Sea/Creatures/Wolfrabbit.md
-  seed_callouts:
-    - page: The Shattered Sea/Creatures/Wolfrabbit.md
-      title: First sight
-      body: Draft.
   prompt: >-
     the wolfrabbit first sight on its page is generic, redo it from the wiki
     page so the table can picture the actual animal before it notices anyone
@@ -145,9 +127,6 @@
     canon:
       The Shattered Sea/Creatures/Wolfrabbit.md:
         - '\[!narration\] First sight'
-    absent:
-      The Shattered Sea/Creatures/Wolfrabbit.md:
-        - '/^>[ \t]*Draft\.?[ \t]*$/m'
   rubrics:
     - >-
       First sight lets the table picture this run's Wolfrabbit at rest
@@ -162,10 +141,6 @@
 - id: bloodhawk-first-sight
   source_pages:
     - The Shattered Sea/Creatures/Bloodhawk.md
-  seed_callouts:
-    - page: The Shattered Sea/Creatures/Bloodhawk.md
-      title: First sight
-      body: Draft.
   prompt: >-
     redo the bloodhawk first sight on its creature page, the table needs to
     see the actual bird at rest not a generic silhouette line
@@ -173,9 +148,6 @@
     canon:
       The Shattered Sea/Creatures/Bloodhawk.md:
         - '\[!narration\] First sight'
-    absent:
-      The Shattered Sea/Creatures/Bloodhawk.md:
-        - '/^>[ \t]*Draft\.?[ \t]*$/m'
   rubrics:
     - >-
       First sight lets the table picture this run's Bloodhawk at rest before
@@ -190,10 +162,6 @@
 - id: landing-sign-opening
   source_pages:
     - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Landing Sign.md
-  seed_callouts:
-    - page: The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Landing Sign.md
-      title: Opening
-      body: Draft.
   prompt: >-
     the party has been following the smoke from the other survivors, that
     needs to be in the landing sign opening, its the main driver. redo that
@@ -202,9 +170,6 @@
     canon:
       The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Landing Sign.md:
         - '\[!narration\] Opening'
-    absent:
-      The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Landing Sign.md:
-        - '/^>[ \t]*Draft\.?[ \t]*$/m'
   rubrics:
     - >-
       The Opening puts the Party at this run's cold stone ring, with the
@@ -218,10 +183,6 @@
   source_pages:
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
     - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-  seed_callouts:
-    - page: The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
-      title: Previously on
-      body: Draft.
   prompt: >-
     redo the session 12 previously on from the recap. end where play stopped,
     skarn still in crissdalynn's face
@@ -229,9 +190,6 @@
     canon:
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md:
         - '\[!narration\]'
-    absent:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md:
-        - '/^>[ \t]*Draft\.?[ \t]*$/m'
   rubrics:
     - >-
       Previously On is past tense with the Party as you, and its last beat is
@@ -246,10 +204,6 @@
 - id: way-out-closing
   source_pages:
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
-  seed_callouts:
-    - page: The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
-      title: Closing image
-      body: Draft.
   prompt: >-
     redo the way out closing image. dawn at the pantry, nine leaving three
     staying, no new threat, just let it land
@@ -257,9 +211,6 @@
     canon:
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md:
         - '\[!narration\] Closing image'
-    absent:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md:
-        - '/^>[ \t]*Draft\.?[ \t]*$/m'
   rubrics:
     - >-
       Closing image shows this run's dawn Pantry consequence: nine Calveno

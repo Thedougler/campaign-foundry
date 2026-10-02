@@ -1,432 +1,215 @@
 import { link, mkdir, mkdtemp, readFile, readdir, realpath, rm, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { basename, join } from "node:path";
-import { randomUUID } from "node:crypto";
+import { join } from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { bindRunnerTools, type RunnerToolRegistrar } from "../../evals/runner-tools.ts";
-import { runSkillEvals, type DispatchFn } from "../../evals/run.ts";
+import { bindRunnerTools, type RunnerPreparedRun, type RunnerToolRegistrar } from "../../evals/runner-tools.ts";
 import { allocateEvalRun, closeEvalSession, createEvalSession } from "../../evals/workspaces.ts";
 import evalAccessControl from "../../.omp/extensions/eval-access-control.ts";
-const qmdRefresh = (await import(new URL("../../.omp/hooks/post/qmd-refresh.js", import.meta.url).href)).default;
+import { readRunnerOutput } from "../../evals/outputs.ts";
 
-const mockState = vi.hoisted(() => ({
-	commands: [] as Array<{ file: string; args: string[]; options: Record<string, unknown> }>,
-	refreshes: [] as Array<{ file: string; args: string[]; options: Record<string, unknown> }>,
-	qmdOutput: "",
-	commandOutput: "",
-	node: null as null | ((args: string[]) => { status: number | null; stdout: string; stderr: string }),
-}));
-
+const mock = vi.hoisted(() => ({ stdout: "[]", commands: [] as Array<{ file: string; args: string[]; cwd: string }> }));
 vi.mock("node:child_process", async (importOriginal) => {
-	const actual = await importOriginal<typeof import("node:child_process")>();
+	const original = await importOriginal<Record<string, unknown>>();
 	return {
-		execFile(file: string, args: string[], options: Record<string, unknown>, callback: (error: Error | null, stdout: string, stderr: string) => void) {
-			mockState.commands.push({ file, args, options });
-			const output = file === "qmd" ? mockState.qmdOutput : mockState.commandOutput;
-			callback(null, output, file === "qmd" ? "qmd stderr" : "cf stderr");
-			return {};
-		},
-		spawnSync(file: string, args: string[], options: Record<string, unknown>) {
-			if (file === "bash") {
-				mockState.refreshes.push({ file, args, options });
-				return { status: 0, stdout: "", stderr: "", error: undefined };
-			}
-			if (file === "node" && mockState.node && typeof args[0] === "string" && /\/evals\/(prepare|check)\.ts$/u.test(args[0])) {
-				return mockState.node(args as string[]);
-			}
-			return actual.spawnSync(file, args, options);
-		},
-	};
-});
-
-interface Fixture {
-	root: string;
-	repositoryRoot: string;
-	sessionRoot: string;
-	worldRoot: string;
-	controlRoot: string;
-	prepared: Parameters<typeof bindRunnerTools>[0];
-	targetSkillRoot: string;
-}
-
-const fixtures = new Set<{ root: string; sessionRoot: string }>();
-
-
-async function createFixture(): Promise<Fixture> {
-	const root = await mkdtemp(join(tmpdir(), "runner-access-test-"));
-	const project = join(root, "project");
-	await mkdir(project);
-	const repositoryRoot = await realpath(project);
-	const qmdRoot = join(repositoryRoot, ".qmd");
-	const session = await createEvalSession({ sessionId: `runner-access-${randomUUID()}`, pid: process.pid });
-	fixtures.add({ root, sessionRoot: session.root });
-	const run = await allocateEvalRun(session.root);
-	const worldRoot = run.worldRoot;
-	const controlRoot = run.controlRoot;
-	const targetSkillRoot = join(repositoryRoot, ".agents", "skills", "creature-design");
-	await Promise.all([
-		mkdir(join(repositoryRoot, "wiki", "World"), { recursive: true }),
-		mkdir(join(repositoryRoot, "wiki", "templates"), { recursive: true }),
-		mkdir(join(repositoryRoot, "raw"), { recursive: true }),
-		mkdir(join(repositoryRoot, "archive"), { recursive: true }),
-		mkdir(qmdRoot, { recursive: true }),
-		mkdir(join(repositoryRoot, "src"), { recursive: true }),
-		mkdir(targetSkillRoot, { recursive: true }),
-		mkdir(join(worldRoot, "wiki", "World"), { recursive: true }),
-		mkdir(join(worldRoot, "raw"), { recursive: true }),
-		mkdir(join(worldRoot, "archive"), { recursive: true }),
-		mkdir(join(worldRoot, ".eval"), { recursive: true }),
-	]);
-	await Promise.all([
-		writeFile(join(repositoryRoot, "wiki", "World", "Source.md"), "Live source fact.\n"),
-		writeFile(join(repositoryRoot, "src", "cli.ts"), "// CLI fixture\n"),
-		writeFile(join(targetSkillRoot, "SKILL.md"), "Live candidate instructions.\n"),
-		writeFile(join(repositoryRoot, ".qmd", "index.sqlite"), "index fixture\n"),
-		writeFile(join(repositoryRoot, ".qmd", "index.yml"), "collections:\n  wiki:\n    path: wiki\n  raw:\n    path: raw\n  archive:\n    path: archive\n"),
-		writeFile(join(worldRoot, "wiki", "World", "Source.md"), "Copied source fact.\n"),
-	]);
-	const prompt = "Create a short grounded note from the assigned source.";
-	const runnerInput = join(worldRoot, ".eval", "runner-input.json");
-	await writeFile(runnerInput, JSON.stringify({
-		caseId: "runner-access",
-		prompt,
-		startHere: ["World/Source.md"],
-		replaySources: [],
-		outputPaths: {
-			workspace: worldRoot,
-			wiki: join(worldRoot, "wiki"),
-			raw: join(worldRoot, "raw"),
-			archive: join(worldRoot, "archive"),
-			output: join(worldRoot, ".eval", "output.md"),
-		},
-	}), { mode: 0o444 });
-	return {
-		root,
-		repositoryRoot,
-		sessionRoot: session.root,
-		worldRoot,
-		controlRoot,
-		targetSkillRoot,
-		prepared: {
-			root: worldRoot,
-			runnerInput,
-			caseId: "runner-access",
-			case: { prompt },
-			qmd: { mode: "live-read-only", index: join(repositoryRoot, ".qmd", "index.sqlite") },
-		},
-	};
-}
-
-async function withFixture(run: (fixture: Fixture) => Promise<void>): Promise<void> {
-	const fixture = await createFixture();
-	mockState.commands.length = 0;
-	mockState.refreshes.length = 0;
-	mockState.qmdOutput = "";
-	mockState.commandOutput = "";
-	try {
-		await run(fixture);
-	} finally {
-		const owned = [...fixtures].find((entry) => entry.root === fixture.root);
-		if (owned) {
-			await closeEvalSession(owned.sessionRoot);
-			fixtures.delete(owned);
+		...original, execFile: (file: string, args: string[], options: { cwd: string }, callback: (error: null, stdout: string, stderr: string) => void) => {
+			mock.commands.push({ file, args, cwd: options.cwd }); callback(null, mock.stdout, "");
 		}
-		await rm(fixture.root, { recursive: true, force: true });
-	}
-}
-
-afterEach(() => {
-	vi.clearAllMocks();
-});
-
-function registerTools(): { tools: Map<string, (input: Record<string, unknown>) => Promise<unknown>>; register: RunnerToolRegistrar } {
-	const tools = new Map<string, (input: Record<string, unknown>) => Promise<unknown>>();
-	const register: RunnerToolRegistrar = (handler, options) => {
-		tools.set(options.name, handler);
 	};
-	return { tools, register };
+});
+const cleanup: Array<{ root: string; sessionRoot: string }> = [];
+afterEach(async () => {
+	for (const entry of cleanup.splice(0)) { await closeEvalSession(entry.sessionRoot); await rm(entry.root, { recursive: true, force: true }); }
+	mock.commands.length = 0; mock.stdout = "[]";
+});
+type Handler = (input: Record<string, unknown>) => Promise<unknown>;
+
+async function fixture() {
+	const root = await realpath(await mkdtemp(join(tmpdir(), "runner-live-test-")));
+	const session = await createEvalSession({ sessionId: "access-test", pid: process.pid });
+	cleanup.push({ root, sessionRoot: session.root });
+	const run = await allocateEvalRun(session.root);
+	const skillRoot = join(root, ".agents/skills/creature-design");
+	await Promise.all([mkdir(join(root, "wiki/World"), { recursive: true }), mkdir(join(root, "wiki/templates"), { recursive: true }), mkdir(join(root, "raw")), mkdir(join(root, "archive")), mkdir(join(root, ".qmd")), mkdir(join(skillRoot, "evals"), { recursive: true })]);
+	await Promise.all([
+		writeFile(join(root, "wiki/World/Source.md"), "Live source fact.\n"), writeFile(join(root, "raw/input.md"), "Raw input"), writeFile(join(root, "archive/input.md"), "Archive input"),
+		writeFile(join(root, ".qmd/index.sqlite"), "index"), writeFile(join(root, ".qmd/index.yml"), "collections:\n  wiki:\n    path: wiki\n  raw:\n    path: raw\n  archive:\n    path: archive\n"),
+		writeFile(join(skillRoot, "SKILL.md"), "Production skill"), writeFile(join(skillRoot, "evals/cases.yaml"), "private criteria"),
+	]);
+	const prepared: RunnerPreparedRun = { repositoryRoot: root, sessionRoot: session.root, runId: run.runId, caseId: "access", case: { prompt: "Create a grounded note.", source_pages: ["World/Source.md"], raw_sources: ["archive/input.md"] }, qmd: { mode: "live-read-only", index: join(root, ".qmd/index.sqlite") } };
+	return { root, skillRoot, sessionRoot: session.root, controlRoot: run.controlRoot, outputRoot: run.outputRoot, prepared };
+}
+async function bind(input: { prepared: RunnerPreparedRun; skillRoot: string }, assigned: string | null = input.skillRoot, network?: { https: boolean; search: boolean }) {
+	const tools = new Map<string, Handler>();
+	const register: RunnerToolRegistrar = (handler, options) => { tools.set(options.name, handler); };
+	const binding = await bindRunnerTools(input.prepared, { targetSkillRoot: input.skillRoot, ...(assigned ? { skillRoot: assigned } : {}), ...(network ? { network } : {}) }, register);
+	const capability = (suffix: string): Handler => {
+		const match = [...tools].find(([name]) => name.endsWith(`_${suffix}`));
+		if (!match) throw new Error(`No bound ${suffix}`);
+		return match[1];
+	};
+	return { tools, binding, capability };
 }
 
-function capability(tools: Map<string, (input: Record<string, unknown>) => Promise<unknown>>, suffix: string): (input: Record<string, unknown>) => Promise<unknown> {
-	const found = [...tools.entries()].find(([name]) => name.endsWith(`_${suffix}`));
-	if (!found) throw new Error(`Missing ${suffix} capability`);
-	return found[1];
+function hooks() {
+	const handlers = new Map<string, (event: never, ctx: never) => unknown>();
+	const definitions: Array<{ name: string; execute: (...args: never[]) => unknown }> = [];
+	evalAccessControl({ zod: { object: (value: unknown) => value, enum: (value: unknown) => value }, registerTool: (tool: never) => definitions.push(tool), on: (event: string, handler: (event: never, ctx: never) => unknown) => handlers.set(event, handler) } as never);
+	return { handlers, definitions };
 }
 
-async function bind(fixture: Fixture, skillRoot: string | null = fixture.targetSkillRoot) {
-	const registered = registerTools();
-	const binding = await bindRunnerTools(fixture.prepared, {
-		targetSkillRoot: fixture.targetSkillRoot,
-		...(skillRoot === null ? {} : { skillRoot }),
-	}, registered.register);
-	return { ...registered, binding };
-}
-
-describe("eval Runner capabilities", () => {
-	it("allows live-source reads and confined World writes and edits", async () => {
-		await withFixture(async (fixture) => {
-			const { tools } = await bind(fixture);
-			const read = capability(tools, "read");
-			const write = capability(tools, "write");
-			const content = await read({ path: join(fixture.repositoryRoot, "wiki", "World", "Source.md") });
-			expect(content).toContain("Live source fact.");
-			expect(await read({ path: join(fixture.targetSkillRoot, "SKILL.md") })).toContain("Live candidate instructions.");
-			expect(await write({ path: "wiki/World/Output.md", content: "Runner output.\n" })).toMatchObject({ path: "wiki/World/Output.md" });
-			expect(await readFile(join(fixture.worldRoot, "wiki", "World", "Output.md"), "utf8")).toBe("Runner output.\n");
-			const edit = capability(tools, "edit");
-			expect(await edit({ path: "wiki/World/Edited.md", content: "Edited page contents.\n" })).toMatchObject({ path: "wiki/World/Edited.md" });
-			expect(await readFile(join(fixture.worldRoot, "wiki", "World", "Edited.md"), "utf8")).toBe("Edited page contents.\n");
-			expect(await write({ path: ".eval/output.md", content: "Final answer.\n" })).toMatchObject({ path: ".eval/output.md" });
-			await expect(write({ path: ".eval/other.md", content: "private" })).rejects.toThrow();
-			await expect(write({ path: join(fixture.repositoryRoot, "wiki", "World", "Source.md"), content: "overwrite" })).rejects.toThrow();
-			await expect(write({ path: "../project/wiki/World/Source.md", content: "escape" })).rejects.toThrow();
-			await expect(write({ path: ".eval/runner-input.json", content: "replace descriptor" })).rejects.toThrow();
-		});
+describe("live Runner capabilities with scoped file deliverables", () => {
+	it("binds live reads and output-only mutations, with a natural start-here brief", async () => {
+		const input = await fixture(); const bound = await bind(input);
+		expect(bound.binding.toolNames.map((name) => name.replace(/^cf_eval_[a-f0-9]+_/u, ""))).toEqual(["write", "delete_page", "read", "grep", "glob", "find", "qmd_query", "qmd_get"]);
+		const read = bound.capability("read");
+		expect(await read({ path: "wiki/World/Source.md" })).toContain("Live source fact.");
+		expect(await read({ path: "raw/input.md" })).toContain("Raw input");
+		expect(await read({ path: "archive/input.md" })).toContain("Archive input");
+		expect(await read({ path: "skill://creature-design" })).toContain("Production skill");
+		await writeFile(join(input.root, "wiki/World/Source.md"), "Current live bytes");
+		expect(await read({ path: "wiki/World/Source.md" })).toContain("Current live bytes");
+		expect(bound.binding.runnerBrief).toContain("wiki/World/Source.md");
+		expect(bound.binding.runnerBrief).toContain("archive/input.md");
+		expect(bound.binding.runnerBrief).toContain("DM request (verbatim):\nCreate a grounded note.");
+		expect(bound.binding.runnerBrief).not.toContain("private criteria");
+		expect(await readdir(input.controlRoot)).toEqual(["runner-grant.json"]);
 	});
-
-	it("denies private control data, other runs, URI schemes, symlinks, and hard links", async () => {
-		await withFixture(async (fixture) => {
-			const { tools } = await bind(fixture);
-			const read = capability(tools, "read");
-			const grantLine = [...tools.keys()];
-			expect(grantLine.length).toBeGreaterThan(0);
-			const grantFile = join(fixture.controlRoot, "runner-grant.json");
-			await expect(read({ path: grantFile })).rejects.toThrow();
-			const otherRun = await allocateEvalRun(fixture.sessionRoot);
-			await mkdir(join(otherRun.worldRoot, "wiki"), { recursive: true });
-			await expect(read({ path: join(otherRun.worldRoot, "wiki", "secret.md") })).rejects.toThrow();
-			await expect(read({ path: "vault://_/World/Source.md" })).rejects.toThrow();
-			await expect(read({ path: "agent://another-run/private" })).rejects.toThrow();
-			const outside = join(fixture.root, "outside.md");
-			await writeFile(outside, "outside data\n");
-			await symlink(outside, join(fixture.worldRoot, "wiki", "World", "Link.md"));
-			await expect(read({ path: "wiki/World/Link.md" })).rejects.toThrow();
-			await link(outside, join(fixture.worldRoot, "wiki", "World", "Hard-link.md"));
-			await expect(read({ path: "wiki/World/Hard-link.md" })).rejects.toThrow();
-		});
+	it("denies evaluator files, private runs, traversal, symlinks and hardlinks", async () => {
+		const input = await fixture(); const bound = await bind(input); const read = bound.capability("read");
+		for (const path of [join(input.skillRoot, "evals/cases.yaml"), join(input.controlRoot, "runner-grant.json"), "../outside", "wiki/World/../Source.md", "file://private", "skill://creature-design/evals/cases.yaml", "skill://other/SKILL.md"]) await expect(read({ path })).rejects.toThrow();
+		for (const directory of ["evals", "answers", "graders", "grades", "snapshots"]) {
+			await mkdir(join(input.root, "wiki", directory)); await writeFile(join(input.root, "wiki", directory, "private.md"), "SECRET");
+			await expect(read({ path: `wiki/${directory}/private.md` })).rejects.toThrow();
+		}
+		await writeFile(join(input.root, "wiki/World/rubric.md"), "SECRET");
+		await expect(read({ path: "wiki/World/rubric.md" })).rejects.toThrow();
+		await symlink(join(input.root, "wiki/World/Source.md"), join(input.root, "wiki/World/link.md"));
+		await expect(read({ path: "wiki/World/link.md" })).rejects.toThrow(/Symbolic/);
+		await link(join(input.root, "raw/input.md"), join(input.root, "raw/hard.md"));
+		await expect(read({ path: "raw/hard.md" })).rejects.toThrow(/Hard-linked/);
+		const other = await allocateEvalRun(input.sessionRoot);
+		await writeFile(join(other.controlRoot, "grades.json"), "SECRET");
+		await expect(read({ path: join(other.controlRoot, "grades.json") })).rejects.toThrow();
+		await writeFile(join(other.outputRoot, "reply.md"), "Other run SECRET");
+		await expect(read({ path: join(other.outputRoot, "reply.md") })).rejects.toThrow();
+		const hits = await bound.capability("grep")({ query: "SECRET" }); expect(hits).toEqual([]);
+		expect(JSON.stringify(await bound.capability("glob")({ pattern: "**" }))).not.toMatch(/private\.md|rubric\.md/);
 	});
-
-	it("grants only assigned skill snapshots and filters QMD results to mapped scratch paths", async () => {
-		await withFixture(async (fixture) => {
-			const snapshot = join(fixture.sessionRoot, "authoring", "creature-design");
-			await mkdir(snapshot, { recursive: true });
-			await writeFile(join(snapshot, "SKILL.md"), "Assigned snapshot content.\n");
-			const { tools } = await bind(fixture, snapshot);
-			const read = capability(tools, "read");
-			const query = capability(tools, "qmd_query");
-			await expect(read({ path: join(fixture.targetSkillRoot, "SKILL.md") })).rejects.toThrow();
-			expect(await read({ path: join(snapshot, "SKILL.md") })).toContain("Assigned snapshot content.");
-			expect(await read({ path: "skill://creature-design/SKILL.md" })).toContain("Assigned snapshot content.");
-			mockState.qmdOutput = `Structured search: 1 queries\n[\n  {"docid":"#abcd12","file":"qmd://wiki/World/Source.md","score":0.9,"snippet":"Live source fact."}\n]\n`;
-			const result = await query({ intent: "Read the current source", searches: [{ type: "lex", query: "Source" }], limit: 1 });
-			expect(result).toMatchObject({ stderr: "qmd stderr", exitCode: 0, results: [{ liveSource: "wiki/World/Source.md", scratchPath: "wiki/World/Source.md" }] });
-			const command = mockState.commands[0];
-			expect(command).toMatchObject({ file: "qmd", options: { shell: false, cwd: fixture.repositoryRoot } });
-			expect(command?.args).toContain("--no-rerank");
-			expect(command?.args).toContain("wiki");
-			expect(command?.args).toContain("archive");
-			expect(command?.args).not.toContain("update");
-			expect(command?.args).not.toContain("embed");
-			mockState.qmdOutput = "Retrieved live source body.\n";
-			const get = capability(tools, "qmd_get");
-			const retrieved = await get({ reference: join(fixture.repositoryRoot, "wiki", "World", "Source.md") });
-			expect(retrieved).toMatchObject({ liveSource: "wiki/World/Source.md", scratchPath: "wiki/World/Source.md" });
-			const getCommand = mockState.commands[1];
-			expect(getCommand).toMatchObject({ file: "qmd", options: { shell: false, cwd: fixture.repositoryRoot } });
-			expect(getCommand?.args[0]).toBe("get");
-			expect(getCommand?.args[1]).toBe(join(fixture.repositoryRoot, "wiki", "World", "Source.md"));
-		});
+	it("confines writes and draft searches to its own output directory", async () => {
+		const input = await fixture(); const bound = await bind(input); const write = bound.capability("write");
+		await write({ path: "wiki/World/New.md", content: "Complete draft." });
+		await write({ path: "reply.md", content: "DM reply." });
+		expect(await readFile(join(input.outputRoot, "World/New.md"), "utf8")).toBe("Complete draft.");
+		expect(await bound.capability("read")({ path: join(input.outputRoot, "World/New.md") })).toContain("Complete draft.");
+		expect(await bound.capability("grep")({ path: input.outputRoot, query: "draft" })).toMatchObject([{ path: join(input.outputRoot, "World/New.md") }]);
+		expect(await bound.capability("glob")({ path: input.outputRoot, pattern: "**" })).toHaveLength(2);
+		expect(await bound.capability("find")({ path: input.outputRoot, query: "New" })).toHaveLength(1);
+		for (const path of ["../outside.md", "/outside.md", join(input.root, "wiki/World/Source.md"), join(input.controlRoot, "grades.md"), "wiki/World/../Source.md", "World/Page", "raw/input.txt", ".deleted.json", "World/rubric.md", "World/evals/Page.md"]) {
+			await expect(write({ path, content: "Mutation" })).rejects.toThrow();
+		}
+		expect(await readFile(join(input.root, "wiki/World/Source.md"), "utf8")).toBe("Live source fact.\n");
+		await expect(readFile(join(input.root, "wiki/World/New.md"))).rejects.toMatchObject({ code: "ENOENT" });
+		const other = await allocateEvalRun(input.sessionRoot);
+		await expect(write({ path: join(other.outputRoot, "reply.md"), content: "Other mutation" })).rejects.toThrow();
+		for (const suffix of ["grep", "glob", "find"]) {
+			await expect(bound.capability(suffix)({ path: other.outputRoot, query: "a", pattern: "**" })).rejects.toThrow();
+		}
 	});
-
-	it("denies the target skill completely for a no-skill baseline", async () => {
-		await withFixture(async (fixture) => {
-			const { tools } = await bind(fixture, null);
-			const read = capability(tools, "read");
-			await expect(read({ path: join(fixture.targetSkillRoot, "SKILL.md") })).rejects.toThrow();
-			await expect(read({ path: "skill://creature-design/SKILL.md" })).rejects.toThrow();
-		});
+	it("records deletions without touching live pages and allows later rewrites", async () => {
+		const input = await fixture(); const bound = await bind(input); const write = bound.capability("write"); const remove = bound.capability("delete_page");
+		await write({ path: "reply.md", content: "DM reply." });
+		await write({ path: "World/Source.md", content: "A draft." });
+		await remove({ path: "wiki/World/Source.md" });
+		expect(readRunnerOutput(input.outputRoot).deleted).toEqual(["World/Source.md"]);
+		await expect(readFile(join(input.outputRoot, "World/Source.md"))).rejects.toMatchObject({ code: "ENOENT" });
+		expect(await readFile(join(input.root, "wiki/World/Source.md"), "utf8")).toBe("Live source fact.\n");
+		await write({ path: "World/Source.md", content: "Final draft." });
+		expect(readRunnerOutput(input.outputRoot).deleted).toEqual([]);
+		await expect(remove({ path: "reply.md" })).rejects.toThrow(/reserved/);
+		await Promise.all(["One", "Two", "Three"].map((name) => remove({ path: `World/${name}.md` })));
+		expect(readRunnerOutput(input.outputRoot).deleted.sort()).toEqual(["World/One.md", "World/Three.md", "World/Two.md"]);
 	});
-
-	it("grants HTTPS only on request and rejects local and IPv4-mapped IPv6 hosts", async () => {
-		await withFixture(async (fixture) => {
-			const registered = registerTools();
-			const binding = await bindRunnerTools(fixture.prepared, {
-				targetSkillRoot: fixture.targetSkillRoot,
-				skillRoot: fixture.targetSkillRoot,
-				network: { https: true, search: false },
-			}, registered.register);
-			expect(binding.toolNames.some((name) => name.endsWith("_https_get"))).toBe(true);
-			expect(binding.toolNames.some((name) => name.endsWith("_web_search"))).toBe(false);
-			const get = capability(registered.tools, "https_get");
-			await expect(get({ url: "https://localhost/private" })).rejects.toThrow();
-			await expect(get({ url: "https://[::ffff:127.0.0.1]/private" })).rejects.toThrow();
-		});
+	it("rejects output symlink and hardlink mutations", async () => {
+		const input = await fixture(); const bound = await bind(input);
+		await symlink(join(input.root, "wiki/World"), join(input.outputRoot, "World"));
+		await expect(bound.capability("write")({ path: "World/Source.md", content: "Unsafe" })).rejects.toThrow(/real directory/);
+		await link(join(input.root, "raw/input.md"), join(input.outputRoot, "hard.md"));
+		await expect(bound.capability("write")({ path: "hard.md", content: "Unsafe" })).rejects.toThrow(/independent regular file/);
+		await expect(bound.capability("delete_page")({ path: "hard.md" })).rejects.toThrow(/independent regular file/);
+		expect(await readFile(join(input.root, "raw/input.md"), "utf8")).toBe("Raw input");
 	});
-
-	it("forwards network options from runSkillEvals to the bound Runner capabilities", async () => {
-		await withFixture(async (fixture) => {
-			const casesFile = join(fixture.root, "cases.yaml");
-			await writeFile(casesFile, "- id: runner-access\n  prompt: Create a short grounded note from the assigned source.\n");
-			const dispatch: DispatchFn = (_prompt, _options) => ({ wait: async () => ({}) });
-			const runOnce = async (network?: { https?: boolean; search?: boolean }) => {
-				const registered = registerTools();
-				try {
-					await rm(join(fixture.sessionRoot, "control", basename(fixture.worldRoot)), { recursive: true, force: true });
-					await mkdir(join(fixture.sessionRoot, "control", basename(fixture.worldRoot)), { recursive: true });
-					mockState.node = (args) => {
-						const script = args.find((arg) => arg.endsWith("evals/prepare.ts") || arg.endsWith("evals/check.ts"));
-						if (script?.endsWith("prepare.ts")) {
-							if (args.includes("--session-start")) {
-								return { status: 0, stdout: JSON.stringify({ root: fixture.sessionRoot }), stderr: "" };
-							}
-							if (args.includes("--verify")) return { status: 0, stdout: "", stderr: "" };
-							return {
-								status: 0,
-								stdout: JSON.stringify({
-									root: fixture.worldRoot,
-									runnerInput: join(fixture.worldRoot, ".eval", "runner-input.json"),
-									qmd: { mode: "live-read-only", index: join(fixture.repositoryRoot, ".qmd", "index.sqlite") },
-									baseline: join(fixture.sessionRoot, "baseline"),
-								}),
-								stderr: "",
-							};
-						}
-						return { status: 0, stdout: "", stderr: "" };
-					};
-					await runSkillEvals({
-						skill: "creature-design",
-						casesFile,
-						closeSession: false,
-						...(network ? { network } : {}),
-						register: registered.register,
-						dispatch,
-						waitAll: async () => [],
-					});
-				} finally {
-					mockState.node = null;
-				}
-				return [...registered.tools.keys()];
-			};
-			const enabled = await runOnce({ https: true });
-			expect(enabled.some((name) => name.endsWith("_https_get"))).toBe(true);
-			expect(enabled.some((name) => name.endsWith("_web_search"))).toBe(false);
-			const disabled = await runOnce();
-			expect(disabled.some((name) => name.endsWith("_https_get") || name.endsWith("_web_search"))).toBe(false);
-		});
+	it("excludes the live candidate in snapshot and no-skill baselines", async () => {
+		const input = await fixture(); const baseline = await bind(input, null);
+		await expect(baseline.capability("read")({ path: join(input.skillRoot, "SKILL.md") })).rejects.toThrow();
+		await expect(baseline.capability("read")({ path: "skill://creature-design" })).rejects.toThrow();
+		const snapshot = join(input.sessionRoot, "authoring/creature-design/skill-snapshot");
+		await mkdir(snapshot, { recursive: true }); await writeFile(join(snapshot, "SKILL.md"), "Assigned snapshot");
+		const run = await allocateEvalRun(input.sessionRoot); const snap = await bind({ ...input, prepared: { ...input.prepared, runId: run.runId } }, snapshot);
+		expect(await snap.capability("read")({ path: "skill://creature-design" })).toContain("Assigned snapshot");
+		await expect(snap.capability("read")({ path: join(input.skillRoot, "SKILL.md") })).rejects.toThrow();
 	});
-
-	it("runs the unified check with fixed World bindings and returns its real process result", async () => {
-		await withFixture(async (fixture) => {
-			mockState.commandOutput = "{\"layers\":13}\n";
-			const { tools } = await bind(fixture);
-			const check = capability(tools, "check");
-			const result = await check({ fix: true });
-			expect(result).toMatchObject({ stdout: "{\"layers\":13}\n", stderr: "cf stderr", exitCode: 0 });
-			const command = mockState.commands[0];
-			expect(command).toMatchObject({ file: "node", options: { shell: false, cwd: fixture.repositoryRoot } });
-			expect(command?.args).toContain(join(fixture.repositoryRoot, "src", "cli.ts"));
-			expect(command?.args).toContain("check");
-			expect(command?.args).toContain("--fix");
-			expect(command?.args).toContain("--root");
-			expect(command?.args).toContain(fixture.worldRoot);
-			expect(command?.args).toContain(join(fixture.worldRoot, "wiki"));
-			expect(command?.args).toContain(join(fixture.worldRoot, "wiki", "templates"));
-			expect(command?.args).not.toContain("--layer");
-		});
+	it.each([".agents/skills/creature-design/evals/revision", ".omp/skills/sample/evals/revision", "snapshots/sample", "revisions/rubric/sample"])("rejects assigned roots inside evaluator components: %s", async (location) => {
+		const input = await fixture(); const snapshot = join(input.root, location);
+		await mkdir(snapshot, { recursive: true }); await writeFile(join(snapshot, "SKILL.md"), "Evaluator-protected snapshot");
+		await expect(bind(input, snapshot)).rejects.toThrow(/protected evaluator data/);
+	});
+	it("requires an assigned skill directory with a canonical regular SKILL.md", async () => {
+		const input = await fixture(); const snapshot = join(input.root, "revisions/sample");
+		await mkdir(snapshot, { recursive: true });
+		await expect(bind(input, snapshot)).rejects.toThrow();
+		await symlink(join(input.skillRoot, "SKILL.md"), join(snapshot, "SKILL.md"));
+		await expect(bind(input, snapshot)).rejects.toThrow(/Symbolic links/);
+	});
+	it("returns direct live QMD paths and filters private snippets, retrieving current source bytes", async () => {
+		const input = await fixture(); const bound = await bind(input);
+		mock.stdout = JSON.stringify([{ file: "qmd://wiki/World/Source.md", snippet: "indexed" }, { file: "qmd://wiki/evals/secret.md", snippet: "SECRET" }]);
+		const result = await bound.capability("qmd_query")({ intent: "Current source", searches: [{ type: "lex", query: "Source" }] });
+		expect(result).toMatchObject({ results: [{ path: join(input.root, "wiki/World/Source.md"), liveSource: "wiki/World/Source.md" }] });
+		expect(JSON.stringify(result)).not.toMatch(/SECRET|scratchPath|stdout/);
+		expect(mock.commands[0]).toMatchObject({ file: "qmd", cwd: input.root });
+		expect(mock.commands[0]!.args).not.toContain("update");
+		mock.stdout = `${join(input.root, "wiki/World/Source.md")}\nSTALE INDEX BODY`;
+		expect(await bound.capability("qmd_get")({ reference: "#abcd12" })).toMatchObject({ content: "Live source fact.\n", path: join(input.root, "wiki/World/Source.md") });
+		mock.stdout = `${join(input.root, "wiki/evals/secret.md")}\nSECRET`;
+		await expect(bound.capability("qmd_get")({ reference: "#abcd12" })).rejects.toThrow();
+	});
+	it("grants public HTTPS only when requested and rejects private hosts", async () => {
+		const input = await fixture(); const bound = await bind(input, input.skillRoot, { https: true, search: false });
+		expect(bound.binding.toolNames.some((name) => name.endsWith("_https_get"))).toBe(true);
+		expect(bound.binding.toolNames.some((name) => name.endsWith("_web_search"))).toBe(false);
+		await expect(bound.capability("https_get")({ url: "https://localhost/private" })).rejects.toThrow();
+		await expect(bound.capability("https_get")({ url: "https://[::ffff:127.0.0.1]/private" })).rejects.toThrow();
 	});
 });
 
-describe("eval Runner inherited hook policy", () => {
-	it("binds one grant, strips its machine line, and blocks ungranted child tools", async () => {
-		await withFixture(async (fixture) => {
-			const { binding, tools } = await bind(fixture);
-			const handlers = new Map<string, (event: never, ctx: never) => unknown>();
-			const definition: { name: string; execute?: (...args: never[]) => unknown }[] = [];
-			const pi = {
-				zod: { object: (value: unknown) => value, enum: (value: unknown) => value },
-				registerTool: (tool: { name: string; execute?: (...args: never[]) => unknown }) => definition.push(tool),
-				on: (event: string, handler: (event: never, ctx: never) => unknown) => handlers.set(event, handler),
-			};
-			evalAccessControl(pi as never);
-			const beforeAgentStart = handlers.get("before_agent_start");
-			const transformContext = handlers.get("context");
-			const gateTool = handlers.get("tool_call");
-			if (!beforeAgentStart || !transformContext || !gateTool) throw new Error("Runner enforcement hooks were not registered");
-			const agentContext = { agent: { kind: "sub", name: "test-subject", id: "runner-child" }, sessionManager: { getSessionId: () => "parent-session" } };
-			const promptResult = await beforeAgentStart({
-				systemPrompt: "Production instructions.\n<plan path=\"local://eval-isolation-plan.md\">private plan material</plan>\nAssigned skill instructions.",
-				prompt: binding.runnerBrief,
-			} as never, agentContext as never) as { systemPrompt: string };
-			expect(promptResult.systemPrompt).toContain("Production instructions.");
-			expect(promptResult.systemPrompt).toContain("Assigned skill instructions.");
-			expect(promptResult.systemPrompt).not.toContain("private plan material");
-			const messages = await transformContext({ messages: [{ role: "user", content: [{ type: "text", text: binding.runnerBrief }] }] } as never, agentContext as never) as { messages: Array<{ content: Array<{ text?: string }> }> };
-			expect(messages.messages[0]?.content[0]?.text).not.toContain("Eval grant:");
-			const readName = binding.toolNames.find((name) => name.endsWith("_read"));
-			expect(await gateTool({ toolName: readName } as never, agentContext as never)).toBeUndefined();
-			expect(await gateTool({ toolName: "yield" } as never, agentContext as never)).toBeUndefined();
-			expect(await gateTool({ toolName: "bash" } as never, agentContext as never)).toMatchObject({ block: true });
-			expect(await gateTool({ toolName: "eval" } as never, agentContext as never)).toMatchObject({ block: true });
-			expect(await gateTool({ toolName: "task" } as never, agentContext as never)).toMatchObject({ block: true });
-			const other = { ...agentContext, agent: { kind: "sub", name: "test-subject", id: "unbound-child" } };
-			await beforeAgentStart({ systemPrompt: "Production", prompt: "No private grant." } as never, other as never);
-			expect(await gateTool({ toolName: binding.toolNames[0] } as never, other as never)).toMatchObject({ block: true });
-			expect(await gateTool({ toolName: "yield" } as never, other as never)).toMatchObject({ block: true });
-			expect(definition.some((item) => item.name === "eval_session")).toBe(true);
-		});
+describe("native Runner extension boundaries", () => {
+	it("requires one grant, strips evaluator context, and blocks unscoped/other-run tools", async () => {
+		const input = await fixture(); const bound = await bind(input); const { handlers } = hooks();
+		const ctx = { agent: { kind: "sub", name: "test-subject", id: "access-runner" }, sessionManager: { getSessionId: () => "access-parent" } };
+		const before = handlers.get("before_agent_start")!; const gate = handlers.get("tool_call")!;
+		const started = await before({ prompt: `Preamble\n${bound.binding.runnerBrief}`, systemPrompt: "Production.\n<evaluator-only>SECRET</evaluator-only>" } as never, ctx as never);
+		expect(started).toEqual({ systemPrompt: "Production." });
+		expect(await gate({ toolName: bound.binding.toolNames[0] } as never, ctx as never)).toBeUndefined();
+		expect(await gate({ toolName: bound.binding.toolNames.find((name) => name.endsWith("_delete_page")) } as never, ctx as never)).toBeUndefined();
+		expect(await gate({ toolName: "yield" } as never, ctx as never)).toBeUndefined();
+		for (const toolName of ["read", "write", "delete_page", "edit", "bash", "eval", "cf_eval_0000000000000000_read", "cf_eval_0000000000000000_write"]) expect(await gate({ toolName } as never, ctx as never)).toMatchObject({ block: true });
+		const context = await handlers.get("context")!({ messages: [{ role: "user", content: bound.binding.runnerBrief }] } as never, ctx as never);
+		expect(JSON.stringify(context)).not.toContain("Eval grant:");
+		const unbound = { ...ctx, agent: { ...ctx.agent, id: "unbound-runner" } };
+		expect(await gate({ toolName: "yield" } as never, unbound as never)).toMatchObject({ block: true });
 	});
-
-	it("binds a grant when the harness wraps the Eval grant line", async () => {
-		await withFixture(async (fixture) => {
-			const { binding } = await bind(fixture);
-			const handlers = new Map<string, (event: never, ctx: never) => unknown>();
-			evalAccessControl({
-				zod: { object: (value: unknown) => value, enum: (value: unknown) => value },
-				registerTool: () => {},
-				on: (event: string, handler: (event: never, ctx: never) => unknown) => handlers.set(event, handler),
-			} as never);
-			const beforeAgentStart = handlers.get("before_agent_start");
-			const gateTool = handlers.get("tool_call");
-			if (!beforeAgentStart || !gateTool) throw new Error("Runner enforcement hooks were not registered");
-			const agentContext = { agent: { kind: "sub", name: "test-subject", id: "wrapped-runner" }, sessionManager: { getSessionId: () => "parent-session" } };
-			await beforeAgentStart({
-				systemPrompt: "Production instructions.",
-				prompt: `Harness preamble\n${binding.runnerBrief}`,
-			} as never, agentContext as never);
-			const readName = binding.toolNames.find((name) => name.endsWith("_read"));
-			expect(await gateTool({ toolName: readName } as never, agentContext as never)).toBeUndefined();
-		});
+	it("opens and closes private Session storage through eval_session", async () => {
+		const { definitions } = hooks(); const tool = definitions.find((tool) => tool.name === "eval_session")!;
+		const ctx = { agent: { kind: "main", name: "main", id: "session-owner" }, sessionManager: { getSessionId: () => "session-owner" } };
+		const call = async (operation: string) => {
+			const result = await tool.execute("id" as never, { operation } as never, undefined as never, undefined as never, ctx as never) as { content: Array<{ text: string }> };
+			return JSON.parse(result.content[0]!.text) as { open: boolean; root?: string };
+		};
+		const opened = await call("open");
+		expect(opened.open).toBe(true);
+		expect(await readdir(opened.root!)).not.toContain("worlds");
+		expect(await call("open")).toEqual(opened);
+		expect(await call("close")).toEqual({ open: false });
+		await expect(readFile(join(opened.root!, ".session.json"))).rejects.toMatchObject({ code: "ENOENT" });
 	});
 });
-
-describe("QMD refresh access boundary", () => {
-	it("skips eval Runners and refreshes only canonical live-source file operations", async () => {
-		const handlers = new Map<string, (event: never, ctx: never) => unknown>();
-		qmdRefresh({ on: (event: string, handler: (event: never, ctx: never) => unknown) => handlers.set(event, handler) } as never);
-		const sessionStart = handlers.get("session_start");
-		const toolResult = handlers.get("tool_result");
-		if (!sessionStart || !toolResult) throw new Error("QMD hooks were not registered");
-		await sessionStart({} as never, { cwd: process.cwd(), agent: { kind: "sub", name: "test-subject" } } as never);
-		expect(mockState.refreshes).toHaveLength(0);
-		await toolResult({ toolName: "bash", input: { command: "echo /wiki/World/Page.md" }, isError: false } as never, { cwd: process.cwd(), agent: { kind: "main", name: "main" } } as never);
-		await toolResult({ toolName: "eval", input: { code: "write /wiki/World/Page.md" }, isError: false } as never, { cwd: process.cwd(), agent: { kind: "main", name: "main" } } as never);
-		expect(mockState.refreshes).toHaveLength(0);
-		const livePage = await findMarkdown(join(process.cwd(), "wiki"));
-		await toolResult({ toolName: "write", input: { path: livePage }, isError: false } as never, { cwd: process.cwd(), agent: { kind: "main", name: "main" } } as never);
-		expect(mockState.refreshes).toHaveLength(1);
-		const scratchPage = join(tmpdir(), "campaign-foundry-eval-unit", "worlds", "run", "wiki", "Page.md");
-		await toolResult({ toolName: "write", input: { path: scratchPage }, isError: false } as never, { cwd: process.cwd(), agent: { kind: "main", name: "main" } } as never);
-		expect(mockState.refreshes).toHaveLength(1);
-	});
-});
-
-async function findMarkdown(root: string): Promise<string> {
-	for (const entry of await readdir(root, { withFileTypes: true })) {
-		const path = join(root, entry.name);
-		if (entry.isDirectory() && !entry.isSymbolicLink()) {
-			const found = await findMarkdown(path).catch(() => "");
-			if (found) return found;
-		} else if (entry.isFile() && entry.name.endsWith(".md")) return path;
-	}
-	throw new Error(`No Markdown source file was available under ${root}`);
-}

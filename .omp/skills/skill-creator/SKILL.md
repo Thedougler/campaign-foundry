@@ -37,13 +37,13 @@ Dispatch `skill-writer` with `brief.md`'s intent, trigger branches, inputs/outpu
 
 ### 4. Paired evals
 
-Read `evals/README.md` before preparing or dispatching, then [`references/eval-loop.md`](references/eval-loop.md) for paired execution. Select the smallest regression set justified by reported home-Session feedback. Build `<workspace>/evals.json` in the existing schema from selected active YAML case IDs and private criteria, recording each mapping in the authoring brief; historical intent files are not live eval inputs. Follow the reference through protected dispatch, evidence, independent grading, aggregation and DM review. If no eligible regression or paired run is requested, record that branch as skipped; instruction revision does not automatically run description evals or benchmarks.
+Read `evals/README.md` before dispatching, then [`references/eval-loop.md`](references/eval-loop.md) for paired execution. Select the smallest regression set justified by reported home-Session feedback. Build `<workspace>/evals.json` in the existing schema from selected case IDs in the skill's `evals/cases.yaml` and their private criteria, recording each mapping in the authoring brief; historical intent files are not live eval inputs. Follow the reference through its `runSkillEvals` pairs, grading, aggregation and DM review. If no eligible regression or paired run is requested, record that branch as skipped; instruction revision does not automatically run description evals or benchmarks.
 
 **Done when** the requested pair set meets the reference's evidence, grading, aggregation and DM-review criteria and `feedback.json` is imported, or the skipped branch has its reason recorded.
 
 ### 5. Revise and repeat
 
-Feed `feedback.json` and the grades — plus comparison and analysis results, when run — to `skill-writer` as evidence of general process defects; validate as in step 3. Rerun the whole requested pair set into `iteration-<N+1>/`, using the same frozen inputs and revision snapshot, with `cf eval review --previous-workspace` pointing at `iteration-<N>/`.
+Feed `feedback.json` and the grades — plus comparison and analysis results, when run — to `skill-writer` as evidence of general process defects; validate as in step 3. Rerun the whole requested pair set into `iteration-<N+1>/`, using the same case ids and revision snapshot, with `cf eval review --previous-workspace` pointing at `iteration-<N>/`.
 
 **Done when** a fresh iteration meets step 4's criterion, or the DM calls it done — all-empty feedback and flat results both count as done.
 

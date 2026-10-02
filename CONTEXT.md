@@ -229,11 +229,11 @@ _Avoid_: sync, export, publish
 ### Evals
 
 **Fixture eval**:
-A committed `cases.yaml` run in a scratch World: the Runner writes, Checks run, then Grades. Distinct from the Prose Benchmark.
+A committed `cases.yaml` run against the live Wiki: the Runner reads read-only and saves its pages and DM reply to a per-run output directory, Checks run on that Outcome, then Grades. Distinct from the Prose Benchmark.
 _Avoid_: benchmark, unit test
 
 **Check**:
-A deterministic assertion `eval:check` runs on the scratch Wiki: pages exist, headings exist, canon/absent regexes. Constrained artifacts only.
+A deterministic assertion `eval:check` runs on the Outcome (live pages with the run's output pages and deletions overlaid): pages exist, headings exist, canon/absent regexes. Constrained artifacts only.
 _Avoid_: scoring speakability with a Check
 
 **Grade**:

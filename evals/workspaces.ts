@@ -120,7 +120,7 @@ export async function createEvalSession(owner: { sessionId: string; pid: number 
 	const root = await realpath(created);
 	try {
 		assertSessionPath(root, tempRoot, repoRoot);
-		for (const name of ["worlds", "control", "authoring", "audit"]) await ensureRealDirectory(join(root, name));
+		for (const name of ["control", "audit", "outputs"]) await ensureRealDirectory(join(root, name));
 		const marker: SessionMarker = {
 			schemaVersion: 1,
 			root,
@@ -145,7 +145,7 @@ export async function closeEvalSession(rootArgument: string): Promise<void> {
 }
 
 /** Layout roots beneath an existing canonical eval session. */
-export function evalSessionLayout(sessionRoot: string): { worlds: string; control: string; authoring: string; audit: string } {
+export function evalSessionLayout(sessionRoot: string): { control: string; audit: string; outputs: string } {
 	if (!isAbsolute(sessionRoot)) throw new Error(`eval session root must be absolute: ${sessionRoot}`);
 	if (sessionRoot.split(sep).includes("..")) throw new Error(`eval session root must not contain traversal components: ${sessionRoot}`);
 	const root = resolve(sessionRoot);
@@ -160,59 +160,27 @@ export function evalSessionLayout(sessionRoot: string): { worlds: string; contro
 	assertSessionPath(canonical, tempRoot, repoRoot);
 	if (canonical !== root) throw new Error(`eval session root must be canonical: ${root}`);
 	return {
-		worlds: join(canonical, "worlds"),
 		control: join(canonical, "control"),
-		authoring: join(canonical, "authoring"),
 		audit: join(canonical, "audit"),
+		outputs: join(canonical, "outputs"),
 	};
 }
 
-/** Resolve a generated run ID to the paired World and private control roots. */
-export function evalRunPaths(sessionRoot: string, runId: string): { worldRoot: string; controlRoot: string } {
+/** Resolve one run's private evaluator artifacts and scoped deliverable directory. */
+export function evalRunPaths(sessionRoot: string, runId: string): { controlRoot: string; outputRoot: string } {
 	if (!/^[A-Za-z0-9][A-Za-z0-9_-]*$/u.test(runId)) throw new Error(`unsafe eval run ID: ${runId}`);
 	const layout = evalSessionLayout(sessionRoot);
-	return { worldRoot: join(layout.worlds, runId), controlRoot: join(layout.control, runId) };
+	return { controlRoot: join(layout.control, runId), outputRoot: join(layout.outputs, runId) };
 }
 
-/** Resolve `{ sessionRoot, runId }` from a `$W` that follows the session layout. */
-export function evalRunFromWorld(worldRoot: string): { sessionRoot: string; runId: string } {
-	if (!isAbsolute(worldRoot)) throw new Error(`eval World root must be absolute: ${worldRoot}`);
-	if (worldRoot.split(sep).includes("..")) throw new Error(`eval World root must not contain traversal components: ${worldRoot}`);
-	const root = resolve(worldRoot);
-	const runId = basename(root);
-	if (!/^[A-Za-z0-9][A-Za-z0-9_-]*$/u.test(runId) || basename(dirname(root)) !== "worlds") {
-		throw new Error(`eval World root is outside the session layout: ${root}`);
-	}
-	const sessionRoot = dirname(dirname(root));
-	const paths = evalRunPaths(sessionRoot, runId);
-	if (paths.worldRoot !== root) throw new Error(`eval World root is not canonical: ${root}`);
-	return { sessionRoot, runId };
-}
-
-/** Allocate one collision-free, paired World/private-control run. */
-export async function allocateEvalRun(sessionRootArgument: string): Promise<{ runId: string; worldRoot: string; controlRoot: string }> {
+/** Allocate private control storage and deliverables for one live read-only run. */
+export async function allocateEvalRun(sessionRootArgument: string): Promise<{ runId: string; controlRoot: string; outputRoot: string }> {
 	const { root: sessionRoot } = await validateSession(sessionRootArgument);
-	const layout = evalSessionLayout(sessionRoot);
-	for (const name of ["worlds", "control", "authoring", "audit"]) await ensureRealDirectory(join(sessionRoot, name));
-	for (let attempt = 0; attempt < 16; attempt++) {
-		const runId = randomUUID().replaceAll("-", "");
-		const paths = evalRunPaths(sessionRoot, runId);
-		try {
-			await mkdir(paths.worldRoot, { mode: 0o700 });
-		} catch (error) {
-			if ((error as NodeJS.ErrnoException).code === "EEXIST") continue;
-			throw error;
-		}
-		try {
-			await mkdir(paths.controlRoot, { mode: 0o700 });
-			return { runId, ...paths };
-		} catch (error) {
-			await rm(paths.worldRoot, { recursive: true, force: true });
-			if ((error as NodeJS.ErrnoException).code === "EEXIST") continue;
-			throw error;
-		}
-	}
-	throw new Error(`could not allocate a unique eval run in ${layout.worlds}`);
+	const runId = randomUUID().replaceAll("-", "");
+	const paths = evalRunPaths(sessionRoot, runId);
+	await mkdir(paths.controlRoot, { mode: 0o700 });
+	await mkdir(paths.outputRoot, { mode: 0o700 });
+	return { runId, ...paths };
 }
 
 function pidState(pid: number): "dead" | "live" | "uncertain" {

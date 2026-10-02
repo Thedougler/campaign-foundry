@@ -62,7 +62,7 @@ Done when a run leaves `pnpm check` green and a `lint` log entry names every pag
 
 ## omp
 
-- Project skill `wiki-lint`: run `cf lint --fix`, apply remaining mechanical edits, log, `pnpm check`. Never ask the DM.
+- Project skill `lint`: run `cf lint --fix`, apply remaining mechanical edits, log, `bun run cf check`. Never ask the DM.
 - `.omp/AGENTS.md`: pointer — Lint after Ingest, Prep, create, move.
 - Keep ignoring user-library `llm-wiki` and `wiki-*` (old skills, not industry).
 
