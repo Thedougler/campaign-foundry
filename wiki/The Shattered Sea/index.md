@@ -69,7 +69,7 @@
 - [[Enzo]] — Nona Black-Jaw's polished tabaxi bodyguard, a quiet enforcer who reads every guest before violence reaches her.
 - [[Ettore Ferrante]] — Injured Calveno survivor trapped in a lava tube with his son and two companions.
 - [[Felix Aho]] — Captured green-caste Grung labourer who traded bombing intelligence for protection.
-- [[Geoffrey Draves]] — Former Crown seaman turned Saltwright carpenter, working to earn Verity Hollowell's hand.
+- [[Geoffrey Draves]] — Dravosi carpenter aboard the Uncertainty, working under Sem Holst, dancing toward the means to claim Verity Hollowell's hand.
 - [[Gianni Moro]] — Calveno cooper who nearly followed Hinewai's voice from the lava tube.
 - [[Hinewai]] — Undead elf archdruid bound to Aruhe, whose grief became the island's law.
 - [[Iacopo Fieschi]] — Tessarine factor who turned Calveno's victory into Concordat credit.

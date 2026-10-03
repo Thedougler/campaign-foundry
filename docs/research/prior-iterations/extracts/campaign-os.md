@@ -44,7 +44,7 @@ Copies live under `sources/campaign-os/` at the same relative paths. All paths b
 ## Writers room, compete mode
 
 - source: `.claude/skills/campaign-writers-room/SKILL.md`, `references/stances.md` (found)
-- destination: skill reusing `cf bench`-style judging; per-piece creative lever, not a leaderboard
+- destination: skill reusing `bun run cf -- bench`-style judging; per-piece creative lever, not a leaderboard
 - load-bearing:
   - Brief is built WITH the GM, capturing: Target, Goals/direction, Constraints (as wikilinks to canon pages, pasted hits), Mode (compete vs collab), N drafts (2–8, default 3; "full room" = 8, one per stance).
   - Compete pipeline: spawn N drafters in parallel, **one stance each** → lint all drafts to zero **before** judging ("a ranking taken now is thrown away" if lint rewrites land after) → comparative judge produces RANKED verdict → present ranking + one-paragraph digest per draft (stance, distinct strength, where it shines) → **the GM picks or directs a merge — never auto-select**.

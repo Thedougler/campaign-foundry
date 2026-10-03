@@ -1,0 +1,48 @@
+---
+type: NPC
+summary: "A name Shepherd Grigori said he needed to reach in Calveno, in time; nothing else on record."
+sources:
+ - "archive/ssw-shepherd-grigori.md"
+creature: ""
+---
+
+## At a glance
+
+- **Role.** Unknown. A name Grigori named as urgent business.
+- **Wants.** Unknown.
+- **Voice.** Unknown.
+- **Found at.** [[Calven and Calveno|Calveno]], by [[Shepherd Grigori]]'s account.
+
+> [!narration] First look
+> Nobody has met Impuni. The name surfaced once, spoken by a healer going ashore at [[La Vasca]], someone in Calveno he was short of time to reach. Whether Impuni is a patient, a bind, or a plain visit, only Grigori knows.
+
+## Play
+
+Impuni has not been met, so nobody knows how a meeting runs. Grigori's business sets the tone instead. He arrives warm and leaves owed, and the questions he asks stay long after he goes.
+
+## Depth
+
+### History
+
+Leaving the Party at [[La Vasca]], Grigori spoke of a young heir in Calveno whose physicians had given up, and of Impuni, a name he tied to business that could not wait. The words were his. The Party has not tested them.
+
+### Threads
+
+Impuni sits inside Grigori's unfinished Calveno business, under the hunt in [[The Hound of God]].
+
+## Links
+
+```base
+filters:
+ and:
+  - file.hasLink(this.file)
+views:
+ - type: table
+  name: Linked from
+  groupBy:
+   property: note.type
+   direction: ASC
+  order:
+   - file.name
+   - note.summary
+```

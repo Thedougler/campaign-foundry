@@ -5,25 +5,27 @@ import { UsageError } from "./check/run.ts";
 import { commands } from "./commands/index.ts";
 
 const program = new Command("cf")
-	.description("Campaign Foundry: tools that keep the Wiki in shape. Run a subcommand with --help for its options and examples.")
+	.description(
+		"Campaign Foundry: tools that keep the Wiki in shape. Run it as `bun run cf -- <command>` (a bare `cf` on PATH is usually Cloudflare's, not this tool). Run a subcommand with --help for its options and examples.",
+	)
 	.showHelpAfterError("(run with --help for options and examples)")
 	.addHelpText(
 		"after",
 		`
 Examples:
-  cf check                       gate the whole Wiki
-  cf check --fix                 gate it, applying mechanical fixes
-  cf check --help                options, layers and more examples
-  cf index                       regenerate the index.md files
-  cf encounter-budget --levels 5,5,5,5 --creature "Orc,1/2,100,3"
-                                 2024 Encounter XP budgets and Creature spend
-  cf eval extract "Ilse Corran" --callout "First look"
-                                 dump a callout body for a grader to read (not a Grade)
-  cf log --world Aldermoor --op ingest --title "Session 3 transcript" --page "Session 3 - Recap"
-                                 append to a World's log.md
-  cf bench status                 plan the Prose Benchmark: cache hits and run commands
-  cf push --campaign "Salt and Lantern" --session 2
-                                 build a Session's Foundry Adventure module`,
+  bun run cf -- check                       gate the whole Wiki
+  bun run cf -- check --fix                 gate it, applying mechanical fixes
+  bun run cf -- check --help                options, layers and more examples
+  bun run cf -- index                       regenerate the index.md files
+  bun run cf -- encounter-budget --levels 5,5,5,5 --creature "Orc,1/2,100,3"
+                                            2024 Encounter XP budgets and Creature spend
+  bun run cf -- eval extract "Ilse Corran" --callout "First look"
+                                            dump a callout body for a grader to read (not a Grade)
+  bun run cf -- log --world Aldermoor --op ingest --title "Session 3 transcript" --page "Session 3 - Recap"
+                                            append to a World's log.md
+  bun run cf -- bench status                plan the Prose Benchmark: cache hits and run commands
+  bun run cf -- push --campaign "Salt and Lantern" --session 2
+                                            build a Session's Foundry Adventure module`,
 	)
 	.exitOverride();
 

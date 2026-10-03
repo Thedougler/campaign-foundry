@@ -3,12 +3,13 @@ type: NPC
 summary: "Purple-caste Grung officer pursuing Jean-Claude while an unmaintained rite threatens her rise to Gold."
 sources:
  - "archive/simone-tabarnack.md"
+ - "archive/ssw-midchain.md"
 creature: "[[Commoner]]"
 ---
 
 ## At a glance
 
-- **Role.** Sorn garrison officer and Grung toxin supplier to the Dravosi Crown.
+- **Role.** Jean-Claude Tabarnack's younger sister, Sorn garrison officer and Grung toxin supplier to the Dravosi Crown.
 - **Wants.** To become true Gold, capture Jean-Claude, and eventually rule the Grung with him.
 - **Voice.** Disciplined, certain, and caste-bound: “The caste order is not a choice.”
 - **Found at.** Sorn and the Grung scouting network around the Midchain.
@@ -19,7 +20,7 @@ creature: "[[Commoner]]"
 ## Play
 
 - **Opens them up.** Duty, proof that her people can out-plan Gold, and a useful path to Jean-Claude.
-- **Shuts them down.** Questions about her partial gold colour, Ozzeth, or her betrayal of Jean-Claude and Pell.
+- **Shuts them down.** Questions about her partial gold colour, Ozzeth, or her betrayal of Jean-Claude and [[Pell]].
 - **Will share.** The caste order, her garrison's safety, and official reasons for the hunt.
 - **Will not share.** The colour-sealing rite or the Crown's toxin bargain.
 - **If pressed.** She uses scouts and official authority. If Jean-Claude refuses, she captures rather than kills him.
@@ -28,7 +29,7 @@ creature: "[[Commoner]]"
 
 ### History
 
-Simone stayed in Sorn when Jean-Claude fled and reported him and Pell, believing the caste order made the choice right. She became a garrison folk hero by refusing to spend her soldiers carelessly. She independently found the suppressed colour-sealing rite and cast it on herself. Ozzeth maintained it until his death.
+Simone stayed in Sorn when Jean-Claude fled and reported him and [[Pell]], believing the caste order made the choice right. She became a garrison folk hero by refusing to spend her soldiers carelessly. She independently found the suppressed colour-sealing rite and cast it on herself. Ozzeth maintained it until his death.
 
 ### Hidden truths
 

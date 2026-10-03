@@ -76,7 +76,7 @@ Branch `v5` of prior/shattered-sea-site. Copies live under `docs/research/prior-
 ## wiki_guard agent presets
 
 - source: not copied — assignment says skip the wiki_guard Python; idea only
-- destination: none (CF already has `cf check`/`cf log`/QMD; do not reintroduce a Python dual stack)
+- destination: none (CF already has `bun run cf -- check`/`bun run cf -- log`/QMD; do not reintroduce a Python dual stack)
 - load-bearing: deterministic prep/finalize JSON so agents don't re-scan blindly (per findings); the pattern, not the code.
 - skip-from-this-file: everything else in `.claude/bin/`.
 

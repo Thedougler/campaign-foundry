@@ -62,7 +62,7 @@ Built from the ten extracts under `docs/research/prior-iterations/extracts/` aga
 - **Party combat profile / Effective CR band / binding Avoid flags** — the +1 CLI offset is the standing project decision; deeper profiling is new state machinery. Revisit only if encounter fit disappoints at the table.
 - **Spotlight rotation counters; revised Predictions** — every-PC-every-Session Spotlights are stronger; a predictions list is bookkeeping the Recap's "what changed" replaces.
 - **Live co-DM mode, audio, transcription** — ADR 0002: the Agent works between Sessions only.
-- **Cross-linker batch runbook; coalescing regen hooks** — `cf check`/`cf index`/`cf log` own links, orphans and generated files.
+- **Cross-linker batch runbook; coalescing regen hooks** — `bun run cf -- check`/`bun run cf -- index`/`bun run cf -- log` own links, orphans and generated files.
 - **Visual-aid conventions (art-style file, alt-text-as-prompt, category folders)** — generate-image's World-tone spec, page-grounded details and kinds table cover the behaviour; alt-text prompt records don't fit CF's embed format.
 - **Ingest token-budget batching + quality-shortcuts table** — CF ingests file-by-file through an ordered queue; batching is script machinery. Dedupe is adapted (above).
 - **Focused reviewer subagents** — audit, cold reads and hard lines already enforce PC boundary, NPC agency and pressures-not-plots.

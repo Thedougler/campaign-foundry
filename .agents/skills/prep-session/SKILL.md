@@ -66,24 +66,24 @@ Read [the shared Scene procedure](../../../docs/agents/scene-pages.md) before ch
 Review the installed help before execution:
 
 ```bash
-bun run cf index --help
-bun run cf check --help
-bun run cf log --help
-bun run cf push --help
+bun run cf -- index --help
+bun run cf -- check --help
+bun run cf -- log --help
+bun run cf -- push --help
 ```
 
 After content is ready, regenerate the index and run the full unified gate:
 
 ```bash
-bun run cf index
-bun run cf check --fix
-bun run cf check
+bun run cf -- index
+bun run cf -- check --fix
+bun run cf -- check
 ```
 
 Fix remaining findings without changing Canon and repeat until the unfiltered gate exits 0. Page and layer filters are diagnostic only. Then append the operation:
 
 ```bash
-bun run cf log --world "<World>" --op prep --title "Session <N> Prep" --page "<World>/<Campaign>/Sessions/Session <N>/Session <N> - Prep.md"
+bun run cf -- log --world "<World>" --op prep --title "Session <N> Prep" --page "<World>/<Campaign>/Sessions/Session <N>/Session <N> - Prep.md"
 ```
 
 Repeat `--page` for every touched content page. The CLI owns generated index and log files. For an assigned filesystem root, add `--vault "<wiki>" --root "<root>"` to index, check, log and push, plus `--templates "<wiki>/templates"` to check.
@@ -91,8 +91,8 @@ Repeat `--page` for every touched content page. The CLI owns generated index and
 Push through `push-session` using the current interface:
 
 ```bash
-bun run cf push --campaign "<Campaign>" --session <N> --dry-run --json
-bun run cf push --campaign "<Campaign>" --session <N> --json
+bun run cf -- push --campaign "<Campaign>" --session <N> --dry-run --json
+bun run cf -- push --campaign "<Campaign>" --session <N> --json
 ```
 
 Actual Push owns its separate `push` log entry. Report observed results separately for text, images, gate and Push so one successful phase cannot hide an unavailable prerequisite in another.

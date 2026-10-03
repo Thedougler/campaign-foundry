@@ -4,6 +4,7 @@ Agathys
 Aldous
 Aldric
 Antheri
+Aoidos
 Aquan
 Aruhe
 Ashkevet
@@ -79,11 +80,13 @@ Ossketh
 Paludi
 Parel
 Piero
+Pasang
 Pozzo
 Rattkin
 Reef-Skulls
 Renzo
 Roka
+Rawa
 Ruma
 Saltwright
 Sandrino
@@ -101,7 +104,9 @@ Spirit-Haunted
 Sten
 Sunkline
 Tangle
+Tanjung
 Teethward
+Teluk
 Tessarine
 Tethyr
 Thassos
@@ -149,3 +154,14 @@ Agni
 Slaads
 nonintervention
 Riftbolt
+towline
+towlines
+shinies
+Ashwalls
+Duvane
+updraft
+updrafts
+stormfront
+stormfronts
+Sandtable
+Teikhinos

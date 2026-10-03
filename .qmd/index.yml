@@ -4,22 +4,34 @@ collections:
     path: wiki
     pattern: "**/*.md"
     ignore:
-      - "templates/**"
+      - templates/**
     includeByDefault: true
     context:
-      "/": "The Wiki: canonical pages for Worlds and their Campaigns. Search here first for anything about the setting or play."
+      /: "The Wiki: canonical pages for Worlds and their Campaigns. Search here first for anything about the setting or play."
   raw:
     path: raw
     pattern: "**/*.md"
     includeByDefault: false
     context:
-      "/": "Raw: material waiting to be ingested. Not yet Canon where it conflicts with the Wiki."
+      /: "Raw: material waiting to be ingested. Not yet Canon where it conflicts with the Wiki."
   archive:
     path: archive
     pattern: "**/*.md"
     includeByDefault: false
     context:
-      "/": "Archive: Raw material already ingested into the Wiki. Search only to trace where a page came from."
+      /: "Archive: Raw material already ingested into the Wiki. Search only to trace where a page came from."
+  agentic-co-dm:
+    path: /Users/nick/campaign-foundry/prior/agentic-co-dm/wiki
+    pattern: "**/*.md"
+    includeByDefault: false
+    context:
+      /: "Legacy agentic-co-dm wiki. Search for prior-iteration Shattered Sea lore, not live Canon."
+  shattered-sea-wiki:
+    path: /Users/nick/campaign-foundry/prior/shattered-sea-wiki
+    pattern: "**/*.md"
+    includeByDefault: false
+    context:
+      /: "Legacy shattered-sea-wiki. Search for prior-iteration lore, not live Canon."
 models:
   embed: hf:ggml-org/embeddinggemma-300M-GGUF/embeddinggemma-300M-Q8_0.gguf
   generate: hf:tobil/qmd-query-expansion-1.7B-gguf/qmd-query-expansion-1.7B-q4_k_m.gguf

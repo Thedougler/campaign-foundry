@@ -12,7 +12,7 @@ parent: "[[Midchain]]"
 - **Character.** A deep trench and boundary at the chart edge.
 - **Held by.** Umberlee's claim, Antheri works, Sentinels and competing salvage interests.
 - **Changing.** The fissure loses ground. Heat pulses shrink working depth and the current reverses.
-- **Crossing.** Approach from the central strait, descend through storm and Shelfworks, then retreat by a marked line.
+- **Crossing.** Approach from the [[Central Strait]], descend through storm and Shelfworks, then retreat by a marked line.
 - **Danger.** Elemental exposure, lying instruments, storms and displacement.
 
 > [!narration] Arrival
@@ -22,7 +22,7 @@ parent: "[[Midchain]]"
 
 ### Travel
 
-The central strait reaches the Maw approach. The Shelfworks, Mid-Works and Deep Works descend along the Antheri wall. A tribute lane or Sentinel instruction can bypass some danger at a cost.
+The [[Central Strait]] reaches the Maw approach. East of the chart edge the [[Outer Reach]] opens, about five days' sail to [[Keth-Naar]] on bought bearings. The Shelfworks, Mid-Works and Deep Works descend along the Antheri wall. A tribute lane or Sentinel instruction can bypass some danger at a cost.
 
 ### Places worth reaching
 

@@ -1,6 +1,6 @@
 # Foundry Adventure Push
 
-Researched 2026-09-29 for `cf push` (issue #20, ADR 0008). Everything under "Verified" was read from the installed Foundry v14 build 367 (`common/`, `client/` and `dist/` in the app), the installed dnd5e 5.3.3 system, `@foundryvtt/foundryvtt-cli` 3.0.4, or observed by running code. "Not verified" says what could not be.
+Researched 2026-09-29 for `bun run cf -- push` (issue #20, ADR 0008). Everything under "Verified" was read from the installed Foundry v14 build 367 (`common/`, `client/` and `dist/` in the app), the installed dnd5e 5.3.3 system, `@foundryvtt/foundryvtt-cli` 3.0.4, or observed by running code. "Not verified" says what could not be.
 
 ## Verified
 

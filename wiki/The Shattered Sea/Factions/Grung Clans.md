@@ -3,6 +3,8 @@ type: Faction
 summary: "Political Grung clans that keep the Verdant Teeth closed, trade toxin and raid for captives as their water power declines."
 sources:
  - "archive/grung-clans.md"
+ - "archive/ssw-grung.md"
+ - "archive/ssw-midchain.md"
 ---
 
 ## At a glance
@@ -10,7 +12,7 @@ sources:
 - **Goal.** Recover water control while preserving the closed interior and caste-and-rite system.
 - **Next move.** Recover or reroute surviving captives after the Aruhe wrecks. [[Karath]] remains the identified destination for the captive route.
 - **Led by.** The gold authority associated with [[Auralis]]. No complete hierarchy is established.
-- **Base.** Verdant Teeth.
+- **Base.** [[Verdant Teeth]].
 - **Strength.** Biology, terrain, toxins, reef patrols and sanctioned beaches.
 
 > [!narration] Public face
@@ -23,6 +25,8 @@ sources:
 - **Offers.** Sanctioned beach trade in toxin and brief access to blue intermediaries.
 - **Costs.** Poison, reef patrols, closed channels and the demand for obedience.
 - **How to notice or interfere.** Learn beach protocol and colour signals. Intercept a shipment, expose Crown toxin purchases or negotiate without accepting interior access.
+
+Raids from the [[Verdant Teeth]] have worsened, and the [[Chain Council]] at Kalowe has received enough complaints to put beach trade under pressure.
 
 ## Depth
 

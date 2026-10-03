@@ -1,6 +1,6 @@
 # Authoring artifact contracts
 
-Read before writing skill-creator's paired-run or optional diagnostic artifacts. [`eval-loop.md`](eval-loop.md) owns the layout and the comparability decision; `cf eval review` (`evals/review.ts`) reads `eval_metadata.json`, `grading.json`, `benchmark.json` and `feedback.json` in these shapes. All live under `<workspace>/iteration-<N>/`, outside any skill.
+Read before writing skill-creator's paired-run or optional diagnostic artifacts. [`eval-loop.md`](eval-loop.md) owns the layout and the comparability decision; `bun run cf -- eval review` (`evals/review.ts`) reads `eval_metadata.json`, `grading.json`, `benchmark.json` and `feedback.json` in these shapes. All live under `<workspace>/iteration-<N>/`, outside any skill.
 
 ## `eval_metadata.json`
 

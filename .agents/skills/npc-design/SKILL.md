@@ -109,9 +109,9 @@ Copy `wiki/templates/NPC.md` exactly in `<World>/NPCs/`. Fill its required `At a
 Use the actual CLI against the caller's target, not an ambient default:
 
 ```sh
-bun run cf index --vault "$VAULT" --root "$ROOT"
-bun run cf check --fix --vault "$VAULT" --root "$ROOT" --templates "$VAULT/templates"
-bun run cf check --vault "$VAULT" --root "$ROOT" --templates "$VAULT/templates"
+bun run cf -- index --vault "$VAULT" --root "$ROOT"
+bun run cf -- check --fix --vault "$VAULT" --root "$ROOT" --templates "$VAULT/templates"
+bun run cf -- check --vault "$VAULT" --root "$ROOT" --templates "$VAULT/templates"
 ```
 
 Run the full gate with no path or `--layer` filter. It checks placement, links, orphans, statblock arithmetic, index, hot, log, Markdown, spelling, grammar, and style. Link every Creature the NPC uses so its 2024 arithmetic is checked. Fix findings on the NPC, Creature and Thread pages, and rerun until green. Never hand-edit `index.md`.
@@ -119,7 +119,7 @@ Run the full gate with no path or `--layer` filter. It checks placement, links, 
 For a standalone NPC creation, append one `create` entry only after the gate is green:
 
 ```sh
-bun run cf log --world "$WORLD" --op create --title "<one-line result>" --page "$NPC_PATH" --page "$CREATURE_PATH" --page "$THREAD_PATH" --vault "$VAULT" --root "$ROOT"
+bun run cf -- log --world "$WORLD" --op create --title "<one-line result>" --page "$NPC_PATH" --page "$CREATURE_PATH" --page "$THREAD_PATH" --vault "$VAULT" --root "$ROOT"
 ```
 
 Omit absent `--page` values. If an enclosing Ingest, Prep, Push, Audit, Pull, or Query operation owns the work, that operation logs once; do not add a second `create` entry.

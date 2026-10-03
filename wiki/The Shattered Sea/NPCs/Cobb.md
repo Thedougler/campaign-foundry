@@ -3,6 +3,7 @@ type: NPC
 summary: "A young rattkin dockworker and Nona Black-Jaw's runner who keeps La Vasca's refit on schedule."
 sources:
  - "archive/Cobb.md"
+ - "archive/ssw-nona-black-jaw.md"
 creature: ""
 ---
 
@@ -28,7 +29,7 @@ creature: ""
 
 ### History
 
-Cobb runs the Basin dock operations for Nona's Warren account. He has known Perrin since childhood and is the bridge between the crew and the Black-Jaw family. His pride is in doing dock work correctly, not in gaining status.
+Cobb runs the Basin dock operations for Nona's Warren account. He has known Perrin since childhood and is the bridge between the crew and the Black-Jaw family. His pride is in doing dock work correctly, not in gaining status. He reported a ship of the [[Tarahs]] in port to Nona, and his report made her call off the attacks her people were running.
 
 ### Hidden truths
 

@@ -44,7 +44,7 @@ Extra companies and reef-diving gear are staged for the [[Drowned Maw]], but the
 
 ### History
 
-Calder's Tooth is limestone and basalt at the far side mouth of the central strait. The east side slopes to mudflats and mangroves.
+Calder's Tooth is limestone and basalt at the far side mouth of the [[Central Strait]]. The east side slopes to mudflats and mangroves.
 
 ### Hidden truths
 

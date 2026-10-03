@@ -3,6 +3,7 @@ type: PC
 summary: "Chad's level 5 Gloom Stalker ranger and blue-caste Grung fugitive, one island ahead of Simone's hunters."
 sources:
  - "archive/jean-claude-tabarnack.md"
+ - "archive/ssw-grung.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/nickdavenock/characters/171013670"
 ---
 
@@ -47,7 +48,7 @@ dndbeyond_url: "https://www.dndbeyond.com/profile/nickdavenock/characters/171013
 
 ### Backstory
 
-Born blue caste among the Grung of Botukuri, Jean-Claude fled after Pell died in reprisal. His red beret marks him as censured, and his family still hunts him through Simone's elite unit. He stowed aboard the Saltwright one island ahead of them.
+Born blue caste among the [[Grung]] of Botukuri, Jean-Claude fled after freeing slaves. Pell died in the reprisal that followed. His red beret marks him as censured, and his family still hunts him through Simone's elite unit. He stowed aboard the Saltwright one island ahead of them.
 
 After the garden, Jean-Claude became catatonic and travels inside Delmar's coat.
 

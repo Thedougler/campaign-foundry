@@ -3,6 +3,7 @@ type: Item
 summary: "Crown parchment licensing Barnaby Rook as a privateer and carrying a 30,000 gp Crown bond."
 sources:
  - "archive/letters-of-marque.md"
+ - "archive/ssw-letters-of-marque.md"
 ---
 
 ## At a glance

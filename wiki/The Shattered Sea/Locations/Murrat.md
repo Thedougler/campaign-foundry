@@ -4,12 +4,13 @@ kind: Region
 summary: "A limestone reef in the Northern Midchain where Moucheron kin-villages hide above the tide and blood is currency."
 sources:
  - "archive/murrat.md"
+ - "archive/ssw-midchain.md"
 parent: "[[Midchain]]"
 ---
 
 ## At a glance
 
-- **Character.** A mile-and-a-half limestone reef whose villages hide in cliff hollows.
+- **Character.** A mile-and-a-half limestone reef between [[Kalowe]] and the [[Verdant Teeth]], whose villages hide in cliff hollows.
 - **Held by.** Dozens of Moucheron kin-villages and their scouts.
 - **Changing.** A dark cloud resolves into wings as an approach closes.
 - **Crossing.** Chart the eastern reef and its wrecks before seeking a rope bridge.

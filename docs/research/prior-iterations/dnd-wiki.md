@@ -35,7 +35,7 @@ Prior Campaign Foundry ancestor: an Obsidian vault under `content/shattered-sea/
 ## Skip
 
 - Generic wiki skill shell in root `AGENTS.md` (concepts/entities taxonomy) — wrong domain; CF already specialized.
-- Python `wiki-lint` (`.claude/skills/wiki-lint/`) — CF has Vale + `cf check`; don’t port second linter.
+- Python `wiki-lint` (`.claude/skills/wiki-lint/`) — CF has Vale + `bun run cf -- check`; don’t port second linter.
 - Obsidian CLI / Templater-centric filing in PREP.md — CF is filesystem + QMD.
 - Full Pointy Hat monster/villain ingest corpus under `raw/ingested/` — frameworks above are enough; bulk SRD/stat dumps are noise.
 - Quartz/graph-colorize/tag-taxonomy product skills — not agentic writing leverage.

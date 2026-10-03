@@ -9,7 +9,7 @@ creature: "[[Commoner]]"
 ## At a glance
 
 - **Role.** Commodore of the Dravosi Crown's Knight Squadron.
-- **Wants.** To avenge Captain Gorgeous and restore Crown order along the Central Strait.
+- **Wants.** To avenge Captain Gorgeous and restore Crown order along the [[Central Strait]].
 - **Voice.** One measured order, never a shouted threat. “He doesn't threaten. He replaces.”
 - **Found at.** The Crown fleet and its search corridors, not yet in the crew's path.
 

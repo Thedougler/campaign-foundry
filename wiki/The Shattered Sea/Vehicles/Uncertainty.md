@@ -4,6 +4,9 @@ summary: "A Crown cutter taken as HCS Surety, renamed Uncertainty and kept movin
 sources:
  - "archive/hcs-surety.md"
  - "archive/uncertainty.md"
+ - "archive/agentic-co-dm-noor.md"
+ - "archive/ssw-sem-holst.md"
+ - "archive/ssw-old-faas.md"
 aliases:
  - "HCS Surety"
  - "Surety"
@@ -13,7 +16,7 @@ aliases:
 
 - **Kind.** Ship. Captured Crown cutter.
 - **Size.** Gargantuan, roughly 80 feet.
-- **Speed.** - **Crew.** Named complement includes Geoffrey Draves, Sem Holst, Alys Kuiper, Old Faas, Thunk and Noor. Minimum not established.
+- **Speed.** - **Crew.** Named complement includes [[Geoffrey Draves]], [[Sem Holst]], [[Alys Kuiper]], [[Old Faas]], [[Thunk]] and [[Noor]], the ship's cook. Minimum not established.
 - **Captain.** No captain is established.
 - **Berth.** [[La Vasca]], Calveno during refit. Currently kept offshore near Aruhe.
 
@@ -30,7 +33,7 @@ aliases:
 
 ### Crew and stations
 
-Current names are Geoffrey Draves, Sem Holst, Alys Kuiper, Old Faas, Thunk and Noor. Thunk is gunner and field smith. Station assignments, minimum staffing and empty-station consequences are not established. Current passengers include two Aruhe survivors and three Calveno captives.
+Current names are [[Geoffrey Draves]], [[Sem Holst]], [[Alys Kuiper]], [[Old Faas]], [[Thunk]] and Noor. Thunk is gunner and field smith. [[Noor]] is the ship's cook, learning. Station assignments, minimum staffing and empty-station consequences are not established. Current passengers include two Aruhe survivors and three Calveno captives.
 
 ### Components and weapons
 

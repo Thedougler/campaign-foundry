@@ -48,21 +48,21 @@ A page is created when the thing is a unit of its kind (Ingest / design skills),
 **Lint** is the Agent’s autonomous mechanical repair: template headings and section order, wikilinks, placement, index. It finishes without asking. Unclear → query the Wiki.
 
 ```bash
-pnpm cf check wiki/<World>            # report findings for this World
-pnpm cf check wiki/<World> --fix      # apply mechanical fixes, then re-check
-pnpm cf check                        # gate the whole Wiki
-pnpm cf log --world <World> --op lint --title "<what changed>"
+pnpm bun run cf -- check wiki/<World>            # report findings for this World
+pnpm bun run cf -- check wiki/<World> --fix      # apply mechanical fixes, then re-check
+pnpm bun run cf -- check                        # gate the whole Wiki
+pnpm bun run cf -- log --world <World> --op lint --title "<what changed>"
 ```
 
 `--fix` may rewrite layout, headings, links, placement, and regenerate `index.md`. It does not create, split, delete, or merge pages, and it does not change what a sentence asserts.
 
 Cadence: after every Ingest, Prep, page create, or move. Whole-Wiki when the DM asks or mechanical findings remain after `--fix`.
 
-Done when a run leaves `pnpm cf check` green and a `lint` log entry names every page touched.
+Done when a run leaves `pnpm bun run cf -- check` green and a `lint` log entry names every page touched.
 
 ## omp
 
-- Project skill `lint`: run `cf check --fix`, apply remaining mechanical edits, log, `bun run cf check`. Never ask the DM.
+- Project skill `lint`: run `bun run cf -- check --fix`, apply remaining mechanical edits, log, `bun run cf -- check`. Never ask the DM.
 - `.omp/AGENTS.md`: pointer — Lint after Ingest, Prep, create, move.
 - Keep ignoring user-library `llm-wiki` and `wiki-*` (old skills, not industry).
 

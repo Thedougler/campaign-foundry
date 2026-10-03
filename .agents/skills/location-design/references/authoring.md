@@ -49,15 +49,15 @@ Write British English. Add an in-world word without its own page to the vault's 
 Read `package.json` and these help commands before running the gate or logging, so paths and flags match the installed CLI:
 
 ```bash
-bun run cf check --help
-bun run cf log --help
+bun run cf -- check --help
+bun run cf -- log --help
 ```
 
 From the repo root, apply mechanical fixes and resolve the remaining findings without changing Canon, then run the full gate without path or layer filters:
 
 ```bash
-bun run cf check --fix
-bun run cf check
+bun run cf -- check --fix
+bun run cf -- check
 ```
 
 Path arguments only filter findings; they do not make the check local. A filtered report is not completion evidence. The full `--fix` run also regenerates indexes; never edit generated indexes by hand. When the caller assigns an explicit filesystem target, add its `--vault`, `--root` and `--templates` paths to both commands, and `--vault`/`--root` to logging.
@@ -65,7 +65,7 @@ Path arguments only filter findings; they do not make the check local. A filtere
 After a successful standalone operation, append exactly one entry listing each touched content page, using its vault-relative path. For example, replace the placeholders and repeat `--page` as needed:
 
 ```bash
-bun run cf log --world "<World>" --op create --title "Design <Location>" --page "<World>/Locations/<Location>.md"
+bun run cf -- log --world "<World>" --op create --title "Design <Location>" --page "<World>/Locations/<Location>.md"
 ```
 
 `create` includes deepening a Location outside Ingest or Prep. A composed request returns touched paths, Canon decisions and unresolved findings to its caller; the caller owns the final gate and one entry under its existing operation. Do not create a second log entry inside a child handoff.

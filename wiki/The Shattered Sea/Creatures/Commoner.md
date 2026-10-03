@@ -11,7 +11,7 @@ sources:
 - **Threat.** CR 0. A 5-foot reach and a two-handed club are the whole of it, enough to press only the careless.
 - **Tell.** The swing is readable well before it lands, and the club hangs a moment at the top of its arc.
 - **Weak to.** Cover, broken ground, and getting inside the swing leave it harmless. Scatter the group it stands with, and it has nothing to lean on.
-- **Used by.** [[Grung]] patrols the same territory.
+- **Used by.** [[Grung (Creature)]] patrols the same territory.
 
 > [!narration] First sight
 > An ordinary person faces you with a club gripped in both hands, feet set wide and weight rocking heel to heel. The club rises in a slow, wide arc, and it hangs at the top long enough for anyone to step clear. Untrained hands give every swing away.

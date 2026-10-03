@@ -67,7 +67,7 @@ Per candidate and split, from the repo root:
 
 ## 4. Iterate and select
 
-`skill-writer` drafts each candidate (frontmatter `description` only) from train results; held-out queries and their results stay out of its brief. Observe each candidate on train, and on test when it is a selection contender. Pick by held-out rate, then apply the selected description permanently and run `cf eval validate <skill-dir>`.
+`skill-writer` drafts each candidate (frontmatter `description` only) from train results; held-out queries and their results stay out of its brief. Observe each candidate on train, and on test when it is a selection contender. Pick by held-out rate, then apply the selected description permanently and run `bun run cf -- eval validate <skill-dir>`.
 
 Report, per candidate observed: train and held-out trigger rates, should-trigger misses, near-miss false positives, and denominators with any missing observations.
 

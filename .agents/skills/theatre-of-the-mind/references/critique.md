@@ -17,7 +17,7 @@ One bounded pass after Revise, run once per block. It reads the block the way th
 
 ## Hunt
 
-These are the table costs to listen for, each a sentence- or beat-level pattern. Word-level tells belong to the style layer of `cf check` (Vale `ai-tells` and `Narration`), so this hunt reads sentences, beats and voices.
+These are the table costs to listen for, each a sentence- or beat-level pattern. Word-level tells belong to the style layer of `bun run cf -- check` (Vale `ai-tells` and `Narration`), so this hunt reads sentences, beats and voices.
 
 - **Past the End.** Elaboration after the reaction point, while the table is ready to act.
 - **Commentary.** The narrator telling the table how to feel about what it just heard.

@@ -1,13 +1,13 @@
 # D&D Beyond public character endpoint
 
-Researched 2026-09-28 for `cf pull` (issue #11, ADR 0009). Everything under "Verified" was observed by calling the endpoint and reading the responses and the packages' code; "Sources" lists what was read.
+Researched 2026-09-28 for `bun run cf -- pull` (issue #11, ADR 0009). Everything under "Verified" was observed by calling the endpoint and reading the responses and the packages' code; "Sources" lists what was read.
 
 ## Verified
 
 - **Endpoint.** `GET https://character-service.dndbeyond.com/character/v5/character/<id>`, where `<id>` is the number in a character link (`https://www.dndbeyond.com/characters/<id>`, or `/profile/<user>/characters/<id>`). The response header `api-supported-versions: 5.0` matches the `v5` in the path.
 - **Auth.** None for a public character: a plain `curl` with no cookies or headers returns the whole character (HTTP 200, about 250 to 490 KB of JSON). The endpoint is unofficial and undocumented; a D&D Beyond forum reply says there is no public documentation because it is not a supported API. RealmVTT's import and hobby scrapers (`pfaocle/dndbeyond-characters` in PHP, `wifimug/campsync-firebase-react` in Python) use it, and forum posts say it replaced the older `/character/<id>/json` route, which was removed.
 - **Private or missing characters.** HTTP 403 with `{"success":false,"message":"An unexpected error has occurred","data":{"serverMessage":"Unauthorized Access Attempt.","errorCode":"4403b11"}}`. Private and non-existent ids give the same 403, so the error message tells the DM to set the character to public and to check the id. Other refusals seen: 400 (`The parameters provided are invalid.`) for a non-numeric id, 409 (`No adequate concurrency handler.`) for an implausibly large id.
-- **Rate limits.** None documented and no `x-ratelimit-*`, `retry-after` or similar headers on a 200. `cf pull` fetches PCs one at a time (a Party is four to six requests per pull) and sends a `user-agent` naming itself. Any non-200 other than 403/404 is reported as a per-PC error with "wait a minute and run cf pull --pc again", never retried in a loop.
+- **Rate limits.** None documented and no `x-ratelimit-*`, `retry-after` or similar headers on a 200. `bun run cf -- pull` fetches PCs one at a time (a Party is four to six requests per pull) and sends a `user-agent` naming itself. Any non-200 other than 403/404 is reported as a per-PC error with "wait a minute and run bun run cf -- pull --pc again", never retried in a loop.
 - **Envelope.** `{"id":0,"success":true,"message":"Character successfully received.","data":{...},"pagination":null}`. The character is `data`.
 - **Not computed.** The payload holds ingredients only, no Armor Class, maximum Hit Points, saves, passive scores or spell save DC:
   - `stats` (base scores, `id` 1 to 6 for Str to Cha), `bonusStats`, `overrideStats`;

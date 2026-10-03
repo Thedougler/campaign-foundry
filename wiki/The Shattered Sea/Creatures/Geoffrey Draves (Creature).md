@@ -1,20 +1,21 @@
 ---
 type: Creature
-summary: "Geoffrey Draves, a unique Creature stat block from the archived NPC record."
+summary: "Geoffrey Draves, the crew's carpenter — a background crew stat block useful for his ship's hand, not his cutlass."
 sources:
  - "archive/geoffrey-draves.md"
+ - "archive/ssw-geoffrey-draves.md"
 ---
 
 ## At a glance
 
-- **Role at the table.** A Creature profile for the unique NPC Geoffrey Draves, whose shipboard expertise supports other characters.
-- **Threat.** The stat block below preserves Geoffrey's archived CR of 1/8.
-- **Tell.** Geoffrey's cutlass attack is visible as he prepares to strike.
-- **Weak to.** See Tactics for countering Geoffrey with positioning, focused fire and cover.
-- **Used by.** Geoffrey Draves is the NPC represented here.
+- **Role at the table.** Background crew in boarding actions; his value is carpentry, not combat.
+- **Threat.** CR 1/8. A cutlass and sea legs. He fights only because Crown boarding duty made him.
+- **Tell.** He reads a hull before a fight: which seams need work now, which can wait a week.
+- **Weak to.** Anything that turns a fight. He dropped his sword once already when it did.
+- **Used by.** [[Geoffrey Draves]], crew carpenter aboard [[Uncertainty]].
 
 > [!narration] First sight
-> The Creature's distinctive silhouette and signature tell are apparent before it attacks.
+> A lean young sailor holds his cutlass like a tool he was issued, not one he chose. When the deck lurches he doesn't, and his eyes have already found the plank that will fail.
 
 ## Statblock
 
@@ -43,28 +44,28 @@ traits:
     desc: "Geoffrey is proficient with navigator's tools and knows the Midchain shipping lanes, inspection procedures, and cargo manifests from his time on the HCS Surety. When assisting a creature making a check related to navigation, rigging, repairs, or maritime law, he grants advantage rather than the normal +2 from the Help action."
 actions:
   - name: Cutlass
-    desc: "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) slashing damage."
+    desc: "Melee Attack Roll: +3, reach 5 ft. Hit: 4 (1d6 + 1) Slashing damage."
 ```
 
 ## Play
 
 ### Tactics
 
-Use Geoffrey's archived tactics alongside his cutlass and shipboard abilities. Show the Party his strongest option before he commits, allowing a response through position, cover or focused fire. Geoffrey withdraws when his objective is lost or his advantage is gone.
+He is a carpenter first, second, and third. The cutlass is a byproduct of Crown boarding duties, not combat training. Use him as background crew in boarding actions, useful for his carpentry, not as a combat threat.
 
 ### Outside a fight
 
-Geoffrey's appearance, habitual behaviour and traces can identify him before the Party meets him. Keep his actions consistent with his NPC role and habitat. His service aboard the HCS Surety informs that portrayal.
+He reads a hull the way a good medic reads a patient. Ask him what the ship needs and he names what wants attention this week and what can ride to the next port. He does the repairs himself when the ship carries the materials and the crossing leaves him the time.
 
 ## Depth
 
 ### Ecology
 
-Geoffrey's habitat and diet remain those of his archived NPC record, as do his identifying signs. Wisdom (Survival) allows observant travellers to recognise the signs of his activity.
+A Dravosi human of the Crown service, raised to the sea by his father's connections rather than by calling. His knowing the Midchain lanes, inspection procedures, and cargo manifests comes from his time on the HCS Surety.
 
 ### Hidden truths
 
-Geoffrey's archived account records his history and motives kept from others. Examination or questioning about relevant matters can reveal either.
+His Ship's Hand trait hides the depth of his Crown training: he knows Midchain inspection procedures and cargo manifests from the inside, and grants advantage rather than a token +2 when he helps. The Party sees this the first time he walks them through what a Crown inspector will ask for. What he will not explain is why a man this good at the work was on that side of the gangplank.
 
 ## Links
 

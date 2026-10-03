@@ -20,11 +20,11 @@ Lore is knowledge that belongs to no one Location, NPC, Faction, Deity, Creature
    - **Play:** what Players notice, the Clues with where each lives, and the accounts with their holders.
    - **Depth:** the full truth, with `###` parts named for what they hold (Chronology, How it works, Tenets).
 
-   Link the pages each Clue lives on, and add a line to those pages where the Clue should appear. New facts decided as Canon are listed in your reply. Run `bun run cf check --fix`, then `bun run cf check`, until the full gate passes with every touched page clear, and list them all in the operation's `cf log` entry (`--op create` when this skill runs on its own).
+   Link the pages each Clue lives on, and add a line to those pages where the Clue should appear. New facts decided as Canon are listed in your reply. Run `bun run cf -- check --fix`, then `bun run cf -- check`, until the full gate passes with every touched page clear, and list them all in the operation's `bun run cf -- log` entry (`--op create` when this skill runs on its own).
 
 ## Done
 
 - Every telling in the Wiki is marked true, distorted or false.
 - At least one named NPC or Faction acts on the truth on their own clock.
 - Each account names its holder, and each needed conclusion has three Clues in different places.
-- The full `bun run cf check` passes with every touched page clear, and the reply lists every new fact decided as Canon.
+- The full `bun run cf -- check` passes with every touched page clear, and the reply lists every new fact decided as Canon.

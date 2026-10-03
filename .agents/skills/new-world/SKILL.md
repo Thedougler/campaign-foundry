@@ -49,9 +49,9 @@ A World exists independently of a Campaign. Create just enough to start one: a t
 5. **Index, gate and record.** Read `package.json` and the current index, check and log help before using the CLI. The current package command is Bun; from the repository root the production forms are:
 
    ```sh
-   bun run cf index
-   bun run cf check --fix
-   bun run cf check
+   bun run cf -- index
+   bun run cf -- check --fix
+   bun run cf -- check
    ```
 
    For an explicitly assigned filesystem target, pass its `--vault`, `--root` and `--templates` to check, and its `--vault`/`--root` to index and log. Preserve those paths throughout child handoffs.
@@ -61,7 +61,7 @@ A World exists independently of a Campaign. Create just enough to start one: a t
    After the gate passes, append one creation entry in the new World's log, repeating `--page` for every touched content page and using actual vault-relative paths:
 
    ```sh
-   bun run cf log --world "<World>" --op create --title "New World: <World>" --page "<World>/<World>.md"
+   bun run cf -- log --world "<World>" --op create --title "New World: <World>" --page "<World>/<World>.md"
    ```
 
    Observe the entry written, then run the full check once more so the finished artifacts, including the log, are covered. Missing tooling remains a named blocker, not a successful gate or log.

@@ -11,7 +11,7 @@ parent: "[[Crown Islands]]"
 
 - **Draws the Party because.** The Sentinels keep the only continuous Maw observation ledgers.
 - **Entrance.** Exposed sea terraces reached by climb, invitation, harness or magic.
-- **Occupants.** Aarakocra monks, apprentices, record-keepers and Master Kyzil.
+- **Occupants.** [[Aarakocra]] monks, apprentices, record-keepers and Master Kyzil.
 - **Danger.** Wind, spray and open-water approaches.
 - **Prize.** Ledgers, founding documents and the Sentinel seal.
 

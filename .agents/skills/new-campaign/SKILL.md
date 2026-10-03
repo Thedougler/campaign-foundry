@@ -47,11 +47,11 @@ A Campaign is one group of Players moving through a World. Create its starting s
 Read `package.json` and the relevant subcommand's `--help` when executing; the current runner is `bun run cf`. Bind every command to the same repository root, Wiki and template directory; pass `--vault`, `--root` and `--templates` when the caller assigns an explicit filesystem target.
 
 ```bash
-bun run cf pull --campaign "<Campaign folder>" --vault "<wiki>" --root "<root>" --templates "<templates>"
-bun run cf index --vault "<wiki>" --root "<root>"
-bun run cf check --fix --vault "<wiki>" --root "<root>" --templates "<templates>"
-bun run cf check --vault "<wiki>" --root "<root>" --templates "<templates>"
-bun run cf log --world "<World overview name>" --op create --title "New Campaign: <Campaign>" --page "<page>" --vault "<wiki>" --root "<root>"
+bun run cf -- pull --campaign "<Campaign folder>" --vault "<wiki>" --root "<root>" --templates "<templates>"
+bun run cf -- index --vault "<wiki>" --root "<root>"
+bun run cf -- check --fix --vault "<wiki>" --root "<root>" --templates "<templates>"
+bun run cf -- check --vault "<wiki>" --root "<root>" --templates "<templates>"
+bun run cf -- log --world "<World overview name>" --op create --title "New Campaign: <Campaign>" --page "<page>" --vault "<wiki>" --root "<root>"
 ```
 
-Repeat `--page` for all touched pages, using names or vault-relative paths to disambiguate. Generated index.md files belong to `cf index`; log.md is append-only through `cf log`. Command output, rather than an intended invocation, establishes execution.
+Repeat `--page` for all touched pages, using names or vault-relative paths to disambiguate. Generated index.md files belong to `bun run cf -- index`; log.md is append-only through `bun run cf -- log`. Command output, rather than an intended invocation, establishes execution.

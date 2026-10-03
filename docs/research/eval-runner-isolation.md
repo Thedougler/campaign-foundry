@@ -38,9 +38,9 @@ Runners get read, search and QMD query/retrieval over the live sources, and `wri
 
 ## One lint CLI
 
-The gate already has every layer, in order: template, placement, links, orphans, statblock, index, hot, log, markdownlint, remark-lint, spelling, grammar, style (`src/check/layers/index.ts`). `cf check` runs them; `cf check --fix` applies mechanical fixes.
+The gate already has every layer, in order: template, placement, links, orphans, statblock, index, hot, log, markdownlint, remark-lint, spelling, grammar, style (`src/check/layers/index.ts`). `bun run cf -- check` runs them; `bun run cf -- check --fix` applies mechanical fixes.
 
-Production File uses the full `cf check` / `cf check --fix` gate; a page/layer filter is not completion evidence. Eval runs skip the gate: Checks run on the Outcome assembled from the run's output directory.
+Production File uses the full `bun run cf -- check` / `bun run cf -- check --fix` gate; a page/layer filter is not completion evidence. Eval runs skip the gate: Checks run on the Outcome assembled from the run's output directory.
 
 ## Related
 

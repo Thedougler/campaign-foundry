@@ -28,7 +28,7 @@ creature: ""
 
 ### History
 
-Thunk is a dockyard metallurgist and trained chemist who cast and fitted cannon in Port Tidefall for eleven years. He put a thousand gold of cannon on the Uncertainty's credit and later won silver at Tallow Row's card table, while Thassos tested and folded.
+Thunk is a dockyard metallurgist and trained chemist who cast and fitted cannon in Port Tidefall for eleven years. He put a thousand gold of cannon on the Uncertainty's credit and later won silver at [[Tallow Row]]'s card table, while [[Thassos]] tested and folded.
 
 ### Hidden truths
 

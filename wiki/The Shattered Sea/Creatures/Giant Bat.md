@@ -1,0 +1,45 @@
+---
+type: Creature
+summary: "A large bat whose colonies roost in the Ashwall vent caves, where volcanic heat keeps the fissures warm year-round."
+sources:
+ - "archive/ssw-ashwall-islands.md"
+---
+
+## At a glance
+
+- **Role at the table.** A roost hazard of the warm vent caves: the caves give shelter from the cold sea air, and the roosts are why crews think twice.
+- **Used by.** The [[Ashwall Islands]] vent caves.
+
+> [!narration] First sight
+> Warm air breathes out of the cave mouth into the cold, and the sound inside is a low shifting, like canvas moved by many small hands. Far up in the dark, the roof is not stone. It is fur and folded wings, packed close from wall to wall.
+
+## Statblock
+
+## Play
+
+### Outside a fight
+
+The colonies hang in the warm fissures throughout the spire chain, large enough that a repair crew working below a roost at dusk learns not to do that again.
+
+## Depth
+
+### Ecology
+
+Volcanic heat keeps the interior fissures warm enough for the bats year-round, through cold sea air. The same warm cave systems that shelter travellers are occupied dark.
+
+## Links
+
+```base
+filters:
+  and:
+    - file.hasLink(this.file)
+views:
+  - type: table
+    name: Linked from
+    groupBy:
+      property: note.type
+      direction: ASC
+    order:
+      - file.name
+      - note.summary
+```

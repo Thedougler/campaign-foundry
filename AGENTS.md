@@ -14,7 +14,7 @@ Three operations:
 
 - **Ingest** digests Raw, or D&D Beyond PC updates, into the Wiki through the `ingest` skill (`pull-pcs` for PCs). Done when every statement sits on its page, the file is in `archive/`, and `hot.md` is current.
 - **Query** answers from the Wiki through the `query` skill, searching with QMD (`qmd` skill) and reading the pages behind every hit. Done when every fact cites a page read this run and a keeper answer is filed back.
-- **Lint** repairs Wiki mechanics through the `lint` skill after Ingest, Prep, or a page create or move. `cf check` is the one gate: skills carry judgment; Vale and the narration layer carry rules. Done when the full `cf check` passes or each remaining finding is reported.
+- **Lint** repairs Wiki mechanics through the `lint` skill after Ingest, Prep, or a page create or move. `bun run cf -- check` is the one gate: skills carry judgment; Vale and the narration layer carry rules. Done when the full `bun run cf -- check` passes or each remaining finding is reported.
 
 ## Sourcing
 

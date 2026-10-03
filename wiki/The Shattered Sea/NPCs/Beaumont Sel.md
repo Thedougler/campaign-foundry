@@ -3,6 +3,7 @@ type: NPC
 summary: "Patient tortle captain of the Saltwright and a trusted Friend of the Passage."
 sources:
  - "archive/beaumont-sel.md"
+ - "archive/ssw-nona-black-jaw.md"
 creature: "[[Beaumont Sel (Creature)]]"
 ---
 
@@ -28,7 +29,7 @@ creature: "[[Beaumont Sel (Creature)]]"
 
 ### History
 
-Beaumont has run the Saltwright from Kalowe for eleven years. He pulled Crissdalynn and Delmar from the water after their fleet went down, then joined the fight when Barnaby Rook boarded. He introduced himself as a Friend of the Passage after the crew took the Surety.
+Beaumont has run the Saltwright from Kalowe for eleven years. He pulled Crissdalynn and Delmar from the water after their fleet went down, then joined the fight when Barnaby Rook boarded. He introduced himself as a Friend of the Passage after the crew took the Surety. He passed [[Nona Black-Jaw]]'s original message to her grandson [[Perrin Black-Jaw]] aboard the Saltwright.
 
 ### Hidden truths
 

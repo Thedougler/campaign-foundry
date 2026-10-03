@@ -6,6 +6,7 @@ sources:
  - "archive/aruhe.md"
  - "archive/Aruhe - Hungry Isle.md"
  - "archive/hungry-isle.md"
+ - "archive/ssw-midchain.md"
 parent: "[[Midchain]]"
 ---
 
@@ -27,6 +28,8 @@ parent: "[[Midchain]]"
 ### Travel
 
 [[Western Landing]] is the reliable sea approach. The River is the nearest thing to a road, but current, shelves and otter families make it unsafe infrastructure. A straight crossing takes many days, whereas a lengthwise crossing takes weeks.
+
+Aruhe lies on the Midchain's inner edge near the [[Verdant Teeth]]. Grung patrol its reefs, but free grung avoid landing. Compelled expeditions have reached the island.
 
 ### Places worth reaching
 
