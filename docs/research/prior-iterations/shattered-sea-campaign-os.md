@@ -1,0 +1,35 @@
+# shattered-sea-campaign-os
+
+https://github.com/Thedougler/shattered-sea-campaign-os · Markdown-first "campaign operating system" for a Shattered Sea 5e campaign: Obsidian vault as durable state, TypeScript compilers, ~60 TTRPG authoring skills, 9 reconciled sessions · last activity 2026-08-20 · stack Markdown/Obsidian + Node/TypeScript + QMD retrieval
+
+## Summary
+An ancestor of Campaign Foundry with the same shape (wiki + agent skills) but heavier governance: pages carry kind/canon/audience frontmatter, agents author meaning while deterministic scripts derive graphs and lint, and `_system/skills/` does the writing craft. Its strongest asset is a prose pipeline Foundry lacks: stock DM-facing presence facts first, then let spoken narration select from them. Most world content is high quality and directly reusable.
+
+## Worth salvaging
+1. **Presence pass before prose** (`_system/skills/fleshing-out-content/SKILL.md`) — an enrichment stage before any Narration: diagnose the 2–4 weakest of 7 dimensions (Image/Identity/Life/Contact/Depth/Connection/Emotion), give one signature plus anchors budgeted by importance, add traces/routines/pressures ("history made physical": three sizes of handprint say a family remained), layer Surface→Attention→Contact→Disturbance, then an 11-item presence test ("survives aggressive trimming", "speakable without inventing world state"). Foundry's design skills author structure and theatre-of-the-mind writes prose, but nothing stocks perceptual facts between them; adopt as a reference in npc/location/creature/item-design or a stage theatre-of-the-mind invokes on thin pages.
+2. **Canon ladder + belief framing** (`docs/adr/0002-canon-audience-retrieval.md`, `_system/references/creative-writing.md`) — per-page `canon: locked/established/provisional/noncanon/reference`, promotion human-only; Creative Authority Ladder (preserve → develop → invent → propose → human decision); epistemic rule "NPC believes X is canonical; X may be false" with a write-this/not-that table. Current Canon is only a precedence rule; adopt page states into CONTEXT.md language and lint checks, the ladder into design skills/campaign-config.
+3. **Transcript reconciliation rigor** (`_system/skills/reconciling-session-evidence/SKILL.md`) — correction ledger (only `obvious` ASR fixes auto-apply; `probable`/`ambiguous` stay diagnostics with raw spans preserved); discourse map labeling each segment `present/historical/intention/hypothetical/parallel` (only `present` advances in-world now; NPC speech is belief, speculation is not occurrence); summary-check marking unsupported generated claims `summary-only` rather than canonizing them. Absorb into Ingest's transcript path — directly prevents the worst ingest drift.
+4. **Hot cache with Flagged Contradictions** (`wiki/hot.md`) — ≤700-word snapshot updated after every major write: dated INGEST paragraphs + Key Takeaways + a Flagged Contradictions queue ("same staging job, two names — human pick required"; "frontmatter CR 5 vs fence CR 2 — fence wins"). The queue is a cheap human-decision inbox for conflicts ingest always finds. Adopt hot.md plus its doctor-enforced ledger caps (AGENTS.md).
+5. **Named anti-patterns** (`_system/skills/writing-player-prose/references/anti-patterns.md`) — 13 failure modes: Conclusion Theft, Spotlight Accident (mundane clue over-emphasized because the agent knows it matters), Lore Ambush, Mechanical Dead End, Infinite Continuation, Cinematic Cutscene, Five-Senses Checklist. Fold any missing from theatre-of-the-mind's critique into it and Vale rules.
+6. **Exemplar grounding** (`_system/references/exemplar-grounding.md`) — before authoring mechanics: resolve campaign constraints, retrieve 2–4 official exemplars (one near-peer, one contrasting), extract action economy/numerical envelope/counterplay, write original, cite exemplars. Drop into spell/creature/item-design.
+7. **Season pages + anchors** (`docs/adr/0006-narrative-work-kinds.md` §3) — campaign-plan holds premise, player promise, ending intent; season pages hold narrative function, season question, transition conditions; **anchor = a DM commitment that survives planning revision; possibility = an attractive future that may never be reached**. Sharpens campaign-config.
+8. **Look canon for images** (`_system/skills/visual-aids/SKILL.md`, ADR-0016) — `look_canon` independent of page canon; reference image (identity, grounds future generations) vs illustration (one moment, never grounds); `player_images` opt-in subset allowed across the table. generate-image should adopt promote/kill so portraits stay consistent.
+9. **AUTO/GRILL/GATE work graph** (`_system/skills/decomposing-campaign-content/SKILL.md`) — each node of a broad request gets an authority level; "ask only about creative intent, preference, or authority; resolve architecture from conventions." Pairs with the canon ladder in ingest/prep.
+10. **Session-zero 20-question PC interview** (`_system/skills/player-character-interview/SKILL.md`) — user-invoked, one question at a time, "skip" valid, append-only `## Interview` on the PC page, never invents class or mechanics. Covers sheet-less PCs that pull-pcs can't.
+
+## Lore to retell
+Same setting as the live campaign; mine for texture the wiki may lack:
+- `wiki/world/region.shattered-sea.md` — "colonial paperwork, old gods, and water that remembers"; Dravosi Crown (naval law, inspection paperwork) vs Tessarine Concordat (credit and debt); everyone pays tribute to Umberlee; secret: the tribute may be holding the Drowned Maw fissure shut.
+- `wiki/shattered-sea/aruhe-hungry-isle/` — `trial.the-taking-rule.md` (observation free, taking punished), Hinewai the druid-lich whose love without brakes became control, `statblock.unsaid-macaw.md` (psychic parrot privacy horror, "CR 0 — never a combat budget").
+- `wiki/shattered-sea/calveno-raid/` — `settlement.calveno.md` (23.5KB Venetian-flavored city), `quest.warren-nonas-table.md`, `trial.il-gioco-delle-beffe-mechanics.md` (a game as trial).
+- `wiki/rules/` — `rule.magic-as-commodity.md`, `rule.tithe-of-the-bitch-queen.md`, `rule.sin-and-sanctuary.md`, `rule.lines-and-veils.md`.
+
+## Skip
+- Three-layer Knowledge/Work/Runtime + deterministic compilers (`CONTEXT.md`, ADR-0015) — infra inversion; cf CLI already draws this line its own way.
+- Locality placement engine, structure.yaml, doctor migration mode (ADR-0018, AGENTS.md) — heavy governance; Foundry lint owns placement autonomously.
+- QMD collections/retrieval evals (ADR-0002 §2) — plumbing, not prose.
+- Gated locality proposal→evaluate→verify pipeline (`docs/plans/`) — contradicts finish-without-asking lint.
+- Beats-as-functions, narrative islands, cold opens, fronts/clocks, PC gravity (ADR-0004/0006) — same lineage, already mined from siblings.
+- `writing-*-beats`/`writing-cold-opens`/`writing-statblocks` — overlapped by current scene + design skills.
+- pc-state fence / runtime.json table-state split (ADR-0007) — pull-pcs covers current needs.
+- Multi-harness skill distribution, wiki-context-pack, `_system/state/atlas.md` (stale: claims bootstrap while 9 sessions exist).

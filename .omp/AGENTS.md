@@ -64,19 +64,19 @@ Project skills live in `.omp/skills/` and `.agents/skills/`; where both hold a s
 
 ## Prior iterations
 
-Mine these earlier versions of this project (GitHub search for `Shattered Sea`, newest first) under the root **Prior iterations** rule. Read a few files through GitHub; clone to repo-root `prior/<repo-name>/` (gitignored, never committed) when searching or running across a repo.
+Mine these earlier versions of this project (GitHub search for `Shattered Sea`, newest first) under the root **Prior iterations** rule. Start from `docs/research/prior-iterations/README.md` and the repo's findings file; then read a few files through GitHub, or clone to repo-root `prior/<repo-name>/` (gitignored, never committed) when searching or running across a repo.
 
-- agentic-co-dm — https://github.com/Thedougler/agentic-co-dm
-- shattered-sea-campaign-os — https://github.com/Thedougler/shattered-sea-campaign-os
-- campaign-os — https://github.com/Thedougler/campaign-os
-- shattered-sea-wiki — https://github.com/Thedougler/shattered-sea-wiki
-- ai-os — https://github.com/Thedougler/ai-os
-- my-wiki — https://github.com/Thedougler/my-wiki
-- agent-skills — https://github.com/Thedougler/agent-skills
-- dnd-site — https://github.com/Thedougler/dnd-site
-- dnd-wiki — https://github.com/Thedougler/dnd-wiki
-- shattered-sea-site — https://github.com/Thedougler/shattered-sea-site
-- shattered-sea — https://github.com/Thedougler/shattered-sea
+- agentic-co-dm — https://github.com/Thedougler/agentic-co-dm — findings: `docs/research/prior-iterations/agentic-co-dm.md` (campaign horizons, travel events, PC interview, trap reveal ladders, transcript discourse)
+- shattered-sea-campaign-os — https://github.com/Thedougler/shattered-sea-campaign-os — findings: `docs/research/prior-iterations/shattered-sea-campaign-os.md` (presence pass, canon ladder, transcript reconciliation, prose anti-patterns)
+- campaign-os — https://github.com/Thedougler/campaign-os — findings: `docs/research/prior-iterations/campaign-os.md` (Fronts and world-update, player gravity, cold opens, writers-room compete mode)
+- shattered-sea-wiki — https://github.com/Thedougler/shattered-sea-wiki — findings: `docs/research/prior-iterations/shattered-sea-wiki.md` (run-guide scene cards, mashup roleplay, gravity wells, anti-slop writing law)
+- ai-os — https://github.com/Thedougler/ai-os — findings: `docs/research/prior-iterations/ai-os.md` (umbrella only; routes to shattered-sea-wiki and agent-skills)
+- my-wiki — https://github.com/Thedougler/my-wiki — findings: `docs/research/prior-iterations/my-wiki.md` (Session reflection prompts, research briefs, edit boundaries)
+- agent-skills — https://github.com/Thedougler/agent-skills — findings: `docs/research/prior-iterations/agent-skills.md` (anti-slop rules, world tick, Three Clue gate, empirical combat calibration)
+- dnd-site — https://github.com/Thedougler/dnd-site — findings: `docs/research/prior-iterations/dnd-site.md` (investigation Items, in-world ship manual, festival history, sea-life lore)
+- dnd-wiki — https://github.com/Thedougler/dnd-wiki — findings: `docs/research/prior-iterations/dnd-wiki.md` (world tick, Roleplay Prompt + Anchor, tone guide, Revelation and Question situations)
+- shattered-sea-site — https://github.com/Thedougler/shattered-sea-site — findings: `docs/research/prior-iterations/shattered-sea-site.md` (tone triad, PC gravity, wiki synthesis scoring (branch `v5`))
+- shattered-sea — https://github.com/Thedougler/shattered-sea — findings: `docs/research/prior-iterations/shattered-sea.md` (mashup roleplay, PC gravity, pacing heuristics, strong-start taxonomy)
 
 ## Configuration
 
