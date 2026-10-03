@@ -28,6 +28,7 @@ These are the table costs to listen for, each a sentence- or beat-level pattern.
 - **Templating.** Sentences built on one rhythm and shape, fluent and flat, so the table stops hearing them.
 - **Placeholder prose.** A sentence that would fit any Scene unchanged. Anchor it in this Scene's facts or cut it.
 - **Metaphor cluster.** Several figures crowding one moment where one image would hold.
+- **Metagame spotlight.** A mundane detail given more weight than its neighbours because the writer knows it matters. Emphasis follows what the Party would notice, not what the plot needs.
 - **Filtered sight.** The world reached through a PC's seeing or hearing instead of arriving directly.
 - **NPC line.** The line carries a want beneath the words, keeps feelings unstated, tells listeners only what they lack, and sounds like that NPC rather than the narrator.
 - **Stock tells.** A borrowed gesture (a jaw tightening, a breath released) where this person's own physical cue belongs.

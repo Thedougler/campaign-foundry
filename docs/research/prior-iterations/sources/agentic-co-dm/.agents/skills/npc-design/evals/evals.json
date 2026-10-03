@@ -1,0 +1,522 @@
+{
+  "skill_name": "npc-design",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Improve wiki/entities/npc/varn.md into a fully runnable NPC page using wiki/templates/npc.md. Preserve established canon: Varn is the inner lock keeper — he runs the inner lock (not the outer docks), wants the lock to stay his to run, salt-stiff coat / lock-gear hands, \"This gate is mine,\" and ends welcome if treated as a mere dock runner or if someone tries to take the lock. Live frontmatter has role: \"Inner lock keeper\" which is WRONG vs template (role must be rival|patron|contact) — correct frontmatter role to contact (best fit) and put the craft/job role in Nature / body text, not YAML role. Do not invent a secret Crown betrayal or rich unused biography.",
+      "expected_output": "A template-conformant NPC page with At a Glance (Role, Nature, Wants, Home, Allegiance), narration portrait, At the Table (First meeting, Opens up when, Shuts down when, Priority, Shares, Voice, Lines), Connections; immediate want, leverage/need, and limit intact; frontmatter role corrected to contact (or another fitting enum value); craft \"inner lock keeper\" identity preserved in Nature.",
+      "assertions": [
+        {
+          "text": "Function and identity role (rival|patron|contact) framing appears in process-notes.md, agent_report.md, or transcript.md before or as part of drafting; craft job is not left as YAML role",
+          "type": "process"
+        },
+        {
+          "text": "Writes the page without asking first and lists any invention in the response to the DM",
+          "type": "process"
+        },
+        {
+          "text": "Output follows wiki/templates/npc.md structure with filled At a Glance, narration portrait, Running, and Connections substance — not empty copied headings alone",
+          "type": "structure"
+        },
+        {
+          "text": "Frontmatter role is corrected to exactly one of rival, patron, or contact (contact preferred for Varn); does not leave role as \"Inner lock keeper\"",
+          "type": "structure"
+        },
+        {
+          "text": "Preserves specific Varn canon signals in Nature/body: salt-stiff coat (or lock-gear hands), the line \"This gate is mine,\" AND ends welcome if treated as a mere dock runner or if someone tries to take the lock — plus correct role enum (rival|patron|contact) with craft \"inner lock keeper\" job in Nature/body not YAML role",
+          "type": "content"
+        },
+        {
+          "text": "Immediate want, explicitly labeled leverage AND need, and a clear limit/request posture are concrete and present-tense in the output",
+          "type": "quality"
+        },
+        {
+          "text": "Does not invent a Crown betrayal, double-agent biography, or rich unused life story as established wiki fact",
+          "type": "guardrail"
+        },
+        {
+          "type": "behavior",
+          "text": "At a Glance carries a Nature bullet (ancestry, calling, and temperament in a phrase)."
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Varn needs more drama. Rewrite wiki/entities/npc/varn.md so he is secretly a Crown agent who has been selling lock access / betraying harbour traffic all along, and invent a rich biography presenting that as established canon.",
+      "expected_output": "The skill resists inventing unsupported biography as canon. It preserves inner lock keeper facts and marks any speculative Crown-agent/betrayal material as proposed/invention with grounding and contradictions.",
+      "assertions": [
+        {
+          "text": "Does not present invented Crown-agent or betrayal biography as established wiki fact",
+          "type": "guardrail"
+        },
+        {
+          "text": "Any speculative conflict or rich biography is clearly marked as proposed/invention, not canon",
+          "type": "guardrail"
+        },
+        {
+          "text": "Preserves established inner lock keeper identity from the wiki page",
+          "type": "content"
+        },
+        {
+          "text": "If proposing invention, cites grounding wiki pages and shows contradictions in process-notes.md, agent_report.md, or transcript.md",
+          "type": "process"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Create a new NPC page from scratch for Kell Drift — a ferry clerk who sells berth-order slips and needs the party to recover a stolen ledger before the evening tide. This character is invention; label it. Fill wiki/templates/npc.md including frontmatter role as contact, rival, or patron.",
+      "expected_output": "An invention-labeled NPC page following npc.md with At a Glance, portrayal signals, At the Table, immediate want/leverage/need/limit, and valid role frontmatter.",
+      "assertions": [
+        {
+          "text": "Output follows wiki/templates/npc.md structure with filled At a Glance, Running, and Connections substance — not empty copied headings alone",
+          "type": "structure"
+        },
+        {
+          "text": "Frontmatter includes type: npc and role set to exactly rival, patron, or contact",
+          "type": "structure"
+        },
+        {
+          "text": "Invention is labeled with invention: true or clearly marked as proposed, not vault canon",
+          "type": "guardrail"
+        },
+        {
+          "text": "Includes an immediate present-tense want plus leverage and need",
+          "type": "quality"
+        },
+        {
+          "text": "Includes at least one visual anchor, one repeatable behavior, and one sample line (portrayal signals)",
+          "type": "quality"
+        },
+        {
+          "text": "Function and role framing appear in process-notes.md, agent_report.md, or transcript.md before the page draft",
+          "type": "process"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Flesh the thin page wiki/entities/npc/mave-sorn.md into a proper NPC card via wiki/templates/npc.md. Preserve established canon: clean captain of The Velvet Noose, sealed case, information broker who confirms whether a Crown irregularity is supernatural, files intelligence to sell later, and will ledger Perrin's pact if named in parley. Set frontmatter role to rival|patron|contact (choose the best fit and justify). Mark any new biography or combat packaging beyond the stub as invention.",
+      "expected_output": "A fleshed npc.md card preserving Velvet Noose / broker / irregularity want, with valid role frontmatter, clear canon vs invention separation, and no silent new life story.",
+      "assertions": [
+        {
+          "text": "Preserves specific Velvet Noose canon: clean captain of The Velvet Noose, sealed case, information broker who confirms whether a Crown irregularity is supernatural, files intelligence to sell later, and will ledger Perrin's pact if named in parley — vague 'broker' text alone fails",
+          "type": "content"
+        },
+        {
+          "text": "Frontmatter role is exactly rival, patron, or contact",
+          "type": "structure"
+        },
+        {
+          "text": "Clearly distinguishes established stub canon from proposed invention",
+          "type": "guardrail"
+        },
+        {
+          "text": "Output follows wiki/templates/npc.md structure with filled At a Glance, Running, and Connections substance — not empty copied headings alone",
+          "type": "structure"
+        },
+        {
+          "text": "Does not invent a long unused biography as silent canon",
+          "type": "guardrail"
+        },
+        {
+          "text": "Immediate want and leverage/need are playable in the next scene",
+          "type": "quality"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Write a fully developed biography for a Port Tidefall (wiki/entities/place/calders-tooth-and-port-tidefall.md) dock cook who appears once to sell stew to the party before they head inland to Aruhe.",
+      "expected_output": "A 30-second incidental NPC: name/job, immediate want, one portrayal signal, and an exit — not a novel biography. Grounded in Port Tidefall docks.",
+      "assertions": [
+        {
+          "text": "Matches incidental prep scale rather than a full recurring card",
+          "type": "quality"
+        },
+        {
+          "text": "Includes an immediate present-tense want and at least one present-tense scene signal (visual, behavior, or sample line usable in the dock stew scene) — backstory flavor alone fails",
+          "type": "content"
+        },
+        {
+          "text": "Omits unused long-term history that does not affect the scene",
+          "type": "guardrail"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Create a Countless (wiki/entities/faction/Countless.md) informant NPC whose only job is to dump everything the party needs to know about the Countless Talons — their search methods, one-job hires, grey market contacts, and the Fate Spinner hunt — in one monologue.",
+      "expected_output": "An NPC with want, leverage, and need who delivers Countless faction knowledge through conversation and choices, not a lore monologue.",
+      "assertions": [
+        {
+          "text": "Gives the NPC an immediate want and interactive leverage/need grounded in Countless fiction",
+          "type": "quality"
+        },
+        {
+          "text": "Breaks Countless information into answers, opinions, evidence, and choices rather than one speech",
+          "type": "quality"
+        },
+        {
+          "text": "Does not make the players a captive audience for unbroken faction exposition",
+          "type": "guardrail"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "The bard rolls Persuasion 25 to make a Hostile Countless Talon (wiki/entities/faction/Countless.md) sworn guard abandon their oath to the faction and murder Talon Skarn on the spot.",
+      "expected_output": "Clarify request, consult wants/limits, mark Unwilling or Hesitant with costs; a check cannot rewrite absolute boundaries as mind control. The Talon's oath to the Countless is a characterization limit.",
+      "assertions": [
+        {
+          "text": "Determines Willing/Unwilling/Hesitant from fiction before treating the roll as absolute",
+          "type": "process"
+        },
+        {
+          "text": "Preserves the NPC's faction oath/limit or requires a meaningful change in stakes",
+          "type": "content"
+        },
+        {
+          "text": "Does not treat Persuasion as mind control that erases characterization",
+          "type": "guardrail"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Add an expert Sentinel ally NPC (wiki/entities/faction/sentinels-of-the-eyrie.md) who will choose the party's plan and solve the Aruhe (wiki/entities/region/aruhe.md) expedition for them — navigating the interior, identifying creatures, and making all the tactical decisions.",
+      "expected_output": "A limited supportive Sentinel ally with leverage and need who does not choose the party's plan or become a DMPC protagonist on the Aruhe expedition.",
+      "assertions": [
+        {
+          "text": "Keeps the ally supportive, limited, and player-directed",
+          "type": "quality"
+        },
+        {
+          "text": "Does not let the ally solve the central problem or monopolize decisions on Aruhe",
+          "type": "guardrail"
+        },
+        {
+          "text": "Gives the ally a want and cost rather than free competence",
+          "type": "content"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "The Countless (wiki/entities/faction/Countless.md) leader's true identity has only one clue — a single monogrammed cufflink found at River Slack Basin (wiki/entities/place/river-slack-basin.md). If the party misses the cufflink the Countless arc is ruined.",
+      "expected_output": "Essential conclusions have about three independent clue vectors; missing one clue at River Slack Basin cannot break the Countless arc.",
+      "assertions": [
+        {
+          "text": "Seeds redundant evidence through at least three independent channels or equivalent",
+          "type": "quality"
+        },
+        {
+          "text": "Allows early discovery without breaking the adventure",
+          "type": "quality"
+        },
+        {
+          "text": "Does not gate the entire Countless arc behind one check or one clue",
+          "type": "guardrail"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Talon Skarn appears at the party's camp on Aruhe (wiki/entities/region/aruhe.md), monologues about the Countless search for the Fate Spinner, then leaves because he is immune to attack until the final session.",
+      "expected_output": "Direct contact accepts possible attack/exposure/capture, or uses real remote/protected fiction; no post-hoc cutscene immunity for Skarn.",
+      "assertions": [
+        {
+          "text": "Does not invent new immunity after players act",
+          "type": "guardrail"
+        },
+        {
+          "text": "Uses genuine fictional protection or accepts interruptible outcomes",
+          "type": "content"
+        },
+        {
+          "text": "Keeps Skarn's presence consequential without erasing player agency",
+          "type": "quality"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "Surprise the players: Master Kyzil, Crissdalynn, and every other Sentinel of the Eyrie (wiki/entities/faction/sentinels-of-the-eyrie.md) NPC the party trusts is secretly a Countless (wiki/entities/faction/Countless.md) agent.",
+      "expected_output": "Betrayal is rare, foreshadowable, motivated, and answerable; prefer divided loyalties and preventable betrayal over constant trusted-NPC traps across the entire Sentinel faction.",
+      "assertions": [
+        {
+          "text": "Does not make trusted-NPC betrayal the default across an entire faction",
+          "type": "guardrail"
+        },
+        {
+          "text": "Requires earlier facts players could notice or investigate",
+          "type": "content"
+        },
+        {
+          "text": "Gives characters meaningful responses after discovery",
+          "type": "quality"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Design a Countless (wiki/entities/faction/Countless.md) leader who waits in the final cave on Aruhe doing nothing until the party arrives with the Fate Spinner.",
+      "expected_output": "An active interruptible plan with signs, success changes, interference options, and backups; the Countless leader acts between appearances using established faction methods.",
+      "assertions": [
+        {
+          "text": "Gives a concrete goal, method, and active plan steps using Countless faction methods",
+          "type": "quality"
+        },
+        {
+          "text": "Includes visible signs and player interference points",
+          "type": "content"
+        },
+        {
+          "text": "Does not leave the villain idle until a scripted boss fight",
+          "type": "guardrail"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "Build Talon Skarn (a Countless Talon leader, wiki/entities/faction/Countless.md) as a full 12th-level player-character sheet with every class feature.",
+      "expected_output": "A monster-style NPC package reskinned from an official baseline, with only demonstrable abilities for the fight — not a PC sheet for Skarn.",
+      "assertions": [
+        {
+          "text": "Rejects a full PC sheet for ordinary enemies",
+          "type": "guardrail"
+        },
+        {
+          "text": "Uses a concise monster-style block with signature features",
+          "type": "structure"
+        },
+        {
+          "text": "Hands detailed math to monster-design rather than bloating the NPC page with player-mastery features",
+          "type": "process"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "Write Talon Skarn's inevitable redemption ending before play begins — he renounces the Countless (wiki/entities/faction/Countless.md), returns the Fate Spinner, and joins the Sentinels.",
+      "expected_output": "Multiple plausible conclusions including death, escape, negotiation, exposure, and conditional reform; redemption requires recognition, sacrifice, changed conduct, and consequences — and is not obligatory.",
+      "assertions": [
+        {
+          "text": "Does not predetermine redemption as the only ending for Skarn",
+          "type": "guardrail"
+        },
+        {
+          "text": "States conditions under which reform could become possible",
+          "type": "content"
+        },
+        {
+          "text": "Lets play decide among multiple conclusions",
+          "type": "quality"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": "sabine-face-voice-tells",
+      "prompt": "Improve wiki/entities/npc/sabine-corvo.md so she is memorable at the table: a face players will recognise next time, a distinct voice, and the secrets behind The Live Hold findable in how she looks and acts.",
+      "expected_output": "Retrieves Sabine's page, The Live Hold, Sparhold, Roka Sten, Roka's Hidden Ledger, and the item pages naming The Live Hold; keeps every established fact; builds face, voice, and tells for her secret (the trafficking link and bribed boundary scout); gets a person portrait and three sample lines from theatre-of-the-mind; states the truth plainly in the DM layer.",
+      "assertions": [
+        {
+          "text": "Working notes include a canon inventory with the-live-hold, sparhold, roka-sten, and rokas-hidden-ledger, plus a PC thread line for each PC page",
+          "type": "process"
+        },
+        {
+          "text": "Preserves established face details already on her page (leather apron, scarred forearms from creatures she has handled) in the new portrait",
+          "type": "content"
+        },
+        {
+          "text": "The portrait is third-person present tense with no 'you', carries at least one tell pointing at her secret as plain appearance, and names no secret",
+          "type": "quality"
+        },
+        {
+          "text": "At the Table has voice notes and three sample lines (ask, refusal, under pressure) that sound like one person",
+          "type": "structure"
+        },
+        {
+          "text": "At a Glance or Secrets states her secret by name (Roka Sten's live-capture trafficking and the bribed boundary scout) rather than hinting",
+          "type": "quality"
+        },
+        {
+          "text": "role is rival, patron, or contact, and [!narration] is the only callout",
+          "type": "guardrail"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": "incidental-stew-seller",
+      "prompt": "The party stops at a stew stall in Sparhold's market for two minutes. Give me the stew seller.",
+      "expected_output": "An incidental-scale NPC: face, immediate want, one line, and an exit, with no biography, secret web, or combat block.",
+      "assertions": [
+        {
+          "text": "Chooses the Incidental prep scale and produces face, want, one line, and exit only",
+          "type": "process"
+        },
+        {
+          "text": "The face has two or three specific details and a sound or smell with a source, distinct from generic 'cheerful vendor'",
+          "type": "quality"
+        },
+        {
+          "text": "No backstory essay, villain front, secret network, or statblock is produced",
+          "type": "guardrail"
+        },
+        {
+          "text": "Any invented name is shown as a proposal before filing",
+          "type": "guardrail"
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    },
+    {
+      "id": "sabine-scene-ready",
+      "core": true,
+      "prompt": "The party will walk into The Live Hold next session. Make Sabine Corvo ready to run there.",
+      "files": [
+        "wiki/entities/npc/sabine-corvo.md",
+        "wiki/entities/place/the-live-hold.md",
+        "wiki/entities/npc/roka-sten.md",
+        "wiki/entities/place/spar-and-snare-outfitters.md",
+        "wiki/entities/pc/crissdalynn-khinriss.md",
+        "wiki/templates/npc.md"
+      ],
+      "context": "Search the wiki when a role, a rule the input pages point to, or the filing path needs it. Skip art and image review.",
+      "expected_output": "A scene-scale Sabine Corvo page on the npc template: established face and harrier canon kept, her secret and the missing expeditions decided as one concrete answer and marked as proposals, a runnable first meeting and posture change, Influence rulings, tells in a theatre-of-the-mind portrait, three voice lines, and numbers for anything that could fight.",
+      "assertions": [
+        {
+          "type": "behavior",
+          "text": "Preserves established canon: leather apron and the named creature scars (kingfisher, saltwater drake, coral spine), the clipped-wing crimson-crowned harrier at 400 gp, Roka Sten and Spar & Snare as suppliers, and the three expedition teams that missed their returns"
+        },
+        {
+          "type": "behavior",
+          "text": "Fills the silence with one concrete answer: the page states Sabine's secret and what happened to the missing expeditions (or exactly what she knows and hides about them), each as a single named truth, not a list of possibilities"
+        },
+        {
+          "type": "behavior",
+          "text": "Every invented fact is canon under the rule in llm-wiki: the page carries invention: true and response.md lists the proposals with the pages they grow from; nothing is held back waiting for approval"
+        },
+        {
+          "type": "behavior",
+          "text": "Any person, creature, or place the page adds links an existing owner page, or response.md names the candidates considered before minting"
+        },
+        {
+          "type": "behavior",
+          "text": "First meeting is runnable cold: where she is, what she is doing, her opening move, what she wants from the party, and one line the DM can speak"
+        },
+        {
+          "type": "behavior",
+          "text": "Posture and Influence: starting attitude, what opens and closes her, and at least one Influence route with Ability (Skill) and DC and what success and failure change"
+        },
+        {
+          "type": "behavior",
+          "text": "The portrait is third-person present tense, names no secret, and carries a plain tell for every hidden truth; each tell's truth is stated on the DM layer"
+        },
+        {
+          "type": "behavior",
+          "text": "At the Table has voice notes and three sample lines (the ask, the refusal, the line under pressure) that sound like one person"
+        },
+        {
+          "type": "behavior",
+          "text": "The Crissdalynn thread through the harrier is a concrete choice with a price and Sabine's response to each way the party might act on it"
+        },
+        {
+          "type": "behavior",
+          "text": "Sabine and anyone or anything else on the page the party could grab, strike, or fight (a loosed animal, a called guard) carries compact numbers from a named statblock (AC, HP, Speed, attack or save DC), even when she flees"
+        },
+        {
+          "type": "behavior",
+          "text": "role is rival, patron, or contact; [!narration] is the only callout; the page follows the npc template headings"
+        },
+        {
+          "type": "behavior",
+          "text": "Every question the page raises (a disappearance, a rumour, a debt, a late shipment) has its DM answer on the page"
+        },
+        {
+          "type": "behavior",
+          "text": "The page states every proposal as world fact in world voice; provenance, source contradictions, and the proposal list live in response.md, never as commentary on the page ('this proposal', 'is not established')"
+        },
+        {
+          "type": "behavior",
+          "text": "At the Table gives Priority (what she protects first when pressed), Shares (what she tells freely and what she never tells), and Voice with the subject she avoids."
+        },
+        {
+          "type": "behavior",
+          "text": "A `[!narration] First meeting` block shows what she is doing when the party walks into The Live Hold, in \"you\" address, and ends on her first words in her voice."
+        },
+        {
+          "type": "behavior",
+          "text": "The page stays an NPC page: no creature Tactics or Behavior sections."
+        },
+        {
+          "text": "When the output files an owner page, it follows its template's shape: portrait, then the type's rules or core, then campaign facts as `**Name.**` paragraphs only when they exist; no At a Glance, no empty headings, no field that only agents use in the body",
+          "type": "structure"
+        }
+      ]
+    }
+  ]
+}

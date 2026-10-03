@@ -18,6 +18,12 @@ Weak: `a grizzled sailor`.
 
 Strong: `a woman with rope burns across both palms who counts under her breath while she coils line`.
 
+## Play openers
+
+For Scene scale and larger, open Play with a one-line **premise** naming the NPC's ironic truth: their Contradiction phrased so the DM knows what to play after one read, such as `a debt collector who has never once been paid on time`.
+
+For speaking roles, optionally add a **performance anchor**: an unexpected register paired with a familiar delivery persona, such as `a harbourmaster who speaks like a weary kindergarten teacher`. It lives only in DM-facing Play, never in Narration or player-facing text.
+
 ## Voice
 
 Build voice from what the NPC cares about:
