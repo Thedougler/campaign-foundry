@@ -603,3 +603,25 @@
 - [[Chain Council]]
 - [[Pell]]
 - [[Huahei]]
+
+## [2026-10-03] ingest | agentic-co-dm-istishia.md
+
+- [[Istishia]]
+- [[Elemental Plane of Water]]
+
+## [2026-10-03] ingest | ssw-silent-shortbow.md
+
+- [[Silent Shortbow]]
+- [[Casa Lupo]]
+- [[Le Paludi]]
+- [[Session 4 - Recap]]
+
+## [2026-10-03] ingest | ssw-il-palio-delle-voci.md
+
+- [[Il Palio delle Voci Contese]]
+- [[La Canzone Nera]]
+- [[Il Vento di Seta]]
+- [[Le Ossa del Toro]]
+- [[Prospero Morsani]]
+- [[Calven and Calveno]]
+- [[The Ponte Bassa]]

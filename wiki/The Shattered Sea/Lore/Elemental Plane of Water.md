@@ -3,11 +3,12 @@ type: Lore
 summary: "The plane on the far side of the Drowned Maw's fissure, sealed by Auralis, tied to the vanished Antheri and claimed as the sea elves' ancestral home."
 sources:
  - "archive/ssw-sea-elf.md"
+ - "archive/agentic-co-dm-istishia.md"
 ---
 
 ## At a glance
 
-- **The truth.** The Elemental Plane of Water lies on the far side of the fissure beneath the [[Drowned Maw]]. [[Auralis]], a machine the Antheri built, holds the seal shut, and the [[Sea Elf|sea elves]] claim an ancestral connection to the plane.
+- **The truth.** The Elemental Plane of Water lies on the far side of the fissure beneath the [[Drowned Maw]]. [[Auralis]], a machine the Antheri built, holds the seal shut, and the [[Sea Elf|sea elves]] claim an ancestral connection to the plane. Around the Maw, the word [[Istishia]] points at this cosmology.
 - **Who knows it.** The [[Sentinels of the Eyrie]] have watched the fissure since 1295 DR. [[Perrin Black-Jaw]] hears Auralis speak through it. Grung sages preserve the mandate beside their decrees.
 - **Limits.** What lies on the far side beyond what has crossed, and what the sea elves' tie to the plane obliges, are beyond the record.
 - **Reaches play through.** The [[Pearl of Souls]]' signal, which crosses the boundary and drew the [[Leviathan]] through.

@@ -40,7 +40,7 @@ Link recurring Sites, people, Factions and rules owners. Create only the depende
 
 Once the DM-facing facts are on the page, use `theatre-of-the-mind` for a new or rewritten `[!narration]` callout. Supply the template's slot, viewpoint, spatial layout, observable activity, useful features and sourced tells. Hidden answers and mechanics stay beside the corresponding DM entry, outside spoken prose. The Narration skill owns its recipe and completion checks; invoke the CLI through the current Bun package command rather than legacy package-manager syntax. Preserve Narration already heard at the table unless the DM requests a rewrite.
 
-Write British English. Add an in-world word without its own page to the vault's `.cspell-words.txt` only when appropriate; rules terms belong in `.cspell/dnd-terms.txt`. Preserve `hot.md` and played Sessions: Location work changes current owner pages, not those records.
+Write British English. Add an in-world word without its own page to `.cspell-words.txt` at the vault root (`wiki/`, or the assigned `--vault`) only when appropriate; rules terms belong in `.cspell/dnd-terms.txt` at the repo root. Preserve `hot.md` and played Sessions: Location work changes current owner pages, not those records.
 
 **Complete when** the Location and its dependencies are authored, the old facts are retained or explicitly advanced by recorded events, every link resolves, and the selected branch's table-use criterion holds on the page: each fact it names is filed in the section a DM will read at the table, with owned rules on their linked owner pages. A fact that lives only in the reply or working notes is unfiled — file it or cut the claim.
 

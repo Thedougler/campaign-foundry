@@ -22,4 +22,4 @@ Change values here; do not fork shared rules in `AGENTS.md` to match a preferenc
 
 - **Native agents:** `.omp/agents/`
 - **Skills (source of truth):** `.omp/skills/` when the skill lives there; otherwise `.agents/skills/<name>/`
-- **Wiki access:** filesystem + QMD. Obsidian CLI is disabled; enabling it is not an eval prerequisite.
+- **Wiki access:** The Wiki is an Obsidian vault. Its vault root is `wiki/` (`.obsidian/` lives there): the folder `cf --vault` defaults to, `vault.dir` in `src/`, and what "the vault root" means in `cf` output. The repo root holds `raw/`, `archive/` and `.cspell/`; `docs/wiki-layout.md` maps both. Search with QMD. Read and edit through `vault://_/` (the active vault) or `wiki/` paths.

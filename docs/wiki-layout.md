@@ -1,9 +1,16 @@
 # Wiki layout
 
-How pages are arranged and shaped in the `wiki/` Obsidian vault. Terms are defined in `CONTEXT.md`.
+How pages are arranged and shaped in the Wiki, an Obsidian vault. Terms are defined in `CONTEXT.md`.
+
+Every path starts at one of two roots:
+
+- **Vault root**: `wiki/`, the folder holding `.obsidian/`. Every `cf` command reads it as `--vault` (default `<repo root>/wiki`), and `src/` calls it `vault.dir`; "the vault root" in `cf` output means this folder. Wikilinks, `--page` values and vault-relative paths start here.
+- **Repo root**: the git checkout, `--root`. `raw/`, `archive/`, `.cspell/` and every `sources` path start here.
 
 ```
-wiki/
+wiki/                          vault root
+  .obsidian/                   Obsidian settings and plugins
+  .cspell-words.txt            in-world words with no page, one list for every World
   index.md                     lists the Worlds
   DM Settings.md               the DM's defaults (Session length: 4 hours)
   templates/                   one Obsidian template per page kind
@@ -21,6 +28,7 @@ wiki/
       Sessions/Session <N>/     Prep, a page per Scene, Recap, Previously On (recounts Session N, read aloud at N+1), Handouts
 raw/                           Raw: waiting to be ingested; flat, no folders (outside the vault)
 archive/                       Archive: already ingested; flat, no folders (outside the vault)
+.cspell/dnd-terms.txt          D&D rules terms for spelling (outside the vault)
 ```
 
 ## Pages
@@ -37,7 +45,7 @@ archive/                       Archive: already ingested; flat, no folders (outs
   - Every frontmatter key in a template is required on the page. `type` and `kind` carry their literal values; `summary` is never blank; any other key may be blank where it doesn't apply (`parent` on a top-level Region).
   - Every `##` heading in a template is a required section, in template order. `###` headings are optional structure: a page keeps the ones it has content for. Every callout type in a template is required on the page.
   - Authoring guidance lives in `%% %%` comments, which a finished page removes.
-- **Words.** Spelling is British. An in-world name passes by having a page, which also hides it from Vale's wording rules (so the Countless faction is not filler); an in-world word with no page of its own (a month, a minor name) goes in the vault's `.cspell-words.txt`, and a rules term in `.cspell/dnd-terms.txt`.
+- **Words.** Spelling is British. An in-world name passes by having a page, which also hides it from Vale's wording rules (so the Countless faction is not filler); an in-world word with no page of its own (a month, a minor name) goes in `wiki/.cspell-words.txt` at the vault root, and a rules term in `.cspell/dnd-terms.txt` at the repo root.
 - **PC sides.** `bun run cf -- pull` replaces the `Sheet`, `Spells` and `Inventory` sections whole from the PC's `dndbeyond_url` and never touches `Story`, `Goals and bonds` or `Plans`. It fills `summary` only when blank, and logs a `pull` only when a page changed.
 - **Played Sessions are records.** Once a Session is played and ingested, its Prep, Scenes, Recap and Previously On record what was planned and what happened. Later work changes the pages they link to, never these. Narration the Players have heard at the table belongs to that record too: later work adds to it (a new tell) and rewrites it only when the DM asks or to fix a `bun run cf -- check` finding, keeping every fact.
 - **Handouts.** Push shows Players only a Handout's `[!narration]` callout and the image embedded under it; the rest of the page stays with the DM.

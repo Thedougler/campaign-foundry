@@ -14,7 +14,7 @@ env -u QMD_CONFIG_DIR qmd get '#6105a3'
 
 The docid is an example; retrieve the actual result of this query. Omit `--index`. Eval Runners reach the same live index through the `xd://mcp__qmd_query` and `xd://mcp__qmd_get` devices (`evals/README.md`).
 
-Read and edit Wiki pages through `vault://_/` (the active vault) or their `wiki/` paths. The `qmd-refresh` post hook re-indexes QMD after each `write` or `edit` under `wiki/`, `raw/` or `archive/`, so filing needs no manual `qmd update`.
+The Wiki is an Obsidian vault; **Wiki access** in `user-config.md`, imported above, defines its vault root and the repo root. The `qmd-refresh` post hook re-indexes QMD after each `write` or `edit` under `wiki/`, `raw/` or `archive/`, so filing needs no manual `qmd update`.
 
 **Lint** — read `skill://lint` after Ingest, after Prep, after page create, or after page move.
 
@@ -36,7 +36,7 @@ Give writers disjoint files and pass briefs and artifact paths explicitly. Set `
 
 Select an agent by its responsibility:
 
-- `skill-writer` (`@SKILL-WRITER`) authors every large or novel change to agent-facing text: skills, `.omp/agents/`, `AGENTS.md`, runbooks and pointers. The orchestrator writes its briefs, owns acceptance criteria, eval fixtures, Wiki and integration, and leaves those files to it.
+- `skill-writer` (`@SKILL-WRITER`) authors every large or novel change to agent-facing text: skills, `.omp/agents/`, `AGENTS.md`, runbooks and pointers. The orchestrator writes its briefs, owns acceptance criteria, eval fixtures, Wiki and integration, and leaves those files to it. When the defect was observed in a run, the brief includes that agent's `history://` transcript so the writer sees the issue directly.
 - `test-subject` (`@TEST-SUBJECT`) runs each eval case or baseline and `prose-grader` (`@PROSE-GRADER`) grades rubrics independently; both are native `task` dispatches whose frontmatter `tools:` is read-only except Runner `bash` for diagnostic CLI, batched per `evals/README.md`.
 - `creative-writer` (`@CREATIVE-WRITER`) takes explicit creative-writing dispatches outside skill evals.
 

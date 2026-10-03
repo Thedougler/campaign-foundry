@@ -4,6 +4,7 @@ kind: Site
 summary: "A canal-side tavern built into Calveno's main crossing, where Oleandro Fuschi serves fish broth and remembers ships."
 sources:
  - "archive/ponte-bassa.md"
+ - "archive/ssw-il-palio-delle-voci.md"
 parent: "[[Calven and Calveno]]"
 ---
 
@@ -34,7 +35,7 @@ Oleandro Fuschi pours and remembers.
 
 ### Likely actions
 
-Ask about a ship, compare a manifest, watch from the window, or pay for a bowl while waiting for a hull.
+Ask about a ship, compare a manifest, watch from the window, or pay for a bowl while waiting for a hull. In Palio season, recruit here: musicians who want a shot at the contest without leading their own band drink here most evenings ([[Il Palio delle Voci Contese]]).
 
 ## Depth
 

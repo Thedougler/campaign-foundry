@@ -188,16 +188,20 @@ _Avoid_: config, preferences, settings (bare)
 The DM's tone and themes for one Campaign, kept as `campaign-config.md` in that Campaign's folder. Agents read it after `user-config.md` before Wiki work in the Campaign.
 _Avoid_: DM Settings, user-config
 
-**Wiki**:
-The canonical, human-readable record of Worlds and Campaigns. The DM and the Agent both edit it, and the DM must be able to run a Session from it alone.
-_Avoid_: vault, notes, knowledge base
+**Repo**:
+The Campaign Foundry git project. Its root, the repo root, is the checkout `cf --root` names: it holds the Wiki at `wiki/`, plus `raw/`, `archive/`, `.cspell/`, `src/`, `evals/` and `docs/`. Repo-relative paths start here, such as a page's `sources` (`archive/session-11-transcript.md`); `cf` run from the repo root prints page paths this way (`wiki/<World>/...`).
+_Avoid_: project, workspace, bare "root", "vault" for the Repo
+
+**Wiki** (also **vault**):
+The canonical, human-readable record of Worlds and Campaigns: the Obsidian vault at `wiki/` in the Repo. Wiki and vault are one thing under two names, so the Wiki root and the vault root are both `wiki/`, the folder holding `.obsidian/`, `index.md` and `.cspell-words.txt`. `cf --vault` points there, and wikilinks, `--page` values and vault-relative paths start there. `wiki/` is the only vault this project works in; vaults elsewhere on the machine are legacy. The DM and the Agent both edit the Wiki, and the DM must be able to run a Session from it alone.
+_Avoid_: notes, knowledge base, "vault" for the Repo
 
 **Canon**:
 What is true in a World or Campaign. By precedence: what the DM says (to the Agent, or at the table), then what the Wiki says, then material being ingested.
 _Avoid_: draft, approved, official
 
 **Raw**:
-Any file waiting to be ingested into the Wiki, such as a Transcript, a brain-dump, a PDF or an image.
+Any file waiting to be ingested into the Wiki, such as a Transcript, a brain-dump, a PDF or an image. It waits in `raw/` at the repo root, outside the Wiki.
 _Avoid_: inbox, sources, imports
 
 **Ingest**:
@@ -209,7 +213,7 @@ The Agent's autonomous repair of mechanical Wiki issues: template layout, headin
 _Avoid_: audit (as routine health), a DM-facing lint report, a blocking review
 
 **Archive**:
-Raw material that has already been ingested, kept so it is always clear what has been ingested and what hasn't.
+Raw material that has already been ingested, kept in `archive/` at the repo root so it is always clear what has been ingested and what hasn't.
 _Avoid_: trash, done
 
 ### Foundry

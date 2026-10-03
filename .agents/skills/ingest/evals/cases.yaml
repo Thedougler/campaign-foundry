@@ -14,6 +14,7 @@
     - The three-day paint wait remains historical rather than replacing later refit and departure facts in the starting Wiki. Current Campaign state and PC levels are preserved.
     - Hidden loyalty and message limits remain DM knowledge. Cobb gains no unsupported combat statistics or Creature.
     - Only archive/Cobb.md is ingested. Touched pages and neighbours agree on the ingested facts.
+    - Every subject archive/Cobb.md says something about beyond its name (Cobb, Nona Black-Jaw, Perrin, La Vasca, the Warren, Nona's sending stone, Uncertainty, Thunk) has the file's supportable claims on its owner page in the Outcome, whether this run changed that page or it already held them. No such claim is left unfiled.
     - Played records remain unchanged. The reply names actual changes and any real conflicts settled, without inventing a table ruling.
 - id: transcript
   source_pages:
@@ -31,6 +32,10 @@
         - '## What happened'
         - '## Changes'
         - '## Threads'
+    # leftover-comment is a check finding: written pages that keep template %% guidance skipped the check gate.
+    absent:
+      The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md: ['%%']
+      The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Previously On.md: ['%%']
   rubrics:
     - The Recap accounts for every active Thread in this run's Campaign, including those that stayed still, and distinguishes played changes from unresolved pressures.
     - "Actual events follow the Session 11 Transcript: flight from the adult Bloodhawk, living fruit drawing hunters, Matteo's rescue from playful otters, ghost-plum invisibility, the Lesser Black Lotus drifting downstream and the unresolved Skarn attack. Unreached inland survivors and a completed theft are not narrated as played."
@@ -40,6 +45,7 @@
     - "Table talk is not play: Delmar's unrealised plan to carry Jean-Claude back to the ship and fire its cannons at the Bloodhawk, and the joke about hitting the bird with a shark, are not recorded as played or as settled intent on any page."
     - Both regenerated records cite archive/session-11-transcript-archived-version.md. Other played records and Session 12's existing Previously On stay unchanged; Session 12 outcomes and later rewards remain plans.
     - Only that Transcript is ingested. Touched pages and neighbours agree with the Transcript and later Canon; hot, PC levels and the uncertain 1495 DR date remain consistent with this run's starting state.
+    - The reply asks the DM nothing and reports no unit, page, Fill or check as skipped, deferred, left for later or awaiting approval.
 
 - id: the-mortis
   source_pages:
@@ -60,6 +66,8 @@
         - Mark
         - Gift
       The Shattered Sea/log.md: ['/\] ingest \|/']
+    absent:
+      The Shattered Sea/House Rules/The Mortis.md: ['%%']
   rubrics:
     - >-
       The player-facing Mortis from archive/mortis.md is a World House

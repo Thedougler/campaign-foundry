@@ -4,6 +4,7 @@ kind: Settlement
 summary: "Calven's marsh, tidal flats and farms rise to Calveno, a canal city whose harbour flies the Dravosi flag while debt controls its politics."
 sources:
  - "archive/calven-and-calveno.md"
+ - "archive/ssw-il-palio-delle-voci.md"
 parent: "[[Crown Islands]]"
 ---
 
@@ -22,7 +23,7 @@ parent: "[[Crown Islands]]"
 
 ### Districts
 
-Calveno's canals and bridges include [[Le Paludi]] and the Velo Quarter. The far harbour has an unmarked pale building where someone watches arrivals.
+Calveno's canals and bridges include [[Le Paludi]] and the Velo Quarter. Each year the Palio stages rise on the Mercatura plaza, across the Velo Quarter bridges and on the [[Le Paludi]] dock ([[Il Palio delle Voci Contese]]). The far harbour has an unmarked pale building where someone watches arrivals.
 
 ### Services
 

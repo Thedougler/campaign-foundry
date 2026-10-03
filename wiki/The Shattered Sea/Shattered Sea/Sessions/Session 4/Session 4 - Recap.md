@@ -4,6 +4,7 @@ summary: "Delmar confessed the Pearl theft, Umberlee named her price, and the Wa
 sources:
   - "archive/Session 04 - Recap.md"
   - "archive/Session-04-Recap.md"
+  - "archive/ssw-silent-shortbow.md"
 date: "1495 DR, date not established"
 ---
 
@@ -16,7 +17,7 @@ date: "1495 DR, date not established"
 
 ## What happened
 
-Jean-Claude sold the three whip-shark eggs and bought a silent shortbow and Flying Boots for Delmar. [[Master Kyzil]] sparred with the crew on a Ponte Bassa rooftop and said the Drowned Maw had been unruly since the wreck. He stayed in Calveno through the festival.
+Jean-Claude sold the three whip-shark eggs and bought a [[Silent Shortbow]] and Flying Boots for Delmar. [[Master Kyzil]] sparred with the crew on a Ponte Bassa rooftop and said the Drowned Maw had been unruly since the wreck. He stayed in Calveno through the festival.
 
 On the way to the harbour, Delmar confessed that he had commanded a five-ship privateer fleet with letters of marque. The fleet stole the [[Pearl of Souls]] from a shrine, and the Drowned Maw destroyed all five ships within hours. At the harbour shrine, Umberlee took Branca's body, killed her, and returned her to life. Umberlee named the Pearl as her price. Delmar began to explain who had ordered the theft, but Umberlee read that answer from his head and told him to bring the Pearl first. Crissdalynn then knocked Delmar down for entering a goddess's shrine alone.
 

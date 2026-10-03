@@ -4,6 +4,7 @@ kind: Site
 summary: "Calveno's canal district of taverns, goods, alchemy and discreet routes below the city toward Warren."
 sources:
  - "archive/le-paludi.md"
+ - "archive/ssw-silent-shortbow.md"
 parent: "[[Calven and Calveno]]"
 ---
 
@@ -22,7 +23,7 @@ parent: "[[Calven and Calveno]]"
 
 ### Areas
 
-Al Fondale, Casa Lupo, Studio Orsini and [[La Vasca]], each with its own threshold and owner.
+Al Fondale, [[Casa Lupo]], Studio Orsini and [[La Vasca]], each with its own threshold and owner.
 
 ### Hazards
 
