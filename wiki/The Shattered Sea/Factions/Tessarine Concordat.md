@@ -14,7 +14,7 @@ sources:
 - **Strength.** Credit, collateral, insured cargo, sealed mail and debt-recovery holds.
 
 > [!narration] Public face
-> Pale canal counting houses and white sails with blue triangles mark Concordat writ. A clerk can sound like an old house. The courtesy is always a contract. A balanced ledger is promised as safer than an answer.
+> Pale canal counting houses and white sails with blue triangles mark Concordat writ. A clerk can sound like an old house, yet every courtesy carries its terms. They promise a balanced ledger in place of an answer, calling it the safer way.
 
 ## Play
 

@@ -14,13 +14,13 @@ creature: "[[Beaumont Sel (Creature)]]"
 - **Found at.** Kalowe and the Midchain route aboard the Saltwright.
 
 > [!narration] First look
-> A wide, low tortle stands at the wheel, shell worn blunt by salt air and a mirror-bright plate fitted over a dent. A capuchin monkey rides his shoulder, tail looped around his neck.
+> A wide, low tortle stands at the wheel, a mirror-bright plate fitted over a dent in a shell worn blunt by salt air. A capuchin monkey rides his shoulder, tail looped around his neck.
 
 ## Play
 
 - **Opens them up.** Clear payment, a safe route, and practical work.
 - **Shuts them down.** Reckless passengers or Crown trouble that endangers his ship.
-- **Will share.** Route knowledge, a Truth Stone, and the services of Bisou.
+- **Will share.** Route knowledge, a [[Truth Stone]], and the services of Bisou.
 - **Will not share.** Anything that makes his passengers a target.
 - **If pressed.** He says “Bisou” and sends the monkey with a potion or an alchemical item. She can also sabotage black powder.
 

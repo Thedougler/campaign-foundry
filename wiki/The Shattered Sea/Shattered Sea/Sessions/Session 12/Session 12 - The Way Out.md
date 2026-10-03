@@ -15,7 +15,7 @@ sources:
 - **Reactions.** The survivors decide who leaves, who stays, and what they learned on Aruhe.
 
 > [!narration] Closing image
-> Dawn finds the fire burned out, the clearing smelling of wet smoke and bruised guava. Nine Calveno stand ready where the trail leaves the clearing, fibre bundles on their backs, and the round-faced cook is bent under a sack of dried fruit. The big man with the stripe in his beard has the forward poles of Ettore's litter, and his nephew the rear, lips moving on a count. The deadwood raft bobs on its cord with nobody aboard. Beneath the vine, with the two who are staying, the old bonesetter raises a hand and keeps it raised.
+> Dawn finds the fire burned out in a clearing that smells of wet smoke and bruised guava. Ready at the trail's mouth, nine Calveno wear fibre bundles on their backs, with a sack of dried fruit bending the round-faced cook. The big man with the stripe in his beard has the forward poles of Ettore's litter, and his nephew holds the rear, lips moving over a count. Made from deadwood, the empty raft bobs on its cord while the old bonesetter raises a hand beneath the vine beside the two who are staying. He keeps it raised.
 
 ## Play
 

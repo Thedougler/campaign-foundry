@@ -14,7 +14,7 @@ sources:
 - **Used by.** [[Whip Shark]] patrols the same territory.
 
 > [!narration] First sight
-> The minor slaad reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> A hunched slaad pulls itself over the stone on knuckled claws, its hide raw and red where the skin has split. It drags a wet ribbon of sloughed flesh behind each step, and its head swings toward the closest sound. As it comes on, its hands end in hooked claws and its lips part over pointed teeth.
 
 ## Statblock
 

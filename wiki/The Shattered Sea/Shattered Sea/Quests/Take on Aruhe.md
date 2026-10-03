@@ -16,7 +16,7 @@ status: active
 - **Advances.** [[Drowned Maw Awakening]] by giving the Party a route and evidence in the sea's changing eastern frontier. The rules are recorded in [[Taking on Aruhe]].
 
 > [!narration] The offer
-> You can eat what the ground gives you, but not what still grows. Pick from a living stem and the island will mark you until dawn. Its creatures will find you. Learn the rule, keep your hands from living things, and the inland survivors may let you pass.
+> What falls from a stem is yours to eat, while anything still rooted stays untouched. Pick living growth and the island marks you until dawn, then its creatures come for you. Learn that law, keep your hands off anything living, and the inland survivors may let you pass.
 
 ## Play
 

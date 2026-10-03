@@ -16,7 +16,7 @@ status: active
 - **Advances.** The faction and the [[Fate Spinner]] hunt.
 
 > [!narration] The offer
-> Two Talons claim the same order. One wants the master gone. The other treats the apprentice as a standing threat. Names disappear from ledgers, and Crissdalynn is the target the contest can turn into a weapon.
+> Two Talons claim the same order, and one of them wants the master gone. The other treats the apprentice like a standing threat. Names vanish from ledgers, and Crissdalynn is who the contest would sharpen into a weapon.
 
 ## Play
 

@@ -18,7 +18,7 @@ parent: "[[Grasslands]]"
 - **Prize.** Fallen restorative fruit and evidence of travellers.
 
 > [!narration] Entering
-> Turquoise water runs beside wet sand and gold-green grass. Three fruiting bushes mark the bank. A rough pole holds a thin line over the current, with fish bones and silver scales scattered below.
+> Turquoise water runs past you beside wet sand and gold-green grass. Three fruit bushes grow along the bank. A rough pole holds a thin fishing line above the current. Silver scales lie scattered below it among fish bones.
 
 ## Play
 

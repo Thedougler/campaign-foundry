@@ -22,7 +22,7 @@ sources:
 - **Used by.** [[Terror-Bird]] patrols the same territory.
 
 > [!narration] First sight
-> The spiguar reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> The tall grass bows in a travelling line, green stalks rising again behind it. The spiguar surfaces for one stride, sabre teeth bared, and the line bends toward you. It gathers and launches, and the pounce lands claws first to tip its catch over. From there the grass takes the fight, and the closed stalks hide where it drags its prize.
 
 ## Statblock
 

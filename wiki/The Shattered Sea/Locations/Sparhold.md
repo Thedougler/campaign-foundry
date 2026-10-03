@@ -16,7 +16,7 @@ parent: "[[Midchain]]"
 - **Known for.** Berths, pilots, departure records and information about the taken.
 
 > [!narration] Arrival
-> Sparhold is a timber fortress-market above Teethward water. Wet timber and pitch mark the berths, where arrivals are counted before anyone asks what brought you.
+> Sparhold's timber walls rise before you, enclosing a market above the Teethward water. The berths smell of pitch and wet timber. Arrivals are counted here before anyone asks what brought you.
 
 ## Play
 

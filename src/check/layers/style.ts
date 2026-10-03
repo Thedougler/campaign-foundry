@@ -93,7 +93,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 			pages.map(async (page) => {
 				const file = join(scratch, page.path);
 				await mkdir(dirname(file), { recursive: true });
-				await writeFile(file, valeText(proseView(page, "mask").text, page));
+				await writeFile(file, valeText(proseView(page, ctx.vault).text, page));
 			}),
 		);
 		const { stdout, missing } = await runVale(["--config", config, "--output=JSON", "--no-exit", scratch]);

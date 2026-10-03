@@ -14,7 +14,7 @@ sources:
 - **Strength.** Crown hulls, garrisons, inspectors, ratings and legal authority.
 
 > [!narration] Public face
-> Grey Crown hulls with white Admiralty stripes and brass work the far side harbours. Inspection papers, garrison stamps and dockside shrine smoke mark where Crown law still claims the water.
+> grey Crown hulls with white Admiralty stripes and brass work the far side harbours. Inspection papers, garrison stamps and shrine smoke at the docks mark where Crown law still claims the water.
 
 ## Play
 

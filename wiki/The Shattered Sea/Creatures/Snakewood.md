@@ -16,7 +16,7 @@ sources:
 - **Used by.** [[Spiguar]] patrols the same territory.
 
 > [!narration] First sight
-> The snakewood reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> Bones picked clean hang caught in the coils over the trail, and one vine loop sits smoother and darker than the growth around it. Wood creaks as the loop eases itself along the limb by a hand's width. A loose strand hangs down past shoulder height, and its tip gives a twitch.
 
 ## Statblock
 

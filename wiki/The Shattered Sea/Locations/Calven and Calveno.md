@@ -16,7 +16,7 @@ parent: "[[Crown Islands]]"
 - **Known for.** Canals, bridges, harbour flags and records.
 
 > [!narration] Arrival
-> Marsh and tidal flats run up to farms on a middle plateau, then to one city on the only solid ground. Canal water is the street. Pale four- and five-storey buildings line the harbour.
+> Marsh and tidal flats run up to farms on a middle plateau, then to one city on the only solid ground. The canals serve as streets. Pale four- and five-storey buildings line the harbour.
 
 ## Play
 

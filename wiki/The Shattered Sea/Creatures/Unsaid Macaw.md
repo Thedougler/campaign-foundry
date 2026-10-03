@@ -16,7 +16,7 @@ sources:
 - **Used by.** [[Vine Lash]] patrols the same territory.
 
 > [!narration] First sight
-> The unsaid macaw reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> A macaw flutters down from the canopy and lands on a low branch ahead, head tipped toward you. Then its beak opens, and a companion's voice pours out while every mouth among you stays still. The macaw's throat keeps working through every word, and the bird sits there with its head cocked, waiting.
 
 ## Statblock
 

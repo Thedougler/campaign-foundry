@@ -16,7 +16,7 @@ creature: "[[Commoner]]"
 - **Found at.** Her guarded kitchen safe house in the Warren, Calveno.
 
 > [!narration] First look
-> A broad, pale-furred Rattkin woman stands by the kitchen fire with a guarded door behind her. Her pen never stops moving, and clipped questions make every favour sound like a route with a cost.
+> A broad, pale-furred Rattkin woman stands by the kitchen fire with a guarded door behind her. Her pen never stops moving, and clipped questions put a price on every favour.
 
 ## Play
 

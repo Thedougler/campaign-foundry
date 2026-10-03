@@ -16,7 +16,7 @@ creature: "[[Master Kyzil (Creature)]]"
 - **Found at.** High Eyrie, or temporarily at the Waveservant Shrine in Calveno.
 
 > [!narration] First look
-> A barn-owl aarakocra sits with one place beside him conspicuously empty. He smooths his robes and folds his wings right over left before asking a question in a voice so composed that worry sounds like weather.
+> A barn-owl aarakocra sits with one place beside him conspicuously empty. He smooths his robes and crosses his right wing over the left before asking a question in a voice so composed that worry sounds like weather.
 
 ## Play
 

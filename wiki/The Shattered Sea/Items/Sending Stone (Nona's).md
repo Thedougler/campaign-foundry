@@ -13,7 +13,7 @@ sources:
 - **Held by.** [[Perrin Black-Jaw]]. [[Nona Black-Jaw]] holds the twin.
 
 > [!narration] First look
-> A smooth grey river stone is warm and heavier than it looks. One face is polished flat by a thumb. Its twin sits somewhere across the water.
+> The grey river stone lies warm, heavier than it looks, with one face polished flat by a thumb. Its twin waits somewhere across the water.
 
 ## Play
 

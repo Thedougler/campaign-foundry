@@ -14,7 +14,7 @@ sources:
 - **Used by.** [[Grung Elite Warrior]] patrols the same territory.
 
 > [!narration] First sight
-> The grung reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> Something small rises out of the shallows ahead of you and pulls itself onto a half-sunken rock, water running off its back. It moves in springs rather than steps, and one jump carries it out of the water and onto the rock. A dagger hangs ready in its hand, the blade bare. Then it goes still, watching the water, and has not turned your way yet.
 
 ## Statblock
 

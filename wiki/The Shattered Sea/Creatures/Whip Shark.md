@@ -14,7 +14,7 @@ sources:
 - **Used by.** [[Leviathan]] patrols the same territory.
 
 > [!narration] First sight
-> The whip shark reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> A shark longer than any fishing boat rests in the shallows, its tail wound into tight coils against its flank. Slowly the broad head swings from one side to the other across the water, and the whole body holds its ground. Along the flank the coiled tail stands out in ridges, and water slaps at each one as it flexes. Then the coil pulls a little tighter, and the shark waits with its jaws just under the water.
 
 ## Statblock
 

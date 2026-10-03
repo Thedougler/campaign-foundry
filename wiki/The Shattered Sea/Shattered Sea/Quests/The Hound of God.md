@@ -16,7 +16,7 @@ status: active
 - **Advances.** Khlysty / the Flock and [[The Crown Inspection]].
 
 > [!narration] The offer
-> The Crown keeps a man in reserve for heresy. He has already decided to act. He knows a ship and a port, and soon he will ask whether you carried the healer he hunts.
+> The Crown holds one man back for heresy, and that man has already decided to act. He has the name of a port and the class of a ship. Soon he will be asking whether you gave passage to the healer he is after.
 
 ## Play
 

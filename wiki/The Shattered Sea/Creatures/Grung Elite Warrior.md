@@ -14,7 +14,7 @@ sources:
 - **Used by.** [[Minor Slaad]] patrols the same territory.
 
 > [!narration] First sight
-> The grung elite warrior reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> The grung elite warrior steps out along the branch, a small frog-bodied fighter with a dagger in one fist and a shortbow slung across its back. Its throat swells and a chirr rolls out over the trail, rising as its legs bend for a leap. When it springs, the jump carries it across half the gap at a bound, dagger leading.
 
 ## Statblock
 

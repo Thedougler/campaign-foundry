@@ -14,7 +14,7 @@ sources:
 - **Used by.** [[Bloodhawk]] patrols the same territory.
 
 > [!narration] First sight
-> The leviathan reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> Where the sea lies open, a patch of water begins to churn and boil over a long dark bulk. Steam lifts off the foam, and a back the length of a longboat rolls through the middle of it, sleek and dark. The rough water travels with the bulk, a moving ring that keeps pace while the sea around it stays flat. Then the back settles, the ring slows with it, and the leviathan goes on turning below, wide and slow.
 
 ## Statblock
 

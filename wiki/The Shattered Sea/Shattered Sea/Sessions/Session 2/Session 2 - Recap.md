@@ -17,9 +17,9 @@ date: "1495 DR, date not established"
 
 ## What happened
 
-[[Barnaby Rook]] came at the Party alone because the rest of his men were dead or standing with them. Beaumont Sel sent Bisou through a gun port, where she fouled the powder. [[Delmar Fisk]] shot Ensign Wouters through the other port, and the Surety's guns stopped firing. Crissdalynn Khinriss turned Rook's first shot aside with wind and caught the second on her bracers. Delmar knocked Rook from the rigging with a thrown chair. Rook fell into the dark water, something long and eel-like rose beside him, and he did not return.
+[[Barnaby Rook]] came at the Party alone because the rest of his men were dead or standing with them. Beaumont Sel sent Bisou through a gun port, where she fouled the powder. [[Delmar Fisk]] shot [[Ensign Wouters]] through the other port, and the Surety's guns stopped firing. Crissdalynn Khinriss turned Rook's first shot aside with wind and caught the second on her bracers. Delmar knocked Rook from the rigging with a thrown chair. Rook fell into the dark water, something long and eel-like rose beside him, and he did not return.
 
-Rook's cabin held letters of marque, a pendant marked for Mira, a crate of flintlocks and twenty vials of Grung tincture. [[Perrin Black-Jaw]] took Mira's Blade. The crew had taken the HCS Surety as a prize.
+Rook's cabin held letters of marque, a pendant marked for Mira, a crate of flintlocks and twenty vials of Grung tincture. [[Perrin Black-Jaw]] took [[Mira's Blade]]. The crew had taken the HCS Surety as a prize.
 
 Beaumont named Perrin a Friend of the [[Passage]]. He said [[Nona Black-Jaw]] was hunting her lost grandson and believed someone had already been sent. He passed a Truth Stone to [[Jean-Claude Tabarnack]], who told the truth that his former kinsmen hunted him, he had stowed away, and nobody had sent him.
 

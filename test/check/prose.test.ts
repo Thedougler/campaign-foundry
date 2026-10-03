@@ -61,6 +61,31 @@ name: Xyzzyq
 	});
 });
 
+describe("proseView masked for wording rules", () => {
+	const files = {
+		markdown: new Map([
+			["A/Countless.md", ""],
+			["A/Grung.md", ""],
+			["A/Test.md", "Countless agents watch the Grung. [[Grung]] hops. A countless crowd waits. Countlessly.\n"],
+		]),
+		attachments: [],
+	};
+	const vault = buildVault("/v", files);
+	const text = proseView(vault.pageByPath.get("A/Test.md")!, vault).text;
+
+	it("masks bare and linked page names, each name to its own word", () => {
+		expect(text).not.toMatch(/Countless |Grung/);
+		const [countless, grung, linked] = text.match(/Placename\w*/g)!;
+		expect(countless).not.toBe(grung);
+		expect(linked).toBe(grung);
+	});
+
+	it("leaves lowercase words and longer words that only contain a name", () => {
+		expect(text).toContain("A countless crowd");
+		expect(text).toContain("Countlessly.");
+	});
+});
+
 describe("name dictionary", () => {
 	it("splits page names into the words in them, possessives included", () => {
 		expect(nameWords("Gull's Errand").sort()).toEqual(["Errand", "Gull", "Gull's"]);

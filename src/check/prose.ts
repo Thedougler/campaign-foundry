@@ -101,15 +101,56 @@ const BLOCK_ID = /[ \t]+\^[A-Za-z0-9-]+[ \t]*$/gm;
  */
 const caches = { show: new WeakMap<Page, ProseView>(), mask: new WeakMap<Page, ProseView>() };
 
-/** What a link with no alias becomes in a `mask` view: a neutral word, so the name's own words cannot trip a wording rule. */
+/**
+ * What a page name becomes in a masked view: a neutral word, so the name's own words cannot trip a wording rule.
+ * Each name gets its own word (`Placenamea`, `Placenameb`, …) so two different names never read as a repeated opening.
+ */
 const MASKED_NAME = "Placename";
 
+interface NameMask {
+	pattern: RegExp;
+	token: Map<string, string>;
+}
+
+const nameMaskCache = new WeakMap<Vault, NameMask | null>();
+
+/** Every page name and alias in the vault: one whole-word, case-sensitive pattern (longest first) and each name's mask word. */
+function nameMask(vault: Vault): NameMask | null {
+	if (nameMaskCache.has(vault)) return nameMaskCache.get(vault) ?? null;
+	const names = new Set<string>();
+	for (const page of vault.pages) {
+		if (!isProsePage(page)) continue;
+		names.add(page.name);
+		const aliases = page.frontmatter?.aliases;
+		for (const alias of Array.isArray(aliases) ? aliases : [aliases]) if (typeof alias === "string") names.add(alias);
+	}
+	const sorted = [...names].filter((n) => /\p{Lu}/u.test(n)).sort((a, b) => b.length - a.length);
+	const letters = (i: number): string => (i < 26 ? "" : letters(Math.floor(i / 26) - 1)) + String.fromCharCode(97 + (i % 26));
+	// ponytail: case-sensitive whole-word match, so a sentence-initial common word that is also a page name ("Passage") is masked too.
+	const mask =
+		sorted.length === 0
+			? null
+			: {
+					pattern: new RegExp(`(?<![\\p{L}\\p{N}])(?:${sorted.map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})(?![\\p{L}\\p{N}])`, "gu"),
+					token: new Map(sorted.map((n, i) => [n, MASKED_NAME + letters(i)])),
+				};
+	nameMaskCache.set(vault, mask);
+	return mask;
+}
+
+/** `text` with each bare page name or alias swapped for its mask word. */
+export function maskNames(text: string, vault: Vault): string {
+	const mask = nameMask(vault);
+	return mask ? text.replace(mask.pattern, (name) => mask.token.get(name) ?? MASKED_NAME) : text;
+}
+
 /**
- * `names: "show"` (the default) leaves a link's page name in the text. `"mask"` swaps each unaliased link for a
- * neutral word: the style layer uses it, because a name such as `Fire Watch` is not the DM's prose.
+ * Without `mask`, a link shows its page name. With the vault as `mask`, each unaliased link and each bare page
+ * name or alias becomes a neutral word: the style layer uses it, because a name such as `Fire Watch` or
+ * `Countless` is not the DM's prose.
  */
-export function proseView(page: Page, names: "show" | "mask" = "show"): ProseView {
-	const cache = caches[names];
+export function proseView(page: Page, mask?: Vault): ProseView {
+	const cache = caches[mask ? "mask" : "show"];
 	const cached = cache.get(page);
 	if (cached) return cached;
 	const source = page.source;
@@ -129,8 +170,16 @@ export function proseView(page: Page, names: "show" | "mask" = "show"): ProseVie
 			continue;
 		}
 		const shown = wikilinkDisplay(m[2] ?? "", start + 2);
-		const text = names === "mask" && shown.named ? MASKED_NAME : shown.text;
+		const text = mask && shown.named ? (nameMask(mask)?.token.get(shown.text) ?? MASKED_NAME) : shown.text;
 		edits.push({ start, end, text, from: Array.from({ length: text.length }, (_, i) => shown.at + i) });
+	}
+	const names = mask ? nameMask(mask) : null;
+	if (names) {
+		for (const m of masked.matchAll(names.pattern)) {
+			const start = m.index ?? 0;
+			const text = names.token.get(m[0]) ?? MASKED_NAME;
+			edits.push({ start, end: start + m[0].length, text, from: Array.from({ length: text.length }, () => start) });
+		}
 	}
 	for (const m of masked.matchAll(CALLOUT_MARKER)) {
 		const start = m.index ?? 0;
@@ -141,7 +190,7 @@ export function proseView(page: Page, names: "show" | "mask" = "show"): ProseVie
 		edits.push({ start, end: start + m[0].length, text: "", from: [] });
 	}
 
-	edits.sort((a, b) => a.start - b.start);
+	edits.sort((a, b) => a.start - b.start || b.end - a.end);
 	let text = "";
 	const map: number[] = [];
 	let cursor = 0;

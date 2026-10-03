@@ -16,7 +16,7 @@ parent: "[[Midchain]]"
 - **Known for.** One navigable gap, stone bridges and dry docks.
 
 > [!narration] Arrival
-> Reef water rings three islets joined by stone bridges. Dry-dock masts crowd beneath a seized fort, and every hull pays the shrine at the navigable gap.
+> Reef water rings three islets, stone bridges tying one to the next. Dry-dock masts crowd beneath the seized fort, and each hull owes the shrine at the navigable gap.
 
 ## Play
 

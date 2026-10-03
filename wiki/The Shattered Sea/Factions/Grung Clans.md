@@ -14,7 +14,7 @@ sources:
 - **Strength.** Biology, terrain, toxins, reef patrols and sanctioned beaches.
 
 > [!narration] Public face
-> The Grung clans protect their communities and preserve Auralis's decrees. You may trade at a sanctioned beach, but leaving the sand without permission is a breach. Their closed rainforest begins where the beach ends.
+> The Grung clans protect their communities and preserve Auralis's decrees. Trade happens on a sanctioned beach, but leaving the sand without permission is a breach. Where the beach ends, their closed rainforest begins.
 
 ## Play
 

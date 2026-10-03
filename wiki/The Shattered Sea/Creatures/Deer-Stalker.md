@@ -26,7 +26,7 @@ sources:
 - **Used by.** [[River Otter]] patrols the same territory.
 
 > [!narration] First sight
-> The deer-stalker reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> The deer-stalker hunts out of dim shade, and the last stretch closes in one low strike with claws already spread. It rocks its weight back first, the whole body winding up in plain view before the lunge lands. One claw snags a limb, and the drag begins, back toward deeper foliage. Pressed hard, it gives ground toward the dark.
 
 ## Statblock
 

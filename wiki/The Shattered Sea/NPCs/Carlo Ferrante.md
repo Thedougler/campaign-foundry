@@ -14,7 +14,7 @@ creature: "[[Commoner]]"
 - **Found at.** The Pantry, until he sees Ettore and Luca alive.
 
 > [!narration] First look
-> A tall man with a grey streak through his beard stares at the litter. His big hands open and tremble at his sides. He takes one step. “Brother,” he says.
+> A tall man with a grey streak through his beard stares at the litter. His big hands open and tremble at his sides. He takes one step and says, "Brother."
 
 ## Play
 

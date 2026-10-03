@@ -14,7 +14,7 @@ creature: "[[Commoner]]"
 - **Found at.** Sorn and the Grung scouting network around the Midchain.
 
 > [!narration] First look
-> A compact purple-caste Grung officer stands in undecorated armour, spear easy in hand. Her eyes map the room before she speaks, and black skin breaks into visible bands and dots of gold beneath the armour.
+> A compact Grung officer of the purple caste stands in undecorated armour, spear easy in hand. Her eyes map the room before she speaks, and black skin breaks into visible bands and dots of gold beneath the armour.
 
 ## Play
 

@@ -15,7 +15,7 @@ sources:
 - **Held by.** [[Matteo Scola]] carries one after eating one in Session 11. [[Talon Skarn]] gathers fallen fruit.
 
 > [!narration] First look
-> A ghost plum is as big as two fists, with clear purple-grey skin showing leaves through it like a picture in soap. Pale pollen clings to the skin. Once fallen, the skin clouds to dull purple.
+> A ghost plum is as big as two fists, with clear purple-grey skin showing leaves through it like a picture in soap. Pale pollen dusts the skin. Once fallen, that skin clouds over into dull purple.
 
 ## Play
 

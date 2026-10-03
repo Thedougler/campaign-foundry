@@ -20,7 +20,7 @@ parent: "[[Aruhe]]"
 - **Danger.** Razer-grass, predators and the island's taking rule.
 
 > [!narration] Arrival
-> Clear water winds through gold-green grass taller than you are. Sun shafts flash on wet stones while warm water-smell and bird calls carry along the cut. Red berries shine at the bends.
+> Clear water winds through gold-green grass taller than you are. Sun shafts flash on wet stones, and the cut carries a warm smell of water and bird calls. Red berries shine at the bends.
 
 ## Play
 

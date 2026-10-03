@@ -16,7 +16,7 @@ sources:
 - **Used by.** [[Wolfrabbit]] patrols the same territory.
 
 > [!narration] First sight
-> The vine lash reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> Pale stems wind round a branch over the path, leafless and ringed with grey bark. A few loose root tips hang down past head height. The bundle has hung there so long it could pass for a length of spare rigging. Then one tip twitches, and the whole coil shifts its grip on the branch.
 
 ## Statblock
 

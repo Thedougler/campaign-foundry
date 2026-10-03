@@ -17,7 +17,7 @@ sources:
 - **Opposition.** [[Talon Skarn]].
 
 > [!narration] Opening
-> A falcon drops from the dark. Its first strike misses, then its talons turn toward the pack.
+> A falcon plunges out of the dark and misses its first strike. It swings its talons at the pack.
 >
 ## Threads
 

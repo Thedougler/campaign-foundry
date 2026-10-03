@@ -22,7 +22,7 @@ creature: "[[Hinewai the Blight]]"
 - **Found at.** Memorial Grove. Elsewhere she appears only as the woman in the woods.
 
 > [!narration] First look
-> Between two trunks the dark is deeper than it should be, and two orange eyes open at the height of a tall woman's face. “You ate what my island gave you,” a low voice says. “You are already mine.”
+> Between a pair of trunks the dark is deeper than it should be, and two orange eyes open at the height of a tall woman's face. Silence stretches until a low voice says, "You ate what my island gave you. You are already mine."
 
 ## Play
 

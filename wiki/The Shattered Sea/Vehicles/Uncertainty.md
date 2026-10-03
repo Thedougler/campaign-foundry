@@ -4,6 +4,9 @@ summary: "A Crown cutter taken as HCS Surety, renamed Uncertainty and kept movin
 sources:
  - "archive/hcs-surety.md"
  - "archive/uncertainty.md"
+aliases:
+ - "HCS Surety"
+ - "Surety"
 ---
 
 ## At a glance

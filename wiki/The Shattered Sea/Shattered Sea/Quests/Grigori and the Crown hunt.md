@@ -16,7 +16,7 @@ status: active
 - **Advances.** Khlysty / the Flock and [[The Hound of God]].
 
 > [!narration] The offer
-> Shepherd Grigori helped you, but Aleksander Malone is hunting him for the Dravosi Crown. The Party can protect the healer or hand him over. Otherwise, the pursuit continues without them.
+> Shepherd Grigori helped you, and now Aleksander Malone hunts him for the Dravosi Crown. Shield the healer or give him up, because if you walk away, the hunt goes on without you.
 
 ## Play
 

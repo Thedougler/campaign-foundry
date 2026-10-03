@@ -60,10 +60,12 @@
 - [[Barnaby Rook]] — Presumed-dead Crown privateer captain who enforced surrender aboard the Surety.
 - [[Bazzoth, the Steeped]] — Old red-caste Grung alchemist who guarded a sewer powder magazine until Session 05.
 - [[Beaumont Sel]] — Patient tortle captain of the Saltwright and a trusted Friend of the Passage.
+- [[Bisou]] — Beaumont Sel's capuchin monkey, the Saltwright's quick delivery hand.
 - [[Carlo Ferrante]] — Calveno dock foreman who led survivors to the Pantry and believes his brother died behind him.
 - [[Catarina Da'Virelli]] — Calveno artificer and salvage engineer who keeps her workshop in the city.
 - [[Cobb]] — A young rattkin dockworker and Nona Black-Jaw's runner who keeps La Vasca's refit on schedule.
 - [[Corbin Knighton]] — Crown boarder whose false report now drives a quiet hunt for the crew.
+- [[Ensign Wouters]] — Crown ensign and navigator of the HCS Surety, shot through a gun port by Delmar Fisk; the Party fed his body to Ket.
 - [[Enzo]] — Nona Black-Jaw's polished tabaxi bodyguard, a quiet enforcer who reads every guest before violence reaches her.
 - [[Ettore Ferrante]] — Injured Calveno survivor trapped in a lava tube with his son and two companions.
 - [[Felix Aho]] — Captured green-caste Grung labourer who traded bombing intelligence for protection.
@@ -153,6 +155,7 @@
 - [[Grubnade]] — A volatile Aruhe caterpillar that detonates when disturbed, scattering harmless juveniles and igniting nearby growth.
 - [[Grung Authority Seal]] — Spent gold seals that compelled lower-caste Grung onto Aruhe and preserve each bearer's whole order chain.
 - [[Letters of Marque]] — Crown parchment licensing Barnaby Rook as a privateer and carrying a 30,000 gp Crown bond.
+- [[Mira's Blade]] — A blade Perrin Black-Jaw took from Barnaby Rook's cabin aboard the HCS Surety; who Mira was is not recorded.
 - [[Nightmantle]] — A cursed cloak of displacement that redirects nearby ranged attacks to its wearer.
 - [[Pearl of Souls]] — A shrine relic that collects drowned souls, signals across the Drowned Maw and remains beyond Umberlee's reach.
 - [[Redheart Berry]] — A rare Aruhe berry that restores 8d4 + 8 hit points as a Bonus Action.
@@ -160,6 +163,7 @@
 - [[Solange's Authority Seal]] — An unused Grung authority seal that can replace one Grung's will with a lifelong order.
 - [[Stonepear]] — A rare Aruhe fruit that grants Resistance to all damage for 1 minute.
 - [[The Snap]] — A wrist bracer that unfolds into a hand-free shield granting +2 AC to Perrin Black-Jaw.
+- [[Truth Stone]] — A stone that draws true answers from its holder, passed to Jean-Claude Tabarnack by Beaumont Sel.
 
 ## Vehicles
 

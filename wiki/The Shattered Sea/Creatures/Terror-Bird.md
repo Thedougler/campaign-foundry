@@ -16,7 +16,7 @@ sources:
 - **Used by.** [[Unsaid Macaw]] patrols the same territory.
 
 > [!narration] First sight
-> The terror-bird reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> The trail begins to thrum, pebbles ticking together along its length. Moss quivers on a hump beside the path, and the hump rises on legs thick as fence posts. It keeps rising past the fern tops until a beaked head swings into view above them. A first stride carries it onto the trail, dead straight and building speed, and the beak opens wide enough for a head and shoulders.
 
 ## Statblock
 

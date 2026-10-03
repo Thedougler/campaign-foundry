@@ -20,7 +20,7 @@ parent: "[[Aruhe]]"
 - **Danger.** Current, deep pools, razer-grass, grubnades and otters that treat taking as theft.
 
 > [!narration] Arrival
-> Clear water braids through channels wide enough to follow. Fish flash between submerged grass, roots hang like wet ropes and the sound of moving water stays close.
+> Clear water splits and rejoins beside you in channels broad enough for travel. Fish flash among submerged grass. Roots hang like wet ropes above them, and the sound of moving water stays close.
 
 ## Play
 

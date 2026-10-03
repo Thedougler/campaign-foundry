@@ -18,7 +18,7 @@ sources:
 - **Used by.** [[Commoner]] patrols the same territory.
 
 > [!narration] First sight
-> The young bloodhawk reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> Wings clatter in the canopy, and a young bloodhawk bursts out of the leaves after a smaller bird. The chase drops low, and the young hunter tucks its wings to fall on its target from above. One beak strike in midair tumbles the quarry, and the hawk slams it down into the trail. Feathers heaving, the hunter lands on its catch amid a rain of leaves.
 
 ## Statblock
 

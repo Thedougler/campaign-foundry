@@ -16,7 +16,7 @@ sources:
 - **Strength.** One-job hired blades, taken names and blank ledgers conceal its order chain.
 
 > [!narration] Public face
-> A name disappears from the ledger when a hired blade accepts one job without learning who ordered it. Along pilgrim routes and Sentinel way stations, you hear the title Talon before you meet anyone willing to claim it.
+> A hired sword takes the stool beside yours at the grey market, offering one delivery for coin and asking nothing about the payer or the road after it. She works under a taken name, good for this job alone. Each errand she accepts stays a blank line in the ledgers along the pilgrim roads and the station counters, and nobody at the stalls steps up to claim it. But ask the roads who runs such hands, and the same word answers everywhere, Talon.
 
 ## Play
 

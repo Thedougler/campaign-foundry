@@ -15,7 +15,7 @@ sources:
 - **Berth.** Harwick Naval Yard and Crown waters.
 
 > [!narration] First sight
-> Gun decks rise above a grey hull in three rows. White stripe, Crown flag and a blindfolded Tyr at the bow announce a court on the water. Metal shines at every corner. She is not fast because she does not need to be.
+> Three rows of gun decks rise above a grey hull ahead of you. A white stripe and the Crown flag mark her as a floating court, with blindfolded Tyr at her bow. Metal gleams at every corner as she moves slowly because she does not need speed.
 
 ## Play
 

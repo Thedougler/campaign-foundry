@@ -14,7 +14,7 @@ creature: "[[Bazzoth the Steeped]]"
 - **Found at.** Room 5 of the Calveno Sewer Magazines. Deceased after Session 05.
 
 > [!narration] First look
-> An old red-caste Grung stands thick and heavyset behind a bench, bone-plate apron hanging over reagent vials. He grips a drinking gourd as if the next swallow might buy another decade.
+> A thick, heavyset Grung, red-caste and old past counting, waits behind a bench. A bone-plate apron hangs over his reagent vials. He grips a drinking gourd as if the next swallow might buy him another decade.
 
 ## Play
 

@@ -14,7 +14,7 @@ creature: "Shepherd Grigori (Creature)"
 - **Found at.** Noble courts across the Crown Islands and Tessarine Concordat.
 
 > [!narration] First look
-> A rugged man in rich red and gold coats carries wine through the room as though it exists for his conversation. His hands are cold. His eyes hold yours before the pointed question arrives.
+> A rugged man in rich red and gold coats carries wine through the room as though it exists for his conversation. His hands are cold. When his eyes hold yours, the pointed question arrives.
 
 ## Play
 

@@ -18,7 +18,7 @@ sources:
 - **Used by.** [[Snakewood]] patrols the same territory.
 
 > [!narration] First sight
-> The river otter reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> Otters as big as sheepdogs tumble in the shallows, rolling one another under and letting go. One clamps both paws on the end of a trailing line and hauls it under, then bobs up empty-pawed. Another surges from below and fastens on the first one, and the two of them go down in a swirl of foam. Then both surface in a slapping of tails, and the smallest one drags the line away through the weeds.
 
 ## Statblock
 

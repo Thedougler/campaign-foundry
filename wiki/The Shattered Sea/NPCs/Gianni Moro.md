@@ -14,7 +14,7 @@ creature: "[[Commoner]]"
 - **Found at.** The lava-tube ledge, then the party's march out.
 
 > [!narration] First look
-> A broad man sits apart with a cooper's thick forearms and an iron bracelet bent from barrel hoop. His thumb turns it round and round. “Gianni,” he says. “The cooper.”
+> A broad man sits apart with a cooper's thick forearms and an iron bracelet bent from barrel hoop. His thumb turns it round and round, and he mutters his name, “Gianni. The cooper.”
 
 ## Play
 

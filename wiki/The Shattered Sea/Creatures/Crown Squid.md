@@ -16,7 +16,7 @@ sources:
 - **Used by.** [[Deer-Stalker]] patrols the same territory.
 
 > [!narration] First sight
-> The crown squid reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> Where the hanging roots part, a mantle big as a ship's sail hangs under the canopy, propped on eight thick arms. One arm stretches out past the rest, ringed with hooks, and it sways over the gap in the roots. Eight eyes ring the mantle's rim, all of them aimed down into the foliage below. Branches creak under the whole weight, and the hooked arm holds still above the way through.
 
 ## Statblock
 

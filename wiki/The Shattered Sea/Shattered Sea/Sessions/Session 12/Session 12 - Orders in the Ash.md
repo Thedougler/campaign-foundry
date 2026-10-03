@@ -15,7 +15,7 @@ sources:
 - **Who.** Jean-Claude, Hinewai's unseen voice, eleven Grung corpses, and the Calveno column.
 
 > [!narration] Opening
-> The fruit piles lead you out of the trees onto a road fire once cut straight through the forest, where small skeletons lie half swallowed by black flowers. After an hour of forest so dense you could barely see the back in front of you, the long afternoon light pours down the open scar. On either side the trunks have grown fresh bark over charcoal, and underfoot the blossoms squash like soaked sponge, wringing up a reek of rot and copper at every step. A stone's throw on, another heap of windfall lies on a wide leaf next to one of the corpses. The body is no bigger than Jean-Claude, and something gold glints between its ribs.
+> Fruit heaps lead you out of forest so dense that for an hour you could barely see the back ahead of you. They bring you onto a road fire cut straight through the forest, with small skeletons half swallowed by black flowers. Long afternoon light pours along the open scar, where fresh bark covers the charcoal on the trunks lining either side. Underfoot, blossoms squash like soaked sponge, wringing out a reek of rot and copper with every step. Another stone's throw along the trail, a further heap of windfall rests on a wide leaf beside a corpse no larger than Jean-Claude. Something gold glints between its ribs.
 
 ## Play
 

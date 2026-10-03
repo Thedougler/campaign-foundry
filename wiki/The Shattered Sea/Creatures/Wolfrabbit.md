@@ -22,7 +22,7 @@ sources:
 - **Used by.** [[Young Bloodhawk]] patrols the same territory.
 
 > [!narration] First sight
-> The wolfrabbit reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> The wolfrabbit crosses open ground in two bounds, and each landing swings the raking claws almost before its feet touch down. It gathers low before every spring, so you can read each leap before it comes. When one of them falls bleeding, the pack closes on the scent and the frenzy starts there.
 
 ## Statblock
 

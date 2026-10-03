@@ -18,7 +18,7 @@ parent: "[[The Quiet]]"
 - **Prize.** Fallen Giant's Guava and old watch evidence.
 
 > [!narration] Entering
-> Wet black earth runs straight beneath a slit of sky. A low fire ring and clay bowls sit beside old bedrolls, while heavy ribbed fruit hangs over roots pressed close on either side.
+> Wet black earth forms a straight aisle ahead of you, and a narrow gap in the canopy reveals the sky. Old bedrolls lie beside a low fire ring and clay bowls. Ribbed fruit hangs heavy above roots pressed together along either side.
 
 ## Play
 

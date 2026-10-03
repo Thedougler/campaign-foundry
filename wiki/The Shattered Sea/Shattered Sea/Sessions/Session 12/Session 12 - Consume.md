@@ -15,7 +15,7 @@ sources:
 - **Opposition.** Invisible [[Talon Skarn]] and three [[Vine Lash]] creatures awakened by a claim.
 
 > [!narration] Opening
-> Seven thin men sit around a small fire under one vine as broad as a ship's keel, one of them sorting windfall into heaps. Overhead the great stem bows across the whole clearing, creaking under its load, with bundles of bare cord swaying in among the fruit. Beyond the flames black water slides by a moored raft, and along the treeline the last sun turns a drift of pollen to glowing dust. At the trail's entrance, the vine hangs low. A ribbed guava as big as a man's head, smelling of honey and musk, sways close enough to brush Perrin's whiskers beside a pear plated in grey stone. A pale blue whale of light swims up around his cloak, and a voice speaks inside his skull from no throat at all, one word. CONSUME.
+> Seven thin men sit round a small fire beneath a vine as broad as a ship's keel. While one sorts windfall into heaps, the stem bends across the entire clearing and creaks under its load. Bundles of bare cord swing among its fruit above the flames. Beside the fire, black water flows past a raft at its mooring, and the last sun lights drifting pollen along the edge of the trees. Where the trail enters, the vine droops low, bringing a ribbed guava the size of a man's head close enough to brush Perrin's whiskers. Honey and musk rise from it as it sways beside a pear armoured in grey stone. Pale blue light takes a whale's form and swims around his cloak. A voice speaks inside his skull, without a throat, uttering one word. CONSUME.
 
 ## Threads
 
@@ -56,7 +56,7 @@ Skarn has 130 of 195 HP and enters Invisible after eating a Ghost Plum. He targe
 
 ### Hidden truths
 
-- A Giant's Guava sets Perrin's Charisma to 25 for one hour. A Stonepear grants resistance to all damage for one minute.
+- For one hour, a Giant's Guava sets Perrin's Charisma to 25, while a Stonepear grants resistance to all damage for one minute.
 - Vine Lashes attack Perrin first, then the nearest creature that is not one of Hinewai's Calveno.
 
 ### Spotlight

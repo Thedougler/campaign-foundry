@@ -14,7 +14,7 @@ creature: ""
 - **Found at.** Nona's kitchen and safe houses in Le Paludi and the Warren, Calven and Calveno.
 
 > [!narration] First look
-> Behind Nona's right shoulder stands a compact black tabaxi, one hand free while the other passes bread and dried fish. A long pale scar cuts from his left cheekbone to his jaw. His tailored dark suit is immaculate. Filed claws gleam as his ears track every face in the room. “You should take some. Long day ahead.”
+> Behind Nona's right shoulder stands a compact black tabaxi, one hand free while the other passes bread and dried fish. He wears a tailored dark suit, immaculate, and a long pale scar cuts from his left cheekbone to his jaw. Filed claws gleam as his ears track every face in the room. “You should take some. Long day ahead.”
 
 ## Play
 

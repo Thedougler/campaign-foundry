@@ -17,7 +17,7 @@ session_length_hours:
 - **Now.** After Session 11, the Party is camped at the River's slack basin on [[Aruhe]]. [[Jean-Claude Tabarnack]] is catatonic in [[Delmar Fisk]]'s coat, [[Matteo Scola]] wants passage off the island, and [[Talon Skarn]]'s attack on [[Crissdalynn Khinriss]] for the [[Fate Spinner]] remains unresolved. Session 12 Prep begins from this camp.
 
 > [!narration] The Campaign
-> You have each come to the Saltwright by a different road. One survived a wreck, another hides an older name, one was pulled from the sea, and another is one island ahead of hunters. You are together in the hold when Crown sailors come to take the ship. There is no time to explain whose ship it is. Make the hold yours, survive the inspection, and decide what sort of crew can cross a sea where every route belongs to someone else.
+> You reached the Saltwright along separate roads. One of you survived a wreck and another hides an older name, while a third was pulled from the sea. Hunters trail the fourth by one island. Crown sailors board to seize the ship while you are all together in the hold. Explaining whose ship it is will have to wait. Make the hold yours, survive the inspection, and decide what kind of crew crosses a sea where others own every route.
 
 ## Play
 

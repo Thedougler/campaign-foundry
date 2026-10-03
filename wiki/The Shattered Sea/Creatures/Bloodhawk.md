@@ -20,7 +20,7 @@ sources:
 - **Used by.** [[Crown Squid]] patrols the same territory.
 
 > [!narration] First sight
-> The bloodhawk reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> A blood-red bird glides over the treetops on four wide wings, and its shadow slides across the ground toward you. It circles once overhead, and its wings tip at one stretch of ground and hold. The whole bird folds, and the hiss of its stoop builds as it drops. Talons spread beneath it, each claw a hooked sickle, and the shadow covers one of you.
 
 ## Statblock
 

@@ -15,7 +15,7 @@ sources:
 - **Berth.** [[Kalowe]], on the route to Calveno.
 
 > [!narration] First sight
-> The Saltwright rides low on the last stretch toward Calveno, her working deck crowded with lines and the marks of too many crossings. Beaumont Sel holds the wheel while four strangers share the hold below, each arrived by a different road. A Crown cutter closes across the water and runs up the signal for inspection. The gangplank becomes the route between the two vessels.
+> The Saltwright rides low towards Calveno on the voyage's final stretch, her working deck crowded with lines and worn by many crossings. Beaumont Sel holds the wheel above four strangers in the hold, each arrived by a different route. Across the water a Crown cutter approaches, signalling an inspection. A gangplank links the vessels.
 
 ## Play
 

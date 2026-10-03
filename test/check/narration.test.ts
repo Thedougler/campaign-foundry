@@ -39,8 +39,8 @@ function twin(result: Result, rule: string, dirty: [string, string], clean: [str
 const structuralTwins = [
 	["Relative dirty", "A tower that leans toward the road which climbs the hill blocks the way."],
 	["Relative clean", "A tower leans over the uphill road."],
-	["Names dirty", "Mara meets Tovin beside Hobb while Ilse watches."],
-	["Names clean", "Mara meets Tovin beside Hobb."],
+	["Names dirty", "Tovin meets Mara beside Hobb while Ilse watches."],
+	["Names clean", "Tovin meets Mara beside Hobb."],
 	["Traps dirty", "Six slick silver snakes slide past Eileen Dover, who must ring the wring bell."],
 	["Traps clean", "Snakes glide past the watchman beside a brass bell."],
 	["Dialogue clean", 'The ferryman grips his pole and mutters, "Coins first."'],
@@ -124,7 +124,7 @@ describe("cf check --layer narration", () => {
 	it("warns above three proper-name candidates, not at three", () => {
 		twin(added, "invented-names", ["Names dirty", "Names dirty"], ["Names clean", "Names clean"], "Speakable");
 		expect(findings(added, "Names dirty", "Names dirty", "invented-names")[0]?.message)
-			.toContain("Mara, Tovin, Hobb, Ilse");
+			.toContain("Tovin, Mara, Hobb, Ilse");
 	});
 
 	it("warns on spoken traps, not a speakable rewrite", () => {

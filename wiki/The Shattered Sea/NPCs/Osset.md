@@ -14,7 +14,7 @@ creature: "[[Talon Vantyrus]]"
 - **Found at.** The faction routes under the alias Talon Vantyrus. His original name is unrevealed.
 
 > [!narration] First look
-> An aged snowy-owl aarakocra wears Sentinel martial robes stripped of their marks. His pale plumage is mottled with age, and his yellow-gold eyes hold the controlled bearing of a master who once taught the Sentinels.
+> A snowy-owl aarakocra grown old wears Sentinel martial robes with every mark stripped away. Age mottles his pale plumage. Yellow-gold eyes hold the composure of the master who once taught the Sentinels.
 
 ## Play
 

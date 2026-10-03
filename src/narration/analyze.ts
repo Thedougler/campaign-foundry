@@ -109,6 +109,7 @@ const EVALUATIVE_ADJECTIVES = new Set(
 );
 const PROPER_NAME_MAX = 3;
 const PUN_NAME_FIRST = new Set(`Amanda Anita Barry Carrie Dewey Dustin Eileen Ella Justin Paige Sue`.split(" "));
+/** Content-word homophones a listener can mishear. Function words (to/two, there/their, not/knot) are parsed by grammar, so they are no trap. */
 const HOMOPHONE_GROUPS = [
 	["allowed", "aloud"],
 	["bare", "bear"],
@@ -119,7 +120,6 @@ const HOMOPHONE_GROUPS = [
 	["grate", "great"],
 	["hole", "whole"],
 	["knight", "night"],
-	["knot", "not"],
 	["pair", "pare", "pear"],
 	["peace", "piece"],
 	["right", "rite", "write"],
@@ -130,11 +130,8 @@ const HOMOPHONE_GROUPS = [
 	["sight", "site"],
 	["sole", "soul"],
 	["steel", "steal"],
-	["their", "there", "they're"],
-	["to", "too", "two"],
 	["weak", "week"],
-	["wear", "where"],
-	["whose", "who's"],
+	["wear", "ware"],
 ];
 
 const COMMON_SENTENCE_STARTS = new Set(`A An And But Cold Creature DM Each He In It Item Long NPC Once Party Players Scene Session She Some The They This You World`.split(" "));
@@ -158,16 +155,28 @@ function relativeChains(text: string): string[] {
 	return narrationSentences(text).filter((sentence) => count(sentence, /\b(?:which|that)\b/gi) >= 2);
 }
 
-function properNouns(text: string): string[] {
-	const result = new Set<string>();
-	for (const match of text.matchAll(/\b[A-Z][\p{L}'’-]*(?:[- ][A-Z][\p{L}'’-]*)*/gu)) {
-		const at = match.index ?? 0;
-		const previous = text.slice(0, at).trimEnd().at(-1);
+/**
+ * Invented proper names in the block: capitalised words and runs that are not Canon. A name made only of words
+ * from the vault's page names and aliases is Canon (the Players' own names, a recap's cast). A single capitalised
+ * word that opens a sentence counts only when it also appears capitalised mid-sentence or is no English word, so
+ * "Her cannon", "Traders wait" and "Water swallowed him" introduce no names.
+ */
+function properNouns(text: string, names: ReadonlySet<string>, isWord: (word: string) => boolean): string[] {
+	const found: { value: string; opens: boolean }[] = [];
+	// "Pearl of Souls" and "Sentinels of the Eyrie" are one name: lowercase "of"/"of the" joins capitalised words.
+	for (const match of text.matchAll(/\b[A-Z][\p{L}'’-]*(?:(?:[- ]| of (?:the )?)[A-Z][\p{L}'’-]*)*/gu)) {
+		const previous = text.slice(0, match.index).trimEnd().at(-1);
 		const value = match[0].trim();
-		if ((previous === "." || previous === "!" || previous === "?" || previous === undefined) && COMMON_SENTENCE_STARTS.has(value)) continue;
-		if (value.length > 1) result.add(value);
+		if (value.length > 1) found.push({ value, opens: previous === "." || previous === "!" || previous === "?" || previous === undefined });
 	}
-	return [...result];
+	const midSentence = new Set(found.filter((f) => !f.opens).map((f) => f.value));
+	// ponytail: Canon is judged word by word, so an invented name built from page-name words ("Star Bank") passes.
+	const counted = found.filter(({ value, opens }) => {
+		const words = value.split(/[\s-]+/).filter((w) => w !== "of" && w !== "the").map((w) => w.replace(/['’]s$/, ""));
+		if (words.every((w) => names.has(w))) return false;
+		return !opens || (!COMMON_SENTENCE_STARTS.has(value) && !STOP.has(normalise(value)) && (/[- ]/.test(value) || midSentence.has(value) || !isWord(value.toLowerCase())));
+	});
+	return [...new Set(counted.map((f) => f.value))];
 }
 
 function spokenTraps(text: string): { type: "tongue-twister" | "alliteration" | "pun-name" | "homophone"; text: string }[] {
@@ -246,20 +255,27 @@ export interface AnalyzeInput {
 	/** The callout body, `>` markers already stripped. */
 	body: string;
 	sources: SourceWords[];
+	/** Words of the vault's page names and aliases: a name made only of them is Canon, not invented. */
+	names?: ReadonlySet<string>;
+	/** Whether a lowercase word is English: a sentence-opening English word is not a name. */
+	isWord?: (word: string) => boolean;
+	/** Swaps page names in text for words no source holds, so echo never counts a shared name as shared phrasing. */
+	maskNames?: (text: string) => string;
 }
 
-export function analyzeCallout({ body, sources }: AnalyzeInput): CalloutReport {
+export function analyzeCallout({ body, sources, names = new Set(), isWord = () => false, maskNames = (t) => t }: AnalyzeInput): CalloutReport {
 	const text = plainText(body);
 	const outside = text.split(SPEECH);
 	const sentences = narrationSentences(text);
 	const unspoken = outside.join(" ");
 	const evaluativeAdjectiveStacks = evaluativeStacks(unspoken);
 	const relativeClauseChains = relativeChains(unspoken);
-	const inventedProperNouns = properNouns(unspoken);
+	const inventedProperNouns = properNouns(unspoken, names, isWord);
 	const spokenWordTraps = spokenTraps(text);
 	const dialogueAttributions = findDialogueAttributions(text);
 
-	const echo = findEcho(outside, sources);
+	// A name is no shared phrasing: masked in the callout only, it never matches a source word, so a run stops at it.
+	const echo = findEcho(outside.map(maskNames), sources);
 
 	const starts = sentences.map((s) => (s.match(WORD) ?? []).slice(0, 2));
 	const runs: { from: number; to: number; starts: string[] }[] = [];

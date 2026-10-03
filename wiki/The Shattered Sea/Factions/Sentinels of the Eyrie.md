@@ -14,7 +14,7 @@ sources:
 - **Strength.** Two centuries of monastic training and continuous observation since 1295 DR.
 
 > [!narration] Public face
-> Aarakocra monks have held High Eyrie for two centuries. They record time, weather, position, water and occurrence at the Drowned The Maw matters, not the reason. Exact movement in peak wind is the training standard. Fairness is not part of it.
+> Aarakocra monks have kept High Eyrie for two centuries. They record time, weather, position, water and occurrence at the Drowned Maw. The place matters, not the reason. Exact movement in peak wind is the training standard. Fairness is not part of it.
 
 ## Play
 

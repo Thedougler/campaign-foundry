@@ -15,7 +15,7 @@ sources:
 - **Strength.** Safe kitchens, family couriers, hidden Holds, ships and commercial cover.
 
 > [!narration] Public face
-> People who cannot use the official docks still move. You eat first in a kitchen that already knows your name, then leave on a boat that looks like ordinary trade. Inspectors find commercial paper, not a passenger list. You ask for Nona if you already know to ask.
+> People who cannot use the official docks still move. You eat first in a kitchen that already knows your name, then leave on a boat with the look of ordinary trade. Inspectors find commercial paper, not a passenger list. You ask for Nona if you already know to ask.
 
 ## Play
 

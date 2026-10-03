@@ -14,7 +14,7 @@ creature: "[[Commoner]]"
 - **Found at.** The lava-tube ledge beneath the smoking skylight.
 
 > [!narration] First look
-> A lanky boy's lips move over a count he has not finished. “Four of us,” he says. “Three can walk. How many can you carry?”
+> A lanky boy's lips move over a count he has not finished, and he gives you the numbers, “Four of us. Three can walk. How many can you carry?”
 
 ## Play
 

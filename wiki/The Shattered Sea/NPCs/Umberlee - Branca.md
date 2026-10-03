@@ -14,7 +14,7 @@ creature: "[[Commoner]]"
 - **Found at.** Calveno's Waveservant appointments and shrines.
 
 > [!narration] First look
-> A senior Calveno Waveservant keeps the appointment and delivers the message without softening it. Bring the Pearl of Souls first. Only then will the commissioners be discussed.
+> A senior Calveno Waveservant keeps the appointment and delivers the message without softening it. The very Pearl of Souls must come to her first, before any other matter. Only then does she discuss the commissioners.
 
 ## Play
 

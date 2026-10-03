@@ -14,7 +14,7 @@ sources:
 - **Used by.** [[Grung]] patrols the same territory.
 
 > [!narration] First sight
-> The commoner reveals itself through a distinctive silhouette and the tell of its signature attack, making its danger clear before it strikes.
+> An ordinary person faces you with a club gripped in both hands, feet set wide and weight rocking heel to heel. The club rises in a slow, wide arc, and it hangs at the top long enough for anyone to step clear. Untrained hands give every swing away.
 
 ## Statblock
 

@@ -20,7 +20,7 @@ parent: "[[Midchain]]"
 - **Danger.** Taking living things wakes hostile local life. Growth, healing and rot run beyond normal limits.
 
 > [!narration] Arrival
-> From offshore you see a vast green volcano around a dark crater lake, gold-tan bands on its slopes and white water on the reef. No road, field or smoke breaks the island's crowded life.
+> From offshore, a vast green volcano rises around a dark crater lake, gold-tan bands mark its slopes and white water foams on the reef. No road, field or smoke breaks the island's crowded life.
 
 ## Play
 
