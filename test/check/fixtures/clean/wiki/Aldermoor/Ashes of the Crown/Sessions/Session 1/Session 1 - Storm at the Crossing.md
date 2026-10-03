@@ -13,7 +13,7 @@ sources: []
 - **Who.** [[Mara Voss]]
 
 > [!narration] Opening
-> Spoken text for the table.
+> Thunder splits the crossing's black water.
 
 ## Play
 

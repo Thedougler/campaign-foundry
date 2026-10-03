@@ -12,7 +12,7 @@ env -u QMD_CONFIG_DIR qmd query $'intent: Find active Shattered Sea Campaign con
 env -u QMD_CONFIG_DIR qmd get '#6105a3'
 ```
 
-The docid is an example; retrieve the actual result of this query. Omit `--index`. Skill-eval Runners use their bound read-only `qmd_query`/`qmd_get` capabilities over the same live index (`evals/README.md`).
+The docid is an example; retrieve the actual result of this query. Omit `--index`. Eval Runners reach the same live index through the `xd://mcp__qmd_query` and `xd://mcp__qmd_get` devices (`evals/README.md`).
 
 Read and edit Wiki pages through `vault://_/` (the active vault) or their `wiki/` paths. The `qmd-refresh` post hook re-indexes QMD after each `write` or `edit` under `wiki/`, `raw/` or `archive/`, so filing needs no manual `qmd update`.
 
@@ -37,19 +37,20 @@ Give writers disjoint files and pass briefs and artifact paths explicitly. Set `
 Select an agent by its responsibility:
 
 - `skill-writer` (`@SKILL-WRITER`) authors every large or novel change to agent-facing text: skills, `.omp/agents/`, `AGENTS.md`, runbooks and pointers. The orchestrator writes its briefs, owns acceptance criteria, eval fixtures, Wiki and integration, and leaves those files to it.
-- `test-subject` (`@TEST-SUBJECT`) runs each eval case or baseline; `prose-grader` (`@PROSE-GRADER`) grades rubrics independently; `dnd-benchmark-*` serve `skill://dnd-benchmark`.
+- `test-subject` (`@TEST-SUBJECT`) runs each eval case or baseline and `prose-grader` (`@PROSE-GRADER`) grades rubrics independently; both are native `task` dispatches whose frontmatter `tools:` is read-only, batched per `evals/README.md`.
 - `creative-writer` (`@CREATIVE-WRITER`) takes explicit creative-writing dispatches outside skill evals.
 
-Preserve each native completion's model selector, identity and thinking level; pair only matching identities and thinking levels. Blocking runners and graders keep exact completion metrics in `details.results`.
+Preserve each completion's model selector, identity and thinking level where observed; pair only matching identities and thinking levels.
 
-Delegation stays native. When a run needs a model or isolation native delegation cannot provide, such as a Benchmark Matrix pin, name the missing capability and use the command the owning skill documents.
+Delegation stays native, except description trigger checks and Benchmark runners and Judge: those are read-only `omp -p` processes whose commands `skill-creator` and `dnd-benchmark` document.
 
 ## Tools
 
 - **Search code** with scoped `find` for unknown locations, `grep` for known literals, `ast_grep` for structural patterns and `lsp` for references and definitions. Edits report no diagnostics, so request `lsp` diagnostics on touched TypeScript before reporting code complete.
 - **Judge** bounded classification, yes/no or ranking over a small state with eval `judge`: read `xd://eval/judge` once, batch independent questions over the same evidence into one call and use `judge_batch` for multiple states. Send only the evidence the criteria need; a failed judge item is a tool failure, so inspect `item.error` before concluding.
-- **Grade** Narration and other authored prose with `prose-grader`, dispatched with `outputSchema`: it reads the writing, which Jev does not. Execution, diffs, isolation and `eval:check` stay with the orchestrator.
-- **Long work.** Keep `context_notes` current with the goal, decisions, touched paths and next step, and call `new_context` at phase boundaries. Eval cells running past a minute move to the background and deliver their result on their own; continue other work meanwhile.
+- **Grade** Narration and other authored prose with `prose-grader`, dispatched as in `evals/README.md`: it reads the writing, which Jev does not. Execution, diffs, isolation and Checks stay with the orchestrator.
+- **No browser for verification.** Check generated pages such as `cf eval review` HTML from the command's own output. Open a browser only when the DM asks for it.
+- **Long work.** Keep `context_notes` current with the goal, decisions, touched paths and next step, and call `new_context` at phase boundaries. Trigger-check and Benchmark `omp -p` jobs run in the background; continue other work meanwhile.
 
 ## Skill tooling
 

@@ -13,6 +13,8 @@ export interface Finding {
 	message: string;
 	/** An actionable fix instruction, with an example wherever one helps. */
 	hint: string;
+	/** `error` fails the gate; `warning` is reported and does not. */
+	severity: "error" | "warning";
 }
 
 /** A change to disk. `path`, `from` and `to` are vault-relative. */

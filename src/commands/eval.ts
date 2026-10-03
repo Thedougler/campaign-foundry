@@ -74,7 +74,7 @@ function extractCommand(): Command {
 			"after",
 			`
 Dumps callout text for token efficiency. The grader still reads the prose and judges it.
-cf narration scores drafts; this command does not.
+cf check reports mechanical Narration findings; this command does not grade drafts.
 
 Exit codes:
   0  printed    2  usage error

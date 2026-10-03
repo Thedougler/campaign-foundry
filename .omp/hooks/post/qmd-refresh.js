@@ -19,14 +19,8 @@ function isInside(parent, candidate) {
   return path === "" || (path !== ".." && !path.startsWith(`..${sep}`) && !isAbsolute(path));
 }
 
-function isEvalPath(value) {
-  const parts = resolve(value).split(sep).filter(Boolean);
-  return parts.some((part) => part.startsWith("campaign-foundry-eval-"));
-}
-
 function protectedRunner(ctx) {
-  if (ctx?.agent?.kind === "sub" && String(ctx.agent.name).toLowerCase() === "test-subject") return true;
-  return typeof ctx?.cwd === "string" && isEvalPath(ctx.cwd);
+  return ctx?.agent?.kind === "sub" && ["test-subject", "prose-grader"].includes(String(ctx.agent.name).toLowerCase());
 }
 
 function fileInputPath(value, cwd) {
@@ -60,9 +54,9 @@ function nearestCanonicalPath(candidate) {
 
 function canonicalLiveWrite(value, cwd) {
   const candidate = fileInputPath(value, cwd);
-  if (!candidate || isEvalPath(candidate)) return null;
+  if (!candidate) return null;
   const canonical = nearestCanonicalPath(candidate);
-  if (!canonical || isEvalPath(canonical)) return null;
+  if (!canonical) return null;
   return liveRoots.some((root) => root && isInside(root, canonical)) ? canonical : null;
 }
 

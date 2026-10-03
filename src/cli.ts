@@ -14,11 +14,7 @@ Examples:
   cf check                       gate the whole Wiki
   cf check --fix                 gate it, applying mechanical fixes
   cf check --help                options, layers and more examples
-  cf lint --world Aldermoor --fix
-                                 mechanical template, links, placement, index
   cf index                       regenerate the index.md files
-  cf narration "Ilse Corran" --callout "First look" --band 60-100
-                                 check a Narration draft before filing it
   cf encounter-budget --levels 5,5,5,5 --creature "Orc,1/2,100,3"
                                  2024 Encounter XP budgets and Creature spend
   cf eval extract "Ilse Corran" --callout "First look"

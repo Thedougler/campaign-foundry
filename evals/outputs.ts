@@ -1,5 +1,4 @@
 import { lstatSync, readFileSync, readdirSync, realpathSync } from "node:fs";
-import { lstat, mkdir, readFile, realpath, unlink, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 
 export interface RunnerOutput {
@@ -70,46 +69,4 @@ export function readRunnerOutput(outputRoot: string): RunnerOutput {
 	visit(root, "");
 	if (reply === undefined) throw new Error("EXECUTION: Runner output is missing reply.md");
 	return { pages, deleted, reply };
-}
-
-/** Check each path component before creating or modifying anything below outputRoot. */
-async function outputTarget(outputRoot: string, path: string): Promise<string> {
-	const parts = path.split("/");
-	let directory = outputRoot;
-	const rootInfo = await lstat(directory);
-	if (rootInfo.isSymbolicLink() || !rootInfo.isDirectory() || await realpath(directory) !== directory) throw new Error("EXECUTION: output root must be a canonical real directory");
-	for (const part of parts.slice(0, -1)) {
-		directory = join(directory, part);
-		await mkdir(directory, { mode: 0o700 }).catch((error: NodeJS.ErrnoException) => { if (error.code !== "EEXIST") throw error; });
-		const info = await lstat(directory);
-		if (info.isSymbolicLink() || !info.isDirectory()) throw new Error("EXECUTION: output parent must be a real directory");
-	}
-	const target = join(outputRoot, path);
-	const info = await lstat(target).catch((error: NodeJS.ErrnoException) => { if (error.code !== "ENOENT") throw error; return undefined; });
-	if (info && (!info.isFile() || info.isSymbolicLink() || info.nlink !== 1)) throw new Error("EXECUTION: output target must be an independent regular file");
-	return target;
-}
-
-async function readDeletions(outputRoot: string): Promise<string[]> {
-	const path = await outputTarget(outputRoot, ".deleted.json");
-	try { return deletionPaths(await readFile(path, "utf8")); }
-	catch (error) { if ((error as NodeJS.ErrnoException).code === "ENOENT") return []; throw error; }
-}
-
-/** Callers serialize mutations per run so page writes and deletions have last-write semantics. */
-export async function writeRunnerOutput(outputRoot: string, path: string, content: string): Promise<void> {
-	path = outputPagePath(path, true);
-	const target = await outputTarget(outputRoot, path);
-	const deleted = await readDeletions(outputRoot);
-	await writeFile(target, content, { mode: 0o600 });
-	if (deleted.includes(path)) await writeFile(join(outputRoot, ".deleted.json"), `${JSON.stringify(deleted.filter((item) => item !== path))}\n`, { mode: 0o600 });
-}
-
-export async function deleteRunnerPage(outputRoot: string, path: string): Promise<void> {
-	path = outputPagePath(path);
-	const target = await outputTarget(outputRoot, path);
-	const deleted = await readDeletions(outputRoot);
-	await unlink(target).catch((error: NodeJS.ErrnoException) => { if (error.code !== "ENOENT") throw error; });
-	if (!deleted.includes(path)) deleted.push(path);
-	await writeFile(join(outputRoot, ".deleted.json"), `${JSON.stringify(deleted)}\n`, { mode: 0o600 });
 }

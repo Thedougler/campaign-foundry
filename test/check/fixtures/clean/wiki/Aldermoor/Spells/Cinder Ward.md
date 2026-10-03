@@ -14,7 +14,7 @@ sources: []
 - **Classes.** Text.
 
 > [!narration] Casting
-> Spoken text for the table.
+> Heat beads along the drawn chalk ring.
 
 ## Play
 

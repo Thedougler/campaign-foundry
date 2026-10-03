@@ -1,0 +1,18 @@
+extends: existence
+message: "Narration supplies a conclusion ('%s'). Give the visible or audible evidence instead."
+level: warning
+scope: blockquote
+ignorecase: true
+tokens:
+  - abandoned
+  - ancient
+  - mysterious
+  - ominous
+  - eerie
+  - strange
+  - bustling
+  - dangerous
+  - angry
+  - afraid
+  - sense of
+  - "can['’]t help but"

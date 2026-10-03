@@ -1,137 +1,84 @@
 # Authoring artifact contracts
 
-Read before writing skill-creator's paired-run or optional diagnostic artifacts. `evals/README.md` owns Runner access, `runSkillEvals` dispatch and Session lifetime; [`eval-loop.md`](eval-loop.md) owns the run layout and comparability decision. These are private parent artifacts beneath `<S>/authoring/<skill>/`, not eval files installed inside a skill.
+Read before writing skill-creator's paired-run or optional diagnostic artifacts. [`eval-loop.md`](eval-loop.md) owns the layout and the comparability decision; `cf eval review` (`evals/review.ts`) reads `eval_metadata.json`, `grading.json`, `benchmark.json` and `feedback.json` in these shapes. All live under `<workspace>/iteration-<N>/`, outside any skill.
 
-## Inputs and review metadata
+## `eval_metadata.json`
 
-### `evals.json`
+In each run directory:
 
-At `<workspace>/evals.json`, generated from selected active YAML case IDs and private criteria. Record integer authoring ID → committed case ID and preparation mapping in `brief.md`.
+```json
+{"eval_id":"clarify-pressure","prompt":"The case prompt from cases.yaml, verbatim"}
+```
+
+`eval_id` is the case id; the viewer groups and sorts runs by it and shows `prompt` above the outputs.
+
+## `grading.json`
+
+In each run directory, written under [`grader.md`](grader.md):
 
 ```json
 {
-  "skill_name": "example-skill",
-  "evals": [{
-    "id": 1,
-    "prompt": "The natural DM request, verbatim",
-    "expected_output": "The requested deliverable and intended behavior",
-    "files": [],
-    "expectations": ["The writing makes the requested choice clear to the DM."]
-  }]
+  "expectations":[
+    {"text":"Checks","passed":true,"evidence":"ok: 3 passed, 0 failed, 0 skipped for npc-design/clarify-pressure"},
+    {"text":"The verbatim rubric","passed":true,"evidence":"The grader's reason, unchanged"}
+  ],
+  "summary":{"passed":2,"failed":0,"total":2,"pass_rate":1}
 }
 ```
 
-- `skill_name` matches frontmatter. Each `id` is a unique integer.
-- `prompt` is the selected task; `expected_output` is a human-readable target.
-- Optional `files` names the case's live `source_pages` and `raw_sources`, never a skill-local files directory.
-- `expectations` is the normalized verbatim prose-rubric list. Normalize legacy `assertions` once; keep deterministic constraints in `eval:check`, separate from Grade.
-
-At `<iteration>/<eval-name>/eval_metadata.json`, save `{eval_id, eval_name, prompt, assertions}`. `eval_name` matches its descriptive directory; `assertions` copies the normalized expectations. The static viewer consumes this metadata; it remains private to the parent and human review.
-
-## Grade and run evidence
-
-### Native Grade → `grading.json`
-
-The parent supplies a strict native `outputSchema` for this result, requiring all shown fields, boolean `pass`, and no extra properties:
-
-```json
-{"grades":[{"rubric":"The verbatim rubric","pass":true,"reason":"Session 12 - Dawn Strike.md: ‘The bell stops. A boot scrapes behind the door.’ establishes an immediate physical cue."}]}
-```
-
-Require exactly one entry per expectation in original order with identical text. Missing required evidence is a grading error, not a fabricated verdict. The parent maps once: `rubric → text`, `pass → passed`, `reason → evidence`, and computes the summary. Save at `<run-dir>/grading.json`:
-
-```json
-{
-  "expectations": [{"text":"The verbatim rubric","passed":true,"evidence":"The grader's reason, unchanged"}],
-  "summary": {"passed":1,"failed":0,"total":1,"pass_rate":1}
-}
-```
-
-`passed + failed = total`; `pass_rate = passed / total` when total is positive. An empty rubric set has zero counts and no pass rate. This artifact contains Grade, not executor metrics, gate logs or self-reported claims. Graders yield structured results; only the parent writes the authoring artifact.
-
-### `report.json`, `timing.json` and provenance
-
-`<run-dir>/report.json` copies the case's `runSkillEvals` report entry verbatim: `id`, `controlRoot`, `completionEvidence`, `checks`, `checkFailed` and, when present, `grades`, `gradeError` and `executionError`. `<run-dir>/source-hashes.json` copies the run's source hashes.
-
-`runSkillEvals` reports neither timing nor model identity. Write `<run-dir>/timing.json` only from exact native completion fields observed elsewhere:
-
-```json
-{"total_tokens":3800,"duration_ms":42500,"total_duration_seconds":42.5}
-```
-
-Map native `tokens` to `total_tokens`, `durationMs` to `duration_ms`, and divide that observed duration by 1000 for seconds. Omit unavailable fields and leave the file absent when nothing was observed. `model.json` records observed runner provenance `{runner_family, model}`: derive the family from the observed provider prefix and copy the complete observed selector, including a thinking suffix, verbatim. Grader provenance is `grader-model.json`. Configured roles are requested settings, not observations. Each separate comparator/analysis dispatch keeps its own provenance and evidence.
+`passed + failed = total`; `pass_rate = passed / total`, omitted when `total` is 0.
 
 ## `benchmark.json`
 
-At `<iteration>/benchmark.json`, this is the paired authoring summary, not the cross-family Narration Benchmark. Required keys are `metadata`, `runs` and `notes`; `run_summary` exists only when there are comparable observations.
+At `<iteration-dir>/benchmark.json`: the paired authoring summary, not the cross-family Narration Benchmark. Required keys are `metadata`, `runs` and `notes`; `run_summary` exists only when there is at least one comparable pair.
 
 ```json
 {
-  "metadata": {
-    "skill_name":"example-skill",
-    "skill_path":"/absolute/candidate/path",
-    "timestamp":"2026-10-01T10:30:00Z",
-    "evals_run":[1],
-    "runs_per_configuration":1
-  },
+  "metadata":{"skill_name":"example-skill","skill_path":".omp/skills/example-skill","timestamp":"2026-10-01T10:30:00Z","evals_run":["clarify-pressure"],"runs_per_configuration":1},
   "runs":[{
-    "eval_id":1,
-    "eval_name":"clarify-pressure",
+    "eval_id":"clarify-pressure",
     "configuration":"with_skill",
     "run_number":1,
-    "result":{"pass_rate":1,"passed":1,"failed":0,"total":1,"time_seconds":42.5,"tokens":3800},
-    "expectations":[{"text":"The verbatim rubric","passed":true,"evidence":"The grader's reason"}],
+    "result":{"pass_rate":1,"passed":2,"failed":0,"total":2},
+    "expectations":[{"text":"Checks","passed":true,"evidence":"ok: 3 passed, 0 failed, 0 skipped for example-skill/clarify-pressure"},{"text":"The verbatim rubric","passed":true,"evidence":"The grader's reason"}],
     "notes":[]
   },{
-    "eval_id":1,
-    "eval_name":"clarify-pressure",
+    "eval_id":"clarify-pressure",
     "configuration":"old_skill",
     "run_number":1,
-    "result":{"pass_rate":0,"passed":0,"failed":1,"total":1,"time_seconds":32,"tokens":2100},
-    "expectations":[{"text":"The verbatim rubric","passed":false,"evidence":"The grader's reason"}],
+    "result":{"pass_rate":0.5,"passed":1,"failed":1,"total":2},
+    "expectations":[{"text":"Checks","passed":true,"evidence":"ok: 3 passed, 0 failed, 0 skipped for example-skill/clarify-pressure"},{"text":"The verbatim rubric","passed":false,"evidence":"The grader's reason"}],
     "notes":[]
   }],
   "run_summary":{
-    "with_skill":{
-      "pass_rate":{"mean":1,"stddev":0,"min":1,"max":1},
-      "time_seconds":{"mean":42.5,"stddev":0,"min":42.5,"max":42.5},
-      "tokens":{"mean":3800,"stddev":0,"min":3800,"max":3800}
-    },
-    "old_skill":{
-      "pass_rate":{"mean":0,"stddev":0,"min":0,"max":0},
-      "time_seconds":{"mean":32,"stddev":0,"min":32,"max":32},
-      "tokens":{"mean":2100,"stddev":0,"min":2100,"max":2100}
-    },
-    "delta":{"pass_rate":"+1.00","time_seconds":"+10.5","tokens":"+1700"}
+    "with_skill":{"pass_rate":{"mean":1,"stddev":0,"min":1,"max":1}},
+    "old_skill":{"pass_rate":{"mean":0.5,"stddev":0,"min":0.5,"max":0.5}},
+    "delta":{"pass_rate":"+0.50"}
   },
   "notes":[]
 }
 ```
 
-- `configuration` is exactly `with_skill`, `without_skill` (new skill) or `old_skill` (revision). Keep every dispatched run, including excluded/error runs, with with-skill before its baseline counterpart. `run_number` starts at 1.
-- `result` nests observed grading counts/rate and available `time_seconds`, `tokens`, `tool_calls`, `errors`. Count tool calls/errors only from complete relevant evidence; an omitted field means unavailable, not zero. Ungraded runs omit grade fields and carry the error in `notes`.
-- Optional metadata `executor_model` requires a common observed runner identity; optional `analyzer_model` requires an actual analysis dispatch. Keep mixed or missing identities in provenance and notes.
-- The parent admits pairs only through `eval-loop.md`'s comparability decision. Per metric, both configurations use exactly the same comparable observations with that metric available on both sides.
-- Import `calculateStats(values)` from `evals/authoring.ts`; it returns `{mean,stddev,min,max}` with sample standard deviation (one observation: zero) and four-decimal rounding. Omit unavailable summaries instead of passing empty/fabricated values.
-- `delta` belongs inside `run_summary`: with-skill mean minus baseline mean, signed strings with two decimals for pass rate, one for seconds and none for tokens. Omit unavailable metrics. With no comparable pairs, omit the entire summary and explain why in `notes`.
+- `runs[]` has one entry per run directory, with-skill before its baseline counterpart; `configuration` is the directory name (`with_skill`, `without_skill`, `old_skill`); `run_number` starts at 1. `expectations` and `result` copy the run's `grading.json`.
+- An execution or grading error keeps its run entry with `result: {"errors": 1}` and the reason in that run's `notes`.
+- `result.time_seconds` and `result.tokens` exist only where the Runner task result reported that run's duration and tokens; otherwise omit them and their summaries.
+- `run_summary` holds one `calculateStats` result per metric per configuration, over comparable pairs only, so both configurations average the same cases.
+- `delta` sits inside `run_summary`: with-skill mean minus baseline mean as a signed string — two decimals for `pass_rate`, one for `time_seconds`, none for `tokens`.
+- With no comparable pair, omit `run_summary` and say why in `notes`.
 
-The existing `benchmark.md` is a concise rendering of these same results and exclusions. The static reviewer reads `benchmark.json`; Markdown does not supply missing metrics.
+## `feedback.json`
 
-## Human feedback
-
-The static Outputs reviewer downloads `feedback.json`. Import it verbatim at `<iteration>/feedback.json`:
+The viewer's **Download feedback.json** export, saved verbatim at `<iteration-dir>/feedback.json`:
 
 ```json
-{"reviews":[{"run_id":"clarify-pressure-with_skill-run-1","feedback":"Make the choice visible sooner."}],"status":"complete"}
+{"reviews":[{"run_id":"with_skill-clarify-pressure","feedback":"Make the choice visible sooner."}],"status":"complete"}
 ```
 
-Preserve the renderer's actual run IDs and any other exported fields. Empty feedback is approval for that run. Only a DM export establishes review; generating HTML does not.
+`run_id` is the run directory's path under the iteration, joined with `-`. Empty feedback means the run looked fine.
 
-## Optional comparison and diagnosis
+## `comparison.json`
 
-### `comparison.json`
-
-The comparator yields this strict `outputSchema` contract; the parent validates and saves it at the assigned private comparison path:
+The `prose-grader` result of a [`comparator.md`](comparator.md) dispatch, saved unchanged:
 
 ```json
 {
@@ -141,19 +88,19 @@ The comparator yields this strict `outputSchema` contract; the parent validates 
 }
 ```
 
-Require `winner` enum `A | B | tie`, nonempty `reasoning` and an `evidence` array of `{criterion,a,b}` strings quoting both outputs. For an absent feature, quote the nearest relevant passage and explain the absence. A tie is a valid outcome. Keep the A/B mapping outside the comparator input. This is advisory quoted evidence, not numeric scores or a second Grade ledger.
+`winner` is `A`, `B` or `tie`; every `evidence` entry quotes both outputs. The A/B mapping stays in `brief.md`, never in the comparator's prompt.
 
-### `analysis.json`
+## `analysis.json`
 
-The parent performs diagnosis itself or asks a fresh native `prose-grader` for this structured `outputSchema` result, then validates and saves it at the assigned private analysis path:
+The `prose-grader` result of an [`analyzer.md`](analyzer.md) dispatch, or the parent's own analysis, in this shape:
 
 ```json
 {
-  "observations":[{"finding":"Both runs postpone the actionable choice.","evidence":["run-1/outputs/reply.md: ‘The ferryman waits.’"],"scope":"Comparable pair 1 only"}],
-  "instruction_following":[{"configuration":"with_skill","finding":"The output misses the skill's completion criterion.","evidence":["SKILL.md: ‘Done when the choice is explicit.’","run-1/outputs/: the saved page contains no explicit choice."]}],
-  "improvement_suggestions":[{"priority":"high","category":"instructions","suggestion":"End the opening step on a presentable choice.","evidence":["The cited criterion and output above"],"expected_impact":"Would make the DM's next action explicit."}],
+  "observations":[{"finding":"Both runs postpone the actionable choice.","evidence":["with_skill/clarify-pressure/outputs/reply.md: ‘The ferryman waits.’"],"scope":"Pair clarify-pressure only"}],
+  "instruction_following":[{"configuration":"with_skill","finding":"The output misses the skill's completion criterion.","evidence":["SKILL.md: ‘Done when the choice is explicit.’","outputs/: no page states the choice."]}],
+  "improvement_suggestions":[{"priority":"high","category":"instructions","suggestion":"End the opening step on a presentable choice.","evidence":["The criterion and output above"],"expected_impact":"Makes the DM's next action explicit."}],
   "limitations":["One pair cannot establish a general effect."]
 }
 ```
 
-Require all four top-level arrays. `observations` entries have `{finding,evidence,scope}`; `instruction_following` entries have `{configuration,finding,evidence}`; `improvement_suggestions` entries have `{priority,category,suggestion,evidence,expected_impact}`. Evidence is an array of cited quotations or exact observed artifact fields. Priority is `high | medium | low`; category is `instructions | tools | examples | error_handling | structure | references`. `limitations` is a string array. An aggregate-only assignment leaves diagnosis arrays empty when the evidence cannot support them. A tie needs no invented winner/loser. Grade and comparison results remain unchanged.
+All four arrays are required. `priority` is `high | medium | low`; `category` is `instructions | tools | examples | error_handling | structure | references`. Evidence entries quote saved artifacts.

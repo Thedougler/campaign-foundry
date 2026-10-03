@@ -59,6 +59,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 			const advice = HINTS[rule] ?? `See ${e.ruleInformation}.`;
 			findings.push({
 				layer: LAYER,
+				severity: "error",
 				rule,
 				path: ctx.display(page.path),
 				line: e.lineNumber,

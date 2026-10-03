@@ -33,7 +33,7 @@ Text.
 ## Story
 
 > [!narration] Portrait
-> Spoken text for the table.
+> A salt-cut scar crosses his left brow.
 
 ### Backstory
 

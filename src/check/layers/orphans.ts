@@ -49,6 +49,7 @@ export function run(ctx: CheckContext): Finding[] {
 		const where = type ? LINK_FROM[type] : undefined;
 		findings.push({
 			layer: LAYER,
+			severity: "error",
 			rule: "orphan",
 			path: ctx.display(page.path),
 			line: 1,

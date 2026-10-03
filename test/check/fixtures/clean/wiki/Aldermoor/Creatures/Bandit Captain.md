@@ -13,7 +13,7 @@ sources: []
 - **Used by.** [[Mara Voss]]
 
 > [!narration] First sight
-> Spoken text for the table.
+> Iron rings click on his sword hand.
 
 ## Statblock
 

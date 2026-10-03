@@ -4,9 +4,7 @@ import { checkCommand } from "./check.ts";
 import { encounterBudgetCommand } from "./encounter-budget.ts";
 import { evalCommand } from "./eval.ts";
 import { indexCommand } from "./index-cmd.ts";
-import { lintCommand } from "./lint.ts";
 import { logCommand } from "./log.ts";
-import { narrationCommand } from "./narration.ts";
 import { pullCommand } from "./pull.ts";
 import { pushCommand } from "./push.ts";
 
@@ -20,9 +18,7 @@ export const commands: (() => Command)[] = [
  encounterBudgetCommand,
  evalCommand,
  indexCommand,
- lintCommand,
  logCommand,
- narrationCommand,
  pullCommand,
  pushCommand,
 ];

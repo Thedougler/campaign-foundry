@@ -16,7 +16,7 @@ export function run(ctx: CheckContext): Finding[] {
 	for (const page of ctx.vault.pages) {
 		const path = ctx.display(page.path);
 		const add = (rule: string, line: number, message: string, hint: string): void => {
-			findings.push({ layer: LAYER, rule, path, line, message, hint });
+			findings.push({ layer: LAYER, severity: "error", rule, path, line, message, hint });
 		};
 		for (const { key, line } of page.unquotedFrontmatterLinks) {
 			add("unquoted-frontmatter-link", line, `Property \`${key}\` holds an unquoted wikilink, which YAML reads as a nested list.`, `Quote it: \`${key}: "[[Page Name]]"\`.`);

@@ -15,7 +15,7 @@ parent: "[[Ravenhold]]"
 - **Prize.** The [[Ashen Lantern]].
 
 > [!narration] Entering
-> Spoken text for the table.
+> Cold water licks the drowned altar stones.
 
 ## Play
 

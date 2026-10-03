@@ -13,7 +13,7 @@ sources: []
 - **Table promise.** Text.
 
 > [!narration] The World
-> Spoken text for the table.
+> Salt fog hides the far channel markers.
 
 ## Calendar
 

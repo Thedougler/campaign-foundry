@@ -13,7 +13,7 @@ sources: []
 - **Held by.** Text.
 
 > [!narration] First look
-> Spoken text for the table.
+> The glass holds a slow red coal.
 
 ## Play
 

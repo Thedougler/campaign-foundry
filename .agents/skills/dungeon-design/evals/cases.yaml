@@ -1,25 +1,62 @@
-# Grounded adaptation: rescue and a returnable refuge share one exploration Site.
-- id: tubes-and-refuge
+# Default: grounded adaptation combining rescue, nested refuge and repeat expeditions in one exploration Site.
+- id: dungeon
   source_pages:
     - The Shattered Sea/Locations/Lava Tubes.md
     - The Shattered Sea/Locations/The Long Meadow.md
+    - The Shattered Sea/Locations/Memorial Grove.md
+    - The Shattered Sea/Lore/Taking on Aruhe.md
+    - The Shattered Sea/NPCs/Gianni Moro.md
+    - The Shattered Sea/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
   prompt: >-
     Stock the Lava Tubes so I can run the rescue from the smoking skylight
     and exploration beyond it. Make the ledge a small nested Site called
     Lava Tube Refuge that the crew could secure and return to, with routes
     deeper toward Clear Lake and reasons to come back besides fighting.
+    Give me complete pages I can run at the table, including what I read
+    as they enter and how searching, resting and coming back change things.
   checks:
     pages:
       - The Shattered Sea/Locations/Lava Tubes.md
       - The Shattered Sea/Locations/Lava Tube Refuge.md
+    sections:
+      The Shattered Sea/Locations/Lava Tubes.md:
+        - '## At a glance'
+        - '## Play'
+        - '### Areas'
+        - '### Hazards'
+        - '### Occupants'
+        - '### Likely actions'
+        - '## Depth'
+        - '### History'
+        - '### Hidden truths'
+        - '### Threads'
+        - '## Links'
+      The Shattered Sea/Locations/Lava Tube Refuge.md:
+        - '## At a glance'
+        - '## Play'
+        - '### Areas'
+        - '### Hazards'
+        - '### Occupants'
+        - '### Likely actions'
+        - '## Depth'
+        - '### History'
+        - '### Hidden truths'
+        - '### Threads'
+        - '## Links'
     canon:
       The Shattered Sea/Locations/Lava Tubes.md:
         - '^type:\s*Location\s*$'
         - '^kind:\s*Site\s*$'
+        - '^>\s*\[!narration\]\s+Entering\s*$'
       The Shattered Sea/Locations/Lava Tube Refuge.md:
         - '^type:\s*Location\s*$'
         - '^kind:\s*Site\s*$'
         - '^parent:\s*"\[\[Lava Tubes\]\]"\s*$'
+        - '^>\s*\[!narration\]\s+Entering\s*$'
     absent:
       The Shattered Sea/Locations/Lava Tubes.md:
         - '^```statblock\b'
@@ -27,25 +64,46 @@
         - '^```statblock\b'
   rubrics:
     - >-
-      The starting entrances, ledge, tube connections, hazards and survivors'
-      condition remain consistent. Rescue and retreat are traceable through
-      the keys, with existing extraction options and mechanics usable.
-      The actual Party's movement, flight, ropes, healing and participation
-      inform challenges, and the island's taking law reaches underground.
+      The keys alone support an entrance-to-rescue route, deeper exploration
+      and retreat. Connections name both endpoints and agree across the
+      parent Site and nested refuge, with travel costs, advance cues and
+      meaningful alternatives appropriate to the physical tubes. Areas have
+      distinctive activity, occupants, usable features, discoverable answers
+      and exits; quiet areas and noncombat rewards give concrete reasons to
+      explore again. The frontier toward Clear Lake is reachable and bounded,
+      not an unlimited promise of unmapped tunnels.
     - >-
-      Areas have distinctive cues, activity, interactions, discoverable
-      information and exits. Essential progress has independent paths.
-      Hazards offer warnings, triggers, effects, bypasses and counterplay;
-      occupants have wants and responses. Pressure and rest have explicit
-      conditions and consequences rather than an arbitrary expedition clock.
+      Rescue, hazards and confrontations are adjudicable under 2024 5e and
+      applicable House Rules while preserving sourced extraction options
+      and mechanics. Warnings, triggers, effects, counterplay, distinct
+      bypasses and leverage make danger answerable. The actual Party's
+      movement, flight, ropes, healing and current participation inform
+      difficulty; fights have counts, linked Creature rules, sourced
+      calibration where added, purposes, terrain, consequences, nonviolent
+      resolutions and retreat rather than compulsory attrition.
     - >-
-      The nested refuge and its approaches form a coherent, returnable Site.
-      Routes name both ends and agree with the parent Site. Noncombat reasons
-      to return and the frontier toward Clear Lake are discoverable. Rescue,
-      secured ropes, damage or bargains would leave persistent changes, with
-      repair or restocking tied to actors, resources and time.
+      Pressure, rest and return form one coherent procedure the DM can run:
+      the starting state, elapsed-time or action advances, visible signs,
+      threshold consequences and ways to alter progress are explicit.
+      Shelters, exposure, costs and a safer alternative apply 2024 rest rules
+      without pausing the island or its occupants. Secured ropes, damage,
+      depleted rewards, rescues and bargains would persist; repairs and
+      restocking have named causes, resources and time rather than resetting
+      a cleared Site for the next expedition.
     - >-
-      Owner pages hold NPC, Creature and Item rules, and dependencies resolve.
-      New exploration details are prospective design: the trapped survivors
-      have not been rescued, the refuge has not been secured and prepared
-      Session outcomes have not become history.
+      The tubes' history and current situation explain their evidence and
+      occupants' wants. Starting entrances, the ledge, tube connections,
+      survivors' condition and underground taking law remain coherent with
+      the live sources. Essential truths have three independent Clues that
+      survive losing a witness, route or roll, and necessary progress is not
+      gated by one check. NPC, Creature and notable Item dependencies resolve
+      to owner pages. New stock stays prospective: survivors are not already
+      rescued, the refuge is not secured and Session Prep is not played history.
+    - >-
+      Entering and keyed spoken cues make the tubes and refuge pictureable
+      after one hearing, with concrete forms at familiar body scale, placed
+      features, visible movement and an actionable exit or feature. Each
+      cue conveys its area's difference without repeating a generic cave
+      description. Hidden routes, truths, DCs and procedures remain DM-side;
+      no PC action or feeling is assumed, and any live danger stops before
+      Players have their first chance to act.

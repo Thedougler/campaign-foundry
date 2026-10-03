@@ -1,66 +1,88 @@
-# Grounded adaptation of the existing Crown pursuit, not recovered creation history.
-- id: crown-pursuit
+# Default: grounded adaptation of the existing Crown pursuit, not recovered creation history.
+- id: faction
   source_pages:
     - The Shattered Sea/Factions/Dravosi Crown.md
     - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
+    - The Shattered Sea/NPCs/Rupert Knighton.md
+    - The Shattered Sea/NPCs/Corbin Knighton.md
+    - The Shattered Sea/Vehicles/Uncertainty.md
+    - The Shattered Sea/Locations/Calven and Calveno.md
+    - The Shattered Sea/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
   prompt: >-
     Deepen the Dravosi Crown as opposition while the crew is on Aruhe.
     Give me people I can put in front of them, divisions they can exploit
     and an offer that might tempt them. What does the Crown do next if
-    they keep ignoring the pursuit?
+    they keep ignoring the pursuit? Make the whole faction page and its
+    agenda ready to run, including what I read when the crew first meets
+    Crown people at work.
   checks:
     pages:
       - The Shattered Sea/Factions/Dravosi Crown.md
       - The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md
+    sections:
+      The Shattered Sea/Factions/Dravosi Crown.md:
+        - '## At a glance'
+        - '## Play'
+        - '## Depth'
+        - '### History'
+        - '### Hidden truths'
+        - '### Threads'
+        - '## Links'
+      The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md:
+        - '## At a glance'
+        - '## Play'
+        - '## Depth'
+        - '## Links'
     canon:
       The Shattered Sea/Factions/Dravosi Crown.md:
         - '^type:\s*Faction\s*$'
+        - '^>\s*\[!narration\]\s+Public face\s*$'
+      The Shattered Sea/Shattered Sea/Threads/The Crown Inspection.md:
+        - '^type:\s*Thread\s*$'
+        - '^status:\s*active\s*$'
+    absent:
+      The Shattered Sea/Factions/Dravosi Crown.md:
+        - '^```statblock\b'
   rubrics:
     - >-
-      The Crown's inspection-law goal and relationships with existing powers
-      create concrete stakes. Accessible faces have resolving NPC owners;
-      internal divisions and customs are levers grounded in its institutions,
-      authority and interests rather than interchangeable Faction colour.
+      The Crown is a specific, usable institution rather than interchangeable
+      opposition. Its concrete goal, signature method, base, resources and
+      collision with named powers explain why it acts now. A decision-maker
+      and two or three accessible faces have resolving NPC pages and personal
+      wants not identical to the institution's; a recognisable custom and
+      internal fracture give the Party practical leverage rooted in Crown
+      law, naval work, oaths or competing authority.
     - >-
-      The offer names an offerer, benefit and catch relevant to the actual
-      Party's goals, papers and captured vessel. Meeting, opposition,
-      inaction and a broken deal have usable consequences. Hidden truths have
-      independent evidence, and public knowledge remains separate from
-      private officers' knowledge in the starting sources.
+      Play is runnable from the Faction and its linked owners: an offerer,
+      benefit and catch fit the actual Party's goals, papers and captured
+      vessel. Meeting, opposition, inaction and a broken deal each have
+      concrete responses and costs. A hidden truth can change the deal and
+      has three independent, placed Clues of different kinds; information,
+      tasking, payment and access can be used rather than merely described.
     - >-
-      Future pursuit uses the existing Crown Inspection Thread without
-      reopening the resolved boarding or duplicating the agenda. Moves have
-      relative times or triggers, observable signs, stakes and ways for the
-      Party to interrupt them. Resources and escalation follow the starting
-      Crown's limits, including the distinction between crime and heresy.
+      Three to five future milestones advance the existing Crown Inspection
+      Thread without duplicating the agenda or reopening the resolved boarding.
+      Each has a relative time or trigger, an observable advance sign, a
+      changed fact and Party levers; the first matters by the next Session
+      and completion has a clear consequence. Pursuit and escalation obey
+      the live sources' resources and officers' distinct knowledge, including
+      the difference between ordinary crime and confirmed heresy.
     - >-
-      Fighting ranks link Creature owners rather than copying statblocks.
-      New pressure is design, not a played encounter, completed seizure or
-      newly shared secret. Existing Session history and current Party state
-      remain consistent with the starting sources.
-
-- id: countless-hunt
-  source_pages:
-    - The Shattered Sea/Factions/Countless.md
-    - The Shattered Sea/Items/Fate Spinner.md
-    - The Shattered Sea/Shattered Sea/Quests/Rule of Two.md
-  prompt: >-
-    Deepen Countless's hunt for the Fate Spinner. I need faces the Party
-    can meet on pilgrim routes, how a one-job blade is actually tasked,
-    and what happens if they keep the Spinner while ignoring the Talons.
-  checks:
-    pages:
-      - The Shattered Sea/Factions/Countless.md
-    canon:
-      The Shattered Sea/Factions/Countless.md:
-        - '^type:\s*Faction\s*$'
-  rubrics:
+      Existing relationships, owner identities, Session history and current
+      Party state survive; new pressure is design, not a played seizure or
+      newly shared secret. Fighting ranks have usable counts and Creature
+      owners, and added mechanical opposition is correct under 2024 5e and
+      applicable House Rules and calibrated to the actual Party, with warning
+      and off-ramps for overwhelming forces. The offer and agenda do not
+      require a forced fight, scripted theft or predetermined Party choice.
     - >-
-      The hunt stays Countless: one-job agents, taken names, Vantyrus
-      leading, Skarn serving now. Accessible faces have NPC owners.
-      Tasking, payment and missing-name concealment are runnable.
-    - >-
-      Ignoring the hunt has observable next pressure without completing
-      Rule of Two or Skarn's succession. Hidden Spinner-gift aims stay
-      DM-facing. New pressure is design, not a played theft or Session 11
-      rewrite.
+      Public face is speakable after one hearing and shows Crown people
+      doing recognisable work in the Party's frame, with concrete bodies,
+      equipment or hulls at familiar scale, a usable custom and a visible
+      trace of their presence. The public name lands naturally instead of
+      an exposition dump. Secret plans and mechanics stay DM-facing; the
+      text assigns no PC feeling or action and stops before Players act.

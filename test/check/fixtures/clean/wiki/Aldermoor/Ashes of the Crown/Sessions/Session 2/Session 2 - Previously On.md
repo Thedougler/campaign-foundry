@@ -12,4 +12,4 @@ date: "14 Emberfall 1492"
 - **Leads into.** Text.
 
 > [!narration] Previously on
-> Spoken text for the table.
+> Last night the barge lost its lantern.

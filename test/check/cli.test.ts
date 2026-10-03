@@ -33,6 +33,11 @@ describe("cf --help", () => {
 		expect(stdout).toMatch(/^ {2}cf check --fix --dry-run$/m);
 		expect(stdout).toMatch(/^ {2}cf check wiki\/\S+\.md$/m);
 		expect(stdout).toContain("Exit codes:");
+		expect(stdout).toContain("error");
+		expect(stdout).toContain("warning");
+		expect(stdout).toContain("0  no errors (warnings may print)");
+		expect(stdout).toContain("1  errors remain");
+		expect(stdout).toContain("2  usage error");
 	});
 });
 
@@ -43,12 +48,12 @@ describe("cf check: exit codes and output", () => {
 		expect(stdout).toMatch(new RegExp(`^ok: 0 findings, 28 pages, ${layerNames.length} layers \\(${layerNames.join(", ")}\\), \\d+ms$`, "m"));
 	});
 
-	it("exits 1 on findings and prints path:line  layer/rule  message, then an indented fix hint", async () => {
+	it("exits 1 on errors and prints path:line  layer/rule  severity  message, then an indented fix hint", async () => {
 		const { code, stdout } = await cf(["check", ...flags("links"), "--layer", "links"], repoRoot);
 		expect(code).toBe(1);
-		expect(stdout).toMatch(/^test\/check\/fixtures\/links\/wiki\/Aldermoor\/NPCs\/Broken Links\.md:\d+ {2}links\/unresolved {2}Link \[\[Nowhere Keep\]\]/m);
+		expect(stdout).toMatch(/^test\/check\/fixtures\/links\/wiki\/Aldermoor\/NPCs\/Broken Links\.md:\d+ {2}links\/unresolved {2}error {2}Link \[\[Nowhere Keep\]\]/m);
 		expect(stdout).toMatch(/^ {4}fix: .+/m);
-		expect(stdout).toMatch(/^\d+ findings? in \d+ files?, \d+ pages, 1 layer \(links\), \d+ms$/m);
+		expect(stdout).toMatch(/^\d+ findings? \(\d+ errors?, 0 warnings\) in \d+ files?, \d+ pages, 1 layer \(links\), \d+ms$/m);
 	});
 
 	it("exits 2 on usage errors, with a message on stderr", async () => {
@@ -139,7 +144,7 @@ creature: ""
 - **Found at.** [[Ravenhold]]
 
 > [!narration] First look
-> A weathered face, and a nod. See [[${next}]].
+> ${name} nods. See [[${next}]].
 
 ## Play
 

@@ -13,7 +13,7 @@ sources: []
 - **Strength.** Text.
 
 > [!narration] Public face
-> Spoken text for the table.
+> Gold masks turn toward every new tale.
 
 ## Play
 

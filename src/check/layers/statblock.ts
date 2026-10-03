@@ -25,7 +25,7 @@ export function run(ctx: CheckContext): Finding[] {
 		if (isSpecialPage(page)) continue;
 		const path = ctx.display(page.path);
 		const add = (rule: string, line: number, message: string, hint: string): void => {
-			findings.push({ layer: LAYER, rule, path, line, message, hint });
+			findings.push({ layer: LAYER, severity: "error", rule, path, line, message, hint });
 		};
 		const blocks = fences(page);
 		const type = page.frontmatter?.type;

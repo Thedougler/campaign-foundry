@@ -1,7 +1,7 @@
 import { existsSync, realpathSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { Command, Option } from "commander";
-import { formatHuman, formatJson } from "../check/output.ts";
+import { formatHuman, formatJson, gateExitCode } from "../check/output.ts";
 import { UsageError } from "../check/run.ts";
 import { runPull } from "../pull/pull.ts";
 import type { PcOutcome, PullResult } from "../pull/pull.ts";
@@ -57,7 +57,7 @@ export function formatPull(result: PullResult, dryRun: boolean): string {
 export function pullJson(result: PullResult, dryRun: boolean): string {
 	return JSON.stringify(
 		{
-			ok: !result.outcomes.some((o) => o.status === "failed") && (result.gate?.findings.length ?? 0) === 0,
+			ok: !result.outcomes.some((o) => o.status === "failed") && (result.gate ? gateExitCode(result.gate) === 0 : true),
 			dryRun,
 			pcs: result.outcomes.map(({ pc, path, status, sections, summarySet, added, removed, message }) => ({
 				pc, path, status, sections, summarySet, added, removed, ...(message ? { message } : {}),
@@ -134,6 +134,6 @@ Examples:
 				if (result.gate) process.stdout.write(`\ngate: ${formatHuman(result.gate, { fix: false, dryRun: false })}\n`);
 			}
 			const failed = result.outcomes.some((o) => o.status === "failed");
-			process.exitCode = failed || (result.gate?.findings.length ?? 0) > 0 ? 1 : 0;
+			process.exitCode = failed || (result.gate ? gateExitCode(result.gate) === 1 : false) ? 1 : 0;
 		});
 }

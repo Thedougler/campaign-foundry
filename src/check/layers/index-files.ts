@@ -36,7 +36,7 @@ export const indexLayer: Layer = {
 	name: LAYER,
 	description: "index.md at the root and in each World is present and matches what `cf index` generates.",
 	run(ctx: CheckContext): Finding[] {
-		return drift(ctx).map((d) => ({ layer: LAYER, rule: d.rule, path: ctx.display(d.path), line: d.line, message: d.message, hint: HINT }));
+		return drift(ctx).map((d) => ({ layer: LAYER, severity: "error", rule: d.rule, path: ctx.display(d.path), line: d.line, message: d.message, hint: HINT }));
 	},
 	fix(ctx: CheckContext) {
 		const fixes: Fix[] = drift(ctx).map((d) => ({

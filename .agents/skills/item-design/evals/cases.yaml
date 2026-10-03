@@ -1,5 +1,5 @@
-# Grounded adaptation; no original Item-creation ask was recovered. Fate Spinner chat-only lives on theatre-of-the-mind.
-- id: charm-and-letters
+# Grounded adaptation; no original Item-creation ask was recovered.
+- id: item
   source_pages:
     - The Shattered Sea/Locations/Lava Tubes.md
     - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
@@ -7,25 +7,50 @@
     Design an uncommon Rescue Line Charm for Perrin to help keep people
     alive during rope rescues on wet ledges. I want something useful
     alongside the crew's flight, not another way to fly or swim.
+    Put the complete Item in the Wiki, with its rules, background and a
+    first look I can read out when the crew comes across it.
   checks:
     pages:
       - The Shattered Sea/Items/Rescue Line Charm.md
+    sections:
+      The Shattered Sea/Items/Rescue Line Charm.md:
+        - "## At a glance"
+        - "### Properties"
+        - "### In use"
+        - "### History"
+        - "### Hidden truths"
+        - "## Links"
     canon:
       The Shattered Sea/Items/Rescue Line Charm.md:
         - '^type:\s*Item\s*$'
+        - '\[!narration\] First look'
   rubrics:
     - >-
-      The design uses the starting bearer and Party capabilities and
-      equipment, with retrieved Item candidates informing reuse, reskin or
-      adaptation. Its rope-rescue niche adds a meaningful choice rather than
-      duplicating existing flight, swimming or defensive equipment.
-      Uncommon power is justified against suitable retrieved peers.
+      The charm is runnable from the page alone, with full 2024 rules text,
+      usable action costs, targets, reach, anchoring, load, duration, uses,
+      recovery and failure consequences wherever its chosen effect needs
+      them. In-use guidance settles likely rescue edge cases without
+      guaranteeing extraction or waiving Aruhe's established taking law.
     - >-
-      Mechanics give the table usable action costs, targets, reach,
-      anchoring, load, duration, uses, recovery and failure consequences as
-      relevant to the chosen effect. It helps a rescue without guaranteeing
-      extraction or waiving Aruhe's established taking law.
+      Actual retrieved candidates inform reuse, reskin, adaptation or new
+      design; suitable peers justify uncommon power. The bearer and Party's
+      current capabilities, equipment and attunement inform the balance and
+      best-turn stacking audit. Its rope-rescue choice complements existing
+      flight, swimming and defensive equipment instead of replacing them.
     - >-
-      A Player-safe introduction and discoverable properties support use.
-      The charm is a requested design, not an already found or purchased
-      Item: PC Inventories, played rescues and Session outcomes stay unchanged.
+      Material, making, wear and visible function express this rescue tool
+      and its place in the Shattered Sea, not a generic bonus charm. Maker,
+      past holders or contested claims give usable history, while hidden
+      properties have concrete discovery routes. The benefit asks its bearer
+      to make a meaningful choice with a cost, limit or risk.
+    - >-
+      Sources and new design are distinguished honestly. Ownership and
+      discoverability fit the World, but designing it for Perrin does not
+      mean he already holds it. PC Inventories, played rescues and Session
+      outcomes stay unchanged, and resolving links make the Item reachable.
+    - >-
+      First look is speakable after one hearing: a plain recognisable object,
+      size against a hand or familiar object, concrete material, wear and
+      marks, a grounded nonvisual detail and visible property tells. It
+      stops before Players act, without PC feelings, mechanics, hidden
+      provenance or unearned knowledge.

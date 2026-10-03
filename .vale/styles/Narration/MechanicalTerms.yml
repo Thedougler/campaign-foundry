@@ -1,0 +1,11 @@
+extends: existence
+message: "Narration uses a rules term ('%s'). Describe the visible effect unless the rules meaning is intended."
+level: warning
+scope: blockquote
+ignorecase: true
+tokens:
+  - stunned
+  - frightened
+  - reaction
+  - action
+  - incapacitated

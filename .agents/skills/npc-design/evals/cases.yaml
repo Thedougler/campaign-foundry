@@ -1,5 +1,5 @@
-# Malone is the recovered scale-up ask. Quackers fills the missing flavour-NPC request.
-- id: malone-scale
+# Merges the recovered Malone scale-up ask with complete person and first-meeting play.
+- id: npc
   source_pages:
     - The Shattered Sea/NPCs/Aleksander Malone.md
     - The Shattered Sea/Shattered Sea/Quests/The Hound of God.md
@@ -7,68 +7,73 @@
     Scale up the Aleksander Malone statblock. He should be roughly equivalent
     in power to a level 12 player character, an optimized cleric, fighter,
     rogue multiclass built for exorcising fiends and killing heretics. Keep
-    it an easy to run monster statblock for the DM.
+    it an easy to run monster statblock for the DM. Flesh out Malone as a
+    person too, so I can run a meeting with him or bring him back later.
+    Give me the complete NPC page, a proper first look I can read out,
+    and his linked Creature page, not just combat numbers.
   checks:
     pages:
       - The Shattered Sea/Creatures/Aleksander Malone (Creature).md
       - The Shattered Sea/NPCs/Aleksander Malone.md
+    sections:
+      The Shattered Sea/NPCs/Aleksander Malone.md:
+        - "## At a glance"
+        - "## Play"
+        - "### History"
+        - "### Hidden truths"
+        - "### Threads"
+        - "## Links"
+      The Shattered Sea/Creatures/Aleksander Malone (Creature).md:
+        - "## Statblock"
+        - "### Tactics"
+        - "### Outside a fight"
+        - "### Ecology"
+        - "### Hidden truths"
     canon:
       The Shattered Sea/Creatures/Aleksander Malone (Creature).md:
         - '^type:\s*Creature\s*$'
         - 'layout: Basic 5e Layout'
+        - '^```statblock\b'
+        - '\[!narration\] First sight'
       The Shattered Sea/NPCs/Aleksander Malone.md:
+        - '^type:\s*NPC\s*$'
         - 'creature: "\[\[Aleksander Malone \(Creature\)\]\]"'
+        - '\[!narration\] First look'
     absent:
       The Shattered Sea/NPCs/Aleksander Malone.md:
         - '^```statblock\b'
         - '!\[\[[^\]]+#Statblock\]\]'
   rubrics:
     - >-
-      The Creature is a runnable unique antagonist around an optimized
-      level-12 cleric/fighter/rogue exorcist, with clear timing, targets,
-      limits and condition endings. The table can run him from the statblock
-      without reconstructing a Player character sheet.
+      Malone is a person the DM can play from the page alone, with a distinct
+      repeatable face and voice, present want, leverage, cost, fear, limit and
+      contradiction. The first meeting has an opening move, likely requests,
+      useful answers and a next move if ignored; his exorcist identity shapes
+      behaviour instead of remaining a list of combat features.
     - >-
-      Identity, Crown confirmation leash, hunt for Grigori and heretic-judgement
-      role survive. Shared rules live on the Creature page; the NPC keeps
-      person, voice and wants.
+      Social play respects his goals and refusal to negotiate a confirmed
+      judgement. Willingness and Attitude are distinct; any uncertain Influence
+      uses sourced 2024 rules with clear success and meaningful miss outcomes.
+      Secrets separate truth from what Malone knows or shares, and essential
+      conclusions have independent discovery routes rather than one mandatory
+      roll. Recurring invitations arise from actual PC Goals, bonds or Plans.
     - >-
-      The scale-up is design, not a completed judgement or played encounter.
-      Existing Session records stay intact.
-
-- id: quackers-flavour
-  source_pages:
-    - The Shattered Sea/The Shattered Sea.md
-    - The Shattered Sea/Shattered Sea/Shattered Sea.md
-  prompt: >-
-    Add Quackers as an npc. If asked he will happily talk at length about his
-    former master the great Wizard RTLB, master of duomancy (magic which
-    allows two to act as one), master of transfiguration and conjuration,
-    rescuer of the dragon clans, tamer of faeries, his original creator, and
-    the greatest wizard quackers has known of, none he has met since have
-    surpassed the might of the two gnomes in a trenchcoat known as RTLB
-  checks:
-    pages:
-      - The Shattered Sea/NPCs/Quackers.md
-    canon:
-      The Shattered Sea/NPCs/Quackers.md:
-        - '^type:\s*NPC\s*$'
-        - RTLB
-        - duomancy
-    absent:
-      The Shattered Sea/NPCs/Quackers.md:
-        - '^```statblock\b'
-  rubrics:
+      His Creature is a runnable 2024 monster around the requested optimized
+      level-12 cleric/fighter/rogue exorcist, not a PC sheet. Clear timing,
+      targets, limits, condition endings and counterplay support play without
+      rebuilding class features. Retrieved peers and the actual Party support
+      power, durability and action economy; design estimates are honest.
     - >-
-      Quackers is a playable NPC who, if asked, talks at length about RTLB
-      using the supplied titles, duomancy as two acting as one, and the two
-      gnomes in a trenchcoat. That talk is flavour he offers, not a dumped
-      secret or a required scene.
+      The Crown confirmation leash, hunt for Grigori, knowledge limits and
+      established history survive. Any opposition plan is active and
+      interruptible, owned by an appropriate existing Thread rather than a
+      duplicate. Rules remain with the Creature and person, voice and wants
+      remain with the NPC; the work records no completed judgement, meeting
+      or fight and leaves played Session records intact.
     - >-
-      Identity, voice and wants fit a familiar or companion rather than a
-      combat antagonist. Statistics, if any, stay on a linked Creature.
-      RTLB is not filed as an already-met World power beyond what Quackers
-      claims.
-    - >-
-      New details are design. Played records stay intact, and a resolving
-      incoming link makes the NPC reachable.
+      The NPC First look and Creature First sight are speakable after one
+      hearing, with concrete form and size against something familiar,
+      grounded sensory details and relevant visible tells. The NPC's first
+      line gives Players something to answer without dumping his plan.
+      Both stop before Players act and contain no PC feelings, mechanics,
+      secrets or unearned knowledge; heard Narration is respected.

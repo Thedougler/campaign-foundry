@@ -13,7 +13,7 @@ creature: "[[Bandit Captain]]"
 - **Found at.** [[Ravenhold]]
 
 > [!narration] First look
-> Spoken text for the table.
+> She smells of tar and wet rope.
 
 ## Play
 

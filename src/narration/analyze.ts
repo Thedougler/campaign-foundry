@@ -1,36 +1,23 @@
 import { segment } from "sentencex";
 import stopword from "stopword";
-import { valePatterns } from "./vale.ts";
 
 /** Text of a source with the source line each word sits on, for echo matching. */
 export interface SourceWords {
-	/** What the finding names: a vault path, or the path as given for a `--source` or `--old` file. */
+	/** The vault-relative path named by the finding. */
 	label: string;
 	/** Normalised words (lowercase, no apostrophes) in reading order. */
 	words: { word: string; line: number }[];
 }
 
-export interface Band {
-	min: number;
-	max: number;
-}
-
 export interface Finding {
 	rule:
-		| "band"
 		| "echo"
-		| "punctuation"
-		| "compass"
-		| "foot-mile-counts"
 		| "fresh-starts"
-		| "judgement-words"
-		| "evaluative-adjectives"
-		| "relative-clauses"
+		| "evaluative-stack"
+		| "relative-chain"
 		| "invented-names"
-		| "spoken-word-traps"
-		| "dialogue-attribution"
-		| "mechanical-terms"
-		| "perception-hedges";
+		| "spoken-word-trap"
+		| "dialogue-attribution";
 	severity: "error" | "warning";
 	message: string;
 	hint: string;
@@ -43,24 +30,14 @@ export interface EchoRun {
 }
 
 export interface CalloutReport {
-	words: number;
-	sentences: { narration: number; spoken: number };
-	band: (Band & { pass: boolean }) | null;
 	echo: EchoRun[];
-	punctuation: { emDashes: number; semicolons: number; colons: number };
-	compass: string[];
-	footMileCounts: string[];
 	freshStarts: { starts: string[]; runs: { from: number; to: number; starts: string[] }[] };
-	judgementWords: string[];
-	mechanicalTerms: string[];
-	perceptionHedges: string[];
 	evaluativeAdjectiveStacks: string[];
 	relativeClauseChains: string[];
 	inventedProperNouns: string[];
 	spokenWordTraps: { type: "tongue-twister" | "alliteration" | "pun-name" | "homophone"; text: string }[];
 	dialogueAttributions: string[];
 	findings: Finding[];
-	ok: boolean;
 }
 
 const WORD = /[\p{L}\p{N}]+(?:['’][\p{L}\p{N}]+)*/gu;
@@ -98,12 +75,6 @@ export function wordsWithLines(text: string, firstLine = 1): { word: string; lin
 	return out;
 }
 
-/** The text with each double-quoted span (straight or curly quotes) cut out, and the spans themselves. */
-function splitSpeech(text: string): { outside: string[]; spoken: string[] } {
-	const spoken = [...text.matchAll(SPEECH)].map((m) => m[0]);
-	return { outside: text.split(SPEECH), spoken };
-}
-
 const PLACEHOLDER = "SPOKENLINE";
 
 /** Narration sentences: the callout's sentences with spoken lines cut out; a sentence with nothing left is not one. */
@@ -131,10 +102,6 @@ function listOpener(first: string[]): boolean {
 	return DETERMINERS.has(w1) || /^\d/.test(w1);
 }
 
-const JUDGEMENT =
-	/\b(?:abandoned|ancient|mysterious|ominous|eerie|strange|bustling|dangerous|angry|afraid|sense of|can['’]t help but)\b/gi;
-const MECHANICAL_TERMS = /\b(?:stunned|frightened|reaction|action|incapacitated)\b/gi;
-const PERCEPTION_HEDGES = /\b(?:seems? to be|appears? to be)\b/gi;
 const EVALUATIVE_ADJECTIVES = new Set(
 	`abandoned ancient beautiful bleak bustling dangerous dreadful eerie elegant enormous extraordinary fierce grim horrible impressive lovely magnificent mysterious ominous perfect remarkable strange terrible tiny ugly vast wonderful`.split(
 		" ",
@@ -279,30 +246,20 @@ export interface AnalyzeInput {
 	/** The callout body, `>` markers already stripped. */
 	body: string;
 	sources: SourceWords[];
-	band?: Band;
 }
 
-export function analyzeCallout({ body, sources, band }: AnalyzeInput): CalloutReport {
+export function analyzeCallout({ body, sources }: AnalyzeInput): CalloutReport {
 	const text = plainText(body);
-	const words = (text.match(WORD) ?? []).length;
-	const { outside, spoken } = splitSpeech(text);
+	const outside = text.split(SPEECH);
 	const sentences = narrationSentences(text);
 	const unspoken = outside.join(" ");
 	const evaluativeAdjectiveStacks = evaluativeStacks(unspoken);
 	const relativeClauseChains = relativeChains(unspoken);
-	const inventedProperNouns = properNouns(outside.join(" "));
+	const inventedProperNouns = properNouns(unspoken);
 	const spokenWordTraps = spokenTraps(text);
 	const dialogueAttributions = findDialogueAttributions(text);
 
 	const echo = findEcho(outside, sources);
-	const punctuation = {
-		emDashes: count(text, /—| -- /g),
-		semicolons: count(text, /;/g),
-		colons: count(text, /:/g),
-	};
-	const { compass: compassPattern, footMile } = valePatterns();
-	const compass = matches(text, compassPattern);
-	const footMileCounts = matches(text, footMile);
 
 	const starts = sentences.map((s) => (s.match(WORD) ?? []).slice(0, 2));
 	const runs: { from: number; to: number; starts: string[] }[] = [];
@@ -316,51 +273,13 @@ export function analyzeCallout({ body, sources, band }: AnalyzeInput): CalloutRe
 		if (end - i + 1 >= LIST_RUN) runs.push({ from: i + 1, to: end + 1, starts: starts.slice(i, end + 1).map((s) => s.join(" ")) });
 		i = end + 1;
 	}
-	const judgementWords = matches(unspoken, JUDGEMENT).map((w) => w.toLowerCase().replace("’", "'"));
-	const mechanicalTerms = matches(unspoken, MECHANICAL_TERMS).map((w) => w.toLowerCase());
-	const perceptionHedges = matches(unspoken, PERCEPTION_HEDGES).map((w) => w.toLowerCase());
-
-	const bandResult = band ? { ...band, pass: words >= band.min && words <= band.max } : null;
 	const findings: Finding[] = [];
-	if (bandResult && !bandResult.pass) {
-		const gap = words < band!.min ? `${band!.min - words} under` : `${words - band!.max} over`;
-		findings.push({
-			rule: "band",
-			severity: "error",
-			message: `${plural(words, "word")} is ${gap} the ${band!.min}-${band!.max} band.`,
-			hint: words < band!.min ? "Add a thing the Players could picture or act on, drawn from the pages." : "Move the least useful things to the DM's side of the page.",
-		});
-	}
 	if (echo.length > 0) {
 		findings.push({
 			rule: "echo",
-			severity: "error",
-			message: `${plural(echo.length, "run")} of ${MIN_RUN} or more words shared with a source: ${echo.map((e) => `"${e.text}"`).join(", ")}.`,
-			hint: "Keep the fact, change the phrasing: a new name that adds a detail, and the source's nouns in a new order.",
-		});
-	}
-	if (punctuation.emDashes + punctuation.semicolons + punctuation.colons > 0) {
-		findings.push({
-			rule: "punctuation",
-			severity: "error",
-			message: `Narration takes no em dash, semicolon or colon (found ${punctuation.emDashes} em dash, ${punctuation.semicolons} semicolon, ${punctuation.colons} colon).`,
-			hint: "Join clauses with a comma, 'and' or a full stop.",
-		});
-	}
-	if (compass.length > 0) {
-		findings.push({
-			rule: "compass",
-			severity: "error",
-			message: `Narration takes no compass direction: ${compass.map((c) => `"${c}"`).join(", ")}.`,
-			hint: "Use the body's directions instead: ahead, behind, uphill, left, within reach.",
-		});
-	}
-	if (footMileCounts.length > 0) {
-		findings.push({
-			rule: "foot-mile-counts",
-			severity: "error",
-			message: `Narration gives no foot or mile count: ${footMileCounts.map((c) => `"${c}"`).join(", ")}.`,
-			hint: "Say it in the body's terms: within reach, a bowshot, a long walk.",
+			severity: "warning",
+			message: `${plural(echo.length, "run")} of ${MIN_RUN} or more words shared with a source: ${echo.map((e) => `"${e.text}" (${e.occurrences.map((at) => `${at.source}:${at.line}`).join(", ")})`).join(", ")}.`,
+			hint: 'Fresh words: keep the fact, not the source phrasing. For example, replace "mud coats every plank of the dock" with "each dock plank shines with mud".',
 		});
 	}
 	for (const run of runs) {
@@ -368,47 +287,23 @@ export function analyzeCallout({ body, sources, band }: AnalyzeInput): CalloutRe
 			rule: "fresh-starts",
 			severity: "warning",
 			message: `Sentences ${run.from} to ${run.to} open like a list: ${run.starts.map((s) => `"${s}"`).join(", ")}.`,
-			hint: "Join two of them by cause or motion, or open one on what happens.",
-		});
-	}
-	if (judgementWords.length > 0) {
-		findings.push({
-			rule: "judgement-words",
-			severity: "warning",
-			message: `Judgement words: ${judgementWords.map((w) => `"${w}"`).join(", ")}.`,
-			hint: "Give the evidence that led to the conclusion instead of the conclusion.",
-		});
-	}
-	if (mechanicalTerms.length > 0) {
-		findings.push({
-			rule: "mechanical-terms",
-			severity: "warning",
-			message: `Mechanical terms may imply rules effects: ${mechanicalTerms.map((term) => `"${term}"`).join(", ")}.`,
-			hint: "Use the rules term only for its rules meaning. Otherwise describe what the characters perceive.",
-		});
-	}
-	if (perceptionHedges.length > 0) {
-		findings.push({
-			rule: "perception-hedges",
-			severity: "warning",
-			message: `Perception hedges: ${perceptionHedges.map((hedge) => `"${hedge}"`).join(", ")}.`,
-			hint: "State what reaches the characters directly and reserve uncertainty for a Perception or Investigation result.",
+			hint: 'Told: connect sentences by cause or motion. For example, replace "You cross. In the tower, a bell rings. Back in the yard, guards gather." with "A bell rings as you cross, drawing guards into the yard."',
 		});
 	}
 	if (evaluativeAdjectiveStacks.length > 0) {
 		findings.push({
-			rule: "evaluative-adjectives",
+			rule: "evaluative-stack",
 			severity: "warning",
 			message: `Evaluative adjectives stack before a noun: ${evaluativeAdjectiveStacks.map((stack) => `"${stack}"`).join(", ")}.`,
-			hint: "Keep one evaluative adjective and use specific nouns or physical evidence for the rest.",
+			hint: 'Evidence: replace stacked judgements with physical detail. For example, replace "an ancient, mysterious tower" with "a tower with worn steps and shuttered windows".',
 		});
 	}
 	if (relativeClauseChains.length > 0) {
 		findings.push({
-			rule: "relative-clauses",
+			rule: "relative-chain",
 			severity: "warning",
 			message: `A sentence chains two or more which/that clauses: ${relativeClauseChains.map((sentence) => `"${sentence}"`).join(", ")}.`,
-			hint: "Make the second fact a direct sentence with a precise verb.",
+			hint: 'Speakable: make the second fact a direct sentence. For example, replace "the tower that leans over the road which climbs the hill" with "the tower leans over the uphill road".',
 		});
 	}
 	if (inventedProperNouns.length > PROPER_NAME_MAX) {
@@ -416,15 +311,15 @@ export function analyzeCallout({ body, sources, band }: AnalyzeInput): CalloutRe
 			rule: "invented-names",
 			severity: "warning",
 			message: `The block introduces ${inventedProperNouns.length} proper-name candidates, over the ${PROPER_NAME_MAX}-name limit: ${inventedProperNouns.join(", ")}.`,
-			hint: "Keep only names the Players need now. Put the rest in the DM-side notes.",
+			hint: 'Speakable: introduce at most three names now and move surplus introductions to later callouts or DM notes. For example, name Mara, Tovin and Hobb now, then introduce Ilse in the next beat without renaming Canon.',
 		});
 	}
 	if (spokenWordTraps.length > 0) {
 		findings.push({
-			rule: "spoken-word-traps",
+			rule: "spoken-word-trap",
 			severity: "warning",
 			message: `Spoken-word traps: ${spokenWordTraps.map((trap) => `${trap.type} "${trap.text}"`).join(", ")}.`,
-			hint: "Read the block once at the table and replace tongue-twisters, accidental alliteration, pun names and ambiguous homophones.",
+			hint: 'Speakable: read aloud and remove ambiguous sounds. For example, replace "six slick silver snakes slide" with "six snakes glide past". Keep Canon names and exact quotes, adding a pronunciation note or clear lead-in instead.',
 		});
 	}
 	if (dialogueAttributions.length > 0) {
@@ -432,28 +327,18 @@ export function analyzeCallout({ body, sources, band }: AnalyzeInput): CalloutRe
 			rule: "dialogue-attribution",
 			severity: "warning",
 			message: `Speech is followed by a mid-block attribution: ${dialogueAttributions.map((tag) => `"${tag}"`).join(", ")}.`,
-			hint: "Lead in with the speaker, then give the complete line without a mid-block speech tag.",
+			hint: 'People/Delivery: put the speaker and action before the complete line. For example, replace \'"Coins first," he mutters.\' with \'The ferryman grips his pole and mutters, "Coins first."\'.',
 		});
 	}
 
 	return {
-		words,
-		sentences: { narration: sentences.length, spoken: spoken.length },
-		band: bandResult,
 		echo,
-		punctuation,
-		compass,
-		footMileCounts,
 		freshStarts: { starts: starts.map((s) => s.join(" ")), runs },
-		judgementWords,
-		mechanicalTerms,
-		perceptionHedges,
 		evaluativeAdjectiveStacks,
 		relativeClauseChains,
 		inventedProperNouns,
 		spokenWordTraps,
 		dialogueAttributions,
 		findings,
-		ok: findings.every((f) => f.severity !== "error"),
 	};
 }

@@ -86,7 +86,7 @@ describe("runPull", () => {
 			"## [2026-01-05] ingest | Session 1 transcript\n\n- [[Ashes of the Crown]]\n\n## [2026-09-28] pull | Pulled PCs from D&D Beyond\n\n- [[Vale]]\n- [[Wren]]\n",
 		);
 		expect(result.logged).toEqual(["Aldermoor/log.md"]);
-		expect(result.gate?.findings).toEqual([]);
+		expect(result.gate?.findings.filter((f) => f.severity === "error")).toEqual([]);
 	});
 
 	it("regenerates the World index for the summary it filled and leaves the index and log layers clean", async () => {
@@ -98,7 +98,7 @@ describe("runPull", () => {
 		// The whole Wiki, not just the pulled pages.
 		const gate = await runCheck({ vault, templates, root: dir, cwd: dir, layers: ["index", "log"] });
 		expect(gate.findings).toEqual([]);
-		expect(result.gate?.findings).toEqual([]);
+		expect(result.gate?.findings.filter((f) => f.severity === "error")).toEqual([]);
 	});
 
 	it("writes the log entry exactly as cf log does", async () => {
@@ -158,6 +158,6 @@ describe("runPull", () => {
 		await writeFile(path, (await readFile(path, "utf8")).replace("## Plans", "## Notes"));
 		const result = await pull();
 		expect(result.gate?.findings.length).toBeGreaterThan(0);
-		expect(result.gate?.findings.every((f) => f.path.endsWith("Wren.md"))).toBe(true);
+		expect(result.gate?.findings.some((f) => f.path.endsWith("Wren.md") && f.severity === "error")).toBe(true);
 	});
 });

@@ -33,7 +33,6 @@ feedback.json into the workspace. Existing feedback.json is included when regene
 Success prints JSON {workspace,review,runs,outputs}. Usage/setup errors exit 2.
 
 Examples:
-  cf eval review "$S/authoring/npc-design/iteration-1" --skill-name npc-design --benchmark "$S/authoring/npc-design/iteration-1/benchmark.json"
   cf eval review /tmp/iteration-2 --skill-name npc-design --benchmark /tmp/iteration-2/benchmark.json --static /tmp/iteration-2/review.html --previous-workspace /tmp/iteration-1`)
 		.action(async (workspace: string, flags: ReviewFlags) => {
 			try {
@@ -60,8 +59,7 @@ Blank queries are omitted and exported query text is trimmed. The page needs no 
 network access. Success prints JSON {queries,review,count}. Usage/setup errors exit 2.
 
 Examples:
-  cf eval description-review /tmp/queries.json --skill-name npc-design --description "Design or deepen a named NPC." --static /tmp/description-review.html
-  cf eval description-review "$S/authoring/npc-design/queries.json" --skill-name npc-design --description "Design or deepen a named NPC." --static "$S/authoring/npc-design/description-review.html"`)
+  cf eval description-review /tmp/queries.json --skill-name npc-design --description "Design or deepen a named NPC." --static /tmp/description-review.html`)
 		.action(async (queries: string, flags: DescriptionReviewFlags) => {
 			try {
 				const result = await generateDescriptionReview({ queries, ...flags });

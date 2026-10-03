@@ -1,79 +1,67 @@
-# Grounded adaptation of an existing cutter; no original Saltwright creation ask was recovered.
-- id: uncertainty-underway
+# Grounded adaptation of an existing cutter; Saltwright's inspection needs are covered here.
+- id: vehicle
   source_pages:
     - The Shattered Sea/Vehicles/Uncertainty.md
     - The Shattered Sea/NPCs/Geoffrey Draves.md
     - The Shattered Sea/NPCs/Thunk.md
+    - The Shattered Sea/Locations/Western Landing.md
   prompt: >-
     Make Uncertainty ready to run for a rescue embarkation, a Crown chase
     and a boarding off Aruhe. Geoffrey is acting captain while the Party
     is inland. Flesh out the decks, crew stations and ship rules so damage
-    and manoeuvres give the crew interesting choices.
+    and manoeuvres give the crew interesting choices. Include sneaking
+    through the hold or aboard from a small boat, the ship's background,
+    and a proper first sight I can read out. I want the whole Vehicle page.
   checks:
     pages:
       - The Shattered Sea/Vehicles/Uncertainty.md
     sections:
       The Shattered Sea/Vehicles/Uncertainty.md:
+        - "## At a glance"
         - "### Statistics"
         - "### Crew and stations"
         - "### Components and weapons"
         - "### Underway"
+        - "### History"
+        - "### Hidden truths"
+        - "## Links"
     canon:
       The Shattered Sea/Vehicles/Uncertainty.md:
         - '^type:\s*Vehicle\s*$'
+        - '\[!narration\] First sight'
   rubrics:
     - >-
-      The starting cutter's identity, scale, hull statistics, complement,
-      passengers, refit and Thunk's role survive. Geoffrey's acting captain
-      appointment follows the DM over the starting absence of a captain.
-      Current offshore location is distinguished from the historical refit
-      berth and any prospective embarkation.
+      The page alone runs rescue embarkation, chase, boarding and a
+      stowaway's sneak. Body-scale deck areas, hold, approaches, helm and
+      connected routes support navigation and tactical choices. Stations
+      identify present versus minimum staffing and empty-station
+      consequences; damage and manoeuvres change what the crew can do
+      rather than requiring invented procedures during play.
     - >-
-      Suitable retrieved craft rules support new speed, staffing, capacity,
-      component and weapon figures, with adaptations attributed honestly.
-      Older nautical rules are not called published 2024 rules, and figures
-      are not borrowed indiscriminately from a much larger warship.
+      Suitable retrieved craft rules support speed, staffing, capacity,
+      hull and component defences, weapon attacks and damage, and clear
+      disabled or sinking consequences. Adaptations are attributed honestly;
+      older nautical rules are not called published 2024 rules or borrowed
+      indiscriminately from a larger warship. Fighting crew link complete
+      Creature owners and participation respects the actual Party's strength
+      and mobility.
     - >-
-      Body-scale deck areas, assigned stations, minimum versus present
-      staffing and empty-station consequences let the DM run embarkation,
-      chase and boarding from the page. Damage and manoeuvres change
-      reachable choices; the actual Party's mobility and participation are
-      respected. Fighting crew link complete Creature owners.
+      A recognisable signature, fiction-backed handling quirk and something
+      aboard worth paying, fighting or lying for distinguish this captured,
+      refitted cutter from a generic ship. Its current errand, response to
+      the Party and rescue obligations matter in play. History and hidden
+      truths have concrete ways to learn them.
     - >-
-      Signature and handling distinguish this captured, refitted cutter
-      and its rescue obligations from a generic ship. New layout, cargo
-      conflicts and missing rules are design, not historical discoveries.
-      The work does not record a completed chase, rescue or boarding as play,
-      and existing Session history remains unchanged.
-
-- id: saltwright-inspection
-  source_pages:
-    - The Shattered Sea/Vehicles/Saltwright.md
-    - The Shattered Sea/NPCs/Beaumont Sel.md
-    - The Shattered Sea/Vehicles/Uncertainty.md
-  prompt: >-
-    Make the Saltwright runnable for the Crown inspection: decks, hold,
-    gangplank, stations and ship numbers. Beaumont is at the wheel.
-  checks:
-    pages:
-      - The Shattered Sea/Vehicles/Saltwright.md
-    sections:
-      The Shattered Sea/Vehicles/Saltwright.md:
-        - "### Statistics"
-        - "### Crew and stations"
-        - "### Components and weapons"
-        - "### Underway"
-    canon:
-      The Shattered Sea/Vehicles/Saltwright.md:
-        - '^type:\s*Vehicle\s*$'
-  rubrics:
+      Cutter identity, scale, hull statistics, complement, passengers,
+      refit and Thunk's role survive; Geoffrey's acting appointment follows
+      the DM. The current offshore position is distinct from the historical
+      berth and prospective embarkation. New decks, cargo conflicts and
+      missing rules are design, not historical discoveries; no completed
+      chase, rescue or boarding is recorded and Session history is unchanged.
     - >-
-      The Saltwright remains Beaumont's brig and first berth, distinct
-      from the captured cutter. Inspection geography (hold, deck,
-      gangplank, wheel) is usable. Retrieved craft rules may fill missing
-      numbers with honest attribution.
-    - >-
-      Crew stations respect Beaumont as captain. Damage and boarding
-      choices are prospective or historical as the starting Wiki records
-      them; Session 01 is not rewritten. Fighting crew link Creatures
-      rather than copying statblocks.
+      First sight is speakable after one hearing, with concrete hull form
+      and size against something familiar, grounded nonvisual detail and
+      a usable way alongside or aboard. Visible features communicate the
+      craft's signature and handling without revealing a closed hold or
+      hidden truths. It stops before Players act and contains no PC
+      feelings, mechanics or unearned knowledge; heard Narration is respected.

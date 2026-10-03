@@ -122,8 +122,10 @@ describe("grammar layer", () => {
 describe("style layer", () => {
 	it("enforces the Narration hard lines inside a narration callout only", () => {
 		const found = on("style", "NPCs/Bad Style");
-		const rules = found.filter((f) => f.line === 13).map((f) => f.rule);
-		expect(rules).toEqual(expect.arrayContaining(["Narration.NoCompass", "Narration.NoSemicolon", "Narration.NoFootMileCounts", "Narration.NoEmDash"]));
+		const narration = found.filter((f) => f.line === 13 && f.rule.startsWith("Narration."));
+		expect(narration.map((f) => f.rule)).toEqual(expect.arrayContaining(["Narration.NoCompass", "Narration.NoSemicolon", "Narration.NoFootMileCounts", "Narration.NoEmDash", "Narration.NoColon"]));
+		expect(narration.every((f) => f.severity === "error")).toBe(true);
+		expect(narration.every((f) => /theatre-of-the-mind.*(?:Clean prose|Speakable)|(?:Clean prose|Speakable).*theatre-of-the-mind/.test(f.hint))).toBe(true);
 	});
 
 	it("leaves compass words, counts and punctuation alone outside a callout: those are the DM's notes", () => {
@@ -131,9 +133,64 @@ describe("style layer", () => {
 		expect(notes.filter((f) => f.rule.startsWith("Narration."))).toEqual([]);
 	});
 
+	it("leaves non-narration callouts outside Narration rules", () => {
+		const notes = on("style", "NPCs/Bad Style").filter((f) => f.line === 22);
+		expect(notes.filter((f) => f.rule.startsWith("Narration."))).toEqual([]);
+	});
+
 	it("flags ai-tells prose", () => {
 		const found = on("style", "NPCs/Bad Style");
-		expect(found.some((f) => f.rule.startsWith("ai-tells.") && f.line === 17)).toBe(true);
+		const aiTells = found.filter((f) => f.rule.startsWith("ai-tells.") && f.line === 17);
+		expect(aiTells.length).toBeGreaterThan(0);
+		expect(aiTells.every((f) => f.severity === "error")).toBe(true);
+	});
+
+	it.each([
+		["JudgementWords", 13, "Evidence"],
+		["MechanicalTerms", 14, "Evidence"],
+		["PerceptionHedges", 15, "Evidence"],
+		["FilterVerbs", 16, "Situation first"],
+		["PcInterior", 17, "Hard line 1"],
+		["StockTells", 18, "People"],
+	] as const)("%s warns on the dirty twin and stays silent on the clean twin", (name, line, item) => {
+		const rule = `Narration.${name}`;
+		const found = on("style", "NPCs/Dirty Narration").filter((f) => f.rule === rule);
+		expect(found.length).toBeGreaterThan(0);
+		expect(found.every((f) => f.line === line && f.severity === "warning")).toBe(true);
+		expect(found.every((f) => f.hint.includes("theatre-of-the-mind") && f.hint.includes(item) && f.hint.includes("becomes"))).toBe(true);
+		expect(on("style", "NPCs/Clean Narration").filter((f) => f.rule === rule)).toEqual([]);
+	});
+
+	it.each([
+		["error", "error", 1, false],
+		["warning", "warning", 0, true],
+		["suggestion", "warning", 0, true],
+	] as const)("maps Vale %s severity to %s and the gate result", async (valeSeverity, severity, code, ok) => {
+		const dir = await copyFixture("clean");
+		const binDir = join(dir, "test-bin");
+		const vale = join(binDir, "vale");
+		await mkdir(binDir, { recursive: true });
+		await writeFile(vale, [
+			"#!/bin/sh",
+			"for arg do input=$arg; done",
+			'file=$(find "$input" -type f -name "*.md" -print -quit)',
+			`printf '{"%s":[{"Check":"Narration.FilterVerbs","Message":"Rewrite you see.","Line":1,"Match":"you see","Severity":"${valeSeverity}"}]}\\n' "$file"`,
+			"",
+		].join("\n"));
+		await chmod(vale, 0o755);
+		const result = await promisify(execFile)(
+			process.execPath,
+			[join(repoRoot, "src/cli.ts"), "check", "--json", "--layer", "style", "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates],
+			{ cwd: dir, env: { ...process.env, PATH: `${binDir}${process.platform === "win32" ? ";" : ":"}${process.env.PATH ?? ""}` } },
+		).then(
+			({ stdout }) => ({ code: 0, stdout }),
+			(error: { code: number; stdout: string }) => ({ code: error.code, stdout: error.stdout }),
+		);
+		const report = JSON.parse(result.stdout) as JsonReport;
+		expect(result.code).toBe(code);
+		expect(report.ok).toBe(ok);
+		expect(report.findings).toHaveLength(1);
+		expect(report.findings[0]?.severity).toBe(severity);
 	});
 
 });

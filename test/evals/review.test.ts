@@ -40,23 +40,6 @@ describe("authoring review inputs", () => {
 		expect(current.grading?.expectations).toEqual([{ text: "Choice is explicit", passed: true, evidence: "Pay or take the stairs." }]);
 		expect(previous.grading?.expectations).toEqual([{ text: "Choice is explicit", passed: false, evidence: "The ferryman waits." }]);
 	});
-	it("reviews Session output files with corresponding private briefs and grades", async () => {
-		const root = await workspace();
-		const directory = join(root, "control/run");
-		await mkdir(directory, { recursive: true });
-		await mkdir(join(root, "outputs/run/World"), { recursive: true });
-		await writeFile(join(root, ".session.json"), "{}");
-		await writeFile(join(root, "outputs/run/World/New.md"), "Full page.");
-		await writeFile(join(root, "outputs/run/reply.md"), "DM reply.");
-		await writeFile(join(root, "outputs/run/.deleted.json"), JSON.stringify(["World/Old.md"]));
-		await writeFile(join(directory, "runner-brief.md"), "Preferences:\nActive World: The Shattered Sea\nEval grant: /private/control/runner-grant.json token=secret\nDM request (verbatim):\nCreate a page.");
-		await writeFile(join(directory, "grades.json"), JSON.stringify({ grades: [{ rubric: "Good", pass: true, reason: "Full page." }] }));
-		const reviews = await findReviewRuns(root);
-		expect(reviews[0]?.outputs.map((output) => output.name)).toEqual(expect.arrayContaining(["World/New.md", ".deleted.json", "reply.md"]));
-		expect(reviews[0]?.grading?.grades).toEqual([{ rubric: "Good", pass: true, reason: "Full page." }]);
-		expect(reviews[0]?.prompt).toBe("Preferences:\nActive World: The Shattered Sea\nDM request (verbatim):\nCreate a page.");
-		expect(reviews[0]?.prompt).not.toContain("secret");
-	});
 	it("rejects colliding feedback IDs instead of merging unrelated reviews", async () => {
 		const root = await workspace();
 		await run(root, "a-b/c");

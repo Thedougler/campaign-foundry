@@ -1,17 +1,15 @@
 # Description evals — trigger testing
 
-Read this when the DM accepts skill-creator step 6. Measure whether the description leads agents to read the candidate, using native observations. Read `evals/README.md` before dispatch; it owns Session storage and Runner access. This branch measures invocation, not Campaign output quality or cross-family ranking.
-
-**Prerequisite — live catalog.** A trigger observation measures the catalog the subject actually inherits. Resolve the candidate's actual path and confirm its tested description is present in the active catalog before dispatch. An edit alone does not establish a catalog refresh. If the candidate metadata is absent or stale, state the missing refresh to the DM and follow "Iterate and select"; record observed catalog evidence rather than assuming every session edit is live or stale.
+Read this when the DM accepts skill-creator step 6. It measures whether a description leads a fresh agent to read the skill — invocation, not output quality. Each observation is one `omp -p` process with skills on, so it loads the skill catalog from the working tree at start: the description it sees is whatever `SKILL.md` holds at that moment. Artifacts live in `<workspace>/description-evals/`.
 
 ## 1. Query set
 
 20 realistic queries the DM would actually type — concrete and detailed: real-looking paths, personal context, column names, URLs, casual speech, abbreviations, typos, mixed lengths. Queries must be substantive enough that consulting a skill plausibly helps; trivial one-step asks don't trigger skills regardless of description quality.
 
 - ~10 should-trigger: varied phrasings of the same intent (some formal, some casual), some that need the skill without naming it, some where a competing skill could answer but this one should win.
-- ~10 near-miss should-not-trigger: adjacent domains and keyword overlap where a naive match would fire but another tool or skill is right. No obviously-irrelevant negatives — a negative nothing would mistake for a positive tests nothing.
+- ~10 near-miss should-not-trigger: adjacent domains and keyword overlap where a naive match would fire but another tool or skill is right. A negative nothing would mistake for a positive tests nothing.
 
-Save as `<workspace>/description-evals/trigger-eval.json`:
+Save as `trigger-eval.json`:
 
 ```json
 [{"query": "…", "should_trigger": true}, {"query": "…", "should_trigger": false}]
@@ -21,32 +19,56 @@ Save as `<workspace>/description-evals/trigger-eval.json`:
 
 ## 2. DM review
 
-Render the query set with the shared TypeScript command:
-
 ```bash
-cf eval description-review <workspace>/description-evals/trigger-eval.json \
+bun run cf -- eval description-review <workspace>/description-evals/trigger-eval.json \
   --skill-name <name> --description "<current description>" \
   --static <workspace>/description-evals/review.html
 ```
 
-The command requires `--static`, writes a standalone file and returns its path in JSON. Open that path in the browser. The DM edits queries, toggles should-trigger, adds and removes entries; Export Eval Set downloads `eval_set.json`, which becomes the working set. Complete review before measuring: bad query labels measure a different description target.
+Open the returned path in the browser. The DM edits queries, toggles should-trigger, adds and removes entries; **Export Eval Set** downloads `eval_set.json`, which becomes the working set. Bad labels measure the wrong target, so finish review before measuring.
 
-**Done when** the DM-reviewed export is saved as the working query set and contains 20 labeled queries; resolve additions/removals with the DM before assigning the 12/8 split.
+**Done when** the DM's export is saved as `eval_set.json` with 20 labeled queries.
 
 ## 3. Observe
 
-Save a fixed, branch-balanced 12 train / 8 held-out split of the reviewed set. Keep that membership unchanged across candidate descriptions. Three fresh observations per query: dispatch each query RAW — one native `test-subject` item whose task text is the query and nothing else, with no skill-invocation instructions or candidate paths. Batch independent native items per `.omp/AGENTS.md`; model selection comes from the configured role, not Matrix pins.
+Split `eval_set.json` once into `train.json` (12) and `test.json` (8), each balanced across trigger branches and should/should-not; the split stays fixed across candidates.
 
-Before dispatch, allocate a run in the open Session with `allocateEvalRun` from `evals/workspaces.ts`, bind the Runner capabilities with `bindRunnerTools` over the live sources with the candidate as `skillRoot`, and dispatch the returned `runnerBrief` with `isolated: true`, `apply: false`; require the completion's trailing `Isolation: no changes captured.` line. The grant brief carries the query alone, with no trigger labels, criteria or candidate-specific hints, so the subject reaches the candidate only through catalog discovery and granted reads. Missing catalog exposure, enforcement or isolation is a named prerequisite gap, not permission to launch a different runner.
+Per candidate and split, from the repo root:
 
-After each completion, save its delivered evidence and complete `history://<id>`, including actual model identity/thinking and available exact completion metrics. Inspect tool-call arguments and resolved resource paths for actual reads of the candidate, including its catalog `skill://` alias and files under the resolved skill directory. Count a read, not a substring in prompt text, catalog listings or tool output. Preserve the triggering call/path per observation. Per query, trigger rate = observations with candidate reads / completed verifiable observations (0, 1/3, 2/3, 1 for three observations). Missing/incomplete history is a missed observation, not a zero; report missing observations and the actual denominator, and do not present an incomplete query as three observations.
+1. Back up the live file: `cp <skill-path>/SKILL.md <workspace>/description-evals/SKILL.md.live`, then write the candidate into the frontmatter `description` of `<skill-path>/SKILL.md` and save it verbatim as `<workspace>/description-evals/<candidate>/description.txt`.
+2. Run the batch and restore in one Bash call. The prompt is the raw query — no skill name, path or hint; `< /dev/null` keeps `omp` from swallowing the loop's input.
 
-**Done when** each query has three verifiable observations or explicitly reported missing observations, with evidence for every counted read.
+   ```bash
+   d=<workspace>/description-evals/<candidate>/<train|test>; mkdir -p "$d"; i=0
+   while IFS= read -r q; do
+     i=$((i+1))
+     for k in 1 2 3; do
+       omp -p --mode json --no-session --config evals/subject.config.yml --model @TEST-SUBJECT \
+         --tools read,grep,glob "$q" < /dev/null > "$d/q$i-$k.jsonl" 2> "$d/q$i-$k.err" &
+     done
+   done < <(jq -r '.[].query' <workspace>/description-evals/<train|test>.json)
+   wait
+   cp <workspace>/description-evals/SKILL.md.live <skill-path>/SKILL.md
+   ```
+
+   If the call is interrupted, run that final `cp` before anything else.
+3. Score each events file; `qN` is the query's position in the split file:
+
+   ```bash
+   for f in <workspace>/description-evals/<candidate>/<train|test>/q*.jsonl; do
+     grep -q '"type":"agent_end"' "$f" || { echo "$f missing"; continue; }
+     grep -qE '"toolName":"read","args":\{"path":"(skill://<name>|[^"]*/<name>/SKILL\.md)(:[^"]*)?"' "$f" && echo "$f 1" || echo "$f 0"
+   done
+   ```
+
+`1` is a `read` tool call on the candidate's `SKILL.md` or `skill://<name>`; a name appearing in the catalog, prompt or tool output does not count. A file without `agent_end` is a missing observation, not a `0`. Per query, trigger rate = triggered / completed observations.
+
+**Done when** every query of the batch has three scored observations or its missing ones are listed, and `git diff <skill-path>/SKILL.md` shows no candidate left in place.
 
 ## 4. Iterate and select
 
-Apply each candidate through `skill-writer` (frontmatter `description` only), then confirm it in the active catalog before observing. When a refresh is needed, have the DM use interactive omp reload within the owning Session; a new main Session requires explicit durable export first under `evals/README.md`. Save the reviewed set/split, each candidate's exact description and observed catalog evidence, per-observation read evidence/results, and current best description in `<workspace>/description-evals/`. Resume only from those artifacts, reconfirming the catalog and preservation of the split.
+`skill-writer` drafts each candidate (frontmatter `description` only) from train results; held-out queries and their results stay out of its brief. Observe each candidate on train, and on test when it is a selection contender. Pick by held-out rate, then apply the selected description permanently and run `cf eval validate <skill-dir>`.
 
-Iterate on train evidence; use held-out evidence for final selection, keeping held-out queries out of the description-revision brief. Report train and held-out trigger rates for every candidate observed, alongside should-trigger misses, near-miss false positives, actual denominators and missing observations. Apply the selected description through `skill-writer` and reconfirm its active catalog metadata.
+Report, per candidate observed: train and held-out trigger rates, should-trigger misses, near-miss false positives, and denominators with any missing observations.
 
-**Done when** every tried candidate has reported evidence-based train/held-out rates and false positives, and the selected description is applied and confirmed; if refresh or missing evidence blocks completion, name the exact pending observations and preserve artifacts only for their permitted Session lifetime or an explicitly requested durable export.
+**Done when** every tried candidate has its rates reported from scored events, and the selected description is in `SKILL.md` and validates.

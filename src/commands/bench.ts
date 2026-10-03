@@ -43,7 +43,7 @@ function paths(rootFlag: string | undefined): BenchPaths {
 /** The exact omp invocation a MISS runs, from the repository root. */
 function runCommand(briefRel: string, pin: string, eventsRel: string): string {
 	const errorRel = eventsRel.replace(/\.events\.jsonl$/, ".error.log");
-	return `omp -p --auto-approve --no-session --max-time 600 --mode json --thinking high \\\n  --model ${pin} "$(cat ${briefRel})" \\\n  > ${eventsRel} 2> ${errorRel}`;
+	return `omp -p --no-tools --no-skills --no-extensions --config evals/subject.config.yml --no-session --max-time 600 --mode json --thinking high \\\n  --model ${pin} "$(cat ${briefRel})" \\\n  > ${eventsRel} 2> ${errorRel}`;
 }
 
 function nowIso(): string {

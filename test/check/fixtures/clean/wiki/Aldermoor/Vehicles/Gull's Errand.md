@@ -14,7 +14,7 @@ sources: []
 - **Berth.** [[Ravenhold]]
 
 > [!narration] First sight
-> Spoken text for the table.
+> Pitch weeps from the hull.
 
 ## Play
 

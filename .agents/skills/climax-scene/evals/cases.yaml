@@ -1,10 +1,11 @@
-- id: charted-conditional-scene
+- id: climax-scene
   source_pages:
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
     - The Shattered Sea/Items/Giant's Guava.md
     - The Shattered Sea/Items/Ghost Plum.md
+    - The Shattered Sea/Shattered Sea/Shattered Sea.md
   prompt: >-
     Redo Consume. Skarn is still loyal to Vantyrus and makes the later Spinner
     attempt after a fallen Ghost Plum. Auralis tells Perrin CONSUME beside
@@ -17,23 +18,50 @@
     sections:
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md:
         - '## At a glance'
+        - '## Threads'
         - '## Play'
+        - '### Situation'
+        - '### Pressure'
+        - '### Checks'
         - '## Outcomes'
         - '## Depth'
+        - '### Hidden truths'
+        - '### Spotlight'
     canon:
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Climax\s*$'
+        - '^> \[!narration\] Opening\s*$'
   rubrics:
     - >-
-      Earlier choices supply leverage in the highest-stakes question. Perrin
-      can refuse CONSUME without false compulsion; eating living fruit uses
-      this run's retrieved law and item effects and is useful if followed.
-      An already escaped, captured or dead Skarn stays absent rather than
-      being revived for a second attempt.
+      The DM can run the Session's highest-stakes question from this page:
+      earlier choices supply concrete leverage, the brink has starting
+      positions and interruptible pressure, and opposition can be contested
+      rather than succeeding by script. At least three distinct reachable
+      endings, including costly success and refusal or withdrawal, state
+      what changes for each converging Thread and hand that state to Resolution.
     - >-
-      Reachable endings cover keeping or losing the Spinner, costly success
-      and refusal, and they hand each resulting state to Resolution. Fought
-      forces use sourced 2024 participating-PC budgets and Creature embeds.
-      Spoken Narration shows the brink and stops before the theft or the
-      claim is resolved for the Players.
+      Eating living fruit, its useful benefit, the island's response,
+      invisibility and its countermeasure match retrieved law and Item owners
+      under 2024 5e. Every possible fight has fought Creature embeds and
+      sourced XP arithmetic for the PCs able to act, with terrain, depletion
+      and objective pressure explained rather than hidden in a difficulty label.
+    - >-
+      Skarn remains loyal to Vantyrus and seeks the Spinner; a later attempt
+      uses the Ghost Plum only when prior play leaves that attempt possible.
+      Escaped, captured or dead Skarn is not revived for another showdown.
+      Previous possession, casualties, knowledge and spent resources persist,
+      and proposed endings remain conditional rather than rewriting Canon.
+    - >-
+      Perrin's sourced bond with Auralis, the living Giant's Guava and the
+      island's law make CONSUME a specific consequential choice. Accepting
+      offers genuinely useful power at a real cost; refusal remains playable
+      without compulsion. The other present PCs can affect what is saved or
+      lost, and a compression option preserves the decisive choice if time runs short.
+    - >-
+      Every Opening and escalation callout meets theatre-of-the-mind
+      standard: speakable after one hearing, grounded in the visible brink,
+      with concrete form, scale against familiar things and usable spatial
+      relationships. Each live event stops before Players would act; theft
+      and Perrin's choice are not resolved in spoken text. Secrets, mechanics
+      and PC actions, feelings or thoughts remain outside Narration.

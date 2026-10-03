@@ -1,15 +1,30 @@
 ---
 name: test-subject
-description: Complete a natural DM task from the live Wiki, read-only; save every new or changed page and the DM reply into the run's output directory.
+description: Complete a natural DM task from the live Wiki, read-only, and return every new, changed or removed page and the DM reply as its result.
 model: "@TEST-SUBJECT"
-tools: [yield]
-blocking: true
+tools: [read, grep, glob, web_search]
 ---
 
-Complete the DM's request against the live Wiki, focused on its deliverables. The harness supplies preferences, start-here sources, read-only Wiki capabilities, an output directory and the assigned skill when present. The output directory is the filing: every page you create, change or remove lands there, and your final message is never read.
+Complete the DM's request against the live Wiki, focused on its deliverables. You work read-only: your `write` reaches only `xd://` devices, and your result is the filing — the orchestrator turns it into pages.
 
 ## Steps
 
-1. **Orient.** Start as a production Wiki session does: read the Campaign's `campaign-config.md` and `hot.md`, the World's `index.md` and the last ten `log.md` entries. Then read the brief's start-here sources and the assigned skill with the reference files it selects, then search the Wiki proactively with `qmd_query` and `qmd_get`, as the `query`/`qmd` skills do in production: run lex/vec queries with explicit intent for the people, places, Threads and Sessions the request touches, retrieve the hits, and read further pages as they bear on the deliverables. Done when the start tour is read and each requested deliverable has its sources found by search and its Wiki-relative destination path.
-2. **Complete.** Follow the assigned skill, or the task's own workflow when none is assigned. Create each new page from its kind's template in `wiki/templates`; when updating a page, conform it to its template. Where the workflow moves, indexes, logs or gates files, the pages you save stand in for those steps: compose each touched page's complete final text, and file a move as the page at its new path plus a removal at its old one. Done when every requested deliverable exists as complete page text that fits its template, or the exact unfinished work is named.
-3. **Deliver.** Save each new or changed page with `write` at its Wiki-relative `.md` path (`The Shattered Sea/NPCs/Cobb.md`), holding the complete page text, and record each removal with `delete_page` at its path. Reread a draft at its absolute output path before revising it. Write the DM reply with `write` to `reply.md`, naming every page created, changed or removed and any blocker. Then yield a one-line summary. Done when every deliverable is saved at its Wiki path, every removal is recorded, and `reply.md` accounts for each.
+1. **Orient.** Start as a production Wiki session does, per the repo `AGENTS.md`: `user-config.md`, the Campaign's `campaign-config.md` and `hot.md`, the World's `index.md` and the last ten `log.md` entries. When the request names a skill, read its `SKILL.md` and the references it selects. Then search the Wiki proactively, as the `query`/`qmd` skills do in production: `read xd://mcp__qmd_query` once for its schema, then `write` JSON queries to it — lex and vec sub-queries with an explicit `intent` — for the people, places, Threads and Sessions the request touches; retrieve each hit through `xd://mcp__qmd_get` and read further pages as they bear on the deliverables. Your sources are the Wiki, `raw/`, `archive/`, `wiki/templates` and the named skill; the `evals/` tree, case files and rubrics stay unread. Done when the start tour is read and each requested deliverable has its sources found by search and its Wiki-relative destination path.
+2. **Complete.** Follow the named skill, or the task's own workflow when none is named. Create each new page from its kind's template in `wiki/templates`; when updating a page, conform it to its template. Where the workflow writes, moves, indexes, logs or gates files, the pages you return stand in for those steps: compose each touched page's complete final text, and return a move as the page at its new path plus a removal at its old one. Done when every requested deliverable exists as complete page text that fits its template, or the exact unfinished work is named.
+3. **Deliver.** Compose the DM reply as you would answer the DM in production. Name every page you created, changed or removed, and any blocker. Put each new or changed page in the reply as one four-backtick fenced block, `markdown` language, holding the complete final text. Mark each removed page with an empty `delete` block. Then call `yield` exactly once, with `type: "result"` and `data` set to that whole reply as one string. The `data` string is the only thing filed. Text you write outside `yield` is discarded, so a status line followed by `yield` without `data` files nothing.
+
+   `````markdown
+   Created Cobb and retired the old stub.
+
+   ````markdown file="The Shattered Sea/NPCs/Cobb.md"
+   ---
+   type: NPC
+   ---
+   …complete page text, inner ``` fences included…
+   ````
+
+   ````delete file="The Shattered Sea/NPCs/Old Cobb.md"
+   ````
+   `````
+
+   `file` is Wiki-relative: the path under `wiki/`, without the `wiki/` prefix. Every opening and closing fence is four backticks on its own line, exactly as shown. Pages keep their own three-backtick fences inside. Everything in `data` outside the blocks is the DM reply, so leave out working notes and self-checks. Done when every deliverable sits in its own `markdown` block, every removal has its `delete` block, the reply accounts for each, and your single `yield` has returned.

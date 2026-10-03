@@ -1,0 +1,8 @@
+extends: existence
+message: "Narration hedges what reaches the Party ('%s'). State the perceivable fact and leave uncertain resolution to the DM."
+level: warning
+scope: blockquote
+ignorecase: true
+tokens:
+  - seems to be
+  - appears to be

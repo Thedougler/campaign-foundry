@@ -1,9 +1,10 @@
-- id: charted-conditional-scene
+- id: cliffhanger-scene
   source_pages:
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
     - The Shattered Sea/Creatures/Terror-Bird.md
+    - The Shattered Sea/Shattered Sea/Shattered Sea.md
   prompt: >-
     Redo Terror-Birds as a crossing the Party can actually get through, not a
     fight to the death. They may be carrying people, and Jean-Claude is awake.
@@ -16,21 +17,54 @@
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md:
         - '## At a glance'
         - '## Play'
+        - '### Stakes'
+        - '### Pressure'
+        - '### Terrain'
+        - '### Checks'
+        - '## Encounter'
+        - '### Battlefield'
+        - '### Creatures'
+        - '### Balance'
         - '## Outcomes'
         - '## Depth'
+        - '### Hidden truths'
+        - '### Threads'
+        - '### Spotlight'
     canon:
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Cliffhanger\s*$'
+        - '^> \[!narration\] Opening\s*$'
   rubrics:
     - >-
-      The DM can run the crossing from positions, terrain and turn pressure.
-      Swallowing, rescue, retreat and bypass remain contests with lasting
-      costs. Bird behaviour and limits match this run's Creature owner rather
-      than an invented fight-to-the-death script.
+      The DM can run the crossing from starting positions, usable terrain,
+      measurable turn pressure and a reachable end condition. Swallowing,
+      rescue, bypass, retreat and interference are contests with concrete
+      consequences; the page rules split or partial results and hands lasting
+      losses, positions and costs to the receiving Scene.
     - >-
-      Incoming rescue state, including unrescued or carried civilians, changes
-      who is at risk. Jean-Claude can act under the DM's awake override.
-      Balance uses actual participating PCs and sourced 2024 Creature XP,
-      naming over-budget risk instead of calling an excess force even. Spoken
-      Narration puts the threat first and stops before it lands.
+      Attacks, charge limits, grappling, swallowing, regurgitation and terrain
+      procedures agree with retrieved rules owners under 2024 5e. Fought
+      Creatures use owner statblock embeds; sourced XP arithmetic uses the
+      actual participating PCs, including awake Jean-Claude. Over-budget
+      opposition is identified honestly, with warned danger and feasible
+      counterplay rather than being labelled an even fight.
+    - >-
+      Incoming rescue state changes who is present, carried or at risk.
+      Refused rescues do not reappear as successes, and prior casualties,
+      spent resources or Spinner loss remain effective. Bird behaviour and
+      departure limits follow Canon; the crossing's possible losses stay
+      conditional rather than being promoted to played history.
+    - >-
+      Grass, water, Razer-Grass and the birds' pursuit of bodies create a
+      distinctive physical problem with materially different approaches.
+      Earlier information earns a useful edge, each present PC has something
+      useful to attempt, and threatening changes have observable warnings
+      and counterplay instead of a scripted fight to the death.
+    - >-
+      Every Opening variant presents the immediate threat in the Party's
+      sight and is speakable after one hearing. Concrete form and scale
+      against familiar things, usable placement and grounded sensory detail
+      make the danger and ways out pictureable. Narration stops before a
+      charge or seizure lands, keeps mechanics and hidden information in DM
+      notes, and decides no PC action, feeling or thought.

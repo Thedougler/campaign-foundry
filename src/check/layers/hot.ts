@@ -26,6 +26,7 @@ export const hotLayer: Layer = {
 			if (count <= HOT_WORD_CAP) continue;
 			findings.push({
 				layer: LAYER,
+				severity: "error",
 				rule: "too-long",
 				path: ctx.display(page.path),
 				line: crossed,

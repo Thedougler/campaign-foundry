@@ -1,0 +1,14 @@
+extends: existence
+message: "Narration leans on a familiar body tell ('%s'). Give this person a physical cue tied to what they want here."
+level: warning
+scope: blockquote
+ignorecase: true
+tokens:
+  - jaw clenches
+  - breath catches
+  - heart pounds
+  - blood runs cold
+  - fists clench
+  - eyes widen
+  - knees buckle
+  - spine tingles

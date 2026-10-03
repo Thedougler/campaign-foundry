@@ -63,6 +63,7 @@ async function suggestionsFor(settings: CSpellSettings, words: string[]): Promis
 function finding(word: string, line: number, near: string[]): CachedFinding {
 	return {
 		layer: LAYER,
+		severity: "error",
 		rule: "misspelt",
 		line,
 		message: `\`${word}\` is not in the British English dictionary, the D&D term list, a template, the vault word list or any page name.`,
@@ -92,7 +93,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 		}
 		return out;
 	});
-	return pages.flatMap((page) => (byPage.get(page) ?? []).map((f): Finding => ({ ...f, path: ctx.display(page.path) })));
+	return pages.flatMap((page) => (byPage.get(page) ?? []).map((f): Finding => ({ ...f, severity: "error", path: ctx.display(page.path) })));
 }
 
 export const spellingLayer: Layer = {

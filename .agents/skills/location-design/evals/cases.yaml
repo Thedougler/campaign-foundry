@@ -1,65 +1,179 @@
-# Aruhe adapts the production expansion ask in issue #34.
-- id: three-kinds
+# Default: grounded Calveno harbour adaptation, expanded to the Settlement and its ordinary Le Paludi Site.
+- id: location
+  source_pages:
+    - The Shattered Sea/Locations/Calven and Calveno.md
+    - The Shattered Sea/Locations/Le Paludi.md
+    - The Shattered Sea/Factions/Dravosi Crown.md
+    - The Shattered Sea/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+  prompt: >-
+    Deepen Calveno's harbour so I can run arrival, inspection and berth
+    from the page. Keep the canal city, Crown flag and debt politics. Give
+    me what a cutter sees coming in, who actually controls the docks, and
+    where the Party would go next without inventing a new city. Make the
+    whole Calven and Calveno page ready for a visit, and flesh out Le Paludi
+    as the next stop so I can run its shops, contacts and routes from its
+    own page too. I need what I can read as they arrive at each place.
+  checks:
+    pages:
+      - The Shattered Sea/Locations/Calven and Calveno.md
+      - The Shattered Sea/Locations/Le Paludi.md
+    sections:
+      The Shattered Sea/Locations/Calven and Calveno.md:
+        - '## At a glance'
+        - '## Play'
+        - '### Districts'
+        - '### Services'
+        - '### Factions here'
+        - '### Local rules'
+        - '### Rumors'
+        - '## Depth'
+        - '## Links'
+      The Shattered Sea/Locations/Le Paludi.md:
+        - '## At a glance'
+        - '## Play'
+        - '### Areas'
+        - '### Hazards'
+        - '### Occupants'
+        - '### Likely actions'
+        - '## Depth'
+        - '## Links'
+    canon:
+      The Shattered Sea/Locations/Calven and Calveno.md:
+        - '^type:\s*Location\s*$'
+        - '^kind:\s*Settlement\s*$'
+        - '^>\s*\[!narration\]\s+Arrival\s*$'
+      The Shattered Sea/Locations/Le Paludi.md:
+        - '^type:\s*Location\s*$'
+        - '^kind:\s*Site\s*$'
+        - '^parent:\s*"\[\[Calven and Calveno\]\]"\s*$'
+        - '^>\s*\[!narration\]\s+Entering\s*$'
+    absent:
+      The Shattered Sea/Locations/Calven and Calveno.md:
+        - '^```statblock\b'
+      The Shattered Sea/Locations/Le Paludi.md:
+        - '^```statblock\b'
+  rubrics:
+    - >-
+      The Settlement can be run from its page alone: approach, inspection,
+      berth, district orientation and transport have usable terms and times;
+      relevant services have keepers, locations, access and prices or reachable
+      alternatives. Its economic engine explains who controls work and debt.
+      Enforced local rules and opposed wants give visitors meaningful approaches
+      and a visible, timed next consequence rather than a directory of labels.
+    - >-
+      Le Paludi is a compact, playable Site rather than a dungeon imposed on
+      a shopping visit. Its distinguishable spaces have retrievable cues,
+      occupants and activity, usable objects, dangers, hidden answers and
+      connections. Keepers have offers and responses, likely actions change
+      access, trust or stock, and return visits preserve those consequences.
+      Shops remain worth using without combat and retain separate control of
+      the routes below.
+    - >-
+      Crown authority, Tessarine credit, the canal geography and established
+      owner identities remain coherent with the live sources. Harbour papers
+      and credit records create concrete, distinctly Calveno choices. Rumours
+      distinguish street claims from DM truth and lead to discoverable evidence;
+      hidden routes and truths have usable reveals. New detail is prospective
+      design, not a second Calveno, a reopened historical crisis or rewritten
+      Session history, and knowledge is not leaked between actors.
+    - >-
+      Added checks, hazards and any opposition are correct under 2024 5e and
+      applicable House Rules, with uncertainty, DCs, triggers and consequences
+      the DM can adjudicate. They respect the actual Party's capabilities and
+      current participation, preserve established mechanics and prices, and
+      permit bargaining, avoidance and retreat. NPC, Creature and notable Item
+      dependencies resolve to usable owner pages rather than rules invented
+      only in the reply.
+    - >-
+      Arrival, Entering and any local spoken cues let Players picture the
+      approach and actionable features after one hearing. They are specific
+      to the canal city and its thresholds, place concrete forms at familiar
+      body scale, and follow perceptible activity rather than generic atmosphere
+      or lists. Hidden truths and mechanics stay DM-facing, PC actions and
+      feelings remain theirs, and each live beat stops before Players act.
+
+# Unique circumstance: map-scale Region travel needs navigation, rest and supply choices that a Settlement-and-Site visit cannot exercise.
+- id: location-region
   source_pages:
     - The Shattered Sea/Locations/Aruhe.md
     - The Shattered Sea/Lore/Taking on Aruhe.md
+    - The Shattered Sea/NPCs/Hinewai.md
+    - The Shattered Sea/Locations/Memorial Grove.md
+    - The Shattered Sea/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
   prompt: >-
     Expand Aruhe into at least five distinct regions, including the centre.
     The beaches should be calmest, with increasingly vicious fauna and
     carnivorous flora inland, ramping up to the Blight and Death Bloom.
     The two innermost regions should be too dangerous for a party of five
     below level 10. Use standard Locations and Regions, not a dungeon.
+    Give me complete pages I can use for journeys across the island,
+    including what I read as the crew first reaches each region.
   checks:
     pages:
       - The Shattered Sea/Locations/Aruhe.md
+    sections:
+      The Shattered Sea/Locations/Aruhe.md:
+        - '## At a glance'
+        - '## Play'
+        - '### Travel'
+        - '### Places worth reaching'
+        - '### Encounters'
+        - '### Rumors'
+        - '## Depth'
+        - '## Links'
     canon:
       The Shattered Sea/Locations/Aruhe.md:
         - '^type:\s*Location\s*$'
         - '^kind:\s*Region\s*$'
+        - '^>\s*\[!narration\]\s+Arrival\s*$'
+    absent:
+      The Shattered Sea/Locations/Aruhe.md:
+        - '^```statblock\b'
   rubrics:
     - >-
-      Aruhe has at least five distinct child Regions with saved, linked
-      Location pages, including a central Region. Existing Regions are
-      reused or deepened where they fit, and established Sites retain their
-      identities within a coherent hierarchy. The island remains a wilderness
-      at its sourced scale rather than becoming a room-key dungeon.
+      Aruhe has at least five distinct child Regions with complete, saved,
+      linked pages, including a central Region. Existing Regions are reused
+      or deepened where they fit and established Sites retain their identities
+      in a coherent containment hierarchy. Borders, landmarks and reachable
+      destinations make sense at the island's sourced scale; wilderness
+      exploration has not become a room-key dungeon or a fixed itinerary.
     - >-
-      Beaches, intermediate Regions and the two innermost Regions form a
-      legible escalation in carnivorous flora and violent fauna. Concrete
-      hazards, inhabitants and terrain explain why a party of five below
-      level 10 should avoid the innermost threats. Warning signs, route
-      trade-offs and retreat preserve agency; danger is not an arbitrary
-      level lock, compulsory fight or guaranteed death.
+      Journeys are runnable from the Region pages alone. Connected routes
+      name endpoints, modes, times, supply costs and access terms, with
+      meaningful alternatives where geography permits. Uncertain navigation
+      has a resolvable failure consequence; rest and replenishment have named
+      places, terms and exposure. Delays matter, and hidden routes are
+      discoverable rather than destinations the DM must invent access to.
     - >-
-      Travel between Regions is usable from their pages, with consistent
-      connections, meaningful costs and alternative routes. The starting
-      island geography, taking law and relationship between Hinewai, the
-      Blight and Death Bloom survive. New geography and threats are design,
+      Beaches, intermediate Regions and the innermost Regions form a legible
+      escalation in violent fauna and carnivorous flora. Concrete hazards,
+      counts, terrain and linked Creature owners support the requested danger
+      to five adventurers below level 10 while also accounting for the actual
+      Party and its current participation. Added mechanics follow 2024 5e
+      and applicable House Rules without overwriting established rules;
+      advance warnings, route trade-offs and retreat preserve agency rather
+      than imposing a level lock, compulsory fight or guaranteed death.
+    - >-
+      Each Region has a distinctive playable situation: active powers have
+      opposed wants, observable moves and stated timing, and encounters offer
+      interactions rather than fight labels. Rumours pair the spoken claim
+      with DM truth and reachable evidence. Geography, taking law and the
+      relationship between Hinewai, the Blight and Death Bloom survive;
+      history still affects travel and new threats remain prospective design,
       not retroactive discoveries or resolved Session events.
-
-- id: calveno-harbour
-  source_pages:
-    - The Shattered Sea/Locations/Calven and Calveno.md
-    - The Shattered Sea/Locations/Le Paludi.md
-  prompt: >-
-    Deepen Calveno's harbour so I can run arrival, inspection and berth
-    from the page. Keep the canal city, Crown flag and debt politics. Give
-    me what a cutter sees coming in, who actually controls the docks, and
-    where the Party would go next without inventing a new city.
-  checks:
-    pages:
-      - The Shattered Sea/Locations/Calven and Calveno.md
-    canon:
-      The Shattered Sea/Locations/Calven and Calveno.md:
-        - '^type:\s*Location\s*$'
-        - '^kind:\s*Settlement\s*$'
-  rubrics:
     - >-
-      Arrival, harbour control and next destinations are usable from the
-      existing Settlement. Crown flag, Tessarine credit, canals and Passage
-      routes below survive. New dock detail is design on this city, not a
-      second Calveno or a rewritten Session history.
-    - >-
-      Inspection, berth and conflicting papers produce concrete choices.
-      Named places already in the starting Wiki are reused. Hidden truths
-      stay DM-facing; public harbour knowledge stays Player-safe.
+      Each Region's Arrival is speakable after one hearing and gives an
+      orienting situation, concrete landforms at a familiar scale, placed
+      features and a usable next choice. Distinct Regions sound distinct
+      without reading like scenery lists. Only perceivable or already-known
+      facts are spoken; secrets, navigation mechanics and danger ratings
+      stay in DM notes, no PC feeling or action is dictated, and live events
+      stop at the first opportunity for Players to act.

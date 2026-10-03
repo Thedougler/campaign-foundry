@@ -10,15 +10,17 @@ Hard reasons written before the Capability Eval.
 | --- | --- | --- | --- |
 | narration-slots | Regression | Production: “Improve upon the Session 12 narration blocks comprehensively” (#34). Packed multi-slot hold-the-line. | Checks: callouts exist, Draft gone, Skarn's spoken line survives. Grades: speakable openings, Previously On stop, Skarn cues without a PC action, Terror-Bird form. |
 | fatespinner-chat | Regression | Production chat-only Fate Spinner rewrite (#34). | Check: Item page quartz line survives. Grades: speakable First look in the reply; page unchanged. |
-| gold-caste-handout | Regression | Grounded Handout adaptation (README). | Checks: none; the Handout filename is the Runner's choice. Grades: four order lines verbatim oldest first; new Handout page with `type: Handout` and Handout text callout, handed over in Orders in the Ash, not claimed as handed out. |
+| gold-caste-handout | Regression | Grounded Handout adaptation (README); hard reason remains valid (Design step 2). | Repaired (Design steps 4–5): Checks pin only the four Canon order strings in Two-Grave Orders, never the output path. Grades accept any new Session 12 Handout filename with `type: Handout` and four verbatim lines oldest first in Handout text, handed over in Orders in the Ash, not claimed as handed out. |
 | wolfrabbit-opening | Capability | Production wolfrabbit-only cold-open shape (#34); wiki placed the hunt on Session 11. | Check: Opening exists, Draft gone. Grades: hunt in motion from this Scene; rest of page intact. |
 | wolfrabbit-first-sight | Capability | Live First sight is generic silhouette-tell; production wanted the actual animal. | Check: callout exists, Draft gone. Grades: form and tells at rest; rest of page intact. |
 | bloodhawk-first-sight | Capability | Same generic First sight template as Wolfrabbit on a different Creature. | Check: callout exists, Draft gone. Grades: form and tells at rest; rest of page intact. |
-| landing-sign-opening | Capability | Production: smoke from other survivors is the main driver (#34). | Check: Opening exists, Draft gone. Grades: cold ring, fruit, inland smoke; rest of page intact. |
+| landing-sign-opening | Capability | Production: smoke from other survivors is the main driver (#34); hard reason remains valid (Design step 2). | Repaired (Design steps 4–5): Check: Opening exists, Draft gone. Grades: cold stone ring, spent fruit (skins, rinds, half-eaten or equivalent wording), inland smoke as the lead, stop before route choice; rest of page intact. No exact fruit phrase required. |
 | session12-previously-on | Capability | Previously On is a distinct recipe the packed Session 12 case hides. | Check: callout exists, Draft gone. Grades: past you, stop on Skarn; Recap unchanged. |
 | way-out-closing | Capability | Production Session 12 narration includes the Closing image. | Check: callout exists, Draft gone. Grades: nine leave, three stay, no new threat; rest of page intact. |
 
 Sources are current Shattered Sea pages listed in `evals/cases.yaml`.
+
+Design repair (#29 Phase 2.2 / #25 Reflection): steps 2, 4 and 5 revisited for these two cases; hard reasons remain valid and Checks/Grades now match the repaired tasks. No new Eval was run; historical outcomes and scores below are unchanged.
 
 ### Split
 

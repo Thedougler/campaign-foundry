@@ -1,65 +1,68 @@
-# Grounded adaptation of existing Lore, not a recovered original creation ask.
-- id: taking-on-aruhe
+# Default: grounded adaptation of existing Lore, not a recovered original creation ask.
+- id: lore
   source_pages:
     - The Shattered Sea/Lore/Taking on Aruhe.md
     - The Shattered Sea/NPCs/Hinewai.md
+    - The Shattered Sea/NPCs/Matteo Scola.md
+    - The Shattered Sea/NPCs/Gianni Moro.md
+    - The Shattered Sea/Locations/Memorial Grove.md
+    - The Shattered Sea/Locations/Aruhe.md
+    - The Shattered Sea/Shattered Sea/hot.md
+    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
+    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
   prompt: >-
     Flesh out Taking on Aruhe. I need to understand what causes the law,
     where its boundaries are and why survivors explain it differently.
     Give the Party ways to learn that through play, and show how someone
-    on the island might use it to pressure them.
+    on the island might use it to pressure them. Make the page ready to
+    run at the table, including the common telling I would speak when
+    someone first explains the rule.
   checks:
     pages:
       - The Shattered Sea/Lore/Taking on Aruhe.md
+    sections:
+      The Shattered Sea/Lore/Taking on Aruhe.md:
+        - '## At a glance'
+        - '## Play'
+        - '## Depth'
+        - '### The full truth'
+        - '### Chronology'
+        - '## Links'
     canon:
       The Shattered Sea/Lore/Taking on Aruhe.md:
         - '^type:\s*Lore\s*$'
+        - '^>\s*\[!narration\]\s+As it is told\s*$'
   rubrics:
     - >-
-      The explanation preserves the starting cause, claim-versus-receiving
-      boundary, tells, duration, responders and practical exceptions. It
-      clarifies ambiguous applications without replacing the cosmology,
-      altering existing mechanics or promoting future destruction to history.
+      The full truth is plain for the DM: cause, who and when, what counts
+      as a claim, safe receiving, mark duration, responders, practical
+      exceptions and limits. Ambiguous applications are clarified without
+      replacing the cosmology, overwriting established mechanics or promoting
+      future destruction to history. Existing Wiki tellings are marked true,
+      distorted with how, or false with who spreads them, and the page still
+      supports adjudication under 2024 5e and applicable House Rules.
     - >-
-      Accounts from relevant starting sources are attributed to their
-      holders and distinguished from DM truth, with their distortions or
-      gaps explained. Different survival practices remain recognisably
-      different beliefs rather than copies of the authoritative explanation.
-      Party knowledge follows played records, not future Prep.
+      Two to four held accounts remain distinct beliefs with named holders,
+      including the common tavern or trail telling and any readable in-world
+      text, faithful to its source in substance. Party knowledge follows played records rather than future
+      Prep. Important conclusions have three independent Clues of different
+      kinds, placed on real pages the DM can run, so essential understanding
+      does not depend on one witness or roll. Spoken accounts stay Player-safe
+      while DM truth remains separate.
     - >-
-      Important conclusions have independent Clues in different places or
-      interactions, saved on the real pages where the DM can run them.
-      Essential understanding does not depend on one witness or roll.
-      Spoken accounts are Player-safe and DM-facing truth stays separate.
+      The Lore matters now. A named NPC or Faction acts on the truth on its
+      own clock with a plausible next move, observable signs and a Party
+      lever, and the page says what the Party gains by acting. New Clues and
+      pressure are prospective design rather than already-observed discoveries;
+      owner identities, Memorial Grove, Hinewai and Session history survive.
+      Signs in the World appear before anyone explains the law.
     - >-
-      A named actor uses the law through a plausible next move, observable
-      signs and a Party lever. New Clues and pressure are prospective design,
-      not already observed discoveries, and existing owner identities and
-      Session history survive.
-
-- id: il-gioco-festival
-  source_pages:
-    - The Shattered Sea/Lore/Il Gioco delle Beffe.md
-    - The Shattered Sea/Locations/Calven and Calveno.md
-  prompt: >-
-    Flesh out Il Gioco delle Beffe so I can run this year's festival.
-    Keep the five-day schedule, willing marks and scoring. Show how a
-    team actually registers, how rival teams interfere, and how someone
-    in Calveno would use a win to pressure the Party.
-  checks:
-    pages:
-      - The Shattered Sea/Lore/Il Gioco delle Beffe.md
-    canon:
-      The Shattered Sea/Lore/Il Gioco delle Beffe.md:
-        - '^type:\s*Lore\s*$'
-  rubrics:
-    - >-
-      La Scelta, the Window and Il Giudizio survive with public schedule,
-      willing marks, registered symbols and the recorded scoring split.
-      Registration, rival interference and Beffa doppia are playable
-      without replacing the full-truth numbers.
-    - >-
-      Named marks and places from the starting Wiki are reused. A named
-      actor can spend festival social capital on the Party. New pressure
-      is design; Session records of festival days already played stay
-      history rather than being overwritten.
+      As it is told is speakable after one hearing in a teller's natural
+      voice: a concrete common version of the rule, sized against familiar
+      island life, that a table could retell and use. It is specific rather
+      than generic proverb and may differ from the DM truth without becoming
+      a secret dump. No PC feeling or action is assigned, mechanical
+      resolution stays out of the spoken line, and the block stops before
+      Players need to act.

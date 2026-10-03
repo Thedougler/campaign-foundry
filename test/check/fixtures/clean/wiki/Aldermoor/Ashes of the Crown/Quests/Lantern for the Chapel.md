@@ -15,7 +15,7 @@ status: ""
 - **Advances.** [[The Cold Hearth]]
 
 > [!narration] The offer
-> Spoken text for the table.
+> A lantern waits on the pew.
 
 ## Play
 

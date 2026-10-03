@@ -1,19 +1,15 @@
-# Independent pass/fail Grade
+# Grade → `grading.json`
 
-Read when mapping `runSkillEvals` Grades into `grading.json`, or when briefing a second native `prose-grader` on a retained run's outputs. `runSkillEvals` dispatches each run's Grade itself with this contract. This is an assignment reference for the configured role, not another agent definition. `evals/README.md` owns source-relative grading and access; [`schemas.md`](schemas.md) owns the native result and parent artifact mapping.
+Read when turning a paired run's Checks output and `grades.json` into `grading.json`, or when running a second Grade on a saved run. The grader is the `prose-grader` native `task` dispatch of the recipe's Grade step in `evals/README.md` § [Run a case](../../../../evals/README.md#run-a-case); its task carries only the case rubrics verbatim and numbered, the run's `outputs/` path and the case sources. Configuration names, Checks and `reply.txt` stay out of it, so the grader judges the writing alone.
 
-## Parent brief
+## Map
 
-Point the grader at one run's `outputRoot` — its pages, `reply.md` and `.deleted.json` — and supply the normalized expectations verbatim and the live case source paths needed to judge fidelity. Supply inspection access for non-text outputs. Keep execution histories, Checks, isolation proof and configuration labels outside the Grade brief; they cannot stand in for reading the writing. Writer, subject and grader are separate agents.
+1. **Validate.** `grades.json` must parse as `{"grades":[{"rubric","pass","reason"}]}` with exactly one entry per case rubric, in order, with identical rubric text and a boolean `pass`. Anything else — an empty file, prose, a fenced block, a missing rubric — is a grading error for that run: record it in the run's `benchmark.json` notes, write no `grading.json`, and go to step 3. Done when the file is valid or the run carries a named grading error.
+2. **Write.** Build `grading.json` per [`schemas.md`](schemas.md): first, when the case has `checks`, one `{"text":"Checks","passed":<summary line starts with "ok:">,"evidence":<the summary line of checks.txt plus every FAIL line>}`; then one entry per grade, mapping `rubric → text`, `pass → passed`, `reason → evidence` unchanged. Compute `summary` from the booleans. Done when every rubric and the Checks result appear once and the counts agree with the booleans.
+3. **Rename.** Move `grades.json` to `grades.raw.json`; `cf eval review` reads `grades.json` first and fails on invalid JSON. Done when the run directory holds no `grades.json`.
 
-Dispatch native `prose-grader` with strict `outputSchema` `{grades:[{rubric,pass,reason}]}`: all fields required, boolean `pass`, exact rubric text/count/order, no extra properties. Give a yield-only result assignment; the parent writes `grading.json` after validation. Done when the fresh grader has the writing, complete required starting evidence and the exact rubric list.
+A `checks.txt` ending in `exit 2` is a Checks usage or execution error. The run gets no `grading.json`, only a note in `benchmark.json`.
 
-## Grader steps
+## Second Grade
 
-1. **Read.** Read every authored passage each rubric bears on, including the supplied starting sources for factual fidelity. Inspect actual non-text deliverables with the provided tools. Required inaccessible or truncated material is a blocker; yield an error naming it rather than partial grades. Done when every rubric's relevant output and starting evidence is available.
-2. **Decide.** For each verbatim rubric, decide pass or fail from substantive behavior in the writing. A requested feature missing from a fully available output is a fail, not an evidence blocker. Exact-fidelity rubrics compare supplied quotations word-for-word. Reasons quote the passage that decides the verdict and cite the starting source when source-relative; for absence, quote the nearest relevant passage and explain what is missing. Done when each rubric has one boolean verdict and a reason traceable to the writing.
-3. **Yield.** Return only `{grades:[{rubric,pass,reason}]}` matching the supplied `outputSchema`, preserving the exact input sequence. The result is pass/fail, without partial credit or numeric quality scores. Leave writing, criteria and sources unchanged. Done when every assigned rubric appears exactly once in the validated result, or a named evidence blocker has been returned.
-
-## Parent mapping
-
-Validate the complete native result before saving it. Map `rubric → text`, `pass → passed`, `reason → evidence` once into `<run-dir>/grading.json`, then derive counts and the pass rate under `schemas.md`. Record grader provenance where observed. A malformed or incomplete result, or a report `gradeError`, is a grading error, not a partially successful Grade. Done when the artifact preserves every rubric and quoted reason without rewriting, and its summary agrees with the booleans.
+To test grader variance, dispatch the same Grade task again on the same saved `outputs/`, `cp agent://<id>` into a second file (`grades.2.json`), and compare verdicts rubric by rubric. A disagreement means the rubric is defective; repair it in the case.

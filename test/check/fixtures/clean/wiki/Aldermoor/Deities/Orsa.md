@@ -13,7 +13,7 @@ sources: []
 - **Asks of followers.** Text.
 
 > [!narration] Invocation
-> Spoken text for the table.
+> Ember smoke curls from her open palms.
 
 ## Play
 

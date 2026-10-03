@@ -1,8 +1,9 @@
-- id: charted-conditional-scene
+- id: hook-scene
   source_pages:
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
     - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - The Shattered Sea/Shattered Sea/Shattered Sea.md
   prompt: >-
     Redo Dawn Strike for Session 12. Skarn wants the Spinner for Vantyrus, not
     a kill, and he's loyal to him right now. Jean-Claude is awake; he was only
@@ -15,20 +16,48 @@
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
         - '## At a glance'
         - '## Play'
+        - '### Situation'
+        - '### Handles'
+        - '### Checks'
         - '## Outcomes'
         - '## Depth'
+        - '### Hidden truths'
+        - '### Threads'
+        - '### Spotlight'
     canon:
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Hook\s*$'
+        - '^> \[!narration\] Opening\s*$'
   rubrics:
     - >-
-      The opening puts one immediate visible pressure on the Party, with
-      distinct ways to answer it. Skarn's goal is the Spinner rather than a
-      predetermined kill; theft, capture, retreat and continued possession
-      remain contests whose results carry into the next Scene.
+      The DM can run the Hook from this page and its resolving owner embeds:
+      one immediate pressure, an obvious first move and at least three
+      materially different responses with usable costs, opposition responses
+      and a commitment that ends the Scene. Hesitation and refusal also have
+      concrete consequences and a coherent handoff rather than a forced win.
     - >-
-      Jean-Claude can act under the DM's explicit awake override without a
-      fabricated cure or rewritten prior play. Spoken Narration is grounded in
-      this run's camp and people, stops before the theft or a blow lands, and
-      leaves PC choices to the Players.
+      Uncertain theft, capture, attacks and escape use complete, source-correct
+      2024 rulings rather than automatic results. Possible fights have owner
+      Creature embeds and sourced XP arithmetic for the PCs actually able to
+      act; terrain, surprise and objective pressure are accounted for honestly,
+      including any force that exceeds the Party's budget.
+    - >-
+      The resumed attack preserves the last played positions, unresolved
+      contest and spent resources. Jean-Claude acts under the DM's awake
+      override without a fabricated cure or rewritten play. Skarn remains
+      loyal to Vantyrus and seeks the Spinner, not a predetermined kill;
+      theft, capture and escape stay conditional and carry their actual
+      possession and custody states forward.
+    - >-
+      The camp, usable space and Skarn's behaviour make this a specific,
+      memorable opening rather than a generic ambush. Each participating PC
+      has a grounded opportunity to answer the pressure, and keeping or
+      losing the Spinner plants a question the later Session can pay off.
+    - >-
+      Every Opening variant meets theatre-of-the-mind standard: speakable
+      after one hearing, with a concrete disturbance in the Party's sight,
+      clear placement, physical form and scale against familiar things, and
+      sourced sensory detail. It stops before a live theft, blow or escape
+      resolves, keeps secrets and mechanics in DM notes, and assigns no PC
+      action, feeling or thought.

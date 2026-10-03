@@ -69,7 +69,7 @@ function example(location: Location, name: string): string {
 function specialFindings(ctx: CheckContext, page: Page, out: Finding[]): void {
 	const segments = segmentsOf(page);
 	const add = (rule: string, message: string, hint: string): void => {
-		out.push({ layer: LAYER, rule, path: ctx.display(page.path), line: 1, message, hint });
+		out.push({ layer: LAYER, severity: "error", rule, path: ctx.display(page.path), line: 1, message, hint });
 	};
 	if (page.name === "index" && segments.length > 1) {
 		add("misplaced-special", "`index.md` is not at the Wiki root or a World's folder.", "`index.md` is generated: one at the vault root listing the Worlds, one per World at `<World>/index.md`. Regenerate it in the right place.");
@@ -102,7 +102,7 @@ export function run(ctx: CheckContext): Finding[] {
 	for (const page of ctx.vault.pages) {
 		const path = ctx.display(page.path);
 		const add = (rule: string, message: string, hint: string): void => {
-			findings.push({ layer: LAYER, rule, path, line: 1, message, hint });
+			findings.push({ layer: LAYER, severity: "error", rule, path, line: 1, message, hint });
 		};
 		if (isSpecialPage(page)) {
 			specialFindings(ctx, page, findings);
@@ -148,6 +148,7 @@ export function run(ctx: CheckContext): Finding[] {
 			const others = pages.filter((p) => p !== page).map((p) => p.path);
 			findings.push({
 				layer: LAYER,
+				severity: "error",
 				rule: "duplicate-name",
 				path: ctx.display(page.path),
 				line: 1,

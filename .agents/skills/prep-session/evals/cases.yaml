@@ -1,9 +1,19 @@
-- id: full-aruhe-session
+- id: session-prep
   source_pages:
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
     - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
     - The Shattered Sea/Shattered Sea/Shattered Sea.md
     - The Shattered Sea/Lore/Two-Grave Orders.md
+    - The Shattered Sea/Items/Giant's Guava.md
+    - The Shattered Sea/Items/Ghost Plum.md
+    - The Shattered Sea/Creatures/Terror-Bird.md
   prompt: >-
     Prep Session 12 from the top, keeping the broad shape of the existing
     plan. We've settled on four hours following the other survivors' smoke
@@ -23,6 +33,7 @@
       - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
       - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
       - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
+      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
     sections:
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md:
         - '## At a glance'
@@ -34,35 +45,73 @@
     canon:
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md:
         - '^type:\s*Prep\s*$'
+        - '\|\s*#\s*\|\s*Scene\s*\|\s*Kind\s*\|\s*Minutes\s*\|\s*Threads\s*\|'
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
+        - '^type:\s*Scene\s*$'
+        - '^kind:\s*Hook\s*$'
+        - '^> \[!narration\] Opening\s*$'
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md:
+        - '^type:\s*Scene\s*$'
+        - '^kind:\s*Development\s*$'
+        - '^> \[!narration\] Opening\s*$'
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md:
+        - '^type:\s*Scene\s*$'
+        - '^kind:\s*Cliffhanger\s*$'
+        - '^> \[!narration\] Opening\s*$'
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md:
+        - '^type:\s*Scene\s*$'
+        - '^kind:\s*Development\s*$'
+        - '^> \[!narration\] Opening\s*$'
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md:
+        - '^type:\s*Scene\s*$'
+        - '^kind:\s*Climax\s*$'
+        - '^> \[!narration\] Opening\s*$'
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md:
+        - '^type:\s*Scene\s*$'
+        - '^kind:\s*Resolution\s*$'
+        - '^> \[!narration\] Closing image\s*$'
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md:
+        - '^type:\s*Previously On\s*$'
+        - '^> \[!narration\] Previously on\s*$'
       The Shattered Sea/log.md:
         - '^## \[\d{4}-\d{2}-\d{2}\] prep \| Session 12 Prep'
   rubrics:
     - >-
-      The revised Prep and linked Scenes form a runnable four-hour Session:
-      an immediate opening, alternating discovery and physical pressure,
-      an earned Climax and a short aftermath. Each Scene offers decisions,
-      rulings and a coherent continuation. Smoke and recovering survivors
-      drive progress; the session is not replaced by unrelated plot or
-      repeated NPC-only contests.
+      The Prep, complete chart, Previously On and linked Scenes form a
+      runnable four-hour Session from the Wiki alone: an immediate Hook,
+      alternating discovery and physical pressure, an earned Climax and a
+      short aftermath, with time for breaks and lookups. Every Scene has
+      decisions, rulings and coherent conditional continuations. The cast is
+      resolved through usable owners and embeds, and smoke and recovering
+      survivors drive progress rather than unrelated plot or NPC-only contests.
     - >-
-      Jean-Claude can participate under the DM's explicit awake override
-      without a fabricated cure or rewritten prior play. Every current PC
-      has a meaningful opportunity grounded in this run's starting goals
-      and bonds. The order chain and Hinewai's prejudice distinguish compelled
-      history from personal guilt. Essential conclusions have independent
-      discovery routes, with source-grounded Clues usable in multiple Scenes.
+      Every participating PC has a meaningful opportunity grounded in current
+      goals and bonds. Opposition advances on its own runnable timeline;
+      source-grounded Clues work in multiple Scenes and essential conclusions
+      have independent discovery routes. The order chain and Hinewai's
+      prejudice distinguish compelled history from personal guilt through
+      specific people, evidence and choices rather than an explanatory lecture.
     - >-
-      Skarn's current loyalty and theft objective remain intact. The later
-      invisible attempt follows the retrieved Ghost Plum rules and the
-      first attempt's actual possible outcomes; capture, death or a completed
-      theft changes the later premise. CONSUME offers useful power at a real
-      source-grounded cost, with refusal playable. Spinner ownership,
-      survivor losses and expended resources carry through the endings.
+      Jean-Claude acts under the awake override without a fabricated cure or
+      rewritten prior play. Skarn's loyalty and theft objective remain intact,
+      and the later attempt changes or disappears when the first attempt's
+      outcomes prevent it. CONSUME offers useful power at a source-grounded
+      cost with playable refusal. Spinner ownership, survivor losses and spent
+      resources carry through all endings; planned outcomes stay conditional
+      in Prep, Scenes, hot and owner pages while played records remain intact.
     - >-
-      The DM can run the reachable Encounters from sourced 2024
-      participating-PC budgets, Creature embeds, terrain and contestable
-      opposition tactics. Reused rules and cast agree with this run's owner
-      pages. Planned outcomes remain conditional in hot and elsewhere;
-      played records remain intact. The saved reply accounts honestly for
-      completion and any unavailable images or Push prerequisites rather
-      than claiming generated assets or a build that did not happen.
+      Reachable Encounters and reused effects are source-correct under 2024
+      5e, with actual participating-PC budgets, Creature embeds, usable terrain
+      and contestable tactics. Cast, fruit rules, rewards and advancement
+      agree with their owners. The reply honestly accounts for text completion,
+      images, gate and Push results or unavailable prerequisites rather than
+      claiming assets, validation or a build that did not happen.
+    - >-
+      All Scene Openings, Revelations, transitions and Closing images meet
+      theatre-of-the-mind standard: speakable after one hearing, concrete
+      physical form and scale against familiar things, grounded sensory and
+      spatial detail, and branch-correct visible facts. Live events stop
+      before Players act; mechanics, secrets and PC feelings or decisions
+      stay out of spoken text. Previously On recounts only sourced played
+      events, ends on the actual unresolved Skarn attack and prepares the
+      Players to resume rather than narrating future Prep as history.

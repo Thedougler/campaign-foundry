@@ -85,6 +85,7 @@ async function lintPages(l: LocalLinter, pages: Page[]): Promise<Map<Page, Cache
 			for (const lint of lints) {
 				found.push({
 					layer: LAYER,
+					severity: "error",
 					rule,
 					line: lineAt(starts, sourceOffset(view, utf16(lint.span().start))),
 					message: lint.message(),
@@ -106,7 +107,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 		await l.importWords(words);
 		return lintPages(l, misses);
 	});
-	return pages.flatMap((page) => (byPage.get(page) ?? []).map((f): Finding => ({ ...f, path: ctx.display(page.path) })));
+	return pages.flatMap((page) => (byPage.get(page) ?? []).map((f): Finding => ({ ...f, severity: "error", path: ctx.display(page.path) })));
 }
 
 export const grammarLayer: Layer = {

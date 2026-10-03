@@ -65,6 +65,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 				.map(
 					({ m, line }): Finding => ({
 						layer: LAYER,
+						severity: "error",
 						rule: m.ruleId ?? "remark-lint",
 						path: ctx.display(page.path),
 						line,

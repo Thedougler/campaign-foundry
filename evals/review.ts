@@ -148,11 +148,11 @@ async function embedOutputs(outputsDirectory: string, directory = outputsDirecto
 	return result;
 }
 
-async function buildRun(root: string, runDirectory: string, outputDirectory = join(runDirectory, "outputs"), controlDirectory = runDirectory): Promise<ReviewRun> {
+async function buildRun(root: string, runDirectory: string): Promise<ReviewRun> {
 	let prompt = "";
 	let evalId: string | number | null = null;
 	let grading: Record<string, unknown> | null = null;
-	const parents = [controlDirectory, ...ancestors(root, runDirectory)];
+	const parents = ancestors(root, runDirectory);
 	for (const parent of parents) {
 		const metadataPath = join(parent, "eval_metadata.json");
 		if (await fileExists(metadataPath)) {
@@ -185,9 +185,7 @@ async function buildRun(root: string, runDirectory: string, outputDirectory = jo
 		}
 		if (grading) break;
 	}
-	const briefPath = join(controlDirectory, "runner-brief.md");
-	if (await fileExists(briefPath)) prompt = (await readFile(briefPath, "utf8")).replace(/^Eval grant:.*(?:\r?\n|$)/gmu, "").trim();
-	const outputs = await embedOutputs(outputDirectory);
+	const outputs = await embedOutputs(join(runDirectory, "outputs"));
 	return {
 		id: relative(root, runDirectory).split(sep).join("-") || "root",
 		prompt: prompt || "(No prompt found)",
@@ -214,15 +212,7 @@ export async function findReviewRuns(workspace: string): Promise<ReviewRun[]> {
 			if (entry.isDirectory() && !entry.isSymbolicLink() && !Object.hasOwn(SKIP_DIRECTORIES, entry.name)) await visit(join(directory, entry.name));
 		}
 	}
-	if (await fileExists(join(root, ".session.json"))) {
-		const outputDirectory = join(root, "outputs");
-		await requireDirectory(outputDirectory);
-		for (const entry of (await readdir(outputDirectory, { withFileTypes: true })).sort((a, b) => a.name.localeCompare(b.name))) {
-			const path = join(outputDirectory, entry.name);
-			if (!entry.isDirectory() || entry.isSymbolicLink()) throw new Error(`Run outputs must be a real directory: ${path}`);
-			runs.push(await buildRun(root, path, path, join(root, "control", entry.name)));
-		}
-	} else await visit(root);
+	await visit(root);
 	const ids = new Set<string>();
 	for (const run of runs) {
 		if (ids.has(run.id)) throw new Error(`Run paths produce a duplicate feedback ID: ${run.id}. Rename the conflicting run directories.`);

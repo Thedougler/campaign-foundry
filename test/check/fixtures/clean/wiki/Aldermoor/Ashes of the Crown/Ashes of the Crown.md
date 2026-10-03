@@ -14,7 +14,7 @@ session_length_hours:
 - **Now.** Text.
 
 > [!narration] The Campaign
-> Spoken text for the table.
+> Crown ash still stains the chapel steps.
 
 ## Play
 

@@ -1,7 +1,7 @@
 import { existsSync, realpathSync, statSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { Command, Option } from "commander";
-import { formatHuman, formatJson } from "../check/output.ts";
+import { formatHuman, formatJson, gateExitCode } from "../check/output.ts";
 import { layers } from "../check/layers/index.ts";
 import { runCheck, UsageError } from "../check/run.ts";
 
@@ -19,7 +19,7 @@ export interface CheckEnv {
 	templates: string;
 }
 
-/** Resolves `--vault`, `--root` and `--templates` the way `cf check` and `cf lint` share. */
+/** Resolves `--vault`, `--root` and `--templates` for `cf check`. */
 export function resolveCheckEnv(flags: { vault?: string; templates?: string; root?: string }): CheckEnv {
 	const cwd = process.cwd();
 	const real = (p: string): string => (existsSync(p) ? realpathSync(p) : p);
@@ -48,7 +48,7 @@ export function checkCommand(): Command {
 	const width = Math.max(...layers.map((l) => l.name.length)) + 2;
 	const layerLines = layers.map((l) => `  ${l.name.padEnd(width)}${l.description}`).join("\n");
 	return new Command("check")
-		.description("Gate the Wiki: every layer must pass. Exits 0 clean, 1 findings, 2 usage error.")
+		.description("Gate the Wiki: errors fail; warnings are reported. Exits 0 no errors, 1 errors, 2 usage error.")
 		.argument("[paths...]", "report only findings under these files or folders (the whole Wiki is still checked)")
 		.option("--vault <dir>", "the Wiki folder to check (default: <root>/wiki)")
 		.option("--templates <dir>", "folder of page templates (default: <root>/wiki/templates, else the repo's)")
@@ -64,11 +64,12 @@ Layers:
 ${layerLines}
 
 Output:
-  path:line  layer/rule  message, then an indented "fix:" hint, then a summary line.
+  path:line  layer/rule  severity  message, then an indented "fix:" hint, then a summary line.
   Fixes reported by --fix read "fixed  path  layer/rule  what changed".
+  Severities: error fails the gate; warning is reported without failing the gate.
 
 Exit codes:
-  0  no findings    1  findings remain    2  usage error
+  0  no errors (warnings may print)    1  errors remain    2  usage error
 
 Examples:
   cf check
@@ -103,6 +104,6 @@ Examples:
 			});
 			const text = flags.json ? formatJson(result) : formatHuman(result, { fix: flags.fix ?? false, dryRun: flags.dryRun ?? false });
 			process.stdout.write(`${text}\n`);
-			process.exitCode = result.findings.length > 0 ? 1 : 0;
+			process.exitCode = gateExitCode(result);
 		});
 }

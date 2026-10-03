@@ -8,7 +8,11 @@ const indent = (text: string, prefix: string): string =>
 		.join("\n");
 
 export function formatFinding(f: Finding): string {
-	return `${f.path}:${f.line}  ${f.layer}/${f.rule}  ${f.message}\n    fix: ${indent(f.hint, "         ")}`;
+	return `${f.path}:${f.line}  ${f.layer}/${f.rule}  ${f.severity}  ${f.message}\n    fix: ${indent(f.hint, "         ")}`;
+}
+
+export function gateExitCode(result: CheckResult): 0 | 1 {
+	return result.findings.some((finding) => finding.severity === "error") ? 1 : 0;
 }
 
 export function formatHuman(result: CheckResult, opts: { fix: boolean; dryRun: boolean }): string {
@@ -21,8 +25,12 @@ export function formatHuman(result: CheckResult, opts: { fix: boolean; dryRun: b
 	if (result.findings.length > 0) out.push("");
 	const files = new Set(result.findings.map((f) => f.path)).size;
 	const n = result.findings.length;
+	const errors = result.findings.filter((finding) => finding.severity === "error").length;
+	const warnings = n - errors;
 	const parts = [
-		n === 0 ? "ok: 0 findings" : `${n} finding${n === 1 ? "" : "s"} in ${files} file${files === 1 ? "" : "s"}`,
+		n === 0
+			? "ok: 0 findings"
+			: `${n} finding${n === 1 ? "" : "s"} (${errors} error${errors === 1 ? "" : "s"}, ${warnings} warning${warnings === 1 ? "" : "s"}) in ${files} file${files === 1 ? "" : "s"}`,
 		`${result.pages} pages`,
 		`${result.layers.length} layer${result.layers.length === 1 ? "" : "s"} (${result.layers.join(", ")})`,
 	];
@@ -35,7 +43,7 @@ export function formatHuman(result: CheckResult, opts: { fix: boolean; dryRun: b
 export function formatJson(result: CheckResult): string {
 	return JSON.stringify(
 		{
-			ok: result.findings.length === 0,
+			ok: gateExitCode(result) === 0,
 			findings: result.findings,
 			fixes: result.fixes.map(({ layer, rule, path, description }) => ({ layer, rule, path, description })),
 			counts: { findings: result.findings.length, fixes: result.fixes.length, pages: result.pages },

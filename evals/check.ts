@@ -3,7 +3,7 @@ import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
-import YAML from "./yaml.ts";
+import YAML from "yaml";
 import { readRunnerOutput, wikiPagePath } from "./outputs.ts";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");

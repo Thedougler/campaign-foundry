@@ -20,4 +20,4 @@ Both skills have Campaign-grounded definitions in their `evals/cases.yaml`. When
 
 ## Home-Session dogfooding
 
-All skill evals use real Shattered Sea content: Runners read the live Wiki, Raw and Archive read-only and save their pages and DM reply to a per-run output directory in temporary Session storage, so the originals stay unchanged. `evals/README.md` defines source provenance, isolation and the weekly DM/Player feedback loop; `bun run eval:prepare --help` lists the Session maintenance commands. Narration benchmarks run only when requested.
+All skill evals use real Shattered Sea content: each Runner is a read-only `test-subject` dispatch that reads the live Wiki, Raw and Archive and returns its pages and DM reply as its result, which the orchestrator saves to a temporary directory, so the originals stay unchanged. `evals/README.md` defines the per-case recipe, source provenance and the weekly DM/Player feedback loop. Narration benchmarks run only when requested.

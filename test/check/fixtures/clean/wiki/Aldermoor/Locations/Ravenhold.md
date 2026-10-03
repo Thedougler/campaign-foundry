@@ -15,7 +15,7 @@ parent: "[[Ashen Reach]]"
 - **Known for.** Text.
 
 > [!narration] Arrival
-> Spoken text for the table.
+> Gulls wheel above the inner harbor wall.
 
 ## Play
 

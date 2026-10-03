@@ -1,5 +1,5 @@
-# Skarn adapts the production retune ask in issue #34.
-- id: party-threats
+# Adapts the recovered production retune ask in issue #34 into a complete Creature request.
+- id: creature
   source_pages:
     - The Shattered Sea/NPCs/Talon Skarn.md
     - The Shattered Sea/Creatures/Talon Skarn (Creature).md
@@ -9,36 +9,57 @@
     and fun for the Party to fight. He wants Crissdalynn's Fate Spinner
     for Vantyrus, not a prolonged fight, and he's loyal to Vantyrus for now.
     Jean-Claude will be awake next Session. Keep Skarn easy for me to run.
+    Make the whole Creature page usable, not just the numbers, with a
+    proper first sight I can read out and what he's like outside a fight.
   checks:
     pages:
       - The Shattered Sea/Creatures/Talon Skarn (Creature).md
+    sections:
+      The Shattered Sea/Creatures/Talon Skarn (Creature).md:
+        - "## At a glance"
+        - "## Statblock"
+        - "### Tactics"
+        - "### Outside a fight"
+        - "### Ecology"
+        - "### Hidden truths"
+        - "## Links"
     canon:
       The Shattered Sea/Creatures/Talon Skarn (Creature).md:
         - '^type:\s*Creature\s*$'
         - 'layout: Basic 5e Layout'
+        - '^```statblock\b'
+        - '\[!narration\] First sight'
     absent:
       The Shattered Sea/NPCs/Talon Skarn.md:
         - '^```statblock\b'
         - '!\[\[[^\]]+#Statblock\]\]'
   rubrics:
     - >-
-      The retune makes theft a contest the Party can interrupt, with visible
-      tells, different tactical answers and meaningful consequences for
-      positioning, control, flight and allied rescue. Skarn can threaten the
-      Spinner without requiring its loss or winning by overwhelming damage.
-      Timing, targets, limits and condition endings are clear enough to run
-      from the Creature page without reconstructing a PC build.
+      Skarn is runnable from the page alone: complete rules, clear timing,
+      targets, limits and condition endings, concise tactics and an ending
+      condition. Theft is an interruptible contest with visible tells,
+      distinct tactical answers and meaningful positioning, control, flight
+      and allied rescue choices, not a required loss or overwhelming damage.
     - >-
-      Balance uses this run's actual PC Sheets, equipment and applicable
-      House Rules, with Jean-Claude awake as the DM requests. A legal
-      short combat model explains likely damage, control and survival
-      against the Party and compares an appropriate retrieved peer.
-      Design estimates are distinguished from observed Session events;
-      no invented damage totals, rounds or table feedback justify the retune.
+      The retune uses legal 2024 rules and this run's actual PC Sheets,
+      equipment and applicable House Rules, with Jean-Claude awake. A legal
+      short combat model and appropriate retrieved peer support likely
+      damage, control, survival and the chosen threat without erasing PC
+      strengths. Estimates are not invented rounds, totals or table feedback.
     - >-
-      Identity, knowledge, withdrawal behaviour and spent resources agree
-      with the starting sources except for the DM's explicit changes.
-      Present loyalty is compatible with the future Rule of Two rivalry.
-      The Session 11 Recap's unresolved attack is not rewritten as a played
-      breakoff or a completed theft. Shared rules stay on one Creature page;
-      linked NPCs and unplayed consumers remain consistent with the retune.
+      Skarn's appearance, habits, traces, habitat and discoverable background
+      express this peregrine thief rather than a generic flying boss.
+      Signatures have perceivable signs before contact and useful answers;
+      hidden truths have concrete ways to learn them.
+    - >-
+      Identity, knowledge, withdrawal and spent resources remain consistent
+      with the sources except for explicit DM changes. Present loyalty can
+      coexist with future Rule of Two rivalry. The unresolved Session 11
+      attack is not rewritten as a completed theft or breakoff; shared
+      consumers stay consistent and played records remain unchanged.
+    - >-
+      First sight is speakable after one hearing, putting Skarn in the
+      listeners' sight with concrete form and size against something familiar,
+      a grounded nonvisual detail and visible signature tells. It stops before
+      Players act and contains no PC feelings, mechanics, hidden motives or
+      unearned knowledge; established heard Narration is respected.

@@ -27,7 +27,7 @@ function resolvePages(ctx: CheckContext, findings: Finding[]): Resolved[] {
 	for (const page of ctx.vault.pages) {
 		if (isSpecialPage(page)) continue;
 		const at = (rule: string, line: number, message: string, hint: string): void => {
-			findings.push({ layer: LAYER, rule, path: ctx.display(page.path), line, message, hint });
+			findings.push({ layer: LAYER, severity: "error", rule, path: ctx.display(page.path), line, message, hint });
 		};
 		if (page.frontmatterError) {
 			at("invalid-frontmatter", 1, `Frontmatter does not parse: ${page.frontmatterError}.`, "Fix the YAML between the opening and closing `---`; quote values that contain `:` or start with `[[`, e.g. `parent: \"[[The Shattered Sea]]\"`.");
@@ -87,7 +87,7 @@ async function checkSources(ctx: CheckContext, { page }: Resolved, out: Finding[
 	if (!("sources" in fm)) return;
 	const line = page.frontmatterKeyLines.sources ?? 1;
 	const at = (rule: string, message: string, hint: string): void => {
-		out.push({ layer: LAYER, rule, path: ctx.display(page.path), line, message, hint });
+		out.push({ layer: LAYER, severity: "error", rule, path: ctx.display(page.path), line, message, hint });
 	};
 	const sources = fm.sources;
 	if (!Array.isArray(sources)) {
@@ -133,7 +133,7 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 	const fm = page.frontmatter ?? {};
 	const path = ctx.display(page.path);
 	const add = (rule: string, line: number, message: string, hint: string): void => {
-		out.push({ layer: LAYER, rule, path, line, message, hint });
+		out.push({ layer: LAYER, severity: "error", rule, path, line, message, hint });
 	};
 	const example = (key: string): string => {
 		const value = template.keys.find((k) => k.key === key)?.value;

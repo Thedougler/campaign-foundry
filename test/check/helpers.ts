@@ -33,6 +33,7 @@ export async function cf(args: string[], cwd: string = repoRoot, stdin = ""): Pr
 export interface JsonFinding {
 	layer: string;
 	rule: string;
+	severity: "error" | "warning";
 	path: string;
 	line: number;
 	message: string;

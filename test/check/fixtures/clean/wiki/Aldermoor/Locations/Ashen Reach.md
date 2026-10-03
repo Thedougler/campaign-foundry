@@ -15,7 +15,7 @@ parent: ""
 - **Danger.** Text.
 
 > [!narration] Arrival
-> Spoken text for the table.
+> Cinder dunes shift under a grey wind.
 
 ## Play
 

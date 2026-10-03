@@ -1,4 +1,4 @@
-# Session 12 Narration pack.
+# Unique circumstance: revising a whole Session's Narration across page types.
 - id: narration-slots
   source_pages:
     - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
@@ -19,7 +19,6 @@
     canon:
       The Shattered Sea/NPCs/Talon Skarn.md:
         - '\[!narration\] First look'
-        - 'Set the toy on the stone\.'
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
         - '\[!narration\] Opening'
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md:
@@ -53,11 +52,13 @@
       spoken line, and does not prescribe a PC action. Every other section,
       fact and callout title on the NPC page is kept.
     - >-
-      Terror-Bird First sight lets the table picture the actual bird at rest
-      before it notices anyone: a huge bird with at least one bird feature
-      from this run's Creature page, such as the beak, talons or ground-shaking
-      stride. Its mossy-stump disguise may frame the bird, and the bird itself
-      is still shown. Mechanics stay DM-side.
+      Terror-Bird First sight gives the table a concrete, recognisable animal
+      at rest before it notices anyone, sized against something familiar and
+      grounded in this run's Creature page. Its physical form and perceivable
+      ability cues make it distinct rather than a generic silhouette or a
+      disguised stump alone. Mechanics stay DM-side.
+
+# Unique circumstance: chat-only Narration delivery without editing the Item page.
 - id: fatespinner-chat
   source_pages:
     - The Shattered Sea/Items/Fate Spinner.md
@@ -78,6 +79,7 @@
       The Fate Spinner page itself is left unchanged. The improved block
       lives in the chat reply.
 
+# Unique circumstance: a player Handout preserving an in-world document's payload.
 - id: gold-caste-handout
   source_pages:
     - The Shattered Sea/Lore/Two-Grave Orders.md
@@ -87,134 +89,13 @@
     burnt road. Just the four order lines oldest first, no extra explanation.
   rubrics:
     - >-
-      The Handout text is the four order lines from this run's Two-Grave
-      Orders, oldest first and verbatim, in the document's own voice.
+      The Handout text carries the four orders from this run's Two-Grave
+      Orders, oldest first, each keeping its meaning, in the document's own voice.
       Hinewai, Death Bloom and officer commentary stay off the player document.
     - >-
-      The reply names a new Session 12 Handout page with `type: Handout`,
-      the order lines in its `[!narration] Handout text` callout, handed over
-      in Orders in the Ash and not claimed as already handed out. No art or
-      Foundry work is required.
+      The reply names any new Session 12 Handout page with `type: Handout`;
+      its filename is the Runner's choice, not a required title or path.
+      The four orders appear oldest first in its
+      `[!narration] Handout text` callout, handed over in Orders in the Ash
+      and not claimed as already handed out. No art or Foundry work is required.
 
-# Capability set for #25 hillclimb. Production shape from #34. Regression pack above stays packed.
-- id: wolfrabbit-opening
-  source_pages:
-    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Wolfrabbits.md
-    - The Shattered Sea/Creatures/Wolfrabbit.md
-  prompt: >-
-    redo the wolfrabbits scene opening to just use the wolfrabbits. living fruit
-    starts it, they hunt in packs, jump huge distances. the humans are already
-    in the grass when it kicks off
-  checks:
-    canon:
-      The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Wolfrabbits.md:
-        - '\[!narration\] Opening'
-  rubrics:
-    - >-
-      The Opening puts the hunt in motion from this run's Scene: living fruit
-      taken, grass tearing, pack wolfrabbits closing. It stops before the
-      Players would act. PC feelings and mechanics stay off the spoken text.
-    - >-
-      Every other section, fact and callout title on the Scene page is kept.
-
-- id: wolfrabbit-first-sight
-  source_pages:
-    - The Shattered Sea/Creatures/Wolfrabbit.md
-  prompt: >-
-    the wolfrabbit first sight on its page is generic, redo it from the wiki
-    page so the table can picture the actual animal before it notices anyone
-  checks:
-    canon:
-      The Shattered Sea/Creatures/Wolfrabbit.md:
-        - '\[!narration\] First sight'
-  rubrics:
-    - >-
-      First sight lets the table picture this run's Wolfrabbit at rest
-      before it notices anyone: its actual body, sized against something
-      familiar, with at least one visible tell from the Creature page, such
-      as pack hunting or its huge bound. A figurative stand-in does not
-      replace the form. Mechanics stay DM-side.
-    - >-
-      Every other section, fact and callout title on the Creature page is
-      kept.
-
-- id: bloodhawk-first-sight
-  source_pages:
-    - The Shattered Sea/Creatures/Bloodhawk.md
-  prompt: >-
-    redo the bloodhawk first sight on its creature page, the table needs to
-    see the actual bird at rest not a generic silhouette line
-  checks:
-    canon:
-      The Shattered Sea/Creatures/Bloodhawk.md:
-        - '\[!narration\] First sight'
-  rubrics:
-    - >-
-      First sight lets the table picture this run's Bloodhawk at rest before
-      it notices anyone: its actual body, sized against something familiar,
-      with at least one visible bird feature such as wings, beak or talons.
-      A figurative stand-in does not replace the form. Mechanics stay
-      DM-side.
-    - >-
-      Every other section, fact and callout title on the Creature page is
-      kept.
-
-- id: landing-sign-opening
-  source_pages:
-    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Landing Sign.md
-  prompt: >-
-    the party has been following the smoke from the other survivors, that
-    needs to be in the landing sign opening, its the main driver. redo that
-    scene opening
-  checks:
-    canon:
-      The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Landing Sign.md:
-        - '\[!narration\] Opening'
-  rubrics:
-    - >-
-      The Opening puts the Party at this run's cold stone ring, with the
-      remains of earlier travellers' fruit beside it and the inland smoke
-      in view as the lead they are following, and stops before they choose a
-      route. PC feelings and mechanics stay off the spoken text.
-    - >-
-      Every other section, fact and callout title on the Scene page is kept.
-
-- id: session12-previously-on
-  source_pages:
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-  prompt: >-
-    redo the session 12 previously on from the recap. end where play stopped,
-    skarn still in crissdalynn's face
-  checks:
-    canon:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md:
-        - '\[!narration\]'
-  rubrics:
-    - >-
-      Previously On is past tense with the Party as you, and its last beat is
-      the last one played in this run's Recap: Skarn's night attack on
-      Crissdalynn, left unresolved with him still on her. Nothing after that
-      beat is told, so the inland rescue, CONSUME and other Session 12
-      outcomes stay out. The Recap is unchanged.
-    - >-
-      Every other section, fact and callout title on the Previously On page
-      is kept.
-
-- id: way-out-closing
-  source_pages:
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
-  prompt: >-
-    redo the way out closing image. dawn at the pantry, nine leaving three
-    staying, no new threat, just let it land
-  checks:
-    canon:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md:
-        - '\[!narration\] Closing image'
-  rubrics:
-    - >-
-      Closing image shows this run's dawn Pantry consequence: nine Calveno
-      ready to leave and three staying, with no new threat and no PC
-      reaction prescribed. Mechanics stay DM-side.
-    - >-
-      Every other section, fact and callout title on the Scene page is kept.

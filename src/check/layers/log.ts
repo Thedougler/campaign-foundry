@@ -15,7 +15,7 @@ export const logLayer: Layer = {
 			const rotatedYear = /^log-(\d{4})$/.exec(page.name)?.[1];
 			if (page.name !== "log" && rotatedYear === undefined) continue;
 			const add = (line: number, rule: string, message: string, hint: string): void => {
-				findings.push({ layer: LAYER, rule, path: ctx.display(page.path), line, message, hint });
+				findings.push({ layer: LAYER, severity: "error", rule, path: ctx.display(page.path), line, message, hint });
 			};
 			let previous: string | undefined;
 			let inEntry = false;

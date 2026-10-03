@@ -205,7 +205,7 @@ The Agent digesting outside material into the Wiki: a Raw file (afterwards moved
 _Avoid_: import, process, compile, sync
 
 **Lint**:
-The Agent's autonomous repair of mechanical Wiki issues: template layout, headings, wikilinks, placement, and index. It finishes without asking; if something is unclear it queries the Wiki.
+The Agent's autonomous repair of mechanical Wiki issues: template layout, headings, wikilinks, placement, and index, via `cf check --fix`. It finishes without asking; if something is unclear it queries the Wiki.
 _Avoid_: audit (as routine health), a DM-facing lint report, a blocking review
 
 **Archive**:

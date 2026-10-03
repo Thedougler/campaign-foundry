@@ -11,8 +11,8 @@ Change values here; do not fork shared rules in `AGENTS.md` to match a preferenc
 
 ## Evals
 
-- **Human-audit pages:** `<sessionRoot>/audit/<skill>/<case-id>.md` beneath OS `$TMPDIR` / `os.tmpdir()` — the orchestrator overwrites the current sample and criteria for human review during that Session. Access and cleanup follow `evals/README.md`; durable export requires an explicit DM request.
-- **Packed cases:** keep distinct slots in as few cases in the skill's `evals/cases.yaml` as will still expose the defect.
+- **Human-audit pages:** `<tmp>/audit/<skill>/<case-id>.md` in a `mktemp -d` directory beneath OS `$TMPDIR` — the orchestrator overwrites the current sample and criteria for human review during that run. `evals/README.md` owns the procedure; durable export requires an explicit DM request.
+- **Packed cases:** one default case per content type in the skill's `evals/cases.yaml`; extra cases only for unique circumstances the default case cannot expose.
 
 ## Harness
 

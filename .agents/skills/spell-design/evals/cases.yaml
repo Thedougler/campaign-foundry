@@ -1,36 +1,59 @@
-# Grounded adaptation: no original standalone Spell request was recovered.
-- id: waveservant-boarding-spell
+# Grounded adaptation; no original standalone Spell request was recovered.
+- id: spell
   source_pages:
     - The Shattered Sea/Deities/Umberlee.md
     - The Shattered Sea/NPCs/Umberlee - Branca.md
     - The Shattered Sea/Locations/Western Landing.md
   prompt: >-
-    I want a Waveservant spell called Tribute Wake that briefly opens a
-    safe boarding approach for a small rescue boat in rough water after
-    tribute. Existing magic is fine if it fits. Otherwise make it feel
-    like Umberlee's clergy, with someone who could teach it and a price.
+    I want a signature Waveservant spell called Tribute Wake that briefly
+    opens a safe boarding approach for a small rescue boat in rough water
+    after tribute. Make it feel like Umberlee's clergy, with someone who
+    could teach it and a price. Put the complete Spell in the Wiki, with
+    its rules and something I can read out when it's cast.
+  checks:
+    pages:
+      - The Shattered Sea/Spells/Tribute Wake.md
+    sections:
+      The Shattered Sea/Spells/Tribute Wake.md:
+        - "## At a glance"
+        - "### Effect"
+        - "### Rulings"
+        - "### Tradition"
+        - "### Who knows it"
+        - "## Links"
+    canon:
+      The Shattered Sea/Spells/Tribute Wake.md:
+        - '^type:\s*Spell\s*$'
+        - '\[!narration\] Casting'
   rubrics:
     - >-
-      Actual retrieved spell candidates inform the choice. A published spell
-      that fulfils the brief is reused unchanged without a redundant Wiki
-      Spell page. If Tribute Wake needs distinct mechanics, comparable
-      retrieved effects support its level and limits. Unavailable retrieval
-      is reported honestly rather than proving no fitting spell exists.
+      Tribute Wake has a distinct lever and caster choice supported by actual
+      retrieved spell candidates, not a renamed published spell given a
+      redundant page. Appropriate peers support its level, limits, scaling
+      and power against the actual Party's capabilities. Missing retrieval
+      is reported honestly rather than proving that no fitting spell exists.
     - >-
-      The result provides a brief local boarding opening rather than
-      command over the sea. A new Spell is saved with complete 2024 casting
-      fields and usable effect, target, duration, scaling and counterplay
-      where applicable. Likely rough-water and moving-boat situations can
-      be adjudicated without improvising core limits.
+      Complete 2024 casting fields and effect text make the Spell runnable
+      from the page alone. Targets, action cost, range, duration,
+      concentration, tribute, scaling and counterplay are clear where
+      applicable. Rough water, a moving boat and likely Player tricks have
+      usable rulings; the effect opens a brief local boarding opportunity
+      rather than granting command over the sea.
     - >-
-      Tradition and casting signature arise from the starting clergy and
-      harbour practice. A resolving named source has a plausible reason to
-      hold the magic, a discoverable path to learning it and a concrete price.
-      Existing demands and unresolved debts are not waived; new teaching
-      roles are distinguished from established history.
+      Tradition, casting signature and the choice or price arise from
+      Umberlee's clergy and harbour practice rather than generic water magic.
+      A resolving named source has a plausible reason to know the Spell, a
+      discoverable path to learning it and a concrete price; rival use and
+      who notices a first casting create playable consequences.
     - >-
-      Any new Spell and necessary owners are complete saved artifacts;
-      unchanged reuse instead gives usable access to the published rules.
-      Neither branch records an unplayed lesson, tribute, casting or
-      boarding, adds the Spell to a PC Sheet, or changes Umberlee's sourced
-      reach at the elemental fissure.
+      Existing demands, unresolved debts and Umberlee's sourced reach at
+      the elemental fissure remain intact. New rules and teaching roles
+      are design, not established history. Complete linked owners make
+      the Spell accessible without recording an unplayed lesson, tribute,
+      casting or boarding or adding it to a PC Sheet.
+    - >-
+      Casting is speakable after one hearing, with concrete visible form,
+      scale against something familiar where relevant and a grounded
+      sensory signature. It conveys the magic taking hold without naming
+      a caster, Party or target, dictating PC feelings or actions, exposing
+      mechanics or secrets, or resolving the rescue before Players act.

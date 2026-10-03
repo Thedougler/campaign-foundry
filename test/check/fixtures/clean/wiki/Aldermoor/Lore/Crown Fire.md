@@ -12,7 +12,7 @@ sources: []
 - **Reaches play through.** Text.
 
 > [!narration] As it is told
-> Spoken text for the table.
+> The first spark jumped a king's pyre.
 
 ## Play
 
