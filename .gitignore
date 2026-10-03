@@ -44,3 +44,7 @@ build/
 
 # Local clones of prior Shattered Sea / co-DM iterations; never commit
 prior/
+
+# Ingest evidence: raw awaits Ingest, archive is provenance for files already ingested
+raw/
+archive/
