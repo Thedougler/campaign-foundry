@@ -39,6 +39,17 @@ export interface CreatureSpend {
 	count: number;
 }
 
+
+/** This table's Party fights above listed level. Budget lookup uses recorded level plus this, capped at 20. */
+export const COMBAT_LEVEL_OFFSET = 1;
+
+/** Sheet levels in, budget-lookup levels out. Offset 0 is raw 2024 math. */
+export function budgetLevels(recorded: number[], offset = COMBAT_LEVEL_OFFSET): number[] {
+	if (!Number.isInteger(offset) || offset < 0) {
+		throw new RangeError(`level offset must be a whole number at least 0, not ${offset}`);
+	}
+	return recorded.map((level) => Math.min(20, level + offset));
+}
 export function partyBudgets(levels: number[]): PartyBudgets {
 	let low = 0;
 	let moderate = 0;

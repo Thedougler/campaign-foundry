@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { cf } from "../check/helpers.ts";
 
-const levels5x4 = ["encounter-budget", "--levels", "5,5,5,5"];
+const levels5x4 = ["encounter-budget", "--levels", "5,5,5,5", "--level-offset", "0"];
 
 describe("cf encounter-budget: party budgets", () => {
 	it("sums SRD 5.2 per-character Low/Moderate/High for four 5th-level PCs", async () => {
@@ -12,8 +12,17 @@ describe("cf encounter-budget: party budgets", () => {
 		expect(stdout).toContain("High 4400");
 	});
 
+	it("budgets four 5th-level PCs as 6th by default (+1 combat offset)", async () => {
+		const { code, stdout } = await cf(["encounter-budget", "--levels", "5,5,5,5"]);
+		expect(code).toBe(0);
+		expect(stdout).toContain("4 characters, level 6 (recorded 5, 5, 5, 5; +1 combat offset)");
+		expect(stdout).toContain("Low 2400");
+		expect(stdout).toContain("Moderate 4000");
+		expect(stdout).toContain("High 5600");
+	});
+
 	it("accepts --party-level with --party-size", async () => {
-		const { code, stdout } = await cf(["encounter-budget", "--party-level", "5", "--party-size", "4"]);
+		const { code, stdout } = await cf(["encounter-budget", "--party-level", "5", "--party-size", "4", "--level-offset", "0"]);
 		expect(code).toBe(0);
 		expect(stdout).toContain("4 characters, level 5");
 		expect(stdout).toContain("High 4400");
@@ -71,7 +80,7 @@ describe("cf encounter-budget: help and usage", () => {
 	it("documents options, exit codes and examples", async () => {
 		const { code, stdout } = await cf(["encounter-budget", "--help"]);
 		expect(code).toBe(0);
-		for (const option of ["--levels", "--party-level", "--party-size", "--creature", "--monsters", "--target", "--json"]) {
+		for (const option of ["--levels", "--party-level", "--party-size", "--level-offset", "--creature", "--monsters", "--target", "--json"]) {
 			expect(stdout).toContain(option);
 		}
 		expect(stdout).toContain("Examples:");

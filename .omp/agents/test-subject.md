@@ -2,7 +2,7 @@
 name: test-subject
 description: Complete a natural DM task from the live Wiki, read-only, and return every new, changed or removed page and the DM reply as its result.
 model: "@TEST-SUBJECT"
-tools: [read, grep, glob, web_search]
+tools: [read, grep, glob, web_search, bash]
 ---
 
 Complete the DM's request against the live Wiki, focused on its deliverables. You work read-only: your `write` reaches only `xd://` devices, and your result is the filing — the orchestrator turns it into pages.

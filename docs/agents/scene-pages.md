@@ -28,7 +28,7 @@ For a Cliffhanger or Climax with Creatures that can be fought, including a viole
 
    `bun run cf encounter-budget --levels <each participating PC level>`
 
-   Apply sourced House Rules first. Use the CLI totals instead of fetching a table, recalling a row, or adding XP by hand. **Done when** the contributing PCs and levels match the entry and the CLI has printed that party's Low, Moderate and High totals.
+   Apply sourced House Rules first. Use the CLI totals instead of fetching a table, recalling a row, or adding XP by hand. The CLI adds a +1 combat offset to each recorded level (this Party fights above the calculator); pass sheet levels and do not pre-add it. **Done when** the contributing PCs and levels match the entry and the CLI has printed that party's Low, Moderate and High totals.
 
 2. **Spend.** For each opposing type, take `count`, CR and XP from its retrieved Wiki or 2024 SRD statblock (Canon, then `dnd5e-srd-api`, then published material). Pass them to the same command; do not use a creature lookup database:
 

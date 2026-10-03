@@ -37,7 +37,7 @@ Give writers disjoint files and pass briefs and artifact paths explicitly. Set `
 Select an agent by its responsibility:
 
 - `skill-writer` (`@SKILL-WRITER`) authors every large or novel change to agent-facing text: skills, `.omp/agents/`, `AGENTS.md`, runbooks and pointers. The orchestrator writes its briefs, owns acceptance criteria, eval fixtures, Wiki and integration, and leaves those files to it.
-- `test-subject` (`@TEST-SUBJECT`) runs each eval case or baseline and `prose-grader` (`@PROSE-GRADER`) grades rubrics independently; both are native `task` dispatches whose frontmatter `tools:` is read-only, batched per `evals/README.md`.
+- `test-subject` (`@TEST-SUBJECT`) runs each eval case or baseline and `prose-grader` (`@PROSE-GRADER`) grades rubrics independently; both are native `task` dispatches whose frontmatter `tools:` is read-only except Runner `bash` for diagnostic CLI, batched per `evals/README.md`.
 - `creative-writer` (`@CREATIVE-WRITER`) takes explicit creative-writing dispatches outside skill evals.
 
 Preserve each completion's model selector, identity and thinking level where observed; pair only matching identities and thinking levels.
@@ -61,6 +61,22 @@ Skill measurement and improvement follow `evals/README.md`, the sole procedure: 
 - **Author a skill** — read `skill://skill-creator` before creating or revising a skill, planning paired baselines, or testing its description.
 
 Project skills live in `.omp/skills/` and `.agents/skills/`; where both hold a skill, the `.omp/` copy is the source of truth. `manage_skill` holds the DM's cross-project procedures; project skills, rules and decisions live in the repo.
+
+## Prior iterations
+
+Mine these earlier versions of this project (GitHub search for `Shattered Sea`, newest first) under the root **Prior iterations** rule. Read a few files through GitHub; clone to repo-root `prior/<repo-name>/` (gitignored, never committed) when searching or running across a repo.
+
+- agentic-co-dm — https://github.com/Thedougler/agentic-co-dm
+- shattered-sea-campaign-os — https://github.com/Thedougler/shattered-sea-campaign-os
+- campaign-os — https://github.com/Thedougler/campaign-os
+- shattered-sea-wiki — https://github.com/Thedougler/shattered-sea-wiki
+- ai-os — https://github.com/Thedougler/ai-os
+- my-wiki — https://github.com/Thedougler/my-wiki
+- agent-skills — https://github.com/Thedougler/agent-skills
+- dnd-site — https://github.com/Thedougler/dnd-site
+- dnd-wiki — https://github.com/Thedougler/dnd-wiki
+- shattered-sea-site — https://github.com/Thedougler/shattered-sea-site
+- shattered-sea — https://github.com/Thedougler/shattered-sea
 
 ## Configuration
 

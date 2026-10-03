@@ -41,3 +41,6 @@ build/
 # Residual eval/authoring dumps; live artifacts belong in OS-temp Sessions
 **/*-workspace/
 /evals/audit/
+
+# Local clones of prior Shattered Sea / co-DM iterations; never commit
+prior/

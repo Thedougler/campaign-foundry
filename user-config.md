@@ -9,6 +9,10 @@ Change values here; do not fork shared rules in `AGENTS.md` to match a preferenc
 - **Active World:** The Shattered Sea
 - **Active Campaign:** Shattered Sea
 
+## Encounters
+
+- **Combat level offset:** +1. This Party fights at least a level above the 2024 XP calculator. `cf encounter-budget` applies it by default; pass recorded sheet levels, do not pre-add the offset.
+
 ## Evals
 
 - **Human-audit pages:** `<tmp>/audit/<skill>/<case-id>.md` in a `mktemp -d` directory beneath OS `$TMPDIR` — the orchestrator overwrites the current sample and criteria for human review during that run. `evals/README.md` owns the procedure; durable export requires an explicit DM request.

@@ -1,7 +1,9 @@
 import { Command, Option } from "commander";
 import { UsageError } from "../check/run.ts";
 import {
+	COMBAT_LEVEL_OFFSET,
 	DIFFICULTIES,
+	budgetLevels,
 	describeParty,
 	difficultyFor,
 	partyBudgets,
@@ -15,6 +17,7 @@ interface EncounterBudgetFlags {
 	levels?: string;
 	partyLevel?: number;
 	partySize?: number;
+	levelOffset?: number;
 	creature: string[];
 	monsters?: string;
 	target?: Difficulty;
@@ -118,9 +121,21 @@ function difficultyTitle(label: DifficultyLabel): string {
 	return label === "beyond high" ? "Beyond High" : `${label.charAt(0).toUpperCase()}${label.slice(1)}`;
 }
 
-function formatHuman(levels: number[], budgets: PartyBudgets, creatures: CreatureSpend[], target: Difficulty | undefined): string {
+function formatHuman(
+	recorded: number[],
+	effective: number[],
+	offset: number,
+	budgets: PartyBudgets,
+	creatures: CreatureSpend[],
+	target: Difficulty | undefined,
+): string {
+	const party = describeParty(effective);
+	const offsetNote =
+		offset === 0
+			? party
+			: `${party} (recorded ${recorded.join(", ")}; +${offset} combat offset)`;
 	const lines = [
-		`Party: ${describeParty(levels)}`,
+		`Party: ${offsetNote}`,
 		"--- XP Budgets ---",
 		`Low ${budgets.low}`,
 		`Moderate ${budgets.moderate}`,
@@ -142,7 +157,7 @@ function formatHuman(levels: number[], budgets: PartyBudgets, creatures: Creatur
 		"",
 		"--- Encounter Balance (copy into ### Balance) ---",
 		...creatures.map((c) => `- ${c.count} × ${c.name} (CR ${c.cr}, ${c.xp} XP each) = ${c.xp * c.count} XP`),
-		`- Party budgets (${describeParty(levels)}): Low ${budgets.low}, Moderate ${budgets.moderate}, High ${budgets.high}`,
+		`- Party budgets (${offsetNote}): Low ${budgets.low}, Moderate ${budgets.moderate}, High ${budgets.high}`,
 		`- **Total: ${total} XP (${difficultyTitle(difficulty)} difficulty)**`,
 	);
 	return `${lines.join("\n")}\n`;
@@ -154,6 +169,7 @@ export function encounterBudgetCommand(): Command {
 		.option("--levels <levels>", 'comma-separated level of each participating PC, e.g. "5,5,6,4"')
 		.option("--party-level <n>", "level of every PC (use with --party-size)", Number)
 		.option("--party-size <n>", "number of PCs (use with --party-level)", Number)
+		.option("--level-offset <n>", "add this to each recorded level before budget lookup, capped at 20 (default 1)", Number)
 		.addOption(new Option("--creature <name,cr,xp,count>", 'one Creature type; repeat. XP comes from the Wiki or SRD statblock, e.g. "Orc,1/2,100,3"').argParser(collect).default([] as string[], "none"))
 		.option("--monsters <json>", 'JSON list [{name, cr, xp, count}]; "-" reads stdin')
 		.addOption(new Option("--target <difficulty>", "named Low/Moderate/High band to print XP over or under; does not pass or fail the Encounter").choices([...DIFFICULTIES]))
@@ -163,11 +179,14 @@ export function encounterBudgetCommand(): Command {
 			`
 XP math:
   Each PC contributes the 2024 SRD 5.2 Low / Moderate / High budget for their
-  character level. Party budget is the sum. Creature spend is count × XP from
-  the retrieved statblock. No 2014 monster-count multiplier.
-  Equal to a band's ceiling is that band; one XP over High is Beyond High.
-  This command classifies Creature XP. It does not choose Creatures, rewrite
-  Canon, or measure terrain, hazards, surprise, depletion or objectives.
+  recorded character level plus --level-offset (default ${COMBAT_LEVEL_OFFSET}):
+  this table's Party fights about a level above the calculator. Cap 20.
+  Pass sheet levels; do not pre-add the offset. Party budget is the sum.
+  Creature spend is count × XP from the retrieved statblock. No 2014
+  monster-count multiplier. Equal to a band's ceiling is that band; one XP
+  over High is Beyond High. This command classifies Creature XP. It does
+  not choose Creatures, rewrite Canon, or measure terrain, hazards, surprise,
+  depletion or objectives.
 
 Exit codes:
   0  printed    2  usage error
@@ -180,8 +199,13 @@ Examples:
   printf '%s' '[{"name":"Orc","cr":"1/2","xp":100,"count":3}]' | cf encounter-budget --levels 5,5,5,5 --monsters -`,
 		)
 		.action(async (flags: EncounterBudgetFlags) => {
-			const levels = parseLevels(flags);
-			const budgets = partyBudgets(levels);
+			const recorded = parseLevels(flags);
+			const offset = flags.levelOffset ?? COMBAT_LEVEL_OFFSET;
+			if (!Number.isInteger(offset) || offset < 0) {
+				throw new UsageError("--level-offset must be a whole number at least 0.", EXAMPLE);
+			}
+			const effective = budgetLevels(recorded, offset);
+			const budgets = partyBudgets(effective);
 			const creatures = flags.creature.map(parseCreatureFlag);
 			if (flags.monsters !== undefined) {
 				const raw = flags.monsters === "-" ? await readStdin() : flags.monsters;
@@ -199,11 +223,11 @@ Examples:
 						? null
 						: { band: flags.target, deltaXp: total - budgets[flags.target] };
 				process.stdout.write(
-					`${JSON.stringify({ party: { levels, description: describeParty(levels) }, budgets, creatures, totalXp: creatures.length === 0 ? null : total, difficulty, vsTarget }, null, 2)}\n`,
+					`${JSON.stringify({ party: { levels: recorded, effectiveLevels: effective, levelOffset: offset, description: describeParty(effective) }, budgets, creatures, totalXp: creatures.length === 0 ? null : total, difficulty, vsTarget }, null, 2)}\n`,
 				);
 				return;
 			}
 
-			process.stdout.write(formatHuman(levels, budgets, creatures, flags.target));
+			process.stdout.write(formatHuman(recorded, effective, offset, budgets, creatures, flags.target));
 		});
 }
