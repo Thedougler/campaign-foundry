@@ -32,7 +32,7 @@ Osset was once a senior master at High Eyrie and Kyzil's teacher. He broke from 
 
 ### Hidden truths
 
-- Osset is Talon Vantyrus. Kyzil believes his old master died decades ago.
+- Talon Vantyrus is the name he hides behind. Kyzil believes his old master died decades ago.
 - He wants the Fate Spinner to read Kyzil's teaching and reach the Soul Incarnate transformation technique.
 
 ### Threads

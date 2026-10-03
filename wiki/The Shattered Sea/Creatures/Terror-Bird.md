@@ -9,10 +9,10 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Bruiser.
+- **Role at the table.** A bruiser that runs its dinner down and swallows it whole.
 - **Threat.** CR 13. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Tell.** Ground that thrums and pebbles that tick together thirty feet out.
+- **Weak to.** A charge it cannot run straight, and the tall grass and deep water it refuses to enter.
 - **Used by.** [[Unsaid Macaw]] patrols the same territory.
 
 > [!narration] First sight
@@ -64,21 +64,21 @@ actions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+It commits to a straight charge and takes its catch in the serrated beak, swallowing whatever fits. A swallowed traveller stabs at it from inside, and enough hurt taken inside or outside the beak makes it gag its catch back up alive. It will not charge into tall grass, deep water or a patch of razer-grass.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+Still, it passes for a mossy stump among the ferns, and the tremor of its stride warns anyone standing on the ground a full thirty feet out.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+Its ground is forest and jungle floor, where Wisdom (Survival) reads its passing in a beaten line that runs dead straight and bends for grass and deep water alone.
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+An Intelligence check finds the gag, for a hard turn of damage taken from within its body or from beyond it brings the swallowed catch back into the open.
 
 ## Links
 

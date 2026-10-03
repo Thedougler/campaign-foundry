@@ -52,7 +52,7 @@ Sealed Crestwall orders and the fort vaults are separate Crown secrets. The Tess
 
 ### Threads
 
-[[Drowned Maw Awakening]], [[The Crown Inspection]], and [[Bring the Pearl of Souls to Umberlee]].
+The [[Drowned Maw Awakening]]'s staging grows beyond what the Governor has been told. Papers at the Inspection Pier drive [[The Crown Inspection]]. [[Bring the Pearl of Souls to Umberlee]] carries Umberlee's price into these waters.
 
 ## Links
 

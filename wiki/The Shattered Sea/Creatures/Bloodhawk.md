@@ -13,10 +13,10 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Skirmisher.
-- **Threat.** CR 11. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Role at the table.** Skirmisher. It stoops from a height and hauls its catch into the sky.
+- **Threat.** CR 11. Ten feet of reach on beak and talons, 160 feet of flight, and the stoop from overhead give it range and movement to press the Party anywhere beneath it.
+- **Tell.** The shadow settles over you and the wings lock toward the same spot before the stoop.
+- **Weak to.** Cover, broken ground, and anything that splits its preferred range or formation. A closed canopy spoils the stoop outright.
 - **Used by.** [[Crown Squid]] patrols the same territory.
 
 > [!narration] First sight
@@ -70,21 +70,21 @@ reactions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+Open where clear sky lies above the Party, and mark the held wings that announce the Terminal Stoop before it falls. Let the Party answer with positioning, cover, or focused fire. It abandons the height when its preferred advantage is gone or it is badly wounded.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+Its tracks and feeding signs warn the Party before an encounter. A shadow that circles the same stretch twice marks its territory. It holds to its own habitat. Past the terrain that gives it an advantage, it does not follow.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+Its range is the open air above the Shattered Sea's canopy, and its diet follows its form, whatever those four wings can haul aloft. A traveller working Wisdom (Survival) can read its signs.
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+A close study of its remains or its territory shows its habits, and with them its reliance on open air above. A successful relevant Intelligence check confirms them.
 
 ## Links
 

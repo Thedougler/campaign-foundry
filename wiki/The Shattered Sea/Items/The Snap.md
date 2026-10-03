@@ -11,7 +11,7 @@ sources:
 - **Rarity.** Uncommon.
 - **Attunement.** Required.
 - **Changes.** Unfurls as a +2 AC shield without occupying a hand.
-- **Held by.** [[Perrin Black-Jaw]].
+- **Held by.** [[Perrin Black-Jaw]], who bought it from Prospero Morsani in Session 8.
 
 > [!narration] First look
 > Folded flat, bronze veins bloom across pleats no needle made. It wraps your wrist as a bracer. A flick of the wrist snaps it into a hard circle, then a closed hand folds it soft again.

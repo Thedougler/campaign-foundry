@@ -48,7 +48,7 @@ Beppe is wrong that Hinewai's protection ends at the clearing. It covers those s
 
 ### Threads
 
-[[Taking on Aruhe]], [[Perrin and Nona]], and [[The Crown Inspection]].
+Seven survivors sheltering under one fruit-heavy vine tie this clearing to [[Taking on Aruhe]], [[Perrin and Nona]], and [[The Crown Inspection]].
 
 ## Links
 

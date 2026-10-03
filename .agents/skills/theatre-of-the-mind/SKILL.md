@@ -105,4 +105,4 @@ Branch items, where the recipe's Build calls for them:
 - **Felt.** One motion, two grounded channels with a nonvisual one where the sources and these PCs' capabilities support them, and nothing assumed of the listeners' bodies?
 - **Placement.** Is every feature's position explicit? Are immediate blocking or lethal hazards in the first look? Is a fight-layout block paired with its map or sketch immediately after narration?
 - **Delivery.** Can a player interrupt after any sentence? Are NPC attributions lead-in then line? Are no villain or quest-giver plans compressed into the opening? Are salient details repeated across the Scene and the first actor named?
-- **Shape.** Is the actionable feature first or last, never buried? Does each neighbouring area get only a clause unless this is an overlook? Does each comparison stage only one image?
+- **Shape.** Is the actionable feature first or last, never buried? Does each neighbouring area get only a clause unless this is an overlook? Does each comparison stage only one image, and does size ride a body scale unless scale is the point?

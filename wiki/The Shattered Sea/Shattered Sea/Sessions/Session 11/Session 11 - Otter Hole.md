@@ -13,7 +13,7 @@ sources:
 
 - **Contest.** Rescue Matteo without killing the otters.
 - **At risk.** Matteo and the Party in deep water.
-- **Where.** River slack basin.
+- **Where.** The slack basin's deep waterhole at the muddy bank.
 - **Opposition.** [[River Otter]]s.
 
 > [!narration] Opening

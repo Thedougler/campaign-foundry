@@ -7,11 +7,11 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Unique named Creature represented by the NPC.
-- **Threat.** See the stat block (CR as listed in the archived record).
-- **Tell.** Its signature movement or attack is visible before it commits.
-- **Weak to.** The counter play described in Tactics.
-- **Used by.** The NPC of the same name.
+- **Role at the table.** Combat profile for the unique NPC Captain Barnaby Rook.
+- **Threat.** CR 3 in Rook's archived stat block, reproduced below.
+- **Tell.** Rook's cutlass work and commands to the HCS Surety's crew give warning before his signature attacks.
+- **Weak to.** Positioning, cover and concentrated attacks provide answers to Rook's options, as detailed in Tactics.
+- **Used by.** Barnaby Rook uses this Creature profile.
 
 > [!narration] First sight
 > The Creature's distinctive silhouette and signature tell are apparent before it attacks.
@@ -79,21 +79,21 @@ lair_actions:
 
 ### Tactics
 
-Use the archived tactics and signature abilities. Telegraph the strongest option and let the Party answer with positioning, cover, or focused fire. It withdraws when its objective is lost or its advantage is gone.
+Run Rook with the tactics in his archived record and the naval abilities below. Give warning of his strongest option, including orders to ready the Surety's cannons, before resolving it. Allow the Party to respond through cover, positioning or focused fire. Rook retreats once his objective is lost or his advantage has ended.
 
 ### Outside a fight
 
-Its appearance, habits, and traces identify it before an encounter. It acts according to the NPC's established role and habitat.
+Rook's appearance, habits and the traces he leaves can establish his identity before the meeting. His conduct follows his NPC role and habitat, with the HCS Surety's crew serving under his command.
 
 ## Depth
 
 ### Ecology
 
-This unique Creature's habitat, diet, and signs follow the archived NPC record. Observant travellers can identify its signs with Wisdom (Survival).
+The archived Barnaby Rook record supplies his habitat, diet and identifying signs. Travellers who attend to those signs can recognise them through Wisdom (Survival).
 
 ### Hidden truths
 
-The archived NPC record contains the Creature's history and concealed motives. Examination or relevant questioning can reveal them.
+For Rook's history and the motives he conceals, consult his archived NPC record. Examination can uncover that material, as can questions relevant to it.
 
 ## Links
 

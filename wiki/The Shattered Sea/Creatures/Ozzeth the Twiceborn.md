@@ -7,14 +7,14 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Unique named Creature represented by the NPC.
-- **Threat.** See the stat block (CR as listed in the archived record).
-- **Tell.** Its signature movement or attack is visible before it commits.
-- **Weak to.** The counter play described in Tactics.
-- **Used by.** The NPC of the same name.
+- **Role at the table.** The NPC himself, as a named Creature unique to this record.
+- **Threat.** CR 8, most of it carried in nine levels of spell slots.
+- **Tell.** Skin that runs blue against red, the colours wandering as he moves.
+- **Weak to.** Room, for his venom must touch skin and his tongue stops at ten feet.
+- **Used by.** The NPC of the same name brings him to the table.
 
 > [!narration] First sight
-> The Creature's distinctive silhouette and signature tell are apparent before it attacks.
+> A small grung crouches ahead on the trail, skin blue in one place and red in another, the colours sliding over him as he moves. His throat swells, and a bitter scent rises with the first movement of his fingers. When he moves on, it is one long flat leap, and a pale tongue flicks out to drag its catch a step toward him.
 
 ## Statblock
 
@@ -84,21 +84,21 @@ legendary_actions:
 
 ### Tactics
 
-Use the archived tactics and signature abilities. Telegraph the strongest option and let the Party answer with positioning, cover, or focused fire. It withdraws when its objective is lost or its advantage is gone.
+Each round he casts a minor spell and flicks his tongue, hauling the struck creature five feet toward him, and hold person, fear or hypnotic pattern arrives when the Party clusters. Misty Step and Slip the Skin slide him out of a closing ring, while Pull the Thread sets the creatures he has charmed against their friends. He withdraws when his objective is lost or his advantage spent.
 
 ### Outside a fight
 
-Its appearance, habits, and traces identify it before an encounter. It acts according to the NPC's established role and habitat.
+Away from a fight he is the NPC the table already knows, a grung whose skin wanders colour to colour, and scent and moving fingers are all his casting shows.
 
 ## Depth
 
 ### Ecology
 
-This unique Creature's habitat, diet, and signs follow the archived NPC record. Observant travellers can identify its signs with Wisdom (Survival).
+His haunts, diet and traces all sit in his archived record, and travellers who study the ground can pick his signs out with Wisdom (Survival).
 
 ### Hidden truths
 
-The archived NPC record contains the Creature's history and concealed motives. Examination or relevant questioning can reveal them.
+His history sits in the archive, twiceborn past the grung caste order, and examination or the right question brings it into the open.
 
 ## Links
 

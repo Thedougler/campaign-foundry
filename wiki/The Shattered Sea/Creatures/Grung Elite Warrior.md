@@ -8,9 +8,9 @@ sources:
 ## At a glance
 
 - **Role at the table.** Warrior.
-- **Threat.** CR 2. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Threat.** CR 2. Poison rides both its dagger and its shortbow, and the Mesmerizing Chirr can hold a whole trail still.
+- **Tell.** The throat swells, the chirr rises, and the legs bend before each leap.
+- **Weak to.** Cover, terrain, and breaking its preferred range or formation. Cover spoils the bow's aim, and the chirr touches nothing that cannot hear it.
 - **Used by.** [[Minor Slaad]] patrols the same territory.
 
 > [!narration] First sight
@@ -64,21 +64,21 @@ actions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+Open from the branches above the trail, where the shortbow and the 25-foot leap both serve, and let the swelling throat announce the chirr. The Party answers with positioning, cover, or focused fire. It springs away through the canopy once the leap no longer serves or its wounds mount.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+Small tracks along the branches, a chirr answered from deeper canopy, and poison-tipped arrows warn the Party before an encounter. It ranges its own trees and does not drop to ground that leaves it exposed.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+It lives in the branches above the Shattered Sea's waterways, and its diet follows what its form catches there. A traveller working Wisdom (Survival) reads its sign on the bark and at the water below.
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+Careful examination of its haunts shows the habits of its patrols, and with them its weaknesses. A successful relevant Intelligence check confirms them.
 
 ## Links
 

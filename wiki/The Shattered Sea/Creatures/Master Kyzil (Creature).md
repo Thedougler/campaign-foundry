@@ -7,11 +7,11 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Unique named Creature represented by the NPC.
-- **Threat.** See the stat block (CR as listed in the archived record).
-- **Tell.** Its signature movement or attack is visible before it commits.
-- **Weak to.** The counter play described in Tactics.
-- **Used by.** The NPC of the same name.
+- **Role at the table.** Master Kyzil's unique NPC combat profile, built around flight and magical strikes.
+- **Threat.** Kyzil is CR 14, following the archived record used for the stat block below.
+- **Tell.** Kyzil's wing movements and preparation for Cutting Gale are visible before he commits.
+- **Weak to.** The responses in Tactics use cover, positioning and focused fire against Kyzil.
+- **Used by.** These statistics represent the NPC Master Kyzil.
 
 > [!narration] First sight
 > The Creature's distinctive silhouette and signature tell are apparent before it attacks.
@@ -85,21 +85,21 @@ legendary_actions:
 
 ### Tactics
 
-Use the archived tactics and signature abilities. Telegraph the strongest option and let the Party answer with positioning, cover, or focused fire. It withdraws when its objective is lost or its advantage is gone.
+Apply the archived tactics to Kyzil's daggers, palm strikes and flight. Telegraph his strongest move, such as Cutting Gale, with enough warning for the Party to change position, use cover or focus their attacks. Kyzil leaves the fight if his objective is lost or his advantage fails.
 
 ### Outside a fight
 
-Its appearance, habits, and traces identify it before an encounter. It acts according to the NPC's established role and habitat.
+Kyzil can be identified ahead of an encounter through his appearance, habits and traces. His behaviour belongs to the role and habitat established for his NPC, including his quiet flight on owl wings.
 
 ## Depth
 
 ### Ecology
 
-This unique Creature's habitat, diet, and signs follow the archived NPC record. Observant travellers can identify its signs with Wisdom (Survival).
+Take Kyzil's habitat, food and identifying signs from his archived NPC record. Observant travellers working Wisdom (Survival) recognise those signs.
 
 ### Hidden truths
 
-The archived NPC record contains the Creature's history and concealed motives. Examination or relevant questioning can reveal them.
+Kyzil's archived NPC history includes the motives he keeps hidden. Examination or relevant questions can reveal that history or those motives.
 
 ## Links
 

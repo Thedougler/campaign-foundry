@@ -7,11 +7,11 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Unique named Creature represented by the NPC.
-- **Threat.** See the stat block (CR as listed in the archived record).
-- **Tell.** Its signature movement or attack is visible before it commits.
-- **Weak to.** The counter play described in Tactics.
-- **Used by.** The NPC of the same name.
+- **Role at the table.** Creature statistics for the unique NPC Solange Barret, a grung warlock.
+- **Threat.** Solange's CR is 3 in the archived record and the stat block below.
+- **Tell.** Solange's spellcasting and leaps are visible before she commits to her signature options.
+- **Weak to.** For answers to Solange through focused fire, positioning or cover, consult Tactics.
+- **Used by.** Solange Barret is the NPC who uses this stat block.
 
 > [!narration] First sight
 > The Creature's distinctive silhouette and signature tell are apparent before it attacks.
@@ -67,21 +67,21 @@ reactions:
 
 ### Tactics
 
-Use the archived tactics and signature abilities. Telegraph the strongest option and let the Party answer with positioning, cover, or focused fire. It withdraws when its objective is lost or its advantage is gone.
+Use Solange's archived tactics with her Pact Magic and Circle Ward. Signal her strongest choice before resolving it, so the Party can answer with cover, a change of position or focused fire. Solange retreats if her objective is lost or she ceases to hold an advantage.
 
 ### Outside a fight
 
-Its appearance, habits, and traces identify it before an encounter. It acts according to the NPC's established role and habitat.
+Solange's appearance, habits and traces provide ways to identify her before an encounter. Portray her according to her established NPC role and habitat, retaining her amphibious nature and poisonous skin.
 
 ## Depth
 
 ### Ecology
 
-This unique Creature's habitat, diet, and signs follow the archived NPC record. Observant travellers can identify its signs with Wisdom (Survival).
+Solange's archived record sets her habitat, diet and identifying signs. Travellers can recognise her signs by paying attention and using Wisdom (Survival).
 
 ### Hidden truths
 
-The archived NPC record contains the Creature's history and concealed motives. Examination or relevant questioning can reveal them.
+The archived Solange Barret account contains her history and the motives she conceals. Examination can reveal them, and so can questions bearing on those matters.
 
 ## Links
 

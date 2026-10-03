@@ -1,7 +1,14 @@
+import { execFile } from "node:child_process";
 import { readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { promisify } from "node:util";
 import { describe, expect, it } from "vitest";
 import { cf, copyFixture, type JsonReport, realTemplates, vaultFlags } from "./helpers.ts";
+
+/** Today as a node child sees it, the same clock `cf log` runs on. */
+const nodeToday = (): Promise<string> =>
+	promisify(execFile)("node", ["-e", "const d=new Date();const p=(n)=>String(n).padStart(2,'0');console.log(`${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`)"])
+		.then(({ stdout }) => stdout.trim());
 
 const LOG = "wiki/Aldermoor/log.md";
 const FIRST = "## [2026-01-05] ingest | Session 1 transcript\n\n- [[Session 1 - Recap]]\n";
@@ -59,10 +66,9 @@ describe("cf log", () => {
 	});
 
 	it("dates the entry today, in the real world, when --date is left out", async () => {
+		const stamp = await nodeToday();
 		const dir = await copyFixture("clean");
 		await log(dir, ["--op", "pull", "--title", "D&D Beyond", "--page", "Tam Brightwater"]);
-		const now = new Date();
-		const stamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
 		expect(await read(dir)).toContain(`## [${stamp}] pull | D&D Beyond\n`);
 	});
 

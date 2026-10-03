@@ -11,8 +11,8 @@ sources:
 
 - **Role at the table.** Hazard.
 - **Threat.** CR 6. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Tell.** One coil that moves when every honest vine is still, and a hanging tip that twitches.
+- **Weak to.** Staying past fifteen feet, beyond where its lash lands and its five-foot shuffle can follow.
 - **Used by.** [[Spiguar]] patrols the same territory.
 
 > [!narration] First sight
@@ -46,21 +46,21 @@ actions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+It hangs motionless over the trail until prey passes beneath, and then the lash drops, grips, and holds while the colony feeds. Outside its fifteen feet the catch is safe, for its whole pace on the ground is a shuffle.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+Its larder hangs in plain sight, bones picked clean among the coils above the trail, one loop darker and smoother than its neighbours marking the living wood.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+The colony spreads its coils through the canopy wherever trails pass under, and Observant travellers pick its traces out with Wisdom (Survival).
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+What an Intelligence check counts in the canopy is one animal spread through many coils, gripping travellers and feeding on them where they hang.
 
 ## Links
 

@@ -7,14 +7,14 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Unique named Creature represented by the NPC.
-- **Threat.** See the stat block (CR as listed in the archived record).
-- **Tell.** Its signature movement or attack is visible before it commits.
-- **Weak to.** The counter play described in Tactics.
-- **Used by.** The NPC of the same name.
+- **Role at the table.** Unique named Creature represented by the NPC, the distiller of the reagent-spirits himself.
+- **Threat.** See the stat block, CR 6. His hurled flasks, his sump-reek cloud, and the envenomed lash do the harm.
+- **Tell.** A swig from the gourd means the rite has begun, and a cocked arm means a flask is already loose.
+- **Weak to.** The counter play described in Tactics. Break his concentration and the rite ends with it.
+- **Used by.** The NPC of the same name. His archived record is the source of every line above.
 
 > [!narration] First sight
-> The Creature's distinctive silhouette and signature tell are apparent before it attacks.
+> A small grung figure waits at a bench behind an apron of bone plates, flasks racked along the harness, and the air reeks of reagent-spirits. He tips his gourd back for a long swig, and the stiff old shoulders loosen as the spoken rite takes hold. His first flask is out of the rack, arm cocked, before he ever looks your way.
 
 ## Statblock
 
@@ -78,21 +78,21 @@ reactions:
 
 ### Tactics
 
-Use the archived tactics and signature abilities. Telegraph the strongest option and let the Party answer with positioning, cover, or focused fire. It withdraws when its objective is lost or its advantage is gone.
+His archived record holds the full tactics, and the sealed bone flask shows the Sump-Reek Bomb before it flies. Let the Party answer with positioning, cover, or focused fire. He quits the bench when his purpose is lost or his edge is spent.
 
 ### Outside a fight
 
-Its appearance, habits, and traces identify it before an encounter. It acts according to the NPC's established role and habitat.
+The reek of reagent-spirits, the cast-off flasks, and the bone-plate apron identify him before an encounter. Away from a fight he keeps to the role and habitat the NPC record gave him.
 
 ## Depth
 
 ### Ecology
 
-This unique Creature's habitat, diet, and signs follow the archived NPC record. Observant travellers can identify its signs with Wisdom (Survival).
+His habitat, diet, and signs live in the archived NPC record. A traveller working Wisdom (Survival) reads the signs, and the stinging reek is the loudest of them.
 
 ### Hidden truths
 
-The archived NPC record contains the Creature's history and concealed motives. Examination or relevant questioning can reveal them.
+His history sits in the archived record, and so do the motives behind the calm the spirits left him. Examination, or the right questions, reveals them.
 
 ## Links
 

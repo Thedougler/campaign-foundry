@@ -50,7 +50,7 @@ Her welcome follows the fruit law across Aruhe, not only inside the Pantry. Kara
 
 ### Threads
 
-[[Taking on Aruhe]], [[Perrin and Nona]], and [[The Crown Inspection]].
+Karath's promised fire and Hinewai's fruit law pull this rainforest into [[Taking on Aruhe]], [[Perrin and Nona]], and [[The Crown Inspection]].
 
 ## Links
 

@@ -30,7 +30,7 @@ parent: "[[Aruhe]]"
 
 ### Places worth reaching
 
-[[Landing Bank]], [[Torn Crossing]], [[Line Bank]], [[Slack Basin]], [[Cutoff Lip]], [[Print Braid]], [[Spoke Ring]], and [[Star Cut]].
+From this water the Party can reach [[Landing Bank]], [[Torn Crossing]], [[Line Bank]], [[Slack Basin]], [[Cutoff Lip]], [[Print Braid]], [[Spoke Ring]] and [[Star Cut]].
 
 ### Encounters
 
@@ -52,7 +52,7 @@ The gin-clear reaches are tended, not naturally empty. A fallen fruit is receivi
 
 ### Threads
 
-[[Taking on Aruhe]] and [[Perrin and Nona]].
+The otters' law that taking is theft and the flood-redrawn route hold this water inside [[Taking on Aruhe]] and [[Perrin and Nona]].
 
 ## Links
 

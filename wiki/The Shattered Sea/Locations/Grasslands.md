@@ -30,7 +30,7 @@ parent: "[[Aruhe]]"
 
 ### Places worth reaching
 
-[[Landing Bank]], [[Torn Crossing]], [[Line Bank]], [[Slack Basin]], [[Cutoff Lip]], [[Print Braid]], [[Spoke Ring]], and [[Star Cut]].
+Along the River. [[Landing Bank]], [[Line Bank]], [[Torn Crossing]] and [[Slack Basin]]. North through [[Cutoff Lip]], the Quiet side holds [[Print Braid]], [[Star Cut]] and [[Spoke Ring]].
 
 ### Encounters
 
@@ -52,7 +52,7 @@ The hard prints north of Cutoff Lip are the Calveno trail. Only one strand at Pr
 
 ### Threads
 
-[[Taking on Aruhe]] and [[Perrin and Nona]].
+Fallen fruit is safe to receive, anything living taken is a claim under [[Taking on Aruhe]], and the Party's rescue obligation to [[Perrin and Nona]] holds while it crosses the island.
 
 ## Links
 

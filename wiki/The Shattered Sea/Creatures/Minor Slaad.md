@@ -7,10 +7,10 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Bruiser.
+- **Role at the table.** A small bruiser that bites and claws twice a turn.
 - **Threat.** CR 1/2. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Tell.** Skin split and gone raw, with shed flesh trailing its knuckled walk.
+- **Weak to.** Fighters who hold a spear's length, beyond the five feet its bite and claw can cross.
 - **Used by.** [[Whip Shark]] patrols the same territory.
 
 > [!narration] First sight
@@ -49,23 +49,23 @@ actions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+It closes at once and spends both attacks every round, bite then claw, while magic resistance rides out the first spell aimed its way. It gives ground when its advantage is gone or its wounds mount.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+Sound leads it before sight does, its head swinging to the nearest noise, and shed skin marks the routes it walks.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+It troubles whatever ground it spawns onto, and Observant travellers know its signs by Wisdom (Survival), raw hide and shed flesh being hard to mistake.
 
 Five Minor Slaads spawned in the Mercatura crater and were killed by [[Master Kyzil]].
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+An Intelligence check on a corpse finds the aberration underneath, habits and weaknesses laid open with it.
 
 ## Links
 

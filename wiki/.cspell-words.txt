@@ -148,3 +148,4 @@ Falier
 Agni
 Slaads
 nonintervention
+Riftbolt

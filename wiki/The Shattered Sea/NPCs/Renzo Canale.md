@@ -36,7 +36,7 @@ Renzo heard Hinewai's voice first after the wreck and taught the camp how to sur
 
 ### Threads
 
-He anchors the survivor strand of **Taking on Aruhe**.
+He anchors the survivor strand of **Taking on Aruhe** and stays beneath the vine when the other Calveno go.
 
 ## Links
 

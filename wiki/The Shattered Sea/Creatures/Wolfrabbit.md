@@ -15,10 +15,10 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Skirmisher.
-- **Threat.** CR 4. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Role at the table.** A hit-and-run hunter that bounds in, rakes, and is gone before the Party turns.
+- **Threat.** CR 4 apiece, and a pack of them rends any target one of them knocks down.
+- **Tell.** Each spring gathers from a low crouch, and a Party that watches the crouch reads every leap.
+- **Weak to.** Terrain that denies it a thirty-foot run, and spacing that keeps a fallen Party member beyond five feet of another wolfrabbit.
 - **Used by.** [[Young Bloodhawk]] patrols the same territory.
 
 > [!narration] First sight
@@ -71,21 +71,21 @@ reactions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+Each one opens from beyond thirty feet, springs, and rakes as it lands, putting its target on the ground for the pack to rend. The low crouch is the telegraph, and terrain, cover, and focused fire answer it before the pack closes a ring. When one falls the rest converge on the body, and the fight breaks off only when the pack is bled thin.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+A pack's torn carcasses, eaten where they fell, tell sharp travellers that hunters hold this ground, and any bleeding wound draws their noses. It works its own beat and does not trail prey beyond it.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+A pack hunter of the World's open ground, it eats what its teeth take, and a tracker following its prints rolls Wisdom (Survival).
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+Bones at a kill site tell its habits, and an Intelligence check of the right sort confirms what becomes of a wolfrabbit its own pack brings down: it is eaten where it lies.
 
 ## Links
 

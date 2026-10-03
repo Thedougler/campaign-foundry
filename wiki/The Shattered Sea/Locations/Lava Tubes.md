@@ -50,7 +50,7 @@ The tubes join the wider Aruhe Caves system. The island's taking law reaches und
 
 ### Threads
 
-[[Taking on Aruhe]] and [[Perrin and Nona]].
+[[Taking on Aruhe]] reaches underground here, and word that four survivors live below the skylight joins the report owed to [[Perrin and Nona]].
 
 ## Links
 

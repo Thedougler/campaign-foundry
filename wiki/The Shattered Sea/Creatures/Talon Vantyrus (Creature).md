@@ -7,11 +7,11 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Unique named Creature represented by the NPC.
-- **Threat.** See the stat block (CR as listed in the archived record).
-- **Tell.** Its signature movement or attack is visible before it commits.
-- **Weak to.** The counter play described in Tactics.
-- **Used by.** The NPC of the same name.
+- **Role at the table.** A unique Creature profile for the NPC Talon Vantyrus, whose abilities manipulate possible futures.
+- **Threat.** Vantyrus retains his archived CR of 17 in the following stat block.
+- **Tell.** Vantyrus's blade movements and intersecting threads of possible movement give visible warning of his signature options.
+- **Weak to.** Refer to Tactics for answering Vantyrus with concentrated fire, cover and positioning.
+- **Used by.** The NPC represented by these statistics is Talon Vantyrus.
 
 > [!narration] First sight
 > The Creature's distinctive silhouette and signature tell are apparent before it attacks.
@@ -88,21 +88,21 @@ legendary_actions:
 
 ### Tactics
 
-Use the archived tactics and signature abilities. Telegraph the strongest option and let the Party answer with positioning, cover, or focused fire. It withdraws when its objective is lost or its advantage is gone.
+Use the archived tactics for Vantyrus's returning blade and control over possible movement. Make his strongest option visible before resolving it and allow the Party to respond with positioning, focused fire or cover. Vantyrus abandons the fight if his objective is lost or his advantage has gone.
 
 ### Outside a fight
 
-Its appearance, habits, and traces identify it before an encounter. It acts according to the NPC's established role and habitat.
+Vantyrus's appearance, habits and traces allow identification before the encounter. His returning blade is part of his portrayal. Keep his actions faithful to his NPC role and established habitat.
 
 ## Depth
 
 ### Ecology
 
-This unique Creature's habitat, diet, and signs follow the archived NPC record. Observant travellers can identify its signs with Wisdom (Survival).
+Vantyrus's habitat, diet and signs follow the account in his archived NPC record. Attentive travellers can distinguish his signs with Wisdom (Survival).
 
 ### Hidden truths
 
-The archived NPC record contains the Creature's history and concealed motives. Examination or relevant questioning can reveal them.
+Vantyrus's archived record preserves his concealed motives as well as his past. Examination or relevant questions can reveal that past or those motives.
 
 ## Links
 

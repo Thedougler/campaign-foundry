@@ -10,7 +10,7 @@ sources:
 
 - **Change.** Skarn has entered the camp's story.
 - **Open.** The Fate Spinner and the fight are unresolved.
-- **Where.** River slack basin.
+- **Where.** The watch camp on the slack basin's dark riverbank.
 - **Opposition.** [[Talon Skarn]].
 
 > [!narration] Opening

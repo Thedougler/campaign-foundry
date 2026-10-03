@@ -1,11 +1,8 @@
-import { execFile } from "node:child_process";
+import { spawn } from "node:child_process";
 import { cp, mkdtemp, readFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { promisify } from "node:util";
-
-const run = promisify(execFile);
 const here = dirname(fileURLToPath(import.meta.url));
 export const repoRoot = resolve(here, "../..");
 export const fixtures = join(here, "fixtures");
@@ -19,15 +16,17 @@ export interface CliResult {
 
 /** Runs `node src/cli.ts <args>` exactly as an agent would, from `cwd`. */
 export async function cf(args: string[], cwd: string = repoRoot, stdin = ""): Promise<CliResult> {
-	try {
-		const pending = run("node", [join(repoRoot, "src/cli.ts"), ...args], { cwd });
-		pending.child.stdin?.end(stdin);
-		const { stdout, stderr } = await pending;
-		return { code: 0, stdout, stderr };
-	} catch (error) {
-		const e = error as { code?: number; stdout?: string; stderr?: string };
-		return { code: typeof e.code === "number" ? e.code : 1, stdout: e.stdout ?? "", stderr: e.stderr ?? "" };
-	}
+	const child = spawn("node", [join(repoRoot, "src/cli.ts"), ...args], { cwd });
+	child.stdin?.end(stdin);
+	let stdout = "";
+	let stderr = "";
+	child.stdout.on("data", (chunk) => (stdout += chunk));
+	child.stderr.on("data", (chunk) => (stderr += chunk));
+	const code = await new Promise<number>((resolve) => {
+		child.on("error", () => resolve(1));
+		child.on("close", (exitCode) => resolve(exitCode ?? 1));
+	});
+	return { code, stdout, stderr };
 }
 
 export interface JsonFinding {

@@ -11,7 +11,7 @@ creature: "[[Commoner]]"
 - **Role.** Wreck survivor and guide to the fruit-pile trail.
 - **Wants.** To carry his father out, then find his uncle Carlo.
 - **Voice.** Short sentences with numbers first. Counting keeps him calm.
-- **Found at.** The lava-tube ledge beneath the smoking skylight.
+- **Found at.** The lava-tube ledge beneath the smoking skylight, nineteen tallies deep.
 
 > [!narration] First look
 > A lanky boy's lips move over a count he has not finished, and he gives you the numbers, “Four of us. Three can walk. How many can you carry?”

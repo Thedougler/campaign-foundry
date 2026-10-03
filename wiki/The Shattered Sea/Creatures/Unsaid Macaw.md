@@ -10,9 +10,9 @@ sources:
 ## At a glance
 
 - **Role at the table.** Social hazard.
-- **Threat.** CR 0. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Threat.** CR 0. It repeats foremost thoughts aloud in the thinker's own voice.
+- **Tell.** A familiar voice from the branch, and a beak still working through the words.
+- **Weak to.** Three hit points, ended by the first stone thrown its way.
 - **Used by.** [[Vine Lash]] patrols the same territory.
 
 > [!narration] First sight
@@ -44,21 +44,21 @@ actions: []
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+It sits in reach and repeats whatever a character thinks loudest, in that character's voice, until the Party's half-formed plans start arguing among themselves, and kept close it can press one brief truthful sentence from a speaker.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+It gives itself away by giving the Party away, its echoes of their own thoughts marking the ground as its own long before the bird is seen.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+It keeps to the canopy over the trails, and Observant travellers mark its ground with Wisdom (Survival) where voices travel wrong.
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+An Intelligence check reveals the compulsion, for the echo can squeeze one truthful sentence out of a speaker, and the warned Party weighs each word said beneath its branch.
 
 ## Links
 

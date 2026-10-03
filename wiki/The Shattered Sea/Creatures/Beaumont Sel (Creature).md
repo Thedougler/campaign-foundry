@@ -7,11 +7,11 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Unique named Creature represented by the NPC.
-- **Threat.** See the stat block (CR as listed in the archived record).
-- **Tell.** Its signature movement or attack is visible before it commits.
-- **Weak to.** The counter play described in Tactics.
-- **Used by.** The NPC of the same name.
+- **Role at the table.** The unique NPC Beaumont Sel's combat statistics, including his work with Bisou.
+- **Threat.** Beaumont's archived profile gives CR 2. Its statistics appear below.
+- **Tell.** Beaumont prepares his throws and Bisou's deliveries in view before committing to them.
+- **Weak to.** Tactics gives the Party ways to answer Beaumont through cover, concentrated fire or changes of position.
+- **Used by.** This Creature stat block represents Beaumont Sel.
 
 > [!narration] First sight
 > The Creature's distinctive silhouette and signature tell are apparent before it attacks.
@@ -68,21 +68,21 @@ actions:
 
 ### Tactics
 
-Use the archived tactics and signature abilities. Telegraph the strongest option and let the Party answer with positioning, cover, or focused fire. It withdraws when its objective is lost or its advantage is gone.
+Follow Beaumont's archived tactics and use his punches, throws and manoeuvres with Bisou. Make his strongest choice apparent before it takes effect. The Party has room to reposition, take cover or concentrate their fire. He withdraws if the objective slips away or he loses his advantage.
 
 ### Outside a fight
 
-Its appearance, habits, and traces identify it before an encounter. It acts according to the NPC's established role and habitat.
+Beaumont's appearance and habits, together with traces of his activity, identify him ahead of an encounter. Play his established NPC role in its usual habitat. His salvaged Antheri plate and work with Bisou belong to that portrayal.
 
 ## Depth
 
 ### Ecology
 
-This unique Creature's habitat, diet, and signs follow the archived NPC record. Observant travellers can identify its signs with Wisdom (Survival).
+Use Beaumont's archived NPC account for the habitat he occupies, his diet and the signs he leaves. Careful travellers can use Wisdom (Survival) to identify those signs.
 
 ### Hidden truths
 
-The archived NPC record contains the Creature's history and concealed motives. Examination or relevant questioning can reveal them.
+Beaumont's archived record holds both his past and his concealed reasons for acting. Relevant questions or examination can bring those details to light.
 
 ## Links
 

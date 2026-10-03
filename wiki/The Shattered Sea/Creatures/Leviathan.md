@@ -7,10 +7,10 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Bruiser.
-- **Threat.** CR 17. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Role at the table.** A bruiser that crushes and drags.
+- **Threat.** CR 17, with a bite that reaches fifteen feet and a coil that reaches twenty.
+- **Tell.** A ring of churning water that travels with it across flat sea.
+- **Weak to.** Dry land, where its pace drops from sixty feet of swim to twenty of crawl.
 - **Used by.** [[Bloodhawk]] patrols the same territory.
 
 > [!narration] First sight
@@ -70,21 +70,21 @@ legendary_actions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+It hunts from below and leads with Riftbolt, a ninety-foot line of planar lightning, then Surge carries it in to close its coil around one swimmer while the bite takes another. Crowded, it brings Submerge Pulse down and puts swimmers on their backs, and it withdraws into depth when it loses the open water.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+Rough water on a calm sea marks its patrol, and a party that reads the travelling ring early keeps to the shore side of the Drowned Maw's open water. It stays over deep water, where its advantages hold.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+Its range is the open water around the Drowned Maw, and it reads that whole sea through blindsight. Observant sailors pick its signs out with Wisdom (Survival).
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+Its habits repeat with its patrol, and a successful Intelligence check turns the pattern into its weaknesses.
 
 ## Links
 

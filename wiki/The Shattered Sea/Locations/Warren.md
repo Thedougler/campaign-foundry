@@ -48,7 +48,7 @@ Different witnesses know different slices of where the taken moved. A coded less
 
 ### Threads
 
-[[Perrin and Nona]] and [[Simone's Hunters]].
+Passage's deepest refuge, sheltering [[Nona Black-Jaw]] and Felix Aho, threads into [[Perrin and Nona]] and [[Simone's Hunters]].
 
 ## Links
 

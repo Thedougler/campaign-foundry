@@ -1,4 +1,5 @@
 import type { Layer } from "../types.ts";
+import { boilerplateLayer } from "./boilerplate.ts";
 import { grammarLayer } from "./grammar.ts";
 import { hotLayer } from "./hot.ts";
 import { indexLayer } from "./index-files.ts";
@@ -33,4 +34,5 @@ export const layers: Layer[] = [
 	grammarLayer,
 	narrationLayer,
 	styleLayer,
+	boilerplateLayer,
 ];

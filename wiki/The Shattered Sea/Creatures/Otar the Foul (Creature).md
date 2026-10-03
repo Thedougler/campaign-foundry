@@ -7,11 +7,11 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Unique named Creature represented by the NPC.
-- **Threat.** See the stat block (CR as listed in the archived record).
-- **Tell.** Its signature movement or attack is visible before it commits.
-- **Weak to.** The counter play described in Tactics.
-- **Used by.** The NPC of the same name.
+- **Role at the table.** The combat form of the unique NPC Otar the Foul, a Large aberration.
+- **Threat.** Otar's CR 9 comes from the archived record. See the reproduced stat block.
+- **Tell.** Otar's fumes and bodily movements make its signature attacks visible before commitment.
+- **Weak to.** Tactics describes responses to Otar using position, cover and concentrated fire.
+- **Used by.** These Creature statistics belong to Otar the Foul.
 
 > [!narration] First sight
 > The Creature's distinctive silhouette and signature tell are apparent before it attacks.
@@ -83,21 +83,21 @@ legendary_actions:
 
 ### Tactics
 
-Use the archived tactics and signature abilities. Telegraph the strongest option and let the Party answer with positioning, cover, or focused fire. It withdraws when its objective is lost or its advantage is gone.
+Bring Otar's archived tactics to its claws, tongue and Chaos Pulse. Warn the Party before its strongest option takes effect. They can seek cover, reposition or focus their fire in response. Otar withdraws after losing its objective or the advantage it held.
 
 ### Outside a fight
 
-Its appearance, habits, and traces identify it before an encounter. It acts according to the NPC's established role and habitat.
+Otar's appearance, habits and traces announce its identity ahead of an encounter. Its fumes are a sign of its stalled caste transformation. Keep its behaviour within the role and habitat of the established NPC.
 
 ## Depth
 
 ### Ecology
 
-This unique Creature's habitat, diet, and signs follow the archived NPC record. Observant travellers can identify its signs with Wisdom (Survival).
+Otar's archived NPC record governs its habitat, diet and the signs by which it can be identified. A traveller attentive to those signs can recognise them using Wisdom (Survival).
 
 ### Hidden truths
 
-The archived NPC record contains the Creature's history and concealed motives. Examination or relevant questioning can reveal them.
+The history of Otar and its concealed motives are held in its archived record. Examining evidence or asking relevant questions can expose them.
 
 ## Links
 

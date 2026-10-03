@@ -19,10 +19,10 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Ambusher.
-- **Threat.** CR 8. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Role at the table.** Ambusher. It waits in dim shade for one creature, and the lunge drags its catch toward the dark.
+- **Threat.** CR 8. Three claws a turn at a 10-foot reach, and a grapple that ends in a drag toward deeper foliage, give its movement its teeth.
+- **Tell.** The whole body winds up where all can watch it. Weight rocks back, a breath before the lunge.
+- **Weak to.** Cover, terrain, and breaking its preferred range or formation. Open light strips its approach, and standing shoulder to shoulder denies it a target with no ally near.
 - **Used by.** [[River Otter]] patrols the same territory.
 
 > [!narration] First sight
@@ -75,21 +75,21 @@ reactions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+Open from deep shade at the Party's flank and show the winding body before the first lunge. Let the Party answer with positioning, cover, or focused fire. It backs away into deeper shade once its ambush is spent or it is badly hurt.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+Tracks between the trees, drag marks running back into the foliage, and kills left in the deepest shade warn the Party before an encounter. It keeps to its own dim range and does not pursue past the leaves that hide it.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+It haunts the dim mid-storey of the Shattered Sea's woods and eats what it can drag away alone. A traveller working Wisdom (Survival) reads its sign in the drag marks that end under cover.
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+A close look at its territory shows the pattern of its ambushes, a target apart from its allies on a shaded path, and with the pattern its weaknesses. A successful relevant Intelligence check confirms them.
 
 ## Links
 

@@ -50,7 +50,7 @@ The macaw's stretched echo is not a voice in the forest. The absence of human pr
 
 ### Threads
 
-[[Taking on Aruhe]] and [[Perrin and Nona]].
+Forage only fallen fruit here, or [[Taking on Aruhe]] answers, and the one hard strand is the finding [[Perrin and Nona]]'s report waits on.
 
 ## Links
 

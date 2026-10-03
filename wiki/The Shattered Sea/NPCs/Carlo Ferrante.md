@@ -37,7 +37,7 @@ Carlo worked the Calveno quays as a lighter foreman and got Ettore a bridge-toll
 
 ### Threads
 
-He anchors the survivor strand of **Taking on Aruhe**.
+He carries the survivor strand of **Taking on Aruhe**, with the brother he believes he left behind at its heart.
 
 ## Links
 

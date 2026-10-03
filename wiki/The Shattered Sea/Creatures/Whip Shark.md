@@ -7,10 +7,10 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Controller.
-- **Threat.** CR 8. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Role at the table.** It clears decks, snaring one creature in its tail and hauling it overboard while its bite opens the hull.
+- **Threat.** CR 8, with a bite that crushes hulls and a tail that reaches thirty feet.
+- **Tell.** The coils along its flank cinch tighter a heartbeat before the tail snaps out.
+- **Weak to.** Shallow water, where its bulk crawls ten feet a round. Party members who spread wide also strain it, since each tail holds only one captive.
 - **Used by.** [[Leviathan]] patrols the same territory.
 
 > [!narration] First sight
@@ -58,21 +58,21 @@ actions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+It hunts from open water, sniffing out a wounded creature a mile off through the same water and snaring one victim to drag overboard while its bite works the hull. Show the cinching coils before every snare, and let spacing, cover, and focused fire carry the answer. It breaks off when its wounds mount or the water stops favouring it.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+Crush-bitten planks on beached hulls are the warning a Party learns to read. It keeps to the waters that favour it and does not chase prey onto land, where it can only crawl.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+An amphibious beast of the World's shallows, it takes the prey that bleeds into its waters. Reading its signs calls for Wisdom (Survival).
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+The bite-marks on a wrecked hull tell of its habits, and a successful Intelligence check made with the right skill confirms that its scent finds the wounded a mile away in shared water.
 
 ## Links
 

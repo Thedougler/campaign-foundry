@@ -38,7 +38,7 @@ Once Osset, Vantyrus broke from the Sentinels because they recorded deaths witho
 
 ### Hidden truths
 
-- Osset is Talon Vantyrus. Kyzil believes his old master died decades ago.
+- Born Osset, once master to Kyzil, and given up for dead decades ago.
 - He sent Skarn for the Fate Spinner to read Kyzil's teaching and reach the Soul Incarnate technique. His Long Sight weakens before sacrifice, irrational action, and deliberate chaos.
 
 ### Threads

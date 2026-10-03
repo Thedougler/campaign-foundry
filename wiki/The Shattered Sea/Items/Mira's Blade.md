@@ -10,7 +10,7 @@ sources: []
 - **Rarity.**
 - **Attunement.**
 - **Changes.**
-- **Held by.** [[Perrin Black-Jaw]].
+- **Held by.** [[Perrin Black-Jaw]], who took it from [[Barnaby Rook]]'s cabin.
 
 > [!narration] First look
 > A plain blade slides from a scabbard gone stiff with salt. It sits light in the hand, the cord of its grip worn shiny where fingers closed on it, the fittings pitted grey by sea air. The scabbard knocks against a palm like any other prize, and the name does the rest of the work.

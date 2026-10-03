@@ -9,14 +9,14 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Unique named Creature represented by the NPC.
-- **Threat.** See the stat block (CR as listed in the archived record).
-- **Tell.** Its signature movement or attack is visible before it commits.
-- **Weak to.** The counter play described in Tactics.
-- **Used by.** The NPC of the same name.
+- **Role at the table.** Unique named Creature represented by the NPC, the blight at the grove's heart.
+- **Threat.** See the stat block, CR 19. Rotten claws, acid blooms, and grasping roots carry her will into the fight.
+- **Tell.** The plants lean toward her target before she moves, and thorned vines rise where the next blow will fall.
+- **Weak to.** The counter play described in Tactics. The Death Bloom roots her return, and destroying it first makes her next death permanent.
+- **Used by.** The NPC of the same name, whose archived record this block renders.
 
 > [!narration] First sight
-> The Creature's distinctive silhouette and signature tell are apparent before it attacks.
+> A tall figure, once a woman, steps out between the grove's trees, and the undergrowth bends aside before her. Rot greens her long claws, and thorned vines lean after her as she walks. Where her foot lands, the moss curls back, and the air carries a taste of spores. Under the great tree she halts, and her eyes find you through the leaves.
 
 ## Statblock
 
@@ -81,21 +81,21 @@ legendary_actions:
 
 ### Tactics
 
-Use the archived tactics and signature abilities. Telegraph the strongest option and let the Party answer with positioning, cover, or focused fire. It withdraws when its objective is lost or its advantage is gone.
+Her archived record carries the full tactics, and the Death Bloom sits behind every ability she spends. Show the leaning plants and the rising thorns before the Grasping Roots close, and let the Party answer with positioning, cover, or focused fire. She falls back toward the Bloom when her purpose is lost or her edge is gone.
 
 ### Outside a fight
 
-Its appearance, habits, and traces identify it before an encounter. It acts according to the NPC's established role and habitat.
+Sickened ground along her paths and vines that reach for passers-by identify her before an encounter. Away from a fight she keeps the role and habits the NPC record established for her.
 
 ## Depth
 
 ### Ecology
 
-This unique Creature's habitat, diet, and signs follow the archived NPC record. Observant travellers can identify its signs with Wisdom (Survival).
+Habitat, diet, and signs follow her archived record. A traveller working Wisdom (Survival) reads them in the blighted ground, the thorned thickets, and the drifting spores.
 
 ### Hidden truths
 
-The archived NPC record contains the Creature's history and concealed motives. Examination or relevant questioning can reveal them.
+Her history and the motives beneath the rot sit in the archived record, and examination of the grove or the right questions reveal them. What the Death Bloom means to her waits in that record.
 
 ## Links
 

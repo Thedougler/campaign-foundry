@@ -11,7 +11,7 @@ sources:
 - **Rarity.** Rare.
 - **Attunement.** Required.
 - **Changes.** Disadvantages attacks against the wearer, but pulls nearby ranged attacks onto her.
-- **Held by.** [[Crissdalynn Khinriss]].
+- **Held by.** [[Crissdalynn Khinriss]], who bought it from [[Lavinia Sordi]].
 
 > [!narration] First look
 > A dark cloak swallows nearby light and settles across your shoulders with cold, deliberate weight, while a faint shimmer at its edges vanishes when you look straight at it.

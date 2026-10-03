@@ -7,11 +7,11 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Unique named Creature represented by the NPC.
-- **Threat.** See the stat block (CR as listed in the archived record).
-- **Tell.** Its signature movement or attack is visible before it commits.
-- **Weak to.** The counter play described in Tactics.
-- **Used by.** The NPC of the same name.
+- **Role at the table.** A one-of-a-kind opponent, faced as the blind grung this block describes.
+- **Threat.** CR 8, the rating her archived record carries.
+- **Tell.** The crack of a shattered bone vial comes a breath before her bitter mist fills the air.
+- **Weak to.** Attacks from beyond her forty-foot echo sense, and Party members spread wider than the ten feet her Deflection guards.
+- **Used by.** The NPC who bears her name carries this stat block.
 
 > [!narration] First sight
 > The Creature's distinctive silhouette and signature tell are apparent before it attacks.
@@ -86,21 +86,21 @@ legendary_actions:
 
 ### Tactics
 
-Use the archived tactics and signature abilities. Telegraph the strongest option and let the Party answer with positioning, cover, or focused fire. It withdraws when its objective is lost or its advantage is gone.
+Lead with the bone vial. Its shatter is the telegraph, and the mist that follows blinds every eye but hers while she moves freely within it. Her tongue drags one victim fifteen feet to her waiting hands, and her nerve strike drops the hardest hitter. Cover and concentrated fire answer both, and she withdraws once her purpose is spent or the fight turns against her.
 
 ### Outside a fight
 
-Its appearance, habits, and traces identify it before an encounter. It acts according to the NPC's established role and habitat.
+Her constant tongue-click and the bitter tang of her mist mark her passage before an encounter. Away from a fight she keeps to the role and haunts her archived record assigns her.
 
 ## Depth
 
 ### Ecology
 
-This unique Creature's habitat, diet, and signs follow the archived NPC record. Observant travellers can identify its signs with Wisdom (Survival).
+Her haunts, food, and trail signs rest in the archived NPC record. A traveller reading her signs rolls Wisdom (Survival).
 
 ### Hidden truths
 
-The archived NPC record contains the Creature's history and concealed motives. Examination or relevant questioning can reveal them.
+Her past and her hidden purposes lie in the archived record. Close examination or the right questions bring them into the open.
 
 ## Links
 

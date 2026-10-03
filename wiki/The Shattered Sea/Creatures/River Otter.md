@@ -11,10 +11,10 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Controller.
-- **Threat.** CR 4. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Role at the table.** A controller that repositions swimmers and steals what they hold.
+- **Threat.** CR 4, and never just one, for the family hunts as one.
+- **Tell.** Play that stops mid-tumble, every head in the water coming round at once.
+- **Weak to.** Dry ground, and isolation from the second otter its ambush advantage needs.
 - **Used by.** [[Snakewood]] patrols the same territory.
 
 > [!narration] First sight
@@ -65,21 +65,21 @@ bonus_actions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+In play they steal whatever dangles from the camp, all of it sport. The whole family turns to the hunt when an adult is hurt or a pup is touched. Two of them flank any swimmer for their shared advantage while the biggest dunks its catch and holds it under.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+A family at play gives itself away in stripped gear and stolen lines hauled off through the water, and the sport holds until the family itself is hurt.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+Each family keeps to one stretch of river, and Observant travellers read its signs with Wisdom (Survival).
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+The switch is the secret an Intelligence check buys, for hurt to one adult or a hand on a pup arms every otter in the water at the same moment.
 
 ## Links
 

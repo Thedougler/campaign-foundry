@@ -11,10 +11,10 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Skirmisher.
-- **Threat.** CR 2. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Role at the table.** A fast striker that dives out of the canopy, strikes, and is airborne again before blades reach it.
+- **Threat.** CR 2, with a dive that hurls a flying target thirty feet straight down.
+- **Tell.** A rattling beat of wings overhead comes moments before the dive.
+- **Weak to.** A readied weapon waiting along its diving path, and trees thick enough to spoil that path.
 - **Used by.** [[Commoner]] patrols the same territory.
 
 > [!narration] First sight
@@ -61,21 +61,21 @@ actions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+It hunts from the canopy, one flat dive carrying it through the leaves to slam a flying quarry down onto the trail. Call the rattling wing beats as the telegraph, and set readied weapons along its line of fall. It wheels off once the leaves stop hiding it or its wounds ground it.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+Small birds scatter ahead of it along a trail, the young hunter's calling card, and the hawk shows itself as a burst of leaves at each stoop. It works a stretch of canopy and does not follow prey out of the trees.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+A hunter of the World's canopy, it lives on the smaller birds its beak and talons were made for. Identifying its signs calls for Wisdom (Survival).
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+Its roost tells its habits, and the right Intelligence check confirms how the dive turns a flyer's own height against it.
 
 ## Links
 

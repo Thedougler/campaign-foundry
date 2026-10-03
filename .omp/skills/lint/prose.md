@@ -1,6 +1,6 @@
 # Prose fixes
 
-Read by whoever fixes lint's `narration` and `style` findings: the lint run itself, or a subagent given a page batch. The page check is the **checker**: it runs in about two seconds and names every rule a draft trips, with each echo's source and line, so draft, check at once and fix what it reports. A callout written fresh for a new stub page is judged the same way, pairing against the Canon facts it is drawn from.
+Read by whoever fixes lint's `narration`, `style` and `boilerplate` findings: the lint run itself, or a subagent given a page batch. The page check is the **checker**: it runs in about two seconds and names every rule a draft trips, with each echo's source and line, so draft, check at once and fix what it reports. A callout written fresh for a new stub page is judged the same way, pairing against the Canon facts it is drawn from.
 
 Each rewrite is judged as a **pair**: the block as it stood when you started, and your rewrite. A pair passes when all of these hold:
 
@@ -9,9 +9,9 @@ Each rewrite is judged as a **pair**: the block as it stood when you started, an
 - **Plain speech.** English word order with the adjective before its noun: "silver scales", "clay bowls", "gold and green grass". When a rule trips, say the fact a different way in plain speech.
 - **Aloud.** Read both aloud: the rewrite sounds at least as good as the original to a table of Players.
 - **Presence.** Say what a thing is, has or does ("the crater is silent", "his hands are empty").
-- **Every page is its own page.** Draw each callout from this page's own facts (At a glance, Play, Depth, Statblock), so its sentences belong to it alone.
+- **Every page is its own page.** Draw each callout and bullet from this page's own facts, so its sentences belong to it alone.
 
-Every finding is fixed in the page's wording, warnings included, played Session records and heard Narration included; rule files and `.vale.ini` stay as they are. A sentence an earlier edit broke ("at the Drowned The Maw matters") is repaired to the bar too. Quoted lines keep their words wherever no finding touches them; a finding inside one rewords it to say the same thing, and a `dialogue-attribution` finding moves the speaker's tag ahead of the line, quoted words unchanged. Where theatre-of-the-mind differs (its step 5 File, its warning-as-judgement clause, its word-for-word heard speech), these rules govern under lint.
+Every finding is fixed in the page's wording, warnings included, played Session records and heard Narration included; rule files and `.vale.ini` stay as they are. A sentence an earlier edit broke ("at the Drowned The Maw matters", "His left leg of is splinted") is repaired to the bar too. Quoted lines keep their words wherever no finding touches them; a finding inside one rewords it to say the same thing, and a `dialogue-attribution` finding moves the speaker's tag ahead of the line, quoted words unchanged. Where theatre-of-the-mind differs (its step 5 File, its warning-as-judgement clause, its word-for-word heard speech), these rules govern under lint.
 
 ## Steps
 
@@ -36,6 +36,10 @@ Consult while drafting; the checker has the last word. "Outside quotes" means th
 | `relative-chain` | A sentence outside quotes holding two or more of which/that, every "that" counted. | One which/that per sentence. |
 | `invented-names` | More than three distinct invented names outside quotes: capitalised words or runs that are not Canon ("X of Y" is one name). A sentence-opening single word counts only when it also appears mid-sentence or is no English word. | Canon names as written; past the third invented name, a role the page supports ("the harbourmaster"). |
 | `dialogue-attribution` | A closing quote, then `, he/she/they/it/<Name>` and says/said, asks/asked, replies/replied, mutters/muttered, shouts/shouted or whispers/whispered. | Speaker and action, then the line: `Mara leans in and whispers, "Not here."` |
+
+### `boilerplate/shared-line`: whole lines shared across pages, warnings
+
+Body lines only (frontmatter, headings, callouts, fences, tables and comments are exempt) are normalised — list markers and emphasis stripped, wikilinks read as their shown text, lowercased — and any line of twenty-five characters or more carried verbatim by another page is flagged; generated index, hot and log pages are exempt. Only a whole shared line fires: a landmark phrase two pages share is fine. Each sharer rewrites its own line from its own facts — the cheap first move on a template bullet is one clause from this page's History or Depth ("Held by. ** [[X]], given by [[Y]] before her pilgrimage"), a whole fresh sentence on a prose paragraph.
 
 ### `Narration.*` and `ai-tells.*`
 

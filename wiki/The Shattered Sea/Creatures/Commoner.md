@@ -8,9 +8,9 @@ sources:
 ## At a glance
 
 - **Role at the table.** Noncombatant.
-- **Threat.** CR 0. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Threat.** CR 0. A 5-foot reach and a two-handed club are the whole of it, enough to press only the careless.
+- **Tell.** The swing is readable well before it lands, and the club hangs a moment at the top of its arc.
+- **Weak to.** Cover, broken ground, and getting inside the swing leave it harmless. Scatter the group it stands with, and it has nothing to lean on.
 - **Used by.** [[Grung]] patrols the same territory.
 
 > [!narration] First sight
@@ -41,21 +41,21 @@ actions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+Open on the home ground it knows, and let the raised club announce the one swing it has. The Party answers with positioning, cover, or focused fire. It runs once it is hurt or the weight of numbers turns against it.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+Boot prints, a worn path, and wood cut for the evening fire warn the Party that someone lives here before an encounter. The commoner keeps to home ground and does not chase far past it.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+Commoners live wherever people do around the Shattered Sea, and they eat what their fields, nets, and stores yield. A traveller working Wisdom (Survival) reads their sign as plainly as any beast's.
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+The state of a commoner's home and the wear on its hands tell you its habits, and its unarmoured frame tells you its weaknesses. A successful relevant Intelligence check confirms both.
 
 ## Links
 

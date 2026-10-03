@@ -15,10 +15,10 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Ambusher.
-- **Threat.** CR 11. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Role at the table.** An ambusher that erases its own trail through the grass.
+- **Threat.** CR 11, cloaked in standing grass until the pounce lands.
+- **Tell.** A line of bowing grass that travels against the wind.
+- **Weak to.** Bare ground, which costs it the grass mantle and the silent step together.
 - **Used by.** [[Terror-Bird]] patrols the same territory.
 
 > [!narration] First sight
@@ -74,21 +74,21 @@ bonus_actions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+It stalks its quarry through the tall grass and pounces, the fall bringing the sabre bite down on a prone target, and the drag follows, the grappled body hauled deep into the green. Pressed into the open it drops into a cloaking crouch, and it gives ground back toward the grass.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+At a walk it parts the grass and lets it rise behind it, and a crushed streak of running is the sign that warns the Party one is near.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+Tall grass and brush are its hunting ground, and Observant travellers read its comings and goings with Wisdom (Survival).
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+A motionless spiguar in standing grass is hard to spot past ten feet, and an Intelligence check hands the searchers that trick, turning their eyes toward the patch that holds still.
 
 ## Links
 

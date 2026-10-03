@@ -11,17 +11,17 @@ creature: "[[Commoner]]"
 - **Role.** Wreck survivor and bridge-toll clerk.
 - **Wants.** To avoid being left behind and see his brother Carlo again.
 - **Voice.** Exact, polite, and apologetic. “It is arithmetic” means hopeless.
-- **Found at.** The lava-tube ledge beneath the smoking skylight.
+- **Found at.** The lava-tube ledge beneath the smoking skylight, where his splinted leg holds him.
 
 > [!narration] First look
-> A heavy man lies against black rock. His left leg of is splinted straight out. He tries to rise, then sags back and lifts a hand in apology. “Forgive me. I would stand, but the leg of has other opinions.”
+> A heavy man lies against the black rock with his left leg in a splint. He tries to rise, then sags back and lifts a hand in apology. “Forgive me. I would stand, but the leg disagrees.”
 
 ## Play
 
 - **Opens them up.** A promise that the party will carry him.
 - **Shuts them down.** Mentioning the woman in the woods.
 - **Will share.** Why the birds drove them underground and that Carlo walked toward the voice.
-- **Will not share.** How badly the broken leg of hurts or how much he blames himself.
+- **Will not share.** How badly the broken leg hurts or how much he blames himself.
 - **If pressed.** He sends the party away with Luca rather than slow them down.
 
 ## Depth

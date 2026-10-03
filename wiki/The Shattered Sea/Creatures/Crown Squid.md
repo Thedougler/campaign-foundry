@@ -9,10 +9,10 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Controller.
-- **Threat.** CR 17. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Role at the table.** Controller. It hooks its prey from a distance and holds each catch at the end of a line while the arms close.
+- **Threat.** CR 17. Its hook-tipped lines reach 80 feet, four catches can hang at once, and each Reel hauls a creature 30 feet closer.
+- **Tell.** The hooked arm goes still above the gap, and all eight eyes settle on one spot before the line shoots.
+- **Weak to.** Cover, terrain, and breaking its preferred range or formation. The spot directly beneath the mantle's centre hides from all eight eyes, and cutting the lines frees the fight.
 - **Used by.** [[Deer-Stalker]] patrols the same territory.
 
 > [!narration] First sight
@@ -87,21 +87,21 @@ legendary_actions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+Open among the hanging roots, where it braces itself on its arms, and mark the hooked arm gone still before the first line flies. Let the Party answer with positioning, cover, or focused fire. It releases its grip and hauls itself up into the canopy when its height no longer serves or its wounds tell.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+Branches that creak under more than wind, and a broad mantle hanging among the roots, warn the Party before an encounter. It keeps to one stretch of canopy and does not chase beyond the roots it knows.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+It lives high in the Shattered Sea's canopy and eats what its long lines haul up to it. A traveller working Wisdom (Survival) reads its signs in the stripped bark along its paths.
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+Careful study of its territory shows the habits of the hooks, and with them the space beneath the mantle's centre where its eight eyes cannot reach. A successful relevant Intelligence check confirms what the stripped wood suggests.
 
 ## Links
 

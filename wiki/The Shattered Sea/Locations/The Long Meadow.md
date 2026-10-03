@@ -48,7 +48,7 @@ Each bird holds one half and will not enter tall grass, deep channel or Razer-Gr
 
 ### Threads
 
-[[Taking on Aruhe]] and [[Perrin and Nona]].
+Two Terror-Bird halves and four trapped survivors carry this cut into [[Taking on Aruhe]] and [[Perrin and Nona]].
 
 ## Links
 

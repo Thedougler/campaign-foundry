@@ -7,11 +7,11 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Unique named Creature represented by the NPC.
-- **Threat.** See the stat block (CR as listed in the archived record).
-- **Tell.** Its signature movement or attack is visible before it commits.
-- **Weak to.** The counter play described in Tactics.
-- **Used by.** The NPC of the same name.
+- **Role at the table.** A Creature profile for the unique NPC Geoffrey Draves, whose shipboard expertise supports other characters.
+- **Threat.** The stat block below preserves Geoffrey's archived CR of 1/8.
+- **Tell.** Geoffrey's cutlass attack is visible as he prepares to strike.
+- **Weak to.** See Tactics for countering Geoffrey with positioning, focused fire and cover.
+- **Used by.** Geoffrey Draves is the NPC represented here.
 
 > [!narration] First sight
 > The Creature's distinctive silhouette and signature tell are apparent before it attacks.
@@ -50,21 +50,21 @@ actions:
 
 ### Tactics
 
-Use the archived tactics and signature abilities. Telegraph the strongest option and let the Party answer with positioning, cover, or focused fire. It withdraws when its objective is lost or its advantage is gone.
+Use Geoffrey's archived tactics alongside his cutlass and shipboard abilities. Show the Party his strongest option before he commits, allowing a response through position, cover or focused fire. Geoffrey withdraws when his objective is lost or his advantage is gone.
 
 ### Outside a fight
 
-Its appearance, habits, and traces identify it before an encounter. It acts according to the NPC's established role and habitat.
+Geoffrey's appearance, habitual behaviour and traces can identify him before the Party meets him. Keep his actions consistent with his NPC role and habitat. His service aboard the HCS Surety informs that portrayal.
 
 ## Depth
 
 ### Ecology
 
-This unique Creature's habitat, diet, and signs follow the archived NPC record. Observant travellers can identify its signs with Wisdom (Survival).
+Geoffrey's habitat and diet remain those of his archived NPC record, as do his identifying signs. Wisdom (Survival) allows observant travellers to recognise the signs of his activity.
 
 ### Hidden truths
 
-The archived NPC record contains the Creature's history and concealed motives. Examination or relevant questioning can reveal them.
+Geoffrey's archived account records his history and motives kept from others. Examination or questioning about relevant matters can reveal either.
 
 ## Links
 

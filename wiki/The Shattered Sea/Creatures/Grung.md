@@ -9,8 +9,8 @@ sources:
 
 - **Role at the table.** Scout.
 - **Threat.** CR 1/4. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Tell.** It goes dead still and stares at one point before the dagger hand moves.
+- **Weak to.** Cover, terrain, and breaking its preferred range or formation. Its poison works only by touch, and a spear's reach is the longer of the two weapons.
 - **Used by.** [[Grung Elite Warrior]] patrols the same territory.
 
 > [!narration] First sight
@@ -58,21 +58,21 @@ actions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+Open at the water's edge, where the scout can leap and swim, and let the sudden stillness announce the strike. The Party answers with positioning, cover, or focused fire. It retreats through the shallows once its watching is spoiled or it is badly hurt.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+Toe-marks at the waterline, and a small form on the rocks that watches without turning, warn the Party before an encounter. It keeps to the shallows and banks of its range, and open water is the line it will not cross.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+It lives along the Shattered Sea's shallows and banks, and its diet follows what those waters give it. A traveller working Wisdom (Survival) reads its sign at the water's edge.
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+Examination of its haunts shows how far its kind range from the water, and with the pattern its weaknesses. A successful relevant Intelligence check confirms them.
 
 ## Links
 

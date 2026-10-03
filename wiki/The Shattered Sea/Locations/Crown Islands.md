@@ -57,7 +57,7 @@ Sealed Crestwall orders and the fort vaults are separate Crown secrets. Harbour 
 
 ### Threads
 
-[[Drowned Maw Awakening]], [[The Crown Inspection]], and [[Bring the Pearl of Souls to Umberlee]].
+The Sentinels' watch since 1295 DR keeps the [[Drowned Maw Awakening]] in sight. Conflicting harbour papers and credit ledgers pull the chain into [[The Crown Inspection]], and [[Bring the Pearl of Souls to Umberlee]] trails the Party into every harbour it enters.
 
 ## Links
 

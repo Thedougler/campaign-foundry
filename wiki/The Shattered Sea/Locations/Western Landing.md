@@ -52,7 +52,7 @@ The southern mangrove wall marks the coast. [[Taking on Aruhe]] treats a living 
 
 ### Threads
 
-[[Taking on Aruhe]] and [[Perrin and Nona]].
+A living reef claim and the island's only boat gap bind this shore to [[Taking on Aruhe]] and [[Perrin and Nona]].
 
 ## Links
 

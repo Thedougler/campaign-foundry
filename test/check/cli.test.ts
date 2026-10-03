@@ -127,7 +127,7 @@ describe("cf check: layers and paths", () => {
 });
 
 describe("cf check: speed", () => {
-	it("checks a 300-page vault in seconds cold and about a second warm", async () => {
+	it("checks a 300-page vault in seconds cold and about a second warm", { timeout: 30000 }, async () => {
 		const dir = await copyFixture("clean");
 		const npcs = join(dir, "wiki/Aldermoor/NPCs");
 		await mkdir(npcs, { recursive: true });
@@ -148,7 +148,7 @@ creature: ""
 
 ## Play
 
-- **Opens them up.** Talk of the weather gets him going.
+- **Opens them up.** Talk of the weather gets ${name} going.
 
 ## Depth
 

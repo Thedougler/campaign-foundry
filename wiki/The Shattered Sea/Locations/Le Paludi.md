@@ -48,7 +48,7 @@ The Warren lies below, but each owner controls a different access route rather t
 
 ### Threads
 
-[[Perrin and Nona]] and [[Simone's Hunters]].
+The Warren below is Nona's, its network carried by [[Perrin and Nona]], and [[Simone's Hunters]] hunt any threshold that shelters a fugitive.
 
 ## Links
 

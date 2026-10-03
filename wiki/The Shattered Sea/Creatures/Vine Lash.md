@@ -9,10 +9,10 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Controller.
+- **Role at the table.** It pins the Party in place, one hanging bundle per captive.
 - **Threat.** CR 3. Use its attack range, movement, or control to pressure the Party.
-- **Tell.** Its body advertises its next attack before it commits.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation.
+- **Tell.** One hanging root tip twitches just before the stems tighten.
+- **Weak to.** Fire above all, and a blade that cuts the stem bundle holding a captive. Destroying a bundle frees its prisoner and leaves the plant unharmed.
 - **Used by.** [[Wolfrabbit]] patrols the same territory.
 
 > [!narration] First sight
@@ -58,21 +58,21 @@ actions:
 
 ### Tactics
 
-Open from its preferred terrain, announce the tell of its strongest option, and let the Party answer with positioning, cover, or focused fire. It retreats when its preferred advantage is gone or it is badly wounded.
+It hangs motionless over the path until a claim staked beneath Aruhe's law nearby wakes it, and it marks the claimant first. Play the twitching tip as the telegraph. Fire and cut bundles free its captives, and trading blows from past the thirty feet its blind sense covers leaves the Party beyond its fifteen-foot tendril reach. Wounded to half or fewer, or once a minute has passed, the plant pulls back up into its canopy.
 
 ### Outside a fight
 
-Its tracks, feeding signs, and territorial behaviour warn the Party before an encounter. It acts according to its habitat and does not pursue beyond the terrain that gives it an advantage.
+Motionless, it passes for any tangle of jungle vines, and the warning before an encounter is a branch hung with leafless stems above the trail. Any creature that ate of the fallen fruit and has claimed nothing since may pass it by, and it does not chase far past its own canopy.
 
 ## Depth
 
 ### Ecology
 
-The World is its habitat. Its diet follows its form. Observant travellers can identify its signs with Wisdom (Survival).
+A plant of the World's jungles, it hangs from branches above walking paths. What it feeds on follows its plant form, and a traveller who studies its cut stems identifies the signs with Wisdom (Survival).
 
 ### Hidden truths
 
-A careful examination of its remains or territory reveals its habits and weaknesses. A successful relevant Intelligence check confirms them.
+A destroyed bundle or the branch it hung from tells its habits, and where fire fits among its weaknesses. A successful Intelligence check of the right kind confirms the law that wakes it when a claim is made.
 
 ## Links
 

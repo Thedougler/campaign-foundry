@@ -50,7 +50,7 @@ Four mats and space for a dozen sleepers reveal the camp's size. The trail marks
 
 ### Threads
 
-[[Taking on Aruhe]] and [[Perrin and Nona]].
+Any taking at this camp wakes a Vine-Lash under [[Taking on Aruhe]], and how the survivors split here, most after the voice and four against, is a fact for [[Perrin and Nona]]'s report.
 
 ## Links
 

@@ -7,11 +7,11 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Unique named Creature represented by the NPC.
-- **Threat.** See the stat block (CR as listed in the archived record).
-- **Tell.** Its signature movement or attack is visible before it commits.
-- **Weak to.** The counter play described in Tactics.
-- **Used by.** The NPC of the same name.
+- **Role at the table.** The unique NPC Talon Skarn's Creature profile, with weapons and flight for aerial combat.
+- **Threat.** Skarn's statistics below retain CR 13 from his archived record.
+- **Tell.** Skarn's dive and the motion of his chained sickles warn of his signature attacks before he commits.
+- **Weak to.** Tactics supplies responses to Skarn through cover, focused fire and positioning.
+- **Used by.** This profile is used for the NPC Talon Skarn.
 
 > [!narration] First sight
 > The Creature's distinctive silhouette and signature tell are apparent before it attacks.
@@ -85,23 +85,23 @@ legendary_actions:
 
 ### Tactics
 
-Use the archived tactics and signature abilities. Telegraph the strongest option and let the Party answer with positioning, cover, or focused fire. It withdraws when its objective is lost or its advantage is gone.
+Follow Skarn's archived tactics when using his weapons and aerial movement. Telegraph his most powerful option, whether a dive or a sweep of his chained sickles, and let the Party answer by repositioning, finding cover or concentrating fire. Skarn withdraws when he loses his objective or his advantage.
 
 Talon attacked Crissdalynn at the River Slack Basin. One Legendary Resistance is spent.
 
 ### Outside a fight
 
-Its appearance, habits, and traces identify it before an encounter. It acts according to the NPC's established role and habitat.
+Skarn's appearance, habits and traces distinguish him before an encounter. His flight and chained sickles are part of that identity. His actions follow the habitat and role established for the NPC.
 
 ## Depth
 
 ### Ecology
 
-This unique Creature's habitat, diet, and signs follow the archived NPC record. Observant travellers can identify its signs with Wisdom (Survival).
+Skarn's archived NPC record is the source for his habitat, diet and signs. Travellers with an eye for those signs can identify them through Wisdom (Survival).
 
 ### Hidden truths
 
-The archived NPC record contains the Creature's history and concealed motives. Examination or relevant questioning can reveal them.
+For Skarn's past and his concealed motives, turn to his archived NPC account. Both can be uncovered through examination or relevant questioning.
 
 ## Links
 

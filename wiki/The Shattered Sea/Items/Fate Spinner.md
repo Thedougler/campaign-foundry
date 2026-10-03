@@ -13,7 +13,7 @@ sources:
 - **Rarity.** Artifact.
 - **Attunement.** Required by a creature that knowingly risked its life to save another.
 - **Changes.** Lets the holder watch one known creature and lend it Advantage.
-- **Held by.** [[Crissdalynn Khinriss]].
+- **Held by.** [[Crissdalynn Khinriss]], given by [[Master Kyzil]] before her pilgrimage.
 
 > [!narration] First look
 > A four-sided quartz top no bigger than a thumb stays cool in a warm hand. Spun in sunlight, it throws amber, blue and violet pools across the spinner and ticks like glass on glass long after it should stop.

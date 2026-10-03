@@ -48,7 +48,7 @@ The crate's contents are unknown. The evidence reveals traffic and freshness, no
 
 ### Threads
 
-[[Taking on Aruhe]] and [[Perrin and Nona]].
+Fallen berries are safe here, living growth is a claim under [[Taking on Aruhe]], and what the Party reads from the camp goes into the report owed to [[Perrin and Nona]].
 
 ## Links
 
