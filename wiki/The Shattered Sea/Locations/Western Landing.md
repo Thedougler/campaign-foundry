@@ -4,6 +4,7 @@ kind: Site
 summary: "Aruhe's one known sea approach: a reef half a mile offshore with a boat gap, short shingle beach and Uncertainty waiting beyond."
 sources:
   - "archive/western-landing.md"
+  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
 parent: "[[Aruhe]]"
 ---
 
@@ -44,7 +45,7 @@ Watch offshore, pilot in, mark the route, forage fallen fruit or retreat before 
 
 ### History
 
-The reef gap is the known entry point after the Calveno raid's wrecks. The Uncertainty remains offshore.
+The reef gap is the known entry point after the Calveno raid's wrecks. The Uncertainty remains offshore. The broken [[Vethka]] hull above the tideline shelters two living castaways, [[Sandro]] and [[Nino]], whose signal fires stay visible from the reef gap.
 
 ### Hidden truths
 

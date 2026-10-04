@@ -4,6 +4,7 @@ kind: Site
 summary: "A general-goods shop in Le Paludi where Jean-Claude Tabarnack bought the Silent Shortbow."
 sources:
  - "archive/ssw-silent-shortbow.md"
+ - "archive/ssw-session-03.md"
 parent: "[[Le Paludi]]"
 ---
 
@@ -32,7 +33,7 @@ Buy or sell goods, or ask what passing traders have left lately.
 
 ### History
 
-[[Jean-Claude Tabarnack]] bought the [[Silent Shortbow]] here for 50 gp during Session 4. The shopkeeper said it came from someone passing through quickly, making extra coin on the sale.
+[[Jean-Claude Tabarnack]] bought the [[Silent Shortbow]] here for 50 gp during Session 4. The shopkeeper said it came from someone passing through quickly, making extra coin on the sale. He had first come during Session 3 asking after the shortbow and the whip-shark egg he carried, and the shopkeeper sent him on to [[Studio Orsini]] for the egg.
 
 ### Hidden truths
 

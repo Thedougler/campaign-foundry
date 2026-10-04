@@ -5,6 +5,7 @@ summary: "The permanent western storm belt between the Scatter and the colonial 
 sources:
  - "archive/ssw-galewall.md"
  - "archive/ssw-ashwall-islands.md"
+ - "archive/agentic-co-dm-Galewall.md"
 parent: ""
 ---
 

@@ -4,11 +4,12 @@ summary: "Delmar Fisk's five-ship fleet, assembled to steal the Pearl of Souls f
 sources:
  - "archive/ssw-minotaur.md"
  - "archive/ssw-lizardfolk.md"
+ - "archive/ssw-umberlee.md"
 ---
 
 ## At a glance
 
-- **Goal.** Steal the Pearl of Souls from Umberlee's shrine on Vel-Orn. The commission is done.
+- **Goal.** Steal the Pearl of Souls from [[Umberlee]]'s shrine on Vel-Orn. The commission is done.
 - **Next move.** None. The fleet sank, and its unresolved debt rides on [[Bring the Pearl of Souls to Umberlee]].
 - **Led by.** [[Delmar Fisk]], the admiral.
 - **Base.**

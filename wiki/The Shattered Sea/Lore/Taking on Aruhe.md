@@ -3,6 +3,7 @@ type: Lore
 summary: "Aruhe marks anyone who takes from living island life until dawn, while fallen fruit, deadwood, loose stone, and shed shell may be received safely."
 sources:
  - "archive/taking-on-aruhe.md"
+ - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
 ---
 
 ![[Taking on Aruhe - Handout Art.png]]
@@ -11,7 +12,7 @@ sources:
 
 - **The truth.** Taking living growth, fresh water life, or an island animal's flesh marks the taker until the next dawn.
 - **Who knows it.** Hinewai hears every claim. Calveno survivors who follow the law can teach its practical rules.
-- **Limits.** Fallen fruit, deadwood, loose stone, shed fibre, shed shell, sea fish below the tideline, and a loose body are safe to receive. Fighting back is allowed.
+- **Limits.** Fallen fruit, deadwood, loose stone, shed fibre, shed shell, sea fish below the tideline, and a loose body are safe to receive. Fighting back is allowed. One exception rides outside the taking itself. Aruhe attacks Grung on sight, take or no take.
 - **Reaches play through.** Plants lean, birds and insects stop calling, then local responders hunt the marked creature.
 
 > [!narration] As it is told

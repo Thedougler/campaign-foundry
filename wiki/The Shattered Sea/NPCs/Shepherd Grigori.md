@@ -4,6 +4,7 @@ summary: "Korabl of the Flock, a healer whose blood-anchor survival trick feeds 
 sources:
  - "archive/shepherd-grigori.md"
  - "archive/ssw-shepherd-grigori.md"
+ - "archive/ssw-session-02.md"
 creature: "Shepherd Grigori (Creature)"
 ---
 
@@ -31,9 +32,9 @@ creature: "Shepherd Grigori (Creature)"
 
 Grigori heals heirs of diseases and wounds past cure, then leaves without asking payment. His healing began binding patients as unwitting phylactery threads, making him a secret undead sorcerer and shepherd of the [[Khlysty]]. Noble courts repeat that he cannot be killed, whether by poison, drowning, or worse, and have stopped asking how.
 
-He travelled aboard the [[Uncertainty|Surety]]. In the galley he set the table for the crew, heard the Party out on what kind of pirates they were, and offered any crewman who wanted it free passage at the next port. When [[Barnaby Rook]]'s live-capture run at [[Murrat]] left four crew dying under [[Alys Kuiper]]'s care, he sat with them through the night. [[Old Faas]] credits their survival to him without knowing what that credit means. He named [[Rupert Knighton]] and the ships Knighton would send in answer to [[Cap'n Gorgeous]]'s death, and healed [[Jean-Claude Tabarnack]]'s wounds without a word or component. Red light ran from his wrist, and Arcana could not name it.
+He travelled aboard the [[Uncertainty|Surety]]. In the galley he set the table for the crew, heard the Party out on what kind of pirates they were, and offered any crewman who wanted it free passage at the next port. He told them he would leave at [[Calven and Calveno|Calveno]] for the [[Il Gioco delle Beffe]], and it was his word about the unfed Moucheron below that sent the Party to [[Ket]]'s cage. When [[Barnaby Rook]]'s live-capture run at [[Murrat]] left four crew dying under [[Alys Kuiper]]'s care, he sat with them through the night. [[Old Faas]] credits their survival to him without knowing what that credit means. He named [[Rupert Knighton]] and the ships Knighton would send in answer to [[Cap'n Gorgeous]]'s death, and healed [[Jean-Claude Tabarnack]]'s wounds without a word or component. Red light ran from his wrist, and Arcana could not name it.
 
-He left the Party at [[La Vasca]] and went ashore at [[Calven and Calveno|Calveno]], where an heir's physicians had given up, and where someone named [[Impuni]] had to be reached in time.
+He left the Party at [[La Vasca]] and went ashore at [[Calven and Calveno|Calveno]], where an heir's physicians had given up, and where someone named [[Impuni]] had to be reached in time. The parting handshake was cold, and he gave his business in the city a week or two, with paths that might cross again.
 
 ### Hidden truths
 

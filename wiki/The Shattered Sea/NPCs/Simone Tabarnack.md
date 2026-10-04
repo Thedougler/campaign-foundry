@@ -4,6 +4,7 @@ summary: "Purple-caste Grung officer pursuing Jean-Claude while an unmaintained 
 sources:
  - "archive/simone-tabarnack.md"
  - "archive/ssw-midchain.md"
+ - "archive/ssw-session-01.md"
 creature: "[[Commoner]]"
 ---
 

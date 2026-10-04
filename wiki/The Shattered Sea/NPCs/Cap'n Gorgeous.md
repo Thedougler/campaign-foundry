@@ -3,6 +3,7 @@ type: NPC
 summary: "Crown captain and Rupert Knighton's adopted son, lost through an illusory doorway aboard the Saltwright."
 sources:
  - "archive/ssw-shepherd-grigori.md"
+ - "archive/ssw-session-01.md"
 creature: "[[Commoner]]"
 ---
 
@@ -14,7 +15,7 @@ creature: "[[Commoner]]"
 - **Found at.** Dead. Last seen stepping through a doorway that was never there.
 
 > [!narration] First look
-> He came over the side with his boarders, sure of the hold waiting at the end of it. [[Perrin Black-Jaw]]'s illusory doorway opened in the decking, and Cap'n Gorgeous followed two Dravosi deckhands through. None of the three came back.
+> He came over the side with his boarders, sure of the hold waiting at the end of it. [[Perrin Black-Jaw]]'s illusory doorway opened in the decking, and Cap'n Gorgeous followed two [[Dravosi Deckhand|Dravosi deckhands]] through. None of the three came back.
 
 ## Play
 
@@ -28,7 +29,7 @@ creature: "[[Commoner]]"
 
 ### History
 
-Cap'n Gorgeous led the Crown boarding party that came down into the [[Saltwright]]'s hold. An illusory doorway drew him and two deckhands through, and the fight went on without them. The Crown counts him dead. [[Rupert Knighton]] took the loss as a father would, because Gorgeous was effectively his son, and word of the death has not yet reached him. [[Shepherd Grigori]] told the Party what he knew of Gorgeous, and of the ships Knighton would send once it did.
+Cap'n Gorgeous led the Crown boarding party that came down into the [[Saltwright]]'s hold. A poisoned arrow and a musket shot put him down in the dark, and [[Crissdalynn Khinriss]] dragged him behind Perrin Black-Jaw's illusory doorway. Two deckhands followed the illusion and did not come back. The fight went on without them. The Crown counts him dead. [[Rupert Knighton]] took the loss as a father would, because Gorgeous was effectively his son, and word of the death has not yet reached him. [[Shepherd Grigori]] told the Party what he knew of Gorgeous, and of the ships Knighton would send once it did.
 
 ### Threads
 

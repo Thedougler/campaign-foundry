@@ -3,6 +3,7 @@ type: Quest
 summary: "Learn Aruhe's law and reach its survivors without claiming living island life or drawing the island's responders."
 sources:
  - "archive/taking-on-aruhe.md"
+ - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
 status: active
 ---
 
@@ -24,6 +25,7 @@ status: active
 - **Opposition.** Hinewai's law, responders that find marked creatures within 60 feet, and anyone who wants the Death Bloom destroyed.
 - **Complications.** Fighting back is allowed. Taking a responder's flesh is a claim. Open grass, still water, night travel, and living plants each carry different risks.
 - **Payoff.** The Party learns how to travel Aruhe without turning every resource into a hunt and gains the survivors' account of the island.
+- **The guardian's motive surfaces through three kinds of evidence.** The survivors' accounts separate looking from taking, the Old Gardens still read as a planted refuge, and the grove pairs black flowers with calmed funeral fauna over two graves. Read together they show mourning inside the predation.
 
 ## Depth
 

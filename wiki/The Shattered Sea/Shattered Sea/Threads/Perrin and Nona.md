@@ -5,6 +5,7 @@ sources:
  - "archive/story-so-far.md"
  - "archive/perrin-black-jaw.md"
  - "archive/Cobb.md"
+ - "archive/ssw-session-03.md"
 status: active
 ---
 

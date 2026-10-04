@@ -5,6 +5,7 @@ sources:
  - "archive/story-so-far.md"
  - "archive/campaign-timeline.md"
  - "archive/perrin-black-jaw.md"
+ - "archive/ssw-session-03.md"
 status: active
 ---
 
@@ -19,7 +20,7 @@ status: active
 
 ## Play
 
-- **Shows up as.** A living current, a pale light holding the ship's course, impossible sounds beneath the hull, and words such as “Grow”.
+- **Shows up as.** A living current, a pale light holding the ship's course, impossible sounds beneath the hull, a bioluminescent whale holding a parallel heading, and words such as “Grow”.
 - **Next development.** The Party must decide how to use the Maw evidence. It may hide it or ask who benefits from keeping the fissure closed.
 - **Levers.** Perrin's bond, Crissdalynn's maps, Delmar's wreck evidence, and the Sentinels' pilgrimage.
 - **Resolves when.** Auralis's purpose is understood, the Vestra is found or lost beyond recovery, and the Maw's boundary is opened, repaired, or accepted.
@@ -36,6 +37,7 @@ The wreck over the Drowned Maw changed the water, and something crossed the seal
 
 - Perrin is bound to Auralis without knowing what the patron is. The Party can learn this by comparing the patron's words with Antheri records.
 - The Maw is a dangerous trench whose currents and boundaries are part of a system that may be holding something back.
+- Perrin's vision seated him in a sixty-foot body with something larger beneath it, long as two ships at least. The word for it was "Grow", and sending the vision cost the sender. The Party can learn this from Perrin's account.
 
 ### Possible endings
 

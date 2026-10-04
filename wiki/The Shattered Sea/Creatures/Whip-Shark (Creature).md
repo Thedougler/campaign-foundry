@@ -4,6 +4,7 @@ summary: "A sixty-foot shark the crew killed after it struck the cutter through 
 sources:
  - "archive/Session 03 - Recap.md"
  - "archive/ssw-whip-shark-barb.md"
+ - "archive/ssw-session-03.md"
 ---
 
 ## At a glance
@@ -35,7 +36,7 @@ None are recorded.
 
 ### Ecology
 
-A sixty-foot shark of the open sea. The crew took three fertilised eggs from it, and its scales patched the cutter's hull. Its four-foot barb is the [[Whip-Shark Barb]].
+A sixty-foot shark of the open sea. The crew took three fertilised eggs from it, and its scales patched the cutter's hull. Its meat and teeth came ashore with the crew, and its four-foot barb is the [[Whip-Shark Barb]].
 
 ### Hidden truths
 

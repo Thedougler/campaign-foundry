@@ -4,6 +4,8 @@ summary: "Dravosi carpenter aboard the Uncertainty, working under Sem Holst, dan
 sources:
  - "archive/geoffrey-draves.md"
  - "archive/ssw-geoffrey-draves.md"
+ - "archive/ssw-session-02.md"
+ - "archive/ssw-session-03.md"
 creature: "[[Geoffrey Draves (Creature)]]"
 ---
 

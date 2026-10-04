@@ -4,6 +4,7 @@ kind: Region
 summary: "Aruhe's silent inland rainforest, where silence moths ate small singers and the Calveno trail runs to the Pantry."
 sources:
  - "archive/the-quiet.md"
+ - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
 parent: "[[Aruhe]]"
 ---
 
@@ -32,7 +33,7 @@ The Calveno trail runs from [[Slack Basin]] through [[Cutoff Lip]], [[Print Brai
 
 ### Encounters
 
-Silence moths swarm at dawn and dusk. Deer-Stalkers drag kills. Terror-Birds patrol openings. Bear-Elk hold scored-tree routes. Snakewood and Stillbloom answer movement.
+Silence moths swarm at dawn and dusk, and their aura kills verbal spells. Deer-Stalkers drag kills and watch from the treeline without looking away. Terror-Birds patrol openings. Bear-Elk hold scored-tree routes, walking one route at one hour every day. Snakewood and Stillbloom answer movement.
 
 ### Rumors
 

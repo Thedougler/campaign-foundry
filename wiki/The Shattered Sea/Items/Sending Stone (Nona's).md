@@ -3,13 +3,15 @@ type: Item
 summary: "A paired sending stone that gives Perrin a private line to Nona Black-Jaw in exchange for an unrevealed favour."
 sources:
  - "archive/sending-stone-nonas.md"
+ - "archive/ssw-session-03.md"
 ---
 
 ## At a glance
 
 - **Kind.** Wondrous item.
 - **Rarity.** Common.
-- **Attunement.** - **Changes.** Words spoken to it reach only its paired twin.
+- **Attunement.** None recorded.
+- **Changes.** Words spoken to it reach only its paired twin.
 - **Held by.** [[Perrin Black-Jaw]]. [[Nona Black-Jaw]] holds the twin.
 
 > [!narration] First look

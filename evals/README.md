@@ -8,7 +8,7 @@ This document is the sole procedure for skill evals: designing suites, running c
 - **Author** a skill — `skill://skill-creator`, paired with-skill/baseline runs. After the skill exists and has a Design'd suite, further quality work is Hillclimb.
 - **Benchmark** Narration — `skill://dnd-benchmark` on DM request; [Narration benchmark inputs](#narration-benchmark-inputs) for its sources. Its 1–5 Grades rank models; Hillclimb keeps and reverts on Eval criteria alone.
 - **Playtest** feedback — [Weekly feedback](#weekly-feedback).
-- **Dogfood** a skill — `skill://dogfood`: improve it while subagents do real Wiki work with it; no cases or Grades.
+- **Dogfood** skills or a process — `skill://dogfood`, DM-activated: subagents do real work with them and `skill-writer` revises the text between iterations; no cases or Grades.
 
 Runners and graders are native `task` dispatches of read-only agents; description trigger checks and Benchmark runs are read-only `omp -p` processes launched from Bash ([Safety](#safety), ADR 0016).
 

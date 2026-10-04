@@ -4,6 +4,8 @@ summary: "Black-Jaw Run matriarch, senior Tangle elder, and Perrin Black-Jaw's g
 sources:
  - "archive/nona-black-jaw.md"
  - "archive/ssw-nona-black-jaw.md"
+ - "archive/ssw-session-02.md"
+ - "archive/ssw-session-03.md"
 creature: "[[Commoner]]"
 aliases:
  - "Nona"
@@ -38,9 +40,11 @@ For nearly forty years Nona has fought the [[Dravosi Crown]] without speeches, f
 
 The Black-Jaw rule began as a habit for staying out of traps and became her teaching. You don't take the cheese. You're given it. The difference sits between a person the Crown has defined and a person it hasn't. A signed release from a frightened official who took a pastry and apologised for the delay is cleaner than robbery, and it costs them more. She trained it into Perrin early, spoon to paw. "You don't take the cheese." "You're given it." Then she gave him two.
 
-After the Mercatura raid she made the crater a missing-persons desk, dispatched two Passage ships, and gave Perrin a favour instead of cash. More than 314 fighting-age men remain missing. She called the Party home while hundreds remained missing, and protects [[Felix Aho]] for one month under [[Ruk]]'s guard. When [[Cobb]] reported a ship of the [[Tarahs]] in port she called off the attacks her people were running, fearing the Tarahs had taken Perrin. He reached her kitchen instead, and she recalled [[Anzolo]], the fixer she had sent hunting for him.
+After the Mercatura raid she made the crater a missing-persons desk, dispatched two Passage ships, and gave Perrin a favour instead of cash. More than 314 fighting-age men remain missing. She called the Party home while hundreds remained missing, and protects [[Felix Aho]] for one month under [[Ruk]]'s guard. When [[Cobb]] reported a ship of the [[Tarahs]] in port she called off the attacks her people were running, fearing the Tarahs had taken Perrin. He reached her kitchen instead, and she recalled [[Anzolo]], the fixer she had sent hunting for him. When Perrin told her the [[Vestra]] was lost she cracked her wooden spoon, and ordered consolation for the Vestra's surviving crew through [[Enzo]].
 
 She called in the favour by sending stone, telling Perrin to gather his friends around her safe-house table, the blue one above all, plus anyone who could fight. She briefed the Party on six Grung sightings in the Warren tunnels and sewers, and fed them a hero's feast from her own ovens. She weighed [[Delmar Fisk]] against his Dravosi face until he named his Midchain mother and his history with Dravosi hulls, and accepted him because the Dravosi know her by a nickname he did not recognise. When Perrin reported black powder below the city, her answer came straight back: "I will send [[Enzo]] and more to you." Every Grung she had ever met was a dissident, she noted, [[Jean-Claude Tabarnack]] excepted.
+
+When her grandson's name surfaced with the capture of the Surety, her search for him was already live, and her message reached him through [[Beaumont Sel]].
 
 Nona was warned by sending stone about the HCS Ordinance and the Hound.
 

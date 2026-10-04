@@ -3,6 +3,7 @@ type: NPC
 summary: "Nona Black-Jaw's polished tabaxi bodyguard, a quiet enforcer who reads every guest before violence reaches her."
 sources:
  - "archive/Enzo.md"
+ - "archive/ssw-session-03.md"
 creature: ""
 ---
 

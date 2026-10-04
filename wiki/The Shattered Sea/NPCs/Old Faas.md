@@ -3,6 +3,8 @@ type: NPC
 summary: "Brick-solid bosun and rigger on two brass-ferruled peg legs, fearless since a childhood fall and faster in the shrouds than on the deck."
 sources:
  - "archive/ssw-old-faas.md"
+ - "archive/ssw-session-02.md"
+ - "archive/ssw-session-03.md"
 creature: "[[Commoner]]"
 ---
 

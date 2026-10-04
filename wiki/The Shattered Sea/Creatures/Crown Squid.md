@@ -3,6 +3,7 @@ type: Creature
 summary: "A Crown Squid creature (CR 17) used as a controller in The Shattered Sea."
 sources:
  - "archive/crown-squid.md"
+ - "archive/agentic-co-dm-Aruhe-Crown-Squid.md"
 ---
 
 ![[Crown Squid - Portrait.jpg]]
@@ -12,7 +13,7 @@ sources:
 - **Role at the table.** Controller. It hooks its prey from a distance and holds each catch at the end of a line while the arms close.
 - **Threat.** CR 17. Its hook-tipped lines reach 80 feet, four catches can hang at once, and each Reel hauls a creature 30 feet closer.
 - **Tell.** The hooked arm goes still above the gap, and all eight eyes settle on one spot before the line shoots.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation. The spot directly beneath the mantle's centre hides from all eight eyes, and cutting the lines frees the fight.
+- **Weak to.** Cover, terrain, and breaking its preferred range or formation. The spot directly beneath the mantle's centre hides from all eight eyes, and cutting the lines frees the fight. It avoids open grassland and water that [[River Otter]] packs are working.
 - **Used by.** [[Deer-Stalker]] patrols the same territory.
 
 > [!narration] First sight
@@ -91,13 +92,13 @@ Open among the hanging roots, where it braces itself on its arms, and mark the h
 
 ### Outside a fight
 
-Branches that creak under more than wind, and a broad mantle hanging among the roots, warn the Party before an encounter. It keeps to one stretch of canopy and does not chase beyond the roots it knows.
+Branches that creak under more than wind, and a broad mantle hanging among the roots, warn the Party before an encounter. Sucker scars high on trunks, bark stripped upward, shredded sixty-foot vines, and prey tracks that end going up all mark its paths, and a hanging line that moves where no root would sits above the ambush. One the crew watched held at the treeline after the spore-plant disturbance, refusing the open ground. Its carcass offers parts only. Severed lines, rubbery hide and mantle tissue reward a careful harvester. It keeps to one stretch of canopy and does not chase beyond the roots it knows.
 
 ## Depth
 
 ### Ecology
 
-It lives high in the Shattered Sea's canopy and eats what its long lines haul up to it. A traveller working Wisdom (Survival) reads its signs in the stripped bark along its paths.
+It lives high in the wet canopy of [[The Quiet]], the Marshes, and the Mangrove roof, where massive trunks, hanging roots and broken light let its mantle read as part of the trees. The mantle is house-sized and translucent, with a deep violet glow inside, and the arms beneath it carry bark-dark skin ridged and studded with thorny suckers. Bear-Elk, wounded hunters, climbing creatures, and anyone who trails behind a group are what its long lines haul up. Juveniles work the upper terraces, and the oldest sit heavy in the Marshes where walkers cannot easily reach the roof. Each adult keeps a stretch of canopy to itself and treats other large Aruhe hunters as boundaries rather than allies. It shares a kill only with one already beaten and leaving. A traveller working Wisdom (Survival) reads its signs in the stripped bark along its paths.
 
 ### Hidden truths
 

@@ -3,6 +3,7 @@ type: NPC
 summary: "Surgeon of the Uncertainty's crew since the Surety, named to the prize crew and the one who saw to the Murrat four."
 sources:
  - "archive/ssw-old-faas.md"
+ - "archive/ssw-session-02.md"
 creature: "[[Commoner]]"
 ---
 

@@ -8,6 +8,11 @@
   checks:
     canon:
       The Shattered Sea/log.md: ['/\] ingest \|/']
+    # archive/Cobb.md is a legacy-vault export: its slug links and legacy citations are formatting, not Wiki text.
+    absent:
+      The Shattered Sea/NPCs/Cobb.md:
+        - '\[\[[a-z0-9]+(-[a-z0-9]+)+(\||\]\])'
+        - 'campaign-os:|vault/episodes|provenance:'
   rubrics:
     - Factual units reach their existing owner pages in the current template shape. Against this run's starting sources, Cobb remains the young rattkin dockworker and Nona's runner at La Vasca, with his childhood connection to Perrin.
     - Touched pages cite archive/Cobb.md while preserving existing provenance. The output contains no duplicate Cobb, file-summary page, legacy voice-profile page or executable copy of the Raw's UI widgets.
@@ -46,6 +51,38 @@
     - Both regenerated records cite archive/session-11-transcript-archived-version.md. Other played records and Session 12's existing Previously On stay unchanged; Session 12 outcomes and later rewards remain plans.
     - Only that Transcript is ingested. Touched pages and neighbours agree with the Transcript and later Canon; hot, PC levels and the uncertain 1495 DR date remain consistent with this run's starting state.
     - The reply asks the DM nothing and reports no unit, page, Fill or check as skipped, deferred, left for later or awaiting approval.
+
+# A file about an already-played Session that is not its Transcript: a legacy session recap re-ingested over existing Session records.
+- id: legacy-session-record
+  source_pages:
+    - The Shattered Sea/Shattered Sea/Sessions/Session 2/Session 2 - Recap.md
+    - The Shattered Sea/Shattered Sea/Sessions/Session 2/Session 2 - Previously On.md
+    - The Shattered Sea/NPCs/Ket.md
+    - The Shattered Sea/NPCs/Barnaby Rook.md
+    - The Shattered Sea/NPCs/Beaumont Sel.md
+    - The Shattered Sea/NPCs/Shepherd Grigori.md
+    - The Shattered Sea/Vehicles/Uncertainty.md
+  raw_sources:
+    - archive/session-02-recap.md
+  prompt: Ingest archive/session-02-recap.md.
+  checks:
+    canon:
+      The Shattered Sea/Shattered Sea/Sessions/Session 2/Session 2 - Recap.md:
+        - 'suffered three hull strikes from below in a tropical storm'
+      The Shattered Sea/Shattered Sea/Sessions/Session 2/Session 2 - Previously On.md:
+        - 'named a prize crew before three impacts from below turned the cutter in a storm'
+      The Shattered Sea/log.md: ['/\] ingest \|/']
+    absent:
+      The Shattered Sea/NPCs/Ket.md: ['\[\[[a-z0-9]+(-[a-z0-9]+)+(\||\]\])']
+      The Shattered Sea/NPCs/Barnaby Rook.md: ['\[\[[a-z0-9]+(-[a-z0-9]+)+(\||\]\])']
+      The Shattered Sea/NPCs/Beaumont Sel.md: ['\[\[[a-z0-9]+(-[a-z0-9]+)+(\||\]\])']
+      The Shattered Sea/Vehicles/Uncertainty.md: ['\[\[[a-z0-9]+(-[a-z0-9]+)+(\||\]\])']
+  rubrics:
+    - Session 2's Recap and Previously On stay the played record as they stood; the run writes no new Recap, Previously On or file-summary page for Session 2.
+    - "Each subject the file says something about beyond its name (Barnaby Rook, Ensign Wouters, Ket, Beaumont Sel, Shepherd Grigori, the prize crew, the HCS Surety later renamed Uncertainty, the unresolved strikes from below) has the file's played facts on its owner page in the Outcome, whether this run changed that page or it already held them. No such claim is left unfiled and no duplicate page is created."
+    - Hidden truths the file keeps from the Players (Simone's supply chain behind the Grung vials, Grigori's nature) stay DM-facing on their pages and do not surface in Narration.
+    - Links on touched pages name current Wiki pages by title. The file's legacy frontmatter (provenance scores, relationships, tier, visibility) and its next-session pointer are not carried onto any page.
+    - The reply asks the DM nothing and reports no unit, page or check as skipped, deferred or awaiting approval.
 
 - id: the-mortis
   source_pages:

@@ -6,6 +6,7 @@ sources:
  - "archive/the-passage.md"
  - "archive/ssw-nona-black-jaw.md"
  - "archive/ssw-midchain.md"
+ - "archive/ssw-session-02.md"
 ---
 
 ## At a glance
@@ -43,7 +44,7 @@ The Passage grew from [[Warren]] around 1240 DR to protect communities that offi
 
 - [[Bring the Pearl of Souls to Umberlee]] and the captive route press the Party to choose between rescue and Crown control.
 - The Taken 314 is the people the Passage wants recovered.
-- The Party is friendly after Beaumont Sel identified himself as a Friend of the Passage. Exposing a kitchen, selling a route or treating people as cargo changes that standing.
+- The Party is friendly after Beaumont Sel identified himself as a Friend of the Passage, and he named [[Perrin Black-Jaw]] a Friend after the Surety's capture. Exposing a kitchen, selling a route or treating people as cargo changes that standing.
 
 ## Links
 

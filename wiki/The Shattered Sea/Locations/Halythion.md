@@ -5,6 +5,7 @@ summary: "The sea elves' primary settlement in the Shattered Sea and the seat of
 sources:
  - "archive/ssw-sea-elf.md"
  - "archive/ssw-midchain.md"
+ - "archive/ssw-umberlee.md"
 parent: "[[Midchain]]"
 ---
 
@@ -31,7 +32,7 @@ Use the Arrival callout for an underwater approach.
 
 ### History
 
-The settlement predates every colonial record. [[Coralyra Dranra]], sorcerer and bard of the [[Sea Elf|sea elves]], held the title of Aoidos here before she exiled herself.
+The settlement predates every colonial record. The folk predate [[Umberlee]]'s claim on the sea as well, and do not acknowledge it. [[Coralyra Dranra]], sorcerer and bard of the [[Sea Elf|sea elves]], held the title of Aoidos here before she exiled herself.
 
 ## Links
 

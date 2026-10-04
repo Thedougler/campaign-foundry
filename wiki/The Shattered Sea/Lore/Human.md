@@ -3,6 +3,7 @@ type: Lore
 summary: "The Sea's most numerous and varied people, spread from Sigil, the City of Doors, across every water; no culture, god or look is common to all."
 sources:
  - "archive/ssw-human-culture.md"
+ - "archive/agentic-co-dm-Human.md"
 ---
 
 ## At a glance

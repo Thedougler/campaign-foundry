@@ -1,7 +1,8 @@
 ---
 type: Item
 summary: "A blade Perrin Black-Jaw took from Barnaby Rook's cabin aboard the HCS Surety; who Mira was is not recorded."
-sources: []
+sources:
+ - "archive/ssw-session-02.md"
 ---
 
 ## At a glance

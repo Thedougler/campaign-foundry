@@ -4,6 +4,7 @@ summary: "A young rattkin dockworker and Nona Black-Jaw's runner who keeps La Va
 sources:
  - "archive/Cobb.md"
  - "archive/ssw-nona-black-jaw.md"
+ - "archive/ssw-session-03.md"
 creature: ""
 ---
 

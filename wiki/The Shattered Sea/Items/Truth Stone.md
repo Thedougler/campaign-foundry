@@ -6,6 +6,7 @@ sources:
  - "archive/Session 02 - Recap.md"
  - "archive/session-02-recap.md"
  - "archive/ssw-truth-stone.md"
+ - "archive/ssw-session-02.md"
 ---
 
 ## At a glance

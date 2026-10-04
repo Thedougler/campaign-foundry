@@ -3,6 +3,7 @@ type: NPC
 summary: "Barn-owl Sentinel master testing Crissdalynn while investigating a foul wind beneath Calveno."
 sources:
  - "archive/master-kyzil.md"
+ - "archive/ssw-session-03.md"
 creature: "[[Master Kyzil (Creature)]]"
 ---
 
@@ -30,7 +31,7 @@ creature: "[[Master Kyzil (Creature)]]"
 
 ### History
 
-Kyzil assigned Crissdalynn the hardest Sentinel pilgrimage on record: map the Drowned Maw from inside a storm. His own master argued that the order's record-without-conclusion doctrine merely recorded deaths. Kyzil refused to leave with him. That master was Talon Vantyrus, though Kyzil believes he died decades ago.
+Kyzil assigned Crissdalynn the hardest Sentinel pilgrimage on record: map the Drowned Maw from inside a storm. His own master argued that the order's record-without-conclusion doctrine merely recorded deaths. Kyzil refused to leave with him. That master was Talon Vantyrus, though Kyzil believes he died decades ago. After the fleet sank he searched Kalowe and Port Tidefall for his student. He found her in the streets of [[Le Paludi]], dropping out of the sun to knock her back twenty feet, and knew her by smell before sight. His greeting was "Priscilla, you're alive."
 
 ### Hidden truths
 

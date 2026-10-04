@@ -3,6 +3,7 @@ type: Item
 summary: "A shrine relic that collects drowned souls, signals across the Drowned Maw and remains beyond Umberlee's reach."
 sources:
  - "archive/pearl-of-souls.md"
+ - "archive/ssw-umberlee.md"
 
 ---
 
@@ -30,7 +31,7 @@ The Pearl's signal crosses the planar boundary to the Elemental Plane of Water, 
 
 ### History
 
-[[Delmar Fisk]] stole it from a Waveservant shrine under Chain Council direction. Umberlee sank his five ships in anger. The wreck and Pearl lie at the Red Lady site in the eastern Shelfworks. The five captains remain bound to Delmar while their crews are trapped inside.
+[[Delmar Fisk]] stole it from a [[Waveservants|Waveservant]] shrine under Chain Council direction. Umberlee sank his five ships in anger. The wreck and Pearl lie at the Red Lady site in the eastern Shelfworks. The five captains remain bound to Delmar while their crews are trapped inside.
 
 ### Hidden truths
 

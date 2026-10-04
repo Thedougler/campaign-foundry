@@ -3,6 +3,7 @@ type: NPC
 summary: "The youngest hand aboard the Uncertainty, a fifteen-year-old cook who knows every sailing manual and almost none of the sea."
 sources:
  - "archive/agentic-co-dm-noor.md"
+ - "archive/ssw-session-02.md"
 creature: "[[Commoner]]"
 ---
 

@@ -5,6 +5,8 @@ sources:
  - "archive/story-so-far.md"
  - "archive/campaign-timeline.md"
  - "archive/delmar-fisk.md"
+ - "archive/ssw-session-03.md"
+ - "archive/ssw-umberlees-message.md"
 status: active
 ---
 
@@ -13,13 +15,13 @@ status: active
 - **Driven by.** Delmar Fisk's theft, the destruction of the five-ship fleet, and Umberlee's unresolved claim.
 - **Stands at.** Delmar confessed the theft to the Party, and Umberlee named the Pearl as her price. The Pearl and its debt remain unresolved.
 - **If nobody acts.** Umberlee's anger and the Drowned Maw's pressure follow the Party from harbour to harbour.
-- **Levers.** The Pearl, Delmar's old crew and records, Umberlee's Waveservants, and the Drowned Maw charts.
+- **Levers.** The Pearl, Delmar's old crew and records, [[Umberlee]]'s [[Waveservants]], and the Drowned Maw charts.
 
 ## Play
 
-- **Shows up as.** Wrecks, hostile water, shrine rumours, and the consequences of a missing sacred object.
+- **Shows up as.** Wrecks, hostile water, shrine rumours, a Waveservant who waits without sleep for Delmar specifically, and the consequences of a missing sacred object.
 - **Next development.** The Party must decide how to answer Umberlee's price while the Pearl remains beyond reach in the Drowned Maw.
-- **Levers.** Confession, restitution, investigation of the wreck route, or bargaining with Umberlee.
+- **Levers.** Confession, restitution, investigation of the wreck route, bargaining with [[Umberlee]], or the salvage commission racing for the same wreck.
 - **Resolves when.** The Pearl is returned, its theft is answered another way, or Umberlee takes payment from the Party.
 
 ## Depth
@@ -28,7 +30,7 @@ status: active
 
 Delmar assembled the Red Lady, the Narrow, Heft, Fernen, and Loud Argument to steal the Pearl from Umberlee's shrine on Vel-Orn. The fleet succeeded and then sank over the Drowned Maw when Umberlee struck it.
 
-Delmar later confessed the theft to the Party. Umberlee named the Pearl as her price after the five-ship fleet sank.
+Delmar later confessed the theft to the Party. Umberlee named the Pearl as her price after the five-ship fleet sank. In Calveno [[Umberlee - Branca|an older servant in blue-grey robes]] found Delmar specifically, carrying a message from the Bitch Queen, and waited at the [[Waveservant Shrine]] without sleeping until he came. He told her Umberlee herself had required this errand first, and she believed him and left. The summons itself sits in [[Umberlee's Message]].
 
 ### Hidden truths
 

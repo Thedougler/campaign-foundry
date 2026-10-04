@@ -7,6 +7,7 @@ sources:
  - "archive/Aruhe - Hungry Isle.md"
  - "archive/hungry-isle.md"
  - "archive/ssw-midchain.md"
+ - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
 parent: "[[Midchain]]"
 ---
 
@@ -16,7 +17,7 @@ parent: "[[Midchain]]"
 
 - **Character.** An untamed volcanic island about 500 miles long and 150 miles across.
 - **Held by.** No settlement or state. Hinewai's grief binds the island's living systems.
-- **Changing.** Calveno survivors move inland while Karath's Gold caste seeks the two graves.
+- **Changing.** Calveno survivors move inland while Karath's Gold caste seeks the two graves. Two castaways from the wrecked [[Vethka]], [[Sandro]] and [[Nino]], still shelter on the landing beach.
 - **Crossing.** Land at [[Western Landing]]. Use the River or slow forest and terrace routes.
 - **Danger.** Taking living things wakes hostile local life. Growth, healing and rot run beyond normal limits.
 

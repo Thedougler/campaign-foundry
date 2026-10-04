@@ -4,6 +4,7 @@ kind: Site
 summary: "Aruhe's heart: one fruit tree over two unmarked graves in a ring of black flowers, the Death Bloom that is Hinewai's body."
 sources:
  - "archive/memorial-grove.md"
+ - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
 parent: "[[Aruhe]]"
 ---
 
@@ -13,7 +14,7 @@ parent: "[[Aruhe]]"
 
 - **Draws the Party because.** It is the answer to Aruhe's law and the place where Hinewai can end.
 - **Entrance.** Trails from Grasslands, Clear Lake, Marshes, Star Cut and the Burnt Road.
-- **Occupants.** Hinewai. A Terror-Bird, Wolfrabbits and Deer-Stalker wait beyond the ring.
+- **Occupants.** Hinewai. A Terror-Bird, Wolfrabbits and Deer-Stalker wait beyond the ring in stillness, watching like mourners.
 - **Danger.** Touching tree, graves, flowers or soil ends Hinewai's welcome.
 - **Prize.** Truth about the Death Bloom and a choice that changes the island.
 
@@ -46,7 +47,7 @@ Hinewai buried her drowned companion beneath the tree. Her own grave anchors the
 
 ### Hidden truths
 
-The Death Bloom is not portable: tree, graves, flowers and bound soil form one body and phylactery.
+The Death Bloom is not portable: tree, graves, flowers and bound soil form one body and phylactery. No root crosses either grave.
 
 ### Threads
 

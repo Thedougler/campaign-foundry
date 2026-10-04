@@ -3,15 +3,17 @@ type: NPC
 summary: "Senior Calveno Waveservant who delivers Umberlee's command about the Pearl of Souls."
 sources:
  - "archive/umberlee-branca.md"
+ - "archive/ssw-umberlee.md"
+ - "archive/ssw-umberlees-message.md"
 creature: "[[Commoner]]"
 ---
 
 ## At a glance
 
-- **Role.** Senior Calveno Waveservant and appointment-keeper.
+- **Role.** Senior Calveno [[Waveservants|Waveservant]] and appointment-keeper.
 - **Wants.** Delivery of the Pearl of Souls before any discussion of commissioners.
 - **Voice.** Clipped, formal instructions that never soften Umberlee's demand.
-- **Found at.** Calveno's Waveservant appointments and shrines.
+- **Found at.** The [[Waveservant Shrine]] in Calveno.
 
 > [!narration] First look
 > A senior Calveno Waveservant keeps the appointment and delivers the message without softening it. The very Pearl of Souls must come to her first, before any other matter. Only then does she discuss the commissioners.
@@ -28,12 +30,13 @@ creature: "[[Commoner]]"
 
 ### History
 
-Branca is Umberlee's intermediary. She delivers the deity's command rather than explaining its motives.
+Branca is [[Umberlee]]'s intermediary. She delivers the deity's command rather than explaining its motives. An older woman in blue-grey robes found Delmar in the Mercatura on his first day in Calveno, and she kept a shrine appointment open for him afterwards, not sleeping until he came. He gave her a lie about a prior divine errand, she believed it and wrote the deferral in her tide-table booklet, and she settled in to wait. At the night communion Umberlee possessed her over the pool at the [[Waveservant Shrine]] and snapped her neck. The sea-mist brought her back to life, and she reported every word of it to the church after.
 
 ### Hidden truths
 
 - Her authority is delegated. She delivers Umberlee's command rather than explaining the deity's motives.
 - The commissioners' fate remains contingent on the Pearl being brought first.
+- She experienced her own death at the shrine as a privilege and said so: "I hope you understand my lady Umberlee's power. And her grace."
 
 ### Threads
 

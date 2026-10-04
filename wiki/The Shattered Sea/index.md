@@ -7,29 +7,47 @@
 ### Regions
 
 - [[Aruhe]] — A vast untamed volcanic island where excessive life distinguishes receiving from taking.
+- [[Ashwall Islands]] — Cold volcanic spires at the Galewall's edge: the last solid ground outbound, the first proof inbound, and a reckoning point rather than a destination.
+- [[Central Strait]] — The inspected east-west corridor between the Crown Islands and the Midchain, run through by an east-setting current and narrowed by the Maw's water at its eastern end.
 - [[Crown Islands]] — The Crown-controlled island chain where harbour authority, trade credit and old routes meet.
 - [[Drowned Maw]] — A chart-edge trench where currents reverse, the Pearl lies below the waterline and a planar fissure strains containment.
+- [[Galewall]] — The permanent western storm belt between the Scatter and the colonial homelands: a three-week crossing that loses one hull in three and prices every mistake.
 - [[Grasslands]] — Hot river-cut valleys of eight-foot gold-green grass where water, cover and predators force exposed choices.
+- [[Huahei]] — A small overgrown marshy island in the Midchain with a fey presence.
 - [[Karath]] — A closed Grung raid and hatchery island where the Gold caste sends compelled raiders toward Aruhe.
 - [[Midchain]] — The remote island chain whose reefs, harbours and rival powers shape every crossing.
 - [[Murrat]] — A limestone reef in the Northern Midchain where Moucheron kin-villages hide above the tide and blood is currency.
+- [[Outer Reach]] — The under-governed water east of the Drowned Maw, where governance stops at the chart edge and pilots sell the easting for as much as cargo.
+- [[Redwind Isles]] — An under-charted island chain in the Outer Reach, likely held under an ancient blue dragon's sphere of control even when no sighting occurs.
+- [[The Doldrums]] — A windless band of mirror-flat water below the Midchain's southern edge, where sound carries too far and a black dragon hunts becalmed ships.
 - [[The Quiet]] — Aruhe's silent inland rainforest, where silence moths ate small singers and the Calveno trail runs to the Pantry.
 - [[The River]] — Clear Lake's braided rivers are Aruhe's best road, but River Otter families own the fast clear water.
+- [[The Tail]] — The eastern convergence of the island arcs, recorded as aarakocra ground and the water that crosses under the Maw's influence.
+- [[Verdant Scatter]] — The primary archipelago of the sea: two island arcs, the Crown Islands and the Midchain, with the inspected Central Strait running between them and the Maw waiting at the eastern convergence.
+- [[Verdant Teeth]] — The Grung Clans' closed island cluster: sanctioned beach trade outward, interiors forbidden to outsiders.
 
 ### Settlements
 
 - [[Calder's Tooth and Port Tidefall]] — A cliff-tier fortress-port whose docks, trade shelf and Crestwall guns watch the far side Strait.
 - [[Calven and Calveno]] — Calven's marsh, tidal flats and farms rise to Calveno, a canal city whose harbour flies the Dravosi flag while debt controls its politics.
+- [[Halythion]] — The sea elves' primary settlement in the Shattered Sea and the seat of their worship of Deep Sashelas.
 - [[Kalowe]] — Three reef-linked islets joined by stone bridges, with one navigable gap, a seized fort council and a shrine that charges every hull.
+- [[Keth-Naar]] — A tabaxi city at the Blue Hole's edge, the furthest reliable landmark east of the Drowned Maw and the last harbour on the eastern road.
 - [[Mercatura]] — A functioning Calveno city whose closed Season 1 crisis leaves its durable urban identity only partly recorded.
 - [[Sparhold]] — A timber fortress-market and harbour stop on the raiding-fleet trail, where route information is currency.
 
 ### Sites
 
+- [[Aldenmere]] — A Crown island whose position off Sandtable Shoal makes it the pilot's mark on the mid-strait lane.
+- [[Ashwall Lee]] — Sheltered repair water at the foot of the Ashwall spires, where damaged survivors gather and predators follow the wreckage.
 - [[Black Lotus]] — A mature magic-feeding bloom in Aruhe that clamps shut, drains spell slots and can yield a Black Lotus Heart.
+- [[Blue Hole]] — A sea mark at Keth-Naar's edge on the eastern road, the one feature the charts agree on.
 - [[Calveno Sewer Magazines]] — Underground powder magazines beneath Calveno where the Grung bombing operation stored supplies and held a live ritual.
+- [[Casa Lupo]] — A general-goods shop in Le Paludi where Jean-Claude Tabarnack bought the Silent Shortbow.
 - [[Cutoff Lip]] — A packed dirt shelf at the Quiet's edge, where Calveno prints run north and a Deer-Stalker marks the trees.
+- [[Harwick]] — The Crown island whose naval yard and deep-water anchorage face the Central Strait, and from which the Reach patrols stage.
 - [[High Eyrie]] — A basalt sea-stack beyond the Crown chain held by the Sentinels for two centuries above the Drowned Maw.
+- [[Kat's Curios]] — A curiosity shop where the sea's oddities are bought, sold, and appraised.
 - [[La Vasca]] — A concealed Black-Jaw dry dock in Le Paludi, disguised as a defunct tannery and maintained by Cobb.
 - [[Landing Bank]] — The first river mouth after the terraces, where a used camp, northbound prints and fallen redheart berries mark the inland route.
 - [[Lava Tubes]] — Broad basalt tubes beneath Aruhe, linking marsh, Grove and Clear Lake. Four Calveno survivors are trapped below the Long Meadow skylight.
@@ -44,27 +62,42 @@
 - [[Spiritpollen]] — A pale pollen stand whose cloud makes breathing creatures hallucinate hostile spirits and attack their companions.
 - [[Spoke Ring]] — The Calveno survivors' last camp under the Quiet, a round fire hub where trails leave like spokes toward Hinewai's voice.
 - [[Star Cut]] — A straight Quiet aisle beneath a slit of sky where the Calveno kept watch and the route continues toward Memorial Grove.
+- [[Stenmark]] — The Crown island whose eastern cliffs and signal tower are the last charted landmark before the Narrows close.
 - [[Stillbloom]] — A vibration-triggered Aruhe plant that launches venomous spines at fast grounded creatures and rewards careful passage.
+- [[Studio Orsini]] — A Le Paludi studio that buys what nesting things and the sea give up, run by Marta Orsini, and the buyer of Jean-Claude's whip-shark eggs.
+- [[Sunken Crown]] — A broken structure east of the Drowned Maw, structurally unstable and still subsiding.
+- [[Tallow Row]] — A card house of long-running tables where Thunk won silver, Thassos tests the players, and Old Faas holds fifteen years of standing.
 - [[The Burnt Road]] — A two-mile Quiet scar burned by a Gold-caste expedition, where eleven compelled Grung lie sunk in black flowers.
 - [[The Cabinet of Morsani]] — A Velo Quarter curio shop where Prospero Morsani sells rare objects together with the stories of those who lost them.
+- [[The Galewall Runner's Drop]] — A legendary colonial-era privateer cache on the Ashwall Islands, named the way crews name a thing they have not found.
 - [[The Long Meadow]] — The one Quiet grass cut where the roof breaks open. Two Terror-Birds own its halves and the Calveno trail must cross the Gap.
 - [[The Pantry]] — A clearing deep in the Quiet roofed by one fruit-heavy vine, where seven Calveno survivors live on what falls.
 - [[The Ponte Bassa]] — A canal-side tavern built into Calveno's main crossing, where Oleandro Fuschi serves fish broth and remembers ships.
 - [[Torn Crossing]] — A flood-scoured Grasslands crossing where prints, slick stone, Razer-Grass, deep water and a Spiguar hunting lane constrain movement.
+- [[Volcanic Vent Caves]] — Steam-warmed fissures in the Ashwall spires, warm enough to shelter in and warm enough to be occupied.
 - [[Warren]] — A Rattkin settlement beneath Le Paludi and deepest Passage anchor, reached through learned routes and trust.
+- [[Waveservant Shrine]] — The Waveservants' harbour shrine in Calveno, where tribute is collected, appointments are kept, and Umberlee has spoken.
 - [[Western Landing]] — Aruhe's one known sea approach: a reef half a mile offshore with a boat gap, short shingle beach and Uncertainty waiting beyond.
 
 ## NPCs
 
 - [[Aleksander Malone]] — A reserved Hound of Tyr whom the Dravosi Crown releases only for confirmed Flock infiltration and righteous judgement.
+- [[Alys Kuiper]] — Surgeon of the Uncertainty's crew since the Surety, named to the prize crew and the one who saw to the Murrat four.
+- [[Anzolo]] — Nona Black-Jaw's tortle enforcer and trusted fixer, sent hunting for Perrin and recalled when the attacks stopped.
 - [[Barnaby Rook]] — Presumed-dead Crown privateer captain who enforced surrender aboard the Surety.
+- [[Bastian Crev]] — Lizardfolk salvage-hand who rose to captain the Loud Argument in Fisk's Fleet; his fate after the fleet sank is not recorded.
 - [[Bazzoth, the Steeped]] — Old red-caste Grung alchemist who guarded a sewer powder magazine until Session 05.
 - [[Beaumont Sel]] — Patient tortle captain of the Saltwright and a trusted Friend of the Passage.
 - [[Bisou]] — Beaumont Sel's capuchin monkey, the Saltwright's quick delivery hand.
+- [[Cap'n Gorgeous]] — Crown captain and Rupert Knighton's adopted son, lost through an illusory doorway aboard the Saltwright.
 - [[Carlo Ferrante]] — Calveno dock foreman who led survivors to the Pantry and believes his brother died behind him.
+- [[Catalina Curio]] — Keeper of Kat's Curios, holding Delmar Fisk's whip-shark barb under appraisal.
 - [[Catarina Da'Virelli]] — Calveno artificer and salvage engineer who keeps her workshop in the city.
+- [[Cedric Hollowell]] — Verity Hollowell's father, who met Geoffrey Draves at the dancing spot with terms instead of a daughter.
 - [[Cobb]] — A young rattkin dockworker and Nona Black-Jaw's runner who keeps La Vasca's refit on schedule.
+- [[Coralyra Dranra]] — Sea elf sorcerer and bard, self-exiled from her post as Aoidos of Halythion.
 - [[Corbin Knighton]] — Crown boarder whose false report now drives a quiet hunt for the crew.
+- [[Duvane]] — An Ashwall repair-crew carpenter whose scorpion attack in a handhold fissure is why two hands now climb the stone.
 - [[Ensign Wouters]] — Crown ensign and navigator of the HCS Surety, shot through a gun port by Delmar Fisk; the Party fed his body to Ket.
 - [[Enzo]] — Nona Black-Jaw's polished tabaxi bodyguard, a quiet enforcer who reads every guest before violence reaches her.
 - [[Ettore Ferrante]] — Injured Calveno survivor trapped in a lava tube with his son and two companions.
@@ -73,32 +106,48 @@
 - [[Gianni Moro]] — Calveno cooper who nearly followed Hinewai's voice from the lava tube.
 - [[Hinewai]] — Undead elf archdruid bound to Aruhe, whose grief became the island's law.
 - [[Iacopo Fieschi]] — Tessarine factor who turned Calveno's victory into Concordat credit.
+- [[Impuni]] — A name Shepherd Grigori said he needed to reach in Calveno, in time; nothing else on record.
 - [[Ket]] — Freed Moucheron prisoner who traded blood and information for a flight home.
 - [[Lavinia Sordi]] — Seller of cursed goods who named Osset a second time.
 - [[Luca Ferrante]] — Sixteen-year-old wreck survivor who counts everything and knows which way his uncle walked.
+- [[Marta Orsini]] — Le Paludi's buyer of eggs and curiosities at Studio Orsini, who paid 225 gp for Jean-Claude's whip-shark eggs.
 - [[Master Kyzil]] — Barn-owl Sentinel master testing Crissdalynn while investigating a foul wind beneath Calveno.
 - [[Matteo Scola]] — Wreck survivor who lives by Aruhe's fallen-fruit rule and will not approach Hinewai.
-- [[Nona Black-Jaw]] — Passage patron and Black-Jaw Run matriarch who turns trust into routes and obligations.
+- [[Nino]] — A Calveno captive wrecked on Aruhe, whose wordless caution teaches the island's taking-rule faster than words could.
+- [[Nona Black-Jaw]] — Black-Jaw Run matriarch, senior Tangle elder, and Perrin Black-Jaw's grandmother, who turns trust into routes and obligations.
+- [[Noor]] — The youngest hand aboard the Uncertainty, a fifteen-year-old cook who knows every sailing manual and almost none of the sea.
+- [[Old Faas]] — Brick-solid bosun and rigger on two brass-ferruled peg legs, fearless since a childhood fall and faster in the shrouds than on the deck.
 - [[Osset]] — Former High Eyrie master now hidden behind Talon Vantyrus while he studies Crissdalynn's Long Sight.
 - [[Otar the Foul]] — Ancient red slaad summoned through Solange Barret to destroy Mercatura.
 - [[Ozzeth, the Twiceborn]] — Disgraced Grung mage who maintained Simone's colour rite until his death in the sewer magazines.
+- [[Pell]] — A gnome enslaved as a labourer at Sorn, killed in the reprisal after Jean-Claude freed slaves.
 - [[Piero Sorrentino]] — Weathered Calveno net-mender trapped in a lava tube, waiting for salt water.
+- [[Prospero Morsani]] — Keeper of the Velo Quarter cabinet of lost objects, and a fixture at every Calveno festival whose appearance at the winning stage the crowd reads as an omen.
 - [[Renzo Canale]] — Eldest Calveno survivor who teaches Aruhe's fallen-fruit rule and will stay at the Pantry.
 - [[Ruk]] — Nona Black-Jaw's literal-minded lizardfolk guardian, a patient physical shield who never ignores a lie or threat.
 - [[Ruma Delacroix]] — Blue-caste Grung handler who became an ally while hiding the party in a sewer nap room.
 - [[Rupert Knighton]] — Commodore of the Knight Squadron, tightening the Crown net around the crew.
+- [[Sandro]] — A Calveno captive wrecked on Aruhe, sheltering in the broken Vethka hull and watching the reef gap for rescue.
+- [[Sem Holst]] — Lean shipwright aboard Uncertainty who catalogues hull damage unasked and judges people by what they ask about the ship.
 - [[Shepherd Grigori]] — Korabl of the Flock, a healer whose blood-anchor survival trick feeds an undead ascension.
+- [[Sienne Orre]] — Minotaur captain of the Fernen in Fisk's Fleet, who ran the fleet's perimeter survey operations.
 - [[Simone Tabarnack]] — Purple-caste Grung officer pursuing Jean-Claude while an unmaintained rite threatens her rise to Gold.
 - [[Solange Barret]] — Red-caste Grung ritual specialist whose circle summoned Otar beneath Mercatura.
 - [[Talon Skarn]] — Peregrine the faction apprentice hunting Crissdalynn's Fate Spinner under the Rule of Two.
 - [[Talon Vantyrus]] — Master of the faction and former Sentinel Osset, seeking the Soul Incarnate transformation through Crissdalynn.
+- [[Thassos]] — A fixture of the Tallow Row card tables who tests new players and calls the game.
 - [[Thunk]] — Enormous orc master gunner whose uncanny powder sense keeps the Uncertainty's guns working.
+- [[Tomo]] — An older Calveno captive who broke Aruhe's fruit taboo the first night ashore and left only drag marks behind.
 - [[Umberlee - Branca]] — Senior Calveno Waveservant who delivers Umberlee's command about the Pearl of Souls.
 - [[Vashu, the Weeping Veil]] — Blind purple-caste Grung master of the Still-Water Discipline and former Magazine Gamma guardian.
+- [[Verity Hollowell]] — The dancer who caught Geoffrey Draves mid-movement on his shore leave, and the reason he counts every wage.
+- [[Vincenzo Black-Jaw]] — Nona Black-Jaw's late husband: builder and captain of the Vestra, gambler, empty chair at family meals.
 - [[Zort]] — Armless goblin animal dealer who trades Midchain names for work he cannot do himself.
 
 ## Creatures
 
+- [[Ancient Sea Serpent]] — An old serpent of the deep roads east of the Drowned Maw, listed among the Outer Reach's known threats.
+- [[Arclight Phoenix]] — A storm-light bird born in the Ashwall volcanoes and flown west into the [[Galewall]]. Its white-fire crossings leave burned rigging and no agreement.
 - [[Barnaby Rook (Creature)]] — Barnaby Rook, a unique Creature stat block from the archived NPC record.
 - [[Bazzoth the Steeped]] — Bazzoth the Steeped, a unique Creature stat block from the archived NPC record.
 - [[Beaumont Sel (Creature)]] — Beaumont Sel, a unique Creature stat block from the archived NPC record.
@@ -106,11 +155,20 @@
 - [[Commoner]] — An ordinary untrained person represented by the standard commoner statblock.
 - [[Crown Squid]] — A Crown Squid creature (CR 17) used as a controller in The Shattered Sea.
 - [[Deer-Stalker]] — A Deer-Stalker creature (CR 8) used as a ambusher in The Shattered Sea.
+- [[Dragon Turtle]] — A shoal-haunting hazard of the Outer Reach that surfaces to scrape and to collect from traffic over its shoal.
+- [[Dravosi Alchemist]] — A Dravosi Crown boarding alchemist who deployed Grung toxin across the Saltwright's gangplank and died to her own redirected cloud.
+- [[Dravosi Deckhand]] — An unarmored Dravosi Crown deck sailor, uncertain the moment a boarding turns strange and quick to follow illusions.
 - [[Dravosi Enforcer]] — A Dravosi Enforcer Creature (CR 1/8) adapted from the 2024 SRD Guard.
-- [[Geoffrey Draves (Creature)]] — Geoffrey Draves, a unique Creature stat block from the archived NPC record.
-- [[Grung]] — A Grung creature (CR 1/4) used as a scout in The Shattered Sea.
+- [[Geoffrey Draves (Creature)]] — Geoffrey Draves, the crew's carpenter — a background crew stat block useful for his ship's hand, not his cutlass.
+- [[Giant Bat]] — A large bat whose colonies roost in the Ashwall vent caves, where volcanic heat keeps the fissures warm year-round.
+- [[Giant Scorpion]] — An ambush predator holding the Ashwalls' warm fissures, where the handholds run back into occupied dark.
+- [[Giant Shark]] — A huge shark that follows damaged hulls near the Ashwall lee, where wreckage feeds the food chain.
+- [[Giant Vulture]] — A cliff scavenger of the Ashwalls whose numbers spike after a wreck, a rough tally of what the storm took.
+- [[Grung (Creature)]] — A Grung creature (CR 1/4) used as a scout in The Shattered Sea.
 - [[Grung Elite Warrior]] — A Grung Elite Warrior creature (CR 2) used as a warrior in The Shattered Sea.
+- [[Harpy]] — A storm-gap singer of the Ashwalls, filed under weather until someone follows the wrong sound inland.
 - [[Hinewai the Blight]] — Hinewai the Blight, a unique Creature stat block from the archived NPC record.
+- [[Killer Whale]] — A pack hunter of the eastern water that tests wounded hulls, and of the Galewall's cold water, where pods follow lifeboats for hours.
 - [[Leviathan]] — A named elemental horror that hunts the open water around the Drowned Maw.
 - [[Master Kyzil (Creature)]] — Master Kyzil, a unique Creature stat block from the archived NPC record.
 - [[Minor Slaad]] — A Minor Slaad creature (CR 1/2) used as a bruiser in The Shattered Sea.
@@ -118,6 +176,8 @@
 - [[Otar the Foul (Creature)]] — Otar the Foul, a unique Creature stat block from the archived NPC record.
 - [[Ozzeth the Twiceborn]] — Ozzeth the Twiceborn, a unique Creature stat block from the archived NPC record.
 - [[River Otter]] — A River Otter creature (CR 4) used as a controller in The Shattered Sea.
+- [[Roc]] — A giant bird crews place above the Ashwall spires, riding the Galewall stormfronts in high weather.
+- [[Sawek]] — The strait's rumoured apex, a blue-hole predator associated with the darkest sections of the southern Midchain approaches, whose range in the open strait no pilot will state.
 - [[Snakewood]] — A carnivorous canopy vine colony that grips travellers and feeds with acid.
 - [[Solange Barret (Creature)]] — Solange Barret, a unique Creature stat block from the archived NPC record.
 - [[Spiguar]] — A Spiguar creature (CR 11) used as a ambusher in The Shattered Sea.
@@ -128,25 +188,40 @@
 - [[Vashu the Weeping Veil]] — Vashu the Weeping Veil, a unique Creature stat block from the archived NPC record.
 - [[Vine Lash]] — A Vine Lash creature (CR 3) used as a controller in The Shattered Sea.
 - [[Whip Shark]] — A Whip Shark creature (CR 8) used as a controller in The Shattered Sea.
+- [[Whip-Shark (Creature)]] — A sixty-foot shark the crew killed after it struck the cutter through the night; its barb, scales and eggs all went to the crew.
 - [[Wolfrabbit]] — A Wolfrabbit creature (CR 4) used as a skirmisher in The Shattered Sea.
 - [[Young Bloodhawk]] — A Young Bloodhawk creature (CR 2) used as a skirmisher in The Shattered Sea.
+- [[Young Sea Serpent]] — A young serpent of the eastern water that travels in numbers, listed among the Outer Reach's known threats.
 
 ## Factions
 
+- [[Black-Jaw Run]] — Nona Black-Jaw's family crew: the Passage's Warren anchor Run, smuggling under four hard rules.
+- [[Chain Council]] — Kalowe's council in a seized fort, balancing arrival tribute, complaints about grung raids and concealment of the Pearl theft.
 - [[Countless]] — Breakaway Sentinel order that erases names and hunts Fate Spinner carriers through one-job agents.
 - [[Dravosi Crown]] — Tethyr colonial court and naval service that enforces inspection law across the far side approaches.
+- [[Fisk's Fleet]] — Delmar Fisk's five-ship fleet, assembled to steal the Pearl of Souls from Umberlee; it sank over the Drowned Maw.
 - [[Grung Clans]] — Political Grung clans that keep the Verdant Teeth closed, trade toxin and raid for captives as their water power declines.
+- [[Il Vento di Seta]] — A halfling trio with a Tessarine booking agent. The same perfect set every Palio, for a devoted crowd of exactly the same size.
+- [[Khlysty]] — The secret flock Shepherd Grigori shepherds: healed noble heirs bound by blood to feed an undead ascension.
+- [[La Canzone Nera]] — Four human musicians from the interior who play the Palio with flawless technique and keep a crowd only as long as the Council quarter is watching.
+- [[Le Ossa del Toro]] — An orc and tortle two-piece on drums and a massive horn whose Palio crowd surges, compresses and occasionally ends up in the canal.
 - [[Passage]] — Rescue and smuggling network that moves people off official routes without treating them as property.
 - [[Sentinels of the Eyrie]] — Aarakocra monks at High Eyrie who watch and record the Drowned Maw without interpreting or intervening.
+- [[Tangle]] — The Passage's elder council of Run families, setting wider policy from kitchen tables rather than thrones.
+- [[Tarahs]] — A power whose ships Rattkin families watch for; threat enough that Nona Black-Jaw keeps count of their ports.
 - [[Tessarine Concordat]] — Eastern mercantile colonial power that holds the Scatter with paper, debt and courtesy that is always a contract.
+- [[Waveservants]] — Umberlee's grey clergy, who collect the sea's tribute at every working harbour and keep the rites ordinary.
 
 ## Deities
 
+- [[Deep Sashelas]] — The power the sea elves of Halythion worship; nothing else of the deity is recorded in the Shattered Sea.
 - [[Umberlee]] — The sea as it is, claiming tribute from every harbour while the Pearl remains beyond her reach at the Drowned Maw.
+- [[Valkur]] — Sailor's courage made divine, invoked below decks when the basin's price feels wrong.
 
 ## Items
 
 - [[A Sliver of the Unstable Form]] — A warm fragment of Otar the Foul's hide that grants conditional regeneration to its attuned bearer.
+- [[Alchemist's Bandolier]] — The Dravosi Alchemist's bandolier of Grung toxin canisters, lying unexamined somewhere on the Saltwright's deck since the boarding.
 - [[Fate Spinner]] — A thumb-sized quartz top that watches one known creature from afar and lends it luck. Crissdalynn carries it and the faction hunts it.
 - [[Fleet Commanders Chair]] — An unbreakable command chair that grants Charisma advantage while occupied and is secretly an elder mimic.
 - [[Flying Boots]] — Winged Boots that grant Delmar a 30-foot Fly Speed for 1 hour per charge.
@@ -160,25 +235,50 @@
 - [[Pearl of Souls]] — A shrine relic that collects drowned souls, signals across the Drowned Maw and remains beyond Umberlee's reach.
 - [[Redheart Berry]] — A rare Aruhe berry that restores 8d4 + 8 hit points as a Bonus Action.
 - [[Sending Stone (Nona's)]] — A paired sending stone that gives Perrin a private line to Nona Black-Jaw in exchange for an unrevealed favour.
+- [[Silent Shortbow]] — A yew shortbow whose draw and release make no sound, bought by Jean-Claude Tabarnack from Casa Lupo in Le Paludi.
 - [[Solange's Authority Seal]] — An unused Grung authority seal that can replace one Grung's will with a lifelong order.
 - [[Stonepear]] — A rare Aruhe fruit that grants Resistance to all damage for 1 minute.
 - [[The Snap]] — A wrist bracer that unfolds into a hand-free shield granting +2 AC to Perrin Black-Jaw.
-- [[Truth Stone]] — A stone that draws true answers from its holder, passed to Jean-Claude Tabarnack by Beaumont Sel.
+- [[Truth Stone]] — A grey stone that heats white-hot when its holder knowingly lies, dealing fire damage with every Deception check until it is dropped.
+- [[Whip-Shark Barb]] — A four-foot serrated spike of bone and cartilage cut from the dead whip-shark, recovered by Delmar Fisk and under appraisal at Kat's Curios.
 
 ## Vehicles
 
+- [[Bad Receipt]] — A Kalowe-refit schooner that works the inspection approaches off the Tidefall Gate, carrying enough false registry to make a lawful captain hesitate.
+- [[Fernen]] — Sienne Orre's ship in Fisk's Fleet, lost with the whole fleet over the Drowned Maw.
+- [[Glass Debt]] — The name for what piracy becomes when it grows until convoys, patrols and councils all have to react; a report of her consolidates the strait's shipping by evening.
 - [[HCS Ordinance]] — A three-deck Crown court warship carrying 96 guns and enforcing Admiralty authority across the lanes.
+- [[Knife's Wake]] — The lowest rung of the Scatter's piracy scale, the threat that makes a single bad channel choice expensive.
+- [[Loud Argument]] — Bastian Crev's ship in Fisk's Fleet, lost with the whole fleet over the Drowned Maw.
 - [[Saltwright]] — Beaumont Sel's battered brig and the Party's first berth, carrying four strangers toward Calveno when the Crown inspection began.
+- [[The Dead Lady]] — The collection hull Umberlee sends when her Waveservants are not enough, known by the red wake she leaves.
 - [[Uncertainty]] — A Crown cutter taken as HCS Surety, renamed Uncertainty and kept moving as the Party's mobile base.
+- [[Velvet Noose]] — A deep-water flagship of the water east of the Drowned Maw and the Galewall's recovery lanes; its crew is not established.
+- [[Vestra]] — The Black-Jaw family ship: built and captained by Vincenzo Black-Jaw for decades, lost at sea since the Drowned Maw woke.
+- [[Vethka]] — A dark Grung raiding proa broken above the tideline on Aruhe's landing beach, last shelter of the wreck's castaways.
 
 ## Lore
 
+- [[Aarakocra]] — Winged bird folk who think in altitude: rare in Crown waters, most at home with the Sentinels at High Eyrie, and seen in the crew of Uncertainty.
 - [[Auralis]] — Auralis is an Antheri deep machine holding the Drowned Maw fissure shut and speaking through Perrin after an unwitting rescue pact.
 - [[Campaign Timeline]] — A chronology from the Antheri's height through the Pearl theft and the Party's opening aboard the Saltwright.
+- [[Elemental Plane of Water]] — The plane on the far side of the Drowned Maw's fissure, sealed by Auralis, tied to the vanished Antheri and claimed as the sea elves' ancestral home.
+- [[Grung]] — Small amphibious poison-skinned humanoids whose skin colour marks caste; they hold the Verdant Teeth closed and meet the Sea through sanctioned beach trade.
+- [[Human]] — The Sea's most numerous and varied people, spread from Sigil, the City of Doors, across every water; no culture, god or look is common to all.
 - [[Il Gioco delle Beffe]] — Calveno's five-day prank festival, where teams scheme against willing marks for bragging rights and a bronze medallion.
+- [[Il Palio delle Voci Contese]] — Calveno's three-night open bardic contest, where bands play simultaneous stages across the canal district and the crowd's feet alone decide who takes the Palio.
+- [[Istishia]] — A name for the water cosmology around the Drowned Maw that points at the Elemental Plane of Water, committed to nothing further.
+- [[Lizardfolk]] — Reptilian humanoids who run on utility and survival first; in the Shattered Sea they settle the tidal margins and crew the Sea's hulls as salvagers and repair hands.
+- [[Minotaur]] — Heavy, horned humanoids with perfect recall of any passage; a minotaur pilot is the dearest crew hire in the Midchain and worth every coin.
+- [[Peoples of the Shattered Sea]] — The peoples who share the Shattered Sea's ports and waters; the rattkin hold the oldest continuous presence in every major port.
+- [[Rattkin]] — Small humanoids built for infiltration, survival, swimming and impossible spaces; the oldest continuous presence in every major Shattered Sea port.
+- [[Sea Elf]] — Elves adapted to life in the water, who breathe air and water alike; in the Shattered Sea they are centred on Halythion and worship Deep Sashelas.
 - [[Session 11 Assets]] — A routing record that keeps Session 11 recap, transcript, and recording assets distinct until their owning ingest workflow promotes them.
+- [[Tabaxi]] — A feline folk of the eastern water; the tabaxi city of Keth-Naar is the furthest reliable landmark east of the Drowned Maw.
 - [[Taking on Aruhe]] — Aruhe marks anyone who takes from living island life until dawn, while fallen fruit, deadwood, loose stone, and shed shell may be received safely.
+- [[The Tithe of the Bitch Queen]] — Everything beautiful the sea has claimed across centuries, scattered on the Sunken Crown's seafloor and cursed to whoever lifts a piece.
 - [[Two-Grave Orders]] — Karath's Gold caste compelled generations of Grung onto Aruhe: report, replace the lost, then destroy the two graves.
+- [[Umberlee's Message]] — The Bitch Queen's standing summons to Delmar Fisk, delivered through Branca: bring the Pearl up from the wreck, keep his life, and her souls stay hers.
 
 ## Campaigns
 
@@ -201,7 +301,9 @@
 - [[Drowned Maw Awakening]] — The Drowned Maw's fissure and Auralis's awakening are changing the sea, while Perrin hears a patron he does not understand.
 - [[Perrin and Nona]] — Perrin's return to Nona Black-Jaw reconnects the Party to the Passage rescue network and an obligation to report on the lost Vestra.
 - [[Simone's Hunters]] — Simone's elite Grung unit is hunting Jean-Claude across the Midchain after his escape and the death of Pell.
+- [[The Canister]] — Jean-Claude recognised his sister's toxin in a Crown canister at the Saltwright gangplank and told nobody. The Party does not know.
 - [[The Crown Inspection]] — Crown sailors board the Saltwright under HCS Surety's flag, forcing the new crew to choose between surrender, deception, and taking the ship.
+- [[The Rook Resolution]] — Rook alive and armed aboard the Surety with his flintlock spent, the fight the Party left undecided at the Session 1 break. Resolved when he went into the water.
 
 ## Quests
 

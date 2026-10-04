@@ -4,6 +4,9 @@ summary: "The crew defended the Saltwright, recruited Geoffrey Draves, and left 
 sources:
   - "archive/Session 01 - Recap.md"
   - "archive/session-01-recap.md"
+  - "archive/agentic-co-dm-Session-01-Recap-journal.md"
+  - "archive/agentic-co-dm-Session-01-Recap.md"
+  - "archive/ssw-session-01.md"
 date: "1495 DR, date not established"
 ---
 
@@ -17,7 +20,7 @@ date: "1495 DR, date not established"
 
 ## What happened
 
-The Party chose the Saltwright's hold over surrender and ambushed the Crown boarding party in the dark. Perrin Black-Jaw covered the doorway with an illusion. Cap'n Gorgeous and two Dravosi deckhands went through it and did not return. A blast of black powder left [[Delmar Fisk]] and [[Crissdalynn Khinriss]] deaf for the rest of the fight.
+The Party chose the Saltwright's hold over surrender. [[Beaumont Sel]] kept [[Barnaby Rook]] talking at the wheel up on deck, which bought the Party the moment, and they ambushed the Crown boarding party in the dark. Perrin Black-Jaw covered the doorway with an illusion. Cap'n Gorgeous and two [[Dravosi Deckhand|Dravosi deckhands]] went through it and did not return. A blast of black powder left [[Delmar Fisk]] and [[Crissdalynn Khinriss]] deaf for the rest of the fight.
 
 Delmar launched Crissdalynn through the hatch. Her wings opened and knocked Crown sailors from the deck. Perrin and [[Jean-Claude Tabarnack]] came up through a gap in the decking, and the two Dravosi Enforcers died in the crush.
 
@@ -30,9 +33,11 @@ Rook hauled himself over the Surety's rail, raised his flintlock at Beaumont Sel
 ## Changes
 
 - [[Geoffrey Draves]] defected from the Crown boarding party and joined the crew.
-- The boarding party was defeated, but [[Barnaby Rook]] returned to HCS Surety with a second shot still available.
-- Jean-Claude recognised the alchemist's gas as Simone's toxin and kept that knowledge from the Party.
+- The boarding party was defeated, but [[Barnaby Rook]] returned to HCS Surety with a second shot still available ([[The Rook Resolution]]).
+- Jean-Claude recognised the alchemist's gas as Simone's toxin and kept that knowledge from the Party ([[The Canister]]).
 - Beaumont Sel's salvaged shell plate deflected Rook's shot.
+- Nobody in the Party examined the [[Dravosi Alchemist|alchemist]]'s [[Alchemist's Bandolier|bandolier]]. It lies somewhere on the Saltwright's deck.
+- Each PC earned 1,620 XP for the Session (120 combat, 1,500 lump award) for a running total of 2,520. The Party levelled at the end of Session 3.
 
 ## Threads
 

@@ -3,6 +3,7 @@ type: Faction
 summary: "Tethyr colonial court and naval service that enforces inspection law across the far side approaches."
 sources:
  - "archive/dravosi-crown.md"
+ - "archive/ssw-session-01.md"
 ---
 
 ## At a glance
@@ -34,6 +35,7 @@ The Crown began as a Tethyr colonial court and naval service. Calven, Harwick, A
 
 - Aldric Drave founded the colonial project as a bloodline map. Sealed vaults under Fort Crestwall hold the living chart, which the public service does not know about.
 - Two garrison detachments hold Fort Crestwall on orders Governor Voss never saw. Investigating the fort reveals them.
+- Rook's boarding crews field Grung toxin canisters as standard ordnance, supplied through [[Simone Tabarnack]]'s network. The [[Alchemist's Bandolier|alchemist's bandolier]] left on the [[Saltwright]]'s deck can prove it.
 - [[Aleksander Malone]] is reserved for confirmed heresy, not ordinary crime. Crown court records establish the distinction.
 
 ### Threads

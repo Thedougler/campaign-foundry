@@ -39,6 +39,7 @@ counterspell
 darkvision
 greataxe
 greatsword
+kensei
 longbow
 shortbow
 statblock
@@ -70,6 +71,8 @@ Moradin
 Corellon
 Gruumsh
 Pelor
+Selûne
+Selune
 
 # 2024 rules names that an American-spelt printing fixes (a Fighting Style, a species trait) or that no dictionary has
 defense

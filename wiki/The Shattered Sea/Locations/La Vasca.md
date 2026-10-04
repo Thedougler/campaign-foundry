@@ -4,6 +4,7 @@ kind: Site
 summary: "A concealed Black-Jaw dry dock in Le Paludi, disguised as a defunct tannery and maintained by Cobb."
 sources:
  - "archive/la-vasca.md"
+ - "archive/ssw-session-03.md"
 parent: "[[Le Paludi]]"
 ---
 

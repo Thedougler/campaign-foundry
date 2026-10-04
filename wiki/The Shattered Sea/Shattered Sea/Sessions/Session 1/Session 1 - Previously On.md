@@ -4,6 +4,7 @@ summary: "The Party defended the Saltwright, recruited Geoffrey Draves, and left
 sources:
   - "archive/Session 01 - Recap.md"
   - "archive/session-01-recap.md"
+  - "archive/ssw-session-01.md"
 date: "1495 DR, date not established"
 ---
 

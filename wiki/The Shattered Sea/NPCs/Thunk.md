@@ -3,6 +3,7 @@ type: NPC
 summary: "Enormous orc master gunner whose uncanny powder sense keeps the Uncertainty's guns working."
 sources:
  - "archive/thunk.md"
+ - "archive/ssw-session-02.md"
 creature: ""
 ---
 

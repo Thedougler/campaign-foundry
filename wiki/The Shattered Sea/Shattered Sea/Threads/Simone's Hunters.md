@@ -5,6 +5,7 @@ sources:
  - "archive/story-so-far.md"
  - "archive/campaign-timeline.md"
  - "archive/jean-claude-tabarnack.md"
+ - "archive/ssw-session-01.md"
 status: active
 ---
 
@@ -32,7 +33,7 @@ Jean-Claude was born blue caste in Botukuri and fled after Pell died in reprisal
 
 - The red beret is a censure mark rather than a disguise. Someone who knows Grung authority script can read it.
 - The hunt is connected to the Grung captive pipeline and Karath's garrisons, not only to Simone's family anger. The Party can learn this from a captured hunter or prisoner.
-- Jean-Claude recognised Simone's toxin in a Crown alchemist's canister. He kept the canister from the Party. Later, the Warren boat and Magazine Beta powder cache were destroyed, and Solange's Room 8 ritual completed when the primary chamber collapsed. Felix Aho revealed that the hunters kill Grung leavers on sight.
+- Jean-Claude recognised Simone's toxin in a Crown alchemist's canister. He kept the canister from the Party (**[[The Canister]]**). Later, the Warren boat and Magazine Beta powder cache were destroyed, and Solange's Room 8 ritual completed when the primary chamber collapsed. Felix Aho revealed that the hunters kill Grung leavers on sight.
 
 ### Possible endings
 

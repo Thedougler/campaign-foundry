@@ -5,6 +5,7 @@ sources:
   - "archive/Session-11-Transcript.md"
   - "archive/session-11-recap.md"
   - "archive/session-12-index.md"
+  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
 date: "1495 DR, date not established"
 ---
 
@@ -35,3 +36,5 @@ date: "1495 DR, date not established"
 ## Next
 
 Session 12 opens with the dawn strike on the burning keep, with terror-birds in the ash. Open questions: the watcher, Skarn's return, the captives' route to Karath, and who fired the keep.
+
+- The landing beach still shelters [[Sandro]] and [[Nino]] under the broken [[Vethka]]'s shade, and the Death Bloom's destroy-or-preserve choice waits inland.

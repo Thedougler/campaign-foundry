@@ -36,7 +36,7 @@ Give writers disjoint files and pass briefs and artifact paths explicitly. Set `
 
 Select an agent by its responsibility:
 
-- `skill-writer` (`@SKILL-WRITER`) authors every large or novel change to agent-facing text: skills, `.omp/agents/`, `AGENTS.md`, runbooks and pointers. The orchestrator writes its briefs, owns acceptance criteria, eval fixtures, Wiki and integration, and leaves those files to it. When the defect was observed in a run, the brief includes that agent's `history://` transcript so the writer sees the issue directly.
+- `skill-writer` (`@SKILL-WRITER`) authors every large or novel change to agent-facing text: skills, `.omp/agents/`, `AGENTS.md`, runbooks and pointers. The orchestrator writes its briefs, owns acceptance criteria, eval fixtures, Wiki and integration, and leaves those files to it. When the defect was observed in a run, wait until every ingest subagent in that batch has finished, then pass all of their finished `history://` transcripts together so the writer sees the issues directly; never pass an in-progress transcript, and never pass one run while siblings are still going.
 - `test-subject` (`@TEST-SUBJECT`) runs each eval case or baseline and `prose-grader` (`@PROSE-GRADER`) grades rubrics independently; both are native `task` dispatches whose frontmatter `tools:` is read-only except Runner `bash` for diagnostic CLI, batched per `evals/README.md`.
 - `creative-writer` (`@CREATIVE-WRITER`) takes explicit creative-writing dispatches outside skill evals.
 

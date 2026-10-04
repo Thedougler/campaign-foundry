@@ -5,6 +5,7 @@ sources:
  - "archive/Session 02 - Recap.md"
  - "archive/session-02-recap.md"
  - "archive/ket.md"
+ - "archive/ssw-session-02.md"
 creature: ""
 ---
 

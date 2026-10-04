@@ -3,6 +3,8 @@ type: NPC
 summary: "Presumed-dead Crown privateer captain who enforced surrender aboard the Surety."
 sources:
  - "archive/barnaby-rook.md"
+ - "archive/ssw-session-02.md"
+ - "archive/ssw-session-03.md"
 creature: "[[Barnaby Rook (Creature)]]"
 ---
 
@@ -28,16 +30,17 @@ creature: "[[Barnaby Rook (Creature)]]"
 
 ### History
 
-Rook commanded the HCS Surety under the Dravosi Crown. He knowingly underpaid Geoffrey Draves, held Ket as a specimen while investigating the Five Blades, and carried Grung poison supplied through Simone Tabarnack's network. He boarded the Saltwright, but Delmar Fisk knocked him from the Surety's rigging into the water twice. Something eel-like approached and he did not resurface. He is presumed dead. Earlier, he returned to the Surety with one flintlock spent after firing at Beaumont Sel.
+Rook commanded the HCS Surety under the Dravosi Crown. He knowingly underpaid Geoffrey Draves, held Ket as a specimen while investigating the Five Blades, and carried Grung poison supplied through Simone Tabarnack's network. He boarded the Saltwright, but Delmar Fisk knocked him from the Surety's rigging into the water twice. Something eel-like approached and he did not resurface. He is presumed dead. [[Crissdalynn Khinriss]] lifted his admiral hat from the water with a boat hook, and Beaumont Sel kept it, saying it belonged to the captain. Earlier, he returned to the Surety with one flintlock spent after firing at Beaumont Sel.
 
 ### Hidden truths
 
 - Rook's cabin held letters of marque, hidden gold, Mira's Blade, and twenty vials of Grung poison. The cargo and the supply trail can expose Simone's Crown connection.
 - Rupert Knighton may not yet know Rook is dead. The crew's recovered papers can bring that escalation closer.
+- Rook's chart archive, found by the crew, shows he broke Imperial rules about the Drowned Maw twice and did not record what he found there. The Party learns this by reading his charts.
 
 ### Threads
 
-He sits in **The Crown Inspection** and **Simone's Hunters**, and his presumed death adds pressure to the Crown's search for the crew.
+He sits in **The Crown Inspection** and **Simone's Hunters**, and his presumed death adds pressure to the Crown's search for the crew. The undecided fight the Party left at the first break sits in **[[The Rook Resolution]]**, resolved.
 
 ## Links
 

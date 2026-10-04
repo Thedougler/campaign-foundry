@@ -3,11 +3,12 @@ type: Vehicle
 summary: "Beaumont Sel's battered brig and the Party's first berth, carrying four strangers toward Calveno when the Crown inspection began."
 sources:
  - "archive/Session-00-Prologue.md"
+ - "archive/ssw-session-01.md"
 ---
 
 ## At a glance
 
-- **Kind.** Brig.
+- **Kind.** Two-masted merchant brig.
 - **Size.** Size is not recorded.
 - **Speed.** Speed is not recorded.
 - **Crew.** [[Beaumont Sel]] and an otherwise unrecorded crew.
@@ -41,7 +42,7 @@ The Saltwright is making her last crossing toward Calveno when Crown inspection 
 
 ### History
 
-Beaumont Sel pulled [[Crissdalynn Khinriss|Crissdalynn]] and [[Delmar Fisk|Delmar]] from the water after their fleet sank, then gave them passage toward Calveno. [[Perrin Black-Jaw|Perrin]] reached the hold from Keth-Naar, and [[Jean-Claude Tabarnack|Jean-Claude]] took a berth at the last island, four months ahead of the Grung hunters pursuing him. The Saltwright carried the four strangers together when HCS Surety began its inspection.
+Beaumont Sel pulled [[Crissdalynn Khinriss|Crissdalynn]] and [[Delmar Fisk|Delmar]] from the water after their fleet sank, then gave them passage toward Calveno. [[Perrin Black-Jaw|Perrin]] reached the hold from Keth-Naar, and [[Jean-Claude Tabarnack|Jean-Claude]] took a berth at the last island, four months ahead of the Grung hunters pursuing him. The Saltwright carried the four strangers together when HCS Surety began its inspection. The Party held the deck through the boarding and seized the ship when it ended, with [[Geoffrey Draves]] defecting to them as her only crew member.
 
 ### Hidden truths
 

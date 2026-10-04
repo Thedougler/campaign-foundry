@@ -625,3 +625,145 @@
 - [[Prospero Morsani]]
 - [[Calven and Calveno]]
 - [[The Ponte Bassa]]
+
+## [2026-10-03] ingest | agentic-co-dm-Session-01-Recap-journal.md
+
+- [[Session 1 - Recap]]
+
+## [2026-10-03] ingest | agentic-co-dm-Session-01-Recap.md
+
+- [[Session 1 - Recap]]
+
+## [2026-10-03] ingest | ssw-session-02.md
+
+- [[Uncertainty]]
+- [[Barnaby Rook]]
+- [[Ensign Wouters]]
+- [[Beaumont Sel]]
+- [[Bisou]]
+- [[Shepherd Grigori]]
+- [[Ket]]
+- [[Geoffrey Draves]]
+- [[Perrin Black-Jaw]]
+- [[Jean-Claude Tabarnack]]
+- [[Delmar Fisk]]
+- [[Crissdalynn Khinriss]]
+- [[Nona Black-Jaw]]
+- [[Rupert Knighton]]
+- [[Passage]]
+- [[Truth Stone]]
+- [[Mira's Blade]]
+- [[Sem Holst]]
+- [[Alys Kuiper]]
+- [[Old Faas]]
+- [[Thunk]]
+- [[Noor]]
+
+## [2026-10-03] ingest | ssw-session-01.md
+
+- [[Alchemist's Bandolier]]
+- [[Dravosi Alchemist]]
+- [[Saltwright]]
+- [[Cap'n Gorgeous]]
+- [[Dravosi Crown]]
+- [[Session 1 - Recap]]
+- [[Barnaby Rook]]
+- [[Geoffrey Draves]]
+- [[Simone Tabarnack]]
+- [[Beaumont Sel]]
+- [[Simone's Hunters]]
+- [[Uncertainty]]
+- [[Session 1 - Previously On]]
+
+## [2026-10-03] ingest | ssw-umberlee.md
+
+- [[Umberlee]]
+- [[Waveservants]]
+- [[The Dead Lady]]
+- [[The Tithe of the Bitch Queen]]
+- [[Valkur]]
+- [[Umberlee - Branca]]
+- [[Pearl of Souls]]
+- [[Drowned Maw]]
+- [[Fisk's Fleet]]
+- [[Delmar Fisk]]
+- [[Halythion]]
+- [[Sunken Crown]]
+
+## [2026-10-03] ingest | ssw-umberlee-and-waveservants.md
+
+- [[Umberlee]]
+- [[Waveservants]]
+
+## [2026-10-03] ingest | ssw-session-03.md
+
+- [[Uncertainty]]
+- [[Whip-Shark (Creature)]]
+- [[Drowned Maw Awakening]]
+- [[Bring the Pearl of Souls to Umberlee]]
+- [[Perrin and Nona]]
+- [[Master Kyzil]]
+- [[Sending Stone (Nona's)]]
+- [[Marta Orsini]]
+- [[Studio Orsini]]
+- [[Delmar Fisk]]
+- [[Perrin Black-Jaw]]
+- [[Jean-Claude Tabarnack]]
+- [[Crissdalynn Khinriss]]
+- [[Nona Black-Jaw]]
+- [[Shepherd Grigori]]
+- [[Barnaby Rook]]
+- [[Casa Lupo]]
+- [[Cobb]]
+- [[Enzo]]
+- [[Old Faas]]
+- [[Sem Holst]]
+- [[Geoffrey Draves]]
+- [[La Vasca]]
+
+## [2026-10-03] ingest | ssw-session-01.md — situation threads and deckhand backfill (revised skill)
+
+- [[The Rook Resolution]]
+- [[The Canister]]
+- [[Dravosi Deckhand]]
+- [[Session 1 - Recap]]
+- [[Barnaby Rook]]
+- [[Simone's Hunters]]
+- [[Alchemist's Bandolier]]
+- [[Dravosi Alchemist]]
+- [[Cap'n Gorgeous]]
+
+## [2026-10-03] ingest | agentic-co-dm-Aruhe-Crown-Squid.md
+
+- [[Crown Squid]]
+
+## [2026-10-03] ingest | ssw-umberlees-message.md
+
+- [[Umberlee's Message]]
+- [[Waveservant Shrine]]
+- [[Umberlee - Branca]]
+- [[Waveservants]]
+- [[Umberlee]]
+- [[Bring the Pearl of Souls to Umberlee]]
+
+## [2026-10-03] ingest | agentic-co-dm-Human.md
+
+- [[Human]]
+
+## [2026-10-03] ingest | agentic-co-dm-Galewall.md
+
+- [[Galewall]]
+
+## [2026-10-03] ingest | agentic-co-dm-Aruhe-Hungry-Isle.md
+
+- [[Sandro]]
+- [[Nino]]
+- [[Tomo]]
+- [[Vethka]]
+- [[Taking on Aruhe]]
+- [[Take on Aruhe]]
+- [[Aruhe]]
+- [[Western Landing]]
+- [[Memorial Grove]]
+- [[The Quiet]]
+- [[hot]]

@@ -4,6 +4,7 @@ kind: Region
 summary: "A chart-edge trench where currents reverse, the Pearl lies below the waterline and a planar fissure strains containment."
 sources:
  - "archive/drowned-maw.md"
+ - "archive/ssw-umberlee.md"
 parent: "[[Midchain]]"
 ---
 
@@ -49,7 +50,7 @@ The Antheri built into the far sidewall roughly two thousand years before the cu
 
 ### Hidden truths
 
-Umberlee's claim stops at the living blue-green line. Beyond it depth and instruments disagree. The Pearl wreck lies below that boundary.
+[[Umberlee]]'s claim stops at the living blue-green line. Beyond it depth and instruments disagree. The Pearl wreck lies below that boundary.
 
 ### Threads
 
