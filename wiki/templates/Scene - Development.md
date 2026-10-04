@@ -31,9 +31,9 @@ sources: []
 
 ## Clues
 
-%% True, concrete facts, each with where it surfaces. Give any conclusion the Session needs three independent routes. %%
+%% True, concrete facts, each with where it is found. Give any conclusion the Session needs three independent routes. %%
 
-| Clue | Surfaces through |
+| Clue | Found through |
 | ---- | ---------------- |
 |      |                  |
 

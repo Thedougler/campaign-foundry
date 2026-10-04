@@ -22,7 +22,7 @@ wiki/                          vault root
     attachments/               images and map data
     <Campaign>/                campaign-specific types only
       <Campaign>.md            Campaign overview; may override DM Settings
-      campaign-config.md       tone and themes for this Campaign
+      campaign-config.md       tone, themes, Lines and Veils: instructions agents follow
       hot.md                   current state of play
       PCs/  Threads/  Quests/  House Rules/
       Sessions/Session <N>/     Prep, a page per Scene, Recap, Previously On (recounts Session N, read aloud at N+1), Handouts
@@ -36,7 +36,7 @@ archive/                       Archive: already ingested; flat, no folders (outs
 - **One vault, many Worlds.** A Campaign folder appears only once that Campaign exists.
 - **Minimal properties.** Every page carries `type`, `summary` (one line) and `sources` (repo-relative paths of the archived Raw it was built from, such as `archive/session-11-transcript.md`, as plain strings because `archive/` is outside the vault), plus `kind` where its page kind has kinds (Location, Scene). Page-kind properties are added only where needed: `parent` on a Location, `creature` on an NPC, an in-world `date` on Prep, Recap, Previously On and `hot.md`, `status` on a Thread or Quest, `dndbeyond_url` on a PC, and `session_length_hours` on `DM Settings` and on a Campaign that overrides it. Links in properties are quoted wikilinks: `parent: "[[The Shattered Sea]]"`.
 - **Nesting is a link.** A Location names its containing Location in `parent`. Folders stay flat by kind.
-- **Page names.** Files are kebab-case: `ravenhold`, `captain-morrow`, `campaign-config`. Underscores are not. A Session's pages, Handouts aside, are named `Session <N> - <kind or Scene title>`: `Session 3 - Prep`, `Session 3 - Recap`, `Session 3 - The Drowned Bell`. On a real collision anywhere in the vault, add a parenthetical: `ravenhold-(keep)`.
+- **Page names.** A page is named for what it is in the World: `Ravenhold`, `Captain Morrow`. Only fixed and generated files keep lowercase names (`campaign-config`, `hot`, `index`, `log`). A Session's pages, Handouts aside, are named `Session <N> - <kind or Scene title>`: `Session 3 - Prep`, `Session 3 - Recap`, `Session 3 - The Drowned Bell`. On a real collision anywhere in the vault, add a parenthetical: `Ravenhold (Keep)`.
 - **Every page is reachable.** Each page has a link in from another page, other than the roots (`index.md`, `DM Settings`, World and Campaign overviews, `log.md`, `hot.md`). A link held in a property counts both ways, since the target's Base lists the page.
 - **Links are wikilinks.** Images are embedded as `![[file]]` from the World's `attachments/`, named `<Page> - <Kind>.webp` (`Portrait`, `Battle Map`, `Handout`). A battle map is 64 px per 5-foot square, so its size in pixels gives its Foundry grid; its walls, doors and lights come from a Universal VTT file beside it (`<Page> - Battle Map.uvtt` or `.dd2vtt`). Push builds a Foundry scene for each Scene whose page, or a Site it links, embeds a battle map.
 - **Anatomy, in table-pressure order:** at a glance (the summary plus the 3–5 facts needed in ten seconds), then Narration in a `[!narration]` callout, then Play (what it does at the table), then Depth (history, hidden truths, Threads), then Links (rendered from properties or an embedded Base).

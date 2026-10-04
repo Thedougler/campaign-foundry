@@ -185,7 +185,7 @@ The DM's defaults for every World and Campaign, kept on one page at the root of 
 _Avoid_: config, preferences, settings (bare)
 
 **campaign-config**:
-The DM's tone and themes for one Campaign, kept as `campaign-config.md` in that Campaign's folder. Agents read it after `user-config.md` before Wiki work in the Campaign.
+The DM's instructions to agents for one Campaign, kept as `campaign-config.md` in that Campaign's folder: its tone, themes, and Lines and Veils. Meta content that tells agents how to write content, rather than being Campaign content, lives here, or on DM Settings when it spans every Campaign. Agents read it after `user-config.md` before Wiki work in the Campaign.
 _Avoid_: DM Settings, user-config
 
 **Repo**:

@@ -32,7 +32,7 @@ parent: "[[Midchain]]"
 
 Aruhe lies on the Midchain's inner edge near the [[Verdant Teeth]]. Grung patrol its reefs, but free grung avoid landing. Compelled expeditions have reached the island.
 
-### Places worth reaching
+### Places
 
 [[Old Gardens]], [[The Quiet]], [[Grasslands]], [[The River]], [[Memorial Grove]], [[Lava Tubes]], [[The Pantry]], [[The Burnt Road]], Clear Lake, The Marshes, and The Mangroves.
 

@@ -110,13 +110,13 @@ Use the actual CLI against the caller's target, not an ambient default:
 
 ```sh
 bun run cf -- index --vault "$VAULT" --root "$ROOT"
-bun run cf -- check --fix --vault "$VAULT" --root "$ROOT" --templates "$VAULT/templates"
-bun run cf -- check --vault "$VAULT" --root "$ROOT" --templates "$VAULT/templates"
+bun run cf -- check --fix --vault "$VAULT" --root "$ROOT" --templates "$VAULT/templates" "$NPC_PATH" "$CREATURE_PATH" "$THREAD_PATH"
+bun run cf -- check --vault "$VAULT" --root "$ROOT" --templates "$VAULT/templates" "$NPC_PATH" "$CREATURE_PATH" "$THREAD_PATH"
 ```
 
-Run the full gate with no path or `--layer` filter. It checks placement, links, orphans, statblock arithmetic, index, hot, log, Markdown, spelling, grammar, and style. Link every Creature the NPC uses so its 2024 arithmetic is checked. Fix findings on the NPC, Creature and Thread pages, and rerun until green. Never hand-edit `index.md`.
+Run the page gate with no `--layer` filter, given the NPC, Creature and Thread pages and every other page this run touched; the whole Wiki is still checked behind those paths, across placement, links, orphans, statblock arithmetic, index, hot, log, Markdown, spelling, grammar, and style. Link every Creature the NPC uses so its 2024 arithmetic is checked. Fix findings on those pages, and rerun until the page gate reports `ok: 0 findings`. Never hand-edit `index.md`.
 
-For a standalone NPC creation, append one `create` entry only after the gate is green:
+For a standalone NPC creation, append one `create` entry only after the page gate reports `ok: 0 findings`:
 
 ```sh
 bun run cf -- log --world "$WORLD" --op create --title "<one-line result>" --page "$NPC_PATH" --page "$CREATURE_PATH" --page "$THREAD_PATH" --vault "$VAULT" --root "$ROOT"
@@ -124,4 +124,4 @@ bun run cf -- log --world "$WORLD" --op create --title "<one-line result>" --pag
 
 Omit absent `--page` values. If an enclosing Ingest, Prep, Push, Audit, Pull, or Query operation owns the work, that operation logs once; do not add a second `create` entry.
 
-**Done:** the selected-scale result is complete; canon and explicit inventions are preserved and reported; every source limitation is honest; all relevant Creature and Thread pages are linked; the full target gate is green; the index is regenerated; and logging follows the standalone-versus-enclosing rule.
+**Done:** the selected-scale result is complete; canon and explicit inventions are preserved and reported; every source limitation is honest; all relevant Creature and Thread pages are linked; the target's page gate reports `ok: 0 findings`; the index is regenerated; and logging follows the standalone-versus-enclosing rule.

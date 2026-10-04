@@ -4,6 +4,7 @@ summary: "Beaumont Sel's battered brig and the Party's first berth, carrying fou
 sources:
  - "archive/Session-00-Prologue.md"
  - "archive/ssw-session-01.md"
+ - "archive/ssw-beaumonts-crew.md"
 ---
 
 ## At a glance
@@ -11,7 +12,7 @@ sources:
 - **Kind.** Two-masted merchant brig.
 - **Size.** Size is not recorded.
 - **Speed.** Speed is not recorded.
-- **Crew.** [[Beaumont Sel]] and an otherwise unrecorded crew.
+- **Crew.** [[Beaumont Sel]] and the four hired hands of [[Beaumont's Crew]].
 - **Captain.** [[Beaumont Sel]].
 - **Berth.** [[Kalowe]], on the route to Calveno.
 
@@ -28,7 +29,7 @@ sources:
 
 ### Crew and stations
 
-[[Beaumont Sel]] is captain and operates the wheel. The remaining crew and station complement are not recorded. When the HCS Surety boards, the Party can use the hold, deck and gangplank as the inspection becomes a fight.
+[[Beaumont Sel]] is captain and operates the wheel. The hired hands of [[Beaumont's Crew]] work the stations. [[Lenne Vor]] keeps the charts while [[Drav Holke]] runs the rigging. [[Wessa]] holds the galley, and [[Fen]] works wherever an extra pair of hands is needed. When the HCS Surety boards, the Party can use the hold, deck and gangplank as the inspection becomes a fight.
 
 ### Components and weapons
 
@@ -36,17 +37,17 @@ Hull, control, movement and weapons are not recorded. The captain's salvaged she
 
 ### Underway
 
-The Saltwright is making her last crossing toward Calveno when Crown inspection begins. A boarding action runs across the gangplank between the Saltwright and HCS Surety. The Party can hold the deck, surrender, or turn the inspection into a seizure of the Crown cutter.
+The Saltwright is making her last crossing toward Calveno when Crown inspection begins. A boarding action runs across the gangplank between the Saltwright and HCS Surety. The Party can keep the deck, surrender, or turn the inspection into a seizure of the Crown cutter.
 
 ## Depth
 
 ### History
 
-Beaumont Sel pulled [[Crissdalynn Khinriss|Crissdalynn]] and [[Delmar Fisk|Delmar]] from the water after their fleet sank, then gave them passage toward Calveno. [[Perrin Black-Jaw|Perrin]] reached the hold from Keth-Naar, and [[Jean-Claude Tabarnack|Jean-Claude]] took a berth at the last island, four months ahead of the Grung hunters pursuing him. The Saltwright carried the four strangers together when HCS Surety began its inspection. The Party held the deck through the boarding and seized the ship when it ended, with [[Geoffrey Draves]] defecting to them as her only crew member.
+Beaumont Sel pulled [[Crissdalynn Khinriss|Crissdalynn]] and [[Delmar Fisk|Delmar]] from the water after their fleet sank, then gave them passage toward Calveno. [[Perrin Black-Jaw|Perrin]] reached the hold from Keth-Naar, and [[Jean-Claude Tabarnack|Jean-Claude]] took a berth at the last island, four months ahead of the Grung hunters pursuing him. All four strangers were aboard the Saltwright together when HCS Surety began its inspection. The Party kept the deck through the boarding and seized the ship when it ended. [[Geoffrey Draves]] was the only crew member to defect to them.
 
 ### Hidden truths
 
-The four passengers arrived with separate debts and pursuers, but the inspection forces them to become a crew. The Party learns this by surviving the boarding and deciding who controls the ship.
+All four passengers arrived with separate debts and pursuers, but the inspection forces them to become a crew. The Party discovers this by coming through the boarding and deciding who controls the ship.
 
 ## Links
 

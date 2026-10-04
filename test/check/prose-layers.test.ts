@@ -117,6 +117,10 @@ describe("grammar layer", () => {
 	it("does not merge a possessive or preposition into the page name beside it", () => {
 		expect(on("grammar", "NPCs/Good Prose")).toEqual([]);
 	});
+
+	it("does not read a linked page name as the DM's wording", () => {
+		expect(on("grammar", "log").filter((f) => f.line === 7)).toEqual([]);
+	});
 });
 
 describe("style layer", () => {
@@ -143,6 +147,17 @@ describe("style layer", () => {
 		const aiTells = found.filter((f) => f.rule.startsWith("ai-tells.") && f.line === 17);
 		expect(aiTells.length).toBeGreaterThan(0);
 		expect(aiTells.every((f) => f.severity === "error")).toBe(true);
+	});
+
+	it("reads a page name as its kind: a ship that carried passengers is literal, an abstract subject still fails", () => {
+		const carries = on("style", "Vehicles/Saltwright").filter((f) => f.rule === "ai-tells.FigurativeCarries");
+		expect(carries.map((f) => f.line)).toEqual([15]);
+	});
+
+	it("never advises disabling a rule: the DM alone switches one off", () => {
+		const found = on("style", "Vehicles/Saltwright").filter((f) => f.rule === "ai-tells.FigurativeCarries");
+		expect(found.length).toBeGreaterThan(0);
+		expect(found.every((f) => !/disable/i.test(f.message))).toBe(true);
 	});
 
 	it.each([

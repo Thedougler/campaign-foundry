@@ -30,7 +30,7 @@ Three ways through:
 - **The local routes.** Through the Midchain's reefs and harbours under pilot guidance, days slower, invisible to the Crown's ledgers, and priced in trust and pilot fees instead of inspection fees. The same road the [[Passage]] and the smuggling trade work.
 - **The eastern approach.** Where the arcs converge at [[The Tail]] the charts run thin, and beyond it the [[Drowned Maw]] sets the terms of the water.
 
-### Places worth reaching
+### Places
 
 - [[Crown Islands]], the northern arc.
 - [[Midchain]], the southern arc.

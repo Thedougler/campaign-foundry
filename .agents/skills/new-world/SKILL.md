@@ -38,7 +38,7 @@ A World exists independently of a Campaign. Create just enough to start one: a t
    - **NPCs:** a handful in `NPCs/`, using `npc-design`: the Factions' leaders and a face or two needed by the starting Locations. Share appropriate contacts across pages rather than giving every mention a new person. Use the selected NPC scale and fitting shared sourced Creatures where statistics are needed.
    - **Deities and Lore:** a few Deity pages from `wiki/templates/Deity.md` and two or three Lore pages using `lore-design`, limited to the powers and history the premise needs. Link worshippers, shrines, accounts and discoverable evidence to the existing skeleton cast and Locations.
 
-   Give each design skill the settled vision, retrieved evidence, assigned target, skeleton-scale page allowance and enclosing `create` operation. Receive complete pages and all touched paths; this skill owns the final index, full gate and single log entry, including supporting pages. Child work returns its artifacts instead of appending separate creation logs. Only create supporting owner pages when the skeleton actually needs them; reuse shared rules figures rather than designing a catalogue.
+   Give each design skill the settled vision, retrieved evidence, assigned target, skeleton-scale page allowance and enclosing `create` operation. Receive complete pages and all touched paths; this skill owns the final index, the page gate over every touched path and the single log entry, including supporting pages. Child work returns its artifacts instead of appending separate creation logs. Only create supporting owner pages when the skeleton actually needs them; reuse shared rules figures rather than designing a catalogue.
 
    Fill every required template property, section and callout, remove authoring comments and retain optional headings only where they have content. Use `theatre-of-the-mind` for the overview and Deity Narration; the design skills own their Narration slots. Make every new content page reachable by a real incoming link from another content page before indexing. Index and log links alone do not fulfil this requirement. Keep required sections concise, not empty.
 
@@ -50,13 +50,13 @@ A World exists independently of a Campaign. Create just enough to start one: a t
 
    ```sh
    bun run cf -- index
-   bun run cf -- check --fix
-   bun run cf -- check
+   bun run cf -- check --fix "<Wiki>/<World>"
+   bun run cf -- check "<Wiki>/<World>"
    ```
 
    For an explicitly assigned filesystem target, pass its `--vault`, `--root` and `--templates` to check, and its `--vault`/`--root` to index and log. Preserve those paths throughout child handoffs.
 
-   Run the full gate without path or layer filters: path arguments only filter reported findings, not the Wiki being checked. Resolve findings without changing the DM's intended facts, regenerate indexes when pages change and repeat until the full check exits 0. Indexes are generated, not hand-authored.
+   Run the page gate with no layer filter, given the new World's folder, which holds every page this run wrote: the whole Wiki is still checked behind the path, and only the World's findings are reported. Resolve every finding, warnings included, without changing the DM's intended facts, regenerate indexes when pages change, and repeat until the page gate reports `ok: 0 findings`. Indexes are generated, not hand-authored.
 
    After the gate passes, append one creation entry in the new World's log, repeating `--page` for every touched content page and using actual vault-relative paths:
 
@@ -64,9 +64,9 @@ A World exists independently of a Campaign. Create just enough to start one: a t
    bun run cf -- log --world "<World>" --op create --title "New World: <World>" --page "<World>/<World>.md"
    ```
 
-   Observe the entry written, then run the full check once more so the finished artifacts, including the log, are covered. Missing tooling remains a named blocker, not a successful gate or log.
+   Observe the entry written, then run the page gate once more so the finished artifacts, including the log, are covered. Missing tooling remains a named blocker, not a successful gate or log.
 
-   **Done when** the generated root index lists the World, its World index lists the skeleton, one creation log entry records every touched content page, and the final full gate exits 0 at the assigned target.
+   **Done when** the generated root index lists the World, its World index lists the skeleton, one creation log entry records every touched content page, and the final page gate over the World's folder reports `ok: 0 findings` at the assigned target.
 
 6. **Return to the DM.** Give the pitch in two lines, link the created pages, note the important Canon decisions and reused material, and say what play will fill in later. Report only observed index, gate and log results. If a prerequisite prevented completion, separate the delivered pages from the exact unfinished action and missing prerequisite.
 

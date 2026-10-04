@@ -37,7 +37,7 @@ The treeline often shows before land. Rainforest reaches the water on many coast
 
 Replenish water and seek sheltered anchorages among the islands before an exposed crossing. [[Kalowe]] provides repairs, pilots and supplies, with a shrine payment at its reef gap. Rest in a harbour is sheltered from weather, but arrival can expose the ship to local authorities.
 
-### Places worth reaching
+### Places
 
 - [[Aruhe]]
 - [[Karath]]

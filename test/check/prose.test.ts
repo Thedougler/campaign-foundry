@@ -84,6 +84,17 @@ describe("proseView masked for wording rules", () => {
 		expect(text).toContain("A countless crowd");
 		expect(text).toContain("Countlessly.");
 	});
+
+	it("masks a page of a concrete kind as its kind's noun, so a literal subject stays literal", () => {
+		const typed = buildVault("/v", {
+			markdown: new Map([
+				["A/Saltwright.md", "---\ntype: Vehicle\n---\n"],
+				["A/Test.md", "The Saltwright carried [[Saltwright]] home.\n"],
+			]),
+			attachments: [],
+		});
+		expect(proseView(typed.pageByPath.get("A/Test.md")!, typed).text).toBe("The Ship carried Ship home.\n");
+	});
 });
 
 describe("name dictionary", () => {

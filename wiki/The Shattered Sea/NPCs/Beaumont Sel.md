@@ -6,6 +6,7 @@ sources:
  - "archive/ssw-nona-black-jaw.md"
  - "archive/ssw-session-01.md"
  - "archive/ssw-session-02.md"
+ - "archive/ssw-beaumonts-crew.md"
 creature: "[[Beaumont Sel (Creature)]]"
 ---
 
@@ -31,7 +32,7 @@ creature: "[[Beaumont Sel (Creature)]]"
 
 ### History
 
-Beaumont has run the Saltwright from Kalowe for eleven years. He pulled Crissdalynn and Delmar from the water after their fleet went down, then joined the fight when Barnaby Rook boarded. He introduced himself as a Friend of the Passage after the crew took the Surety. He passed [[Nona Black-Jaw]]'s original message to her grandson [[Perrin Black-Jaw]] aboard the Saltwright. When the prize parted from him at dawn, he warned of weather toward [[Calven and Calveno|Calveno]] and said he could be found in [[Kalowe]] when he was off route. He kept the admiral hat [[Crissdalynn Khinriss]] had fished from the water, saying it belonged to the captain, and treated Bisou's stolen coins as fair business.
+Beaumont has run the Saltwright from Kalowe for eleven years, worked by the hired hands of [[Beaumont's Crew]]. He pulled Crissdalynn and Delmar from the water after their fleet went down, then joined the fight when Barnaby Rook boarded. He introduced himself as a Friend of the Passage after the crew took the Surety. He passed [[Nona Black-Jaw]]'s original message to her grandson [[Perrin Black-Jaw]] aboard the Saltwright. When the prize parted from him at dawn, he warned of weather toward [[Calven and Calveno|Calveno]] and said he could be found in [[Kalowe]] when he was off route. He kept the admiral hat [[Crissdalynn Khinriss]] had fished from the water, saying it belonged to the captain, and treated Bisou's stolen coins as fair business.
 
 ### Hidden truths
 

@@ -4,6 +4,7 @@ kind: Settlement
 summary: "A cliff-tier fortress-port whose docks, trade shelf and Crestwall guns watch the far side Strait."
 sources:
  - "archive/calders-tooth-and-port-tidefall.md"
+ - "archive/ssw-tessarine-trade-house.md"
 parent: "[[Crown Islands]]"
 ---
 
@@ -22,7 +23,7 @@ parent: "[[Crown Islands]]"
 
 ### Districts
 
-The docks, Shelf, Crestwall, inspection pier and eastern harbour are distinct pressures. The Marrow ridge, mudflats and smaller villages sit beyond the port.
+The docks, Shelf, Crestwall, inspection pier and eastern harbour are distinct pressures. The Marrow ridge, mudflats and smaller villages lie beyond the port.
 
 ### Services
 
@@ -48,7 +49,7 @@ Calder's Tooth is limestone and basalt at the far side mouth of the [[Central St
 
 ### Hidden truths
 
-Sealed Crestwall orders and the fort vaults are separate Crown secrets. The Tessarine house applies pressure through credit, legal paper and mail.
+Sealed Crestwall orders and the fort vaults are separate Crown secrets. The [[Tessarine Trade House|Tessarine house]] applies pressure through credit, legal paper and mail.
 
 ### Threads
 

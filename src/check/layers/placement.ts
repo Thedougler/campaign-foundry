@@ -17,13 +17,18 @@ const wikiType = (page: Page): string | undefined => {
 	return typeof t === "string" && t in PLACEMENTS ? t : undefined;
 };
 
-/** `black_lotus` becomes `black-lotus`. */
+/** `black-lotus` and `black_lotus` become `Black Lotus`. */
 function unslug(name: string): string {
-	return name.replaceAll("_", "-");
+	return name
+		.split(/[-_\s]+/)
+		.filter(Boolean)
+		.map((w) => w[0]!.toUpperCase() + w.slice(1))
+		.join(" ");
 }
 
 function isSlug(name: string): boolean {
-	return name.includes("_");
+	if (/\s/.test(name)) return false;
+	return name.includes("_") || (name.includes("-") && name === name.toLowerCase());
 }
 
 interface Verdict {
@@ -109,7 +114,7 @@ export function run(ctx: CheckContext): Finding[] {
 			continue;
 		}
 		if (!REPEATABLE(page.name) && isSlug(page.name)) {
-			add("slug-name", `Page name \`${page.name}\` uses underscores.`, `Use kebab-case: rename to \`${unslug(page.name)}.md\`. Links use the name (\`[[${unslug(page.name)}]]\`), so update them too.`);
+			add("slug-name", `Page name \`${page.name}\` is a file slug, not an in-world name.`, `Name pages as the World names them, with spaces and capitals: rename to \`${unslug(page.name)}.md\`. Links use the name (\`[[${unslug(page.name)}]]\`), so update them too.`);
 		}
 		const type = wikiType(page);
 		if (!type) continue;

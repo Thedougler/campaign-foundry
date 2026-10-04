@@ -39,7 +39,7 @@ Perception reveals the ambush.
 
 ## Clues
 
-| Clue | Surfaces through |
+| Clue | Found through |
 | ---- | ---------------- |
 | Fallen fruit is safe. Living fruit summons danger. | The river grassland |
 

@@ -4,6 +4,7 @@ summary: "Courtney's level 5 aarakocra Kensei monk: a cartographer, aerial skirm
 sources:
  - "archive/crissdalynn-khinriss.md"
  - "archive/ssw-session-02.md"
+ - "archive/ssw-le-paludi.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/PyonPyonPichu/characters/163280875"
 ---
 
@@ -40,7 +41,7 @@ dndbeyond_url: "https://www.dndbeyond.com/profile/PyonPyonPichu/characters/16328
 ## Story
 
 > [!narration] Portrait
-> Crissdalynn is a tall aarakocra with layered cobalt-blue feathers, a black hooked beak, and bright blue eyes. She wears geometric leather armour over a light shirt and carries rolled charts in a satchel. Her dark talons catch the light, and she moves loosely until a fight starts.
+> Crissdalynn is a tall aarakocra with layered cobalt-blue feathers, a black hooked beak, and bright blue eyes. She wears geometric leather armour over a light shirt. Rolled charts fill her satchel. Her dark talons catch the light, and she moves loosely until a fight starts.
 
 ### Backstory
 
@@ -49,7 +50,7 @@ Banished from High Eyrie at fourteen, Crissdalynn joined Delmar Fisk's crew aboa
 ## Goals and bonds
 
 - **Goal.** Complete her pilgrimage and map the sea beyond the established charts.
-- **Bond.** Delmar is her burden and her found family. She will carry him out of danger again.
+- **Bond.** Delmar is her burden and her found family. She will pull him out of danger again.
 - **Fear.** Losing control of the sky, or failing to protect the crew when flight and speed are their only advantage.
 
 ## Plans

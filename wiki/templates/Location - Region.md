@@ -25,7 +25,7 @@ parent: ""
 
 ### Travel
 
-### Places worth reaching
+### Places
 
 %% Link child Locations. %%
 

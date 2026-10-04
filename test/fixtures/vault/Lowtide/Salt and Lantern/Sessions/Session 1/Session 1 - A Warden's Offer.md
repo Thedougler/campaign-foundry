@@ -37,7 +37,7 @@ Hobb has a lighthouse with no keeper, oil that keeps vanishing and a Council tha
 
 ## Clues
 
-| Clue                                                             | Surfaces through                                        |
+| Clue                                                             | Found through                                           |
 | ---------------------------------------------------------------- | ------------------------------------------------------- |
 | Every wreck this season happened on a moonless night.            | The red pins, or the tide table on the wall.            |
 | The oil barrels were drained through a tap, not spilled.         | The empty flask on the desk, or Hobb's oil count.       |

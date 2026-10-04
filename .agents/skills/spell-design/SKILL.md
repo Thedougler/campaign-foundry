@@ -17,7 +17,7 @@ The Wiki holds only Spells that the rules sources lack: a spell from the SRD or 
 6. **Rulings.** The three to five tricks Players will try with it, each with its answer; how a target or rival caster counters it; and which named NPC or Creature casts it against the Party.
 7. **Discovery.** One named source (an NPC, Item, Site or Faction page) with a reason to hold it, the price of learning it (coin, a favour, a task, a risk), the Clue that tells the Party the source exists, and who notices when a PC first casts it.
 8. **Narration.** Hand `theatre-of-the-mind` the Casting slot with the signature.
-9. **File** to `wiki/templates/Spell.md` in `<World>/Spells/`: the casting fields At a glance; Effect (the full rules text) and Rulings under Play; Tradition and Who knows it (the source and its price) under Depth. Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `bun run cf -- check --fix`, then `bun run cf -- check`, until the full gate passes with the page clear, and list it in the operation's `bun run cf -- log` entry (`--op create` when this skill runs on its own).
+9. **File** to `wiki/templates/Spell.md` in `<World>/Spells/`: the casting fields At a glance; Effect (the full rules text) and Rulings under Play; Tradition and Who knows it (the source and its price) under Depth. Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `bun run cf -- check --fix`, then `bun run cf -- check`, given the page path, until that page gate reports `ok: 0 findings`, and list it in the operation's `bun run cf -- log` entry (`--op create` when this skill runs on its own).
 
 ## Damage by level
 
@@ -44,4 +44,4 @@ A cantrip with high damage, no save and long range gets a higher level or fewer 
 - The tradition links a page, and the signature and price pass the swap test.
 - Every casting field holds a 2024 value, and the effect sits within its peers.
 - Every likely trick has an answer, and a named source holds it at a price.
-- The full `bun run cf -- check` passes, and the reply lists every new fact decided as Canon.
+- The page gate over the Spell's page reports `ok: 0 findings`, and the reply lists every new fact decided as Canon.

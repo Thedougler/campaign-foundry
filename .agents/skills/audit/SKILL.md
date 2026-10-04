@@ -43,11 +43,11 @@ The gate checks each page alone. Audit checks that the pages agree with each oth
    bun run cf -- log --world <World> --op audit --title "<what changed> (<why>)" --page <Page>
    ```
 
-   For example `--title "Tie restated as conflicting claims (nothing settles it)"`. A merge's `--page` flags name the surviving page and retargeted pages, never the deleted page. Run `bun run cf -- index` once, then the full `bun run cf -- check --fix` / `bun run cf -- check`. Resolve form findings without changing facts and report any remaining findings. Done when the final claim sweep, each finding's log entry, index rebuild and full-gate results are complete; a page filter is not completion evidence.
-7. **Report.** One short line per subject fixed. A slice run names its slice — the Ingest entry, the DM's pages, the named claim — never "the whole Wiki". The report asks nothing: no question, no approval, no choice offered.
+   For example `--title "Tie restated as conflicting claims (nothing settles it)"`. A merge's `--page` flags name the surviving page and retargeted pages, never the deleted page. Run `bun run cf -- index` once, then the page gate: `bun run cf -- check --fix` / `bun run cf -- check` given every page this run edited, retargeted pages included. Repair every gate finding, warnings included, without changing facts, and rerun until the page gate reports `ok: 0 findings`. Done when the final claim sweep, each finding's log entry, index rebuild and a page gate at `ok: 0 findings` over every edited page are complete.
+7. **Report.** One short line per subject fixed, and one per suspected rule misfire with its rule and sentence. A slice run names its slice — the Ingest entry, the DM's pages, the named claim — never "the whole Wiki". The report asks nothing: no question, no approval, no choice offered.
 
 ## Done
 
-- Every question the run raised — a named claim, that question alone — had each of its present-tense answers marked — current, stale, contradicted or duplicate — and every finding was decided by precedence: a winner fixed, or a tie restated as conflicting claims and logged. Records and untouched pages are byte-for-byte.
+- Every question the run raised — a named claim, that question alone — had each of its present-tense answers marked — current, stale, contradicted or duplicate — and every finding was decided by precedence: a winner fixed, or a tie restated as conflicting claims and logged. Records and untouched pages are byte-for-byte apart from gate repairs.
 - Each finding has its own `audit` log entry saying what changed and why; the past stayed as history, every fact the evidence leaves true survived, and nothing was invented past the evidence.
-- The full unified gate passes or remaining findings are reported, `bun run cf -- index` has run, and the report asked the DM nothing.
+- The page gate over every page this run edited reports `ok: 0 findings`, `bun run cf -- index` has run, and the report asked the DM nothing.

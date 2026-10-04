@@ -25,7 +25,7 @@ parent: "[[Midchain]]"
 
 Sanctioned contact happens on the beach, and the interior takes no visitors. The clans treat the treeline as the boundary of their world.
 
-### Places worth reaching
+### Places
 
 - [[Karath]], the grung island the Wiki names directly, with its reef gaps, hatcheries and captive pens.
 

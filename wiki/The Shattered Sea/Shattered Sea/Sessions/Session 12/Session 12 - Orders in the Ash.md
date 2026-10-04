@@ -40,7 +40,7 @@ Eleven Grung lie with spent Grung Authority Seals and cracked clay fire pots. Th
 
 ## Clues
 
-| Clue | Surfaces through |
+| Clue | Found through |
 | ---- | ---------------- |
 | “Report what lies inland”, replace failures, find and destroy the two graves, and burn any forest in the way. | Jean-Claude reading a seal or Investigation |
 | Each compelled Grung believed the order was their own wish. | Jean-Claude, the seals, or Hinewai |

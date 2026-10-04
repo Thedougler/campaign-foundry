@@ -41,7 +41,7 @@ function hintFor(check: string): string {
 	const narration = NARRATION_HINTS[check];
 	if (narration) return narration;
 	const [style = "", rule = check] = check.split(".");
-	return `Reword the flagged text in plain, concrete words, keeping what it says true. The rule is defined in .vale/styles/${style}/${rule}.yml. If it misfires on legitimate campaign prose, disable it in .vale.ini with a comment saying why.`;
+	return `Reword the flagged text in plain, concrete words, keeping what it says true. The rule is defined in .vale/styles/${style}/${rule}.yml. The rule stands: rewrite until it clears. Only an obvious misfire on literal campaign meaning (a ship that is a ship) goes to the DM, who alone may switch a rule off in .vale.ini.`;
 }
 
 /**
@@ -111,7 +111,8 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 					severity: alert.Severity === "error" ? "error" : "warning",
 					path: ctx.display(page.path),
 					line: alert.Line,
-					message: alert.Message,
+					// The upstream ai-tells package ends messages with "Disable this rule for X prose."; only the DM disables a rule (.vale.ini).
+					message: alert.Message.replace(/\s*Disable this rule\b[^.]*\./g, ""),
 					hint: hintFor(alert.Check),
 				});
 			}

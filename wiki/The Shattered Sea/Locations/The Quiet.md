@@ -27,7 +27,7 @@ parent: "[[Aruhe]]"
 
 The Calveno trail runs from [[Slack Basin]] through [[Cutoff Lip]], [[Print Braid]], [[Spoke Ring]] and [[Star Cut]]. The fruit-pile trail reaches [[The Long Meadow]], [[The Burnt Road]] and [[The Pantry]].
 
-### Places worth reaching
+### Places
 
 [[Cutoff Lip]], [[Print Braid]], [[Spoke Ring]], [[Star Cut]], [[The Long Meadow]], [[Lava Tubes]], [[The Burnt Road]], [[The Pantry]], and [[Memorial Grove]].
 

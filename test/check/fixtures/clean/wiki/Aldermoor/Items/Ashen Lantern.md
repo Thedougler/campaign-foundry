@@ -13,7 +13,7 @@ sources: []
 - **Held by.** Text.
 
 > [!narration] First look
-> The glass holds a slow red coal.
+> A slow red coal glows behind the glass.
 
 ## Play
 

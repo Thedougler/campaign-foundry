@@ -5,6 +5,7 @@ summary: "A concealed Black-Jaw dry dock in Le Paludi, disguised as a defunct ta
 sources:
  - "archive/la-vasca.md"
  - "archive/ssw-session-03.md"
+ - "archive/ssw-cobb.md"
 parent: "[[Le Paludi]]"
 ---
 
@@ -45,7 +46,7 @@ The Black-Jaw family has operated the cradle for three generations. The crew's v
 
 ### Hidden truths
 
-Every use reaches Nona within an hour. The defunct tannery is the working dock's cover.
+Nona hears of every use within an hour. The defunct tannery is the working dock's cover.
 
 ### Threads
 

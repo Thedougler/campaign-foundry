@@ -23,7 +23,7 @@ parent: ""
 
 Two routes cross the Brack. The causeway from [[Saltwick]] to [[Reedholt]] takes two days on foot and is safe except when a spring tide covers the low stretch, which costs half a day. The ferry takes one day and costs 5 silver pieces a head, but the boats belong to Reedholt families and [[The Reedrunners]] take a tithe from each. Off both routes the ground is [[Bog Ground]] and travel is at half speed.
 
-### Places worth reaching
+### Places
 
 - [[Saltwick]], the port and seat of the Harbor Council.
 - [[Reedholt]], a stilt village where the ferries tie up.

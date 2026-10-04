@@ -5,6 +5,7 @@ Acque
 Oleandro
 Fuschi
 Antheri
+Fathomrush
 Ashwalls
 Shelfworks
 Teikhinos
@@ -13,5 +14,16 @@ Aldric
 Drave
 Waveservant
 Windjammer
+Sunkline
+Cosimo
+Verantio
+Crestwall
+Bice
+Fondale
+Kaden
+Skittercant
 proa
 proas
+stank
+umberlees
+beaumonts

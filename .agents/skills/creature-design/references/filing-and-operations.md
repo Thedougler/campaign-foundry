@@ -33,9 +33,9 @@ Discover exact CLI syntax from the installed program before using it: `bun run c
 
 ```text
 bun run cf -- index --root "$ROOT" --vault "$VAULT"
-bun run cf -- check --root "$ROOT" --vault "$VAULT" --templates "$VAULT/templates" --fix
-bun run cf -- check --root "$ROOT" --vault "$VAULT" --templates "$VAULT/templates"
+bun run cf -- check --root "$ROOT" --vault "$VAULT" --templates "$VAULT/templates" --fix "<page path>" "<page path>"
+bun run cf -- check --root "$ROOT" --vault "$VAULT" --templates "$VAULT/templates" "<page path>" "<page path>"
 bun run cf -- log --root "$ROOT" --vault "$VAULT" --world "$WORLD" --op create --title "Create <Name>" --page "<Name>"
 ```
 
-Use `--fix` only for mechanical repairs, then rerun. The final check runs all layers with no `--layer`; a scoped path may narrow displayed findings but never replaces the global check for stale links, orphans, index, hot, log, spelling, grammar, style, markdown, template, placement and statblock layers. Run the standalone check before logging. The caller owns the enclosing operation log; append a `create` entry only when this invocation is explicitly standalone and responsible for its own log, after green verification.
+Use `--fix` only for mechanical repairs, then rerun. The final check is the page gate: all layers with no `--layer`, given the Creature page and every page this run touched, until it reports `ok: 0 findings`. Run the standalone check before logging. The caller owns the enclosing operation log; append a `create` entry only when this invocation is explicitly standalone and responsible for its own log, after that page gate passes.

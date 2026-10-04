@@ -188,19 +188,18 @@ played record or NPC identity.
 
 Before commands, read the installed syntax with `bun run cf -- index --help`,
 `bun run cf -- check --help`, and `bun run cf -- log --help`. Regenerate indexes with the
-scoped `bun run cf -- index` command. Run the full `bun run cf -- check` with no `--layer`; all layers
-are mandatory. A scoped path may report the changed page, but it does not
-replace the global check for stale links, index, orphans, hot, log, template,
-placement, statblock, markdown, spelling, grammar and style findings. Use
-`--fix` only for mechanical repairs, then rerun the full check.
+scoped `bun run cf -- index` command. Run the page gate, `bun run cf -- check`
+with no `--layer` given the Creature page and every page this run touched; all
+layers are mandatory, and the whole Wiki is still checked behind those paths.
+Use `--fix` only for mechanical repairs, then rerun the page gate.
 
-Log only after the standalone check is green. The enclosing caller owns its
+Log only after the standalone page gate reports `ok: 0 findings`. The enclosing caller owns its
 operation log; append a `create` log entry only when this invocation is
 explicitly standalone and responsible for logging. Report the page path, source
 candidates and decision, tuning assumptions and estimates, affected consumers,
 new canon and verification result.
 
-**Final gate:** the target-root page, global Wiki check, generated indexes,
+**Final gate:** the target-root page, page gate, generated indexes,
 links, source record, Party dossier, three-round model, and consumer audit are
 all complete; every pointer in this skill resolves to an existing file or
 installed skill.

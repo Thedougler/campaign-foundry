@@ -38,7 +38,7 @@ A Campaign is one group of Players moving through a World. Create its starting s
 
 6. **Starting hot.** Initialise this new Campaign's `hot.md` from `wiki/templates/hot.md`, about 500 words and at most 550. Record the starting in-world date, linked Location and Party, every active Thread with its current pressure and next move, and what the first Session can pick up. State that no Session has been played in this Campaign; inherit the changed World, not the previous Campaign's last Session as this Party's experience. Link the Threads here so they are reachable. Leave Sessions, Quests and other unused folders uncreated; later Ingest and Prep own hot.md updates. Done when hot.md agrees with the overview, PCs and Threads and gives `plan-session` a usable starting state.
 
-7. **File.** Use the current `cf` commands below. Generate the index, then run the full unified gate with all layers and no page filters. Apply mechanical fixes, preserving facts and the pull-owned sheet sections; re-run the full gate until clean. After it passes, append one `create` entry titled `New Campaign: <Campaign>` with a `--page` for every page created or changed. The pull records its own `pull` entry when it changes PCs. Observe the final full-gate result after logging. Done when the generated index lists the Campaign and its pages, the creation entry lists the touched pages and the final full gate passes. An unavailable gate or remaining findings are an explicit completion gap, not a pass.
+7. **File.** Use the current `cf` commands below. Generate the index, then run the page gate with all layers, given the Campaign's folder and every other page this run touched. Apply mechanical fixes, preserving facts and the pull-owned sheet sections; re-run the page gate until it reports `ok: 0 findings`. After it passes, append one `create` entry titled `New Campaign: <Campaign>` with a `--page` for every page created or changed. The pull records its own `pull` entry when it changes PCs. Observe the final page-gate result after logging. Done when the generated index lists the Campaign and its pages, the creation entry lists the touched pages and the final page gate passes. An unavailable gate or remaining findings are an explicit completion gap, not a pass.
 
 8. **Report.** Give the DM the pitch, linked Party and initial Threads, each PC's observed pull outcome, and the index/log/gate result. Name any remaining prerequisite precisely, distinguishing it from completed page creation. Offer `plan-session` as the next step; do not claim the Campaign is fully ready while a required pull or gate is unproved. Done when the report matches the saved pages and observed operations.
 
@@ -49,8 +49,8 @@ Read `package.json` and the relevant subcommand's `--help` when executing; the c
 ```bash
 bun run cf -- pull --campaign "<Campaign folder>" --vault "<wiki>" --root "<root>" --templates "<templates>"
 bun run cf -- index --vault "<wiki>" --root "<root>"
-bun run cf -- check --fix --vault "<wiki>" --root "<root>" --templates "<templates>"
-bun run cf -- check --vault "<wiki>" --root "<root>" --templates "<templates>"
+bun run cf -- check --fix --vault "<wiki>" --root "<root>" --templates "<templates>" "<Campaign folder>" "<page path>"
+bun run cf -- check --vault "<wiki>" --root "<root>" --templates "<templates>" "<Campaign folder>" "<page path>"
 bun run cf -- log --world "<World overview name>" --op create --title "New Campaign: <Campaign>" --page "<page>" --vault "<wiki>" --root "<root>"
 ```
 

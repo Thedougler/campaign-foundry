@@ -58,6 +58,7 @@
 - [[Old Gardens]] — Ancient stone terraces rising from Western Landing, crowded with fruit, water channels and things that hunt among them.
 - [[Print Braid]] — A braid of packed paths along the Quiet's edge where only one strand carries the Calveno trail north.
 - [[Razer-Grass]] — A pale glass-edged stand that cuts movement and bursts into slashing shards and choking dust when shattered.
+- [[Shelfworks]] — The western dive terrace of the Drowned Maw, where salvage crews work the upper Antheri tiers above squid-dark water.
 - [[Slack Basin]] — A still turquoise pool owned by an otter family, where Matteo's camp and a bloody Calveno trail mark the route into the Quiet.
 - [[Spiritpollen]] — A pale pollen stand whose cloud makes breathing creatures hallucinate hostile spirits and attack their companions.
 - [[Spoke Ring]] — The Calveno survivors' last camp under the Quiet, a round fire hub where trails leave like spokes toward Hinewai's voice.
@@ -67,6 +68,7 @@
 - [[Studio Orsini]] — A Le Paludi studio that buys what nesting things and the sea give up, run by Marta Orsini, and the buyer of Jean-Claude's whip-shark eggs.
 - [[Sunken Crown]] — A broken structure east of the Drowned Maw, structurally unstable and still subsiding.
 - [[Tallow Row]] — A card house of long-running tables where Thunk won silver, Thassos tests the players, and Old Faas holds fifteen years of standing.
+- [[Tessarine Trade House]] — A three-storey Concordat house on the Shelf that turns trade, salvage and mail into signed terms.
 - [[The Burnt Road]] — A two-mile Quiet scar burned by a Gold-caste expedition, where eleven compelled Grung lie sunk in black flowers.
 - [[The Cabinet of Morsani]] — A Velo Quarter curio shop where Prospero Morsani sells rare objects together with the stories of those who lost them.
 - [[The Galewall Runner's Drop]] — A legendary colonial-era privateer cache on the Ashwall Islands, named the way crews name a thing they have not found.
@@ -97,11 +99,13 @@
 - [[Cobb]] — A young rattkin dockworker and Nona Black-Jaw's runner who keeps La Vasca's refit on schedule.
 - [[Coralyra Dranra]] — Sea elf sorcerer and bard, self-exiled from her post as Aoidos of Halythion.
 - [[Corbin Knighton]] — Crown boarder whose false report now drives a quiet hunt for the crew.
+- [[Drav Holke]] — Saltwright's bosun; clipped, correct, and no interest in small talk.
 - [[Duvane]] — An Ashwall repair-crew carpenter whose scorpion attack in a handhold fissure is why two hands now climb the stone.
 - [[Ensign Wouters]] — Crown ensign and navigator of the HCS Surety, shot through a gun port by Delmar Fisk; the Party fed his body to Ket.
 - [[Enzo]] — Nona Black-Jaw's polished tabaxi bodyguard, a quiet enforcer who reads every guest before violence reaches her.
 - [[Ettore Ferrante]] — Injured Calveno survivor trapped in a lava tube with his son and two companions.
 - [[Felix Aho]] — Captured green-caste Grung labourer who traded bombing intelligence for protection.
+- [[Fen]] — Saltwright's ordinary sailor; young, earnest, and eight months at sea.
 - [[Geoffrey Draves]] — Dravosi carpenter aboard the Uncertainty, working under Sem Holst, dancing toward the means to claim Verity Hollowell's hand.
 - [[Gianni Moro]] — Calveno cooper who nearly followed Hinewai's voice from the lava tube.
 - [[Hinewai]] — Undead elf archdruid bound to Aruhe, whose grief became the island's law.
@@ -109,6 +113,7 @@
 - [[Impuni]] — A name Shepherd Grigori said he needed to reach in Calveno, in time; nothing else on record.
 - [[Ket]] — Freed Moucheron prisoner who traded blood and information for a flight home.
 - [[Lavinia Sordi]] — Seller of cursed goods who named Osset a second time.
+- [[Lenne Vor]] — Saltwright's navigator; twenty years of chart work, consulted once, quietly right about everything.
 - [[Luca Ferrante]] — Sixteen-year-old wreck survivor who counts everything and knows which way his uncle walked.
 - [[Marta Orsini]] — Le Paludi's buyer of eggs and curiosities at Studio Orsini, who paid 225 gp for Jean-Claude's whip-shark eggs.
 - [[Master Kyzil]] — Barn-owl Sentinel master testing Crissdalynn while investigating a foul wind beneath Calveno.
@@ -117,6 +122,7 @@
 - [[Nona Black-Jaw]] — Black-Jaw Run matriarch, senior Tangle elder, and Perrin Black-Jaw's grandmother, who turns trust into routes and obligations.
 - [[Noor]] — The youngest hand aboard the Uncertainty, a fifteen-year-old cook who knows every sailing manual and almost none of the sea.
 - [[Old Faas]] — Brick-solid bosun and rigger on two brass-ferruled peg legs, fearless since a childhood fall and faster in the shrouds than on the deck.
+- [[Orvalle]] — A Shelfworks air-pump hand who stopped diving after the drop-off took his partner, and rations the telling to once a season.
 - [[Osset]] — Former High Eyrie master now hidden behind Talon Vantyrus while he studies Crissdalynn's Long Sight.
 - [[Otar the Foul]] — Ancient red slaad summoned through Solange Barret to destroy Mercatura.
 - [[Ozzeth, the Twiceborn]] — Disgraced Grung mage who maintained Simone's colour rite until his death in the sewer magazines.
@@ -142,6 +148,7 @@
 - [[Vashu, the Weeping Veil]] — Blind purple-caste Grung master of the Still-Water Discipline and former Magazine Gamma guardian.
 - [[Verity Hollowell]] — The dancer who caught Geoffrey Draves mid-movement on his shore leave, and the reason he counts every wage.
 - [[Vincenzo Black-Jaw]] — Nona Black-Jaw's late husband: builder and captain of the Vestra, gambler, empty chair at family meals.
+- [[Wessa]] — Saltwright's cook; impossible standards, zero theatrics, the food just appears.
 - [[Zort]] — Armless goblin animal dealer who trades Midchain names for work he cannot do himself.
 
 ## Creatures
@@ -163,6 +170,7 @@
 - [[Giant Bat]] — A large bat whose colonies roost in the Ashwall vent caves, where volcanic heat keeps the fissures warm year-round.
 - [[Giant Scorpion]] — An ambush predator holding the Ashwalls' warm fissures, where the handholds run back into occupied dark.
 - [[Giant Shark]] — A huge shark that follows damaged hulls near the Ashwall lee, where wreckage feeds the food chain.
+- [[Giant Squid]] — A huge deep-water beast of the Drowned Maw that takes divers from the Shelfworks drop-off after dark.
 - [[Giant Vulture]] — A cliff scavenger of the Ashwalls whose numbers spike after a wreck, a rough tally of what the storm took.
 - [[Grung (Creature)]] — A Grung creature (CR 1/4) used as a scout in The Shattered Sea.
 - [[Grung Elite Warrior]] — A Grung Elite Warrior creature (CR 2) used as a warrior in The Shattered Sea.
@@ -195,6 +203,7 @@
 
 ## Factions
 
+- [[Beaumont's Crew]] — The four working hirelings crewing the Saltwright under Captain Beaumont Sel — navigator, bosun, cook, and ordinary sailor.
 - [[Black-Jaw Run]] — Nona Black-Jaw's family crew: the Passage's Warren anchor Run, smuggling under four hard rules.
 - [[Chain Council]] — Kalowe's council in a seized fort, balancing arrival tribute, complaints about grung raids and concealment of the Pearl theft.
 - [[Countless]] — Breakaway Sentinel order that erases names and hunts Fate Spinner carriers through one-job agents.
@@ -207,6 +216,7 @@
 - [[Le Ossa del Toro]] — An orc and tortle two-piece on drums and a massive horn whose Palio crowd surges, compresses and occasionally ends up in the canal.
 - [[Passage]] — Rescue and smuggling network that moves people off official routes without treating them as property.
 - [[Sentinels of the Eyrie]] — Aarakocra monks at High Eyrie who watch and record the Drowned Maw without interpreting or intervening.
+- [[Seven Houses Council]] — The council of seven Tessarine houses that leads the Concordat from Calveno; four houses usually vote its way while three stall.
 - [[Tangle]] — The Passage's elder council of Run families, setting wider policy from kitchen tables rather than thrones.
 - [[Tarahs]] — A power whose ships Rattkin families watch for; threat enough that Nona Black-Jaw keeps count of their ports.
 - [[Tessarine Concordat]] — Eastern mercantile colonial power that holds the Scatter with paper, debt and courtesy that is always a contract.

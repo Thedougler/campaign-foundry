@@ -51,7 +51,7 @@ date: "1495 DR, date not established"
 
 ## Clues
 
-| Clue | Can surface in |
+| Clue | Found in |
 | --- | --- |
 | Fallen fruit is safe. Living fruit is dangerous. | [[Session 11 - What They Ate]] |
 | A woman in the woods commands obedience. | [[Session 11 - Farthest Camp]] |

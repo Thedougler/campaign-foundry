@@ -4,6 +4,7 @@ summary: "Barn-owl Sentinel master testing Crissdalynn while investigating a fou
 sources:
  - "archive/master-kyzil.md"
  - "archive/ssw-session-03.md"
+ - "archive/ssw-le-paludi.md"
 creature: "[[Master Kyzil (Creature)]]"
 ---
 
@@ -17,7 +18,7 @@ creature: "[[Master Kyzil (Creature)]]"
 - **Found at.** High Eyrie, or temporarily at the Waveservant Shrine in Calveno.
 
 > [!narration] First look
-> A barn-owl aarakocra sits with one place beside him conspicuously empty. He smooths his robes and crosses his right wing over the left before asking a question in a voice so composed that worry sounds like weather.
+> A barn-owl aarakocra is seated, one place beside him conspicuously empty. He smooths his robes and crosses his right wing over the left before asking a question in a voice so composed that worry sounds like weather.
 
 ## Play
 

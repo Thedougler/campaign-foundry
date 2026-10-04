@@ -28,7 +28,7 @@ parent: "[[Aruhe]]"
 
 [[Landing Bank]], [[Line Bank]], [[Slack Basin]], [[Cutoff Lip]], [[Print Braid]], [[Spoke Ring]] and [[Star Cut]] mark the principal route. Current runs from Clear Lake toward the Marshes.
 
-### Places worth reaching
+### Places
 
 From this water the Party can reach [[Landing Bank]], [[Torn Crossing]], [[Line Bank]], [[Slack Basin]], [[Cutoff Lip]], [[Print Braid]], [[Spoke Ring]] and [[Star Cut]].
 

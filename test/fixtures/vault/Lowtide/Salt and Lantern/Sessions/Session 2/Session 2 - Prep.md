@@ -37,7 +37,7 @@ date: "22 Eelrun 412 CY"
 
 ## Clues
 
-| Clue                                                                       | Can surface in                                                                |
+| Clue                                                                       | Found in                                                                |
 | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | The water under Reedholt dropped a foot overnight.                         | [[Session 2 - The Bell Rings Early]]                                          |
 | The bell rings in threes with a pause.                                     | [[Session 2 - The Bell Rings Early]], [[Session 2 - Low Water at the Chapel]] |

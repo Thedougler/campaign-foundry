@@ -32,9 +32,9 @@ Text.
 
 ## Clues
 
-| Clue | Can surface in |
-| ---- | -------------- |
-|      |                |
+| Clue | Found in |
+| ---- | -------- |
+|      |          |
 
 ## Links
 

@@ -7,7 +7,7 @@ const LAYER = "orphans";
 
 /** Where a link to each page kind normally lives, for the hint. */
 const LINK_FROM: Record<string, string> = {
-	Location: "its parent Location: `### Places worth reaching` on a Region, `### Districts` or `### Services` on a Settlement, `### Areas` on a Site",
+	Location: "its parent Location: `### Places` on a Region, `### Districts` or `### Services` on a Settlement, `### Areas` on a Site",
 	NPC: "the Location where they are found, or the Faction they belong to",
 	Creature: "an NPC that uses it (`creature: \"[[Name]]\"`) or a Scene's or Site's occupants",
 	Faction: "a Location, NPC or Lore page that mentions it",

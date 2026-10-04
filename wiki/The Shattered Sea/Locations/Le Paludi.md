@@ -5,6 +5,7 @@ summary: "Calveno's canal district of taverns, goods, alchemy and discreet route
 sources:
  - "archive/le-paludi.md"
  - "archive/ssw-silent-shortbow.md"
+ - "archive/ssw-le-paludi.md"
 parent: "[[Calven and Calveno]]"
 ---
 
@@ -17,7 +18,7 @@ parent: "[[Calven and Calveno]]"
 - **Prize.** Taverns, specialized goods, alchemy and Passage access.
 
 > [!narration] Entering
-> Canals carry traffic past taverns and general-goods shops. Alchemy work hides behind an unmarked door, while older water routes pass below the district.
+> Traffic runs along canals past taverns and general-goods shops. Alchemy work hides behind an unmarked door, while older water routes pass below the district.
 
 ## Play
 
@@ -41,7 +42,7 @@ Ask for a contact, buy goods, seek alchemy, negotiate a cellar route or descend 
 
 ### History
 
-The older Season 2 description called Le Paludi a fence town. Current canon keeps it as a district and does not carry that label forward.
+The older Season 2 description called Le Paludi a fence town. Current canon keeps it as a district and leaves that label behind.
 
 ### Hidden truths
 
@@ -49,7 +50,7 @@ The Warren lies below, but each owner controls a different access route rather t
 
 ### Threads
 
-The Warren below is Nona's, its network carried by [[Perrin and Nona]], and [[Simone's Hunters]] hunt any threshold that shelters a fugitive.
+The Warren below is Nona's, and [[Perrin and Nona]] run its network, while [[Simone's Hunters]] hunt any threshold that shelters a fugitive.
 
 ## Links
 

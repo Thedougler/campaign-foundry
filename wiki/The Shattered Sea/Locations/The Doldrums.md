@@ -37,7 +37,7 @@ Two ways to deal with the band, and the choice between them is real:
 
 Provision at a Midchain harbour before committing to any tow. Every cask the tow drinks comes off that harbour, and the water inside the band is what you carry. Rest aboard while becalmed is safe from weather and exposed to boarders. The flat water carries a whispered order from the mast to the helm, and a night watch keeps quiet. A tow crew rotates in shifts, because towing exhausts, and exhausted crews in the shallows meet what lives there.
 
-### Places worth reaching
+### Places
 
 No charted place sits inside the band. The routes that matter lead out of it: the [[Midchain]] back channels to the north, and the long water toward the [[Drowned Maw]] past the Galewall.
 

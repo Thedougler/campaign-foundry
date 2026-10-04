@@ -5,26 +5,27 @@ sources:
  - "archive/story-so-far.md"
  - "archive/campaign-timeline.md"
  - "archive/session-11-transcript.md"
+ - "archive/ssw-lines-and-veils.md"
 session_length_hours:
 ---
 
 ## At a glance
 
 - **Players.** Kaden, Frederick, Courtney, and Chad.
-- **Premise.** Four strangers with debts, pursuers, and secrets become a crew in the Shattered Sea.
+- **Premise.** Debts, pursuers, and secrets follow four strangers who become a crew in the Shattered Sea.
 - **Party.** [[Perrin Black-Jaw]], [[Delmar Fisk]], [[Crissdalynn Khinriss]], and [[Jean-Claude Tabarnack]].
 - **Cadence.** Sessions follow the Party's crossings, port bargains, and consequences.
 - **Now.** After Session 11, the Party is camped at the River's slack basin on [[Aruhe]]. [[Jean-Claude Tabarnack]] is catatonic in [[Delmar Fisk]]'s coat, [[Matteo Scola]] wants passage off the island, and [[Talon Skarn]]'s attack on [[Crissdalynn Khinriss]] for the [[Fate Spinner]] remains unresolved. Session 12 Prep begins from this camp.
 
 > [!narration] The Campaign
-> You reached the Saltwright along separate roads. One of you survived a wreck and another hides an older name, while a third was pulled from the sea. Hunters trail the fourth by one island. Crown sailors board to seize the ship while you are all together in the hold. Explaining whose ship it is will have to wait. Make the hold yours, survive the inspection, and decide what kind of crew crosses a sea where others own every route.
+> You reached the Saltwright along separate roads. One of you lived through a wreck and another hides an older name, while a third was pulled from the sea. Hunters trail the fourth by one island. Crown sailors board to seize the ship while you are all together in the hold. Explaining whose ship it is will have to wait. Make the hold yours, get through the inspection, and decide what kind of crew crosses a sea where others own every route.
 
 ## Play
 
 - **Session length.** Inherits DM Settings unless session_length_hours is set.
 - **Table agreements.** The Campaign follows the World tone of consequential travel, hard choices, and discoveries that remain useful beyond one Session.
-- **House Rules.** None established in the supplied material.
-- **Tone and themes.** [[campaign-config|Tone and themes]]
+- **House Rules.** None established.
+- **Tone, themes, Lines and Veils.** [[campaign-config|Tone, themes, Lines and Veils]]
 
 ## Depth
 

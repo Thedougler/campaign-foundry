@@ -32,7 +32,7 @@ Two choices matter on the western run, and both are made here:
 
 The vulture count is the cheap intelligence: numbers above the baseline over the cliffs mean something came through the storm in pieces, and a day spent in the [[Ashwall Lee]] reading that is rarely wasted.
 
-### Places worth reaching
+### Places
 
 - [[Ashwall Lee]]. Repair water, salvage, and the survivors' accounts.
 - [[Volcanic Vent Caves]]. The only warmth on the islands, and occupied.

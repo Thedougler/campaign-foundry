@@ -5,6 +5,7 @@ sources:
  - "archive/Cobb.md"
  - "archive/ssw-nona-black-jaw.md"
  - "archive/ssw-session-03.md"
+ - "archive/ssw-cobb.md"
 creature: ""
 ---
 
@@ -16,7 +17,7 @@ creature: ""
 - **Found at.** La Vasca in Le Paludi, Calven and Calveno. He carries messages to Perrin.
 
 > [!narration] First look
-> You find a young rattkin halfway down the cradle ladder, grey-brown fur blackened at the wrists by pitch and paint. Caulking calluses map his palms, a dockworker's coat hangs loose at the shoulders, and a rag rests over one shoulder. Turpentine and hot pitch fill the air. “You wanted to see what a week bought?”
+> You find a stocky young rattkin halfway down the cradle ladder, grey-brown fur blackened at the wrists by pitch and paint. Caulking calluses map his palms, a dockworker's coat hangs loose at the shoulders, and a rag rests over one shoulder. Turpentine and hot pitch fill the air. “You wanted to see what a week bought?”
 
 ## Play
 
@@ -30,11 +31,13 @@ creature: ""
 
 ### History
 
-Cobb runs the Basin dock operations for Nona's Warren account. He has known Perrin since childhood and is the bridge between the crew and the Black-Jaw family. His pride is in doing dock work correctly, not in gaining status. He reported a ship of the [[Tarahs]] in port to Nona, and his report made her call off the attacks her people were running.
+Cobb runs the Basin dock operations for Nona's Warren account. He has known Perrin since childhood and is the bridge between the crew and the Black-Jaw family, whose Run anchors the [[Passage]]. His pride is in doing dock work correctly, not in gaining status. He reported a ship of the [[Tarahs]] in port to Nona, and his report made her call off the attacks her people were running.
+
+He was at the open gate when the *Uncertainty* arrived, and Perrin shook his hand, said it was all sorted, and bolted.
 
 ### Hidden truths
 
-- The live sending stone is deliberate. Nona would not have sent it as decoration. The Party can learn this when Cobb carries her message.
+- The live sending stone is deliberate. Nona would not have sent it as decoration. The Party can learn this when Cobb delivers her message.
 - Cobb's loyalty is divided only when Nona's instructions appear to threaten Perrin's safety. The Party sees the strain in his careful answers.
 
 ### Threads

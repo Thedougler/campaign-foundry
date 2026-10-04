@@ -26,7 +26,7 @@ parent: "[[Midchain]]"
 
 The eastern chain route takes days by sail. A reef gap takes about an hour to pilot and is watched. The near channel to Aruhe is half a mile of exposed water and does not shorten Aruhe's crossing.
 
-### Places worth reaching
+### Places
 
 The reef gaps, hatcheries, captive pens and secret gold farms.
 

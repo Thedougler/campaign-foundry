@@ -25,7 +25,7 @@ parent: "[[Midchain]]"
 
 Open water surrounds the reef ring. The tide pulls east toward two wrecks. No marked safe passage crosses the ring.
 
-### Places worth reaching
+### Places
 
 The cliff hollows, rope bridges and eastern reef.
 

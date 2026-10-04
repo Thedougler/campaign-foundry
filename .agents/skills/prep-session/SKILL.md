@@ -55,7 +55,7 @@ Read [the shared Scene procedure](../../../docs/agents/scene-pages.md) before ch
 
 10. **Cold-read the full Session.** Follow each entry and conditional exit across the actual pages and resolving embeds, as a DM with no chat or sourcebooks. Check the chart's shared order and Minutes against the chosen length, each row's trigger and live Thread, the opposition's independent advances, all PC Spotlights, Clue discovery routes and critical-route redundancy. Trace every Climax dependency to an earlier Scene or established Canon, and every Climax result to the matching Resolution payoff, reward, Thread state and closing Narration. Check branch transitions preserve losses and live choices without teleporting the Party or assuming acceptance. Fix local defects and recompute affected rows and entries. **Done when** every row has a runnable page, all conditional routes and payoffs agree, and every composition criterion is satisfied; capability gaps remain named requirements, not fictional successes.
 
-11. **Refresh and file.** Rewrite the Campaign's `hot.md` from its current template, around 500 words and within its gate limit. Keep the actual Party date, Location, active Threads and last played changes; `## Next` links this Prep and its Hook and states the upcoming questions. Future outcomes remain conditional. Run the completion commands below and record one `prep` operation containing every touched content page, including dependent cast, Handouts, Previously On and hot. **Done when** hot is accurate, the generated index is current, the unfiltered gate has passed and the prep log entry exists, or each unavailable operation has its exact blocker recorded.
+11. **Refresh and file.** Rewrite the Campaign's `hot.md` from its current template, around 500 words and within its gate limit. Keep the actual Party date, Location, active Threads and last played changes; `## Next` links this Prep and its Hook and states the upcoming questions. Future outcomes remain conditional. Run the completion commands below and record one `prep` operation containing every touched content page, including dependent cast, Handouts, Previously On and hot. **Done when** hot is accurate, the generated index is current, the page gate over every touched page has passed and the prep log entry exists, or each unavailable operation has its exact blocker recorded.
 
 12. **Push and report.** Invoke `push-session` with the World, Campaign, Session, Wiki root and complete touched paths. Read the current Push help rather than inheriting stale command examples from a child skill. Preview, fix Wiki-side warnings and rerun the gate/log cycle for any additional content edits, then run the actual build without `--dry-run`. A running Foundry or MCP bridge is not required for the offline Adventure build; installation uses only an explicitly supplied modules folder, and the DM performs Adventure import. Live touches remain the Push skill's conditional branch.
 
@@ -72,15 +72,15 @@ bun run cf -- log --help
 bun run cf -- push --help
 ```
 
-After content is ready, regenerate the index and run the full unified gate:
+After content is ready, regenerate the index and run the page gate, given every touched content page, hot included:
 
 ```bash
 bun run cf -- index
-bun run cf -- check --fix
-bun run cf -- check
+bun run cf -- check --fix "<page path>" "<page path>"
+bun run cf -- check "<page path>" "<page path>"
 ```
 
-Fix remaining findings without changing Canon and repeat until the unfiltered gate exits 0. Page and layer filters are diagnostic only. Then append the operation:
+Fix remaining findings without changing Canon and repeat until the page gate reports `ok: 0 findings`. A `--layer` filter is diagnostic only. Then append the operation:
 
 ```bash
 bun run cf -- log --world "<World>" --op prep --title "Session <N> Prep" --page "<World>/<Campaign>/Sessions/Session <N>/Session <N> - Prep.md"

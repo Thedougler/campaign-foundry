@@ -52,7 +52,7 @@ The next Session begins with [[Session 12 - Previously On]].
 
 ## Clues
 
-| Clue | Can surface in |
+| Clue | Found in |
 | ---- | -------------- |
 | The Calveno survivors followed a woman's voice north-east and are at the Pantry. | [[Session 12 - The Smoking Skylight]] |
 | Terror-birds stop at tall grass and deep water. Razer-Grass also ends a charge. | [[Session 12 - Terror-Birds]] |

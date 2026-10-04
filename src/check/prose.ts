@@ -12,6 +12,8 @@ export interface ProseView {
 	text: string;
 	/** For each UTF-16 unit of `text`, the offset in the page source it came from. */
 	map: number[];
+	/** `[start, end)` of each page name in `text`: an unaliased link's name, or a masked name's stand-in. */
+	names: Range[];
 }
 
 /** Generated catalog pages are machine output: the prose layers skip them. `log.md` is written by the Agent and is checked. */
@@ -65,6 +67,8 @@ interface Edit {
 	/** Replacement text and, for each of its units, the source offset it maps to. */
 	text: string;
 	from: number[];
+	/** The replacement is a page name or its stand-in. */
+	name?: boolean;
 }
 
 const NEWLINES = /\n/g;
@@ -102,37 +106,57 @@ const BLOCK_ID = /[ \t]+\^[A-Za-z0-9-]+[ \t]*$/gm;
 const caches = { show: new WeakMap<Page, ProseView>(), mask: new WeakMap<Page, ProseView>() };
 
 /**
- * What a page name becomes in a masked view: a neutral word, so the name's own words cannot trip a wording rule.
- * Each name gets its own word (`Placenamea`, `Placenameb`, …) so two different names never read as a repeated opening.
+ * What a page name becomes in a masked view, so the name's own words (`Fire Watch`, `Countless`) cannot trip a
+ * wording rule. A page of a concrete kind reads as that kind's common noun, so a literal subject stays literal: the
+ * Saltwright that carried passengers is a `Ship` that carried them, which the rules' exception lists know. Every other
+ * page (a Quest, a Scene, Lore) reads as a made-up word, `Placenamea`, `Placenameb`, …, which the rules treat as the
+ * abstraction it is. Capitalised like the name it replaces.
  */
 const MASKED_NAME = "Placename";
+const STAND_IN: Record<string, string> = {
+	NPC: "Person",
+	PC: "Person",
+	Deity: "Person",
+	// An animate being: the rules' exception lists name beings as `person`, not `creature`.
+	Creature: "Person",
+	Faction: "People",
+	Vehicle: "Ship",
+	Item: "Object",
+	Location: "Place",
+};
 
 interface NameMask {
 	pattern: RegExp;
+	/** Each name's own made-up word: no source holds it (the narration layer's echo check). */
 	token: Map<string, string>;
+	/** Each name's word in a masked view: its kind's noun, else its made-up word. */
+	standIn: Map<string, string>;
 }
 
 const nameMaskCache = new WeakMap<Vault, NameMask | null>();
 
-/** Every page name and alias in the vault: one whole-word, case-sensitive pattern (longest first) and each name's mask word. */
+/** Every page name and alias in the vault: one whole-word, case-sensitive pattern (longest first) and each name's mask words. */
 function nameMask(vault: Vault): NameMask | null {
 	if (nameMaskCache.has(vault)) return nameMaskCache.get(vault) ?? null;
-	const names = new Set<string>();
+	const kinds = new Map<string, unknown>();
 	for (const page of vault.pages) {
 		if (!isProsePage(page)) continue;
-		names.add(page.name);
+		const type = page.frontmatter?.type;
+		if (!kinds.has(page.name)) kinds.set(page.name, type);
 		const aliases = page.frontmatter?.aliases;
-		for (const alias of Array.isArray(aliases) ? aliases : [aliases]) if (typeof alias === "string") names.add(alias);
+		for (const alias of Array.isArray(aliases) ? aliases : [aliases]) if (typeof alias === "string" && !kinds.has(alias)) kinds.set(alias, type);
 	}
-	const sorted = [...names].filter((n) => /\p{Lu}/u.test(n)).sort((a, b) => b.length - a.length);
+	const sorted = [...kinds.keys()].filter((n) => /\p{Lu}/u.test(n)).sort((a, b) => b.length - a.length);
 	const letters = (i: number): string => (i < 26 ? "" : letters(Math.floor(i / 26) - 1)) + String.fromCharCode(97 + (i % 26));
+	const token = new Map(sorted.map((n, i) => [n, MASKED_NAME + letters(i)]));
 	// ponytail: case-sensitive whole-word match, so a sentence-initial common word that is also a page name ("Passage") is masked too.
 	const mask =
 		sorted.length === 0
 			? null
 			: {
 					pattern: new RegExp(`(?<![\\p{L}\\p{N}])(?:${sorted.map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})(?![\\p{L}\\p{N}])`, "gu"),
-					token: new Map(sorted.map((n, i) => [n, MASKED_NAME + letters(i)])),
+					token,
+					standIn: new Map(sorted.map((n) => [n, STAND_IN[String(kinds.get(n))] ?? token.get(n) ?? MASKED_NAME])),
 				};
 	nameMaskCache.set(vault, mask);
 	return mask;
@@ -146,8 +170,8 @@ export function maskNames(text: string, vault: Vault): string {
 
 /**
  * Without `mask`, a link shows its page name. With the vault as `mask`, each unaliased link and each bare page
- * name or alias becomes a neutral word: the style layer uses it, because a name such as `Fire Watch` or
- * `Countless` is not the DM's prose.
+ * name or alias becomes its stand-in (see `MASKED_NAME`): the style layer uses it, because a name such as
+ * `Fire Watch` or `Countless` is not the DM's prose.
  */
 export function proseView(page: Page, mask?: Vault): ProseView {
 	const cache = caches[mask ? "mask" : "show"];
@@ -170,15 +194,15 @@ export function proseView(page: Page, mask?: Vault): ProseView {
 			continue;
 		}
 		const shown = wikilinkDisplay(m[2] ?? "", start + 2);
-		const text = mask && shown.named ? (nameMask(mask)?.token.get(shown.text) ?? MASKED_NAME) : shown.text;
-		edits.push({ start, end, text, from: Array.from({ length: text.length }, (_, i) => shown.at + i) });
+		const text = mask && shown.named ? (nameMask(mask)?.standIn.get(shown.text) ?? MASKED_NAME) : shown.text;
+		edits.push({ start, end, text, from: Array.from({ length: text.length }, (_, i) => shown.at + i), name: shown.named });
 	}
 	const names = mask ? nameMask(mask) : null;
 	if (names) {
 		for (const m of masked.matchAll(names.pattern)) {
 			const start = m.index ?? 0;
-			const text = names.token.get(m[0]) ?? MASKED_NAME;
-			edits.push({ start, end: start + m[0].length, text, from: Array.from({ length: text.length }, () => start) });
+			const text = names.standIn.get(m[0]) ?? MASKED_NAME;
+			edits.push({ start, end: start + m[0].length, text, from: Array.from({ length: text.length }, () => start), name: true });
 		}
 	}
 	for (const m of masked.matchAll(CALLOUT_MARKER)) {
@@ -193,6 +217,7 @@ export function proseView(page: Page, mask?: Vault): ProseView {
 	edits.sort((a, b) => a.start - b.start || b.end - a.end);
 	let text = "";
 	const map: number[] = [];
+	const nameRanges: Range[] = [];
 	let cursor = 0;
 	const copy = (from: number, to: number): void => {
 		text += source.slice(from, to);
@@ -201,12 +226,13 @@ export function proseView(page: Page, mask?: Vault): ProseView {
 	for (const edit of edits) {
 		if (edit.start < cursor) continue;
 		copy(cursor, edit.start);
+		if (edit.name) nameRanges.push([text.length, text.length + edit.text.length]);
 		text += edit.text;
 		map.push(...edit.from);
 		cursor = edit.end;
 	}
 	copy(cursor, source.length);
-	const view = { text, map };
+	const view = { text, map, names: nameRanges };
 	cache.set(page, view);
 	return view;
 }

@@ -39,7 +39,7 @@ Survival follows tracks and smoke.
 
 ## Clues
 
-| Clue | Surfaces through |
+| Clue | Found through |
 | ---- | ---------------- |
 | The woman in the woods has not been found. | The inland route |
 

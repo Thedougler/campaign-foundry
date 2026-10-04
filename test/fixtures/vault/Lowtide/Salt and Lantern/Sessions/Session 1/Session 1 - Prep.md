@@ -35,7 +35,7 @@ date: "14 Eelrun 412 CY"
 
 ## Clues
 
-| Clue                                                                        | Can surface in                                                       |
+| Clue                                                                        | Found in                                                             |
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | The lamp's wick seal was cut, not burned out.                               | [[Session 1 - The Lamp Goes Dark]], [[Session 1 - The Lamp Room]]    |
 | Every wreck this season happened on a moonless night.                       | [[Session 1 - A Warden's Offer]], [[Session 1 - The Lamp Room]]      |

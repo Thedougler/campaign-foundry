@@ -19,7 +19,7 @@ date: "14 Emberfall 1492"
 
 ## Last Session
 
-The Party reached the bridge.
+The Party crossed the bridge.
 
 ## Next
 

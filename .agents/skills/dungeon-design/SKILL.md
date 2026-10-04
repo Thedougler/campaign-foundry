@@ -76,4 +76,4 @@ Walk an entrance-to-objective route and retreat using the keys alone, then a del
 - **Composed:** return the stock, dependency paths, complete touched-path set and any source/calibration notes to the caller for its one final authoring operation. Do not run a separate gate or append a second log entry.
 - **Direct:** follow sections **3. Write and link pages** and **4. Gate and record the operation** of common authoring: file the Site(s) and dependencies, use the current Bun CLI help for index/check/fix, pass every gate layer, then append one `create` log covering all touched pages. Leave hot and played Session pages unchanged.
 
-**Done when** the caller has a complete stock handoff, or every standalone page passes the gate and the one operation is logged; the reply names the stocked Site paths and their usable routes, pressure and return changes.
+**Done when** the caller has a complete stock handoff, or the page gate over every standalone page reports `ok: 0 findings` and the one operation is logged; the reply names the stocked Site paths and their usable routes, pressure and return changes.

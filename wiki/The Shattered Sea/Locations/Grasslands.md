@@ -28,7 +28,7 @@ parent: "[[Aruhe]]"
 
 [[Landing Bank]], [[Torn Crossing]], [[Line Bank]] and [[Slack Basin]] follow the River. [[Print Braid]], [[Spoke Ring]] and [[Star Cut]] lead into the Quiet. [[Memorial Grove]] lies beyond.
 
-### Places worth reaching
+### Places
 
 Along the River. [[Landing Bank]], [[Line Bank]], [[Torn Crossing]] and [[Slack Basin]]. North through [[Cutoff Lip]], the Quiet side holds [[Print Braid]], [[Star Cut]] and [[Spoke Ring]].
 

@@ -28,7 +28,7 @@ parent: ""
 
 [[Calven and Calveno]] and [[Calder's Tooth and Port Tidefall]] are established harbour nodes. [[High Eyrie]] lies beyond the eastern chain. The southern coasts face the [[Central Strait]], where [[Harwick]]'s yard and the deep-water Reach hold the Crown's strongest regional foothold.
 
-### Places worth reaching
+### Places
 
 - [[Calven and Calveno]]
 - [[Calder's Tooth and Port Tidefall]]

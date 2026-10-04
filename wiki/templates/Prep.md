@@ -32,9 +32,9 @@ date: ""
 
 ## Clues
 
-%% About ten true, concrete facts, unattached until play shows where they belong. Each can surface in more than one Scene. %%
+%% About ten true, concrete facts, unattached until play shows where they belong. Each can be found in more than one Scene. %%
 
-| Clue | Can surface in |
+| Clue | Found in |
 | ---- | -------------- |
 |      |                |
 

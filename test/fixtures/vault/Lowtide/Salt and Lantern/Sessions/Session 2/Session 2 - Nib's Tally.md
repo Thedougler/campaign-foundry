@@ -36,7 +36,7 @@ Nib decided long ago to leave the ledger alone, though he knows more than he has
 
 ## Clues
 
-| Clue                                                           | Surfaces through                                        |
+| Clue                                                           | Found through                                           |
 | -------------------------------------------------------------- | ------------------------------------------------------- |
 | Nib keeps tally-sticks with 3,912 names of the drowned.        | The sticks on the roof, or Nib's own words.             |
 | The ledger lies in a niche in the bell loft.                   | Nib, once trusted, or the letter from Hobb.             |

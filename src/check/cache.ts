@@ -14,7 +14,7 @@ interface CacheFile {
 }
 
 /** Bump when a prose view or a layer's mapping changes shape, so stale entries are never reused. */
-const CACHE_VERSION = 2;
+const CACHE_VERSION = 3;
 
 export const hash = (text: string): string => createHash("sha256").update(text).digest("hex");
 

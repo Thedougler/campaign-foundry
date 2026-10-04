@@ -54,6 +54,7 @@ spellcasting
 spellbook
 
 # Published settings, planes and authors
+Amnian
 Eberron
 Faerûn
 Faerun
@@ -94,3 +95,6 @@ unarmored
 waterskin
 waterskins
 tortle
+Aquan
+Agathys
+Dragonhide

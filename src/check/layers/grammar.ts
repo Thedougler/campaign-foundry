@@ -83,11 +83,15 @@ async function lintPages(l: LocalLinter, pages: Page[]): Promise<Map<Page, Cache
 		const groups = await l.organizedLints(view.text, { language: "markdown" });
 		for (const [rule, lints] of Object.entries(groups)) {
 			for (const lint of lints) {
+				const span = lint.span();
+				const [start, end] = [utf16(span.start), utf16(span.end)];
+				// A page name is not the DM's wording: a lint inside one (`config` in `[[campaign-config]]`) is dropped.
+				if (view.names.some(([s, e]) => start >= s && end <= e)) continue;
 				found.push({
 					layer: LAYER,
 					severity: "error",
 					rule,
-					line: lineAt(starts, sourceOffset(view, utf16(lint.span().start))),
+					line: lineAt(starts, sourceOffset(view, start)),
 					message: lint.message(),
 					hint: hintFor(lint),
 				});

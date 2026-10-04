@@ -33,7 +33,7 @@ Two roads east, and the choice between them is real:
 
 Provision west of the Maw, and again at Keth-Naar for anything beyond it. The tabaxi water and repair hulls for coin or salvage. Rest aboard while hove to is safe from weather and exposed to whatever else has marked the same still water.
 
-### Places worth reaching
+### Places
 
 - [[Keth-Naar]], the [[Tabaxi|tabaxi]] city at the [[Blue Hole]]'s edge and the furthest reliable landmark eastward. Water and repairs this far east come from its harbour or from nowhere.
 - [[Sunken Crown]], the broken structure east of the Maw that eastbound pilots still use for a mark. It is structurally unstable and still subsiding.

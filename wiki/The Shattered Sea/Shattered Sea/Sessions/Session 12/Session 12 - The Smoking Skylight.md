@@ -39,7 +39,7 @@ A 15-foot skylight drops 40 feet to a basalt ledge. Four Calveno live below on f
 
 ## Clues
 
-| Clue | Surfaces through |
+| Clue | Found through |
 | ---- | ---------------- |
 | Nineteen days ago, Carlo Ferrante followed Hinewai's voice north-east, and the camp followed him. | Luca and Gianni |
 | The bird drove these four into the tube, where Ettore broke his leg. | Luca and Piero |

@@ -4,6 +4,7 @@ summary: "Kaden's level 5 rattkin Warlock and Lore Bard, the crew's voice and fo
 sources:
  - "archive/perrin-black-jaw.md"
  - "archive/ssw-session-02.md"
+ - "archive/ssw-cobb.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/Krab02/characters/166013448"
 ---
 
@@ -46,7 +47,9 @@ dndbeyond_url: "https://www.dndbeyond.com/profile/Krab02/characters/166013448"
 
 ### Backstory
 
-Perrin washed up on Keth-Naar after the Vestra went down and reached the Saltwright's hold. His grandmother Nona Black-Jaw runs a Passage network, and he has not told the whole crew that he is still chasing the lost family ship. His unknown patron is Auralis, a power tied to the Drowned Maw. After the capture of the Surety he named himself a Black-Jaw before the assembled crew, and Beaumont Sel delivered Nona's message and named him a Friend of the [[Passage]]. During the whip-shark strikes his watch carried him into an abyss vision. He stood on a stone floor scored with channels under drifting light, then wore a sixty-foot barbed-tailed body whose hunting instincts rose in him. Something far larger below turned a curious attention his way, and one word, "Grow", burned into his mind. He met his grandmother in [[Le Paludi]], promised her an unstated favour, and carries her sending stone. His childhood contact [[Cobb]] runs the [[La Vasca]] dock, and a bioluminescent whale held a parallel heading with the ship for a long while, a thing he had already seen in the vision.
+Perrin washed up on Keth-Naar after the Vestra went down and reached the Saltwright's hold. His grandmother Nona Black-Jaw runs a Passage network, and he has not told the whole crew that he is still chasing the lost family ship. His unknown patron is Auralis, a power tied to the Drowned Maw. After the capture of the Surety he named himself a Black-Jaw before the assembled crew, and Beaumont Sel delivered Nona's message and named him a Friend of the [[Passage]]. During the whip-shark strikes his watch carried him into an abyss vision. He stood on a stone floor scored with channels under drifting light, then wore a sixty-foot barbed-tailed body whose hunting instincts rose in him. Something far larger below turned a curious attention his way, and one word, "Grow", burned into his mind. He met his grandmother in [[Le Paludi]], promised her an unstated favour, and carries her sending stone. His childhood contact [[Cobb]] runs the [[La Vasca]] dock, and a bioluminescent whale matched the ship's heading for a long while, a thing he had already seen in the vision.
+
+At La Vasca's gate he shook [[Cobb]]'s hand, said it was all sorted, and bolted.
 
 ## Goals and bonds
 

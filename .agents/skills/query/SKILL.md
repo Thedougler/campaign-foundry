@@ -39,5 +39,5 @@ Most answers file nothing. A keeper is filed without asking (ADR 0003), and fili
 - **Pages, not the spine.** `hot.md`, `index.md` and `log.md` are never filing targets: Ingest and Prep rewrite `hot.md`, and scripts write the other two.
 
 1. Write the keeper onto the page of its kind, in the section where that page's template puts such a fact, in the page's own voice, linking the pages it came from. The question and answer stay in chat.
-2. Run the full `bun run cf -- check --fix` / `bun run cf -- check`, resolving findings or reporting what remains. Then run `bun run cf -- log --world <World> --op query --title "<the question>"` with a `--page` per page edited. Done when filing has observed full-gate results and its log entry; a page filter is not completion evidence.
+2. Run the page gate, `bun run cf -- check --fix` / `bun run cf -- check` given every page edited, repairing every finding until it reports `ok: 0 findings`. Then run `bun run cf -- log --world <World> --op query --title "<the question>"` with a `--page` per page edited. Done when filing has observed that page gate at `ok: 0 findings` and its log entry.
 3. Close the answer with one line naming each page edited. The index and log are housekeeping the DM never needs to hear about.

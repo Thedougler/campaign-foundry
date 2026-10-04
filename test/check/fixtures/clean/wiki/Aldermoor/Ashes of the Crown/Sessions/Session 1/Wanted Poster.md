@@ -12,7 +12,7 @@ sources: []
 - **From.** Text.
 
 > [!narration] Handout text
-> The Bandit Captain is wanted for arson.
+> Fifty gold for the Bandit Captain, who burned the mill.
 
 ![[wanted-poster.png]]
 

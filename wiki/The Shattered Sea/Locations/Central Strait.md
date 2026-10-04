@@ -43,7 +43,7 @@ Rest and supply:
 - **Harwick Reach.** The deep water south of [[Harwick]], where patrol frigates stage. Rest here is Crown-supervised and needs papers.
 - **[[Kalowe]].** Supply, repairs, pilots, and a shrine that charges every hull.
 
-### Places worth reaching
+### Places
 
 - [[Calder's Tooth and Port Tidefall|Port Tidefall]] and the Tidefall Gate, the inspected western entrance.
 - [[Kalowe]], the strait-adjacent free port on the southern side.

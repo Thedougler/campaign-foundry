@@ -440,7 +440,7 @@
 - [[The Tail]]
 - [[High Eyrie]]
 
-## [2026-10-02] ingest | ssw-aarakocra.md: kept speed 40 ft. walk and fly as the Wiki has it
+## [2026-10-02] ingest | ssw-aarakocra.md: kept the 40-foot walk and fly speed as the Wiki has it
 
 - [[Aarakocra]]
 
@@ -459,7 +459,7 @@
 - [[Thunk]]
 - [[Uncertainty]]
 
-## [2026-10-02] ingest | ssw-sem-holst.md: kept "he works under Sem Holst" as the Wiki has it; raw line "Crew Role: Carpenter's Mate (assists [[geoffrey-draves|Geoffrey]])" stays out
+## [2026-10-02] ingest | ssw-sem-holst.md: kept "he works under Sem Holst" as the Wiki has it; raw line "Crew Role: Carpenter's Mate (assists [[Geoffrey Draves|Geoffrey]])" stays out
 
 - [[Sem Holst]]
 
@@ -585,7 +585,7 @@
 - [[Verity Hollowell]]
 - [[Cedric Hollowell]]
 
-## [2026-10-03] ingest | ssw-midchain.md — Wiki kept volcanic Aruhe and its survivors over "reef island" and "Deserted inner-edge island near the Verdant Teeth", compelled landings over "Grung patrol the reefs but refuse to land", and Murrat scrutiny over "non-Moucheron attacked on sight"
+## [2026-10-03] ingest | ssw-midchain.md: Wiki kept volcanic Aruhe and its survivors over "reef island" and "Deserted inner-edge island near the Verdant Teeth". It kept compelled landings over "Grung patrol the reefs but refuse to land", and Murrat scrutiny over "non-Moucheron attacked on sight"
 
 - [[Midchain]]
 - [[Kalowe]]
@@ -721,7 +721,7 @@
 - [[Geoffrey Draves]]
 - [[La Vasca]]
 
-## [2026-10-03] ingest | ssw-session-01.md — situation threads and deckhand backfill (revised skill)
+## [2026-10-03] ingest | ssw-session-01.md: situation threads and deckhand backfill (revised skill)
 
 - [[The Rook Resolution]]
 - [[The Canister]]
@@ -767,3 +767,89 @@
 - [[Memorial Grove]]
 - [[The Quiet]]
 - [[hot]]
+
+## [2026-10-03] ingest | ssw-le-paludi.md
+
+- [[Le Paludi]]
+- [[Master Kyzil]]
+- [[Crissdalynn Khinriss]]
+
+## [2026-10-03] ingest | ssw-cobb.md
+
+- [[Cobb]]
+- [[Perrin Black-Jaw]]
+- [[La Vasca]]
+- [[Uncertainty]]
+
+## [2026-10-03] ingest | ssw-lines-and-veils.md
+
+- [[campaign-config|Lines and Veils]]
+- [[Shattered Sea]]
+
+## [2026-10-03] ingest | ssw-tessarine-trade-house.md
+
+- [[Tessarine Trade House]]
+- [[Tessarine Concordat]]
+- [[Calder's Tooth and Port Tidefall]]
+
+## [2026-10-03] ingest | ssw-beaumonts-crew.md
+
+- [[Beaumont's Crew]]
+- [[Lenne Vor]]
+- [[Drav Holke]]
+- [[Wessa]]
+- [[Fen]]
+- [[Saltwright]]
+- [[Beaumont Sel]]
+
+## [2026-10-03] audit | Draves is the only crew member who defected, not her only crew member (the ingest listed the Saltwright's four hirelings)
+
+- [[Saltwright]]
+
+## [2026-10-03] ingest | ssw-giant-squid.md
+
+- [[Giant Squid]]
+- [[Shelfworks]]
+- [[Orvalle]]
+- [[Drowned Maw]]
+- [[Pearl of Souls]]
+- [[Tessarine Concordat]]
+
+## [2026-10-03] lint | Tessarine and Tidefall names into the vault word list, Seven Houses Council stub, ai-tells prose repairs, log title repairs
+
+- [[Tessarine Concordat]]
+- [[Seven Houses Council]]
+- [[Calder's Tooth and Port Tidefall]]
+- [[Le Paludi]]
+- [[Shattered Sea]]
+- [[Perrin Black-Jaw]]
+- [[The Shattered Sea/index]]
+
+## [2026-10-03] lint | Lint: reword carry phrasing
+
+- [[campaign-config|Tone and themes]]
+- [[Crissdalynn Khinriss]]
+
+## [2026-10-03] lint | Lint: rewrote ai-tells findings across Saltwright, Uncertainty, Beaumont's Crew, Drav Holke, Lenne Vor, Wessa
+
+- [[Saltwright]]
+- [[Uncertainty]]
+- [[Beaumont's Crew]]
+- [[Drav Holke]]
+- [[Lenne Vor]]
+- [[Wessa]]
+
+## [2026-10-03] lint | Rewrote ai-tells phrasing on trade house, dry dock and two NPCs
+
+- [[Tessarine Trade House]]
+- [[La Vasca]]
+- [[Cobb]]
+- [[Master Kyzil]]
+
+## [2026-10-03] lint | Rewrote thirteen ai-tells findings across the Maw squid slice
+
+- [[Giant Squid]]
+- [[Shelfworks]]
+- [[Orvalle]]
+- [[Drowned Maw]]
+- [[Pearl of Souls]]

@@ -2,19 +2,21 @@
 type: Faction
 summary: "Eastern mercantile colonial power that holds the Scatter with paper, debt and courtesy that is always a contract."
 sources:
+ - "archive/ssw-giant-squid.md"
+ - "archive/ssw-tessarine-trade-house.md"
  - "archive/tessarine-concordat.md"
 ---
 
 ## At a glance
 
 - **Goal.** Contain public debt exposure while retaining salvage priority and control through paper.
-- **Next move.** Keep Sunkline funded, record the Chain Council mail trail and pursue Shelfworks intelligence.
-- **Led by.** The Seven Houses Council. Cosimo Verantio is the hidden architect.
+- **Next move.** Keep Sunkline funded, record the Chain Council mail trail and pursue [[Shelfworks]] intelligence.
+- **Led by.** The [[Seven Houses Council]]. Cosimo Verantio is the hidden architect.
 - **Base.** [[Calven and Calveno]] counting houses.
 - **Strength.** Credit, collateral, insured cargo, sealed mail and debt-recovery holds.
 
 > [!narration] Public face
-> Pale canal counting houses and white sails with blue triangles mark Concordat writ. A clerk can sound like an old house, yet every courtesy carries its terms. They promise a balanced ledger in place of an answer, calling it the safer way.
+> Pale canal counting houses and white sails with blue triangles mark Concordat writ. A clerk can sound like an old house, and every courtesy comes with its terms. They promise a balanced ledger in place of an answer, calling it the safer way.
 
 ## Play
 
@@ -28,7 +30,7 @@ sources:
 
 ### History
 
-The Tessarine began as an eastern mercantile colonial power shaped by the old Amnian house model. Counting houses and the Seven Houses Council hold visible authority in Calveno. Four houses usually vote its way while three can still stall. Its trade house at [[Calder's Tooth and Port Tidefall]] licenses trade and brokers salvage. After Mercatura, the Party signed as Calveno's Defenders on Tessarine letterhead.
+The Tessarine began as an eastern mercantile colonial power shaped by the old Amnian house model. Counting houses and the Seven Houses Council hold visible authority in Calveno. Four of the houses usually vote its way while three can still stall. Its [[Tessarine Trade House|trade house]] at [[Calder's Tooth and Port Tidefall]] licenses trade, brokers salvage and dispatches its couriers. After Mercatura, the Party signed as Calveno's Defenders on Tessarine letterhead.
 
 ### Hidden truths
 

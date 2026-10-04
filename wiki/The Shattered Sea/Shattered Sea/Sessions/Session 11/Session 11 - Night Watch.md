@@ -39,7 +39,7 @@ Survival prepares the porcupine meat and quills.
 
 ## Clues
 
-| Clue | Surfaces through |
+| Clue | Found through |
 | ---- | ---------------- |
 | An unseen watcher left when lantern light reached the dead porcupine. | The camp perimeter |
 

@@ -33,7 +33,7 @@ Reading the wind's stages is the pilot's craft. Judging how far the boundary lie
 
 The white-fire drill is the one pilots who have crossed insist on: storm-light that moves is a different warning from ordinary lightning. Shorten sail, clear the mast line, and get metal off the hands on deck before it crosses ([[Arclight Phoenix]]).
 
-### Places worth reaching
+### Places
 
 - [[Ashwall Islands]], the last solid ground outbound and the only repair water on the run.
 - [[The Galewall Runner's Drop]], a legendary colonial-era privateer cache on the Ashwalls.

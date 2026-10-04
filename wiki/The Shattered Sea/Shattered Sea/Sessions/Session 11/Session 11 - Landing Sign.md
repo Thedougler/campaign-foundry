@@ -43,7 +43,7 @@ Investigation identifies recent human use.
 
 ## Clues
 
-| Clue | Surfaces through |
+| Clue | Found through |
 | ---- | ---------------- |
 | Something inland may have survived. | The cold camp |
 

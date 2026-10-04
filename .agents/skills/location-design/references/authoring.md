@@ -53,14 +53,15 @@ bun run cf -- check --help
 bun run cf -- log --help
 ```
 
-From the repo root, apply mechanical fixes and resolve the remaining findings without changing Canon, then run the full gate without path or layer filters:
+From the repo root, regenerate indexes, apply mechanical fixes and resolve the remaining findings without changing Canon, then run the page gate with no layer filter, given every page this run touched:
 
 ```bash
-bun run cf -- check --fix
-bun run cf -- check
+bun run cf -- index
+bun run cf -- check --fix "<page path>" "<page path>"
+bun run cf -- check "<page path>" "<page path>"
 ```
 
-Path arguments only filter findings; they do not make the check local. A filtered report is not completion evidence. The full `--fix` run also regenerates indexes; never edit generated indexes by hand. When the caller assigns an explicit filesystem target, add its `--vault`, `--root` and `--templates` paths to both commands, and `--vault`/`--root` to logging.
+The paths narrow the report, not the check: the whole Wiki is still checked behind them. Never edit generated indexes by hand. When the caller assigns an explicit filesystem target, add its `--vault`, `--root` and `--templates` paths to the check commands, and `--vault`/`--root` to indexing and logging.
 
 After a successful standalone operation, append exactly one entry listing each touched content page, using its vault-relative path. For example, replace the placeholders and repeat `--page` as needed:
 
@@ -70,4 +71,4 @@ bun run cf -- log --world "<World>" --op create --title "Design <Location>" --pa
 
 `create` includes deepening a Location outside Ingest or Prep. A composed request returns touched paths, Canon decisions and unresolved findings to its caller; the caller owns the final gate and one entry under its existing operation. Do not create a second log entry inside a child handoff.
 
-**Complete when** the full gate exits 0 and the standalone operation has one log entry, or the composed return supplies every artifact and touched path needed for its caller's gate and log. Report an observed blocker instead of claiming an unrun or failing gate passed.
+**Complete when** the page gate reports `ok: 0 findings` and the standalone operation has one log entry, or the composed return supplies every artifact and touched path needed for its caller's gate and log. Findings are repair work; report only missing tooling as an observed blocker, never claiming an unrun or failing gate passed.

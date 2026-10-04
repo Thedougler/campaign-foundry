@@ -34,6 +34,8 @@ Delegate through native `task` (`context` + `tasks[]`) or eval `agent()`/`workpo
 
 Give writers disjoint files and pass briefs and artifact paths explicitly. Set `isolated: true` when parallel writers may touch the same files or a change needs review before it lands. Steer a worker with `agent://`, send follow-up work to an idle agent that already holds the context, collect completion notifications, and `wait` only when nothing else is actionable.
 
+Subagents share one worktree and never change git state: no `stash`, `checkout`, `reset`, `restore`, `switch`, `branch`, `rebase`, `commit` or `clean`. Read-only git (`status`, `diff`, `log`, `show`) is fine, and `git mv` only where the ingest archive step calls for it. To keep a baseline, save `git diff` to a file. Committing is the top-level agent's job.
+
 Select an agent by its responsibility:
 
 - `skill-writer` (`@SKILL-WRITER`) authors every large or novel change to agent-facing text: skills, `.omp/agents/`, `AGENTS.md`, runbooks and pointers. The orchestrator writes its briefs, owns acceptance criteria, eval fixtures, Wiki and integration, and leaves those files to it. When the defect was observed in a run, wait until every ingest subagent in that batch has finished, then pass all of their finished `history://` transcripts together so the writer sees the issues directly; never pass an in-progress transcript, and never pass one run while siblings are still going.

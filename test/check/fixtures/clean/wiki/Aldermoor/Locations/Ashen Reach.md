@@ -25,7 +25,7 @@ Text.
 
 Text.
 
-### Places worth reaching
+### Places
 
 [[Ravenhold]] holds the only bridge.
 
