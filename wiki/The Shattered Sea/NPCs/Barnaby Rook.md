@@ -5,6 +5,7 @@ sources:
  - "archive/barnaby-rook.md"
  - "archive/ssw-session-02.md"
  - "archive/ssw-session-03.md"
+ - "archive/ssw-miras-blade.md"
 creature: "[[Barnaby Rook (Creature)]]"
 ---
 
@@ -35,12 +36,13 @@ Rook commanded the HCS Surety under the Dravosi Crown. He knowingly underpaid Ge
 ### Hidden truths
 
 - Rook's cabin held letters of marque, hidden gold, Mira's Blade, and twenty vials of Grung poison. The cargo and the supply trail can expose Simone's Crown connection.
+- His fee ledger logs Mira's Blade as "bladed goods, unlicensed", a seizure he never registered with the Crown.
 - Rupert Knighton may not yet know Rook is dead. The crew's recovered papers can bring that escalation closer.
-- Rook's chart archive, found by the crew, shows he broke Imperial rules about the Drowned Maw twice and did not record what he found there. The Party learns this by reading his charts.
+- Rook's chart archive, found by the crew, shows he broke Imperial rules about the Drowned Maw twice and did not record what he found there. The Party finds it out by reading his charts.
 
 ### Threads
 
-He sits in **The Crown Inspection** and **Simone's Hunters**, and his presumed death adds pressure to the Crown's search for the crew. The undecided fight the Party left at the first break sits in **[[The Rook Resolution]]**, resolved.
+He sits in **The Crown Inspection** and **Simone's Hunters**, and his presumed death adds pressure to the Crown's search for the crew. The undecided fight the Party left at the first break rests with **[[The Rook Resolution]]**, resolved.
 
 ## Links
 

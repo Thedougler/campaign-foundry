@@ -4,14 +4,15 @@ summary: "A paired sending stone that gives Perrin a private line to Nona Black-
 sources:
  - "archive/sending-stone-nonas.md"
  - "archive/ssw-session-03.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 ---
 
 ## At a glance
 
 - **Kind.** Wondrous item.
 - **Rarity.** Common.
-- **Attunement.** None recorded.
-- **Changes.** Words spoken to it reach only its paired twin.
+- **Attunement.** Not needed on either face of the pair.
+- **Changes.** A message spoken into one face comes out of Nona's twin alone.
 - **Held by.** [[Perrin Black-Jaw]]. [[Nona Black-Jaw]] holds the twin.
 
 > [!narration] First look
@@ -31,7 +32,7 @@ Until Nona calls, the stone is silent. Her call is a job, warning or both. It ca
 
 ### History
 
-Nona gave the stone to Perrin in [[Le Paludi]] for an unrevealed favour. Perrin agreed to end Dravosi attacks at The Warren as part of the exchange.
+Nona gave the stone to Perrin in [[Le Paludi]] for an unrevealed favour. Perrin agreed to end Dravosi attacks at The Warren as part of the exchange. Through it she later called in that favour, with Perrin to bring his friends to her safe-house table, the blue one above all, plus any fighter among them. When Perrin reported the Grung powder under the city, she answered through the stone that Enzo and more would come, and that she would speak to him in person.
 
 ### Hidden truths
 

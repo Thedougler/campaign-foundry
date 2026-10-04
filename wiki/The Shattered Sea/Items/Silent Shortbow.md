@@ -3,6 +3,7 @@ type: Item
 summary: "A yew shortbow whose draw and release make no sound, bought by Jean-Claude Tabarnack from Casa Lupo in Le Paludi."
 sources:
  - "archive/ssw-silent-shortbow.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 ---
 
 ## At a glance
@@ -24,7 +25,7 @@ This magic weapon adds a +1 bonus to attack and damage rolls and doesn't produce
 
 ### In use
 
-The release gives a listener only the arrow's flight to follow. The shooter's spot stays unknown unless the target sees the arrow in flight. The hinge breaks it down to a stowed length that slips under a coat or along a pack. That same quiet release lets the bearer loose a second arrow while listeners still search the last shot's origin.
+The release gives a listener only the arrow's flight to follow, and the shooter's position comes out only when the target sees the arrow in flight. The hinge breaks it down to a stowed length that slips under a coat or along a pack. That same quiet release lets the bearer loose a second arrow while listeners still search the last shot's origin.
 
 ## Depth
 

@@ -1,8 +1,14 @@
 ---
 type: Creature
-summary: "A Whip Shark creature (CR 8) used as a controller in The Shattered Sea."
+summary: "A Whip Shark creature (CR 8) used as a controller in The Shattered Sea; the crew killed the one that struck the cutter through the night, and its barb, scales and three eggs went with them."
+aliases:
+ - "Whip-Shark"
 sources:
  - "archive/whip-shark.md"
+ - "archive/Session 03 - Recap.md"
+ - "archive/ssw-whip-shark-barb.md"
+ - "archive/ssw-session-03.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 ---
 
 ## At a glance
@@ -10,11 +16,11 @@ sources:
 - **Role at the table.** It clears decks, snaring one creature in its tail and hauling it overboard while its bite opens the hull.
 - **Threat.** CR 8, with a bite that crushes hulls and a tail that reaches thirty feet.
 - **Tell.** The coils along its flank cinch tighter a heartbeat before the tail snaps out.
-- **Weak to.** Shallow water, where its bulk crawls ten feet a round. Party members who spread wide also strain it, since each tail holds only one captive.
+- **Weak to.** Shallow water, where its bulk crawls ten feet a round. Separation from the sea is the other weakness, and a Party spread wide strains it too, since one tail grapples only one captive at a time.
 - **Used by.** [[Leviathan]] patrols the same territory.
 
 > [!narration] First sight
-> A shark longer than any fishing boat rests in the shallows, its tail wound into tight coils against its flank. Slowly the broad head swings from one side to the other across the water, and the whole body holds its ground. Along the flank the coiled tail stands out in ridges, and water slaps at each one as it flexes. Then the coil pulls a little tighter, and the shark waits with its jaws just under the water.
+> The hull booms under your feet, and the cutter shudders along her whole length as the strikes come again from below. Then it surfaces, a whip-shark as long as the cutter herself, and [[Crissdalynn Khinriss]]'s wind closes on its head and lifts its gills into the air while the crew go to work.
 
 ## Statblock
 
@@ -58,7 +64,7 @@ actions:
 
 ### Tactics
 
-It hunts from open water, sniffing out a wounded creature a mile off through the same water and snaring one victim to drag overboard while its bite works the hull. Show the cinching coils before every snare, and let spacing, cover, and focused fire carry the answer. It breaks off when its wounds mount or the water stops favouring it.
+It strikes from open water, sniffing out a wounded creature a mile off through the same water and snaring one victim to drag overboard while its bite works the hull. Show the cinching coils before every snare, and let spacing, cover, and focused fire carry the answer. It breaks off when its wounds mount or the water stops favouring it.
 
 ### Outside a fight
 
@@ -70,9 +76,12 @@ Crush-bitten planks on beached hulls are the warning a Party learns to read. It 
 
 An amphibious beast of the World's shallows, it takes the prey that bleeds into its waters. Reading its signs calls for Wisdom (Survival).
 
+The one the Party met was a sixty-foot shark of the open sea. It struck the cutter's hull from below, returned during Perrin's watch, and kept coming back through the night until the crew killed it with [[Crissdalynn Khinriss]]'s wind pinning its head above the waves. The crew took three fertilised eggs from it, and its scales patched the cutter's hull. Its meat and teeth came ashore with the crew, and its four-foot barb is the [[Whip-Shark Barb]]. Traders prize whip-shark eggs as a delicacy, and fertilisation spoils the taste, so a fertilised clutch is a curiosity rather than a crop. A market vendor in [[Le Paludi]] still paid [[Jean-Claude Tabarnack]] 100 gp per egg for the three, 300 gp handed over in platinum, on her promise not to eat them.
+
 ### Hidden truths
 
-The bite-marks on a wrecked hull tell of its habits, and a successful Intelligence check made with the right skill confirms that its scent finds the wounded a mile away in shared water.
+- **The word Grow.** The vision that came to Perrin during the strikes placed him inside a sixty-foot body and left him the word "Grow" ([[Session 3 - Recap]]).
+- The bite-marks on a wrecked hull tell of its habits, and a successful Intelligence check made with the right skill confirms that its scent finds the wounded a mile away in shared water.
 
 ## Links
 
@@ -80,15 +89,15 @@ Related page, [[Leviathan]].
 
 ```base
 filters:
- and:
-  - file.hasLink(this.file)
+  and:
+    - file.hasLink(this.file)
 views:
- - type: table
-  name: Linked from
-  groupBy:
-   property: note.type
-   direction: ASC
-  order:
-   - file.name
-   - note.summary
+  - type: table
+    name: Linked from
+    groupBy:
+      property: note.type
+      direction: ASC
+    order:
+      - file.name
+      - note.summary
 ```

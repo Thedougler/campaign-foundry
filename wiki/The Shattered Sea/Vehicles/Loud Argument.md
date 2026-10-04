@@ -3,6 +3,7 @@ type: Vehicle
 summary: "Bastian Crev's ship in Fisk's Fleet, lost with the whole fleet over the Drowned Maw."
 sources:
  - "archive/ssw-lizardfolk.md"
+ - "archive/ssw-umberlee-shrine.md"
 ---
 
 ## At a glance
@@ -35,7 +36,7 @@ Captain [[Bastian Crev]]. No other crew is named.
 
 ### History
 
-The Loud Argument sailed as one of [[Delmar Fisk]]'s five ships, alongside the Red Lady, the Narrow, Heft and the [[Fernen]], that stole the Pearl of Souls from Umberlee's shrine on Vel-Orn. The fleet sank over the Drowned Maw when Umberlee struck it, and Delmar was among the survivors.
+The Loud Argument sailed as one of [[Delmar Fisk]]'s five ships, alongside the [[Red Lady]], the Narrow, Heft and the [[Fernen]], that stole the Pearl of Souls from Umberlee's [[Umberlee's Shrine|shrine]] on [[Vel-Orn]]. The fleet sank over the Drowned Maw when Umberlee struck it, and Delmar was among the survivors.
 
 ## Links
 

@@ -28,6 +28,7 @@
 
 ### Settlements
 
+- [[Botukuri]] — A Grung settlement of the clans and the birthplace of Jean-Claude Tabarnack, the blue-caste fugitive.
 - [[Calder's Tooth and Port Tidefall]] — A cliff-tier fortress-port whose docks, trade shelf and Crestwall guns watch the far side Strait.
 - [[Calven and Calveno]] — Calven's marsh, tidal flats and farms rise to Calveno, a canal city whose harbour flies the Dravosi flag while debt controls its politics.
 - [[Halythion]] — The sea elves' primary settlement in the Shattered Sea and the seat of their worship of Deep Sashelas.
@@ -39,6 +40,7 @@
 ### Sites
 
 - [[Aldenmere]] — A Crown island whose position off Sandtable Shoal makes it the pilot's mark on the mid-strait lane.
+- [[Ashkevet]] — A stop on the Midchain run where a yard bell rings from shore and the hand behind it has never shown itself.
 - [[Ashwall Lee]] — Sheltered repair water at the foot of the Ashwall spires, where damaged survivors gather and predators follow the wreckage.
 - [[Black Lotus]] — A mature magic-feeding bloom in Aruhe that clamps shut, drains spell slots and can yield a Black Lotus Heart.
 - [[Blue Hole]] — A sea mark at Keth-Naar's edge on the eastern road, the one feature the charts agree on.
@@ -65,7 +67,7 @@
 - [[Star Cut]] — A straight Quiet aisle beneath a slit of sky where the Calveno kept watch and the route continues toward Memorial Grove.
 - [[Stenmark]] — The Crown island whose eastern cliffs and signal tower are the last charted landmark before the Narrows close.
 - [[Stillbloom]] — A vibration-triggered Aruhe plant that launches venomous spines at fast grounded creatures and rewards careful passage.
-- [[Studio Orsini]] — A Le Paludi studio that buys what nesting things and the sea give up, run by Marta Orsini, and the buyer of Jean-Claude's whip-shark eggs.
+- [[Studio Orsini]] — A Le Paludi studio that buys what nesting things and the sea give up, run by Marta Orsini.
 - [[Sunken Crown]] — A broken structure east of the Drowned Maw, structurally unstable and still subsiding.
 - [[Tallow Row]] — A card house of long-running tables where Thunk won silver, Thassos tests the players, and Old Faas holds fifteen years of standing.
 - [[Tessarine Trade House]] — A three-storey Concordat house on the Shelf that turns trade, salvage and mail into signed terms.
@@ -76,6 +78,8 @@
 - [[The Pantry]] — A clearing deep in the Quiet roofed by one fruit-heavy vine, where seven Calveno survivors live on what falls.
 - [[The Ponte Bassa]] — A canal-side tavern built into Calveno's main crossing, where Oleandro Fuschi serves fish broth and remembers ships.
 - [[Torn Crossing]] — A flood-scoured Grasslands crossing where prints, slick stone, Razer-Grass, deep water and a Spiguar hunting lane constrain movement.
+- [[Umberlee's Shrine]] — Umberlee's old shrine on Vel-Orn, cut into black stone off every colonial chart, keeper of drowned names and water-debts.
+- [[Vel-Orn]] — A small reef-bound island in the ring around the Blue Hole, with Umberlee's hidden shrine cut into its cliff.
 - [[Volcanic Vent Caves]] — Steam-warmed fissures in the Ashwall spires, warm enough to shelter in and warm enough to be occupied.
 - [[Warren]] — A Rattkin settlement beneath Le Paludi and deepest Passage anchor, reached through learned routes and trust.
 - [[Waveservant Shrine]] — The Waveservants' harbour shrine in Calveno, where tribute is collected, appointments are kept, and Umberlee has spoken.
@@ -107,6 +111,7 @@
 - [[Felix Aho]] — Captured green-caste Grung labourer who traded bombing intelligence for protection.
 - [[Fen]] — Saltwright's ordinary sailor; young, earnest, and eight months at sea.
 - [[Geoffrey Draves]] — Dravosi carpenter aboard the Uncertainty, working under Sem Holst, dancing toward the means to claim Verity Hollowell's hand.
+- [[Giacomo Moretti]] — A Calveno name at the Beffa who welcomes attempts after twenty clean years, and this year's registered mark.
 - [[Gianni Moro]] — Calveno cooper who nearly followed Hinewai's voice from the lava tube.
 - [[Hinewai]] — Undead elf archdruid bound to Aruhe, whose grief became the island's law.
 - [[Iacopo Fieschi]] — Tessarine factor who turned Calveno's victory into Concordat credit.
@@ -115,7 +120,7 @@
 - [[Lavinia Sordi]] — Seller of cursed goods who named Osset a second time.
 - [[Lenne Vor]] — Saltwright's navigator; twenty years of chart work, consulted once, quietly right about everything.
 - [[Luca Ferrante]] — Sixteen-year-old wreck survivor who counts everything and knows which way his uncle walked.
-- [[Marta Orsini]] — Le Paludi's buyer of eggs and curiosities at Studio Orsini, who paid 225 gp for Jean-Claude's whip-shark eggs.
+- [[Marta Orsini]] — Le Paludi's buyer of eggs and curiosities at Studio Orsini, whom the Casa Lupo shopkeeper sends egg inquiries to.
 - [[Master Kyzil]] — Barn-owl Sentinel master testing Crissdalynn while investigating a foul wind beneath Calveno.
 - [[Matteo Scola]] — Wreck survivor who lives by Aruhe's fallen-fruit rule and will not approach Hinewai.
 - [[Nino]] — A Calveno captive wrecked on Aruhe, whose wordless caution teaches the island's taking-rule faster than words could.
@@ -139,6 +144,7 @@
 - [[Sienne Orre]] — Minotaur captain of the Fernen in Fisk's Fleet, who ran the fleet's perimeter survey operations.
 - [[Simone Tabarnack]] — Purple-caste Grung officer pursuing Jean-Claude while an unmaintained rite threatens her rise to Gold.
 - [[Solange Barret]] — Red-caste Grung ritual specialist whose circle summoned Otar beneath Mercatura.
+- [[Stripes Bitemore]] — A tribesman who was on Vel-Orn as the seas turned wrong, and feels a guiding pull from the shrine water.
 - [[Talon Skarn]] — Peregrine the faction apprentice hunting Crissdalynn's Fate Spinner under the Rule of Two.
 - [[Talon Vantyrus]] — Master of the faction and former Sentinel Osset, seeking the Soul Incarnate transformation through Crissdalynn.
 - [[Thassos]] — A fixture of the Tallow Row card tables who tests new players and calls the game.
@@ -186,6 +192,7 @@
 - [[River Otter]] — A River Otter creature (CR 4) used as a controller in The Shattered Sea.
 - [[Roc]] — A giant bird crews place above the Ashwall spires, riding the Galewall stormfronts in high weather.
 - [[Sawek]] — The strait's rumoured apex, a blue-hole predator associated with the darkest sections of the southern Midchain approaches, whose range in the open strait no pilot will state.
+- [[Shepherd Grigori (Creature)]] — Shepherd Grigori as a CR 19 undead: a sorcerer-lich whose blood phylactery is the Family of cured heirs.
 - [[Snakewood]] — A carnivorous canopy vine colony that grips travellers and feeds with acid.
 - [[Solange Barret (Creature)]] — Solange Barret, a unique Creature stat block from the archived NPC record.
 - [[Spiguar]] — A Spiguar creature (CR 11) used as a ambusher in The Shattered Sea.
@@ -195,8 +202,7 @@
 - [[Unsaid Macaw]] — A macaw that echoes surface thoughts and can briefly compel a truthful sentence.
 - [[Vashu the Weeping Veil]] — Vashu the Weeping Veil, a unique Creature stat block from the archived NPC record.
 - [[Vine Lash]] — A Vine Lash creature (CR 3) used as a controller in The Shattered Sea.
-- [[Whip Shark]] — A Whip Shark creature (CR 8) used as a controller in The Shattered Sea.
-- [[Whip-Shark (Creature)]] — A sixty-foot shark the crew killed after it struck the cutter through the night; its barb, scales and eggs all went to the crew.
+- [[Whip Shark]] — A Whip Shark creature (CR 8) used as a controller in The Shattered Sea; the crew killed the one that struck the cutter through the night, and its barb, scales and three eggs went with them.
 - [[Wolfrabbit]] — A Wolfrabbit creature (CR 4) used as a skirmisher in The Shattered Sea.
 - [[Young Bloodhawk]] — A Young Bloodhawk creature (CR 2) used as a skirmisher in The Shattered Sea.
 - [[Young Sea Serpent]] — A young serpent of the eastern water that travels in numbers, listed among the Outer Reach's known threats.
@@ -240,7 +246,7 @@
 - [[Grubnade]] — A volatile Aruhe caterpillar that detonates when disturbed, scattering harmless juveniles and igniting nearby growth.
 - [[Grung Authority Seal]] — Spent gold seals that compelled lower-caste Grung onto Aruhe and preserve each bearer's whole order chain.
 - [[Letters of Marque]] — Crown parchment licensing Barnaby Rook as a privateer and carrying a 30,000 gp Crown bond.
-- [[Mira's Blade]] — A blade Perrin Black-Jaw took from Barnaby Rook's cabin aboard the HCS Surety; who Mira was is not recorded.
+- [[Mira's Blade]] — A +1 shortsword Perrin Black-Jaw took from Barnaby Rook's cabin aboard the HCS Surety; who Mira was is not recorded.
 - [[Nightmantle]] — A cursed cloak of displacement that redirects nearby ranged attacks to its wearer.
 - [[Pearl of Souls]] — A shrine relic that collects drowned souls, signals across the Drowned Maw and remains beyond Umberlee's reach.
 - [[Redheart Berry]] — A rare Aruhe berry that restores 8d4 + 8 hit points as a Bonus Action.
@@ -260,6 +266,7 @@
 - [[HCS Ordinance]] — A three-deck Crown court warship carrying 96 guns and enforcing Admiralty authority across the lanes.
 - [[Knife's Wake]] — The lowest rung of the Scatter's piracy scale, the threat that makes a single bad channel choice expensive.
 - [[Loud Argument]] — Bastian Crev's ship in Fisk's Fleet, lost with the whole fleet over the Drowned Maw.
+- [[Red Lady]] — Fisk's fleet ship sunk by Umberlee's storm over the Drowned Maw, her wreck holding the Pearl of Souls and the fleet's commission records.
 - [[Saltwright]] — Beaumont Sel's battered brig and the Party's first berth, carrying four strangers toward Calveno when the Crown inspection began.
 - [[The Dead Lady]] — The collection hull Umberlee sends when her Waveservants are not enough, known by the red wake she leaves.
 - [[Uncertainty]] — A Crown cutter taken as HCS Surety, renamed Uncertainty and kept moving as the Party's mobile base.
@@ -314,6 +321,7 @@
 - [[The Canister]] — Jean-Claude recognised his sister's toxin in a Crown canister at the Saltwright gangplank and told nobody. The Party does not know.
 - [[The Crown Inspection]] — Crown sailors board the Saltwright under HCS Surety's flag, forcing the new crew to choose between surrender, deception, and taking the ship.
 - [[The Rook Resolution]] — Rook alive and armed aboard the Surety with his flintlock spent, the fight the Party left undecided at the Session 1 break. Resolved when he went into the water.
+- [[What Sunk the Vestra]] — Whether the hand behind the Pearl theft also placed the fleet and the Vestra where two powers would destroy them.
 
 ## Quests
 

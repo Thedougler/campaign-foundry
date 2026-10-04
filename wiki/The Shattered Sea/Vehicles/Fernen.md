@@ -3,6 +3,7 @@ type: Vehicle
 summary: "Sienne Orre's ship in Fisk's Fleet, lost with the whole fleet over the Drowned Maw."
 sources:
  - "archive/ssw-minotaur.md"
+ - "archive/ssw-umberlee-shrine.md"
 ---
 
 ## At a glance
@@ -15,7 +16,7 @@ sources:
 - **Berth.** None. Lost with [[Fisk's Fleet]] over the [[Drowned Maw]].
 
 > [!narration] First sight
->
+> Ask after the Fernen and the story ends the same way. She lies in the water over the [[Drowned Maw]] with her fleet.
 
 ## Play
 
@@ -35,7 +36,7 @@ Captain [[Sienne Orre]]. No other crew is named.
 
 ### History
 
-The Fernen sailed as one of [[Delmar Fisk]]'s five ships, alongside the Red Lady, the Narrow, Heft and Loud Argument, that stole the Pearl of Souls from Umberlee's shrine on Vel-Orn. The fleet sank over the Drowned Maw when Umberlee struck it, and Delmar was among the survivors.
+The Fernen sailed as one of [[Delmar Fisk]]'s five ships, alongside the [[Red Lady]], the Narrow, Heft and Loud Argument, that stole the Pearl of Souls from Umberlee's [[Umberlee's Shrine|shrine]] on [[Vel-Orn]]. The fleet sank over the Drowned Maw when Umberlee struck it, and Delmar was among the survivors.
 
 ## Links
 

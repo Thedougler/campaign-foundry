@@ -6,6 +6,7 @@ sources:
   - "archive/session-11-recap.md"
   - "archive/session-12-index.md"
   - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+  - "archive/ssw-what-sunk-the-vestra.md"
 date: "1495 DR, date not established"
 ---
 
@@ -13,8 +14,8 @@ date: "1495 DR, date not established"
 
 - **In-world date.** 1495 DR. No month or weekday is established in the sources.
 - **Party at.** The farthest camp on Aruhe, at the Slack Basin's edge above the garden.
-- **Active Threads.** [[The Crown Inspection]], [[Simone's Hunters]], [[Bring the Pearl of Souls to Umberlee]], [[Drowned Maw Awakening]], [[Perrin and Nona]].
-- **Last Session.** Session 11: the crossing to Aruhe and the garden's upper reaches.
+- **Active Threads.** [[The Crown Inspection]], [[Simone's Hunters]], [[Bring the Pearl of Souls to Umberlee]], [[Drowned Maw Awakening]], [[Perrin and Nona]], [[What Sunk the Vestra]].
+- **Last Session.** Session 11: the crossing to Aruhe and the garden's upper slopes.
 - **Next.** Session 12 is prepared: a dawn strike into the garden's burning keep.
 
 ## Active Threads
@@ -22,8 +23,9 @@ date: "1495 DR, date not established"
 - [[The Crown Inspection]]. Opened and overtaken: the Party took HCS Surety as [[Uncertainty]], and the Crown pursuit continues after the Ordinance's deception. Next: stay ahead of the pursuit while on Aruhe.
 - [[Simone's Hunters]]. Jean-Claude lies catatonic in Delmar's coat after the garden. The hunters' last known trail runs the captive route toward Karath. Next: protect Jean-Claude and reach Uncertainty.
 - [[Bring the Pearl of Souls to Umberlee]]. Delmar confessed, and Umberlee named the Pearl as her price. The debt stands and the Pearl lies beyond reach. Next: the choice cannot wait forever.
-- [[Drowned Maw Awakening]]. The Maw struck the hull, spoke to Perrin, and the chart evidence is unexplained. Next: what the Maw wants.
-- [[Perrin and Nona]]. Perrin holds Nona's sending stone and owes her the Aruhe rescue. Nona's desk hunts the missing of Mercatura. Next: report home when the stone can reach her.
+- [[Drowned Maw Awakening]]. The Maw struck the hull, spoke to Perrin, and the chart evidence is unexplained. Next: what the Maw is after.
+- [[Perrin and Nona]]. Perrin holds Nona's sending stone and owes her the Aruhe rescue. Nona's desk chases the missing of Mercatura. Next: report home once the stone delivers to her.
+- [[What Sunk the Vestra]]. Both disasters share the Maw's water, and whether the theft's hand positioned either is unproven. Next: the Red Lady's records or the reason Auralis saved Perrin.
 
 ## Last Session
 

@@ -11,7 +11,7 @@ parent: "[[Midchain]]"
 ## At a glance
 
 - **Size.** Three reef-linked islets, about 1,800 residents and more when the dry dock is full.
-- **Ruled by.** The [[Chain Council]] sits in a seized fort and leaves the ruler's seat empty.
+- **Ruled by.** The [[Chain Council]] governs from a seized fort and leaves the ruler's seat empty.
 - **Mood.** Crowded, practical and deliberately undocumented.
 - **Unsettled by.** Tribute, Crown papers and the silence around the Pearl theft.
 - **Known for.** The Midchain's primary settlement and repair harbour, with one navigable gap, stone bridges and dry docks.
@@ -39,13 +39,13 @@ Every hull pays the shrine. Crown papers are not the only authority at the gap.
 
 ### Rumors
 
-The yard bell at Ashkevet still rings. The Council has raised tribute to buy silence about the Pearl theft.
+The yard bell at [[Ashkevet]] still rings. The Council has raised tribute to buy silence about the Pearl theft.
 
 ## Depth
 
 ### History
 
-After the Red Lady sank, [[Master Kyzil]] tracked current and weather through Kalowe and Calder's Tooth while searching for Crissdalynn.
+After the [[Red Lady]] sank, [[Master Kyzil]] tracked current and weather through Kalowe and Calder's Tooth while searching for Crissdalynn.
 
 ### Hidden truths
 

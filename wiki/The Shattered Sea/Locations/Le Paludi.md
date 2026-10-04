@@ -6,6 +6,7 @@ sources:
  - "archive/le-paludi.md"
  - "archive/ssw-silent-shortbow.md"
  - "archive/ssw-le-paludi.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 parent: "[[Calven and Calveno]]"
 ---
 
@@ -47,6 +48,8 @@ The older Season 2 description called Le Paludi a fence town. Current canon keep
 ### Hidden truths
 
 The Warren lies below, but each owner controls a different access route rather than one district-wide passage.
+
+A storm drain on the district's secluded side runs about five hundred metres under the streets and opens into the sea. Grung moved stores along it in the days before the festival, and their fresh road-sign markers, direction arrows and a distance count, stayed scratched on the walls.
 
 ### Threads
 

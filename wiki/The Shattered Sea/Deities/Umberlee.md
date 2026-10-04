@@ -6,6 +6,8 @@ sources:
  - "archive/ssw-umberlee.md"
  - "archive/ssw-umberlee-and-waveservants.md"
  - "archive/ssw-umberlees-message.md"
+ - "archive/ssw-what-sunk-the-vestra.md"
+ - "archive/ssw-umberlee-shrine.md"
 ---
 
 ## At a glance
@@ -41,6 +43,7 @@ Umberlee is simply Umberlee at sea. People call her the Bitch Queen in anger and
 - Umberlee's claim ends where trench water becomes elemental water at the [[Drowned Maw]] fissure. She cannot reach into it to reclaim the [[Pearl of Souls]].
 - Tribute may be the procedural plug holding the fissure shut, though clergy do not advertise this suspicion. Shrine records and Maw pressure can reveal it.
 - The Pearl remains a mortal recovery path after the theft from Vel-Orn, and the five captains ride [[Delmar Fisk]] while their crews remain inside it.
+- An older shrine of hers stands on [[Vel-Orn]], cut into black stone: it marks debts and keeps drowned names, and the older worship of the [[Blue Hole]] is preserved there. [[Keth-Naar]] petitions her for terms there, and the shrine's protection of the [[Sunken Crown]] fails without the [[Pearl of Souls]].
 
 ## Links
 

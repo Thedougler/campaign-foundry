@@ -5,6 +5,7 @@ summary: "A general-goods shop in Le Paludi where Jean-Claude Tabarnack bought t
 sources:
  - "archive/ssw-silent-shortbow.md"
  - "archive/ssw-session-03.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 parent: "[[Le Paludi]]"
 ---
 
@@ -33,11 +34,11 @@ Buy or sell goods, or ask what passing traders have left lately.
 
 ### History
 
-[[Jean-Claude Tabarnack]] bought the [[Silent Shortbow]] here for 50 gp during Session 4. The shopkeeper said it came from someone passing through quickly, making extra coin on the sale. He had first come during Session 3 asking after the shortbow and the whip-shark egg he carried, and the shopkeeper sent him on to [[Studio Orsini]] for the egg.
+[[Jean-Claude Tabarnack]] bought the [[Silent Shortbow]] here for 50 gp during Session 4. The shopkeeper said it came from someone passing through quickly, making extra coin on the sale. The same visit moved a potion of gaseous form at 50 gp, a healing potion at 25 gp and the [[Flying Boots]] at 125 gp. He had first come during Session 3 asking after the shortbow and the whip-shark egg in his pack, and the shopkeeper sent him on to [[Studio Orsini]] for the egg.
 
 ### Hidden truths
 
-Where the shop's secondhand goods come from is the shopkeeper's own account, not checked fact. A stranger passing through quickly brought the shortbow and wanted fast coin. Pressing the shopkeeper for a description, or watching for the next hurried sale, is how the Party could learn who feeds the shop.
+Where the shop's secondhand goods come from is the shopkeeper's own account, not checked fact. The shortbow came from a stranger passing through quickly, sold for fast coin. Pressing the shopkeeper for a description, or watching for the next hurried sale, is how the Party could learn who feeds the shop.
 
 ## Links
 

@@ -14,7 +14,7 @@ sources:
 - **Held by.** [[Delmar Fisk]], currently left at [[Kat's Curios]] for appraisal.
 
 > [!narration] First look
-> The barb comes across the counter butt first, a curved length of yellowed bone that smells of dried brine and something faintly sweet under the lamp oil. Held upright, it reaches a sailor from heel to crown, and rows of small hooked serrations line every edge but the pale bare base. Whatever angle the light finds, the point stays dark and slick.
+> The barb comes across the counter butt first, a curved length of yellowed bone that smells of dried brine and something faintly sweet under the lamp oil. Held upright, it reaches a sailor from heel to crown, and rows of small hooked serrations line every edge but the pale bare base. Whatever angle the light finds, the point shows dark and slick.
 
 ## Play
 
@@ -30,9 +30,9 @@ Until the appraisal returns, it is cargo: four feet of curved spike whose every 
 
 ### History
 
-[[Crissdalynn Khinriss]] held the sixty-foot [[Whip-Shark (Creature)|whip-shark]] clear of the water while the crew killed it, and [[Delmar Fisk]] dove for the barb in manta ray form once it was dead. The shark's scales patched the cutter's hull, and the barb rode with Delmar ([[Session 3 - Recap]]).
+[[Crissdalynn Khinriss]] held the sixty-foot [[Whip Shark|whip-shark]] clear of the water while the crew killed it, and [[Delmar Fisk]] dove for the barb in manta ray form once it was dead. The shark's scales patched the cutter's hull, and the barb rode with Delmar ([[Session 3 - Recap]]).
 
-It now sits at [[Kat's Curios]], where [[Catalina Curio]] has promised a valuation or a use to follow.
+It is now at [[Kat's Curios]], where [[Catalina Curio]] has promised a valuation or a use to follow.
 
 ### Hidden truths
 

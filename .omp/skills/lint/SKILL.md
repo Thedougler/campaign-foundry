@@ -21,11 +21,11 @@ Lint ends on a **clean gate** over its **slice**, the pages it was given or pick
 
 ## Names
 
-A flagged word that is an in-world name or a rules term (`spelling` or `grammar` calls it unknown, or a `style` rule trips on the name's own words) keeps its Canon spelling; the gate learns it. Take the first rung that fits:
+A flagged word that is an in-world name or a rules term (`spelling` or `grammar` calls it unknown, or a `style` rule trips on the name's own words) keeps its Canon spelling; the gate learns it. Search the Wiki for it (`qmd`, a title glob), then take the first rung that fits, in order:
 
 1. **Misspelt Canon.** A Canon name spelt another way (the finding's "Did you mean", or `qmd` finds the page): write the Canon spelling.
 2. **Owned.** A page holds the name as its title or in `aliases`: write that exact form, case included, or add the form the text uses (a short form, a nickname, an epithet) to that page's `aliases`.
-3. **Unowned.** A name some template fits (a person, place, group, creature, item, god) that no page owns is a missing page: Lint gives it a stub as step 3 does; Ingest gives it a page through its Fill.
+3. **Unowned.** A name some template fits (a person, place, group, creature, item, god) that no page owns is a missing page, however briefly the text names it: Lint gives it a stub as step 3 does; Ingest gives it a page through its Fill.
 4. **Coinage.** An in-world word no template fits (a month, a weekday, a word of an in-world tongue, an oath): one line in `.cspell-words.txt` at the vault root (`wiki/`, or the bound `--vault`).
 5. **Rules term.** A D&D rules or published-setting term: one line in `.cspell/dnd-terms.txt` at the repo root, in its group.
 

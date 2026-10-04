@@ -5,6 +5,7 @@ summary: "A canal-side tavern built into Calveno's main crossing, where Oleandro
 sources:
  - "archive/ponte-bassa.md"
  - "archive/ssw-il-palio-delle-voci.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 parent: "[[Calven and Calveno]]"
 ---
 
@@ -12,7 +13,7 @@ parent: "[[Calven and Calveno]]"
 
 - **Draws the Party because.** Oleandro's memory is Calveno's best record of hull movements.
 - **Entrance.** The tavern built into the main canal crossing.
-- **Occupants.** Oleandro Fuschi.
+- **Occupants.** Oleandro Fuschi, and the tavern's broad-shouldered proprietor.
 - **Danger.** He answers direct questions but captains increasingly falsify manifests.
 - **Prize.** A hot bowl, canal view and a ship's movement or the captain who knows more.
 
@@ -23,7 +24,7 @@ parent: "[[Calven and Calveno]]"
 
 ### Areas
 
-Canal window, bar, kitchen and Oleandro's unwritten record.
+Canal window, bar, kitchen and Oleandro's unwritten record. Cheap rooms upstairs go for 2 sp a night. The Party sparred with [[Master Kyzil]] for three rounds on the open rooftop. The menu runs to fish broth, eel, meat plate, wine, rum and spirits.
 
 ### Hazards
 
@@ -41,11 +42,13 @@ Ask about a ship, compare a manifest, watch from the window, or pay for a bowl w
 
 ### History
 
-Oleandro has kept twenty years of vessel memory without a slate. The tavern is a living archive.
+Oleandro has kept twenty years of vessel memory without a slate. The tavern is a living archive. During Session 04 it was the Party's base in [[Calven and Calveno|Calveno]]: the crew long-rested in its two rooms and paid its tab in coin.
 
 ### Hidden truths
 
 The perfect archive is degrading because false manifests are more common. The tell is whether an answer gives movement or motive.
+
+The tavern fronts the [[Passage]]. The room's constant party traffic covers people who enter and leave through a safe entrance, and [[Perrin Black-Jaw]] knows the way in. Perrin chose it for that cover, over any Rattkin venue that would have put two avian predators among the kin.
 
 ### Threads
 

@@ -6,6 +6,7 @@ sources:
  - "archive/la-vasca.md"
  - "archive/ssw-session-03.md"
  - "archive/ssw-cobb.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 parent: "[[Le Paludi]]"
 ---
 

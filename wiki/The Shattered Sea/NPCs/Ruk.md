@@ -3,6 +3,7 @@ type: NPC
 summary: "Nona Black-Jaw's literal-minded lizardfolk guardian, a patient physical shield who never ignores a lie or threat."
 sources:
  - "archive/Ruk.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 creature: ""
 ---
 
@@ -29,7 +30,7 @@ creature: ""
 
 ### History
 
-Ruk has guarded Nona for twenty years, understanding her through territory, loyalty, feeding rituals, and care for the young. He and Enzo divide the work. Ruk reads physical danger while Enzo reads social danger. At the safe house he guards Felix Aho, a captured Grung prisoner.
+Ruk has guarded Nona for twenty years, understanding her through territory, loyalty, feeding rituals, and care for the young. He and Enzo divide the work. Ruk reads physical danger while Enzo reads social danger. At the safe house he guards Felix Aho, a captured Grung prisoner. He pushed Perrin into a seat when the Party first came to the table, and pinned Felix to his chair when they marched him in bound through the festival crowds.
 
 ### Hidden truths
 

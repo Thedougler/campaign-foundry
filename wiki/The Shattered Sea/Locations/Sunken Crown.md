@@ -5,6 +5,7 @@ summary: "A broken structure east of the Drowned Maw, structurally unstable and 
 sources:
  - "archive/ssw-outer-reach.md"
  - "archive/ssw-umberlee.md"
+ - "archive/ssw-umberlee-shrine.md"
 parent: "[[Outer Reach]]"
 ---
 
@@ -27,6 +28,10 @@ The structure is unstable and still subsiding. Keep to the boat beside it.
 ### History
 
 Salvage crews cut fresh depth marks into it each season, and the marks sit lower every year. The [[The Tithe of the Bitch Queen|Tithe of the Bitch Queen]] lies scattered across the seafloor around it.
+
+### Hidden truths
+
+The [[Umberlee's Shrine|shrine]] on [[Vel-Orn]] keeps a blessing over this structure. Since the [[Pearl of Souls]] left the shrine's deepest chamber, that blessing has been failing.
 
 ## Links
 

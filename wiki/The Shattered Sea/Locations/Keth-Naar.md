@@ -4,6 +4,7 @@ kind: Settlement
 summary: "A tabaxi city at the Blue Hole's edge, the furthest reliable landmark east of the Drowned Maw and the last harbour on the eastern road."
 sources:
  - "archive/ssw-outer-reach.md"
+ - "archive/ssw-umberlee-shrine.md"
 parent: "[[Outer Reach]]"
 ---
 
@@ -27,6 +28,10 @@ Water and hull repairs for coin or salvage, the only supply east of the [[Drowne
 ### History
 
 [[Perrin Black-Jaw]] washed up on Keth-Naar after the Vestra went down and reached the Saltwright's hold from there.
+
+### Hidden truths
+
+The city keeps a channel to [[Umberlee]] at the [[Umberlee's Shrine|shrine]] on [[Vel-Orn]], petitioning her for terms. That channel is compromised without the [[Pearl of Souls]].
 
 ## Links
 

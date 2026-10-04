@@ -4,6 +4,7 @@ kind: Site
 summary: "A Rattkin settlement beneath Le Paludi and deepest Passage anchor, reached through learned routes and trust."
 sources:
  - "archive/warren.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 parent: "[[Le Paludi]]"
 ---
 
@@ -45,6 +46,8 @@ Passage broke from Warren around 1240 DR under pressure. The settlement remains 
 ### Hidden truths
 
 Different witnesses know different slices of where the taken moved. A coded lesson pattern or tincture vessel can expose the route.
+
+Passage reports put Grung in the old runs in the days before the festival, six of them in all. Most were blue or green, one was purple, and every group moved stores and ran rather than fought. No Grung had ever crossed the [[Central Strait]] before, as far as [[Jean-Claude Tabarnack]] knows.
 
 ### Threads
 

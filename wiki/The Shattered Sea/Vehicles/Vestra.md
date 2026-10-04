@@ -3,6 +3,7 @@ type: Vehicle
 summary: "The Black-Jaw family ship: built and captained by Vincenzo Black-Jaw for decades, lost at sea since the Drowned Maw woke."
 sources:
  - "archive/ssw-nona-black-jaw.md"
+ - "archive/ssw-what-sunk-the-vestra.md"
 aliases:
  - "Vincenzo's ship"
 ---
@@ -11,7 +12,7 @@ aliases:
 
 - **Kind.** Family merchant ship of the [[Black-Jaw Run]].
 - **Size.** Nothing on record.
-- **Speed.** A question the family answers with shrugged shoulders.
+- **Speed.** A question the family meets with shrugged shoulders.
 - **Crew.** Family crew under [[Vincenzo Black-Jaw]] for decades. [[Perrin Black-Jaw]] sailed her last voyage and survived her loss.
 - **Captain.** [[Vincenzo Black-Jaw]].
 - **Berth.** The seafloor. She sank when the [[Pearl of Souls]]' signal drew the [[Leviathan]] through the [[Drowned Maw]]'s fissure.
@@ -37,17 +38,17 @@ Her fittings went down with the hull, unlisted.
 
 ### Underway
 
-She does not sail. Recovery is the open question, and the levers sit in [[Drowned Maw Awakening]].
+She does not sail. Recovery is the open question, and [[Drowned Maw Awakening]] lists its levers.
 
 ## Depth
 
 ### History
 
-Vincenzo Black-Jaw built the Vestra and captained her for decades. The money she cost the family is a standing grievance of [[Nona Black-Jaw]]'s. [[Perrin Black-Jaw]] sailed with her at the end. She went down when the Pearl's signal woke what sleeps beneath the Drowned Maw and drew the Leviathan through the fissure, and Perrin washed ashore on [[Keth-Naar]], reaching the [[Saltwright]] from there. Nona is glad of the bottom she rests on. Her grandson is not, and he has never stopped chasing the lost family ship.
+Vincenzo Black-Jaw built the Vestra and captained her for decades. The money she cost the family is a standing grievance of [[Nona Black-Jaw]]'s. [[Perrin Black-Jaw]] sailed with her at the end. She went down when the Pearl's signal woke what sleeps beneath the Drowned Maw and drew the Leviathan through the fissure, and Perrin washed ashore on [[Keth-Naar]], reaching the [[Saltwright]] from there. Her last day had been an ordinary day of fishing. A strike from below opened her hull, and heat was on her timbers before the strike, the pattern of the thing that took her. Auralis found [[Perrin Black-Jaw]] dying in the water and chose to hold him alive. Nona is glad of the bottom she rests on. Her grandson is not, and he has never stopped chasing the lost family ship.
 
 ### Hidden truths
 
-The whole truth of the sinking is not known to the family. Nona grieves the captain more than the ship and does not have the rest. What is left to learn waits in the Drowned Maw.
+The whole truth of the sinking is not known to the family. Nona grieves the captain more than the ship and does not have the rest. What is left to learn waits in the Drowned Maw. Why she was near the Maw on her last day is unanswered, and the question waits in [[What Sunk the Vestra]].
 
 ## Links
 

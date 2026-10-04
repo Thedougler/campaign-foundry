@@ -6,6 +6,7 @@ sources:
  - "archive/campaign-timeline.md"
  - "archive/perrin-black-jaw.md"
  - "archive/ssw-session-03.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 status: active
 ---
 
@@ -21,7 +22,7 @@ status: active
 ## Play
 
 - **Shows up as.** A living current, a pale light holding the ship's course, impossible sounds beneath the hull, a bioluminescent whale holding a parallel heading, and words such as “Grow”.
-- **Next development.** The Party must decide how to use the Maw evidence. It may hide it or ask who benefits from keeping the fissure closed.
+- **Next development.** The choice of what to do with the Maw evidence is open: hide it, or ask who benefits from keeping the fissure closed.
 - **Levers.** Perrin's bond, Crissdalynn's maps, Delmar's wreck evidence, and the Sentinels' pilgrimage.
 - **Resolves when.** Auralis's purpose is understood, the Vestra is found or lost beyond recovery, and the Maw's boundary is opened, repaired, or accepted.
 
@@ -31,7 +32,7 @@ status: active
 
 The Antheri built into the far sidewall of the Drowned Maw towards the Elemental Plane of Water. Their disappearance left a breach watched by the Sentinels. The Pearl's theft and the fleet's destruction disturbed the old containment.
 
-The wreck over the Drowned Maw changed the water, and something crossed the seal. Later, the Maw struck the hull, spoke to Perrin, and left an unexplained chart and sea evidence. No direct Maw sign appeared during the Magazine Beta raid.
+The wreck over the Drowned Maw changed the water, and something crossed the seal. Later, the Maw struck the hull, spoke to Perrin, and left an unexplained chart and sea evidence. No direct Maw sign appeared during the Magazine Beta raid. [[Master Kyzil]] told the Party the Maw has run unruly and dangerous since the wreck, with odd weather across the sea, and that some Sentinels watched the fleet go down.
 
 ### Hidden truths
 

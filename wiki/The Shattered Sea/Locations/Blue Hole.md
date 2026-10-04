@@ -4,15 +4,17 @@ kind: Site
 summary: "A sea mark at Keth-Naar's edge on the eastern road, the one feature the charts agree on."
 sources:
  - "archive/ssw-outer-reach.md"
+ - "archive/ssw-umberlee-shrine.md"
 parent: "[[Outer Reach]]"
 ---
 
 ## At a glance
 
 - **Draws the Party because.** [[Keth-Naar]] sits at its edge, and the edge is the mark pilots steer by on the eastern road.
+- **Ring.** A ring of five small islands stands around the well, with [[Vel-Orn]] among them.
 
 > [!narration] Entering
-> The colour changes before the depth does. Blue opens under the bow, dark as a well, and the city sits at its rim.
+> The colour changes before the depth does. Blue opens under the bow, dark as a well, and the city stands at its rim.
 
 ## Play
 
@@ -24,7 +26,7 @@ The rim, where the city stands, and the well of blue beside it.
 
 ### Hidden truths
 
-The hole's depth stays beyond the record.
+The hole's depth stays beyond the record. Umberlee's older worship here is kept at the [[Umberlee's Shrine|shrine]] on [[Vel-Orn]].
 
 ## Links
 

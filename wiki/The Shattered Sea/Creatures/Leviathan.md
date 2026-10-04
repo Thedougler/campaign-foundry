@@ -3,18 +3,19 @@ type: Creature
 summary: "A named elemental horror that hunts the open water around the Drowned Maw."
 sources:
  - "archive/leviathan.md"
+ - "archive/ssw-what-sunk-the-vestra.md"
 ---
 
 ## At a glance
 
 - **Role at the table.** A bruiser that crushes and drags.
-- **Threat.** CR 17, with a bite that reaches fifteen feet and a coil that reaches twenty.
+- **Threat.** CR 17, with a bite that spans fifteen feet and a coil that spans twenty.
 - **Tell.** A ring of churning water that travels with it across flat sea.
 - **Weak to.** Dry land, where its pace drops from sixty feet of swim to twenty of crawl.
 - **Used by.** [[Bloodhawk]] patrols the same territory.
 
 > [!narration] First sight
-> Where the sea lies open, a patch of water begins to churn and boil over a long dark bulk. Steam lifts off the foam, and a back the length of a longboat rolls through the middle of it, sleek and dark. The rough water travels with the bulk, a moving ring that keeps pace while the sea around it stays flat. Then the back settles, the ring slows with it, and the leviathan goes on turning below, wide and slow.
+> Where the sea lies open, a patch of water begins to churn and boil over a long dark bulk. Steam lifts off the foam, and a back the length of a longboat rolls through the middle of it, sleek and dark. The rough water keeps pace with the bulk in a moving ring, and the sea outside it is calm. Then the back settles, the ring slows with it, and the leviathan goes on turning below, wide and slow.
 
 ## Statblock
 
@@ -70,7 +71,7 @@ legendary_actions:
 
 ### Tactics
 
-It hunts from below and leads with Riftbolt, a ninety-foot line of planar lightning, then Surge carries it in to close its coil around one swimmer while the bite takes another. Crowded, it brings Submerge Pulse down and puts swimmers on their backs, and it withdraws into depth when it loses the open water.
+It strikes from below and leads with Riftbolt, a ninety-foot line of planar lightning, then Surge carries it in to close its coil around one swimmer while the bite takes another. Crowded, it brings Submerge Pulse down and puts swimmers on their backs, and it withdraws into depth when it loses the open water.
 
 ### Outside a fight
 
@@ -85,6 +86,8 @@ Its range is the open water around the Drowned Maw, and it reads that whole sea 
 ### Hidden truths
 
 Its habits repeat with its patrol, and a successful Intelligence check turns the pattern into its weaknesses.
+
+The [[Pearl of Souls]] lies whole below the [[Red Lady]]'s decks, and the leviathan knows it is there. Its ring crosses the wreck on every circuit, and it has left the Pearl unclaimed. A boat that keeps station at the rim sees the beast pass over it each time. Where the beast learned of the Pearl, and why it lets it lie, are questions for [[What Sunk the Vestra]].
 
 ## Links
 

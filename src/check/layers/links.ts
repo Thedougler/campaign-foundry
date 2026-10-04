@@ -1,7 +1,7 @@
 import { buildLinkGraph } from "../../vault/links.ts";
 import type { Page } from "../../vault/types.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
-import { suggest } from "../util.ts";
+import { isSpecialPage, suggest } from "../util.ts";
 
 const LAYER = "links";
 
@@ -31,6 +31,8 @@ export function run(ctx: CheckContext): Finding[] {
 					add("empty-target", link.line, `Link ${shown} names nothing.`, "Put a page name inside, e.g. `[[Ravenhold]]`, or delete the brackets.");
 					break;
 				case "no-page": {
+					// The log is append-only history: `cf log` checked each page when the entry was written, and a page later merged away stays named there.
+					if (isSpecialPage(page) && page.name !== "index") break;
 					const name = link.target.split("/").pop()!.replace(/\.md$/i, "");
 					const near = suggest(name, graph.pageNames);
 					add("unresolved", link.line, `${link.embed ? "Embed" : "Link"} ${shown} points at no page.`, `${near ? `Did you mean \`[[${near}]]\`? ` : ""}Links use the page name (\`[[Ravenhold]]\`), not a file slug. If the page does not exist yet, create it from its template in wiki/templates/, or remove the link.`);

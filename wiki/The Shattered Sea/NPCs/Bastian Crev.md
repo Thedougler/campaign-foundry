@@ -3,6 +3,7 @@ type: NPC
 summary: "Lizardfolk salvage-hand who rose to captain the Loud Argument in Fisk's Fleet; his fate after the fleet sank is not recorded."
 sources:
  - "archive/ssw-lizardfolk.md"
+ - "archive/ssw-umberlee-shrine.md"
 creature: ""
 ---
 
@@ -28,7 +29,7 @@ creature: ""
 
 ### History
 
-Bastian Crev came up through salvage work before Fisk gave him a command. Crev is a use-name, the kind of tool the lizardfolk take from whatever culture they work in. He sailed the [[Loud Argument]] as one of Fisk's five ships that stole the [[Pearl of Souls]] from Umberlee's shrine on Vel-Orn. The fleet sank over the [[Drowned Maw]] when Umberlee struck it, and the record is silent on what became of Crev.
+Bastian Crev came up through salvage work before Fisk gave him a command. Crev is a use-name, the kind of tool the lizardfolk take from whatever culture they work in. He sailed the [[Loud Argument]] as one of Fisk's five ships that stole the [[Pearl of Souls]] from Umberlee's [[Umberlee's Shrine|shrine]] on [[Vel-Orn]]. The fleet sank over the [[Drowned Maw]] when Umberlee struck it, and the record is silent on what became of Crev.
 
 ### Threads
 

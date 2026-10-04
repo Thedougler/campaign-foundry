@@ -3,14 +3,15 @@ type: Lore
 summary: "Small humanoids built for infiltration, survival, swimming and impossible spaces; the oldest continuous presence in every major Shattered Sea port."
 sources:
  - "archive/ssw-rattkin.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 ---
 
 ## At a glance
 
 - **The truth.** Rattkin are small humanoids calibrated for getting into places they are not supposed to be, and they are the oldest continuous presence in every major port among the [[Peoples of the Shattered Sea|peoples of the Shattered Sea]].
 - **Who knows it.** Every dockside family knows a rattkin was there before them. Rattkin know it to the day.
-- **Limits.** Age gives rattkin routes and numbers. Their power lives in a web of Runs and Holds, port by port.
-- **Reaches play through.** It surfaces through [[Passage|the Passage]] and [[Warren|the Warren]], and through [[Perrin Black-Jaw]] and [[Nona Black-Jaw]] of the Black-Jaw kin.
+- **Limits.** Age gives rattkin routes and numbers. Their power rests on a web of Runs and Holds, port by port.
+- **Reaches play through.** The [[Passage]] and the [[Warren]], and [[Perrin Black-Jaw]] and [[Nona Black-Jaw]] of the Black-Jaw kin.
 
 > [!narration] As it is told
 > A locked hold costs you an hour at most before you are through. The drainage pipe behind the fish market runs like a road. As for the bilge, it is a neighbourhood, and ours long before the city drew its first harbour chart.
@@ -36,6 +37,7 @@ Rattkin are small humanoids built for infiltration, survival, swimming and space
 - **Scurry.** Disengage movement can pass through Large or smaller creatures without provoking opportunity attacks.
 - **Survivor.** Advantage against being Poisoned and against disease, with resistance to poison damage.
 - **Pack Tactics.** A limited reaction attack when an ally hits a nearby creature.
+- **Barefoot.** Rattkin go barefoot. Perrin Black-Jaw passed a won pair of [[Flying Boots]] straight to Delmar Fisk rather than put shoes on.
 
 ### Varieties
 

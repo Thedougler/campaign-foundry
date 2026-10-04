@@ -1,9 +1,10 @@
 ---
 type: Location
 kind: Site
-summary: "A Le Paludi studio that buys what nesting things and the sea give up, run by Marta Orsini, and the buyer of Jean-Claude's whip-shark eggs."
+summary: "A Le Paludi studio that buys what nesting things and the sea give up, run by Marta Orsini."
 sources:
  - "archive/ssw-session-03.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 parent: "[[Le Paludi]]"
 ---
 
@@ -32,11 +33,11 @@ Sell eggs or curiosities, ask what the studio is currently buying, or hear which
 
 ### History
 
-The [[Casa Lupo]] shopkeeper sent egg and curiosity inquiries here. [[Jean-Claude Tabarnack]] brought three fertilised [[Whip-Shark (Creature)|whip-shark]] eggs in during the festival preparations and told [[Marta Orsini]] he had fertilised the egg himself, "the infant will have multiple extra muscles". She bought all three at 75 gp each, 225 gp the set, and the proceeds were meant for the fine moustache Jean-Claude meant to buy.
+The [[Casa Lupo]] shopkeeper sent egg and curiosity inquiries here. [[Jean-Claude Tabarnack]] came pricing his three fertilised [[Whip Shark|whip-shark]] eggs during the festival preparations and told [[Marta Orsini]] he had fertilised the egg himself, "the infant will have multiple extra muscles". The sale went to a market vendor in [[Le Paludi]] instead, at 100 gp per egg and 300 gp the set, paid in platinum.
 
 ### Hidden truths
 
-What Marta does with the eggs once bought is not recorded. Pressing the question at the studio, or watching the studio's door on later days, is how the Party could learn it.
+What Marta does with what she buys is not recorded. Pressing the question at the studio, or watching the studio's door on later days, is how the Party could learn it.
 
 ## Links
 

@@ -308,4 +308,11 @@ describe("log layer", () => {
 		const { report } = await withLog("## [2026-01-05] ingest | Dangling\n\n- [[Nowhere At All]]\n");
 		expect(report.findings).toEqual([]);
 	});
+
+	it("keeps history: a log bullet naming a page since merged away is no broken link", async () => {
+		const dir = await copyFixture("clean");
+		await writeFile(join(dir, "wiki/Aldermoor/log.md"), "## [2026-01-05] ingest | Before the merge\n\n- [[Merged Away Keep]]\n");
+		const result = await cf(["check", "--json", "--layer", "links", ...vaultFlags(dir), "--templates", realTemplates], dir);
+		expect((JSON.parse(result.stdout) as JsonReport).findings).toEqual([]);
+	});
 });

@@ -7,6 +7,7 @@ sources:
  - "archive/ssw-campaign-timeline.md"
  - "archive/ssw-umberlee-and-waveservants.md"
  - "archive/ssw-umberlees-message.md"
+ - "archive/ssw-umberlee-shrine.md"
 ---
 
 ## At a glance
@@ -18,7 +19,7 @@ sources:
 - **Strength.** Collectors in every port and a collection hull on the water.
 
 > [!narration] Public face
-> Two attendants in salt-bleached grey work the basin as you tie off, taking a coin from each crew and marking it in a booklet. Their hems stay damp, and tallow and brine carry across the quay. People call them the Waveservants.
+> Attendants in salt-bleached grey work the basin as you tie off, taking a coin from each crew and marking it in a booklet. Their hems are damp, and tallow and brine carry across the quay. People call them the Waveservants.
 
 ## Play
 
@@ -32,7 +33,7 @@ sources:
 
 ### History
 
-The shrines have outlasted every flag raised above them, and collection has run at the same rate from merchant, pirate, navy, smuggler and pilgrim for as long as the record holds. The Sentinels of the Eyrie founded their Kensei tradition at [[High Eyrie]] in 895 DR to counter this collection, and their watch has run since.
+The shrines have outlasted every flag raised above them, and collection has run at the same rate from merchant, pirate, navy, smuggler and pilgrim for as long as the record holds. The Sentinels of the Eyrie founded their Kensei tradition at [[High Eyrie]] in 895 DR to counter this collection, and their watch has run since. An older charge stands apart from the harbour basins: the hidden shrine on [[Vel-Orn]], where the work leans toward the drowned.
 
 ### Hidden truths
 

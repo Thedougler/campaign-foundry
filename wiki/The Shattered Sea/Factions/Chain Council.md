@@ -6,6 +6,7 @@ sources:
  - "archive/kalowe.md"
  - "archive/pearl-of-souls.md"
  - "archive/tessarine-concordat.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 ---
 
 ## At a glance
@@ -17,7 +18,7 @@ sources:
 - **Strength.** Shared control of harbour arrival with the Waveservant shrine, and authority to raise tribute.
 
 > [!narration] Public face
-> A council sits in the seized fort above your berth. It meets above dry docks packed with masts. It leaves an empty seat for the ruler, and people call it the Chain Council.
+> A council governs from the seized fort above your berth. It meets above dry docks packed with masts. It leaves an empty seat for the ruler, and people call it the Chain Council.
 
 ## Play
 

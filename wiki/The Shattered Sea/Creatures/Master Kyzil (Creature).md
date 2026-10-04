@@ -3,6 +3,7 @@ type: Creature
 summary: "Master Kyzil, a unique Creature stat block from the archived NPC record."
 sources:
  - "archive/master-kyzil.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 ---
 
 ## At a glance
@@ -85,7 +86,7 @@ legendary_actions:
 
 ### Tactics
 
-Apply the archived tactics to Kyzil's daggers, palm strikes and flight. Telegraph his strongest move, such as Cutting Gale, with enough warning for the Party to change position, use cover or focus their attacks. Kyzil leaves the fight if his objective is lost or his advantage fails.
+Apply the archived tactics to Kyzil's daggers, palm strikes and flight. Telegraph his strongest move, such as Cutting Gale, with enough warning for the Party to change position, use cover or focus their attacks. Kyzil leaves the fight if his objective is lost or his advantage fails. In the Session 04 rooftop spar the Party fought this stat block for three rounds at full strength, which is the endurance it was built for.
 
 ### Outside a fight
 

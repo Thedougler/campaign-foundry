@@ -853,3 +853,150 @@
 - [[Orvalle]]
 - [[Drowned Maw]]
 - [[Pearl of Souls]]
+
+## [2026-10-03] ingest | agentic-co-dm-shattered-sea-tone-guide.md
+
+- [[campaign-config]]
+
+## [2026-10-03] ingest | ssw-miras-blade.md
+
+- [[Mira's Blade]]
+- [[Barnaby Rook]]
+
+## [2026-10-03] audit | Prize crates regrouped to match the blade's confiscation crate (direct beats mention)
+
+- [[Uncertainty]]
+
+## [2026-10-03] ingest | ssw-what-sunk-the-vestra.md
+
+- [[What Sunk the Vestra]]
+- [[Red Lady]]
+- [[Vestra]]
+- [[Leviathan]]
+- [[Umberlee]]
+- [[Auralis]]
+- [[Perrin Black-Jaw]]
+- [[Delmar Fisk]]
+- [[Crissdalynn Khinriss]]
+- [[Fisk's Fleet]]
+- [[Bring the Pearl of Souls to Umberlee]]
+- [[Pearl of Souls]]
+- [[Fate Spinner]]
+- [[Umberlee's Message]]
+- [[Shelfworks]]
+- [[Kalowe]]
+- [[Fernen]]
+- [[Loud Argument]]
+- [[The Dead Lady]]
+
+## [2026-10-03] ingest | ssw-umberlee-shrine.md
+
+- [[Umberlee's Shrine]]
+- [[Vel-Orn]]
+- [[Fisk's Fleet]]
+- [[Bring the Pearl of Souls to Umberlee]]
+- [[Pearl of Souls]]
+- [[Umberlee]]
+- [[Waveservants]]
+- [[Blue Hole]]
+- [[Keth-Naar]]
+- [[Sunken Crown]]
+- [[Outer Reach]]
+- [[Fernen]]
+- [[Loud Argument]]
+- [[Bastian Crev]]
+- [[Sienne Orre]]
+- [[Minotaur]]
+- [[Campaign Timeline]]
+- [[Elemental Plane of Water]]
+- [[Delmar Fisk]]
+
+## [2026-10-03] ingest | ssw-shepherd-grigori-island.md
+
+- [[Shepherd Grigori]]
+- [[Shepherd Grigori (Creature)]]
+- [[Khlysty]]
+- [[Grigori and the Crown hunt]]
+- [[Alys Kuiper]]
+
+## [2026-10-03] audit | Uncertainty complement drops Alys Kuiper (stale: she left at the Calveno shore leave)
+
+- [[Uncertainty]]
+
+## [2026-10-03] audit | Grigori post-Calveno whereabouts restated to the Ordinance trail (stale: later record places him with Malone)
+
+- [[Shepherd Grigori]]
+
+## [2026-10-03] ingest | ssw-session-04-ingest-recap.md
+
+- [[Silent Shortbow]]
+- [[Flying Boots]]
+- [[Sending Stone (Nona's)]]
+- [[Pearl of Souls]]
+- [[Whip-Shark (Creature)]]
+- [[Master Kyzil (Creature)]]
+- [[Master Kyzil]]
+- [[Nona Black-Jaw]]
+- [[Enzo]]
+- [[Ruk]]
+- [[Felix Aho]]
+- [[Umberlee - Branca]]
+- [[Marta Orsini]]
+- [[Studio Orsini]]
+- [[Waveservant Shrine]]
+- [[The Ponte Bassa]]
+- [[Casa Lupo]]
+- [[Le Paludi]]
+- [[La Vasca]]
+- [[Warren]]
+- [[Grung]]
+- [[Rattkin]]
+- [[Umberlee's Message]]
+- [[Il Gioco delle Beffe]]
+- [[Fisk's Fleet]]
+- [[Chain Council]]
+- [[Uncertainty]]
+- [[Bring the Pearl of Souls to Umberlee]]
+- [[Simone's Hunters]]
+- [[Drowned Maw Awakening]]
+
+## [2026-10-03] audit | Egg sale corrected to the Le Paludi market vendor: the table record overrides the recorded 75 gp Studio Orsini sale
+
+- [[Studio Orsini]]
+- [[Marta Orsini]]
+- [[Whip-Shark (Creature)]]
+
+## [2026-10-03] audit | Flying Boots handover resolved for Perrin passing them to Delmar (table record settles the contested note)
+
+- [[Flying Boots]]
+
+## [2026-10-03] audit | Whip Shark duplicate merged into Whip-Shark (Creature) (one creature under two names; more links point to the survivor)
+
+- [[Whip-Shark (Creature)]]
+- [[Minor Slaad]]
+
+## [2026-10-03] lint | Lint: Botukuri stubbed, hunter wording and DDB spell terms fixed
+
+- [[Grung]]
+- [[Jean-Claude Tabarnack]]
+- [[Simone's Hunters]]
+- [[Botukuri]]
+
+## [2026-10-03] lint | Lint slice: gave pages to Canon names that had none and linked them from their pages
+
+- [[Kalowe]]
+- [[Umberlee's Shrine]]
+- [[Vel-Orn]]
+- [[Il Gioco delle Beffe]]
+- [[Stripes Bitemore]]
+- [[Giacomo Moretti]]
+- [[Ashkevet]]
+
+## [2026-10-03] audit | Whip Shark kept under its species name, no parenthetical
+
+- [[Whip Shark]]
+- [[Marta Orsini]]
+- [[Studio Orsini]]
+- [[Uncertainty]]
+- [[Whip-Shark Barb]]
+- [[Minor Slaad]]

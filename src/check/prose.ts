@@ -47,13 +47,25 @@ export function lineAt(starts: number[], offset: number): number {
 
 type Range = [number, number];
 
-/** Frontmatter, fenced and indented code, raw HTML and `%% %%` comments: nothing a reader reads as prose. */
+/** A file name (`ssw-miras-blade.md`, `map.webp`): a path, not words, wherever it stands in prose. */
+const FILE_NAME = /(?<![\w.-])[\w'-]+(?:\.[\w'-]+)*\.(?:md|pdf|txt|png|jpe?g|webp|gif|svg)\b/g;
+
+/** Frontmatter, fenced and indented code, raw HTML, `%% %%` comments and file names: nothing a reader reads as prose. */
 function droppedRanges(page: Page): Range[] {
 	const ranges: Range[] = page.comments.map((c) => [c.start, c.end]);
 	const visit = (node: Root | RootContent): void => {
 		if (node.type === "yaml" || node.type === "code" || node.type === "html") {
 			if (node.position) ranges.push([node.position.start.offset ?? 0, node.position.end.offset ?? 0]);
 			return;
+		}
+		if (node.type === "text" && node.position) {
+			const start = node.position.start.offset ?? 0;
+			for (const m of page.source.slice(start, node.position.end.offset ?? start).matchAll(FILE_NAME)) {
+				const from = start + m.index;
+				const to = from + m[0].length;
+				// Take one of the two spaces around it, so dropping the name leaves no double space behind.
+				ranges.push([from, page.source[from - 1] === " " && page.source[to] === " " ? to + 1 : to]);
+			}
 		}
 		if ("children" in node) for (const child of node.children as RootContent[]) visit(child);
 	};

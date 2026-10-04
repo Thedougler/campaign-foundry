@@ -36,6 +36,7 @@ tarrasque
 # Rules and play
 cantrips
 counterspell
+Druidcraft
 darkvision
 greataxe
 greatsword
@@ -58,6 +59,7 @@ Amnian
 Eberron
 Faerûn
 Faerun
+Spellplague
 Mordenkainen
 Neverwinter
 Tasha
@@ -98,3 +100,4 @@ tortle
 Aquan
 Agathys
 Dragonhide
+Elvenkind

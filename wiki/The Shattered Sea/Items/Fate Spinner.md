@@ -26,17 +26,17 @@ Once per day, a Magic action spins the top and chooses one personally known crea
 
 ### In use
 
-The Spinner cannot speak through the vision, aid a fight the holder is in or affect the holder's own rolls. One vision only. Another cannot open until dawn. A target leaving the plane ends it. Hiding it from a search is Sleight of Hand DC 15. Two Spinners spun face to face shatter. Ordinary force cannot damage one.
+The Spinner cannot speak through the vision, aid a fight the holder is in or affect the holder's own rolls. One vision only. Another cannot open until dawn. A target leaving the plane ends it. Hiding it from a search is Sleight of Hand DC 15. Spinners shatter when two of them spin face to face. Ordinary force cannot damage one.
 
 ## Depth
 
 ### History
 
-[[Master Kyzil]] gave this Spinner to Crissdalynn before her pilgrimage. It bonded when she risked her life to save [[Delmar Fisk]] in the *Red Lady* wreck. Several Spinners exist. [[Talon Vantyrus]] carries one.
+[[Master Kyzil]] gave this Spinner to Crissdalynn before her pilgrimage. It bonded when she risked her life to save [[Delmar Fisk]] in the [[Red Lady]] wreck. Several Spinners exist. [[Talon Vantyrus]] carries one.
 
 ### Hidden truths
 
-The Spinner descends from Sentinel practices older than nonintervention and is tied to Soul Incarnate documents. The faction hunts its carriers for Vantyrus's transformation technique. The Party can learn this at [[High Eyrie]] or from Kyzil.
+The Spinner descends from Sentinel practices older than non-intervention and is tied to Soul Incarnate documents. The faction chases its carriers for Vantyrus's transformation technique. The Party can learn this at [[High Eyrie]] or from Kyzil.
 
 ## Links
 

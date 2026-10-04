@@ -5,6 +5,7 @@ sources:
  - "archive/umberlee-branca.md"
  - "archive/ssw-umberlee.md"
  - "archive/ssw-umberlees-message.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 creature: "[[Commoner]]"
 ---
 
@@ -23,14 +24,14 @@ creature: "[[Commoner]]"
 - **Opens them up.** The Pearl delivered and the appointment kept.
 - **Shuts them down.** Demands to discuss commissioners first.
 - **Will share.** Umberlee's instruction and the terms of the next conversation.
-- **Will not share.** Any promise beyond the command she carries.
+- **Will not share.** Any promise beyond the command she delivers.
 - **If pressed.** She repeats: “Bring me the pearl. We will talk then.”
 
 ## Depth
 
 ### History
 
-Branca is [[Umberlee]]'s intermediary. She delivers the deity's command rather than explaining its motives. An older woman in blue-grey robes found Delmar in the Mercatura on his first day in Calveno, and she kept a shrine appointment open for him afterwards, not sleeping until he came. He gave her a lie about a prior divine errand, she believed it and wrote the deferral in her tide-table booklet, and she settled in to wait. At the night communion Umberlee possessed her over the pool at the [[Waveservant Shrine]] and snapped her neck. The sea-mist brought her back to life, and she reported every word of it to the church after.
+Branca is [[Umberlee]]'s intermediary. She delivers the deity's command rather than explaining its motives. An older woman in blue-grey robes found Delmar in the Mercatura on his first day in Calveno, and she kept a shrine appointment open for him afterwards, not sleeping until he came. He gave her a lie about a prior divine errand, she believed it and wrote the deferral in her tide-table booklet, and she settled in to wait. At the night communion Umberlee possessed her over the pool at the [[Waveservant Shrine]]. She knelt in water that ran like hurricane wash, began a ritual chant, then rolled her eyes back as her joints cracked. Delmar's tithe of gold sat at the pool's bottom, and his lie about accepting the terms brought thunder and lightning down on the shrine. Her neck snapped and she died on the floor. Mist gathered off the ocean and pulled her back together. Shaken and hurt, she went home to the Church of Umberlee afterwards and reported every word of it.
 
 ### Hidden truths
 

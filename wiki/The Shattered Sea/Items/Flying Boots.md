@@ -3,6 +3,7 @@ type: Item
 summary: "Winged Boots that grant Delmar a 30-foot Fly Speed for 1 hour per charge."
 sources:
  - "archive/flying-boots.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 ---
 
 ![[Flying Boots - Handout Art.png]]
@@ -22,7 +23,7 @@ sources:
 
 ### Properties
 
-As a Magic action, expend 1 of 4 charges to gain a Fly Speed of 30 feet for 1 hour. The boots regain 1d4 expended charges daily at dawn. If flying when the duration expires, descend 30 feet per round until landing.
+As a Magic action, expend 1 of 4 charges to gain a Fly Speed of 30 feet for 1 hour. The boots regain 1d4 expended charges daily at dawn. If flying when the duration expires, descend 30 feet per round until landing. At the table the DM gave them four hours of flight in all, regaining two hours for every twelve hours they hung unworn.
 
 ### In use
 
@@ -32,11 +33,11 @@ Spend a charge for boarding, escape or a theatrical entrance and track the hour 
 
 ### History
 
-Session 04 records [[Jean-Claude Tabarnack]] buying them for Delmar after selling whip-shark eggs. Another item note says [[Perrin Black-Jaw]] passed them to Delmar. The handover remains contested.
+During Session 04, [[Jean-Claude Tabarnack]] handed [[Casa Lupo]] 125 gp for the pair, a gift for whichever of [[Perrin Black-Jaw]] or Delmar won the roll for them. Perrin won and passed them straight to Delmar, because Rattkin go barefoot.
 
 ### Hidden truths
 
-The live sheet treats these as Winged Boots. The unresolved provenance can reveal a small Black-Jaw obligation if Perrin's account is true.
+The live sheet treats these as Winged Boots with dawn charges, while the table gave them four hours of flight regained two hours at a time, and the two reckonings have not been settled. Perrin's account of the handover is the table's record now, and the small Black-Jaw obligation it hinted at still waits to surface.
 
 ## Links
 

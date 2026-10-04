@@ -61,7 +61,7 @@ Sound leads it before sight does, its head swinging to the nearest noise, and sh
 
 It troubles whatever ground it spawns onto, and Observant travellers know its signs by Wisdom (Survival), raw hide and shed flesh being hard to mistake.
 
-Five Minor Slaads spawned in the Mercatura crater and were killed by [[Master Kyzil]].
+[[Master Kyzil]] killed the brood of five Minor Slaad that had spawned in the Mercatura crater.
 
 ### Hidden truths
 

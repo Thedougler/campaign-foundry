@@ -4,6 +4,7 @@ kind: Region
 summary: "The under-governed water east of the Drowned Maw, where governance stops at the chart edge and pilots sell the easting for as much as cargo."
 sources:
  - "archive/ssw-outer-reach.md"
+ - "archive/ssw-umberlee-shrine.md"
 parent: "[[The Shattered Sea]]"
 ---
 
@@ -24,18 +25,20 @@ parent: "[[The Shattered Sea]]"
 
 This water begins where western charts stop being trustworthy, at the [[Drowned Maw]]'s eastern chart edge. The Crown's cutters never patrol past it, and the nearest harbour that can repair a wounded hull lies behind you.
 
-- **Reading the easting.** With so few trusted marks, holding a course is the day's work. Wisdom (Survival) DC 13 lets the lookout hold the easting between sights. Failure wanders the ship off its line, and a day goes to working back to the last bearing. Water goes with the day, and east of Keth-Naar there is none to buy.
+- **Reading the easting.** With so few trusted marks, holding a course is the day's work. Wisdom (Survival) DC 13 lets the lookout keep the easting between sights. Failure wanders the ship off its line, and a day goes to working back to the last bearing. Water goes with the day, and east of Keth-Naar there is none to buy.
 
-Two roads east, and the choice between them is real:
+The road east divides, and the choice between its branches is real:
 
-- **The pilot's road.** From the Maw's chart edge to the [[Keth-Naar]] harbour, about five days' sail on bearings bought west of the Maw. Route intelligence out here is worth as much as cargo, and the fee buys the only crossing with known marks the whole way.
-- **The wide road.** Swing south of the pilot's road and keep the fee. There are no marks and no pilots, and the drift pressure that comes off [[The Doldrums|the Doldrums]] reaches this far east. A hull the drift catches can sit for days in water where nobody passes. The warning is in the wind. It softens, and the sea goes flat. The miles stop coming while the sky looks the same. Every day the drift holds spends water the ship cannot replace east of Keth-Naar.
+- **The pilot's road.** From the Maw's chart edge to the [[Keth-Naar]] harbour, about five days' sail on bearings bought west of the Maw. Route intelligence out here sells for as much as cargo, and the fee buys the only crossing with known marks the whole way.
+- **The wide road.** Swing south of the pilot's road and keep the fee. There are no marks and no pilots, and the drift pressure that comes off [[The Doldrums|the Doldrums]] extends this far east. A hull the drift catches can sit for days in water where nobody passes. The warning is in the wind. It softens, and the sea goes flat. The miles stop coming while the sky looks the same. Every day the drift holds spends water the ship cannot replace east of Keth-Naar.
 
 Provision west of the Maw, and again at Keth-Naar for anything beyond it. The tabaxi water and repair hulls for coin or salvage. Rest aboard while hove to is safe from weather and exposed to whatever else has marked the same still water.
 
 ### Places
 
 - [[Keth-Naar]], the [[Tabaxi|tabaxi]] city at the [[Blue Hole]]'s edge and the furthest reliable landmark eastward. Water and repairs this far east come from its harbour or from nowhere.
+- [[Vel-Orn]], a small island in the ring of five around the [[Blue Hole]], sheer and reef-bound.
+- [[Umberlee's Shrine]], the old Waveservant shrine cut into Vel-Orn's cliff, off every colonial chart.
 - [[Sunken Crown]], the broken structure east of the Maw that eastbound pilots still use for a mark. It is structurally unstable and still subsiding.
 - [[Redwind Isles]], an under-charted island chain that sits under a sphere of control no sighting has ever confirmed.
 - [[Blue Hole]], the sea mark at Keth-Naar's edge.
@@ -53,7 +56,7 @@ Provision west of the Maw, and again at Keth-Naar for anything beyond it. The ta
 
 ### Rumors
 
-- "The Isles have a landlord. You know the ships that pay by the ones that come back." Salvage captains say it over their tallies. Likely true: the [[Redwind Isles]] sit under an ancient blue dragon's sphere even when no sighting occurs. Investigate: ask which hulls pass the isles untouched, and what changed aboard the ones that did not.
+- "The Isles have a landlord. You know the ships that pay by the ones that come back." Salvage captains say it over their tallies. Likely true: the [[Redwind Isles]] rest under an ancient blue dragon's sphere even when no sighting occurs. Investigate: ask which hulls pass the isles untouched, and what changed aboard the ones that did not.
 - "The Crown is going down in earnest. Every season the marks sit lower." Salvage crews say it, cutting new depth marks on each trip. True: the [[Sunken Crown]] is structurally unstable and subsiding. Investigate: hold this season's cut marks against an old crew's memory of the last.
 - "East of the Maw the [[Velvet Noose]] takes only ships that are already hurt." Runners say it. True in pattern: piracy this far east is rare and deliberate, and the deliberate crews wait for wounded hulls. Investigate: lay out where the lost ships were first holed, and count how many were sound when they left the last port.
 
@@ -61,11 +64,11 @@ Provision west of the Maw, and again at Keth-Naar for anything beyond it. The ta
 
 ### History
 
-Governance stops at the chart edge and none has been sought. The Crown's cutters do not cross, the Concordat's paper does not follow, and the water beyond answers to no debt. Ships cross it anyway, for salvage, pilgrimage, research, desperation and profit, and the ones that have trouble out there tend to become the warnings.
+Governance stops at the chart edge and none has been sought. The Crown's cutters do not cross, the Concordat's paper does not follow, and past the edge the water is outside every claim made ashore. Ships cross it anyway, for salvage, pilgrimage, research, desperation and profit, and the ones that have trouble out there tend to become the warnings.
 
 ### Hidden truths
 
-- **The easting is the real cargo.** Knowing where the fixed marks sit between the Maw and Keth-Naar is worth more than most hulls carry, and the pilots who sell it price it that way. A course is cheap. The bearing that survives the whole road is not.
+- **The easting is the real cargo.** Where the fixed marks lie between the Maw and Keth-Naar is knowledge the pilots sell dear, and they set their fees to match. Courses come cheap, and bearings that serve the whole road do not.
 - **The landlord is inferred, never sighted.** No one has charted the power over the Redwind Isles. Some hulls pass the isles untouched and some do not, and the pattern has held too long to be luck.
 - **This water kills wounded ships.** They arrive damaged from further west, and help lies a port behind. The deliberate crews wait on exactly that.
 

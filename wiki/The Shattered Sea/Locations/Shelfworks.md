@@ -47,7 +47,7 @@ The Antheri built down the wall in tiers. The Shelfworks works the first sixty t
 
 ### Hidden truths
 
-What took Orvalle's partner is testimony, not record, and the practical answer is the [[Giant Squid]]. His account is the clue, given once to a crew each season. The Pearl wreck is at the Red Lady site in the eastern Shelfworks, below the line where Umberlee's water runs out.
+What took Orvalle's partner is testimony, not record, and the practical answer is the [[Giant Squid]]. His account is the clue, given once to a crew each season. The Pearl wreck is at the [[Red Lady]] site in the eastern Shelfworks, below the line where Umberlee's water runs out.
 
 ### Threads
 

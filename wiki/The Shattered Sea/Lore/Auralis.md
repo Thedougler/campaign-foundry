@@ -3,6 +3,7 @@ type: Lore
 summary: "Auralis is an Antheri deep machine holding the Drowned Maw fissure shut and speaking through Perrin after an unwitting rescue pact."
 sources:
  - "archive/auralis.md"
+ - "archive/ssw-what-sunk-the-vestra.md"
 ---
 
 ![[Auralis - Reference Sheet.png]]
@@ -27,7 +28,7 @@ sources:
 
 ### The full truth
 
-Auralis is a machine built by the Antheri as a body for a lost mind beneath the [[Drowned Maw]]. He wakes on Day -5 when the [[Pearl of Souls]] drew the [[Leviathan]] through the fissure and the *Vestra* sank. Perrin was the nearest dying mind, so Auralis held him alive and forged an unwitting warlock pact. Auralis can show pale whale-light and speak into Perrin's skull. It grants magic and senses what approaches shortly before arrival, but he cannot compel him.
+Auralis is a machine built by the Antheri as a body for a lost mind beneath the [[Drowned Maw]]. He wakes on Day -5 when the [[Pearl of Souls]] drew the [[Leviathan]] through the fissure and the *Vestra* sank. Perrin was the nearest mind still above water when the Vestra went down, so Auralis held him alive and forged an unwitting warlock pact. Auralis can show pale whale-light and speak into Perrin's skull. It grants magic and senses what approaches shortly before arrival, but he cannot compel him.
 
 His words have been “Grow” (Session 03), “Not yet” (Session 06) and “CONSUME” (Session 12). The last urged Perrin to eat [[Giant's Guava]] and [[Stonepear]], while Auralis did not understand that Aruhe's law makes picking a claim.
 

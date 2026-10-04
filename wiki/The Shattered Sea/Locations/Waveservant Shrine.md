@@ -4,6 +4,7 @@ kind: Site
 summary: "The Waveservants' harbour shrine in Calveno, where tribute is collected, appointments are kept, and Umberlee has spoken."
 sources:
  - "archive/ssw-umberlees-message.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 parent: "[[Calven and Calveno]]"
 ---
 
@@ -19,13 +20,13 @@ parent: "[[Calven and Calveno]]"
 
 ### Features
 
-A kneeling pool sits at the back of the shrine floor, deep enough for a devotee to kneel in. Tribute basins stand where sailors pass, and appointments are kept from a tide-table booklet. [[Master Kyzil]] has taken his meals on the steps outside, watching the square.
+A kneeling pool rests at the back of the shrine floor, deep enough for a devotee to kneel in. Tribute basins stand where sailors pass, and appointments are kept from a tide-table booklet. [[Master Kyzil]] has taken his meals on the steps outside, watching the square.
 
 ## Depth
 
 ### History
 
-[[Umberlee - Branca|Branca]] keeps the appointments here. At a night communion Delmar Fisk attended, Umberlee possessed her in the pool and snapped her neck. The sea-mist brought her back before the stone dried, and the harbour clergy have watched for him since.
+[[Umberlee - Branca|Branca]] keeps the appointments here. At a night communion Delmar Fisk attended, Umberlee possessed her in the pool and snapped her neck. His tithe of gold went into the water before the goddess spoke, and her rage at his lie cracked the night with thunder while the pool ran like hurricane wash. The sea-mist brought her back before the stone dried, and the harbour clergy have watched for him since.
 
 ### Hidden truths
 

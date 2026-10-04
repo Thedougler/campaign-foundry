@@ -3,6 +3,7 @@ type: Lore
 summary: "Calveno's five-day prank festival, where teams scheme against willing marks for bragging rights and a bronze medallion."
 sources:
  - "archive/il-gioco-delle-beffe.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 ---
 
 ## At a glance
@@ -19,22 +20,22 @@ sources:
 
 - **Players notice.** Registration at the [[Mercatura]] bridge, jumpy marks, rival teams and adjudicators moving through Calveno.
 - **Clues.** The five-day schedule is public, La Scelta, the three-day Window, then Il Giudizio.
-- **Accounts.** Giacomo Moretti welcomes attempts after twenty clean years. Prospero Morsani watches from his unexplained winner's plaque. Iacopo Fieschi is a first-year Tessarine mark.
+- **Accounts.** [[Giacomo Moretti]] welcomes attempts after twenty clean years. Prospero Morsani watches from his unexplained winner's plaque. Iacopo Fieschi is a first-year Tessarine mark.
 
 ## Depth
 
 ### The full truth
 
-Entry costs 25 gp at standard scale or 50 gp at Legendary scale. Teams declare mark, category, scale, stake and symbol on Day One. The Window runs Days Two through Four. Day Five scores Craft 10, Surprise 5 and Recovery 5 out of 20. The pool pays 60 percent to the first team, 25 percent to the second and the remainder to third. The winner's leader receives the bronze Beffa Medallion, while a truly fooled mark often gives a 10 to 50 gp goodwill gift.
+Entry costs 25 gp at standard scale or 50 gp at Legendary scale. Teams declare mark, category, scale, stake and symbol on the first day. The Window runs across the middle three days. Il Giudizio, the final day, scores Craft 10, Surprise 5 and Recovery 5 out of 20. The pool pays 60 percent to the first team, 25 percent to the second and the remainder to third. The winner's leader receives the bronze Beffa Medallion, while a truly fooled mark often gives a 10 to 50 gp goodwill gift.
 
 A registered symbol proves authorship and must be the last thing a mark finds. Beffa doppia lets a rival steal a known symbol and plant it in a contested Stealth-versus-Perception attempt. It has succeeded twice. The full checks and tables belong to the running procedure, not this page.
 
 ### Chronology
 
-- **Day One.** La Scelta registration at Mercatura bridge.
-- **Days Two to Four.** La Finestra, the open execution period.
-- **Day Five.** Il Giudizio and sunset announcement.
-- **Current year.** Registration opens tomorrow. Legendary-scale declarations are expected.
+- **La Scelta.** First-day registration at Mercatura bridge.
+- **La Finestra.** The open execution period, from the second day to the fourth.
+- **Il Giudizio.** The final day, with the sunset announcement.
+- **Current year.** Registration opened on the morning after the shrine communion, and the Party signed up that day. Delmar pushed the entry to lighten the mood, and Jean-Claude wanted the culture. Legendary-scale declarations are expected.
 
 ## Links
 

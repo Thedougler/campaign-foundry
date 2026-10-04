@@ -6,6 +6,7 @@ sources:
  - "archive/ssw-nona-black-jaw.md"
  - "archive/ssw-session-02.md"
  - "archive/ssw-session-03.md"
+ - "archive/ssw-session-04-ingest-recap.md"
 creature: "[[Commoner]]"
 aliases:
  - "Nona"
@@ -42,7 +43,7 @@ The Black-Jaw rule began as a habit for staying out of traps and became her teac
 
 After the Mercatura raid she made the crater a missing-persons desk, dispatched two Passage ships, and gave Perrin a favour instead of cash. More than 314 fighting-age men remain missing. She called the Party home while hundreds remained missing, and protects [[Felix Aho]] for one month under [[Ruk]]'s guard. When [[Cobb]] reported a ship of the [[Tarahs]] in port she called off the attacks her people were running, fearing the Tarahs had taken Perrin. He reached her kitchen instead, and she recalled [[Anzolo]], the fixer she had sent hunting for him. When Perrin told her the [[Vestra]] was lost she cracked her wooden spoon, and ordered consolation for the Vestra's surviving crew through [[Enzo]].
 
-She called in the favour by sending stone, telling Perrin to gather his friends around her safe-house table, the blue one above all, plus anyone who could fight. She briefed the Party on six Grung sightings in the Warren tunnels and sewers, and fed them a hero's feast from her own ovens. She weighed [[Delmar Fisk]] against his Dravosi face until he named his Midchain mother and his history with Dravosi hulls, and accepted him because the Dravosi know her by a nickname he did not recognise. When Perrin reported black powder below the city, her answer came straight back: "I will send [[Enzo]] and more to you." Every Grung she had ever met was a dissident, she noted, [[Jean-Claude Tabarnack]] excepted.
+She called in the favour by sending stone, telling Perrin to gather his friends around her safe-house table, the blue one above all, plus anyone who could fight. She briefed the Party on six separate Passage reports of Grung in the Warren tunnels and sewers, all inside the last twelve hours and the newest only an hour or two old. A young Rattkin witness described a purple Grung in a heavy cloak climbing out of a market-district grate with its lower face covered, and Nona handed over a map marked with three sighting locations. She set a hero's feast from her own ovens before them and urged them below quickly, before the festival filled the streets. When Felix came in bound she said she had chosen the right people for the job. She weighed [[Delmar Fisk]] against his Dravosi face until he named his Midchain mother and his history with Dravosi hulls, and accepted him because the Dravosi know her by a nickname he did not recognise. When Perrin reported black powder below the city, her answer came straight back: "I will send [[Enzo]] and more to you." Every Grung she had ever met was a dissident, she noted, [[Jean-Claude Tabarnack]] excepted.
 
 When her grandson's name surfaced with the capture of the Surety, her search for him was already live, and her message reached him through [[Beaumont Sel]].
 
