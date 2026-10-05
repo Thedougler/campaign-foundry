@@ -1090,3 +1090,12 @@
 - [[Two-Grave Orders]]
 - [[Taking on Aruhe]]
 - [[Mystra]]
+
+## [2026-10-04] ingest | ssw-sending-stone-nona.md
+
+- [[Sending Stone (Nona's)]]
+- [[Perrin and Nona]]
+
+## [2026-10-04] ingest | campaign-os-raw-blight.md
+
+- [[Hinewai the Blight]]

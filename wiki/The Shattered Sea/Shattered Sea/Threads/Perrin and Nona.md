@@ -6,13 +6,14 @@ sources:
  - "archive/perrin-black-jaw.md"
  - "archive/Cobb.md"
  - "archive/ssw-session-03.md"
+ - "archive/ssw-sending-stone-nona.md"
 status: active
 ---
 
 ## At a glance
 
 - **Driven by.** Nona Black-Jaw's family bond, the Passage, and Perrin's survival after the Vestra sank.
-- **Stands at.** Perrin reported the Vestra's loss to Nona, accepted a favour and carries her sending stone. Nona later called the Party home, opened the Mercatura missing-persons desk and sent two Passage ships after the raiders.
+- **Stands at.** Perrin reported the Vestra's loss to Nona, accepted a favour without hearing its terms and holds her sending stone. Nona later called the Party home, opened the Mercatura missing-persons desk and sent two Passage ships after the raiders.
 - **If nobody acts.** Nona's pursuit of the raiders and the Party's rescue obligation continue while the Party remains on Aruhe.
 - **Levers.** The sending stone, Cobb's messages, Passage routes, and knowledge of the Vestra.
 
@@ -29,7 +30,7 @@ status: active
 
 Perrin washed ashore after the Vestra went down. His grandmother Nona runs the Warren and its Passage rescue network. She sent word through [[Cobb]], while [[Enzo]] and [[Ruk]] protect the family, and expects her grandson to return with news. The Party's stolen or claimed ship gives Perrin a reason to seek her help.
 
-Perrin reached the Saltwright without reporting to Nona. He later reported Vestra's loss, accepted a favour, and carries Nona's sending stone. Nona protects Felix for one month under Ruk's guard. Felix remains alive under that arrangement.
+Perrin reached the Saltwright without reporting to Nona. He later reported Vestra's loss, accepted a favour without hearing its terms, and carries Nona's sending stone. Nona protects Felix for one month under Ruk's guard. Felix remains alive under that arrangement.
 
 ### Hidden truths
 
