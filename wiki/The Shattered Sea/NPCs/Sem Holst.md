@@ -5,6 +5,7 @@ sources:
  - "archive/ssw-sem-holst.md"
  - "archive/ssw-session-02.md"
  - "archive/ssw-session-03.md"
+ - "archive/agentic-co-dm-sem-holst-narration.md"
 creature: "[[Commoner]]"
 ---
 
@@ -12,13 +13,13 @@ creature: "[[Commoner]]"
 
 ## At a glance
 
-- **Role.** Ship's carpenter aboard [[Uncertainty]], four gold a week. The Surety's carpenter's mate under [[Barnaby Rook]] before the capture; since the Calveno refit, [[Geoffrey Draves]] works under him.
-- **Wants.** The hull kept in proper timber, and a crew that cares what holds her together.
+- **Role.** Ship's carpenter aboard [[Uncertainty]], four gold a week, his craft shaped by years aboard. The Surety's carpenter's mate under [[Barnaby Rook]] before the capture; since the Calveno refit, [[Geoffrey Draves]] works under him.
+- **Wants.** The hull kept in proper timber, and a crew that cares for her planking.
 - **Voice.** Assessments, not small talk. What is wrong, how long to fix it, and neither number softened.
 - **Found at.** Aboard [[Uncertainty]], wherever the hull is, fingers tracing timber.
 
 > [!narration] First look
-> Sawdust darkens the hair of the man working along the hull below, and his fingers never leave the timber as he goes. He chalks the joint where two planks meet and writes a figure beside it in a small book before moving on without looking up. The chalk stops, and he taps the planking twice. "Do you know why this joint holds?"
+> A man works along the hull below you, sawdust in his dark hair, a lean frame in a canvas work vest, a patched shirt stained with pitch and salt. Deep lines cross his weathered face, and ink marks the fingers that hold his small book. One hand tests each joint as he goes, the other gliding along the timber. He chalks the joint where two planks meet and writes a figure beside it in the book, moving on without looking up. The chalk stops, and he taps the planking twice. "Can you say why this joint holds?"
 
 ## Play
 
@@ -38,8 +39,8 @@ On the first morning of the Calveno refit he was at the dry dock before anyone s
 
 ### Hidden truths
 
-- The forward keel joint carries a fatigued timber under fresh caulk. Tell: his fingers return to the forward keel, and his book gains careful entries nobody requested. Three routes: ask him about the ship and he answers exactly; read his notes; or put eyes on the joint, where the caulk sits over timber that has done its work.
-- He judges every conversation as a survey of the crew. Tell: he answers questions about the ship with questions back. A miss costs standing with him, and his best work goes to hulls whose crews ask.
+- The forward keel joint has a fatigued timber under fresh caulk. Tell: his fingers return to the forward keel, and his book gains careful entries nobody requested. Ask him about the ship and he answers exactly; read his notes; or put eyes on the joint, where fresh caulk lies over timber that has done its work.
+- He judges every conversation as a survey of the crew. Tell: he meets a question about the ship with one of his own. A miss costs standing with him, and his best work goes to hulls whose crews ask.
 
 ### Threads
 

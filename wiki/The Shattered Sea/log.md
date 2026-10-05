@@ -1119,3 +1119,17 @@
 ## [2026-10-04] audit | Alys Kuiper moved out of the Uncertainty's current crew (she left at the Calveno shore leave and never returned)
 
 - [[Uncertainty]]
+
+## [2026-10-05] ingest | agentic-co-dm-master-kyzil-narration.md
+
+- [[Master Kyzil]]
+
+## [2026-10-05] ingest | agentic-co-dm-sem-holst-narration.md
+
+- [[Sem Holst]]
+
+## [2026-10-05] ingest | ssw-nightmantle.md
+
+- [[La Cenere]]
+- [[Nightmantle]]
+- [[Lavinia Sordi]]

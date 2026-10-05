@@ -3,6 +3,7 @@ type: Item
 summary: "A cursed cloak of displacement that redirects nearby ranged attacks to its wearer."
 sources:
  - "archive/nightmantle.md"
+ - "archive/ssw-nightmantle.md"
 ---
 
 ## At a glance
@@ -30,7 +31,7 @@ Redirection is automatic and cannot be declined or used for melee attacks. The o
 
 ### History
 
-[[Lavinia Sordi]] sold it to Crissdalynn for 900 gp at La Cenere in [[Le Paludi]], believing it a Cloak of Protection. She acquired it from the falcon-featured [[Osset]]. Play identified it as a cursed Cloak of Displacement.
+[[Lavinia Sordi]] sold it to Crissdalynn for 900 gp at [[La Cenere]] in [[Le Paludi]], believing it a Cloak of Protection. Her rack had listed the deep grey wool cloak at 120 gp on the grey market, with her comment: "Cloak of protection. The previous owner returned it. The owner before that did not." She acquired it from the falcon-featured [[Osset]]. Play identified it as a cursed Cloak of Displacement.
 
 The Party acquired the Nightmantle in Session 8.
 

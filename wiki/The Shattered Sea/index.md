@@ -50,6 +50,7 @@
 - [[Harwick]] — The Crown island whose naval yard and deep-water anchorage face the Central Strait, and from which the Reach patrols stage.
 - [[High Eyrie]] — A basalt sea-stack beyond the Crown chain held by the Sentinels for two centuries above the Drowned Maw.
 - [[Kat's Curios]] — A curiosity shop where the sea's oddities are bought, sold, and appraised.
+- [[La Cenere]] — Lavinia Sordi's Le Paludi shop for grey-market cursed and unusual goods.
 - [[La Vasca]] — A concealed Black-Jaw dry dock in Le Paludi, disguised as a defunct tannery and maintained by Cobb.
 - [[Landing Bank]] — The first river mouth after the terraces, where a used camp, northbound prints and fallen redheart berries mark the inland route.
 - [[Lava Tubes]] — Broad basalt tubes beneath Aruhe, linking marsh, Grove and Clear Lake. Four Calveno survivors are trapped below the Long Meadow skylight.
