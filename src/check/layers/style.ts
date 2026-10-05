@@ -3,9 +3,9 @@ import { existsSync } from "node:fs";
 import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { calloutLines } from "../../narration/sources.ts";
-import type { Page } from "../../vault/types.ts";
+import type { Page, Vault } from "../../vault/types.ts";
 import { UsageError } from "../errors.ts";
-import { proseView, prosePages, toolRoot } from "../prose.ts";
+import { nameWords, proseView, prosePages, toolRoot } from "../prose.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
 
 const LAYER = "style";
@@ -42,6 +42,76 @@ function hintFor(check: string): string {
 	if (narration) return narration;
 	const [style = "", rule = check] = check.split(".");
 	return `Reword the flagged text in plain, concrete words, keeping what it says true. The rule is defined in .vale/styles/${style}/${rule}.yml. The rule stands: rewrite until it clears. Only an obvious misfire on literal campaign meaning (a ship that is a ship) goes to the DM, who alone may switch a rule off in .vale.ini.`;
+}
+
+/**
+ * Words that are proper nouns in this vault: words that only ever appear capitalized across page names and
+ * aliases. A word that also appears lowercased in a name ("the" in "Bring the Pearl of Souls to Umberlee") and
+ * words under three letters ("A", "On") stay out, so ordinary sentence words are never excepted.
+ */
+function properNouns(vault: Vault): Set<string> {
+	const capitalized = new Set<string>();
+	const lowercased = new Set<string>();
+	const add = (name: string): void => {
+		for (const word of nameWords(name)) {
+			if (word.length < 3) continue;
+			(/^\p{Lu}/u.test(word) ? capitalized : lowercased).add(word.toLowerCase());
+		}
+	};
+	for (const page of vault.pages) {
+		add(page.name);
+		const aliases = page.frontmatter?.aliases;
+		for (const alias of Array.isArray(aliases) ? aliases : typeof aliases === "string" ? [aliases] : []) {
+			if (typeof alias === "string") add(alias);
+		}
+	}
+	for (const word of lowercased) capitalized.delete(word);
+	return capitalized;
+}
+
+/** Per character, whether it sits inside double quotes (straight or curly): quoted speech, not narration. */
+function quoteMask(line: string): boolean[] {
+	const inside = new Array<boolean>(line.length).fill(false);
+	let open = false;
+	for (let i = 0; i < line.length; i++) {
+		const ch = line[i];
+		if (ch === "“") open = true;
+		else if (ch === "”") open = false;
+		else if (ch === `"`) open = !open;
+		inside[i] = open;
+	}
+	return inside;
+}
+
+// A masked name's stand-in (see prose.ts): whatever its source, it is a name.
+const MASK_STAND_IN = /^(?:Person|People|Place|Ship|Object|Placename[a-z]*)$/;
+
+/**
+ * Two DM-confirmed Vale misfires, dropped here because the rules themselves cannot see the distinction.
+ * - FillerIntensifier reads "a single" as padding, but inside quoted in-world speech it is a count: Hinewai's
+ *   vow ("take a single fruit ... fish a single river ...") says exactly one, and the quoting is her voice.
+ *   Dropped only when every occurrence of the match on the line sits inside double quotes, so narration keeps
+ *   the rule at full strength.
+ * - ColonUsage's message promises "unless it is a proper noun", but its token cannot see one. The confirmed
+ *   misfire was ": Matteo" on Oren Vask ("Ship versus garden: Matteo calls men like Oren mad."), a given name
+ *   the name mask does not cover.
+ */
+function isConfirmedMisfire(line: string, alert: ValeAlert, names: Set<string>): boolean {
+	if (alert.Check === "ai-tells.FillerIntensifier") {
+		const inside = quoteMask(line);
+		let count = 0;
+		let quoted = 0;
+		for (let i = line.indexOf(alert.Match); i !== -1; i = line.indexOf(alert.Match, i + 1)) {
+			count++;
+			if (inside.slice(i, i + alert.Match.length).every(Boolean)) quoted++;
+		}
+		return count > 0 && count === quoted;
+	}
+	if (alert.Check === "ai-tells.ColonUsage") {
+		const word = /:\s(\p{L}[\p{L}'’-]*)$/u.exec(alert.Match)?.[1] ?? "";
+		return word.length > 0 && (names.has(word.toLowerCase()) || MASK_STAND_IN.test(word));
+	}
+	return false;
 }
 
 /**
@@ -88,12 +158,15 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 	const cacheDir = join(ctx.root, ".cache", "check");
 	await mkdir(cacheDir, { recursive: true });
 	const scratch = await mkdtemp(join(cacheDir, "vale-"));
+	const written = new Map<string, string>();
 	try {
 		await Promise.all(
 			pages.map(async (page) => {
 				const file = join(scratch, page.path);
 				await mkdir(dirname(file), { recursive: true });
-				await writeFile(file, valeText(proseView(page, ctx.vault).text, page));
+				const text = valeText(proseView(page, ctx.vault).text, page);
+				written.set(page.path, text);
+				await writeFile(file, text);
 			}),
 		);
 		const { stdout, missing } = await runVale(["--config", config, "--output=JSON", "--no-exit", scratch]);
@@ -102,9 +175,12 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 		}
 		const results = (stdout.trim() === "" ? {} : JSON.parse(stdout)) as Record<string, ValeAlert[]>;
 		const byFile = new Map(Object.entries(results).map(([file, alerts]) => [file.startsWith(scratch) ? file.slice(scratch.length + 1) : file, alerts]));
+		const names = properNouns(ctx.vault);
 		const findings: Finding[] = [];
 		for (const page of pages) {
+			const lines = (written.get(page.path) ?? "").split("\n");
 			for (const alert of byFile.get(page.path) ?? []) {
+				if (isConfirmedMisfire(lines[alert.Line - 1] ?? "", alert, names)) continue;
 				findings.push({
 					layer: LAYER,
 					rule: alert.Check,

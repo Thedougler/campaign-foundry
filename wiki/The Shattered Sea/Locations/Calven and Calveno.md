@@ -1,19 +1,20 @@
 ---
 type: Location
 kind: Settlement
-summary: "Calven's marsh, tidal flats and farms rise to Calveno, a canal city whose harbour flies the Dravosi flag while debt controls its politics."
+summary: "Calven's marsh, tidal flats and farms rise to Calveno, a neutral canal city the Tessarine Concordat primarily controls, where Crown law stops at the waterline."
 sources:
  - "archive/calven-and-calveno.md"
  - "archive/ssw-il-palio-delle-voci.md"
+ - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 parent: "[[Crown Islands]]"
 ---
 
 ## At a glance
 
 - **Size.** Marshes and tidal flats, a middle plateau and one city on solid ground.
-- **Ruled by.** Dravosi Crown harbour authority alongside the Seven Houses Council.
+- **Ruled by.** The [[Tessarine Concordat]] alongside the Seven Houses Council. Calveno is neutral ground under Tessarine control.
 - **Mood.** Commercial, watched and shaped by debt.
-- **Unsettled by.** Crown inspection, Concordat credit and Passage routes below.
+- **Unsettled by.** Concordat credit, [[Passage]] routes below, and Crown sailors ashore between resupply and shore leave.
 - **Known for.** Canals, bridges, harbour flags and records.
 
 > [!narration] Arrival
@@ -31,7 +32,7 @@ Harbour ratings, trade, credit, canals and discreet routes below the city. [[The
 
 ### Factions here
 
-[[Dravosi Crown]], [[Tessarine Concordat]], Seven Houses Council, Passage and Rattkin communities.
+[[Tessarine Concordat]], [[Seven Houses Council]], [[Passage]] and Rattkin communities. Dravosi naval officers still come to Calveno to resupply and take shore leave, and they do it as visitors under Tessarine rules.
 
 ### Local rules
 
@@ -45,11 +46,11 @@ Crown toxin substitute stock appeared in the sewers. Rattkin have occupied old d
 
 ### History
 
-Calven is older and wetter. Calveno harbour flies the Dravosi flag while merchant families retain influence through debt and credit.
+Calven is older and wetter. Calveno is a neutral port under the Concordat's control, and merchant families keep their influence through debt and credit.
 
 ### Hidden truths
 
-The Crown inspects while the Concordat invoices. Both pay Umberlee as infrastructure, and the pale harbour building may expose an unresolved issue involving Tessarine interests.
+The Concordat invoices a port with no Crown authority to inspect it. Crown sailors and Concordat clerks alike pay Umberlee as infrastructure, and the pale harbour building may expose an unresolved issue involving Tessarine interests.
 
 ### Threads
 

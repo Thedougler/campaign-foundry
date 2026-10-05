@@ -6,12 +6,14 @@ sources:
  - "archive/ssw-shepherd-grigori.md"
  - "archive/ssw-session-02.md"
  - "archive/ssw-shepherd-grigori-island.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
+ - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 creature: "[[Shepherd Grigori (Creature)]]"
 ---
 
 ## At a glance
 
-- **Role.** Wandering healer and Korabl of the [[Khlysty]] Flock.
+- **Role.** Wandering healer and Korabl of the [[Khlysty]] Flock. To the Party he is both a foe and a rival.
 - **Wants.** To ascend beyond what a Hierarch can be, using healed noble houses as fuel.
 - **Voice.** Warm, practical, and intimate. A glass of wine never leaves his hand.
 - **Found at.** Noble courts across the Crown Islands and Tessarine Concordat.
@@ -33,7 +35,7 @@ creature: "[[Shepherd Grigori (Creature)]]"
 
 ### History
 
-Grigori heals heirs of diseases and wounds past cure, then leaves without asking payment. His healing began binding patients as unwitting phylactery threads, making him a secret undead sorcerer and shepherd of the [[Khlysty]]. Noble courts repeat that he cannot be killed, whether by poison, drowning, or worse, and have stopped asking how.
+Grigori heals heirs of diseases and wounds past cure, then leaves without asking payment. His healing began binding patients as unwitting phylactery threads, making him a secret undead sorcerer and shepherd of the [[Khlysty]]. Noble courts repeat that he cannot be killed, whether by poison, drowning, or worse, and have stopped asking how. The Dravosi Crown names him a demon in public.
 
 He travelled aboard the [[Uncertainty|Surety]], below deck as [[Barnaby Rook]]'s guest through the Saltwright boarding, a passenger the crew had yet to meet. In the galley he set the table for the crew, heard the Party out on what kind of pirates they were, and offered any crewman who wanted it free passage at the next port. He told them he would leave at [[Calven and Calveno|Calveno]] for the [[Il Gioco delle Beffe]], and it was his word about the unfed Moucheron below that sent the Party to [[Ket]]'s cage. He was glad of the freedom. When [[Barnaby Rook]]'s live-capture run at [[Murrat]] left four crew dying under [[Alys Kuiper]]'s care, he sat with them through the night. [[Old Faas]] credits their survival to him without knowing what that credit means. He named [[Rupert Knighton]] and the ships Knighton would send in answer to [[Cap'n Gorgeous]]'s death, and healed [[Jean-Claude Tabarnack]]'s wounds without a word or component. Red light ran from his wrist, and Arcana could not name it.
 
@@ -46,7 +48,9 @@ A storm becalmed the [[Uncertainty]] and pressed his schedule, and he stayed abo
 - Necromancy binds a patient's blood to Grigori. A DC 22 Arcana check can detect the thread. Counterspell disrupts both healing and binding.
 - Each cure leaves an anchor: the healed heir's blood stays bound to him in his blood phylactery. The Tessarine child is the newest, and neither the child nor the household knows what the cure settled into. The living anchors set the pace of his return from death, and each new anchor makes him harder to kill permanently.
 - The Concordat's reach runs into courts his anchors have yet to touch, and the Tessarine heir is his way into them.
-- He has warned the crew about Rupert Knighton and asked them to wound Corbin Knighton without killing him, so he can “rescue” him and bind the house.
+- He has warned the crew about Rupert Knighton and asked them to wound Corbin Knighton without killing him, so he can “rescue” him and bind the house. The Party agreed to contact him should the opportunity come, and they do not know his purpose is binding House Knighton.
+- He is an opportunist chasing power, and the army is a means to it rather than a fixed allegiance. The army approach is the best road he currently sees. He has yet to learn of the Party's connection to the [[Pearl of Souls]] or to [[Umberlee]], and should he learn of it, he may try to turn that connection toward more power.
+- The Party knows him only as an oddly powerful healer whom the Crown calls a demon. The Flock, the blood-threads, the anchors and the army all remain hidden from them, and so does the ascension behind them.
 
 ### Threads
 

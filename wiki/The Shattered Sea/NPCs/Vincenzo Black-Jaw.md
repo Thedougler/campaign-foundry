@@ -1,8 +1,10 @@
 ---
 type: NPC
-summary: "Nona Black-Jaw's late husband: builder and captain of the Vestra, gambler, empty chair at family meals."
+summary: "Nona Black-Jaw's late husband: dangerous mob boss of Le Paludi and Calveno's underground, builder and captain of the Vestra, empty chair at family meals."
 sources:
  - "archive/ssw-nona-black-jaw.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
+ - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 creature: "[[Commoner]]"
 ---
 
@@ -10,7 +12,7 @@ creature: "[[Commoner]]"
 
 - **Role.** Shipwright and captain: he built the [[Vestra]] and sailed her for decades.
 - **Wants.** His wants went with him. In life he chased the next hand of cards and the next horizon, by his widow's account.
-- **Voice.** A stubborn gambler's charm that started arguments worth four frying pans.
+- **Voice.** A stubborn gambler's charm. His arguments broke four good frying pans.
 - **Found at.** An empty chair at Black-Jaw family meals, and Nona's anger at being left to run everything alone.
 
 > [!narration] First look
@@ -28,7 +30,9 @@ creature: "[[Commoner]]"
 
 ### History
 
-Vincenzo Black-Jaw built the [[Vestra]] and captained her for decades. He married [[Nona Black-Jaw]], and the marriage was passionate, complicated and singular: frequent arguments, and four good frying pans broken over his stubborn gambler skull. He left her running the whole thing alone, and she has done it since, angry at him and missing him daily. His chair at family meals stays empty.
+Vincenzo Black-Jaw built the [[Vestra]] and captained her for decades. He married [[Nona Black-Jaw]], and the marriage was passionate, complicated and singular: frequent arguments, and four good frying pans broken over his stubborn gambler skull. He left her running the whole thing alone, and she has done it since, angry at him and missing him daily. At family meals nobody takes his chair.
+
+He was a dangerous mob boss as well as a shipwright. His underground operations ran through [[Le Paludi]] and [[Calven and Calveno|Calveno]], separate from the [[Vestra]], which served the family's legal operations, and [[Enzo]] and [[Ruk]] were his original fixers. When he died, [[Nona Black-Jaw]] took the operations over. She closed the drug trade, kept the smuggling, the fencing and the gambling houses, and their influence now works toward persecuted rattkin.
 
 ### Threads
 

@@ -3,12 +3,13 @@ type: Faction
 summary: "Nona Black-Jaw's family crew: the Passage's Warren anchor Run, smuggling under four hard rules."
 sources:
  - "archive/ssw-nona-black-jaw.md"
+ - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 ---
 
 ## At a glance
 
 - **Goal.** Keep the family's people fed, moved and free, and price the Crown's rules at nothing.
-- **Next move.** Keep the Warren's kitchens fed and its people moving while the Crown hunts the routes.
+- **Next move.** Keep the Warren's kitchens fed and its people moving while the Crown patrols the routes.
 - **Led by.** Matriarch [[Nona Black-Jaw]], senior elder of the [[Tangle]].
 - **Base.** The [[Warren]] beneath Calveno, with docks at [[La Vasca]].
 - **Strength.** A family that has fought the [[Dravosi Crown]] for forty years, dock crews, trusted fronts, and rules enforced with broken hands.
@@ -21,14 +22,14 @@ sources:
 - **When met.** At the [[La Vasca]] cradle or the Warren kitchen, measuring whether you are vouched before the talk turns useful.
 - **When opposed.** The family closes rank and moves the cargo. The Crown keeps chasing paper.
 - **Offers.** Refit work, dock silence, vouched passage and introduction to the [[Passage]].
-- **Costs.** The four rules, enforced. Break one and Nona breaks your hands. She takes the coin and spends it freeing whoever you sold.
+- **Costs.** The rules, enforced. Break one and Nona breaks your hands. She takes the coin and spends it freeing whoever you sold.
 - **How to notice or interfere.** Manifests lighter than their cargo, and inspection schedules discussed in the tone of weather.
 
 ## Depth
 
 ### History
 
-The Run commits crimes, but not all crimes. Its rules bar trafficking people, poison, betrayed sanctuary, and theft from the Warren. [[Vincenzo Black-Jaw]] built the family's ship, the [[Vestra]], and captained her for decades. Since he left Nona to run everything alone, she has. The Run anchors the [[Passage]] at the Warren, where Nona has fed the hungry and hidden the hunted for nearly forty years.
+The Run commits crimes, but not all crimes. Its rules bar trafficking people, poison, betrayed sanctuary, and theft from the Warren. [[Vincenzo Black-Jaw]] built the family's ship, the [[Vestra]], for the Run's legal operations. His underground business ran separately: drugs, gambling houses, smuggling and fencing, all through [[Le Paludi]] and [[Calven and Calveno|Calveno]]. Since he left Nona to run everything alone, she has closed the drug trade and kept the rest, because the gambling houses bring in far too much money to close. The Run anchors the [[Passage]] at the Warren, where Nona has fed the hungry and hidden fugitives for nearly forty years.
 
 ### Hidden truths
 

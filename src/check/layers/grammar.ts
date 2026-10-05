@@ -26,8 +26,27 @@ const LAYER = "grammar";
  *   (`sHook`). The spelling is already English.
  * - `DisjointPrefixes`: a preposition against a page name (`under [[Taking on Aruhe]]`) is read as a split compound
  *   (`underTaking`). The name is not the DM's wording.
+ * - `OneOfTheSingular`: "one of the two" and "one of the three rivers" are standard English, but the rule flags the
+ *   number standing alone and the noun that is already plural, and its suggestion is wrong ("two" → "twos"). The DM
+ *   confirmed the disable; `ai-tells.VerbTricolon`, raised by the same run, stays on.
  */
-const DISABLED_RULES = ["SpellCheck", "UseTitleCase", "OxfordComma", "PhrasalVerbAsCompoundNoun", "UseEllipsisCharacter", "OrthographicConsistency", "MergeWords", "DisjointPrefixes"] as const;
+const DISABLED_RULES = ["SpellCheck", "UseTitleCase", "OxfordComma", "PhrasalVerbAsCompoundNoun", "UseEllipsisCharacter", "OrthographicConsistency", "MergeWords", "DisjointPrefixes", "OneOfTheSingular"] as const;
+
+/**
+ * Two DM-confirmed Harper misfires on literal campaign meaning, dropped per lint so each rule keeps catching real
+ * cases. MassNouns reads "a gold grung" as the metal used like a mass noun; "gold" is a caste colour there.
+ * Harper's word data misses some past-tense verbs, so PronounVerbAgreement reads them as agreement errors and
+ * offers no fix ("she tore the magic loose", "she dug a second grave"; probing found the rest of the set, which
+ * includes "cast"). Real agreement errors ("she have", "he don't") still come through.
+ */
+const CASTE_COLOUR = /^(?:a|an) (?:gold|red|blue|green|purple|orange)$/i;
+const MISREAD_PAST: Record<string, true> = { burnt: true, cast: true, clung: true, dug: true, froze: true, ground: true, lent: true, leapt: true, shone: true, sprang: true, stuck: true, struck: true, swore: true, tore: true, woke: true };
+
+function isConfirmedMisfire(rule: string, text: string, start: number, end: number): boolean {
+	if (rule === "MassNouns") return CASTE_COLOUR.test(text.slice(start, end)) && /^\s+grungs?\b/i.test(text.slice(end));
+	if (rule === "PronounVerbAgreement") return text.slice(start, end).toLowerCase() in MISREAD_PAST;
+	return false;
+}
 
 let linterPromise: Promise<LocalLinter> | undefined;
 
@@ -87,6 +106,7 @@ async function lintPages(l: LocalLinter, pages: Page[]): Promise<Map<Page, Cache
 				const [start, end] = [utf16(span.start), utf16(span.end)];
 				// A page name is not the DM's wording: a lint inside one (`config` in `[[campaign-config]]`) is dropped.
 				if (view.names.some(([s, e]) => start >= s && end <= e)) continue;
+				if (isConfirmedMisfire(rule, view.text, start, end)) continue;
 				found.push({
 					layer: LAYER,
 					severity: "error",
@@ -104,8 +124,8 @@ async function lintPages(l: LocalLinter, pages: Page[]): Promise<Map<Page, Cache
 export async function run(ctx: CheckContext): Promise<Finding[]> {
 	const words = [...vaultNameWords(ctx.vault), ...templateWords(ctx.templates), ...(await vaultWordList(ctx.vault)), ...(await projectWords())];
 	const pages = prosePages(ctx.vault);
-	// A page's answer depends on its text, Harper's version, the disabled rules and the name dictionary.
-	const salt = hash(`${await lockfileSalt()}|${DISABLED_RULES.join(",")}|${words.join(",")}`);
+	// A page's answer depends on its text, Harper's version, the disabled rules, the name dictionary and the misfire filters.
+	const salt = hash(`${await lockfileSalt()}|${DISABLED_RULES.join(",")}|${words.join(",")}|${Object.keys(MISREAD_PAST).join(",")}|${CASTE_COLOUR.source}`);
 	const byPage = await cachedByPage(ctx.root, LAYER, salt, pages, async (misses) => {
 		const l = await linter();
 		await l.importWords(words);

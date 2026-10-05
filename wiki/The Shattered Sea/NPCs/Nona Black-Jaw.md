@@ -7,6 +7,8 @@ sources:
  - "archive/ssw-session-02.md"
  - "archive/ssw-session-03.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
+ - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 creature: "[[Commoner]]"
 aliases:
  - "Nona"
@@ -18,6 +20,7 @@ aliases:
 ## At a glance
 
 - **Role.** Matriarch of the [[Black-Jaw Run]], senior elder of the [[Tangle]], and [[Perrin Black-Jaw]]'s grandmother.
+- **Standing.** The heart of the [[Warren]] and of [[Le Paludi]]. She has been around nearly as long as the Warren has, and she knows everyone's names and birthdays: authority given from below, good, and unrecognised by any Crown.
 - **Wants.** To keep the Passage alive and recover the people taken in the Calveno raid.
 - **Voice.** Low kitchen register. Every favour sounds like a route with a cost, and urgency stopped impressing her decades ago.
 - **Found at.** Her guarded kitchen safe house in the Warren, Calveno.
@@ -27,6 +30,7 @@ aliases:
 
 ## Play
 
+- **With the Party.** Benevolent, never antagonistic, and helpful wherever she can reach. She runs her rebellion from kitchens and over whispers.
 - **Opens them up.** A workable route, recovered people, and evidence she can use. She feeds you first, because people deserve to eat, not as a tactic.
 - **Shuts them down.** Threats to the network or open-ended promises.
 - **Will share.** Safe houses, couriers, ships, bodyguards, and a [[Sending Stone (Nona's)|sending stone]], at a price.
@@ -38,6 +42,10 @@ aliases:
 ### History
 
 For nearly forty years Nona has fought the [[Dravosi Crown]] without speeches, feeding anyone who came hungry and building homes for people in hiding while the quiet war ran on. In her youth the Crown caught her running ambushes on Dravosi ships, usually with improvised fire, and named her the Calveno Candle for it. The Kin of the [[Warren]] call her the reason there is a Warren to come home to.
+
+The Crown's cruelty toward the rattkin woke her politically young, and the [[Rattkin Bounty]] turned it into open warfare: when the Crown put a price on her people, Nona declared war on the Crown personally. She answered with every form of civil and illegal disobedience she could reach, including a grocery run that came home with one extra bottle of high-proof spirits and one rag, every time. She has calmed since.
+
+Vincenzo ran dangerous underground operations through [[Le Paludi]] and [[Calven and Calveno|Calveno]], and [[Enzo]] and [[Ruk]] were his original fixers before they were hers. When he died she took the operations over. She closed the drug trade and kept the smuggling, the fencing and the gambling houses. The gambling houses bring in far too much money to close. She spends the mob's influence on persecuted rattkin. She plays poker very well, and the game is one of her pleasures. In Le Paludi and the Warren it is common knowledge that if the Dravosi pick up your loved one, you go to Nona, and she does what she can.
 
 The Black-Jaw rule began as a habit for staying out of traps and became her teaching. You don't take the cheese. You're given it. The difference sits between a person the Crown has defined and a person it hasn't. A signed release from a frightened official who took a pastry and apologised for the delay is cleaner than robbery, and it costs them more. She trained it into Perrin early, spoon to paw. "You don't take the cheese." "You're given it." Then she gave him two.
 

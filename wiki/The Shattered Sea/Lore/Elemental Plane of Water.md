@@ -5,12 +5,13 @@ sources:
  - "archive/ssw-sea-elf.md"
  - "archive/agentic-co-dm-istishia.md"
  - "archive/ssw-umberlee-shrine.md"
+ - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
 ---
 
 ## At a glance
 
 - **The truth.** The Elemental Plane of Water lies on the far side of the fissure beneath the [[Drowned Maw]]. [[Auralis]], a machine the Antheri built, holds the seal shut, and the [[Sea Elf|sea elves]] claim an ancestral connection to the plane. Around the Maw, the word [[Istishia]] points at this cosmology.
-- **Who knows it.** The [[Sentinels of the Eyrie]] have watched the fissure since 1295 DR. [[Perrin Black-Jaw]] hears Auralis speak through it. Grung sages preserve the mandate beside their decrees.
+- **Who knows it.** The [[Sentinels of the Eyrie]] have watched the fissure since 1295 DR. [[Perrin Black-Jaw]] hears Auralis speak through it. The Grung have no part in the plane's or the fissure's record.
 - **Limits.** What lies on the far side beyond what has crossed, and what the sea elves' tie to the plane obliges, are beyond the record.
 - **Reaches play through.** The [[Pearl of Souls]]' signal, which crosses the boundary and drew the [[Leviathan]] through.
 
@@ -21,7 +22,7 @@ sources:
 
 - **Players notice.** The water above the Maw behaves wrongly, and the wrecks that came down in 1495 DR changed it further.
 - **Clues.** Auralis's single spoken words reach [[Perrin Black-Jaw]] from the seal. The Pearl's signal crosses the planar boundary without slowing. The [[Leviathan]] came through from the plane itself.
-- **Accounts.** The Sentinels record and do not interpret. Grung sages keep a mandate that predates them. The sea elves tell it as a home their folk came from.
+- **Accounts.** The Sentinels record and do not interpret. The sea elves tell it as a home their folk came from.
 
 ## Depth
 

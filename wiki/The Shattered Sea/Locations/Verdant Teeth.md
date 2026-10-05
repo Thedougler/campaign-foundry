@@ -5,6 +5,7 @@ summary: "The Grung Clans' closed island cluster: sanctioned beach trade outward
 sources:
  - "archive/ssw-grung.md"
  - "archive/ssw-midchain.md"
+ - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
 parent: "[[Midchain]]"
 ---
 
@@ -50,7 +51,7 @@ The clans control five rainforest islands as one closed system of canopy routes,
 
 ### Hidden truths
 
-The clans' colour marks carry social information without proving permanent ancestry or rank. What the gold presence the sages preserve actually is stays undecided.
+The clans' colour marks give social information without proving permanent ancestry or rank. What the gold presence the sages preserve is has been decided: it is the [[Gold Caste]], mortal grung who claim godhood for themselves.
 
 ### Threads
 

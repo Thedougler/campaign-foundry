@@ -4,13 +4,14 @@ summary: "The Black-Jaw family ship: built and captained by Vincenzo Black-Jaw f
 sources:
  - "archive/ssw-nona-black-jaw.md"
  - "archive/ssw-what-sunk-the-vestra.md"
+ - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 aliases:
  - "Vincenzo's ship"
 ---
 
 ## At a glance
 
-- **Kind.** Family merchant ship of the [[Black-Jaw Run]].
+- **Kind.** The [[Black-Jaw Run]]'s family vessel for its legal operations. She is a smuggler's ship rigged to look like a fishing boat, and often she is literally just a fishing boat.
 - **Size.** Nothing on record.
 - **Speed.** A question the family meets with shrugged shoulders.
 - **Crew.** Family crew under [[Vincenzo Black-Jaw]] for decades. [[Perrin Black-Jaw]] sailed her last voyage and survived her loss.
@@ -44,7 +45,7 @@ She does not sail. Recovery is the open question, and [[Drowned Maw Awakening]] 
 
 ### History
 
-Vincenzo Black-Jaw built the Vestra and captained her for decades. The money she cost the family is a standing grievance of [[Nona Black-Jaw]]'s. [[Perrin Black-Jaw]] sailed with her at the end. She went down when the Pearl's signal woke what sleeps beneath the Drowned Maw and drew the Leviathan through the fissure, and Perrin washed ashore on [[Keth-Naar]], reaching the [[Saltwright]] from there. Her last day had been an ordinary day of fishing. A strike from below opened her hull, and heat was on her timbers before the strike, the pattern of the thing that took her. Auralis found [[Perrin Black-Jaw]] dying in the water and chose to hold him alive. Nona is glad of the bottom she rests on. Her grandson is not, and he has never stopped chasing the lost family ship.
+Vincenzo Black-Jaw built the Vestra and captained her for decades. She served the family's legal operations as a smuggler's ship working under a fishing-boat rig, and most seasons she went out and simply fished. Vincenzo enjoyed his retirement aboard her. The money she cost the family is a standing grievance of [[Nona Black-Jaw]]'s, who hated the boat for its leaks and its endless repair bills. [[Perrin Black-Jaw]] sailed with her at the end. She went down when the Pearl's signal woke what sleeps beneath the Drowned Maw and drew the Leviathan through the fissure, and Perrin washed ashore on [[Keth-Naar]], reaching the [[Saltwright]] from there. Her last day had been an ordinary day of fishing. A strike from below opened her hull, and heat was on her timbers before the strike, the pattern of the thing that took her. Auralis found [[Perrin Black-Jaw]] dying in the water and chose to hold him alive. Nona is glad of the bottom she rests on. Her grandson is not, and he has never stopped chasing the lost family ship.
 
 ### Hidden truths
 

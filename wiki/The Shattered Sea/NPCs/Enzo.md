@@ -5,6 +5,7 @@ sources:
  - "archive/Enzo.md"
  - "archive/ssw-session-03.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
 creature: ""
 ---
 
@@ -31,7 +32,7 @@ creature: ""
 
 ### History
 
-Enzo has served as Nona's bodyguard from the Black-Jaw network in Le Paludi for years. He manages social reads while Ruk manages physical reads, and he arranged consolation for the Vestra's surviving crew when Nona ordered it. He growled the Party through the safe-house door before letting them in, and he is first in the group Nona promised to send when Perrin reported the powder under the streets.
+Enzo has served as Nona's bodyguard from the Black-Jaw network in Le Paludi for years. He was one of [[Vincenzo Black-Jaw]]'s original fixers, with [[Ruk]] the other, and he stayed on when Nona took the operations over. He manages social reads while Ruk manages physical reads, and he arranged consolation for the Vestra's surviving crew when Nona ordered it. He growled the Party through the safe-house door before letting them in, and he is first in the group Nona promised to send when Perrin reported the powder under the streets.
 
 ### Hidden truths
 

@@ -1,5 +1,7 @@
 ---
 type: Creature
+aliases:
+  - Bloodhawks
 summary: "A Bloodhawk creature (CR 11) used as a skirmisher in The Shattered Sea."
 sources:
  - "archive/bloodhawk.md"
@@ -14,7 +16,7 @@ sources:
 ## At a glance
 
 - **Role at the table.** Skirmisher. It stoops from a height and hauls its catch into the sky.
-- **Threat.** CR 11. Ten feet of reach on beak and talons, 160 feet of flight, and the stoop from overhead give it range and movement to press the Party anywhere beneath it.
+- **Threat.** CR 11. Its beak and talons reach ten feet, and its flight runs to 160 feet. The stoop from overhead gives it the range to press the Party anywhere beneath it.
 - **Tell.** The shadow settles over you and the wings lock toward the same spot before the stoop.
 - **Weak to.** Cover, broken ground, and anything that splits its preferred range or formation. A closed canopy spoils the stoop outright.
 - **Used by.** [[Crown Squid]] patrols the same territory.

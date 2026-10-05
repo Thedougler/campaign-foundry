@@ -6,6 +6,7 @@ sources:
  - "archive/ssw-what-sunk-the-vestra.md"
  - "archive/ssw-session-02.md"
  - "archive/ssw-cobb.md"
+ - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/Krab02/characters/166013448"
 ---
 
@@ -51,6 +52,8 @@ dndbeyond_url: "https://www.dndbeyond.com/profile/Krab02/characters/166013448"
 Perrin washed up on Keth-Naar after the Vestra went down and reached the Saltwright's hold. Auralis found him dying in the water and chose to hold him alive, and why he chose Perrin is a question his patron keeps. His grandmother Nona Black-Jaw runs a Passage network, and he has not told the whole crew that he is still chasing the lost family ship. His unknown patron is Auralis, a power tied to the Drowned Maw. After the capture of the Surety he named himself a Black-Jaw before the assembled crew, and Beaumont Sel delivered Nona's message and named him a Friend of the [[Passage]]. During the whip-shark strikes his watch carried him into an abyss vision. He stood on a stone floor scored with channels under drifting light, then wore a sixty-foot barbed-tailed body whose hunting instincts rose in him. Something far larger below turned a curious attention his way, and one word, "Grow", burned into his mind. He met his grandmother in [[Le Paludi]], promised her an unstated favour, and carries her sending stone. His childhood contact [[Cobb]] runs the [[La Vasca]] dock, and a bioluminescent whale matched the ship's heading for a long while, a thing he had already seen in the vision.
 
 At La Vasca's gate he shook [[Cobb]]'s hand, said it was all sorted, and bolted.
+
+When [[HCS Ordinance]] boarded the *Uncertainty*, Perrin hid below with the rescued captives, out of the bounty's reach. The Crown's standing [[Rattkin Bounty]] pays 15 gp a head for a rattkin, dead or alive.
 
 ## Goals and bonds
 

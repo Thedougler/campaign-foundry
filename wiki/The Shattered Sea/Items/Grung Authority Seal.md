@@ -3,6 +3,7 @@ type: Item
 summary: "Spent gold seals that compelled lower-caste Grung onto Aruhe and preserve each bearer's whole order chain."
 sources:
  - "archive/grung-authority-seal.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
 ---
 
 ![[Grung Authority Seal - Handout Art.png]]
@@ -12,7 +13,7 @@ sources:
 - **Kind.** Wondrous plot item, single use.
 - **Rarity.** Spent examples are inert.
 - **Attunement.** - **Changes.** A whole seal can replace one Grung's will with a lifelong order.
-- **Held by.** The Party holds one spent seal. Other spent seals lie beside Grung remains on Aruhe.
+- **Held by.** The Party's gear includes one spent seal. Other spent seals lie beside Grung remains on Aruhe.
 
 > [!narration] First look
 > A spent seal is a palm-wide gold disc cracked into curved plates. Curling script and raised dots fill its face. Dirt packs every groove, and torn edges clink where it once fused to skin.
@@ -31,10 +32,11 @@ Spent seals do nothing. Their Gold-caste script records the bearer’s order cha
 
 ### History
 
-The Gold caste used seals to send successive expeditions inland: report, replace, destroy the two graves and finally burn the forest. Every Grung on Aruhe now carrying a seal is dead, so every seal is spent.
+The Gold caste used seals to send successive expeditions inland: report, replace, destroy the two graves and finally burn the forest. Every grung who wore a seal on Aruhe is dead, so every seal is spent.
 
 ### Hidden truths
 
+The compulsion is a unique form of the Gold caste's own magic, worked on belief itself: what a seal plants, the bearer holds indefinitely as their own.
 The compelled clearly believed the orders were their own. The matching authority mark on [[Solange's Authority Seal]] proves the command came from the same Gold caste. Reading a burn-road seal reveals the full chain.
 
 ## Links

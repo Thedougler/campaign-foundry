@@ -1,20 +1,21 @@
 ---
 type: Location
 kind: Region
-summary: "The Crown-controlled island chain where harbour authority, trade credit and old routes meet."
+summary: "An island chain whose name is geographic: the Dravosi Crown and the Tessarine Concordat hold separate harbours across it, and trade credit and old routes meet between them."
 sources:
  - "archive/calven-and-calveno.md"
  - "archive/high-eyrie.md"
  - "archive/calders-tooth-and-port-tidefall.md"
  - "archive/ssw-galewall.md"
  - "archive/ssw-verdant-scatter.md"
+ - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 parent: ""
 ---
 
 ## At a glance
 
 - **Character.** Five larger, mountainous islands of canals, cliffs, forested highlands and watched sea lanes.
-- **Held by.** The Dravosi Crown, Tessarine Concordat and local authorities.
+- **Held by.** [[Calder's Tooth and Port Tidefall|Port Tidefall]] and other harbours fly the [[Dravosi Crown]]'s flag, and [[Calven and Calveno]] flies the [[Tessarine Concordat]]'s colours. The name is geographic rather than a deed.
 - **Changing.** Admiralty orders and Drowned Maw staging increase pressure.
 - **Crossing.** Use harbours and pilots, but expect inspection or credit claims.
 - **Danger.** Crown secrecy, reefs, cliffs and the Maw's changing water.
@@ -26,7 +27,7 @@ parent: ""
 
 ### Travel
 
-[[Calven and Calveno]] and [[Calder's Tooth and Port Tidefall]] are established harbour nodes. [[High Eyrie]] lies beyond the eastern chain. The southern coasts face the [[Central Strait]], where [[Harwick]]'s yard and the deep-water Reach hold the Crown's strongest regional foothold.
+[[Calven and Calveno]] and [[Calder's Tooth and Port Tidefall]] are established harbour nodes. [[High Eyrie]] lies beyond the eastern chain. The southern coasts face the [[Central Strait]], where [[Harwick]]'s yard and the deep-water Reach form the Crown's strongest regional foothold.
 
 ### Places
 
@@ -45,7 +46,7 @@ parent: ""
 
 ### Rumors
 
-The Crown inspects while the Concordat invoices. Both collect from the same fishermen.
+A Crown harbour inspects, and a Concordat harbour invoices. Both collect from the same fishermen.
 
 Every port shrine on the western side keeps a board with names on it for the [[Galewall]] crossing's lost.
 

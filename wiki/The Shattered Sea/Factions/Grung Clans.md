@@ -5,18 +5,21 @@ sources:
  - "archive/grung-clans.md"
  - "archive/ssw-grung.md"
  - "archive/ssw-midchain.md"
+ - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
+ - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
+ - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
 ---
 
 ## At a glance
 
 - **Goal.** Recover water control while preserving the closed interior and caste-and-rite system.
 - **Next move.** Recover or reroute surviving captives after the Aruhe wrecks. [[Karath]] remains the identified destination for the captive route.
-- **Led by.** The gold authority associated with [[Auralis]]. No complete hierarchy is established.
+- **Led by.** The [[Gold Caste]], who proclaim themselves the Grung's gods and stand at the head of the clans. No complete hierarchy stands below them in the record.
 - **Base.** [[Verdant Teeth]].
 - **Strength.** Biology, terrain, toxins, reef patrols and sanctioned beaches.
 
 > [!narration] Public face
-> The Grung clans protect their communities and preserve Auralis's decrees. Trade happens on a sanctioned beach, but leaving the sand without permission is a breach. Where the beach ends, their closed rainforest begins.
+> The Grung clans protect their communities and preserve the Gold caste's decrees. Trade happens on a sanctioned beach, but leaving the sand without permission is a breach. Where the beach ends, their closed rainforest begins.
 
 ## Play
 
@@ -32,11 +35,11 @@ Raids from the [[Verdant Teeth]] have worsened, and the [[Chain Council]] at Kal
 
 ### History
 
-The clans control five rainforest islands as one closed system of canopy routes, pools, flooded cuts and beaches. Their maritime routes is shrinking, so raids, toxin exports and the fighting-age levy sustain a pipeline towards Karath. They captured and tortured a druid whose grief became [[Aruhe]], and later raided festival ports for captives.
+The clans control five rainforest islands as one closed system of canopy routes, pools, flooded cuts and beaches. Their maritime routes is shrinking, so raids, toxin exports and the fighting-age levy sustain a pipeline towards Karath. They captured and tortured a druid whose grief became [[Aruhe]], and later raided festival ports for captives. [[Grung and the Making of Aruhe]] holds the full account of that capture. Free clans still sail round Aruhe's eastern reef when the water lies flat, and they stay in their boats. The sand keeps the crews sent against it.
 
 ### Hidden truths
 
-- The gold presence linked to Auralis may be a god, construct, conduit, creature or story made effective by congregation. No source decides which.
+- The gold presence the sages preserve is the [[Gold Caste]] itself, mortal grung who claim godhood. The religion the sages keep is the worship of the caste. A sage's decrees read beside the script on a spent [[Grung Authority Seal|Authority Seal]] show one hand behind both.
 - Raids, toxin exports and the captive pipeline are one attempt to enforce the caste system while water power fails. A rescued captive or intercepted shipment shows the connection.
 - The clans' colour, soaking discipline and censure marks reveal social information but do not prove permanent ancestry or rank.
 

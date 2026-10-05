@@ -8,6 +8,7 @@ sources:
  - "archive/ssw-umberlees-message.md"
  - "archive/ssw-what-sunk-the-vestra.md"
  - "archive/ssw-umberlee-shrine.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
 ---
 
 ## At a glance
@@ -33,6 +34,8 @@ sources:
 ### Myth
 
 Umberlee is simply Umberlee at sea. People call her the Bitch Queen in anger and Queen of the Depths when avoiding the first name. She owns waves, storms, wrecks and the fear that makes a captain pay. Her claim is categorical over material-plane water. She never appears in person: storms, her [[Waveservants]] and the [[The Dead Lady|Dead Lady]] carry her attention where she wants it.
+
+She is tempestuous and petty, and her title came from her wrath and her greed. She deserves no worship. The gods and the sea stand as the ultimate authority over the Shattered Sea's rungs of power, and Umberlee is both at once.
 
 ### Rivals and allies
 

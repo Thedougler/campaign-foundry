@@ -4,6 +4,8 @@ summary: "Auralis is an Antheri deep machine holding the Drowned Maw fissure shu
 sources:
  - "archive/auralis.md"
  - "archive/ssw-what-sunk-the-vestra.md"
+ - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
 ---
 
 ![[Auralis - Reference Sheet.png]]
@@ -11,7 +13,7 @@ sources:
 ## At a glance
 
 - **The truth.** Auralis is a machine built about -2000 DR to hold the fissure into the Elemental Plane of Water shut.
-- **Who knows it.** Perrin hears him. Grung sages preserve the mandate. The Party has seen the whale-light.
+- **Who knows it.** Perrin hears him, and the Party has seen the whale-light. The Grung lie outside his record. Their sages preserve decrees of the [[Gold Caste]], gods who walk as grung.
 - **Limits.** Auralis cannot leave the fissure, compel Perrin or explain himself at length. He speaks in single words.
 - **Reaches play through.** The Pearl's signal weakens the seal, while Auralis warns and lends Perrin warlock magic.
 
@@ -21,8 +23,8 @@ sources:
 ## Play
 
 - **Players notice.** Pale blue whale-light around Perrin's cloak and a voice in his head with no mouth behind it.
-- **Clues.** Arcana DC 15 on Perrin's magic locates its source deep below the sea. The Pearl's signal, Grung mandate and Maw pressure point to the same machine.
-- **Accounts.** Grung sages call Auralis a gold presence, sailors call the whale-light a sea god's sign, and Perrin credits his cloak. All are partial or false.
+- **Clues.** Arcana DC 15 on Perrin's magic locates its source deep below the sea. The Pearl's signal and the Maw's pressure point to the same machine.
+- **Accounts.** Sailors call the whale-light a sea god's sign, and Perrin credits his cloak. All are partial or false.
 
 ## Depth
 

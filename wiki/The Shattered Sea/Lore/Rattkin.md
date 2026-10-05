@@ -4,6 +4,7 @@ summary: "Small humanoids built for infiltration, survival, swimming and impossi
 sources:
  - "archive/ssw-rattkin.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
 ---
 
 ## At a glance
@@ -27,6 +28,8 @@ sources:
 ### The full truth
 
 Rattkin are small humanoids built for infiltration, survival, swimming and spaces no other folk fits. Their fixed origin point is [[Warren|the Warren]] beneath Le Paludi, and their living network is [[Passage|the Passage]], which grew out of the Warren and now threads Runs and Holds through every major port. Old drains in [[Calven and Calveno|Calveno]] still answer to rattkin hands from before either colonial power arrived. Kin afloat include [[Perrin Black-Jaw]], a fancy-rat rattkin of the Calveno Run, and [[Nona Black-Jaw]], who keeps the Warren anchor.
+
+The [[Dravosi Crown]] treats the rattkin as a persecuted people, and its cruelty toward them is old and ordinary. It is the cruelty [[Nona Black-Jaw]] rose against in her youth, and the persecution she spends the Black-Jaw mob's influence against.
 
 ### Traits
 

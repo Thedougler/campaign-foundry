@@ -6,6 +6,7 @@ sources:
  - "archive/campaign-timeline.md"
  - "archive/session-11-transcript.md"
  - "archive/ssw-lines-and-veils.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
 session_length_hours:
 ---
 
@@ -35,7 +36,7 @@ The Party's first victory is also its first commitment. Taking the Saltwright fr
 
 ### Themes
 
-Found family versus inherited obligation. Freedom versus systems that demand papers, tribute, or debt. The cost of choosing who gets to pass safely.
+The Campaign is about the different kinds of authority and who should wield it, and rebellion against authority drives it: over the Campaign the Party takes on increasingly greater forms of authority. Authority climbs rungs, from authorities through lords such as [[Barnaby Rook]] and [[Aleksander Malone]], kings, and the Gold caste's false gods, to the gods and the sea, where [[Umberlee]] is both. Earlier statements of the theme keep as facets. Found family versus inherited obligation remains in play, as do freedom against systems that demand papers, tribute or debt, and the cost of choosing who gets to pass safely.
 
 ### Direction
 

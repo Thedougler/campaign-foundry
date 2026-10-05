@@ -3,12 +3,13 @@ type: NPC
 summary: "A reserved Hound of Tyr whom the Dravosi Crown releases only for confirmed Flock infiltration and righteous judgement."
 sources:
  - "archive/aleksander-malone.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
 creature: ""
 ---
 
 ## At a glance
 
-- **Role.** Rival and Crown hunter, Hound of Tyr, running the [[Grigori and the Crown hunt]].
+- **Role.** Rival and Crown hunter, Hound of Tyr, the face of the [[Dravosi Crown]]'s local threat in the region, running the [[Grigori and the Crown hunt]].
 - **Wants.** To hunt confirmed Khlysty Flock infiltration and deliver judgement.
 - **Voice.** Clipped, formal sentences with the finality of a verdict.
 - **Found at.** Blackrule, a chapter house cut into volcanic terrace-rock in the southern Midchain. The Dravosi Crown deploys him from there.
@@ -29,10 +30,11 @@ creature: ""
 
 ### History
 
-Malone trains at Blackrule and leaves only when formal confirmation reaches him. He hunted Shepherd Grigori aboard the HCS Ordinance under merchant cover. After he was released in public at Sarns Landing, the result was so violent that the Crown made confirmation a requirement before releasing him again. A former handler did not survive contact.
+Malone trains at Blackrule and leaves only when formal confirmation reaches him. Aboard the HCS Ordinance, under merchant cover, he pursued Shepherd Grigori. After he was released in public at Sarns Landing, the result was so violent that the Crown made confirmation a requirement before releasing him again. A former handler did not survive contact.
 
 ### Hidden truths
 
+- He already suspects the Party of transporting [[Shepherd Grigori]] to [[Calven and Calveno|Calveno]], though the Crown has yet to confirm it, and suspicion alone doesn't put a Hound on a trail.
 - The Crown's confirmation rule is both his authorisation and his leash. The Party can interfere by challenging whether a target is formally confirmed.
 - His grim joy appears only when someone gives him a true heretic to judge. Otherwise, he remains patient and almost still.
 

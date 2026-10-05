@@ -4,6 +4,8 @@ summary: "Choose whether to protect Shepherd Grigori, hand him to Malone or let 
 sources:
  - "archive/grigori-and-the-crown-hunt.md"
  - "archive/ssw-shepherd-grigori-island.md"
+ - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
 status: active
 ---
 
@@ -30,7 +32,9 @@ status: active
 
 ### Hidden truths
 
-Grigori leads the Flock and leaves dormant blood-threads in powerful bodies while healing them, building an army for ascension. Malone acts on his own authority after confirmed heresy and has the port and ship class, but not yet the crew. The Party transported Grigori to Calveno, a fact Malone does not know.
+Grigori leads the Flock and leaves dormant blood-threads in powerful bodies while healing them, building an army for ascension. Malone acts on his own authority after confirmed heresy and has the port and ship class, but not yet the crew. The Party transported Grigori to Calveno; Malone suspects the Party of it, though he still lacks confirmation.
+
+The Party heard his request to wound [[Corbin Knighton]] without killing him and agreed to contact Grigori should the opportunity arise. They do not know his purpose is to bind House Knighton, and they know him only as an oddly powerful healer whom the Crown calls a demon in public.
 
 The Calveno cure is done, and the Tessarine heir recovered as his newest anchor, bound without the household's knowledge. The grateful family could become a contact one day, and word of the Party's part in the voyage has yet to reach them. The trail resumes when a healed noble surfaces in front of the Party or when Grigori reaches for them again.
 

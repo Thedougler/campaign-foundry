@@ -5,6 +5,7 @@ summary: "A Rattkin settlement beneath Le Paludi and deepest Passage anchor, rea
 sources:
  - "archive/warren.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
 parent: "[[Le Paludi]]"
 ---
 
@@ -51,7 +52,7 @@ Passage reports put Grung in the old runs in the days before the festival, six o
 
 ### Threads
 
-Passage's deepest refuge, sheltering [[Nona Black-Jaw]] and Felix Aho, threads into [[Perrin and Nona]] and [[Simone's Hunters]].
+Passage's deepest refuge, sheltering [[Nona Black-Jaw]] and Felix Aho, threads into [[Perrin and Nona]] and [[Simone's Hunters]]. Nona is the Warren's heart. She has been around nearly as long as it has, and she knows everyone's names and birthdays. Common knowledge holds that if the Dravosi pick up your loved one, you go to her, and she does what she can.
 
 ## Links
 

@@ -5,11 +5,14 @@ sources:
  - "archive/ssw-giant-squid.md"
  - "archive/ssw-tessarine-trade-house.md"
  - "archive/tessarine-concordat.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
+ - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 ---
 
 ## At a glance
 
 - **Goal.** Contain public debt exposure while retaining salvage priority and control through paper.
+- **The kind of authority.** Higher and passive: systems, ledgers and contracts do the ruling, and the Concordat stands a rung above local might.
 - **Next move.** Keep Sunkline funded, record the Chain Council mail trail and pursue [[Shelfworks]] intelligence.
 - **Led by.** The [[Seven Houses Council]]. Cosimo Verantio is the hidden architect.
 - **Base.** [[Calven and Calveno]] counting houses.
@@ -30,7 +33,7 @@ sources:
 
 ### History
 
-The Tessarine began as an eastern mercantile colonial power shaped by the old Amnian house model. Counting houses and the Seven Houses Council hold visible authority in Calveno. Four of the houses usually vote its way while three can still stall. Its [[Tessarine Trade House|trade house]] at [[Calder's Tooth and Port Tidefall]] licenses trade, brokers salvage and dispatches its couriers. After Mercatura, the Party signed as Calveno's Defenders on Tessarine letterhead.
+The Tessarine began as an eastern mercantile colonial power shaped by the old Amnian house model. Counting houses and the Seven Houses Council hold visible authority in Calveno, the neutral port the Concordat primarily controls. Crown writ runs out at its quays. Four of the houses usually vote its way while three can still stall. Its [[Tessarine Trade House|trade house]] at [[Calder's Tooth and Port Tidefall]] licenses trade, brokers salvage and dispatches its couriers. After Mercatura, the Party signed as Calveno's Defenders on Tessarine letterhead.
 
 ### Hidden truths
 

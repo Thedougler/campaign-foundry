@@ -1008,3 +1008,85 @@
 ## [2026-10-04] lint | In-world voice: Previously On retells a mechanic
 
 - [[Session 12 - Previously On]]
+
+## [2026-10-04] ingest | collab-2026-10-04-grung-gold-caste-gods.md
+
+- [[Grung Clans]]
+- [[Gold Caste]]
+- [[Grung]]
+- [[Verdant Teeth]]
+- [[Auralis]]
+- [[Elemental Plane of Water]]
+
+## [2026-10-04] ingest | agentic-co-dm-arc-blight-of-aruhe.md
+
+- [[Hinewai]]
+- [[Karath]]
+- [[Aruhe]]
+- [[Memorial Grove]]
+- [[Taking on Aruhe]]
+- [[Grung Clans]]
+- [[Mystra]]
+- [[Oren Vask]]
+- [[Celia Parel]]
+- [[Bloodhawk]]
+
+## [2026-10-04] ingest | collab-2026-10-04-authority-themes.md
+
+- [[campaign-config]]
+- [[Shattered Sea]]
+- [[Nona Black-Jaw]]
+- [[Vincenzo Black-Jaw]]
+- [[Enzo]]
+- [[Ruk]]
+- [[Aleksander Malone]]
+- [[Grigori and the Crown hunt]]
+- [[Shepherd Grigori]]
+- [[Hinewai]]
+- [[Aruhe]]
+- [[Grung]]
+- [[Gold Caste]]
+- [[Grung Authority Seal]]
+- [[Umberlee]]
+- [[Dravosi Crown]]
+- [[Tessarine Concordat]]
+- [[Le Paludi]]
+- [[Warren]]
+- [[Auralis]]
+- [[Rattkin]]
+
+## [2026-10-04] ingest | collab-2026-10-04-calveno-and-rattkin-bounty.md
+
+- [[Calven and Calveno]]
+- [[Crown Islands]]
+- [[Dravosi Crown]]
+- [[Tessarine Concordat]]
+- [[Peoples of the Shattered Sea]]
+- [[Nona Black-Jaw]]
+- [[Vincenzo Black-Jaw]]
+- [[Vestra]]
+- [[Black-Jaw Run]]
+- [[Perrin Black-Jaw]]
+- [[Simone Tabarnack]]
+- [[Gold Caste]]
+- [[Karath]]
+- [[Shepherd Grigori]]
+- [[Grigori and the Crown hunt]]
+- [[Grung]]
+- [[campaign-config]]
+- [[Rattkin Bounty]]
+- [[Gold Fruit]]
+- [[Ossketh]]
+
+## [2026-10-04] ingest | agentic-co-dm-grung-and-the-making-of-aruhe.md
+
+- [[Grung and the Making of Aruhe]]
+- [[The Unnamed Companion]]
+- [[Hinewai]]
+- [[Aruhe]]
+- [[Grung Clans]]
+- [[Grung]]
+- [[Memorial Grove]]
+- [[Two-Grave Orders]]
+- [[Taking on Aruhe]]
+- [[Mystra]]

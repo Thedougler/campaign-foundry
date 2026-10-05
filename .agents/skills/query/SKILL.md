@@ -12,8 +12,9 @@ The Wiki is the evidence. Every fact in an answer comes from a page read during 
 1. **Orient** with the read order in `AGENTS.md`: `hot.md`, the World's `index.md`, the `log.md` tail. `hot.md` points at pages; cite the page behind it.
 2. **Search** with QMD (read the `qmd` skill for mechanics). Set explicit `intent` to the DM's question, use a lexical search on names/key terms and a semantic search on the plain question. Add matching `index.md` entries to the hits. Done when the question's named subjects and meaning have both been searched.
 3. **Read** the hits through `qmd multi-get` or trusted MCP `multi_get`; snippets are leads. Follow wikilinks one hop where the answer runs through a linked page (an NPC's Faction, a Location's parent, the Creature behind an NPC). Done when every part of the question has a page that answers it, or a gap confirmed by both name and meaning searches.
-4. **Answer** in the shape below.
-5. **File back** a keeper (below). Any other answer ends the run at step 4.
+4. **Prior iteration.** Search the **agentic-co-dm** repo last, for each gap step 3 confirmed: it is this project's previous version, covering the same Campaign. Use MCP `query` with `collections: ["agentic-co-dm"]` (the CLI lacks it), a lexical search on names and a semantic search on the plain question, then `get` each hit by its `agentic-co-dm/…` path. When `status` lists no such collection, grep `wiki/` in a clone of https://github.com/Thedougler/agentic-co-dm at `prior/agentic-co-dm/`. Done when each gap has a prior-iteration page read or came back empty on both searches.
+5. **Answer** in the shape below.
+6. **File back** a keeper (below). Any other answer ends the run at step 5.
 
 ## Answer
 
@@ -21,6 +22,7 @@ The Wiki is the evidence. Every fact in an answer comes from a page read during 
 - Cite each fact inline: `[[Page]]`, or `[[Page#Section]]` when the page is long.
 - **Records, not plans.** What happened comes from Recaps, Transcripts and the pages they updated. Prep and Scene pages say what was planned, so a planned outcome is cited as the plan.
 - Name each gap plainly: what the Wiki leaves unsaid. An answer that is mostly a gap stays short: the gap, the nearest recorded facts in a line or two, then the suggestions. Your own readings, inferences and ideas go under a final **Not in the Wiki** line, each marked as yours.
+- **Prior iteration, not Canon.** What step 4 found goes on a **Prior iteration (not Canon)** line after the Wiki's facts, each fact cited by its `agentic-co-dm/…` path. The Wiki wins any disagreement.
 - Where pages disagree, give both with their pages and the version Canon precedence favours: the DM's own words, then the most recent event.
 
 ## Filing back
@@ -33,7 +35,7 @@ A **keeper** is one of:
 
 Most answers file nothing. A keeper is filed without asking (ADR 0003), and filing is **surgical**:
 
-- **Stated facts only.** File what a page or the DM states. Your inferences and suggestions stay in the answer.
+- **Stated facts only.** File what a Wiki page or the DM states. Your inferences and suggestions stay in the answer, and so does a prior-iteration fact until the DM confirms it.
 - **Link, don't copy.** A fact that already lives on its own page gets a link from here, never a second telling.
 - **Stale means contradicted.** Rewrite only the statement a later event contradicts, summary included, and leave the rest of the page as it was.
 - **Pages, not the spine.** `hot.md`, `index.md` and `log.md` are never filing targets: Ingest and Prep rewrite `hot.md`, and scripts write the other two.

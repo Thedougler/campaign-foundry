@@ -9,7 +9,7 @@
 - [[Aruhe]] — A vast untamed volcanic island where excessive life distinguishes receiving from taking.
 - [[Ashwall Islands]] — Cold volcanic spires at the Galewall's edge: the last solid ground outbound, the first proof inbound, and a reckoning point rather than a destination.
 - [[Central Strait]] — The inspected east-west corridor between the Crown Islands and the Midchain, run through by an east-setting current and narrowed by the Maw's water at its eastern end.
-- [[Crown Islands]] — The Crown-controlled island chain where harbour authority, trade credit and old routes meet.
+- [[Crown Islands]] — An island chain whose name is geographic: the Dravosi Crown and the Tessarine Concordat hold separate harbours across it, and trade credit and old routes meet between them.
 - [[Drowned Maw]] — A chart-edge trench where currents reverse, the Pearl lies below the waterline and a planar fissure strains containment.
 - [[Galewall]] — The permanent western storm belt between the Scatter and the colonial homelands: a three-week crossing that loses one hull in three and prices every mistake.
 - [[Grasslands]] — Hot river-cut valleys of eight-foot gold-green grass where water, cover and predators force exposed choices.
@@ -30,7 +30,7 @@
 
 - [[Botukuri]] — A Grung settlement of the clans and the birthplace of Jean-Claude Tabarnack, the blue-caste fugitive.
 - [[Calder's Tooth and Port Tidefall]] — A cliff-tier fortress-port whose docks, trade shelf and Crestwall guns watch the far side Strait.
-- [[Calven and Calveno]] — Calven's marsh, tidal flats and farms rise to Calveno, a canal city whose harbour flies the Dravosi flag while debt controls its politics.
+- [[Calven and Calveno]] — Calven's marsh, tidal flats and farms rise to Calveno, a neutral canal city the Tessarine Concordat primarily controls, where Crown law stops at the waterline.
 - [[Halythion]] — The sea elves' primary settlement in the Shattered Sea and the seat of their worship of Deep Sashelas.
 - [[Kalowe]] — Three reef-linked islets joined by stone bridges, with one navigable gap, a seized fort council and a shrine that charges every hull.
 - [[Keth-Naar]] — A tabaxi city at the Blue Hole's edge, the furthest reliable landmark east of the Drowned Maw and the last harbour on the eastern road.
@@ -100,6 +100,7 @@
 - [[Catalina Curio]] — Keeper of Kat's Curios, holding Delmar Fisk's whip-shark barb under appraisal.
 - [[Catarina Da'Virelli]] — Calveno artificer and salvage engineer who keeps her workshop in the city.
 - [[Cedric Hollowell]] — Verity Hollowell's father, who met Geoffrey Draves at the dancing spot with terms instead of a daughter.
+- [[Celia Parel]] — Calveno wreck survivor who keeps Aruhe's taking-law the way a tradeswoman keeps a rule that holds, with no worship in it.
 - [[Cobb]] — A young rattkin dockworker and Nona Black-Jaw's runner who keeps La Vasca's refit on schedule.
 - [[Coralyra Dranra]] — Sea elf sorcerer and bard, self-exiled from her post as Aoidos of Halythion.
 - [[Corbin Knighton]] — Crown boarder whose false report now drives a quiet hunt for the crew.
@@ -127,6 +128,7 @@
 - [[Nona Black-Jaw]] — Black-Jaw Run matriarch, senior Tangle elder, and Perrin Black-Jaw's grandmother, who turns trust into routes and obligations.
 - [[Noor]] — The youngest hand aboard the Uncertainty, a fifteen-year-old cook who knows every sailing manual and almost none of the sea.
 - [[Old Faas]] — Brick-solid bosun and rigger on two brass-ferruled peg legs, fearless since a childhood fall and faster in the shrouds than on the deck.
+- [[Oren Vask]] — Calveno wreck survivor who keeps Aruhe's taking-law as debt, sealing every cut he passes and counting what he owes.
 - [[Orvalle]] — A Shelfworks air-pump hand who stopped diving after the drop-off took his partner, and rations the telling to once a season.
 - [[Osset]] — Former High Eyrie master now hidden behind Talon Vantyrus while he studies Crissdalynn's Long Sight.
 - [[Otar the Foul]] — Ancient red slaad summoned through Solange Barret to destroy Mercatura.
@@ -148,12 +150,13 @@
 - [[Talon Skarn]] — Peregrine the faction apprentice hunting Crissdalynn's Fate Spinner under the Rule of Two.
 - [[Talon Vantyrus]] — Master of the faction and former Sentinel Osset, seeking the Soul Incarnate transformation through Crissdalynn.
 - [[Thassos]] — A fixture of the Tallow Row card tables who tests new players and calls the game.
+- [[The Unnamed Companion]] — Hinewai's fellow captive at Karath, killed in the surf during their escape and buried beneath the Death Bloom's fruit tree.
 - [[Thunk]] — Enormous orc master gunner whose uncanny powder sense keeps the Uncertainty's guns working.
 - [[Tomo]] — An older Calveno captive who broke Aruhe's fruit taboo the first night ashore and left only drag marks behind.
 - [[Umberlee - Branca]] — Senior Calveno Waveservant who delivers Umberlee's command about the Pearl of Souls.
 - [[Vashu, the Weeping Veil]] — Blind purple-caste Grung master of the Still-Water Discipline and former Magazine Gamma guardian.
 - [[Verity Hollowell]] — The dancer who caught Geoffrey Draves mid-movement on his shore leave, and the reason he counts every wage.
-- [[Vincenzo Black-Jaw]] — Nona Black-Jaw's late husband: builder and captain of the Vestra, gambler, empty chair at family meals.
+- [[Vincenzo Black-Jaw]] — Nona Black-Jaw's late husband: dangerous mob boss of Le Paludi and Calveno's underground, builder and captain of the Vestra, empty chair at family meals.
 - [[Wessa]] — Saltwright's cook; impossible standards, zero theatrics, the food just appears.
 - [[Zort]] — Armless goblin animal dealer who trades Midchain names for work he cannot do himself.
 
@@ -215,6 +218,7 @@
 - [[Countless]] — Breakaway Sentinel order that erases names and hunts Fate Spinner carriers through one-job agents.
 - [[Dravosi Crown]] — Tethyr colonial court and naval service that enforces inspection law across the far side approaches.
 - [[Fisk's Fleet]] — Delmar Fisk's five-ship fleet, assembled to steal the Pearl of Souls from Umberlee; it sank over the Drowned Maw.
+- [[Gold Caste]] — Mortal Grung who proclaim themselves the Grung's living gods; the gold presence their sages preach is the caste itself.
 - [[Grung Clans]] — Political Grung clans that keep the Verdant Teeth closed, trade toxin and raid for captives as their water power declines.
 - [[Il Vento di Seta]] — A halfling trio with a Tessarine booking agent. The same perfect set every Palio, for a devoted crowd of exactly the same size.
 - [[Khlysty]] — The secret flock Shepherd Grigori shepherds: healed noble heirs bound by blood to feed an undead ascension.
@@ -231,6 +235,7 @@
 ## Deities
 
 - [[Deep Sashelas]] — The power the sea elves of Halythion worship; nothing else of the deity is recorded in the Shattered Sea.
+- [[Mystra]] — Goddess of magic who keeps the Weave, cursed by name on Aruhe's shore.
 - [[Umberlee]] — The sea as it is, claiming tribute from every harbour while the Pearl remains beyond her reach at the Drowned Maw.
 - [[Valkur]] — Sailor's courage made divine, invoked below decks when the basin's price feels wrong.
 
@@ -243,6 +248,7 @@
 - [[Flying Boots]] — Winged Boots that grant Delmar a 30-foot Fly Speed for 1 hour per charge.
 - [[Ghost Plum]] — A rare Aruhe fruit that makes its eater Invisible for 1 hour, while its pollen reveals invisible creatures as a shimmer.
 - [[Giant's Guava]] — A rare Aruhe fruit that sets the eater's primary ability score to 25 for 1 hour.
+- [[Gold Fruit]] — The Gold caste's diet fruit from Karath's secret farms: enough of it turns a grung's skin gold, and a casting of Ossketh then holds the colour for life.
 - [[Grubnade]] — A volatile Aruhe caterpillar that detonates when disturbed, scattering harmless juveniles and igniting nearby growth.
 - [[Grung Authority Seal]] — Spent gold seals that compelled lower-caste Grung onto Aruhe and preserve each bearer's whole order chain.
 - [[Letters of Marque]] — Crown parchment licensing Barnaby Rook as a privateer and carrying a 30,000 gp Crown bond.
@@ -257,6 +263,10 @@
 - [[The Snap]] — A wrist bracer that unfolds into a hand-free shield granting +2 AC to Perrin Black-Jaw.
 - [[Truth Stone]] — A grey stone that heats white-hot when its holder knowingly lies, dealing fire damage with every Deception check until it is dropped.
 - [[Whip-Shark Barb]] — A four-foot serrated spike of bone and cartilage cut from the dead whip-shark, recovered by Delmar Fisk and under appraisal at Kat's Curios.
+
+## Spells
+
+- [[Ossketh]] — A suppressed grung transmutation that sets the caster's caste colour permanently; cast before the diet finishes its work, it lodges and keeps running.
 
 ## Vehicles
 
@@ -281,6 +291,7 @@
 - [[Campaign Timeline]] — A chronology from the Antheri's height through the Pearl theft and the Party's opening aboard the Saltwright.
 - [[Elemental Plane of Water]] — The plane on the far side of the Drowned Maw's fissure, sealed by Auralis, tied to the vanished Antheri and claimed as the sea elves' ancestral home.
 - [[Grung]] — Small amphibious poison-skinned humanoids whose skin colour marks caste; they hold the Verdant Teeth closed and meet the Sea through sanctioned beach trade.
+- [[Grung and the Making of Aruhe]] — The Grung raid that took Hinewai for Karath's hatcheries, the escape that cost her companion his life, and the grave that made Aruhe's law.
 - [[Human]] — The Sea's most numerous and varied people, spread from Sigil, the City of Doors, across every water; no culture, god or look is common to all.
 - [[Il Gioco delle Beffe]] — Calveno's five-day prank festival, where teams scheme against willing marks for bragging rights and a bronze medallion.
 - [[Il Palio delle Voci Contese]] — Calveno's three-night open bardic contest, where bands play simultaneous stages across the canal district and the crowd's feet alone decide who takes the Palio.
@@ -289,6 +300,7 @@
 - [[Minotaur]] — Heavy, horned humanoids with perfect recall of any passage; a minotaur pilot is the dearest crew hire in the Midchain and worth every coin.
 - [[Peoples of the Shattered Sea]] — The peoples who share the Shattered Sea's ports and waters; the rattkin hold the oldest continuous presence in every major port.
 - [[Rattkin]] — Small humanoids built for infiltration, survival, swimming and impossible spaces; the oldest continuous presence in every major Shattered Sea port.
+- [[Rattkin Bounty]] — The Dravosi Crown's standing price on rattkin lives: 15 gp a head, dead or alive, paid at any Crown fort, and still in force.
 - [[Sea Elf]] — Elves adapted to life in the water, who breathe air and water alike; in the Shattered Sea they are centred on Halythion and worship Deep Sashelas.
 - [[Session 11 Assets]] — A routing record that keeps Session 11 recap, transcript, and recording assets distinct until their owning ingest workflow promotes them.
 - [[Tabaxi]] — A feline folk of the eastern water; the tabaxi city of Keth-Naar is the furthest reliable landmark east of the Drowned Maw.
@@ -303,7 +315,7 @@
 
 ## Campaign config
 
-- [[campaign-config]] — Dark heroic fantasy: rebellion, grey morality, freedom from slavery, and power that corrupts.
+- [[campaign-config]] — Dark heroic fantasy about authority in its rungs and who should wield it, told through rebellion, grey morality, freedom from slavery and corrupting power.
 
 ## PCs
 

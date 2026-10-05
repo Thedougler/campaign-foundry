@@ -7,6 +7,7 @@ sources:
  - "archive/ssw-minotaur.md"
  - "archive/ssw-lizardfolk.md"
  - "archive/ssw-human-culture.md"
+ - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 ---
 
 ## At a glance
@@ -21,15 +22,15 @@ sources:
 
 ## Play
 
-- **Players notice.** Port districts sorted by flag and folk. [[Calven and Calveno|Calveno]] holds Crown, Concordat, Seven Houses Council, [[Passage]] and rattkin communities side by side.
+- **Players notice.** Port districts sorted by flag and folk. [[Calven and Calveno|Calveno]] holds Concordat, Seven Houses Council, [[Passage]] and rattkin communities side by side, and Crown sailors walk its streets only as visitors.
 - **Clues.** In Calveno, the old drains answer to rattkin hands and were occupied by them longer than either colonial power.
-- **Accounts.** Dock folk grant that a rattkin family held each quay first. The colonial powers' books begin much later.
+- **Accounts.** Dock folk grant that the first hands on each quay were rattkin hands. The colonial powers' books begin much later.
 
 ## Depth
 
 ### The full truth
 
-The Sea's ports are shared among the Dravosi Crown's and Tessarine Concordat's colonies and the folk who were there before and between them. The [[Rattkin]] predate every colonial power's arrival, holding [[Warren|the Warren]] beneath Le Paludi as their fixed origin point and threading the ports through [[Passage|the Passage]]. Off Aruhe, Grung clans raid shipping routes on their own account. The grung hold the [[Verdant Teeth]] closed and meet outsiders through sanctioned beach trade, while minotaur navigators pilot the Sea's hardest channels, at the highest crew rates in the [[Midchain]]. The [[Lizardfolk|lizardfolk]] hold the tidal margins, where they build low in the water and crew the Sea's hulls as salvagers and repair hands.
+The Sea's ports are shared among the Dravosi Crown's and Tessarine Concordat's colonies and the folk who were there before and between them. The [[Rattkin]] predate every colonial power's arrival, holding [[Warren|the Warren]] beneath Le Paludi as their fixed origin point and threading the ports through [[Passage|the Passage]]. Off Aruhe, Grung clans raid shipping routes on their own account. The grung keep the [[Verdant Teeth]] closed and meet outsiders through sanctioned beach trade, while minotaur navigators pilot the Sea's hardest channels, at the highest crew rates in the [[Midchain]]. The [[Lizardfolk|lizardfolk]] live along the tidal margins, where they build low in the water and crew the Sea's hulls as salvagers and repair hands.
 
 ## Links
 

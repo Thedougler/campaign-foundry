@@ -8,6 +8,9 @@ sources:
  - "archive/hungry-isle.md"
  - "archive/ssw-midchain.md"
  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+ - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
+ - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
 parent: "[[Midchain]]"
 ---
 
@@ -17,8 +20,8 @@ parent: "[[Midchain]]"
 
 - **Character.** An untamed volcanic island about 500 miles long and 150 miles across.
 - **Held by.** No settlement or state. Hinewai's grief binds the island's living systems.
-- **Changing.** Calveno survivors move inland while Karath's Gold caste seeks the two graves. Two castaways from the wrecked [[Vethka]], [[Sandro]] and [[Nino]], still shelter on the landing beach.
-- **Crossing.** Land at [[Western Landing]]. Use the River or slow forest and terrace routes.
+- **Changing.** Calveno survivors move inland while Karath's Gold caste seeks the two graves. [[Sandro]] and [[Nino]], castaways from the wrecked [[Vethka]], still shelter on the landing beach.
+- **Crossing.** The landing beach is [[Western Landing]]. Use the River or slow forest and terrace routes.
 - **Danger.** Taking living things wakes hostile local life. Growth, healing and rot run beyond normal limits.
 
 > [!narration] Arrival
@@ -30,7 +33,7 @@ parent: "[[Midchain]]"
 
 [[Western Landing]] is the reliable sea approach. The River is the nearest thing to a road, but current, shelves and otter families make it unsafe infrastructure. A straight crossing takes many days, whereas a lengthwise crossing takes weeks.
 
-Aruhe lies on the Midchain's inner edge near the [[Verdant Teeth]]. Grung patrol its reefs, but free grung avoid landing. Compelled expeditions have reached the island.
+Aruhe lies on the Midchain's inner edge near the [[Verdant Teeth]]. Grung patrol its reefs; free grung keep to their boats, and the sail that works the eastern reef when the water lies flat stays on the water, because the sand has kept every grung who tried it. The expeditions that still come ashore are the compelled ones.
 
 ### Places
 
@@ -53,11 +56,13 @@ Fallen fruit is receiving. Fruit picked from living growth is a claim. The islan
 
 ### History
 
-Hinewai preserved a drowned companion at [[Memorial Grove]]. The Death Bloom is the tree, two graves, black flowers and bound soil together.
+Hinewai preserved her drowned [[The Unnamed Companion|companion]] at [[Memorial Grove]]. The Death Bloom is the tree, two graves, black flowers and bound soil together. Her vow, spoken from inside her own grave, made the island's taking-law and gave the grung their name for it: the Hungry Isle. The raid and its aftermath are [[Grung and the Making of Aruhe]].
 
 ### Hidden truths
 
 Pale luminous roots run from Clear Lake through the Marshes into the graves. Destroying the Bloom ends the blight over weeks, months and years, but leaves the memorial's cost.
+
+Removing [[Hinewai]]'s presence realistically means burning down most of Aruhe, and no one who loves the island calls that a victory. She loves Aruhe back, and her presence stays unhealthy for its flora and fauna all the same.
 
 The Party learned that fallen fruit is safe while living fruit is dangerous. Matteo Scola wants passage off the island, and an unseen watcher remains in the garden.
 

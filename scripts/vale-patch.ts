@@ -5,6 +5,9 @@ import { readFileSync, writeFileSync } from "node:fs";
 const patches: { file: string; exception: string }[] = [
   // The DM is a person: "the DM asks for", "the DM decides".
   { file: ".vale/styles/ai-tells/AnthropomorphicCognition.yml", exception: String.raw`  - "(?i)\\bDMs?\\b"` },
+  // "them" is the person pronoun the teaching span keeps ("the sages teach them"): the DM-confirmed misfire,
+  // where grung sages teach their people in the world. "him" and "her" are already excepted; "them" was not.
+  { file: ".vale/styles/ai-tells/AnthropomorphicCognition.yml", exception: String.raw`  - "(?i)\\bthem\\b"` },
 ];
 
 for (const { file, exception } of patches) {

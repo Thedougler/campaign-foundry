@@ -7,6 +7,7 @@ sources:
  - "archive/ssw-silent-shortbow.md"
  - "archive/ssw-le-paludi.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/collab-2026-10-04-authority-themes.md"
 parent: "[[Calven and Calveno]]"
 ---
 
@@ -53,7 +54,7 @@ A storm drain on the district's secluded side runs about five hundred metres und
 
 ### Threads
 
-The Warren below is Nona's, and [[Perrin and Nona]] run its network, while [[Simone's Hunters]] hunt any threshold that shelters a fugitive.
+The Warren below is Nona's, and [[Perrin and Nona]] run its network, while [[Simone's Hunters]] hunt any threshold that shelters a fugitive. [[Nona Black-Jaw]] is the heart of Le Paludi as much as of the Warren, and common knowledge here holds that if the Dravosi pick up your loved one, you go to Nona, and she does what she can.
 
 ## Links
 

@@ -5,6 +5,8 @@ summary: "Aruhe's heart: one fruit tree over two unmarked graves in a ring of bl
 sources:
  - "archive/memorial-grove.md"
  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+ - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
+ - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
 parent: "[[Aruhe]]"
 ---
 
@@ -43,7 +45,7 @@ Enter as a guest, take fallen fruit, study roots and graves, talk to Hinewai, or
 
 ### History
 
-Hinewai buried her drowned companion beneath the tree. Her own grave anchors the mechanism. The Gold caste sends compelled Grung to destroy both.
+Hinewai carried her drowned [[The Unnamed Companion|companion]] up from the surf and buried him beneath the tree, a grave opened by hand through a day and most of a night. Her own grave anchors the mechanism. The second grave went in beside his over two days, after the grung sail traced the treeline. She lay down in it alive and spoke the vow from inside the soil. The Gold caste sends compelled Grung to destroy both. The capture and escape behind these graves are [[Grung and the Making of Aruhe]].
 
 ### Hidden truths
 
