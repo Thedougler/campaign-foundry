@@ -5,6 +5,7 @@ sources:
  - "archive/simone-tabarnack.md"
  - "archive/ssw-midchain.md"
  - "archive/ssw-session-01.md"
+ - "archive/ssw-the-canister.md"
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 creature: "[[Commoner]]"
 ---

@@ -5,6 +5,7 @@ sources:
  - "archive/jean-claude-tabarnack.md"
  - "archive/ssw-grung.md"
  - "archive/ssw-session-02.md"
+ - "archive/ssw-the-canister.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/nickdavenock/characters/171013670"
 ---
 
@@ -49,7 +50,7 @@ dndbeyond_url: "https://www.dndbeyond.com/profile/nickdavenock/characters/171013
 
 ### Backstory
 
-Born blue caste among the [[Grung]] of [[Botukuri]], Jean-Claude fled after freeing slaves. Pell died in the reprisal that followed. His red beret marks him as censured, and his family still sends Simone's elite unit after him. He stowed aboard the Saltwright one island ahead of them. Under Beaumont Sel's [[Truth Stone]] he confirmed that his former kinsmen were after him, that he had stowed away, and that nobody had sent him. He recognised Simone's toxin in the twenty vials of Grung tincture from Rook's cargo and has told no one. The whip-shark's tail opened his chest, and he stayed in the rigging anyway. He recovered three fertilised eggs from the body and went into [[Calven and Calveno|Calveno]] green instead of blue during the festival preparations. On the [[Casa Lupo]] shopkeeper's word he took them to [[Studio Orsini]], where he told [[Marta Orsini]] he had fertilised the egg himself.
+Born blue caste among the [[Grung]] of [[Botukuri]], Jean-Claude fled after freeing slaves. Pell died in the reprisal that followed. His red beret marks him as censured, and his family still sends Simone's elite unit after him. He stowed aboard the Saltwright one island ahead of them. Under Beaumont Sel's [[Truth Stone]] he confirmed that his former kinsmen were after him, that he had stowed away, and that nobody had sent him. He recognised Simone's toxin in the canister the Crown alchemist threw across the Saltwright's gangplank and kept quiet through the fight. The same preparation filled the twenty vials of Grung tincture from Rook's cargo, and he has told no one of either. The whip-shark's tail opened his chest, and he stayed in the rigging anyway. He recovered three fertilised eggs from the body and went into [[Calven and Calveno|Calveno]] green instead of blue during the festival preparations. On the [[Casa Lupo]] shopkeeper's word he took them to [[Studio Orsini]], where he told [[Marta Orsini]] he had fertilised the egg himself.
 
 After the garden, Jean-Claude became catatonic and travels inside Delmar's coat.
 

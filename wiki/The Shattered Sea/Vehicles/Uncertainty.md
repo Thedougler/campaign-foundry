@@ -12,6 +12,7 @@ sources:
  - "archive/ssw-session-03.md"
  - "archive/ssw-cobb.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/ssw-the-canister.md"
  - "archive/ssw-party-crew.md"
 aliases:
  - "HCS Surety"
@@ -54,7 +55,7 @@ Keep the ship moving off Aruhe instead of anchoring close. Merchant cover matter
 
 ### History
 
-The crew took the HCS Surety during the Saltwright boarding and later renamed it Uncertainty. In the boarding, [[Bisou]] fouled the powder through a gun port and [[Delmar Fisk]] shot [[Ensign Wouters]] through the other, while [[Barnaby Rook]] went into the water twice and did not return. The Party kept the cutter as a prize under her Crown marks and had not yet chosen her new name, and the prize crew was named at the day's end. Her cabins yielded 45 gold, the [[Letters of Marque]] and a blunderbuss, and another 110 gold with two garnets from under the floor. One crate contained a pendant marked for Mira and [[Mira's Blade]], sealed together, and a second crate contained flintlocks with twenty vials of Grung tincture. Two hours out a tropical storm found her, and something below struck the hull three times, the third deliberate, before she lurched hard to port. In a gap in the squall the Crown Isle of [[Aldenmere]] stood out to the northwest, and then the weather closed. The crew killed the sixty-foot [[Whip Shark|whip-shark]] that had struck her. Its scales and [[Jean-Claude Tabarnack|Jean-Claude]]'s Mending patched the hull over five days at sea, and she took the name Uncertainty on the approach channel to [[Calven and Calveno|Calveno]]. She then went into the [[La Vasca]] cradle under the Black-Jaw colours, password "garden". The refit cradle is at [[Calven and Calveno|Calveno]]'s La Vasca. Earlier Crown ownership is certain. Current ownership follows the crew's capture.
+The crew took the HCS Surety during the Saltwright boarding and later renamed it Uncertainty. In the boarding, [[Bisou]] fouled the powder through a gun port and [[Delmar Fisk]] shot [[Ensign Wouters]] through the other, while [[Barnaby Rook]] went into the water twice and did not return. The Party kept the cutter as a prize under her Crown marks and had not yet chosen her new name, and the prize crew was named at the day's end. Her cabins yielded 45 gold, the [[Letters of Marque]] and a blunderbuss, and another 110 gold with two garnets from under the floor. One crate contained a pendant marked for Mira and [[Mira's Blade]], sealed together, and a second crate contained flintlocks with [[Grung Toxin Vials|twenty vials of Grung tincture]]. Two hours out a tropical storm found her, and something below struck the hull three times, the third deliberate, before she lurched hard to port. In a gap in the squall the Crown Isle of [[Aldenmere]] stood out to the northwest, and then the weather closed. The crew killed the sixty-foot [[Whip Shark|whip-shark]] that had struck her. Its scales and [[Jean-Claude Tabarnack|Jean-Claude]]'s Mending patched the hull over five days at sea, and she took the name Uncertainty on the approach channel to [[Calven and Calveno|Calveno]]. She then went into the [[La Vasca]] cradle under the Black-Jaw colours, password "garden". The refit cradle is at [[Calven and Calveno|Calveno]]'s La Vasca. Earlier Crown ownership is certain. Current ownership follows the crew's capture.
 
 ### Hidden truths
 

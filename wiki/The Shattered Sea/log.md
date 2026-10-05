@@ -1133,3 +1133,38 @@
 - [[La Cenere]]
 - [[Nightmantle]]
 - [[Lavinia Sordi]]
+
+## [2026-10-05] ingest | agentic-co-dm-old-faas-narration.md
+
+- [[Old Faas]]
+
+## [2026-10-05] ingest | ssw-the-canister.md
+
+- [[Grung Toxin Vials]]
+- [[The Canister]]
+- [[Ruk]]
+- [[Jean-Claude Tabarnack]]
+- [[Simone Tabarnack]]
+- [[Dravosi Crown]]
+- [[Dravosi Alchemist]]
+- [[Alchemist's Bandolier]]
+- [[Saltwright]]
+- [[Uncertainty]]
+- [[Mira's Blade]]
+- [[Grung]]
+
+## [2026-10-05] ingest | agentic-co-dm-the-drowned-maw-narration.md
+
+- [[Drowned Maw]]
+
+## [2026-10-05] ingest | agentic-co-dm-osset-narration.md
+
+- [[Osset]]
+
+## [2026-10-05] ingest | agentic-co-dm-barnaby-rook-narration.md
+
+- [[Barnaby Rook]]
+
+## [2026-10-05] audit | Nightmantle seller description attributed to Lavinia (Osset's appearance DM-corrected to snowy-owl)
+
+- [[Nightmantle]]

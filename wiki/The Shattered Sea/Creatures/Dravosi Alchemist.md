@@ -3,6 +3,7 @@ type: Creature
 summary: "A Dravosi Crown boarding alchemist who deployed Grung toxin across the Saltwright's gangplank and died to her own redirected cloud."
 sources:
  - "archive/ssw-session-01.md"
+ - "archive/ssw-the-canister.md"
 ---
 
 ## At a glance
@@ -64,7 +65,7 @@ She travels with Crown boarding crews as the answer to unwinnable decks. The ban
 
 ### Ecology
 
-The Crown's boarding alchemists carry ordnance manufactured from Grung hunting toxin concentrate, supplied through [[Simone Tabarnack]]'s network.
+The Crown issues its boarding alchemists ordnance manufactured from Grung hunting toxin concentrate, supplied through [[Simone Tabarnack]]'s network.
 
 ### History
 

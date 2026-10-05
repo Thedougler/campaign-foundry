@@ -4,6 +4,7 @@ summary: "Tethyr colonial court and naval service that enforces inspection law a
 sources:
  - "archive/dravosi-crown.md"
  - "archive/ssw-session-01.md"
+ - "archive/ssw-the-canister.md"
  - "archive/collab-2026-10-04-authority-themes.md"
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 ---

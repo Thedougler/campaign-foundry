@@ -4,6 +4,7 @@ summary: "Small amphibious poison-skinned humanoids whose skin colour marks cast
 sources:
  - "archive/ssw-grung.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/ssw-the-canister.md"
  - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
  - "archive/collab-2026-10-04-authority-themes.md"
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"

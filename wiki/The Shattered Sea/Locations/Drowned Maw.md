@@ -6,6 +6,7 @@ sources:
  - "archive/drowned-maw.md"
  - "archive/ssw-giant-squid.md"
  - "archive/ssw-umberlee.md"
+ - "archive/agentic-co-dm-the-drowned-maw-narration.md"
 parent: "[[Midchain]]"
 ---
 
@@ -18,7 +19,7 @@ parent: "[[Midchain]]"
 - **Danger.** Elemental exposure, lying instruments, storms and displacement.
 
 > [!narration] Arrival
-> Dark water drags ropes sideways beneath a broken horizon. Storm walls hide the trench, and cold spray strikes before the next swell clears. The current turns beneath your hull.
+> Dark water drags ropes sideways beneath a broken horizon. Storm walls hide the trench, and cold spray strikes before the next swell clears. The current turns beneath your hull, then even that lets go. Past the storm the blue-green shallows of the [[Verdant Scatter|Scatter]] give out, and the sea ahead turns a blue with no floor to its colour. There the water goes flat, though the wind has not dropped, and holds still beneath your bow. The seabirds that have followed you across the Scatter turn at the line and head back the way they came. No fish school in your wake. A smell of low tide hangs over the water, fish left on a strand in the sun. No lead has ever touched the bottom here.
 
 ## Play
 

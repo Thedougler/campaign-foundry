@@ -4,6 +4,7 @@ summary: "Beaumont Sel's battered brig and the Party's first berth, carrying fou
 sources:
  - "archive/Session-00-Prologue.md"
  - "archive/ssw-session-01.md"
+ - "archive/ssw-the-canister.md"
  - "archive/ssw-beaumonts-crew.md"
 ---
 

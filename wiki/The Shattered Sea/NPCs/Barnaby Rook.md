@@ -3,6 +3,7 @@ type: NPC
 summary: "Presumed-dead Crown privateer captain who enforced surrender aboard the Surety."
 sources:
  - "archive/barnaby-rook.md"
+ - "archive/agentic-co-dm-barnaby-rook-narration.md"
  - "archive/ssw-session-02.md"
  - "archive/ssw-session-03.md"
  - "archive/ssw-miras-blade.md"
@@ -17,7 +18,7 @@ creature: "[[Barnaby Rook (Creature)]]"
 - **Found at.** The HCS Surety and the Crown inspection corridor. Presumed dead after falling into dark water.
 
 > [!narration] First look
-> A Crown coat gone salt-stiff hangs from a hard privateer captain. He speaks in flat statements, each one a command, with his weapon ready and his threat almost administrative.
+> Barnaby Rook fills the gangway ahead of you in a dark officer's coat gone salt-stiff. Brass buttons catch the deck's last light, and a day of stubble covers his square jaw. A flintlock and cutlass ride his hips, their grips worn smooth by use. He speaks under the wind, and the crew nearest him have fallen still. One hand taps the rail once, twice, reading the roll of the deck. Each sentence comes down flat, like an order read from a list. He is deciding where the fight starts.
 
 ## Play
 

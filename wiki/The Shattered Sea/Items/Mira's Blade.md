@@ -4,6 +4,7 @@ summary: "A +1 shortsword Perrin Black-Jaw took from Barnaby Rook's cabin aboard
 sources:
  - "archive/ssw-session-02.md"
  - "archive/ssw-miras-blade.md"
+ - "archive/ssw-the-canister.md"
 ---
 
 ## At a glance
@@ -27,7 +28,7 @@ An attuned bearer gains a +1 bonus to attack and damage rolls made with the shor
 
 ### History
 
-[[Barnaby Rook]] kept the blade in his cabin aboard the HCS Surety ([[Uncertainty]]), sealed in a confiscation crate with a locked jewellery box, set beside the [[Letters of Marque]] and a crate of flintlocks with twenty vials of Grung tincture. His fee ledger logs the blade as "bladed goods, unlicensed", and Rook never registered the seizure with the Crown. It doesn't record who the blade was taken from, when the inspection happened, or where on the Strait it took place. The box held a small pendant engraved on the back, "For Mira, from the sea", so blade and pendant travelled together, whoever left them that way. When the Party took the cutter in [[Session 2 - Recap|Session 2]] and Rook fell into the water without resurfacing, [[Perrin Black-Jaw]] took the blade.
+[[Barnaby Rook]] kept the blade in his cabin aboard the HCS Surety ([[Uncertainty]]), sealed in a confiscation crate with a locked jewellery box, set beside the [[Letters of Marque]] and a crate of flintlocks with [[Grung Toxin Vials|twenty vials of Grung tincture]]. His fee ledger logs the blade as "bladed goods, unlicensed", and Rook never registered the seizure with the Crown. It doesn't record who the blade was taken from, when the inspection happened, or where on the Strait it took place. The box held a small pendant engraved on the back, "For Mira, from the sea", so blade and pendant travelled together, whoever left them that way. When the Party took the cutter in [[Session 2 - Recap|Session 2]] and Rook fell into the water without resurfacing, [[Perrin Black-Jaw]] took the blade.
 
 ### Hidden truths
 
