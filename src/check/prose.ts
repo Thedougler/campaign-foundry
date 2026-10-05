@@ -181,6 +181,31 @@ export function maskNames(text: string, vault: Vault): string {
 }
 
 /**
+ * Pages whose name or an alias appears as bare words in `text`, matched exactly as masking matches names:
+ * whole word, case-sensitive, names holding an uppercase letter, the same pattern `nameMask` builds. One entry
+ * per page, the first match in `text` order. A wikilink is not needed: bare mention is enough.
+ */
+export function mentionedPages(text: string, vault: Vault): { page: Page; name: string }[] {
+	const mask = nameMask(vault);
+	if (!mask) return [];
+	const pageOf = new Map<string, Page>();
+	for (const page of vault.pages) {
+		if (!isProsePage(page)) continue;
+		if (!pageOf.has(page.name)) pageOf.set(page.name, page);
+		const aliases = page.frontmatter?.aliases;
+		for (const alias of Array.isArray(aliases) ? aliases : [aliases]) {
+			if (typeof alias === "string" && !pageOf.has(alias)) pageOf.set(alias, page);
+		}
+	}
+	const first = new Map<Page, string>();
+	for (const m of text.matchAll(mask.pattern)) {
+		const page = pageOf.get(m[0]);
+		if (page && !first.has(page)) first.set(page, m[0]);
+	}
+	return [...first].map(([page, name]) => ({ page, name }));
+}
+
+/**
  * Without `mask`, a link shows its page name. With the vault as `mask`, each unaliased link and each bare page
  * name or alias becomes its stand-in (see `MASKED_NAME`): the style layer uses it, because a name such as
  * `Fire Watch` or `Countless` is not the DM's prose.

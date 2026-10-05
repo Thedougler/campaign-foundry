@@ -6,7 +6,7 @@ sources: []
 
 ## Tone
 
-%% How play should feel. %%
+%% How play should feel and its content rating, set by the DM. %%
 
 ## Themes
 
@@ -14,4 +14,4 @@ sources: []
 
 ## Lines and Veils
 
-%% Content limits every agent honours when writing for this Campaign. A line never appears, not even implied; a veil may happen in the fiction but cuts away before it is shown. %%
+%% Content limits every agent honours when writing for this Campaign. A line never appears, not even implied; a veil may happen in the fiction but cuts away before it is shown. Everything not listed here is allowed. %%

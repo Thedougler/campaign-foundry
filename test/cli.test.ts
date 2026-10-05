@@ -1,11 +1,12 @@
 import { spawnSync } from "node:child_process";
-import { describe, expect, it } from "vitest";
+import { mkdir, rm, writeFile } from "node:fs/promises";
+import { afterAll, describe, expect, it } from "vitest";
 import { repoRoot } from "./check/helpers.ts";
 
 /** Runs `bun run cf -- <args>` — the supported invocation, through the npm script. */
-function run(args: string[]): { status: number; stdout: string } {
-	const result = spawnSync("bun", ["run", "cf", "--", ...args], { cwd: repoRoot, encoding: "utf8" });
-	return { status: result.status ?? 1, stdout: result.stdout };
+function run(args: string[], stdin = ""): { status: number; stdout: string; stderr: string } {
+	const result = spawnSync("bun", ["run", "cf", "--", ...args], { cwd: repoRoot, encoding: "utf8", input: stdin });
+	return { status: result.status ?? 1, stdout: result.stdout, stderr: result.stderr };
 }
 
 describe("cf npm script", () => {
@@ -22,5 +23,81 @@ describe("cf npm script", () => {
 		expect(help.status).toBe(0);
 		expect(help.stdout).toContain("Usage: cf check");
 		expect(help.stdout).toContain("--fix");
+	});
+});
+
+const contextVault = ["--vault", "test/fixtures/vault", "--root", "test/fixtures"];
+// A small vault keeps the Vale run quick; the whole Wiki would only slow the tests down.
+const styleVault = ["--vault", "test/check/fixtures/clean/wiki", "--root", "test/check/fixtures/clean"];
+const dashCallout = "> [!narration] Opening\n> The door swings open — slowly.\n";
+
+describe("cf context", () => {
+	it("lists a named page and an alias once each, sorted by type then name", () => {
+		const result = run(
+			["context", "-", ...contextVault],
+			"Ilse Corran met the Ledger Clerk. Ilse Corran paid. Hobb Tarrow watched. Saltwick slept.\n",
+		);
+		expect(result.status).toBe(0);
+		expect(result.stdout.split("\n").filter((line) => line !== "")).toEqual([
+			"Lowtide/Locations/Saltwick.md\tLocation\tSaltwick",
+			"Lowtide/NPCs/Hobb Tarrow.md\tNPC\tHobb Tarrow",
+			"Lowtide/NPCs/Ilse Corran.md\tNPC\tIlse Corran",
+		]);
+	});
+
+	it("does not list lowercase words, which are not exact names", () => {
+		const result = run(["context", "-", ...contextVault], "the saltwick clerk owes nothing.\n");
+		expect(result.status).toBe(0);
+		expect(result.stdout).toBe("");
+	});
+
+	it("prints nothing for empty input", () => {
+		const result = run(["context", "-", ...contextVault], "");
+		expect(result.status).toBe(0);
+		expect(result.stdout).toBe("");
+	});
+
+	it("prints [{path,type,name}] with --json", () => {
+		const result = run(["context", "-", "--json", ...contextVault], "Ilse Corran.\n");
+		expect(result.status).toBe(0);
+		expect(JSON.parse(result.stdout)).toEqual([{ path: "Lowtide/NPCs/Ilse Corran.md", type: "NPC", name: "Ilse Corran" }]);
+	});
+
+	it("exits 2 on an unreadable file", () => {
+		const result = run(["context", "no-such-notes.md"]);
+		expect(result.status).toBe(2);
+		expect(result.stderr).toContain("No such file");
+	});
+});
+
+describe("cf style", () => {
+	afterAll(() => rm(".scratch/style-dir", { recursive: true, force: true }));
+
+	it("reports Narration.NoEmDash on stdin and exits 1", () => {
+		const result = run(["style", "-", ...styleVault], dashCallout);
+		expect(result.status).toBe(1);
+		expect(result.stdout).toContain("stdin.md:2");
+		expect(result.stdout).toContain("Narration.NoEmDash");
+	});
+
+	it("exits 0 on clean text", () => {
+		const result = run(["style", "-", ...styleVault], "> [!narration] Opening\n> The door swings open, slowly.\n");
+		expect(result.status).toBe(0);
+		expect(result.stdout).toContain("ok: 0 findings");
+	});
+
+	it("expands a folder and reports the real path", async () => {
+		await mkdir(".scratch/style-dir", { recursive: true });
+		await writeFile(".scratch/style-dir/note.md", dashCallout);
+		const result = run(["style", ".scratch/style-dir", ...styleVault]);
+		expect(result.status).toBe(1);
+		expect(result.stdout).toContain(".scratch/style-dir/note.md:2");
+		expect(result.stdout).toContain("Narration.NoEmDash");
+	});
+
+	it("exits 2 on a missing path", () => {
+		const result = run(["style", "no-such-folder"]);
+		expect(result.status).toBe(2);
+		expect(result.stderr).toContain("No such path");
 	});
 });

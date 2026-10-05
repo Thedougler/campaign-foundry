@@ -40,7 +40,10 @@ Select an agent by its responsibility:
 
 - `skill-writer` (`@SKILL-WRITER`) authors every large or novel change to agent-facing text: skills, `.omp/agents/`, `AGENTS.md`, runbooks and pointers. The orchestrator writes its briefs, owns acceptance criteria, eval fixtures, Wiki and integration, and leaves those files to it. When the defect was observed in a run, wait until every ingest subagent in that batch has finished, then pass all of their finished `history://` transcripts together so the writer sees the issues directly; never pass an in-progress transcript, and never pass one run while siblings are still going.
 - `test-subject` (`@TEST-SUBJECT`) runs each eval case or baseline and `prose-grader` (`@PROSE-GRADER`) grades rubrics independently; both are native `task` dispatches whose frontmatter `tools:` is read-only except Runner `bash` for diagnostic CLI, batched per `evals/README.md`.
-- `creative-writer` (`@CREATIVE-WRITER`) takes explicit creative-writing dispatches outside skill evals.
+- `creative-writer` takes Seeds, Story drafts and other explicit creative-writing dispatches outside skill evals.
+- `persona` plays exactly one NPC in a Simulation, dispatched only by `simulate-npcs`.
+
+Claude Opus 5.5 is reserved for writing skills and agent instructions (`skill-writer`) and orchestration. `creative-writer` and `persona` default to `zai/glm-5.3`, pinned in their frontmatter. Testing runs on `zai/glm-5.3-flash`: `test-subject` gets it through `@TEST-SUBJECT`, and every `task` dispatched as a smoke-run subject, or as a `creative-writer` or `persona` inside a test, passes it as its `model`.
 
 Preserve each completion's model selector, identity and thinking level where observed; pair only matching identities and thinking levels.
 
@@ -50,6 +53,9 @@ Delegation stays native, except description trigger checks and Benchmark runners
 
 - **Search code** with scoped `find` for unknown locations, `grep` for known literals, `ast_grep` for structural patterns and `lsp` for references and definitions. Edits report no diagnostics, so request `lsp` diagnostics on touched TypeScript before reporting code complete.
 - **Judge** bounded classification, yes/no or ranking over a small state with eval `judge`: read `xd://eval/judge` once, batch independent questions over the same evidence into one call and use `judge_batch` for multiple states. Send only the evidence the criteria need; a failed judge item is a tool failure, so inspect `item.error` before concluding.
+- **Extend with TypeSafe** beyond omp's built-in Jev tools, and use those tools first. Eval `judge` and `judge_batch` answer typed questions over a state inside this session's kernel, and judged TTSR rules ask one Noul of each completed output and deliver a yes as a warning. Read `skill://typesafe-ai` and the live docs it links, unprompted, when the work needs something those tools lack:
+  - **Judgment in repo code.** `cf` commands, `src/`, tests and eval scripts run outside the session, so they call Jev through TypeSafe's JavaScript SDK (`bun add`) or HTTP API, which also return the answering model's version and token `usage` for reproducible runs. That code reads `TYPESAFE_API_KEY` from its environment. When the key is unset, report it to the DM as the missing prerequisite.
+  - **Composed judgments.** `xd://eval/judge` documents single calls. The skill's patterns cover pipelines, such as selecting a value from candidates that code found instead of generating it, reranking retrieved pages, a weighted composite of Scores computed in code, a confidence gate that escalates uncertain cases to a reasoning model or the DM, and classification down a hierarchy.
 - **Grade** Narration and other authored prose with `prose-grader`, dispatched as in `evals/README.md`: it reads the writing, which Jev does not. Execution, diffs, isolation and Checks stay with the orchestrator.
 - **No browser for verification.** Check generated pages such as `cf eval review` HTML from the command's own output. Open a browser only when the DM asks for it.
 - **Long work.** Keep `context_notes` current with the goal, decisions, touched paths and next step, and call `new_context` at phase boundaries. Trigger-check and Benchmark `omp -p` jobs run in the background; continue other work meanwhile.

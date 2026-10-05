@@ -178,6 +178,44 @@ _Avoid_: summary, session notes, log
 A short account of the last Session, written for the DM to read aloud to the Players at the start of the next one.
 _Avoid_: player recap, read-aloud recap, boxed text
 
+### Creative work
+
+**Story**:
+The DM's narrative for an idea, written with fiction craft before Adaptation: its premise, conflict, cast, setting, plot points and ending. It stays session-local until Adaptation turns it into material for the table.
+_Avoid_: plot, script, campaign (for the Story)
+
+**Story Bible**:
+The session-local working file for a Story, `local://collab/bible.md`, holding its sections, cast cards and Story Outline. It never becomes a Wiki page.
+_Avoid_: series bible, campaign bible, notes
+
+**Beat**:
+One moment of a Story's outline, with its place, the characters present and what changes. A Beat belongs to a Story and never to Prep; Adaptation turns Beats into situations, and Scenes come later through Prep.
+_Avoid_: Scene, scene beat, plot point
+
+**Seed**:
+A short optional pitch, three sentences long, generated under one Stance by its own writer. The DM takes, merges or drops each one.
+_Avoid_: option, suggestion, draft
+
+**Stance**:
+A drafting lens that sets what a writer optimises for, such as Character-first or Hook-seeder, listed in `docs/agents/co-writing.md`. Any Stance fits any idea.
+_Avoid_: style, voice, genre
+
+**Simulation**:
+NPCs played by Personas under a Director through `simulate-npcs`, to find what they would do or say. Its results stay possibilities until the DM keeps them.
+_Avoid_: roleplay, sandbox, playtest
+
+**Persona**:
+The subagent that plays exactly one NPC in a Simulation, knowing only its dossier and the events it witnesses.
+_Avoid_: actor, character agent, NPC (for the agent)
+
+**Director**:
+The agent that runs a Simulation: it frames the scenes, commands each Persona in turn and keeps the ledger. It plays no NPC.
+_Avoid_: narrator, GM, DM (that's the human)
+
+**Adaptation**:
+Turning a Story into situations, Threads, Clues and Scenes that the Party meets through its own choices.
+_Avoid_: conversion, port, rewrite
+
 ### Knowledge
 
 **DM Settings**:
@@ -185,7 +223,7 @@ The DM's defaults for every World and Campaign, kept on one page at the root of 
 _Avoid_: config, preferences, settings (bare)
 
 **campaign-config**:
-The DM's instructions to agents for one Campaign, kept as `campaign-config.md` in that Campaign's folder: its tone, themes, and Lines and Veils. Meta content that tells agents how to write content, rather than being Campaign content, lives here, or on DM Settings when it spans every Campaign. Agents read it after `user-config.md` before Wiki work in the Campaign.
+The DM's instructions to agents for one Campaign, kept as `campaign-config.md` in that Campaign's folder: its tone, themes, and Lines and Veils. Its Lines and Veils are the only content limits; everything else follows the DM's rating (`AGENTS.md` Content stance). Meta content that tells agents how to write content, rather than being Campaign content, lives here, or on DM Settings when it spans every Campaign. Agents read it after `user-config.md` before Wiki work in the Campaign.
 _Avoid_: DM Settings, user-config
 
 **Repo**:

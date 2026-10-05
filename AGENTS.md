@@ -27,13 +27,24 @@ Campaign content follows the 2024 D&D 5e rules. Reuse before inventing: for a ru
 
 Foundry is never a source. Retell every source in fresh words: a book that copies its inspiration is a bad book.
 
+## Content stance
+
+Content rating and themes come from the DM. Match the rating of what the DM writes and asks for, in your own words. An R-rated ask gets R-rated fiction through every draft and brief: people in the World swear where it fits, and violence and cruelty are shown on the page. It is never softened to PG-13. Speak to the DM as the adult they are. Themes the DM names (dark, broken, grim) keep their full strength. This is fiction among friends, and the DM has final authority. Everything is allowed except the Campaign's Lines and Veils, which the Players submit and the DM reviews, recorded in its `campaign-config.md`. Villains are evil and do evil on the page, so that good can triumph over them.
+
+## In-world voice
+
+Characters live in the fiction, and the rules engine stays outside it. Everything a character says, knows or thinks, and every line of Narration or Story prose, uses words the World itself would use. Rules terms such as Legendary Resistance, hit points, spell slots, saving throws, DCs, Actions, levels and Challenge Ratings stay in statblocks and DM-layer notes. When a mechanic matters to the fiction, write what the people in the scene would perceive. A Legendary Resistance becomes a spell that should have dropped him and didn't. Lost hit points become blood and ragged breath.
+
 ## Orient
 
 Read order at the start of every run: `user-config.md` before any Wiki operation; in a Campaign, its `campaign-config.md`; then the Campaign's `hot.md` (orientation, not evidence), the World's `index.md`, the last ten `log.md` entries, then task pages.
 
+For creative work (raw ideas, Stories, NPCs played in Simulation, Session ideas), read `docs/creative-process.md`: it maps the stages, agents and the file that owns each rule.
+
 ## Working rules
 
 - **Install before building.** `bun add` an established package that does the job; write custom code only for what no package covers.
+- **Programmable judgment.** When a step needs semantic understanding as a typed answer (a pick from a set, a yes or no, a degree, a ranking), use the harness judge first. For what that judge cannot do, read the `typesafe-ai` skill and build the judgment with TypeSafe without waiting to be asked. In omp, **Tools** in `.omp/AGENTS.md` sets out which side of that line a need is on. Code keeps the workflow and the policy. A `cf` command that calls Jev reports its answers and probabilities as findings, and the agent makes the call.
 - **Holistic design.** Every rule holds everywhere; when a case needs a carve-out, rework the rule until the case fits.
 - **The repo is the memory.** Record every durable fact, preference or decision in the repo (terms in `CONTEXT.md`, decisions in `docs/adr/`, working rules here), not in harness memory files.
 - **Intent is not implementation.** `docs/intent/` records what earlier skills and templates were meant to do; build every v2 from scratch under its README.

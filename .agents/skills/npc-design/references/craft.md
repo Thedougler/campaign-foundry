@@ -4,7 +4,7 @@ Use this reference for the person branch, not for Creature rules.
 
 ## Function
 
-Choose what the NPC does in play: informant, gatekeeper, patron, rival, ally, witness, faction face, ward, or villain. The function creates pressure; it is not a YAML property and never replaces the person's identity.
+Choose what the NPC does in play: informant, gatekeeper, patron, rival, ally, witness, faction face, ward, or villain. The function creates pressure. Write it in the page prose beside the person's identity, outside the YAML properties.
 
 ## Distinction
 
@@ -20,7 +20,7 @@ Strong: `a woman with rope burns across both palms who counts under her breath w
 
 ## Play openers
 
-For Scene scale and larger, open Play with a one-line **premise** naming the NPC's ironic truth: their Contradiction phrased so the DM knows what to play after one read, such as `a debt collector who has never once been paid on time`.
+For Scene scale and larger, open Play with a one-line **premise** that states the NPC's ironic truth: their Contradiction phrased so the DM knows what to play after one read, such as `a debt collector who has never once been paid on time`.
 
 For speaking roles, optionally add a **performance anchor**: an unexpected register paired with a familiar delivery persona, such as `a harbourmaster who speaks like a weary kindergarten teacher`. It lives only in DM-facing Play, never in Narration or player-facing text.
 
@@ -33,7 +33,7 @@ Build voice from what the NPC cares about:
 - one repeatable verbal habit;
 - one subject or name they avoid.
 
-Prove it with three short lines in Play: the **ask**, the **refusal**, and the line **under pressure** when the limit or secret is touched. An accent or gag is not a voice.
+Prove it in Play with three short lines, the **ask** and the **refusal** plus the line **under pressure** when the limit or secret is touched. Write the lines in the World's own words per root `AGENTS.md` In-world voice. An accent or gag is not a voice.
 
 ## Tells
 

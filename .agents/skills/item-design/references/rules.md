@@ -13,7 +13,7 @@ Check exact wording with the `dnd5e-srd-api` skill or the Free Rules, and write 
 | Legendary | level 9 | +4 | 200,000 GP |
 | Artifact | beyond | beyond | priceless |
 
-Consumables sell for about half. An Item near one ceiling stays well below the others: at its top spell level it takes neither its top bonus nor strong passives. Weigh offence, defence, action economy, spell access, exploration and social use, and say what pays for each.
+Consumables sell for about half. An Item near one ceiling stays well below the others: at its top spell level it takes a smaller bonus than the top one and only weak passives. Weigh offence, defence, action economy, spell access, exploration and social use, and say what pays for each.
 
 ## Usual shapes
 
@@ -29,14 +29,14 @@ Consumables sell for about half. An Item near one ceiling stays well below the o
 
 ## The text
 
-A classification line (`Wondrous Item, Rare (Requires Attunement by a Spellcaster)`), then trigger, action (`As a Magic action`, `As a Bonus Action`, `As a Reaction when …`), frequency, range, targets, save or attack, effect, duration, concentration, charges and recovery (`The item has 7 charges and regains 1d6 + 1 expended charges daily at dawn`), and edge cases. Conditions and damage types are capitalised (`the Frightened condition`, `Necrotic damage`). A creature can attune to three Items at once, taking a Short Rest; ask for attunement only when an Item is broadly or repeatedly strong.
+A classification line (`Wondrous Item, Rare (Requires Attunement by a Spellcaster)`), then trigger, action (`As a Magic action`, `As a Bonus Action`, `As a Reaction when …`), frequency, range, targets, save or attack, effect, duration, concentration, charges and recovery (`The item has 7 charges and regains 1d6 + 1 expended charges daily at dawn`), and edge cases. Conditions and damage types are capitalised (`the Frightened condition`, `Necrotic damage`). A creature can attune to three Items at once, taking a Short Rest. Ask for attunement only when an Item is broadly or repeatedly strong.
 
-- **Spells from Items:** the spell and level, cast from the Item or not, a fixed DC and attack bonus or the user's own, concentration, components (usually none), charges spent, and whether more charges cast it higher. An Item is never an unlimited pool of spell slots, and concentration stays unless the design pays for removing it.
-- **Stacking:** "on every hit" multiplies with Extra Attack, reactions and summoned attacks. Limit it to once per turn unless that multiplication is priced. A reaction or Bonus Action competes with the bearer's own; count it.
+- **Spells from Items:** state the spell and its level, and whether it is cast from the Item. Set a fixed DC and attack bonus, or use the user's own. Cover concentration, components (usually none), charges spent, and whether more charges cast it higher. An Item is never an unlimited pool of spell slots, and concentration stays unless the design pays for removing it.
+- **Stacking:** "on every hit" multiplies with Extra Attack, reactions and summoned attacks. Limit it to once per turn unless that multiplication is priced. A reaction or Bonus Action competes with the bearer's own. Count it in the audit.
 
 ## Branches
 
-- **Cursed:** most identification, *Identify* included, misses a curse. State what reveals it, what it does, how it deepens, whether attunement can end while cursed, and what breaks it (*Remove Curse*, a quest, a sacrifice). The curse sits under Hidden truths until revealed.
-- **Sentient:** Intelligence, Wisdom and Charisma scores, an alignment, how it communicates (emotion, speech, telepathy), senses with a range, and a special purpose. When the bearer acts against its purpose it makes a demand, resisted with a Charisma save against a stated DC (12 + its Charisma modifier). Write out each demand, from refusing to work to brief control.
-- **Evolving:** each stage's trigger, new property, cost and tell; recheck rarity at every stage.
-- **Artifact:** minor and major properties, beneficial and harmful, a way to destroy it, its place in history, and who hunts it.
+- **Cursed:** a curse escapes most identification, including *Identify*. State what reveals it, what it does and how it deepens. State whether attunement ends while cursed and what breaks the curse (*Remove Curse*, a quest or a sacrifice). Record the curse under Hidden truths until the Party reveals it.
+- **Sentient:** give it scores for Intelligence, Wisdom and Charisma. It has an alignment and a special purpose, senses with a range, and a way to communicate (emotion, speech or telepathy). When the bearer acts against its purpose it makes a demand, resisted with a Charisma save against a stated DC (12 + its Charisma modifier). Write out each demand, from refusing to work to brief control.
+- **Growing:** give each stage a trigger and a new property with its cost and tell. Recheck rarity at every stage.
+- **Artifact:** give it minor and major properties, both beneficial and harmful. Add a way to destroy it, its place in history and the people who seek it.

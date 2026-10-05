@@ -1,5 +1,5 @@
 extends: existence
-message: "Narration uses a rules term ('%s'). Describe the visible effect unless the rules meaning is intended."
+message: "Narration uses a rules term ('%s'). Describe what the characters perceive instead (AGENTS.md In-world voice)."
 level: warning
 scope: blockquote
 ignorecase: true
@@ -9,3 +9,7 @@ tokens:
   - reaction
   - action
   - incapacitated
+  - legendary (?:resistances?|saves?|actions?)
+  - hit points?
+  - spell slots?
+  - saving throws?
