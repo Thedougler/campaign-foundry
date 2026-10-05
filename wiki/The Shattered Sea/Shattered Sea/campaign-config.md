@@ -6,6 +6,7 @@ sources:
  - "archive/agentic-co-dm-shattered-sea-tone-guide.md"
  - "archive/collab-2026-10-04-authority-themes.md"
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+ - "archive/ssw-party-crew.md"
 ---
 
 ## Tone
@@ -35,6 +36,10 @@ Authority claimed from above stands against authority given from below. [[Nona B
 Earlier statements of the theme remain true facets of it. Rebellion against authority, grey morality, freedom from slavery and power that corrupts stand among them still. Found family versus inherited obligation, freedom versus systems that demand papers, tribute or debt, and the cost of choosing who gets to pass safely do as well.
 
 Morality stays grey. The people at the bottom of society remain relatively innocent: ordinary people trying to survive and pay their bills. They leave the bad guys quickly once the heroes offer a better deal, as [[Geoffrey Draves]], [[Felix Aho]], [[Ruma Delacroix]] and [[Thunk]] did. People called bad or dangerous are often extremely good people who stand up for their kind, such as [[Nona Black-Jaw]]. A villain can be tragic, such as [[Hinewai]].
+
+## Crew upkeep
+
+After each Session, update the crew line and crew section of [[Uncertainty]] with hires, departures, role changes and wages.
 
 ## Lines and Veils
 

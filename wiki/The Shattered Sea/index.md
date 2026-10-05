@@ -87,6 +87,7 @@
 
 ## NPCs
 
+- [[Aldous Draves]] — Crown-licensed import factor at Port Tidefall who placed his son Geoffrey aboard the HCS Surety through connections he has never written down.
 - [[Aleksander Malone]] — A reserved Hound of Tyr whom the Dravosi Crown releases only for confirmed Flock infiltration and righteous judgement.
 - [[Alys Kuiper]] — Surgeon of the Uncertainty's crew since the Surety, named to the prize crew and the one who saw to the Murrat four.
 - [[Anzolo]] — Nona Black-Jaw's tortle enforcer and trusted fixer, sent hunting for Perrin and recalled when the attacks stopped.

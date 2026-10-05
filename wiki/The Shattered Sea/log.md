@@ -1099,3 +1099,23 @@
 ## [2026-10-04] ingest | campaign-os-raw-blight.md
 
 - [[Hinewai the Blight]]
+
+## [2026-10-04] ingest | agentic-co-dm-thunk-narration.md
+
+- [[Thunk]]
+
+## [2026-10-04] ingest | ssw-admiral-fisk.md
+
+- [[Delmar Fisk]]
+- [[Fisk's Fleet]]
+
+## [2026-10-04] ingest | ssw-party-crew.md
+
+- [[Geoffrey Draves]]
+- [[Aldous Draves]]
+- [[Uncertainty]]
+- [[campaign-config]]
+
+## [2026-10-04] audit | Alys Kuiper moved out of the Uncertainty's current crew (she left at the Calveno shore leave and never returned)
+
+- [[Uncertainty]]

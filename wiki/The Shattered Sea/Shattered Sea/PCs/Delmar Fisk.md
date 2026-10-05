@@ -1,8 +1,11 @@
 ---
 type: PC
+aliases:
+ - "Admiral Fisk"
 summary: "Frederick's level 5 Swashbuckler rogue and former admiral, carrying the secret cost of stealing the Pearl of Souls."
 sources:
  - "archive/delmar-fisk.md"
+ - "archive/ssw-admiral-fisk.md"
  - "archive/ssw-human-culture.md"
  - "archive/ssw-session-02.md"
  - "archive/ssw-umberlee.md"
@@ -47,7 +50,7 @@ None recorded.
 
 ### Backstory
 
-Delmar assembled a five-ship fleet to steal the Pearl of Souls from Umberlee's [[Umberlee's Shrine|shrine]] on [[Vel-Orn]]. The fleet sank over the Drowned Maw, leaving him among the survivors. Crissdalynn pulled him from the [[Red Lady]]'s crow's nest, and he now sails with a new crew under the name Uncertainty. In the fight for the Surety his musket ball through a gun port killed [[Ensign Wouters]], and when the prize parted from the Saltwright he spoke the name Admiral Fisk to Beaumont Sel. Off Calveno he held the Admiral Fisk form too long, until his hair sat wrong, his cadence shifted, and he called Crissdalynn "Crystalline". A pull from her flask brought him back. At the [[La Vasca]] gangplank the water reached up toward him and he thought he heard his name, and then it was gone. He locked the admiral's coat in the captain's chest rather than wear Dravosi red ashore, and an older servant of the Bitch Queen left him her message only when his lie about Umberlee's own errand satisfied her.
+Delmar assembled a five-ship fleet to steal the Pearl of Souls from Umberlee's [[Umberlee's Shrine|shrine]] on [[Vel-Orn]]. The fleet sank over the Drowned Maw, leaving him among the survivors. Crissdalynn pulled him from the [[Red Lady]]'s crow's nest, and he now sails with a new crew under the name Uncertainty. In the fight for the Surety his musket ball through a gun port killed [[Ensign Wouters]], and when the prize parted from the Saltwright he named Admiral Fisk to Beaumont Sel as a friend. Off Calveno he held the Admiral Fisk form too long, until his hair sat wrong, his cadence shifted, and he called Crissdalynn "Crystalline". A pull from her flask brought him back. At the [[La Vasca]] gangplank the water reached up toward him and he thought he heard his name, and then it was gone. He locked the admiral's coat in the captain's chest rather than wear Dravosi red ashore, and an older servant of the Bitch Queen left him her message only when his lie about Umberlee's own errand satisfied her.
 
 ## Goals and bonds
 

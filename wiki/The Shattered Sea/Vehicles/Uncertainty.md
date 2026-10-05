@@ -12,6 +12,7 @@ sources:
  - "archive/ssw-session-03.md"
  - "archive/ssw-cobb.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/ssw-party-crew.md"
 aliases:
  - "HCS Surety"
  - "Surety"
@@ -39,7 +40,7 @@ aliases:
 
 ### Crew and stations
 
-Current names are [[Geoffrey Draves]], [[Sem Holst]], [[Alys Kuiper]], [[Old Faas]], [[Thunk]] and Noor. Thunk is gunner and field smith. [[Noor]] is the ship's cook, learning. Station assignments, minimum staffing and empty-station consequences are not established. Current passengers include two Aruhe survivors and three Calveno captives.
+Current names are [[Geoffrey Draves]], [[Sem Holst]], [[Old Faas]], [[Thunk]] and Noor. Geoffrey is the carpenter under [[Sem Holst]], with Crown-era training that can fill a marine posting when needed. Thunk is gunner and field smith. [[Noor]] is the ship's cook, learning. [[Alys Kuiper]] served as surgeon until she left the ship at the Calveno shore leave. Minimum staffing and empty-station consequences are not established. Current passengers include two Aruhe survivors and three Calveno captives.
 
 ### Components and weapons
 

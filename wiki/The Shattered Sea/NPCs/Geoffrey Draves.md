@@ -6,6 +6,7 @@ sources:
  - "archive/ssw-geoffrey-draves.md"
  - "archive/ssw-session-02.md"
  - "archive/ssw-session-03.md"
+ - "archive/ssw-party-crew.md"
 creature: "[[Geoffrey Draves (Creature)]]"
 ---
 
@@ -14,7 +15,7 @@ creature: "[[Geoffrey Draves (Creature)]]"
 ## At a glance
 
 - **Role.** Carpenter aboard [[Uncertainty]] under [[Sem Holst]], formerly an [[Uncertainty|HCS Surety]] seaman under [[Barnaby Rook]].
-- **Wants.** The means to marry [[Verity Hollowell]] and never again take orders to stay alive.
+- **Wants.** The means to marry [[Verity Hollowell]] and never again take orders at sword-point.
 - **Voice.** Controlled and quietly watchful. His honest repair advice is his trust.
 - **Found at.** Aboard [[Uncertainty]], above deck, reading hulls.
 
@@ -33,7 +34,7 @@ creature: "[[Geoffrey Draves (Creature)]]"
 
 ### History
 
-His father chose the water for him, and Geoffrey got good at it in the resigned way capable people get good at things they never wanted. His father's Crown connections bought him a carpenter's posting aboard the [[Uncertainty|HCS Surety]] with marine boarding duties for a supplement: seven and a half gold a week, which sounded like progress. The full arithmetic says otherwise. A rated marine earns fourteen gold weekly on top of the carpenter rate, and [[Barnaby Rook]] knew. Crew costs are operational line items. The arrangement was not an accident.
+His father chose the water for him, and Geoffrey got good at it in the resigned way capable people get good at things they never wanted. His father's Crown connections bought him a carpenter's posting aboard the [[Uncertainty|HCS Surety]] with marine boarding duties for a supplement: seven and a half gold a week, which sounded like progress. The full arithmetic says otherwise. A rated marine draws fourteen gold weekly on top of the carpenter rate, and [[Barnaby Rook]] knew. Crew costs are operational line items. The arrangement was not an accident.
 
 During the boarding of the [[Saltwright]], the fight turned and the men around him went down faster than he could make sense of it, so he dropped his sword. Rook's voice cut across the deck: *"I'll shoot you myself for that, turncoat."* [[Delmar Fisk]] looked at him and asked whether he would rather fight for men who would threaten to shoot him or for men who would protect him. *"I'll do whatever keeps me alive today."* Delmar handed him his sword back. He was the crew's first recruit, before they had a ship to put him on.
 
@@ -43,9 +44,9 @@ With the crew his terms are carpenter only, six gold a week, and he keeps out of
 
 ### Hidden truths
 
-- He dances. Contemporary movement, nimble and precise, nothing that belongs on a naval vessel, practised below deck in the gaps between watches. On a shore leave years ago [[Verity Hollowell]] caught him mid-movement and did not laugh. They danced the night under open sky and came close to a first kiss before the ship's bell called him back. The Party learns this by catching him at it. He has already danced two undisturbed hours at a quiet stretch of [[Le Paludi]] canal in Calveno.
-- Her father [[Cedric Hollowell]] was waiting at their spot the next time the ship made port. Until Geoffrey can provide for a wife and family for the rest of their days, he is not to see her again. He agreed, because he did not see another choice. That conversation stopped his drifting and started his calculating. He means to earn enough as a sailor to dance professionally in the Grand Opera Halls and to marry the woman he danced with once, and he told himself the end would justify any means, even sailing with vagabonds. It has been just shy of a year.
-- His father Aldous Draves has routine Crown archive access, and an anomalously deep Draves genealogical record interests the Crown genealogist Aldric Drave (see [[Dravosi Crown]]). Geoffrey knows nothing of the record, nor that he shares a name one letter off from Drave. [[Rupert Knighton]] is his uncle by blood, and neither man has met the other.
+- He dances. Contemporary movement, nimble and precise, nothing that belongs on a naval vessel, practised below deck in the gaps between watches. On a shore leave years ago [[Verity Hollowell]] caught him mid-movement and did not laugh. They danced the night under open sky and came close to a first kiss before the ship's bell called him back. The Party finds out only by catching him at it. He has already danced two undisturbed hours at a quiet stretch of [[Le Paludi]] canal in Calveno.
+- Her father [[Cedric Hollowell]] was waiting at their spot the next time the ship made port. Until Geoffrey can provide for a wife and family for the rest of their days, he is not to see her again. He agreed, because he did not see another choice. That conversation stopped his drifting and started his calculating. He means to save enough as a sailor to dance professionally in the Grand Opera Halls and to marry the woman he danced with once, and he told himself the end would justify any means, even sailing with vagabonds. It has been just shy of a year.
+- His father [[Aldous Draves]] has routine Crown archive access, and an anomalously deep Draves genealogical record interests the Crown genealogist Aldric Drave (see [[Dravosi Crown]]). Geoffrey has heard nothing of the record, nor that he shares a name one letter off from Drave. [[Rupert Knighton]] is his uncle by blood, and neither man has met the other.
 
 ### Threads
 

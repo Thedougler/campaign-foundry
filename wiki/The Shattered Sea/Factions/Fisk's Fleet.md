@@ -8,6 +8,7 @@ sources:
  - "archive/ssw-what-sunk-the-vestra.md"
  - "archive/ssw-umberlee-shrine.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/ssw-admiral-fisk.md"
 ---
 
 ## At a glance

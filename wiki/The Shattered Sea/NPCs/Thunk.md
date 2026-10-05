@@ -2,6 +2,7 @@
 type: NPC
 summary: "Enormous orc master gunner whose uncanny powder sense keeps the Uncertainty's guns working."
 sources:
+ - "archive/agentic-co-dm-thunk-narration.md"
  - "archive/thunk.md"
  - "archive/ssw-session-02.md"
 creature: ""
@@ -15,7 +16,7 @@ creature: ""
 - **Found at.** The Uncertainty's gun deck.
 
 > [!narration] First look
-> An enormous middle-aged orc stands at the stern gun as though the deck was built around him. Burn-scarred hands turn a charge over and read it by smell. He grins. “Good fight. I heard it from here.”
+> An enormous middle-aged orc stands at the stern gun as though the deck was built around him. Burn-scarred hands turn a charge over, powder-black at the nails, and read it by smell. Powder and hot bronze come off him, and the coin pouch at his belt knocks the rail when he leans. He grins. “Good fight. I heard it from here.”
 
 ## Play
 
