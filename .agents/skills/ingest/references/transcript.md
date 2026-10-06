@@ -98,7 +98,7 @@ A detector that exits non-zero gives the Session no Laugh Highlights: keep its e
 
 ### C4 Verify
 
-Each C3 return lists Verify task lines. Dispatch them as each return arrives, one `transcript-reader` per line, `effort: lo`, without waiting for the other C3 stages. Done when every Verify reader has returned.
+The C3 returns list Verify task lines, each with its question count. One reader answers at most 15 questions, and a dispatched question file has at least 4 unless the last C3 stage has returned. Dispatch a line as its return arrives when its file has four or more questions, one `transcript-reader` per line, `effort: lo`, without waiting for the other C3 stages. A file of three or fewer goes into the **pool** instead: append its question lines with `cat` to `<work>/verify-P<j>-in.md`, starting at `P1`. Dispatch the pool when it reaches four questions, or when the last C3 stage has returned, with the task line `Verify mode. Brief: <work>/brief.md. Transcript: <transcript>. Questions: <work>/verify-P<j>-in.md. Write: <work>/verify-P<j>.md.`, then start the next pool at `P<j+1>`. Done when every question sits in exactly one dispatched file and every Verify reader has returned.
 
 ### C5 Ledger
 
