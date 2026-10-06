@@ -6,6 +6,7 @@ sources:
  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
+ - "archive/session-11-transcript-archived-version.md"
 ---
 
 ![[Taking on Aruhe - Handout Art.png]]

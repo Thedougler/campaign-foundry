@@ -1,6 +1,6 @@
 # Previously On
 
-The Previously On retells last Session to the Players as the next one starts. It is the story the Players would tell a friend who missed it. It gives the best moments, told so the friend wishes they had been there, and it ends where play stopped. Past tense, the Party as "you", each PC named when they act. Only what play made true. Prep that play never used stays out.
+The Previously On retells last Session to the Players as the next one starts, like a TV show's "previously on": it brings them back into the scene where they left off and reminds them of the story's important moments. Its page is in the folder of the Session it opens, so `Session <N> - Previously On` retells Session N−1. It is the story the Players would tell a friend who missed it. It gives the best moments, told so the friend wishes they had been there, and it ends where play stopped. Past tense, the Party as "you", each PC named when they act. Only what play made true. Prep that play never used stays out.
 
 - **Job.** Bring the table back into last Session's best moments.
 - **Build.** Concrete, table-marked moments from the caller's Session Ledger or named Transcript, each PC's supported moment, and only enough connective action to tell them.

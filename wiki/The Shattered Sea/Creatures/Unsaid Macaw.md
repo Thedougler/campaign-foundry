@@ -3,6 +3,7 @@ type: Creature
 summary: "A macaw that echoes surface thoughts and can briefly compel a truthful sentence."
 sources:
  - "archive/unsaid-macaw.md"
+ - "archive/session-11-transcript-archived-version.md"
 ---
 
 ![[Unsaid Macaw - Portrait.jpg]]
@@ -12,11 +13,11 @@ sources:
 - **Role at the table.** Social hazard.
 - **Threat.** CR 0. It repeats foremost thoughts aloud in the thinker's own voice.
 - **Tell.** A familiar voice from the branch, and a beak still working through the words.
-- **Weak to.** Three hit points, ended by the first stone thrown its way.
+- **Weak to.** It has three hit points and dies to the first stone thrown its way.
 - **Used by.** [[Vine Lash]] patrols the same territory.
 
 > [!narration] First sight
-> A macaw flutters down from the canopy and lands on a low branch ahead, head tipped toward you. Then its beak opens, and a companion's voice pours out while every mouth among you stays still. The macaw's throat keeps working through every word, and the bird sits there with its head cocked, waiting.
+> A macaw flutters down from the canopy and settles on a low branch ahead, head tipped toward you. Then its beak opens, and a companion's voice pours out while every mouth among you stays still. The macaw's throat keeps working through every word, and the bird sits there with its head cocked, waiting.
 
 ## Statblock
 
@@ -44,7 +45,7 @@ actions: []
 
 ### Tactics
 
-It sits in reach and repeats whatever a character thinks loudest, in that character's voice, until the Party's half-formed plans start arguing among themselves, and kept close it can press one brief truthful sentence from a speaker.
+It perches in reach and repeats whatever a character thinks loudest, in that character's voice, until the Party's half-formed plans start arguing among themselves, and kept close it can press one brief truthful sentence from a speaker.
 
 ### Outside a fight
 

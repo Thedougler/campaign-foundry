@@ -4,6 +4,7 @@ summary: "A rare Aruhe fruit that grants Resistance to all damage for 1 minute."
 sources:
  - "archive/Aruhe - Stonepear.md"
  - "archive/stonepear.md"
+ - "archive/session-11-transcript-archived-version.md"
 ---
 
 ![[Stonepear - Handout Art.jpg]]
@@ -32,7 +33,7 @@ Under [[Taking on Aruhe|Aruhe's law]], fallen fruit is safe to take, but fruit p
 
 ### History
 
-Stonepears grow in [[The Quiet]], [[Old Gardens]] and [[The Pantry]]. The Party first saw one at River Slack Basin in Session 11 and did not eat it.
+The stonepear grows in [[The Quiet]], [[Old Gardens]] and [[The Pantry]]. The Party first saw one at River Slack Basin in Session 11 and did not eat it.
 
 ### Hidden truths
 

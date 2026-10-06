@@ -3,6 +3,7 @@ type: Item
 summary: "A rare Aruhe fruit that makes its eater Invisible for 1 hour, while its pollen reveals invisible creatures as a shimmer."
 sources:
  - "archive/ghost-plum.md"
+ - "archive/session-11-transcript-archived-version.md"
 ---
 
 ![[Ghost Plum - Handout Art.jpg]]
@@ -31,7 +32,7 @@ Under [[Taking on Aruhe|Aruhe's law]], fallen fruit is safe to take, but fruit p
 
 ### History
 
-Ghost plums grow in [[Old Gardens]] and the treelines of [[The Quiet]]. Matteo carried two in a sailcloth sling and ate one during Session 11. One remains. Skarn watched him vanish and later gathered two fallen plums while hunting the [[Fate Spinner]].
+Ghost plums grow in [[Old Gardens]] and the treelines of [[The Quiet]]. Matteo carried two in a sailcloth sling and ate one during Session 11. One remains. Skarn watched him vanish and later gathered two fallen plums while hunting the [[Fate Spinner]]. Matteo shared his sling's fruit with the Party. Crissdalynn ate one mid-crossing and turned unseen, and Perrin ate one to gather firewood unseen. On her last watch Crissdalynn pulled a fruit and vanished with the falcon still on her.
 
 ### Hidden truths
 

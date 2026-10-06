@@ -47,7 +47,7 @@ Read [the shared Scene procedure](../../../docs/agents/scene-pages.md) before ch
 
    After each return, update affected rows, routes and receiving entries. If a branch prevents a later premise, replace that premise with its actual consequence and recompute the remaining order and budget; keep the intent's purpose, not a guaranteed victory. If an earlier result can settle the central question, give it a direct Resolution handoff instead of requiring another showdown. **Done when** every charted Scene page is fully authored, its kind's cold-read criteria hold, each possible Encounter has the shared sourced 2024 Party-budget arithmetic and fought Creature embeds, and every reachable outcome has a coherent receiving entry or Session-ending carry-forward.
 
-8. **Locate Previously On.** For Prep of Session N, reuse `Sessions/Session <N-1>/Session <N-1> - Previously On.md`: it recounts N-1 and is read at N. Link it from the upcoming Prep's opening material. If missing, retrieve the last Session's Recap and have `theatre-of-the-mind` fill the Previously On template at that prior Session path, ending on the actual last played moment. An available Transcript supplies grounding. Ingesting unprocessed Raw is `ingest` work. A first Session skips this step. Preserve existing played Narration. **Done when** the correct prior record is available and linked, or this is the first Session, with no recap of imagined upcoming events.
+8. **Locate Previously On.** For Prep of Session N, reuse `Sessions/Session <N>/Session <N> - Previously On.md`: it recounts Session N-1 and is read at the start of N, and ingesting Session N-1's Transcript writes it. Link it from the upcoming Prep's opening material. If missing, retrieve the last Session's Recap and have `theatre-of-the-mind` fill the Previously On template at that Session N path, ending on the actual last played moment. An available Transcript supplies grounding. Ingesting unprocessed Raw is `ingest` work. A first Session skips this step. Preserve existing played Narration. **Done when** the correct prior record is available and linked, or this is the first Session, with no recap of imagined upcoming events.
 
 9. **Supply missing images.** Inspect the actual attachments and embeds for the entire Session cast and Handouts. Reuse fitting existing images. Invoke `generate-image` for every missing Battle Map an Encounter needs, NPC or Creature portrait the Session needs, and Handout image. Supply the finished owner page, Canon, target path and Prep completion ownership. Independent image jobs may run concurrently. File and embed verified output in the World's `attachments/` with the layout's naming and scale. Check each map against its battlefield and inspect available Universal VTT data for walls, doors and lights. Report missing map data separately from a missing image.
 
@@ -72,7 +72,7 @@ bun run cf -- log --help
 bun run cf -- push --help
 ```
 
-After content is ready, regenerate the index and run the page gate, given every touched content page, hot included:
+Check each page as you finish it, as `AGENTS.md` **Gate scope** sets out. After content is ready, regenerate the index and run the page gate, given every touched content page, hot included, to confirm the run:
 
 ```bash
 bun run cf -- index

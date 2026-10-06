@@ -3,6 +3,7 @@ type: NPC
 summary: "Peregrine the faction apprentice hunting Crissdalynn's Fate Spinner under the Rule of Two."
 sources:
  - "archive/talon-skarn.md"
+ - "archive/session-11-transcript-archived-version.md"
 creature: "[[Talon Skarn (Creature)]]"
 ---
 
@@ -34,7 +35,7 @@ creature: "[[Talon Skarn (Creature)]]"
 
 ### History
 
-Skarn serves Vantyrus and studies every encounter as practice for killing him. Vantyrus once opened Skarn's throat and stopped. Skarn later watched Matteo vanish after eating a ghost plum, then attacked Crissdalynn at the River Slack Basin for the Fate Spinner. He spent one Legendary Resistance during that attack.
+Skarn serves Vantyrus and studies every encounter as practice for killing him. Vantyrus once opened Skarn's throat and stopped. Skarn later watched Matteo vanish after eating a ghost plum, then attacked Crissdalynn at the River Slack Basin for the Fate Spinner. The ambush opened at a watch change, his approach quiet enough that both watchers' perception missed it, and his first grab at her pack came despite her grapple. Her staff found him once, and the Stunning Strike he failed cost him one Legendary Resistance to shake off. He was still in her face, empty-handed, when the session's recording stopped.
 
 ### Hidden truths
 

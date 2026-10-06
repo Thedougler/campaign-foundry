@@ -2,6 +2,7 @@
 type: Creature
 summary: "A Wolfrabbit creature (CR 4) used as a skirmisher in The Shattered Sea."
 sources:
+ - "archive/session-11-transcript-archived-version.md"
  - "archive/wolfrabbit.md"
 ---
 
@@ -71,11 +72,11 @@ reactions:
 
 ### Tactics
 
-Each one opens from beyond thirty feet, springs, and rakes as it lands, putting its target on the ground for the pack to rend. The low crouch is the telegraph, and terrain, cover, and focused fire answer it before the pack closes a ring. When one falls the rest converge on the body, and the fight breaks off only when the pack is bled thin.
+Each one opens from beyond thirty feet, springs, and rakes as it comes down, putting its target on the ground for the pack to rend. The low crouch is the telegraph, and terrain, cover, and focused fire answer it before the pack closes a ring. When one falls the rest converge on the body, and the fight breaks off only when the pack is bled thin.
 
 ### Outside a fight
 
-A pack's torn carcasses, eaten where they fell, tell sharp travellers that hunters hold this ground, and any bleeding wound draws their noses. It works its own beat and does not trail prey beyond it.
+A pack's torn carcasses, eaten where they fell, tell sharp travellers this ground is theirs, and any bleeding wound draws their noses. It works its own beat and does not trail prey beyond it. The pack that burst on the Party's picked fruit ignored standing prey for the illusory food beside it, and turned on the young Bloodhawks that came for the same bait.
 
 ## Depth
 

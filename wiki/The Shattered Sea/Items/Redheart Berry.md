@@ -3,6 +3,7 @@ type: Item
 summary: "A rare Aruhe berry that restores 8d4 + 8 hit points as a Bonus Action."
 sources:
  - "archive/redheart-berry.md"
+ - "archive/session-11-transcript-archived-version.md"
 ---
 
 ![[Redheart Berry - Handout Art.jpg]]
@@ -31,7 +32,7 @@ A fallen berry is safe under [[Taking on Aruhe|Aruhe's law]]. The source records
 
 ### History
 
-Redheart berries grow in [[Old Gardens]] and other Aruhe growth. Crissdalynn carried five after the Party found them and ate one during Session 11, leaving four.
+Redheart berries grow in [[Old Gardens]] and other Aruhe growth. Crissdalynn carried five after the Party found them and ate one during Session 11, leaving four. The first ones lay set down, not dropped, at a cold camp upriver, and Crissdalynn's insight called the juice healing before she tested one off the ground. The berry she picked from its stem drew the wolfrabbits.
 
 ### Hidden truths
 

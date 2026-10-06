@@ -389,7 +389,7 @@
 - [[Session 8 - Recap]] — Nona's missing-persons list passed 314, Osset was named twice, and Uncertainty's refit was twelve hours out.
 - [[Session 9 - Recap]] — Uncertainty reached for Sparhold with three Calveno captives aboard after the HCS Ordinance inspection was turned towards Calveno.
 - [[Session 10 - Recap]] — Shepherd Grigori warned of a Fate Spinner hunt, the follower ship was left listing, and two Aruhe survivors came aboard.
-- [[Session 11 - Recap]] — The Party fled a bloodhawk, rescued Matteo Scola from otters, and ended the night with Talon Skarn attacking Crissdalynn.
+- [[Session 11 - Recap]] — The Party crossed inland Aruhe, rescued Matteo Scola, and ended the night inside a falcon's ambush on Crissdalynn's watch.
 
 ## Previously On
 

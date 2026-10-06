@@ -5,6 +5,7 @@ summary: "A scorched terrace flower that answers violent disturbance by casting 
 sources:
  - "archive/Aruhe - Lesser Black Lotus.md"
  - "archive/lesser-black-lotus.md"
+ - "archive/session-11-transcript-archived-version.md"
 parent: "[[Old Gardens]]"
 ---
 
@@ -12,11 +13,11 @@ parent: "[[Old Gardens]]"
 
 ## At a glance
 
-- **Draws the Party because.** Four unstable harvests can refine into a Black Lotus Heart.
+- **Draws the Party because.** A Black Lotus Heart takes four unstable harvests to refine.
 - **Entrance.** Wet terrace growth in the Old Gardens.
 - **Occupants.** One small ember-veined bloom.
 - **Danger.** Attacking, stepping on or violently disturbing it triggers a spell burst.
-- **Prize.** Unstable material worth one-quarter of a Black Lotus Heart.
+- **Prize.** Unstable material that becomes a Black Lotus Heart at four portions to one.
 
 > [!narration] Entering
 > A smaller black flower leans from wet terrace growth. Ember-red veins gather heat around its stamens, and sparks crawl along damp petals that are small enough to step around.
@@ -37,13 +38,13 @@ The [[Lesser Black Lotus]] bloom.
 
 ### Likely actions
 
-Step around it, probe ahead, keep casters back, trigger it from range with a disposable target or harvest carefully. Four portions refine with Arcana DC 15 during a Long Rest.
+Step around it, probe ahead, keep casters back, trigger it from range with a disposable target or harvest carefully. Refining takes four portions and an Arcana DC 15 check during a Long Rest.
 
 ## Depth
 
 ### History
 
-The Party found lesser blooms near wolfrabbit grass and the otter camp. Mage Hand once moved one onto the River.
+The Party found lesser blooms near wolfrabbit grass and the otter camp. Mage Hand once moved one onto the River, and the water carried the burst bloom away after its laughter took Perrin, the only caster within thirty feet. The flower grows nowhere but Aruhe.
 
 ### Hidden truths
 

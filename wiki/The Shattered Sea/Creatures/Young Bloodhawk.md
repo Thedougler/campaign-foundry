@@ -2,6 +2,7 @@
 type: Creature
 summary: "A Young Bloodhawk creature (CR 2) used as a skirmisher in The Shattered Sea."
 sources:
+ - "archive/session-11-transcript-archived-version.md"
  - "archive/young-bloodhawk.md"
 ---
 
@@ -65,7 +66,7 @@ It takes flying quarry from the canopy, one flat dive through the leaves that sl
 
 ### Outside a fight
 
-Small birds scatter ahead of it along a trail, the young hunter's calling card, and the hawk shows itself as a burst of leaves at each stoop. It works a stretch of canopy and does not follow prey out of the trees.
+Small birds scatter ahead of it along a trail, the young hunter's calling card, and the hawk shows itself as a burst of leaves at each stoop. It works a stretch of canopy and does not follow prey out of the trees. Two of the young hawks stooped on flying quarry over Aruhe's grass, turned at Delmar's ship recall whistle and a fatter illusion, then set on the wolfrabbits the illusions had baited.
 
 ## Depth
 

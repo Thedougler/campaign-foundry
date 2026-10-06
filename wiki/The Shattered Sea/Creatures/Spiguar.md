@@ -2,6 +2,7 @@
 type: Creature
 summary: "A Spiguar creature (CR 11) used as a ambusher in The Shattered Sea."
 sources:
+ - "archive/session-11-transcript-archived-version.md"
  - "archive/spiguar.md"
 ---
 
@@ -16,7 +17,7 @@ sources:
 ## At a glance
 
 - **Role at the table.** An ambusher that erases its own trail through the grass.
-- **Threat.** CR 11, cloaked in standing grass until the pounce lands.
+- **Threat.** CR 11, cloaked in standing grass until the pounce comes down.
 - **Tell.** A line of bowing grass that travels against the wind.
 - **Weak to.** Bare ground, which costs it the grass mantle and the silent step together.
 - **Used by.** [[Terror-Bird]] patrols the same territory.
@@ -78,7 +79,7 @@ It stalks its quarry through the tall grass and pounces, the fall bringing the s
 
 ### Outside a fight
 
-At a walk it parts the grass and lets it rise behind it, and a crushed streak of running is the sign that warns the Party one is near.
+At a walk it parts the grass and lets it rise behind it, and a crushed streak of running is the sign that warns the Party one is near. The one that ambushed the Party near River Slack Basin took a burning blunderbuss round in the shoulder, carried Perrin Black-Jaw north on its back, and left bloodied, refusing the razor-grass patch where something else waited.
 
 ## Depth
 
@@ -88,7 +89,7 @@ Tall grass and brush are its hunting ground, and Observant travellers read its c
 
 ### Hidden truths
 
-A motionless spiguar in standing grass is hard to spot past ten feet, and an Intelligence check hands the searchers that trick, turning their eyes toward the patch that holds still.
+A motionless spiguar in standing grass is hard to spot past ten feet, and an Intelligence check hands the searchers that trick, turning their eyes toward the still patch.
 
 ## Links
 

@@ -3,6 +3,7 @@ type: Item
 summary: "A thumb-sized quartz top that watches one known creature from afar and lends it luck. Crissdalynn carries it and the faction hunts it."
 sources:
  - "archive/fate-spinner.md"
+ - "archive/session-11-transcript-archived-version.md"
 ---
 
 ![[Fate Spinner - Handout Art.png]]
@@ -32,7 +33,7 @@ The Spinner cannot speak through the vision, aid a fight the holder is in or aff
 
 ### History
 
-[[Master Kyzil]] gave this Spinner to Crissdalynn before her pilgrimage. It bonded when she risked her life to save [[Delmar Fisk]] in the [[Red Lady]] wreck. Several Spinners exist. [[Talon Vantyrus]] carries one.
+[[Master Kyzil]] gave this Spinner to Crissdalynn before her pilgrimage. It bonded when she risked her life to save [[Delmar Fisk]] in the [[Red Lady]] wreck. Several Spinners exist. [[Talon Vantyrus]] carries one. The hunt came to the Party's camp during Session 11's night watch, when [[Talon Skarn]] went for Crissdalynn's pack at the watch change and left without it.
 
 ### Hidden truths
 

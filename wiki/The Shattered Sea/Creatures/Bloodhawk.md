@@ -4,6 +4,7 @@ aliases:
   - Bloodhawks
 summary: "A Bloodhawk creature (CR 11) used as a skirmisher in The Shattered Sea."
 sources:
+ - "archive/session-11-transcript-archived-version.md"
  - "archive/bloodhawk.md"
 ---
 
@@ -76,7 +77,7 @@ Open where clear sky lies above the Party, and mark the held wings that announce
 
 ### Outside a fight
 
-Its tracks and feeding signs warn the Party before an encounter. A shadow that circles the same stretch twice marks its territory. It holds to its own habitat. Past the terrain that gives it an advantage, it does not follow.
+Its tracks and feeding signs warn the Party before an encounter. A shadow that circles the same stretch twice marks its territory. It holds to its own habitat. Past the terrain that gives it an advantage, it does not follow. The adult that stooped on the Party above the Old Gardens was after the crown squid, not them, and lost interest in low-flying quarry once its kill was down.
 
 ## Depth
 

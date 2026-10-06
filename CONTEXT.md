@@ -187,7 +187,7 @@ The DM-facing account of what happened in one Session, compiled from its Transcr
 _Avoid_: summary, session notes, log
 
 **Previously On**:
-A short account of the last Session, written for the DM to read aloud to the Players at the start of the next one.
+A short account of the last Session, written for the DM to read aloud to the Players at the start of the next one, so they pick up where they left off. It lives in the folder of the Session it opens.
 _Avoid_: player recap, read-aloud recap, boxed text
 
 ### Creative work

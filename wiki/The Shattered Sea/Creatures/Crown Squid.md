@@ -2,6 +2,7 @@
 type: Creature
 summary: "A Crown Squid creature (CR 17) used as a controller in The Shattered Sea."
 sources:
+ - "archive/session-11-transcript-archived-version.md"
  - "archive/crown-squid.md"
  - "archive/agentic-co-dm-Aruhe-Crown-Squid.md"
 ---
@@ -92,7 +93,7 @@ Open among the hanging roots, where it braces itself on its arms, and mark the h
 
 ### Outside a fight
 
-Branches that creak under more than wind, and a broad mantle hanging among the roots, warn the Party before an encounter. Sucker scars high on trunks, bark stripped upward, shredded sixty-foot vines, and prey tracks that end going up all mark its paths, and a hanging line that moves where no root would sits above the ambush. One the crew watched held at the treeline after the spore-plant disturbance, refusing the open ground. Its carcass offers parts only. Severed lines, rubbery hide and mantle tissue reward a careful harvester. It keeps to one stretch of canopy and does not chase beyond the roots it knows.
+Branches that creak under more than wind, and a broad mantle hanging among the roots, warn the Party before an encounter. Sucker scars high on trunks, bark stripped upward, shredded sixty-foot vines, and prey tracks that end going up all mark its paths, and a hanging line that moves where no root would sits above the ambush. One the crew watched held at the treeline after the spore-plant disturbance, refusing the open ground. That watched squid came down above the Old Gardens when a Bloodhawk out hunting struck it out of the canopy and dropped it through the trees. Its carcass offers parts only. Severed lines, rubbery hide and mantle tissue reward a careful harvester. It keeps to one stretch of canopy and does not chase beyond the roots it knows.
 
 ## Depth
 

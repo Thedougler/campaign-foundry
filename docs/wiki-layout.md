@@ -25,7 +25,7 @@ wiki/                          vault root
       campaign-config.md       tone, themes, Lines and Veils: instructions agents follow
       hot.md                   current state of play
       PCs/  Threads/  Quests/  House Rules/
-      Sessions/Session <N>/     Prep, a page per Scene, Recap, Previously On (recounts Session N, read aloud at N+1), Handouts
+      Sessions/Session <N>/     Prep, a page per Scene, Recap, Previously On (recounts Session N−1, read aloud at the start of N), Handouts
 raw/                           Raw: waiting to be ingested; flat, no folders (outside the vault)
 archive/                       Archive: already ingested; flat, no folders (outside the vault); also each Transcript's Session Ledger
 .cspell/dnd-terms.txt          D&D rules terms for spelling (outside the vault)

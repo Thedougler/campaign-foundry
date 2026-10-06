@@ -16,7 +16,7 @@ Each idea in a collab session has a `Stage` in the notes. The DM's words pick th
 
 ```mermaid
 flowchart TD
-    Open["Open and bootstrap"] --> Catch["Catch: cf context"]
+    Open["Open and bootstrap"] --> Catch["Catch: notes and candidate pages"]
     Catch --> Develop{"Develop with the DM"}
     Develop -->|"options, stuck, blank idea"| Seeds["Seeds"]
     Seeds --> Develop
@@ -39,7 +39,7 @@ flowchart TD
 |Stage|Owner|What it leaves behind|
 |---|---|---|
 |Open and bootstrap|[`collab-with-me`](../.omp/skills/collab-with-me/SKILL.md) step 1, whose table names the owner of each missing required file|`user-config.md`, the World, `campaign-config.md`, `hot.md` and the Story Bible, all read|
-|Catch|`collab-with-me` step 2|each DM fragment in the notes, and the pages `cf context` listed on the read list|
+|Catch|`collab-with-me` step 2|each DM fragment in the notes, and the candidate pages `cf context` listed on the read list|
 |Seeds|[`docs/agents/co-writing.md`](agents/co-writing.md#seeds)|3 or 5 Seeds in the reply, each verdict in the notes|
 |Story|[`references/story.md`](../.omp/skills/collab-with-me/references/story.md)|the Story Bible with its Story Outline of Beats, and prose drafts when the DM asks|
 |Simulate|[`simulate-npcs`](../.agents/skills/simulate-npcs/SKILL.md)|dossiers, a ledger and a report of possibilities|
@@ -84,11 +84,11 @@ The Director sends each Persona its turns with `write agent://<id>`. Personas ar
 
 |Command|Reports|
 |---|---|
-|`bun run cf -- context [file\|-]`|every Wiki page whose name or alias appears in the text, one line each as path, type and matched name, sorted by type and then name; `--json` gives the same as objects|
+|`bun run cf -- context [file\|-]`|every Wiki page whose title or alias the text writes as whole, case-matched words, one line each as path, type and matched name, sorted by type and then name; `--json` gives the same as objects|
 |`bun run cf -- style [paths\|-]`|findings from the style (Vale) and narration layers alone, over any markdown files or directories, with the output and exit codes of `cf check`|
 |`bun run lint:agent-text`|`cf style` over the paths in `package.json`'s `lint:agent-text` script, which defines agent-facing content text (ADR 0020)|
 
-The helpers are diagnostic. Each `--help` says so: `Lists findings or pages; deciding what to change is the agent's job.` A page from `cf context` is a pointer to read, and its lore comes from the reading. A finding from `cf style` marks text for the agent to rewrite with judgement.
+The helpers are diagnostic: their output is input the agent reads, and every call about relevance or meaning is the agent's. A page from `cf context` is a candidate to read, and a page the text means without writing its name (another case, a mishearing, a description) comes from a QMD search by `skill://qmd`. A finding from `cf style` marks text for the agent to rewrite with judgement.
 
 ## TTSR rules
 

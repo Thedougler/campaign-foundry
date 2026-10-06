@@ -1185,7 +1185,7 @@
 
 - [[Vestra]]
 
-## [2026-10-05] lint | Creature cluster: added Roc, Giant Vulture and Harpy statblocks, British spellings, prose repairs
+## [2026-10-05] lint | Creature cluster: Roc, Giant Vulture and Harpy statblocks with British spelling fixes and prose repairs
 
 - [[Roc]]
 - [[Giant Vulture]]
@@ -1225,3 +1225,41 @@
 - [[Central Strait]]
 - [[Verdant Scatter]]
 - [[Sandtable Shoal]]
+
+## [2026-10-05] lint | Creature lint: pounce, hunt and want verbs, mass-noun rewording
+
+- [[Crown Squid]]
+- [[Spiguar]]
+- [[River Otter]]
+- [[Bloodhawk]]
+
+## [2026-10-05] lint | Lint Session 11 slice: cleared ai-tells and spelling findings on Matteo Scola, Talon Skarn, Fate Spinner, Ghost Plum and Stonepear
+
+- [[Matteo Scola]]
+- [[Talon Skarn]]
+- [[Fate Spinner]]
+- [[Ghost Plum]]
+- [[Stonepear]]
+
+## [2026-10-05] lint | Session 11 Recap: prose repairs and Terror-Bird naming
+
+- [[Session 11 - Recap]]
+
+## [2026-10-05] ingest | session-11-transcript-archived-version.md
+
+- [[Spiguar]]
+- [[Crown Squid]]
+- [[River Otter]]
+- [[Bloodhawk]]
+- [[Young Bloodhawk]]
+- [[Wolfrabbit]]
+- [[Unsaid Macaw]]
+- [[Matteo Scola]]
+- [[Talon Skarn]]
+- [[Fate Spinner]]
+- [[Redheart Berry]]
+- [[Ghost Plum]]
+- [[Stonepear]]
+- [[Lesser Black Lotus]]
+- [[Taking on Aruhe]]
+- [[Session 11 - Recap]]
