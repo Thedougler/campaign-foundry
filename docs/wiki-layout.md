@@ -27,7 +27,7 @@ wiki/                          vault root
       PCs/  Threads/  Quests/  House Rules/
       Sessions/Session <N>/     Prep, a page per Scene, Recap, Previously On (recounts Session N−1, read aloud at the start of N), Handouts
 raw/                           Raw: waiting to be ingested; flat, no folders (outside the vault)
-archive/                       Archive: already ingested; flat, no folders (outside the vault); also each Transcript's Session Ledger
+archive/                       Archive: already ingested; flat, no folders (outside the vault); also each Transcript's Session Ledger and recording
 .cspell/dnd-terms.txt          D&D rules terms for spelling (outside the vault)
 ```
 

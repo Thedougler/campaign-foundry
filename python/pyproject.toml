@@ -3,7 +3,17 @@ name = "campaign-foundry"
 version = "0.1.0"
 description = "Python side of Campaign Foundry: features ported from the DM's Python tooling, run under uv."
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "numpy>=2.5.3",
+]
+
+[project.optional-dependencies]
+# Laugh Highlights (`bun run cf -- transcript highlights`). Needs ffmpeg and wget on PATH; the
+# first scan downloads the PANNs checkpoint (about 330 MB) to ~/panns_data/.
+highlights = [
+    "panns-inference>=0.1.1",
+    "torch>=2.9",
+]
 
 [dependency-groups]
 dev = [
@@ -20,6 +30,8 @@ packages = ["src/campaign_foundry"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["slow: loads the real PANNs model, downloading its checkpoint on first run"]
+addopts = "-m 'not slow'"
 
 [tool.ruff]
 line-length = 100

@@ -174,6 +174,10 @@ _Avoid_: log, recording (that's the audio), notes
 The line-cited record of what happened in one Session, built from its Transcript by Transcript readers and kept in `archive/` beside it; Ingest writes the Wiki from it.
 _Avoid_: transcript summary, notes, companion
 
+**Laugh Highlights**:
+The Session's biggest table laughs, measured from its recording by `cf transcript highlights` and aligned with the lines of a timestamped Transcript (markdown or CSV); the detector proposes them, and Ingest judges which are play before they enter the Session Ledger as MOMENT events.
+_Avoid_: funniest moments, laugh track, highlight reel
+
 **Transcript Summary**:
 The AI summary TranscribeX exports beside a Transcript: an index of candidate events that Ingest checks against the Session Ledger, never evidence.
 _Avoid_: recap, meeting report

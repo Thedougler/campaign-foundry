@@ -13,6 +13,7 @@
     "py:fmt": "uv run --directory python ruff format .",
     "py:fmt:check": "uv run --directory python ruff format --check .",
     "py:test": "uv run --directory python pytest",
+    "py:test:slow": "uv run --directory python --extra highlights pytest -m slow",
     "check:all": "bun run lint:agent-text && bun run typecheck && bun run test && bun run py:lint && bun run py:fmt:check && bun run py:test",
     "typecheck": "tsc",
     "test": "vitest run",

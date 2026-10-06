@@ -25,7 +25,7 @@ A flagged word that is an in-world name or a rules term (`spelling` or `grammar`
 
 1. **Misspelt Canon.** A Canon name spelt another way (the finding's "Did you mean", or `qmd` finds the page): write the Canon spelling.
 2. **Owned.** A page has the name as its title or in `aliases`. Write that exact form, case included. Or add the text's own form to that page's `aliases`, whether a short form, a nickname or an epithet.
-3. **Unowned.** A name some template fits (a person, place, group, creature, item, god) that no page owns is a missing page, however briefly the text mentions it. Lint gives it a stub as step 3 does. Ingest gives it a page through its Fill.
+3. **Unowned.** A name some template fits (a person, place, group, creature, item, god) that no page owns is a missing page, however briefly the text mentions it, and however long it stood on the page before you. Lint gives it a stub as step 3 does. Ingest gives it a page through its Fill. When your brief keeps that page outside your scope, request the page in your return, with the page and line that name it, and leave the finding standing for the run that makes the stub. Rung 4 is for words outside every template.
 4. **Coinage.** An in-world word outside the templates (a month, a weekday, a word of an in-world tongue, an oath): one line in `.cspell-words.txt` at the vault root (`wiki/`, or the bound `--vault`).
 5. **Rules term.** A D&D rules or published-setting term: one line in `.cspell/dnd-terms.txt` at the repo root, in its group.
 
