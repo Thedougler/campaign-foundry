@@ -21,12 +21,12 @@ sources:
 
 ### Situation
 
-Eleven Grung lie with spent Grung Authority Seals and cracked clay fire pots. The Calveno distrust the dead and want to follow the fruit piles before dark. Hinewai speaks from the trees when Jean-Claude reads or lifts a seal, or after ten minutes on the road. She does not show herself.
+Dead Grung lie with spent Grung Authority Seals and cracked clay fire pots, eleven of them. The Calveno distrust the dead. They want to follow the fruit piles before dark. Hinewai speaks from the trees when Jean-Claude reads or lifts a seal, or after ten minutes on the road. She does not show herself.
 
 ### Handles
 
 - Jean-Claude reads any seal without a roll. Others can use Investigation DC 13.
-- Ask Hinewai what happened, explain that Jean-Claude carries no gold, or leave the dead and follow the trail.
+- Ask Hinewai what happened, explain that Jean-Claude's skin has no gold order, or leave the dead and follow the trail.
 - Do not burn or take living growth. A claim wakes a Vine Lash and turns the civilians against the Party.
 
 ### Checks
@@ -59,7 +59,7 @@ Eleven Grung lie with spent Grung Authority Seals and cracked clay fire pots. Th
 ### Hidden truths
 
 - The island pulled the eleven Grung into the soil after their living-growth claim.
-- Hinewai counts the Calveno as hers, but she has seen Jean-Claude carries no gold order on his skin.
+- Hinewai counts the Calveno as hers, but she has seen Jean-Claude's skin, bare of the gold order.
 
 ### Threads
 

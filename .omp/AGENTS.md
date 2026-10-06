@@ -42,6 +42,7 @@ Select an agent by its responsibility:
 - `test-subject` (`@TEST-SUBJECT`) runs each eval case or baseline and `prose-grader` (`@PROSE-GRADER`) grades rubrics independently; both are native `task` dispatches whose frontmatter `tools:` is read-only except Runner `bash` for diagnostic CLI, batched per `evals/README.md`.
 - `creative-writer` takes Seeds, Story drafts and other explicit creative-writing dispatches outside skill evals.
 - `persona` plays exactly one NPC in a Simulation, dispatched only by `simulate-npcs`.
+- `transcript-reader` (pinned `zai/glm-5.3-flash`) reads Transcript chunks and verify ranges into Session Ledger files, dispatched only by `ingest` `references/transcript.md`.
 
 Claude Opus 5.5 is reserved for writing skills and agent instructions (`skill-writer`) and orchestration. `creative-writer` and `persona` default to `zai/glm-5.3`, pinned in their frontmatter. Testing runs on `zai/glm-5.3-flash`: `test-subject` gets it through `@TEST-SUBJECT`, and every `task` dispatched as a smoke-run subject, or as a `creative-writer` or `persona` inside a test, passes it as its `model`.
 

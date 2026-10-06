@@ -9,7 +9,7 @@ sources:
 
 ## At a glance
 
-- **What is true now.** Nine Calveno are ready to walk back towards Uncertainty.
+- **What is true now.** Nine of the Calveno are ready to walk back towards Uncertainty.
 - **Cost.** The Party spent its resources, and any meadow or Pantry losses remain.
 - **Where.** The Pantry clearing at first light.
 - **Reactions.** The survivors decide who leaves, who stays, and what they learned on Aruhe.
@@ -21,19 +21,19 @@ sources:
 
 ### Payoffs
 
-- Nine Calveno leave. They include Ettore, Luca, Piero, Gianni, Matteo, Carlo, Tommaso Brasca, Sandrino Vale, and Ilario Pozzo.
+- Nine of the Calveno leave. They are Ettore, Luca, Piero, Gianni, Matteo, Carlo, [[Tommaso Brasca]], [[Sandrino Vale]], and [[Ilario Pozzo]].
 - Carlo and Luca carry Ettore on a litter. Matteo walks towards the ship he wanted.
-- Renzo and Tommaso teach the survivors Aruhe's rules. Fallen fruit is food, and fallen material is safe to build with. Night travel is forbidden. Water and open ground are hazards.
+- Renzo and Tommaso give the survivors Aruhe's rules. Fallen fruit is food, and fallen material is safe to build with. Night travel is forbidden. Water and open ground are hazards.
 
 ### Reactions
 
-Renzo Canale stays beneath the vine by choice. Beppe Sarti and Marco Lenzi stay with him. Carlo tells Ettore he turned back at the meadow on the second day, and Ettore forgives him. Ask each PC what they say before the column leaves.
+Renzo Canale stays beneath the vine by choice. [[Beppe Sarti]] and [[Marco Lenzi]] stay with him. Carlo tells Ettore he turned back at the meadow on the second day, and Ettore forgives him. Ask each PC what they say before the column leaves.
 
 ### Rewards
 
 - The Party receives one fallen Giant's Guava or Stonepear each.
-- Nine lives and the rules for living on Aruhe return with the Party.
-- The Party reaches level 6 at the end of Session 12.
+- The Party returns with the nine survivors and the rules for keeping people alive on Aruhe.
+- The Party gains level 6 at the end of Session 12.
 - If Skarn was captured or killed, his katana, sai, and hooked chain weapons remain.
 
 ### Stinger
@@ -42,7 +42,7 @@ The column begins the days-long walk back towards *Uncertainty* at Western Landi
 
 ## Threads
 
-- The Calveno survivors. Nine leave and three stay, closing the rescue.
+- The Calveno survivors. The rescue closes with nine walking out and three staying beneath the vine.
 - [[Fate Spinner]] and [[Talon Skarn]]. Skarn leaves empty-handed or takes the Spinner. Capture remains possible.
 - [[Two-Grave Orders]]. The Party knows what the Gold caste wants, but the graves still stand.
 - [[Hinewai]] and the Grung. Hinewai has met a Grung with no gold order on his skin.

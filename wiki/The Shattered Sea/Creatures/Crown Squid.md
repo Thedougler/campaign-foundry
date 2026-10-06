@@ -10,14 +10,14 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Controller. It hooks its prey from a distance and holds each catch at the end of a line while the arms close.
+- **Role at the table.** Controller. It hooks its prey from a distance, and each catch stays on the line while the arms close.
 - **Threat.** CR 17. Its hook-tipped lines reach 80 feet, four catches can hang at once, and each Reel hauls a creature 30 feet closer.
 - **Tell.** The hooked arm goes still above the gap, and all eight eyes settle on one spot before the line shoots.
 - **Weak to.** Cover, terrain, and breaking its preferred range or formation. The spot directly beneath the mantle's centre hides from all eight eyes, and cutting the lines frees the fight. It avoids open grassland and water that [[River Otter]] packs are working.
 - **Used by.** [[Deer-Stalker]] patrols the same territory.
 
 > [!narration] First sight
-> Where the hanging roots part, a mantle big as a ship's sail hangs under the canopy, propped on eight thick arms. One arm stretches out past the rest, ringed with hooks, and it sways over the gap in the roots. Eight eyes ring the mantle's rim, all of them aimed down into the foliage below. Branches creak under the whole weight, and the hooked arm holds still above the way through.
+> Where the hanging roots part, a mantle big as a ship's sail hangs under the canopy, propped on eight thick arms. One arm stretches out past the rest, ringed with hooks, and it sways over the gap in the roots. A ring of eyes circles the mantle's rim, all eight aimed down into the foliage below. Branches creak under the whole weight, and the hooked arm holds still above the way through.
 
 ## Statblock
 
@@ -98,11 +98,11 @@ Branches that creak under more than wind, and a broad mantle hanging among the r
 
 ### Ecology
 
-It lives high in the wet canopy of [[The Quiet]], the Marshes, and the Mangrove roof, where massive trunks, hanging roots and broken light let its mantle read as part of the trees. The mantle is house-sized and translucent, with a deep violet glow inside, and the arms beneath it carry bark-dark skin ridged and studded with thorny suckers. Bear-Elk, wounded hunters, climbing creatures, and anyone who trails behind a group are what its long lines haul up. Juveniles work the upper terraces, and the oldest sit heavy in the Marshes where walkers cannot easily reach the roof. Each adult keeps a stretch of canopy to itself and treats other large Aruhe hunters as boundaries rather than allies. It shares a kill only with one already beaten and leaving. A traveller working Wisdom (Survival) reads its signs in the stripped bark along its paths.
+It lives high in the wet canopy of [[The Quiet]], the Marshes, and the Mangrove roof, where massive trunks, hanging roots and broken light let its mantle read as part of the trees. The mantle is house-sized and translucent, with a deep violet glow inside, and the arms beneath it carry bark-dark skin ridged and studded with thorny suckers. Bear-Elk, wounded hunters, climbing creatures, and anyone who trails behind a group are what its long lines haul up. Juveniles work the upper terraces, and the oldest keep to the Marshes where walkers cannot easily reach the roof. Each adult keeps a stretch of canopy to itself and treats other large Aruhe hunters as boundaries rather than allies. It shares a kill only with one already beaten and leaving. A traveller working Wisdom (Survival) reads its signs in the stripped bark along its paths.
 
 ### Hidden truths
 
-Careful study of its territory shows the habits of the hooks, and with them the space beneath the mantle's centre where its eight eyes cannot reach. A successful relevant Intelligence check confirms what the stripped wood suggests.
+Careful study of its territory shows the habits of the hooks, and with them the space beneath the mantle's centre, out of sight of all eight eyes. A successful relevant Intelligence check confirms what the stripped wood suggests.
 
 ## Links
 

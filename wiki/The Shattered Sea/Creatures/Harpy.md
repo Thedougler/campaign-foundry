@@ -7,14 +7,43 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Crews sheltering in the channels hear singing where no singer should be, and the ones who follow it inland are the reason the stories survive.
+- **Role at the table.** Crews sheltering in the channels hear singing where no singer should be, and the ones who follow it inland are why pilots still tell the stories.
 - **Tell.** Voices in the storm gaps that do not match the wind's direction.
 - **Used by.** The [[Ashwall Islands]] storm gaps.
 
 > [!narration] First sight
-> Wind fills the channel with one long note, and under it carries another sound, a voice singing where no ship could lie. The spray drives one way and the singing holds another course. It is a clear, patient sound, and it comes from inland, up the black stone.
+> Wind fills the channel with one long note, and beneath it another sound begins, a voice singing where no ship could lie. The spray drives one way and the singing holds another course. It is a clear, patient sound, and it comes from inland, up the black stone.
 
 ## Statblock
+
+```statblock
+layout: Basic 5e Layout
+name: "Harpy"
+size: Medium
+type: monstrosity
+alignment: chaotic evil
+ac: 11
+ac_class: unarmored
+hp: 38
+hit_dice: "7d8 + 7"
+speed: "20 ft., fly 40 ft."
+stats: [12, 13, 12, 7, 10, 13]
+saves: []
+skillsaves: []
+senses: "passive Perception 10"
+languages: "Common"
+cr: 1
+traits: []
+actions:
+  - name: Claw
+    desc: "Melee Attack Roll: +3, reach 5 ft. Hit: 6 (2d4 + 1) Slashing damage."
+  - name: Luring Song
+    desc: "The harpy sings a magical melody, which lasts until the harpy's Concentration ends on it. Wisdom Saving Throw: DC 11, each Humanoid and Giant in a 300-foot Emanation originating from the harpy when the song starts. Failure: The target has the Charmed condition until the song ends and repeats the save at the end of each of its turns. While Charmed, the target has the Incapacitated condition and ignores the Luring Song of other harpies. If the target is more than 5 feet from the harpy, the target moves on its turn toward the harpy by the most direct route, trying to get within 5 feet of the harpy. It doesn't avoid Opportunity Attacks; however, before moving into damaging terrain (such as lava or a pit) and whenever it takes damage from a source other than the harpy, the target repeats the save. Success: The target is immune to this harpy's Luring Song for 24 hours."
+bonus_actions: []
+reactions: []
+legendary_description: ""
+legendary_actions: []
+```
 
 ## Play
 

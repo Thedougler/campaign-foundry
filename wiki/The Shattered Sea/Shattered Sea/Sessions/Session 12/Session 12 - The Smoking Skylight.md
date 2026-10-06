@@ -10,23 +10,23 @@ sources:
 ## At a glance
 
 - **The turn.** The survivors learn where the rest of the Calveno went.
-- **Changes.** Four people are lifted from a lava tube, with Ettore carried.
+- **Changes.** The Party lifts four people from a lava tube, with Ettore carried.
 - **Where.** The Long Meadow's western edge above the Lava Tubes.
 - **Who.** Matteo Scola, Piero Sorrentino, Luca Ferrante, Ettore Ferrante, Gianni Moro, and a waiting Terror-Bird.
 
 > [!narration] Opening
-> Smoke is rising out of the bare meadow ahead like a chimney with no house under it, and somewhere beneath it men are arguing. The fruit piles have brought you through head-high grass, where wet stems whipped your faces. Now hard sun beats down after a morning of green leaves. It falls on turf grazed short and pressed into wide rings that reek sour in the heat. The smoke pours from a ragged hole only a few strides out, where pale roots dangle over the lip, and a mossy stump sits in the tree shade off to your right. Beneath the argument, a boy's voice is counting.
+> Smoke is rising out of the bare meadow ahead like a chimney with no house under it, and somewhere beneath it men are arguing. The fruit piles have brought you through head-high grass, where wet stems whipped your faces. Now hard sun beats down after a morning of green leaves. It falls on turf grazed short and pressed into wide rings that reek sour in the heat. The smoke pours from a ragged hole only a few strides out, where pale roots dangle over the lip, and a mossy stump rests in the tree shade off to your right. Beneath the argument, a boy's voice is counting.
 
 ## Play
 
 ### Situation
 
-A 15-foot skylight drops 40 feet to a basalt ledge. Four Calveno live below on fallen fruit. Ettore has a splinted broken leg and cannot stand. Matteo knows their voices and wants them to admit he was right. A Terror-Bird stands still at the rim 60 feet south-west and charges when the column moves into the meadow or the last survivor comes up.
+A 15-foot skylight drops 40 feet to a basalt ledge. Below, four Calveno live on fallen fruit. Ettore has a splinted broken leg and cannot stand. Matteo knows their voices. He wants them to admit he was right. A Terror-Bird stands still at the rim 60 feet south-west and charges when the column moves into the meadow or the last survivor comes up.
 
 ### Handles
 
 - Use a rope and two people to haul everyone up in 10 minutes, or fly one person at a time.
-- Let Luca lead and promise to carry Ettore. Stop Matteo, or let him taunt the trapped survivors.
+- Let Luca lead and promise to bear Ettore. Stop Matteo, or let him taunt the trapped survivors.
 - Keep watch on the mossy stump and move into tall grass before the bird charges.
 
 ### Checks

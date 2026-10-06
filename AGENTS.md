@@ -43,7 +43,7 @@ For creative work (raw ideas, Stories, NPCs played in Simulation, Session ideas)
 
 ## Working rules
 
-- **Install before building.** `bun add` an established package that does the job; write custom code only for what no package covers.
+- **Install before building.** `bun add` an established package that does the job; write custom code only for what no package covers. Python code lives in `python/` under uv: add its dependencies with `uv add`, run it through the `py:*` scripts in `package.json`.
 - **Programmable judgment.** When a step needs semantic understanding as a typed answer (a pick from a set, a yes or no, a degree, a ranking), use the harness judge first. For what that judge cannot do, read the `typesafe-ai` skill and build the judgment with TypeSafe without waiting to be asked. In omp, **Tools** in `.omp/AGENTS.md` sets out which side of that line a need is on. Code keeps the workflow and the policy. A `cf` command that calls Jev reports its answers and probabilities as findings, and the agent makes the call.
 - **Holistic design.** Every rule holds everywhere; when a case needs a carve-out, rework the rule until the case fits.
 - **The repo is the memory.** Record every durable fact, preference or decision in the repo (terms in `CONTEXT.md`, decisions in `docs/adr/`, working rules here), not in harness memory files.

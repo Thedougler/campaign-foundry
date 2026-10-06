@@ -9,6 +9,7 @@ import { logCommand } from "./log.ts";
 import { pullCommand } from "./pull.ts";
 import { pushCommand } from "./push.ts";
 import { styleCommand } from "./style.ts";
+import { transcriptCommand } from "./transcript.ts";
 
 /**
  * Every `cf` subcommand. To add one (`index`, `log`, `pull`, `push`): create `src/commands/<name>.ts`
@@ -25,4 +26,5 @@ export const commands: (() => Command)[] = [
  pullCommand,
  pushCommand,
  styleCommand,
+ transcriptCommand,
 ];

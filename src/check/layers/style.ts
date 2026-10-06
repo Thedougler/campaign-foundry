@@ -158,17 +158,19 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 	const cacheDir = join(ctx.root, ".cache", "check");
 	await mkdir(cacheDir, { recursive: true });
 	const scratch = await mkdtemp(join(cacheDir, "vale-"));
-	const written = new Map<string, string>();
-	try {
-		await Promise.all(
-			pages.map(async (page) => {
-				const file = join(scratch, page.path);
-				await mkdir(dirname(file), { recursive: true });
-				const text = valeText(proseView(page, ctx.vault).text, page);
-				written.set(page.path, text);
-				await writeFile(file, text);
-			}),
-		);
+		const written = new Map<string, string>();
+		const shown = new Map<string, string>();
+		try {
+			await Promise.all(
+				pages.map(async (page) => {
+					const file = join(scratch, page.path);
+					await mkdir(dirname(file), { recursive: true });
+					const text = valeText(proseView(page, ctx.vault).text, page);
+					written.set(page.path, text);
+					shown.set(page.path, valeText(proseView(page).text, page));
+					await writeFile(file, text);
+				}),
+			);
 		const { stdout, missing } = await runVale(["--config", config, "--output=JSON", "--no-exit", scratch]);
 		if (missing) {
 			setupError("Vale is not installed.", "Install Vale 3.23 or newer (https://vale.sh/docs/install; on macOS `brew install vale`), then run `bun run setup` and `cf check` again.");

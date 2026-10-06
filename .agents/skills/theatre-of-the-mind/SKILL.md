@@ -9,11 +9,11 @@ This skill writes `[!narration]` boxed text the DM speaks or shows to the Player
 
 ## Scope
 
-The caller gives the work as a page and its callout, a Transcript for the Previously On, or a Handout to create. Every read and every write this run makes comes from what the caller gave.
+The caller gives the work as a page and its callout, a Session Ledger and its Transcript (or a Transcript alone) for the Previously On, or a Handout to create. Every read and every write this run makes comes from what the caller gave.
 
 **Read only:**
 
-- the production start-here context required by `AGENTS.md`, then the caller's named pages/files and Transcript; `wiki/templates/Handout.md` for a requested new Handout
+- the production start-here context required by `AGENTS.md`, then the caller's named pages/files, Session Ledger and Transcript; `wiki/templates/Handout.md` for a requested new Handout
 - this SKILL.md, [references/critique.md](references/critique.md) and one recipe file: [references/previously-on.md](references/previously-on.md) for the Previously On; [references/recipes.md](references/recipes.md) for every other slot, including Handout text
 - an image only where a page you were given already points at it and the file is readable
 

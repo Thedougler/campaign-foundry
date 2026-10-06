@@ -17,7 +17,7 @@ parent: "[[Aruhe]]"
 - **Held by.** River Otter families, with predators along both banks.
 - **Changing.** Flood stage widens the Grasslands. Dry stage exposes shelves and concentrates the otters.
 - **Crossing.** Follow water uphill to Clear Lake or laterally into Grasslands, Marshes and Quiet.
-- **Danger.** Current, deep pools, razer-grass, grubnades and otters that treat taking as theft.
+- **Danger.** Current, deep pools, razer-grass, [[Grubnade]] detonations and otters that treat taking as theft.
 
 > [!narration] Arrival
 > Clear water splits and rejoins beside you in channels broad enough for travel. Fish flash among submerged grass. Roots hang like wet ropes above them, and the sound of moving water stays close.
@@ -30,11 +30,11 @@ parent: "[[Aruhe]]"
 
 ### Places
 
-From this water the Party can reach [[Landing Bank]], [[Torn Crossing]], [[Line Bank]], [[Slack Basin]], [[Cutoff Lip]], [[Print Braid]], [[Spoke Ring]] and [[Star Cut]].
+From this water, channels run to [[Landing Bank]], [[Torn Crossing]], [[Line Bank]], [[Slack Basin]], [[Cutoff Lip]], [[Print Braid]], [[Spoke Ring]] and [[Star Cut]].
 
 ### Encounters
 
-River Otters play with rope, oars and ankles. Terror-Birds hunt the banks of the Grasslands. Bloodhawks take canoes in open channel. Unsaid Macaws repeat thoughts. Grubnades detonate by wet flowers.
+River Otters play with rope, oars and ankles. Terror-Birds hunt the banks of the Grasslands. Bloodhawks take canoes in open channel. Unsaid Macaws repeat thoughts. A [[Grubnade]] detonates by wet flowers.
 
 ### Rumors
 
@@ -52,7 +52,7 @@ The gin-clear reaches are tended, not naturally empty. A fallen fruit is receivi
 
 ### Threads
 
-The otters' law that taking is theft and the flood-redrawn route hold this water inside [[Taking on Aruhe]] and [[Perrin and Nona]].
+This water joins [[Taking on Aruhe]] and [[Perrin and Nona]] through the otters' law that taking is theft and the flood-redrawn route.
 
 ## Links
 

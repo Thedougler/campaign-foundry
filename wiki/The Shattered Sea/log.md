@@ -1168,3 +1168,60 @@
 ## [2026-10-05] audit | Nightmantle seller description attributed to Lavinia (Osset's appearance DM-corrected to snowy-owl)
 
 - [[Nightmantle]]
+
+## [2026-10-05] ingest | agentic-co-dm-nona-black-jaw-narration.md
+
+- [[Nona Black-Jaw]]
+
+## [2026-10-05] ingest | agentic-co-dm-simone-tabarnack-narration.md
+
+- [[Simone Tabarnack]]
+
+## [2026-10-05] ingest | agentic-co-dm-fleet-commanders-chair-narration.md
+
+- [[Fleet Commanders Chair]]
+
+## [2026-10-05] ingest | agentic-co-dm-vestra-narration.md
+
+- [[Vestra]]
+
+## [2026-10-05] lint | Creature cluster: added Roc, Giant Vulture and Harpy statblocks, British spellings, prose repairs
+
+- [[Roc]]
+- [[Giant Vulture]]
+- [[Young Bloodhawk]]
+- [[Harpy]]
+- [[Dravosi Deckhand]]
+- [[Crown Squid]]
+
+## [2026-10-05] lint | Lint slice: survivor stubs and plain-speech repairs across Pantry, Palio, Long Meadow, River
+
+- [[The Pantry]]
+- [[Il Palio delle Voci Contese]]
+- [[The Long Meadow]]
+- [[The River]]
+- [[Tommaso Brasca]]
+- [[Sandrino Vale]]
+- [[Ilario Pozzo]]
+- [[Beppe Sarti]]
+- [[Marco Lenzi]]
+
+## [2026-10-05] lint | Session 12 scenes to zero findings; five Pantry survivor stubs
+
+- [[Session 12 - The Way Out]]
+- [[Session 12 - The Smoking Skylight]]
+- [[Session 12 - Terror-Birds]]
+- [[Session 12 - Orders in the Ash]]
+- [[Session 12 - Consume]]
+- [[Tommaso Brasca]]
+- [[Sandrino Vale]]
+- [[Ilario Pozzo]]
+- [[Beppe Sarti]]
+- [[Marco Lenzi]]
+
+## [2026-10-05] lint | Lint the Locations cluster: Doldrums, Central Strait, Verdant Scatter; stub Sandtable Shoal
+
+- [[The Doldrums]]
+- [[Central Strait]]
+- [[Verdant Scatter]]
+- [[Sandtable Shoal]]

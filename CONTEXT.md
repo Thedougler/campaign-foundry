@@ -166,6 +166,18 @@ _Avoid_: boxed text, read-aloud, flavour text
 The full text of one recorded Session, handed to the Agent as Raw.
 _Avoid_: log, recording (that's the audio), notes
 
+**Session Ledger**:
+The line-cited record of what happened in one Session, built from its Transcript by Transcript readers and kept in `archive/` beside it; Ingest writes the Wiki from it.
+_Avoid_: transcript summary, notes, companion
+
+**Transcript Summary**:
+The AI summary TranscribeX exports beside a Transcript: an index of candidate events that Ingest checks against the Session Ledger, never evidence.
+_Avoid_: recap, meeting report
+
+**TranscribeX Dictionary**:
+`transcribex-dictionary.csv` at the repo root: misheard words mapped to their Canon spelling, which the DM imports into TranscribeX so later Transcripts come out right.
+_Avoid_: glossary, word list
+
 **Handout**:
 Anything meant for the Players' eyes, such as a letter, wanted poster, player map or portrait. The only material Push makes visible to Players.
 _Avoid_: prop, player document, reveal

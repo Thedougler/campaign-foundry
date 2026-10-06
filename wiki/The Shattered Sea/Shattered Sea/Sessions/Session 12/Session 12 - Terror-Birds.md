@@ -21,7 +21,7 @@ sources:
 
 ### Stakes
 
-Reach the east band with everyone, or lose a civilian to a bird's rim. A swallowed civilian survives the first acid tick at 1 HP and dies at the second.
+Reach the east band with everyone, or lose a civilian to a bird's rim. The first acid tick leaves a swallowed civilian at 1 HP, and the second kills them.
 
 ### Pressure
 
@@ -39,7 +39,7 @@ Tall grass ends a charge. The channel is deep and difficult to cross. Razer-Gras
 | Intent | Approach | DC | Success | Failure |
 | ------ | -------- | -- | ------- | ------- |
 | Steady civilians | Action, or Charisma (Persuasion/Intimidation) as a Bonus Action | 12 | They follow orders. | They run into open ground. |
-| Turn a charge | Attack beside its line, or Dexterity (Acrobatics) | AC 16 or DC 14 | The charge overruns. | The charge lands. |
+| Turn a charge | Attack beside its line, or Dexterity (Acrobatics) | AC 16 or DC 14 | The charge overruns. | The charge connects. |
 | Break a beak grip | Deal 20 damage in one turn | none | The creature drops. | Swallow follows. |
 | Escape a grip | Strength (Athletics) or Dexterity (Acrobatics) | 18 | Free and Prone. | Still held. |
 
@@ -64,8 +64,8 @@ The birds charge in straight lines, never enter tall grass or deep water, and wi
 | --- | --- | --- |
 | Everyone reaches tall grass | The civilians trust the Party and follow orders. | [[Session 12 - Orders in the Ash]] |
 | Someone is swallowed and rescued | The column crosses with acid burns and a lasting cost. | [[Session 12 - Orders in the Ash]] |
-| A civilian is carried to a rim | Saving them requires a new fight at the rim. | [[Session 12 - Orders in the Ash]] |
-| The column retreats | It loses an hour through the channel and reaches the Burnt Road late. | [[Session 12 - Orders in the Ash]] |
+| A bird hauls a civilian to a rim | Saving them requires a new fight at the rim. | [[Session 12 - Orders in the Ash]] |
+| The column retreats | It loses an hour through the channel and gets to the Burnt Road late. | [[Session 12 - Orders in the Ash]] |
 
 ## Depth
 

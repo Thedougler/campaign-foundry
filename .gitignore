@@ -12,6 +12,14 @@ node_modules/
 coverage/
 dist/
 
+# Python (python/): uv venv and tool caches
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
 # cf push: the Foundry module it builds and its per-Campaign manifest of what was last pushed
 build/
 .push/

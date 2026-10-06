@@ -61,6 +61,7 @@
 - [[Old Gardens]] — Ancient stone terraces rising from Western Landing, crowded with fruit, water channels and things that hunt among them.
 - [[Print Braid]] — A braid of packed paths along the Quiet's edge where only one strand carries the Calveno trail north.
 - [[Razer-Grass]] — A pale glass-edged stand that cuts movement and bursts into slashing shards and choking dust when shattered.
+- [[Sandtable Shoal]] — A mid-strait sandbank south of Aldenmere where the bottom rises fast, the Blue Lane kinks south, and giant octopuses prey on the wrecks in its limestone.
 - [[Shelfworks]] — The western dive terrace of the Drowned Maw, where salvage crews work the upper Antheri tiers above squid-dark water.
 - [[Slack Basin]] — A still turquoise pool owned by an otter family, where Matteo's camp and a bloody Calveno trail mark the route into the Quiet.
 - [[Spiritpollen]] — A pale pollen stand whose cloud makes breathing creatures hallucinate hostile spirits and attack their companions.
@@ -96,6 +97,7 @@
 - [[Bastian Crev]] — Lizardfolk salvage-hand who rose to captain the Loud Argument in Fisk's Fleet; his fate after the fleet sank is not recorded.
 - [[Bazzoth, the Steeped]] — Old red-caste Grung alchemist who guarded a sewer powder magazine until Session 05.
 - [[Beaumont Sel]] — Patient tortle captain of the Saltwright and a trusted Friend of the Passage.
+- [[Beppe Sarti]] — A Pantry survivor who stays beneath the vine, wrongly sure Hinewai's protection ends at the clearing.
 - [[Bisou]] — Beaumont Sel's capuchin monkey, the Saltwright's quick delivery hand.
 - [[Cap'n Gorgeous]] — Crown captain and Rupert Knighton's adopted son, lost through an illusory doorway aboard the Saltwright.
 - [[Carlo Ferrante]] — Calveno dock foreman who led survivors to the Pantry and believes his brother died behind him.
@@ -118,11 +120,13 @@
 - [[Gianni Moro]] — Calveno cooper who nearly followed Hinewai's voice from the lava tube.
 - [[Hinewai]] — Undead elf archdruid bound to Aruhe, whose grief became the island's law.
 - [[Iacopo Fieschi]] — Tessarine factor who turned Calveno's victory into Concordat credit.
+- [[Ilario Pozzo]] — A Pantry survivor who joins the column when it sets out.
 - [[Impuni]] — A name Shepherd Grigori said he needed to reach in Calveno, in time; nothing else on record.
 - [[Ket]] — Freed Moucheron prisoner who traded blood and information for a flight home.
 - [[Lavinia Sordi]] — Seller of cursed goods who named Osset a second time.
 - [[Lenne Vor]] — Saltwright's navigator; twenty years of chart work, consulted once, quietly right about everything.
 - [[Luca Ferrante]] — Sixteen-year-old wreck survivor who counts everything and knows which way his uncle walked.
+- [[Marco Lenzi]] — A Pantry survivor who stays beneath the vine when the column leaves.
 - [[Marta Orsini]] — Le Paludi's buyer of eggs and curiosities at Studio Orsini, whom the Casa Lupo shopkeeper sends egg inquiries to.
 - [[Master Kyzil]] — Barn-owl Sentinel master testing Crissdalynn while investigating a foul wind beneath Calveno.
 - [[Matteo Scola]] — Wreck survivor who lives by Aruhe's fallen-fruit rule and will not approach Hinewai.
@@ -142,6 +146,7 @@
 - [[Ruk]] — Nona Black-Jaw's literal-minded lizardfolk guardian, a patient physical shield who never ignores a lie or threat.
 - [[Ruma Delacroix]] — Blue-caste Grung handler who became an ally while hiding the party in a sewer nap room.
 - [[Rupert Knighton]] — Commodore of the Knight Squadron, tightening the Crown net around the crew.
+- [[Sandrino Vale]] — A Pantry survivor who leaves with the column when it sets out.
 - [[Sandro]] — A Calveno captive wrecked on Aruhe, sheltering in the broken Vethka hull and watching the reef gap for rescue.
 - [[Sem Holst]] — Lean shipwright aboard Uncertainty who catalogues hull damage unasked and judges people by what they ask about the ship.
 - [[Shepherd Grigori]] — Korabl of the Flock, a healer whose blood-anchor survival trick feeds an undead ascension.
@@ -154,6 +159,7 @@
 - [[Thassos]] — A fixture of the Tallow Row card tables who tests new players and calls the game.
 - [[The Unnamed Companion]] — Hinewai's fellow captive at Karath, killed in the surf during their escape and buried beneath the Death Bloom's fruit tree.
 - [[Thunk]] — Enormous orc master gunner whose uncanny powder sense keeps the Uncertainty's guns working.
+- [[Tommaso Brasca]] — A Pantry survivor who passes Aruhe's rules to the departing survivors and leaves with the column.
 - [[Tomo]] — An older Calveno captive who broke Aruhe's fruit taboo the first night ashore and left only drag marks behind.
 - [[Umberlee - Branca]] — Senior Calveno Waveservant who delivers Umberlee's command about the Pearl of Souls.
 - [[Vashu, the Weeping Veil]] — Blind purple-caste Grung master of the Still-Water Discipline and former Magazine Gamma guardian.

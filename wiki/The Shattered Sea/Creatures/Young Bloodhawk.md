@@ -11,14 +11,14 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** A fast striker that dives out of the canopy, strikes, and is airborne again before blades reach it.
+- **Role at the table.** A fast striker that dives out of the canopy, strikes, and is airborne again before blades touch it.
 - **Threat.** CR 2, with a dive that hurls a flying target thirty feet straight down.
 - **Tell.** A rattling beat of wings overhead comes moments before the dive.
 - **Weak to.** A readied weapon waiting along its diving path, and trees thick enough to spoil that path.
 - **Used by.** [[Commoner]] patrols the same territory.
 
 > [!narration] First sight
-> Wings clatter in the canopy, and a young bloodhawk bursts out of the leaves after a smaller bird. The chase drops low, and the young hunter tucks its wings to fall on its target from above. One beak strike in midair tumbles the quarry, and the hawk slams it down into the trail. Feathers heaving, the hunter lands on its catch amid a rain of leaves.
+> Wings clatter in the canopy, and a young bloodhawk bursts out of the leaves after a smaller bird. The chase drops low, and the young hunter tucks its wings to fall on its target from above. One beak strike in midair tumbles the quarry, and the hawk slams it down into the trail. Feathers heaving, the hunter comes down on its catch amid a rain of leaves.
 
 ## Statblock
 
@@ -61,7 +61,7 @@ actions:
 
 ### Tactics
 
-It hunts from the canopy, one flat dive carrying it through the leaves to slam a flying quarry down onto the trail. Call the rattling wing beats as the telegraph, and set readied weapons along its line of fall. It wheels off once the leaves stop hiding it or its wounds ground it.
+It takes flying quarry from the canopy, one flat dive through the leaves that slams the catch down onto the trail. Call the rattling wing beats as the telegraph, and set readied weapons along its line of fall. It wheels off once the leaves stop hiding it or its wounds ground it.
 
 ### Outside a fight
 

@@ -10,6 +10,19 @@ A DM's D&D campaign Wiki, kept by coding agents working in this repo. Start with
 
 Add or update dependencies with `bun add` or `bun update`; commit `package.json` and `bun.lock` together. Use frozen installs in automation so dependency drift fails rather than silently rewriting the lockfile.
 
+## Development environment
+
+The repo carries two first-class toolchains: TypeScript under Bun and Node (`src/`, `test/`, `scripts/`), and Python under uv in `python/`, where features ported from Python land as the `campaign_foundry` package. Python lives in `python/` rather than beside the root `src/` so the two languages never share a source tree, and `python/` is a standard uv project with its own `pyproject.toml`, `uv.lock`, src layout and `tests/`.
+
+Setup: after `bun install --frozen-lockfile`, run `bun run py:install` (`uv sync --directory python`). It creates `python/.venv`, installs `campaign_foundry` editable, and installs its dev tools (pytest, ruff).
+
+Commands run from the repo root through `package.json` scripts:
+
+- `bun run py:test` — pytest; `bun run py:lint` — `ruff check`; `bun run py:fmt` — `ruff format`, with `bun run py:fmt:check` verifying formatting.
+- `bun run check:all` — every gate in one pass: agent-text style, typecheck, vitest, then Python lint, format check and tests.
+
+Add dependencies where they belong: a JS package with `bun add <pkg>`, a Python package with `uv add --directory python <pkg>` (dev tools with `--dev`). Commit `python/pyproject.toml` and `python/uv.lock` together, as you do `package.json` and `bun.lock`. Toolchain versions are pinned by `.node-version` and `packageManager` for Node and Bun, and by `python/.python-version` and `requires-python` for Python 3.14.
+
 ## Location authoring
 
 Use `location-design` to create or deepen a Region, Settlement or Site. It reads the current Location template and Canon before designing travel choices, services or local interactions. Locations stay flat in `<World>/Locations/`; `parent` links express containment, including a Site within a Site.

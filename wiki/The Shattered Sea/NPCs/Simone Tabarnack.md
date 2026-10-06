@@ -7,6 +7,7 @@ sources:
  - "archive/ssw-session-01.md"
  - "archive/ssw-the-canister.md"
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+ - "archive/agentic-co-dm-simone-tabarnack-narration.md"
 creature: "[[Commoner]]"
 ---
 
@@ -18,7 +19,7 @@ creature: "[[Commoner]]"
 - **Found at.** Sorn and the Grung scouting network around the Midchain.
 
 > [!narration] First look
-> A compact Grung officer of the purple caste stands in undecorated armour, spear easy in hand. Her eyes map the room before she speaks, and black skin breaks into visible bands and dots of gold beneath the armour.
+> A compact grung officer of the purple caste steps in, her fitted armour worn smooth and unadorned, spear easy in one hand. Her eyes work the room ahead of her face, doors and corners first, and she is moving again before the look is done. As she passes, a chemical sharpness comes off the oil on her armour, and bands and dots of gold show in her black skin where it gaps. She speaks before she is greeted, gives an order once, and the spear stays in her hand when she sits.
 
 ## Play
 

@@ -9,13 +9,13 @@ sources:
 
 ## At a glance
 
-- **Question settled.** Does the Fate Spinner survive Skarn's last attempt, and does Perrin eat on faith?
+- **Question settled.** Does the Fate Spinner outlast Skarn's last attempt, and does Perrin eat on faith?
 - **Stakes.** The Spinner, twelve civilians, and Perrin's bond with Auralis.
 - **Where.** The Pantry clearing beside a channel and raft.
 - **Opposition.** Invisible [[Talon Skarn]] and three [[Vine Lash]] creatures awakened by a claim.
 
 > [!narration] Opening
-> Seven thin men sit round a small fire beneath a vine as broad as a ship's keel. While one sorts windfall into heaps, the stem bends across the entire clearing and creaks under its load. Bundles of bare cord swing among its fruit above the flames. Beside the fire, black water flows past a raft at its mooring, and the last sun lights drifting pollen along the edge of the trees. Where the trail enters, the vine droops low, bringing a ribbed guava the size of a man's head close enough to brush Perrin's whiskers. Honey and musk rise from it as it sways beside a pear armoured in grey stone. Pale blue light takes a whale's form and swims around his cloak. A voice speaks inside his skull, without a throat, uttering one word. CONSUME.
+> A small fire burns beneath a vine as broad as a ship's keel, and seven thin men sit round it. While one sorts windfall into heaps, the stem bends across the entire clearing and creaks under its load. Bundles of bare cord swing among its fruit above the flames. Beside the fire, black water flows past a raft at its mooring, and the last sun lights drifting pollen along the edge of the trees. Where the trail enters, the vine droops low, bringing a ribbed guava the size of a man's head close enough to brush Perrin's whiskers. Honey and musk rise from it as it sways beside a pear armoured in grey stone. Pale blue light takes a whale's form and swims around his cloak. A voice speaks inside his skull, without a throat, uttering one word. CONSUME.
 
 ## Threads
 
@@ -27,7 +27,7 @@ sources:
 
 ### Situation
 
-Skarn has 130 of 195 HP and enters Invisible after eating a Ghost Plum. He targets the Spinner's carrier and leaves at 97 HP or once he has it. Picking fruit is a claim. At the end of Perrin's next turn, three Vine Lashes wake and can find invisible Skarn with Blindsight. Twelve civilians fill the clearing, including the splinted Ettore.
+Skarn has 130 of 195 HP and enters Invisible after eating a Ghost Plum. He targets the Spinner's carrier and leaves at 97 HP or once he has it. Picking fruit is a claim. At the end of Perrin's next turn, three Vine Lashes wake and can find invisible Skarn with Blindsight. Civilians fill the clearing, twelve of them, including the splinted Ettore.
 
 ### Pressure
 
@@ -48,7 +48,7 @@ Skarn has 130 of 195 HP and enters Invisible after eating a Ghost Plum. He targe
 | If the climax ends with… | Then | Hands to |
 | --- | --- | --- |
 | Victory | Skarn leaves empty-handed. Perrin is marked until dawn if he ate. | [[Session 12 - The Way Out]] |
-| Costly victory | The Spinner stays, but a PC is down or a civilian dies. | [[Session 12 - The Way Out]] |
+| Costly victory | The Spinner stays, but a PC is down or a civilian is killed. | [[Session 12 - The Way Out]] |
 | Opposition wins | Skarn reaches the sky with the Spinner. | [[Session 12 - The Way Out]] |
 | Skarn captured or killed | Vantyrus loses his apprentice. | [[Session 12 - The Way Out]] |
 

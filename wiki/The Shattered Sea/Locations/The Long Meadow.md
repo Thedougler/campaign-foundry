@@ -13,7 +13,7 @@ parent: "[[The Quiet]]"
 - **Entrance.** Fruit-pile trail from Quiet forest.
 - **Occupants.** South and North Terror-Birds hold opposite rims.
 - **Danger.** Open ground draws a straight charge. A skylight drops forty feet.
-- **Prize.** Four survivors below the smoking skylight and routes onward.
+- **Prize.** Survivors below the smoking skylight, four of them, and routes onward.
 
 > [!narration] Entering
 > A half-mile strip of short grass opens beneath the sky. Tall grass walls both edges. A deep channel and glittering white blades divide the gap, while mossy stumps wait at each end.
@@ -30,7 +30,7 @@ Terror-Birds charge straight lines. Tall grass, deep water and Razer-Grass end a
 
 ### Occupants
 
-Two [[Terror-Bird]]s. Four Calveno survivors lie on the skylight ledge below.
+Two [[Terror-Bird]]s. Calveno survivors, four of them, lie on the skylight ledge below.
 
 ### Likely actions
 
@@ -44,11 +44,11 @@ The South Bird drove four survivors into the skylight nineteen days ago.
 
 ### Hidden truths
 
-Each bird holds one half and will not enter tall grass, deep channel or Razer-Grass. The Gap is the safe puzzle, not a straight sprint.
+One half belongs to each bird, and neither will enter tall grass, deep channel or Razer-Grass. The Gap is the safe puzzle, not a straight sprint.
 
 ### Threads
 
-Two Terror-Bird halves and four trapped survivors carry this cut into [[Taking on Aruhe]] and [[Perrin and Nona]].
+This cut joins [[Taking on Aruhe]] and [[Perrin and Nona]] through its two Terror-Bird halves and its four trapped survivors.
 
 ## Links
 

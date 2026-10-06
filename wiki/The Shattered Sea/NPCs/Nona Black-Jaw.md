@@ -9,6 +9,7 @@ sources:
  - "archive/ssw-session-04-ingest-recap.md"
  - "archive/collab-2026-10-04-authority-themes.md"
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+ - "archive/agentic-co-dm-nona-black-jaw-narration.md"
 creature: "[[Commoner]]"
 aliases:
  - "Nona"
@@ -26,7 +27,7 @@ aliases:
 - **Found at.** Her guarded kitchen safe house in the Warren, Calveno.
 
 > [!narration] First look
-> A very small Rattkin woman sits perfectly straight by the kitchen fire, silver-white fur against the dark jaw mask her family takes its name from, a flour-dusted floral apron over dark, well-made cloth. Garlic and fresh bread hang in the air, and the kitchen runs like a courtroom. She hears the case. She issues the ruling. Sharp pink-rimmed eyes find you last, on purpose. "Sit. You eat first."
+> By the kitchen fire a very small Rattkin woman sits perfectly straight, calloused paws moving a pen across one receipt after another without a pause. Silver-white fur stands out against the dark jaw mask her family takes its name from, and a flour-dusted floral apron covers dark, well-made cloth. Garlic and fresh bread hang in the air, and under it the kitchen runs like a courtroom, knives and names and the scrape of a stool being claimed. She hears the case and issues the ruling. She never raises her voice, and the queue thins when she looks up. Sharp pink-rimmed eyes find you last, on purpose. "Sit. You eat first."
 
 ## Play
 
