@@ -4,6 +4,7 @@ summary: "Former High Eyrie master now hidden behind Talon Vantyrus while he stu
 sources:
   - "archive/osset.md"
   - "archive/agentic-co-dm-osset-narration.md"
+  - "archive/session-10.md"
 creature: "[[Talon Vantyrus]]"
 ---
 
@@ -30,6 +31,10 @@ creature: "[[Talon Vantyrus]]"
 ### History
 
 Osset was once a senior master at High Eyrie and Kyzil's teacher. He broke from the Sentinels because they recorded deaths without preventing them. Talon Vantyrus then became master of the faction. He sold Lavinia Sordi the cursed Cloak of Displacement.
+
+#### Session 10: the remembered shop note
+
+During [[Shepherd Grigori]]'s visit to the [[Uncertainty]], Delmar recalled the shop note that named Osset as a monk of High Eyrie. The note spoke of him in the past tense. This was consistent with [[Master Kyzil]]'s belief that his old teacher had died decades earlier. Osset's survival and his identity as [[Talon Vantyrus]] remained hidden from the Party.
 
 ### Hidden truths
 

@@ -7,6 +7,7 @@ sources:
  - "archive/ssw-the-canister.md"
  - "archive/collab-2026-10-04-authority-themes.md"
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+ - "archive/session-10.md"
 ---
 
 ## At a glance
@@ -36,11 +37,13 @@ sources:
 
 The Crown began as a Tethyr colonial court and naval service. Calven, Harwick, Aldenmere and Stenmark carried its name onto the map as the Crown Islands. The name is geographic rather than a deed of ownership: the Crown holds Tidefall as its inspection gate, and Calven and Calveno answer to the Concordat. Its service swears by Tyr for oaths, commissions, courts martial and warrants, while sailors still pay [[Umberlee]] at dockside shrines.
 
+[[Shepherd Grigori]] put the greater share of the Calveno rift on the Crown when the Party questioned him aboard the [[Uncertainty]]. He denied a hand in it: “The Dravosi had far more to do with that than I.” His scroll promised the Party a handsome reward for wounding [[Corbin Knighton]], whom he called “one of the Dravosi’s dogs.”
+
 ### Hidden truths
 
 - Aldric Drave founded the colonial project as a bloodline map. Sealed vaults under Fort Crestwall hold the living chart, which the public service does not know about.
 - Fort Crestwall's garrison includes two detachments operating on orders Governor Voss never saw. Investigating the fort reveals them.
-- Rook's boarding crews field Grung toxin canisters as standard ordnance, supplied through [[Simone Tabarnack]]'s network. The [[Alchemist's Bandolier|alchemist's bandolier]] left on the [[Saltwright]]'s deck can prove it.
+- Rook's boarding crews field Grung toxin canisters as standard ordnance, supplied through [[Simone Tabarnack]]'s network. The [[Alchemist's Bandolier|alchemist's bandolier]] left on the [[Saltwright]]'s deck can prove it. The red-marked and yellow grenades the Party looted came off the Dravosi alchemist of the first ship the Party took, not off a grung body.
 - [[Aleksander Malone]] is reserved for confirmed heresy, not ordinary crime. Crown court records establish the distinction.
 
 ### Threads

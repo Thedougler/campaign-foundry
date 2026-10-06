@@ -132,7 +132,7 @@
 - [[Marta Orsini]] — Le Paludi's buyer of eggs and curiosities at Studio Orsini, whom the Casa Lupo shopkeeper sends egg inquiries to.
 - [[Master Kyzil]] — Barn-owl Sentinel master testing Crissdalynn while investigating a foul wind beneath Calveno.
 - [[Matteo Scola]] — Wreck survivor who lives by Aruhe's fallen-fruit rule and will not approach Hinewai.
-- [[Nino]] — A Calveno captive wrecked on Aruhe, whose wordless caution teaches the island's taking-rule faster than words could.
+- [[Nino]] — A Calveno captive's name the table has used twice: the Mercatura metalworker aboard since Session 9, and Sandro's wordless beach companion. Which man is Nino is open.
 - [[Nona Black-Jaw]] — Black-Jaw Run matriarch, senior Tangle elder, and Perrin Black-Jaw's grandmother, who turns trust into routes and obligations.
 - [[Noor]] — The youngest hand aboard the Uncertainty, a fifteen-year-old cook who knows every sailing manual and almost none of the sea.
 - [[Old Faas]] — Brick-solid bosun and rigger on two brass-ferruled peg legs, fearless since a childhood fall and faster in the shrouds than on the deck.
@@ -149,7 +149,7 @@
 - [[Ruma Delacroix]] — Blue-caste Grung handler who became an ally while hiding the party in a sewer nap room.
 - [[Rupert Knighton]] — Commodore of the Knight Squadron, tightening the Crown net around the crew.
 - [[Sandrino Vale]] — A Pantry survivor who leaves with the column when it sets out.
-- [[Sandro]] — A Calveno captive wrecked on Aruhe, sheltering in the broken Vethka hull and watching the reef gap for rescue.
+- [[Sandro]] — A Calveno captive the Party lifted off Aruhe's landing beach, whose account drew the island's taking-rule, its threats and its hatred of the Grung.
 - [[Sem Holst]] — Lean shipwright aboard Uncertainty who catalogues hull damage unasked and judges people by what they ask about the ship.
 - [[Serena]] — Delmar's most recent mate, warned by his sending stone of the Dravosi warship.
 - [[Shepherd Grigori]] — Korabl of the Flock, a healer whose blood-anchor survival trick feeds an undead ascension.
@@ -192,6 +192,7 @@
 - [[Giant Shark]] — A huge shark that follows damaged hulls near the Ashwall lee, where wreckage feeds the food chain.
 - [[Giant Squid]] — A huge deep-water beast of the Drowned Maw that takes divers from the Shelfworks drop-off after dark.
 - [[Giant Vulture]] — A cliff scavenger of the Ashwalls whose numbers spike after a wreck, a rough tally of what the storm took.
+- [[Grinning Ape]] — A watching face of the Old Gardens canopy, almost human and not quite, split by an unnaturally wide grin.
 - [[Grung (Creature)]] — A Grung creature (CR 1/4) used as a scout in The Shattered Sea.
 - [[Grung Elite Warrior]] — A Grung Elite Warrior creature (CR 2) used as a warrior in The Shattered Sea.
 - [[Harpy]] — A storm-gap singer of the Ashwalls, filed under weather until someone follows the wrong sound inland.
@@ -397,7 +398,7 @@
 - [[Session 7 - Recap]] — Otar died in the Mercatura crater, and Iacopo Fieschi signed the crew as Calveno's Defenders.
 - [[Session 8 - Recap]] — Nona's missing-persons list passed 314, Osset was named twice, and Uncertainty's refit was twelve hours out.
 - [[Session 9 - Recap]] — Uncertainty out-lied the HCS Ordinance towards Calveno, rescued three driftwood captives, and closed on the Midchain with Lamarae's Fang promised for an axolotl.
-- [[Session 10 - Recap]] — Shepherd Grigori warned of a Fate Spinner hunt, the follower ship was left listing, and two Aruhe survivors came aboard.
+- [[Session 10 - Recap]] — A night visit from Shepherd Grigori, a broadside that burned the follower ship, and a crown squid chase off Aruhe's terraces.
 - [[Session 11 - Recap]] — The Party crossed inland Aruhe, rescued Matteo Scola, and ended the night inside a falcon's ambush on Crissdalynn's watch.
 
 ## Previously On
@@ -413,4 +414,5 @@
 - [[Session 8 - Previously On]] — Otar died in the Mercatura crater, Fieschi made the crew Calveno's Defenders, and Nona called them home.
 - [[Session 9 - Previously On]] — Otar died in the Mercatura crater, Fieschi made the Party Calveno's Defenders, and Nona began the pursuit of the raiders.
 - [[Session 10 - Previously On]] — The Party turned the HCS Ordinance inspection towards Calveno, rescued three driftwood captives, and closed on the Midchain east-bound.
-- [[Session 12 - Previously On]] — The Party crossed Aruhe's living hazards, rescued Matteo Scola, and faced Talon Skarn at the river camp.
+- [[Session 11 - Previously On]] — Grigori's warning, a burning pursuer and the escape from Aruhe's Crown Squid.
+- [[Session 12 - Previously On]] — The Party crossed Aruhe's living hazards, rescued Matteo Scola, and finished inside a falcon Talon's ambush on Crissdalynn's watch.

@@ -4,6 +4,7 @@ summary: "A cursed cloak of displacement that redirects nearby ranged attacks to
 sources:
  - "archive/nightmantle.md"
  - "archive/ssw-nightmantle.md"
+ - "archive/session-10.md"
 ---
 
 ## At a glance
@@ -26,6 +27,8 @@ The cloak projects an illusion, giving creatures attacking the wearer Disadvanta
 ### In use
 
 Redirection is automatic and cannot be declined or used for melee attacks. The original target must be within 10 feet when the attack is declared. The cloak grants that ally no other benefit. Crissdalynn carries the cursed variant in her kit.
+
+During the [[Crown Squid]] encounter on [[Aruhe]] in [[Session 10 - Recap|Session 10]], the DM confirmed that Crissdalynn's cloak would impose Disadvantage on the creature's first attack against her.
 
 ## Depth
 

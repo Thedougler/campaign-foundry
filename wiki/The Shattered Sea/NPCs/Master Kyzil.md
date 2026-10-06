@@ -8,6 +8,7 @@ sources:
  - "archive/ssw-session-04-ingest-recap.md"
  - "archive/agentic-co-dm-master-kyzil-narration.md"
  - "archive/Episode-09-Transcript.md"
+ - "archive/session-10.md"
 creature: "[[Master Kyzil (Creature)]]"
 ---
 
@@ -40,6 +41,14 @@ Kyzil assigned Crissdalynn the hardest Sentinel pilgrimage on record: map the Dr
 When the Party gathered he asked [[Jean-Claude Tabarnack]] directly why his kind had come, then took the frog on Crissdalynn's word. He admitted to her that he had feared he sent his apprentice to her death, and gave her the hardest pilgrimage in the Eyrie's record because he knew she could walk it. At the tavern he told the crew the weather has run odd since the wreck, that the Maw has been unruly and dangerous, and that some Sentinels watched the fleet go down. Two or three drinks in, he tested her practice with a three-round spar against all four of them on the rooftop of [[The Ponte Bassa]]. When his own Downburst dropped her off the edge, he flew down in a panic to catch her.
 
 He came out to the ship again on the open sea. A couple of hours into the [[Uncertainty]]'s first day out of Calveno, white wings dropped out of the sun against the wind, and Kyzil touched down on her stern. He walked to [[Crissdalynn Khinriss|Crissdalynn]], spoke to her alone, and said nothing else to any of the Party. What passed between master and student stayed between them, and he flew off the way he had come.
+
+#### Session 10: what Crissdalynn understood
+
+During [[Shepherd Grigori]]'s night visit, Crissdalynn learned about the [[Sentinels of the Eyrie]]'s Schism from the remembered shop note and Grigori's explanation. Kyzil hadn't told her about the split.
+
+At dawn, Crissdalynn meditated in the crow's nest about the mission he had given her. As far as she knew, Kyzil chose her because he believed she could complete it.
+
+Later, off [[Aruhe]], she told the Party that his private whisper aboard the ship had revealed the [[Fate Spinner]]'s power. She connected the pursuit to the artifact and began trying to understand how to use it. Kyzil had explained none of its functions and had seemed regretful during their conversation.
 
 ### Hidden truths
 

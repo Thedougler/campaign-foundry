@@ -5,6 +5,7 @@ sources:
  - "archive/session-11-transcript-archived-version.md"
  - "archive/crown-squid.md"
  - "archive/agentic-co-dm-Aruhe-Crown-Squid.md"
+ - "archive/session-10.md"
 ---
 
 ![[Crown Squid - Portrait.jpg]]
@@ -100,6 +101,14 @@ Branches that creak under more than wind, and a broad mantle hanging among the r
 ### Ecology
 
 It lives high in the wet canopy of [[The Quiet]], the Marshes, and the Mangrove roof, where massive trunks, hanging roots and broken light let its mantle read as part of the trees. The mantle is house-sized and translucent, with a deep violet glow inside, and the arms beneath it carry bark-dark skin ridged and studded with thorny suckers. Bear-Elk, wounded hunters, climbing creatures, and anyone who trails behind a group are what its long lines haul up. Juveniles work the upper terraces, and the oldest keep to the Marshes where walkers cannot easily reach the roof. Each adult keeps a stretch of canopy to itself and treats other large Aruhe hunters as boundaries rather than allies. It shares a kill only with one already beaten and leaving. A traveller working Wisdom (Survival) reads its signs in the stripped bark along its paths.
+
+### History
+
+Session 10 brought the Party's first recorded meeting with one, and it stalked them unseen from below. As the Party flew over the [[Old Gardens]], the forest floor looked wrong below them, a faint shimmer hanging near the ground, and the rum Delmar poured stopped short, pooled 25 feet down, and ran down the sides of something large.
+
+Its first strike came from below on an 80-foot reach and opened Delmar's side for 18 slashing damage, and a hooked line wrapped him while he carried Jean-Claude. Both faced a DC 19 Strength save against the grapple, and both saves held, each bought with spent inspiration. A later hit for 18 he halved to 9 with Uncanny Dodge. Perrin burned a spell slot on a Silent Image of a flying humanoid dropped off to the side, and the squid ripped through the garden's trees after the decoy, bellowing its anger at the empty illusion.
+
+Initiative fell in a tie at 23, the squid first. The DM called it by far the most dangerous thing the Party had met, and set it at CR 17 with three attacks and legendary actions. The Party ran rather than fight it. It kept beneath the canopy while the Party flew for the ship. A second Silent Image, Perrin tumbling from Crissdalynn's back into the bushes, turned it away on an inspired natural 20. The beast stopped where the trees end and the terraces begin. There it dragged two [[Wolfrabbit|wolfrabbits]] under its mantle and vanished into the trees.
 
 ### Hidden truths
 

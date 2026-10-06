@@ -4,6 +4,7 @@ summary: "A thumb-sized quartz top that watches one known creature from afar and
 sources:
  - "archive/fate-spinner.md"
  - "archive/session-11-transcript-archived-version.md"
+ - "archive/session-10.md"
 ---
 
 ![[Fate Spinner - Handout Art.png]]
@@ -29,11 +30,17 @@ Once per day, a Magic action spins the top and chooses one personally known crea
 
 The Spinner cannot speak through the vision, aid a fight the holder is in or affect the holder's own rolls. One vision only. Another cannot open until dawn. A target leaving the plane ends it. Hiding it from a search is Sleight of Hand DC 15. Spinners shatter when two of them spin face to face. Ordinary force cannot damage one.
 
+In [[Session 10 - Recap|Session 10]], Crissdalynn tested the Spinner on [[Aruhe]]. The DM confirmed that she could not use it on herself. When she asked whether any survivors remained on the island and rolled a natural 16, she sensed a few people whose fates were still uncertain. Their locations and exact number remained unknown.
+
 ## Depth
 
 ### History
 
-[[Master Kyzil]] gave this Spinner to Crissdalynn before her pilgrimage. It bonded when she risked her life to save [[Delmar Fisk]] in the [[Red Lady]] wreck. Several Spinners exist. [[Talon Vantyrus]] carries one. The hunt came to the Party's camp during Session 11's night watch, when [[Talon Skarn]] went for Crissdalynn's pack at the watch change and left without it.
+[[Master Kyzil]] gave this Spinner to Crissdalynn before her pilgrimage. It bonded when she risked her life to save [[Delmar Fisk]] in the [[Red Lady]] wreck. Several Spinners exist. [[Talon Vantyrus]] carries one.
+
+During [[Session 10 - Recap|Session 10]], [[Shepherd Grigori]] warned that someone was pursuing the Party for something they carried. He named Vantyrus as the man who had sent a ship to rob them. Grigori linked the Spinner to the schism among the [[Sentinels of the Eyrie]], which he described as a dispute over wielding fate or obeying it. He said the Sentinels now obeyed fate. Crissdalynn later told the Party that her pursuers wanted the Spinner and began testing its powers. Kyzil had told her nothing of what it actually did and appeared to regret that omission.
+
+The hunt came to the Party's camp during Session 11's night watch, when [[Talon Skarn]] went for Crissdalynn's pack at the watch change and left without it.
 
 ### Hidden truths
 

@@ -4,6 +4,7 @@ summary: "Calveno artificer and salvage engineer who keeps her workshop in the c
 sources:
  - "archive/catarina-davirelli.md"
  - "archive/Episode-09-Transcript.md"
+ - "archive/session-10.md"
 creature: "[[Commoner]]"
 ---
 
@@ -37,10 +38,13 @@ She met the voyage's troubles with Ragnito, her spider-like construct, refitted 
 
 She later led the Party down to a crafting workshop she has set up aboard, her Calveno workshop staying home. There she unveiled [[Lamarae's Fang]], a sword forged from whip shark bone infused with metal, and offered it to Delmar for aid in finding an axolotl, whose components she means to study. Delmar agreed to find her one.
 
+During the crossing toward [[Aruhe]] she claimed the night shift below, telling the deck she wanted to see what she could do with "that pearl power she bought back in Hell". About two hours in, the ship heard a bang, then a second, and something wet hit a floor. The sounds stopped and nothing more came from below. Crissdalynn asked whether she was all right, and the ruling put the noise down to an accident with the wild pearl and some change in her appearance, or so it ran. She was fine. She was also the only soul aboard who could read the spell scroll Shepherd Grigori left in the galley that night. Its arcane script was gibberish to everyone but her.
+
 ### Hidden truths
 
 - Her completed work is with its recipients, and the source doesn't record unfinished commission.
 - Her workshop's permanence is a boundary. No faction claims her.
+- The wild pearl behind the night's bangs has no name on record. By her own account she bought its power back in Hell, and that is all anyone knows.
 
 ### Threads
 

@@ -6,6 +6,7 @@ sources:
  - "archive/ssw-grung.md"
  - "archive/ssw-session-02.md"
  - "archive/ssw-the-canister.md"
+ - "archive/session-10.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/nickdavenock/characters/171013670"
 ---
 
@@ -51,6 +52,12 @@ dndbeyond_url: "https://www.dndbeyond.com/profile/nickdavenock/characters/171013
 ### Backstory
 
 Born blue caste among the [[Grung]] of [[Botukuri]], Jean-Claude fled after freeing slaves. Pell died in the reprisal that followed. His red beret marks him as censured, and his family still sends Simone's elite unit after him. He stowed aboard the Saltwright one island ahead of them. Under Beaumont Sel's [[Truth Stone]] he confirmed that his former kinsmen were after him, that he had stowed away, and that nobody had sent him. He recognised Simone's toxin in the canister the Crown alchemist threw across the Saltwright's gangplank and kept quiet through the fight. The same preparation filled the twenty vials of Grung tincture from Rook's cargo, and he has told no one of either. The whip-shark's tail opened his chest, and he stayed in the rigging anyway. He recovered three fertilised eggs from the body and went into [[Calven and Calveno|Calveno]] green instead of blue during the festival preparations. On the [[Casa Lupo]] shopkeeper's word he took them to [[Studio Orsini]], where he told [[Marta Orsini]] he had fertilised the egg himself.
+
+Jean-Claude raised the first alarm of the night. "Something's wrong below decks. Let's go investigate," he told the deck, and for the ambush his Stealth roll of 17 held the crew low and out of the lantern light under his direction. Three of his arrows went by wrapped in oil-soaked cloth, ready to fire the enemy's sails.
+
+Off [[Aruhe]] his warning held where it always had. The island was a forbidden place in the way of a minefield, too close to the [[Verdant Teeth]] to be safe for anyone outside the Grung. At the wheel he counselled [[Geoffrey Draves|Geoffrey]] over Thunk, the gunner. The grung grenades would come to him as evidence against [[Simone Tabarnack|Simone]] if any turned up, a claim he lodged for another day. For the rescue he kept to the ship and out of sight, since the sight of a grung might spook the castaways. He worked the landing approach with Perrin on the Dexterity check of 26 and agreed to the party with "It is our duty." His +10 Stealth, he confirmed, is expertise plus the Elvenkind cloak's advantage, and the DM set his long-rest temporary hit points at 26.
+
+In the [[Old Gardens|old gardens]] his Survival 25 found the survivors' tracks, and the trails ran for the terraces. "Then that's where we go." He read the garden's total silence as a bad sign, counted at least six dead in front of the fruit bushes, and pulled his hand back fast when a green caterpillar on a leaf began to swell. "Don't touch the bugs either, guys." His perception 24 marked the reed and its dart-spitting bulb, he cleared it on an Athletics 22 the DM allowed in place of Acrobatics, and his arrow, 27 to hit, killed the regrown stalk. The trees converged on him before he could move again, and Delmar took him up with his sticky hands holding on. In the squid's grapple his Strength save stood at 18, and Perrin's Bardic Inspiration die, a 1, raised it to exactly the DC 19, enough to slip the tentacle. He saw for himself that the beast had cut sideways only because Perrin's illusion pulled it off the line. The day ashore left him seasick and spent, and the crew turned in early among the new hammocks.
 
 After the garden, Jean-Claude became catatonic and travels inside Delmar's coat.
 

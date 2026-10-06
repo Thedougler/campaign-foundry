@@ -3,6 +3,7 @@ type: NPC
 summary: "Master of the faction and former Sentinel Osset, seeking the Soul Incarnate transformation through Crissdalynn."
 sources:
  - "archive/talon-vantyrus.md"
+ - "archive/session-10.md"
 creature: "[[Talon Vantyrus (Creature)]]"
 ---
 
@@ -34,12 +35,18 @@ creature: "[[Talon Vantyrus (Creature)]]"
 
 ### History
 
-Once Osset, Vantyrus broke from the Sentinels because they recorded deaths without preventing them. He built his order on complete action without record, using intermediaries and one-job blades. He taught Kyzil before their schism and now teaches Skarn under the Rule of Two.
+Once Osset, Vantyrus broke from the Sentinels because they recorded deaths without preventing them. He built his order on complete action without record, using intermediaries and one-job blades. [[Master Kyzil]] was his student before their schism. He now instructs [[Talon Skarn]] under the Rule of Two.
+
+#### Session 10: the ship behind them
+
+[[Shepherd Grigori]] warned the Party that Vantyrus had sent a ship to rob them for an object they carried. He placed it an hour or two behind the [[Uncertainty]] and said he knew of two Sentinels pursuing them. The warning identified Vantyrus as a threat to the Party without exposing his former identity.
+
+Later that night, a vessel approached from astern with its lanterns dark and without flags. The Party ambushed it with a broadside while Crissdalynn's Gust of Wind slowed its approach. Delmar ignited a lantern with an explosive round, setting the sails alight, and her wind strengthened the flames. The damaged ship was left listing and taking on water, unable to pursue as Uncertainty escaped. The Party sailed on without boarding it.
 
 ### Hidden truths
 
 - Born Osset, once master to Kyzil, and given up for dead decades ago.
-- He sent Skarn for the Fate Spinner to read Kyzil's teaching and reach the Soul Incarnate technique. His Long Sight weakens before sacrifice, irrational action, and deliberate chaos.
+- He sent Skarn for the Fate Spinner to read Kyzil's lessons and reach the Soul Incarnate technique. His Long Sight weakens before sacrifice, irrational action, and deliberate chaos.
 
 ### Threads
 

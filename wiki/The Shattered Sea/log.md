@@ -1308,3 +1308,60 @@
 - [[Corvin Knighton]]
 - [[Serena]]
 - [[Shipboard Travel]]
+
+## [2026-10-05] audit | Ghost Plum count restated to the Session 11 record (carried two/one remains contradicted the sharing it also records)
+
+- [[Ghost Plum]]
+
+## [2026-10-05] ingest | session-10.md
+
+- [[Crown Squid]]
+- [[Unsaid Macaw]]
+- [[Wolfrabbit]]
+- [[Umberlee]]
+- [[Chain Council]]
+- [[Countless]]
+- [[Dravosi Crown]]
+- [[Sentinels of the Eyrie]]
+- [[Fate Spinner]]
+- [[Flying Boots]]
+- [[Nightmantle]]
+- [[Pearl of Souls]]
+- [[Aruhe]]
+- [[Black Lotus]]
+- [[Midchain]]
+- [[Old Gardens]]
+- [[Western Landing]]
+- [[Taking on Aruhe]]
+- [[Catarina Da'Virelli]]
+- [[Corbin Knighton]]
+- [[Geoffrey Draves]]
+- [[Master Kyzil]]
+- [[Osset]]
+- [[Ruma Delacroix]]
+- [[Sandro]]
+- [[Sem Holst]]
+- [[Shepherd Grigori]]
+- [[Talon Vantyrus]]
+- [[Thunk]]
+- [[Crissdalynn Khinriss]]
+- [[Delmar Fisk]]
+- [[Jean-Claude Tabarnack]]
+- [[Perrin Black-Jaw]]
+- [[Grigori and the Crown hunt]]
+- [[Session 10 - Recap]]
+- [[Session 11 - Previously On]]
+- [[Bring the Pearl of Souls to Umberlee]]
+- [[Uncertainty]]
+- [[Grinning Ape]]
+
+## [2026-10-05] audit | Beach castaways restated to the Session 10 record (the rescue lifted them off; pages kept them sheltering on the sand)
+
+- [[Aruhe]]
+- [[Western Landing]]
+- [[Vethka]]
+- [[Nino]]
+
+## [2026-10-05] audit | Nino's name restated as open (the Session 9 metalworker berthed aboard and the Session 10 beach castaway cannot be one man)
+
+- [[Nino]]

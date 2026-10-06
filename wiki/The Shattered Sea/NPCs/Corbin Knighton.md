@@ -4,6 +4,7 @@ summary: "Crown boarder whose false report now drives a quiet hunt for the crew.
 sources:
  - "archive/corbin-knighton.md"
  - "archive/Episode-09-Transcript.md"
+ - "archive/session-10.md"
 creature: "[[Dravosi Enforcer]]"
 ---
 
@@ -38,6 +39,10 @@ Corbin boarded the [[Uncertainty]] from the [[HCS Ordinance]] with [[Aleksander 
 When Malone's interrogation escalated and Catarina imitated Umberlee's laughter, Corbin drew a flintlock on him. Corbin ordered, “You heard them. I believe them. Go. We're going to Calveno.” The Dravosi officers left the Party's ship, and the Ordinance sailed towards [[Calven and Calveno|Calveno]].
 
 In his parting apology, Corbin said his dog needed a shorter chain or a muzzle. He asked for news of [[Shepherd Grigori]]. Corbin called him a dangerous, untrustworthy demon and blamed him for the Calveno incident.
+
+#### Session 10: Grigori's offer
+
+[[Shepherd Grigori]] asked the Party to wound Corbin if they encountered him again. He promised generous payment, provided Corbin survived with his mind intact and they sent word so Grigori could heal him. Grigori supplied a spell scroll for the message, which Delmar accepted. He described the proposed attack as removing the authority or the bite of one of the Dravosi's dogs. The Party didn't commit to attacking Corbin.
 
 ### Hidden truths
 

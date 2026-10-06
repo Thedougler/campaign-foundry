@@ -7,6 +7,7 @@ sources:
  - "archive/ssw-session-02.md"
  - "archive/ssw-cobb.md"
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+ - "archive/session-10.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/Krab02/characters/166013448"
 ---
 
@@ -54,6 +55,12 @@ Perrin washed up on Keth-Naar after the Vestra went down and reached the Saltwri
 At La Vasca's gate he shook [[Cobb]]'s hand, said it was all sorted, and bolted.
 
 When [[HCS Ordinance]] boarded the *Uncertainty*, Perrin hid below with the rescued captives, out of the bounty's reach. The Crown's standing [[Rattkin Bounty]] pays 15 gp a head for a rattkin, dead or alive.
+
+Shepherd Grigori's galley visit put Perrin at the prow, then ten feet up the rigging, and his tail stopped dead the moment the shepherd raised the ship's curse. "I'm paying his toll on the ship," he allowed once Delmar's look through the porthole had steadied him. The same visit confirmed his Bardic Inspiration as a d8. For the ambush he urged the Party to keep that inspiration for the saves that would matter and dealt a die to everyone before the fight. His own place in the dark held at stealth 23, and when the turn came he went into the rigging with the knack [[Old Faas]] taught him and helped bring the sails in. "Nah, let's be gone, scene," he called across the deck, and the Party left the burning hulk astern.
+
+At [[Aruhe]] his perception 24 found the wrecked hulls and the campfire from the rail, with a second look fumbling in at 12. He put the island's rule into words for the Party. A calm forest was safe ground, and in a frenzy the creatures struck at whoever stood there, taking or no. He and Jean-Claude worked a Dexterity check of 26 together and brought the ship to a stop sixty feet off the sand. His counsel kept the anchor stowed. An anchor line would run from the seabed straight to the rail, a direct route for a skull crab. The ship circled the shallows instead. He noted that an injured rabbit triggered the creatures the same as a stolen fruit, and offered Jean-Claude invisibility against an island whose animals would die for the chance to kill a grung. He swam the landing party's crossing slung on Crissdalynn's back, and the landing explained his spare temporary hit point: every long rest aboard the ship granted him one.
+
+The old gardens gave him a six on the travel roll and a large fruit for the picking. "Fresh from Aruhe, guys." His perception 19 caught Jean-Claude from above just before the trees converged, and he held on as Crissdalynn went vertical. When the [[Crown Squid]] rose he spent a spell slot on a *Silent Image* fifteen feet square, a flying humanoid tumbling out of the sky twenty feet to one side. The beast's check to see through it came far lower against his performance 23. On the flight out he offered the same trick a second time and spent both his inspirations on another throw of the performance check. It came up a natural 20, and the beast broke off to hunt the fake "little mouse" while the Party bolted for the ship. The DM gave the beast's contest roll advantage for a trick used twice, and it fell for the image anyway. He closed the day offering ginger for Jean-Claude's churning stomach.
 
 ## Goals and bonds
 

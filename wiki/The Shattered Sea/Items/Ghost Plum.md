@@ -13,7 +13,7 @@ sources:
 - **Kind.** Consumable.
 - **Rarity.** Rare.
 - **Attunement.** - **Changes.** Eating it grants Invisible for 1 hour.
-- **Held by.** [[Matteo Scola]] carries one after eating one in Session 11. [[Talon Skarn]] gathers fallen fruit.
+- **Held by.** [[Matteo Scola]] shared his sling's plums with the Party one apiece in Session 11 and ate one himself. How many he still holds is not recorded. [[Talon Skarn]] gathers fallen fruit.
 
 > [!narration] First look
 > A ghost plum is as big as two fists, with clear purple-grey skin showing leaves through it like a picture in soap. Pale pollen dusts the skin. Once fallen, that skin clouds over into dull purple.
@@ -32,7 +32,7 @@ Under [[Taking on Aruhe|Aruhe's law]], fallen fruit is safe to take, but fruit p
 
 ### History
 
-Ghost plums grow in [[Old Gardens]] and the treelines of [[The Quiet]]. Matteo carried two in a sailcloth sling and ate one during Session 11. One remains. Skarn watched him vanish and later gathered two fallen plums while hunting the [[Fate Spinner]]. Matteo shared his sling's fruit with the Party. Crissdalynn ate one mid-crossing and turned unseen, and Perrin ate one to gather firewood unseen. On her last watch Crissdalynn pulled a fruit and vanished with the falcon still on her.
+Ghost plums grow in [[Old Gardens]] and the treelines of [[The Quiet]]. Matteo's sailcloth sling held fallen plums when the Party rescued him in Session 11. He ate one, vanishing while Skarn watched, and handed each Party member one. Crissdalynn ate hers at the slack basin and turned unseen, and Perrin ate his to gather firewood unseen. On her last watch Crissdalynn pulled a fruit and vanished with the falcon still on her, and the record does not say which plum it was or how many remain. Skarn gathered two fallen plums of his own while hunting the [[Fate Spinner]].
 
 ### Hidden truths
 

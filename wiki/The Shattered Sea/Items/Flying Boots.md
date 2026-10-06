@@ -1,9 +1,12 @@
 ---
 type: Item
 summary: "Winged Boots that grant Delmar a 30-foot Fly Speed for 1 hour per charge."
+aliases:
+ - "Winged Boots"
 sources:
  - "archive/flying-boots.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/session-10.md"
 ---
 
 ![[Flying Boots - Handout Art.png]]
@@ -29,11 +32,15 @@ As a Magic action, expend 1 of 4 charges to gain a Fly Speed of 30 feet for 1 ho
 
 Spend a charge for boarding, escape or a theatrical entrance and track the hour and charges. The boots are attuned to Delmar.
 
+The boots' wings spread when Delmar took off to rescue castaways from [[Aruhe]] in [[Session 10 - Recap|Session 10]].
+
 ## Depth
 
 ### History
 
 During Session 04, [[Jean-Claude Tabarnack]] handed [[Casa Lupo]] 125 gp for the pair, a gift for whichever of [[Perrin Black-Jaw]] or Delmar won the roll for them. Perrin won and passed them straight to Delmar, because Rattkin go barefoot.
+
+In [[Session 10 - Recap|Session 10]], Delmar flew to Aruhe's beach with [[Crissdalynn Khinriss]] and returned with the smaller of the two castaways on his back. Later, when the [[Crown Squid]] pursued them through the jungle, he carried Jean-Claude above the canopy. He disengaged and dashed towards the ship, flying about ten feet above the treeline. Crissdalynn flew alongside him with Perrin.
 
 ### Hidden truths
 

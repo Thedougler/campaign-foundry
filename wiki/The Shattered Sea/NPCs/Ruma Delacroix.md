@@ -4,6 +4,7 @@ summary: "Blue-caste Grung handler who became an ally while hiding the party in 
 sources:
  - "archive/ruma-delacroix.md"
  - "archive/Episode-09-Transcript.md"
+ - "archive/session-10.md"
 creature: "[[Commoner]]"
 ---
 
@@ -32,6 +33,8 @@ creature: "[[Commoner]]"
 The party captured Ruma in Session 05 without a fight. Her chemical doodles won their trust, and she hides them in her dry “nap room” while continuing to answer the network's check-ins. She is an ally who cannot fight.
 
 She went aboard the [[Uncertainty]] as crew when the ship left Calveno in Session 9. The quartermaster's post runs on charm, and it never fit her: her talents run to chemistry and accounting, and her pen writes fan fiction. Sailing and gunnery stay beyond her. The Party settled her into the ledgers instead, freeing [[Perrin Black-Jaw|Perrin]] of them, and set her to cooking, where her galley gives the crew an extra 1d6 temporary hit points on each long rest ([[Shipboard Travel]]). The crossing was her first open water after years of reefs and rivers, and she passed the open-ocean swells on a Constitution save totalling 30. When the [[HCS Ordinance]] boarded, she went below to hide at [[Jean-Claude Tabarnack|Jean-Claude]]'s direction; her hiding roll came up 3 and she asked, very loudly, "Is this a good spot?" With [[Perrin Black-Jaw|Perrin]]'s Bardic Inspiration her roll reached 10.
+
+In the night ambush on the crossing to [[Aruhe]] she served one of the broadside's seven guns, and the pursuer left burning and unable to chase. When the Party brought two castaways off [[Western Landing]]'s beach, Delmar called her and Jean-Claude out to hear the survivors' account, having assured the castaways these were friends.
 
 ### Hidden truths
 

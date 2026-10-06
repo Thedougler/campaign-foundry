@@ -9,6 +9,7 @@ sources:
  - "archive/collab-2026-10-04-authority-themes.md"
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
  - "archive/Episode-09-Transcript.md"
+ - "archive/session-10.md"
 creature: "[[Shepherd Grigori (Creature)]]"
 ---
 
@@ -54,13 +55,29 @@ Delmar deceived Malone by claiming he had met Grigori only in passing after the 
 
 After the boarding, Crissdalynn recalled that Grigori's magic had been unusual and his handshake awfully cold. The Party recognised that the Crown blamed him for the loss of the Surety, which they had taken themselves. They knew him as an unusually powerful healer accused by the Dravosi. His true nature and army plan remained hidden from them. The pursuit continued through [[The Hound of God]].
 
+#### Session 10: a visit to the galley
+
+Grigori appeared after dark in his old seat in the [[Uncertainty]]'s galley, with a glass of wine. His arrival disturbed the weave below deck, and the Party recognised the presence as familiar. He thanked them for warning the people of [[Calven and Calveno|Calveno]] about the Crown's pursuit. He described himself and Delmar as men pursued by enemies.
+
+He warned that the Party's pursuers wanted something they carried. A ship sent by [[Talon Vantyrus]] was an hour or two behind them, he said, intending to rob them. When Crissdalynn emptied her collection of shiny scraps, Grigori lifted the pile into the air with a twist of his hand and dismissed its contents as the cause. He later said he knew of the two Sentinels pursuing them.
+
+Grigori explained the Schism as a dispute over the artifact used to manipulate fate. Some members helped fate's flow, while others sought to command it. According to him, the [[Sentinels of the Eyrie]] now obeyed fate rather than changing it. He said [[Master Kyzil]] would have kept the Schism from Crissdalynn, whose knowledge came from the note found in a shop.
+
+Asked why the Crown pursued him, he said he followed neither [[Tyr]] nor Dravosi tradition. He denied causing the Calveno rift and blamed the Dravosi for a greater part in it. Delmar's Insight check lost to Grigori's opposed roll of 25. To Delmar he seemed truthful.
+
+The conversation revealed that the island chain council had contracted the Party for the [[Pearl of Souls]] job after someone approached it to arrange the commission. Delmar had thought the contractor independent. Grigori already knew about their curse and said his familiarity with divine matters might allow him to help later. He called [[Umberlee]] unworthy of worship, and his insult in the open ocean drew no response.
+
+He offered a handsome reward if the Party injured [[Corbin Knighton]] and contacted him so he could heal the officer. He required Corbin to survive with his sanity intact. He produced a spell scroll whose arcane writing could be understood by [[Catarina Da'Virelli|Catarina]], though it was gibberish to the others. Delmar took it as Grigori repeated the message instructions and promised payment for weakening one of the Crown's dogs. The Party didn't commit to the attack.
+
+Delmar shook his hand before he left. The hand was corpse-cold and felt dead under Delmar's grip. Grigori vanished with a small pop. His healing scheme and true nature remained hidden from the Party.
+
 ### Hidden truths
 
 - Necromancy binds a patient's blood to Grigori. A DC 22 Arcana check can detect the thread. Counterspell disrupts both healing and binding.
 - Each cure leaves an anchor: the healed heir's blood stays bound to him in his blood phylactery. The Tessarine child is the newest, and neither the child nor the household knows what the cure settled into. The living anchors set the pace of his return from death, and each new anchor makes him harder to kill permanently.
 - The Concordat's reach runs into courts his anchors have yet to touch, and the Tessarine heir is his way into them.
-- He has warned the crew about Rupert Knighton and asked them to wound Corbin Knighton without killing him, so he can “rescue” him and bind the house. The Party agreed to contact him should the opportunity come, and they do not know his purpose is binding House Knighton.
-- He is an opportunist chasing power, and the army is a means to it rather than a fixed allegiance. The army approach is the best road he currently sees. He has yet to learn of the Party's connection to the [[Pearl of Souls]] or to [[Umberlee]], and should he learn of it, he may try to turn that connection toward more power.
+- He has warned the crew about [[Rupert Knighton]] and asked them to wound [[Corbin Knighton]] without killing him, so he can “rescue” him and bind the house. Delmar accepted the means to contact him in Session 10, but the Party didn't commit to injuring Corbin. They do not know his purpose is binding House Knighton.
+- He is an opportunist chasing power, and the army is a means to it rather than a fixed allegiance. The army approach is the best road he currently sees. By Session 10 he knew of the Party's connection to the [[Pearl of Souls]] and [[Umberlee]], and offered possible help with their curse. His purpose behind that offer remains unknown.
 - The Party knows him only as an oddly powerful healer whom the Crown calls a demon. The Flock, the blood-threads, the anchors and the army all remain hidden from them, and so does the ascension behind them.
 
 ### Threads

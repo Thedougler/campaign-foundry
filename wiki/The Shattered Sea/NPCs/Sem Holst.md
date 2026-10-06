@@ -6,6 +6,7 @@ sources:
  - "archive/ssw-session-02.md"
  - "archive/ssw-session-03.md"
  - "archive/agentic-co-dm-sem-holst-narration.md"
+ - "archive/session-10.md"
 creature: "[[Commoner]]"
 ---
 
@@ -36,6 +37,8 @@ creature: "[[Commoner]]"
 He was the HCS Surety's carpenter's mate under Barnaby Rook and was named to the prize crew when the crew took the cutter. On the five-day crossing to Calveno he worked the hull alongside [[Jean-Claude Tabarnack]], quietly fixing what the Mending spell missed. After the Calveno refit he held the carpenter's post and the reporting line flipped, with Geoffrey working under him.
 
 On the first morning of the Calveno refit he was at the dry dock before anyone sent him. He found a fatigued timber in the forward keel joint, hidden under fresh caulk the repaint had covered without addressing, and wrote it up in his own notes. Fixable before departure, but it wants hardwood stock and a day in the cradle. He has not mentioned it to the Party.
+
+In the night ambush on the crossing to [[Aruhe]] he served one of the broadside's seven guns, and the pursuer left burning and unable to chase.
 
 ### Hidden truths
 

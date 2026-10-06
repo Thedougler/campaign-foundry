@@ -4,6 +4,7 @@ summary: "A macaw that echoes surface thoughts and can briefly compel a truthful
 sources:
  - "archive/unsaid-macaw.md"
  - "archive/session-11-transcript-archived-version.md"
+ - "archive/session-10.md"
 ---
 
 ![[Unsaid Macaw - Portrait.jpg]]
@@ -56,6 +57,10 @@ It gives itself away by giving the Party away, its echoes of their own thoughts 
 ### Ecology
 
 It keeps to the canopy over the trails, and Observant travellers mark its ground with Wisdom (Survival) where voices travel wrong.
+
+### History
+
+In Session 10, as the Party flew over the low trees at the edge of the [[Old Gardens]] on [[Aruhe]], a small voice rose from below and asked Delmar, "What's that smell mean, dude?" A parrot down among those trees was mimicking his thoughts back at him, and the DM's joking name for it, the telltale parrot, got a laugh out of him. In play the bird went unnamed, and the table later matched it to the unsaid macaw.
 
 ### Hidden truths
 
