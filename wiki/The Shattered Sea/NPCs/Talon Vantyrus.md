@@ -4,6 +4,7 @@ summary: "Master of the faction and former Sentinel Osset, seeking the Soul Inca
 sources:
  - "archive/talon-vantyrus.md"
  - "archive/session-10.md"
+ - "archive/session-12-full.md"
 creature: "[[Talon Vantyrus (Creature)]]"
 ---
 
@@ -42,6 +43,12 @@ Once Osset, Vantyrus broke from the Sentinels because they recorded deaths witho
 [[Shepherd Grigori]] warned the Party that Vantyrus had sent a ship to rob them for an object they carried. He placed it an hour or two behind the [[Uncertainty]] and said he knew of two Sentinels pursuing them. The warning identified Vantyrus as a threat to the Party without exposing his former identity.
 
 Later that night, a vessel approached from astern with its lanterns dark and without flags. The Party ambushed it with a broadside while Crissdalynn's Gust of Wind slowed its approach. Delmar ignited a lantern with an explosive round, setting the sails alight, and her wind strengthened the flames. The damaged ship was left listing and taking on water, unable to pursue as Uncertainty escaped. The Party sailed on without boarding it.
+
+#### Session 12: Skarn's demand
+
+On [[Aruhe]], Skarn demanded [[Crissdalynn Khinriss|Crissdalynn]]'s [[Fate Spinner]] and said his orders forbade killing her, but allowed him to kill her companions. Wounded during the river-camp fight, he shouted, “Vantyrus, help!” The DM confirmed that someone watching remotely through a device had helped Skarn counter the disadvantage on an attack. The helper's identity remained unknown.
+
+When Skarn returned to attack the Party's next camp, he again claimed orders to take the Spinner without killing Crissdalynn. He offered her companions survival and a possible meeting with Master Vantyrus if they cooperated. Vantyrus remained unseen.
 
 ### Hidden truths
 

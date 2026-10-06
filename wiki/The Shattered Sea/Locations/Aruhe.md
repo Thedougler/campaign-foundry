@@ -13,6 +13,7 @@ sources:
  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
  - "archive/Episode-09-Transcript.md"
  - "archive/session-10.md"
+ - "archive/session-12-full.md"
 parent: "[[Midchain]]"
 ---
 
@@ -22,9 +23,9 @@ parent: "[[Midchain]]"
 
 - **Character.** An untamed volcanic island about 500 miles long and 150 miles across.
 - **Held by.** No settlement or state. Hinewai's grief binds the island's living systems.
-- **Changing.** Calveno survivors move inland while Karath's Gold caste seeks the two graves. The landing beach's castaways ([[Sandro]], [[Nino]]) went aboard [[Uncertainty]] at the Session 10 rescue, and the sand has been empty of them since.
+- **Changing.** Calveno survivors move inland while Karath's Gold caste seeks the two graves. At the road camp deep inland, living fruit stands its ground: a gold-painted [[Giant's Guava]] and a [[Stonepear]] hang on the vine where the Party judged them unsafe, and both hang there yet. The landing beach's castaways ([[Sandro]], [[Nino]]) went aboard [[Uncertainty]] at the Session 10 rescue, and the sand has been empty of them since.
 - **Crossing.** The landing beach is [[Western Landing]]. Use the River or slow forest and terrace routes.
-- **Danger.** Taking living things wakes hostile local life, and once the frenzy rises it punishes anyone present, picking fruit or not. Growth, healing and rot run beyond normal limits.
+- **Danger.** Taking living things wakes hostile local life, and once the frenzy rises it punishes anyone present, picking fruit or not. Growth, healing and rot run beyond normal limits. Fire turns the forest on its maker: creatures run from a burning tree in every direction, and the commotion and blood a fire leaves draw hunters toward the source. A feeling of being watched follows everyone who walks the island, and no camp has slept free of it yet.
 
 > [!narration] Arrival
 > From offshore, a vast green volcano rises around a dark crater lake, gold-tan bands mark its slopes and white water foams on the reef. No road, field or smoke breaks the island's crowded life.
@@ -54,7 +55,8 @@ From the air during the Party's escape, the jungle east of the landing holds muc
 
 ### Rumors
 
-Fallen fruit is receiving. Fruit picked from living growth is a claim. The island is not one monster but many living systems made excessive.
+- Fallen fruit is receiving. Fruit picked from living growth is a claim. The island is not one monster but many living systems made excessive.
+- Intent outweighs the act. Fruit the wind drops on its own is safe, while a tree brought down on purpose to reach its fruit brings attacks from the island's native species. Some intelligence here understands intent, and the island's life speaks in ways the Party cannot yet follow.
 
 ## Depth
 
@@ -72,7 +74,17 @@ The tide erased the drag marks while the wreck remained wedged against the coral
 
 The [[Uncertainty]] raised Aruhe at midday off [[Karath]], limestone cliffs and rainforest shouldering out of the sea, and the crow's nest counted several vessel hulls on the shore beneath a campfire-scale smoke still burning. Delmar Fisk threaded the reef gaps on a save of 24, and [[Crissdalynn Khinriss|Crissdalynn]] and Delmar flew two castaways out from the beach to the ship.
 
+The tide erased the drag marks while the wreck remained wedged against the coral. A guard was killed in the surf. The cold open left the other two guards' fate uncertain.
+
 Aboard, the castaways told of the raid that wrecked them. Their count put a hundred, perhaps a hundred and fifty, of the taken on the island's sand, and few, they thought, still lived. Fishing off the beach kept them fed. The island killed anyone who took from it, the castaways said. The ones who tried the terraces came back calling them safe. No one has seen them since. The DM called the isle cursed, and Sandro added that it "really hates the Grung": its animals will choose death if the death buys a grung's end. Perrin worked the law out loud, and the DM confirmed it. The frenzy punishes anyone present on the isle, picking fruit or not.
+
+#### Session 12: the island's intent
+
+A bite of a [[Giant's Guava]] at the river camp raised [[Crissdalynn Khinriss|Crissdalynn]]'s Wisdom for an hour, and with it she read the island's law past the fruit rule. Fruit the wind drops is fine to take. A tree felled on purpose for its fruit draws attacks from the native species, because some intelligence here understands intent. She passed the warning to the table, and the Party took it that the island's life speaks in ways they cannot yet follow.
+
+The camp's fishing and cooking passed without the island stirring. Then an explosive shot set a tree alight during the falcon's attack, and every bush around the clearing rustled with creatures running from the burn. The noise and blood later drew several things through the forest toward the camp where Perrin and the survivors sat.
+
+The return from the pursuit added a second trail of smoke to the first on the horizon, one smaller and closer, the other half a day off. At the road camp, a perception of 25 left Crissdalynn sure she was being watched, and foraging turned up three fallen [[Rotheart]] fruits among the blackened grass, their broken flesh dark as old blood.
 
 ### Hidden truths
 

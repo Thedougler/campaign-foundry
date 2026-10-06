@@ -4,6 +4,7 @@ summary: "Aarakocra monks at High Eyrie who watch and record the Drowned Maw wit
 sources:
  - "archive/sentinels-of-the-eyrie.md"
  - "archive/session-10.md"
+ - "archive/session-12-full.md"
 ---
 
 ## At a glance
@@ -29,9 +30,9 @@ sources:
 
 ### History
 
-The Sentinels began the continuous Maw ledger in 1295 DR and predate Dravosi rule. [[Talon Vantyrus]] argued that non-intervention was cowardice and left when Kyzil refused to break with the order, creating the faction. Younger members such as [[Crissdalynn Khinriss]] were not told of the schism.
+The Sentinels began the continuous Maw ledger in 1295 DR and predate Dravosi rule. [[Talon Vantyrus]] argued that non-intervention was cowardice and left when Kyzil refused to break with the order, creating the faction. The break came twenty-two years ago, and [[Talon Skarn]] was part of it on the day it happened. Younger members such as [[Crissdalynn Khinriss]] were not told of the schism. The order keeps even its possibility from apprentices, because the telling itself invites them to leave.
 
-[[Shepherd Grigori]] named the Schism to the Party in the [[Uncertainty]]'s galley. The break closed over the [[Fate Spinner]], the same small artifact the Party's pursuers wanted. A Sentinel can manipulate fate with it: one side of the order helped fate's flow, and the other side used it to command fate. Whether fate was something to wield or something to obey was the whole quarrel. The order now obeys fate and leaves it unaltered. The Sentinels keep the war to themselves, and Kyzil never would have told [[Crissdalynn Khinriss]] of it. Her one inkling came from the shop note that mentions a Schism of the Eyrie. Grigori's telling was the first she heard of the split.
+[[Shepherd Grigori]] named the Schism to the Party in the [[Uncertainty]]'s galley. The break closed over the [[Fate Spinner]], the same small artifact the Party's pursuers wanted. A Sentinel can manipulate fate with it: one side of the order helped fate's flow, and the other side used it to command fate. Whether fate was something to wield or something to obey was the whole quarrel. The order now obeys fate and leaves it unaltered. The Sentinels keep the war to themselves, and Kyzil never would have told [[Crissdalynn Khinriss]] of it. Her one inkling came from the shop note that mentions a Schism of the Eyrie. Grigori's telling was the first she heard of the split. She knows more now than she did as an apprentice. The note is a paper of Delmar's that also mentions [[Osset]], and she has since gathered that the Sentinels had a rift and that several members left.
 
 ### Hidden truths
 

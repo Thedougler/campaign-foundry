@@ -7,6 +7,7 @@ sources:
  - "archive/ssw-session-02.md"
  - "archive/ssw-the-canister.md"
  - "archive/session-10.md"
+ - "archive/session-12-full.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/nickdavenock/characters/171013670"
 ---
 
@@ -59,7 +60,13 @@ Off [[Aruhe]] his warning held where it always had. The island was a forbidden p
 
 In the [[Old Gardens|old gardens]] his Survival 25 found the survivors' tracks, and the trails ran for the terraces. "Then that's where we go." He read the garden's total silence as a bad sign, counted at least six dead in front of the fruit bushes, and pulled his hand back fast when a green caterpillar on a leaf began to swell. "Don't touch the bugs either, guys." His perception 24 marked the reed and its dart-spitting bulb, he cleared it on an Athletics 22 the DM allowed in place of Acrobatics, and his arrow, 27 to hit, killed the regrown stalk. The trees converged on him before he could move again, and Delmar took him up with his sticky hands holding on. In the squid's grapple his Strength save stood at 18, and Perrin's Bardic Inspiration die, a 1, raised it to exactly the DC 19, enough to slip the tentacle. He saw for himself that the beast had cut sideways only because Perrin's illusion pulled it off the line. The day ashore left him seasick and spent, and the crew turned in early among the new hammocks.
 
-After the garden, Jean-Claude became catatonic and travels inside Delmar's coat.
+The catatonia that took him after the garden held through the flight to [[Aruhe]], swaddled in a coat Delmar had soaked in endless rum to mask his grung scent. Talon Skarn's dawn attack woke him mid-battle, his last memory a giant bird falling out of the sky at him. He put the fog at about a week on the rum fumes, his own count and none of it ruled.
+
+His return to work was immediate. He lit a cigarette as a free action, screamed "Tabarnack" and a swear about birds as the verbal components of a *Hunter's Mark*, and hit at 22 for 19 before Skarn deflected. Poisoned arrows followed at DC 13 Constitution and left the falcon fighting sick, and his Dread Ambusher critical added 26 force plus 2d6 piercing to the exchange. His *Ensnaring Strike* then held Skarn in vines until a strength save tore them loose, and a 28-damage shot chased the fleeing falcon into the dark. On the pursuit he rode Crissdalynn's back, the Eyes of the Eagle tracking the fleeing bird. When it vanished he fired blind at disadvantage and missed. Her inspiration bought a reroll, and the next arrow went into the dark for 22 damage and a spray of blood.
+
+Underground his scores did the route-finding. An Investigation 28 read the pattern in the pulsing roots, and a Survival 28 judged the lava tubes safer travel than the open ground above. A stealth 27 at the crevice mouth, the Elvenkind cloak's advantage at work, showed him the burnt road whole, a straight fired line running back toward the beach. Later looks put parchment scraps and clean white bones every twenty or thirty feet along it. He read the dead grung as unwilling, marched and burned by compulsion, and said what he thought of that: such power could only come from the [[Gold Caste]]. He took the older spent seals as evidence, enough to tell the story. The woman in the woods met him as a kidnapper and a murderer, "Murderer, manipulator," her voice said, and he answered with a thrown cigarette, a curse, and "Sentient beings are your playthings." Her roots bound him where he stood, and her word for his release came through Delmar: he would follow the garden's rules and be brought before her at the grove.
+
+At the road camp he placed a hand on the decanter of endless water and spoke the command word "Lepetitobon", watering the burnt ground as Delmar asked. Then he lay back under the spray and let it rain on him for over an hour. The water found a second use that night. When the invisible falcon dove on Crissdalynn, the spray beside the campfire traced his outline for the Party to target. The DM also ruled on his Bracers of Archery curse in the open. A natural 1 turns his whole body a random neon colour for an hour, and each natural 1 leaves one permanent patch of that colour. Only *remove curse* or its like removes them. He rolled purple. The errant arrow left his bow and hit Crissdalynn for 10 piercing, and his Giant's Guava went to Dexterity before he re-marked Skarn and put 20 more damage into him.
 
 ## Goals and bonds
 

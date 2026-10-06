@@ -6,6 +6,7 @@ sources:
  - "archive/ssw-session-02.md"
  - "archive/ssw-le-paludi.md"
  - "archive/session-10.md"
+ - "archive/session-12-full.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/PyonPyonPichu/characters/163280875"
 ---
 
@@ -35,7 +36,7 @@ dndbeyond_url: "https://www.dndbeyond.com/profile/PyonPyonPichu/characters/16328
 
 ## Inventory
 
-- **Attuned.** Eldritch Claw Tattoo. The Fate Spinner is carried in a harness pouch.
+- **Attuned.** Eldritch Claw Tattoo. The Fate Spinner rode hidden on her until Session 12, when she passed it to [[Delmar Fisk]] for his Bag of Holding.
 - **Carried.** Cloak of Displacement (not attuned), Dragonhide Belt +1, quarterstaff (Topple), shortbow (Vex), 20 arrows, backpack, quiver.
 - **Stowed.** Rope, 10 torches, 2 flasks of oil, waterskin, Calligrapher's Supplies, 10 rations, bedroll, tinderbox.
 
@@ -53,6 +54,12 @@ When the below-decks tear pulled the crew from their bunks, Crissdalynn judged t
 At sunrise she meditated in the crow's nest with Magritt on why she had been set this mission. Her Insight of 9 gave her only what she already knew. As the DM ruled it, [[Master Kyzil|Kyzil]] had put her on the quest because he believed she could do it. Her perception 24 from aloft found the wrecked hulls and the campfire on [[Aruhe]], she flew ahead for the vantage, marked the one gap in the reef, and crowed down, "Don't let the anchor hit the ground." She took one castaway in her grip and lifted off with him. In the parley she worked out the island's rule, that the creatures left anything taken from the ocean alone and struck at anything off the island. She slipped away to test the [[Fate Spinner]] in private. The DM ruled it useless on its own holder. Her natural 16 on the question of survivors brought a vague sense of people on Aruhe whose fate sat uncertain and in flux, a couple of them, place and number unknown. She told the Party that hunters were after her for the Spinner, that Kyzil's whisper had shown its power, and gave them the survivors without saying how. Perrin rode her back on the crossing.
 
 In the [[Old Gardens|old gardens]] she flew the vantage again and picked a large fruit into her little bag. She asked why the wolfrabbits would frenzy at something soft and living, and the DM's guess at blood-fed fruit only half answered her. "These are bigger than our plums," she said of the pickings. "Hold on" was the warning Perrin got before she went vertical with the trees closing below. The DM confirmed that the [[Nightmantle]]'s displacement would have blunted the crown squid's first swing at her, and she flew the escape out along Delmar's wing.
+
+[[Talon Skarn]] came for her at the dead fire before dawn, chest to chest with a katana bearing down on her staff and one demand in his beak: the Fate Spinner that hung as a necklace under her feathers. Her answers set the fight's terms. When his first grab fumbled against the [[Nightmantle]]'s disadvantage, the DM ruled her punishing counter a hit on the spot, 9 damage behind "Don't make me do this." She caught his katana on Deflect Attacks and paid a small cut for it. A Focus Point spent on throwing the deflected force back at him came to nothing when his save voided it. Her Grappler punch-and-grab then locked him in place through hits at 15, then 8, then 16. His Stunning Strike ended her run at DC 18 Constitution, an inspiration reroll spent, and the fight broke when he disengaged skyward with Matteo's pack and hat.
+
+The flight home from the pursuit grew her Schism knowledge a little. Her order had never told young apprentices the split was even possible. What she knew was a rift and several departures. Delmar's paper naming [[Osset]] had been her first word of it. The island fed her better. A raw [[Giant's Guava]] held her at Wisdom 25 for an hour. A wisdom check of 26 then opened the island's intent-sense to her, and she warned the Party to mind why and how they picked: "the island actually has a sense of our intentions." A natural 20 Investigation turned up two more gourds, she carried them back to camp, and she named her back "Blanche" with Matteo aboard for the flight to the smoke. Below the skylight the basalt of the tunnel wall was warm under her hand and close to home, the [[High Eyrie]] being built of the same stone. She told the Party she missed it. She drew the map as they went, a cartographer's 16 promising the way back out of the lava tubes and along the burnt road.
+
+The return came invisible out of the night, a diving strike that broke her arm at the elbow, dropped her prone and stunned beside the fire, Deflect Attacks taking 12 of the 24 slashing damage. The stun lasted only to the end of Skarn's next turn. She stood on half her movement, ate a cooked guava kebab for Dexterity 22 and AC 21 with her staff in hand, and put a [[Redheart Berry]] under the [[Rotheart]]'s maximum-healing rule for a full 40, the arm mending whole. "Buddy, you've made a terrible mistake," she told the falcon, and the intimidation roll came back a 10. She shifted five feet inside his grasp so the [[Nightmantle]]'s displacement stayed on him, and the DM ruled the half-step cost her nothing. At the last she had the Eldritch Claw Tattoo alight again, a natural 20 for 19 damage, and her Stunning Strike failed to stun at DC 15 but halved his speed and hung advantage on the next attack against him.
 
 ## Goals and bonds
 

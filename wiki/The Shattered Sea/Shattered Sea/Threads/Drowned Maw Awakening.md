@@ -7,6 +7,7 @@ sources:
  - "archive/perrin-black-jaw.md"
  - "archive/ssw-session-03.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/session-12-full.md"
 status: active
 ---
 
@@ -15,7 +16,7 @@ status: active
 ## At a glance
 
 - **Driven by.** The Antheri breach, the lost Pearl, and the power beneath the Drowned Maw.
-- **Stands at.** Perrin's patron has spoken only in fragments, and Rook's charts show forbidden crossings without explaining what they met.
+- **Stands at.** Perrin's patron has moved from fragments to demand. On Aruhe, Auralis pressed him twice to consume the living fruit, and both times Perrin refused. Rook's charts show forbidden crossings without explaining what they met.
 - **If nobody acts.** Currents, wrecks, and the Maw's pressure worsen while the people who know the old boundary keep their reasons hidden.
 - **Levers.** Rook's charts, Antheri salvage, the Vestra, Auralis's messages, and Sentinel knowledge.
 

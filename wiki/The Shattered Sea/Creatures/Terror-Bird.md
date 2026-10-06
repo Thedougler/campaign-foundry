@@ -3,6 +3,7 @@ type: Creature
 summary: "A Terror-Bird creature (CR 13) used as a bruiser in The Shattered Sea."
 sources:
  - "archive/terror-bird.md"
+ - "archive/session-12-full.md"
 ---
 
 ![[Terror-Bird - Portrait.jpg]]
@@ -16,7 +17,7 @@ sources:
 - **Used by.** [[Unsaid Macaw]] patrols the same territory.
 
 > [!narration] First sight
-> The trail begins to thrum, pebbles ticking together along its length. Moss quivers on a hump beside the path, and the hump rises on legs thick as fence posts. It keeps rising past the fern tops until a beaked head swings into view above them. A first stride carries it onto the trail, dead straight and building speed, and the beak opens wide enough for a head and shoulders.
+> The trail begins to thrum, pebbles ticking together along its length. Moss quivers on a hump beside the path, and the hump rises on legs thick as fence posts. It keeps rising past the fern tops until a beaked head swings into view above them. A first stride takes it onto the trail, dead straight and building speed, and the beak opens wide enough for a head and shoulders.
 
 ## Statblock
 
@@ -68,17 +69,17 @@ It commits to a straight charge and takes its catch in the serrated beak, swallo
 
 ### Outside a fight
 
-Still, it passes for a mossy stump among the ferns, and the tremor of its stride warns anyone standing on the ground a full thirty feet out.
+Still, it passes for a mossy stump among the ferns, and the tremor of its stride warns anyone standing on the ground a full thirty feet out. One worked the ground above a lava-tube hideout on Aruhe. Its steps shook debris from the roof, and clicking sounded at the skylight before a moss-covered head pushed through to peer about. The search came up empty. It walked off with the roots pulsing under it and was back inside the half hour for a second look that found the same nothing.
 
 ## Depth
 
 ### Ecology
 
-Its ground is forest and jungle floor, where Wisdom (Survival) reads its passing in a beaten line that runs dead straight and bends for grass and deep water alone.
+Its ground is forest and jungle floor, where Wisdom (Survival) reads its passing in a beaten line that runs dead straight and bends for grass and deep water alone. On Aruhe it walks ground riddled with lava tubes, and nothing so big could climb down into them after prey.
 
 ### Hidden truths
 
-An Intelligence check finds the gag, for a hard turn of damage taken from within its body or from beyond it brings the swallowed catch back into the open.
+An Intelligence check finds the gag, for a hard turn of damage taken from within its body or from beyond it brings the swallowed catch back into the open. The bird at the skylight was not the only one of its kind on this ground, and it was not the one that left the survivors catatonic. Crissdalynn named it as their tormentor, and a survivor said it was a different bird.
 
 ## Links
 

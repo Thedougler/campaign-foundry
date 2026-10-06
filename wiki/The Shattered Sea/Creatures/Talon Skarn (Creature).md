@@ -1,20 +1,21 @@
 ---
 type: Creature
-summary: "Talon Skarn (Creature), a unique Creature stat block from the archived NPC record."
+summary: "Talon Skarn's Creature stat block, as played: a CR 13 falcon monk who hunts the Fate Spinner, flees beaten, and comes back invisible."
 sources:
  - "archive/talon-skarn.md"
+ - "archive/session-12-full.md"
 ---
 
 ## At a glance
 
-- **Role at the table.** The unique NPC Talon Skarn's Creature profile, with weapons and flight for aerial combat.
-- **Threat.** Skarn's statistics below retain CR 13 from his archived record.
-- **Tell.** Skarn's dive and the motion of his chained sickles warn of his signature attacks before he commits.
-- **Weak to.** Tactics supplies responses to Skarn through cover, focused fire and positioning.
-- **Used by.** This profile is used for the NPC Talon Skarn.
+- **Role at the table.** The falcon monk who has come twice for Crissdalynn's Fate Spinner, under orders he says spare her life and nobody else's.
+- **Threat.** CR 13 with AC 19, three attacks a turn, a damage-deflecting reaction and three legendary actions. He left the river-camp fight at 12 of his 314 hit points after taking 292.
+- **Tell.** Chain links tick over his forearms before his sai flies, the first warning of his dive is a faint whistle, and stolen fruit hides him only from the eye, since falling water still traces the shimmer.
+- **Weak to.** No damage resistances or immunities: poison and vines took their toll. Once his three Legendary Resistances are spent his saves are his own, and his hidden outline can still be shot, as half cover.
+- **Used by.** [[The Shattered Sea/NPCs/Talon Skarn|Talon Skarn]].
 
 > [!narration] First sight
-> The Creature's distinctive silhouette and signature tell are apparent before it attacks.
+> You wake to steel sliding along a quarterstaff, and the steel belongs to a falcon-headed figure in a black robe. He has Crissdalynn chest to chest at the dead fire, katana driving against her weapon while chains click over his forearm. His stare is already past her face and on the necklace at her throat, and his wings stay half spread for the lift the moment he has what he came for.
 
 ## Statblock
 
@@ -26,8 +27,8 @@ type: humanoid
 subtype: aarakocra
 alignment: lawful neutral
 ac: 19
-hp: 195
-hit_dice: "23d8 + 92"
+hp: 314
+hit_dice: "37d8 + 148"
 speed: "50 ft., fly 90 ft."
 stats: [14, 22, 18, 12, 20, 14]
 saves:
@@ -85,23 +86,24 @@ legendary_actions:
 
 ### Tactics
 
-Follow Skarn's archived tactics when using his weapons and aerial movement. Telegraph his most powerful option, whether a dive or a sweep of his chained sickles, and let the Party answer by repositioning, finding cover or concentrating fire. Skarn withdraws when he loses his objective or his advantage.
+He opens on the job, not on a duel. He was inside Crissdalynn's guard before the Party woke at the river camp, and his dive drops him from about fifty feet, adding 3d8 and calling for a DC 18 Strength save. Stunning Strike rides a clean hit at DC 18 Constitution, and it landed twice this Session, stunning Crissdalynn through an inspiration reroll and Perrin on a rolled 3. The chained sickle drags its catch ten feet out of position. The sai leaves its target's next attack at disadvantage and reels back to his hand on its chain. The Tempest sweeps twenty feet at DC 19 Dexterity, pulling or flooring everyone it catches, 26 to Perrin and 13 to the rest. His reaction blunts the first solid hit, and legendary actions buy him distance or one more strike. Invisible, he is harder still. Attacks roll at disadvantage against him, but a spell that needs sight can take his visible outline. Shots at the outline count as half cover for +4 AC, and his eyes give him only the direction a thrown thing came from.
 
-Talon attacked Crissdalynn at the River Slack Basin. One Legendary Resistance is spent.
+Both fights this Session, he came for the Spinner and left without it. At the river camp he pinned Matteo under one talon and took the fruit pack, then lost 292 hit points to blades, bolts and a 39-damage bomb. Delmar's trip-and-explosive saves cost him his last Legendary Resistance, and he flew inland at 12 of 314, unseen after eating the stolen fruit. At the night camp he came back the same way. His dive broke Crissdalynn's arm at the elbow and stunned her through two tied saves, and he throttled her while demanding the Spinner's location. Delmar's falling chair came down on his shimmer for 26, of which he deflected 18. He stunned Perrin with an unarmed strike, and the save he passed confirmed his Legendary Resistances were gone. The fight was still live when the recording stopped.
 
 ### Outside a fight
 
-Skarn's appearance, habits and traces distinguish him before an encounter. His flight and chained sickles are part of that identity. His actions follow the habitat and role established for the NPC.
+He roosts before he commits, hanging thirty feet up a branch to study a camp, and told Crissdalynn "I don't need to hide" while he did it. When his wounds opened, blood sprayed down from above and showed the pursuit he still flew. He keeps what he takes, too. Matteo's fruit pack and Matteo's hat went inland with him, the fruit eaten on the wing, and an arrow loosed blind into the dark still found blood.
 
 ## Depth
 
 ### Ecology
 
-Skarn's archived NPC record is the source for his habitat, diet and signs. Travellers with an eye for those signs can identify them through Wisdom (Survival).
+A peregrine aarakocra flown across the sea after the Fate Spinner and its carrier. He shadows a mark from high in the sun's glare before he cuts. He watched Matteo Scola eat a [[Ghost Plum|ghost plum]] and vanish, then reached for the stolen fruit pack the first chance his talons found. Beaten, he breaks off toward open ground and flies inland until pursuit fails.
 
 ### Hidden truths
 
-For Skarn's past and his concealed motives, turn to his archived NPC account. Both can be uncovered through examination or relevant questioning.
+- Somebody unseen tips his fights. The DM ruled his river-camp advantage came from watchers feeding him through a device of their own, telling the table "You don't have the only one." Who holds the device is not established.
+- His deflection is the open-wing parry [[Master Kyzil]] teaches at the [[High Eyrie]], and Crissdalynn, Kyzil's student, knows it on sight.
 
 ## Links
 

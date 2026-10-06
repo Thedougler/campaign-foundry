@@ -7,13 +7,14 @@ sources:
  - "archive/jean-claude-tabarnack.md"
  - "archive/ssw-session-01.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/session-12-full.md"
 status: active
 ---
 
 ## At a glance
 
 - **Driven by.** Simone's rise among the Grung and Jean-Claude's escape from the clans.
-- **Stands at.** Jean-Claude is catatonic on Aruhe in Delmar's coat. The hunters' last known trail runs through the Grung captive route toward Karath.
+- **Stands at.** Jean-Claude is awake and fought through Talon Skarn's two attacks on Aruhe, his safety promised by the garden's keeper while he follows her rules. The hunters' last known trail runs through the Grung captive route toward Karath.
 - **If nobody acts.** Jean-Claude remains exposed while the hunters trace the Party's route through the captive pipeline.
 - **Levers.** Grung authority marks, Jean-Claude's family knowledge, false routes, and witnesses who saw him board.
 

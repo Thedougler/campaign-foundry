@@ -6,6 +6,7 @@ sources:
  - "archive/ssw-what-sunk-the-vestra.md"
  - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
  - "archive/collab-2026-10-04-authority-themes.md"
+ - "archive/session-12-full.md"
 ---
 
 ![[Auralis - Reference Sheet.png]]
@@ -34,12 +35,14 @@ Auralis is a machine built by the Antheri as a body for a lost mind beneath the 
 
 His words have been “Grow” (Session 03), “Not yet” (Session 06) and “CONSUME” (Session 12). The last urged Perrin to eat [[Giant's Guava]] and [[Stonepear]], while Auralis did not understand that Aruhe's law makes picking a claim.
 
+At the road camp on Aruhe, the call came as a vision. Perrin sat at the fire rubbing his drum and felt cold, a pressure on him and salt in the back of his throat. He was small in a black abyss, swimming through the water and catching plankton and shrimp while jaws snapped somewhere beneath him, and the voice said “Consume. Consume.” When the vision cleared, a gold-painted giant guava about his own size hung fresh on the vine right in front of him, and a stone pear stood beside it. The others had ignored both because fruit still on its vine was not safe to take. Perrin let a die decide, disliked its answer and turned his back on the living fruit, choosing his new life over his old vendetta. The demand returned once the fight was on. While Talon Skarn held him stunned, the voice said “consume or die”. The fruit stayed on the vine, un-picked.
+
 ### Chronology
 
 - **About -2000 DR.** The Antheri build Auralis to hold the fissure.
 - **Day -5.** The Pearl's signal wakes him as the Leviathan enters and the Vestra sinks.
 - **Sessions 03 and 06.** Auralis says “Grow” and “Not yet”.
-- **Session 12.** “CONSUME” warns Perrin before Talon Skarn's invisible approach.
+- **Session 12.** “Consume. Consume.” reaches Perrin at the road camp before Talon Skarn's invisible return, and the demand repeats as “consume or die” while Skarn holds him stunned.
 
 ## Links
 

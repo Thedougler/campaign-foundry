@@ -1,10 +1,11 @@
 ---
 type: Item
-summary: "A thumb-sized quartz top that watches one known creature from afar and lends it luck. Crissdalynn carries it and the faction hunts it."
+summary: "A thumb-sized quartz top that watches one known creature from afar and lends it luck. Delmar Fisk hides it in his Bag of Holding while Talon Skarn hunts it for the faction."
 sources:
  - "archive/fate-spinner.md"
  - "archive/session-11-transcript-archived-version.md"
  - "archive/session-10.md"
+ - "archive/session-12-full.md"
 ---
 
 ![[Fate Spinner - Handout Art.png]]
@@ -15,7 +16,7 @@ sources:
 - **Rarity.** Artifact.
 - **Attunement.** Required by a creature that knowingly risked its life to save another.
 - **Changes.** Lets the holder watch one known creature and lend it Advantage.
-- **Held by.** [[Crissdalynn Khinriss]], given by [[Master Kyzil]] before her pilgrimage.
+- **Held by.** [[Delmar Fisk]], in his Bag of Holding since Session 12. [[Crissdalynn Khinriss]] wore it hidden before him, given by [[Master Kyzil]] before her pilgrimage.
 
 > [!narration] First look
 > A four-sided quartz top no bigger than a thumb stays cool in a warm hand. Spun in sunlight, it throws amber, blue and violet pools across the spinner and ticks like glass on glass long after it should stop.
@@ -41,6 +42,8 @@ In [[Session 10 - Recap|Session 10]], Crissdalynn tested the Spinner on [[Aruhe]
 During [[Session 10 - Recap|Session 10]], [[Shepherd Grigori]] warned that someone was pursuing the Party for something they carried. He named Vantyrus as the man who had sent a ship to rob them. Grigori linked the Spinner to the schism among the [[Sentinels of the Eyrie]], which he described as a dispute over wielding fate or obeying it. He said the Sentinels now obeyed fate. Crissdalynn later told the Party that her pursuers wanted the Spinner and began testing its powers. Kyzil had told her nothing of what it actually did and appeared to regret that omission.
 
 The hunt came to the Party's camp during Session 11's night watch, when [[Talon Skarn]] went for Crissdalynn's pack at the watch change and left without it.
+
+Skarn came for the Spinner twice more in Session 12. At the river camp Crissdalynn wore it as a necklace under her feathers, out of sight, and his first grab missed against her cloak's displacement. Before the pursuit she passed it to [[Delmar Fisk]], who stowed it in his Bag of Holding, and when Skarn fell on the road camp his hand found her neck bare. He never learned the bag was magical, and the Spinner was still in the Party's keeping when the fight stopped. Its luck had helped the Party before, once while they helped [[Thunk]] gain something, and now the same luck was being used against them.
 
 ### Hidden truths
 

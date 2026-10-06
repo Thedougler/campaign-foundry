@@ -1,8 +1,9 @@
 ---
 type: NPC
-summary: "Injured Calveno survivor trapped in a lava tube with his son and two companions."
+summary: "Calveno bridge-toll clerk, lifted from the skylight pit with his son and two companions, his mended shin still splinted."
 sources:
  - "archive/ettore-ferrante.md"
+ - "archive/session-12-full.md"
 creature: "[[Commoner]]"
 ---
 
@@ -11,14 +12,14 @@ creature: "[[Commoner]]"
 - **Role.** Wreck survivor and bridge-toll clerk.
 - **Wants.** To avoid being left behind and see his brother Carlo again.
 - **Voice.** Exact, polite, and apologetic. “It is arithmetic” means hopeless.
-- **Found at.** The lava-tube ledge beneath the smoking skylight, where his splinted leg holds him.
+- **Found at.** Out of the pit and marching inland with the Party, his mended shin splinted and not fully working.
 
 > [!narration] First look
 > A heavy man lies against the black rock with his left leg in a splint. He tries to rise, then sags back and lifts a hand in apology. “Forgive me. I would stand, but the leg disagrees.”
 
 ## Play
 
-- **Opens them up.** A promise that the party will carry him.
+- **Opens them up.** A promise that the party will take him with them.
 - **Shuts them down.** Mentioning the woman in the woods.
 - **Will share.** Why the birds drove them underground and that Carlo walked toward the voice.
 - **Will not share.** How badly the broken leg hurts or how much he blames himself.
@@ -28,16 +29,13 @@ creature: "[[Commoner]]"
 
 ### History
 
-Ettore was a Calveno bridge-toll clerk. His left shin broke while he, Luca, Piero, and Gianni fled a terror-bird into the lava tubes. He believes Carlo walked to his death at Spoke Ring.
+Ettore was a Calveno bridge-toll clerk. His left shin broke while he, [[Luca Ferrante|Luca]], [[Piero Sorrentino|Piero]], and [[Gianni Moro|Gianni]] fled a terror-bird into the lava tubes. He believes [[Carlo Ferrante|Carlo]] walked to his death at Spoke Ring.
 
-### Hidden truths
-
-- Ettore believes he is the reason the others remain trapped, but the party is the only reason any of them can leave.
-- Until healed, his commoner statistics are reduced to 4 HP and Speed 0. He cannot stand.
+The Party found him at the bottom of the skylight pit, heavy-set with his left shin slanted, still blaming himself for the trap: "They, they came in trying to rescue me, and now they're stuck." [[Delmar Fisk|Delmar]] carried him and one other survivor out, and a [[Redheart Berry]] from [[Crissdalynn Khinriss|Crissdalynn]] healed him 28 hit points, snapping the shin back into place. The leg is still in its splint, and it works only in part.
 
 ### Threads
 
-He is a survivor in **Taking on Aruhe** and the centre of Carlo's reunion.
+He is a survivor in [[Take on Aruhe]] and the centre of [[Carlo Ferrante|Carlo]]'s reunion.
 
 ## Links
 

@@ -3,22 +3,23 @@ type: NPC
 summary: "Sixteen-year-old wreck survivor who counts everything and knows which way his uncle walked."
 sources:
  - "archive/luca-ferrante.md"
+ - "archive/session-12-full.md"
 creature: "[[Commoner]]"
 ---
 
 ## At a glance
 
 - **Role.** Wreck survivor and guide to the fruit-pile trail.
-- **Wants.** To carry his father out, then find his uncle Carlo.
+- **Wants.** His father safe on the march, and his uncle Carlo found.
 - **Voice.** Short sentences with numbers first. Counting keeps him calm.
-- **Found at.** The lava-tube ledge beneath the smoking skylight, nineteen tallies deep.
+- **Found at.** Out of the pit and marching inland with the Party. The walk after Carlo still waits.
 
 > [!narration] First look
-> A lanky boy's lips move over a count he has not finished, and he gives you the numbers, “Four of us. Three can walk. How many can you carry?”
+> A lanky boy's lips move over a count he has not finished, and he gives you the numbers, "We are four. One cannot walk. How many can you carry?"
 
 ## Play
 
-- **Opens them up.** A promise to carry Ettore.
+- **Opens them up.** A promise to bring Ettore out of danger.
 - **Shuts them down.** Calling Carlo dead.
 - **Will share.** The voice at Spoke Ring, the route north-east, and every fruit pile.
 - **Will not share.** His fear that the tally is running out.

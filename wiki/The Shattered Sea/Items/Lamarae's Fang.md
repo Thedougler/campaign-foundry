@@ -3,6 +3,7 @@ type: Item
 summary: "A sword of whip shark bone twined with worked metal, forged by Catarina Da'Virelli aboard the Uncertainty and taken up by Delmar Fisk against his promise of an axolotl."
 sources:
  - "archive/Episode-09-Transcript.md"
+ - "archive/session-12-full.md"
 ---
 
 ## At a glance
@@ -20,11 +21,13 @@ sources:
 
 ### Properties
 
-Catarina presented the materials and set her price, and the crew drank to the sword before anyone swung it. Rules text for the bone, if any exists, is still unwritten.
+Catarina presented the materials and set her price, and the crew drank to the sword before anyone swung it. Delmar's duel with [[Talon Skarn]] brought two features into the open. *Lashing follow-through*: after a hit, the flexible blade can lash toward a second creature within 5 feet of the original target. *Blood in the water*: a creature the blade cuts with slashing damage leaves its scent on the steel, one creature at a time. The wielder tracking that creature rolls Wisdom (Survival) with advantage for as long as the creature is wounded.
 
 ### In use
 
 Catarina brought the sword out at her workshop bench and named it for the room: "this here is Lamarae's Fang." Delmar took it by the handle, flipped it for the weight and sheathed it with a practised flair, and over it he gave his word: "I'll get you your axolotl." Perrin stood on the table and raised the toast that gave the sword its first public naming: "To the new crew, to the new sword, to new adventures."
+
+At the river camp Delmar swung the Fang two-handed at Skarn, rolled a natural 20 and added sneak attack, Crissdalynn standing within 5 feet of the falcon. The hit left Skarn bloodied. Hairline cracks in the shark-tooth blade filled red with his blood, and the metal no longer read as white. The scent held through the pursuit inland and broke after Skarn ate the stolen fruit and vanished from sight.
 
 ## Depth
 

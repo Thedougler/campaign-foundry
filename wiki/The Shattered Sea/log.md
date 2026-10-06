@@ -1365,3 +1365,68 @@
 ## [2026-10-05] audit | Nino's name restated as open (the Session 9 metalworker berthed aboard and the Session 10 beach castaway cannot be one man)
 
 - [[Nino]]
+
+## [2026-10-06] audit | Campaign Now and Direction restated to the Session 12 record (post-Session 11 camp and prep framing were overtaken by the full transcript)
+
+- [[Shattered Sea]]
+
+## [2026-10-06] audit | Crissdalynn's Fate Spinner custody restated to the Session 12 record (Inventory kept it in her harness pouch; she passed it to Delmar's bag before the pursuit)
+
+- [[Crissdalynn Khinriss]]
+
+## [2026-10-06] audit | Perrin's Bardic Inspiration die set to the played d8 (the sheet's d6 lost to the Session 10 table ruling)
+
+- [[Perrin Black-Jaw]]
+
+## [2026-10-06] audit | Piero Sorrentino restated to the Session 12 record (the rescue lifted him from the lava tube; pages kept him trapped)
+
+- [[Piero Sorrentino]]
+
+## [2026-10-06] audit | Luca Ferrante restated to the Session 12 record (the rescue lifted him from the ledge; the page kept him below the skylight)
+
+- [[Luca Ferrante]]
+
+## [2026-10-06] audit | Long Meadow ledge emptied and rescue lines retired (Session 12 ferried the four survivors out and crossed by the lava tubes, not the Gap)
+
+- [[The Long Meadow]]
+
+## [2026-10-06] ingest | session-12-full.md
+
+- [[Talon Skarn (Creature)]]
+- [[Terror-Bird]]
+- [[Sentinels of the Eyrie]]
+- [[Fate Spinner]]
+- [[Ghost Plum]]
+- [[Giant's Guava]]
+- [[Grung Authority Seal]]
+- [[Lamarae's Fang]]
+- [[Nightmantle]]
+- [[Redheart Berry]]
+- [[Stonepear]]
+- [[Aruhe]]
+- [[Lava Tubes]]
+- [[Memorial Grove]]
+- [[The Burnt Road]]
+- [[The Long Meadow]]
+- [[Auralis]]
+- [[Two-Grave Orders]]
+- [[Ettore Ferrante]]
+- [[Gianni Moro]]
+- [[Hinewai]]
+- [[Luca Ferrante]]
+- [[Master Kyzil]]
+- [[Matteo Scola]]
+- [[Piero Sorrentino]]
+- [[Talon Skarn]]
+- [[Talon Vantyrus]]
+- [[Crissdalynn Khinriss]]
+- [[Delmar Fisk]]
+- [[Jean-Claude Tabarnack]]
+- [[Perrin Black-Jaw]]
+- [[Shattered Sea]]
+- [[Drowned Maw Awakening]]
+- [[Simone's Hunters]]
+- [[hot]]
+- [[Rotheart]]
+- [[Session 12 - Recap]]
+- [[Session 13 - Previously On]]

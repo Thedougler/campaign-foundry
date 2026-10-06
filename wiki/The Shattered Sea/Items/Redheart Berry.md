@@ -4,6 +4,7 @@ summary: "A rare Aruhe berry that restores 8d4 + 8 hit points as a Bonus Action.
 sources:
  - "archive/redheart-berry.md"
  - "archive/session-11-transcript-archived-version.md"
+ - "archive/session-12-full.md"
 ---
 
 ![[Redheart Berry - Handout Art.jpg]]
@@ -13,7 +14,7 @@ sources:
 - **Kind.** Consumable.
 - **Rarity.** Rare.
 - **Attunement.** - **Changes.** Restores 8d4 + 8 Hit Points.
-- **Held by.** [[Crissdalynn Khinriss]] carries four after eating one in Session 11.
+- **Held by.** [[Delmar Fisk]] holds five. [[Crissdalynn Khinriss]] spent two of her own in Session 12.
 
 > [!narration] First look
 > A glossy red berry hangs from a short thick stem, ridged beneath curled leaves. Clear water beads on its tight skin, and dark juice bursts when the fruit splits.
@@ -22,11 +23,11 @@ sources:
 
 ### Properties
 
-As a Bonus Action, eat the berry to regain 8d4 + 8 Hit Points. It is consumed.
+As a Bonus Action, eat the berry to regain 8d4 + 8 Hit Points. It is consumed. Under a [[Rotheart]]'s 24 hours, rolled healing takes its maximum and the berry pays a flat 40.
 
 ### In use
 
-A fallen berry is safe under [[Taking on Aruhe|Aruhe's law]]. The source records Crissdalynn eating one in Session 11 and regaining 30 Hit Points.
+A fallen berry is safe under [[Taking on Aruhe|Aruhe's law]]. Crissdalynn ate one in Session 11 and regained 30 Hit Points. In Session 12 she gave one to [[Ettore Ferrante]], heavy-set and stuck in the smoking sinkhole with a slanted left shin, and the berry paid 28 Hit Points and snapped the shin straight. The leg kept its splint, not yet fully working. Her own berry in the last fight paid a flat 40 under the [[Rotheart]] she had eaten at the road camp, and she rose fully healed with her broken arm mended.
 
 ## Depth
 

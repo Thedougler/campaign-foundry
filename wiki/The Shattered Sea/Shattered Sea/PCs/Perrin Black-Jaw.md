@@ -8,6 +8,7 @@ sources:
  - "archive/ssw-cobb.md"
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
  - "archive/session-10.md"
+ - "archive/session-12-full.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/Krab02/characters/166013448"
 ---
 
@@ -27,7 +28,7 @@ dndbeyond_url: "https://www.dndbeyond.com/profile/Krab02/characters/166013448"
 
 ### Features
 
-- Longsword pact weapon (Sap), *Eldritch Blast* +8, Bardic Inspiration d6 (5 per Long Rest), Cutting Words, Cunning Pact, Pack Tactics, Scurry, Boneless, Survivor, and Magical Cunning.
+- Longsword pact weapon (Sap), *Eldritch Blast* +8, Bardic Inspiration d8 (5 per Long Rest), Cutting Words, Cunning Pact, Pack Tactics, Scurry, Boneless, Survivor, and Magical Cunning.
 - Blindsight 5 ft. Small size, with whiskers. Swim speed equals walking speed. Languages include Skittercant and Aquan.
 
 ## Spells
@@ -62,13 +63,19 @@ At [[Aruhe]] his perception 24 found the wrecked hulls and the campfire from the
 
 The old gardens gave him a six on the travel roll and a large fruit for the picking. "Fresh from Aruhe, guys." His perception 19 caught Jean-Claude from above just before the trees converged, and he held on as Crissdalynn went vertical. When the [[Crown Squid]] rose he spent a spell slot on a *Silent Image* fifteen feet square, a flying humanoid tumbling out of the sky twenty feet to one side. The beast's check to see through it came far lower against his performance 23. On the flight out he offered the same trick a second time and spent both his inspirations on another throw of the performance check. It came up a natural 20, and the beast broke off to hunt the fake "little mouse" while the Party bolted for the ship. The DM gave the beast's contest roll advantage for a trick used twice, and it fell for the image anyway. He closed the day offering ginger for Jean-Claude's churning stomach.
 
+At the road camp his drum slid him into the vision unasked: cold, a pressure on him, salt in the back of his throat, then the abyss, small and swimming, plankton and shrimp drifting past and jaws snapping beneath. "Consume. Consume," his patron said, and the vision set two living fruits in front of him, a gold-painted giant guava about his own size and a stone pear beside it, the fruits the Party had passed as unsafe to take. He rolled a die for the answer and disliked what it gave him. He turned his back on both, choosing the new crew over the old vendetta. He named it character development. The demand came back that night with his stun pinning him in place, "Or die, consume or die," and the fruit stayed on its vine, unpicked.
+
+His work in the dawn fight was sabotage and triage. A *Hex* opened on Skarn's Dexterity checks, and *Tasha's Hideous Laughter* failed him twice at DC 16, the falcon saving both times. The taunt worked better: "Your, your tail feathers look like baby carrots, see?" spent a Cutting Words on the killing dive and turned it into a miss on Crissdalynn, and the stare the raptor fixed on him left him terrified behind a show of nerve. Skarn's wide arc knocked him prone and took 26 slashing. He laid a line of oats out for the birds while the forest burned. His inspiration never stopped moving, a die to Delmar for the rifle shot, one to Crissdalynn before she flew out of range, one to Jean-Claude as they took to the air.
+
+On the road he worked the Party's kindnesses. His Medicine, a natural 20 with Delmar's help, pulled Matteo Scola back from the brink with "Snap out of it," and he spent the walk reassuring the rescued Calveno survivors, taking charge so the chaos stayed calm. Under the smoking skylight he stacked *Armour of Agathys* under *Mirror Image* and stood with the civilians while the Terror-Bird's steps shook the ceiling. At the dusk camp he ate his spare rations against the stress, tried a mouthful of grass, and called it terrible. In the night fight his *Tasha's Hideous Laughter* with a Cutting Words −6 behind it brought the falcon to the edge of its save and no further. His *Healing Word* put 13 into Crissdalynn. Skarn's unarmed strike ended his night at DC 18 Constitution, stunned while the patron's demand arrived.
+
 ## Goals and bonds
 
 - **Goal.** Survey the sea and find the Vestra while keeping the new crew alive.
 - **Bond.** Nona, the Passage, and the Black-Jaw rescue network are family obligations he cannot simply abandon.
 - **Fear.** Failing his obligations and losing the crew, then learning what his patron expects him to become.
 
-Perrin's patron answered his call with “Not yet” again.
+Auralis's demands on Perrin now run to "Consume or die," and twice on Aruhe he has turned his back on the living fruit.
 
 ## Plans
 

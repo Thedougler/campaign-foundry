@@ -9,6 +9,7 @@ sources:
  - "archive/agentic-co-dm-master-kyzil-narration.md"
  - "archive/Episode-09-Transcript.md"
  - "archive/session-10.md"
+ - "archive/session-12-full.md"
 creature: "[[Master Kyzil (Creature)]]"
 ---
 
@@ -49,6 +50,10 @@ During [[Shepherd Grigori]]'s night visit, Crissdalynn learned about the [[Senti
 At dawn, Crissdalynn meditated in the crow's nest about the mission he had given her. As far as she knew, Kyzil chose her because he believed she could complete it.
 
 Later, off [[Aruhe]], she told the Party that his private whisper aboard the ship had revealed the [[Fate Spinner]]'s power. She connected the pursuit to the artifact and began trying to understand how to use it. Kyzil had explained none of its functions and had seemed regretful during their conversation.
+
+#### Session 12: Delmar's claim
+
+During [[Talon Skarn]]'s second attack on the Party's camp on Aruhe, [[Delmar Fisk|Delmar]] told him, “Kyzil did say you were talented.” Delmar attributed the praise to Kyzil. Kyzil was absent from the encounter.
 
 ### Hidden truths
 

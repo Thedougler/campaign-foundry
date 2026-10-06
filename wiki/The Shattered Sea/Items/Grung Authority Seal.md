@@ -4,6 +4,7 @@ summary: "Spent gold seals that compelled lower-caste Grung onto Aruhe and prese
 sources:
  - "archive/grung-authority-seal.md"
  - "archive/collab-2026-10-04-authority-themes.md"
+ - "archive/session-12-full.md"
 ---
 
 ![[Grung Authority Seal - Handout Art.png]]
@@ -12,8 +13,9 @@ sources:
 
 - **Kind.** Wondrous plot item, single use.
 - **Rarity.** Spent examples are inert.
-- **Attunement.** - **Changes.** A whole seal can replace one Grung's will with a lifelong order.
-- **Held by.** The Party's gear includes one spent seal. Other spent seals lie beside Grung remains on Aruhe.
+- **Attunement.** -
+- **Changes.** A whole seal can replace one Grung's will with a lifelong order.
+- **Held by.** The Party's gear includes one spent seal, and Jean-Claude carries samples taken from the burnt road. Other spent seals lie beside Grung remains on Aruhe.
 
 > [!narration] First look
 > A spent seal is a palm-wide gold disc cracked into curved plates. Curling script and raised dots fill its face. Dirt packs every groove, and torn edges clink where it once fused to skin.
@@ -33,6 +35,8 @@ Spent seals do nothing. Their Gold-caste script records the bearer’s order cha
 ### History
 
 The Gold caste used seals to send successive expeditions inland: report, replace, destroy the two graves and finally burn the forest. Every grung who wore a seal on Aruhe is dead, so every seal is spent.
+
+Jean-Claude read the seals along the burnt road as the Party walked it and took samples of the spent paper, favouring the older ones, enough to tell the story of the whole campaign. The nearest seal the Party had examined up close read "Report what lies in land", its magic spent, and the grung there had been compelled onto the road in spring. The earliest order on the road read "Report the lives and land". Later seals carried the orders forward: "Replace the parties that were killed. Continue to roast." Then came "Find the grove", then "Find the graves at the grove". The last order was "Destroy the grave", and the farthest, oldest seals spoke of destroying two graves. Every skeleton on the road bore one seal, spaced twenty or thirty feet apart.
 
 ### Hidden truths
 

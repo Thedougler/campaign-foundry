@@ -54,7 +54,7 @@
 - [[La Cenere]] — Lavinia Sordi's Le Paludi shop for grey-market cursed and unusual goods.
 - [[La Vasca]] — A concealed Black-Jaw dry dock in Le Paludi, disguised as a defunct tannery and maintained by Cobb.
 - [[Landing Bank]] — The first river mouth after the terraces, where a used camp, northbound prints and fallen redheart berries mark the inland route.
-- [[Lava Tubes]] — Broad basalt tubes beneath Aruhe, linking marsh, Grove and Clear Lake. Four Calveno survivors are trapped below the Long Meadow skylight.
+- [[Lava Tubes]] — Broad basalt tubes beneath Aruhe, linking marsh, Grove and Clear Lake. The four Calveno survivors once trapped below the Long Meadow skylight are out and travel with the Party.
 - [[Le Paludi]] — Calveno's canal district of taverns, goods, alchemy and discreet routes below the city toward Warren.
 - [[Lesser Black Lotus]] — A scorched terrace flower that answers violent disturbance by casting a nearby spell back at its attacker.
 - [[Line Bank]] — A used fruiting margin on the Aruhe River where a fishing line, fresh prints and three fruit piles mark the route upriver.
@@ -74,10 +74,10 @@
 - [[Sunken Crown]] — A broken structure east of the Drowned Maw, structurally unstable and still subsiding.
 - [[Tallow Row]] — A card house of long-running tables where Thunk won silver, Thassos tests the players, and Old Faas holds fifteen years of standing.
 - [[Tessarine Trade House]] — A three-storey Concordat house on the Shelf that turns trade, salvage and mail into signed terms.
-- [[The Burnt Road]] — A two-mile Quiet scar burned by a Gold-caste expedition, where eleven compelled Grung lie sunk in black flowers.
+- [[The Burnt Road]] — A fire-cleared scar twenty feet across, burned from the coast deep into Aruhe by compelled Grung and lined with their clean white dead; it runs toward the grove.
 - [[The Cabinet of Morsani]] — A Velo Quarter curio shop where Prospero Morsani sells rare objects together with the stories of those who lost them.
 - [[The Galewall Runner's Drop]] — A legendary colonial-era privateer cache on the Ashwall Islands, named the way crews name a thing they have not found.
-- [[The Long Meadow]] — The one Quiet grass cut where the roof breaks open. Two Terror-Birds own its halves and the Calveno trail must cross the Gap.
+- [[The Long Meadow]] — The one Quiet grass cut where the roof breaks open. Two Terror-Birds own its halves, and the four survivors once trapped below the skylight are out with the Party.
 - [[The Pantry]] — A clearing deep in the Quiet roofed by one fruit-heavy vine, where seven Calveno survivors live on what falls.
 - [[The Ponte Bassa]] — A canal-side tavern built into Calveno's main crossing, where Oleandro Fuschi serves fish broth and remembers ships.
 - [[Torn Crossing]] — A flood-scoured Grasslands crossing where prints, slick stone, Razer-Grass, deep water and a Spiguar hunting lane constrain movement.
@@ -114,12 +114,12 @@
 - [[Duvane]] — An Ashwall repair-crew carpenter whose scorpion attack in a handhold fissure is why two hands now climb the stone.
 - [[Ensign Wouters]] — Crown ensign and navigator of the HCS Surety, shot through a gun port by Delmar Fisk; the Party fed his body to Ket.
 - [[Enzo]] — Nona Black-Jaw's polished tabaxi bodyguard, a quiet enforcer who reads every guest before violence reaches her.
-- [[Ettore Ferrante]] — Injured Calveno survivor trapped in a lava tube with his son and two companions.
+- [[Ettore Ferrante]] — Calveno bridge-toll clerk, lifted from the skylight pit with his son and two companions, his mended shin still splinted.
 - [[Felix Aho]] — Captured green-caste Grung labourer who traded bombing intelligence for protection.
 - [[Fen]] — Saltwright's ordinary sailor; young, earnest, and eight months at sea.
 - [[Geoffrey Draves]] — Dravosi carpenter aboard the Uncertainty, working under Sem Holst, dancing toward the means to claim Verity Hollowell's hand.
 - [[Giacomo Moretti]] — A Calveno name at the Beffa who welcomes attempts after twenty clean years, and this year's registered mark.
-- [[Gianni Moro]] — Calveno cooper who nearly followed Hinewai's voice from the lava tube.
+- [[Gianni Moro]] — Calveno cooper, lifted from the skylight pit by the Party, who nearly followed Hinewai's voice.
 - [[Hinewai]] — Undead elf archdruid bound to Aruhe, whose grief became the island's law.
 - [[Iacopo Fieschi]] — Tessarine factor who turned Calveno's victory into Concordat credit.
 - [[Ilario Pozzo]] — A Pantry survivor who joins the column when it sets out.
@@ -131,7 +131,7 @@
 - [[Marco Lenzi]] — A Pantry survivor who stays beneath the vine when the column leaves.
 - [[Marta Orsini]] — Le Paludi's buyer of eggs and curiosities at Studio Orsini, whom the Casa Lupo shopkeeper sends egg inquiries to.
 - [[Master Kyzil]] — Barn-owl Sentinel master testing Crissdalynn while investigating a foul wind beneath Calveno.
-- [[Matteo Scola]] — Wreck survivor who lives by Aruhe's fallen-fruit rule and will not approach Hinewai.
+- [[Matteo Scola]] — Wreck survivor who lives by Aruhe's fallen-fruit rule, will not approach Hinewai, and now travels inland with the Party.
 - [[Nino]] — A Calveno captive's name the table has used twice: the Mercatura metalworker aboard since Session 9, and Sandro's wordless beach companion. Which man is Nino is open.
 - [[Nona Black-Jaw]] — Black-Jaw Run matriarch, senior Tangle elder, and Perrin Black-Jaw's grandmother, who turns trust into routes and obligations.
 - [[Noor]] — The youngest hand aboard the Uncertainty, a fifteen-year-old cook who knows every sailing manual and almost none of the sea.
@@ -142,7 +142,7 @@
 - [[Otar the Foul]] — Ancient red slaad summoned through Solange Barret to destroy Mercatura.
 - [[Ozzeth, the Twiceborn]] — Disgraced Grung mage who maintained Simone's colour rite until his death in the sewer magazines.
 - [[Pell]] — A gnome enslaved as a labourer at Sorn, killed in the reprisal after Jean-Claude freed slaves.
-- [[Piero Sorrentino]] — Weathered Calveno net-mender trapped in a lava tube, waiting for salt water.
+- [[Piero Sorrentino]] — Weathered Calveno net-mender lifted from the lava tube, marching inland with the Party.
 - [[Prospero Morsani]] — Keeper of the Velo Quarter cabinet of lost objects, and a fixture at every Calveno festival whose appearance at the winning stage the crowd reads as an omen.
 - [[Renzo Canale]] — Eldest Calveno survivor who teaches Aruhe's fallen-fruit rule and will stay at the Pantry.
 - [[Ruk]] — Nona Black-Jaw's literal-minded lizardfolk guardian, a patient physical shield who never ignores a lie or threat.
@@ -211,7 +211,7 @@
 - [[Snakewood]] — A carnivorous canopy vine colony that grips travellers and feeds with acid.
 - [[Solange Barret (Creature)]] — Solange Barret, a unique Creature stat block from the archived NPC record.
 - [[Spiguar]] — A Spiguar creature (CR 11) used as a ambusher in The Shattered Sea.
-- [[Talon Skarn (Creature)]] — Talon Skarn (Creature), a unique Creature stat block from the archived NPC record.
+- [[Talon Skarn (Creature)]] — Talon Skarn's Creature stat block, as played: a CR 13 falcon monk who hunts the Fate Spinner, flees beaten, and comes back invisible.
 - [[Talon Vantyrus (Creature)]] — Talon Vantyrus (Creature), a unique Creature stat block from the archived NPC record.
 - [[Terror-Bird]] — A Terror-Bird creature (CR 13) used as a bruiser in The Shattered Sea.
 - [[Unsaid Macaw]] — A macaw that echoes surface thoughts and can briefly compel a truthful sentence.
@@ -256,11 +256,11 @@
 
 - [[A Sliver of the Unstable Form]] — A warm fragment of Otar the Foul's hide that grants conditional regeneration to its attuned bearer.
 - [[Alchemist's Bandolier]] — The Dravosi Alchemist's bandolier of Grung toxin canisters, lying unexamined somewhere on the Saltwright's deck since the boarding.
-- [[Fate Spinner]] — A thumb-sized quartz top that watches one known creature from afar and lends it luck. Crissdalynn carries it and the faction hunts it.
+- [[Fate Spinner]] — A thumb-sized quartz top that watches one known creature from afar and lends it luck. Delmar Fisk hides it in his Bag of Holding while Talon Skarn hunts it for the faction.
 - [[Fleet Commanders Chair]] — An unbreakable command chair that grants Charisma advantage while occupied and is secretly an elder mimic.
 - [[Flying Boots]] — Winged Boots that grant Delmar a 30-foot Fly Speed for 1 hour per charge.
 - [[Ghost Plum]] — A rare Aruhe fruit that makes its eater Invisible for 1 hour, while its pollen reveals invisible creatures as a shimmer.
-- [[Giant's Guava]] — A rare Aruhe fruit that sets the eater's primary ability score to 25 for 1 hour.
+- [[Giant's Guava]] — A rare Aruhe fruit that raises a chosen ability score for 1 hour; one gourd cooks into five weaker kebabs.
 - [[Gold Fruit]] — The Gold caste's diet fruit from Karath's secret farms: enough of it turns a grung's skin gold, and a casting of Ossketh then holds the colour for life.
 - [[Grubnade]] — A volatile Aruhe caterpillar that detonates when disturbed, scattering harmless juveniles and igniting nearby growth.
 - [[Grung Authority Seal]] — Spent gold seals that compelled lower-caste Grung onto Aruhe and preserve each bearer's whole order chain.
@@ -271,6 +271,7 @@
 - [[Nightmantle]] — A cursed cloak of displacement that redirects nearby ranged attacks to its wearer.
 - [[Pearl of Souls]] — A shrine relic that collects drowned souls, signals across the Drowned Maw and remains beyond Umberlee's reach.
 - [[Redheart Berry]] — A rare Aruhe berry that restores 8d4 + 8 hit points as a Bonus Action.
+- [[Rotheart]] — A black Aruhe fruit that strips sickness and makes rolled healing take its maximum for 24 hours.
 - [[Sending Stone (Nona's)]] — A paired sending stone that gives Perrin a private line to Nona Black-Jaw in exchange for an unrevealed favour.
 - [[Silent Shortbow]] — A yew shortbow whose draw and release make no sound, bought by Jean-Claude Tabarnack from Casa Lupo in Le Paludi.
 - [[Solange's Authority Seal]] — An unused Grung authority seal that can replace one Grung's will with a lifelong order.
@@ -400,6 +401,7 @@
 - [[Session 9 - Recap]] — Uncertainty out-lied the HCS Ordinance towards Calveno, rescued three driftwood captives, and closed on the Midchain with Lamarae's Fang promised for an axolotl.
 - [[Session 10 - Recap]] — A night visit from Shepherd Grigori, a broadside that burned the follower ship, and a crown squid chase off Aruhe's terraces.
 - [[Session 11 - Recap]] — The Party crossed inland Aruhe, rescued Matteo Scola, and ended the night inside a falcon's ambush on Crissdalynn's watch.
+- [[Session 12 - Recap]] — The Party kept the Fate Spinner from Skarn, rescued four Calveno survivors and followed compelled Grung's trail inland before Skarn ambushed their next camp.
 
 ## Previously On
 
@@ -416,3 +418,4 @@
 - [[Session 10 - Previously On]] — The Party turned the HCS Ordinance inspection towards Calveno, rescued three driftwood captives, and closed on the Midchain east-bound.
 - [[Session 11 - Previously On]] — Grigori's warning, a burning pursuer and the escape from Aruhe's Crown Squid.
 - [[Session 12 - Previously On]] — The Party crossed Aruhe's living hazards, rescued Matteo Scola, and finished inside a falcon Talon's ambush on Crissdalynn's watch.
+- [[Session 13 - Previously On]] — Talon Skarn attacked the Party twice for the Fate Spinner on Aruhe, and the second fight was still joined when play stopped.
