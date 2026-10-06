@@ -3,6 +3,7 @@ type: Lore
 summary: "The Dravosi Crown's standing price on rattkin lives: 15 gp a head, dead or alive, paid at any Crown fort, and still in force."
 sources:
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+ - "archive/Episode-09-Transcript.md"
 ---
 
 ## At a glance
@@ -31,7 +32,7 @@ When the Crown implemented the bounty, [[Nona Black-Jaw]] had her political awak
 
 Crown authority ends at Calveno's quays, so its rattkin are relatively safe. The exceptions come off visiting ships: Dravosi naval officers resupplying or on shore leave occasionally start altercations with the rattkin they meet.
 
-When [[HCS Ordinance]] boarded the [[Uncertainty]] on the crossing toward Sparhold, [[Perrin Black-Jaw]] hid below with the rescued captives rather than stand on a Crown deck with a price on him.
+When [[HCS Ordinance]] boarded the [[Uncertainty]] on the crossing toward Sparhold, [[Perrin Black-Jaw]] hid below with the rescued captives rather than stand on a Crown deck with a price on him. He refused any parley and slipped below before the officers came aboard, sitting out the whole inspection in hiding. From a knot in the wall he showed [[Catarina Da'Virelli]] his tail and passed her his Bardic Inspiration.
 
 ### Chronology
 

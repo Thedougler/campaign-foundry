@@ -6,6 +6,7 @@ summary: "An unbreakable command chair that grants Charisma advantage while occu
 sources:
  - "archive/fleet-commanders-chair.md"
  - "archive/agentic-co-dm-fleet-commanders-chair-narration.md"
+ - "archive/Episode-09-Transcript.md"
 ---
 
 ## At a glance
@@ -35,9 +36,11 @@ The chair stands aft in the former captain's cabin. The seat is a little too upr
 
 Delmar recovered or claimed it during the Calveno refit. The sources disagree between the Mercatura crater and [[La Vasca]]. Catarina's Bag of Holding moved it in one account.
 
+At inspection prep before the [[HCS Ordinance]] came alongside, Delmar set the chair out on deck and ran the crew's preparations from the seat, selling the [[Uncertainty]] to the boarding party as an honest merchantman ([[Session 9 - Recap]]). The seat greeted him with 3 piercing damage from something sharp inside it, and his search of the chair turned up only a spring that might have worked loose.
+
 ### Hidden truths
 
-The chair is an Elder Mimic in object form. *Identify* reports only the chair and Seated Authority. Touch can trigger Adhesive and a bite. The mimic is still undiscovered, and each carrying moves it towards safer ground.
+The chair is an Elder Mimic in object form. *Identify* reports only the chair and Seated Authority. Touch can trigger Adhesive and a bite. The mimic is still undiscovered, and each carrying moves it towards safer ground. Its bite came closest to discovery at inspection prep, when it stung Delmar from inside an unmarked seat and left his search empty-handed ([[Session 9 - Recap]]).
 
 ## Links
 

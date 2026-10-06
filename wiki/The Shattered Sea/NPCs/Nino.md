@@ -3,6 +3,7 @@ type: NPC
 summary: "A Calveno captive wrecked on Aruhe, whose wordless caution teaches the island's taking-rule faster than words could."
 sources:
  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+ - "archive/Episode-09-Transcript.md"
 creature: ""
 ---
 
@@ -25,7 +26,11 @@ creature: ""
 
 ### History
 
-The same raid and the same wreck took him captive toward [[Karath]], and the same outrigger strut carried him ashore. He has stayed at the beach's edge since the island took [[Tomo]], and his caution has kept both castaways unmarked.
+The same raid and the same wreck took him captive toward [[Karath]], and he came ashore clinging to the same outrigger strut.
+
+The morning after the Party's first night at sea, the [[Uncertainty]] sailed into a field of storm wreckage. [[Crissdalynn Khinriss|Crissdalynn]] found three young men clinging to a shattered piece of hull, sunburnt and a day or two adrift without fresh water. She flew two aboard and ropes took the third. They came aboard wrapped in blankets, shivering, with a clear Calveno accent. [[Perrin Black-Jaw|Perrin]] greeted them as a rattkin with a black jaw, from Calveno. "You're in good hands. See? Safe." Nino gave his account aboard: a metalworker in [[Mercatura]], taken in the raid while getting groceries. The raiders herded the captives toward the tunnels and loaded them aboard ships. The hurricane, he said, cut the captured fleet in half; the back half was pushed east, presumed lost at sea or shipwrecked. The Party berthed the men below, in spare crew beds in the galley.
+
+He has stayed at the beach's edge since the island took [[Tomo]], and his caution has kept both castaways unmarked.
 
 ### Hidden truths
 

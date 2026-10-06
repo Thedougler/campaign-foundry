@@ -71,7 +71,7 @@ Everything under `local://` stays outside the Wiki. Ingest files a Story into th
 |collab (the main agent)|`collab-with-me`|the DM|full|holds the conversation, does cheap reads and dispatches everything heavier|
 |`creative-writer`|[`.omp/agents/creative-writer.md`](../.omp/agents/creative-writer.md)|co-writing Seeds, Story prose drafts and "show me versions"|`read`, `yield`|writes prose to a brief, optimising for any Stance the brief names|
 |`persona`|[`.omp/agents/persona.md`](../.omp/agents/persona.md)|`simulate-npcs` step 3 only|none|plays one NPC from its dossier, one turn per Director command|
-|Director|a native `task` subagent running `simulate-npcs`, or `prep-session` itself|collab's Simulate stage, or Prep step 4|full|frames scenes, commands each Persona and keeps the ledger|
+|Director|collab itself, running `simulate-npcs` (only the top-level session dispatches Personas)|collab's Simulate stage, or a Prep runner's request from Prep step 4|full|frames scenes, commands each Persona and keeps the ledger|
 |Critic|a fresh native `task` subagent with `story-critique.md`|collab's Critique stage|full, leaves the bible and drafts as they are|answers the TTCW tests and returns findings|
 |`scout`|bundled|collab step 3|read-only|widens the Wiki search and returns relevant paths|
 |Ingest, Lint and Prep runners|fresh native `task` subagents|collab steps 5 and 6|full|file, check and build one chain at a time|

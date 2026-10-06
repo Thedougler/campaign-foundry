@@ -4,6 +4,7 @@ summary: "Seller of cursed goods who named Osset a second time."
 sources:
  - "archive/lavinia-sordi.md"
  - "archive/ssw-nightmantle.md"
+ - "archive/Episode-09-Transcript.md"
 creature: "[[Commoner]]"
 ---
 
@@ -30,6 +31,8 @@ creature: "[[Commoner]]"
 ### History
 
 Lavinia sells unusual and cursed goods at [[La Cenere]]. She sold Nightmantle and named Osset a second time, linking traces to the Sentinel schism.
+
+Delmar holds a sending stone paired to hers, and the Party counted her among the stone's contacts in Session 9. By his account, he called on her during the hour before the [[Uncertainty]] sailed, and the romantic meeting went comically badly: he turned out the tender, swooning admirer instead of what she had expected. Afterwards he wiped her from his stone's returning contacts, saying, "now I have a burner crystal," and sent his warning of the coming Dravosi warship to [[Serena]] instead.
 
 ### Hidden truths
 

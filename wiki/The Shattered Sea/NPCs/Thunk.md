@@ -5,6 +5,7 @@ sources:
  - "archive/agentic-co-dm-thunk-narration.md"
  - "archive/thunk.md"
  - "archive/ssw-session-02.md"
+ - "archive/Episode-09-Transcript.md"
 creature: ""
 ---
 
@@ -31,6 +32,8 @@ creature: ""
 ### History
 
 Thunk is a dockyard metallurgist and trained chemist who cast and fitted cannon in Port Tidefall for eleven years. He put a thousand gold of cannon on the Uncertainty's credit and later won silver at [[Tallow Row]]'s card table, while [[Thassos]] tested and folded.
+
+In Session 9 he claimed the [[Uncertainty]]'s old captain's quarters as a crew break room, a large chair, a coffee table, snacks and terrible paintings included, saying the Party had okayed it. [[Perrin Black-Jaw|Perrin]] pressed him on the spending, saying [[Nona Black-Jaw]]'s family had paid for it, and Perrin's insight (17) caught the lie about who had authorised it. He pulled Thunk down to eye level by the collar: "Nona's gonna have some words about this." Nona's answer came back over the sending stone: the guns were useful for protecting yourself, and "the break room is unnecessary."
 
 ### Hidden truths
 

@@ -3,6 +3,7 @@ type: NPC
 summary: "Calveno artificer and salvage engineer who keeps her workshop in the city."
 sources:
  - "archive/catarina-davirelli.md"
+ - "archive/Episode-09-Transcript.md"
 creature: "[[Commoner]]"
 ---
 
@@ -18,7 +19,7 @@ creature: "[[Commoner]]"
 
 ## Play
 
-- **Opens them up.** A mechanism worth studying or repairing.
+- **Opens them up.** A mechanism she gets to study or repair.
 - **Shuts them down.** Being asked to abandon Calveno or treat her shop as a standing resource.
 - **Will share.** Practical answers on mechanisms and what repair or copying would require.
 - **Will not share.** Her workshop or research without terms.
@@ -30,6 +31,12 @@ creature: "[[Commoner]]"
 
 Catarina works on mechanisms and Antheri salvage from her permanent Calveno workshop. She completed work for Delmar, Crissdalynn, and Zort before the party left. She also tried and failed to stop Solange's final ritual.
 
+In Session 9 she sailed with the Party aboard the [[Uncertainty]]. As the refit's bills reached [[Nona Black-Jaw]], she told the others she was taking it on for them all: "Just Catarina's taking it on, of you all and looking, you know." She drew the travel role of navigation intelligence. When the council weighed flying [[Crissdalynn Khinriss|Crissdalynn]] ahead to [[Sparhold]], she sketched a bird-sized catapult to launch her from the deck, then built it below during the first watch with her opera turned up.
+
+She met the voyage's troubles with Ragnito, her spider-like construct, refitted as a cannon mount. When three rescued captives panicked, she set Ragnito to staring them down until the intimidation took, then left the construct on deck as a deterrent, saying, "Don't touch Ragnito." She can make ginger essence steam and smell warm by magic, and she strengthened [[Delmar Fisk|Delmar]]'s seasickness drink with it. As the [[HCS Ordinance]] closed in she told the Party, "I don't wanna act abnormal and weird… I work for them." The time aboard counted as a long rest for her: spell slots back, seven temporary hit points on top. By her account, [[Rupert Knighton]] had strongly encouraged her to evacuate Calveno. When the inspection wore on she turned her umbrella's magical tinkering to imitating [[Umberlee]]'s laughter around the ship, and her Persuasion 23 made [[Aleksander Malone]] step back, unsettled.
+
+She later led the Party down to a crafting workshop she has set up aboard, her Calveno workshop staying home. There she unveiled [[Lamarae's Fang]], a sword forged from whip shark bone infused with metal, and offered it to Delmar for aid in finding an axolotl, whose components she means to study. Delmar agreed to find her one.
+
 ### Hidden truths
 
 - Her completed work is with its recipients, and the source doesn't record unfinished commission.
@@ -37,7 +44,7 @@ Catarina works on mechanisms and Antheri salvage from her permanent Calveno work
 
 ### Threads
 
-She is a practical contact in the Calveno aftermath of **Simone's Hunters**.
+She is a practical contact in the Calveno aftermath of **Simone's Hunters**. The Party still owes her the axolotl she priced [[Lamarae's Fang]] at.
 
 ## Links
 

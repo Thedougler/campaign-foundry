@@ -10,6 +10,7 @@ sources:
  - "archive/collab-2026-10-04-authority-themes.md"
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
  - "archive/agentic-co-dm-nona-black-jaw-narration.md"
+ - "archive/Episode-09-Transcript.md"
 creature: "[[Commoner]]"
 aliases:
  - "Nona"
@@ -56,7 +57,7 @@ She called in the favour by sending stone, telling Perrin to gather his friends 
 
 When her grandson's name surfaced with the capture of the Surety, her search for him was already live, and her message reached him through [[Beaumont Sel]].
 
-Nona was warned by sending stone about the HCS Ordinance and the Hound.
+Perrin reported Thunk's refit spending on the [[Uncertainty]] to her by sending stone the day the Party left Calveno, and she answered: "I know about the money. I figured guns were useful for protecting yourself, but the break room is unnecessary." The next day Delmar warned her that the Dravosi were coming to Calveno. She asked which ship, and whether they meant to occupy the harbour or just park in it. The Party gave her the name, the [[HCS Ordinance]], and Perrin added that the Hound of Tyr was named [[Aleksander Malone|Aleksander]] and that he was hunting [[Shepherd Grigori]]. The Hound she already knew by reputation. Of Grigori she knew little.
 
 ### Hidden truths
 

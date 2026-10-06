@@ -7,6 +7,7 @@ sources:
  - "archive/ssw-session-02.md"
  - "archive/ssw-session-03.md"
  - "archive/ssw-party-crew.md"
+ - "archive/Episode-09-Transcript.md"
 creature: "[[Geoffrey Draves (Creature)]]"
 ---
 
@@ -41,6 +42,8 @@ During the boarding of the [[Saltwright]], the fight turned and the men around h
 He served aboard the captured cutter through its renaming and the Calveno refit, after which [[Sem Holst]] took the carpenter's role and Geoffrey came under him. [[Delmar Fisk|Delmar]] resumed his training on the transit toward Calveno, calling him "Mr. James" throughout, and drilled him again through a later night crossing. Between the two, Delmar warned him off going anywhere alone after an encounter with a woman claiming to speak for [[Umberlee]].
 
 With the crew his terms are carpenter only, six gold a week, and he keeps out of boarding actions.
+
+As the [[Uncertainty]] left Calveno in Session 9 he ran up topside, saluted, and presented a map with the [[Midchain]] headings marked, then offered the tour of the refit's upgrades. The tour showed off the new icebreaker at the prow, a long blade fixed to the hull with a modified figurehead that strikes first. The chart table gave the voyage its headings. [[Sparhold]] is in the northern [[Midchain]], about a day away, and [[Kalowe]] is to the south-west, a day or two further and a major city. [[Fathomrush]] is the far eastern mark, near the [[Drowned Maw|Maw]], a boom town. Two days out he looked over the approaching warship and named her: the [[HCS Ordinance]], bound for Calveno. Before her inspection he had Duncan and a few hands make everything ready, saying, "nothing to see here officer… we're running if this goes poorly."
 
 ### Hidden truths
 

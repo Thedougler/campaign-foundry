@@ -4,19 +4,20 @@ kind: Settlement
 summary: "A timber fortress-market and harbour stop on the raiding-fleet trail, where route information is currency."
 sources:
  - "archive/Sparhold.md"
+ - "archive/Episode-09-Transcript.md"
 parent: "[[Midchain]]"
 ---
 
 ## At a glance
 
-- **Size.** A harbour slope and timber fortress-market on Sparhold Isle.
+- **Size.** A defended lumber town in the northern [[Midchain]], at the edge of the [[Verdant Teeth]]. Its harbour slope leads to a timber fortress-market on Sparhold Isle.
 - **Ruled by.** A local harbour compact, with outside powers pressing for access.
 - **Mood.** Practical hospitality with a lock on it.
 - **Unsettled by.** The raiding-fleet trail, witness danger and possible Crown occupation.
-- **Known for.** Berths, pilots, departure records and information about the taken.
+- **Known for.** Shipbuilding timber, berths and pilots. Visitors also seek departure records and information about the taken.
 
 > [!narration] Arrival
-> Sparhold's timber walls rise before you, enclosing a market above the Teethward water. The berths smell of pitch and wet timber. Arrivals are counted here before anyone asks what brought you.
+> Arrivals at Sparhold are counted before anyone asks what brought you. Pitch and wet timber scent the berths below the market, enclosed by timber walls above the water towards the Verdant Teeth.
 
 ## Play
 
@@ -27,6 +28,8 @@ The outer berth, work yard, meeting place and rear landing form the usable settl
 ### Services
 
 Pilots, labour, trade, protection, departure records and witness interviews are available when trust or payment opens them.
+
+Logging crews cut the massive Grung trees of the Verdant Teeth for shipbuilding, risking capture and enslavement.
 
 ### Factions here
 
@@ -44,7 +47,11 @@ Sparhold is a relay, not necessarily the final destination of the taken.
 
 ### History
 
-The settlement sits on the open-water trail from [[Uncertainty]] toward [[Aruhe]]. The local spar stand was cut down when the walls went up.
+The settlement is on the open-water trail from [[Uncertainty]] toward [[Aruhe]]. The local spar stand was cut down when the walls went up.
+
+#### Session 9: setting course
+
+[[Geoffrey Draves]] marked Sparhold on his map as about a day's sail from [[Calven and Calveno|Calveno]]. [[Jean-Claude Tabarnack|Jean-Claude]] believed the Grung fleet would bypass the town, but thought residents or sailors might have seen it pass. The Party unanimously chose to sail south for Sparhold.
 
 ### Hidden truths
 

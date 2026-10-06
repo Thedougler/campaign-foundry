@@ -3,12 +3,13 @@ type: NPC
 summary: "A Calveno captive wrecked on Aruhe, sheltering in the broken Vethka hull and watching the reef gap for rescue."
 sources:
  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+ - "archive/Episode-09-Transcript.md"
 creature: ""
 ---
 
 ## At a glance
 
-- **Role.** Calveno captive and castaway, one of three who reached Aruhe's shore alive from the [[Vethka]] wreck.
+- **Role.** Calveno captive and castaway; the [[Vethka]] wreck put three ashore on Aruhe alive, and he was one.
 - **Wants.** To get [[Nino]] off Aruhe alive.
 - **Found at.** The broken [[Vethka]] hull on [[Western Landing]]'s beach, at the signal fire.
 
@@ -25,7 +26,9 @@ creature: ""
 
 ### History
 
-The Calveno raid carried him captive toward [[Karath]]. The storm put the Vethka proas on Aruhe's reef, and he came ashore on a broken outrigger strut with Nino and Tomo. Tomo broke the fruit taboo that first night and the island took him. Sandro and Nino have kept the hull's shade since, living on sea fish and fallen fruit while the signal fire watches the gap for them.
+The Calveno raid took him captive toward [[Karath]]. The storm put the Vethka proas on Aruhe's reef, and he came ashore on a broken outrigger strut with Nino and Tomo. Tomo broke the fruit taboo that first night and the island took him. Sandro and Nino have kept the hull's shade since, living on sea fish and fallen fruit while the signal fire watches the gap for them.
+
+When the wolfrabbits swept the landing beach, the pack passed the hull's shade by. Sandro sat coiling thread to build himself a net while Nino stared at the water, shell-shocked, and neither of them was noticed.
 
 ### Hidden truths
 

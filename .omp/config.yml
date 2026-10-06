@@ -1,6 +1,6 @@
 task:
   enableLsp: true
-  maxRecursionDepth: 3
+  maxRecursionDepth: 1
 providers:
   maxInFlightRequests:
     anthropic: 4

@@ -3,22 +3,23 @@ type: NPC
 summary: "Blue-caste Grung handler who became an ally while hiding the party in a sewer nap room."
 sources:
  - "archive/ruma-delacroix.md"
+ - "archive/Episode-09-Transcript.md"
 creature: "[[Commoner]]"
 ---
 
 ## At a glance
 
-- **Role.** Blue-caste handler for the sewer magazine network.
+- **Role.** Cook aboard [[Uncertainty]], formerly the sewer network's blue-caste handler.
 - **Wants.** To keep her cover and the hidden refugees alive.
 - **Voice.** Flat, unhurried, dry, and visibly relieved to have someone to talk to.
-- **Found at.** Room 6 of the Calveno Sewer Magazines.
+- **Found at.** Aboard [[Uncertainty]], at the galley or over her ledgers.
 
 > [!narration] First look
-> A blue Grung sits at a desk in Room 6, surrounded by charts and tide marks. She speaks in a flat voice while chemical formulae curl across every spare scrap like star maps.
+> A blue Grung is at a desk in Room 6, surrounded by charts and tide marks. She speaks in a flat voice while chemical formulae curl across every spare scrap like star maps.
 
 ## Play
 
-- **Opens them up.** Sincere interest in her doodles and treating her as someone worth hearing.
+- **Opens them up.** Sincere interest in her doodles and treating her as someone to hear out.
 - **Shuts them down.** A failed pipe-click check or Jean-Claude speaking in handler-register.
 - **Will share.** Secondary magazine sites, timing, sentry composition, and egress vents.
 - **Will not share.** The primary site, the circle's purpose, or Simone's and Solange's identities.
@@ -29,6 +30,8 @@ creature: "[[Commoner]]"
 ### History
 
 The party captured Ruma in Session 05 without a fight. Her chemical doodles won their trust, and she hides them in her dry “nap room” while continuing to answer the network's check-ins. She is an ally who cannot fight.
+
+She went aboard the [[Uncertainty]] as crew when the ship left Calveno in Session 9. The quartermaster's post runs on charm, and it never fit her: her talents run to chemistry and accounting, and her pen writes fan fiction. Sailing and gunnery stay beyond her. The Party settled her into the ledgers instead, freeing [[Perrin Black-Jaw|Perrin]] of them, and set her to cooking, where her galley gives the crew an extra 1d6 temporary hit points on each long rest ([[Shipboard Travel]]). The crossing was her first open water after years of reefs and rivers, and she passed the open-ocean swells on a Constitution save totalling 30. When the [[HCS Ordinance]] boarded, she went below to hide at [[Jean-Claude Tabarnack|Jean-Claude]]'s direction; her hiding roll came up 3 and she asked, very loudly, "Is this a good spot?" With [[Perrin Black-Jaw|Perrin]]'s Bardic Inspiration her roll reached 10.
 
 ### Hidden truths
 

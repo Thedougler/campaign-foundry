@@ -3,6 +3,7 @@ type: NPC
 summary: "Crown boarder whose false report now drives a quiet hunt for the crew."
 sources:
  - "archive/corbin-knighton.md"
+ - "archive/Episode-09-Transcript.md"
 creature: "[[Dravosi Enforcer]]"
 ---
 
@@ -28,7 +29,15 @@ creature: "[[Dravosi Enforcer]]"
 
 ### History
 
-Corbin learned formal record-keeping under the Tessarine Concordat before taking a Crown warrant. House Knighton's rank went to Rupert and its future to Corvin. Corbin got a ship and made boarding his family business.
+Corbin learned formal record-keeping under the Tessarine Concordat before taking a Crown warrant. House Knighton's rank went to [[Rupert Knighton]] and its future to [[Corvin Knighton]]. Corbin got a ship and made boarding his family business.
+
+#### Session 9: recalling the inquisitor
+
+Corbin boarded the [[Uncertainty]] from the [[HCS Ordinance]] with [[Aleksander Malone]]. He was a young officer with duelling scars, a rapier and a bandolier of flintlocks. He introduced himself to Catarina as the new officer in charge of the knights, dispatched by [[Rupert Knighton]]. He apologised for Malone's behaviour, comparing the inquisitor to the family dog getting restless on a walk.
+
+When Malone's interrogation escalated and Catarina imitated Umberlee's laughter, Corbin drew a flintlock on him. Corbin ordered, “You heard them. I believe them. Go. We're going to Calveno.” The Dravosi officers left the Party's ship, and the Ordinance sailed towards [[Calven and Calveno|Calveno]].
+
+In his parting apology, Corbin said his dog needed a shorter chain or a muzzle. He asked for news of [[Shepherd Grigori]]. Corbin called him a dangerous, untrustworthy demon and blamed him for the Calveno incident.
 
 ### Hidden truths
 

@@ -5,6 +5,7 @@ summary: "Three reef-linked islets joined by stone bridges, with one navigable g
 sources:
  - "archive/kalowe.md"
  - "archive/ssw-midchain.md"
+ - "archive/Episode-09-Transcript.md"
 parent: "[[Midchain]]"
 ---
 
@@ -46,6 +47,10 @@ The yard bell at [[Ashkevet]] still rings. The Council has raised tribute to buy
 ### History
 
 After the [[Red Lady]] sank, [[Master Kyzil]] tracked current and weather through Kalowe and Calder's Tooth while searching for Crissdalynn.
+
+#### Session 9: a heading on the chart
+
+Leaving [[Calven and Calveno|Calveno]], [[Geoffrey Draves]] marked Kalowe to the southwest as a major city. He estimated that sailing there would take a day or two longer than sailing to [[Sparhold]].
 
 ### Hidden truths
 

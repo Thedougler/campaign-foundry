@@ -6,6 +6,7 @@ sources:
  - "archive/ssw-session-03.md"
  - "archive/ssw-session-04-ingest-recap.md"
  - "archive/ssw-sending-stone-nona.md"
+ - "archive/Episode-09-Transcript.md"
 ---
 
 ## At a glance
@@ -23,7 +24,7 @@ sources:
 
 ### Properties
 
-Speaking to this stone reaches only Nona's twin. No charges, range limits or other activation rules are established. The pair is the whole item.
+Speaking to this stone reaches only Nona's twin. No charges, range limits or other activation rules are established. The pair is the whole item, and the type itself doesn't tell a sender when a message has been read (the DM's ruling, [[Session 9 - Recap]]).
 
 ### In use
 

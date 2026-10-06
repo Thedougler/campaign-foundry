@@ -8,6 +8,7 @@ sources:
  - "archive/ssw-shepherd-grigori-island.md"
  - "archive/collab-2026-10-04-authority-themes.md"
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+ - "archive/Episode-09-Transcript.md"
 creature: "[[Shepherd Grigori (Creature)]]"
 ---
 
@@ -42,6 +43,16 @@ He travelled aboard the [[Uncertainty|Surety]], below deck as [[Barnaby Rook]]'s
 He left the Party at [[La Vasca]] and went ashore at [[Calven and Calveno|Calveno]], where an heir's physicians had given up, and where someone named [[Impuni]] had to be reached in time. The parting handshake was cold, and he gave his business in the city a week or two, with paths that might cross again.
 
 A storm becalmed the [[Uncertainty]] and pressed his schedule, and he stayed aboard, cooperative, counting days. The business finished. The Tessarine heir's bleeding sickness had grown worse past anything the household's physicians managed, and a festival crowd brought on an acute crisis that Grigori settled before a second visit completed the binding. The heir sat up asking for food. Within a day the servants were telling of a man who came after dark, stayed twenty minutes, smelled of wine and something else, sang under his breath throughout, and asked for nothing, and the family keeps the recovery to itself. He sailed from Calveno on his own timetable after that, and [[Aleksander Malone]] later tracked him aboard the [[HCS Ordinance]] under merchant cover.
+
+#### Session 9: the Crown's accusation
+
+During the refit tour, the Party remembered Grigori among the [[Uncertainty]]'s five original crew, calling him their original cook and recalling that he and [[Alys Kuiper]] had disembarked at [[Calven and Calveno|Calveno]]. This was their recollection. [[Noor]] remains the recorded cook aboard the Surety.
+
+[[Aleksander Malone]] boarded the Party's ship while pursuing Grigori. He called the healer an aberration and a demon in human skin, and said the Crown blamed him for the Calveno incident. Malone claimed Grigori had destroyed the [[Uncertainty|HCS Surety]] and killed [[Barnaby Rook]], and believed he had been dropped somewhere in Calveno.
+
+Delmar deceived Malone by claiming he had met Grigori only in passing after the Party was shipwrecked. He described tan skin and a wild beard, and said Grigori had been procuring passage among ships in port. He assured the inquisitor that Grigori was in Calveno.
+
+After the boarding, Crissdalynn recalled that Grigori's magic had been unusual and his handshake awfully cold. The Party recognised that the Crown blamed him for the loss of the Surety, which they had taken themselves. They knew him as an unusually powerful healer accused by the Dravosi. His true nature and army plan remained hidden from them. The pursuit continued through [[The Hound of God]].
 
 ### Hidden truths
 

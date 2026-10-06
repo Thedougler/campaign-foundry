@@ -4,6 +4,7 @@ summary: "A Wolfrabbit creature (CR 4) used as a skirmisher in The Shattered Sea
 sources:
  - "archive/session-11-transcript-archived-version.md"
  - "archive/wolfrabbit.md"
+ - "archive/Episode-09-Transcript.md"
 ---
 
 ![[Wolfrabbit - Token.jpg]]
@@ -83,6 +84,14 @@ A pack's torn carcasses, eaten where they fell, tell sharp travellers this groun
 ### Ecology
 
 A pack hunter of the World's open ground, it eats what its teeth take, and a tracker following its prints rolls Wisdom (Survival).
+
+### History
+
+In Session 9's cold open, wolfrabbits attacked three shipwrecked purple Grung on [[Aruhe]] before the Party's landing. The DM described the creatures as looking like rabbits, with the threat of a tiger or wolf. About twenty charged the three guards along the beach. One ran beside a fleeing Grung for three strides, close enough for him to see its muscles roll.
+
+The rabbits fought with a berserker's frenzy. A planted spear impaled two through the chest as they lunged at its wielder. Another three followed a swimming Grung into the surf and drowned him. A fresh pack of six to eight spread across the channel mouth in thirty-foot arcs.
+
+The escape established that deep saltwater defeats them: they swim and breathe worse than Grung. Grung skin-poison caused convulsions that stopped; the DM ruled that they were too frenzied for the poison to affect them. A spear thrown to draw their blood lust failed to distract them. They ignored the blood and charged the thrower instead.
 
 ### Hidden truths
 

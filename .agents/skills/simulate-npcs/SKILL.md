@@ -5,7 +5,7 @@ description: "Plays NPCs as isolated Persona agents, one per NPC, under a Direct
 
 # Simulate NPCs
 
-A Simulation plays a cast of NPCs scene by scene. You are the Director: whoever runs this skill, whether collab-with-me's dispatched `task` subagent or prep-session. Each NPC is one `persona` agent that knows only its dossier and the events it witnessed, so no Persona learns another NPC's secrets and each NPC speaks in its own voice. The method follows Yu et al. 2025, StoryBox and CharacterBox, quoted from [the research](../../../docs/research/creative-writing/character-simulation.md).
+A Simulation plays a cast of NPCs scene by scene. You are its Director. Only the top-level session can dispatch Personas (root `AGENTS.md` **Flat dispatch**), so the Director is always the top-level session. A subagent whose work needs a Simulation (a Prep runner, say) returns a request for one, giving its purpose, cast, scenes and span, and the top-level session runs it and sends the requester the step 6 report. Each NPC is one `persona` agent that knows only its dossier and the events it witnessed, so no Persona learns another NPC's secrets and each NPC speaks in its own voice. The method follows Yu et al. 2025, StoryBox and CharacterBox, quoted from [the research](../../../docs/research/creative-writing/character-simulation.md).
 
 Everything a Simulation produces is a possibility. It becomes Canon only when the DM keeps it.
 

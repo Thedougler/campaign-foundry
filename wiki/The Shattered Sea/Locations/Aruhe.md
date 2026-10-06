@@ -11,6 +11,7 @@ sources:
  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
  - "archive/collab-2026-10-04-authority-themes.md"
  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
+ - "archive/Episode-09-Transcript.md"
 parent: "[[Midchain]]"
 ---
 
@@ -57,6 +58,12 @@ Fallen fruit is receiving. Fruit picked from living growth is a claim. The islan
 ### History
 
 Hinewai preserved her drowned [[The Unnamed Companion|companion]] at [[Memorial Grove]]. The Death Bloom is the tree, two graves, black flowers and bound soil together. Her vow, spoken from inside her own grave, made the island's taking-law and gave the grung their name for it: the Hungry Isle. The raid and its aftermath are [[Grung and the Making of Aruhe]].
+
+#### Session 9: castaways before the Party's landing
+
+A storm tore a Grung fleet vessel open on the reef two days out of [[Calven and Calveno|Calveno]]. The purple Grung guards washed ashore with captives and numbered three. The captives sheltered beneath the broken hull. An old bearded captive picked a peach-sized berry, and a grey blur dragged him screaming into the brush. [[Wolfrabbit]] packs then preyed on the beach's castaways, spreading in thirty-foot arcs across the channel mouth.
+
+The tide erased the drag marks while the wreck remained wedged against the coral. A guard was killed in the surf. The cold open left the other two guards' fate uncertain.
 
 ### Hidden truths
 

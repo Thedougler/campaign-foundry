@@ -4,12 +4,13 @@ summary: "A reserved Hound of Tyr whom the Dravosi Crown releases only for confi
 sources:
  - "archive/aleksander-malone.md"
  - "archive/collab-2026-10-04-authority-themes.md"
+ - "archive/Episode-09-Transcript.md"
 creature: ""
 ---
 
 ## At a glance
 
-- **Role.** Rival and Crown hunter, Hound of Tyr, the face of the [[Dravosi Crown]]'s local threat in the region, running the [[Grigori and the Crown hunt]].
+- **Role.** Rival and Crown hunter, Hound of [[Tyr]], the face of the [[Dravosi Crown]]'s local threat in the region, running the [[Grigori and the Crown hunt]].
 - **Wants.** To hunt confirmed Khlysty Flock infiltration and deliver judgement.
 - **Voice.** Clipped, formal sentences with the finality of a verdict.
 - **Found at.** Blackrule, a chapter house cut into volcanic terrace-rock in the southern Midchain. The Dravosi Crown deploys him from there.
@@ -31,6 +32,20 @@ creature: ""
 ### History
 
 Malone trains at Blackrule and leaves only when formal confirmation reaches him. Aboard the HCS Ordinance, under merchant cover, he pursued Shepherd Grigori. After he was released in public at Sarns Landing, the result was so violent that the Crown made confirmation a requirement before releasing him again. A former handler did not survive contact.
+
+#### Session 9: the Uncertainty boarding
+
+Malone boarded the [[Uncertainty]] from the [[HCS Ordinance]] with [[Corbin Knighton]]. He was a tall, gaunt high elf with grey hair, a cold smile and about six swords concealed beneath his long coat. Delmar recognised the Hound of Tyr as a Dravosi Inquisitor sent to deal with religious problems within the Crown.
+
+He said the Crown had dispatched him after the Calveno incident to find [[Shepherd Grigori]], whom he called an aberration and a demon in human skin. He threatened anyone harbouring heretics or enemies of the Crown. His account blamed Grigori for destroying the [[Uncertainty|HCS Surety]] and killing [[Barnaby Rook]], and placed the healer somewhere in [[Calven and Calveno|Calveno]]. The Party had taken the Surety themselves.
+
+Malone scrutinised Delmar with an Insight bonus of +9. He refused Delmar's tribute coin for [[Umberlee]], calling her a heathen god and declaring his devotion to the one real god. He threw the second coin back. He said he sensed neither evil nor deception in Delmar and insisted on searching the ship.
+
+He cast Command on Delmar with the order “Confess”, requiring a DC 17 Wisdom save. Delmar failed, and a personality trigger brought out a cold admiral persona. Nobody attempted Counterspell. Malone accepted the resulting confession. He then slapped Crissdalynn, who caught his hand with Deflect Attacks and stared at him in silence. His next command, “Confess now”, failed when she saved on a natural 20, but he believed the spell had worked and accepted her false confession.
+
+Catarina unsettled him by imitating Umberlee's laughter and whispers with her umbrella. Corbin drew a flintlock on Malone and ordered him off the ship, saying he believed the Party. The Ordinance departed for Calveno after warnings that Grigori was dangerous. This boarding became part of [[The Hound of God]].
+
+At that time, Malone was one of the Crown's top hunters, a self-directed zealot of Tyr working from his temple as his own contractor. His targets were “perfects”, meaning anyone against Dravosi law. His later requirement for formal confirmation remains his present constraint.
 
 ### Hidden truths
 

@@ -14,6 +14,10 @@ _Avoid_: GM, user, Dungeon Master (in prose, fine to expand once)
 A human who plays a PC at the DM's table. Never a character in the fiction.
 _Avoid_: user, PC (the character, not the human)
 
+**Guest character**:
+An NPC whom a guest Player, someone beyond the Campaign's regular Players, plays as a member of the Party for a quest. Its page stays an NPC page. Its quest deeds go into that page's History and into the Recap as a PC's do, with no PC page and no `pull-pcs`. A guest adds a Player to the table, and every PC is still at the table.
+_Avoid_: guest PC, temporary PC, quest character
+
 **Agent**:
 The AI assistant that does worldbuilding, Prep and Ingest between Sessions. Never present at the table.
 _Avoid_: co-DM, AI DM, assistant

@@ -31,6 +31,7 @@
 - [[Botukuri]] — A Grung settlement of the clans and the birthplace of Jean-Claude Tabarnack, the blue-caste fugitive.
 - [[Calder's Tooth and Port Tidefall]] — A cliff-tier fortress-port whose docks, trade shelf and Crestwall guns watch the far side Strait.
 - [[Calven and Calveno]] — Calven's marsh, tidal flats and farms rise to Calveno, a neutral canal city the Tessarine Concordat primarily controls, where Crown law stops at the waterline.
+- [[Fathomrush]] — An eastern boom town near the Drowned Maw that stages Shelfworks dives and supplies the line crews.
 - [[Halythion]] — The sea elves' primary settlement in the Shattered Sea and the seat of their worship of Deep Sashelas.
 - [[Kalowe]] — Three reef-linked islets joined by stone bridges, with one navigable gap, a seized fort council and a shrine that charges every hull.
 - [[Keth-Naar]] — A tabaxi city at the Blue Hole's edge, the furthest reliable landmark east of the Drowned Maw and the last harbour on the eastern road.
@@ -108,6 +109,7 @@
 - [[Cobb]] — A young rattkin dockworker and Nona Black-Jaw's runner who keeps La Vasca's refit on schedule.
 - [[Coralyra Dranra]] — Sea elf sorcerer and bard, self-exiled from her post as Aoidos of Halythion.
 - [[Corbin Knighton]] — Crown boarder whose false report now drives a quiet hunt for the crew.
+- [[Corvin Knighton]] — Rupert Knighton's nephew and heir, a Tessarine-trained bladesong duellist seeking recognition through personal skill.
 - [[Drav Holke]] — Saltwright's bosun; clipped, correct, and no interest in small talk.
 - [[Duvane]] — An Ashwall repair-crew carpenter whose scorpion attack in a handhold fissure is why two hands now climb the stone.
 - [[Ensign Wouters]] — Crown ensign and navigator of the HCS Surety, shot through a gun port by Delmar Fisk; the Party fed his body to Ket.
@@ -149,6 +151,7 @@
 - [[Sandrino Vale]] — A Pantry survivor who leaves with the column when it sets out.
 - [[Sandro]] — A Calveno captive wrecked on Aruhe, sheltering in the broken Vethka hull and watching the reef gap for rescue.
 - [[Sem Holst]] — Lean shipwright aboard Uncertainty who catalogues hull damage unasked and judges people by what they ask about the ship.
+- [[Serena]] — Delmar's most recent mate, warned by his sending stone of the Dravosi warship.
 - [[Shepherd Grigori]] — Korabl of the Flock, a healer whose blood-anchor survival trick feeds an undead ascension.
 - [[Sienne Orre]] — Minotaur captain of the Fernen in Fisk's Fleet, who ran the fleet's perimeter survey operations.
 - [[Simone Tabarnack]] — Purple-caste Grung officer pursuing Jean-Claude while an unmaintained rite threatens her rise to Gold.
@@ -244,6 +247,7 @@
 
 - [[Deep Sashelas]] — The power the sea elves of Halythion worship; nothing else of the deity is recorded in the Shattered Sea.
 - [[Mystra]] — Goddess of magic who keeps the Weave, cursed by name on Aruhe's shore.
+- [[Tyr]] — The Dravosi Crown's inquisitorial god, whose Hound Aleksander Malone hunts what he calls perfects as his own contractor.
 - [[Umberlee]] — The sea as it is, claiming tribute from every harbour while the Pearl remains beyond her reach at the Drowned Maw.
 - [[Valkur]] — Sailor's courage made divine, invoked below decks when the basin's price feels wrong.
 
@@ -260,6 +264,7 @@
 - [[Grubnade]] — A volatile Aruhe caterpillar that detonates when disturbed, scattering harmless juveniles and igniting nearby growth.
 - [[Grung Authority Seal]] — Spent gold seals that compelled lower-caste Grung onto Aruhe and preserve each bearer's whole order chain.
 - [[Grung Toxin Vials]] — Twenty-six vials of Simone Tabarnack's Grung toxin tincture riding in Party hands, their one common thread known only to Jean-Claude.
+- [[Lamarae's Fang]] — A sword of whip shark bone twined with worked metal, forged by Catarina Da'Virelli aboard the Uncertainty and taken up by Delmar Fisk against his promise of an axolotl.
 - [[Letters of Marque]] — Crown parchment licensing Barnaby Rook as a privateer and carrying a 30,000 gp Crown bond.
 - [[Mira's Blade]] — A +1 shortsword Perrin Black-Jaw took from Barnaby Rook's cabin aboard the HCS Surety; who Mira was is not recorded.
 - [[Nightmantle]] — A cursed cloak of displacement that redirects nearby ranged attacks to its wearer.
@@ -351,6 +356,10 @@
 - [[Take on Aruhe]] — Learn Aruhe's law and reach its survivors without claiming living island life or drawing the island's responders.
 - [[The Hound of God]] — Aleksander Malone pursues Shepherd Grigori through the Midchain and tightens the trail towards the crew's wake.
 
+## Campaign House Rules
+
+- [[Shipboard Travel]] — House rules for a voyage: cooked meals grant temporary hit points on every long rest, each check takes one roll per PC, and three passes hold the ship's course.
+
 ## Preps
 
 - [[Session 11 - Prep]] — Aruhe crossing from the Crown Squid's flight to a night watch ambush.
@@ -387,7 +396,7 @@
 - [[Session 6 - Recap]] — Vashu and Ozzeth died defending Solange's ritual, and Agni opened the primary chamber ceiling.
 - [[Session 7 - Recap]] — Otar died in the Mercatura crater, and Iacopo Fieschi signed the crew as Calveno's Defenders.
 - [[Session 8 - Recap]] — Nona's missing-persons list passed 314, Osset was named twice, and Uncertainty's refit was twelve hours out.
-- [[Session 9 - Recap]] — Uncertainty reached for Sparhold with three Calveno captives aboard after the HCS Ordinance inspection was turned towards Calveno.
+- [[Session 9 - Recap]] — Uncertainty out-lied the HCS Ordinance towards Calveno, rescued three driftwood captives, and closed on the Midchain with Lamarae's Fang promised for an axolotl.
 - [[Session 10 - Recap]] — Shepherd Grigori warned of a Fate Spinner hunt, the follower ship was left listing, and two Aruhe survivors came aboard.
 - [[Session 11 - Recap]] — The Party crossed inland Aruhe, rescued Matteo Scola, and ended the night inside a falcon's ambush on Crissdalynn's watch.
 
@@ -403,5 +412,5 @@
 - [[Session 7 - Previously On]] — Solange Barret spoke Agni, the chamber ceiling fell, and she stood remade at twelve feet.
 - [[Session 8 - Previously On]] — Otar died in the Mercatura crater, Fieschi made the crew Calveno's Defenders, and Nona called them home.
 - [[Session 9 - Previously On]] — Otar died in the Mercatura crater, Fieschi made the Party Calveno's Defenders, and Nona began the pursuit of the raiders.
-- [[Session 10 - Previously On]] — The Party escaped the HCS Ordinance inspection with three captives and sent the Crown towards Calveno.
+- [[Session 10 - Previously On]] — The Party turned the HCS Ordinance inspection towards Calveno, rescued three driftwood captives, and closed on the Midchain east-bound.
 - [[Session 12 - Previously On]] — The Party crossed Aruhe's living hazards, rescued Matteo Scola, and faced Talon Skarn at the river camp.

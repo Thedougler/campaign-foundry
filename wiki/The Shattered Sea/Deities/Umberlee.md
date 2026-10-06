@@ -9,6 +9,7 @@ sources:
  - "archive/ssw-what-sunk-the-vestra.md"
  - "archive/ssw-umberlee-shrine.md"
  - "archive/collab-2026-10-04-authority-themes.md"
+ - "archive/Episode-09-Transcript.md"
 ---
 
 ## At a glance
@@ -25,8 +26,8 @@ sources:
 ## Play
 
 - **Boons.** A paid tribute is recorded as a blessing, and a shrine offers a sailor a place to acknowledge the sea.
-- **Costs.** Coin, rope, fish bones, buttons, a compass needle, a carved token or a spoken promise. Refusal risks her attention.
-- **Clergy and shrines.** [[Waveservants]] collect at the same rate in working harbours, with basins and booklets by the quay.
+- **Costs.** Coin, rope, fish bones, buttons, a compass needle, a carved token or a spoken promise. Refusal risks her attention. The payment is common knowledge on any quay: most people flick a coin over the side as they board any ship, and the amount is nebulous so long as something goes in. One rescued crewman of the raid took the tribute for a myth until the hurricane that shattered his hull. His words on deck: "You always gotta pay the sea bitch."
+- **Clergy and shrines.** [[Waveservants]] collect at the same rate in working harbours, with basins and booklets by the quay. A rescued sailor claimed [[Calven and Calveno|Calveno]] keeps a shrine for paying the sea toll. The black shrine on [[Vel-Orn]], [[Umberlee's Shrine]], serves debts of an older kind.
 - **How it intervenes.** She can sink a fleet on material-plane water and press captains into a mortal survivor. She speaks through her clergy when the debt needs a voice, and she sends a collection hull such as [[The Dead Lady]]. A stalled debtor finds the appointment rescheduled rather than a pursuit, and the deep water calls to him harder the next time he touches it.
 
 ## Depth
@@ -39,7 +40,7 @@ She is tempestuous and petty, and her title came from her wrath and her greed. S
 
 ### Rivals and allies
 
-[[Valkur]] is a sailor's courage, Tyr is the land-and-paper counterweight, [[Auralis]] is an older Antheri machine rather than a rival, and the [[Sentinels of the Eyrie]] oppose Waveservant collection through observation.
+[[Valkur]] is a sailor's courage, [[Tyr]] is the land-and-paper counterweight, [[Auralis]] is an older Antheri machine rather than a rival, and the [[Sentinels of the Eyrie]] oppose Waveservant collection through observation. [[Aleksander Malone]] counted the sea's goddess a heathen beside his one god, and he threw the toll coin [[Delmar Fisk]] offered back across the deck.
 
 ### Hidden truths
 

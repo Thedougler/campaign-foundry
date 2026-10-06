@@ -7,6 +7,7 @@ sources:
  - "archive/ssw-le-paludi.md"
  - "archive/ssw-session-04-ingest-recap.md"
  - "archive/agentic-co-dm-master-kyzil-narration.md"
+ - "archive/Episode-09-Transcript.md"
 creature: "[[Master Kyzil (Creature)]]"
 ---
 
@@ -37,6 +38,8 @@ creature: "[[Master Kyzil (Creature)]]"
 Kyzil assigned Crissdalynn the hardest Sentinel pilgrimage on record: map the Drowned Maw from inside a storm. His own master argued that the order's record-without-conclusion doctrine merely recorded deaths. Kyzil refused to leave with him. That master was Talon Vantyrus, though Kyzil believes he died decades ago. After the fleet sank he searched Kalowe and Port Tidefall for his student. He found her in the streets of [[Le Paludi]], dropping out of the sun to knock her back twenty feet, and knew her by smell before sight. His greeting was "Priscilla, you're alive."
 
 When the Party gathered he asked [[Jean-Claude Tabarnack]] directly why his kind had come, then took the frog on Crissdalynn's word. He admitted to her that he had feared he sent his apprentice to her death, and gave her the hardest pilgrimage in the Eyrie's record because he knew she could walk it. At the tavern he told the crew the weather has run odd since the wreck, that the Maw has been unruly and dangerous, and that some Sentinels watched the fleet go down. Two or three drinks in, he tested her practice with a three-round spar against all four of them on the rooftop of [[The Ponte Bassa]]. When his own Downburst dropped her off the edge, he flew down in a panic to catch her.
+
+He came out to the ship again on the open sea. A couple of hours into the [[Uncertainty]]'s first day out of Calveno, white wings dropped out of the sun against the wind, and Kyzil touched down on her stern. He walked to [[Crissdalynn Khinriss|Crissdalynn]], spoke to her alone, and said nothing else to any of the Party. What passed between master and student stayed between them, and he flew off the way he had come.
 
 ### Hidden truths
 

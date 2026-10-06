@@ -13,6 +13,16 @@ Change values here; do not fork shared rules in `AGENTS.md` to match a preferenc
 
 - **Combat level offset:** +1. This Party fights at least a level above the 2024 XP calculator. `cf encounter-budget` applies it by default; pass recorded sheet levels, do not pre-add the offset.
 
+## Table
+
+- **Real names.** The names people at the table are called by in a Transcript, each with the name that replaces it in everything an agent writes from that Transcript. A Player's name or nickname becomes that Player's character's name, and the DM's becomes "the DM". Agents read this list only to make the swap, so no real name spoken at the table reaches a chunk file, a Ledger or a Wiki page.
+  - Nick → the DM
+  - Frederick → Delmar
+  - Courtney → Crissdalynn
+  - Kaden, Caden → Perrin
+  - Chad → Jean-Claude
+  - Caitlin, Kaitlyn, Lazamataz → Catarina (guest Player, Session 9)
+
 ## Evals
 
 - **Human-audit pages:** `<tmp>/audit/<skill>/<case-id>.md` in a `mktemp -d` directory beneath OS `$TMPDIR` — the orchestrator overwrites the current sample and criteria for human review during that run. `evals/README.md` owns the procedure; durable export requires an explicit DM request.

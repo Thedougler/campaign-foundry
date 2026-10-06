@@ -7,6 +7,7 @@ sources:
  - "archive/ssw-session-03.md"
  - "archive/ssw-cobb.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/Episode-09-Transcript.md"
 parent: "[[Le Paludi]]"
 ---
 
@@ -44,6 +45,10 @@ Approach with the password garden, repair a vessel, remove registry plates, or a
 ### History
 
 The Black-Jaw family has operated the cradle for three generations. The crew's vessel used it after arriving in Calveno.
+
+#### Session 9: off the cradle
+
+The refit ended and the [[Uncertainty]] came out of the cradle on a festival-anxious morning, her fresh paint still curing and the season's first southerly in the rigging.
 
 ### Hidden truths
 
