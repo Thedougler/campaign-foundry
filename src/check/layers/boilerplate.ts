@@ -53,19 +53,23 @@ function proseSentences(page: Page): Map<number, Sentence[]> {
 			.replace(/^\d+[.)]\s+/, "")
 			// A bold field label (`**Weak to.**`) is template structure like a heading; only the field's content is prose.
 			.replace(/^\*\*[^*]+\*\*\s*/, "")
-			.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2")
-			.replace(/\[\[([^\]]+)\]\]/g, "$1")
+			// A linked name is a name, not prose: it is wrapped in \u0001 so the length floor below counts only the words
+			// around it. A Recap's `[[Thread]], still.` recurs on every Recap by template design.
+			.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "\u0001$2\u0001")
+			.replace(/\[\[([^\]]+)\]\]/g, "\u0001$1\u0001")
 			.replace(/[*_`]/g, "")
 			// Quoted speech is a record of words someone said; two pages may quote the same line. The narration around it
 			// stays in the comparison.
 			.replace(/"[^"\n]*"|“[^”\n]*”/g, '""');
 		// Sentence boundaries need the original casing, so the key is normalized per sentence, not per line.
 		const kept = sentences(prose)
+			.filter((sentence) => sentence.replace(/\u0001[^\u0001]*\u0001/g, "").replace(/\s+/g, " ").trim().length >= 25)
+			.map((sentence) => sentence.replace(/\u0001/g, ""))
 			.map((sentence) => ({
 				quote: sentence.trim(),
 				key: sentence.replace(/\s+/g, " ").trim().toLowerCase(),
 			}))
-			.filter(({ key }) => key.length >= 25 && /[a-z]/.test(key));
+			.filter(({ key }) => /[a-z]/.test(key));
 		if (kept.length > 0) sentencesByLine.set(line, kept);
 	}
 	return sentencesByLine;

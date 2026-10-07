@@ -119,4 +119,22 @@ describe("cf check --layer boilerplate, sentences inside paragraphs", () => {
 			await rm(quoted, { recursive: true, force: true });
 		}
 	});
+
+	it("does not count a linked name as prose: a Thread line marked still recurs on every Recap", async () => {
+		const linked = await mkdtemp(join(tmpdir(), "cf-boilerplate-link-"));
+		try {
+			await mkdir(join(linked, "wiki/R"), { recursive: true });
+			const page = (name: string, text: string) =>
+				writeFile(join(linked, `wiki/R/${name}.md`), `---\ntype: Recap\n---\n\n## Threads\n\n${text}\n`);
+			await page("Session 9", "- [[The Crown Inspection Thread]], still. The warship kept its distance all week.");
+			await page("Session 10", "- [[The Crown Inspection Thread]], still. The Party kept to open water by night.");
+			await page("Session 11", "- [[Simone]] rowed ahead of the fleet before dawn. Nothing else moved.");
+			await page("Session 12", "- [[Simone]] rowed ahead of the fleet before dawn. The Crown sails held back.");
+			const { report } = await runCheck(linked);
+			const shared = report.findings.filter((finding) => finding.rule === "shared-line");
+			expect(shared.map((finding) => finding.path.split("/").pop()).sort()).toEqual(["Session 11.md", "Session 12.md"]);
+		} finally {
+			await rm(linked, { recursive: true, force: true });
+		}
+	});
 });
