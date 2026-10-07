@@ -255,6 +255,42 @@ describe("cf log", () => {
 			expect(code).toBe(0);
 			expect(await read(dir)).toContain("## [2026-02-01] query | Who holds the bridge: north tower");
 		});
+
+		// The defect: lint and ingest agents wrote titles the next `cf check` failed on log.md. The command now
+		// runs the entry heading through the same Vale rules the gate applies, so it refuses its own gate failures.
+		it("refuses a title the style gate fails, naming rule, message and fix, and writes nothing", async () => {
+			const dir = await copyFixture("clean");
+			const { code, stderr } = await log(dir, ["--op", "lint", "--title", "Fixed Vale misfire handling", "--page", "Mara Voss", "--date", "2026-02-01"]);
+			expect(code).toBe(2);
+			expect(stderr).toContain("ai-tells.FigurativeFires");
+			expect(stderr).toContain("AI overused verb");
+			expect(stderr).toContain("fix:");
+			expect(stderr).toContain("cf log --world");
+			expect(await read(dir)).toBe(FIRST);
+		});
+
+		it("refuses a three-item title the gate reads as a verb tricolon", async () => {
+			const dir = await copyFixture("clean");
+			const { code, stderr } = await log(dir, ["--op", "lint", "--title", "Recorded census counts, updated the ADR, promoted rule errors", "--page", "Mara Voss", "--date", "2026-02-01"]);
+			expect(code).toBe(2);
+			expect(stderr).toContain("ai-tells.VerbTricolon");
+			expect(await read(dir)).toBe(FIRST);
+		});
+
+		it("refuses a four-noun stack the gate reads as a noun string", async () => {
+			const dir = await copyFixture("clean");
+			const { code, stderr } = await log(dir, ["--op", "lint", "--title", "Updated boss room loot tables", "--page", "Mara Voss", "--date", "2026-02-01"]);
+			expect(code).toBe(2);
+			expect(stderr).toContain("ai-tells.NounString");
+			expect(await read(dir)).toBe(FIRST);
+		});
+
+		it("--dry-run refuses a failing title too, and writes nothing", async () => {
+			const dir = await copyFixture("clean");
+			const { code } = await log(dir, ["--op", "lint", "--title", "Fixed Vale misfire handling", "--page", "Mara Voss", "--date", "2026-02-01", "--dry-run"]);
+			expect(code).toBe(2);
+			expect(await read(dir)).toBe(FIRST);
+		});
 	});
 
 	it("documents itself in --help, with examples", async () => {

@@ -3,12 +3,16 @@ import { existsSync } from "node:fs";
 import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { calloutLines } from "../../narration/sources.ts";
+import { parsePage } from "../../vault/parse.ts";
 import type { Page, Vault } from "../../vault/types.ts";
 import { UsageError } from "../errors.ts";
 import { nameWords, proseView, prosePages, toolRoot } from "../prose.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
 
 const LAYER = "style";
+
+/** The gate's committed Vale config, shared by the page run and the snippet check, so there is one style vocabulary. */
+const VALE_CONFIG = join(toolRoot, ".vale.ini");
 
 interface ValeAlert {
 	Check: string;
@@ -21,6 +25,18 @@ interface ValeAlert {
 /** Bad setup (no Vale, no synced style): the CLI exits 2 with the message and hint. */
 function setupError(message: string, hint: string): never {
 	throw new UsageError(message, hint);
+}
+
+/** The synced ai-tells package is the gate's vocabulary; without it nothing can be judged. */
+function requireAiTells(): void {
+	if (!existsSync(join(toolRoot, ".vale/styles/ai-tells"))) {
+		setupError("The Vale ai-tells package is not installed.", "Run `bun run setup` (it runs `vale sync`), then `cf check` again.");
+	}
+}
+
+/** Vale itself is missing; the run cannot start. */
+function valeMissing(): never {
+	setupError("Vale is not installed.", "Install Vale 3.23 or newer (https://vale.sh/docs/install; on macOS `brew install vale`), then run `bun run setup` and `cf check` again.");
 }
 
 const NARRATION_HINTS: Record<string, string> = {
@@ -134,14 +150,29 @@ function valeText(text: string, page: Page): string {
 }
 
 function runVale(args: string[]): Promise<{ stdout: string; missing: boolean }> {
-	return new Promise((resolve, reject) => {
-		execFile("vale", args, { maxBuffer: 256 * 1024 * 1024 }, (error, stdout, stderr) => {
-			if (error && (error as NodeJS.ErrnoException).code === "ENOENT") return resolve({ stdout: "", missing: true });
-			// `--no-exit` keeps a normal run at exit 0; anything else is Vale failing, not findings.
-			if (error) return reject(new Error(`vale failed: ${stderr.trim() || error.message}`));
-			resolve({ stdout, missing: false });
-		});
+	const { promise, resolve, reject } = Promise.withResolvers<{ stdout: string; missing: boolean }>();
+	execFile("vale", args, { maxBuffer: 256 * 1024 * 1024 }, (error, stdout, stderr) => {
+		if (error && (error as NodeJS.ErrnoException).code === "ENOENT") return resolve({ stdout: "", missing: true });
+		// `--no-exit` keeps a normal run at exit 0; anything else is Vale failing, not findings.
+		if (error) return reject(new Error(`vale failed: ${stderr.trim() || error.message}`));
+		resolve({ stdout, missing: false });
 	});
+	return promise;
+}
+
+/** One Vale alert as a gate finding, or null for a DM-confirmed misfire. Shared by the page run and the snippet check. */
+function findingFor(alert: ValeAlert, lineText: string, path: string, names: Set<string>): Finding | null {
+	if (isConfirmedMisfire(lineText, alert, names)) return null;
+	return {
+		layer: LAYER,
+		rule: alert.Check,
+		severity: alert.Severity === "error" ? "error" : "warning",
+		path,
+		line: alert.Line,
+		// The upstream ai-tells package ends messages with "Disable this rule for X prose."; only the DM disables a rule (.vale.ini).
+		message: alert.Message.replace(/\s*Disable this rule\b[^.]*\./g, ""),
+		hint: hintFor(alert.Check),
+	};
 }
 
 /**
@@ -150,49 +181,73 @@ function runVale(args: string[]): Promise<{ stdout: string; missing: boolean }> 
  * with the page's own relative path and line numbers.
  */
 export async function run(ctx: CheckContext): Promise<Finding[]> {
-	const config = join(toolRoot, ".vale.ini");
-	if (!existsSync(join(toolRoot, ".vale/styles/ai-tells"))) {
-		setupError("The Vale ai-tells package is not installed.", "Run `bun run setup` (it runs `vale sync`), then `cf check` again.");
-	}
+	requireAiTells();
 	const pages = prosePages(ctx.vault);
 	const cacheDir = join(ctx.root, ".cache", "check");
 	await mkdir(cacheDir, { recursive: true });
 	const scratch = await mkdtemp(join(cacheDir, "vale-"));
-		const written = new Map<string, string>();
-		const shown = new Map<string, string>();
-		try {
-			await Promise.all(
-				pages.map(async (page) => {
-					const file = join(scratch, page.path);
-					await mkdir(dirname(file), { recursive: true });
-					const text = valeText(proseView(page, ctx.vault).text, page);
-					written.set(page.path, text);
-					shown.set(page.path, valeText(proseView(page).text, page));
-					await writeFile(file, text);
-				}),
-			);
-		const { stdout, missing } = await runVale(["--config", config, "--output=JSON", "--no-exit", scratch]);
-		if (missing) {
-			setupError("Vale is not installed.", "Install Vale 3.23 or newer (https://vale.sh/docs/install; on macOS `brew install vale`), then run `bun run setup` and `cf check` again.");
-		}
+	const written: Record<string, string> = {};
+	try {
+		await Promise.all(
+			pages.map(async (page) => {
+				const file = join(scratch, page.path);
+				await mkdir(dirname(file), { recursive: true });
+				const text = valeText(proseView(page, ctx.vault).text, page);
+				written[page.path] = text;
+				await writeFile(file, text);
+			}),
+		);
+		const { stdout, missing } = await runVale(["--config", VALE_CONFIG, "--output=JSON", "--no-exit", scratch]);
+		if (missing) valeMissing();
 		const results = (stdout.trim() === "" ? {} : JSON.parse(stdout)) as Record<string, ValeAlert[]>;
 		const byFile = new Map(Object.entries(results).map(([file, alerts]) => [file.startsWith(scratch) ? file.slice(scratch.length + 1) : file, alerts]));
 		const names = properNouns(ctx.vault);
 		const findings: Finding[] = [];
 		for (const page of pages) {
-			const lines = (written.get(page.path) ?? "").split("\n");
+			const lines = (written[page.path] ?? "").split("\n");
 			for (const alert of byFile.get(page.path) ?? []) {
-				if (isConfirmedMisfire(lines[alert.Line - 1] ?? "", alert, names)) continue;
-				findings.push({
-					layer: LAYER,
-					rule: alert.Check,
-					severity: alert.Severity === "error" ? "error" : "warning",
-					path: ctx.display(page.path),
-					line: alert.Line,
-					// The upstream ai-tells package ends messages with "Disable this rule for X prose."; only the DM disables a rule (.vale.ini).
-					message: alert.Message.replace(/\s*Disable this rule\b[^.]*\./g, ""),
-					hint: hintFor(alert.Check),
-				});
+				const finding = findingFor(alert, lines[alert.Line - 1] ?? "", ctx.display(page.path), names);
+				if (finding) findings.push(finding);
+			}
+		}
+		return findings;
+	} finally {
+		await rm(scratch, { recursive: true, force: true });
+	}
+}
+
+/** A snippet finding keeps the text Vale matched, so a refusal can name the offending span. */
+export interface StyleFinding extends Finding {
+	match: string;
+}
+
+/**
+ * The gate's Vale rules over one snippet, read exactly as the gate reads a page: the text is parsed and
+ * name-masked like any page, written to a scratch file at the vault-relative `rel`, and checked in one Vale
+ * invocation with the committed `.vale.ini` and its synced styles. `cf log` runs the entry it is about to
+ * append through this, so the command cannot author text its own gate fails on `log.md`.
+ */
+export async function styleSnippet(vault: Vault, root: string, rel: string, text: string): Promise<StyleFinding[]> {
+	requireAiTells();
+	const page = parsePage(rel, text);
+	const body = valeText(proseView(page, vault).text, page);
+	const cacheDir = join(root, ".cache", "check");
+	await mkdir(cacheDir, { recursive: true });
+	const scratch = await mkdtemp(join(cacheDir, "vale-"));
+	try {
+		const file = join(scratch, rel);
+		await mkdir(dirname(file), { recursive: true });
+		await writeFile(file, body);
+		const { stdout, missing } = await runVale(["--config", VALE_CONFIG, "--output=JSON", "--no-exit", file]);
+		if (missing) valeMissing();
+		const results = (stdout.trim() === "" ? {} : JSON.parse(stdout)) as Record<string, ValeAlert[]>;
+		const names = properNouns(vault);
+		const lines = body.split("\n");
+		const findings: StyleFinding[] = [];
+		for (const alerts of Object.values(results)) {
+			for (const alert of alerts) {
+				const finding = findingFor(alert, lines[alert.Line - 1] ?? "", rel, names);
+				if (finding) findings.push({ ...finding, match: alert.Match });
 			}
 		}
 		return findings;

@@ -1,5 +1,6 @@
 import { join, relative, resolve, sep } from "node:path";
 import { Command, Option } from "commander";
+import { styleSnippet } from "../check/layers/style.ts";
 import { UsageError } from "../check/run.ts";
 import { suggest } from "../check/util.ts";
 import { worldsOf } from "../vault/indexes.ts";
@@ -64,7 +65,7 @@ export function logCommand(): Command {
 		.description("Append an entry to a World's log.md: what the Agent did, and the pages it touched. Rotates yearly. Exits 0 done, 2 usage error.")
 		.option("--world <World>", "the World whose log.md to append to (required)")
 		.addOption(new Option("--op <op>", `the operation: ${LOG_OPS.join(", ")} (required)`))
-		.option("--title <Title>", "one line saying what was done, e.g. a Session or Raw file name (required; refuses an em or en dash, a double hyphen, a semicolon or trailing punctuation, which the page gate fails on log.md)")
+		.option("--title <Title>", "one line saying what was done, e.g. a Session or Raw file name (required; the entry runs through the log gate's Vale rules before writing, and a failing title is refused with its findings, while a semicolon or trailing punctuation is refused outright)")
 		.addOption(new Option("--page <page>", "a page touched: name or vault path; repeat for several").argParser(collect).default([] as string[], "none"))
 		.option("--stdin", "also read page names from stdin, one per line")
 		.option("--date <YYYY-MM-DD>", "the entry's real-world date (default: today)")
@@ -81,10 +82,11 @@ Entry written:
   Entries are separated by a blank line. log.md is created if absent.
 
 Title:
-  One line, gate-clean by construction: no em or en dash, no double hyphen, no
-  semicolon, no trailing punctuation. The page gate fails each on log.md, so a
-  title holding one is refused with the character and the fix named. A colon
-  inside the title is fine.
+  One line, gate-clean by construction: before anything is written, the entry
+  runs through the same Vale rules the page gate applies to log.md, and a
+  title with a finding is refused with each finding's rule, message and fix.
+  A semicolon and trailing punctuation are refused outright. A colon inside
+  the title is fine.
 
 Rotation:
   If the last entry in log.md is from an earlier year than the new one, log.md is first renamed to
@@ -103,7 +105,7 @@ Examples:
   cf log --world Aldermoor --op query --title "Who holds the bridge" --page "Ravenhold" --dry-run`,
 		)
 		.action(async (flags: LogFlags) => {
-			const { vault: vaultDir } = resolveVault(flags, "log");
+			const { root, vault: vaultDir } = resolveVault(flags, "log");
 			const vault = buildVault(vaultDir, await readVaultFiles(vaultDir));
 			const worlds = worldsOf(vault).map((w) => w.name);
 			const world = flags.world ?? worlds[0] ?? "<World>";
@@ -122,14 +124,9 @@ Examples:
 			const title = (flags.title ?? "").trim();
 			if (title === "") fail("No --title given.", `--title is one line saying what was done. ${example}`);
 			if (/[\r\n]/.test(title)) fail("--title must be one line.", example);
-			// The gate fails these on a generated log.md heading, so the command refuses the title instead of
-			// writing a finding the next `cf check` reports: an em or en dash (`ai-tells.EmDashUsage`), a
-			// double hyphen (`ai-tells.DoubleHyphen`), a semicolon (`ai-tells.SemicolonUsage` fails its
-			// clause-final use), and markdownlint MD026's trailing heading punctuation. A colon mid-title is
-			// fine: ColonUsage exempts headings.
-			const dash = /[\u2014\u2013]/u.exec(title)?.[0];
-			if (dash) fail(`The --title holds \`${dash}\`, which the page gate fails on log.md (\`ai-tells.EmDashUsage\`).`, `Rewrite the title with a full stop, a comma or "and"; write a range as \`3 to 5\`. ${example}`);
-			if (title.includes("--")) fail("The --title holds a double hyphen, which the page gate fails on log.md (`ai-tells.DoubleHyphen`).", `Rewrite the title with a full stop, a comma or "and". ${example}`);
+			// A semicolon and trailing heading punctuation are refused outright: the Vale rules cannot see them on a
+			// bare entry (SemicolonUsage only fires before a clause-final full stop; MD026 is markdownlint, not Vale),
+			// so the title would slip past the snippet check below and fail the next `cf check` on log.md.
 			if (title.includes(";")) fail("The --title holds `;`, which the page gate fails on log.md (`ai-tells.SemicolonUsage`).", `Replace the semicolon with a comma or a full stop. ${example}`);
 			const trailing = /[.,;:!]$/.exec(title)?.[0];
 			if (trailing) fail(`The --title ends with \`${trailing}\`, which the page gate fails on a log heading (markdownlint MD026).`, `Drop the trailing punctuation. ${example}`);
@@ -145,6 +142,17 @@ Examples:
 			}
 
 			const entry = { date, op: flags.op!, title, pages };
+			// The gate fails Vale findings on log.md, so the entry is checked before it is written, through the same
+			// Vale invocation the style layer runs: the command cannot author text its own gate rejects. Only errors
+			// fail the gate, so only errors refuse here. --dry-run refuses too: it must not print an entry that
+			// would be refused.
+			const gateFindings = (await styleSnippet(vault, root, `${flags.world}/log.md`, formatEntry(entry))).filter((f) => f.severity === "error");
+			if (gateFindings.length > 0) {
+				fail(
+					`The ${flags.op} entry fails the log gate on log.md, so nothing was written: ${gateFindings.map((f) => f.rule).join(", ")}.`,
+					[...gateFindings.map((f) => [`  ${f.rule}: ${f.message}${f.match === "" ? "" : ` matched \`${f.match}\``}`, `    fix: ${f.hint}`].join("\n")), example].join("\n"),
+				);
+			}
 			const show = (path: string): string => relative(process.cwd(), join(vaultDir, path)).split(sep).join("/");
 			const result = await appendLogEntry(vaultDir, flags.world!, entry, { dryRun: flags.dryRun ?? false, show, example });
 			if (result.status === "error") throw new UsageError(result.message, result.hint);
