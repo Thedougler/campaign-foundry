@@ -39,7 +39,7 @@ Apply to a content skill's committed `evals/cases.yaml` before a Hillclimb. Reco
 4. **Variance.** Do not re-run Grade on the same saved `$out/outputs`. Compare Grades only when two distinct Runner identities produced Outcomes for the same case. Timeouts, execution and grading errors are named prerequisites, not quality failures. Done when the log records the skip, or that cross-identity comparison.
 5. **Calibration.** Write one scored trial — Runner task and reply, Outcome, Checks and Grades — to a human-audit page `<audit>/<skill>/<case-id>.md`, where `<audit>` is a fresh `mktemp -d` directory outside the repository; read it, and record agree/disagree per rubric. A disagreement repairs the rubric or the case. Done when every audited rubric has a verdict.
 
-**Done when** steps 1–5 hold for every case. Non-content skills (`audit`, `ingest`, `query`, `lint`, `plan-session`, `pull-pcs`, `new-world`, `new-campaign`) keep their cases and take steps 3–5 when the DM asks to measure them; otherwise the log records the skip.
+**Done when** steps 1–5 hold for every case. Non-content skills (`audit`, `ingest`, `query`, `lint`, `plan-session`, `pull-pcs`) keep their cases and take steps 3–5 when the DM asks to measure them; otherwise the log records the skip.
 
 ## Safety
 
