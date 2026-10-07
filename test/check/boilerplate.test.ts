@@ -100,4 +100,23 @@ describe("cf check --layer boilerplate, sentences inside paragraphs", () => {
 			await rm(labelled, { recursive: true, force: true });
 		}
 	});
+
+	it("lets two pages quote the same spoken words, and still flags the narration around them", async () => {
+		const quoted = await mkdtemp(join(tmpdir(), "cf-boilerplate-quote-"));
+		try {
+			await mkdir(join(quoted, "wiki/Q"), { recursive: true });
+			const page = (name: string, text: string) =>
+				writeFile(join(quoted, `wiki/Q/${name}.md`), `---\ntype: NPC\n---\n\n## History\n\n${text}\n`);
+			const said = `"I know about the money. I figured guns were useful for protecting yourself, but the break room is unnecessary."`;
+			await page("Nona", `Over the sending stone she answered: ${said}`);
+			await page("Thread", `Nona's reply came back within the hour: ${said}`);
+			await page("Echo", "The harbour bell rang twice before the tide turned. Nobody on the quay looked up.");
+			await page("Echo Two", "The harbour bell rang twice before the tide turned. The gulls scattered off the nets.");
+			const { report } = await runCheck(quoted);
+			const shared = report.findings.filter((finding) => finding.rule === "shared-line");
+			expect(shared.map((finding) => finding.path.split("/").pop()).sort()).toEqual(["Echo Two.md", "Echo.md"]);
+		} finally {
+			await rm(quoted, { recursive: true, force: true });
+		}
+	});
 });

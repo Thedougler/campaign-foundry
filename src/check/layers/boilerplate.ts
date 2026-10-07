@@ -55,7 +55,10 @@ function proseSentences(page: Page): Map<number, Sentence[]> {
 			.replace(/^\*\*[^*]+\*\*\s*/, "")
 			.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2")
 			.replace(/\[\[([^\]]+)\]\]/g, "$1")
-			.replace(/[*_`]/g, "");
+			.replace(/[*_`]/g, "")
+			// Quoted speech is a record of words someone said; two pages may quote the same line. The narration around it
+			// stays in the comparison.
+			.replace(/"[^"\n]*"|“[^”\n]*”/g, '""');
 		// Sentence boundaries need the original casing, so the key is normalized per sentence, not per line.
 		const kept = sentences(prose)
 			.map((sentence) => ({
