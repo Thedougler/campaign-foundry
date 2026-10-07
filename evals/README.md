@@ -20,7 +20,7 @@ Each term is defined here once; skills and instruction files use it as named.
 - **Default case** — the one case a content skill's `evals/cases.yaml` holds for its content type: a Sample asking for a complete piece of that type, whose rubrics together define professional-quality content of it, Narration included (ADR 0017). It passes only when every criterion holds.
 - **Runner** — the `test-subject` dispatch that performs a case's DM ask and returns its pages and DM reply as its result.
 - **Outcome** — `createOutcome(vault, outputRoot)` in `evals/check.ts`: the live Wiki pages with the run's `$out/outputs` pages overlaid and its recorded deletions shadowing live pages, plus `reply.md`, the DM reply. Checks and Grades judge the Outcome, not the tool-call path.
-- **Check** — `bun evals/check.ts` (pages, sections, canon/absent regex) on a constrained Outcome: a page exists, `type: Handout`, text the Runner must leave untouched. The same invocation then runs the gate's `style` and `narration` layers read-only over the Outcome (`runGate` in `evals/check.ts`), findings scoped to the run's output pages: a gate error fails the case like a Check failure, a gate warning is reported (`WARN`) and passes — the gate's own severities (ADR 0015). The cheapest grader. A rubric that restates a Check is a defective rubric; move it to `checks`.
+- **Check** — `bun evals/check.ts` (pages, sections, canon/absent regex) on a constrained Outcome: a page the run itself returned (a live page the Runner left untouched fails `pages`), `type: Handout`, text the Runner must leave untouched. The same invocation then runs the gate's `style` and `narration` layers read-only over the Outcome (`runGate` in `evals/check.ts`), findings scoped to the run's output pages: a gate error fails the case like a Check failure, a gate warning is reported (`WARN`) and passes — the gate's own severities (ADR 0015). The cheapest grader. A rubric that restates a Check is a defective rubric; move it to `checks`.
 - **Grade** — `prose-grader` reads the writing and quotes it. Each rubric is a checkable claim about meaning and intent: does the table get the situation? This is creative writing, so no rubric requires verbatim wording, and copying a source's prose is a weakness rather than fidelity. "Intact" or "kept" means sections, facts and callout titles, not whitespace or formatting. Skill-eval Grades are pass/fail; Benchmark Grades are 1–5. The grading model is never the model under test. Grades score skills; the File gate stays deterministic (ADR 0010).
 - **Jev** (`judge` / `judge_batch` in `eval`) — bounded labels over a small state. It is not a Grade of Narration.
 - **Baseline run** — a Runner run of a case without the skill line ([Run a case](#run-a-case) step 1).
@@ -45,7 +45,7 @@ Apply to a content skill's committed `evals/cases.yaml` before a Hillclimb. Reco
 
 Every eval process reads the live Wiki and cannot change it:
 
-- **Runners and graders** are native `task` dispatches of `test-subject` and `prose-grader`, whose frontmatter `tools:` is read-only except Runner `bash` for diagnostic CLI such as `cf encounter-budget`: `read`, `grep`, `glob`, plus `web_search` and `bash` for the Runner. A dispatch also carries `yield`, `context_notes`, `new_context` and a `write` that reaches only `xd://` devices, which cannot write files, and it receives neither DM decision memory nor `manage_skill`.
+- **Runners and graders** are native `task` dispatches of `test-subject` and `prose-grader`, whose frontmatter `tools:` is read-only except the Runner's `bash`: `read`, `grep`, `glob`, plus `web_search` and `bash` for the Runner. The Runner's `bash` runs diagnostic CLI such as `cf encounter-budget` and `cf style`, and writes the Runner's page drafts into one `mktemp -d` directory beneath `$TMPDIR`. A dispatch also gets `yield`, `context_notes`, `new_context` and a `write` that reaches only `xd://` devices, which cannot write files, and it receives neither DM decision memory nor `manage_skill`.
 - **CLI processes** — description trigger checks (`skill://skill-creator`) and Benchmark runners and Judge (`skill://dnd-benchmark`) — run `omp -p` from Bash. `--tools read,grep,glob…` brings the same `xd://`-only `write`, and `--no-tools` brings none. `--config evals/subject.config.yml` turns DM decision memory and autolearn off, so runs neither see nor feed DM memory and carry no `manage_skill`.
 - QMD search runs through the `xd://` devices: `write` JSON to `xd://mcp__qmd_query` and `xd://mcp__qmd_get` (`read xd://mcp__qmd_query` for the schema), over the existing live index. Eval work never copies or rebuilds an index.
 
@@ -65,17 +65,20 @@ The one recipe for every Eval and paired authoring run. Steps 1 and 4 are native
 2. **Save and split** the reply into the output overlay, with `<id>` the Runner's agent id:
 
    ```bash
-   out=<run>/<case-id>; mkdir -p "$out/outputs"; cat agent://<id> | jq -rRs '(fromjson? // .) | if type == "object" then ([.[] | strings] | max_by(length)) // tostring else . end' > "$out/reply.txt"   # agent:// serves the yielded reply JSON-encoded, sometimes wrapped in an object
+   out=<run>/<case-id>; mkdir -p "$out/outputs"; cat agent://<id> | jq -rRs '(fromjson? // .) | if type == "object" and (.blocks | type) == "array" then ([(.summary // "") | tostring] + [.blocks[] | "````markdown file=\"\(.file)\"\n\(.content | rtrimstr("\n"))\n````"] + [(.removed // [])[] | strings | "````delete file=\"\(.)\"\n````"]) | join("\n\n") elif type == "object" then ((.data | strings) // ([.[] | strings] | max_by(length)) // tostring) else . end' > "$out/reply.txt"   # agent:// serves the yielded reply JSON-encoded; a Runner that yields an object with blocks[] gets them rendered as file blocks, and one with a string .data gets that string
    awk -v d="$out/outputs" '
+   function fname(s) { s = substr(s, index(s, "file=\"") + 6); return substr(s, 1, length(s) - 1) }
    BEGIN { r = d "/reply.md"; printf "" > r }
-   /^````markdown file=".+"$/ { f = d "/" substr($0, 20, length($0) - 20); system("mkdir -p \"$(dirname \"" f "\")\""); printf "" > f; next }
-   /^````delete file=".+"$/ { del = del sep "\"" substr($0, 18, length($0) - 18) "\""; sep = ","; f = "/dev/null"; next }
-   /^````$/ && f { f = ""; next }
+   !f && /^````+markdown file=".+"$/ { fence = $0; sub(/markdown.*/, "", fence); f = d "/" fname($0); system("mkdir -p \"$(dirname \"" f "\")\""); printf "" > f; next }
+   !f && /^````+delete file=".+"$/ { fence = $0; sub(/delete.*/, "", fence); del = del sep "\"" fname($0) "\""; sep = ","; f = "/dev/null"; next }
+   f && $0 == fence { f = ""; next }
    { print > (f ? f : r) }
    END { if (del) print "[" del "]" > (d "/.deleted.json") }' "$out/reply.txt"
+   drafts=$(sed -n 's/^Drafts: //p' "$out/reply.txt" | tail -n 1)   # a reply that carried no page block falls back to the Runner's gated drafts
+   if [ -z "$(find "$out/outputs" -type f -name '*.md' ! -path "$out/outputs/reply.md" -print -quit)" ] && [ -d "$drafts" ]; then cp -R "$drafts/." "$out/outputs/"; fi
    ```
 
-   Done when `$out/outputs` holds each returned page at its Wiki-relative path, `reply.md`, and `.deleted.json` when the Runner removed pages. A Runner that failed or left no result is an execution error.
+   Done when `$out/outputs` contains each returned page at its Wiki-relative path, `reply.md`, and `.deleted.json` when the Runner removed pages. The pages come from the reply's blocks, or from the directory its `Drafts:` line gives when the reply had no page block. A Runner that failed, or left neither page blocks nor a `Drafts:` directory with pages, is an execution error.
 
 3. **Checks.**
 

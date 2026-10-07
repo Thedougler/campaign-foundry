@@ -1,5 +1,8 @@
 import { spawnSync } from "node:child_process";
+import { mkdtempSync, realpathSync } from "node:fs";
 import { mkdir, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { afterAll, describe, expect, it } from "vitest";
 import { repoRoot } from "./check/helpers.ts";
 
@@ -104,6 +107,18 @@ describe("cf style", () => {
 		expect(result.stdout).toContain(".scratch/style-dir/skill/SKILL.md:2");
 		expect(result.stdout).not.toContain("climb.md");
 		expect(result.stdout).not.toContain("snapshot/");
+	});
+
+	it("checks a draft outside the repo and reports its absolute path", async () => {
+		const drafts = realpathSync(mkdtempSync(join(tmpdir(), "style-drafts-")));
+		const page = join(drafts, "The Shattered Sea", "NPCs", "Cobb.md");
+		await mkdir(join(drafts, "The Shattered Sea", "NPCs"), { recursive: true });
+		await writeFile(page, dashCallout);
+		const result = run(["style", page, ...styleVault]);
+		await rm(drafts, { recursive: true, force: true });
+		expect(result.status).toBe(1);
+		expect(result.stdout).toContain(`${page}:2`);
+		expect(result.stdout).toContain("Narration.NoEmDash");
 	});
 
 	it("exits 2 on a missing path", () => {
