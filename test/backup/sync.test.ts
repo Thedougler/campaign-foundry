@@ -21,7 +21,7 @@ function campaign(): string {
 	});
 }
 
-async function run(root: string, map: BackupMap, api: FakeNotion, scope: Scope = ALL, extra: { commit?: string; saves?: BackupMap[]; pulled?: string[][] } = {}) {
+async function run(root: string, map: BackupMap, api: FakeNotion, scope: Scope = ALL, extra: { commit?: string; saves?: BackupMap[]; pulled?: string[][]; pullFails?: boolean } = {}) {
 	const walk = walkBackup(root);
 	const plan = planBackup(walk, map, scope);
 	const result = await runBackup({
@@ -33,6 +33,7 @@ async function run(root: string, map: BackupMap, api: FakeNotion, scope: Scope =
 		sourceUrl: (p) => `https://github.com/o/r/blob/main/${p}`,
 		save: (m) => extra.saves?.push(structuredClone(m)),
 		lfsPull: async (paths) => {
+			if (extra.pullFails) throw new Error("git lfs pull failed: batch response: rate limit exceeded");
 			extra.pulled?.push(paths);
 		},
 		log: () => {},
@@ -152,6 +153,18 @@ describe("backup sync", () => {
 		expect(result.failures.map((f) => f.path)).toEqual([`${W}/attachments/Pointer.png`]);
 		expect(map.syncedCommit).toBeUndefined();
 		expect(map.entries[`${W}/attachments/Pointer.png`]?.hash).toBeUndefined();
+	});
+
+	it("a failed git lfs pull fails only the pointer images, and the rest of the run still lands", async () => {
+		const root = campaign();
+		writeFileSync(join(root, W, "attachments/Pointer.png"), lfsPointer());
+		const map = emptyMap(PARENT);
+		const api = new FakeNotion();
+		const { result } = await run(root, map, api, ALL, { pullFails: true });
+		expect(result.failures.map((f) => f.path)).toEqual([`${W}/attachments/Pointer.png`]);
+		expect(map.entries[`${W}/attachments/Map.png`]?.fileUploadId).toBeDefined();
+		expect(map.entries[`${W}/hot.md`]?.hash).toBeDefined();
+		expect(map.syncedCommit).toBeUndefined();
 	});
 
 	it("saves the map after every page it creates, so a run cancelled midway never duplicates a page", async () => {

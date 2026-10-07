@@ -30,7 +30,9 @@ function chooseScope(root: string, map: BackupMap, flags: BackupFlags, walk: Wal
 	if (!base) return { scope: { kind: "all" }, why: "first run: the map has no synced commit" };
 	if (!usableBase(root, base)) {
 		if (flags.since) throw new UsageError(`${base} is not a commit reachable from HEAD in this clone.`, "cf backup --since <commit> (or --all for a full run)");
-		return { scope: { kind: "all" }, why: `synced commit ${base.slice(0, 7)} is not an ancestor of HEAD here (force push or shallow clone)` };
+		// A squash or rebase merge (or a force push) leaves the synced commit off main's history. Every file is then
+		// compared with the content hash the map stored for it, so only files that really changed are written.
+		return { scope: { kind: "all" }, why: `synced commit ${base.slice(0, 7)} is not an ancestor of HEAD (squash or rebase merge, force push or shallow clone): comparing content hashes` };
 	}
 	return { scope: { kind: "diff", base, ...diffSince(root, base, BACKUP_ROOTS, walk.links) }, why: `changes since ${base.slice(0, 7)}` };
 }
@@ -144,7 +146,15 @@ Examples:
 				...(commit ? { commit } : {}),
 				sourceUrl,
 				save: (m) => saveMap(mapFile, m),
-				lfsPull: async (paths) => lfsPull(root, paths),
+				// git knows a file under a followed symlink by its target path.
+				lfsPull: async (paths) =>
+					lfsPull(
+						root,
+						paths.map((p) => {
+							const link = walk.links.find((l) => p.startsWith(`${l.alias}/`));
+							return link ? link.target + p.slice(link.alias.length) : p;
+						}),
+					),
 				log,
 			});
 			if (flags.json) process.stdout.write(`${JSON.stringify({ ok: result.failures.length === 0, ...summary, result, root: map.root ?? null }, null, 2)}\n`);

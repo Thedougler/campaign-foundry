@@ -245,7 +245,12 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 	const pointers = images.filter((f) => f.lfsPointer).map((f) => f.path);
 	if (pointers.length > 0) {
 		log(`pulling ${pointers.length} LFS image${pointers.length === 1 ? "" : "s"}`);
-		await options.lfsPull(pointers);
+		try {
+			await options.lfsPull(pointers);
+		} catch (error) {
+			// Carry on: each image still a pointer fails on its own below, and the rest of the run is not lost.
+			log(`  ! git lfs pull: ${message(error)}`);
+		}
 	}
 	let limit: number | undefined;
 	if (images.length > 0) {
