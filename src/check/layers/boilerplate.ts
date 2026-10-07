@@ -96,7 +96,7 @@ export const boilerplateLayer: Layer = {
 			const quoted = quote.length > 80 ? `${quote.slice(0, 77)}…` : quote;
 			for (const [page, line] of pages) {
 				if (!reported.add(`${page.path}:${line}`)) continue;
-				const others = [...pages.keys()].filter((other) => other !== page).map((other) => other.name);
+				const others = [...pages].filter(([other]) => other !== page).map(([other, at]) => `${ctx.display(other.path)}:${at}`);
 				findings.push({
 					layer: "boilerplate",
 					rule: "shared-line",
@@ -104,7 +104,7 @@ export const boilerplateLayer: Layer = {
 					path: ctx.display(page.path),
 					line,
 					message: `This sentence is shared verbatim with ${others.join(", ")}: "${quoted}"`,
-					hint: `Write the line from what only this page holds, so no two pages read alike: each page's Where, Held by, Tell or Tactics line becomes its own, from its own facts.`,
+					hint: `Recast this page's sentence from what only this page holds. Each sharer rewrites its own line, so pages outside your work stay as they are.`,
 				});
 			}
 		}

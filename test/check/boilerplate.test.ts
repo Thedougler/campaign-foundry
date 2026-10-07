@@ -38,7 +38,6 @@ describe("cf check --layer boilerplate", () => {
 		expect(paths.length).toBe(2);
 		for (const finding of shared) {
 			expect(finding.severity).toBe("warning");
-			expect(finding.hint).toContain("no two pages read alike");
 		}
 		expect(report.findings.filter((finding) => finding.path.endsWith("Three.md"))).toEqual([]);
 	});
@@ -73,7 +72,8 @@ describe("cf check --layer boilerplate, sentences inside paragraphs", () => {
 			expect(finding.line).toBe(7);
 			expect(finding.severity).toBe("warning");
 			expect(finding.message).toContain('"Let the Party answer with positioning, cover, or focused fire."');
-			expect(finding.hint).toContain("no two pages read alike");
+			const twin = finding.path.endsWith("One.md") ? "B/Two.md:7" : "B/One.md:7";
+			expect(finding.message).toContain(twin);
 		}
 	});
 
