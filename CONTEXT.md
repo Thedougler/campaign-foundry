@@ -271,7 +271,7 @@ _Avoid_: sync, export, publish
 ### Backup
 
 **Backup**:
-The copy of the Shattered Sea Wiki, the agent skills and their images that `cf backup` keeps in Notion on each push to `main`, one page per file, keyed by repo path in `.notion/backup-map.json`. It only copies: nothing in it feeds play or flows back into the Repo.
+The copy of the Shattered Sea Wiki, the agent skills and their images that `cf backup` keeps in Notion on each push to `main`, one page per file, each naming the repo path it holds (`.notion/backup-map.json` only caches the lookup). It only copies: nothing in it feeds play or flows back into the Repo.
 _Avoid_: sync, mirror, export, Push
 
 ### Evals

@@ -1,4 +1,5 @@
 import { spawnSync } from "node:child_process";
+import { contentHash } from "./files.ts";
 
 function git(root: string, args: string[]): { ok: boolean; stdout: string; stderr: string } {
 	const r = spawnSync("git", args, { cwd: root, encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
@@ -58,4 +59,16 @@ export function repoWebUrl(root: string): string | undefined {
 	if (!r.ok) return undefined;
 	const m = /github\.com[:/]([^/]+)\/([^/]+?)(?:\.git)?\s*$/.exec(r.stdout.trim());
 	return m ? `https://github.com/${m[1]}/${m[2]}` : undefined;
+}
+
+/**
+ * The content hash a file had at `commit` (the LFS object id for a pointer), or undefined when the commit or file is not
+ * in this clone. A page header names the commit it was written at, so a lost map gets its hashes back from git.
+ */
+export function hashAt(root: string, commit: string, path: string, links: { alias: string; target: string }[] = []): string | undefined {
+	if (!/^[0-9a-f]{7,40}$/.test(commit)) return undefined;
+	const link = links.find((l) => path.startsWith(`${l.alias}/`));
+	const gitPath = link ? link.target + path.slice(link.alias.length) : path;
+	const r = spawnSync("git", ["show", `${commit}:${gitPath}`], { cwd: root, maxBuffer: 256 * 1024 * 1024 });
+	return r.status === 0 && r.stdout ? contentHash(r.stdout).hash : undefined;
 }

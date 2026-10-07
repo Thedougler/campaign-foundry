@@ -28,7 +28,7 @@ describe("cf backup", () => {
 		expect(text.stdout).toContain("2 Markdown, 0 other text, 1 images");
 		expect(text.stdout).toContain("1 as LFS pointers here");
 		expect(text.stdout).toContain("+     hot");
-		expect(text.stdout).toContain("(dry run: nothing sent to Notion)");
+		expect(text.stdout).toContain("(dry run: nothing sent to Notion, and only the map read");
 		const json = await cf(["backup", "--dry-run", "--json", "--root", root], root);
 		const report = JSON.parse(json.stdout) as { ok: boolean; scope: string; create: { root: boolean; dirs: number; files: number }; estimate: { skills: number } };
 		expect(report).toMatchObject({ ok: true, scope: "all", create: { root: true, dirs: 6, files: 3 }, estimate: { skills: 1 } });

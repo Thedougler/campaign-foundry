@@ -4,8 +4,8 @@ import { describe, expect, it } from "vitest";
 import { walkBackup } from "../../src/backup/files.ts";
 import { type BackupMap, emptyMap } from "../../src/backup/map.ts";
 import { throttle } from "../../src/backup/notion.ts";
-import { estimate, planBackup, runBackup, type Scope } from "../../src/backup/sync.ts";
-import { FakeNotion, lfsPointer, repo, textOf } from "./helpers.ts";
+import { estimate, planBackup, type Scope } from "../../src/backup/sync.ts";
+import { backup, FakeNotion, lfsPointer, repo, textOf } from "./helpers.ts";
 
 const W = "wiki/The Shattered Sea";
 const PARENT = "3f102166-35ec-8117-af9c-d05f042eea59";
@@ -21,25 +21,8 @@ function campaign(): string {
 	});
 }
 
-async function run(root: string, map: BackupMap, api: FakeNotion, scope: Scope = ALL, extra: { commit?: string; saves?: BackupMap[]; pulled?: string[][]; pullFails?: boolean } = {}) {
-	const walk = walkBackup(root);
-	const plan = planBackup(walk, map, scope);
-	const result = await runBackup({
-		walk,
-		map,
-		plan,
-		api,
-		commit: extra.commit ?? "c0ffee0000000000000000000000000000000000",
-		sourceUrl: (p) => `https://github.com/o/r/blob/main/${p}`,
-		save: (m) => extra.saves?.push(structuredClone(m)),
-		lfsPull: async (paths) => {
-			if (extra.pullFails) throw new Error("git lfs pull failed: batch response: rate limit exceeded");
-			extra.pulled?.push(paths);
-		},
-		log: () => {},
-		now: () => new Date("2026-10-07T12:00:00Z"),
-	});
-	return { plan, result };
+async function run(root: string, map: BackupMap, api: FakeNotion, scope: Scope = ALL, extra: Parameters<typeof backup>[4] = {}) {
+	return backup(root, map, api, scope, extra);
 }
 
 describe("backup sync", () => {
@@ -75,39 +58,40 @@ describe("backup sync", () => {
 		expect(hot.find((b) => b.type === "image")?.image).toMatchObject({ file_upload: { id: upload } });
 		expect(api.byTitle("Map.png")?.blocks.map((b) => b.type)).toEqual(["paragraph", "image"]);
 		expect(api.calls.filter((c) => c.op === "upload")).toHaveLength(1);
-		// New pages are written without a clear; the header names the source.
-		expect(api.ops()).not.toContain("clear");
-		expect(textOf((api.byTitle("Ilse Corran")?.blocks ?? []).slice(0, 1))).toContain(`${W}/NPCs/Ilse Corran.md`);
+		// Every page carries its marker: the root its note, a folder its path, a file the header naming path and commit.
+		expect(textOf(rootPage?.blocks ?? [])).toContain("An automatic copy of the campaign-foundry repo");
+		expect(textOf((npcs?.blocks ?? []).slice(0, 1))).toBe(`Folder |${W}/NPCs| of the campaign-foundry backup.`);
+		expect(textOf((api.byTitle("Ilse Corran")?.blocks ?? []).slice(0, 1))).toMatch(new RegExp(`^Backup of \\|${W}/NPCs/Ilse Corran.md\\| at c0ffee0\\.`));
 		expect(api.byTitle("cases.yaml")?.blocks[1]?.type).toBe("code");
 	});
 
-	it("a rerun with nothing changed makes no Notion calls", async () => {
+	it("a rerun with nothing changed only reads Notion: no page created, written or trashed", async () => {
 		const root = campaign();
 		const map = emptyMap(PARENT);
-		await run(root, map, new FakeNotion());
 		const api = new FakeNotion();
-		const { plan } = await run(root, map, api);
+		await run(root, map, api);
+		api.calls = [];
+		const { plan, reconciled } = await run(root, map, api);
 		expect(plan).toMatchObject({ createRoot: false, createDirs: [], createFiles: [], writeFiles: [], deletePaths: [] });
+		expect(reconciled).toMatchObject({ adopted: [], dropped: [], markersAdded: 0, duplicates: [] });
 		expect(api.calls).toEqual([]);
 	});
 
 	it("a push rewrites only the changed files the diff names, in place at the recorded URL", async () => {
 		const root = campaign();
 		const map = emptyMap(PARENT);
-		const first = new FakeNotion();
-		await run(root, map, first);
+		const api = new FakeNotion();
+		await run(root, map, api);
 		const ilse = map.entries[`${W}/NPCs/Ilse Corran.md`];
 		writeFileSync(join(root, W, "NPCs/Ilse Corran.md"), "Ilse, rewritten.\n");
 		writeFileSync(join(root, W, "hot.md"), "changed but not in this diff\n");
-		const api = new FakeNotion();
-		Object.assign(api, { pages: first.pages });
+		api.calls = [];
 		await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([`${W}/NPCs/Ilse Corran.md`]), deleted: new Set() }, { commit: "d00d" });
-		expect(api.calls.map((c) => [c.op, c.id])).toEqual([
-			["clear", ilse?.id],
-			["append", ilse?.id],
-		]);
+		// Emptied, written under a pending header, then the header names the commit: a run stopped midway is rewritten.
+		expect(api.calls.map((c) => c.op)).toEqual(["clear", "append", "update"]);
+		expect(api.calls[0]?.id).toBe(ilse?.id);
 		expect(map.entries[`${W}/NPCs/Ilse Corran.md`]?.id).toBe(ilse?.id);
-		expect(textOf(first.pages.get(ilse?.id ?? "")?.blocks ?? [])).toContain("Ilse, rewritten.");
+		expect(textOf(api.pages.get(ilse?.id ?? "")?.blocks ?? [])).toContain("Ilse, rewritten.");
 		expect(map.syncedCommit).toBe("d00d");
 	});
 

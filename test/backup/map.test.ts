@@ -28,6 +28,15 @@ describe("backup map", () => {
 		expect(loadMap(file, PARENT).entries["b.md"]).toEqual({ kind: "markdown", id: "2", url: "u2", hash: "h" });
 	});
 
+	it("writes each entry's fields in one order, so the same map built in another order is the same file", () => {
+		const a = emptyMap(PARENT);
+		a.entries["m.png"] = { kind: "image", id: "1", url: "u", fileUploadId: "f", hash: "h" };
+		const b = emptyMap(PARENT);
+		b.entries["m.png"] = { hash: "h", url: "u", id: "1", kind: "image", fileUploadId: "f" };
+		expect(serializeMap(a)).toBe(serializeMap(b));
+		expect(serializeMap(a)).toMatch(/"kind"[\s\S]*"id"[\s\S]*"url"[\s\S]*"hash"[\s\S]*"fileUploadId"/);
+	});
+
 	it("starts empty when there is no map, and refuses a map made for another parent page", () => {
 		const root = repo({});
 		const file = join(root, "map.json");

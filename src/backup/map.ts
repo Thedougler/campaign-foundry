@@ -47,12 +47,17 @@ export function loadMap(file: string, parentPageId: string): BackupMap {
 	return map;
 }
 
-/** Stable JSON: entries sorted by path, so a commit of the map diffs line by line. */
+const FIELD_ORDER: (keyof MapEntry)[] = ["kind", "id", "url", "hash", "fileUploadId", "deletedAt", "uploadSkipped"];
+
+/** Stable JSON: entries sorted by path and fields in one order, so a map rebuilt from Notion is byte-for-byte the same. */
 export function serializeMap(map: BackupMap): string {
 	const entries: Record<string, MapEntry> = {};
 	for (const key of Object.keys(map.entries).sort()) {
 		const entry = map.entries[key];
-		if (entry) entries[key] = entry;
+		if (!entry) continue;
+		const ordered: Record<string, unknown> = {};
+		for (const field of FIELD_ORDER) if (entry[field] !== undefined) ordered[field] = entry[field];
+		entries[key] = ordered as unknown as MapEntry;
 	}
 	return `${JSON.stringify({ ...map, entries }, null, "\t")}\n`;
 }
