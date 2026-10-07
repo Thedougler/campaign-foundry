@@ -8,6 +8,7 @@ import { createOutcome, loadCases, runChecks, runGate } from "../../evals/check.
 const vault = resolve("test/fixtures/vault");
 const cases = resolve("test/evals/cases.yaml");
 const page = "Lowtide/NPCs/Ilse Corran.md";
+const writtenFixture = Object.fromEntries([page, "Lowtide/Creatures/Bandit Captain.md"].map((path) => [path, readFileSync(join(vault, path), "utf8")]));
 const roots: string[] = [];
 afterEach(() => { for (const root of roots.splice(0)) rmSync(root, { recursive: true, force: true }); });
 function output(pages: Record<string, string> = {}, deleted: string[] = [], reply = true) {
@@ -22,11 +23,14 @@ function evalCheck(caseId: string, root: string, extra: string[] = []) {
 }
 
 describe("eval:check Outcome", () => {
-	it("reads omitted live pages and preserves existing deterministic checks", () => {
+	it("reads omitted live pages for content checks but passes pages only for pages the run wrote", () => {
 		const item = loadCases(cases).find((item) => item.id === "fixture-holds")!;
-		const results = runChecks(item.checks!, createOutcome(vault, output()));
-		expect(results.length).toBeGreaterThan(4); expect(results.every((result) => result.ok)).toBe(true);
-		expect(results.some((result) => result.kind === "gate")).toBe(false);
+		const live = runChecks(item.checks!, createOutcome(vault, output()));
+		expect(live.filter((result) => result.kind === "pages").map((result) => result.ok)).toEqual([false, false]);
+		expect(live.filter((result) => result.kind !== "pages").every((result) => result.ok)).toBe(true);
+		const written = runChecks(item.checks!, createOutcome(vault, output(writtenFixture)));
+		expect(written.every((result) => result.ok)).toBe(true);
+		expect(written.some((result) => result.kind === "gate")).toBe(false);
 	});
 	it("checks output replacements without changing live bytes", () => {
 		const original = readFileSync(join(vault, page), "utf8");
@@ -42,8 +46,9 @@ describe("eval:check Outcome", () => {
 		expect(outcome.readPage(page)).toBeUndefined();
 	});
 	it("reports CLI pass/fail and malformed outputs as execution errors", () => {
-		const passed = evalCheck("fixture-holds", output());
+		const passed = evalCheck("fixture-holds", output(writtenFixture));
 		expect(passed.status).toBe(0); expect(passed.stdout).toContain("PASS  pages");
+		expect(evalCheck("fixture-holds", output()).stdout).toContain("FAIL  pages");
 		const failed = evalCheck("every-check-fails", output());
 		expect(failed.status).toBe(1); expect(failed.stdout).toContain("FAIL  absent");
 		const malformed = evalCheck("fixture-holds", output({}, ["../outside.md"]));
@@ -80,9 +85,9 @@ describe("eval:check gate", () => {
 
 	it("fails gate errors and passes gate warnings through the CLI", async () => {
 		const probe = "Lowtide/NPCs/Gate Probe.md";
-		const error = evalCheck("fixture-holds", output({ [probe]: telling }));
+		const error = evalCheck("gate-probe", output({ [probe]: telling }));
 		expect(error.status).toBe(1); expect(error.stdout).toContain("FAIL  gate");
-		const warned = evalCheck("fixture-holds", output({ [probe]: flagged }));
+		const warned = evalCheck("gate-probe", output({ [probe]: flagged }));
 		expect(warned.status).toBe(0);
 		expect(warned.stdout).toContain("WARN  gate  Narration.FilterVerbs");
 		expect(warned.stdout).toContain("1 gate warnings");

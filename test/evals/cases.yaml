@@ -49,3 +49,6 @@
     canon:
       Lowtide/Lowtide.md:
         - "(unclosed"
+
+- id: gate-probe
+  prompt: A case with no Checks, so only the gate decides the exit code.

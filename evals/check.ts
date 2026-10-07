@@ -24,7 +24,7 @@ Options:
   -h, --help      show this help
 
 cases.yaml is a list of { id, prompt, source_pages, raw_sources, checks, rubrics }.
-Checks: pages, sections, canon regexes and absent regexes. The .md extension is optional.
+Checks: pages (written by the run), sections, canon regexes and absent regexes. The .md extension is optional.
 After the case checks, the production gate (style and narration layers) runs read-only
 over the Outcome; findings on output pages become gate results — an error fails, a
 warning is reported (WARN) and passes.
@@ -115,6 +115,8 @@ export function loadCases(file: string): Case[] {
 
 export interface Outcome {
   readPage: (path: string) => string | undefined;
+  /** True when the run itself returned this page, so a live page left untouched does not count as a deliverable. */
+  wrote: (path: string) => boolean;
 }
 
 /** Omitted pages remain live; output pages and recorded deletions shadow live files. */
@@ -129,6 +131,7 @@ export function createOutcome(vault: string, outputRoot: string): Outcome {
       const file = join(vault, page);
       return existsSync(file) && statSync(file).isFile() ? readFileSync(file, "utf8") : undefined;
     },
+    wrote: (path) => overlay.pages.has(wikiPagePath(path)),
   };
 }
 
@@ -193,8 +196,8 @@ function hasHeading(text: string, spec: string): boolean {
 export function runChecks(checks: Checks, outcome: Outcome): Result[] {
   const results: Result[] = [];
   for (const page of checks.pages ?? []) {
-    const ok = outcome.readPage(page) !== undefined;
-    results.push({ ok, kind: "pages", detail: `${page} ${ok ? "exists" : "is missing"}` });
+    const ok = outcome.wrote(page);
+    results.push({ ok, kind: "pages", detail: `${page} ${ok ? "written by the run" : "not written by the run"}` });
   }
   const perPage = (kind: "sections" | "canon" | "absent", test: (text: string, item: string) => boolean, pass: string, miss: string) => {
     for (const [page, items] of Object.entries(checks[kind] ?? {})) {
