@@ -30,7 +30,7 @@
   checks:
     pages:
       - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-      - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Previously On.md
+      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
     sections:
       The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md:
         - '## At a glance'
@@ -40,15 +40,15 @@
     # leftover-comment is a check finding: written pages that keep template %% guidance skipped the check gate.
     absent:
       The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md: ['%%']
-      The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Previously On.md: ['%%']
+      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md: ['%%']
   rubrics:
     - The Recap accounts for every active Thread in this run's Campaign, including those that stayed still, and distinguishes played changes from unresolved pressures.
     - "Actual events follow the Session 11 Transcript: flight from the adult Bloodhawk, living fruit drawing hunters, Matteo's rescue from playful otters, ghost-plum invisibility, the Lesser Black Lotus drifting downstream and the unresolved Skarn attack. Unreached inland survivors and a completed theft are not narrated as played."
     - Jean-Claude, Matteo, Spinner custody and catatonia match this run's starting Wiki. The table's ambiguous attacker labels do not create a second attacker or override the Canon identity Skarn.
-    - The Previously On comes from the full Transcript, with concrete supported acts for Delmar, Perrin and Crissdalynn. Jean-Claude is represented through his recorded state, not assigned an action he never took. It ends where that Transcript stops, with Skarn still in Crissdalynn's face.
+    - The Previously On comes from the full Transcript, told in the past tense with the Party as you, with concrete supported acts for Delmar, Perrin and Crissdalynn. Jean-Claude is represented through his recorded state, not assigned an action he never took. It ends where that Transcript stops, with Skarn still in Crissdalynn's face, and tells nothing after that stop.
     - Quoted table speech is word-for-word from the Transcript. Narrative events and character reactions are supported by it, rather than invented to complete an arc.
     - "Table talk is not play: Delmar's unrealised plan to carry Jean-Claude back to the ship and fire its cannons at the Bloodhawk, and the joke about hitting the bird with a shark, are not recorded as played or as settled intent on any page."
-    - Both regenerated records cite archive/session-11-transcript-archived-version.md. Other played records and Session 12's existing Previously On stay unchanged; Session 12 outcomes and later rewards remain plans.
+    - Both regenerated records cite archive/session-11-transcript-archived-version.md. Other played records, Session 11's Previously On included, stay unchanged; Session 12 outcomes and later rewards remain plans.
     - Only that Transcript is ingested. Touched pages and neighbours agree with the Transcript and later Canon; hot, PC levels and the uncertain 1495 DR date remain consistent with this run's starting state.
     - The reply asks the DM nothing and reports no unit, page, Fill or check as skipped, deferred, left for later or awaiting approval.
 

@@ -1,4 +1,4 @@
-# Face, voice, and tells
+# Face, voice, tells and first look
 
 Use this reference for the person branch, not for Creature rules.
 
@@ -47,3 +47,15 @@ Examples:
 - new boots too fine for the guard captain's pay.
 
 **Check:** another NPC from the same place or Faction cannot inherit the face, voice, and tells without rewriting them.
+
+## First look
+
+The NPC template's `[!narration] First look`: the Party meets this person as they usually are, with no event. `theatre-of-the-mind` writes it to this recipe through its shared rules for first meetings on World pages.
+
+- **Job.** Give the table the face it will recognise each time this person returns.
+- **Build.** A first read (the harbourmaster, a broad woman in a coat two sizes too big), the one feature from **Face** and what they are usually doing.
+- **End.** Their complete first line, in the voice from **Voice**.
+
+Shape to match (never its words):
+
+> Down the quay from you, a broad woman in a harbour coat two sizes too big sits on an upturned crate, opening oysters with a knife worn thin as a leaf. Each empty shell she flicks into the water. She splits the next one loose and holds it out to whoever is nearest. "You're standing in my light."

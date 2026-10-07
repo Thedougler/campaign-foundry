@@ -14,7 +14,7 @@ The caller gives the work as a page and its callout, a Session Ledger and its Tr
 **Read only:**
 
 - the production start-here context required by `AGENTS.md`, then the caller's named pages/files, Session Ledger and Transcript; `wiki/templates/Handout.md` for a requested new Handout
-- this SKILL.md, [references/critique.md](references/critique.md) and one recipe file: [references/previously-on.md](references/previously-on.md) for the Previously On; [references/recipes.md](references/recipes.md) for every other slot, including Handout text
+- this SKILL.md, [references/critique.md](references/critique.md) and the recipe **Slots** gives for the slot, in this skill or in the content skill that writes the page: [references/previously-on.md](references/previously-on.md) for the Previously On; for every other slot, its recipe plus the shared rules in [references/recipes.md](references/recipes.md)
 - an image only where a page you were given already points at it and the file is readable
 
 **Write only:**
@@ -31,7 +31,7 @@ Done when you can list every file this run will read and every page it will writ
 
 ## Steps
 
-1. **Find the slot.** Read the type or kind of the caller's page and the callout's title. For `Previously on`, read [references/previously-on.md](references/previously-on.md) and follow its sequence instead of steps 2 to 4. For every other slot, read the dispatch and selected recipe in [references/recipes.md](references/recipes.md). Done when the slot, its Job/Build/End and its applicable final-check items are identified.
+1. **Find the slot.** Read the type or kind of the caller's page and the callout's title, then find the slot's row in **Slots**. For `Previously on`, read [references/previously-on.md](references/previously-on.md) and follow its sequence instead of steps 2 to 4. For every other slot, read the recipe its row names and the shared rules in [references/recipes.md](references/recipes.md). Done when the slot, its Job/Build/End, its band and its applicable final-check items are identified.
 2. **Gather.** Read the caller's page and only the caller-supplied source pages the slot needs for perceivable facts. Links select relevant subjects from that set, not further reading. Use an image only when the subject page already points at it and the file is readable. Keep source-backed facts and the old block in context, not a scratch file. Done when every candidate detail has a named source and every read stays within the allowed input.
 3. **Draft.** Take the Party's place and see what they see. Choose the **point**, the one thing the block delivers, and the **anchor**, the feature that shows it. Draft to the recipe's Job/Build/End and length band using the craft below. For a World-page first meeting, follow its ordered construction before moving to Revise. Keep secrets and mechanics in existing DM-side material. Done when every detail is sourced, the actual draft satisfies the recipe's construction checks where given, and the block stops at its End.
 4. **Revise.** Read silently, read aloud and retell from memory. Rewrite forced pauses, re-reads and paraphrases. Keep supported counts, timing, uncertainty and names, and preserve exact document payload and quoted table speech. Apply the hard lines and final check below. Then run the critique in [references/critique.md](references/critique.md). Done when the table could follow the block after one hearing, every applicable check is answered with quoted evidence and the critique's re-read is complete.
@@ -65,23 +65,38 @@ How a block meets the table. The spoken items bind material the DM speaks. A Han
 4. **Canon only.** Use only names that have a page, and take each fact from a page, an image or the DM. Where the sources are silent, the block is silent.
 5. **Clean prose.** Commas, "and" and full stops join clauses (`Narration.NoEmDash`, `Narration.NoSemicolon`, `Narration.NoColon`). Keep this skill's craft words (point, anchor, reaction point) out of Narration.
 
-## Length
+## Slots
 
-| Block | Band |
-| --- | --- |
-| Hook opening | 80 to 120 words |
-| Development opening | 80 to 150 words |
-| Cliffhanger opening | 60 to 100 words |
-| Climax opening | 100 to 200 words |
-| Closing image | 60 to 120 words |
-| Transition | one to three sentences |
-| First meeting on a World page | use the narration-and-speech construction in [references/recipes.md](references/recipes.md#first-meetings-on-world-pages) |
-| NPC or Creature entering a Scene | three to five sentences |
-| Revelation | two to four sentences |
-| Casting | one to three sentences |
-| World or Campaign pitch | about 100 words |
-| Previously On | 120 to 160 words |
-| Handout text | as long as the document |
+Identify the slot by the page's type or kind plus the callout's title, because the title alone does not always identify it. The Recipe column gives the file and heading that hold the slot's Job, Build and End. Every recipe except the Previously On runs through the shared rules in [references/recipes.md](references/recipes.md), wherever the recipe lives.
+
+| Slot | Found on | Recipe | Band |
+| --- | --- | --- | --- |
+| Hook opening | Scene, kind Hook · `Opening` | [recipes.md, Hook](references/recipes.md#hook) | 80 to 120 words |
+| Development opening | Scene, kind Development · `Opening` | [recipes.md, Development](references/recipes.md#development) | 80 to 150 words |
+| Cliffhanger opening | Scene, kind Cliffhanger · `Opening` | [recipes.md, Cliffhanger](references/recipes.md#cliffhanger) | 60 to 100 words |
+| Climax opening | Scene, kind Climax · `Opening` | [recipes.md, Climax](references/recipes.md#climax) | 100 to 200 words |
+| Closing image | Scene, kind Resolution · `Closing image`, or an older `Opening` | [recipes.md, Closing image](references/recipes.md#closing-image) | 60 to 120 words |
+| Transition | any page · `Transition` | [recipes.md, Transition](references/recipes.md#transition) | one to three sentences |
+| NPC entering | Scene · a callout titled with an NPC's name | [recipes.md, NPC entering](references/recipes.md#npc-entering) | three to five sentences |
+| Creature entering | Scene · a callout titled with a Creature's name | [recipes.md, Creature entering](references/recipes.md#creature-entering) | three to five sentences |
+| Revelation | Scene · a callout titled with a subject's name whose job is a major reveal | [recipes.md, Revelation](references/recipes.md#revelation) | two to four sentences |
+| NPC first look | NPC · `First look` | [npc-design craft.md, First look](../npc-design/references/craft.md#first-look) | first-meeting construction |
+| Creature first sight | Creature · `First sight` | [recipes.md, First meetings on World pages](references/recipes.md#first-meetings-on-world-pages) | first-meeting construction |
+| Item first look | Item · `First look` | [recipes.md, First meetings on World pages](references/recipes.md#first-meetings-on-world-pages) | first-meeting construction |
+| Vehicle first sight | Vehicle · `First sight` | [recipes.md, First meetings on World pages](references/recipes.md#first-meetings-on-world-pages) | first-meeting construction |
+| Arrival | Location, kind Region or Settlement · `Arrival` | [recipes.md, First meetings on World pages](references/recipes.md#first-meetings-on-world-pages) | first-meeting construction |
+| Entering | Location, kind Site · `Entering` | [recipes.md, First meetings on World pages](references/recipes.md#first-meetings-on-world-pages) | first-meeting construction |
+| Public face | Faction · `Public face` | [recipes.md, First meetings on World pages](references/recipes.md#first-meetings-on-world-pages) | first-meeting construction |
+| The offer | Quest · `The offer` | [recipes.md, First meetings on World pages](references/recipes.md#first-meetings-on-world-pages) | first-meeting construction |
+| Portrait | PC · `Portrait` | [recipes.md, First meetings on World pages](references/recipes.md#first-meetings-on-world-pages) | first-meeting construction |
+| As it is told | Lore · `As it is told` | [recipes.md, Voices](references/recipes.md#voices) | stop at the End |
+| Invocation | Deity · `Invocation` | [recipes.md, Voices](references/recipes.md#voices) | stop at the End |
+| Casting | Spell · `Casting` | [recipes.md, Voices](references/recipes.md#voices) | one to three sentences |
+| Handout text | Handout · `Handout text` | [recipes.md, Voices](references/recipes.md#voices) | as long as the document |
+| World or Campaign pitch | World · `The World`, Campaign · `The Campaign` | [recipes.md, Voices](references/recipes.md#voices) | about 100 words |
+| Previously On | Previously On · `Previously on`, whatever spelling the caller used | [references/previously-on.md](references/previously-on.md) | 120 to 160 words |
+
+The first-meeting construction is the narration-and-speech count in [recipes.md, First meetings on World pages](references/recipes.md#first-meetings-on-world-pages).
 
 A block that fits only by stretching sentences past a breath is overloaded. Move things to the DM's side or a later slot.
 
