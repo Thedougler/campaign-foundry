@@ -37,6 +37,13 @@ const replacements: { file: string; old: string; replacement: string }[] = [
     old: String.raw`nothing|exactly|at least|at most|more|fewer|less|up to) (?:[a-z'-]+ )?[a-z]+\\b`,
     replacement: String.raw`nothing|exactly|at least|at most|more|fewer|less|up to) (?!(?:[a-z'-]+ )?course\\b)(?:[a-z'-]+ )?[a-z]+\\b`,
   },
+  // BareHolds, the relative-clause token ("the ship and that patch and holds course"): its post-verb refusal
+  // list gains "course" for the same nautical idiom.
+  {
+    file: ".vale/styles/ai-tells/BareHolds.yml",
+    old: String.raw`(?:holds?|held)\\b(?! (?:a|an|the|its|their|this|that|no|one|two|three|several|many|some|all|every|each|zero|true|water|up|court|sway|promise|for|across|[a-z]+s)\\b)`,
+    replacement: String.raw`(?:holds?|held)\\b(?! (?:a|an|the|its|their|this|that|no|one|two|three|several|many|some|all|every|each|zero|true|water|up|court|sway|promise|for|across|course|[a-z]+s)\\b)`,
+  },
   // FigurativePays, the count-as-invoice "at <number> ... hits" token: the D&D readout "at 0 Hit Points" /
   // "at 3 hit points" reads "hit" as the invoice noun. Refusing a following "points" keeps the counted corpus
   // hits ("at zero corpus hits") flagged and only drops the hit-point readout.
@@ -135,7 +142,12 @@ for (const { file, exception } of patches) {
 
 for (const { file, old, replacement } of replacements) {
   const text = readFileSync(file, "utf8");
-  if (text.includes(replacement)) continue;
-  if (!text.includes(old)) throw new Error(`${file}: neither the upstream token nor its narrowing is present`);
-  writeFileSync(file, text.replace(old, replacement));
+  // Every occurrence narrows, since two tokens of one rule can share a tail. Narrowed spans are split out first, so an
+  // `old` that is a prefix of its `replacement` is never wrapped twice.
+  const parts = text.split(replacement);
+  if (!parts.some((part) => part.includes(old))) {
+    if (parts.length === 1) throw new Error(`${file}: neither the upstream token nor its narrowing is present`);
+    continue;
+  }
+  writeFileSync(file, parts.map((part) => part.replaceAll(old, replacement)).join(replacement));
 }
