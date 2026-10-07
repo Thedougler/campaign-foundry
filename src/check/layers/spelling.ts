@@ -69,7 +69,7 @@ function finding(word: string, line: number, near: string[]): CachedFinding {
 		message: `\`${word}\` is not in the British English dictionary, the D&D term list, a template, the vault word list or any page name.`,
 		hint: [
 			near.length > 0 ? `Did you mean ${near.map((s) => `\`${s}\``).join(", ")}? Use British spelling (harbourmaster, organised).` : "Correct the spelling; use British English (harbourmaster, organised).",
-			"For an in-world name, give it a page (a Wiki page named for it makes it a known word) or, if it is a coinage no page fits, add it to .cspell-words.txt at the vault root; for a D&D rules term, add it to .cspell/dnd-terms.txt.",
+			"For an in-world name, give it a page (a Wiki page named for it makes it a known word) or, if it is a coinage no page fits or a real-world word no dictionary has, add it to .cspell-words.txt at the vault root; for a D&D rules term, add it to .cspell/dnd-terms.txt.",
 		].join(" "),
 	};
 }

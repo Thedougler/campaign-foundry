@@ -338,7 +338,8 @@ const vaultWordCache = new WeakMap<Vault, Promise<string[]>>();
 
 /**
  * Words the World invented that no page is named for (a Calendar's months and weekdays, a name mentioned in
- * passing), read from `.cspell-words.txt` at the vault root and committed with the vault. It sits beside the page
+ * passing) and real-world words no dictionary in the gate has (`bodhran`), read from `.cspell-words.txt` at the
+ * vault root and committed with the vault. It sits beside the page
  * names in the spelling and grammar dictionaries. D&D rules terms belong in `.cspell/dnd-terms.txt` instead.
  */
 export function vaultWordList(vault: Vault): Promise<string[]> {
