@@ -1,9 +1,41 @@
 import type { Finding, Layer } from "../types.ts";
 import type { Page } from "../../vault/types.ts";
 
-/** A line worth comparing: body prose, not frontmatter, headings, callouts, fences, tables or comments. */
-function proseLines(page: Page): Map<number, string> {
-	const lines = new Map<number, string>();
+const segmenter = new Intl.Segmenter("en", { granularity: "sentence" });
+
+/** Words that end an abbreviation rather than a sentence; a fragment ending in one joins the next sentence. */
+const IS_ABBREVIATION: Record<string, true> = {
+	ft: true, in: true, lb: true, mi: true, km: true, gp: true, sp: true, cp: true, pp: true, // measures and coin
+	str: true, dex: true, con: true, int: true, wis: true, cha: true, // ability scores
+	mr: true, mrs: true, ms: true, mx: true, dr: true, jr: true, sr: true, st: true, // names
+	no: true, vs: true, vol: true, approx: true, prof: true, etc: true,
+};
+
+function endsWithAbbreviation(fragment: string): boolean {
+	const match = /([a-zA-Z]+)\.$/.exec(fragment);
+	return match !== null && (match[1]!.length === 1 || IS_ABBREVIATION[match[1]!.toLowerCase()] === true);
+}
+
+/** Sentences of a line: ICU boundaries, with fragments cut short at an abbreviation joined back. */
+function sentences(line: string): string[] {
+	const out: string[] = [];
+	for (const { segment } of segmenter.segment(line)) {
+		const prev = out[out.length - 1];
+		if (prev !== undefined && endsWithAbbreviation(prev)) out[out.length - 1] = prev + segment;
+		else out.push(segment);
+	}
+	return out;
+}
+
+/** A sentence worth comparing: its normalized key, and the original text to quote in a finding. */
+interface Sentence {
+	key: string;
+	quote: string;
+}
+
+/** Sentences worth comparing per line: body prose, not frontmatter, headings, callouts, fences, tables or comments. */
+function proseSentences(page: Page): Map<number, Sentence[]> {
+	const sentencesByLine = new Map<number, Sentence[]>();
 	const source = page.source.split("\n");
 	let inFence = false;
 	for (let i = 0; i < source.length; i++) {
@@ -16,41 +48,52 @@ function proseLines(page: Page): Map<number, string> {
 		if (inFence || line <= page.frontmatterEndLine) continue;
 		const trimmed = raw.trim();
 		if (!trimmed || trimmed.startsWith("#") || trimmed.startsWith(">") || trimmed.startsWith("|") || trimmed.startsWith("%%")) continue;
-		const normal = trimmed
+		const prose = trimmed
 			.replace(/^[-*+]\s+/, "")
 			.replace(/^\d+[.)]\s+/, "")
 			.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2")
 			.replace(/\[\[([^\]]+)\]\]/g, "$1")
-			.replace(/[*_`]/g, "")
-			.replace(/\s+/g, " ")
-			.toLowerCase();
-		if (normal.length >= 25 && /[a-z]/.test(normal)) lines.set(line, normal);
+			.replace(/[*_`]/g, "");
+		// Sentence boundaries need the original casing, so the key is normalized per sentence, not per line.
+		const kept = sentences(prose)
+			.map((sentence) => ({
+				quote: sentence.trim(),
+				key: sentence.replace(/\s+/g, " ").trim().toLowerCase(),
+			}))
+			.filter(({ key }) => key.length >= 25 && /[a-z]/.test(key));
+		if (kept.length > 0) sentencesByLine.set(line, kept);
 	}
-	return lines;
+	return sentencesByLine;
 }
 
 /**
- * A good book never prints the same sentence twice. This layer flags prose lines that appear verbatim on more
- * than one page, outside the places the templates hold in common (frontmatter, headings, callouts, fences).
+ * A good book never prints the same sentence twice. This layer flags sentences of body prose that appear verbatim
+ * on more than one page, outside the places the templates hold in common (frontmatter, headings, callouts, fences).
  */
 export const boilerplateLayer: Layer = {
 	name: "boilerplate",
 	description: "Verbatim prose shared across pages (every page is its own page).",
 	async run(ctx) {
 		const findings: Finding[] = [];
-		const shared = new Map<string, Map<Page, number>>();
+		const shared = new Map<string, { pages: Map<Page, number>; quote: string }>();
 		for (const page of ctx.vault.pages) {
 			// Generated pages quote the pages they catalogue; they are no one's prose.
 			if (/(^|\/)(index|hot|log)\.md$/.test(page.path)) continue;
-			for (const [line, normal] of proseLines(page)) {
-				const pages = shared.get(normal) ?? new Map<Page, number>();
-				pages.set(page, line);
-				shared.set(normal, pages);
+			for (const [line, sentences] of proseSentences(page)) {
+				for (const { key, quote } of sentences) {
+					const entry = shared.get(key) ?? { pages: new Map<Page, number>(), quote };
+					entry.pages.set(page, line);
+					shared.set(key, entry);
+				}
 			}
 		}
-		for (const pages of shared.values()) {
+		// One finding per line even when several of its sentences are shared: the fix is one rewrite.
+		const reported = new Set<string>();
+		for (const { pages, quote } of shared.values()) {
 			if (pages.size < 2) continue;
+			const quoted = quote.length > 80 ? `${quote.slice(0, 77)}…` : quote;
 			for (const [page, line] of pages) {
+				if (!reported.add(`${page.path}:${line}`)) continue;
 				const others = [...pages.keys()].filter((other) => other !== page).map((other) => other.name);
 				findings.push({
 					layer: "boilerplate",
@@ -58,7 +101,7 @@ export const boilerplateLayer: Layer = {
 					severity: "warning",
 					path: ctx.display(page.path),
 					line,
-					message: `This line is shared verbatim with ${others.join(", ")}.`,
+					message: `This sentence is shared verbatim with ${others.join(", ")}: "${quoted}"`,
 					hint: `Write the line from what only this page holds, so no two pages read alike: each page's Where, Held by, Tell or Tactics line becomes its own, from its own facts.`,
 				});
 			}
