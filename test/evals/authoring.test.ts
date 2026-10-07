@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { afterEach, describe, expect, it } from "vitest";
-import { calculateStats, packageSkill, validateSkill } from "../../evals/authoring.ts";
+import { packageSkill, validateSkill } from "../../evals/authoring.ts";
 
 const roots: string[] = [];
 afterEach(async () => {
@@ -51,14 +51,5 @@ describe("native authoring helpers", () => {
 		await symlink(join(root, "private.txt"), join(directory, "linked.txt"));
 		await expect(packageSkill(directory, output)).rejects.toThrow("symbolic link");
 		expect(await readFile(output, "utf8")).toBe("previous bundle");
-	});
-	it("reports sample rather than population deviation from actual observations", () => {
-		expect(calculateStats([1, 2, 3])).toEqual({ mean: 2, stddev: 1, min: 1, max: 3 });
-		expect(calculateStats([0.25])).toEqual({ mean: 0.25, stddev: 0, min: 0.25, max: 0.25 });
-		expect(calculateStats([-2, 0, 2])).toEqual({ mean: 0, stddev: 2, min: -2, max: 2 });
-	});
-	it("rejects unavailable metric placeholders instead of returning estimated statistics", () => {
-		expect(() => calculateStats([1, Number.NaN])).toThrow("finite numeric observations");
-		expect(() => calculateStats([Infinity])).toThrow("finite numeric observations");
 	});
 });

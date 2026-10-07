@@ -23,9 +23,10 @@ Each term is defined here once; skills and instruction files use it as named.
 - **Check** — `bun evals/check.ts` (pages, sections, canon/absent regex) on a constrained Outcome: a page exists, `type: Handout`, text the Runner must leave untouched. The same invocation then runs the gate's `style` and `narration` layers read-only over the Outcome (`runGate` in `evals/check.ts`), findings scoped to the run's output pages: a gate error fails the case like a Check failure, a gate warning is reported (`WARN`) and passes — the gate's own severities (ADR 0015). The cheapest grader. A rubric that restates a Check is a defective rubric; move it to `checks`.
 - **Grade** — `prose-grader` reads the writing and quotes it. Each rubric is a checkable claim about meaning and intent: does the table get the situation? This is creative writing, so no rubric requires verbatim wording, and copying a source's prose is a weakness rather than fidelity. "Intact" or "kept" means sections, facts and callout titles, not whitespace or formatting. Skill-eval Grades are pass/fail; Benchmark Grades are 1–5. The grading model is never the model under test. Grades score skills; the File gate stays deterministic (ADR 0010).
 - **Jev** (`judge` / `judge_batch` in `eval`) — bounded labels over a small state. It is not a Grade of Narration.
-- **Eval** — [Run a case](#run-a-case) over selected cases: one Runner per case against the read-only live Wiki and a report for every selected id. An Eval leaves skill text unchanged.
+- **Baseline run** — a Runner run of a case without the skill line ([Run a case](#run-a-case) step 1).
+- **Eval** — [Run a case](#run-a-case) over selected cases: one Runner per case against the read-only live Wiki and a report for every selected id. An Eval leaves skill text unchanged. It answers two questions, one or two Runner runs each: does the skill pass every criterion (one with-skill run per case), and does it help or hurt (that run beside a baseline run, compared criterion by criterion). Each verdict is pass/fail per criterion from a single run.
 - **Attributable** — the surface a Hillclimb patch touches: the skill's `SKILL.md` and its pointers. Harness files (`evals/check.ts`, `evals/outputs.ts`, `evals/subject.config.yml`) and case files change only outside the climb.
-- **Hillclimb** — rounds of one attributable patch each, kept only when it fixes a failing criterion and breaks none that passed.
+- **Hillclimb** — rounds of one attributable patch each, kept when failures went down and nothing new broke.
 - **Benchmark** — requested cross-family Matrix ranking of Narration on committed excerpts (ADR 0012), separate from skill pass/fail.
 - **Playtest** — the weekly home Session: production monitoring that feeds Sample and never replaces Eval.
 
@@ -36,10 +37,9 @@ Apply to a content skill's committed `evals/cases.yaml` before a Hillclimb. Reco
 1. **Default case.** The suite holds one default case: a natural DM ask for a complete piece of the content type with current Shattered Sea `source_pages` / `raw_sources` (see Grounding). Its rubrics state professional quality for the type — table-ready, correct under the 2024 rules and balanced where it has mechanics, consistent with Canon, specific rather than generic, and Narration slots that meet `theatre-of-the-mind`. Done when the case exercises every part of the type's template and its rubrics cover each quality.
 2. **Extra cases.** Add a case only for a unique circumstance the default case cannot expose — chat-only delivery, a Handout, revising a whole Session's Narration — with a one-line `#` comment above it naming the circumstance. A suite may also hold one adversarial case, its `#` comment naming it adversarial, whose prompt pushes the skill toward a known defect — quietly rewriting established Canon, lore-dump delivery, a predetermined ending, a single-Clue dependency — and whose rubrics pass when the skill refuses, redesigns or offers its own alternative in the skill's terms. Trigger accuracy belongs to description evals in `skill-creator`, DM-gated. Done when every extra case has its comment and no case repeats what the default case covers.
 3. **Grader.** Constrained facts are Checks, and open craft is Grades whose claims two DMs would decide alike from the same starting Wiki. We grade intent, not exact wording. Checks pin structure (a page, `type:`, a callout title) and text the Runner must leave untouched, and never the wording of what the Runner writes. Rubrics name facts and craft, so a Runner-chosen filename, a reworded line or a source fact in other words passes. A criterion that fails content meeting it is broken: repair it here. Done when every criterion sits on the right side of the Check/Grade split.
-4. **Variance.** Do not re-run Grade on the same saved `$out/outputs`. Compare Grades only when two distinct Runner identities produced Outcomes for the same case. Timeouts, execution and grading errors are named prerequisites, not quality failures. Done when the log records the skip, or that cross-identity comparison.
-5. **Calibration.** Write one scored trial — Runner task and reply, Outcome, Checks and Grades — to a human-audit page `<audit>/<skill>/<case-id>.md`, where `<audit>` is a fresh `mktemp -d` directory outside the repository; read it, and record agree/disagree per rubric. A disagreement repairs the rubric or the case. Done when every audited rubric has a verdict.
+4. **Discriminating.** Run each case once as a baseline run. A case that passes on its baseline run teaches nothing, because the skill adds nothing the case can see: harden it — add a criterion for the quality the type demands and an unskilled run misses, or point the prompt at a source an unskilled run mishandles — and rerun its baseline, or retire it. Done when every remaining case fails at least one criterion on its baseline run and the log names each hardened or retired case.
 
-**Done when** steps 1–5 hold for every case. Non-content skills (`audit`, `ingest`, `query`, `lint`, `plan-session`, `pull-pcs`) keep their cases and take steps 3–5 when the DM asks to measure them; otherwise the log records the skip.
+**Done when** steps 1–4 hold for every case. Non-content skills (`audit`, `ingest`, `query`, `lint`, `plan-session`, `pull-pcs`) keep their cases and take steps 3–4 when the DM asks to measure them; otherwise the log records the skip.
 
 ## Safety
 
@@ -53,7 +53,7 @@ Answer isolation — the Runner leaves `evals/`, case files and rubrics unread �
 
 ## Run a case
 
-The one recipe for every Eval, paired authoring run and re-Grade. Steps 1 and 4 are native `task` dispatches; steps 2 and 3 run in Bash from the repo root. Each step runs for every selected case at once, inside the run root and cleanliness check of [Concurrency and cleanliness](#concurrency-and-cleanliness); `$out` is a case's directory, `<run>/<case-id>`.
+The one recipe for every Eval and paired authoring run. Steps 1 and 4 are native `task` dispatches; steps 2, 3 and 5 run in Bash from the repo root. Each step runs for every selected case at once, inside the run root and cleanliness check of [Concurrency and cleanliness](#concurrency-and-cleanliness); `$out` is a case's directory, `<run>/<case-id>`.
 
 1. **Runner.** One `task` call holds every selected case:
 
@@ -96,6 +96,8 @@ The one recipe for every Eval, paired authoring run and re-Grade. Steps 1 and 4 
 
    The grade brief holds the case `rubrics` verbatim and numbered; `Outputs: <run>/<case-id>/outputs (pages, reply.md, .deleted.json)` with the literal path; and `Sources:` each `source_pages` entry as `wiki/<path>`, plus each `raw_sources` path. Once the batch settles, save each result in one Bash call with its grader's agent id: `cp agent://<id> <run>/<case-id>/grades.json`. Done when every graded case's `grades.json` holds its grades JSON, or the grading error is named.
 
+5. **Human-audit page**, one per case, for the DM's review. Create the audit root once per session with `cd "$(mktemp -d)" && pwd -P` beneath OS `$TMPDIR` and reuse it for every later run. Write `<audit>/<skill>/<case-id>.md` holding the case's current sample: the Runner task, `reply.md`, each output page, `checks.txt`, then each criterion beside its grade and reason. Each run overwrites the case's page. Done when every selected case has its page from this run; the pages stay in the temp directory unless the DM asks to export them.
+
 ### Pass rule
 
 A case passes when Checks exit 0 and `grades.json` parses with one entry per rubric, every `pass` true (a case without rubrics needs Checks alone). Classify every other case for the report:
@@ -124,15 +126,17 @@ git status --porcelain wiki raw archive | cmp -s <run>/wiki-before.txt - && echo
 
 ## Hillclimb
 
-Start when Design holds for the suite and the live Wiki pages of that content type already pass `cf check` with 0 errors. Do not climb while templates or skill text teach wording the gate flags; clean the Wiki first. Skills stay as found until that content is clean. Every Eval is `skill://run-evals` over the suite; a case that passed earlier this session may be skipped, until a patch changes the skill enough to break it — then rerun it.
+Start when Design holds for the suite and the live Wiki pages of that content type already pass `cf check` with 0 errors. Do not climb while templates or skill text teach wording the gate flags; clean the Wiki first. Skills stay as found until that content is clean.
 
-1. **Baseline.** Eval the suite. Done when the log lists every criterion's pass/fail.
+Every Eval is `skill://run-evals` with one with-skill run per case. A patch is proven on the patched skill's own cases only, as few as one: each case holding a criterion the patch targets, plus each other case of that skill whose criteria the patch could break. A shared skill with no cases of its own, such as `theatre-of-the-mind`, is proven on the content skill's case whose failing criterion prompted the patch. A case that passed earlier this session may be skipped until a patch changes the skill enough to break it; then rerun it.
+
+1. **Start.** Eval the cases. Done when the log lists every criterion's pass/fail.
 2. **Patch.** Snapshot the attributable files, then dispatch `skill-writer` with them and the failed criteria written as process defects — the behaviour that went wrong, in the writer's terms rather than case text. Done when the round has one patch.
-3. **Rerun.** Eval the suite. Done when every criterion has this round's verdict.
-4. **Keep or revert.** Keep when no criterion that passed before now fails and at least one failing criterion now passes; otherwise restore the snapshot. Done when the log records the round's patch summary, flipped criteria and decision.
-5. **Stop** when every criterion passes or after three reverted rounds; otherwise return to Patch. Done when the log ends with final criteria against baseline and every case id accounted for.
+3. **Rerun.** Eval the same cases once more. Done when every criterion has this round's verdict.
+4. **Keep or revert.** Keep when failures went down and nothing new broke: at least one failing criterion now passes and no criterion that passed before now fails. Otherwise restore the snapshot. The rerun's verdicts decide; a flip stands without a confirming run. Done when the log records the round's patch summary, flipped criteria and decision.
+5. **Stop** when every criterion passes or after three reverted rounds; otherwise return to Patch. Done when the log ends with final criteria against the start and every case id accounted for.
 
-The climb log, `.agents/skills/<skill>/evals/climb.md`, is the climb's durable export: the orchestrator commits it with the case edits and the skill as of the last kept patch (pre-climb when none was kept). Runner outputs, Grades and audit samples stay in their temporary directories.
+The climb log, `.agents/skills/<skill>/evals/climb.md`, is the climb's durable export: the orchestrator commits it with the case edits and the skill as of the last kept patch (pre-climb when none was kept). Runner outputs, Grades and human-audit pages stay in their temporary directories.
 
 ## Grounding
 

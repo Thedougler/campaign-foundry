@@ -204,31 +204,12 @@
       container.append(wrap);
     }
 
-    function formatStat(stat, percentage) {
-      if (!stat || typeof stat.mean !== 'number' || !Number.isFinite(stat.mean)) return '—';
-      const scale = percentage ? 100 : 1;
-      const suffix = percentage ? '%' : '';
-      const mean = (stat.mean * scale).toFixed(percentage ? 0 : 1) + suffix;
-      return typeof stat.stddev === 'number' && Number.isFinite(stat.stddev)
-        ? mean + ' ± ' + (stat.stddev * scale).toFixed(percentage ? 0 : 1) + suffix : mean;
-    }
-
     function renderBenchmark() {
       const data = EMBEDDED_DATA.benchmark;
       const container = byId('benchmark-content');
       container.append(element('h2', 'Benchmark Results'));
       const metadata = data.metadata || {};
       container.append(element('pre', JSON.stringify(metadata, null, 2), 'muted'));
-      const summary = data.run_summary || {};
-      const configs = Object.keys(summary).filter(name => name !== 'delta');
-      const metrics = [['pass_rate', 'Pass rate', true], ['time_seconds', 'Time (s)', false], ['tokens', 'Tokens', false]];
-      const rows = [];
-      for (const [key, label, percentage] of metrics) {
-        if (!configs.some(config => summary[config] && summary[config][key])) continue;
-        const delta = summary.delta && summary.delta[key];
-        rows.push([label, ...configs.map(config => formatStat(summary[config][key], percentage)), delta == null ? '—' : typeof delta === 'object' ? JSON.stringify(delta) : String(delta)]);
-      }
-      if (rows.length) table(container, ['Metric', ...configs, 'Delta'], rows);
       const runs = Array.isArray(data.runs) ? data.runs : [];
       const evalIds = [...new Set(runs.map(run => run.eval_id))];
       for (const evalId of evalIds) {
@@ -237,26 +218,18 @@
         const configurations = [...new Set(evalRuns.map(run => run.configuration))];
         const runRows = [];
         for (const configuration of configurations) {
-          const configuredRuns = evalRuns.filter(run => run.configuration === configuration);
-          for (const run of configuredRuns) {
+          for (const run of evalRuns.filter(run => run.configuration === configuration)) {
             const result = run.result || {};
             const rate = typeof result.pass_rate === 'number' ? (result.pass_rate * 100).toFixed(0) + '%' : '—';
             const counts = result.passed != null && result.total != null ? ` (${result.passed}/${result.total})` : '';
-            runRows.push([run.configuration, run.run_number, rate + counts, result.time_seconds ?? '—', result.tokens ?? '—', result.errors ?? '—']);
+            runRows.push([run.configuration, rate + counts, result.time_seconds ?? '—', result.tokens ?? '—', result.errors ?? '—']);
           }
-          const averages = ['pass_rate', 'time_seconds', 'tokens'].map(metric => {
-            const values = configuredRuns.map(run => (run.result || {})[metric]).filter(value => typeof value === 'number' && Number.isFinite(value));
-            if (!values.length) return '—';
-            const mean = values.reduce((sum, value) => sum + value, 0) / values.length;
-            return metric === 'pass_rate' ? (mean * 100).toFixed(0) + '%' : mean.toFixed(1);
-          });
-          runRows.push([configuration, 'Average (observed)', ...averages, '—']);
         }
-        table(container, ['Configuration', 'Run', 'Pass rate', 'Time (s)', 'Tokens', 'Execution errors'], runRows);
+        table(container, ['Configuration', 'Pass rate', 'Time (s)', 'Tokens', 'Execution errors'], runRows);
         const assertions = [...new Set(evalRuns.flatMap(run => Array.isArray(run.expectations) ? run.expectations.map(expectation => expectation.text) : []))];
         if (assertions.length) table(container, ['Assertion', ...configurations], assertions.map(assertion => [assertion, ...configurations.map(configuration => evalRuns.filter(run => run.configuration === configuration).map(run => {
           const expectation = (Array.isArray(run.expectations) ? run.expectations : []).find(item => item.text === assertion);
-          return expectation ? `Run ${run.run_number}: ${expectation.passed === true ? 'PASS' : expectation.passed === false ? 'FAIL' : 'UNAVAILABLE'}\n${expectation.evidence || ''}` : `Run ${run.run_number}: —`;
+          return expectation ? `${expectation.passed === true ? 'PASS' : expectation.passed === false ? 'FAIL' : 'UNAVAILABLE'}\n${expectation.evidence || ''}` : '—';
         }).join('\n\n'))]));
       }
       if (Array.isArray(data.notes) && data.notes.length) {

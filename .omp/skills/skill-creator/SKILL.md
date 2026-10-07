@@ -37,21 +37,21 @@ Dispatch `skill-writer` with `brief.md`'s intent, trigger branches, inputs/outpu
 
 ### 4. Paired evals
 
-Read `evals/README.md` § Run a case, then [`references/eval-loop.md`](references/eval-loop.md). From the skill's `evals/cases.yaml`, select the default case plus any unique-circumstance case that reported home-Session feedback names, recording the case ids in `brief.md`; historical intent files are not live eval inputs. Follow the reference through its paired runs, grading, aggregation and DM review. If no eligible case or paired run is requested, record that branch as skipped; instruction revision does not automatically run description evals or benchmarks.
+Read `evals/README.md` § Run a case, then [`references/eval-loop.md`](references/eval-loop.md). From the skill's `evals/cases.yaml`, select the default case plus any unique-circumstance case that reported home-Session feedback names, recording the case ids in `brief.md`; historical intent files are not live eval inputs. Follow the reference through its paired runs, grading, comparison and DM review. If no eligible case or paired run is requested, record that branch as skipped; instruction revision does not automatically run description evals or benchmarks.
 
-**Done when** the requested pair set meets the reference's evidence, grading, aggregation and DM-review criteria and `feedback.json` is imported, or the skipped branch has its reason recorded.
+**Done when** the requested pair set meets the reference's evidence, grading, comparison and DM-review criteria and `feedback.json` is imported, or the skipped branch has its reason recorded.
 
-### 5. Revise and repeat
+### 5. Revise and rerun
 
-Feed `feedback.json` and the grades — plus comparison and analysis results, when run — to `skill-writer` as evidence of general process defects; validate as in step 3. Rerun the whole requested pair set into `iteration-<N+1>/`, using the same case ids and revision snapshot, with `bun run cf -- eval review --previous-workspace` pointing at `iteration-<N>/`.
+Feed `feedback.json` and the grades — plus comparison and analysis results, when run — to `skill-writer` as evidence of general process defects; validate as in step 3. Run the requested pair set once more into `iteration-<N+1>/`, using the same case ids and revision snapshot, with `bun run cf -- eval review --previous-workspace` pointing at `iteration-<N>/`.
 
 **Done when** a fresh iteration meets step 4's criterion, or the DM calls it done — all-empty feedback and flat results both count as done.
 
 ### 6. Description testing
 
-Offer once the skill body is stable; run only if the DM accepts, and read [`references/description-evals.md`](references/description-evals.md) first. The shape: 20 realistic positive and near-miss queries, DM-reviewed in the browser; a 12/8 train/held-out split; three fresh `omp -p` observations per query; trigger rates counted from `read` calls on the candidate in the saved events.
+Offer once the skill body is stable; run only if the DM accepts, following [`references/description-evals.md`](references/description-evals.md): a DM-reviewed query set, then fresh `omp -p` observations of each candidate description.
 
-**Done when** every reported trigger rate derives from scored events files and the live `SKILL.md` holds only the selected description.
+**Done when** every reported query result derives from scored events files and the live `SKILL.md` holds only the last kept description.
 
 ### 7. Optional bundle and delivery
 

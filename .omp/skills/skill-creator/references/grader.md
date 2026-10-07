@@ -1,6 +1,6 @@
 # Grade → `grading.json`
 
-Read when turning a paired run's Checks output and `grades.json` into `grading.json`, or when running a second Grade on a saved run. The grader is the `prose-grader` native `task` dispatch of the recipe's Grade step in `evals/README.md` § [Run a case](../../../../evals/README.md#run-a-case); its task carries only the case rubrics verbatim and numbered, the run's `outputs/` path and the case sources. Configuration names, Checks and `reply.txt` stay out of it, so the grader judges the writing alone.
+Read when turning a paired run's Checks output and `grades.json` into `grading.json`. The grader is the `prose-grader` native `task` dispatch of the recipe's Grade step in `evals/README.md` § [Run a case](../../../../evals/README.md#run-a-case); its task carries only the case rubrics verbatim and numbered, the run's `outputs/` path and the case sources. Configuration names, Checks and `reply.txt` stay out of it, so the grader judges the writing alone.
 
 ## Map
 
@@ -9,7 +9,3 @@ Read when turning a paired run's Checks output and `grades.json` into `grading.j
 3. **Rename.** Move `grades.json` to `grades.raw.json`; `bun run cf -- eval review` reads `grades.json` first and fails on invalid JSON. Done when the run directory holds no `grades.json`.
 
 A `checks.txt` ending in `exit 2` is a Checks usage or execution error. The run gets no `grading.json`, only a note in `benchmark.json`.
-
-## Second Grade
-
-To test grader variance, dispatch the same Grade task again on the same saved `outputs/`, `cp agent://<id>` into a second file (`grades.2.json`), and compare verdicts rubric by rubric. A disagreement means the rubric is defective; repair it in the case.

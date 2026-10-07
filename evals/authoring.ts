@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0
-// Adapted from Anthropic's skills/skill-creator validation, packaging and
-// calculate_stats helpers: https://github.com/anthropics/skills/tree/main/skills/skill-creator
+// Adapted from Anthropic's skills/skill-creator validation and packaging
+// helpers: https://github.com/anthropics/skills/tree/main/skills/skill-creator
 // Modified for native omp frontmatter, streaming ZIP packaging and TypeScript.
 // License: https://www.apache.org/licenses/LICENSE-2.0
 
@@ -27,13 +27,6 @@ export interface SkillPackage {
 	output: string;
 	files: string[];
 	excluded: string[];
-}
-
-export interface Statistics {
-	mean: number;
-	stddev: number;
-	min: number;
-	max: number;
 }
 
 function errorMessage(error: unknown): string {
@@ -186,35 +179,4 @@ export async function packageSkill(skillDirectory: string, outputFile: string): 
 	} finally {
 		if (temporaryDir !== undefined) await rm(temporaryDir, { recursive: true, force: true });
 	}
-}
-
-/** Python-compatible four-place rounding, including exactly representable half-even ties. */
-function roundFour(value: number): number {
-	const scaled = value * 10_000;
-	const lower = Math.floor(scaled);
-	// Exact decimal midpoints at four places are representable in binary only
-	// when they are multiples of 1/32. Other values use their actual binary value.
-	if (Number.isInteger(value * 32) && scaled - lower === 0.5) {
-		return (lower % 2 === 0 ? lower : lower + 1) / 10_000;
-	}
-	return Number(value.toFixed(4));
-}
-
-/** Summarize only supplied observations; callers decide which metrics are available. */
-export function calculateStats(values: readonly number[]): Statistics {
-	if (values.length === 0) return { mean: 0, stddev: 0, min: 0, max: 0 };
-	let sum = 0;
-	let min = Infinity;
-	let max = -Infinity;
-	for (const value of values) {
-		if (typeof value !== "number" || !Number.isFinite(value)) throw new TypeError("calculateStats requires finite numeric observations; omit unavailable metrics instead of estimating them.");
-		sum += value;
-		min = Math.min(min, value);
-		max = Math.max(max, value);
-	}
-	const mean = sum / values.length;
-	let squaredDifferences = 0;
-	for (const value of values) squaredDifferences += (value - mean) ** 2;
-	const stddev = values.length > 1 ? Math.sqrt(squaredDifferences / (values.length - 1)) : 0;
-	return { mean: roundFour(mean), stddev: roundFour(stddev), min: roundFour(min), max: roundFour(max) };
 }
