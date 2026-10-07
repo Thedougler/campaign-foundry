@@ -64,7 +64,7 @@ export function logCommand(): Command {
 		.description("Append an entry to a World's log.md: what the Agent did, and the pages it touched. Rotates yearly. Exits 0 done, 2 usage error.")
 		.option("--world <World>", "the World whose log.md to append to (required)")
 		.addOption(new Option("--op <op>", `the operation: ${LOG_OPS.join(", ")} (required)`))
-		.option("--title <Title>", "one line saying what was done, e.g. a Session or Raw file name (required)")
+		.option("--title <Title>", "one line saying what was done, e.g. a Session or Raw file name (required; refuses an em or en dash, a double hyphen, a semicolon or trailing punctuation, which the page gate fails on log.md)")
 		.addOption(new Option("--page <page>", "a page touched: name or vault path; repeat for several").argParser(collect).default([] as string[], "none"))
 		.option("--stdin", "also read page names from stdin, one per line")
 		.option("--date <YYYY-MM-DD>", "the entry's real-world date (default: today)")
@@ -79,6 +79,12 @@ Entry written:
   (blank line)
   - [[Page]]           one bullet per page touched
   Entries are separated by a blank line. log.md is created if absent.
+
+Title:
+  One line, gate-clean by construction: no em or en dash, no double hyphen, no
+  semicolon, no trailing punctuation. The page gate fails each on log.md, so a
+  title holding one is refused with the character and the fix named. A colon
+  inside the title is fine.
 
 Rotation:
   If the last entry in log.md is from an earlier year than the new one, log.md is first renamed to
@@ -116,6 +122,17 @@ Examples:
 			const title = (flags.title ?? "").trim();
 			if (title === "") fail("No --title given.", `--title is one line saying what was done. ${example}`);
 			if (/[\r\n]/.test(title)) fail("--title must be one line.", example);
+			// The gate fails these on a generated log.md heading, so the command refuses the title instead of
+			// writing a finding the next `cf check` reports: an em or en dash (`ai-tells.EmDashUsage`), a
+			// double hyphen (`ai-tells.DoubleHyphen`), a semicolon (`ai-tells.SemicolonUsage` fails its
+			// clause-final use), and markdownlint MD026's trailing heading punctuation. A colon mid-title is
+			// fine: ColonUsage exempts headings.
+			const dash = /[\u2014\u2013]/u.exec(title)?.[0];
+			if (dash) fail(`The --title holds \`${dash}\`, which the page gate fails on log.md (\`ai-tells.EmDashUsage\`).`, `Rewrite the title with a full stop, a comma or "and"; write a range as \`3 to 5\`. ${example}`);
+			if (title.includes("--")) fail("The --title holds a double hyphen, which the page gate fails on log.md (`ai-tells.DoubleHyphen`).", `Rewrite the title with a full stop, a comma or "and". ${example}`);
+			if (title.includes(";")) fail("The --title holds `;`, which the page gate fails on log.md (`ai-tells.SemicolonUsage`).", `Replace the semicolon with a comma or a full stop. ${example}`);
+			const trailing = /[.,;:!]$/.exec(title)?.[0];
+			if (trailing) fail(`The --title ends with \`${trailing}\`, which the page gate fails on a log heading (markdownlint MD026).`, `Drop the trailing punctuation. ${example}`);
 			const date = flags.date ?? today();
 			if (!isRealDate(date)) fail(`--date \`${date}\` is not a real YYYY-MM-DD date.`, `${example} --date 2026-02-01`);
 

@@ -219,6 +219,32 @@ describe("cf log", () => {
 			const { code } = await log(dir, ["--op", "prep", "--title", "two\nlines", "--page", "Mara Voss"]);
 			expect(code).toBe(2);
 		});
+
+		// The gate fails each of these on a generated log.md heading, so the command refuses the title
+		// instead of writing a finding the next `cf check` reports.
+		it.each([
+			["an em dash", "Session 3 — recap", "—", "ai-tells.EmDashUsage"],
+			["an en dash", "Sessions 2–4 mapped", "–", "ai-tells.EmDashUsage"],
+			["a double hyphen", "Session 3 -- recap", "--", "ai-tells.DoubleHyphen"],
+			["a semicolon", "Ingest; Session 3 done", ";", "ai-tells.SemicolonUsage"],
+			["trailing full stop", "Recap of Session 3.", ".", "MD026"],
+			["trailing colon", "Who holds the bridge:", ":", "MD026"],
+		])("rejects %s in the title, naming the character and the rule", async (_, title, character, rule) => {
+			const dir = await copyFixture("clean");
+			const { code, stderr } = await log(dir, ["--op", "prep", "--title", title, "--page", "Mara Voss"]);
+			expect(code).toBe(2);
+			expect(stderr).toContain(character);
+			expect(stderr).toContain(rule);
+			expect(stderr).toContain("cf log --world");
+			expect(await read(dir)).toBe(FIRST);
+		});
+
+		it("accepts a mid-title colon: the gate exempts headings", async () => {
+			const dir = await copyFixture("clean");
+			const { code } = await log(dir, ["--op", "query", "--title", "Who holds the bridge: north tower", "--page", "Ravenhold", "--date", "2026-02-01"]);
+			expect(code).toBe(0);
+			expect(await read(dir)).toContain("## [2026-02-01] query | Who holds the bridge: north tower");
+		});
 	});
 
 	it("documents itself in --help, with examples", async () => {
