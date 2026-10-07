@@ -1,6 +1,6 @@
 # Item rules (2024)
 
-Check exact wording with the `dnd5e-srd-api` skill or the Free Rules, and write the text in full (ADR 0005).
+Check exact wording with the `dnd5e-srd-api` skill and write the text in full (ADR 0005).
 
 ## Rarity is a ceiling
 

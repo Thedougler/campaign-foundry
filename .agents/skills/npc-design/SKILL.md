@@ -74,7 +74,7 @@ Use `references/craft.md` for face, voice, and tells. For a Scene or larger, wri
 - what they protect first
 - the Party's likely requests, each with its answer, price and what it changes
 
-For Influence, read `references/influence.md` and source the 2024 Influence rule before applying it. Keep Attitude separate from request willingness. Mark requests automatically willing or automatically unwilling when the NPC's goals or limits make that clear; use Hesitant only when the request is uncertain, with the sourced DC `max(15, the NPC's Intelligence score)`. Apply the sourced advantage or disadvantage for Attitude. Use only approaches that fit the NPC and are truthful in the fiction, such as evidence, Persuasion, Deception, or a threat. Roll only when stakes and outcome are uncertain. State what success changes and what a miss costs or changes. A bespoke social procedure is a declared invention, never an official 2024 rule.
+For every Influence request, apply `references/influence.md`: it holds the sourced 2024 rule (Attitude, willingness, the check and its DC) and the procedure for running it.
 
 Do not put an essential clue behind one roll. Give each essential conclusion about three independent routes such as a statement, trace, witness, document, or consequence; a miss can add cost, danger, delay, or uncertainty while leaving a way forward.
 
@@ -104,7 +104,7 @@ With no active Campaign, retain the plan on the NPC in the World, do not invent 
 
 ### 8. Write Narration and file the pages
 
-Load `theatre-of-the-mind` for the NPC template's `[!narration] First look` slot. Give it the established face, voice, activity, and plain visible tells; keep secrets, mechanics, DCs, and unearned knowledge outside the callout. Preserve Narration already heard at the table unless the DM explicitly requests a rewrite.
+Load `theatre-of-the-mind` for the NPC template's `[!narration] First look` and write it to the recipe in [references/craft.md](references/craft.md#first-look). Preserve Narration already heard at the table unless the DM explicitly requests a rewrite.
 
 Copy `wiki/templates/NPC.md` exactly in `<World>/NPCs/`. Fill its required `At a glance`, `Play`, `Depth`, and `Links` sections with only the facts the selected scale needs. Link the Creature, Location, Faction, PCs, Threads, supporters, and other owners. If a Creature or Thread was created, file it with its own template and link it from the owner page.
 

@@ -21,7 +21,7 @@ Three operations:
 Campaign content follows the 2024 D&D 5e rules. Reuse before inventing: for a rules figure or new content (a Creature, Item, Spell, NPC, Location, adventure idea), take it from the first source that fits the DM's intent:
 
 1. **The Wiki**: House Rules, homebrew and everything already recorded there is Canon.
-2. **The SRD**: `dnd5e-srd-api` for spell text, stat blocks, class tables and items.
+2. **The SRD**: `dnd5e-srd-api` for spell text, stat blocks, class tables, items and rules text.
 3. **The web**: official content outside the SRD, then homebrew and published material to co-opt. Search with `web_search`; fetch a result with `read` on its URL.
 4. **Novel content**, only when nothing found fits, inspired by the closest material the search turned up.
 
