@@ -74,11 +74,15 @@ function toUtf16(text: string): (index: number) => number {
 	return (i) => offsets[Math.min(i, offsets.length - 1)] ?? unit;
 }
 
+/** The style layer fails every em or en dash (`ai-tells.EmDashUsage`), so a Harper suggestion that inserts one is never offered. */
+const DASH = /[\u2013\u2014]/u;
+
 function hintFor(lint: Lint): string {
 	const problem = lint.get_problem_text();
 	const shown = problem.length > 60 ? `${problem.slice(0, 57)}...` : problem;
-	const options = lint
-		.suggestions()
+	const suggestions = lint.suggestions();
+	const options = suggestions
+		.filter((s) => !DASH.test(s.get_replacement_text()))
 		.slice(0, 3)
 		.map((s) => {
 			const text = s.get_replacement_text();
@@ -86,7 +90,12 @@ function hintFor(lint: Lint): string {
 			if (s.kind() === SuggestionKind.InsertAfter) return `insert \`${text}\` after \`${shown}\``;
 			return `change \`${shown}\` to \`${text}\``;
 		});
-	const advice = options.length > 0 ? `Harper suggests: ${options.join("; or ")}.` : `Rewrite \`${shown}\` so the sentence reads correctly.`;
+	const dashed = suggestions.length > 0 && options.length === 0;
+	const advice = options.length > 0
+		? `Harper suggests: ${options.join("; or ")}.`
+		: dashed
+			? `Rewrite \`${shown}\` without a dash: the style layer fails en and em dashes, so write a range as \`3 to 5\` and join clauses with a comma or a full stop.`
+			: `Rewrite \`${shown}\` so the sentence reads correctly.`;
 	return `${advice} Change the wording only; keep what the text says.`;
 }
 

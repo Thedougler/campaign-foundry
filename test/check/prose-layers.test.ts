@@ -121,6 +121,16 @@ describe("grammar layer", () => {
 	it("does not read a linked page name as the DM's wording", () => {
 		expect(on("grammar", "log").filter((f) => f.line === 7)).toEqual([]);
 	});
+
+	it("never suggests an en or em dash, which the style layer fails", async () => {
+		const dir = await copyFixture("prose");
+		await writeFile(join(dir, "wiki", A, "NPCs", "Range.md"), "The goblins arrive in groups of 5-9 at dusk.\n");
+		const args = ["check", "--json", "--layer", "grammar", "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates];
+		const found = findingsFor(JSON.parse((await cf(args, dir)).stdout) as JsonReport, `${A}/NPCs/Range.md`);
+		expect(found.length).toBeGreaterThan(0);
+		for (const finding of found) expect(finding.hint).not.toMatch(/[\u2013\u2014]/u);
+		expect(found.map((f) => f.hint).join(" ")).toContain("3 to 5");
+	});
 });
 
 describe("style layer", () => {
