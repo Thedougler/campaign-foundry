@@ -1,4 +1,5 @@
 import type { Command } from "commander";
+import { backupCommand } from "./backup.ts";
 import { benchCommand } from "./bench.ts";
 import { checkCommand } from "./check.ts";
 import { contextCommand } from "./context.ts";
@@ -15,6 +16,7 @@ import { styleCommand } from "./style.ts";
  * exporting a function that returns a commander `Command`, then add one import and one entry here.
  */
 export const commands: (() => Command)[] = [
+ backupCommand,
  benchCommand,
  checkCommand,
  contextCommand,

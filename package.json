@@ -10,6 +10,7 @@
     "eval:check": "bun evals/check.ts"
   },
   "dependencies": {
+    "@notionhq/client": "^5.27.0",
     "@tavily/core": "^0.7.13",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
