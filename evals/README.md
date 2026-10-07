@@ -20,7 +20,7 @@ Each term is defined here once; skills and instruction files use it as named.
 - **Default case** — the one case a content skill's `evals/cases.yaml` holds for its content type: a Sample asking for a complete piece of that type, whose rubrics together define professional-quality content of it, Narration included (ADR 0017). It passes only when every criterion holds.
 - **Runner** — the `test-subject` dispatch that performs a case's DM ask and returns its pages and DM reply as its result.
 - **Outcome** — `createOutcome(vault, outputRoot)` in `evals/check.ts`: the live Wiki pages with the run's `$out/outputs` pages overlaid and its recorded deletions shadowing live pages, plus `reply.md`, the DM reply. Checks and Grades judge the Outcome, not the tool-call path.
-- **Check** — `bun evals/check.ts` (pages, sections, canon/absent regex) on a constrained Outcome: a page exists, `type: Handout`, text the Runner must leave untouched. The cheapest grader. A rubric that restates a Check is a defective rubric; move it to `checks`.
+- **Check** — `bun evals/check.ts` (pages, sections, canon/absent regex) on a constrained Outcome: a page exists, `type: Handout`, text the Runner must leave untouched. The same invocation then runs the gate's `style` and `narration` layers read-only over the Outcome (`runGate` in `evals/check.ts`), findings scoped to the run's output pages: a gate error fails the case like a Check failure, a gate warning is reported (`WARN`) and passes — the gate's own severities (ADR 0015). The cheapest grader. A rubric that restates a Check is a defective rubric; move it to `checks`.
 - **Grade** — `prose-grader` reads the writing and quotes it. Each rubric is a checkable claim about meaning and intent: does the table get the situation? This is creative writing, so no rubric requires verbatim wording, and copying a source's prose is a weakness rather than fidelity. "Intact" or "kept" means sections, facts and callout titles, not whitespace or formatting. Skill-eval Grades are pass/fail; Benchmark Grades are 1–5. The grading model is never the model under test. Grades score skills; the File gate stays deterministic (ADR 0010).
 - **Jev** (`judge` / `judge_batch` in `eval`) — bounded labels over a small state. It is not a Grade of Narration.
 - **Eval** — [Run a case](#run-a-case) over selected cases: one Runner per case against the read-only live Wiki and a report for every selected id. An Eval leaves skill text unchanged.
@@ -83,7 +83,7 @@ The one recipe for every Eval, paired authoring run and re-Grade. Steps 1 and 4 
    bun evals/check.ts <skill> <case-id> wiki --output "$out/outputs" > "$out/checks.txt" 2>&1; echo "exit $?" >> "$out/checks.txt"
    ```
 
-   Add `--cases .omp/skills/<skill>/evals/cases.yaml` for a skill under `.omp/skills/`. Exit 0 means ok, 1 a Check failure, 2 a usage or execution error. Done when `checks.txt` ends with the exit code.
+   Add `--cases .omp/skills/<skill>/evals/cases.yaml` for a skill under `.omp/skills/`. The gate runs here too: `gate` lines report findings on the run's output pages, `FAIL` (error) fails the case, `WARN` (warning) passes but travels in `checks.txt`. Exit 0 means ok, 1 a Check or gate-error failure, 2 a usage or execution error. Done when `checks.txt` ends with the exit code.
 
 4. **Grade**, for each case with `rubrics`. One `task` call holds every such case:
 

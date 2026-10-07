@@ -8,7 +8,7 @@ Runners (`test-subject`) now read the actual live Wiki, Raw, Archive, templates 
 
 An earlier form of this decision had Runners return pages as fenced blocks inside the reply. Files on disk replace those blocks: Runners can reread and revise their drafts, and the harness no longer parses reply text.
 
-`eval:check` runs the case's Checks on the Outcome: live page text with the output pages overlaid and recorded deletions shadowing live pages. `prose-grader` reads the output directory with the live case sources its rubrics need. Runs do not invoke the `bun run cf -- check` gate; the gate stays deterministic for production work (ADR 0010).
+`eval:check` runs the case's Checks on the Outcome: live page text with the output pages overlaid and recorded deletions shadowing live pages. `prose-grader` reads the output directory with the live case sources its rubrics need. Checks end with a read-only run of the gate's `style` and `narration` layers over the Outcome, findings scoped to the run's output pages — errors fail the case, warnings are reported (ADR 0015); the full gate and every write path stay production-only (ADR 0010).
 
 Answer isolation stays access control. Runner capabilities deny every `evals/` tree, answer, grader, grade, rubric and snapshot path, other runs and the private Session storage; reads see the live sources plus the run's own output directory. A short OS-temp Session root holds the evaluator artifacts (grant, brief, Grades, source hashes, human-audit samples) and the run outputs, and closing it removes both. The run records hashes of its source pages before dispatch and rechecks them after; a change invalidates the run rather than failing the skill.
 

@@ -3,7 +3,7 @@ import { mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSy
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
-import { createOutcome, loadCases, runChecks } from "../../evals/check.ts";
+import { createOutcome, loadCases, runChecks, runGate } from "../../evals/check.ts";
 
 const vault = resolve("test/fixtures/vault");
 const cases = resolve("test/evals/cases.yaml");
@@ -43,7 +43,7 @@ describe("eval:check Outcome", () => {
 	});
 	it("reports CLI pass/fail and malformed outputs as execution errors", () => {
 		const passed = evalCheck("fixture-holds", output());
-		expect(passed.status).toBe(0); expect(passed.stdout).toContain("PASS  pages"); expect(passed.stdout).not.toContain("gate");
+		expect(passed.status).toBe(0); expect(passed.stdout).toContain("PASS  pages");
 		const failed = evalCheck("every-check-fails", output());
 		expect(failed.status).toBe(1); expect(failed.stdout).toContain("FAIL  absent");
 		const malformed = evalCheck("fixture-holds", output({}, ["../outside.md"]));
@@ -53,9 +53,44 @@ describe("eval:check Outcome", () => {
 		expect(evalCheck("nope", output()).stderr).toContain('no case "nope"');
 		expect(evalCheck("fixture-holds", output(), ["--reply", "obsolete.md"]).status).toBe(2);
 	});
-	it("prints output-directory help", () => {
-		const result = spawnSync("bun", ["evals/check.ts", "--help"], { encoding: "utf8" });
-		expect(result.status).toBe(0); expect(result.stdout).toContain("cases.yaml is a list of");
-		expect(result.stdout).toContain("--output <dir>"); expect(result.stdout).not.toContain("--reply");
+});
+
+describe("eval:check gate", () => {
+	const flagged = "> [!narration] First look\n> You see a rider approach along the towpath.\n\n## Play\nIlse takes the ledger.";
+	const telling = "Her hold on the docks is not just power, it is a rich tapestry of debts.";
+
+	it("reports the gate read-only over output pages only", async () => {
+		const original = readFileSync(join(vault, page), "utf8");
+		expect(await runGate(vault, output())).toEqual([]);
+		const findings = await runGate(vault, output({ [page]: flagged }));
+		const filter = findings.find((f) => f.rule === "Narration.FilterVerbs");
+		expect(filter?.severity).toBe("warning");
+		expect(filter?.path).toBe(page);
+		expect(findings.some((f) => f.severity === "error")).toBe(false);
+		const errors = await runGate(vault, output({ [page]: telling }));
+		expect(errors.some((f) => f.severity === "error")).toBe(true);
+		expect(readFileSync(join(vault, page), "utf8")).toBe(original);
 	});
+
+	it("returns no findings for an empty overlay even though live pages carry gate errors", async () => {
+		// Lowtide/Creatures/Goblin Warrior.md carries ai-tells.BareReaches (an error) on the live fixture;
+		// the output-page filter keeps live-Wiki findings off the case, so this fails if the filter is removed.
+		expect(await runGate(vault, output())).toEqual([]);
+	});
+
+	it("fails gate errors and passes gate warnings through the CLI", async () => {
+		const probe = "Lowtide/NPCs/Gate Probe.md";
+		const error = evalCheck("fixture-holds", output({ [probe]: telling }));
+		expect(error.status).toBe(1); expect(error.stdout).toContain("FAIL  gate");
+		const warned = evalCheck("fixture-holds", output({ [probe]: flagged }));
+		expect(warned.status).toBe(0);
+		expect(warned.stdout).toContain("WARN  gate  Narration.FilterVerbs");
+		expect(warned.stdout).toContain("1 gate warnings");
+	});
+});
+
+it("prints output-directory help", () => {
+	const result = spawnSync("bun", ["evals/check.ts", "--help"], { encoding: "utf8" });
+	expect(result.status).toBe(0); expect(result.stdout).toContain("cases.yaml is a list of");
+	expect(result.stdout).toContain("--output <dir>"); expect(result.stdout).not.toContain("--reply");
 });
