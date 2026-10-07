@@ -30,7 +30,7 @@ The `sharpshooter` memory backend injects friction-earned DM decisions at sessio
 
 ## Native delegation
 
-Delegate through native `task` (`context` + `tasks[]`) or eval `agent()`/`workpool()`; all subagent work stays inside this omp session. Give each item the `effort` (`lo`/`med`/`hi`) its work needs. Models come from native agent frontmatter, configured model roles and `task.agentModelOverrides`; configured fallback chains and usage-reset waits absorb rate limits, so keep the configured model. Concurrency is capped per provider in configuration (four in-flight requests each for Anthropic, OpenAI and OpenAI Codex), with no global cap: dispatch every independent item and let each provider queue its own.
+Delegate through native `task` (`context` + `tasks[]`) or eval `agent()`/`workpool()`; all subagent work stays inside this omp session. Give each item the `effort` (`lo`/`med`/`hi`) its work needs. Models come from native agent frontmatter, configured model roles and `task.agentModelOverrides`; configured fallback chains and usage-reset waits absorb rate limits, so keep the configured model.
 
 Give writers disjoint files and pass briefs and artifact paths explicitly. Set `isolated: true` when parallel writers may touch the same files or a change needs review before it is merged. Message a worker through `agent://` only with an instruction or a deliverable, as **Message with work** in the root `AGENTS.md` sets out: steer it with a new instruction, or send follow-up work to an idle agent that already has the context. Collect completion notifications, and `wait` only when nothing else is left to do. A subagent messages a sibling only for a hand-off its brief defines, and otherwise reports to its parent in its return.
 

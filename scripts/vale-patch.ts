@@ -8,6 +8,8 @@ const patches: { file: string; exception: string }[] = [
   // "them" is the person pronoun the teaching span keeps ("the sages teach them"): the DM-confirmed misfire,
   // where grung sages teach their people in the world. "him" and "her" are already excepted; "them" was not.
   { file: ".vale/styles/ai-tells/AnthropomorphicCognition.yml", exception: String.raw`  - "(?i)\\bthem\\b"` },
+  // The Party, the Players' characters, are people: "the Party answers with cover".
+  { file: ".vale/styles/ai-tells/AnthropomorphicCognition.yml", exception: String.raw`  - "(?i)\\bpart(?:y|ies)\\b"` },
 ];
 
 for (const { file, exception } of patches) {

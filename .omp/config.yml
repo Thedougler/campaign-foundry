@@ -6,6 +6,7 @@ providers:
     anthropic: 4
     openai: 4
     openai-codex: 4
+    zai: 4
 ttsr:
   judge: "on"
 skills:
