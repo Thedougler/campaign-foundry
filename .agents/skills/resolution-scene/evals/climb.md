@@ -23,3 +23,7 @@ Runner `ResolutionScene-3` (`test-subject` / `@TEST-SUBJECT`). Grader `Resolutio
 ## Rounds
 
 None. Hillclimb paused until live Wiki pages of this content type pass `cf check` with 0 errors; skills stay as found.
+
+## Design repair 2026-10-06
+
+The Check now accepts the skill's titled branch variants: `^> \[!narration\] Closing image(?:: .+)?\s*$`, matching what the Grades already accepted (`Closing image: the Spinner kept`). The skill is unchanged. The old 9/10 Check failure came from the case pinning the bare template title.
