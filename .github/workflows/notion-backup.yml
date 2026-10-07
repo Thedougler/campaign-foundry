@@ -1,0 +1,93 @@
+# Backs up the Shattered Sea Wiki, the agent skills and their images to Notion (`cf backup`, docs/notion-backup.md).
+# GitHub stays the working copy; Notion holds a copy keyed by repo path in .notion/backup-map.json.
+name: Notion backup
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "wiki/The Shattered Sea/**"
+      - ".agents/skills/**"
+      # .agents/skills/run-evals is a symlink into .omp/skills; git sees edits to its files here.
+      - ".omp/skills/**"
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "Re-check every file against the map (first run does this anyway)"
+        type: boolean
+        default: false
+      rewrite:
+        description: "Rewrite every page in scope even if its file is unchanged"
+        type: boolean
+        default: false
+
+# One run at a time, so two pushes never write the same page. A cancelled run keeps every page it made: the map is
+# saved after each Notion write and committed by the always() step below, and the next run diffs from the last
+# commit that fully synced.
+concurrency:
+  group: notion-backup
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # Full history so the map's synced commit can be diffed against HEAD.
+          fetch-depth: 0
+          # LFS images are pulled per file by `cf backup`, only when they are uploaded, to spare LFS bandwidth.
+          lfs: false
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - run: bun install --frozen-lockfile
+
+      - run: git lfs install --local
+
+      - name: Back up to Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_BACKUP_PARENT: ${{ vars.NOTION_BACKUP_PARENT }}
+          ALL: ${{ inputs.all }}
+          REWRITE: ${{ inputs.rewrite }}
+        run: |
+          if [ -z "$NOTION_TOKEN" ]; then
+            echo "::warning::Notion backup skipped: add a NOTION_TOKEN repository secret (a Notion internal integration shared with the parent page). See docs/notion-backup.md."
+            exit 0
+          fi
+          args=()
+          if [ "$ALL" = "true" ]; then args+=(--all); fi
+          if [ "$REWRITE" = "true" ]; then args+=(--rewrite); fi
+          node src/cli.ts backup "${args[@]}"
+
+      - name: Commit the page map
+        if: always()
+        run: |
+          if [ ! -f .notion/backup-map.json ]; then
+            echo "no page map yet"
+            exit 0
+          fi
+          git add .notion/backup-map.json
+          if git diff --cached --quiet; then
+            echo "page map unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Notion backup: update page map [skip ci]"
+          for attempt in 1 2 3; do
+            git pull --rebase --autostash origin main && git push origin HEAD:main && exit 0
+            sleep $((attempt * 5))
+          done
+          exit 1
