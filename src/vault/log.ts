@@ -1,5 +1,5 @@
 import { existsSync } from "node:fs";
-import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
+import { appendFile, mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 
 /** The Agent operations a World's `log.md` records, in the order `docs/wiki-layout.md` lists them. */
@@ -103,10 +103,12 @@ export async function appendLogEntry(vaultDir: string, world: string, entry: Log
 		if (!options.dryRun) await rename(file, join(vaultDir, to));
 		base = "";
 	}
-	const text = base.trim() === "" ? `${formatEntry(entry)}\n` : `${base.trimEnd()}\n\n${formatEntry(entry)}\n`;
+	// Append (O_APPEND) rather than rewrite, so parallel agents logging at once each keep their entry.
+	const prefix = base.trim() === "" ? "" : base.endsWith("\n\n") ? "" : base.endsWith("\n") ? "\n" : "\n\n";
 	if (!options.dryRun) {
 		await mkdir(dirname(file), { recursive: true });
-		await writeFile(file, text);
+		if (rotated || base.trim() === "") await writeFile(file, `${formatEntry(entry)}\n`, { flag: rotated ? "w" : "a" });
+		else await appendFile(file, `${prefix}${formatEntry(entry)}\n`);
 	}
 	return { status: options.dryRun ? "would-log" : "logged", path, ...(rotated ? { rotated } : {}) };
 }

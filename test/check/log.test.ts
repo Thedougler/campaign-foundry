@@ -38,6 +38,16 @@ describe("cf log", () => {
 		expect(await read(dir)).toContain("## [2026-02-01] lint | Headings");
 	});
 
+	it("keeps every entry when parallel agents log at once", async () => {
+		const dir = await copyFixture("clean");
+		const titles = Array.from({ length: 8 }, (_, i) => `Slice ${i + 1}`);
+		const results = await Promise.all(titles.map((title) => log(dir, ["--op", "lint", "--title", title, "--page", "Mara Voss", "--date", "2026-02-01"])));
+		expect(results.map((r) => r.code)).toEqual(titles.map(() => 0));
+		const text = await read(dir);
+		for (const title of titles) expect(text).toContain(`## [2026-02-01] lint | ${title}\n\n- [[Mara Voss]]\n`);
+		expect(text.startsWith(FIRST)).toBe(true);
+	});
+
 	it("takes pages as a name, a vault-relative path or a path from the working directory", async () => {
 		const dir = await copyFixture("clean");
 		const { code } = await log(dir, [
