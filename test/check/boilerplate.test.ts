@@ -83,4 +83,21 @@ describe("cf check --layer boilerplate, sentences inside paragraphs", () => {
 		expect(shared.filter((finding) => finding.path.endsWith("Three.md") || finding.path.endsWith("Four.md")))
 			.toEqual([]);
 	});
+
+	it("compares a field's content but not its bold label", async () => {
+		const labelled = await mkdtemp(join(tmpdir(), "cf-boilerplate-label-"));
+		try {
+			await mkdir(join(labelled, "wiki/F"), { recursive: true });
+			const page = (name: string, lines: string) =>
+				writeFile(join(labelled, `wiki/F/${name}.md`), `---\ntype: Faction\n---\n\n## Play\n\n${lines}\n`);
+			await page("Gulls", "- **How to notice or interfere.** Gull feathers pinned to a dock post mark a drop.\n- **Offers.** Free passage across the bay, paid back in one favour.");
+			await page("Tide", "- **How to notice or interfere.** A tolling bell at low water calls the crews.\n- **Offers.** Free passage across the bay, paid back in one favour.");
+			const { report } = await runCheck(labelled);
+			const shared = report.findings.filter((finding) => finding.rule === "shared-line");
+			expect(shared.map((finding) => finding.line)).toEqual([8, 8]);
+			expect(shared.every((finding) => finding.message.includes('"Free passage across the bay, paid back in one favour."'))).toBe(true);
+		} finally {
+			await rm(labelled, { recursive: true, force: true });
+		}
+	});
 });

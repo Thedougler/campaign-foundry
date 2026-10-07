@@ -6,7 +6,7 @@ sources: []
 
 ## At a glance
 
-%% 3-5 facts a Player could be told in ten seconds. Tone first. %%
+%% Give what a Player could be told in ten seconds, one line per bullet. Tone comes first. Powers links the Factions and Deities that rule the World. Table promise is what the Players will get to do. %%
 
 - **Tone.**
 - **Magic and technology.**
@@ -15,11 +15,11 @@ sources: []
 - **Table promise.**
 
 > [!narration] The World
-> %% Spoken pitch to the Players: what this World feels like, in second person, about 100 words. %%
+> %% Spoken pitch to the Players, second person, about 100 words. Give what this World feels like, and end on the promise of what they will do. %%
 
 ## Calendar
 
-%% The Calendar: months and lengths, weekdays, year numbering and its epoch, notable holidays. A table for months. %%
+%% Give the months with their lengths and the weekdays. Add year numbering with its epoch, and the holidays people keep. Use a table for the months. %%
 
 | Month | Days | Season or note |
 | ----- | ---- | -------------- |
@@ -27,13 +27,19 @@ sources: []
 
 ## Depth
 
-%% Cosmology, the shape of history, what powers shape the World. Link Lore; do not retell it here. %%
+%% DM only. Give the World's large structure. Link Lore pages for each story and keep the full account there. %%
 
 ### Cosmology
 
+%% Give the planes, gods and forces as the World arranges them. %%
+
 ### History in brief
 
+%% Give the eras the present still feels, each linked to its Lore. %%
+
 ### Hidden truths
+
+%% Give each truth with how the Party can learn it. %%
 
 ## Links
 

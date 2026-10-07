@@ -43,6 +43,21 @@ export function buildVault(dir: string, files: VaultFiles, previous?: Vault): Va
 	return { dir, pages, pageByPath, attachments: files.attachments };
 }
 
+/**
+ * The template's optional `##` sections: those whose first guidance comment, before the next heading, opens with
+ * `Optional` (`%% Optional. Include when … %%`). Every other `##` section is required.
+ */
+function optionalSections(page: Page): Set<string> {
+	const optional = new Set<string>();
+	page.headings.forEach((heading, i) => {
+		if (heading.depth !== 2) return;
+		const next = page.headings[i + 1]?.line ?? Number.POSITIVE_INFINITY;
+		const guidance = page.comments.find((c) => c.line > heading.line && c.line < next);
+		if (guidance && /^Optional\b/.test(guidance.text)) optional.add(heading.text);
+	});
+	return optional;
+}
+
 export async function loadTemplates(templatesDir: string): Promise<TemplateSet> {
 	const paths = (await glob("*.md", { cwd: templatesDir, onlyFiles: true })).sort();
 	const sources = await Promise.all(paths.map((p) => readFile(join(templatesDir, p), "utf8")));
@@ -59,6 +74,7 @@ export async function loadTemplates(templatesDir: string): Promise<TemplateSet> 
 			...(kind === undefined ? {} : { kind }),
 			keys: Object.entries(fm).map(([key, value]) => ({ key, value })),
 			sections: page.headings.filter((h) => h.depth === 2).map((h) => h.text),
+			optional: optionalSections(page),
 			callouts: [...new Set(page.callouts.map((c) => c.type))],
 			page,
 		});

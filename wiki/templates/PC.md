@@ -5,11 +5,11 @@ sources: []
 dndbeyond_url: ""
 ---
 
-%% Two sides. Sheet side (Sheet, Spells, Inventory) is replaced by the D&D Beyond pull (ADR 0009): never hand-edit it. Story side (Story, Goals and bonds, Plans) is never touched by the pull. %%
+%% Two sides. The D&D Beyond pull (ADR 0009) replaces the sheet side (Sheet, Spells, Inventory) whole, so nobody edits it by hand. The pull leaves the story side (Story, Goals and bonds, Plans) as written. %%
 
 ## Sheet
 
-%% Sheet side, pulled. The numbers the DM needs mid-round: ten-second read first. %%
+%% Sheet side, pulled. The numbers the DM needs mid-round, with the ten-second read first. %%
 
 - **Player.**
 - **Class, species and level.**
@@ -23,6 +23,8 @@ dndbeyond_url: ""
 
 ### Features
 
+%% Sheet side, pulled: class, species and feat features. %%
+
 ## Spells
 
 %% Sheet side, pulled. %%
@@ -33,16 +35,18 @@ dndbeyond_url: ""
 
 ## Story
 
-%% Story side, never pulled. %%
+%% Story side, left alone by the pull. %%
 
 > [!narration] Portrait
-> %% Spoken: how the other characters see this PC: face, build, clothing, posture and one detail beyond sight. Third person. %%
+> %% Spoken, third person. Give how the other characters see this PC, with face and build, clothing and posture, and one detail beyond sight. %%
 
 ### Backstory
 
+%% Give the Player's own story for the PC as they wrote it, with each person and place linked. %%
+
 ## Goals and bonds
 
-%% Story side. What the PC wants, fears and owes; who they love and who hunts them. Each linked to its owner page. These drive Spotlights. %%
+%% Story side. Give the PC's goals, fears and debts, the people they love and the people hunting them, each linked to its owner page. These drive Spotlights. %%
 
 - **Goal.**
 - **Bond.**
@@ -50,7 +54,7 @@ dndbeyond_url: ""
 
 ## Plans
 
-%% Story side, DM only. What the DM plans for this PC: Threads that touch them, Spotlight ideas. %%
+%% Story side, DM only. Give the DM's plans for this PC, with the Threads that touch them and Spotlight ideas. %%
 
 ## Links
 

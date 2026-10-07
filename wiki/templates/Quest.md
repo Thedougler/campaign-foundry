@@ -7,7 +7,7 @@ status: ""
 
 ## At a glance
 
-%% Six facts at most. status is offered, active, done or failed. Advances links the Thread. %%
+%% Give the DM a ten-second read, one line per bullet. Set `status` to offered, active, done or failed. Offered by links the giver. Done when and Failed when are events the table can see. Advances links the Thread. %%
 
 - **Offered by.**
 - **Reward.**
@@ -17,11 +17,11 @@ status: ""
 - **Advances.**
 
 > [!narration] The offer
-> %% Spoken: the request, rumor or posted notice as the Party meets it. Second person. %%
+> %% Spoken, second person: the request, rumour or posted notice as the Party meets it. %%
 
 ## Play
 
-%% How the Quest runs. %%
+%% Give how the Quest runs, one line per bullet. Leads gives each starting point with where it is found. Opposition links whoever works against it. Payoff gives what changes in the World when it is done. %%
 
 - **Leads.**
 - **Opposition.**
@@ -30,9 +30,11 @@ status: ""
 
 ## Depth
 
-%% Hidden truths (each with how the Party can learn it), what the giver is not saying. %%
+%% Optional. Include it when the Quest hides something, such as a detail the giver keeps back. %%
 
 ### Hidden truths
+
+%% Give each truth with how the Party can learn it. %%
 
 ## Links
 

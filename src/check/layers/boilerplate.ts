@@ -51,6 +51,8 @@ function proseSentences(page: Page): Map<number, Sentence[]> {
 		const prose = trimmed
 			.replace(/^[-*+]\s+/, "")
 			.replace(/^\d+[.)]\s+/, "")
+			// A bold field label (`**Weak to.**`) is template structure like a heading; only the field's content is prose.
+			.replace(/^\*\*[^*]+\*\*\s*/, "")
 			.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2")
 			.replace(/\[\[([^\]]+)\]\]/g, "$1")
 			.replace(/[*_`]/g, "");

@@ -163,8 +163,8 @@ statblock and canon.
 
 Follow [references/filing-and-operations.md](references/filing-and-operations.md)
 and copy `wiki/templates/Creature.md` exactly to `<World>/Creatures/<Name>.md`.
-Fill its existing sections in the template's order (At a glance, the First sight
-Narration, Statblock, Play, Depth and Links). Keep one `statblock` fence with `Basic 5e
+Fill its sections in the template's order, following each section's `%%`
+guidance and leaving out the `###` parts this Creature has nothing for. Keep one `statblock` fence with `Basic 5e
 Layout`, complete 2024 rules text, explicit derived values, and the template's
 Base view. Add at least one real incoming wikilink besides the generated index;
 an NPC's `creature` property counts.
