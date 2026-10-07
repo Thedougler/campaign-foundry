@@ -16,7 +16,7 @@ sources:
 
 - **The truth.** Taking living growth, fresh water life, or an island animal's flesh marks the taker until the next dawn.
 - **Who knows it.** Hinewai hears every claim. Survivors in Calveno who follow the law can show new arrivals its practical rules.
-- **Limits.** Fallen fruit, deadwood, loose stone, shed fibre, shed shell, sea fish below the tideline, and a loose body are safe to receive. Fighting back is allowed. One exception rides outside the taking itself. Aruhe attacks Grung on sight, take or no take. A frenzy strikes at everyone on the island, picking fruit or not, and a calmed forest is safe to stand in.
+- **Limits.** Fallen fruit, deadwood, loose stone, shed fibre, shed shell, sea fish below the tideline, and a loose body are safe to receive. The taker may fight a responder off. One exception rides outside the taking itself. Aruhe attacks Grung on sight, take or no take. A frenzy strikes at everyone on the island, picking fruit or not, and a calmed forest is safe to stand in.
 - **Reaches play through.** Plants lean, birds and insects stop calling, then local responders hunt the marked creature.
 
 > [!narration] As it is told

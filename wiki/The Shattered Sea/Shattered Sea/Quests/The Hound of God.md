@@ -37,7 +37,7 @@ Malone wants Grigori dead, acts on his own authority and pronounces what he know
 - Dispatched "after the Calveno incident", [[Aleksander Malone]] came aboard the [[Uncertainty]] with the boarding party, hunting the one "responsible for the incident in Calveno".
 - Malone's account of the hunt: [[Shepherd Grigori]] "destroyed the Surety and killed Officer Rook". The Dravosi have pursued him since, and believe he was dropped in Calveno, unsure where.
 - [[Delmar Fisk|Delmar]]'s word to the inquisitor: "I can assure you, he is in Calveno." He urged hunting Grigori there over a search of the ship. Delmar's Persuasion 21 stood against the inquisitor's 11, and Malone searched the ship anyway.
-- The search broke when [[Corbin Knighton]] drew a flintlock on Malone: "You heard them. I believe them. Go. We're going to Calveno." The warship departed for Calveno.
+- The search broke when [[Corbin Knighton]] drew a flintlock on Malone: "You heard them. I believe them. Go. We're going to Calveno." The warship then made sail for Calveno.
 
 ## Links
 

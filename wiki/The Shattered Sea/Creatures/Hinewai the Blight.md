@@ -15,7 +15,7 @@ sources:
 - **Role at the table.** Unique named Creature represented by the NPC, the blight at the grove's heart.
 - **Threat.** See the stat block, CR 19. She fights with rotten claws, acid blooms and grasping roots.
 - **Tell.** The plants lean toward her target before she moves, and thorned vines rise where the next blow will fall.
-- **Weak to.** The counter play described in Tactics. The Death Bloom roots her return, and destroying it first makes her next death permanent.
+- **Weak to.** Her weakness is the Death Bloom itself. It roots her return, and destroying it first makes her next death permanent.
 - **Used by.** The NPC of the same name, whose archived record this block renders.
 
 > [!narration] First sight

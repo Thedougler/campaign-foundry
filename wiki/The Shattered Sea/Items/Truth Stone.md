@@ -18,7 +18,7 @@ sources:
 - **Held by.** [[Jean-Claude Tabarnack]], given by [[Beaumont Sel]] aboard the [[Saltwright]].
 
 > [!narration] First look
-> Beaumont Sel weighs a smooth grey stone in his palm, then rolls it over the planks to you. It is river-worn and unmarked, no bigger than the last joint of a thumb, and warm the way a carried thing is warm. No mark on the stone hints at why he parts with it.
+> Beaumont Sel weighs a smooth grey stone in his palm, then rolls it over the planks to you. It is river-worn and unmarked, no bigger than the last joint of a thumb, and warm, as if fresh from a hand. No mark on the stone hints at why he parts with it.
 
 ## Play
 
@@ -30,7 +30,7 @@ The stone compels nothing. A holder who does not know a statement is false feels
 
 ### In use
 
-After the crew took the Surety, [[Beaumont Sel]] slid the stone across the decking to [[Jean-Claude Tabarnack]] in the settling of accounts. Jean-Claude answered that his former kinsmen hunted him, he had stowed away, and nobody had sent him. The stone stayed cool for every truth. He still carries it ([[Session 2 - Recap]]).
+After the crew took the Surety, [[Beaumont Sel]] slid the stone across the decking to [[Jean-Claude Tabarnack]] in the settling of accounts. Jean-Claude answered that his former kinsmen were after him, he had stowed away, and nobody had sent him. The stone stayed cool for every truth. He still carries it ([[Session 2 - Recap]]).
 
 On the Midchain the stone is a common tool of captains, merchants, and anyone who has been burned by a false manifest.
 

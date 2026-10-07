@@ -15,7 +15,7 @@ sources:
 - **Role at the table.** Controller. It hooks its prey from a distance, and each catch stays on the line while the arms close.
 - **Threat.** CR 17. Its hook-tipped lines reach 80 feet, four catches can hang at once, and each Reel hauls a creature 30 feet closer.
 - **Tell.** The hooked arm goes still above the gap, and all eight eyes settle on one spot before the line shoots.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation. The spot directly beneath the mantle's centre hides from all eight eyes, and cutting the lines frees the fight. It avoids open grassland and water that [[River Otter]] packs are working.
+- **Weak to.** A Party that closes under its lines and stands together. The spot directly beneath the mantle's centre hides from all eight eyes, and cutting the lines frees the fight. It avoids open grassland and water that [[River Otter]] packs are working.
 - **Used by.** [[Deer-Stalker]] patrols the same territory.
 
 > [!narration] First sight
@@ -90,7 +90,7 @@ legendary_actions:
 
 ### Tactics
 
-Open among the hanging roots, where it braces itself on its arms, and mark the hooked arm gone still before the first line flies. Let the Party answer with positioning, cover, or focused fire. It releases its grip and hauls itself up into the canopy when its height no longer serves or its wounds tell.
+Open among the hanging roots, where it braces itself on its arms, and mark the hooked arm gone still before the first line flies. The Party answers from directly under the mantle, with the hanging roots for cover, and cuts any line that has caught one of them. It releases its grip and hauls itself up into the canopy when its height no longer serves or its wounds tell.
 
 ### Outside a fight
 
@@ -108,7 +108,7 @@ Session 10 brought the Party's first recorded meeting with one, and it stalked t
 
 Its first strike came from below on an 80-foot reach and opened Delmar's side for 18 slashing damage, and a hooked line wrapped him while he carried Jean-Claude. Both faced a DC 19 Strength save against the grapple, and both saves held, each bought with spent inspiration. A later hit for 18 he halved to 9 with Uncanny Dodge. Perrin burned a spell slot on a Silent Image of a flying humanoid dropped off to the side, and the squid ripped through the garden's trees after the decoy, bellowing its anger at the empty illusion.
 
-Initiative fell in a tie at 23, the squid first. The DM called it by far the most dangerous thing the Party had met, and set it at CR 17 with three attacks and legendary actions. The Party ran rather than fight it. It kept beneath the canopy while the Party flew for the ship. A second Silent Image, Perrin tumbling from Crissdalynn's back into the bushes, turned it away on an inspired natural 20. The beast stopped where the trees end and the terraces begin. There it dragged two [[Wolfrabbit|wolfrabbits]] under its mantle and vanished into the trees.
+Initiative fell in a tie at 23, the squid first. The DM called it by far the most dangerous thing the Party had met, and set it at CR 17 with three attacks and legendary actions. The Party fled rather than meet it in a fight. It kept beneath the canopy while the Party flew for the ship. A second Silent Image, Perrin tumbling from Crissdalynn's back into the bushes, turned it away on an inspired natural 20. The beast stopped where the trees end and the terraces begin. There it dragged two [[Wolfrabbit|wolfrabbits]] under its mantle and vanished into the trees.
 
 ### Hidden truths
 

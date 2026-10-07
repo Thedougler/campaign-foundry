@@ -10,7 +10,7 @@ date: "1495 DR, date not established"
 ## At a glance
 
 - **Covers.** [[Session 2 - Recap|The capture of HCS Surety]].
-- **Ends on.** Three impacts from below leave the cutter hard to port in a tropical storm.
+- **Ends on.** The cutter takes three impacts from below and lies hard to port in a tropical storm.
 - **Leads into.** [[Session 3 - Recap|The response to the damaged prize and whatever struck it]].
 
 > [!narration] Previously on

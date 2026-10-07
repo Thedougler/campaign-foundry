@@ -34,7 +34,7 @@ At sea the pilot's authority is absolute in narrow water, and even Crown naval o
 
 ### The captains bound to Delmar
 
-The minotaur the Wiki names at sea is [[Sienne Orre]], who captained the [[Fernen]] in [[Fisk's Fleet]] and ran the fleet's perimeter survey operations. Her passage-sense made her the natural choice. The fleet stole the Pearl of Souls from Umberlee's [[Umberlee's Shrine|shrine]] on [[Vel-Orn]] and sank over the [[Drowned Maw]] when Umberlee struck it. The Party has never been given the captains' names, and the table keeps it that way. Umberlee pressed the five captains' souls into Delmar as punishment and leverage. One of them shows himself when a spell targets him or a green mermaid sign stirs a memory he cannot place.
+The minotaur the Wiki names at sea is [[Sienne Orre]], who captained the [[Fernen]] in [[Fisk's Fleet]] and ran the fleet's perimeter survey operations. The survey berth went to her because her passage-sense lets her retrace any current she has ever crossed. Umberlee sank the fleet over the [[Drowned Maw]] in answer to the theft of the Pearl of Souls from her [[Umberlee's Shrine|shrine]] on [[Vel-Orn]]. The Party has never been given the captains' names, and the table keeps it that way. Umberlee pressed the five captains' souls into Delmar as punishment and leverage. One of them shows himself when a spell targets him or a green mermaid sign stirs a memory he cannot place.
 
 ## Links
 

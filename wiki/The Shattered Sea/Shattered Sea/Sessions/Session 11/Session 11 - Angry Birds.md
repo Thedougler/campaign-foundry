@@ -27,7 +27,7 @@ sources:
 
 ### Stakes
 
-The Party must reach grass, river or canopy.
+The Party must get to grass, river or canopy.
 
 ### Pressure
 

@@ -10,7 +10,7 @@ date: "1495 DR, date not established"
 ## At a glance
 
 - **Covers.** Session 2 Recap: the Surety, Ket, the prize crew, and the storm.
-- **Ends on.** Three impacts from below leave the cutter over on her side.
+- **Ends on.** The cutter takes three impacts from below and lies over on her side.
 - **Leads into.** The thing beneath the hull and the crossing to Calveno.
 
 > [!narration] Previously on

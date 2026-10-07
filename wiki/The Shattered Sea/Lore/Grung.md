@@ -25,7 +25,7 @@ sources:
 
 - **Players notice.** Colour announces rank, so a gold-caste grung is addressed before anyone else speaks and a blue one handles trade and messages. Touch is a hazard, because grung skin carries poison, and Jean-Claude's red beret marks him as censured.
 - **Clues.** A spent [[Grung Authority Seal|Authority Seal]] shows how gold-caste orders were made to feel like a listener's own wish. The gold bands under Simone Tabarnack's armour show a colour that was sealed onto her rather than born. The captive trail the [[Grung Clans]] feed runs inland toward [[Karath]].
-- **Accounts.** Dockside folk tell of poison-handed raiders who take captives. The clans tell it as order, where colour gives every grung its work and its decrees, and the sages teach them as the word of the [[Gold Caste]], their gods. Jean-Claude tells it as a cage, and Simone answers that the caste order is not a choice. Each telling holds part of it.
+- **Accounts.** Dockside folk tell of poison-handed raiders who take captives. The clans tell it as order, where colour gives every grung its work and its decrees, and the sages teach them as the word of the [[Gold Caste]], their gods. Jean-Claude tells it as a cage, and Simone answers that the caste order is not a choice. The truth about the grung arrives in pieces, and each teller adds a part.
 
 ## Depth
 

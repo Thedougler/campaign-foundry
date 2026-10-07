@@ -8,7 +8,7 @@ sources:
 ## At a glance
 
 - **Role at the table.** Deck filler for Crown boarding parties. It crowds a rail, and the first real fight kills it.
-- **Threat.** Threat is set by the statblock. They count by numbers, not quality.
+- **Threat.** CR 0 and four hit points apiece. They count by numbers, not quality.
 - **Tell.** Boards in a pair, hesitating at anything that does not look like a deck.
 - **Weak to.** Uncertainty. An illusion or a strong first blow turns them.
 - **Used by.** [[Barnaby Rook]].

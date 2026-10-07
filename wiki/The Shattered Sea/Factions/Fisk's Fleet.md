@@ -34,7 +34,7 @@ sources:
 
 ### History
 
-Delmar assembled the five-ship fleet to steal the Pearl of Souls from Umberlee's [[Umberlee's Shrine|shrine]] on [[Vel-Orn]]. He confessed it to his crew on the walk to the harbour. He is a real admiral. The fleet sailed under [[Chain Council]] sponsorship as privateers rather than pirates, with crews drawn from many folk and a code that raided slave ships and freed the chained, and they took only targets that deserved it. The commissioner had lied about what the object was. The fleet succeeded, and then Umberlee struck it over the [[Drowned Maw]]: fog came down until the water vanished from sight, and the sea opened into a valley eighty feet deep that took all five ships. Crissdalynn Khinriss saw it first and pulled Delmar free. He came to among the survivors. Umberlee named the Pearl as her price after the five-ship fleet sank.
+Delmar assembled the five-ship fleet to steal the Pearl of Souls from Umberlee's [[Umberlee's Shrine|shrine]] on [[Vel-Orn]]. He confessed it to his crew on the walk to the harbour. He is a real admiral. The fleet sailed under [[Chain Council]] sponsorship as privateers rather than pirates, with crews drawn from many folk and a code that raided slave ships and freed the chained, and they took only targets that deserved it. The commissioner had lied about what the object was. The fleet succeeded, and then Umberlee struck it over the [[Drowned Maw]]: fog came down until the water vanished from sight, and the sea opened into a valley eighty feet deep that took all five ships. Crissdalynn Khinriss saw it first and pulled Delmar free. He came to among the survivors. With five hulls on the seafloor, Umberlee set her price: the Pearl of Souls had to come back to her.
 
 ### Threads
 

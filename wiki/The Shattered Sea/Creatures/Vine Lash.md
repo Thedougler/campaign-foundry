@@ -10,7 +10,7 @@ sources:
 ## At a glance
 
 - **Role at the table.** It pins the Party in place, one hanging bundle per captive.
-- **Threat.** CR 3. Use its attack range, movement, or control to pressure the Party.
+- **Threat.** CR 3. Its fifteen-foot tendrils and its thirty-foot blind sense decide where a fight can happen.
 - **Tell.** One hanging root tip twitches just before the stems tighten.
 - **Weak to.** Fire above all, and a blade that cuts the stem bundle holding a captive. Destroying a bundle frees its prisoner and leaves the plant unharmed.
 - **Used by.** [[Wolfrabbit]] patrols the same territory.

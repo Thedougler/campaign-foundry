@@ -9,7 +9,7 @@ sources:
 ## At a glance
 
 - **Role at the table.** Crown boarding specialist who answers a failing boarding with Grung toxin gas.
-- **Threat.** Threat is set by the statblock. The danger is the cloud, not the thrower.
+- **Threat.** CR 1/4 behind a weak dagger. The danger is the cloud, not the thrower.
 - **Tell.** A hand goes to the bandolier and unhooks an iron canister before anything is thrown.
 - **Weak to.** Her own cloud. Wind that catches it puts it back where it came from.
 - **Used by.** [[Barnaby Rook]].

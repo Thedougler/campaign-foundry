@@ -39,7 +39,7 @@ Provision west of the Maw, and again at Keth-Naar for anything beyond it. The ta
 - [[Keth-Naar]], the [[Tabaxi|tabaxi]] city at the [[Blue Hole]]'s edge and the furthest reliable landmark eastward. Water and repairs this far east come from its harbour or from nowhere.
 - [[Vel-Orn]], a small island in the ring of five around the [[Blue Hole]], sheer and reef-bound.
 - [[Umberlee's Shrine]], the old Waveservant shrine cut into Vel-Orn's cliff, off every colonial chart.
-- [[Sunken Crown]], the broken structure east of the Maw that eastbound pilots still use for a mark. It is structurally unstable and still subsiding.
+- [[Sunken Crown]], the broken structure east of the Maw that eastbound pilots still use for a mark. Its stones are unsound, and every salvage crew finds the waterline higher on them than the last crew did.
 - [[Redwind Isles]], an under-charted island chain that sits under a sphere of control no sighting has ever confirmed.
 - [[Blue Hole]], the sea mark at Keth-Naar's edge.
 
@@ -69,7 +69,7 @@ Governance stops at the chart edge and none has been sought. The Crown's cutters
 ### Hidden truths
 
 - **The easting is the real cargo.** Where the fixed marks lie between the Maw and Keth-Naar is knowledge the pilots sell dear, and they set their fees to match. Courses come cheap, and bearings that serve the whole road do not.
-- **The landlord is inferred, never sighted.** No one has charted the power over the Redwind Isles. Some hulls pass the isles untouched and some do not, and the pattern has held too long to be luck.
+- **The landlord is inferred, never sighted.** No one has charted the power over the Redwind Isles. Some hulls cross the isles untouched while others stop and pay, and the split has run too long for luck.
 - **This water kills wounded ships.** They arrive damaged from further west, and help lies a port behind. The deliberate crews wait on exactly that.
 
 ### Threads

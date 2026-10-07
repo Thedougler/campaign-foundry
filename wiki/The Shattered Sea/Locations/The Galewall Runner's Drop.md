@@ -12,7 +12,26 @@ parent: "[[Ashwall Islands]]"
 - **Draws the Party because.** A colonial-era privateer cache, held in crew legend as sitting on the Ashwall Islands.
 - **Prize.** Whatever the colonial privateers left behind, if the legend is more than a legend.
 
+> [!narration] Entering
+> You come ashore beneath cold black spires, and spray whips off the rock. Ask two crews after the privateers' cache and they give you two different shores, with no agreement that anything of it is left. The repair hands who climb the stone by daylight have heard every tale of it.
+
 ## Play
+
+### Areas
+
+None established.
+
+### Hazards
+
+None established beyond the search itself.
+
+### Occupants
+
+None established.
+
+### Likely actions
+
+Ask crews after the cache, weigh one tale against another, or search the shore a tale names.
 
 ## Depth
 

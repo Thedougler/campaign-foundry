@@ -16,7 +16,7 @@ date: "1495 DR, date not established"
 
 ## What happened
 
-The thing striking the cutter's hull returned during Perrin's watch. A vision placed him inside a sixty-foot body and left him the word “Grow”. The creature surfaced as a whip-shark. Crissdalynn held it clear of the water while the crew killed it. Delmar kept its barb, Jean-Claude took three fertilised eggs, and the scales patched the hull. [[Shepherd Grigori]] passed a red light from his wrist over Jean-Claude, which Perrin could not identify.
+The thing striking the cutter's hull returned during Perrin's watch. A vision placed him inside a sixty-foot body and left him the word “Grow”. The creature came up from below, a whip-shark. Crissdalynn held it clear of the water while the crew killed it. Delmar kept its barb, Jean-Claude took three fertilised eggs, and the scales patched the hull. [[Shepherd Grigori]] passed a red light from his wrist over Jean-Claude, which Perrin could not identify.
 
 The crossing to Calveno took five days. Crissdalynn found two forbidden Drowned Maw crossings in [[Barnaby Rook]]'s chart archive, with no account of what he had seen. A pale, lit outline held the cutter's course. Delmar entered Admiral Fisk and remained there until Crissdalynn brought him back. Jean-Claude repaired the hull, with Sem Holst fixing what the spell missed.
 
@@ -35,7 +35,7 @@ In Nona's kitchen, the crew reported Vestra's loss. Nona called off the attacks 
 ## Threads
 
 - [[The Crown Inspection]] moved the story on. The prize escaped inspection and the Crown name is gone.
-- [[Simone's Hunters]] remain active. The crew reached Calveno, while Jean-Claude remains hunted.
+- [[Simone's Hunters]] remain active. The crew came ashore at Calveno, while the search for Jean-Claude goes on.
 - [[Bring the Pearl of Souls to Umberlee]] moved the story on. The shrine has called Delmar, but he has not answered.
 - [[Drowned Maw Awakening]] moved the story on. The Maw struck the hull and spoke to Perrin during the crossing.
 - [[Perrin and Nona]] moved the story on. Perrin reported Vestra's loss, accepted a favour, and carries a sending stone.

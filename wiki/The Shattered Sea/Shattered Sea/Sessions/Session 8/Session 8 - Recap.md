@@ -16,7 +16,7 @@ date: "1495 DR, date not established"
 
 ## What happened
 
-Iacopo Fieschi named the Tessarine debt in public and paid it with a thousand gold pieces of trade credit, Casa Falier, and a diamond ring. Nona turned the Mercatura crater into a missing-persons desk. The list passed 314 fighting-age men. Jean-Claude called the taking slaving, Nona vowed to chase the raiders, and she sent two Passage ships after them. Perrin received a favour instead of gold, while Cobb prepared Uncertainty's refit for completion in twelve hours.
+Iacopo Fieschi named the Tessarine debt in public and paid it with a thousand gold pieces of trade credit, [[Casa Falier]], and a diamond ring. Nona turned the Mercatura crater into a missing-persons desk. The list passed 314 fighting-age men. Jean-Claude called the taking slaving, Nona vowed to chase the raiders, and she sent two Passage ships after them. Perrin received a favour instead of gold, while Cobb prepared Uncertainty's refit for completion in twelve hours.
 
 The Party spent the payment at the Cabinet of Morsani and bought The Snap. Delmar took a torn page naming Osset, a monk who left the Sentinels of the Eyrie during a schism. Catarina Da'Virelli identified the page's source as a corpse and was thrown from the shop. Lavinia Sordi sold Crissdalynn a cloak that Identify named Nightmantle. Lavinia had received it from a falcon-featured man who also called himself Osset, a name Crissdalynn had never heard at the Eyrie.
 
@@ -24,7 +24,7 @@ At Zort's Pits, Zort had the finished prosthetic and offered a Midchain reptile 
 
 ## Changes
 
-- [[Iacopo Fieschi]] paid the Defenders with trade credit, Casa Falier, and a diamond ring.
+- [[Iacopo Fieschi]] paid the Defenders with trade credit, [[Casa Falier]], and a diamond ring.
 - [[Nona Black-Jaw]] made the [[Mercatura]] crater a missing-persons desk, sent two [[Passage]] ships after the raiders, and offered Perrin a favour.
 - [[Uncertainty]] entered a twelve-hour refit with [[Cobb]].
 - The Party acquired [[The Snap]] and [[Nightmantle]].

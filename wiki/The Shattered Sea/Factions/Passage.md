@@ -25,7 +25,7 @@ sources:
 - **When met.** Couriers are moving a person, message or cargo while checking whether the Party respects Passage boundaries.
 - **When opposed.** The Passage reroutes people first, then protects route knowledge and negotiates or cuts contact.
 - **Offers.** Shelter, safe kitchens, route knowledge, courier access, ships and introductions. The Passage knows which [[Midchain]] back channels are clean for westbound ships avoiding Strait inspection.
-- **Costs.** Favors and obligations, though refusal can be reshaped rather than ending the relationship.
+- **Costs.** Favours and obligations, though refusal can be reshaped rather than ending the relationship.
 - **How to notice or interfere.** Look for coded marks, commercial cover, sudden kitchen closures and boats carrying more passengers than their lists admit. Expose a route, intercept a captive shipment or keep a rescue off Crown books.
 
 ## Depth

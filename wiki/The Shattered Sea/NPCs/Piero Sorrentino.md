@@ -12,7 +12,7 @@ creature: "[[Commoner]]"
 - **Role.** Wreck survivor and net-mender.
 - **Wants.** Salt water, a working hull, and a way off Aruhe.
 - **Voice.** Fisherman-blunt, describing the tube as a hold and the skylight as a hatch.
-- **Found at.** Out of the pit and marching inland with the Party.
+- **Found at.** Lifted out of the lava tube and walking inland with the Party.
 
 > [!narration] First look
 > A wiry man with rope-scarred hands watches the strip of sky above him while twisting vine fibre into cord. “You, on the hatch,” he calls. “Have you got a line?”

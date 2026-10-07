@@ -38,7 +38,7 @@ The Wiki does not record a culture, religion, appearance or Sea homeland common 
 - **Life span.** About 80 years.
 - **Resourceful.** Heroic Inspiration whenever they finish a Long Rest.
 - **Skillful.** Proficiency in one skill of their choice.
-- **Versatile.** Two Origin feats of their choice.
+- **Versatile.** They take two Origin feats of their choice.
 
 ## Links
 

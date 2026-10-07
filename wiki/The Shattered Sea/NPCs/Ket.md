@@ -33,8 +33,8 @@ Rook took Ket from Murrat as a specimen and held him three weeks in a brass cage
 
 ### Hidden truths
 
-- A Moucheron asked directly about its own state tells the truth before it tells a lie.
-- Ket knows what Rook wanted with him and what the Crown wanted to learn about the Five Blades, but not the wider supply chain.
+- A Moucheron asked directly about its own state gives the true answer before it lies.
+- Ket knows what Rook wanted with him and what the Crown sought to learn about the Five Blades, but not the wider supply chain.
 
 ### Threads
 

@@ -18,7 +18,7 @@ parent: ""
 - **Danger.** The storm first. Then the wreck-fed predators and the recovery-lane piracy that live on what the storm leaves.
 
 > [!narration] Arrival
-> Ahead of you the horizon carries a dark band that will not break apart as you run toward it. Chop arrives long before the weather does, and the wind builds in stages while the water turns cold under the hull. What looked like one wall of cloud resolves into grey and slate-blue weather stacked on itself, with storm systems working inside it without pause. Behind you, the charted sea keeps its last calm.
+> Ahead of you a dark band lies along the horizon and will not break apart as you run toward it. Chop arrives long before the weather does, and the wind builds in stages while the water turns cold under the hull. What looked like one wall of cloud resolves into grey and slate-blue weather stacked on itself, with storm systems working inside it without pause. Behind you, the charted sea keeps its last calm.
 
 ## Play
 
@@ -27,7 +27,7 @@ parent: ""
 There is one road through, so the choice that matters is preparation, not route.
 
 - **Seasoned run.** An experienced pilot and a hull that has done it before make the crossing in about three weeks, for a fee priced to the risk. The trade between the Scatter and the colonial homelands runs on these crossings.
-- **Cheap run.** A lesser pilot or an untried hull saves the fee and owns the one-in-three. The name-boards in the western shrines are mostly this run's accounting.
+- **Cheap run.** A lesser pilot or an untried hull saves the fee and takes the one-in-three. The name-boards in the western shrines are mostly this run's accounting.
 
 Reading the wind's stages is the pilot's craft. Judging how far the boundary lies and how long before the first storm system reaches the hull is DC 15 Wisdom (Survival). A failure meets the first system under full canvas, and the split sails and rigging damage cost days running before the weather.
 
@@ -65,7 +65,7 @@ The pilots' belief that the wall is sustained by [[Arclight Phoenix]] activity i
 
 ### Threads
 
-None of the active Threads reach the western water. The Crown's inspections and the Maw's pull all draw east. The Galewall sits beyond every charted debt.
+The active Threads do not reach the western water. The Crown's inspections and the Maw's pull all draw east. The Galewall is beyond every charted debt.
 
 ## Links
 

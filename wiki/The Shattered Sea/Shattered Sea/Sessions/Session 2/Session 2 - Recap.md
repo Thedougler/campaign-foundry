@@ -12,7 +12,7 @@ date: "1495 DR, date not established"
 - **Session.** 2.
 - **Party at.** Aboard the captured HCS Surety, with a tropical storm around the cutter.
 - **Big moments.** The guns were fouled, Rook disappeared into the water, Ket was freed, and the crew specified its prize crew.
-- **Left open.** Three impacts from below left the cutter hard over in the storm.
+- **Left open.** The cutter lies hard over in the storm, struck from below three times.
 - **Next narration.** [[Session 2 - Previously On]]
 
 ## What happened
@@ -21,7 +21,7 @@ date: "1495 DR, date not established"
 
 Rook's cabin held letters of marque, a pendant marked for Mira, a crate of flintlocks and twenty vials of Grung tincture. [[Perrin Black-Jaw]] took [[Mira's Blade]]. The crew had taken the HCS Surety as a prize.
 
-Beaumont named Perrin a Friend of the [[Passage]]. He said [[Nona Black-Jaw]] was hunting her lost grandson and believed someone had already been sent. He passed a Truth Stone to [[Jean-Claude Tabarnack]], who told the truth that his former kinsmen hunted him, he had stowed away, and nobody had sent him.
+Beaumont named Perrin a Friend of the [[Passage]]. He said [[Nona Black-Jaw]] was hunting her lost grandson and believed someone had already been sent. He passed a Truth Stone to [[Jean-Claude Tabarnack]], who spoke plainly under it. His former kinsmen were hunting him. He had stowed away, and nobody had sent him.
 
 Below deck, Ket was found starving in a brass cage. Jean-Claude offered blood, Crissdalynn stood between Ket and Perrin's blade, and Perrin's magic put himself on the floor laughing. The Party fed Ket with the ensign's body and opened the cage from across the room. Ket flew towards [[Murrat]].
 

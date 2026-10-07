@@ -1430,3 +1430,273 @@
 - [[Rotheart]]
 - [[Session 12 - Recap]]
 - [[Session 13 - Previously On]]
+
+## [2026-10-06] lint | Lint Creatures: ai-tells rewording and Moucheron plural
+
+- [[Grung Elite Warrior]]
+- [[Killer Whale]]
+- [[Moucheron]]
+- [[Otar the Foul (Creature)]]
+- [[Ozzeth the Twiceborn]]
+- [[Sawek]]
+- [[Vine Lash]]
+- [[Young Sea Serpent]]
+
+## [2026-10-06] lint | Items lint: plain-verb rewrites, Grubnades alias, bodhran word
+
+- [[A Sliver of the Unstable Form]]
+- [[Grubnade]]
+- [[Letters of Marque]]
+- [[The Snap]]
+- [[Truth Stone]]
+
+## [2026-10-06] lint | Lint creature slice: rewrote nine flagged ai-tell lines and added four missing statblocks
+
+- [[Arclight Phoenix]]
+- [[Beaumont Sel (Creature)]]
+- [[Commoner]]
+- [[Deer-Stalker]]
+- [[Giant Bat]]
+- [[Giant Scorpion]]
+- [[Giant Shark]]
+- [[Grung (Creature)]]
+
+## [2026-10-06] lint | Lint slice: deities, factions, world and vehicles: rewrote flagged possession, motion, carrying, sitting, counting and naming wording; British spelling
+
+- [[Valkur]]
+- [[Il Vento di Seta]]
+- [[La Canzone Nera]]
+- [[Le Ossa del Toro]]
+- [[Passage]]
+- [[Tangle]]
+- [[Tarahs]]
+- [[The Shattered Sea]]
+- [[Glass Debt]]
+
+## [2026-10-06] lint | Lint Lore species pages: verb and negation rewording, lizardfolk name words into vault list
+
+- [[Aarakocra]]
+- [[Human]]
+- [[Istishia]]
+- [[Lizardfolk]]
+- [[Sea Elf]]
+- [[Session 11 Assets]]
+- [[Tabaxi]]
+- [[The Tithe of the Bitch Queen]]
+
+## [2026-10-06] lint | ai-tells prose repairs in seven NPC pages
+
+- [[Anzolo]]
+- [[Cap'n Gorgeous]]
+- [[Carlo Ferrante]]
+- [[Cedric Hollowell]]
+- [[Duvane]]
+- [[Impuni]]
+- [[Ket]]
+
+## [2026-10-06] lint | NPC slice: rewrote ai-tells phrasings, registered coinage names
+
+- [[Noor]]
+- [[Otar the Foul]]
+- [[Prospero Morsani]]
+- [[Renzo Canale]]
+- [[Solange Barret]]
+- [[Tomo]]
+- [[Zort]]
+
+## [2026-10-06] lint | Locations slice: AI-tell flags reworded, Canon name forms restored (Spiguar, Minor Slaad, Moucheron), Ragnito added to vault word list
+
+- [[Ashwall Islands]]
+- [[Calveno Sewer Magazines]]
+- [[Cutoff Lip]]
+- [[Galewall]]
+- [[Grasslands]]
+- [[Kat's Curios]]
+- [[Line Bank]]
+- [[Mercatura]]
+- [[Murrat]]
+
+## [2026-10-06] lint | Lint Locations slice: rewrote flagged prose in eight Sites and filled empty Play and Depth sections on the Galewall Runner's Drop and the Volcanic Vent Caves, with a stub for Dario Fumagalli
+
+- [[Redwind Isles]]
+- [[Slack Basin]]
+- [[Spoke Ring]]
+- [[Tallow Row]]
+- [[The Galewall Runner's Drop]]
+- [[The Quiet]]
+- [[Torn Crossing]]
+- [[Volcanic Vent Caves]]
+- [[Dario Fumagalli]]
+- [[The Shattered Sea/index]]
+
+## [2026-10-06] lint | Casa Falier Location stub, linked from Iacopo Fieschi and the Session 8 Recap
+
+- [[Casa Falier]]
+- [[Iacopo Fieschi]]
+- [[Session 8 - Recap]]
+- [[The Shattered Sea/index]]
+
+## [2026-10-06] lint | Lint: ai-tells rewrites on two Quests and Session 0, 1 and 11 pages
+
+- [[Rule of Two]]
+- [[Take on Aruhe]]
+- [[Session 0 - Recap]]
+- [[Session 1 - Recap]]
+- [[Session 11 - Aftermath]]
+- [[Session 11 - Angry Birds]]
+- [[Session 11 - Birds of a Feather]]
+- [[Session 11 - Otter Hole]]
+
+## [2026-10-06] lint | Session pages lint: reworded survival, count-lead, pursuit and arrival phrasings
+
+- [[Session 11 - Wolfrabbits]]
+- [[Session 12 - Dawn Strike]]
+- [[Session 12 - Prep]]
+- [[Session 2 - Previously On]]
+- [[Session 2 - Recap]]
+- [[Session 3 - Previously On]]
+- [[Session 3 - Recap]]
+- [[Session 4 - Previously On]]
+
+## [2026-10-06] lint | Roka Sten stub with Zort links and Noor first look redraft
+
+- [[Roka Sten]]
+- [[Zort]]
+- [[Noor]]
+
+## [2026-10-06] lint | Session 5 to 9 slice: counts after verbs and Ragnito spelt Canon, with Strix and Falier known and the Session 9 Previously On page linked
+
+- [[Session 5 - Previously On]]
+- [[Session 5 - Recap]]
+- [[Session 6 - Recap]]
+- [[Session 7 - Recap]]
+- [[Session 9 - Recap]]
+
+## [2026-10-06] lint | Lint Ragnito rename with Ragnito and Strix stubs
+
+- [[Calveno Sewer Magazines]]
+- [[Catarina Da'Virelli]]
+- [[Ragnito]]
+- [[Strix]]
+
+## [2026-10-06] lint | Lint shared line repairs and stub follow-through
+
+- [[Ashwall Islands]]
+- [[Grasslands]]
+- [[Mercatura]]
+- [[Calveno Sewer Magazines]]
+- [[Catarina Da'Virelli]]
+- [[Ragnito]]
+- [[Strix]]
+
+## [2026-10-06] lint | Lint Ragnito and Strix statblocks resourced from the SRD
+
+- [[Ragnito]]
+- [[Strix]]
+
+## [2026-10-06] lint | Lint: rewrote four shared-line sentences on Umberlee, Grung Authority Seal, Pearl of Souls and Silent Shortbow from their own pages' facts
+
+- [[Umberlee]]
+- [[Grung Authority Seal]]
+- [[Pearl of Souls]]
+- [[Silent Shortbow]]
+
+## [2026-10-06] lint | Creature Threat bullets recast per creature, old log titles repaired (Canon spelling, range wording, phrasing)
+
+- [[Minor Slaad]]
+- [[Snakewood]]
+- [[Terror-Bird]]
+
+## [2026-10-06] lint | Recast shared boilerplate lines as page-specific wording across five Creature pages
+
+- [[Dravosi Alchemist]]
+- [[Dravosi Deckhand]]
+- [[Grung (Creature)]]
+- [[Grung Elite Warrior]]
+- [[Hinewai the Blight]]
+
+## [2026-10-06] lint | Faction slice: rewrote four shared boilerplate lines from page-own facts
+
+- [[Fisk's Fleet]]
+- [[Grung Clans]]
+- [[La Canzone Nera]]
+- [[Le Ossa del Toro]]
+
+## [2026-10-06] lint | Outer Reach boilerplate lines recast from each page's own facts
+
+- [[Redwind Isles]]
+- [[Sunken Crown]]
+
+## [2026-10-06] lint | Vehicles slice: shared lines rewritten and a numeric range reworded, with tricolon added to the vault word list
+
+- [[log]]
+- [[Fernen]]
+- [[Loud Argument]]
+- [[Vestra]]
+
+## [2026-10-06] lint | Boilerplate: three shared lines recast from each page's own facts
+
+- [[Calder's Tooth and Port Tidefall]]
+- [[Crown Islands]]
+- [[Outer Reach]]
+
+## [2026-10-06] lint | Recast eleven shared boilerplate lines across five Creature pages
+
+- [[Bazzoth the Steeped]]
+- [[Bloodhawk]]
+- [[Commoner]]
+- [[Crown Squid]]
+- [[Deer-Stalker]]
+
+## [2026-10-06] lint | Recast shared boilerplate lines on Luca Ferrante, Piero Sorrentino, Osset and Nona Black-Jaw
+
+- [[Luca Ferrante]]
+- [[Piero Sorrentino]]
+- [[Osset]]
+- [[Nona Black-Jaw]]
+
+## [2026-10-06] lint | De-duplicated shared lines on four Lore pages
+
+- [[Aarakocra]]
+- [[Campaign Timeline]]
+- [[Elemental Plane of Water]]
+- [[Grung]]
+
+## [2026-10-06] lint | Recast shared thread and fight-state lines across Session 10/11 recaps, Theft on the Watch and The Hound of God
+
+- [[The Hound of God]]
+- [[Session 10 - Recap]]
+- [[Session 11 - Recap]]
+- [[Session 11 - Theft on the Watch]]
+
+## [2026-10-06] lint | Lint Lore slice: rewrote lines shared with Sienne Orre and Take on Aruhe
+
+- [[Minotaur]]
+- [[Taking on Aruhe]]
+
+## [2026-10-06] lint | Recast seven shared thread lines across Session 5, Session 9 and The Crown Inspection
+
+- [[Session 5 - Recap]]
+- [[Session 9 - Recap]]
+- [[The Crown Inspection]]
+
+## [2026-10-06] lint | Recast seventeen shared thread lines across Session 1, 2, 3, 4 and 12 recaps
+
+- [[Session 1 - Recap]]
+- [[Session 2 - Recap]]
+- [[Session 3 - Recap]]
+- [[Session 4 - Recap]]
+- [[Session 12 - Recap]]
+
+## [2026-10-06] lint | Restored the Thread status words on two Session recaps
+
+- [[Session 5 - Recap]]
+- [[Session 9 - Recap]]
+
+## [2026-10-06] lint | Restored Thread status lines on five Session recaps after the boilerplate fix
+
+- [[Session 1 - Recap]]
+- [[Session 2 - Recap]]
+- [[Session 3 - Recap]]
+- [[Session 4 - Recap]]
+- [[Session 12 - Recap]]

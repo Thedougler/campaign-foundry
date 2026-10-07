@@ -25,10 +25,10 @@ parent: ""
 
 The spires are their own landmarks; navigation out here runs on stars and instruments, and on the kind of attention that keeps a crew alive past the last chart. Picking a landing window through the storm gaps is DC 15 Wisdom (Survival). A failure puts the hull against a spire foot or brings it onto the lee approach in surf, and the repairs eat the days the landing was meant to save.
 
-Two choices matter on the western run, and both are made here:
+The western run turns on two choices, and crews make both here:
 
 - **Make the lee first.** Repair, water, and a count of the vultures before the last run west. It costs days and arrives whole ([[Ashwall Lee]]).
-- **Run straight through.** Saves days and enters the worst water with the hull as it stands. The one-in-three lives in this choice.
+- **Run straight through.** Saves days and enters the worst water with the hull as it stands. This run is where the one-in-three happens.
 
 The vulture count is the cheap intelligence: numbers above the baseline over the cliffs mean something came through the storm in pieces, and a day spent in the [[Ashwall Lee]] reading that is rarely wasted.
 
@@ -42,7 +42,7 @@ The vulture count is the cheap intelligence: numbers above the baseline over the
 ### Encounters
 
 1. Guano and the beat of wings above a warm cave mouth at dusk. A roost overhead. Move the work or learn why crews do not ([[Giant Bat]]).
-2. A handhold that goes back deeper than it should. The crack is occupied, and the watcher on the stone earns their keep ([[Giant Scorpion]]).
+2. A handhold that goes back deeper than it should. The crack is occupied, and the watcher on the stone does its job ([[Giant Scorpion]]).
 3. A vulture count above the baseline over the cliffs. Follow the birds and read what the storm delivered ([[Giant Vulture]]).
 4. A voice in a storm gap that does not match the wind's direction. Stay off the inland path ([[Harpy]]).
 5. A repair crew on a fouled spar, two hands and one watcher. Work for hire, and crossing news for listening.
@@ -62,11 +62,11 @@ How long the hatching has gone on is not recorded. The oldest pilot families wri
 
 ### Hidden truths
 
-Pilot lore that the [[Galewall]] is sustained by [[Arclight Phoenix]] activity is substantially true. The volcanic discharge is what hatches them. The egg left behind when a phoenix dies needs lightning to open, and the vent systems provide it continuously and at close range. The evidence is physical: the lightning-burned survivor's hull carried burns along contact points rather than down from a strike, and iron fittings magnetized hard enough to pull nails from a workbench.
+Pilot lore that the [[Galewall]] is sustained by [[Arclight Phoenix]] activity is substantially true. The vent discharge hatches them. The egg a phoenix leaves behind at its death needs lightning to open, and the vent systems provide it continuously and at close range. The evidence is physical: burns marked the lightning-burned survivor's hull along contact points rather than down from a strike, and iron fittings magnetized hard enough to pull nails from a workbench.
 
 ### Threads
 
-None of the active Threads reach this far west. The islands sit beyond the Crown's ledgers and the Maw's pull, which is what makes them a reckoning point rather than a destination.
+The active Threads do not run this far west. The islands are past the Crown's ledgers and the Maw's pull, which is what makes them a reckoning point rather than a destination.
 
 ## Links
 

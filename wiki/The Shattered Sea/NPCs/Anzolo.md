@@ -14,7 +14,7 @@ creature: "[[Commoner]]"
 - **Found at.** Nona's errands across [[Calven and Calveno|Calveno]], lately recalled from the search for her grandson.
 
 > [!narration] First look
-> A tortle stands where Nona's business is about to happen. Before his shell registers, your side of the story has reached him already. Enforcers come in two kinds, and Anzolo is the kind Nona sends when the job needs thinking. "She wants to see you. Walk."
+> A tortle stands where Nona's business is about to happen. Before his shell registers, he already has your side of the story. Enforcers come in two kinds, and Anzolo is the kind Nona sends when the job needs thinking. "She wants to see you. Walk."
 
 ## Play
 
@@ -32,7 +32,7 @@ creature: "[[Commoner]]"
 
 ### Threads
 
-Anzolo sits at the edge of [[Perrin and Nona]] as the fixer recalled the day her grandson came home.
+Anzolo is at the edge of [[Perrin and Nona]] as the fixer recalled the day her grandson came home.
 
 ## Links
 

@@ -8,7 +8,7 @@ sources:
 
 ## At a glance
 
-- **Kind.** Unknown. The name describes the scale of threat as much as the hull that carries it.
+- **Kind.** Unknown. The name describes the scale of threat as much as it describes the hull.
 - **Size.** Unknown.
 - **Speed.** Unknown.
 - **Crew.** Unknown.

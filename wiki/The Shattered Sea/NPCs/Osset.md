@@ -12,7 +12,7 @@ creature: "[[Talon Vantyrus]]"
 
 - **Role.** Former Sentinel master and hidden leader of the faction.
 - **Wants.** A complete read on Crissdalynn's Long Sight without recognition by Kyzil.
-- **Voice.** Composed, quiet, and precise. He speaks like a teacher.
+- **Voice.** Quiet and measured, every word exact. He speaks like a teacher.
 - **Found at.** The faction routes under the alias Talon Vantyrus. His original name is unrevealed.
 
 > [!narration] First look

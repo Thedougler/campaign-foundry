@@ -37,7 +37,7 @@ The Pearl's signal crosses the planar boundary to the Elemental Plane of Water, 
 
 ### History
 
-[[Delmar Fisk]] stole it from the deepest chamber of the [[Umberlee's Shrine|hidden Waveservant shrine]] on [[Vel-Orn]], over a tidal pool built to its requirements, under Chain Council direction. The commissioner had lied about the object, and the crew got in through a cave past traps and defences that six other crews had failed. Umberlee sank his five ships in anger. Delmar fell unconscious as the hulls went down, and the Pearl went into the [[Drowned Maw]] with the wreckage. The wreck and Pearl lie at the Red Lady site in the eastern [[Shelfworks]]. Delmar's five captains remain bound to him while their crews are trapped inside.
+[[Delmar Fisk]] stole it from the deepest chamber of the [[Umberlee's Shrine|hidden Waveservant shrine]] on [[Vel-Orn]], over a tidal pool built to its requirements, under Chain Council direction. The commissioner had lied about the object, and the crew got in through a cave past traps and defences that six other crews had failed. Umberlee met the theft with wrath and sent Delmar's five ships to the bottom. Delmar fell unconscious as the hulls went down, and the Pearl went into the [[Drowned Maw]] with the wreckage. The wreck and Pearl lie at the Red Lady site in the eastern [[Shelfworks]]. Delmar's five captains remain bound to him while their crews are trapped inside.
 
 In [[Session 10 - Recap|Session 10]], the DM clarified that the island chain council had contracted the Party for the Pearl job after someone approached the council to arrange it. Delmar had understood the trusted commissioner to be an independent contractor.
 

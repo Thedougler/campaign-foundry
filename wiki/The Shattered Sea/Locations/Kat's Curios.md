@@ -22,7 +22,7 @@ parent: "[[The Shattered Sea]]"
 
 ### Areas
 
-The counter carries the [[Whip-Shark Barb]], laid out under [[Catalina Curio]]'s lamp.
+The [[Whip-Shark Barb]] rests on the counter, laid out under [[Catalina Curio]]'s lamp.
 
 ### Hazards
 

@@ -46,6 +46,7 @@
 - [[Black Lotus]] — A mature magic-feeding bloom in Aruhe that clamps shut, drains spell slots and can yield a Black Lotus Heart.
 - [[Blue Hole]] — A sea mark at Keth-Naar's edge on the eastern road, the one feature the charts agree on.
 - [[Calveno Sewer Magazines]] — Underground powder magazines beneath Calveno where the Grung bombing operation stored supplies and held a live ritual.
+- [[Casa Falier]] — A house paid to the Defenders by Iacopo Fieschi alongside trade credit and a diamond ring.
 - [[Casa Lupo]] — A general-goods shop in Le Paludi where Jean-Claude Tabarnack bought the Silent Shortbow.
 - [[Cutoff Lip]] — A packed dirt shelf at the Quiet's edge, where Calveno prints run north and a Deer-Stalker marks the trees.
 - [[Harwick]] — The Crown island whose naval yard and deep-water anchorage face the Central Strait, and from which the Reach patrols stage.
@@ -110,6 +111,7 @@
 - [[Coralyra Dranra]] — Sea elf sorcerer and bard, self-exiled from her post as Aoidos of Halythion.
 - [[Corbin Knighton]] — Crown boarder whose false report now drives a quiet hunt for the crew.
 - [[Corvin Knighton]] — Rupert Knighton's nephew and heir, a Tessarine-trained bladesong duellist seeking recognition through personal skill.
+- [[Dario Fumagalli]] — Calveno sailor who drowned fishing the Slack Basin pool nineteen days before the Party's arrival.
 - [[Drav Holke]] — Saltwright's bosun; clipped, correct, and no interest in small talk.
 - [[Duvane]] — An Ashwall repair-crew carpenter whose scorpion attack in a handhold fissure is why two hands now climb the stone.
 - [[Ensign Wouters]] — Crown ensign and navigator of the HCS Surety, shot through a gun port by Delmar Fisk; the Party fed his body to Ket.
@@ -145,6 +147,7 @@
 - [[Piero Sorrentino]] — Weathered Calveno net-mender lifted from the lava tube, marching inland with the Party.
 - [[Prospero Morsani]] — Keeper of the Velo Quarter cabinet of lost objects, and a fixture at every Calveno festival whose appearance at the winning stage the crowd reads as an omen.
 - [[Renzo Canale]] — Eldest Calveno survivor who teaches Aruhe's fallen-fruit rule and will stay at the Pantry.
+- [[Roka Sten]] — Zort's Midchain animal supplier, whose name Zort paid to Catarina's workshop and handed the Party in Session 08.
 - [[Ruk]] — Nona Black-Jaw's literal-minded lizardfolk guardian, a patient physical shield who never ignores a lie or threat.
 - [[Ruma Delacroix]] — Blue-caste Grung handler who became an ally while hiding the party in a sewer nap room.
 - [[Rupert Knighton]] — Commodore of the Knight Squadron, tightening the Crown net around the crew.
@@ -204,6 +207,7 @@
 - [[Moucheron]] — A Moucheron Creature (CR 1/8) adapted from the 2024 SRD Stirge.
 - [[Otar the Foul (Creature)]] — Otar the Foul, a unique Creature stat block from the archived NPC record.
 - [[Ozzeth the Twiceborn]] — Ozzeth the Twiceborn, a unique Creature stat block from the archived NPC record.
+- [[Ragnito]] — Catarina Da'Virelli's spider-like construct, run on a reskinned 2024 SRD Giant Spider stat block.
 - [[River Otter]] — A River Otter creature (CR 4) used as a controller in The Shattered Sea.
 - [[Roc]] — A giant bird crews place above the Ashwall spires, riding the Galewall stormfronts in high weather.
 - [[Sawek]] — The strait's rumoured apex, a blue-hole predator associated with the darkest sections of the southern Midchain approaches, whose range in the open strait no pilot will state.
@@ -211,6 +215,7 @@
 - [[Snakewood]] — A carnivorous canopy vine colony that grips travellers and feeds with acid.
 - [[Solange Barret (Creature)]] — Solange Barret, a unique Creature stat block from the archived NPC record.
 - [[Spiguar]] — A Spiguar creature (CR 11) used as a ambusher in The Shattered Sea.
+- [[Strix]] — Catarina Da'Virelli's clockwork owl scout, run on the 2024 SRD Owl stat block.
 - [[Talon Skarn (Creature)]] — Talon Skarn's Creature stat block, as played: a CR 13 falcon monk who hunts the Fate Spinner, flees beaten, and comes back invisible.
 - [[Talon Vantyrus (Creature)]] — Talon Vantyrus (Creature), a unique Creature stat block from the archived NPC record.
 - [[Terror-Bird]] — A Terror-Bird creature (CR 13) used as a bruiser in The Shattered Sea.

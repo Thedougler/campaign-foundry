@@ -8,7 +8,7 @@ sources:
 ## At a glance
 
 - **Role at the table.** A small bruiser that bites and claws twice a turn.
-- **Threat.** CR 1/2. Use its attack range, movement, or control to pressure the Party.
+- **Threat.** CR 1/2. It climbs to its prey and bites and claws every round it stays within five feet.
 - **Tell.** Skin split and gone raw, with shed flesh trailing its knuckled walk.
 - **Weak to.** Fighters who hold a spear's length, beyond the five feet its bite and claw can cross.
 - **Used by.** [[Whip Shark]] patrols the same territory.

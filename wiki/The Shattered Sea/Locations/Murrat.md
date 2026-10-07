@@ -35,7 +35,7 @@ Moucheron scouts watch arrivals. Kin-villages demand a reason. A cloud of millio
 
 ### Rumors
 
-The island is hunted before the first rope bridge. Blood custom determines whether an approach survives scrutiny.
+The island is watched before the first rope bridge. Blood custom determines whether an approach passes scrutiny.
 
 ## Depth
 
@@ -45,7 +45,7 @@ The kin-villages built their connected life above the tide. The reef settlement 
 
 ### Hidden truths
 
-The cloud consists of Moucherons. The reef extends beyond the first approach visible from shore.
+The cloud consists of the Moucheron. The reef extends beyond the first approach visible from shore.
 
 ### Threads
 

@@ -37,6 +37,7 @@ Below, Catarina's workshop was ready. She unveiled [[Lamarae's Fang]], a sword o
 
 ## Changes
 
+- **Session record.** [[Session 9 - Previously On]] opens this record.
 - A storm wrecked a Grung fleet hull on [[Aruhe]]'s reef two days out of Calveno, leaving captives ashore under [[Wolfrabbit|wolfrabbit]] watch.
 - [[Uncertainty]] sailed refitted: AC 11 and 130 HP at seventy miles a day. The work added a workshop, four more guns, a four-foot draft and an icebreaker blade on the prow, and raised cargo space to twenty-five tons.
 - [[Ruma Delacroix]] joined the crew of [[Uncertainty]] as bookkeeper and cook.

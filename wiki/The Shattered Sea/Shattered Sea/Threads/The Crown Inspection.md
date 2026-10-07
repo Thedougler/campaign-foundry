@@ -36,7 +36,7 @@ The Crown's inspection is ordinary naval law made urgent by a ship carrying fugi
 - [[Aleksander Malone]] commanded Delmar to confess at DC 17, and Delmar failed the save. The personality trigger brought the cold admiral out, and the inquisitor believed the staged confession at Delmar's Persuasion 15.
 - Malone slapped [[Crissdalynn Khinriss|Crissdalynn]]; she caught his hand with Deflect Attacks, and his "Confess now" failed against her natural 20, though he left believing it had worked. Her false confession impressed him.
 - [[Catarina Da'Virelli]] set her umbrella to imitate Umberlee's laughter around the ship, and the inquisitor stepped back, unsettled, at her Persuasion 23. Delmar flipped the refused toll coin out over the edge.
-- [[Corbin Knighton]] drew a flintlock on Malone: "You heard them. I believe them. Go. We're going to Calveno." The warship departed for Calveno.
+- [[Corbin Knighton]] drew a flintlock on Malone: "You heard them. I believe them. Go. We're going to Calveno." The man-of-war made for Calveno.
 
 ### Hidden truths
 

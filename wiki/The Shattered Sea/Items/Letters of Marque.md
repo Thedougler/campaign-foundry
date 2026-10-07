@@ -25,13 +25,13 @@ The letters have no charges, activation or magic. They name [[Barnaby Rook]] and
 
 ### In use
 
-Showing them can bluff a Dravosi patrol until it asks which ship the Party commands. Deception DC 15 carries the first question. Altering the name breaks the seal and is obvious to a Crown clerk. Returning them earns a recovery bounty and questions.
+Showing them can bluff a Dravosi patrol until it asks which ship the Party commands. Deception DC 15 carries the first question. Altering the name breaks the seal and is obvious to a Crown clerk. Returning them brings a recovery bounty and questions.
 
 ## Depth
 
 ### History
 
-The commission was in the HCS Surety cabin with 45 gp and a blunderbuss. 110 gp and two garnets were under the floor. Barnaby Rook is the licensee, though the Party now holds the papers. The Party captured the letters when it took the HCS Surety as a prize. The guns were silenced and a prize crew was specified.
+The commission was in the HCS Surety cabin with 45 gp and a blunderbuss. 110 gp and two garnets were under the floor. Barnaby Rook is the licensee, though the Party now keeps the papers. The Party captured the letters when it took the HCS Surety as a prize. The guns were silenced and a prize crew was specified.
 
 ### Hidden truths
 

@@ -19,14 +19,14 @@ aliases:
 
 ## Play
 
-- **When met.** From the front rank of a crowd that will not hold still.
-- **When opposed.** They have never placed higher than third and have never cared.
+- **When met.** From the front rank of a crowd that will not stand still.
+- **When opposed.** Third is the highest any Palio has put them, and placing was never the point.
 
 ## Depth
 
 ### History
 
-No Palio has yet carried them higher than third place, and the pair does not care.
+No Palio has yet put them higher than third place, and the pair does not care.
 
 ## Links
 

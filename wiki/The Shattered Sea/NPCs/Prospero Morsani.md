@@ -18,7 +18,7 @@ creature: "[[Commoner]]"
 ## Play
 
 - **Opens them up.** A story that holds up. He deals in objects together with the histories of those who lost them.
-- **Shuts them down.** A history that does not hold. The cost is lost access, not a scene.
+- **Shuts them down.** A history that fails his questions. The cost is lost access, not a scene.
 - **Will share.** An object's true history, once he has it.
 - **Will not share.** Where a piece actually came from.
 - **If pressed.** He stops selling. Access is the whole price.
@@ -31,7 +31,7 @@ He has attended every Palio for as long as anyone can remember, and the crowd ha
 
 ### Hidden truths
 
-How his objects reach him. He claimed an inventor source for [[The Snap]], and Catarina read that he found it by means not exactly legal.
+How his objects come to him. He claimed an inventor source for [[The Snap]], and Catarina read that he found it by means not exactly legal.
 
 ## Links
 

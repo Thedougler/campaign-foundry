@@ -29,7 +29,7 @@ The Saltwright approached Calveno when the Crown cutter HCS Surety closed for in
 
 ## Changes
 
-- Four strangers are together aboard the Saltwright, with their separate debts and pursuers now sharing one route.
+- All four strangers are together aboard the Saltwright, with their separate debts and pursuers now sharing one route.
 - The theft of the Pearl of Souls and the wreck of the five-ship fleet have disturbed the Drowned Maw.
 - HCS Surety has begun a Crown inspection of the Saltwright under [[Barnaby Rook]].
 
@@ -39,4 +39,4 @@ The Saltwright approached Calveno when the Crown cutter HCS Surety closed for in
 - [[Simone's Hunters]] (still). [[Jean-Claude Tabarnack]] is ahead of the Grung hunters pursuing him.
 - [[Bring the Pearl of Souls to Umberlee]] (opened). The Pearl was stolen and Umberlee answered over the Drowned Maw.
 - [[Drowned Maw Awakening]] (opened). The fleet sank, the water changed, and something came through the seal.
-- [[Perrin and Nona]] (still). [[Perrin Black-Jaw]] has reached the Saltwright without reporting to Nona Black-Jaw.
+- [[Perrin and Nona]] (still). [[Perrin Black-Jaw]] is aboard the Saltwright without reporting to Nona Black-Jaw.

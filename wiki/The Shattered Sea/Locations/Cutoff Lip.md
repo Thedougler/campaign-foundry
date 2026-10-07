@@ -13,7 +13,7 @@ parent: "[[The Quiet]]"
 
 - **Draws the Party because.** The Calveno trail is clear and northbound.
 - **Entrance.** A shelf above the river, between grass slope and forest.
-- **Occupants.** No one now. A Deer-Stalker hunts the edge at night.
+- **Occupants.** No one now. A Deer-Stalker prowls the edge at night.
 - **Danger.** Sleeping or keeping watch alone past the knee-root fence draws the hunter.
 - **Prize.** Clean spring water and the trail to Print Braid.
 

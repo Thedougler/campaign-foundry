@@ -7,18 +7,18 @@ sources:
 
 ## At a glance
 
-- **The truth.** Istishia is a name that points at the water cosmology of the [[Elemental Plane of Water]] when talk around the [[Drowned Maw]] reaches past the ordinary sea.
+- **The truth.** Istishia is a name that points at the water cosmology of the [[Elemental Plane of Water]] when talk around the [[Drowned Maw]] goes past the ordinary sea.
 - **Who knows it.** Speakers around the Maw use the name as a pointer. The Party hasn't met it yet.
-- **Limits.** The name stays a pointer. It doesn't make Istishia a villain, an actor, or an encounter, and it doesn't carry an agenda.
+- **Limits.** The name stays a pointer. It doesn't make Istishia a villain, an actor, or an encounter, and it doesn't have an agenda.
 - **Reaches play through.** Talk of water past the ordinary sea, when the Maw's fissures need naming.
 
 > [!narration] As it is told
-> Those who talk about the Drowned Maw keep a word for the water that lies past the sea, Istishia, the water past the water. Ask them what stands behind it and they point at the water again.
+> Those who talk about the Drowned Maw keep a word for the water that lies past the sea, Istishia, the water past the water. Ask them what backs the name and they point at the water again.
 
 ## Play
 
 - **Players notice.** Cosmological talk of water beyond the ordinary sea, and a name kept ready for when such talk needs a word.
-- **Clues.** Elemental water in the Maw's fissures that doesn't need an agenda to explain it. The name surfacing as explanation alone.
+- **Clues.** Elemental water in the Maw's fissures that doesn't need an agenda to explain it. The name does no more than explain.
 - **Accounts.** Speakers around the Maw give it as explanation and no more. "Istishia is a name for the water beyond the ordinary sea."
 
 ## Depth

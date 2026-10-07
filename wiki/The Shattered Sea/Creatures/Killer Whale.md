@@ -9,7 +9,7 @@ sources:
 ## At a glance
 
 - **Role at the table.** A pack hazard of the eastern road's traffic.
-- **Threat.** Unrecorded so far. The danger lands on steering and on boats.
+- **Threat.** Unrecorded so far. The danger is to steering and to boats.
 
 > [!narration] First sight
 > A fin cuts across your wake, and another keeps pace. The pack works along the rudder line, the way a wound is tested.

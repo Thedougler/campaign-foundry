@@ -58,7 +58,7 @@ Calven's old marshes and Calveno's harbour outlast the flags placed over them. T
 
 ### Hidden truths
 
-Sealed Crestwall orders and the fort vaults are separate Crown secrets. Harbour papers can conflict with Tessarine credit records.
+The Crown keeps Fort Crestwall's sealed orders and its vaults to itself, away from every other flag on the chain. Harbour papers can conflict with Tessarine credit records.
 
 ### Threads
 

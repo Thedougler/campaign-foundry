@@ -10,7 +10,7 @@ parent: "[[Outer Reach]]"
 ## At a glance
 
 - **Character.** An under-charted island chain.
-- **Held by.** Unknown. The isles likely sit under an ancient blue dragon's sphere of control, even when no direct sighting occurs.
+- **Held by.** Unknown. The isles are probably under an ancient blue dragon's sphere of control, even when no direct sighting occurs.
 - **Danger.** The same sphere, and charts that cannot be trusted.
 
 > [!narration] Arrival
@@ -20,13 +20,13 @@ parent: "[[Outer Reach]]"
 
 ### Travel
 
-The chain is under-charted, and no two charts agree on it. The sphere over the isles holds whether or not a sighting comes, so route by the pilot's road and give the chain its distance.
+The chain is under-charted, and no two charts agree on it. The sphere over the isles persists whether or not a sighting comes, so route by the pilot's road and give the chain its distance.
 
 ## Depth
 
 ### Hidden truths
 
-Some hulls pass the isles untouched and some do not, and the pattern has held too long to be luck.
+Some hulls pass the chain untouched. Others do not, and a pattern that has lasted this long stopped being luck long ago.
 
 ## Links
 

@@ -13,7 +13,7 @@ creature: ""
 - **Found at.** Nowhere. Drag marks ran into the treeline and nothing of him came back.
 
 > [!narration] First look
-> Two nests of wet cloth lie in the proa's shade, and a third patch of sand beside them has kept its smooth face since the first night. It takes a fireside and an hour before the story comes out in full. An older man came ashore with the pair, took fruit from a living bush after nightfall, and by morning only drag marks ran away into the trees.
+> Wet cloth lies in two nests in the proa's shade, and a third patch of sand beside them has kept its smooth face since the first night. It takes a fireside and an hour before the story comes out in full. An older man came ashore with the pair, took fruit from a living bush after nightfall, and by morning only drag marks ran away into the trees.
 
 ## Play
 
@@ -24,7 +24,7 @@ creature: ""
 
 ### History
 
-The raid carried him captive with Sandro and Nino. The storm broke the [[Vethka]] proas on Aruhe's reef, and all three rode a broken outrigger strut to the beach. That first night he ate living fruit from a low shore bush. Before dawn something dragged him into the treeline by both ankles, and the bush is one neither survivor will touch again.
+Raiders took him captive with Sandro and Nino. The storm broke the [[Vethka]] proas on Aruhe's reef, and all three rode a broken outrigger strut to the beach. That first night he ate living fruit from a low shore bush. Before dawn something dragged him into the treeline by both ankles, and the bush is one neither survivor will touch again.
 
 ### Hidden truths
 

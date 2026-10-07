@@ -24,7 +24,7 @@ The Party chose the Saltwright's hold over surrender. [[Beaumont Sel]] kept [[Ba
 
 Delmar launched Crissdalynn through the hatch. Her wings opened and knocked Crown sailors from the deck. Perrin and [[Jean-Claude Tabarnack]] came up through a gap in the decking, and the two Dravosi Enforcers died in the crush.
 
-The last deckhand dropped his sword. From the HCS Surety's gangplank, [[Barnaby Rook]] called him a turncoat. Delmar asked whether he would rather fight for the men who threatened to shoot him or for the men who would protect him. [[Geoffrey Draves]] said he wanted to stay alive that day. He picked up the sword and joined the Party.
+The last deckhand dropped his sword. From the HCS Surety's gangplank, [[Barnaby Rook]] called him a turncoat. Delmar asked whether he would rather fight for the men who threatened to shoot him or for the men who would protect him. [[Geoffrey Draves]] said he wanted to live through that day. He picked up the sword and joined the Party.
 
 Jean-Claude sent a rush of water along the gangplank and threw Rook overboard. A Dravosi Alchemist released a canister. Jean-Claude and Perrin stayed on their feet in the cloud, while Crissdalynn blew it back across the gap and the alchemist went down. Jean-Claude recognised the gas as his sister [[Simone Tabarnack|Simone]]'s toxin but did not tell the Party.
 
@@ -37,7 +37,7 @@ Rook hauled himself over the Surety's rail, raised his flintlock at Beaumont Sel
 - Jean-Claude recognised the alchemist's gas as Simone's toxin and kept that knowledge from the Party ([[The Canister]]).
 - Beaumont Sel's salvaged shell plate deflected Rook's shot.
 - Nobody in the Party examined the [[Dravosi Alchemist|alchemist]]'s [[Alchemist's Bandolier|bandolier]]. It lies somewhere on the Saltwright's deck.
-- Each PC earned 1,620 XP for the Session (120 combat, 1,500 lump award) for a running total of 2,520. The Party levelled at the end of Session 3.
+- Each PC received 1,620 XP for the Session (120 combat, 1,500 lump award) for a running total of 2,520. The Party levelled at the end of Session 3.
 
 ## Threads
 

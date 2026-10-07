@@ -46,7 +46,7 @@ She is tempestuous and petty, and her title came from her wrath and her greed. S
 ### Hidden truths
 
 - Umberlee's claim ends where trench water becomes elemental water at the [[Drowned Maw]] fissure. She cannot reach into it to reclaim the [[Pearl of Souls]].
-- Tribute may be the procedural plug holding the fissure shut, though clergy do not advertise this suspicion. Shrine records and Maw pressure can reveal it.
+- Tribute may be the procedural plug holding the fissure shut, though clergy do not advertise this suspicion. Her shrine ledgers and a reading of the Maw's pressure could confirm it.
 - The Pearl remains a mortal recovery path after the theft from Vel-Orn, and the five captains ride [[Delmar Fisk]] while their crews remain inside it.
 - An older shrine of hers stands on [[Vel-Orn]], cut into black stone: it marks debts and keeps drowned names, and the older worship of the [[Blue Hole]] is preserved there. [[Keth-Naar]] petitions her for terms there, and the shrine's protection of the [[Sunken Crown]] fails without the [[Pearl of Souls]].
 - [[Shepherd Grigori]] read the Pearl job's curse at a glance and named it “quite the curse” unasked. He offered help with it in future, calling himself “fairly familiar with matters of the divine, being a shepherd.”

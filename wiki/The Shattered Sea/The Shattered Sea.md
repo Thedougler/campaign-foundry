@@ -32,7 +32,7 @@ Weekdays are not established in the source material. Dates may be recorded by DR
 
 ### Cosmology
 
-The Drowned Maw is a planar fissure linked to the Elemental Plane of Water. The ancient Antheri built into its far sidewall, and their vanished works remain part of the sea's machinery. Auralis, the deep machine or guardian beneath the Maw, is tied to the breach and to the power that answers from below.
+The Drowned Maw is a planar fissure linked to the Elemental Plane of Water. The ancient Antheri built into its far sidewall, and their vanished works remain part of the sea's machinery. Auralis, the deep machine or guardian beneath the Maw, is tied to the breach and to the answering power below.
 
 ### History in brief
 

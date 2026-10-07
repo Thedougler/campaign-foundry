@@ -36,7 +36,7 @@ At the watch change, a falcon that had crept in unheard stooped on Crissdalynn a
 - [[Jean-Claude Tabarnack]] is catatonic and travels swaddled in Delmar's coat.
 - [[Matteo Scola]] wants passage off Aruhe and is at the camp.
 - The Party learned the fallen-fruit rule, the ghost plum's invisibility, and the resistance a [[Stonepear]] grants.
-- [[Talon Skarn]] has attacked. One Legendary Resistance is spent.
+- [[Talon Skarn]] has attacked, and the fight has cost it one Legendary Resistance.
 - The [[Fate Spinner]]'s hunters found the Party's camp and left empty-handed.
 - [[Crown Squid]] above the Old Gardens was struck down by the Bloodhawk.
 - The picked [[Lesser Black Lotus]] burst on Perrin and drifted downriver.

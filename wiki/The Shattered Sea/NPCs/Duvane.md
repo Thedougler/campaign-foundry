@@ -14,7 +14,7 @@ creature: "[[Commoner]]"
 - **Found at.** The [[Ashwall Islands]] lee, with the repair crews.
 
 > [!narration] First look
-> A carpenter works a fouled spar in the lee with his sleeves rolled off scarred forearms. Another crewman stands on the rock above him, watching the stone face instead of the work. He looks up at the fissures overhead himself and says, "Two hands go up the stone. One works. The other watches the rock for what lives in it."
+> A carpenter works a fouled spar in the lee with his sleeves rolled off scarred forearms. Another crewman stands on the rock above him, watching the stone face instead of the work. He looks up at the fissures overhead himself and says, "Hands go up the stone two at a time. One works. The other watches the rock for what lives in it."
 
 ## Play
 

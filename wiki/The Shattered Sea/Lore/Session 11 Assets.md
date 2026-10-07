@@ -25,11 +25,11 @@ sources:
 
 ### The full truth
 
-The drop map classifies supplied material. A recap belongs to the Session Recap owner. Transcript text goes through transcript ingest and reconciliation. A recording becomes an attachment when the file exists. Raw staging and Archive are separate from canonical Campaign pages. The map records routes. Canonical clues and Campaign changes come from the owning records.
+The drop map classifies supplied material. A recap belongs to the Session Recap owner. Transcript text goes through transcript ingest and reconciliation. A recording becomes an attachment when the file exists. Raw staging and Archive are separate from canonical Campaign pages. The map records routes. Canonical clues and Campaign changes come from the records those assets belong to.
 
 ### Chronology
 
-The record was made for Session 11 post-play assets. Its route remains valid until each supplied asset is promoted by its owning workflow. The actual ending, unresolved pressure, and next opening belong in the reconciled Session record.
+The record was made for Session 11 post-play assets. Its route remains valid until the workflow responsible for each supplied asset promotes it. The actual ending, unresolved pressure, and next opening belong in the reconciled Session record.
 
 ## Links
 

@@ -11,7 +11,7 @@ sources:
 ## At a glance
 
 - **Role at the table.** A bruiser that runs its dinner down and swallows it whole.
-- **Threat.** CR 13. Use its attack range, movement, or control to pressure the Party.
+- **Threat.** CR 13. It charges sixty feet a round in a dead straight line and swallows Medium or smaller prey whole.
 - **Tell.** Ground that thrums and pebbles that tick together thirty feet out.
 - **Weak to.** A charge it cannot run straight, and the tall grass and deep water it refuses to enter.
 - **Used by.** [[Unsaid Macaw]] patrols the same territory.

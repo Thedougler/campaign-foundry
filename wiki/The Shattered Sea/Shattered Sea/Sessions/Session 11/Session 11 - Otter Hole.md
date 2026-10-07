@@ -17,7 +17,7 @@ sources:
 - **Opposition.** [[River Otter]]s.
 
 > [!narration] Opening
-> Three otters the length of longboats roll through the slack water, passing a thin man between them as though he were a toy.
+> Otters the length of longboats roll through the slack water, three of them, passing a thin man between them as though he were a toy.
 >
 ## Play
 
@@ -62,7 +62,7 @@ Avoidance is the winning route.
 
 ### Hidden truths
 
-Matteo knows the woman in the woods and wants the ship.
+Matteo knows the woman in the woods, and he wants the ship.
 
 ### Threads
 

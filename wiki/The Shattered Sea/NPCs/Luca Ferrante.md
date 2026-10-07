@@ -12,7 +12,7 @@ creature: "[[Commoner]]"
 - **Role.** Wreck survivor and guide to the fruit-pile trail.
 - **Wants.** His father safe on the march, and his uncle Carlo found.
 - **Voice.** Short sentences with numbers first. Counting keeps him calm.
-- **Found at.** Out of the pit and marching inland with the Party. The walk after Carlo still waits.
+- **Found at.** Out of the lava tube, marching inland with the Party along the fruit-pile trail. The walk in search of Carlo still lies ahead.
 
 > [!narration] First look
 > A lanky boy's lips move over a count he has not finished, and he gives you the numbers, "We are four. One cannot walk. How many can you carry?"

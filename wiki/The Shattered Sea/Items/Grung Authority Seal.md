@@ -28,7 +28,7 @@ A whole seal is pressed to a Grung within 5 feet who is Grappled, Restrained, In
 
 ### In use
 
-Spent seals do nothing. Their Gold-caste script records the bearer’s order chain, oldest first. Jean-Claude reads it without a roll. Others need Investigation DC 13. No seal names Hinewai, the Death Bloom or its officer.
+Spent seals do nothing. Their Gold-caste script records the bearer’s order chain, oldest first. Jean-Claude reads it without a check. Others need Investigation DC 13. No seal names Hinewai, the Death Bloom or its officer.
 
 ## Depth
 

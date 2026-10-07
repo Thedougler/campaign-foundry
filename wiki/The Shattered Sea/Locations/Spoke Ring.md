@@ -42,11 +42,11 @@ Count sleepers, follow fruit piles, drink from the stream, camp until dark, or t
 
 ### History
 
-Most Calveno survivors followed Carlo's response to the voice nineteen days ago. Four refused and later fell into the Lava Tubes.
+Most Calveno survivors followed Carlo's response to the voice nineteen days ago. The rest refused, and four of them later fell into the Lava Tubes.
 
 ### Hidden truths
 
-Four mats and space for a dozen sleepers reveal the camp's size. The trail marks the survivors' path, not a road.
+Space for a dozen sleepers and four mats reveal the camp's size. The trail marks the survivors' path, not a road.
 
 ### Threads
 

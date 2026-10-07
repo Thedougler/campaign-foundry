@@ -10,7 +10,7 @@ sources:
 ## At a glance
 
 - **Role at the table.** Hazard.
-- **Threat.** CR 6. Use its attack range, movement, or control to pressure the Party.
+- **Threat.** CR 6. The lash grips at fifteen feet and holds its catch for the feeding, while the colony itself shuffles five feet at a step.
 - **Tell.** One coil that moves when every honest vine is still, and a hanging tip that twitches.
 - **Weak to.** Staying past fifteen feet, beyond where its lash lands and its five-foot shuffle can follow.
 - **Used by.** [[Spiguar]] patrols the same territory.

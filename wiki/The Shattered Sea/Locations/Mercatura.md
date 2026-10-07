@@ -44,7 +44,7 @@ The bombs and Otar's defeat remain history, but the crater and missing-person se
 
 ### History
 
-Solange Barret's ritual ran beneath the city. Otar emerged in the Mercatura crater and died there. Five Minor Slaads spawned and were killed by [[Master Kyzil]]. Hundreds of residents disappeared in the disaster.
+Solange Barret's ritual ran beneath the city. Otar the Foul rose out of the Mercatura crater and died in it. Minor Slaad spawned in the crater, and [[Master Kyzil]] killed all five. Hundreds of residents disappeared in the disaster.
 
 ### Hidden truths
 

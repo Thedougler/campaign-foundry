@@ -9,7 +9,7 @@ creature: "[[Commoner]]"
 ## At a glance
 
 - **Role.** Calveno wreck survivor and dock foreman.
-- **Wants.** To carry his brother Ettore out and protect his nephew Luca.
+- **Wants.** To bring his brother Ettore out and protect his nephew Luca.
 - **Voice.** A dock foreman's short words. He counts under his breath.
 - **Found at.** The Pantry, until he sees Ettore and Luca alive.
 

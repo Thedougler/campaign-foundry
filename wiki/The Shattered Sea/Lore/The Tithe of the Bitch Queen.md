@@ -19,7 +19,7 @@ sources:
 ## Play
 
 - **Players notice.** Salvagers who agree too well about the curse, and a jewel on a fence's cloth that should have aged in saltwater.
-- **Clues.** A ship that draws squalls in a fair-weather week carries a piece below. Shrine attendants go quiet when the Tithe is named beside the Pearl.
+- **Clues.** A ship that draws squalls in a fair-weather week has a piece stowed below. Shrine attendants go quiet when the Tithe is named beside the Pearl.
 - **Accounts.** Pilots tell the curse as fact and the hoard as guess. The Waveservants treat the taking as settled business and the return as the whole of the remedy.
 
 ## Depth
