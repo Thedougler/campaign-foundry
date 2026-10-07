@@ -31,7 +31,7 @@ Before the first edit to an existing skill: `cp -R <skill-path> <workspace>/skil
 
 ### 3. Author or revise through `skill-writer`
 
-Dispatch `skill-writer` with `brief.md`'s intent, trigger branches, inputs/outputs and acceptance criteria, plus the target path and the files involved; it follows `writing-for-agents` and its `SKILL-MECHANICS.md`. Include a content skill's assigned case file when its criteria need revision; non-content skills need cases only when the DM asks. On return, run `bun run cf -- eval validate <skill-dir>` and check that the description names the trigger branches, declared resources exist, and every pointer states when to read its target. Return concrete gaps to the writer and integrate only what passes.
+Dispatch `skill-writer` with `brief.md`'s intent, trigger branches, inputs/outputs and acceptance criteria, plus the target path and the files involved. It follows `writing-for-agents` and its `SKILL-MECHANICS.md`. Include a content skill's assigned case file when its criteria need revision. Non-content skills need cases only when the DM asks. On return, run `bun run cf -- eval validate <skill-dir>` and check that the description lists the trigger branches, declared resources exist, every pointer states when to read its target and every step meets `writing-for-agents` § Steps and completion criteria. Return concrete gaps to the writer and integrate only what passes.
 
 **Done when** the candidate matches the brief, its pointers reach existing resources, and `bun run cf -- eval validate` passes.
 
