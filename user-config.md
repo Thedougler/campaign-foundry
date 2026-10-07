@@ -6,8 +6,8 @@ Change values here; do not fork shared rules in `AGENTS.md` to match a preferenc
 
 ## Campaign
 
-- **Active World:** The Shattered Sea
-- **Active Campaign:** Shattered Sea
+- **Active World:** The Shattered Sea (`wiki/The Shattered Sea/`)
+- **Active Campaign:** Shattered Sea (`wiki/The Shattered Sea/Shattered Sea/`, with its `campaign-config.md`)
 
 ## Encounters
 

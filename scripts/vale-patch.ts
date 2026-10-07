@@ -53,10 +53,11 @@ const replacements: { file: string; old: string; replacement: string }[] = [
     replacement: String.raw`(?:corpus )?hits?\b(?! (?:per|a|an|each|every|points?)\b)`,
   },
   // MortalityMetaphors, the survival tokens: people surviving hazards ("The Party must survive the unfinished
-  // ambush", "Survive the grassland hunt"). The subject token refuses a modal in the head slot (where
-  // "Party must survive" hid the people), and the bare-form token refuses the imperative or plural "survive"
-  // before a determined object, so only the third-person singular and past forms that carry the figure
-  // ("survives the rebase untouched", "survive too") stay covered.
+  // ambush", "Survive the grassland hunt", "Delmar survived the sinking", "she survived the fever"). The
+  // subject token refuses a modal in the head slot (where "Party must survive" hid the people), and the
+  // object token refuses a personal pronoun or a capitalised name directly before the verb — the literal
+  // person surviving, which ignorecase cannot see in the token itself — so only the lowercase artifact
+  // subject carries the figure ("the cache survived the restart", "survives the rebase untouched").
   {
     file: ".vale/styles/ai-tells/MortalityMetaphors.yml",
     old: String.raw` (?:[a-z'-]+ )?[a-z]+ (?:that |which |then |never |still |also |just |simply )?(?:survives?|survived|surviving)\\b(?! (?:all|every)\\b)`,
@@ -65,7 +66,7 @@ const replacements: { file: string; old: string; replacement: string }[] = [
   {
     file: ".vale/styles/ai-tells/MortalityMetaphors.yml",
     old: String.raw`\\b(?:survives?|survived|surviving) (?:a|an|the|this|that|these|those|each|its|their|both|any|unchanged|intact|untouched|as|into|too|to|as-is)\\b`,
-    replacement: String.raw`\\b(?:(?:survives|survived|surviving)|survive (?! (?:a|an|the|this|that|these|those|each|its|their|both|any)\\b)) (?:a|an|the|this|that|these|those|each|its|their|both|any|unchanged|intact|untouched|as|into|too|to|as-is)\\b`,
+    replacement: String.raw`\\b(?<!\\b(?:he|she|they|we|i|you) )(?<!\\b(?-i:[A-Z])[a-z'’]*(?:-(?-i:[A-Z])[a-z'’]*)* )(?:(?:survives|survived|surviving)|survive (?! (?:a|an|the|this|that|these|those|each|its|their|both|any)\\b)) (?:a|an|the|this|that|these|those|each|its|their|both|any|unchanged|intact|untouched|as|into|too|to|as-is)\\b`,
   },
   // AnthropomorphicCognition, the wanting token: people wanting ("Matteo knows the woman in the woods and
   // wants the ship", "what the Crown wanted to learn"). The head slot refusing a conjunction stops the match
