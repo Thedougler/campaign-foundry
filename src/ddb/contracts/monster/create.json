@@ -1,0 +1,19 @@
+{
+	"kind": "cf-ddb-capture",
+	"version": 1,
+	"capturedAt": "2026-10-07T05:31:00.000Z",
+	"notes": "UI create of one private homebrew monster (copy of base 16810 Blood Hawk (Legacy), monster-type 2 = Beast). Server-rendered form POST: the security-token/authenticity-token hidden inputs are re-fetched per run by GETting the create page; monster-type is the base monster's monster-service typeId; the 302 Location carries the new monster id. Captured live 2026-10-07; replayed through direct HTTP the same session.",
+	"requests": [
+		{
+			"method": "POST",
+			"url": "https://www.dndbeyond.com/homebrew/creations/create-monster",
+			"headers": {
+				"Content-Type": "application/x-www-form-urlencoded",
+				"Cookie": "<session>"
+			},
+			"body": "security-token=<session>&authenticity-token=<session>&monster-type=2&monster=16810",
+			"status": 302,
+			"responsePreview": "Location: /homebrew/creations/edit?entityTypeId=779871897&id=6833448"
+		}
+	]
+}

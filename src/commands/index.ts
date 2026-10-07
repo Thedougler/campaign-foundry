@@ -2,6 +2,7 @@ import type { Command } from "commander";
 import { benchCommand } from "./bench.ts";
 import { checkCommand } from "./check.ts";
 import { contextCommand } from "./context.ts";
+import { ddbCommand } from "./ddb.ts";
 import { encounterBudgetCommand } from "./encounter-budget.ts";
 import { evalCommand } from "./eval.ts";
 import { indexCommand } from "./index-cmd.ts";
@@ -19,6 +20,7 @@ export const commands: (() => Command)[] = [
  benchCommand,
  checkCommand,
  contextCommand,
+ ddbCommand,
  encounterBudgetCommand,
  evalCommand,
  indexCommand,

@@ -1,0 +1,8 @@
+{
+	"name": "Young Bloodhawk",
+	"size": "Medium",
+	"ac": "14 (natural armor)",
+	"hp": 39,
+	"hitDice": "6d8 + 12",
+	"stats": [14, 18, 14, 3, 16, 7]
+}

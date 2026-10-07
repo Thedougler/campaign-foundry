@@ -1,0 +1,31 @@
+{
+	"kind": "cf-ddb-capture",
+	"version": 1,
+	"capturedAt": "2026-10-07T06:14:00.000Z",
+	"notes": "UI delete of homebrew monster 6833448: the creation view page's Delete link opens a confirmation modal (GET, XHR) whose Yes button ajax-POSTs the same URL with the RequestVerificationToken cookie's value as the request-verification-token form field. monster-service keeps serving deleted monsters from its CDN, so deletion is verified on the creation view page: the edit/delete action links disappear. Captured live 2026-10-07.",
+	"requests": [
+		{
+			"method": "GET",
+			"url": "https://www.dndbeyond.com/homebrew/creations/delete?entityTypeId=779871897&id=6833448",
+			"headers": {
+				"Accept": "*/*",
+				"X-Requested-With": "XMLHttpRequest",
+				"Cookie": "<session>"
+			},
+			"status": 200,
+			"responsePreview": "<div class=\"ddb-modal\">Are you sure you wish to delete this homebrew monster? … <a class=\"ajax-post button\" href=\"/homebrew/creations/delete?entityTypeId=779871897&id=6833448\">Yes</a>"
+		},
+		{
+			"method": "POST",
+			"url": "https://www.dndbeyond.com/homebrew/creations/delete?entityTypeId=779871897&id=6833448",
+			"headers": {
+				"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+				"X-Requested-With": "XMLHttpRequest",
+				"Cookie": "<session>"
+			},
+			"body": "request-verification-token=<session>",
+			"status": 200,
+			"responsePreview": "ajax response; the UI then loads the (now shell) monster page"
+		}
+	]
+}
