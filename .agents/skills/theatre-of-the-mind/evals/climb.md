@@ -75,7 +75,7 @@ Discarded DeepSeek-grader runs: earlier wolfrabbit-opening fail, wolfrabbit-firs
 
 ### Round 1
 
-Snapshot: `evals/climbs/theatre-of-the-mind-snapshot/`.
+Snapshot: `./snapshot/`.
 
 Train process defect: Scene Opening rewrites drop sourced objects already in view; sometimes summary / At a glance change.
 

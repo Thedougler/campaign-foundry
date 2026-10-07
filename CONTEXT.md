@@ -313,10 +313,10 @@ The grader that scores every Prose Benchmark sample — Opus 5.5 when the claude
 The families under test and their pinned cheap and top models, kept in `evals/models.yaml`.
 
 **Prose Benchmark**:
-The rarely-run, cached ranking of Matrix families by Narration quality, one sample per content type. Every prompt in it is committed and rendered deterministically (Runner brief, Judge brief).
+The rarely-run, cached ranking of Matrix families by Narration quality, one sample per content type. Every prompt in it is committed and rendered deterministically (Runner brief, Judge brief); its run outputs (`evals/benchmark.json`, `evals/benchmark.md`, and everything under `evals/benchmark-samples/` except the briefs) are untracked, gitignored and archived locally under `archive/evals-benchmark/`.
 
 **Runner brief**:
-The committed, byte-exact prompt a benchmark entry runs from: the entry's `context`, then its `prompt` verbatim, rendered by `cf bench briefs` into `evals/benchmark-samples/<bench_version>/<id>/<id>.brief.md`.
+The byte-exact prompt a benchmark entry runs from: the entry's `context`, then its `prompt` verbatim, rendered by `cf bench briefs` into `evals/benchmark-samples/<bench_version>/<id>/<id>.brief.md`, committed.
 
 **Judge brief**:
 The committed scoring prompt `evals/bench/judge-brief.md`, filled per anonymized sample by `cf bench judge-brief`. The Judge sees the writer's brief, the sample and the rubrics — nothing that names a family or model.

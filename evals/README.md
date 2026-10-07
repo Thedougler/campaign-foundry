@@ -31,7 +31,7 @@ Each term is defined here once; skills and instruction files use it as named.
 
 ## Design
 
-Apply to a content skill's committed `evals/cases.yaml` before a Hillclimb. Record a one-line verdict per case at the head of the skill's climb log, `evals/climbs/<skill>.md`.
+Apply to a content skill's committed `evals/cases.yaml` before a Hillclimb. Record a one-line verdict per case at the head of the skill's climb log, `.agents/skills/<skill>/evals/climb.md`.
 
 1. **Default case.** The suite holds one default case: a natural DM ask for a complete piece of the content type with current Shattered Sea `source_pages` / `raw_sources` (see Grounding). Its rubrics state professional quality for the type — table-ready, correct under the 2024 rules and balanced where it has mechanics, consistent with Canon, specific rather than generic, and Narration slots that meet `theatre-of-the-mind`. Done when the case exercises every part of the type's template and its rubrics cover each quality.
 2. **Extra cases.** Add a case only for a unique circumstance the default case cannot expose — chat-only delivery, a Handout, revising a whole Session's Narration — with a one-line `#` comment above it naming the circumstance. A suite may also hold one adversarial case, its `#` comment naming it adversarial, whose prompt pushes the skill toward a known defect — quietly rewriting established Canon, lore-dump delivery, a predetermined ending, a single-Clue dependency — and whose rubrics pass when the skill refuses, redesigns or offers its own alternative in the skill's terms. Trigger accuracy belongs to description evals in `skill-creator`, DM-gated. Done when every extra case has its comment and no case repeats what the default case covers.
@@ -132,7 +132,7 @@ Start when Design holds for the suite and the live Wiki pages of that content ty
 4. **Keep or revert.** Keep when no criterion that passed before now fails and at least one failing criterion now passes; otherwise restore the snapshot. Done when the log records the round's patch summary, flipped criteria and decision.
 5. **Stop** when every criterion passes or after three reverted rounds; otherwise return to Patch. Done when the log ends with final criteria against baseline and every case id accounted for.
 
-The climb log, `evals/climbs/<skill>.md`, is the climb's durable export: the orchestrator commits it with the case edits and the skill as of the last kept patch (pre-climb when none was kept). Runner outputs, Grades and audit samples stay in their temporary directories.
+The climb log, `.agents/skills/<skill>/evals/climb.md`, is the climb's durable export: the orchestrator commits it with the case edits and the skill as of the last kept patch (pre-climb when none was kept). Runner outputs, Grades and audit samples stay in their temporary directories.
 
 ## Grounding
 
@@ -158,7 +158,7 @@ Playtest drives these beats; table feeling is a Sample for Design, never a merge
 
 1. **Record evidence.** After a home Session, preserve the DM's report and any Player feedback the DM supplies: Session number, affected Wiki pages, what failed or worked at the table, expected behavior and concrete quotation or example. Keep this development evidence on a GitHub issue; ingest actual Session events into Canon through the normal Ingest workflow. Done when the report and source paths are reachable without relying on chat memory.
 2. **Add the criterion.** Express a reported defect as a Check or rubric on consumer-visible behaviour, on the skill's default case — or on a unique-circumstance case when the default case cannot expose it (Design step 2). Link the issue in a `#` comment beside the criterion. A requested task is not evidence that its alleged failure occurred. Done when the criterion can be decided from the saved outputs and the live sources the case names.
-3. **Eval, then climb.** Eval the case with `skill://run-evals` and attach the report to the issue. Skill text changes through a Hillclimb once Design holds for the suite. Done when the issue holds the case's report and, when a climb ran, its kept or reverted outcome from `evals/climbs/<skill>.md`.
+3. **Eval, then climb.** Eval the case with `skill://run-evals` and attach the report to the issue. Skill text changes through a Hillclimb once Design holds for the suite. Done when the issue holds the case's report and, when a climb ran, its kept or reverted outcome from `.agents/skills/<skill>/evals/climb.md`.
 4. **Return to play.** Apply approved content changes through the normal live Campaign workflow; eval outputs never reach the Wiki on their own. The DM uses the resulting Wiki at the next home Session and records the next observation on the issue. Close verified, committed implementation issues with their evidence; reopen or file a new issue when play exposes another defect.
 
 ## Narration benchmark inputs

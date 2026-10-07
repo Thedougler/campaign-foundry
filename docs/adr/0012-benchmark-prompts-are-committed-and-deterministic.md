@@ -1,5 +1,7 @@
 # Prose Benchmark prompts are committed; its pipeline is deterministic
 
+Status: superseded in part — since issue #43 (2026-10-06), benchmark *run outputs* (`evals/benchmark.json`, `evals/benchmark.md`, and everything under `evals/benchmark-samples/` except the briefs) are untracked run artifacts, gitignored with a local archive copy at `archive/evals-benchmark/`. The prompt source (`evals/prose-bench.yaml`), the judge template, and the rendered briefs (`*.brief.md`) remain committed.
+
 The first Prose Benchmark runs assembled every prompt by hand: the orchestrator glued an entry's `context` and `prompt` into a brief, wrote the Judge's instructions from memory each time, and recorded a `prompt_sha` no later run could reproduce. The cache could not be audited — a row claimed a prompt identity nobody could check — and two runs of the same entry were not guaranteed the same bytes, so their scores were not strictly comparable.
 
 Now every prompt is a committed artifact and every deterministic step is a `bun run cf -- bench` subcommand:

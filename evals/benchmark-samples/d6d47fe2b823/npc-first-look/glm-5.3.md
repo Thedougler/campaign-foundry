@@ -1,2 +1,0 @@
-> [!narration] First look
-> A goblin sits at the open window of the tally house, cutting a notch into a stick for every boat that goes by. He says each number twice under his breath before the knife moves, and bundles of older sticks hang tied above his desk. The room smells of river water and fresh-cut wood. He finishes his notch, lays the knife down straight, and looks up at you. "Fourteen boats out," he says, softly. "Fourteen. Now, what do you want counted?"

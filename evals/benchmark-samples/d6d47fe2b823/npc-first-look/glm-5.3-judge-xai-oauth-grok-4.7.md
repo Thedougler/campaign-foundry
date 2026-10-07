@@ -1,2 +1,0 @@
-> [!narration] First look
-> A goblin sits bent over the tally house's only table, cutting a fresh notch into a stick for every boat that passes outside, and he keeps his eyes on the work while your boots find the floorboards. Ink has blackened his fingers to the first knuckle, and the finished sticks lie beside him in tied bundles. He sets down his knife, murmurs a number to himself, and says it once more before he looks up. "Forty-one. Forty-one boats out today. What do you want counted?"
