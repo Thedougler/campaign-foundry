@@ -1,20 +1,20 @@
 # DM-supplied public character URLs; original PC-creation ask remains unrecovered.
 - id: public-sheets
   source_pages:
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
+    - shattered-sea/PCs/Delmar Fisk.md
+    - shattered-sea/PCs/Crissdalynn Khinriss.md
+    - shattered-sea/PCs/Perrin Black-Jaw.md
+    - shattered-sea/PCs/Jean-Claude Tabarnack.md
   prompt: Pull the PCs.
   checks:
     canon:
-      The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md:
+      shattered-sea/PCs/Delmar Fisk.md:
         - 'dndbeyond_url: "https://www.dndbeyond.com/profile/Tabalicious/characters/164202916"'
-      The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md:
+      shattered-sea/PCs/Crissdalynn Khinriss.md:
         - 'dndbeyond_url: "https://www.dndbeyond.com/profile/PyonPyonPichu/characters/163280875"'
-      The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md:
+      shattered-sea/PCs/Perrin Black-Jaw.md:
         - 'dndbeyond_url: "https://www.dndbeyond.com/profile/Krab02/characters/166013448"'
-      The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md:
+      shattered-sea/PCs/Jean-Claude Tabarnack.md:
         - 'dndbeyond_url: "https://www.dndbeyond.com/profile/nickdavenock/characters/171013670"'
   rubrics:
     - >-

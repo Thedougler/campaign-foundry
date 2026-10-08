@@ -24,7 +24,7 @@ An Item matters through its rules or its story. Aim for an Item that fills a nic
 5. **Mechanics** with [references/rules.md](references/rules.md). Compare it with a rules anchor and two peers. Set its power by axis so rarity is a ceiling reached on one axis only. Write the full item text in 2024 wording, and state the decision it creates (the tell, the choice, the cost, the payoff, the counterplay). Audit the bearer's three best turns with it for stacking. Done when every field the text needs is present and the audit finds nothing that multiplies unpriced.
 6. **Branches** that apply, from the same reference. Give a curse its tell, trigger, effect, deepening and way out. Give a sentient Item its mind (scores, alignment, communication, senses, purpose, the demands it makes) and take its personality from `npc-design`. Give a growing Item its stages, and an artifact its properties, destruction and hunters.
 7. **Narration.** Hand `theatre-of-the-mind` the First look slot with its plain noun, size against a hand, material, wear and marks, one sense beyond sight, and a visible sign of each hidden property.
-8. **File** to `wiki/templates/Item.md` in `<World>/Items/`:
+8. **File** to `wiki/templates/Item.md` in `<campaign-folder>/Items/` (a page already filed keeps its folder):
    - **At a glance:** kind, rarity, attunement, the one choice it changes at the table, and who holds it.
    - **Play:** the Properties section (the full rules text) and the In use section (how it looks and plays when used, the rulings the table will need).
    - **Depth:** maker, past holders, contested claims, and hidden properties or curses, each with how the Party can learn it.

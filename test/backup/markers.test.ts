@@ -9,14 +9,14 @@ function read(block: Block): ReadBlock {
 }
 
 describe("page markers", () => {
-	const path = "wiki/The Shattered Sea/NPCs/Ilse Corran (NPC).md";
+	const path = "wiki/shattered-sea/NPCs/Ilse Corran (NPC).md";
 	const sha = "aeb0299c7d062857cc09c795fab4437ab7162150";
 
 	it("reads back the repo path, and the commit only once the page is fully written", () => {
 		expect(parseMarker(read(headerBlock(path, sha, `https://github.com/o/r/blob/${sha}/x`)))).toEqual({ kind: "file", path, commit: sha });
 		expect(parseMarker(read(headerBlock(path, sha, undefined)))).toEqual({ kind: "file", path, commit: "aeb0299" });
 		expect(parseMarker(read(pendingHeader(path)))).toEqual({ kind: "file", path });
-		expect(parseMarker(read(dirMarker("wiki/The Shattered Sea")))).toEqual({ kind: "dir", path: "wiki/The Shattered Sea" });
+		expect(parseMarker(read(dirMarker("wiki/shattered-sea")))).toEqual({ kind: "dir", path: "wiki/shattered-sea" });
 		expect(parseMarker({ id: "b", type: "paragraph", createdTime: "", text: [{ text: "Backup of my notes", code: false }] })).toBeUndefined();
 	});
 

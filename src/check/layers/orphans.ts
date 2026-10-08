@@ -1,7 +1,7 @@
 import { buildLinkGraph } from "../../vault/links.ts";
 import type { Page } from "../../vault/types.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
-import { checkedPages, dirOf, isSpecialPage } from "../util.ts";
+import { checkedPages, isSpecialPage } from "../util.ts";
 
 const LAYER = "orphans";
 
@@ -28,14 +28,11 @@ const LINK_FROM: Record<string, string> = {
 	Handout: "the Scene that hands it over",
 };
 
-/** Pages that need no inbound link: the roots of the Wiki (World and Campaign overviews, DM Settings, indexes, logs) and hot.md. */
+/** Pages that need no inbound link: the roots of the Wiki (the World and Campaign overviews, DM Settings, indexes, logs) and hot.md. */
 function isRoot(page: Page): boolean {
 	if (isSpecialPage(page)) return true;
 	if (page.name === "hot" || page.name === "DM Settings") return true;
-	const segments = dirOf(page.path).split("/").filter(Boolean);
-	if (page.frontmatter?.type === "World" || page.frontmatter?.type === "Campaign") return true;
-	if (segments.length === 1 && segments[0] === page.name) return true;
-	return segments.length === 2 && segments[1] === page.name;
+	return page.frontmatter?.type === "World" || page.frontmatter?.type === "Campaign";
 }
 
 export function run(ctx: CheckContext): Finding[] {

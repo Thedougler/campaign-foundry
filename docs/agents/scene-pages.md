@@ -6,9 +6,8 @@ The shared procedure for `hook-scene`, `development-scene`, `cliffhanger-scene`,
 
 Run every command from the repo root. A page path in a `cf` command starts with `wiki/`.
 
-- **World pages.** `wiki/<World>/<Folder>/<Name>.md`, in the folders `Locations`, `NPCs`, `Creatures`, `Factions`, `Deities`, `Items`, `Spells`, `Vehicles`, `Lore` and `House Rules`.
-- **Campaign pages.** `wiki/<World>/<Campaign>/<Folder>/<Name>.md`, in the folders `PCs`, `Threads`, `Quests` and `House Rules`.
-- **Session pages.** `wiki/<World>/<Campaign>/Sessions/Session <N>/Session <N> - <Title>.md`. The titles are `Prep`, `Recap`, `Previously On` (recounting Session N−1) and one per Scene, named for the Scene.
+- **Content pages.** `wiki/<campaign>/<Folder>/<Name>.md`, in the folders `Locations`, `NPCs`, `Creatures`, `Factions`, `Deities`, `Items`, `Spells`, `Vehicles`, `Lore`, `House Rules`, `PCs`, `Threads` and `Quests`. `<campaign>` is the Campaign folder (`shattered-sea`), which `user-config.md` names.
+- **Session pages.** `wiki/<campaign>/Sessions/Session <N>/Session <N> - <Title>.md`. The titles are `Prep`, `Recap`, `Previously On` (recounting Session N−1) and one per Scene, named for the Scene.
 - **Template.** `wiki/templates/Scene - <Kind>.md`.
 - **Links.** A `[[Name]]` link names a page in its kind's folder above. An NPC's fighting statistics sit on the Creature page its `creature` property links.
 - **Archived sources.** Repo-relative paths under `archive/`, listed in each page's `sources` property.
@@ -18,14 +17,14 @@ Run every command from the repo root. A page path in a `cf` command starts with 
 
 1. Read these files in order:
    - repo-root `user-config.md`;
-   - `wiki/<World>/<Campaign>/campaign-config.md`;
-   - `wiki/<World>/<Campaign>/hot.md` (orientation, not evidence);
-   - `wiki/<World>/index.md`, the catalogue for looking up page names;
-   - the last ten entries of `wiki/<World>/log.md`;
+   - `wiki/<campaign>/campaign-config.md`;
+   - `wiki/<campaign>/hot.md` (orientation, not evidence);
+   - `wiki/<campaign>/index.md`, the catalogue for looking up page names;
+   - the last ten entries of `wiki/<campaign>/log.md`;
    - `wiki/templates/Scene - <Kind>.md`.
 
    Reuse a caller's completed orientation when it covers this Campaign and request.
-2. Resolve the World, Campaign, Session number, exact kind, destination path and completion owner:
+2. Resolve the Campaign, Session number, exact kind, destination path and completion owner:
    - A `prep-session` child receives its Scene Chart row, Party, Opposition, Clues, Spotlight, predecessor alternatives and destination paths.
    - A direct DM request names the Scene. When its page exists, the request is a redo: edit that page in place at its path.
    - A bounded brief without Prep supplies the kind, premise, entry state, Threads, Spotlight and intended carry-forward. Author the Scene from that brief and link it from the Campaign overview rather than inventing an incomplete Prep.
@@ -69,7 +68,7 @@ Reuse the first fitting source in `AGENTS.md` **Sourcing** order. Start with the
 
 ## Page format
 
-Start from the existing page for a redo, or from the template copied to `wiki/<World>/<Campaign>/Sessions/Session <N>/Session <N> - <Scene title>.md` for a new Scene.
+Start from the existing page for a redo, or from the template copied to `wiki/<campaign>/Sessions/Session <N>/Session <N> - <Scene title>.md` for a new Scene.
 
 - **Properties.** `type: Scene`, `kind: <Kind>`, a one-line `summary` in double quotes, and `sources` as a list of quoted archive paths.
 - **Spine.** Keep every `##` heading at its depth and in template order, and every required callout type. A `##` whose guidance opens with `Optional.` appears, in template order, only when the Scene uses it. A `###` is optional structure: keep it where it has content. Add `####` subheadings inside that spine as content needs them.
@@ -209,7 +208,7 @@ bun run cf -- check "wiki/<page path>" "wiki/<page path>"
 After the latest gate reports `ok: 0 findings`, append one log entry listing every touched content page by its vault-relative path:
 
 ```bash
-bun run cf -- log --world "<World>" --op create --title "Author Session <N> <Scene title>" --page "<World>/<Campaign>/Sessions/Session <N>/Session <N> - <Scene title>.md"
+bun run cf -- log --campaign "<Campaign>" --op create --title "Author Session <N> <Scene title>" --page "<campaign>/Sessions/Session <N>/Session <N> - <Scene title>.md"
 ```
 
 Repeat `--page` for Prep and every dependent page actually changed. Direct single-Scene work uses `create`. Any open finding leaves the operation unlogged. `index.md` and `log.md` belong to the CLI. Single-Scene work leaves `hot.md` and played Session records as they are. Full Prep rewrites `hot.md` and runs Push itself.

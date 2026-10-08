@@ -131,7 +131,7 @@ describe("cf check: layers and paths", () => {
 describe("cf check: speed", () => {
 	it("checks a 300-page vault in seconds cold and about a second warm", { timeout: 30000 }, async () => {
 		const dir = await copyFixture("clean");
-		const npcs = join(dir, "wiki/Aldermoor/NPCs");
+		const npcs = join(dir, "wiki/ashes-of-the-crown/NPCs");
 		await mkdir(npcs, { recursive: true });
 		const body = (name: string, next: string) => `---
 type: NPC

@@ -21,8 +21,8 @@ Examples:
                                             2024 Encounter XP budgets and Creature spend
   bun run cf -- eval extract "Ilse Corran" --callout "First look"
                                             dump a callout body for a grader to read (not a Grade)
-  bun run cf -- log --world Aldermoor --op ingest --title "Session 3 transcript" --page "Session 3 - Recap"
-                                            append to a World's log.md
+  bun run cf -- log --campaign "Shattered Sea" --op ingest --title "Session 3 transcript" --page "Session 3 - Recap"
+                                            append to a Campaign folder's log.md
   bun run cf -- bench status                plan the Prose Benchmark: cache hits and run commands
   bun run cf -- push --campaign "Salt and Lantern" --session 2
                                             build a Session's Foundry Adventure module`,

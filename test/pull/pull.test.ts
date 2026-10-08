@@ -9,7 +9,7 @@ import type { PullResult } from "../../src/pull/pull.ts";
 
 const fixtures = join(import.meta.dirname, "fixtures");
 const templates = join(import.meta.dirname, "../../wiki/templates");
-const pcDir = "Aldermoor/Ashes of the Crown/PCs";
+const pcDir = "ashes-of-the-crown/PCs";
 
 const recorded = async (name: string): Promise<unknown> => JSON.parse(await readFile(join(fixtures, name), "utf8"));
 
@@ -81,19 +81,19 @@ describe("runPull", () => {
 
 	it("logs the operation as pull in the World's log.md and runs the gate over the pulled pages", async () => {
 		const result = await pull();
-		const log = await read("Aldermoor/log.md");
+		const log = await read("ashes-of-the-crown/log.md");
 		expect(log).toBe(
 			"## [2026-01-05] ingest | Session 1 transcript\n\n- [[Ashes of the Crown]]\n\n## [2026-09-28] pull | Pulled PCs from D&D Beyond\n\n- [[Vale]]\n- [[Wren]]\n",
 		);
-		expect(result.logged).toEqual(["Aldermoor/log.md"]);
+		expect(result.logged).toEqual(["ashes-of-the-crown/log.md"]);
 		expect(result.gate?.findings.filter((f) => f.severity === "error")).toEqual([]);
 	});
 
 	it("regenerates the World index for the summary it filled and leaves the index and log layers clean", async () => {
-		expect((await read("Aldermoor/index.md")).split("\n")).toContain("- [[Wren]]");
+		expect((await read("ashes-of-the-crown/index.md")).split("\n")).toContain("- [[Wren]]");
 		const result = await pull();
-		expect(result.indexed).toEqual(["Aldermoor/index.md"]);
-		expect((await read("Aldermoor/index.md")).split("\n")).toContain("- [[Wren]] — Halfling Sorcerer 9.");
+		expect(result.indexed).toEqual(["ashes-of-the-crown/index.md"]);
+		expect((await read("ashes-of-the-crown/index.md")).split("\n")).toContain("- [[Wren]] — Halfling Sorcerer 9.");
 
 		// The whole Wiki, not just the pulled pages.
 		const gate = await runCheck({ vault, templates, root: dir, cwd: dir, layers: ["index", "log"] });
@@ -104,22 +104,22 @@ describe("runPull", () => {
 	it("writes the log entry exactly as cf log does", async () => {
 		const { cf } = await import("../check/helpers.ts");
 		await pull();
-		const viaPull = await read("Aldermoor/log.md");
+		const viaPull = await read("ashes-of-the-crown/log.md");
 		// The same entry through the command: already logged, so the file is unchanged.
-		const again = await cf(["log", "--world", "Aldermoor", "--op", "pull", "--title", "Pulled PCs from D&D Beyond", "--page", "Vale", "--page", "Wren", "--date", "2026-09-28", "--vault", vault, "--root", dir], dir);
+		const again = await cf(["log", "--campaign", "Ashes of the Crown", "--op", "pull", "--title", "Pulled PCs from D&D Beyond", "--page", "Vale", "--page", "Wren", "--date", "2026-09-28", "--vault", vault, "--root", dir], dir);
 		expect(again.stdout).toContain("already logged");
-		expect(await read("Aldermoor/log.md")).toBe(viaPull);
+		expect(await read("ashes-of-the-crown/log.md")).toBe(viaPull);
 	});
 
 	it("is idempotent: a second pull with the same payload changes nothing and logs nothing", async () => {
 		await pull();
 		const snapshot = await Promise.all(["Wren", "Vale", "Hollow", "Tam"].map((n) => read(`${pcDir}/${n}.md`)));
-		const log = await read("Aldermoor/log.md");
+		const log = await read("ashes-of-the-crown/log.md");
 
 		const again = await pull();
 		expect(again.outcomes.filter((o) => o.pc === "Wren" || o.pc === "Vale").map((o) => o.status)).toEqual(["unchanged", "unchanged"]);
 		expect(await Promise.all(["Wren", "Vale", "Hollow", "Tam"].map((n) => read(`${pcDir}/${n}.md`)))).toEqual(snapshot);
-		expect(await read("Aldermoor/log.md")).toBe(log);
+		expect(await read("ashes-of-the-crown/log.md")).toBe(log);
 		expect(again.logged).toEqual([]);
 	});
 
@@ -130,7 +130,7 @@ describe("runPull", () => {
 		expect(wren).toMatchObject({ status: "would-update", sections: ["Sheet", "Spells", "Inventory"], summarySet: true });
 		expect(wren?.added).toBeGreaterThan(20);
 		expect(await Promise.all(["Wren", "Vale"].map((n) => read(`${pcDir}/${n}.md`)))).toEqual(before);
-		expect(await read("Aldermoor/log.md")).not.toContain("pull");
+		expect(await read("ashes-of-the-crown/log.md")).not.toContain("pull");
 		expect(result.gate).toBeUndefined();
 	});
 

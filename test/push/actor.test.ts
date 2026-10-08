@@ -4,12 +4,12 @@ import { describe, expect, it } from "vitest";
 import { buildActor } from "../../src/push/actor.ts";
 import { parsePage } from "../../src/vault/parse.ts";
 
-const vault = join(import.meta.dirname, "../fixtures/vault/Lowtide");
+const vault = join(import.meta.dirname, "../fixtures/vault/salt-and-lantern");
 
 function actorFor(creature: string, name = creature, extra: Partial<Parameters<typeof buildActor>[1]> = {}): ReturnType<typeof buildActor> {
 	const path = `Creatures/${creature}.md`;
 	const page = parsePage(path, readFileSync(join(vault, path), "utf8"));
-	return buildActor(page, { world: "Lowtide", name, biography: "<p>bio</p>", ...extra });
+	return buildActor(page, { campaign: "salt-and-lantern", name, biography: "<p>bio</p>", ...extra });
 }
 
 type Bag = Record<string, any>;

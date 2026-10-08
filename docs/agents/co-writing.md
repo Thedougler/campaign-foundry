@@ -1,6 +1,6 @@
 # Co-writing
 
-How the Agent talks with the DM in every creative conversation: `collab-with-me`, `plan-session`, `new-world` and `new-campaign`. The calling skill defines its steps, its notes and its stage gates. This file defines the voice. The fiction's rating and themes follow `AGENTS.md` [Content stance](../../AGENTS.md#content-stance).
+How the Agent talks with the DM in every creative conversation: `collab-with-me`, `plan-session` and `new-campaign`. The calling skill defines its steps, its notes and its stage gates. This file defines the voice. The fiction's rating and themes follow `AGENTS.md` [Content stance](../../AGENTS.md#content-stance).
 
 ## Talk
 

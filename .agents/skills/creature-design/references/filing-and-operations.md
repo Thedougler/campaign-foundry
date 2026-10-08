@@ -2,7 +2,7 @@
 
 ## Creature page
 
-The template is the page schema. Copy `wiki/templates/Creature.md` and file the page at `<World>/Creatures/<Name>.md`. Keep its required frontmatter, headings, single `[!narration]` callout, Base block and one `statblock` fence with `layout: Basic 5e Layout`. Do not create a second schema or a separate statblock page.
+The template is the page schema. Copy `wiki/templates/Creature.md` and file the page at `<campaign-folder>/Creatures/<Name>.md`. A page already filed keeps its folder. Keep its required frontmatter, headings, single `[!narration]` callout, Base block and one `statblock` fence with `layout: Basic 5e Layout`. Do not create a second schema or a separate statblock page.
 
 Fill the template in its existing order:
 
@@ -25,9 +25,9 @@ Never edit a played Session Prep, Scene, Recap, Previously On, Transcript-derive
 
 ## Scope and verification
 
-Resolve the caller's explicit root, vault and World first. All reads, qmd searches, writes and checks use that target. Before editing a World, read its active Campaign `hot.md`, that World's `index.md`, the last ten entries of its `log.md`, and the target pages needed by the request.
+Resolve the caller's explicit root, vault and Campaign first. All reads, qmd searches, writes and checks use that target. Before editing, read the Campaign's `hot.md`, its Campaign folder's `index.md`, the last ten entries of its `log.md`, and the target pages needed by the request.
 
-Add at least one incoming wikilink from a real relevant page besides the generated index. An NPC's `creature` property counts as one. Verify every link target exists. Create or change the World index only through the CLI.
+Add at least one incoming wikilink from a real relevant page besides the generated index. An NPC's `creature` property counts as one. Verify every link target exists. Create or change an index only through the CLI.
 
 Discover exact CLI syntax from the installed program before using it: `bun run cf -- index --help`, `bun run cf -- check --help`, and `bun run cf -- log --help`. The supported forms are scoped by `--root <dir>` and `--vault <dir>`:
 
@@ -35,7 +35,7 @@ Discover exact CLI syntax from the installed program before using it: `bun run c
 bun run cf -- index --root "$ROOT" --vault "$VAULT"
 bun run cf -- check --root "$ROOT" --vault "$VAULT" --templates "$VAULT/templates" --fix "<page path>" "<page path>"
 bun run cf -- check --root "$ROOT" --vault "$VAULT" --templates "$VAULT/templates" "<page path>" "<page path>"
-bun run cf -- log --root "$ROOT" --vault "$VAULT" --world "$WORLD" --op create --title "Create <Name>" --page "<Name>"
+bun run cf -- log --root "$ROOT" --vault "$VAULT" --campaign "$CAMPAIGN" --op create --title "Create <Name>" --page "<Name>"
 ```
 
 Use `--fix` only for mechanical repairs, then rerun. The final check is the page gate. Run `bun run cf -- check` with all layers (no `--layer` flag) over the Creature page and every page this run touched, and repeat until it reports `ok: 0 findings`. Run this check before logging. When another skill invoked this one, that caller writes the operation log. Append a `create` entry only when this invocation is explicitly standalone and responsible for its own log, after the page gate passes.

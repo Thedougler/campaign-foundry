@@ -28,7 +28,7 @@ Add dependencies where they belong: a JS package with `bun add <pkg>`, a Python 
 
 ## Location authoring
 
-Use `location-design` to create or deepen a Region, Settlement or Site. It reads the current Location template and Canon before designing travel choices, services or local interactions. Locations stay flat in `<World>/Locations/`; `parent` links express containment, including a Site within a Site.
+Use `location-design` to create or deepen a Region, Settlement or Site. It reads the current Location template and Canon before designing travel choices, services or local interactions. Locations stay flat in `<campaign-folder>/Locations/`; `parent` links express containment, including a Site within a Site.
 
 Use `dungeon-design` when a Site needs area-by-area exploration, keyed routes, pressure and rest procedures. It stocks a Site rather than defining a Dungeon page kind; `location-design` invokes it for dungeon-like Sites.
 

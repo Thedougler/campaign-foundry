@@ -33,8 +33,12 @@ a setting (its places, people, factions, history and powers) that exists indepen
 _Avoid_: setting, universe, bare "world" for a Foundry world
 
 **Campaign**:
-one group of Players moving through a World over a series of Sessions, with its own Party, Threads and timeline. A World has at most one active Campaign.
+one group of Players moving through a World over a series of Sessions, with its own Party, Threads and timeline. Its Campaign folder keeps its World's pages beside its own.
 _Avoid_: game, adventure, run
+
+**Campaign folder**:
+the Wiki folder of one Campaign, named for it as a lowercase-hyphenated slug (`wiki/shattered-sea/`). It keeps the Campaign's pages and its World's pages together: both overviews, `campaign-config.md`, `hot.md`, `index.md`, `log.md` and the page folders. Kind folders at the vault root (`NPCs`, `Items`) exist only for pages a second Campaign reuses.
+_Avoid_: campaign directory, World folder
 
 **Session**:
 one real-world meeting where the DM runs play for the Players, in person.
@@ -243,11 +247,11 @@ the DM's defaults for every World and Campaign, kept on one page at the root of 
 _Avoid_: config, preferences, settings (bare)
 
 **campaign-config**:
-the DM's instructions to agents for one Campaign, kept as `campaign-config.md` in that Campaign's folder: its tone, themes, and Lines and Veils. Its Lines and Veils are the only content limits. Everything else follows the DM's rating (`AGENTS.md` Content stance). Meta content that tells agents how to write content, rather than being Campaign content, lives here, or on DM Settings when it spans every Campaign. Agents read it after `user-config.md` before Wiki work in the Campaign.
+the DM's instructions to agents for one Campaign, kept as `campaign-config.md` in the Campaign folder: its tone, themes, and Lines and Veils. Its Lines and Veils are the only content limits. Everything else follows the DM's rating (`AGENTS.md` Content stance). Meta content that tells agents how to write content, rather than being Campaign content, lives here, or on DM Settings when it spans every Campaign. Agents read it after `user-config.md` before Wiki work in the Campaign.
 _Avoid_: DM Settings, user-config
 
 **Repo**:
-the Campaign Foundry git project. Its root, the repo root, is the checkout `cf --root` names: it holds the Wiki at `wiki/`, plus `raw/`, `archive/`, `.cspell/`, `src/`, `evals/` and `docs/`. Repo-relative paths start here, such as a page's `sources` (`archive/session-11-transcript.md`). When run from the repo root, `cf` prints page paths this way (`wiki/<World>/...`).
+the Campaign Foundry git project. Its root, the repo root, is the checkout `cf --root` names: it holds the Wiki at `wiki/`, plus `raw/`, `archive/`, `.cspell/`, `src/`, `evals/` and `docs/`. Repo-relative paths start here, such as a page's `sources` (`archive/session-11-transcript.md`). When run from the repo root, `cf` prints page paths this way (`wiki/shattered-sea/NPCs/Nona Black-Jaw.md`).
 _Avoid_: project, workspace, bare "root", "vault" for the Repo
 
 **Wiki** (also **vault**):
@@ -291,7 +295,7 @@ _Avoid_: sync, export, publish
 ### Backup
 
 **Backup**:
-the copy of the Shattered Sea Wiki, the agent skills and their images that `cf backup` keeps in Notion on each push to `main`, one page per file, each naming its file's repo path (`.notion/backup-map.json` only caches the lookup). It only copies: nothing in it feeds play or flows back into the Repo. Agents search it for quick context and read every fact they use from the Wiki, which stays the record.
+the copy of the Shattered Sea Wiki (`wiki/shattered-sea/`), the agent skills and their images that `cf backup` keeps in Notion on each push to `main`, one page per file, each naming its file's repo path (`.notion/backup-map.json` only caches the lookup). It only copies: nothing in it feeds play or flows back into the Repo. Agents search it for quick context and read every fact they use from the Wiki, which stays the record.
 _Avoid_: sync, mirror, export, Push
 
 ### Evals

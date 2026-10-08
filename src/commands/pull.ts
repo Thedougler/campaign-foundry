@@ -87,11 +87,11 @@ export function pullCommand(): Command {
 			"after",
 			`
 What it does:
-  For each PC page under <World>/<Campaign>/PCs/ with a dndbeyond_url, it fetches the public character from
+  For each PC page under <Campaign folder>/PCs/ with a dndbeyond_url, it fetches the public character from
   D&D Beyond and rewrites the Sheet, Spells and Inventory sections whole. The summary is set only when blank.
-  Afterwards, when a page changed, it appends "## [date] pull | Pulled PCs from D&D Beyond" to the World's log.md (as
-  cf log does) and regenerates the World's index.md (as cf index does), then runs the gate (cf check)
-  over the pulled pages. A second pull with the same character changes nothing.
+  Afterwards, when a page changed, it appends "## [date] pull | Pulled PCs from D&D Beyond" to the Campaign
+  folder's log.md (as cf log does) and regenerates its index.md (as cf index does), then runs the gate (cf
+  check) over the pulled pages. A second pull with the same character changes nothing.
 
 Private characters:
   D&D Beyond only shares public characters. A private or missing one fails with the PC's name and the fix: set the

@@ -16,7 +16,7 @@ A Vehicle is a place and a moving thing at once. The Party boards it, stows away
 5. **Numbers.** From its class: size, speed by mode, minimum crew, passengers, cargo, AC, HP and damage threshold per component (hull, control, movement, weapons), and each weapon's attack and damage. Check each canon comparison against these numbers ("faster than the Compact's cutters"). Crew who fight link their Creature, sized to the craft's job and the Party's strength.
 6. **Decks and play.** Lay out three to five areas at body scale for boarding and stowaways. For each station, give who mans it now against the minimum and what happens when it goes unmanned. Add two to four manoeuvres or conditions that change a choice (a shallow draught that crosses the flats, a mast that fouls when she turns hard). Then say how a chase and a boarding run with this craft.
 7. **Narration.** Hand `theatre-of-the-mind` the First sight slot with its size and silhouette, how it rides in the water or on the road, where a boat comes alongside or a climber gets up, a sense beyond sight, and the visible sign of its hold and quirk.
-8. **File** to `wiki/templates/Vehicle.md` in `<World>/Vehicles/`:
+8. **File** to `wiki/templates/Vehicle.md` in `<campaign-folder>/Vehicles/` (a page already filed keeps its folder):
    - **At a glance:** kind, size, speed, crew, captain and berth.
    - **Play:** the `Statistics`, `Crew and stations`, `Components and weapons` and `Underway` subsections, with manoeuvres, chase, boarding and decks under Underway.
    - **Depth:** history and hidden truths, each with how the Party can learn it.

@@ -1,6 +1,6 @@
 ---
 name: generate-image
-description: Generates an image the Wiki lacks (an NPC, PC or Creature portrait, a battle map, Handout art) by dispatching Codex through the `codex` CLI, then saves it to the World's attachments and embeds it. Use when a page needs a portrait, a battle map or Handout art, or when Prep finds an image missing.
+description: Generates an image the Wiki lacks (an NPC, PC or Creature portrait, a battle map, Handout art) by dispatching Codex through the `codex` CLI, then saves it to the Campaign folder's attachments and embeds it. Use when a page needs a portrait, a battle map or Handout art, or when Prep finds an image missing.
 ---
 
 # Generate an image
@@ -9,17 +9,17 @@ Codex (the model set in `AGENTS.md`) draws; you write the spec, check the result
 
 ## Steps
 
-1. **Reuse first.** Look for the image in the World's `attachments/` and embedded on the page. An existing image of the same subject ends the run.
+1. **Reuse first.** Look for the image in the Campaign folder's `attachments/` and embedded on the page. An existing image of the same subject ends the run.
 2. **Pick the kind** from the table below and read its source on the page: everything the image shows comes from the page's Canon.
-3. **Write the spec** in the shared shape below, filling every line from the page. The World overview's tone sets the palette and mood.
+3. **Write the spec** in the format under **Spec shape** below, filling every line from the page. The World overview's tone sets the palette and mood.
 4. **Dispatch Codex** from the repo root:
 
    ```bash
    codex exec -s workspace-write -C "$PWD" "Use your built-in image_gen tool to generate one image, copy it to <target path> and print its pixel dimensions. <spec>"
    ```
 
-   Give the full target path, `wiki/<World>/attachments/<Name> - <Kind>.png`. Codex takes a minute or two.
-5. **Check it.** View the file. It is done when the dimensions match the kind's canvas and every constraint line holds (no text, no grid, the right view). A miss gets one retry with a single targeted change to the spec; a second miss is reported to the DM with the file path.
+   Give the full target path, `wiki/<campaign-folder>/attachments/<Name> - <Kind>.png`. Codex takes a minute or two.
+5. **Check it.** View the file. It is done when its dimensions equal the kind's canvas and it shows the kind's view, free of text and grid lines. A miss gets one retry with one targeted change to the spec. Report a second miss to the DM with the file path.
 6. **Convert** the PNG to WebP at the same size, then delete the PNG:
 
    ```bash
@@ -36,9 +36,9 @@ Codex (the model set in `AGENTS.md`) draws; you write the spec, check the result
 | Battle Map | a Scene's `### Battlefield`, or a Site's `### Areas` | 1536×1024 (24×16 squares) or 1024×1536 (16×24) | orthographic top-down, even light, playable area edge to edge | first line under that `###` heading |
 | Handout | the Handout's `[!narration]` text | 1024×1536 or 1536×1024, matching the object | the object itself, flat on, as the Players would hold it | directly under the Handout's callout |
 
-**Battle Map scale.** Every battle map is 64 px per 5-foot square, so Push reads the Foundry grid from the image size alone. State the square count in the spec and size the features to it: a door is one square wide, a person fills one square, a cart two by three.
+**Battle Map scale.** Every battle map is 64 px per 5-foot square, so Push reads the Foundry grid from the image size alone. State the square count in the spec and size the features to it. A door or a person takes one square, and a cart two by three.
 
-**Handout text.** The image carries no lettering: text belongs in the callout, where it stays exact. A letter or poster is drawn as its paper, seal and wear, with illegible marks where words would be.
+**Handout text.** Put every word of a Handout in its callout, which keeps the wording exact, and draw the image without lettering. A letter or poster is drawn as its paper, seal and wear, with illegible marks where words would be.
 
 ## Spec shape
 

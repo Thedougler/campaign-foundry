@@ -10,7 +10,7 @@ const nodeToday = (): Promise<string> =>
 	promisify(execFile)("node", ["-e", "const d=new Date();const p=(n)=>String(n).padStart(2,'0');console.log(`${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`)"])
 		.then(({ stdout }) => stdout.trim());
 
-const LOG = "wiki/Aldermoor/log.md";
+const LOG = "wiki/ashes-of-the-crown/log.md";
 const FIRST = "## [2026-01-05] ingest | Session 1 transcript\n\n- [[Session 1 - Recap]]\n";
 
 const read = (dir: string, path = LOG) => readFile(join(dir, path), "utf8");
@@ -18,7 +18,7 @@ const exists = async (dir: string, path: string) => (await read(dir, path).then(
 
 /** `cf log` against a copy of the clean fixture. */
 async function log(dir: string, args: string[], stdin = "") {
-	return cf(["log", ...vaultFlags(dir), "--world", "Aldermoor", ...args], dir, stdin);
+	return cf(["log", ...vaultFlags(dir), "--campaign", "Ashes of the Crown", ...args], dir, stdin);
 }
 
 describe("cf log", () => {
@@ -52,8 +52,8 @@ describe("cf log", () => {
 		const dir = await copyFixture("clean");
 		const { code } = await log(dir, [
 			"--op", "audit", "--title", "Paths", "--date", "2026-02-01",
-			"--page", "Aldermoor/NPCs/Mara Voss.md",
-			"--page", "wiki/Aldermoor/Locations/Ravenhold.md",
+			"--page", "ashes-of-the-crown/NPCs/Mara Voss.md",
+			"--page", "wiki/ashes-of-the-crown/Locations/Ravenhold.md",
 			"--page", "Orsa",
 		]);
 		expect(code).toBe(0);
@@ -88,19 +88,19 @@ describe("cf log", () => {
 		expect(code).toBe(0);
 		expect(stdout).toContain("rotated");
 		expect(stdout).toContain("log-2026.md");
-		expect(await read(dir, "wiki/Aldermoor/log-2026.md")).toBe(FIRST);
+		expect(await read(dir, "wiki/ashes-of-the-crown/log-2026.md")).toBe(FIRST);
 		expect(await read(dir)).toBe("## [2027-01-02] prep | New year\n\n- [[Mara Voss]]\n");
 	});
 
 	it("does not rotate within the same year", async () => {
 		const dir = await copyFixture("clean");
 		await log(dir, ["--op", "prep", "--title", "Later", "--page", "Mara Voss", "--date", "2026-12-31"]);
-		expect(await exists(dir, "wiki/Aldermoor/log-2026.md")).toBe(false);
+		expect(await exists(dir, "wiki/ashes-of-the-crown/log-2026.md")).toBe(false);
 	});
 
 	it("refuses to rotate over an existing log-<year>.md", async () => {
 		const dir = await copyFixture("clean");
-		await writeFile(join(dir, "wiki/Aldermoor/log-2026.md"), FIRST);
+		await writeFile(join(dir, "wiki/ashes-of-the-crown/log-2026.md"), FIRST);
 		const { code, stderr } = await log(dir, ["--op", "prep", "--title", "New year", "--page", "Mara Voss", "--date", "2027-01-02"]);
 		expect(code).toBe(2);
 		expect(stderr).toContain("log-2026.md");
@@ -124,7 +124,7 @@ describe("cf log", () => {
 		await log(dir, args);
 		const again = await log(dir, args);
 		expect(again.stdout).toContain("already logged");
-		expect(await read(dir, "wiki/Aldermoor/log-2026.md")).toBe(FIRST);
+		expect(await read(dir, "wiki/ashes-of-the-crown/log-2026.md")).toBe(FIRST);
 	});
 
 	it("logs the same title again when the pages differ", async () => {
@@ -142,7 +142,7 @@ describe("cf log", () => {
 		expect(stdout).toContain("would rotate");
 		expect(stdout).toContain("## [2027-01-02] prep | New year");
 		expect(await read(dir)).toBe(FIRST);
-		expect(await exists(dir, "wiki/Aldermoor/log-2026.md")).toBe(false);
+		expect(await exists(dir, "wiki/ashes-of-the-crown/log-2026.md")).toBe(false);
 	});
 
 	it("produces a log the gate accepts", async () => {
@@ -165,7 +165,7 @@ describe("cf log", () => {
 			const { code, stderr } = await log(dir, ["--op", "plan", "--title", "T", "--page", "Mara Voss"]);
 			expect(code).toBe(2);
 			expect(stderr).toContain("create, ingest, prep, push, audit, pull, query, lint");
-			expect(stderr).toContain('cf log --world Aldermoor --op prep --title "Session 2 Prep" --page');
+			expect(stderr).toContain('cf log --campaign "Ashes of the Crown" --op prep --title "Session 2 Prep" --page');
 			expect(await read(dir)).toBe(FIRST);
 		});
 
@@ -174,14 +174,14 @@ describe("cf log", () => {
 			const { code, stderr } = await log(dir, without(flag));
 			expect(code).toBe(2);
 			expect(stderr).toContain(flag);
-			expect(stderr).toContain("cf log --world");
+			expect(stderr).toContain("cf log --campaign");
 		});
 
-		it("requires --world", async () => {
+		it("requires --campaign", async () => {
 			const dir = await copyFixture("clean");
 			const { code, stderr } = await cf(["log", ...vaultFlags(dir), ...base], dir);
 			expect(code).toBe(2);
-			expect(stderr).toContain("--world");
+			expect(stderr).toContain("--campaign");
 		});
 
 		it("requires at least one page", async () => {
@@ -189,7 +189,7 @@ describe("cf log", () => {
 			const { code, stderr } = await log(dir, without("--page"));
 			expect(code).toBe(2);
 			expect(stderr).toContain("--page");
-			expect(stderr).toContain("cf log --world");
+			expect(stderr).toContain("cf log --campaign");
 		});
 
 		it("rejects a page that does not exist, suggesting the closest name", async () => {
@@ -201,11 +201,11 @@ describe("cf log", () => {
 			expect(await read(dir)).toBe(FIRST);
 		});
 
-		it("rejects a World that does not exist, listing the Worlds", async () => {
+		it("rejects a Campaign that does not exist, listing the Campaigns", async () => {
 			const dir = await copyFixture("clean");
-			const { code, stderr } = await cf(["log", ...vaultFlags(dir), "--world", "Nowhere", ...base], dir);
+			const { code, stderr } = await cf(["log", ...vaultFlags(dir), "--campaign", "Nowhere", ...base], dir);
 			expect(code).toBe(2);
-			expect(stderr).toContain("Aldermoor");
+			expect(stderr).toContain("Ashes of the Crown");
 		});
 
 		it("rejects a malformed or impossible --date", async () => {
@@ -245,7 +245,7 @@ describe("cf log", () => {
 			expect(code).toBe(2);
 			expect(stderr).toContain(character);
 			expect(stderr).toContain(rule);
-			expect(stderr).toContain("cf log --world");
+			expect(stderr).toContain("cf log --campaign");
 			expect(await read(dir)).toBe(FIRST);
 		});
 
@@ -265,7 +265,7 @@ describe("cf log", () => {
 			expect(stderr).toContain("ai-tells.FigurativeFires");
 			expect(stderr).toContain("AI overused verb");
 			expect(stderr).toContain("fix:");
-			expect(stderr).toContain("cf log --world");
+			expect(stderr).toContain("cf log --campaign");
 			expect(await read(dir)).toBe(FIRST);
 		});
 
@@ -296,10 +296,10 @@ describe("cf log", () => {
 	it("documents itself in --help, with examples", async () => {
 		const { code, stdout } = await cf(["log", "--help"]);
 		expect(code).toBe(0);
-		for (const option of ["--world", "--op", "--title", "--page", "--stdin", "--date", "--dry-run", "--vault", "--root"]) expect(stdout).toContain(option);
+		for (const option of ["--campaign", "--op", "--title", "--page", "--stdin", "--date", "--dry-run", "--vault", "--root"]) expect(stdout).toContain(option);
 		expect(stdout.replace(/\s+/g, " ")).toContain("create, ingest, prep, push, audit, pull, query, lint");
 		expect(stdout).toContain("Examples:");
-		expect(stdout).toMatch(/^ {2}cf log --world \S+ --op ingest --title ".+" --page ".+"/m);
+		expect(stdout).toMatch(/^ {2}cf log --campaign ".+" --op ingest --title ".+" --page ".+"/m);
 		expect(stdout).toContain("Exit codes:");
 	});
 });
@@ -320,7 +320,7 @@ describe("log layer", () => {
 
 	it("passes a rotated log-YYYY.md holding only that year", async () => {
 		const dir = await copyFixture("clean");
-		await writeFile(join(dir, "wiki/Aldermoor/log-2025.md"), "## [2025-03-01] ingest | Old\n\n- [[Mara Voss]]\n\n## [2025-12-01] audit | Older\n\n- [[Orsa]]\n");
+		await writeFile(join(dir, "wiki/ashes-of-the-crown/log-2025.md"), "## [2025-03-01] ingest | Old\n\n- [[Mara Voss]]\n\n## [2025-12-01] audit | Older\n\n- [[Orsa]]\n");
 		expect((await gate(dir)).report.findings).toEqual([]);
 	});
 
@@ -370,9 +370,9 @@ describe("log layer", () => {
 
 	it("flags an entry from another year in a log-YYYY.md", async () => {
 		const dir = await copyFixture("clean");
-		await writeFile(join(dir, "wiki/Aldermoor/log-2025.md"), "## [2025-12-31] ingest | Fine\n\n- [[Orsa]]\n\n## [2026-01-01] ingest | Wrong year\n\n- [[Orsa]]\n");
+		await writeFile(join(dir, "wiki/ashes-of-the-crown/log-2025.md"), "## [2025-12-31] ingest | Fine\n\n- [[Orsa]]\n\n## [2026-01-01] ingest | Wrong year\n\n- [[Orsa]]\n");
 		const { report } = await gate(dir);
-		expect(report.findings.map((f) => `${f.path}:${f.line}:${f.rule}`)).toEqual(["wiki/Aldermoor/log-2025.md:5:wrong-year"]);
+		expect(report.findings.map((f) => `${f.path}:${f.line}:${f.rule}`)).toEqual(["wiki/ashes-of-the-crown/log-2025.md:5:wrong-year"]);
 		expect(report.findings[0]!.hint).toContain("log-2026.md");
 	});
 
@@ -383,7 +383,7 @@ describe("log layer", () => {
 
 	it("keeps history: a log bullet naming a page since merged away is no broken link", async () => {
 		const dir = await copyFixture("clean");
-		await writeFile(join(dir, "wiki/Aldermoor/log.md"), "## [2026-01-05] ingest | Before the merge\n\n- [[Merged Away Keep]]\n");
+		await writeFile(join(dir, "wiki/ashes-of-the-crown/log.md"), "## [2026-01-05] ingest | Before the merge\n\n- [[Merged Away Keep]]\n");
 		const result = await cf(["check", "--json", "--layer", "links", ...vaultFlags(dir), "--templates", realTemplates], dir);
 		expect((JSON.parse(result.stdout) as JsonReport).findings).toEqual([]);
 	});

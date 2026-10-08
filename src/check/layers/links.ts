@@ -41,7 +41,7 @@ export function run(ctx: CheckContext): Finding[] {
 				case "no-attachment": {
 					const name = link.target.split("/").pop()!;
 					const near = suggest(name, graph.attachmentNames);
-					add("missing-attachment", link.line, `Embed ${shown} points at no file in the Wiki.`, `${near ? `Did you mean \`![[${near}]]\`? ` : ""}Images live in the World's \`attachments/\` folder, e.g. wiki/Aldermoor/attachments/${name}. Add the file there or fix the name.`);
+					add("missing-attachment", link.line, `Embed ${shown} points at no file in the Wiki.`, `${near ? `Did you mean \`![[${near}]]\`? ` : ""}Images live in the Campaign folder's \`attachments/\` folder, e.g. wiki/shattered-sea/attachments/${name}. Add the file there or fix the name.`);
 					break;
 				}
 				case "no-heading": {

@@ -1,11 +1,11 @@
-import { bindingsFromPath, describe, matchDir, nameOk, PLACEMENTS, resolveDir } from "../placement-table.ts";
+import { bindingsFromPath, describe, matchDir, PLACEMENTS, resolveDir } from "../placement-table.ts";
 import type { Location } from "../placement-table.ts";
 import type { Page } from "../../vault/types.ts";
 import type { CheckContext, Finding, Fix, FixResult, Layer } from "../types.ts";
 import { checkedPages, dirOf, isSpecialPage, isTarget } from "../util.ts";
 
 const LAYER = "placement";
-/** Exact file names the placement table requires, plus generated index and log pages. They repeat across Worlds and Campaigns. */
+/** Exact file names the placement table requires, plus generated index and log pages. They repeat across Campaign folders. */
 const FIXED_NAME = new Set(
 	Object.values(PLACEMENTS).flatMap((locs) => locs.flatMap((l) => (typeof l.name === "string" ? [l.name] : []))),
 );
@@ -47,15 +47,14 @@ function judge(page: Page, type: string, taken: (path: string) => boolean): Verd
 	for (const location of locations) {
 		const bound = matchDir(location, segments);
 		if (!bound) continue;
-		if (nameOk(location, page.name, bound)) return { ok: true, expected: locations };
-		wrongName = typeof location.name === "string" ? location.name : bound[location.name?.bind ?? "world"];
+		if (location.name === undefined || page.name === location.name) return { ok: true, expected: locations };
+		wrongName = location.name;
 	}
 	if (wrongName) return { ok: false, wrongName, expected: locations };
 	const fromPath = bindingsFromPath(segments);
 	for (const location of locations) {
 		const dir = resolveDir(location, fromPath);
-		if (!dir) continue;
-		if (!nameOk(location, page.name, fromPath)) continue;
+		if (!dir || (location.name !== undefined && page.name !== location.name)) continue;
 		const target = [...dir, `${page.name}.md`].join("/");
 		if (taken(target)) return { ok: false, expected: locations };
 		return { ok: false, target, expected: locations };
@@ -65,9 +64,9 @@ function judge(page: Page, type: string, taken: (path: string) => boolean): Verd
 
 /** A sample path for a location, with placeholders filled in, for hints. */
 function example(location: Location, name: string): string {
-	const sample = { world: "Aldermoor", campaign: "Ashes of the Crown", session: "Session 1" };
+	const sample = { campaign: "salt-and-lantern", session: "Session 1" };
 	const dir = location.dir.map((s) => (typeof s === "string" ? s : sample[s.bind]));
-	const file = location.name === undefined ? name : typeof location.name === "string" ? location.name : sample[location.name.bind];
+	const file = location.name === undefined ? name : location.name;
 	return ["wiki", ...dir, `${file}.md`].join("/");
 }
 
@@ -77,9 +76,9 @@ function specialFindings(ctx: CheckContext, page: Page, out: Finding[]): void {
 		out.push({ layer: LAYER, severity: "error", rule, path: ctx.display(page.path), line: 1, message, hint });
 	};
 	if (page.name === "index" && segments.length > 1) {
-		add("misplaced-special", "`index.md` is not at the Wiki root or a World's folder.", "`index.md` is generated: one at the vault root listing the Worlds, one per World at `<World>/index.md`. Regenerate it in the right place.");
+		add("misplaced-special", "`index.md` is not at the Wiki root or a Campaign folder.", "`index.md` is generated: one at the vault root listing the Campaigns, one per Campaign folder at `<Campaign folder>/index.md`. Regenerate it in the right place.");
 	} else if (page.name !== "index" && isSpecialPage(page) && segments.length !== 1) {
-		add("misplaced-special", `\`${page.name}.md\` is not directly in a World's folder.`, `The append-only log lives at \`<World>/${page.name}.md\`, e.g. wiki/Aldermoor/${page.name}.md.`);
+		add("misplaced-special", `\`${page.name}.md\` is not directly in a Campaign folder.`, `The append-only log lives at \`<Campaign folder>/${page.name}.md\`, e.g. wiki/salt-and-lantern/${page.name}.md.`);
 	}
 }
 
@@ -133,7 +132,7 @@ export function run(ctx: CheckContext): Finding[] {
 			continue;
 		}
 		const first = verdict.expected[0]!;
-		const owners = first.dir.some((s) => typeof s !== "string") ? `, inside the ${first.dir.some((s) => typeof s !== "string" && s.bind !== "world") ? "World, Campaign or Session" : "World"} folder that owns it` : "";
+		const owners = first.dir.some((s) => typeof s !== "string") ? ", inside the Campaign folder that owns it" : "";
 		const hint = verdict.target
 			? `Move it to \`${verdict.target}\`. \`cf check --fix\` does this.`
 			: `Move it to ${where}${owners}, e.g. \`${example(first, page.name)}\`.`;

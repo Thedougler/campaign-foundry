@@ -10,12 +10,12 @@ The gate checks each page alone. Audit checks that the pages agree with each oth
 ## Steps
 
 1. **Scope.** One of four runs:
-   - **An Ingest's pages.** The handoff after an Ingest, or a DM request for one ("audit the pages the last Ingest touched"). The World's `log.md` lists them as the `- [[Page]]` bullets under that Ingest's `## [date] ingest | <file>` entry.
+   - **An Ingest's pages.** The handoff after an Ingest, or a DM request for one ("audit the pages the last Ingest touched"). The active Campaign folder's `log.md` lists them as the `- [[Page]]` bullets under that Ingest's `## [date] ingest | <file>` entry.
    - **The DM's pages.** The pages the DM lists.
    - **The DM's claim.** The DM states one claim or question ("the claim about who holds this office"). The run compares that question's answers only, never every claim on the pages it reads.
-   - **The whole Wiki.** Every page under the World's folder, run only on the DM's request for the whole Wiki.
+   - **The whole Wiki.** Every page in the active Campaign folder and the shared top-level kind folders, run only on the DM's request for the whole Wiki.
 
-   A page run adds its neighbours to the list: every page a listed page links to, and every page that links to a listed page (a `[[<name>]]` search across the World finds the inbound ones). For a claim run the scope is the question, answered wherever the Wiki states it (Compare), and no page list grows. Write the page list down and state the slice in words: the Ingest entry's title, "the pages the DM listed, plus neighbours", or the claim. The report uses that wording. The slice bounds which subjects get audited, never which pages a fix may touch (Fix). Done when the list is written and the slice is stated.
+   A page run adds its neighbours to the list: every page a listed page links to, and every page that links to a listed page (a `[[<name>]]` search across the vault finds the inbound ones). For a claim run the scope is the question, answered wherever the Wiki states it (Compare), and no page list grows. Write the page list down and state the slice in words: the Ingest entry's title, "the pages the DM listed, plus neighbours", or the claim. The report uses that wording. The slice bounds which subjects get audited, never which pages a fix may touch (Fix). Done when the list is written and the slice is stated.
 2. **Claims.** Read every page in scope, records included, and list each claim that can go stale or conflict, with its page and line. A claim run lists one claim. What counts: `summary` first, then the At a glance lines (**Held by.**, **Ruled by.**, **Found at.**, **Occupants.**, **Prize.**, status), Play facts, rumours told as current truth, Depth (history and hidden truths), and sentences inside a `[!narration]` callout. Each line that says something is true now about a subject counts, whether it refers to the subject by link or in plain words.
 
    Records are evidence and stay outside every edit. They are each Session's Recap and Previously On, plus the Prep and Scene pages of a played Session (played once its Recap exists). A Prep line about where a thing is gives the Scene's purpose at planning time, never the current truth. `hot.md`, `index.md` and `log.md` belong to their tools. Ingest and Prep rewrite `hot.md` after the audit, and `bun run cf -- index` and `bun run cf -- log` write the others. Done when every page in scope has yielded its claims.
@@ -40,7 +40,7 @@ The gate checks each page alone. Audit checks that the pages agree with each oth
 6. **Close.** Make a final sweep before writing any log entry. For every decided question, search again as Compare gathered and reread every page an answer was found on. Any answer the decision retired or left unresolved that still reads as current truth goes back to Fix. Then write one log entry per finding, titled with what changed and why:
 
    ```bash
-   bun run cf -- log --world <World> --op audit --title "<what changed> (<why>)" --page <Page>
+   bun run cf -- log --campaign "<Campaign>" --op audit --title "<what changed> (<why>)" --page <Page>
    ```
 
    A title reads like `--title "Tie restated as conflicting claims (nothing settles it)"`. Each finding gets its own entry. A merge's `--page` flags list the kept page and the retargeted pages, leaving out the deleted page. Run `bun run cf -- index` once, then the page gate: `bun run cf -- check --fix` / `bun run cf -- check` given every page this run edited, retargeted pages included. Repair every gate finding, warnings included, without changing facts, and rerun until the page gate reports `ok: 0 findings`. Done when the final claim sweep, each finding's log entry, index rebuild and a page gate at `ok: 0 findings` over every edited page are complete.

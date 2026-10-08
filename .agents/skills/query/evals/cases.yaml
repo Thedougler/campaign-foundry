@@ -1,8 +1,8 @@
 - id: spinner-now
   source_pages:
-    - The Shattered Sea/Items/Fate Spinner.md
-    - The Shattered Sea/Factions/Countless.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - shattered-sea/Items/Fate Spinner.md
+    - shattered-sea/Factions/Countless.md
+    - shattered-sea/Sessions/Session 11/Session 11 - Recap.md
   prompt: Who has the Fate Spinner now, and who's trying to take it? Did Skarn finish his attempt or take over Countless? Which statblock does their leader use?
   rubrics:
     - The answer leads with this run's Fate Spinner Held by field and who is trying to take it, with inline page citations.
@@ -13,8 +13,8 @@
     - "The Wiki diff is empty: custody, leadership and the Creature link already have owner pages, while hot and played records remain evidence rather than filing targets."
 - id: holy-day-gap
   source_pages:
-    - The Shattered Sea/Deities/Umberlee.md
-    - The Shattered Sea/NPCs/Umberlee - Branca.md
+    - shattered-sea/Deities/Umberlee.md
+    - shattered-sea/NPCs/Umberlee - Branca.md
   prompt: What is Umberlee's holy day, and how do her harbour worshippers keep it?
   rubrics:
     - The answer plainly says the Wiki records no holy day for Umberlee, after checking the Deity and related clergy sources rather than importing Forgotten Realms lore from elsewhere.
@@ -22,12 +22,12 @@
     - Any proposed holiday is marked as a suggestion under Not in the Wiki and is not filed as Canon. The Wiki diff is empty.
 - id: dm-states-fact
   source_pages:
-    - The Shattered Sea/NPCs/Cobb.md
+    - shattered-sea/NPCs/Cobb.md
   prompt: Cobb negotiated a future discount with the crew in Session 6. What does he tell Perrin about Nona's sending stone?
   checks:
     canon:
-      The Shattered Sea/NPCs/Cobb.md: ['/discount/i']
-      The Shattered Sea/log.md: ['/\] query \|/']
+      shattered-sea/NPCs/Cobb.md: ['/discount/i']
+      shattered-sea/log.md: ['/\] query \|/']
   rubrics:
     - The DM's stated discount is filed surgically in Cobb's History without asking permission. The file records the historical agreement, with no invented amount, terms or redemption.
     - The answer explains that Cobb says the stone is live and Nona did not send it as decoration, citing Cobb and the Perrin and Nona Thread.
@@ -35,11 +35,11 @@
     - The answer closes by naming the page edited, with no index or log discussion. Unstated details remain gaps or marked suggestions.
 - id: premature-consume
   source_pages:
-    - The Shattered Sea/Lore/Auralis.md
+    - shattered-sea/Lore/Auralis.md
   prompt: Has Perrin already heard Auralis say CONSUME?
   checks:
     canon:
-      The Shattered Sea/Lore/Auralis.md: [CONSUME, Grow, Not yet]
+      shattered-sea/Lore/Auralis.md: [CONSUME, Grow, Not yet]
   rubrics:
     - The answer resolves Auralis's past-tense claim against this run's Campaign state and Session records. CONSUME belongs to the prepared Session 12 Scene, not played history.
     - This real keeper corrects the mutable Lore's full truth and chronology surgically, retaining CONSUME as planned and preserving the earlier Grow and Not yet messages and every independent fact.

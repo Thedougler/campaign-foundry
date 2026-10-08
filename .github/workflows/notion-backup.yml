@@ -6,7 +6,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "wiki/The Shattered Sea/**"
+      - "wiki/shattered-sea/**"
       - ".agents/skills/**"
       # .agents/skills/run-evals is a symlink into .omp/skills; git sees edits to its files here.
       - ".omp/skills/**"

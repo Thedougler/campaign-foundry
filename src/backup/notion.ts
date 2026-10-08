@@ -37,6 +37,8 @@ export interface NotionApi {
 	append(blockId: string, blocks: Block[], atStart?: boolean): Promise<string[]>;
 	/** Replaces one block's content (same type). */
 	updateBlock(blockId: string, block: Block): Promise<void>;
+	/** Moves a page under a new parent page (a layout change), leaving its content and child pages alone. */
+	move(pageId: string, parentId: string): Promise<void>;
 	/** Empties a page's content, leaving its title and child pages alone. */
 	clear(pageId: string): Promise<void>;
 	retitle(pageId: string, title: string, icon: string): Promise<void>;
@@ -127,6 +129,9 @@ export function notionClient(token: string, options: { intervalMs?: number; fetc
 		},
 		async updateBlock(blockId, block) {
 			await request("patch", `blocks/${blockId}`, { [block.type]: block[block.type] });
+		},
+		async move(pageId, parentId) {
+			await request("post", `pages/${pageId}/move`, { parent: { type: "page_id", page_id: parentId } });
 		},
 		async trash(pageId) {
 			await request("patch", `pages/${pageId}`, { in_trash: true });

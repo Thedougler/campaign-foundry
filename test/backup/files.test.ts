@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { ancestors, contentHash, excludedBy, kindOf, titleOf, walkBackup } from "../../src/backup/files.ts";
 import { lfsPointer, OID, repo } from "./helpers.ts";
 
-const W = "wiki/The Shattered Sea";
+const W = "wiki/shattered-sea";
 
 describe("backup tree walk", () => {
 	const root = repo({
@@ -66,7 +66,7 @@ describe("backup tree walk", () => {
 	});
 
 	it("lists every directory parents first, roots and their ancestors included", () => {
-		expect(walk.dirs.slice(0, 4)).toEqual([".agents", "wiki", ".agents/skills", "wiki/The Shattered Sea"]);
+		expect(walk.dirs.slice(0, 4)).toEqual([".agents", "wiki", ".agents/skills", "wiki/shattered-sea"]);
 		expect(walk.dirs).toContain(`${W}/attachments`);
 		expect(walk.dirs).not.toContain(`${W}/.obsidian`);
 		for (const dir of walk.dirs) for (const parent of ancestors(`${dir}/x`).slice(0, -1)) expect(walk.dirs.indexOf(parent)).toBeLessThan(walk.dirs.indexOf(dir));
@@ -85,7 +85,7 @@ describe("backup rules", () => {
 		expect(titleOf(`${W}/NPCs/Ilse Corran.md`, "markdown")).toBe("Ilse Corran");
 		expect(titleOf("x/evals/cases.yaml", "text")).toBe("cases.yaml");
 		expect(titleOf(`${W}/attachments/Map.png`, "image")).toBe("Map.png");
-		expect(titleOf(W, "dir")).toBe("The Shattered Sea");
+		expect(titleOf(W, "dir")).toBe("shattered-sea");
 	});
 
 	it("treats every image extension as an image and other text as text", () => {

@@ -9,12 +9,12 @@ const ROOT_INDEX = `${NOTE}
 
 # Wiki
 
-- [[Aldermoor]] — A river country on the edge of the Ashen Reach.
+- [[Ashes of the Crown]] — Four friends chase the last flame of the Crown.
 `;
 
-const ALDERMOOR_INDEX = `${NOTE}
+const CAMPAIGN_INDEX = `${NOTE}
 
-# Aldermoor
+# Ashes of the Crown
 
 ## Locations
 
@@ -64,11 +64,12 @@ const ALDERMOOR_INDEX = `${NOTE}
 
 ## House Rules
 
+- [[Fire Watch]] — Anyone on watch may roll a Wisdom save to wake.
 - [[Old Crossing Rules]] — Crossing the bridge at Ravenhold costs a toll roll.
 
-## Campaigns
+## Worlds
 
-- [[Ashes of the Crown]] — Four friends chase the last flame of the Crown.
+- [[Aldermoor]] — A river country on the edge of the Ashen Reach.
 
 ## PCs
 
@@ -81,10 +82,6 @@ const ALDERMOOR_INDEX = `${NOTE}
 ## Quests
 
 - [[Lantern for the Chapel]] — Bring the Ashen Lantern out of the chapel.
-
-## Campaign House Rules
-
-- [[Fire Watch]] — Anyone on watch may roll a Wisdom save to wake.
 
 ## Preps
 
@@ -111,22 +108,22 @@ const ALDERMOOR_INDEX = `${NOTE}
 async function unindexed(): Promise<string> {
 	const dir = await copyFixture("clean");
 	await rm(join(dir, "wiki/index.md"));
-	await rm(join(dir, "wiki/Aldermoor/index.md"));
+	await rm(join(dir, "wiki/ashes-of-the-crown/index.md"));
 	return dir;
 }
 
 const npcPage = (summary: string) => `---\ntype: NPC\nsummary: "${summary}"\nsources: []\ncreature: ""\n---\n\n## At a glance\n\nSee [[Mara Voss]].\n`;
 
 describe("cf index", () => {
-	it("generates the root and World indexes from every summary, grouped by page kind", async () => {
+	it("generates the root and Campaign-folder indexes from every summary, grouped by page kind", async () => {
 		const dir = await unindexed();
 		const { code, stdout } = await cf(["index", ...vaultFlags(dir)], dir);
 		expect(code).toBe(0);
 		expect(stdout).toMatch(/^wrote {2}wiki\/index\.md$/m);
-		expect(stdout).toMatch(/^wrote {2}wiki\/Aldermoor\/index\.md$/m);
+		expect(stdout).toMatch(/^wrote {2}wiki\/ashes-of-the-crown\/index\.md$/m);
 		const indexes = await readIndexes(dir);
 		expect(indexes.get("wiki/index.md")).toBe(ROOT_INDEX);
-		expect(indexes.get("wiki/Aldermoor/index.md")).toBe(ALDERMOOR_INDEX);
+		expect(indexes.get("wiki/ashes-of-the-crown/index.md")).toBe(CAMPAIGN_INDEX);
 	});
 
 	it("is byte-identical on a re-run and reports nothing to change", async () => {
@@ -150,11 +147,11 @@ describe("cf index", () => {
 	it("changing one summary changes exactly one line", async () => {
 		const dir = await unindexed();
 		await cf(["index", ...vaultFlags(dir)], dir);
-		const before = (await readIndexes(dir)).get("wiki/Aldermoor/index.md")!.split("\n");
-		const page = join(dir, "wiki/Aldermoor/NPCs/Mara Voss.md");
+		const before = (await readIndexes(dir)).get("wiki/ashes-of-the-crown/index.md")!.split("\n");
+		const page = join(dir, "wiki/ashes-of-the-crown/NPCs/Mara Voss.md");
 		await writeFile(page, (await readFile(page, "utf8")).replace("Harbormaster with a bandit's past.", "Harbormaster and secret smuggler."));
 		await cf(["index", ...vaultFlags(dir)], dir);
-		const after = (await readIndexes(dir)).get("wiki/Aldermoor/index.md")!.split("\n");
+		const after = (await readIndexes(dir)).get("wiki/ashes-of-the-crown/index.md")!.split("\n");
 		expect(after).toHaveLength(before.length);
 		const changed = after.filter((line, i) => line !== before[i]);
 		expect(changed).toEqual(["- [[Mara Voss]] — Harbormaster and secret smuggler."]);
@@ -162,10 +159,10 @@ describe("cf index", () => {
 
 	it("sorts pages by name within a group, numbers by value, independent of locale", async () => {
 		const dir = await unindexed();
-		const npcs = join(dir, "wiki/Aldermoor/NPCs");
+		const npcs = join(dir, "wiki/ashes-of-the-crown/NPCs");
 		for (const name of ["Zed", "apple", "Édith", "Guard 10", "Guard 2"]) await writeFile(join(npcs, `${name}.md`), npcPage(`About ${name}.`));
 		await cf(["index", ...vaultFlags(dir)], dir);
-		const text = (await readIndexes(dir)).get("wiki/Aldermoor/index.md")!;
+		const text = (await readIndexes(dir)).get("wiki/ashes-of-the-crown/index.md")!;
 		const npcLines = text.split("\n## NPCs\n\n")[1]!.split("\n\n")[0]!.split("\n");
 		expect(npcLines.map((l) => l.replace(/^- \[\[(.*?)\]\].*$/, "$1"))).toEqual(["Guard 2", "Guard 10", "Mara Voss", "Zed", "apple", "Édith"]);
 	});
@@ -175,7 +172,7 @@ describe("cf index", () => {
 		const { code, stdout } = await cf(["index", "--dry-run", ...vaultFlags(dir)], dir);
 		expect(code).toBe(0);
 		expect(stdout).toMatch(/^would write {2}wiki\/index\.md$/m);
-		expect(stdout).toMatch(/^would write {2}wiki\/Aldermoor\/index\.md$/m);
+		expect(stdout).toMatch(/^would write {2}wiki\/ashes-of-the-crown\/index\.md$/m);
 		await expect(readFile(join(dir, "wiki/index.md"), "utf8")).rejects.toThrow();
 	});
 
@@ -208,11 +205,11 @@ describe("index layer", () => {
 		expect(report.findings).toEqual([]);
 	});
 
-	it("flags a missing index.md, root and World", async () => {
+	it("flags a missing index.md, root and Campaign folder", async () => {
 		const { report, code } = await gate(await unindexed());
 		expect(code).toBe(1);
 		expect(report.findings.map((f) => [f.path, f.rule])).toEqual([
-			["wiki/Aldermoor/index.md", "missing"],
+			["wiki/ashes-of-the-crown/index.md", "missing"],
 			["wiki/index.md", "missing"],
 		]);
 		expect(report.findings[0]!.hint).toContain("cf index");
@@ -220,13 +217,13 @@ describe("index layer", () => {
 
 	it("flags a stale index, on the first line that differs", async () => {
 		const dir = await copyFixture("clean");
-		const page = join(dir, "wiki/Aldermoor/NPCs/Mara Voss.md");
+		const page = join(dir, "wiki/ashes-of-the-crown/NPCs/Mara Voss.md");
 		await writeFile(page, (await readFile(page, "utf8")).replace("Harbormaster with a bandit's past.", "Harbormaster and secret smuggler."));
 		const { report } = await gate(dir);
 		expect(report.findings).toHaveLength(1);
 		const [finding] = report.findings;
-		expect(finding).toMatchObject({ path: "wiki/Aldermoor/index.md", rule: "stale" });
-		const lines = (await readFile(join(dir, "wiki/Aldermoor/index.md"), "utf8")).split("\n");
+		expect(finding).toMatchObject({ path: "wiki/ashes-of-the-crown/index.md", rule: "stale" });
+		const lines = (await readFile(join(dir, "wiki/ashes-of-the-crown/index.md"), "utf8")).split("\n");
 		expect(lines[finding!.line - 1]).toBe("- [[Mara Voss]] — Harbormaster with a bandit's past.");
 		expect(finding!.hint).toContain("cf index");
 	});
@@ -241,21 +238,21 @@ describe("index layer", () => {
 
 	it("flags a page added since the index was generated", async () => {
 		const dir = await copyFixture("clean");
-		await writeFile(join(dir, "wiki/Aldermoor/NPCs/Newcomer.md"), npcPage("Just arrived."));
+		await writeFile(join(dir, "wiki/ashes-of-the-crown/NPCs/Newcomer.md"), npcPage("Just arrived."));
 		const { report } = await gate(dir);
-		expect(report.findings.map((f) => [f.path, f.rule])).toEqual([["wiki/Aldermoor/index.md", "stale"]]);
+		expect(report.findings.map((f) => [f.path, f.rule])).toEqual([["wiki/ashes-of-the-crown/index.md", "stale"]]);
 	});
 
 	it("--fix regenerates missing and stale indexes, and a re-check is clean", async () => {
 		const dir = await unindexed();
-		await writeFile(join(dir, "wiki/Aldermoor/NPCs/Newcomer.md"), npcPage("Just arrived."));
+		await writeFile(join(dir, "wiki/ashes-of-the-crown/NPCs/Newcomer.md"), npcPage("Just arrived."));
 		const fixed = await gate(dir, ["--fix"]);
 		expect(fixed.report.fixes.map((f) => [f.path, f.rule])).toEqual([
-			["wiki/Aldermoor/index.md", "missing"],
+			["wiki/ashes-of-the-crown/index.md", "missing"],
 			["wiki/index.md", "missing"],
 		]);
 		expect(fixed.report.findings).toEqual([]);
-		expect((await readIndexes(dir)).get("wiki/Aldermoor/index.md")).toContain("- [[Newcomer]] — Just arrived.");
+		expect((await readIndexes(dir)).get("wiki/ashes-of-the-crown/index.md")).toContain("- [[Newcomer]] — Just arrived.");
 		const again = await gate(dir, ["--fix"]);
 		expect(again.report.fixes).toEqual([]);
 		expect(again.code).toBe(0);

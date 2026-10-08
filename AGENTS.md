@@ -7,7 +7,7 @@ Campaign Foundry is an LLM Wiki for a live D&D table: the product is the Campaig
 Layers:
 
 - **Raw**: `raw/` holds files awaiting Ingest; `archive/` keeps them once ingested, as provenance.
-- **Wiki**: `wiki/`, the compounding Canon. The DM edits it and has final say. The Agent does the bookkeeping. Each page kind's shape is its template in `wiki/templates/`; each World has a generated `index.md` catalog, an append-only `log.md`, and its Campaign's `hot.md`. Read `docs/wiki-layout.md` before creating or moving a page.
+- **Wiki**: `wiki/`, the compounding Canon. The DM edits it and has final say. The Agent does the bookkeeping. Each page kind's template in `wiki/templates/` states its required properties and sections. Each Campaign folder has a generated `index.md` catalog, an append-only `log.md` and a `hot.md`. Read `docs/wiki-layout.md` before creating or moving a page.
 - **Backup**: a read-only copy of `main`'s Wiki and skills in Notion (`docs/notion-backup.md`), searched and browsed by folder for quick context. The Wiki stays the primary record: the Backup trails it by the last push, and every edit and citation uses the page in `wiki/`.
 - **Schema**: this file, `CONTEXT.md` (the glossary, imported at the end of this file: use its term for every domain concept) and `docs/adr/` (decisions: read those touching an area before changing it).
 
@@ -38,7 +38,7 @@ Characters live in the fiction, and the rules engine stays outside it. Everythin
 
 ## Orient
 
-Read order at the start of every run: `user-config.md` (imported at the end of this file) before any Wiki operation; in a Campaign, its `campaign-config.md`; then the Campaign's `hot.md` (orientation, not evidence), the World's `index.md`, the last ten `log.md` entries, then task pages. Survey the task's subjects in the Backup before you create or edit pages, where your harness mounts the Notion MCP (`.omp/AGENTS.md` § Wiki access). Then read each page you rely on in `wiki/`.
+Read order at the start of every run: `user-config.md` (imported at the end of this file) before any Wiki operation; in a Campaign, its `campaign-config.md`; then the Campaign's `hot.md` (orientation, not evidence), the Campaign folder's `index.md`, the last ten `log.md` entries, then task pages. Survey the task's subjects in the Backup before you create or edit pages, where your harness mounts the Notion MCP (`.omp/AGENTS.md` § Wiki access). Then read each page you rely on in `wiki/`.
 
 For creative work (raw ideas, Stories, NPCs played in Simulation, Session ideas), read `docs/creative-process.md`: it maps the stages, agents and the file that defines each rule.
 

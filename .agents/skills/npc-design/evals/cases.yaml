@@ -1,8 +1,8 @@
 # Merges the recovered Malone scale-up ask with complete person and first-meeting play.
 - id: npc
   source_pages:
-    - The Shattered Sea/NPCs/Aleksander Malone.md
-    - The Shattered Sea/Shattered Sea/Quests/The Hound of God.md
+    - shattered-sea/NPCs/Aleksander Malone.md
+    - shattered-sea/Quests/The Hound of God.md
   prompt: >-
     Scale up the Aleksander Malone statblock. He should be roughly equivalent
     in power to a level 12 player character, an optimized cleric, fighter,
@@ -13,34 +13,34 @@
     and his linked Creature page, not just combat numbers.
   checks:
     pages:
-      - The Shattered Sea/Creatures/Aleksander Malone (Creature).md
-      - The Shattered Sea/NPCs/Aleksander Malone.md
+      - shattered-sea/Creatures/Aleksander Malone (Creature).md
+      - shattered-sea/NPCs/Aleksander Malone.md
     sections:
-      The Shattered Sea/NPCs/Aleksander Malone.md:
+      shattered-sea/NPCs/Aleksander Malone.md:
         - "## At a glance"
         - "## Play"
         - "### History"
         - "### Hidden truths"
         - "### Threads"
         - "## Links"
-      The Shattered Sea/Creatures/Aleksander Malone (Creature).md:
+      shattered-sea/Creatures/Aleksander Malone (Creature).md:
         - "## Statblock"
         - "### Tactics"
         - "### Outside a fight"
         - "### Ecology"
         - "### Hidden truths"
     canon:
-      The Shattered Sea/Creatures/Aleksander Malone (Creature).md:
+      shattered-sea/Creatures/Aleksander Malone (Creature).md:
         - '^type:\s*Creature\s*$'
         - 'layout: Basic 5e Layout'
         - '^```statblock\b'
         - '\[!narration\] First sight'
-      The Shattered Sea/NPCs/Aleksander Malone.md:
+      shattered-sea/NPCs/Aleksander Malone.md:
         - '^type:\s*NPC\s*$'
         - 'creature: "\[\[Aleksander Malone \(Creature\)\]\]"'
         - '\[!narration\] First look'
     absent:
-      The Shattered Sea/NPCs/Aleksander Malone.md:
+      shattered-sea/NPCs/Aleksander Malone.md:
         - '^```statblock\b'
         - '!\[\[[^\]]+#Statblock\]\]'
   rubrics:

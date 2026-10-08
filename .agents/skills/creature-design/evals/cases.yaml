@@ -1,9 +1,9 @@
 # Adapts the recovered production retune ask in issue #34 into a complete Creature request.
 - id: creature
   source_pages:
-    - The Shattered Sea/NPCs/Talon Skarn.md
-    - The Shattered Sea/Creatures/Talon Skarn (Creature).md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+    - shattered-sea/NPCs/Talon Skarn.md
+    - shattered-sea/Creatures/Talon Skarn (Creature).md
+    - shattered-sea/Sessions/Session 11/Session 11 - Recap.md
   prompt: >-
     Redo Talon Skarn's statblock so he's a powerful, engaging antagonist
     and fun for the Party to fight. He wants Crissdalynn's Fate Spinner
@@ -13,9 +13,9 @@
     proper first sight I can read out and what he's like outside a fight.
   checks:
     pages:
-      - The Shattered Sea/Creatures/Talon Skarn (Creature).md
+      - shattered-sea/Creatures/Talon Skarn (Creature).md
     sections:
-      The Shattered Sea/Creatures/Talon Skarn (Creature).md:
+      shattered-sea/Creatures/Talon Skarn (Creature).md:
         - "## At a glance"
         - "## Statblock"
         - "### Tactics"
@@ -24,13 +24,13 @@
         - "### Hidden truths"
         - "## Links"
     canon:
-      The Shattered Sea/Creatures/Talon Skarn (Creature).md:
+      shattered-sea/Creatures/Talon Skarn (Creature).md:
         - '^type:\s*Creature\s*$'
         - 'layout: Basic 5e Layout'
         - '^```statblock\b'
         - '\[!narration\] First sight'
     absent:
-      The Shattered Sea/NPCs/Talon Skarn.md:
+      shattered-sea/NPCs/Talon Skarn.md:
         - '^```statblock\b'
         - '!\[\[[^\]]+#Statblock\]\]'
   rubrics:

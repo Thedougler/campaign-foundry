@@ -1,9 +1,9 @@
 - id: hook-scene
   source_pages:
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Shattered Sea/Shattered Sea.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Prep.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+    - shattered-sea/Sessions/Session 11/Session 11 - Recap.md
+    - shattered-sea/Shattered Sea.md
   prompt: >-
     Redo Dawn Strike for Session 12. Skarn wants the Spinner for Vantyrus, not
     a kill, and he's loyal to him right now. Jean-Claude is awake; he was only
@@ -11,9 +11,9 @@
     away all possible.
   checks:
     pages:
-      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+      - shattered-sea/Sessions/Session 12/Session 12 - Dawn Strike.md
     sections:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
+      shattered-sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
         - '## At a glance'
         - '## Play'
         - '### Situation'
@@ -25,7 +25,7 @@
         - '### Threads'
         - '### Spotlight'
     canon:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
+      shattered-sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Hook\s*$'
         - '^> \[!narration\] Opening\s*$'

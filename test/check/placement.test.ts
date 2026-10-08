@@ -12,8 +12,7 @@ beforeAll(async () => {
 
 const rules = (path: string): string[] => findingsFor(report, path).map((f) => f.rule).sort();
 const fixtureHas = (path: string) => access(join(fixtures, "placement/wiki", path));
-const A = "Aldermoor";
-const C = `${A}/Ashes of the Crown`;
+const A = "ashes-of-the-crown";
 
 describe("placement layer: failure classes", () => {
 	it("exits 1", () => expect(code).toBe(1));
@@ -21,20 +20,23 @@ describe("placement layer: failure classes", () => {
 	it("accepts every kind in the place docs/wiki-layout.md gives it", async () => {
 		for (const ok of [
 			"DM Settings.md",
-			`${A}/${A}.md`,
+			`${A}/Aldermoor.md`,
+			`${A}/Ashes of the Crown.md`,
 			`${A}/Locations/Saint-Denis.md`,
+			`${A}/Locations/Campaign Location.md`,
 			`${A}/NPCs/Mara Voss.md`,
 			`${A}/House Rules/Old Crossing Rules.md`,
-			`${C}/Ashes of the Crown.md`,
-			`${C}/hot.md`,
-			`${C}/campaign-config.md`,
-			`${C}/PCs/Tam Brightwater.md`,
-			`${C}/House Rules/Fire Watch.md`,
-			`${C}/Sessions/Session 1/Session 1 - Storm at the Crossing.md`,
-			`${C}/Sessions/Session 1/Session 1 Map.md`,
-			`${C}/Sessions/Session 1/Session 1 - Prep.md`,
+			`${A}/House Rules/Fire Watch.md`,
+			`${A}/hot.md`,
+			`${A}/campaign-config.md`,
+			`${A}/PCs/Tam Brightwater.md`,
+			`${A}/Sessions/Session 1/Session 1 - Storm at the Crossing.md`,
+			`${A}/Sessions/Session 1/Session 1 Map.md`,
+			`${A}/Sessions/Session 1/Session 1 - Prep.md`,
+			"NPCs/Wandering Merchant.md",
 			"Ironvale/log.md",
 			"Ironvale/index.md",
+			"Ironvale/Overview.md",
 			"index.md",
 		]) {
 			await fixtureHas(ok);
@@ -44,17 +46,17 @@ describe("placement layer: failure classes", () => {
 
 	it.each([
 		[`${A}/NPCs/Wrong Home Location.md`, ["misplaced"]],
-		[`${C}/Locations/Campaign Location.md`, ["misplaced"]],
 		[`${A}/Locations/Deep/Nested Site.md`, ["misplaced"]],
-		[`${C}/Sessions/Session 1/Stray PC.md`, ["misplaced"]],
-		[`${C}/NPCs/Campaign Rule.md`, ["misplaced"]],
+		[`${A}/Sessions/Session 1/Stray PC.md`, ["misplaced"]],
+		[`${A}/NPCs/Campaign Rule.md`, ["misplaced"]],
 		[`${A}/Loose Scene.md`, ["misplaced"]],
 		["Stray Root Page.md", ["misplaced"]],
-		[`${C}/Sessions/Session One/Odd Session.md`, ["misplaced"]],
-		["Ironvale/Overview.md", ["wrong-file-name"]],
-		[`${C}/Sessions/Session 1/Session 2 - Recap.md`, ["session-page-name"]],
-		[`${C}/Sessions/Session 1/Session 1 Previously On.md`, ["session-page-name"]],
-		[`${C}/Sessions/Session 1/Wrong Prefix.md`, ["session-page-name"]],
+		["NPCs/hot.md", ["misplaced"]],
+		[`${A}/Sessions/Session One/Odd Session.md`, ["misplaced"]],
+		[`${A}/Wrong Hot Name.md`, ["wrong-file-name"]],
+		[`${A}/Sessions/Session 1/Session 2 - Recap.md`, ["session-page-name"]],
+		[`${A}/Sessions/Session 1/Session 1 Previously On.md`, ["session-page-name"]],
+		[`${A}/Sessions/Session 1/Wrong Prefix.md`, ["session-page-name"]],
 		[`${A}/Locations/black-lotus.md`, ["slug-name"]],
 		[`${A}/NPCs/black_lotus.md`, ["slug-name"]],
 		[`${A}/Locations/Doubled.md`, ["duplicate-name"]],
@@ -66,16 +68,16 @@ describe("placement layer: failure classes", () => {
 	});
 
 	it("hints the right Session page name, with an example", () => {
-		const recap = findingsFor(report, `${C}/Sessions/Session 1/Session 2 - Recap.md`)[0];
+		const recap = findingsFor(report, `${A}/Sessions/Session 1/Session 2 - Recap.md`)[0];
 		expect(recap?.message).toContain("`Session 1 - Recap`");
 		expect(recap?.hint).toContain("Session 1 - Recap.md");
-		const scene = findingsFor(report, `${C}/Sessions/Session 1/Wrong Prefix.md`)[0];
+		const scene = findingsFor(report, `${A}/Sessions/Session 1/Wrong Prefix.md`)[0];
 		expect(scene?.hint).toContain("Session 1 - The Drowned Bell.md");
 	});
 
 	it("names the destination in the hint, and says when --fix can move it", () => {
 		const movable = findingsFor(report, `${A}/NPCs/Wrong Home Location.md`)[0];
-		expect(movable?.hint).toContain("Aldermoor/Locations/Wrong Home Location.md");
+		expect(movable?.hint).toContain("ashes-of-the-crown/Locations/Wrong Home Location.md");
 		expect(movable?.hint).toContain("--fix");
 		const stuck = findingsFor(report, `${A}/Loose Scene.md`)[0];
 		expect(stuck?.hint).toContain("Sessions/Session 1/");
@@ -95,16 +97,17 @@ describe("placement layer: --fix", () => {
 		expect(first.fixes.map((f) => f.path).sort()).toEqual([
 			`wiki/${A}/Locations/Deep/Nested Site.md`,
 			`wiki/${A}/NPCs/Wrong Home Location.md`,
-			`wiki/${C}/Locations/Campaign Location.md`,
-			`wiki/${C}/NPCs/Campaign Rule.md`,
-			`wiki/${C}/Sessions/Session 1/Stray PC.md`,
+			`wiki/${A}/NPCs/Campaign Rule.md`,
+			`wiki/${A}/Sessions/Session 1/Stray PC.md`,
+			"wiki/Stray Root Page.md",
 		].sort());
 		const exists = (p: string) => access(join(dir, "wiki", p)).then(() => true, () => false);
 		expect(await exists(`${A}/Locations/Nested Site.md`)).toBe(true);
 		expect(await exists(`${A}/Locations/Wrong Home Location.md`)).toBe(true);
 		expect(await exists(`${A}/NPCs/Wrong Home Location.md`)).toBe(false);
-		expect(await exists(`${C}/PCs/Stray PC.md`)).toBe(true);
-		expect(await exists(`${C}/House Rules/Campaign Rule.md`)).toBe(true);
+		expect(await exists(`${A}/PCs/Stray PC.md`)).toBe(true);
+		expect(await exists(`${A}/House Rules/Campaign Rule.md`)).toBe(true);
+		expect(await exists("NPCs/Stray Root Page.md")).toBe(true);
 		expect(await exists(`${A}/Loose Scene.md`)).toBe(true);
 		expect(await readFile(join(dir, `wiki/${A}/Locations/Nested Site.md`), "utf8")).toContain("type: Location");
 

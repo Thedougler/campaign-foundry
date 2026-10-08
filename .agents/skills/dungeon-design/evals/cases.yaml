@@ -1,16 +1,16 @@
 # Default: grounded adaptation combining rescue, nested refuge and repeat expeditions in one exploration Site.
 - id: dungeon
   source_pages:
-    - The Shattered Sea/Locations/Lava Tubes.md
-    - The Shattered Sea/Locations/The Long Meadow.md
-    - The Shattered Sea/Locations/Memorial Grove.md
-    - The Shattered Sea/Lore/Taking on Aruhe.md
-    - The Shattered Sea/NPCs/Gianni Moro.md
-    - The Shattered Sea/Shattered Sea/hot.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - shattered-sea/Locations/Lava Tubes.md
+    - shattered-sea/Locations/The Long Meadow.md
+    - shattered-sea/Locations/Memorial Grove.md
+    - shattered-sea/Lore/Taking on Aruhe.md
+    - shattered-sea/NPCs/Gianni Moro.md
+    - shattered-sea/hot.md
+    - shattered-sea/PCs/Crissdalynn Khinriss.md
+    - shattered-sea/PCs/Delmar Fisk.md
+    - shattered-sea/PCs/Jean-Claude Tabarnack.md
+    - shattered-sea/PCs/Perrin Black-Jaw.md
   prompt: >-
     Stock the Lava Tubes so I can run the rescue from the smoking skylight
     and exploration beyond it. Make the ledge a small nested Site called
@@ -20,10 +20,10 @@
     as they enter and how searching, resting and coming back change things.
   checks:
     pages:
-      - The Shattered Sea/Locations/Lava Tubes.md
-      - The Shattered Sea/Locations/Lava Tube Refuge.md
+      - shattered-sea/Locations/Lava Tubes.md
+      - shattered-sea/Locations/Lava Tube Refuge.md
     sections:
-      The Shattered Sea/Locations/Lava Tubes.md:
+      shattered-sea/Locations/Lava Tubes.md:
         - '## At a glance'
         - '## Play'
         - '### Areas'
@@ -35,7 +35,7 @@
         - '### Hidden truths'
         - '### Threads'
         - '## Links'
-      The Shattered Sea/Locations/Lava Tube Refuge.md:
+      shattered-sea/Locations/Lava Tube Refuge.md:
         - '## At a glance'
         - '## Play'
         - '### Areas'
@@ -48,19 +48,19 @@
         - '### Threads'
         - '## Links'
     canon:
-      The Shattered Sea/Locations/Lava Tubes.md:
+      shattered-sea/Locations/Lava Tubes.md:
         - '^type:\s*Location\s*$'
         - '^kind:\s*Site\s*$'
         - '^>\s*\[!narration\]\s+Entering\s*$'
-      The Shattered Sea/Locations/Lava Tube Refuge.md:
+      shattered-sea/Locations/Lava Tube Refuge.md:
         - '^type:\s*Location\s*$'
         - '^kind:\s*Site\s*$'
         - '^parent:\s*"\[\[Lava Tubes\]\]"\s*$'
         - '^>\s*\[!narration\]\s+Entering\s*$'
     absent:
-      The Shattered Sea/Locations/Lava Tubes.md:
+      shattered-sea/Locations/Lava Tubes.md:
         - '^```statblock\b'
-      The Shattered Sea/Locations/Lava Tube Refuge.md:
+      shattered-sea/Locations/Lava Tube Refuge.md:
         - '^```statblock\b'
   rubrics:
     - >-

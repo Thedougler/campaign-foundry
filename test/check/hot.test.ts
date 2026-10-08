@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { cf, checkFixture, copyFixture, type JsonReport, realTemplates, vaultFlags } from "./helpers.ts";
 
-const HOT = "wiki/Aldermoor/Ashes of the Crown/hot.md";
+const HOT = "wiki/ashes-of-the-crown/hot.md";
 
 /** The clean fixture's hot.md with `extra` words appended to its `## Next` section. */
 async function withWords(extra: number, comment = ""): Promise<{ dir: string; report: JsonReport; code: number }> {

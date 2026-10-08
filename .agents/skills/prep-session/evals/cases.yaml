@@ -1,19 +1,19 @@
 - id: session-prep
   source_pages:
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Shattered Sea/Shattered Sea.md
-    - The Shattered Sea/Lore/Two-Grave Orders.md
-    - The Shattered Sea/Items/Giant's Guava.md
-    - The Shattered Sea/Items/Ghost Plum.md
-    - The Shattered Sea/Creatures/Terror-Bird.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Prep.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+    - shattered-sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Terror-Birds.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Consume.md
+    - shattered-sea/Sessions/Session 12/Session 12 - The Way Out.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Previously On.md
+    - shattered-sea/Sessions/Session 11/Session 11 - Recap.md
+    - shattered-sea/Shattered Sea.md
+    - shattered-sea/Lore/Two-Grave Orders.md
+    - shattered-sea/Items/Giant's Guava.md
+    - shattered-sea/Items/Ghost Plum.md
+    - shattered-sea/Creatures/Terror-Bird.md
   prompt: >-
     Prep Session 12 from the top, keeping the broad shape of the existing
     plan. We've settled on four hours following the other survivors' smoke
@@ -26,16 +26,16 @@
     to run, with rescuing the survivors still the main driver.
   checks:
     pages:
-      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
-      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md
-      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
-      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
-      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
-      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md
+      - shattered-sea/Sessions/Session 12/Session 12 - Prep.md
+      - shattered-sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+      - shattered-sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
+      - shattered-sea/Sessions/Session 12/Session 12 - Terror-Birds.md
+      - shattered-sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
+      - shattered-sea/Sessions/Session 12/Session 12 - Consume.md
+      - shattered-sea/Sessions/Session 12/Session 12 - The Way Out.md
+      - shattered-sea/Sessions/Session 12/Session 12 - Previously On.md
     sections:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md:
+      shattered-sea/Sessions/Session 12/Session 12 - Prep.md:
         - '## At a glance'
         - '## Scene Chart'
         - '## Threads'
@@ -43,37 +43,37 @@
         - '## Clues'
         - '## Links'
     canon:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md:
+      shattered-sea/Sessions/Session 12/Session 12 - Prep.md:
         - '^type:\s*Prep\s*$'
         - '\|\s*#\s*\|\s*Scene\s*\|\s*Kind\s*\|\s*Minutes\s*\|\s*Threads\s*\|'
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
+      shattered-sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Hook\s*$'
         - '^> \[!narration\] Opening\s*$'
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md:
+      shattered-sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Development\s*$'
         - '^> \[!narration\] Opening\s*$'
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md:
+      shattered-sea/Sessions/Session 12/Session 12 - Terror-Birds.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Cliffhanger\s*$'
         - '^> \[!narration\] Opening\s*$'
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Orders in the Ash.md:
+      shattered-sea/Sessions/Session 12/Session 12 - Orders in the Ash.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Development\s*$'
         - '^> \[!narration\] Opening\s*$'
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md:
+      shattered-sea/Sessions/Session 12/Session 12 - Consume.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Climax\s*$'
         - '^> \[!narration\] Opening\s*$'
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md:
+      shattered-sea/Sessions/Session 12/Session 12 - The Way Out.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Resolution\s*$'
         - '^> \[!narration\] Closing image\s*$'
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Previously On.md:
+      shattered-sea/Sessions/Session 12/Session 12 - Previously On.md:
         - '^type:\s*Previously On\s*$'
         - '^> \[!narration\] Previously on\s*$'
-      The Shattered Sea/log.md:
+      shattered-sea/log.md:
         - '^## \[\d{4}-\d{2}-\d{2}\] prep \| Session 12 Prep'
   rubrics:
     - >-

@@ -1,17 +1,17 @@
 # Default: grounded adaptation of existing Lore, not a recovered original creation ask.
 - id: lore
   source_pages:
-    - The Shattered Sea/Lore/Taking on Aruhe.md
-    - The Shattered Sea/NPCs/Hinewai.md
-    - The Shattered Sea/NPCs/Matteo Scola.md
-    - The Shattered Sea/NPCs/Gianni Moro.md
-    - The Shattered Sea/Locations/Memorial Grove.md
-    - The Shattered Sea/Locations/Aruhe.md
-    - The Shattered Sea/Shattered Sea/hot.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - shattered-sea/Lore/Taking on Aruhe.md
+    - shattered-sea/NPCs/Hinewai.md
+    - shattered-sea/NPCs/Matteo Scola.md
+    - shattered-sea/NPCs/Gianni Moro.md
+    - shattered-sea/Locations/Memorial Grove.md
+    - shattered-sea/Locations/Aruhe.md
+    - shattered-sea/hot.md
+    - shattered-sea/PCs/Crissdalynn Khinriss.md
+    - shattered-sea/PCs/Delmar Fisk.md
+    - shattered-sea/PCs/Jean-Claude Tabarnack.md
+    - shattered-sea/PCs/Perrin Black-Jaw.md
   prompt: >-
     Flesh out Taking on Aruhe. I need to understand what causes the law,
     where its boundaries are and why survivors explain it differently.
@@ -21,9 +21,9 @@
     someone first explains the rule.
   checks:
     pages:
-      - The Shattered Sea/Lore/Taking on Aruhe.md
+      - shattered-sea/Lore/Taking on Aruhe.md
     sections:
-      The Shattered Sea/Lore/Taking on Aruhe.md:
+      shattered-sea/Lore/Taking on Aruhe.md:
         - '## At a glance'
         - '## Play'
         - '## Depth'
@@ -31,7 +31,7 @@
         - '### Chronology'
         - '## Links'
     canon:
-      The Shattered Sea/Lore/Taking on Aruhe.md:
+      shattered-sea/Lore/Taking on Aruhe.md:
         - '^type:\s*Lore\s*$'
         - '^>\s*\[!narration\]\s+As it is told\s*$'
   rubrics:

@@ -53,7 +53,7 @@ const emptyCounts = (): Counts =>
 export async function runPush(options: PushOptions): Promise<PushResult> {
 	const vault = buildVault(options.vault, await readVaultFiles(options.vault));
 	const plan = await buildPlan(vault, { campaign: options.campaign, session: options.session });
-	const path = manifestPath(options.root, plan.world, plan.campaign);
+	const path = manifestPath(options.root, plan.campaignFolder);
 	const previous = await readManifest(path);
 	const compared = diff(plan.docs, previous, options.all ?? false);
 
@@ -75,7 +75,7 @@ export async function runPush(options: PushOptions): Promise<PushResult> {
 
 	if (pages.length > 0) {
 		const entry = { date: today((options.now ?? (() => new Date()))()), op: "push", title: `Pushed Session ${plan.session} of ${plan.campaign} to Foundry`, pages };
-		const appended = await appendLogEntry(options.vault, plan.world, entry, { example: `cf log --world ${plan.world} --op push --title "${entry.title}"` });
+		const appended = await appendLogEntry(options.vault, plan.campaignFolder, entry, { example: `cf log --campaign "${plan.campaign}" --op push --title "${entry.title}"` });
 		if (appended.status === "error") throw new UsageError(appended.message, appended.hint);
 		result.logged = appended.path;
 	}

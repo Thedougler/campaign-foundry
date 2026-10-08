@@ -2,7 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { runCheck, UsageError } from "../check/run.ts";
 import type { CheckResult } from "../check/run.ts";
-import { generateIndexes } from "../vault/indexes.ts";
+import { campaignFolders, generateIndexes } from "../vault/indexes.ts";
 import { appendLogEntry, today } from "../vault/log.ts";
 import { buildVault, readVaultFiles } from "../vault/vault.ts";
 import { fetchCharacter, PullError } from "./ddb.ts";
@@ -48,45 +48,47 @@ export interface PullResult {
 	outcomes: PcOutcome[];
 	/** Vault-relative paths of the `log.md` files written; empty when no page changed. */
 	logged: string[];
-	/** Vault-relative paths of the World `index.md` files regenerated because a page changed. */
+	/** Vault-relative paths of the Campaign folder `index.md` files regenerated because a page changed. */
 	indexed: string[];
 	/** The gate over the pulled pages; absent under `--dry-run` or when nothing was fetched. */
 	gate?: CheckResult;
 }
 
-const PC_PATH = /^([^/]+)\/([^/]+)\/PCs\/[^/]+\.md$/;
+const PC_PATH = /^([^/]+)\/PCs\/[^/]+\.md$/;
 
 export async function runPull(options: PullOptions): Promise<PullResult> {
 	const files = await readVaultFiles(options.vault);
 	const vault = buildVault(options.vault, files);
+	const folders = campaignFolders(vault);
+	const nameByFolder = new Map([...folders].map(([name, folder]) => [folder, name] as const));
 	const all = vault.pages.flatMap((page) => {
 		const match = PC_PATH.exec(page.path);
-		return match && page.frontmatter?.type === "PC" ? [{ page, world: match[1]!, campaign: match[2]! }] : [];
+		return match && page.frontmatter?.type === "PC" ? [{ page, folder: match[1]! }] : [];
 	});
 
-	const campaigns = [...new Set(all.map((p) => p.campaign))];
-	if (options.campaign !== undefined && !campaigns.includes(options.campaign)) {
+	const withPcs = [...new Set(all.map((p) => nameByFolder.get(p.folder)))].filter((n): n is string => n !== undefined).sort();
+	if (options.campaign !== undefined && !withPcs.includes(options.campaign)) {
 		throw new UsageError(
 			`No Campaign named "${options.campaign}" with PCs.`,
-			campaigns.length > 0 ? `Campaigns with PCs: ${campaigns.join(", ")}. Example: cf pull --campaign "${campaigns[0]}"` : "Add a PC page under <World>/<Campaign>/PCs/ first.",
+			withPcs.length > 0 ? `Campaigns with PCs: ${withPcs.join(", ")}. Example: cf pull --campaign "${withPcs[0]}"` : "Add a PC page under <Campaign folder>/PCs/ first.",
 		);
 	}
-	const inCampaign = all.filter((p) => options.campaign === undefined || p.campaign === options.campaign);
+	const inCampaign = all.filter((p) => options.campaign === undefined || nameByFolder.get(p.folder) === options.campaign);
 	const wanted = (options.pcs ?? []).map((n) => n.toLowerCase());
 	for (const name of options.pcs ?? []) {
 		if (!inCampaign.some((p) => p.page.name.toLowerCase() === name.toLowerCase())) {
 			throw new UsageError(
 				`No PC named "${name}".`,
-				inCampaign.length > 0 ? `PCs: ${inCampaign.map((p) => p.page.name).join(", ")}. Example: cf pull --pc "${inCampaign[0]!.page.name}"` : "Add a PC page under <World>/<Campaign>/PCs/ first.",
+				inCampaign.length > 0 ? `PCs: ${inCampaign.map((p) => p.page.name).join(", ")}. Example: cf pull --pc "${inCampaign[0]!.page.name}"` : "Add a PC page under <Campaign folder>/PCs/ first.",
 			);
 		}
 	}
 	const targets = inCampaign.filter((p) => wanted.length === 0 || wanted.includes(p.page.name.toLowerCase()));
 
 	const outcomes: PcOutcome[] = [];
-	const changed: { world: string; name: string }[] = [];
+	const changed: { folder: string; name: string }[] = [];
 	const pulledPaths: string[] = [];
-	for (const { page, world } of targets) {
+	for (const { page, folder } of targets) {
 		const base = { pc: page.name, path: page.path, sections: [] as PulledSection[], summarySet: false, added: 0, removed: 0 };
 		const url = typeof page.frontmatter?.dndbeyond_url === "string" ? page.frontmatter.dndbeyond_url.trim() : "";
 		if (url === "") {
@@ -111,7 +113,7 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 				outcomes.push({ ...detail, status: "would-update" });
 			} else {
 				await writeFile(join(options.vault, page.path), rewrite.source);
-				changed.push({ world, name: page.name });
+				changed.push({ folder, name: page.name });
 				outcomes.push({ ...detail, status: "updated" });
 			}
 		} catch (error) {
@@ -125,17 +127,18 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 
 	if (changed.length > 0) {
 		const date = today((options.now ?? (() => new Date()))());
-		const worlds = [...new Set(changed.map((c) => c.world))];
-		for (const world of worlds) {
-			const entry = { date, op: "pull", title: "Pulled PCs from D&D Beyond", pages: changed.filter((c) => c.world === world).map((c) => c.name) };
-			const appended = await appendLogEntry(options.vault, world, entry, { example: `cf log --world ${world} --op pull --title "Pulled PCs from D&D Beyond"` });
+		const touchedFolders = [...new Set(changed.map((c) => c.folder))];
+		for (const folder of touchedFolders) {
+			const entry = { date, op: "pull", title: "Pulled PCs from D&D Beyond", pages: changed.filter((c) => c.folder === folder).map((c) => c.name) };
+			const example = `cf log --campaign "${nameByFolder.get(folder) ?? folder}" --op pull --title "Pulled PCs from D&D Beyond"`;
+			const appended = await appendLogEntry(options.vault, folder, entry, { example });
 			if (appended.status === "error") throw new UsageError(appended.message, appended.hint);
 			result.logged.push(appended.path);
 		}
-		// A pull can fill a blank summary, which the World's index lists; regenerate it with `cf index`'s generator.
+		// A pull can fill a blank summary, which the Campaign folder's index lists; regenerate it with `cf index`'s generator.
 		const fresh = buildVault(options.vault, await readVaultFiles(options.vault));
 		for (const [path, content] of generateIndexes(fresh)) {
-			if (!worlds.some((w) => path === `${w}/index.md`) || fresh.pageByPath.get(path)?.source === content) continue;
+			if (!touchedFolders.some((f) => path === `${f}/index.md`) || fresh.pageByPath.get(path)?.source === content) continue;
 			await mkdir(dirname(join(options.vault, path)), { recursive: true });
 			await writeFile(join(options.vault, path), content);
 			result.indexed.push(path);

@@ -50,7 +50,8 @@ export interface SceneToken {
 }
 
 export interface SceneInput {
-	world: string;
+	/** The Campaign folder the scene belongs to; it seeds every ID. */
+	campaign: string;
 	/** Vault path of the Scene page the Foundry scene derives from. */
 	path: string;
 	name: string;
@@ -74,12 +75,12 @@ function px(v: number, origin: number): number {
 	return Math.round((v - origin) * GRID_SIZE);
 }
 
-function walls(uvtt: Uvtt, world: string, path: string): Doc[] {
+function walls(uvtt: Uvtt, campaign: string, path: string): Doc[] {
 	const { map_origin: o } = uvtt.resolution;
 	const out: Doc[] = [];
 	const add = (c: number[], extra: Doc = {}): void => {
 		if (c[0] === c[2] && c[1] === c[3]) return;
-		out.push({ _id: foundryId(world, path, `wall:${out.length}`), c, levels: [LEVEL_ID], ...extra });
+		out.push({ _id: foundryId(campaign, path, `wall:${out.length}`), c, levels: [LEVEL_ID], ...extra });
 	};
 	for (const line of [...uvtt.line_of_sight, ...(uvtt.objects_line_of_sight ?? [])]) {
 		for (let i = 0; i + 1 < line.length; i++) {
@@ -104,12 +105,12 @@ function lightColor(color: string | undefined): string | null {
 	return null;
 }
 
-function lights(uvtt: Uvtt, world: string, path: string): Doc[] {
+function lights(uvtt: Uvtt, campaign: string, path: string): Doc[] {
 	const { map_origin: o } = uvtt.resolution;
 	return (uvtt.lights ?? []).map((light, i) => {
 		const dim = light.range * 5;
 		return {
-			_id: foundryId(world, path, `light:${i}`),
+			_id: foundryId(campaign, path, `light:${i}`),
 			x: px(light.position.x, o.x),
 			y: px(light.position.y, o.y),
 			levels: [LEVEL_ID],
@@ -135,7 +136,7 @@ function tokens(input: SceneInput): Doc[] {
 			rowHeight = 0;
 		}
 		out.push({
-			_id: foundryId(input.world, input.path, `token:${i}:${token.name}`),
+			_id: foundryId(input.campaign, input.path, `token:${i}:${token.name}`),
 			name: token.name,
 			actorId: token.actorId,
 			actorLink: false,
@@ -170,7 +171,7 @@ export function buildScene(input: SceneInput): BuiltScene {
 		if (ppg !== GRID_SIZE) warnings.push(`${input.name}: the Universal VTT file is ${ppg} px per square, not ${GRID_SIZE}; walls are scaled to ${GRID_SIZE}.`);
 	}
 	const data: Doc = {
-		_id: foundryId(input.world, input.path, "scene"),
+		_id: foundryId(input.campaign, input.path, "scene"),
 		name: input.name,
 		navigation: true,
 		navOrder: input.navOrder,
@@ -182,8 +183,8 @@ export function buildScene(input: SceneInput): BuiltScene {
 		levels: [{ _id: LEVEL_ID, name: input.name, background: { src: input.image.url } }],
 		initialLevel: LEVEL_ID,
 		tokens: tokens(input),
-		walls: uvtt ? walls(uvtt, input.world, input.path) : [],
-		lights: uvtt ? lights(uvtt, input.world, input.path) : [],
+		walls: uvtt ? walls(uvtt, input.campaign, input.path) : [],
+		lights: uvtt ? lights(uvtt, input.campaign, input.path) : [],
 		journal: input.journalId,
 		...(input.thumb ? { thumb: input.thumb } : {}),
 		folder: null,

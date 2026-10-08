@@ -2,4 +2,4 @@
 
 # Wiki
 
-- [[Aldermoor]] — One line.
+- [[Ashes of the Crown]] — One line.

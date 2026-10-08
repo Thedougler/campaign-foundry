@@ -6,8 +6,8 @@ import { buildScene, parseUvtt } from "../../src/push/scene.ts";
 const fixtures = join(import.meta.dirname, "fixtures");
 const uvttText = readFileSync(join(fixtures, "Session 2 - Mud Under the Boards - Battle Map.uvtt"), "utf8");
 const base = {
-	world: "Lowtide",
-	path: "Campaigns/Salt and Lantern/Sessions/Session 2/Session 2 - Mud Under the Boards.md",
+	campaign: "salt-and-lantern",
+	path: "salt-and-lantern/Sessions/Session 2/Session 2 - Mud Under the Boards.md",
 	name: "Session 2 - Mud Under the Boards",
 	journalId: "JournalEntry0001",
 	image: { url: "modules/m/assets/map.webp", width: 640, height: 448 },

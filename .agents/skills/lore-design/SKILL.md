@@ -15,7 +15,7 @@ Lore is knowledge that belongs to no one Location, NPC, Faction, Deity, Creature
 4. **Make it matter now.** Why it matters to the current Campaign: a person, place or prize it touches. Who else knows or wants the truth, as named NPCs or Factions, and what each does about it on their own clock. What the Party gains by acting on it.
 5. **Accounts and Clues.** Write two to four accounts people hold, each with its holder. Add the common telling a tavern would give. Quote verbatim any text the Party can read, such as an inscription, letter or song. For each conclusion the Party needs, place three independent Clues in different places (a person, an object, a place). Add the signs Players notice in the World before anyone explains them.
 6. **Narration.** Hand `theatre-of-the-mind` the As it is told slot: the common telling, in a teller's voice.
-7. **File** to `wiki/templates/Lore.md` in `<World>/Lore/`:
+7. **File** to `wiki/templates/Lore.md` in `<campaign-folder>/Lore/` (a page already filed keeps its folder):
    - **At a glance:** the truth in one sentence and who knows it. Add its limits and how it reaches play.
    - **Play:** what Players notice and the accounts with their holders. List each Clue with the page it appears on.
    - **Depth:** the full truth in `###` parts titled for their content, such as `Chronology`, `How it works` or `Tenets`.

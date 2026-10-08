@@ -1,10 +1,10 @@
 - id: cliffhanger-scene
   source_pages:
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
-    - The Shattered Sea/Creatures/Terror-Bird.md
-    - The Shattered Sea/Shattered Sea/Shattered Sea.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Prep.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Terror-Birds.md
+    - shattered-sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
+    - shattered-sea/Creatures/Terror-Bird.md
+    - shattered-sea/Shattered Sea.md
   prompt: >-
     Redo Terror-Birds as a crossing the Party can actually get through, not a
     fight to the death. They may be carrying people, and Jean-Claude is awake.
@@ -12,9 +12,9 @@
     Razer-Grass.
   checks:
     pages:
-      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md
+      - shattered-sea/Sessions/Session 12/Session 12 - Terror-Birds.md
     sections:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md:
+      shattered-sea/Sessions/Session 12/Session 12 - Terror-Birds.md:
         - '## At a glance'
         - '## Play'
         - '### Stakes'
@@ -31,7 +31,7 @@
         - '### Threads'
         - '### Spotlight'
     canon:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Terror-Birds.md:
+      shattered-sea/Sessions/Session 12/Session 12 - Terror-Birds.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Cliffhanger\s*$'
         - '^> \[!narration\] Opening\s*$'

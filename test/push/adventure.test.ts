@@ -19,8 +19,8 @@ beforeAll(async () => {
 
 describe("buildPlan for Salt and Lantern, Session 2", () => {
 	it("names the module and the Adventure for the Campaign", () => {
-		expect(plan.world).toBe("Lowtide");
-		expect(plan.moduleId).toBe("cf-lowtide-salt-and-lantern");
+		expect(plan.campaignFolder).toBe("salt-and-lantern");
+		expect(plan.moduleId).toBe("cf-salt-and-lantern");
 		expect(plan.adventureId).toMatch(/^[A-Za-z0-9]{16}$/);
 	});
 
@@ -56,7 +56,7 @@ describe("buildPlan for Salt and Lantern, Session 2", () => {
 		const html: string = page.text.content;
 		expect(html).toContain("The lamp is lit, and I am keeping it.");
 		expect(html).toContain("<img");
-		expect(html).toContain("modules/cf-lowtide-salt-and-lantern/assets/Hobb-s-Warning-Handout.webp");
+		expect(html).toContain("modules/cf-salt-and-lantern/assets/Hobb-s-Warning-Handout.webp");
 		expect(html).not.toMatch(/Kind\.|Letter|Presented as|DM hands|Play|Session 2 - Nib/);
 	});
 
@@ -93,7 +93,7 @@ describe("buildPlan for Salt and Lantern, Session 2", () => {
 		const scene = find("Scene", "Session 2 - Mud Under the Boards");
 		expect(scene.grid).toMatchObject({ size: 64, distance: 5 });
 		expect([scene.width, scene.height]).toEqual([640, 448]);
-		expect(scene.levels[0].background.src).toBe("modules/cf-lowtide-salt-and-lantern/assets/Session-2-Mud-Under-the-Boards-Battle-Map.webp");
+		expect(scene.levels[0].background.src).toBe("modules/cf-salt-and-lantern/assets/Session-2-Mud-Under-the-Boards-Battle-Map.webp");
 		expect(scene.walls).toHaveLength(6);
 		expect(scene.lights).toHaveLength(1);
 		expect(scene.tokens.map((t: Bag) => t.name)).toEqual(["Mire Drowner"]);

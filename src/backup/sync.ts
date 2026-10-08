@@ -37,6 +37,8 @@ export function planBackup(walk: WalkResult, map: BackupMap, scope: Scope, optio
 	const createFiles = walk.files.filter((f) => !live(f.path));
 	const inScope = (f: BackupFile): boolean => scope.kind === "all" || scope.changed.has(f.path) || !live(f.path);
 	const writeFiles = walk.files.filter((f) => {
+		// A page whose path the layout changed is rewritten whatever the scope, so its header names the new path.
+		if (live(f.path)?.movedFrom !== undefined) return true;
 		if (!inScope(f)) return false;
 		const e = live(f.path);
 		if (!e || options.rewrite) return true;
@@ -74,6 +76,8 @@ export interface SyncOptions {
 export interface SyncResult {
 	created: number;
 	written: number;
+	moved: number;
+	retired: number;
 	uploaded: number;
 	deleted: number;
 	failures: { path: string; error: string }[];
@@ -178,7 +182,7 @@ const message = (error: unknown): string => (error instanceof Error ? error.mess
 export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 	const { walk, map, plan, api, log } = options;
 	const now = options.now ?? (() => new Date());
-	const result: SyncResult = { created: 0, written: 0, uploaded: 0, deleted: 0, failures: [], duplicates: [] };
+	const result: SyncResult = { created: 0, written: 0, moved: 0, retired: 0, uploaded: 0, deleted: 0, failures: [], duplicates: [] };
 	const createdHere = new Map<string, { id: string; parentId: string; createdTime: string }>();
 	const fail = (path: string, error: unknown): void => {
 		result.failures.push({ path, error: message(error) });
@@ -216,6 +220,44 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 	}
 
 	await checkConcurrentCreates(options, createdHere, result);
+
+	// Pages the layout moved: re-parent each under its new folder, retitling folder pages (whose title is the old
+	// folder's name), then clear movedFrom once every write below has refreshed the page. Parents go first, so a
+	// folder is in place before its children re-parent under it.
+	const moved = Object.entries(map.entries)
+		.filter(([, e]) => e.movedFrom !== undefined)
+		.sort(([a], [b]) => a.split("/").length - b.split("/").length || (a < b ? -1 : 1));
+	for (const [path, entry] of moved) {
+		const parent = parentOf(path);
+		if (!parent) {
+			fail(path, new Error("parent page missing"));
+			continue;
+		}
+		try {
+			await api.move(entry.id, parent);
+			if (entry.kind === "dir") await api.retitle(entry.id, titleOf(path, "dir"), ICONS.dir);
+			result.moved++;
+		} catch (error) {
+			fail(path, error);
+		}
+	}
+
+	// Folder pages the layout left behind: trashed once their pages have moved out, so no empty shell remains.
+	for (const [path, entry] of Object.entries(map.entries).filter(([, e]) => e.retired)) {
+		try {
+			const children = (await api.children(entry.id)).filter((b) => b.type === "child_page");
+			if (children.length > 0) {
+				fail(path, new Error(`still holds ${children.length} page${children.length === 1 ? "" : "s"}; it is left until a run has moved them out`));
+				continue;
+			}
+			await api.trash(entry.id);
+			delete map.entries[path];
+			options.save(map);
+			result.retired++;
+		} catch (error) {
+			fail(path, error);
+		}
+	}
 
 	// Pages first, content second: every link target exists before any page that links to it is written.
 	const filesCreated = new Map<string, { id: string; parentId: string; createdTime: string }>();
@@ -330,6 +372,12 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 		}
 	}
 
+	// A moved page keeps `movedFrom` until both its re-parenting and its rewrite succeeded, so a failed run retries it.
+	const failed = new Set(result.failures.map((f) => f.path));
+	for (const [path, entry] of Object.entries(map.entries)) {
+		if (entry.movedFrom !== undefined && !failed.has(path)) delete entry.movedFrom;
+	}
+
 	if (result.failures.length === 0 && options.commit) {
 		map.syncedCommit = options.commit;
 		map.syncedAt = now().toISOString();
@@ -375,7 +423,10 @@ export function estimate(walk: WalkResult, map: BackupMap, plan: Plan, readSourc
 	// Each write is a clear, its appends and the header update; the Notion check lists every folder page once.
 	const writes = plan.writeFiles.length;
 	const check = 2 + Object.values(map.entries).filter((e) => e.kind === "dir").length;
-	const requests = check + creates + appends + writes * 2 + uploads * 2 + (uploads > 0 ? 1 : 0) + plan.deletePaths.length * 2;
+	// A moved page costs a re-parent (plus a folder retitle); a retired folder a children read and a trash.
+	const movedCount = Object.values(map.entries).filter((e) => e.movedFrom !== undefined).length;
+	const retiredCount = Object.values(map.entries).filter((e) => e.retired).length;
+	const requests = check + creates + appends + writes * 2 + uploads * 2 + (uploads > 0 ? 1 : 0) + plan.deletePaths.length * 2 + movedCount * 2 + retiredCount * 2;
 	const skills = new Set(walk.files.filter((f) => f.path.startsWith(".agents/skills/")).map((f) => f.path.split("/")[2])).size;
 	return {
 		markdown: walk.files.filter((f) => f.kind === "markdown").length,

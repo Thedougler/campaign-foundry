@@ -42,7 +42,7 @@ export function formatPush(result: PushResult, campaign: string, show: (path: st
 	const { plan } = result;
 	const out: string[] = [];
 	const verb = result.dryRun ? "would push" : result.upToDate ? "up to date" : "pushed";
-	out.push(`${verb}: Session ${plan.session} of ${campaign} (${plan.world}), module ${plan.moduleId}`);
+	out.push(`${verb}: Session ${plan.session} of ${campaign} (folder ${plan.campaignFolder}), module ${plan.moduleId}`);
 	for (const [type, label] of TYPES) {
 		const c = result.counts[type];
 		if (c.added + c.updated + c.unchanged > 0) out.push(`  ${label.padEnd(15)} ${c.added} added, ${c.updated} updated, ${c.unchanged} unchanged`);
@@ -65,7 +65,7 @@ export function pushJson(result: PushResult, campaign: string): string {
 			ok: true,
 			dryRun: result.dryRun,
 			upToDate: result.upToDate,
-			world: plan.world,
+			campaignFolder: plan.campaignFolder,
 			campaign,
 			session: plan.session,
 			module: { id: plan.moduleId, path: result.modulePath ?? null, version: result.version ?? null, installedTo: result.installedTo ?? null },
@@ -102,7 +102,7 @@ export function pushCommand(): Command {
 			`
 What it does:
   Reads the Session's pages, renders them as Foundry documents and compares each with the last Push (kept in
-  <root>/.push/<World>/<Campaign>.json, outside the Wiki):
+  <root>/.push/<Campaign folder>.json, outside the Wiki):
     journals       one per page, GM-only; a Handout is Player-visible and carries only its [!narration] callout and image
     actors         a dnd5e npc per Creature, and one per NPC that has a Creature, under the NPC's name
     items          a dnd5e Item per Item page, with its full rules text
@@ -110,7 +110,7 @@ What it does:
                    embedded Creature, and walls, doors and lights from a "<Page> - Battle Map.uvtt" (or .dd2vtt) beside it
   Every document has an ID derived from its Wiki page, so importing again updates it instead of duplicating it. PCs are
   never pushed. The module is packed with the official Foundry CLI; nothing needs a running Foundry. Afterwards it appends
-  a "push" entry to the World's log.md. A second Push with no Wiki change packs nothing and says "up to date".
+  a "push" entry to the Campaign folder's log.md. A second Push with no Wiki change packs nothing and says "up to date".
 
 Examples:
   cf push --campaign "Salt and Lantern" --session 2

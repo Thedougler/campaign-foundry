@@ -71,10 +71,10 @@ export function vaultFlags(dir: string): string[] {
 	return ["--vault", join(dir, "wiki"), "--root", dir];
 }
 
-/** The generated root and Aldermoor `index.md` of a fixture, keyed by path relative to `dir`. */
+/** The generated root and campaign-folder `index.md` of a fixture, keyed by path relative to `dir`. */
 export async function readIndexes(dir: string): Promise<Map<string, string>> {
 	const out = new Map<string, string>();
-	for (const p of ["wiki/index.md", "wiki/Aldermoor/index.md"]) out.set(p, await readFile(join(dir, p), "utf8"));
+	for (const p of ["wiki/index.md", "wiki/ashes-of-the-crown/index.md"]) out.set(p, await readFile(join(dir, p), "utf8"));
 	return out;
 }
 

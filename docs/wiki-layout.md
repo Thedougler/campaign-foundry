@@ -1,31 +1,31 @@
 # Wiki layout
 
-How pages are arranged and shaped in the Wiki, an Obsidian vault. Terms are defined in `CONTEXT.md`.
+How pages are arranged and structured in the Wiki, an Obsidian vault. Terms are defined in `CONTEXT.md`.
 
 Every path starts at one of two roots:
 
-- **Vault root**: `wiki/`, the folder holding `.obsidian/`. Every `cf` command reads it as `--vault` (default `<repo root>/wiki`), and `src/` calls it `vault.dir`; "the vault root" in `cf` output means this folder. Wikilinks, `--page` values and vault-relative paths start here.
+- **Vault root**: `wiki/`, the folder containing `.obsidian/`. Every `cf` command reads it as `--vault` (default `<repo root>/wiki`), and `src/` calls it `vault.dir`. "The vault root" in `cf` output means this folder. Wikilinks, `--page` values and vault-relative paths start here.
 - **Repo root**: the git checkout, `--root`. `raw/`, `archive/`, `.cspell/` and every `sources` path start here.
 
 ```
 wiki/                          vault root
   .obsidian/                   Obsidian settings and plugins
-  .cspell-words.txt            in-world words with no page, one list for every World
-  index.md                     lists the Worlds
+  .cspell-words.txt            in-world words with no page, one list for the vault
+  index.md                     generated: each Campaign overview, then any shared pages by kind
   DM Settings.md               the DM's defaults (Session length: 4 hours)
   templates/                   one Obsidian template per page kind
-  <World>/
-    <World>.md                 World overview: tone, Calendar
-    index.md                   generated catalog of this World's pages
+  <Kind>/  attachments/        shared content, created only when a second Campaign reuses a page
+  <campaign>/                  one folder per Campaign, a lowercase-hyphenated slug with no spaces (shattered-sea)
+    <Campaign>.md              Campaign overview (type Campaign); may override DM Settings
+    <World>.md                 World overview (type World): tone, Calendar
+    campaign-config.md         tone, themes, Lines and Veils: instructions agents follow
+    hot.md                     current state of play
+    index.md                   generated catalog of this Campaign folder's pages
     log.md                     append-only record of the Agent's work
-    Locations/  NPCs/  Creatures/  Factions/  Deities/  Items/  Spells/  Vehicles/  Lore/  House Rules/
     attachments/               images and map data
-    <Campaign>/                campaign-specific types only
-      <Campaign>.md            Campaign overview; may override DM Settings
-      campaign-config.md       tone, themes, Lines and Veils: instructions agents follow
-      hot.md                   current state of play
-      PCs/  Threads/  Quests/  House Rules/
-      Sessions/Session <N>/     Prep, a page per Scene, Recap, Previously On (recounts Session N−1, read aloud at the start of N), Handouts
+    Locations/  NPCs/  Creatures/  Factions/  Deities/  Items/  Spells/  Vehicles/  Lore/  House Rules/
+    PCs/  Threads/  Quests/
+    Sessions/Session <N>/      Prep, a page per Scene, Recap, Previously On (recounts Session N−1, read aloud at the start of N), Handouts
 raw/                           Raw: waiting to be ingested; flat, no folders (outside the vault)
 archive/                       Archive: already ingested; flat, no folders (outside the vault); also each Transcript's Session Ledger and recording
 .cspell/dnd-terms.txt          D&D rules terms for spelling (outside the vault)
@@ -33,27 +33,38 @@ archive/                       Archive: already ingested; flat, no folders (outs
 
 ## Pages
 
-- **One vault, many Worlds.** A Campaign folder appears only once that Campaign exists.
-- **Minimal properties.** Every page carries `type`, `summary` (one line) and `sources` (repo-relative paths of the archived Raw it was built from, such as `archive/session-11-transcript.md`, as plain strings because `archive/` is outside the vault), plus `kind` where its page kind has kinds (Location, Scene). Page-kind properties are added only where needed: `parent` on a Location, `creature` on an NPC, an in-world `date` on Prep, Recap, Previously On and `hot.md`, `status` on a Thread or Quest, `dndbeyond_url` on a PC, and `session_length_hours` on `DM Settings` and on a Campaign that overrides it. Links in properties are quoted wikilinks: `parent: "[[The Shattered Sea]]"`.
-- **Nesting is a link.** A Location names its containing Location in `parent`. Folders stay flat by kind.
-- **Page names.** A page is named for what it is in the World: `Ravenhold`, `Captain Morrow`. Only fixed and generated files keep lowercase names (`campaign-config`, `hot`, `index`, `log`). A Session's pages, Handouts aside, are named `Session <N> - <kind or Scene title>`: `Session 3 - Prep`, `Session 3 - Recap`, `Session 3 - The Drowned Bell`. On a real collision anywhere in the vault, add a parenthetical: `Ravenhold (Keep)`.
-- **Every page is reachable.** Each page has a link in from another page, other than the roots (`index.md`, `DM Settings`, World and Campaign overviews, `log.md`, `hot.md`). A link held in a property counts both ways, since the target's Base lists the page.
-- **Links are wikilinks.** Images are embedded as `![[file]]` from the World's `attachments/`, named `<Page> - <Kind>.webp` (`Portrait`, `Battle Map`, `Handout`). A battle map is 64 px per 5-foot square, so its size in pixels gives its Foundry grid; its walls, doors and lights come from a Universal VTT file beside it (`<Page> - Battle Map.uvtt` or `.dd2vtt`). Push builds a Foundry scene for each Scene whose page, or a Site it links, embeds a battle map.
-- **Anatomy, in table-pressure order:** at a glance (the summary plus the 3–5 facts needed in ten seconds), then Narration in a `[!narration]` callout, then Play (what it does at the table), then Depth (history, hidden truths, Threads), then Links (rendered from properties or an embedded Base).
-- **Templates define pages.** A page kind's template in `templates/` is the single source of its shape. The gate reads each page's required properties and sections from its template, so editing a template changes how every page of that kind is checked. There are no separate schema files. The reading rules:
+- **One vault, many Campaigns.** A Campaign folder appears once that Campaign exists. A shared kind folder at the vault root appears once a second Campaign reuses a page.
+- **Minimal properties.** Every page records `type`, `summary` (one line) and `sources` in its frontmatter, plus `kind` where its page kind has kinds (Location, Scene). The `sources` values are repo-relative paths of the archived Raw the page was built from, such as `archive/session-11-transcript.md`, written as plain strings because `archive/` is outside the vault. Page-kind properties are added only where needed: `parent` on a Location, `creature` on an NPC, an in-world `date` on Prep, Recap, Previously On and `hot.md`, `status` on a Thread or Quest, `dndbeyond_url` on a PC, and `session_length_hours` on `DM Settings` and on a Campaign that overrides it. Links in properties are quoted wikilinks: `parent: "[[The Shattered Sea]]"`.
+- **Nesting is a link.** A Location records its containing Location in `parent`. Each kind has one flat folder.
+- **Page names.** A page is named for what it is in the World: `Ravenhold`, `Captain Morrow`. Only fixed and generated files use lowercase names (`campaign-config`, `hot`, `index`, `log`). A Session's pages, Handouts aside, are `Session <N> - <kind or Scene title>`: `Session 3 - Prep`, `Session 3 - Recap`, `Session 3 - The Drowned Bell`. On a real collision anywhere in the vault, add a parenthetical: `Ravenhold (Keep)`.
+- **Every page is reachable.** Each page has a link in from another page, other than the roots (`index.md`, `DM Settings`, World and Campaign overviews, `log.md`, `hot.md`). A link in a property counts both ways, since the target's Base lists the page.
+- **Links are wikilinks.** Images are embedded as `![[file]]` from the Campaign folder's `attachments/` (or the shared `attachments/` once one exists), named `<Page> - <Kind>.webp` (`Portrait`, `Battle Map`, `Handout`). A battle map is 64 px per 5-foot square, so its size in pixels gives its Foundry grid. Its walls, doors and lights come from a Universal VTT file beside it (`<Page> - Battle Map.uvtt` or `.dd2vtt`). Push builds a Foundry scene for each Scene whose page, or a Site it links, embeds a battle map.
+- **Anatomy, in table-pressure order.** The sections run in this order:
+  1. At a glance: the summary plus the three to five facts needed in ten seconds.
+  2. Narration in a `[!narration]` callout.
+  3. Play: what it does at the table.
+  4. Depth: history, hidden truths, Threads.
+  5. Links: rendered from properties or an embedded Base.
+- **Templates define pages.** A page kind's template in `templates/` states that kind's required properties and sections. The gate reads them from the template, so editing a template changes how every page of that kind is checked. There are no separate schema files. The reading rules:
   - A page's template is `templates/<type>.md`, or `templates/<type> - <kind>.md` for page kinds with kinds. `type` values are the glossary terms, plus `hot` and `DM Settings`.
-  - Every frontmatter key in a template is required on the page. `type` and `kind` carry their literal values; `summary` is never blank; any other key may be blank where it doesn't apply (`parent` on a top-level Region).
-  - Every `##` heading in a template is a required section, in template order, unless its guidance comment opens with `Optional.` (`%% Optional. Include it when … %%`). A page leaves an optional section out or keeps it in template order; `cf check --fix` deletes an empty one. `###` headings are optional structure: a page keeps the ones it has content for. Every callout type in a template is required on the page, under the section the template puts it in.
-  - Authoring guidance lives in `%% %%` comments, which a finished page removes. Each section's comment says when to include it and what goes in it, and is written to pass `bun run cf -- check` as page prose.
-- **New page kinds.** A page kind joins the Wiki in four places, each beside its nearest sibling kind's entry: its template, `templates/<type>.md`, copying the sibling's frontmatter keys and `## Links` Base and following the anatomy above; its glossary term in `CONTEXT.md` (`**<type>**:`, a one-line definition, then an `_Avoid_:` line), which Ingest's judge reads as the kind's rubric; its folder in the tree at the top; and its entry in each `src/` list or table of page `type`s that names the sibling (`grep -rnw <sibling type> src` finds each).
-- **Words.** Spelling is British. An in-world name passes by having a page, which also hides it from Vale's wording rules (so the Countless faction is not filler); an in-world word or name that no page template fits (a month, an item's command word), or a real-world word no dictionary in the gate has (`bodhran`), goes in `wiki/.cspell-words.txt` at the vault root, and a rules term in `.cspell/dnd-terms.txt` at the repo root. The Names ladder in `skill://lint` decides which.
-- **PC sides.** `bun run cf -- pull` replaces the `Sheet`, `Spells` and `Inventory` sections whole from the PC's `dndbeyond_url` and never touches `Story`, `Goals and bonds` or `Plans`. It fills `summary` only when blank, and logs a `pull` only when a page changed.
-- **Played Sessions are records.** Once a Session is played and ingested, its Prep, Scenes, Recap and Previously On record what was planned and what happened. Later work changes the pages they link to, never these. Narration the Players have heard at the table belongs to that record too: later work adds to it (a new tell) and rewrites it only when the DM asks or to fix a `bun run cf -- check` finding, keeping every fact.
-- **Handouts.** Push shows Players only a Handout's `[!narration]` callout and the image embedded under it; the rest of the page stays with the DM.
-- **Stat blocks.** A Creature's `## Statblock` holds one Fantasy Statblocks block (`layout: Basic 5e Layout`). Other pages link the Creature (an NPC through `creature`). Only an Encounter where it is fought embeds the block, as `![[Creature#Statblock]]`; no page retypes it.
+  - Every frontmatter key in a template is required on the page. `type` and `kind` state their literal values. `summary` is never blank. Any other key may be blank where it doesn't apply (`parent` on a top-level Region).
+  - Every `##` heading in a template is a required section, in template order, unless its guidance comment opens with `Optional.` (`%% Optional. Include it when … %%`). A page leaves an optional section out or keeps it in template order, and `cf check --fix` deletes an empty one. `###` headings are optional structure: a page keeps the ones it has content for. Every callout type in a template is required on the page, under the section the template puts it in.
+  - Authoring guidance is written in `%% %%` comments, which a finished page removes. Each section's comment says when to include the section and what goes in it, and is written to pass `bun run cf -- check` as page prose.
+- **New page kinds.** A page kind joins the Wiki in four places, each beside its nearest sibling kind's entry:
+  - Its template, `templates/<type>.md`, copying the sibling's frontmatter keys and `## Links` Base and following the anatomy above.
+  - Its glossary term in `CONTEXT.md` (`**<type>**:`, a one-line definition, then an `_Avoid_:` line), which Ingest's judge reads as the kind's rubric.
+  - Its folder in the tree at the top.
+  - Its entry in each `src/` list or table of page `type`s that references the sibling (`grep -rnw <sibling type> src` finds each).
+- **Words.** Spelling is British. An in-world name passes by having a page, which also hides it from Vale's wording rules (so the Countless faction is not filler). An in-world word or name that no page template fits (a month, an item's command word), or a real-world word no dictionary in the gate has (`bodhran`), goes in `wiki/.cspell-words.txt` at the vault root. A rules term goes in `.cspell/dnd-terms.txt` at the repo root. The Names ladder in `skill://lint` decides which.
+- **PC sides.** `bun run cf -- pull` replaces the `Sheet`, `Spells` and `Inventory` sections whole from the PC's `dndbeyond_url`. It never touches `Story`, `Goals and bonds` or `Plans`. It fills `summary` only when blank, and logs a `pull` only when a page changed.
+- **Played Sessions are records.** Once a Session is played and ingested, its Prep, Scenes, Recap and Previously On record what was planned and what happened. Later work changes the pages they link to, never these. Narration the Players have heard at the table belongs to that record too. Later work adds to it (a new tell) and rewrites it only when the DM asks or to fix a `bun run cf -- check` finding. The rewrite keeps every fact.
+- **Handouts.** Push shows Players only a Handout's `[!narration]` callout and the image embedded under it. The rest of the page stays with the DM.
+- **Stat blocks.** A Creature's `## Statblock` contains one Fantasy Statblocks block (`layout: Basic 5e Layout`). Other pages link the Creature (an NPC through `creature`). Only an Encounter where it is fought embeds the block, as `![[Creature#Statblock]]`. No page retypes it.
 
 ## index, log and hot
 
-- **`index.md`** is generated by `bun run cf -- index` from every page's `summary` and never edited by hand. The root `index.md` lists the Worlds; each World's `index.md` lists every page in it, Campaigns and Sessions included, grouped by page kind as `[[Page]] — summary`. The gate fails a missing or stale index, and `bun run cf -- check --fix` regenerates it.
-- **`log.md`** is append-only, one entry per Agent operation, written by `bun run cf -- log` once the operation's edits pass the gate: `## [YYYY-MM-DD] create|ingest|prep|push|audit|pull|query|lint | Title` (`create` is worldbuilding outside Ingest and Prep), then one `- [[Page]]` bullet per page touched. It uses real-world dates and rotates to `log-YYYY.md` each year.
-- **`hot.md`** is rewritten, never appended, after every Ingest and Prep, and nothing else writes it. It holds about 500 words (the gate fails over 550): the Party's in-world date and Location, the active Threads, what changed last Session and what's next. It is for orientation, not evidence.
+Each Campaign folder has its own `index.md`, `log.md` and `hot.md`. The vault root has only the generated `index.md`.
+
+- **`index.md`** is generated by `bun run cf -- index` from every page's `summary` and is never edited by hand. The root `index.md` lists each Campaign overview, then any shared pages by kind. Each Campaign folder's `index.md` lists every page in it, Sessions included, grouped by page kind, each entry a `[[Page]]` link, then an em dash, then the page's summary. The gate fails a missing or stale index, and `bun run cf -- check --fix` regenerates it.
+- **`log.md`** is append-only, one entry per Agent operation, written by `bun run cf -- log --campaign "<Campaign>"` once the operation's edits pass the gate: `## [YYYY-MM-DD] create|ingest|prep|push|audit|pull|query|lint | Title` (`create` is worldbuilding outside Ingest and Prep), then one `- [[Page]]` bullet per page touched. It uses real-world dates and rotates to `log-YYYY.md` each year.
+- **`hot.md`** is rewritten, never appended, after every Ingest and Prep. Only Ingest and Prep write it. It is for orientation, not evidence, and stays under about 500 words (the gate fails over 550). It records the Party's in-world date and Location, the active Threads, the last Session's changes and what comes next.

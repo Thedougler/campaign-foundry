@@ -1,12 +1,13 @@
 # Grounded successor adaptation; original Campaign/PC creation asks were not recovered.
 - id: successor-campaign
   source_pages:
-    - The Shattered Sea/Shattered Sea/Shattered Sea.md
-    - The Shattered Sea/Shattered Sea/campaign-config.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
+    - shattered-sea/Shattered Sea.md
+    - shattered-sea/The Shattered Sea.md
+    - shattered-sea/campaign-config.md
+    - shattered-sea/PCs/Delmar Fisk.md
+    - shattered-sea/PCs/Perrin Black-Jaw.md
+    - shattered-sea/PCs/Jean-Claude Tabarnack.md
+    - shattered-sea/PCs/Crissdalynn Khinriss.md
   prompt: >-
     We're ending Shattered Sea here and starting a successor, Next Wake, with
     the same four Players and PCs at the current Aruhe camp. Keep the crew
@@ -25,19 +26,23 @@
     Keep the earlier Campaign as a record. Session 12 has not happened yet.
   checks:
     pages:
-      - The Shattered Sea/Next Wake/Next Wake.md
-      - The Shattered Sea/Next Wake/campaign-config.md
-      - The Shattered Sea/Next Wake/hot.md
+      - next-wake/Next Wake.md
+      - next-wake/campaign-config.md
+      - next-wake/hot.md
+      - The Shattered Sea.md
     sections:
-      The Shattered Sea/Next Wake/Next Wake.md:
+      next-wake/Next Wake.md:
         - '## At a glance'
         - '## Play'
         - '## Depth'
         - '## Links'
     canon:
-      The Shattered Sea/Next Wake/Next Wake.md:
+      next-wake/Next Wake.md:
         - '^type:\s*Campaign\s*$'
-      The Shattered Sea/log.md:
+        - '\[\[next-wake/campaign-config\|'
+      The Shattered Sea.md:
+        - '^type:\s*World\s*$'
+      next-wake/log.md:
         - '^## \[\d{4}-\d{2}-\d{2}\] create \| New Campaign: Next Wake'
   rubrics:
     - >-
@@ -54,15 +59,79 @@
       prerequisite, keeps unsupported sheet data unknown, and does not
       invent statistics.
     - >-
-      The new Campaign has direct-World placement, usable starting hot/config
-      and three to five active Threads, with no speculative future folders.
-      Party state and uncertain date follow this run's Campaign and played
-      records, rather than conflicting hot claims or Session 12 plans.
-      Its creation log covers the new pages; the reply distinguishes delivered
-      content from unresolved pull prerequisites and claims no unobserved pull.
+      The new Campaign has its own Campaign folder, next-wake/, holding its
+      overview, config, hot, PCs and three to five active Threads, with no
+      speculative future folders. The earlier Campaign's PCs and records stay
+      in shattered-sea/. The World overview moves whole to the vault root with
+      its content unchanged; any other setting page the new Campaign moves sits
+      in its top-level kind folder with its content unchanged, and every page
+      it only cites stays in place, linked. Party state and uncertain date
+      follow this run's Campaign and played records, rather than conflicting
+      hot claims or Session 12 plans. Its creation log covers the new and
+      moved pages; the reply distinguishes delivered content from unresolved
+      pull prerequisites and claims no unobserved pull.
     - >-
       The new config's Tone section carries the kept table tone as one
       sentence the DM could say aloud, plus how that tone builds an NPC and
       what it adds to a scene beyond the external threat. All three stay
       grounded in the earlier Campaign's tone and the DM's request, rather
       than a stock formula or a newly invented tone.
+# A new setting founded before the Party exists; carried over from the retired new-world suite, whose original ask was not recovered.
+- id: sourced-new-setting
+  source_pages:
+    - shattered-sea/The Shattered Sea.md
+    - shattered-sea/Locations/Calven and Calveno.md
+  prompt: >-
+    Start a new Campaign, Renewal Tides, in a new World called Shattered Sea
+    Renewal, inspired by the Shattered Sea. Keep its maritime magic and
+    technology, dangerous navigation, rival colonial powers, tribute, rescue
+    and freedom themes. Start around a Calveno-like harbour and nearby island
+    routes, with just enough people and powers to begin play later. Keep the
+    dark heroic tone, with no sexual violence. You choose the new names and
+    additional Deities, and design a complete Calendar starting in 1495 DR.
+    Reuse the recorded cosmology and history where they fit. The Players and
+    their characters aren't settled yet; we'll add them later.
+  checks:
+    pages:
+      - renewal-tides/Renewal Tides.md
+      - renewal-tides/Shattered Sea Renewal.md
+      - renewal-tides/campaign-config.md
+      - renewal-tides/hot.md
+      - renewal-tides/index.md
+      - renewal-tides/log.md
+    sections:
+      renewal-tides/Shattered Sea Renewal.md:
+        - '## At a glance'
+        - '## Calendar'
+        - '## Depth'
+        - '## Links'
+    canon:
+      renewal-tides/Shattered Sea Renewal.md:
+        - '^type:\s*World\s*$'
+      renewal-tides/Renewal Tides.md:
+        - '^type:\s*Campaign\s*$'
+      renewal-tides/log.md:
+        - '^## \[\d{4}-\d{2}-\d{2}\] create \| New Campaign: Renewal Tides'
+  rubrics:
+    - >-
+      The supplied vision and creative delegation produce a usable Calendar,
+      competing Faction wants and a compact connected starting region, without
+      a redundant interview. Required sections contain runnable content at
+      skeleton scale rather than a catalogue of future adventures.
+    - >-
+      Reused material is grounded in this run's retrieved Shattered Sea sources.
+      Adapted names, Calendar and added Deities are new design, not claims about
+      existing Shattered Sea Canon. Needed rules figures have complete owners
+      and traceable retrieved sources or an explicit account of invention.
+    - >-
+      Three to five Factions, a handful of Locations and NPCs, a few Deities
+      and two or three Lore pages form a linked skeleton with correct parents,
+      all inside renewal-tides/. Supporting owners serve that skeleton; Quests,
+      Sessions and empty future folders wait for later work. The source World
+      and played records stay unchanged and unlinked from the new setting, and
+      the one creation log entry accounts for the new content.
+    - >-
+      The Campaign starts with no PC pages: its overview and the reply record
+      the Players and PCs as still to be set, rather than inventing a Party.
+      Its three to five Threads grow from the new Factions' agendas, each
+      linked from its Faction's Threads section.

@@ -1,13 +1,13 @@
 # Unique circumstance: chat-only Narration delivery without editing the Item page.
 - id: fatespinner-chat
   source_pages:
-    - The Shattered Sea/Items/Fate Spinner.md
+    - shattered-sea/Items/Fate Spinner.md
   prompt: >-
     Show me an improved version of the Fate Spinner narration block in the
     chat without editing the file itself.
   checks:
     canon:
-      The Shattered Sea/Items/Fate Spinner.md:
+      shattered-sea/Items/Fate Spinner.md:
         - 'A four-sided quartz top no bigger than a thumb stays cool in a warm hand'
   rubrics:
     - >-

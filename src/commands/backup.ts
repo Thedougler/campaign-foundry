@@ -121,6 +121,8 @@ Examples:
 				why,
 				create: { root: plan.createRoot, dirs: plan.createDirs.length, files: plan.createFiles.length },
 				write: plan.writeFiles.length,
+				move: Object.values(map.entries).filter((e) => e.movedFrom !== undefined).length,
+				retire: Object.values(map.entries).filter((e) => e.retired).length,
 				delete: plan.deletePaths.length,
 				skipped: walk.skipped.length,
 			};
@@ -137,6 +139,8 @@ Examples:
 					`  skills     ${est.skills} under .agents/skills (.claude/skills not walked: its entries link here)`,
 					`  pages      ${plan.createRoot ? "backup root + " : ""}${plan.createDirs.length} directory and ${plan.createFiles.length} file pages to create`,
 					`  write      ${plan.writeFiles.length} pages, ~${est.blocks} blocks`,
+					...(summary.move > 0 ? [`  move       ${summary.move} pages to re-parent under their new folder pages`] : []),
+					...(summary.retire > 0 ? [`  retire     ${summary.retire} folder pages the layout left behind, trashed once empty`] : []),
 					`  delete     ${plan.deletePaths.length} pages to flag as deleted from repo`,
 					`  requests   ~${est.requests} at 3/s, about ${est.minutes} min`,
 					`  skipped    ${walk.skipped.length} paths (${[...new Set(walk.skipped.map((s) => s.reason))].join("; ") || "none"})`,
@@ -148,7 +152,7 @@ Examples:
 			}
 
 			if (!api || !reconciled) throw new Error("unreachable: a real run reconciles with Notion first");
-			log(`backing up (${scope.kind}: ${why}): ${plan.createDirs.length + plan.createFiles.length} pages to create, ${plan.writeFiles.length} to write, ${plan.deletePaths.length} to flag deleted`);
+			log(`backing up (${scope.kind}: ${why}): ${plan.createDirs.length + plan.createFiles.length} pages to create, ${plan.writeFiles.length} to write, ${summary.move} to move, ${summary.retire} folder pages to retire, ${plan.deletePaths.length} to flag deleted`);
 			const result = await runBackup({
 				walk,
 				map,
@@ -173,7 +177,7 @@ Examples:
 			else {
 				process.stdout.write(
 					[
-						`backed up: ${result.created} pages created, ${result.written} written, ${result.uploaded} images uploaded, ${result.deleted} flagged deleted`,
+						`backed up: ${result.created} pages created, ${result.written} written, ${result.moved} moved, ${result.retired} retired, ${result.uploaded} images uploaded, ${result.deleted} flagged deleted`,
 						`root: ${map.root?.url ?? "(not created)"}`,
 						result.syncedCommit ? `synced commit: ${result.syncedCommit.slice(0, 7)}` : "synced commit unchanged: rerun to retry the failures",
 						...(result.failures.length > 0 ? ["", "failures:", ...result.failures.map((f) => `  - ${f.path}: ${f.error}`)] : []),

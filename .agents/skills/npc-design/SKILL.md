@@ -9,10 +9,10 @@ An NPC is a named person who wants something now, with agency and a story. Their
 
 ## Guardrails
 
-- The caller's `root`, `vault`, and World are authoritative. In an isolated fixture, scope every read, search, edit, command, index, and log to that target. Leave the ambient live Wiki untouched.
+- The caller's `root`, `vault`, and Campaign are authoritative. In an isolated fixture, scope every read, search, edit, command, index, and log to that target. Leave the ambient live Wiki untouched.
 - Read `CONTEXT.md`, `docs/wiki-layout.md`, and `wiki/templates/NPC.md`. The NPC template alone defines the page's sections and properties. Do not copy headings, fields, or paths from intent material.
 - Canon precedence is explicit DM instruction, what the DM or Players established at the table and the played Session record, then the Wiki, then Raw. Preserve existing facts, heard Narration, played Session pages, and `hot.md`. An explicit DM change overrides them. When Canon is silent, choose one concrete answer at the selected scale, file it as Canon, and report the decision with the pages it grew from. Never ask for bookkeeping approval or confirmation of edits.
-- Before invention, read the target World's `index.md`, the active Campaign's `hot.md` when one exists, and the last ten entries of the target World's `log.md`. Then use target-scoped QMD retrieval for the NPC, backlinks, home Location, Faction, connected people, relevant Threads and Recaps, and each relevant PC's `Goals and bonds` and `Plans`. Record every used hit or a reason it is irrelevant.
+- Before invention, read the target Campaign folder's `index.md`, its `hot.md`, and the last ten entries of its `log.md`. Then use target-scoped QMD retrieval for the NPC, backlinks, home Location, Faction, connected people, relevant Threads and Recaps, and each relevant PC's `Goals and bonds` and `Plans`. Record every used hit or a reason it is irrelevant.
 - Page links make pages reachable. Every new NPC, Creature, or Thread gets an incoming link other than an index link before the gate runs.
 
 ## Scale
@@ -106,7 +106,7 @@ With no active Campaign, retain the plan on the NPC in the World, do not invent 
 
 Load `theatre-of-the-mind` for the NPC template's `[!narration] First look` and write it to the recipe in [references/craft.md](references/craft.md#first-look). Preserve Narration already heard at the table unless the DM explicitly requests a rewrite.
 
-Copy `wiki/templates/NPC.md` exactly in `<World>/NPCs/`. Fill its required `At a glance`, `Play`, `Depth`, and `Links` sections with only the facts the selected scale needs. Link the Creature, Location, Faction, PCs, Threads, supporters, and other owners. If a Creature or Thread was created, file it with its own template and link it from the owner page.
+Copy `wiki/templates/NPC.md` exactly in `<campaign-folder>/NPCs/`. A page already filed keeps its folder. Fill its required `At a glance`, `Play`, `Depth`, and `Links` sections with only the facts the selected scale needs. Link the Creature, Location, Faction, PCs, Threads, supporters, and other owners. If a Creature or Thread was created, file it with its own template and link it from the owner page.
 
 **Gate:** the page has the template's required properties, sections, and callout; the first look is speakable and Player-safe; every new page is inbound-linked; no page contains agent process notes, inline rules, or empty filler.
 
@@ -125,7 +125,7 @@ Run the page gate with no `--layer` filter, given the NPC, Creature and Thread p
 For a standalone NPC creation, append one `create` entry only after the page gate reports `ok: 0 findings`:
 
 ```sh
-bun run cf -- log --world "$WORLD" --op create --title "<one-line result>" --page "$NPC_PATH" --page "$CREATURE_PATH" --page "$THREAD_PATH" --vault "$VAULT" --root "$ROOT"
+bun run cf -- log --campaign "$CAMPAIGN" --op create --title "<one-line result>" --page "$NPC_PATH" --page "$CREATURE_PATH" --page "$THREAD_PATH" --vault "$VAULT" --root "$ROOT"
 ```
 
 Omit absent `--page` values. If an enclosing Ingest, Prep, Push, Audit, Pull, or Query operation called this skill, that operation writes the log entry for the work and this skill writes none.

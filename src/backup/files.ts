@@ -3,15 +3,16 @@ import { lstatSync, readdirSync, readFileSync, realpathSync, statSync } from "no
 import { basename, extname, join, relative, sep } from "node:path";
 
 /**
- * What the Backup copies to Notion: the Shattered Sea World and the agent skills. `.claude/skills/` is left out because
- * its entries are symlinks into `.agents/skills/`; every file is backed up once, under the first root that reaches it.
+ * What the Backup copies to Notion: the Shattered Sea Campaign folder and the agent skills. `.claude/skills/` is left
+ * out because its entries are symlinks into `.agents/skills/`; every file is backed up once, under the first root that
+ * reaches it.
  */
-export const BACKUP_ROOTS = ["wiki/The Shattered Sea", ".agents/skills"] as const;
+export const BACKUP_ROOTS = ["wiki/shattered-sea", ".agents/skills"] as const;
 
 export type FileKind = "markdown" | "image" | "text";
 
 export interface BackupFile {
-	/** Repo-relative POSIX path, the key the map stores it under (`wiki/The Shattered Sea/NPCs/Ilse Corran.md`). */
+	/** Repo-relative POSIX path, the key the map stores it under (`wiki/shattered-sea/NPCs/Ilse Corran.md`). */
 	path: string;
 	kind: FileKind;
 	/** Absolute path to read the bytes from (the symlink's target for a linked skill). */

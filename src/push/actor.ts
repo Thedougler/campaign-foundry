@@ -9,7 +9,8 @@ import { markdownToHtml } from "./markdown.ts";
 import { statblockOf } from "./statblock.ts";
 
 export interface ActorOptions {
-	world: string;
+	/** The Campaign folder the documents belong to; it seeds every ID. */
+	campaign: string;
 	/** The Actor's name: the Creature's own, or the NPC's when an NPC has its own Actor. */
 	name: string;
 	/** HTML for the Actor's biography. */
@@ -180,8 +181,8 @@ function activityBase(id: string, type: string, activation: string, hasUses: boo
 	};
 }
 
-function featureItem(world: string, path: string, feature: Feature, sort: number, warnings: string[]): Doc {
-	const id = foundryId(world, path, `item:${feature.section}:${feature.name}`);
+function featureItem(campaign: string, path: string, feature: Feature, sort: number, warnings: string[]): Doc {
+	const id = foundryId(campaign, path, `item:${feature.section}:${feature.name}`);
 	const activation = ACTIVATION[feature.section];
 	const itemUses = uses(feature.name);
 	const description = markdownToHtml(feature.desc);
@@ -189,7 +190,7 @@ function featureItem(world: string, path: string, feature: Feature, sort: number
 	const base = { _id: id, name: feature.name, img: attack ? "icons/svg/sword.svg" : "icons/svg/aura.svg", sort: sort * 100_000, effects: [], flags: {}, ownership: { default: OWNERSHIP.NONE }, _stats: stats() };
 
 	if (attack) {
-		const activityId = foundryId(world, path, `activity:${feature.section}:${feature.name}`);
+		const activityId = foundryId(campaign, path, `activity:${feature.section}:${feature.name}`);
 		const reach = attack.kind === "melee" ? (attack.reach ?? attack.range?.value ?? 5) : (attack.range?.value ?? 5);
 		const activity = {
 			...activityBase(activityId, "attack", activation ?? "action", Boolean(itemUses)),
@@ -224,7 +225,7 @@ function featureItem(world: string, path: string, feature: Feature, sort: number
 		return { ...base, type: "feat", system: { description: { value: description, chat: "" }, type: { value: "monster", subtype: "" }, identifier: slug(feature.name), properties: ["trait"], ...(itemUses ? { uses: itemUses } : {}), activities: {} } };
 	}
 	if (/^\*?(Melee|Ranged)( or Ranged)? Attack Roll:/i.test(feature.desc.trim()) && !attack) warnings.push(`${feature.name}: the attack text did not parse; it is a feature with its text, not an attack.`);
-	const activityId = foundryId(world, path, `activity:${feature.section}:${feature.name}`);
+	const activityId = foundryId(campaign, path, `activity:${feature.section}:${feature.name}`);
 	return {
 		...base,
 		type: "feat",
@@ -279,9 +280,9 @@ export function buildActor(page: Page, options: ActorOptions): BuiltActor {
 	const legendary = sb.features.some((f) => f.section === "legendary_actions");
 	const legendaryCount = Number(/(\d+)\s+Legendary Action/i.exec(text("legendary_description"))?.[1] ?? (legendary ? 3 : 0));
 
-	const items = sb.features.map((f, i) => featureItem(options.world, options.idPath ?? page.path, f, i + 1, warnings));
+	const items = sb.features.map((f, i) => featureItem(options.campaign, options.idPath ?? page.path, f, i + 1, warnings));
 	const idPath = options.idPath ?? page.path;
-	const id = foundryId(options.world, idPath, options.role ?? "");
+	const id = foundryId(options.campaign, idPath, options.role ?? "");
 	const img = options.img ?? "icons/svg/mystery-man.svg";
 	const di = traitList(text("damage_immunities"), DAMAGE_TYPES);
 	const dr = traitList(text("damage_resistances"), DAMAGE_TYPES);

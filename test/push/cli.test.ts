@@ -36,13 +36,13 @@ describe("cf push", () => {
 		const ws = await workspace();
 		const result = await cf(["push", ...flags(ws.root)], ws.root);
 		expect(result.code).toBe(0);
-		expect(result.stdout).toContain("pushed: Session 2 of Salt and Lantern (Lowtide)");
+		expect(result.stdout).toContain("pushed: Session 2 of Salt and Lantern (folder salt-and-lantern)");
 		expect(result.stdout).toMatch(/foundry scenes\s+1 added, 0 updated, 0 unchanged/);
 		expect(result.stdout).toContain("warnings:");
-		expect(result.stdout).toContain("module: build/push/cf-lowtide-salt-and-lantern (version 0.1.0)");
+		expect(result.stdout).toContain("module: build/push/cf-salt-and-lantern (version 0.1.0)");
 		expect(result.stdout).toContain("next:");
 		expect(result.stdout).toContain("Import");
-		expect(existsSync(join(ws.root, "build/push/cf-lowtide-salt-and-lantern/module.json"))).toBe(true);
+		expect(existsSync(join(ws.root, "build/push/cf-salt-and-lantern/module.json"))).toBe(true);
 	});
 
 	it("says up to date on a second Push and packs nothing", async () => {

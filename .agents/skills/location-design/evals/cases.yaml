@@ -1,14 +1,14 @@
 # Default: grounded Calveno harbour adaptation, expanded to the Settlement and its ordinary Le Paludi Site.
 - id: location
   source_pages:
-    - The Shattered Sea/Locations/Calven and Calveno.md
-    - The Shattered Sea/Locations/Le Paludi.md
-    - The Shattered Sea/Factions/Dravosi Crown.md
-    - The Shattered Sea/Shattered Sea/hot.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - shattered-sea/Locations/Calven and Calveno.md
+    - shattered-sea/Locations/Le Paludi.md
+    - shattered-sea/Factions/Dravosi Crown.md
+    - shattered-sea/hot.md
+    - shattered-sea/PCs/Crissdalynn Khinriss.md
+    - shattered-sea/PCs/Delmar Fisk.md
+    - shattered-sea/PCs/Jean-Claude Tabarnack.md
+    - shattered-sea/PCs/Perrin Black-Jaw.md
   prompt: >-
     Deepen Calveno's harbour so I can run arrival, inspection and berth
     from the page. Keep the canal city, Crown flag and debt politics. Give
@@ -19,10 +19,10 @@
     own page too. I need what I can read as they arrive at each place.
   checks:
     pages:
-      - The Shattered Sea/Locations/Calven and Calveno.md
-      - The Shattered Sea/Locations/Le Paludi.md
+      - shattered-sea/Locations/Calven and Calveno.md
+      - shattered-sea/Locations/Le Paludi.md
     sections:
-      The Shattered Sea/Locations/Calven and Calveno.md:
+      shattered-sea/Locations/Calven and Calveno.md:
         - '## At a glance'
         - '## Play'
         - '### Districts'
@@ -32,7 +32,7 @@
         - '### Rumors'
         - '## Depth'
         - '## Links'
-      The Shattered Sea/Locations/Le Paludi.md:
+      shattered-sea/Locations/Le Paludi.md:
         - '## At a glance'
         - '## Play'
         - '### Areas'
@@ -42,19 +42,19 @@
         - '## Depth'
         - '## Links'
     canon:
-      The Shattered Sea/Locations/Calven and Calveno.md:
+      shattered-sea/Locations/Calven and Calveno.md:
         - '^type:\s*Location\s*$'
         - '^kind:\s*Settlement\s*$'
         - '^>\s*\[!narration\]\s+Arrival\s*$'
-      The Shattered Sea/Locations/Le Paludi.md:
+      shattered-sea/Locations/Le Paludi.md:
         - '^type:\s*Location\s*$'
         - '^kind:\s*Site\s*$'
         - '^parent:\s*"\[\[Calven and Calveno\]\]"\s*$'
         - '^>\s*\[!narration\]\s+Entering\s*$'
     absent:
-      The Shattered Sea/Locations/Calven and Calveno.md:
+      shattered-sea/Locations/Calven and Calveno.md:
         - '^```statblock\b'
-      The Shattered Sea/Locations/Le Paludi.md:
+      shattered-sea/Locations/Le Paludi.md:
         - '^```statblock\b'
   rubrics:
     - >-
@@ -99,15 +99,15 @@
 # Unique circumstance: map-scale Region travel needs navigation, rest and supply choices that a Settlement-and-Site visit cannot exercise.
 - id: location-region
   source_pages:
-    - The Shattered Sea/Locations/Aruhe.md
-    - The Shattered Sea/Lore/Taking on Aruhe.md
-    - The Shattered Sea/NPCs/Hinewai.md
-    - The Shattered Sea/Locations/Memorial Grove.md
-    - The Shattered Sea/Shattered Sea/hot.md
-    - The Shattered Sea/Shattered Sea/PCs/Crissdalynn Khinriss.md
-    - The Shattered Sea/Shattered Sea/PCs/Delmar Fisk.md
-    - The Shattered Sea/Shattered Sea/PCs/Jean-Claude Tabarnack.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - shattered-sea/Locations/Aruhe.md
+    - shattered-sea/Lore/Taking on Aruhe.md
+    - shattered-sea/NPCs/Hinewai.md
+    - shattered-sea/Locations/Memorial Grove.md
+    - shattered-sea/hot.md
+    - shattered-sea/PCs/Crissdalynn Khinriss.md
+    - shattered-sea/PCs/Delmar Fisk.md
+    - shattered-sea/PCs/Jean-Claude Tabarnack.md
+    - shattered-sea/PCs/Perrin Black-Jaw.md
   prompt: >-
     Expand Aruhe into at least five distinct regions, including the centre.
     The beaches should be calmest, with increasingly vicious fauna and
@@ -118,9 +118,9 @@
     including what I read as the crew first reaches each region.
   checks:
     pages:
-      - The Shattered Sea/Locations/Aruhe.md
+      - shattered-sea/Locations/Aruhe.md
     sections:
-      The Shattered Sea/Locations/Aruhe.md:
+      shattered-sea/Locations/Aruhe.md:
         - '## At a glance'
         - '## Play'
         - '### Travel'
@@ -130,12 +130,12 @@
         - '## Depth'
         - '## Links'
     canon:
-      The Shattered Sea/Locations/Aruhe.md:
+      shattered-sea/Locations/Aruhe.md:
         - '^type:\s*Location\s*$'
         - '^kind:\s*Region\s*$'
         - '^>\s*\[!narration\]\s+Arrival\s*$'
     absent:
-      The Shattered Sea/Locations/Aruhe.md:
+      shattered-sea/Locations/Aruhe.md:
         - '^```statblock\b'
   rubrics:
     - >-

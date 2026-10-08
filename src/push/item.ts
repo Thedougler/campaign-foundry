@@ -6,7 +6,8 @@ import { renderMarkdown } from "./markdown.ts";
 import type { RenderContext } from "./markdown.ts";
 
 export interface ItemOptions {
-	world: string;
+	/** The Campaign folder the document belongs to; it seeds the ID. */
+	campaign: string;
 	render: RenderContext;
 }
 
@@ -43,7 +44,7 @@ export function buildItem(page: Page, options: ItemOptions): BuiltItem {
 	const attunement = /^(none|no)\b/i.test(glance(page, "Attunement")) || glance(page, "Attunement") === "" ? "" : /optional/i.test(glance(page, "Attunement")) ? "optional" : "required";
 	const description = renderMarkdown(page, options.render, { omit: ["Depth"] });
 	const data: Doc = {
-		_id: foundryId(options.world, page.path),
+		_id: foundryId(options.campaign, page.path),
 		name: page.name,
 		type,
 		img: "icons/svg/item-bag.svg",

@@ -7,7 +7,7 @@ import { diffSince, hashAt, headCommit, usableBase } from "../../src/backup/git.
 import { contentHash } from "../../src/backup/files.ts";
 import { lfsPointer, OID, repo } from "./helpers.ts";
 
-const W = "wiki/The Shattered Sea";
+const W = "wiki/shattered-sea";
 
 function git(root: string, ...args: string[]): string {
 	return execFileSync("git", ["-c", "user.name=t", "-c", "user.email=t@t", "-c", "commit.gpgsign=false", ...args], { cwd: root, encoding: "utf8" }).trim();

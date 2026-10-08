@@ -7,7 +7,7 @@ import { throttle } from "../../src/backup/notion.ts";
 import { estimate, planBackup, type Scope } from "../../src/backup/sync.ts";
 import { backup, FakeNotion, lfsPointer, repo, textOf } from "./helpers.ts";
 
-const W = "wiki/The Shattered Sea";
+const W = "wiki/shattered-sea";
 const PARENT = "3f102166-35ec-8117-af9c-d05f042eea59";
 const ALL: Scope = { kind: "all" };
 
@@ -37,11 +37,11 @@ describe("backup sync", () => {
 		expect(map.root?.id).toBe(rootPage?.id);
 		// Directory names become parent pages, mirroring repo paths.
 		const wiki = api.byTitle("wiki");
-		const world = api.byTitle("The Shattered Sea");
+		const folder = api.byTitle("shattered-sea");
 		const npcs = api.byTitle("NPCs");
 		expect(wiki?.parent).toBe(rootPage?.id);
-		expect(world?.parent).toBe(wiki?.id);
-		expect(npcs?.parent).toBe(world?.id);
+		expect(folder?.parent).toBe(wiki?.id);
+		expect(npcs?.parent).toBe(folder?.id);
 		expect(api.byTitle("Ilse Corran")?.parent).toBe(npcs?.id);
 		expect(api.byTitle("skills")?.parent).toBe(api.byTitle(".agents")?.id);
 		// Every file and directory is in the map by repo path, with its URL.

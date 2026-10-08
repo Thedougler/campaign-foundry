@@ -20,7 +20,8 @@ export interface Manifest {
 	docs: Record<string, ManifestDoc>;
 }
 
-export const manifestPath = (root: string, world: string, campaign: string): string => join(root, ".push", world, `${campaign}.json`);
+/** Where the last Push's manifest lives: one file per Campaign folder, outside `wiki/`, gitignored. */
+export const manifestPath = (root: string, campaignFolder: string): string => join(root, ".push", `${campaignFolder}.json`);
 export const docKey = (doc: Pick<PlanDoc, "type" | "id">): string => `${doc.type}:${doc.id}`;
 
 export async function readManifest(path: string): Promise<Manifest | undefined> {

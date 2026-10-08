@@ -42,9 +42,9 @@ describe("cf context", () => {
 		);
 		expect(result.status).toBe(0);
 		expect(result.stdout.split("\n").filter((line) => line !== "")).toEqual([
-			"Lowtide/Locations/Saltwick.md\tLocation\tSaltwick",
-			"Lowtide/NPCs/Hobb Tarrow.md\tNPC\tHobb Tarrow",
-			"Lowtide/NPCs/Ilse Corran.md\tNPC\tIlse Corran",
+			"salt-and-lantern/Locations/Saltwick.md\tLocation\tSaltwick",
+			"salt-and-lantern/NPCs/Hobb Tarrow.md\tNPC\tHobb Tarrow",
+			"salt-and-lantern/NPCs/Ilse Corran.md\tNPC\tIlse Corran",
 		]);
 	});
 
@@ -63,7 +63,7 @@ describe("cf context", () => {
 	it("prints [{path,type,name}] with --json", () => {
 		const result = run(["context", "-", "--json", ...contextVault], "Ilse Corran.\n");
 		expect(result.status).toBe(0);
-		expect(JSON.parse(result.stdout)).toEqual([{ path: "Lowtide/NPCs/Ilse Corran.md", type: "NPC", name: "Ilse Corran" }]);
+		expect(JSON.parse(result.stdout)).toEqual([{ path: "salt-and-lantern/NPCs/Ilse Corran.md", type: "NPC", name: "Ilse Corran" }]);
 	});
 
 	it("exits 2 on an unreadable file", () => {

@@ -5,11 +5,11 @@ import { buildItem } from "../../src/push/item.ts";
 import type { RenderContext } from "../../src/push/markdown.ts";
 import { parsePage } from "../../src/vault/parse.ts";
 
-const vault = join(import.meta.dirname, "../fixtures/vault/Lowtide");
+const vault = join(import.meta.dirname, "../fixtures/vault/salt-and-lantern");
 const ctx: RenderContext = { target: () => undefined, image: () => undefined };
 const load = (name: string): ReturnType<typeof buildItem> => {
 	const path = `Items/${name}.md`;
-	return buildItem(parsePage(path, readFileSync(join(vault, path), "utf8")), { world: "Lowtide", render: ctx });
+	return buildItem(parsePage(path, readFileSync(join(vault, path), "utf8")), { campaign: "salt-and-lantern", render: ctx });
 };
 
 describe("buildItem", () => {

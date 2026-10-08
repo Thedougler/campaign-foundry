@@ -1,8 +1,8 @@
 # Grounded adaptation; no original Item-creation ask was recovered.
 - id: item
   source_pages:
-    - The Shattered Sea/Locations/Lava Tubes.md
-    - The Shattered Sea/Shattered Sea/PCs/Perrin Black-Jaw.md
+    - shattered-sea/Locations/Lava Tubes.md
+    - shattered-sea/PCs/Perrin Black-Jaw.md
   prompt: >-
     Design an uncommon Rescue Line Charm for Perrin to help keep people
     alive during rope rescues on wet ledges. I want something useful
@@ -11,9 +11,9 @@
     first look I can read out when the crew comes across it.
   checks:
     pages:
-      - The Shattered Sea/Items/Rescue Line Charm.md
+      - shattered-sea/Items/Rescue Line Charm.md
     sections:
-      The Shattered Sea/Items/Rescue Line Charm.md:
+      shattered-sea/Items/Rescue Line Charm.md:
         - "## At a glance"
         - "### Properties"
         - "### In use"
@@ -21,7 +21,7 @@
         - "### Hidden truths"
         - "## Links"
     canon:
-      The Shattered Sea/Items/Rescue Line Charm.md:
+      shattered-sea/Items/Rescue Line Charm.md:
         - '^type:\s*Item\s*$'
         - '\[!narration\] First look'
   rubrics:

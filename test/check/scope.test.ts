@@ -147,6 +147,7 @@ describe("runCheck execution scope", () => {
 	it("checks generated index targets against every page and fixes only the targeted index", async () => {
 		const options = await workspace({
 			"Aldermoor/Aldermoor.md": "---\ntype: World\nsummary: A river country.\n---\n",
+			"Aldermoor/Ashes of the Crown.md": "---\ntype: Campaign\nsummary: One line.\n---\n",
 			"Aldermoor/NPCs/Zorvath.md": npc("A sailor knots a rope."),
 			"index.md": "Unrelated stale index.\n",
 		});
@@ -191,7 +192,7 @@ describe("runCheck execution scope", () => {
 	it("retains the Gullhook narration and foreign shared-line findings with one checked page", { timeout: 30_000 }, async () => {
 		const options = await workspace({});
 		await cp(join(repoRoot, "test/fixtures/vault"), options.vault, { recursive: true });
-		const target = "wiki/Lowtide/Locations/Gullhook Lighthouse.md";
+		const target = "wiki/salt-and-lantern/Locations/Gullhook Lighthouse.md";
 		const full = await runCheck(options);
 		const scoped = await runCheck({ ...options, paths: [target] });
 		expect(scoped.pages).toBe(1);

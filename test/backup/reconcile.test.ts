@@ -7,7 +7,7 @@ import { headerBlock, pendingHeader, ROOT_TITLE, rootCallout } from "../../src/b
 import { ConcurrentRunError, planBackup, runBackup } from "../../src/backup/sync.ts";
 import { backup, FakeGit, FakeNotion, repo, textOf } from "./helpers.ts";
 
-const W = "wiki/The Shattered Sea";
+const W = "wiki/shattered-sea";
 const PARENT = "3f102166-35ec-8117-af9c-d05f042eea59";
 const A = "aaaaaaa000000000000000000000000000000000";
 const B = "bbbbbbb000000000000000000000000000000000";

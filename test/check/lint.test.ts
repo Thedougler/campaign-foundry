@@ -34,7 +34,7 @@ describe("cf check: mechanical repair", () => {
 
 	it("--fix does not change what a sentence asserts", async () => {
 		const dir = await copyFixture("clean");
-		const page = join(dir, "wiki/Aldermoor/NPCs/Mara Voss.md");
+		const page = join(dir, "wiki/ashes-of-the-crown/NPCs/Mara Voss.md");
 		const before = await readFile(page, "utf8");
 		await writeFile(page, `${before.trimEnd()}\n\nThe barge-tax is three coppers.\n`);
 		const { code } = await check(dir, ["--fix"]);

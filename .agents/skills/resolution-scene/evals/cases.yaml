@@ -1,17 +1,17 @@
 - id: resolution-scene
   source_pages:
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Consume.md
-    - The Shattered Sea/Shattered Sea/Shattered Sea.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Prep.md
+    - shattered-sea/Sessions/Session 12/Session 12 - The Way Out.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Consume.md
+    - shattered-sea/Shattered Sea.md
   prompt: >-
     Redo The Way Out for whatever Consume actually leaves us with: Spinner
     kept or stolen, capture, Perrin refusing, people lost, turning back.
   checks:
     pages:
-      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
+      - shattered-sea/Sessions/Session 12/Session 12 - The Way Out.md
     sections:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md:
+      shattered-sea/Sessions/Session 12/Session 12 - The Way Out.md:
         - '## At a glance'
         - '## Play'
         - '### Payoffs'
@@ -19,7 +19,7 @@
         - '### Rewards'
         - '## Threads'
     canon:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md:
+      shattered-sea/Sessions/Session 12/Session 12 - The Way Out.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Resolution\s*$'
         - '^> \[!narration\] Closing image(?:: .+)?\s*$'

@@ -104,6 +104,12 @@ export class FakeNotion implements NotionApi {
 		throw new Error(`no block ${blockId}`);
 	}
 
+	async move(pageId: string, parentId: string): Promise<void> {
+		this.record({ op: "move", id: pageId, arg: parentId });
+		const page = this.pages.get(pageId);
+		if (page) page.parent = parentId;
+	}
+
 	async clear(pageId: string): Promise<void> {
 		this.record({ op: "clear", id: pageId });
 		const page = this.pages.get(pageId);

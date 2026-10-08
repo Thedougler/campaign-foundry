@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { cf, repoRoot } from "../check/helpers.ts";
 import { lfsPointer, repo } from "./helpers.ts";
 
-const W = "wiki/The Shattered Sea";
+const W = "wiki/shattered-sea";
 
 describe("cf backup", () => {
 	it("is listed in the top-level help and documents itself with examples", async () => {

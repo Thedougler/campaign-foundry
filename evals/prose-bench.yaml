@@ -4,9 +4,9 @@
 # bench_version is the first 12 hex of this file's sha256; cache is historical.
 # No SKILL.md is loaded. The identical rubrics keep branch scores comparable.
 - id: npc-first-look
-  fixture_page: The Shattered Sea/NPCs/Cobb.md
+  fixture_page: shattered-sea/NPCs/Cobb.md
   context: |
-    Provenance: The Shattered Sea/NPCs/Cobb.md, At a glance and physical facts
+    Provenance: shattered-sea/NPCs/Cobb.md, At a glance and physical facts
     from First look (lines 9-17); archive/Cobb.md, opening move (lines 68-70).
     Facts only; the source Narration's wording is intentionally omitted.
     NPC: Cobb, a young rattkin dockworker and Nona Black-Jaw's runner.
@@ -32,9 +32,9 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: creature-first-look
-  fixture_page: The Shattered Sea/Creatures/Terror-Bird.md
+  fixture_page: shattered-sea/Creatures/Terror-Bird.md
   context: |
-    Provenance: The Shattered Sea/Creatures/Terror-Bird.md, Statblock
+    Provenance: shattered-sea/Creatures/Terror-Bird.md, Statblock
     (lines 25-60), not the placeholder First sight.
     Creature: Terror-Bird. Huge monstrosity, a ground-running bird.
     Physical evidence: moss-grown camouflage that can resemble a mossy stump
@@ -61,9 +61,9 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: item-first-look
-  fixture_page: The Shattered Sea/Items/Fate Spinner.md
+  fixture_page: shattered-sea/Items/Fate Spinner.md
   context: |
-    Provenance: The Shattered Sea/Items/Fate Spinner.md, physical facts
+    Provenance: shattered-sea/Items/Fate Spinner.md, physical facts
     extracted from First look (lines 18-19), Properties, In use and History
     (lines 25-39). Existing Narration wording is omitted.
     Item: Fate Spinner, a four-sided quartz top the size of a thumb.
@@ -90,9 +90,9 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: location-arrival
-  fixture_page: The Shattered Sea/Locations/Western Landing.md
+  fixture_page: shattered-sea/Locations/Western Landing.md
   context: |
-    Provenance: The Shattered Sea/Locations/Western Landing.md, summary,
+    Provenance: shattered-sea/Locations/Western Landing.md, summary,
     At a glance, Areas, Hazards, Occupants and History (lines 4-47).
     Site: Western Landing, Aruhe's one known usable sea approach.
     Route: one boat gap through the reef, a short shingle beach, a stream,
@@ -120,9 +120,9 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: lore-common-telling
-  fixture_page: The Shattered Sea/Lore/Two-Grave Orders.md
+  fixture_page: shattered-sea/Lore/Two-Grave Orders.md
   context: |
-    Provenance: The Shattered Sea/Lore/Two-Grave Orders.md, At a glance,
+    Provenance: shattered-sea/Lore/Two-Grave Orders.md, At a glance,
     Accounts, The full truth and Chronology (lines 12-15, 24, 30-39).
     Lore: Karath's Gold caste sent successive lower-caste Grung expeditions
     onto Aruhe. Gold seals made the bearers believe orders were their own wishes.
@@ -149,7 +149,7 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: scene-opening
-  fixture_page: The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+  fixture_page: shattered-sea/Sessions/Session 12/Session 12 - Dawn Strike.md
   context: |
     Provenance: Session 12 - Dawn Strike, At a glance and Situation
     (lines 12-15, 24), in the Wiki path named above. Physical fact keywords
@@ -181,7 +181,7 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: scene-closing-image
-  fixture_page: The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md
+  fixture_page: shattered-sea/Sessions/Session 12/Session 12 - The Way Out.md
   context: |
     Provenance: Session 12 - The Way Out, At a glance, Payoffs, Reactions
     and Stinger (lines 12-15, 24-30, 41), in the Wiki path named above.
@@ -211,7 +211,7 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: previously-on
-  fixture_page: The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
+  fixture_page: shattered-sea/Sessions/Session 11/Session 11 - Recap.md
   context: |
     Provenance: Session 11 - Recap, What happened, Changes and Threads
     (lines 19-39), in the Wiki path named above. Archive evidence companion
@@ -249,10 +249,10 @@
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
 
 - id: handout-text
-  fixture_page: The Shattered Sea/Lore/Two-Grave Orders.md
+  fixture_page: shattered-sea/Lore/Two-Grave Orders.md
   context: |
-    Provenance: The Shattered Sea/Lore/Two-Grave Orders.md, Chronology
-    (lines 36-39), and The Shattered Sea/Items/Grung Authority Seal.md,
+    Provenance: shattered-sea/Lore/Two-Grave Orders.md, Chronology
+    (lines 36-39), and shattered-sea/Items/Grung Authority Seal.md,
     In use (line 28). This payload is original recorded document speech,
     not copied Narration prose or an existing Handout answer.
     Requested document: Jean-Claude's written rendering of a spent seal's

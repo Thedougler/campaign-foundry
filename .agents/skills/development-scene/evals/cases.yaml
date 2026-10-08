@@ -1,19 +1,19 @@
 - id: development-scene
   source_pages:
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Prep.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-    - The Shattered Sea/Shattered Sea/Sessions/Session 11/Session 11 - Recap.md
-    - The Shattered Sea/Shattered Sea/Shattered Sea.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Prep.md
+    - shattered-sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
+    - shattered-sea/Sessions/Session 12/Session 12 - Dawn Strike.md
+    - shattered-sea/Sessions/Session 11/Session 11 - Recap.md
+    - shattered-sea/Shattered Sea.md
   prompt: >-
     Redo The Smoking Skylight. The survivors' smoke is the main driver for
     getting the rest of them out. Jean-Claude is awake. Get the tube rescue
     and the north-east lead runnable without turning this into a fight.
   checks:
     pages:
-      - The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
+      - shattered-sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
     sections:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md:
+      shattered-sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md:
         - '## At a glance'
         - '## Play'
         - '### Situation'
@@ -26,12 +26,12 @@
         - '### Threads'
         - '### Spotlight'
     canon:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md:
+      shattered-sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Development\s*$'
         - '^> \[!narration\] Opening\s*$'
     absent:
-      The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md:
+      shattered-sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md:
         - '^```statblock\b'
   rubrics:
     - >-

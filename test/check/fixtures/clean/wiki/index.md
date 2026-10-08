@@ -2,4 +2,4 @@
 
 # Wiki
 
-- [[Aldermoor]] — A river country on the edge of the Ashen Reach.
+- [[Ashes of the Crown]] — Four friends chase the last flame of the Crown.

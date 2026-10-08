@@ -5,47 +5,50 @@
  * table and nothing else; the placement layer reads only this module.
  *
  * A location is a directory pattern (segments from the vault root) plus a file-name rule. A segment is a
- * literal folder name, or a placeholder that binds the World, Campaign or Session folder the page sits in.
+ * literal folder name, or a placeholder that binds the Campaign or Session folder the page sits in.
  * Folders are flat by kind, so a page must sit directly in the directory, never below it.
+ *
+ * One folder per Campaign (`docs/adr/0024-campaign-folder-holds-its-world.md`): each Campaign folder
+ * holds its World's pages next to its Campaign pages, and World-content kinds are also valid at a
+ * shared top-level `<Kind>/` folder for pages several Campaigns reuse. Where a kind lists several
+ * locations, the Campaign one comes first, so fixes and hints prefer it.
  */
 
-export type Bind = "world" | "campaign" | "session";
+export type Bind = "campaign" | "session";
 export type Segment = string | { bind: Bind };
 
 export interface Location {
 	dir: Segment[];
-	/** The file name (without `.md`) must be a literal, or equal the bound World or Campaign folder name. */
-	name?: string | { bind: "world" | "campaign" };
+	/** The file name (without `.md`) must equal this literal when set. */
+	name?: string;
 }
 
-const WORLD: Segment = { bind: "world" };
 const CAMPAIGN: Segment = { bind: "campaign" };
 const SESSION: Segment = { bind: "session" };
 
-const inWorld = (folder: string): Location[] => [{ dir: [WORLD, folder] }];
-const inCampaign = (folder: string): Location[] => [{ dir: [WORLD, CAMPAIGN, folder] }];
-const inSession: Location[] = [{ dir: [WORLD, CAMPAIGN, "Sessions", SESSION] }];
+const inCampaign = (folder: string): Location[] => [{ dir: [CAMPAIGN, folder] }, { dir: [folder] }];
+const inSession: Location[] = [{ dir: [CAMPAIGN, "Sessions", SESSION] }];
 
 /** Keyed by frontmatter `type`. Where a kind has several valid locations, the most specific comes first. */
 export const PLACEMENTS: Record<string, Location[]> = {
 	"DM Settings": [{ dir: [], name: "DM Settings" }],
-	World: [{ dir: [WORLD], name: { bind: "world" } }],
-	Location: inWorld("Locations"),
-	NPC: inWorld("NPCs"),
-	Creature: inWorld("Creatures"),
-	Faction: inWorld("Factions"),
-	Deity: inWorld("Deities"),
-	Item: inWorld("Items"),
-	Spell: inWorld("Spells"),
-	Vehicle: inWorld("Vehicles"),
-	Lore: inWorld("Lore"),
-	"House Rule": [...inCampaign("House Rules"), ...inWorld("House Rules")],
-	Campaign: [{ dir: [WORLD, CAMPAIGN], name: { bind: "campaign" } }],
-	hot: [{ dir: [WORLD, CAMPAIGN], name: "hot" }],
-	"campaign-config": [{ dir: [WORLD, CAMPAIGN], name: "campaign-config" }],
-	PC: inCampaign("PCs"),
-	Thread: inCampaign("Threads"),
-	Quest: inCampaign("Quests"),
+	World: [{ dir: [CAMPAIGN] }, { dir: [] }],
+	Location: inCampaign("Locations"),
+	NPC: inCampaign("NPCs"),
+	Creature: inCampaign("Creatures"),
+	Faction: inCampaign("Factions"),
+	Deity: inCampaign("Deities"),
+	Item: inCampaign("Items"),
+	Spell: inCampaign("Spells"),
+	Vehicle: inCampaign("Vehicles"),
+	Lore: inCampaign("Lore"),
+	"House Rule": inCampaign("House Rules"),
+	Campaign: [{ dir: [CAMPAIGN] }],
+	hot: [{ dir: [CAMPAIGN], name: "hot" }],
+	"campaign-config": [{ dir: [CAMPAIGN], name: "campaign-config" }],
+	PC: [{ dir: [CAMPAIGN, "PCs"] }],
+	Thread: [{ dir: [CAMPAIGN, "Threads"] }],
+	Quest: [{ dir: [CAMPAIGN, "Quests"] }],
 	Prep: inSession,
 	Scene: inSession,
 	Recap: inSession,
@@ -69,42 +72,39 @@ export function matchDir(location: Location, segments: string[]): Bindings | nul
 			if (want !== have) return null;
 		} else {
 			if (want.bind === "session" && !SESSION_FOLDER.test(have)) return null;
+			// A shared kind folder (NPCs, Locations, …) is never a Campaign folder.
+			if (want.bind === "campaign" && isSharedRootFolder(have)) return null;
 			bound[want.bind] = have;
 		}
 	}
 	return bound;
 }
 
-export function nameOk(location: Location, name: string, bound: Bindings): boolean {
-	if (location.name === undefined) return true;
-	if (typeof location.name === "string") return name === location.name;
-	return name === bound[location.name.bind];
-}
-
-/** Folders that sit directly under a World and are not a Campaign folder. */
-export const WORLD_ROOT_FOLDERS: ReadonlySet<string> = (() => {
-	const folders = new Set<string>(["attachments"]);
+/**
+ * Folders that sit directly under the vault root and are not a Campaign folder: the vault's own
+ * folders (`templates`, `attachments`, `.obsidian`) and the shared kind folders a page may sit in
+ * when several Campaigns reuse it.
+ */
+export const SHARED_ROOT_FOLDERS: ReadonlySet<string> = (() => {
+	const folders = new Set<string>(["attachments", "templates", ".obsidian"]);
 	for (const locations of Object.values(PLACEMENTS)) {
 		for (const loc of locations) {
-			const [world, folder] = loc.dir;
-			if (world !== undefined && typeof world !== "string" && world.bind === "world" && typeof folder === "string") {
-				folders.add(folder);
-			}
+			const first = loc.dir[0];
+			if (typeof first === "string" && first !== "") folders.add(first);
 		}
 	}
 	return folders;
 })();
 
-export const isWorldRootFolder = (name: string): boolean => WORLD_ROOT_FOLDERS.has(name);
+export const isSharedRootFolder = (name: string): boolean => SHARED_ROOT_FOLDERS.has(name);
 
-/** The placeholders a page's current path already fixes: its World folder, and Campaign and Session folders if it sits in them. */
+/** The placeholders a page's current path already fixes: its Campaign folder, and Session folder if it sits in one. */
 export function bindingsFromPath(segments: string[]): Bindings {
 	const bound: Bindings = {};
-	if (segments[0] !== undefined) bound.world = segments[0];
-	if (segments[1] !== undefined && !isWorldRootFolder(segments[1])) {
-		bound.campaign = segments[1];
-		if (segments[2] === "Sessions" && segments[3] !== undefined && SESSION_FOLDER.test(segments[3])) {
-			bound.session = segments[3];
+	if (segments[0] !== undefined && !isSharedRootFolder(segments[0])) {
+		bound.campaign = segments[0];
+		if (segments[1] === "Sessions" && segments[2] !== undefined && SESSION_FOLDER.test(segments[2])) {
+			bound.session = segments[2];
 		}
 	}
 	return bound;
@@ -121,11 +121,11 @@ export function resolveDir(location: Location, bound: Bindings): string[] | null
 	return out;
 }
 
-const PLACEHOLDER: Record<Bind, string> = { world: "<World>", campaign: "<Campaign>", session: "<Session N>" };
+const PLACEHOLDER: Record<Bind, string> = { campaign: "<Campaign>", session: "<Session N>" };
 
-/** Human-readable location, e.g. `<World>/Locations/`. */
+/** Human-readable location, e.g. `<Campaign>/Locations/`. */
 export function describe(location: Location): string {
 	const dir = location.dir.map((s) => (typeof s === "string" ? s : PLACEHOLDER[s.bind])).join("/");
-	const file = location.name === undefined ? "" : typeof location.name === "string" ? `${location.name}.md` : `${PLACEHOLDER[location.name.bind]}.md`;
+	const file = location.name === undefined ? "" : `${location.name}.md`;
 	return `${dir}${dir && "/"}${file}`;
 }

@@ -1,13 +1,20 @@
 # User config
 
-The DM's machine-local preferences. Agents read this file at the start of a run, then the active Campaign's `campaign-config.md`, before World pages. Scripts do not: they read `.env`.
+The DM's machine-local preferences. Agents read this file at the start of a run, and the `@` imports under `## Campaign configs` load each Campaign's `campaign-config.md` with it, before World pages. Scripts do not: they read `.env`.
 
 Change values here, and keep the shared rules in `AGENTS.md` as they are when a preference differs.
 
 ## Campaign
 
-- **Active World:** The Shattered Sea (`wiki/The Shattered Sea/`)
-- **Active Campaign:** Shattered Sea (`wiki/The Shattered Sea/Shattered Sea/`, with its `campaign-config.md`)
+- **Active Campaign:** Shattered Sea (`wiki/shattered-sea/`, its World The Shattered Sea)
+
+## Campaign configs
+
+Each Campaign's config loads through its import below, and `new-campaign` adds one per Campaign.
+
+### Shattered Sea
+
+@wiki/shattered-sea/campaign-config.md
 
 ## Encounters
 

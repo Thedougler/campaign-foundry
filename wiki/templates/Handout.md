@@ -16,7 +16,7 @@ sources: []
 > [!narration] Handout text
 > %% The words as the Players see them, word for word, in the document's own voice. For an image, the caption. Push sends Players only this callout and the image. %%
 
-%% Image, if any: embed the file from the World's attachments directly under the callout. %%
+%% Image, if any: embed the file from the Campaign folder's attachments directly under the callout. %%
 
 ## Play
 

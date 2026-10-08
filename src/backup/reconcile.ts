@@ -109,10 +109,13 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 		log(`found the Backup root in Notion: ${map.root.url}`);
 	}
 
-	// 2. Walk the tree. A page the map knows, in the folder the map expects, is taken on the map's word; any other page
-	// is identified by its marker, or (an empty page, or one holding only child pages) by its title in that folder.
+	// 2. Walk the tree. A page the map knows is taken on the map's word whenever the map's path is one the repo
+	// still holds: the map is committed with the layout, so a page sitting in a folder the layout left behind (a
+	// rename the map has already recorded) is that page, and the run re-parents it below. Any other page is
+	// identified by its marker, or (an empty page, or one holding only child pages) by its title in that folder.
 	const pathById = new Map(Object.entries(map.entries).map(([path, e]) => [norm(e.id), path]));
 	const walkDirs = new Set(walk.dirs);
+	const inWalk = new Set([...walkDirs, ...walk.files.map((f) => f.path)]);
 	const candidates = new Map<string, Candidate[]>();
 	const queue: { path: string; kids: ReadBlock[] }[] = [{ path: "", kids: root.kids }];
 	const byTitle = (folder: string, title: string, first: ReadBlock[]): { path: string; kind: "dir" | "file" } | undefined => {
@@ -128,7 +131,7 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 			let c: Candidate | undefined;
 			const known = pathById.get(norm(page.id));
 			const knownEntry = known === undefined ? undefined : map.entries[known];
-			if (known !== undefined && knownEntry && parentPath(known) === folder) {
+			if (known !== undefined && knownEntry && (parentPath(known) === folder || inWalk.has(known))) {
 				c = { id: page.id, path: known, kind: knownEntry.kind === "dir" ? "dir" : "file", createdTime: page.createdTime, via: "map", complete: true };
 			} else {
 				const first = await api.children(page.id, 4);

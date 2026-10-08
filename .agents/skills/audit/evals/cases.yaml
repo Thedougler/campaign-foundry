@@ -1,13 +1,13 @@
 # Real-source consistency checks, not newly reported table failures.
 - id: named-claim
   source_pages:
-    - The Shattered Sea/Lore/Auralis.md
-    - The Shattered Sea/Shattered Sea/Shattered Sea.md
+    - shattered-sea/Lore/Auralis.md
+    - shattered-sea/Shattered Sea.md
   prompt: Has Auralis already said CONSUME to Perrin? Audit that claim.
   checks:
     canon:
-      The Shattered Sea/Lore/Auralis.md: [CONSUME, Grow, Not yet, Giant, Stonepear]
-      The Shattered Sea/log.md: ['/\] audit \|/']
+      shattered-sea/Lore/Auralis.md: [CONSUME, Grow, Not yet, Giant, Stonepear]
+      shattered-sea/log.md: ['/\] audit \|/']
   rubrics:
     - The audit stays on the named temporal question. Against this run's Campaign state and Session records, CONSUME and the fruit instruction remain a prepared possibility rather than a message already heard.
     - Both the full-truth paragraph and chronology on Auralis are checked, together with other present assertions of that same claim. One corrected sentence with another past-event assertion left behind fails.
@@ -17,8 +17,8 @@
     - The short report names the temporal scope and asks no questions.
 - id: after-ingest
   source_pages:
-    - The Shattered Sea/log.md
-    - The Shattered Sea/Shattered Sea/Shattered Sea.md
+    - shattered-sea/log.md
+    - shattered-sea/Shattered Sea.md
   prompt: Audit the 30 September First Ingest session deltas and their neighbours.
   rubrics:
     - The scope starts with the eight bullets under the First Ingest session-deltas entry, then linked neighbours, rather than treating every First Ingest entry or the whole Wiki as the request.

@@ -23,17 +23,17 @@ for the page and CLI contract.
 
 ## Steps
 
-### 1. Establish scope and read the target World
+### 1. Establish scope and read the target Campaign
 
 Capture the caller's Creature name, purpose, existing page, requested role and
 difficulty, number of Creatures, terrain, encounter objective, and whether this
-is reuse, creation, or retune. Resolve the caller's root, vault and World
+is reuse, creation, or retune. Resolve the caller's root, vault and Campaign
 explicitly, and run all retrieval and writes inside them.
 
-Read the target World overview and index, the active Campaign overview and
-`hot.md`, the last ten entries of `log.md`, applicable House Rules, and every
-page the request touches. Read qmd results and retrieve the full target-root
-pages they identify.
+Read the World overview, the target Campaign's overview, `hot.md`, its Campaign
+folder's `index.md` and the last ten entries of its `log.md`, applicable House
+Rules, and every page the request touches. Read qmd results and retrieve the
+full target-root pages they identify.
 
 For a retune, read the existing Creature and its complete backlink set. Include
 every NPC whose `creature` property names it and every planned or unplayed
@@ -162,7 +162,7 @@ statblock and canon.
 ### 7. File, account for consumers, and preserve records
 
 Follow [references/filing-and-operations.md](references/filing-and-operations.md)
-and copy `wiki/templates/Creature.md` exactly to `<World>/Creatures/<Name>.md`.
+and copy `wiki/templates/Creature.md` exactly to `<campaign-folder>/Creatures/<Name>.md`.
 Fill its sections in the template's order, following each section's `%%`
 guidance and leaving out the `###` parts this Creature has nothing for. Keep one `statblock` fence with `Basic 5e
 Layout`, complete 2024 rules text, explicit derived values, and the template's

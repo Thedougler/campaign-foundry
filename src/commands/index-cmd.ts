@@ -13,7 +13,7 @@ interface IndexFlags {
 
 export function indexCommand(): Command {
 	return new Command("index")
-		.description("Regenerate the vault's index.md files (root and one per World) from every page's summary. Never edit them by hand.")
+		.description("Regenerate the vault's index.md files (the root index, and one per Campaign folder) from every page's summary. Never edit them by hand.")
 		.option("--vault <dir>", "the Wiki folder (default: <root>/wiki)")
 		.option("--root <dir>", "repository root (default: nearest git root)")
 		.option("--dry-run", "print what would change without writing anything")
@@ -21,9 +21,10 @@ export function indexCommand(): Command {
 			"after",
 			`
 Output:
-  The root index.md lists each World as "[[World]] — summary". Each World's index.md lists every page
-  in it, Campaigns and Sessions included, grouped by page kind as "[[Page]] — summary": the World's
-  kinds first (Locations by Region, Settlement, Site), then Campaign kinds, then Session kinds.
+  The root index.md lists each Campaign as "[[Campaign]] — summary", then any shared pages by kind.
+  Each Campaign folder's index.md lists every page in it, the World overview and Sessions included,
+  grouped by page kind as "[[Page]] — summary": World kinds first (Locations by Region, Settlement,
+  Site), then Campaign kinds, then Session kinds.
   Pages sort by name. Re-running changes nothing unless a summary, name or page changed.
   Prints "wrote  path" per file changed, or "up to date".
 

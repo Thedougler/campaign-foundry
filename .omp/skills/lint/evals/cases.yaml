@@ -1,15 +1,15 @@
 - id: after-move
   source_pages:
-    - The Shattered Sea/Locations/Aruhe.md
+    - shattered-sea/Locations/Aruhe.md
   prompt: Lint the Wiki.
   checks:
     canon:
-      The Shattered Sea/log.md: ['/\] lint \|/']
-      The Shattered Sea/Locations/Aruhe.md:
+      shattered-sea/log.md: ['/\] lint \|/']
+      shattered-sea/Locations/Aruhe.md:
         - 'A vast untamed volcanic island where excessive life distinguishes receiving from taking.'
         - 'Hinewai''s grief binds the island''s living systems.'
     absent:
-      The Shattered Sea/log.md: ['Campaigns/']
+      shattered-sea/log.md: ['Campaigns/']
   rubrics:
     - Mechanical template, heading, link, placement and index defects are repaired, and the lint log identifies every touched page at its final path.
     - Ambiguous choices follow retrieved Wiki evidence. Every finding, warnings included, is fixed; none is left for the DM.

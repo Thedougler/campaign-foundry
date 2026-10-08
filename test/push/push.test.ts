@@ -33,10 +33,10 @@ describe("runPush", () => {
 		const ws = await workspace();
 		const result = await push(ws);
 		expect(result.upToDate).toBe(false);
-		expect(result.modulePath).toBe(join(ws.root, "build/push/cf-lowtide-salt-and-lantern"));
+		expect(result.modulePath).toBe(join(ws.root, "build/push/cf-salt-and-lantern"));
 		const manifest = JSON.parse(await readFile(join(result.modulePath!, "module.json"), "utf8")) as Bag;
 		expect(manifest).toMatchObject({
-			id: "cf-lowtide-salt-and-lantern",
+			id: "cf-salt-and-lantern",
 			compatibility: { minimum: "14", verified: "14.367" },
 			relationships: { systems: [{ id: "dnd5e", compatibility: { minimum: "5.3.3" } }] },
 			packs: [{ name: "adventure", type: "Adventure", system: "dnd5e", path: "packs/adventure" }],
@@ -70,8 +70,8 @@ describe("runPush", () => {
 		expect(total(result, "added")).toBe(result.plan.docs.length);
 		expect(total(result, "updated") + total(result, "unchanged")).toBe(0);
 		expect(result.counts.Scene.added).toBe(1);
-		expect(result.logged).toBe("Lowtide/log.md");
-		const entry = parseEntries(await ws.read("Lowtide/log.md")).at(-1)!;
+		expect(result.logged).toBe("salt-and-lantern/log.md");
+		const entry = parseEntries(await ws.read("salt-and-lantern/log.md")).at(-1)!;
 		expect(entry).toMatchObject({ date: "2026-09-29", op: "push" });
 		expect(entry.pages).toEqual(expect.arrayContaining(["Session 2 - Prep", "Hobb's Warning", "Mire Drowner", "Sable"]));
 		expect(entry.pages).not.toContain("");
@@ -88,10 +88,10 @@ describe("runPush", () => {
 		expect(await gate()).toEqual(before);
 	});
 
-	it("keeps its manifest outside the Wiki, per World and Campaign", async () => {
+	it("keeps its manifest outside the Wiki, per Campaign folder", async () => {
 		const ws = await workspace();
 		const result = await push(ws);
-		expect(result.manifest).toBe(join(ws.root, ".push/Lowtide/Salt and Lantern.json"));
+		expect(result.manifest).toBe(join(ws.root, ".push/salt-and-lantern.json"));
 		const manifest = JSON.parse(await readFile(result.manifest, "utf8")) as Bag;
 		expect(manifest.adventureId).toBe(result.plan.adventureId);
 		expect(Object.keys(manifest.docs)).toHaveLength(result.plan.docs.length);
@@ -106,7 +106,7 @@ describe("runPush", () => {
 		expect(again.changed).toEqual([]);
 		expect(total(again, "unchanged")).toBe(again.plan.docs.length);
 		// The log entry from the first push is not repeated.
-		const entries = parseEntries(await ws.read("Lowtide/log.md")).filter((e) => e.op === "push");
+		const entries = parseEntries(await ws.read("salt-and-lantern/log.md")).filter((e) => e.op === "push");
 		expect(entries).toHaveLength(1);
 	});
 
@@ -114,7 +114,7 @@ describe("runPush", () => {
 		const ws = await workspace();
 		const first = await push(ws);
 		const before = first.plan.docs.find((d) => d.name === "Nib Ashwater" && d.type === "JournalEntry")!;
-		const page = "Lowtide/NPCs/Nib Ashwater.md";
+		const page = "salt-and-lantern/NPCs/Nib Ashwater.md";
 		await ws.write(page, (await ws.read(page)).replace("Soft and careful.", "Soft, careful and a little frightened."));
 
 		const second = await push(ws);
@@ -134,7 +134,7 @@ describe("runPush", () => {
 	it("updates the Actors that share a Creature when its statblock changes", async () => {
 		const ws = await workspace();
 		await push(ws);
-		const page = "Lowtide/Creatures/Mire Drowner.md";
+		const page = "salt-and-lantern/Creatures/Mire Drowner.md";
 		await ws.write(page, (await ws.read(page)).replace("ac: 13", "ac: 14"));
 		const second = await push(ws);
 		expect(second.changed.map((c) => `${c.type}:${c.name}`).sort()).toEqual(["Actor:Mire Drowner", "Actor:Sable"]);
@@ -156,16 +156,16 @@ describe("runPush", () => {
 		expect(result.changed.length).toBe(result.plan.docs.length);
 		expect(existsSync(join(ws.root, "build"))).toBe(false);
 		expect(existsSync(join(ws.root, ".push"))).toBe(false);
-		expect(parseEntries(await ws.read("Lowtide/log.md")).filter((e) => e.op === "push")).toEqual([]);
+		expect(parseEntries(await ws.read("salt-and-lantern/log.md")).filter((e) => e.op === "push")).toEqual([]);
 	});
 
 	it("copies the module into a modules folder given to --install, and only there", async () => {
 		const ws = await workspace();
 		const modules = await mkdtemp(join(tmpdir(), "cf-modules-"));
 		const result = await push(ws, { install: modules });
-		expect(result.installedTo).toBe(join(modules, "cf-lowtide-salt-and-lantern"));
-		expect(existsSync(join(modules, "cf-lowtide-salt-and-lantern/module.json"))).toBe(true);
-		expect(existsSync(join(modules, "cf-lowtide-salt-and-lantern/packs/adventure"))).toBe(true);
+		expect(result.installedTo).toBe(join(modules, "cf-salt-and-lantern"));
+		expect(existsSync(join(modules, "cf-salt-and-lantern/module.json"))).toBe(true);
+		expect(existsSync(join(modules, "cf-salt-and-lantern/packs/adventure"))).toBe(true);
 	});
 
 	it("names the Campaigns when the Campaign is unknown, and the Sessions when the Session is", async () => {

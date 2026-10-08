@@ -27,10 +27,9 @@ After a context reset, re-read the notes and the bible before replying.
 
    |Missing|Owner action|
    |---|---|
-   |`user-config.md`|Restore it with `git show HEAD:user-config.md > user-config.md` when git tracks it. Otherwise ask the DM for the Active World and Active Campaign, then write the file with the `## Campaign` section of the committed file as its model.|
-   |The active World's overview page|`skill://new-world`|
-   |The Campaign folder or its `campaign-config.md`|`skill://new-campaign`|
-   |`hot.md`|`skill://new-campaign` step 6 (Starting hot)|
+   |`user-config.md`|Restore it with `git show HEAD:user-config.md > user-config.md` when git tracks it. Otherwise ask the DM for the Active Campaign, then write the file with the `## Campaign` section of the committed file as its model.|
+   |The Campaign folder, its World overview or its `campaign-config.md`|`skill://new-campaign`|
+   |`hot.md`|`skill://new-campaign` step 8 (Starting hot)|
    |The Story Bible|Create `local://collab/bible.md` as the skeleton that [`references/story.md` Bible sections](references/story.md#bible-sections) defines.|
 
    Answer in a line, ready to riff. Done when all five exist and you have read each one.

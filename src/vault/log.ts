@@ -2,7 +2,7 @@ import { existsSync } from "node:fs";
 import { appendFile, mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 
-/** The Agent operations a World's `log.md` records, in the order `docs/wiki-layout.md` lists them. */
+/** The Agent operations a Campaign folder's `log.md` records, in the order `docs/wiki-layout.md` lists them. */
 export const LOG_OPS = ["create", "ingest", "prep", "push", "audit", "pull", "query", "lint"] as const;
 export type LogOp = (typeof LOG_OPS)[number];
 
@@ -69,14 +69,15 @@ export interface AppendOptions {
 }
 
 /**
- * Appends an entry to `<vault>/<World>/log.md`, the one place the log's rules live (`cf log` and `cf pull` both call it):
- * repeating the last entry is a no-op, an entry dated before the last is refused because the log is append-only and in
- * date order, and an entry from a later year first rotates the log to `log-<year>.md`. Creates `log.md` when absent.
+ * Appends an entry to `<vault>/<Campaign folder>/log.md`, the one place the log's rules live (`cf log` and `cf pull`
+ * both call it): repeating the last entry is a no-op, an entry dated before the last is refused because the log is
+ * append-only and in date order, and an entry from a later year first rotates the log to `log-<year>.md`. Creates
+ * `log.md` when absent.
  */
-export async function appendLogEntry(vaultDir: string, world: string, entry: LogEntry, options: AppendOptions = {}): Promise<AppendResult> {
+export async function appendLogEntry(vaultDir: string, campaignFolder: string, entry: LogEntry, options: AppendOptions = {}): Promise<AppendResult> {
 	const show = options.show ?? ((p: string): string => p);
-	const example = options.example ?? `cf log --world ${world} --op ${entry.op} --title "${entry.title}"`;
-	const path = `${world}/log.md`;
+	const example = options.example ?? `cf log --campaign "<Campaign>" --op ${entry.op} --title "${entry.title}"`;
+	const path = `${campaignFolder}/log.md`;
 	const file = join(vaultDir, path);
 	const source = await readFile(file, "utf8").catch(() => "");
 	const last = parseEntries(source).at(-1);
@@ -95,7 +96,7 @@ export async function appendLogEntry(vaultDir: string, world: string, entry: Log
 	let base = source;
 	let rotated: { from: string; to: string } | undefined;
 	if (last && last.date.slice(0, 4) < entry.date.slice(0, 4)) {
-		const to = `${world}/log-${last.date.slice(0, 4)}.md`;
+		const to = `${campaignFolder}/log-${last.date.slice(0, 4)}.md`;
 		if (existsSync(join(vaultDir, to))) {
 			return { status: "error", message: `Cannot rotate ${show(path)}: ${show(to)} already exists.`, hint: `Merge or move ${show(to)} yourself, then run the command again.` };
 		}

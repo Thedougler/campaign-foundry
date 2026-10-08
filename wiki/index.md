@@ -2,4 +2,4 @@
 
 # Wiki
 
-- [[The Shattered Sea]] — A remote archipelago where storm belts, unfinished charts, and competing powers make every crossing a negotiation.
+- [[Shattered Sea]] — Four survivors and fugitives seize a chance at a crew aboard the Saltwright while Crown inspection and the Drowned Maw close around them.

@@ -46,8 +46,8 @@ describe("orphans layer", () => {
 		expect(findingsFor(report, `${A}/NPCs/Orphan With Link.md`)).toHaveLength(1);
 	});
 
-	it("exempts the roots: vault index, DM Settings, World and Campaign overviews, log, hot, World index", () => {
-		for (const root of ["index.md", "DM Settings.md", `${A}/${A}.md`, `${A}/log.md`, `${A}/index.md`, `${A}/Ashes/hot.md`, `${A}/Ashes/Ashes.md`]) {
+	it("exempts the roots: vault index, DM Settings, World and Campaign overviews, log, hot, Campaign folder index", () => {
+		for (const root of ["index.md", "DM Settings.md", `${A}/Aldermoor.md`, `${A}/log.md`, `${A}/index.md`, `${A}/hot.md`, `${A}/Ashes.md`]) {
 			expect(findingsFor(report, root), root).toEqual([]);
 		}
 	});

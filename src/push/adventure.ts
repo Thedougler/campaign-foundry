@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { basename, extname, join } from "node:path";
 import sharp from "sharp";
 import { UsageError } from "../check/run.ts";
-import { isWorldRootFolder } from "../check/placement-table.ts";
+import { campaignFolders } from "../vault/indexes.ts";
 import { buildLinkGraph } from "../vault/links.ts";
 import type { LinkGraph, Resolution } from "../vault/links.ts";
 import type { Page, Vault, WikiLink } from "../vault/types.ts";
@@ -33,7 +33,8 @@ export interface PlanDoc {
 }
 
 export interface Plan {
-	world: string;
+	/** The Campaign folder the Session pages live in. */
+	campaignFolder: string;
 	campaign: string;
 	session: number;
 	moduleId: string;
@@ -75,40 +76,37 @@ const typeOf = (page: Page): string => (typeof page.frontmatter?.type === "strin
 const kindOf = (page: Page): string => (typeof page.frontmatter?.kind === "string" ? page.frontmatter.kind : "");
 const wikiName = (value: unknown): string => (typeof value === "string" ? (/^\[\[([^\]|#]+)/.exec(value)?.[1] ?? "").trim() : "");
 
-export function moduleIdFor(world: string, campaign: string): string {
-	return `cf-${slug(world)}-${slug(campaign)}`;
+export function moduleIdFor(campaignFolder: string): string {
+	return `cf-${slug(campaignFolder)}`;
 }
 
 interface Located {
-	world: string;
+	/** The Campaign folder, and the seed of every document ID. */
+	campaignFolder: string;
 	sessionPages: Page[];
 	campaignPath: string;
 }
 
 function locate(vault: Vault, options: PlanOptions): Located {
-	const campaigns = new Map<string, string>();
-	for (const page of vault.pages) {
-		const m = /^([^/]+)\/([^/]+)\//.exec(page.path);
-		if (m && !isWorldRootFolder(m[2]!)) campaigns.set(m[2]!, m[1]!);
-	}
-	const world = campaigns.get(options.campaign);
-	if (!world) {
-		const names = [...campaigns.keys()];
+	const folders = campaignFolders(vault);
+	const campaignFolder = folders.get(options.campaign);
+	if (!campaignFolder) {
+		const names = [...folders.keys()];
 		throw new UsageError(
 			`No Campaign named "${options.campaign}".`,
-			names.length > 0 ? `Campaigns: ${names.join(", ")}. Example: cf push --campaign "${names[0]}" --session 1` : "Add a Campaign under <World>/<Campaign>/ first.",
+			names.length > 0 ? `Campaigns: ${names.join(", ")}. Example: cf push --campaign "${names[0]}" --session 1` : "Add a Campaign overview page (type: Campaign) in its Campaign folder first.",
 		);
 	}
-	const prefix = `${world}/${options.campaign}/Sessions/Session ${options.session}/`;
+	const prefix = `${campaignFolder}/Sessions/Session ${options.session}/`;
 	const sessionPages = vault.pages.filter((p) => p.path.startsWith(prefix));
 	if (sessionPages.length === 0) {
-		const sessions = [...new Set(vault.pages.flatMap((p) => (p.path.startsWith(`${world}/${options.campaign}/Sessions/`) ? [/Session (\d+)\//.exec(p.path)?.[1] ?? ""] : [])))].filter(Boolean);
+		const sessions = [...new Set(vault.pages.flatMap((p) => (p.path.startsWith(`${campaignFolder}/Sessions/`) ? [/Session (\d+)\//.exec(p.path)?.[1] ?? ""] : [])))].filter(Boolean);
 		throw new UsageError(
 			`No pages for Session ${options.session} of ${options.campaign}.`,
 			sessions.length > 0 ? `Sessions with pages: ${sessions.join(", ")}. Example: cf push --campaign "${options.campaign}" --session ${sessions[0]}` : "Run Prep for the Session first.",
 		);
 	}
-	return { world, sessionPages, campaignPath: `${world}/${options.campaign}/${options.campaign}.md` };
+	return { campaignFolder, sessionPages, campaignPath: `${campaignFolder}/${options.campaign}.md` };
 }
 
 /** The pages a link resolves to, by the link's exact text, for one page. */
@@ -135,9 +133,9 @@ async function thumbnail(path: string): Promise<string> {
 
 /** Everything a Session needs as Foundry documents, with the module files they point at. Pure over the Wiki; touches only reads. */
 export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Plan> {
-	const { world, sessionPages, campaignPath } = locate(vault, options);
+	const { campaignFolder, sessionPages, campaignPath } = locate(vault, options);
 	const graph = buildLinkGraph(vault);
-	const moduleId = moduleIdFor(world, options.campaign);
+	const moduleId = moduleIdFor(campaignFolder);
 	const warnings: string[] = [];
 
 	// Scope: the Session's own pages, then one hop out to the pages the DM needs in play, then each NPC's Creature.
@@ -161,11 +159,11 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 
 	// Document identities first, so links can point at documents built later.
 	const uuidOf = new Map<string, string>();
-	const journalId = (p: Page): string => foundryId(world, p.path);
+	const journalId = (p: Page): string => foundryId(campaignFolder, p.path);
 	for (const page of pages) {
 		const type = typeOf(page);
-		if (type === "Creature") uuidOf.set(page.path, `Actor.${foundryId(world, page.path)}`);
-		else if (type === "Item") uuidOf.set(page.path, `Item.${foundryId(world, page.path)}`);
+		if (type === "Creature") uuidOf.set(page.path, `Actor.${foundryId(campaignFolder, page.path)}`);
+		else if (type === "Item") uuidOf.set(page.path, `Item.${foundryId(campaignFolder, page.path)}`);
 		else uuidOf.set(page.path, `JournalEntry.${journalId(page)}`);
 	}
 
@@ -180,7 +178,7 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 		}
 		return `modules/${moduleId}/assets/${name}`;
 	};
-	const attachmentByName = (wanted: string): string | undefined => vault.attachments.find((a) => basename(a).toLowerCase() === wanted.toLowerCase() && a.startsWith(`${world}/`));
+	const attachmentByName = (wanted: string): string | undefined => vault.attachments.find((a) => basename(a).toLowerCase() === wanted.toLowerCase() && a.startsWith(`${campaignFolder}/`));
 
 	const unlinked = new Map<string, string>();
 	const contextFor = (page: Page): RenderContext => {
@@ -203,7 +201,7 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 		};
 	};
 
-	const folderId = (type: DocType): string => foundryId(world, campaignPath, `folder:${type}`);
+	const folderId = (type: DocType): string => foundryId(campaignFolder, campaignPath, `folder:${type}`);
 	const docs: PlanDoc[] = [];
 	const add = (type: DocType, data: Doc, path: string): void => {
 		docs.push({ type, id: String(data._id), name: String(data.name), path, hash: hashOf(data), data });
@@ -222,7 +220,7 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 			const portrait = attachmentByName(`${page.name} - Portrait.webp`);
 			const biography = renderMarkdown(page, ctx, { omit: ["Statblock"] });
 			try {
-				const built = buildActor(page, { world, name: page.name, biography, ...(portrait ? { img: assetUrl(portrait) } : {}) });
+				const built = buildActor(page, { campaign: campaignFolder, name: page.name, biography, ...(portrait ? { img: assetUrl(portrait) } : {}) });
 				warnings.push(...built.warnings.map((w) => `${page.name}: ${w}`));
 				actorIdOf.set(page.path, String(built.data._id));
 				add("Actor", inFolder("Actor", built.data), page.path);
@@ -232,13 +230,13 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 			continue;
 		}
 		if (type === "Item") {
-			add("Item", inFolder("Item", buildItem(page, { world, render: ctx }).data), page.path);
+			add("Item", inFolder("Item", buildItem(page, { campaign: campaignFolder, render: ctx }).data), page.path);
 			continue;
 		}
 		const handout = type === HANDOUT;
 		const html = renderMarkdown(page, ctx, handout ? { narrationOnly: true } : {});
 		if (handout && html === "") warnings.push(`${page.name}: the Handout has no [!narration] callout, so its journal is empty.`);
-		const pageId = foundryId(world, page.path, "page");
+		const pageId = foundryId(campaignFolder, page.path, "page");
 		add(
 			"JournalEntry",
 			inFolder("JournalEntry", {
@@ -274,7 +272,7 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 		const portrait = attachmentByName(`${page.name} - Portrait.webp`);
 		const biography = `<p>@UUID[${uuidOf.get(page.path)}]{${page.name}}</p>${renderMarkdown(creature, contextFor(creature), { omit: ["Statblock"] })}`;
 		try {
-			const built = buildActor(creature, { world, name: page.name, biography, idPath: page.path, role: "actor", disposition: 0, ...(portrait ? { img: assetUrl(portrait) } : {}) });
+			const built = buildActor(creature, { campaign: campaignFolder, name: page.name, biography, idPath: page.path, role: "actor", disposition: 0, ...(portrait ? { img: assetUrl(portrait) } : {}) });
 			warnings.push(...built.warnings.map((w) => `${page.name}: ${w}`));
 			add("Actor", inFolder("Actor", built.data), page.path);
 		} catch (error) {
@@ -322,7 +320,7 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 			tokens.push({ name: creature.name, actorId, squares: { large: 2, huge: 3, gargantuan: 4 }[size] ?? 1, img: portrait ? assetUrl(portrait) : null });
 		}
 		const built = buildScene({
-			world,
+			campaign: campaignFolder,
 			path: scene.path,
 			name: scene.name,
 			journalId: journalId(scene),
@@ -353,11 +351,11 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 
 	const adventureName = `${options.campaign}`;
 	return {
-		world,
+		campaignFolder,
 		campaign: options.campaign,
 		session: options.session,
 		moduleId,
-		adventureId: foundryId(world, campaignPath, "adventure"),
+		adventureId: foundryId(campaignFolder, campaignPath, "adventure"),
 		adventureName,
 		docs,
 		assets: [...assets.entries()].map(([vaultPath, to]) => ({ from: join(vault.dir, vaultPath), to })),

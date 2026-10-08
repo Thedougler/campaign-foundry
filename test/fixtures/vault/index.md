@@ -2,4 +2,4 @@
 
 # Wiki
 
-- [[Lowtide]] — A tidal marsh country where the sea leaves twice a year and a drowned city waits on the mud.
+- [[Salt and Lantern]] — Three newcomers keep a marsh lighthouse burning and find the bell of a drowned city ringing early.

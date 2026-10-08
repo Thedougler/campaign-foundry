@@ -7,8 +7,8 @@ import { createOutcome, loadCases, runChecks, runGate } from "../../evals/check.
 
 const vault = resolve("test/fixtures/vault");
 const cases = resolve("test/evals/cases.yaml");
-const page = "Lowtide/NPCs/Ilse Corran.md";
-const writtenFixture = Object.fromEntries([page, "Lowtide/Creatures/Bandit Captain.md"].map((path) => [path, readFileSync(join(vault, path), "utf8")]));
+const page = "salt-and-lantern/NPCs/Ilse Corran.md";
+const writtenFixture = Object.fromEntries([page, "salt-and-lantern/Creatures/Bandit Captain.md"].map((path) => [path, readFileSync(join(vault, path), "utf8")]));
 const roots: string[] = [];
 afterEach(() => { for (const root of roots.splice(0)) rmSync(root, { recursive: true, force: true }); });
 function output(pages: Record<string, string> = {}, deleted: string[] = [], reply = true) {
@@ -78,13 +78,13 @@ describe("eval:check gate", () => {
 	});
 
 	it("returns no findings for an empty overlay even though live pages carry gate errors", async () => {
-		// Lowtide/Creatures/Goblin Warrior.md carries ai-tells.BareReaches (an error) on the live fixture;
+		// salt-and-lantern/Creatures/Goblin Warrior.md carries ai-tells.BareReaches (an error) on the live fixture;
 		// the output-page filter keeps live-Wiki findings off the case, so this fails if the filter is removed.
 		expect(await runGate(vault, output())).toEqual([]);
 	});
 
 	it("fails gate errors and passes gate warnings through the CLI", async () => {
-		const probe = "Lowtide/NPCs/Gate Probe.md";
+		const probe = "salt-and-lantern/NPCs/Gate Probe.md";
 		const error = evalCheck("gate-probe", output({ [probe]: telling }));
 		expect(error.status).toBe(1); expect(error.stdout).toContain("FAIL  gate");
 		const warned = evalCheck("gate-probe", output({ [probe]: flagged }));

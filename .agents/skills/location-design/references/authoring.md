@@ -5,7 +5,7 @@ Location-design uses sections 1 and 2 before kind-specific design and sections 3
 ## 1. Orient and establish Canon
 
 1. Read `AGENTS.md`, `CONTEXT.md` and `docs/wiki-layout.md` before authoring. Read ADRs 0003, 0005 and 0010 when resolving Canon, rules ownership or gate requirements. Establish the World, active Campaign, requested purpose and containing Location from the DM's brief and repo. Keep a caller's objective and operation. A standalone worldbuilding request is `create`.
-2. Use the installed `qmd` skill to discover the orientation pages. Read the Campaign's `hot.md`, then the World's `index.md`, then the last ten entries of `log.md`, before task pages. If fewer entries exist, read them all and take the remainder from the latest rotated log. Without an active Campaign, begin with the World index. Hot is orientation, not evidence for new facts.
+2. Use the installed `qmd` skill to discover the orientation pages. Read the Campaign's `hot.md`, then its Campaign folder's `index.md`, then the last ten entries of its `log.md`, before task pages. If fewer entries exist, read them all and take the remainder from the latest rotated log. Hot is orientation, not evidence for new facts.
 3. Search qmd for the target, aliases, containing Location, neighbours and relevant people, Factions, Creatures, Items, Lore, House Rules, Threads, Quests and Recaps. Retrieve the full source behind each relied-on fact and follow its relevant links, children and backlinks. Keep a private inventory of facts, owner paths and why each matters here. Account for every relevant hit by using it or recording why it does not apply.
 4. Read the current `wiki/templates/Location - <Kind>.md` before designing the page. The Kind is exactly Region, Settlement or Site. Choose `parent` by physical containment alone: any Location may contain another, including a Site inside a Site. Preserve an established containing Location unless the DM changes it. A top-level Region has an empty parent.
 
@@ -34,7 +34,7 @@ Reuse linked owner pages before creating new ones. Use `npc-design` when a new r
 
 Use the current template as the only authority for properties, required `##` headings in order and callout types. Fill its properties, use `type: Location` and the chosen Kind, and give the page a useful one-line summary. Retain optional structure only where it has content and remove all `%%` guidance. Keep the template's Links view rather than rebuilding its Base.
 
-File in the flat `<World>/Locations/` directory, named for the Location. A nonempty `parent` holds a quoted wikilink that resolves. A top-level Region keeps the empty value. Only `parent` records containment, so folder placement never implies it. Resolve name collisions across the vault before choosing the page name.
+File in the flat `<campaign-folder>/Locations/` directory, named for the Location. A page already filed keeps its folder. A nonempty `parent` holds a quoted wikilink that resolves. A top-level Region keeps the empty value. Only `parent` records containment, so folder placement never implies it. Resolve name collisions across the vault before choosing the page name.
 
 Link recurring Sites, people, Factions and rules owners. Create only the dependent pages this request needs, with their own templates and complete content. Ensure every new page has a real link from another page: parent properties count, generated index/log entries do not. Give a new top-level Region a link from the World overview or another relevant page. Update a containing page when visitors need the new route or service there.
 
@@ -66,7 +66,7 @@ Never edit generated indexes by hand. When the caller assigns an explicit filesy
 After a successful standalone operation, append exactly one entry listing each touched content page, using its vault-relative path. Replace the placeholders and repeat `--page` as needed:
 
 ```bash
-bun run cf -- log --world "<World>" --op create --title "Design <Location>" --page "<World>/Locations/<Location>.md"
+bun run cf -- log --campaign "<Campaign>" --op create --title "Design <Location>" --page "<campaign-folder>/Locations/<Location>.md"
 ```
 
 `create` includes deepening a Location outside Ingest or Prep. A composed request returns touched paths, Canon decisions and unresolved findings to its caller. The caller runs the final gate and writes one entry under its existing operation. A child handoff leaves logging to the caller.

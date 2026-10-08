@@ -5,7 +5,7 @@ description: Site stocking — use for direct dungeon, ruin, cave, wreck or keep
 
 # Dungeon design
 
-Stock a Site that the Party moves through, investigates and changes under pressure. The output remains `type: Location`, `kind: Site`, in the flat `<World>/Locations/` folder with a quoted `parent` wikilink. Rooms and areas are keys on that page. A large complex can contain child Sites. Each child Site is filed in the same flat folder, with the containing Site as its `parent`.
+Stock a Site that the Party moves through, investigates and changes under pressure. The output remains `type: Location`, `kind: Site`, in the flat `<campaign-folder>/Locations/` folder with a quoted `parent` wikilink. Rooms and areas are keys on that page. A large complex can contain child Sites. Each child Site is filed in the same flat folder, with the containing Site as its `parent`.
 
 ## Procedure
 
@@ -22,7 +22,7 @@ Follow the common authoring guidance directly and skip the full `location-design
 
 ### 2. Establish the evidence
 
-Use the caller's retrieved Canon where supplied. When orientation or sourcing is missing, read sections **1. Orient and establish Canon** and **2. Source applicable content** of [common authoring](../location-design/references/authoring.md) before designing. Those sections define the hot → World index → recent log → relevant pages sequence, qmd-first retrieval, Canon precedence and source ladder.
+Use the caller's retrieved Canon where supplied. When orientation or sourcing is missing, read sections **1. Orient and establish Canon** and **2. Source applicable content** of [common authoring](../location-design/references/authoring.md) before designing. Those sections define the hot → Campaign index → recent log → relevant pages sequence, qmd-first retrieval, Canon precedence and source ladder.
 
 Read the existing Site and actual Site template. Inventory every established entrance, area, occupant, hazard, date, object and hidden truth, including facts on linked pages. Read Party Sheets, carried Items and applicable House Rules when capabilities or encounter calibration affect choices. Preserve established and already-heard facts. Use the DM's newer facts for changed current state without rewriting played Session records.
 

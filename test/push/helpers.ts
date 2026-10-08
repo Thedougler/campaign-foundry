@@ -9,7 +9,8 @@ export const fixtureVault = join(import.meta.dirname, "../fixtures/vault");
 const pushFixtures = join(import.meta.dirname, "fixtures");
 
 export const CAMPAIGN = "Salt and Lantern";
-export const SESSIONS = `Lowtide/${CAMPAIGN}/Sessions`;
+export const FOLDER = "salt-and-lantern";
+export const SESSIONS = `${FOLDER}/Sessions`;
 export const MUD = `${SESSIONS}/Session 2/Session 2 - Mud Under the Boards.md`;
 export const HANDOUT = `${SESSIONS}/Session 2/Hobb's Warning.md`;
 export const MAP = "Session 2 - Mud Under the Boards - Battle Map";
@@ -42,7 +43,7 @@ export async function workspace(options: { maps?: boolean } = {}): Promise<Works
 		load: async () => buildVault(vaultDir, await readVaultFiles(vaultDir)),
 	};
 	if (options.maps !== false) {
-		const attachments = join(vaultDir, "Lowtide/attachments");
+		const attachments = join(vaultDir, `${FOLDER}/attachments`);
 		await mkdir(attachments, { recursive: true });
 		for (const file of [`${MAP}.webp`, `${MAP}.uvtt`, "Hobb's Warning - Handout.webp"]) await cp(join(pushFixtures, file), join(attachments, file));
 		const mud = await ws.read(MUD);

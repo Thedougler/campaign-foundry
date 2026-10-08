@@ -12,7 +12,7 @@ Choose the areas needed for the next likely expedition: approaches, goal routes,
 
 ## Split only at playable boundaries
 
-A parent Site contains the complex's common situation, entrances, connections between zones, shared pressure and return state. Create a child Site when a zone needs its own usable key and procedures. Build each child from the actual Site template and file it in `<World>/Locations/` with `parent: "[[Containing Site]]"`. Smaller zones remain groups of keys on one Site.
+A parent Site contains the complex's common situation, entrances, connections between zones, shared pressure and return state. Create a child Site when a zone needs its own usable key and procedures. Build each child from the actual Site template and file it in the parent Site's `Locations/` folder with `parent: "[[Containing Site]]"`. Smaller zones remain groups of keys on one Site.
 
 On each cross-Site route, state the destination Site and entry key, travel cost, conditions and return direction. Put reciprocal references at its endpoints. A parent summary links to the child procedures instead of copying their keys. Give shared clocks one authoritative home. Each child states which of its local actions affect a shared clock. Separate local clocks only when they represent different processes, with any interaction specified.
 
