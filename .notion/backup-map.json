@@ -21,7 +21,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-817a-bce4-e2ed0b196103",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec817abce4e2ed0b196103",
-			"hash": "146ea6b7fc7c5eed8b36e82d0b784f44a340a4c7e02dcc5ad5b8e8eb35b663c9"
+			"hash": "de731dca8233a026c840df582008cf4e252290aca1f62d5e7a7dc751d7bb237d"
 		},
 		".agents/skills/audit/evals": {
 			"kind": "dir",
@@ -32,7 +32,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81d4-aab4-dd2787cae64f",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81d4aab4dd2787cae64f",
-			"hash": "d3a2965ed271b2f55c476380c4d301b3f3181a7f78de6dc8fa85fa4999bfc93b"
+			"hash": "6aa7f9ea56fc33140f80dbc3b47221804de4a24d46503b4f845885023a31b902"
 		},
 		".agents/skills/cliffhanger-scene": {
 			"kind": "dir",
@@ -54,7 +54,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81bd-af17-d88f2c1c992c",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81bdaf17d88f2c1c992c",
-			"hash": "c21ab915d493b95ce6b70d9abbbc20d0acaacc03e85d1078a876c1e8a8023adf"
+			"hash": "d0d35bd9091bb864dc549eb9dbc9fcc6306239758bd8efff410cfaf2481dd7e3"
 		},
 		".agents/skills/cliffhanger-scene/evals/climb.md": {
 			"kind": "markdown",
@@ -82,7 +82,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81be-9749-cc667fdd86e1",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81be9749cc667fdd86e1",
-			"hash": "1d258c45eca2fde39949c1efa592951901d74bed2a63278d0e3f230d6417d56d"
+			"hash": "2af7123168a0e8484315b606876f36be2ea0596e73686dea8d93e2bc88b667e8"
 		},
 		".agents/skills/climax-scene/evals/climb.md": {
 			"kind": "markdown",
@@ -99,7 +99,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-817a-a0ca-ec876e712b30",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec817aa0caec876e712b30",
-			"hash": "14906c7293ecf09b62d8d10b4013408e41ca765b484ad3c18480f0b987cd9e37"
+			"hash": "f2cae2820bd72d97b3b3e00e561f95be4c70c8c2c8780eab12175b0727d42c96"
 		},
 		".agents/skills/creature-design/evals": {
 			"kind": "dir",
@@ -110,7 +110,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-8122-9c8c-f61f16e5e158",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81229c8cf61f16e5e158",
-			"hash": "766076e5347900f3d949672d47025a924f1d569e3f99a3ed75a2ac646a48878d"
+			"hash": "fa3206b14ce9ceb83e014a610b4ff1abf314ebb53ced27d6f1de8e9804d8a063"
 		},
 		".agents/skills/creature-design/references": {
 			"kind": "dir",
@@ -121,7 +121,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8113-8c57-d251f03d50e9",
 			"url": "https://app.notion.com/p/filing-and-operations-3f20216635ec81138c57d251f03d50e9",
-			"hash": "a945c75bdac9c8ae19b940b1fe990d1df8d7cd0a3ea02ccbd3c3bef124dd5fce"
+			"hash": "87e4618dcf88b3bdc2e4b13ce45880e7cca0e81e10663e43a6e1801503054aac"
 		},
 		".agents/skills/creature-design/references/sourcing-and-rules.md": {
 			"kind": "markdown",
@@ -155,7 +155,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-8125-ad20-e95b9590a405",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec8125ad20e95b9590a405",
-			"hash": "a954f8d0fbc91fcf23058680a0328828514eb1d6bb3c1da34e30cbb9a3c19f17"
+			"hash": "144608c7300369dff7d40221d2f8ac819755378bfc1d0a34e4799dc972adfba2"
 		},
 		".agents/skills/development-scene/evals/climb.md": {
 			"kind": "markdown",
@@ -183,7 +183,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-81e5-9f24-e58a368a3249",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec81e59f24e58a368a3249",
-			"hash": "a5335f7a7cccecef26d19bb279f9fe56f13d050ae7c7992f644f743d419f1c47"
+			"hash": "8ef615d88b9ad8655b08e06ff91d0be4f8c250b649b06e731ff17889922d4983"
 		},
 		".agents/skills/dungeon-design/evals": {
 			"kind": "dir",
@@ -194,7 +194,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-8130-99d2-f4388eaa7364",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec813099d2f4388eaa7364",
-			"hash": "0d3faade5a3f432fddd4ad3d234c3d164e41f8c76970487eae5600e3ac3bc2c5"
+			"hash": "77c43907c16552c9566d1ef483704ca0e1c2365d97eaf80b7f17cc6b8258edc2"
 		},
 		".agents/skills/dungeon-design/references": {
 			"kind": "dir",
@@ -205,7 +205,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8175-b2a5-f0c17cd94061",
 			"url": "https://app.notion.com/p/expeditions-3f20216635ec8175b2a5f0c17cd94061",
-			"hash": "f53f6496185efd735b8dc6c160ff5c7f1e5609d2543c86648e59e63d66884ad7"
+			"hash": "47cec3040014c51b608e0b13ef3721cb7de00740f91a757c414939c83616fbe4"
 		},
 		".agents/skills/exa-search": {
 			"kind": "dir",
@@ -227,7 +227,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-81f3-a890-cbbfaa418eae",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec81f3a890cbbfaa418eae",
-			"hash": "723bc64d36dcde3931881e6e13ee10e5deece5b5cf35fa17cd5e70afb5a37c1f"
+			"hash": "273669391dc41b39d0c8ae9c80a9c870390216d590fed3c5e144f4a48ffb7fde"
 		},
 		".agents/skills/faction-design/evals": {
 			"kind": "dir",
@@ -238,7 +238,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81d9-9f08-f92f1aa1e694",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81d99f08f92f1aa1e694",
-			"hash": "2e8971dd57bf99b1f4b90280937029626f52f467f8946d65c986415f64f1bc4e"
+			"hash": "6840894d3192ecaa70fc27534792812a8a2b3e5faaea3cf8b830ec8477ce78b5"
 		},
 		".agents/skills/firecrawl-scrape": {
 			"kind": "dir",
@@ -271,7 +271,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8176-8c15-d39c0bb6e2c6",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec81768c15d39c0bb6e2c6",
-			"hash": "21f7211d435f372ee56b86f69efb0c9bfdfaa7037155e0438df401a3224e883b"
+			"hash": "9506ffb06159a6530b7d651f8c31b433bb23de609647e76d8d00d21b296eb99a"
 		},
 		".agents/skills/hook-scene": {
 			"kind": "dir",
@@ -293,7 +293,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-811c-91f9-ee254c75f509",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec811c91f9ee254c75f509",
-			"hash": "83e3882a6cb844a8851995d228b5bd163369622fd5fc80ffc857f56696651871"
+			"hash": "7903701150318e11d73da129d79adf07d4cafcc6540f1b69ade61c1791cbce98"
 		},
 		".agents/skills/hook-scene/evals/climb.md": {
 			"kind": "markdown",
@@ -434,7 +434,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8160-926c-f5342ab8e726",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec8160926cf5342ab8e726",
-			"hash": "74ade96f90de4500a2dca1b8f129248e60d72b92437a0784ad1511613fa88321"
+			"hash": "fae321285fe220558ece3816e5fd921f499fff956f1b405ec7fbf712bdb5880f"
 		},
 		".agents/skills/ingest/evals": {
 			"kind": "dir",
@@ -445,7 +445,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81f1-b600-d46c8c9cf0bc",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81f1b600d46c8c9cf0bc",
-			"hash": "0b280b50208bef80eb347eb9a19b68606045c5826b77a72c239974b591948fd3"
+			"hash": "acd8e09ab69e27b14bfc22f7680682ffbd3ba01229d6ddbf0d03fe0b247ca053"
 		},
 		".agents/skills/ingest/references": {
 			"kind": "dir",
@@ -485,7 +485,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8134-afe5-c823342ed803",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec8134afe5c823342ed803",
-			"hash": "88ff7f5cda10ac67cfbf0b06a440e41956e92553ee288b73d2504392895518be"
+			"hash": "8c70d5c687eb35d808113e1c24a017d48356f5c4ecb45dea8c521f6569ce9db2"
 		},
 		".agents/skills/item-design/evals": {
 			"kind": "dir",
@@ -496,7 +496,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81f1-a496-fc45edb6dba6",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81f1a496fc45edb6dba6",
-			"hash": "b82fed27068e2f092d32aa22a59249282a18d61922f9b7e13c1f2a33095962ab"
+			"hash": "ca7326c16bc4c3de948dc5b438b0461e5b618388755bbacf7298b574bad6a440"
 		},
 		".agents/skills/item-design/references": {
 			"kind": "dir",
@@ -529,7 +529,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-814d-bd05-fe3a3da65e0d",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec814dbd05fe3a3da65e0d",
-			"hash": "c3336b087ce2b3954239063d4d01c1796a7d2c07c32291e35e045cdaf90644b1"
+			"hash": "ca3aa933d91e44ac14487e7957075f5a908aafbcda99ddb8c8e1b9706cbcb86f"
 		},
 		".agents/skills/location-design/references": {
 			"kind": "dir",
@@ -540,7 +540,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8140-89bd-c610175dab02",
 			"url": "https://app.notion.com/p/authoring-3f20216635ec814089bdc610175dab02",
-			"hash": "c67f179f838eb396b078af5ba0283f4b81b4b9d373d416ac5867e38a8dc35a22"
+			"hash": "1b030c0a2e6efae85f3684bd6aab5a54d98ca99aa93ac5391778e432c7beae79"
 		},
 		".agents/skills/location-design/references/region.md": {
 			"kind": "markdown",
@@ -575,7 +575,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8107-8c5d-ca4609b2d80e",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec81078c5dca4609b2d80e",
-			"hash": "5df0da79345501445278a564576df17f14372bce50500d4d5b566ac89ff3fcf9"
+			"hash": "d898b73fd5114c058b34a9c9b383541bce688e14117fde41dffd87dd724b51ee"
 		},
 		".agents/skills/lore-design/evals": {
 			"kind": "dir",
@@ -586,7 +586,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81e4-9474-ccdb14d8e62d",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81e49474ccdb14d8e62d",
-			"hash": "766507ecd41b7d7dac30fedf868b82f886b3981e49c2dcfc078684ce9c32de05"
+			"hash": "2779cf1611f1bf6ea14234a7039f5f45a5bcc7fa3c8637359b2d7cbb91fc207c"
 		},
 		".agents/skills/new-campaign": {
 			"kind": "dir",
@@ -597,7 +597,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-81ec-be26-dde7d6f4666a",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec81ecbe26dde7d6f4666a",
-			"hash": "de9c7532cbe4b444210b8073d367763ca90a5e118fa524b2395180b85d57bb0a"
+			"hash": "b8e38ca062349b4d8b737d3187d3591d96527c5fd0e4b278fcb794c85e0dc15f"
 		},
 		".agents/skills/new-campaign/evals": {
 			"kind": "dir",
@@ -608,7 +608,18 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81f6-a40b-f9a5cf3c93a2",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81f6a40bf9a5cf3c93a2",
-			"hash": "14e79d7a7cfeffbebbf02ca1c2d8f4b97a3c3336f581c6c7afb82577e86dbe0b"
+			"hash": "5c2b4d3d972c88be46e433c31d9df1f4721e4cb9abbb0db942c949f81b2baad7"
+		},
+		".agents/skills/new-campaign/references": {
+			"kind": "dir",
+			"id": "3f302166-35ec-81dc-b12c-c284f80e588a",
+			"url": "https://app.notion.com/p/references-3f30216635ec81dcb12cc284f80e588a"
+		},
+		".agents/skills/new-campaign/references/new-setting.md": {
+			"kind": "markdown",
+			"id": "3f302166-35ec-81f4-9c2d-e320b6d5fa6b",
+			"url": "https://app.notion.com/p/new-setting-3f30216635ec81f49c2de320b6d5fa6b",
+			"hash": "254969836a504ac7c6aaad7d736f1d10777aa809600f7a5845828b859644b628"
 		},
 		".agents/skills/new-world": {
 			"kind": "dir",
@@ -619,7 +630,8 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-81ad-9677-dd77641dc7e6",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec81ad9677dd77641dc7e6",
-			"hash": "8cb732f9cc72a8b1b281aff57fe406f88b7b7e352ae0e993673df0c985222b63"
+			"hash": "8cb732f9cc72a8b1b281aff57fe406f88b7b7e352ae0e993673df0c985222b63",
+			"deletedAt": "2026-10-08"
 		},
 		".agents/skills/new-world/evals": {
 			"kind": "dir",
@@ -630,7 +642,8 @@
 			"kind": "text",
 			"id": "3f202166-35ec-8144-9239-fc2922049189",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81449239fc2922049189",
-			"hash": "ee08e873a85342fefac1e6299ab29792ba71fee972d2578cc6cf1d52ffcddd2f"
+			"hash": "ee08e873a85342fefac1e6299ab29792ba71fee972d2578cc6cf1d52ffcddd2f",
+			"deletedAt": "2026-10-08"
 		},
 		".agents/skills/npc-design": {
 			"kind": "dir",
@@ -641,7 +654,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-815a-bd9d-e0bfea4edad9",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec815abd9de0bfea4edad9",
-			"hash": "4cedb38e8a512d9095f737285aed86357b1556f3afa70871f7b206e2008597cb"
+			"hash": "215f46c0eebb943c532fdc44ee453ed563799cd8ac6d512ec2f976ccf8fd7d4f"
 		},
 		".agents/skills/npc-design/evals": {
 			"kind": "dir",
@@ -652,7 +665,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-815f-a7c1-c9bfc4560fcc",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec815fa7c1c9bfc4560fcc",
-			"hash": "4c9db94b44eeeb4d6344d3a621cee3d69b7f59c73107a5e3143ffb29494a172e"
+			"hash": "2195f86df68b4848ab937399abe0ec9ef7dd62d985a2663446cf1bc940638251"
 		},
 		".agents/skills/npc-design/references": {
 			"kind": "dir",
@@ -697,7 +710,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81b6-9c91-eee4bda63cc6",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81b69c91eee4bda63cc6",
-			"hash": "78109cb974102a6c94f04917a694d3f1804c9c60f6bd3b54723747773d88cc44"
+			"hash": "a4d6f8c04a77480a20f69cac26e0c630a4e983f51d014aa30eb0226f832db9d0"
 		},
 		".agents/skills/prep-session": {
 			"kind": "dir",
@@ -708,7 +721,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-816e-9f3c-db017d0e82f5",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec816e9f3cdb017d0e82f5",
-			"hash": "86860a6625a62014e8e4576208ad2eb6968ff373a63557410cc707829afba596"
+			"hash": "fb07f9ff5803133c2f92817cc49c26f4c81f8693bc14e7aa2ee447e524fce889"
 		},
 		".agents/skills/prep-session/evals": {
 			"kind": "dir",
@@ -719,7 +732,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-8111-a22d-cf552f7df04e",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec8111a22dcf552f7df04e",
-			"hash": "cadc010eacb4bd6bfa969b88946a1d75e990ff8efc1a2c4723e514761d6fd06b"
+			"hash": "069677ade2e83dafcdf997939808c6c87d4cf85c35e137214460fb33141cf969"
 		},
 		".agents/skills/prep-session/references": {
 			"kind": "dir",
@@ -752,7 +765,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81d7-8332-ddf122bd4b7a",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81d78332ddf122bd4b7a",
-			"hash": "89110f23cbb75993b741f889daa0221317a41fd031d8623b21be5d46ea6c81fd"
+			"hash": "dd812f73a4f7a6b9ec68c464f0c28d6fda96aecded7ca224f6d351b75c599e02"
 		},
 		".agents/skills/push-session": {
 			"kind": "dir",
@@ -796,7 +809,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8191-ad52-de4a66783ddd",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec8191ad52de4a66783ddd",
-			"hash": "6973bd3edcaa80c71b8bd5c2f238e92a71bd06568cee88709751299d58f37398"
+			"hash": "e152dc69ec8af5beb525a75c39b52f1b4b0d5e6c65f9760af20730f6f30050cc"
 		},
 		".agents/skills/query/evals": {
 			"kind": "dir",
@@ -807,7 +820,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-819c-90d0-dd7f6c3e0471",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec819c90d0dd7f6c3e0471",
-			"hash": "bc98ba2885782c72ec4f63626812a9f30794d942c13ee3591752673e2256793a"
+			"hash": "d30b1d4e35edca20752a7ae82ea3d2bf1de1bc9a19ae69bc54fcdded5741c07a"
 		},
 		".agents/skills/resolution-scene": {
 			"kind": "dir",
@@ -829,7 +842,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81d1-a8d4-f8abb82274cf",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81d1a8d4f8abb82274cf",
-			"hash": "05ad25faf1365552b3e8895ec07c6b6a6f1a180cffefb216a876e233bca0658d"
+			"hash": "74f9d2d6680b84fc0aee389ef5efd9ff0354e081608d28305b085ec3a598a256"
 		},
 		".agents/skills/resolution-scene/evals/climb.md": {
 			"kind": "markdown",
@@ -879,7 +892,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-816e-a749-da3231ecee28",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec816ea749da3231ecee28",
-			"hash": "edb09ac41edb146a75fc48ee4eab79887d03ba82fea91281e68ff5fee0257e5d"
+			"hash": "84c80882132263e93afa8ea523eac79fd1a813a2d77ac7a37821bd62d7f2a530"
 		},
 		".agents/skills/spell-design/evals": {
 			"kind": "dir",
@@ -890,7 +903,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-8195-ac62-e1bd9ce26946",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec8195ac62e1bd9ce26946",
-			"hash": "7ac36a2f738c1d6baef2fd11d95950bac6f992ee39325ad5e839ec76c7bc2d37"
+			"hash": "e0d6b424836b81fe92e103123a19d718505e3f6e8d762d5beca7abe0f2df3695"
 		},
 		".agents/skills/tavily-best-practices": {
 			"kind": "dir",
@@ -1030,7 +1043,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8148-81a2-d4925437ff04",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec814881a2d4925437ff04",
-			"hash": "84c253bc2aaefdedb01d4a720455d8bd8813412a173e1e8b956be1872839c765"
+			"hash": "541d25d1bbf0c289fea3bed78206ae8695a3f94143e3802a45663a38cce8e89b"
 		},
 		".agents/skills/theatre-of-the-mind/evals": {
 			"kind": "dir",
@@ -1047,7 +1060,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-812a-8658-ff2b12a70b68",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec812a8658ff2b12a70b68",
-			"hash": "b03cf7590ad0dcf3ce8ef988d7f8c9f6e33d97ec2cff80a90aa5057aa751f99b"
+			"hash": "f0f3741d2348718f065e97dfafc03795cab175c8e87bf14536b8ad42714d4872"
 		},
 		".agents/skills/theatre-of-the-mind/evals/climb.md": {
 			"kind": "markdown",
@@ -1127,7 +1140,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-817c-8b24-f0b4216b57ab",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec817c8b24f0b4216b57ab",
-			"hash": "54d262fbe042abb297bfbe7845630c65feeb908692cabb1d2182c5abaca6904b"
+			"hash": "44c5009e7fbe897e8220c3656afbba0911724b3691dfa776f985418d9903e270"
 		},
 		".agents/skills/vehicle-design/evals": {
 			"kind": "dir",
@@ -1138,18 +1151,12 @@
 			"kind": "text",
 			"id": "3f202166-35ec-817c-933a-ddcbe609f779",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec817c933addcbe609f779",
-			"hash": "4e2d37bb9acd146d9ec7c9f5184cfbfe606c142bb747e3bfee6a0162f33b51a4"
+			"hash": "5496a4dbd32f89de5b812bdbd997d2da86fba45716158ecd006d6b760d7296e5"
 		},
 		"wiki": {
 			"kind": "dir",
 			"id": "3f202166-35ec-8163-9247-c7161e1a4808",
 			"url": "https://app.notion.com/p/wiki-3f20216635ec81639247c7161e1a4808"
-		},
-		"wiki/The Shattered Sea/Shattered Sea": {
-			"kind": "dir",
-			"id": "3f202166-35ec-8128-a8fb-e962e97ef5c1",
-			"url": "https://app.notion.com/p/Shattered-Sea-3f20216635ec8128a8fbe962e97ef5c1",
-			"retired": true
 		},
 		"wiki/shattered-sea": {
 			"kind": "dir",
@@ -1447,7 +1454,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8122-bfe6-e3ffaf017464",
 			"url": "https://app.notion.com/p/Talon-Skarn-Creature-3f20216635ec8122bfe6e3ffaf017464",
-			"hash": "b27eefc82deaef9f4f705a4fe24d9a69862145389ab815dcd0360823bdddb91f",
+			"hash": "b90eb31fff175c8c1d882b0dd99030cacfdb3b9e4ac4b1b561748c09e3ee424b",
 			"movedFrom": "wiki/The Shattered Sea/Creatures/Talon Skarn (Creature).md"
 		},
 		"wiki/shattered-sea/Creatures/Talon Vantyrus (Creature).md": {
@@ -1696,8 +1703,7 @@
 		"wiki/shattered-sea/House Rules": {
 			"kind": "dir",
 			"id": "3f302166-35ec-81ed-b40e-f0b437ba06d6",
-			"url": "https://app.notion.com/p/House-Rules-3f30216635ec81edb40ef0b437ba06d6",
-			"movedFrom": "wiki/The Shattered Sea/Shattered Sea/House Rules"
+			"url": "https://app.notion.com/p/House-Rules-3f30216635ec81edb40ef0b437ba06d6"
 		},
 		"wiki/shattered-sea/House Rules/Shipboard Travel.md": {
 			"kind": "markdown",
@@ -3168,8 +3174,7 @@
 		"wiki/shattered-sea/PCs": {
 			"kind": "dir",
 			"id": "3f202166-35ec-81bb-a6e4-c7b25803d20d",
-			"url": "https://app.notion.com/p/PCs-3f20216635ec81bba6e4c7b25803d20d",
-			"movedFrom": "wiki/The Shattered Sea/Shattered Sea/PCs"
+			"url": "https://app.notion.com/p/PCs-3f20216635ec81bba6e4c7b25803d20d"
 		},
 		"wiki/shattered-sea/PCs/Crissdalynn Khinriss.md": {
 			"kind": "markdown",
@@ -3202,8 +3207,7 @@
 		"wiki/shattered-sea/Quests": {
 			"kind": "dir",
 			"id": "3f202166-35ec-8100-a149-df703d20493f",
-			"url": "https://app.notion.com/p/Quests-3f20216635ec8100a149df703d20493f",
-			"movedFrom": "wiki/The Shattered Sea/Shattered Sea/Quests"
+			"url": "https://app.notion.com/p/Quests-3f20216635ec8100a149df703d20493f"
 		},
 		"wiki/shattered-sea/Quests/Grigori and the Crown hunt.md": {
 			"kind": "markdown",
@@ -3236,8 +3240,7 @@
 		"wiki/shattered-sea/Sessions": {
 			"kind": "dir",
 			"id": "3f202166-35ec-81ef-83bb-fc27a53f26be",
-			"url": "https://app.notion.com/p/Sessions-3f20216635ec81ef83bbfc27a53f26be",
-			"movedFrom": "wiki/The Shattered Sea/Shattered Sea/Sessions"
+			"url": "https://app.notion.com/p/Sessions-3f20216635ec81ef83bbfc27a53f26be"
 		},
 		"wiki/shattered-sea/Sessions/Session 0": {
 			"kind": "dir",
@@ -3649,8 +3652,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-818e-8566-fb23d4c925dc",
 			"url": "https://app.notion.com/p/Shattered-Sea-3f20216635ec818e8566fb23d4c925dc",
-			"hash": "c042ada0b358b19694a160952b5e0b6a19da12f494c7903cb63c422ebd269c19",
-			"movedFrom": "wiki/The Shattered Sea/Shattered Sea/Shattered Sea.md"
+			"hash": "c042ada0b358b19694a160952b5e0b6a19da12f494c7903cb63c422ebd269c19"
 		},
 		"wiki/shattered-sea/Spells": {
 			"kind": "dir",
@@ -3675,8 +3677,7 @@
 		"wiki/shattered-sea/Threads": {
 			"kind": "dir",
 			"id": "3f202166-35ec-8172-9944-c893c4c8ee68",
-			"url": "https://app.notion.com/p/Threads-3f20216635ec81729944c893c4c8ee68",
-			"movedFrom": "wiki/The Shattered Sea/Shattered Sea/Threads"
+			"url": "https://app.notion.com/p/Threads-3f20216635ec81729944c893c4c8ee68"
 		},
 		"wiki/shattered-sea/Threads/Bring the Pearl of Souls to Umberlee.md": {
 			"kind": "markdown",
@@ -3842,7 +3843,7 @@
 			"id": "3f202166-35ec-81da-8251-fe910fc5abb8",
 			"url": "https://app.notion.com/p/Aruhe-Handout-Art-jpg-3f20216635ec81da8251fe910fc5abb8",
 			"hash": "965cfa077cc80fb1f06c322c67867eeca210e725334cb7562e53a79731707cf9",
-			"fileUploadId": "3f202166-35ec-81ef-a014-00b20aa23065",
+			"fileUploadId": "3f302166-35ec-8157-a5cf-00b28c103d48",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Aruhe - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Auralis - Reference Sheet.png": {
@@ -3850,7 +3851,7 @@
 			"id": "3f202166-35ec-8103-8ecb-fc51de3e45e4",
 			"url": "https://app.notion.com/p/Auralis-Reference-Sheet-png-3f20216635ec81038ecbfc51de3e45e4",
 			"hash": "3a43cfdfd5d444efa27b5701fd8d0caf90ce6226272a74979c2798d62127ee2d",
-			"fileUploadId": "3f202166-35ec-8173-a97a-00b2cf31f3e1",
+			"fileUploadId": "3f302166-35ec-81f9-a4b4-00b27dc8a87a",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Auralis - Reference Sheet.png"
 		},
 		"wiki/shattered-sea/attachments/Black Lotus - Handout Art.jpg": {
@@ -3858,7 +3859,7 @@
 			"id": "3f202166-35ec-8166-90f1-c1597634119b",
 			"url": "https://app.notion.com/p/Black-Lotus-Handout-Art-jpg-3f20216635ec816690f1c1597634119b",
 			"hash": "5c26236ec01229fca7923070e1806386be6639af5c42c3eda34735d4394e9ab3",
-			"fileUploadId": "3f202166-35ec-81d5-b1e8-00b239989f24",
+			"fileUploadId": "3f302166-35ec-8135-ac49-00b25118a69c",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Black Lotus - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Bloodhawk - Handout Art.jpg": {
@@ -3866,7 +3867,7 @@
 			"id": "3f202166-35ec-810f-8bdf-d0495c045e68",
 			"url": "https://app.notion.com/p/Bloodhawk-Handout-Art-jpg-3f20216635ec810f8bdfd0495c045e68",
 			"hash": "1e0343e9b966a7ed20b6229f3c1e952b7344edbf28b0c54573caeb60542dca4b",
-			"fileUploadId": "3f202166-35ec-8126-a785-00b295cf4013",
+			"fileUploadId": "3f302166-35ec-81c4-805f-00b23adc986c",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Bloodhawk - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Bloodhawk - Portrait.jpg": {
@@ -3874,7 +3875,7 @@
 			"id": "3f202166-35ec-8168-82cc-fe6da4b593d8",
 			"url": "https://app.notion.com/p/Bloodhawk-Portrait-jpg-3f20216635ec816882ccfe6da4b593d8",
 			"hash": "a1fb4ae3f84b044e8b97d7c268a29426b5245566fdbf29eb3da3e480076a1436",
-			"fileUploadId": "3f202166-35ec-81c0-8fd2-00b26c519261",
+			"fileUploadId": "3f302166-35ec-81e1-b785-00b2d6265775",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Bloodhawk - Portrait.jpg"
 		},
 		"wiki/shattered-sea/attachments/Bloodhawk - Token.jpg": {
@@ -3882,7 +3883,7 @@
 			"id": "3f202166-35ec-814c-a329-eca3784c1713",
 			"url": "https://app.notion.com/p/Bloodhawk-Token-jpg-3f20216635ec814ca329eca3784c1713",
 			"hash": "07b383d202e149ef4917d1ea2e250001196c3b40352cf311b6a508f181d4484e",
-			"fileUploadId": "3f202166-35ec-813f-a097-00b2f3df2a76",
+			"fileUploadId": "3f302166-35ec-81ee-ad2b-00b2df06b5db",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Bloodhawk - Token.jpg"
 		},
 		"wiki/shattered-sea/attachments/Countless - Handout Art.png": {
@@ -3890,7 +3891,7 @@
 			"id": "3f202166-35ec-8168-afe8-c66176134427",
 			"url": "https://app.notion.com/p/Countless-Handout-Art-png-3f20216635ec8168afe8c66176134427",
 			"hash": "aecfb2561bc0a16d5596c8a1cfb7e1ff57dd34c07389aba5e0b6083903073916",
-			"fileUploadId": "3f202166-35ec-8132-ad9c-00b210d8e85d",
+			"fileUploadId": "3f302166-35ec-8149-a420-00b2d8316e34",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Countless - Handout Art.png"
 		},
 		"wiki/shattered-sea/attachments/Crissdalynn Khinriss - Reference Sheet.png": {
@@ -3898,7 +3899,7 @@
 			"id": "3f202166-35ec-818e-9fe8-ea63fea7560a",
 			"url": "https://app.notion.com/p/Crissdalynn-Khinriss-Reference-Sheet-png-3f20216635ec818e9fe8ea63fea7560a",
 			"hash": "15e599bb6a8e18eb07d6fc1aa04f73fb1ecb687c638e30c0a09bf068e21c0c95",
-			"fileUploadId": "3f202166-35ec-81c9-9602-00b23d6d830c",
+			"fileUploadId": "3f302166-35ec-81aa-bce2-00b20288d299",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Crissdalynn Khinriss - Reference Sheet.png"
 		},
 		"wiki/shattered-sea/attachments/Crown Squid - Portrait.jpg": {
@@ -3906,7 +3907,7 @@
 			"id": "3f202166-35ec-8187-ad02-ea283552cfeb",
 			"url": "https://app.notion.com/p/Crown-Squid-Portrait-jpg-3f20216635ec8187ad02ea283552cfeb",
 			"hash": "15809e5e5901588cdd2ef5b6e7bef1a040ab965f3d21e88f75faf8ae8411bc7e",
-			"fileUploadId": "3f202166-35ec-81a8-8b55-00b2215be434",
+			"fileUploadId": "3f302166-35ec-8153-a272-00b29bdf4eda",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Crown Squid - Portrait.jpg"
 		},
 		"wiki/shattered-sea/attachments/Cutoff Lip - Handout Art.jpg": {
@@ -3914,7 +3915,7 @@
 			"id": "3f202166-35ec-81fc-a3e7-f756188e04f9",
 			"url": "https://app.notion.com/p/Cutoff-Lip-Handout-Art-jpg-3f20216635ec81fca3e7f756188e04f9",
 			"hash": "6e8e140fca5f48e191150e8123f652f8988ef64e13100824b080ad0a7592b5f5",
-			"fileUploadId": "3f202166-35ec-81a0-8d42-00b2559cf695",
+			"fileUploadId": "3f302166-35ec-81ed-ba49-00b268019e79",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Cutoff Lip - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Deer-Stalker - Portrait 1.jpg": {
@@ -3922,7 +3923,7 @@
 			"id": "3f202166-35ec-8162-9b00-fa8686a6a29a",
 			"url": "https://app.notion.com/p/Deer-Stalker-Portrait-1-jpg-3f20216635ec81629b00fa8686a6a29a",
 			"hash": "f2b8544346eedac4ece9f299b2d7775a51f8d47f3c06421d810daa2628cc014d",
-			"fileUploadId": "3f202166-35ec-8159-8e50-00b2709ee118",
+			"fileUploadId": "3f302166-35ec-81ea-be2d-00b2e344de51",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Deer-Stalker - Portrait 1.jpg"
 		},
 		"wiki/shattered-sea/attachments/Deer-Stalker - Portrait 2.jpg": {
@@ -3930,7 +3931,7 @@
 			"id": "3f202166-35ec-81cc-b454-ee60d61a9b4e",
 			"url": "https://app.notion.com/p/Deer-Stalker-Portrait-2-jpg-3f20216635ec81ccb454ee60d61a9b4e",
 			"hash": "f613ba79f0ccbf897281666601613f1308f4f079d4cc0e11d4c83d996e9cacbc",
-			"fileUploadId": "3f202166-35ec-81be-92c8-00b2868036a2",
+			"fileUploadId": "3f302166-35ec-8140-bd16-00b2ffba0fa3",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Deer-Stalker - Portrait 2.jpg"
 		},
 		"wiki/shattered-sea/attachments/Deer-Stalker - Portrait 3.jpg": {
@@ -3938,7 +3939,7 @@
 			"id": "3f202166-35ec-81f9-b257-db6f822cac88",
 			"url": "https://app.notion.com/p/Deer-Stalker-Portrait-3-jpg-3f20216635ec81f9b257db6f822cac88",
 			"hash": "3a6f7b57822adf2d16986dd077e6e8557185d92fedea97007735341f314dabc6",
-			"fileUploadId": "3f202166-35ec-81e6-b26a-00b2b1195afb",
+			"fileUploadId": "3f302166-35ec-8133-b4a8-00b2f93509fd",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Deer-Stalker - Portrait 3.jpg"
 		},
 		"wiki/shattered-sea/attachments/Deer-Stalker - Portrait.jpg": {
@@ -3946,7 +3947,7 @@
 			"id": "3f202166-35ec-81a0-9644-dece7c9d19bb",
 			"url": "https://app.notion.com/p/Deer-Stalker-Portrait-jpg-3f20216635ec81a09644dece7c9d19bb",
 			"hash": "ec8889648fde9da73f7e3d04a2ae5d389f7b732b5b157a0b60872b39ededaaf1",
-			"fileUploadId": "3f202166-35ec-8123-bd56-00b2654bac22",
+			"fileUploadId": "3f302166-35ec-8135-a20a-00b246007847",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Deer-Stalker - Portrait.jpg"
 		},
 		"wiki/shattered-sea/attachments/Deer-Stalker - Reference Sheet.png": {
@@ -3954,7 +3955,7 @@
 			"id": "3f202166-35ec-8107-b338-c58ff9548beb",
 			"url": "https://app.notion.com/p/Deer-Stalker-Reference-Sheet-png-3f20216635ec8107b338c58ff9548beb",
 			"hash": "e95303db7f688f00133ca86b53a0961bbc3bd3a3c29c6dbd683d11a5c89145fc",
-			"fileUploadId": "3f202166-35ec-810a-acf1-00b2789cbe94",
+			"fileUploadId": "3f302166-35ec-8180-aae4-00b25753f05a",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Deer-Stalker - Reference Sheet.png"
 		},
 		"wiki/shattered-sea/attachments/Deer-Stalker - Token.png": {
@@ -3962,7 +3963,7 @@
 			"id": "3f202166-35ec-8145-9059-c32c0b750406",
 			"url": "https://app.notion.com/p/Deer-Stalker-Token-png-3f20216635ec81459059c32c0b750406",
 			"hash": "0e790bc85565ce15863d62c65060a187052c9adff6878801e93d2edc2fb2c9bf",
-			"fileUploadId": "3f202166-35ec-8146-8ac7-00b23cba76e3",
+			"fileUploadId": "3f302166-35ec-818c-9598-00b2e9c4b6cd",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Deer-Stalker - Token.png"
 		},
 		"wiki/shattered-sea/attachments/Delmar Fisk - Reference Sheet.png": {
@@ -3970,7 +3971,7 @@
 			"id": "3f202166-35ec-812f-a955-f5264a0c74c3",
 			"url": "https://app.notion.com/p/Delmar-Fisk-Reference-Sheet-png-3f20216635ec812fa955f5264a0c74c3",
 			"hash": "135184e67b8e496cf2389e353853d409af2692acae0f0e8ee38233de32189898",
-			"fileUploadId": "3f202166-35ec-81c2-8c06-00b2069c29ae",
+			"fileUploadId": "3f302166-35ec-81e4-965c-00b2a7de4bcd",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Delmar Fisk - Reference Sheet.png"
 		},
 		"wiki/shattered-sea/attachments/Drowned Maw Awakening - Handout Art.png": {
@@ -3978,7 +3979,7 @@
 			"id": "3f202166-35ec-8150-9c62-d312784b2506",
 			"url": "https://app.notion.com/p/Drowned-Maw-Awakening-Handout-Art-png-3f20216635ec81509c62d312784b2506",
 			"hash": "c95dea2a9337c63cc57b8c9b2fd86345300252d6005fbd5ef97e06083269fdac",
-			"fileUploadId": "3f202166-35ec-8153-816a-00b2305b4437",
+			"fileUploadId": "3f302166-35ec-81e4-9945-00b265f5f18d",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Drowned Maw Awakening - Handout Art.png"
 		},
 		"wiki/shattered-sea/attachments/Fate Spinner - Handout Art.png": {
@@ -3986,7 +3987,7 @@
 			"id": "3f202166-35ec-8155-8bd0-d6488f0ecc5d",
 			"url": "https://app.notion.com/p/Fate-Spinner-Handout-Art-png-3f20216635ec81558bd0d6488f0ecc5d",
 			"hash": "527200c52d87d9b1e69179b239c0a2ddf179694437c3507aaa288b603c732cb9",
-			"fileUploadId": "3f202166-35ec-81f7-91b5-00b247398086",
+			"fileUploadId": "3f302166-35ec-8193-98cf-00b2b7fcb01d",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Fate Spinner - Handout Art.png"
 		},
 		"wiki/shattered-sea/attachments/Flying Boots - Handout Art.png": {
@@ -3994,7 +3995,7 @@
 			"id": "3f202166-35ec-8122-9db5-c6909bf7c6d7",
 			"url": "https://app.notion.com/p/Flying-Boots-Handout-Art-png-3f20216635ec81229db5c6909bf7c6d7",
 			"hash": "9a9bb45c6916a71905f073b6895f469112105d397675569d209e8731582c65b4",
-			"fileUploadId": "3f202166-35ec-813a-b0e4-00b2e3375d77",
+			"fileUploadId": "3f302166-35ec-81ef-b5cb-00b2ea842b67",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Flying Boots - Handout Art.png"
 		},
 		"wiki/shattered-sea/attachments/Geoffrey Draves - Portrait.webp": {
@@ -4002,7 +4003,7 @@
 			"id": "3f202166-35ec-812e-bd8a-ea7773741d92",
 			"url": "https://app.notion.com/p/Geoffrey-Draves-Portrait-webp-3f20216635ec812ebd8aea7773741d92",
 			"hash": "8df9244696b3bd014368ea5de38843926f33ce09430b8d8d3dc4b835b0cb34d1",
-			"fileUploadId": "3f202166-35ec-81f9-a9cc-00b28fc1f7c2",
+			"fileUploadId": "3f302166-35ec-8193-a6d7-00b26ac2d078",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Geoffrey Draves - Portrait.webp"
 		},
 		"wiki/shattered-sea/attachments/Ghost Plum - Handout Art.jpg": {
@@ -4010,7 +4011,7 @@
 			"id": "3f202166-35ec-8170-8ab2-cbe9305da8b2",
 			"url": "https://app.notion.com/p/Ghost-Plum-Handout-Art-jpg-3f20216635ec81708ab2cbe9305da8b2",
 			"hash": "29e2cf2b9dc0d6ef642f35463c1248bc1caebe67a947b6b8b4d84ba14bc3065d",
-			"fileUploadId": "3f202166-35ec-81ce-9c28-00b210a84c8a",
+			"fileUploadId": "3f302166-35ec-81c3-85f9-00b2fd81b0da",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Ghost Plum - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Giant's Guava - Handout Art.jpg": {
@@ -4018,7 +4019,7 @@
 			"id": "3f202166-35ec-81a0-be57-d812dbc8c220",
 			"url": "https://app.notion.com/p/Giant-s-Guava-Handout-Art-jpg-3f20216635ec81a0be57d812dbc8c220",
 			"hash": "a68d80f033b95932f011aebab50686da48de2dd4deb45a3b19b1d4f2a6dc86bc",
-			"fileUploadId": "3f202166-35ec-8153-a213-00b25b638b81",
+			"fileUploadId": "3f302166-35ec-81a4-b61d-00b29fb87c13",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Giant's Guava - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Grasslands - Handout Art.jpg": {
@@ -4026,7 +4027,7 @@
 			"id": "3f202166-35ec-8132-b05c-d507798df83c",
 			"url": "https://app.notion.com/p/Grasslands-Handout-Art-jpg-3f20216635ec8132b05cd507798df83c",
 			"hash": "998379e033475ac9a703536c5977f4bccd6c006f12281e069f606ebce8b89658",
-			"fileUploadId": "3f202166-35ec-8123-86cf-00b212103729",
+			"fileUploadId": "3f302166-35ec-81ce-99a4-00b2ca361d32",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Grasslands - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Grasslands - Portrait.jpg": {
@@ -4034,7 +4035,7 @@
 			"id": "3f202166-35ec-8160-9df4-ec1cd0c5804f",
 			"url": "https://app.notion.com/p/Grasslands-Portrait-jpg-3f20216635ec81609df4ec1cd0c5804f",
 			"hash": "4daf75453d9137492d153109f2e6c2c1219283d32c6937bc4225fe67c9462fcc",
-			"fileUploadId": "3f202166-35ec-81ef-8756-00b25a64f6a1",
+			"fileUploadId": "3f302166-35ec-81d3-9e4f-00b2a5f30cc1",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Grasslands - Portrait.jpg"
 		},
 		"wiki/shattered-sea/attachments/Grubnade - Handout Art.jpg": {
@@ -4042,7 +4043,7 @@
 			"id": "3f202166-35ec-81fc-bc9a-f099ffa4d253",
 			"url": "https://app.notion.com/p/Grubnade-Handout-Art-jpg-3f20216635ec81fcbc9af099ffa4d253",
 			"hash": "c59ca1128d3057137b78263332646a3ad67e92f8a1b73097fb1bb80459e8a9f0",
-			"fileUploadId": "3f202166-35ec-81d7-93a2-00b250ac2539",
+			"fileUploadId": "3f302166-35ec-815e-9654-00b2d5b73c57",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Grubnade - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Grung Authority Seal - Handout Art.png": {
@@ -4050,7 +4051,7 @@
 			"id": "3f202166-35ec-81dc-ab40-fb39ce78f690",
 			"url": "https://app.notion.com/p/Grung-Authority-Seal-Handout-Art-png-3f20216635ec81dcab40fb39ce78f690",
 			"hash": "0898850859eaddb06f19a03433e40b2d5cce73244cc484af10a5bc93f7a303e7",
-			"fileUploadId": "3f202166-35ec-81e4-a2ef-00b27e4a7aa7",
+			"fileUploadId": "3f302166-35ec-8125-81f1-00b25c85bfc5",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Grung Authority Seal - Handout Art.png"
 		},
 		"wiki/shattered-sea/attachments/Hinewai - Handout Art.jpg": {
@@ -4058,7 +4059,7 @@
 			"id": "3f202166-35ec-81ac-83f2-da7ae64415dd",
 			"url": "https://app.notion.com/p/Hinewai-Handout-Art-jpg-3f20216635ec81ac83f2da7ae64415dd",
 			"hash": "3e77f641523cbeca9033b3bbbffd9dbf217305079e62138b378d68bfe74d8d6d",
-			"fileUploadId": "3f202166-35ec-8153-bb74-00b23c8fe28b",
+			"fileUploadId": "3f302166-35ec-813a-abd3-00b215e5cae0",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Hinewai - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Hinewai - Portrait.png": {
@@ -4066,7 +4067,7 @@
 			"id": "3f202166-35ec-81a3-b67a-e3cbbf523d89",
 			"url": "https://app.notion.com/p/Hinewai-Portrait-png-3f20216635ec81a3b67ae3cbbf523d89",
 			"hash": "759929e641ca11059a6d22bf0161ab2c4ea1d35e1d1b689e433e15efb40a0402",
-			"fileUploadId": "3f202166-35ec-819e-879e-00b21ab468a4",
+			"fileUploadId": "3f302166-35ec-81a4-b549-00b2d320c95d",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Hinewai - Portrait.png"
 		},
 		"wiki/shattered-sea/attachments/Hinewai - Reference Sheet.jpg": {
@@ -4074,7 +4075,7 @@
 			"id": "3f202166-35ec-816c-8760-d055b2b4896c",
 			"url": "https://app.notion.com/p/Hinewai-Reference-Sheet-jpg-3f20216635ec816c8760d055b2b4896c",
 			"hash": "6ff17fc3797107de512287b568d526041bf462a236f5f366a5294a902bb30297",
-			"fileUploadId": "3f202166-35ec-811a-b79c-00b2d08969c3",
+			"fileUploadId": "3f302166-35ec-81fc-99e7-00b2f0ec7259",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Hinewai - Reference Sheet.jpg"
 		},
 		"wiki/shattered-sea/attachments/Hinewai - Token.jpg": {
@@ -4082,7 +4083,7 @@
 			"id": "3f202166-35ec-81d5-af45-db186b1c793c",
 			"url": "https://app.notion.com/p/Hinewai-Token-jpg-3f20216635ec81d5af45db186b1c793c",
 			"hash": "24a954a2ce62f99bf1cfd0ac220deff621b5f967bcd240b53c60a3418370e692",
-			"fileUploadId": "3f202166-35ec-81c2-90e0-00b21f017f38",
+			"fileUploadId": "3f302166-35ec-8196-816c-00b29368dd43",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Hinewai - Token.jpg"
 		},
 		"wiki/shattered-sea/attachments/Hinewai the Blight - Portrait.png": {
@@ -4090,7 +4091,7 @@
 			"id": "3f202166-35ec-818a-83fa-dba194bd14b5",
 			"url": "https://app.notion.com/p/Hinewai-the-Blight-Portrait-png-3f20216635ec818a83fadba194bd14b5",
 			"hash": "82aaaff7cbf99724e0fc2d4a28faae993e9aedf971893c54d4b995115d13c71f",
-			"fileUploadId": "3f202166-35ec-81fa-a49d-00b2718eedf4",
+			"fileUploadId": "3f302166-35ec-812c-88a9-00b29b58b957",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Hinewai the Blight - Portrait.png"
 		},
 		"wiki/shattered-sea/attachments/Jean-Claude Tabarnack - Reference Sheet.png": {
@@ -4098,7 +4099,7 @@
 			"id": "3f202166-35ec-814a-9350-cf0205e60ebd",
 			"url": "https://app.notion.com/p/Jean-Claude-Tabarnack-Reference-Sheet-png-3f20216635ec814a9350cf0205e60ebd",
 			"hash": "3e315fcc7ffd0a3659bb84c1f5501490fba63cb8f767bf4c8ed3ba8e4100d280",
-			"fileUploadId": "3f202166-35ec-818f-86f3-00b27daa39b6",
+			"fileUploadId": "3f302166-35ec-81fc-b47c-00b2c99096ca",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Jean-Claude Tabarnack - Reference Sheet.png"
 		},
 		"wiki/shattered-sea/attachments/Karath - Handout Art.png": {
@@ -4106,7 +4107,7 @@
 			"id": "3f202166-35ec-81ee-9c2e-e6ca7eddbb0c",
 			"url": "https://app.notion.com/p/Karath-Handout-Art-png-3f20216635ec81ee9c2ee6ca7eddbb0c",
 			"hash": "465caec704d1055a5a4c124329614b1dfff4ab2eda4a9d6a1b966e925d25fbd8",
-			"fileUploadId": "3f202166-35ec-81a0-9386-00b2fa2b1c52",
+			"fileUploadId": "3f302166-35ec-81a8-9019-00b2e8d35326",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Karath - Handout Art.png"
 		},
 		"wiki/shattered-sea/attachments/Lava Tubes - Handout Art.jpg": {
@@ -4114,7 +4115,7 @@
 			"id": "3f202166-35ec-8169-9613-cb91bf1d845b",
 			"url": "https://app.notion.com/p/Lava-Tubes-Handout-Art-jpg-3f20216635ec81699613cb91bf1d845b",
 			"hash": "d22b465a8b9cb84a0d92c96253d1af4e839bf2a81087b926de61716c4c03c305",
-			"fileUploadId": "3f202166-35ec-8153-8d0e-00b20739695e",
+			"fileUploadId": "3f302166-35ec-81eb-b0df-00b2552f3637",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Lava Tubes - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Lesser Black Lotus - Handout Art.jpg": {
@@ -4122,7 +4123,7 @@
 			"id": "3f202166-35ec-8185-9622-fb6c5a0e5bc9",
 			"url": "https://app.notion.com/p/Lesser-Black-Lotus-Handout-Art-jpg-3f20216635ec81859622fb6c5a0e5bc9",
 			"hash": "371f1f8226012a1d29f0226365cf969b1e9b79d72fc7675338bad9338324191a",
-			"fileUploadId": "3f202166-35ec-81e8-8561-00b2a8a5917d",
+			"fileUploadId": "3f302166-35ec-818f-a42c-00b27d7fed68",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Lesser Black Lotus - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Line Bank - Handout Art.jpg": {
@@ -4130,7 +4131,7 @@
 			"id": "3f202166-35ec-8171-b82b-ee3c307115fd",
 			"url": "https://app.notion.com/p/Line-Bank-Handout-Art-jpg-3f20216635ec8171b82bee3c307115fd",
 			"hash": "cbc1dbdff7e0e657f1ebf56a48a2bbcbf90391ae89a3b08efefdafa16f6e64c6",
-			"fileUploadId": "3f202166-35ec-819b-bc8d-00b272f6e526",
+			"fileUploadId": "3f302166-35ec-8119-8938-00b2cd3d423e",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Line Bank - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Master Kyzil - Portrait.png": {
@@ -4138,7 +4139,7 @@
 			"id": "3f202166-35ec-81c5-8e07-e96e24338305",
 			"url": "https://app.notion.com/p/Master-Kyzil-Portrait-png-3f20216635ec81c58e07e96e24338305",
 			"hash": "7ee802ab0aecd2a3f13fb10a36a2c319b70f5c2828cdc05292523d866a64d9a1",
-			"fileUploadId": "3f202166-35ec-8158-9834-00b28e319030",
+			"fileUploadId": "3f302166-35ec-8139-b266-00b26b2f6847",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Master Kyzil - Portrait.png"
 		},
 		"wiki/shattered-sea/attachments/Matteo Scola - Portrait.png": {
@@ -4146,7 +4147,7 @@
 			"id": "3f202166-35ec-8173-91c9-dd22e2107eca",
 			"url": "https://app.notion.com/p/Matteo-Scola-Portrait-png-3f20216635ec817391c9dd22e2107eca",
 			"hash": "0258efddf7eb9083a4d5ec5747d482eff2a893a09da8b365b0584fff22a49b02",
-			"fileUploadId": "3f202166-35ec-81d8-afa9-00b20eadc087",
+			"fileUploadId": "3f302166-35ec-8145-9886-00b24e258178",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Matteo Scola - Portrait.png"
 		},
 		"wiki/shattered-sea/attachments/Memorial Grove - Handout Art.jpg": {
@@ -4154,7 +4155,7 @@
 			"id": "3f202166-35ec-814a-8b18-ce0c681848fc",
 			"url": "https://app.notion.com/p/Memorial-Grove-Handout-Art-jpg-3f20216635ec814a8b18ce0c681848fc",
 			"hash": "b86500a5771830189b81caddcd5f8280360972f39e6350cf6514f679b51ac001",
-			"fileUploadId": "3f202166-35ec-81e5-873a-00b20351cac3",
+			"fileUploadId": "3f302166-35ec-81b4-82ac-00b2bbcd554a",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Memorial Grove - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Nona Black-Jaw - Portrait.jpg": {
@@ -4162,7 +4163,7 @@
 			"id": "3f202166-35ec-81b8-be4e-f935c5eb3c64",
 			"url": "https://app.notion.com/p/Nona-Black-Jaw-Portrait-jpg-3f20216635ec81b8be4ef935c5eb3c64",
 			"hash": "96571b09fded981382f808d6f08effd16435ae9069ec3934bfb91ba2a972de8a",
-			"fileUploadId": "3f202166-35ec-810e-a4a9-00b2829cdd35",
+			"fileUploadId": "3f302166-35ec-810a-bd98-00b205979d74",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Nona Black-Jaw - Portrait.jpg"
 		},
 		"wiki/shattered-sea/attachments/Old Faas - Portrait.webp": {
@@ -4170,7 +4171,7 @@
 			"id": "3f202166-35ec-8174-9cbd-c4eb5377372a",
 			"url": "https://app.notion.com/p/Old-Faas-Portrait-webp-3f20216635ec81749cbdc4eb5377372a",
 			"hash": "d23f610f056b9088ef2926ca5bf22c735bb4c2c9582f7bbd5186da90542e51aa",
-			"fileUploadId": "3f202166-35ec-81f7-89aa-00b230732e15",
+			"fileUploadId": "3f302166-35ec-8133-a80d-00b2ac637844",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Old Faas - Portrait.webp"
 		},
 		"wiki/shattered-sea/attachments/Old Gardens - Handout Art.jpg": {
@@ -4178,7 +4179,7 @@
 			"id": "3f202166-35ec-8134-8a35-eaf0cee41712",
 			"url": "https://app.notion.com/p/Old-Gardens-Handout-Art-jpg-3f20216635ec81348a35eaf0cee41712",
 			"hash": "7d6fbdf770e382decadc00dd02879766a741e1ce9942ba19a8d1497387840cbd",
-			"fileUploadId": "3f202166-35ec-81e2-9fdc-00b2dd88af44",
+			"fileUploadId": "3f302166-35ec-81cf-9cdd-00b26e2dacb8",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Old Gardens - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Old Gardens - Portrait.jpg": {
@@ -4186,7 +4187,7 @@
 			"id": "3f202166-35ec-8164-87a5-e8bac26412da",
 			"url": "https://app.notion.com/p/Old-Gardens-Portrait-jpg-3f20216635ec816487a5e8bac26412da",
 			"hash": "f7081b61ef0bb988bbd36976c485e493737bf983c10545f4ee015a188bf08cc6",
-			"fileUploadId": "3f202166-35ec-81bb-8195-00b273daae44",
+			"fileUploadId": "3f302166-35ec-812f-80ea-00b26600be61",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Old Gardens - Portrait.jpg"
 		},
 		"wiki/shattered-sea/attachments/Perrin Black-Jaw - Reference Sheet.png": {
@@ -4194,7 +4195,7 @@
 			"id": "3f202166-35ec-8126-8d47-fbc5ba62ba18",
 			"url": "https://app.notion.com/p/Perrin-Black-Jaw-Reference-Sheet-png-3f20216635ec81268d47fbc5ba62ba18",
 			"hash": "e3e90b0c960f841754d0337ab3462a2b7ab7e0667b86a29e320652d7a7822baa",
-			"fileUploadId": "3f202166-35ec-8185-838d-00b292fe2ddb",
+			"fileUploadId": "3f302166-35ec-8176-91c5-00b2756e6e6d",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Perrin Black-Jaw - Reference Sheet.png"
 		},
 		"wiki/shattered-sea/attachments/Print Braid - Handout Art.jpg": {
@@ -4202,7 +4203,7 @@
 			"id": "3f202166-35ec-8124-976d-f8827bfe8b5a",
 			"url": "https://app.notion.com/p/Print-Braid-Handout-Art-jpg-3f20216635ec8124976df8827bfe8b5a",
 			"hash": "bbeeaeb545e4b26d11a3fb27a524efcdde0de8c7a93cd95c3d47ecee2c230e1c",
-			"fileUploadId": "3f202166-35ec-811b-8b1a-00b26178dd16",
+			"fileUploadId": "3f302166-35ec-8141-b9e1-00b25db65b65",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Print Braid - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Razer-Grass - Handout Art.jpg": {
@@ -4210,7 +4211,7 @@
 			"id": "3f202166-35ec-8199-962e-c4b84586ab41",
 			"url": "https://app.notion.com/p/Razer-Grass-Handout-Art-jpg-3f20216635ec8199962ec4b84586ab41",
 			"hash": "c2cb366505f8fe434d9b55dc50c93f7456cbf6f8ddfce697a177dc6bb7620e4f",
-			"fileUploadId": "3f202166-35ec-814c-83ec-00b2101575ae",
+			"fileUploadId": "3f302166-35ec-812b-a142-00b293396002",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Razer-Grass - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Redheart Berry - Handout Art.jpg": {
@@ -4218,7 +4219,7 @@
 			"id": "3f202166-35ec-8163-85c2-f0407a79501b",
 			"url": "https://app.notion.com/p/Redheart-Berry-Handout-Art-jpg-3f20216635ec816385c2f0407a79501b",
 			"hash": "09b55cc5cc7acf1ffbfe57a3b50070594354ec801c3a2f6cb2843d54a5f524b2",
-			"fileUploadId": "3f202166-35ec-8154-9a7c-00b2e448ac4b",
+			"fileUploadId": "3f302166-35ec-81b3-8c59-00b2f5e5f970",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Redheart Berry - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/River Otter - Reference Sheet.jpg": {
@@ -4226,7 +4227,7 @@
 			"id": "3f202166-35ec-819f-bfdc-d0589927fac9",
 			"url": "https://app.notion.com/p/River-Otter-Reference-Sheet-jpg-3f20216635ec819fbfdcd0589927fac9",
 			"hash": "2335967890c693e3cd52ef83d64a1a575a4d17e01bfba94ea34d72664f169bef",
-			"fileUploadId": "3f202166-35ec-81c8-b0d7-00b26764645c",
+			"fileUploadId": "3f302166-35ec-813a-b124-00b24dc8375d",
 			"movedFrom": "wiki/The Shattered Sea/attachments/River Otter - Reference Sheet.jpg"
 		},
 		"wiki/shattered-sea/attachments/River Otter - Token.png": {
@@ -4234,7 +4235,7 @@
 			"id": "3f202166-35ec-8104-ba37-c2432cd889f6",
 			"url": "https://app.notion.com/p/River-Otter-Token-png-3f20216635ec8104ba37c2432cd889f6",
 			"hash": "dd4b6771f591c5343223e0383acd25a419f6fdab126de2315731afe58f31bfbb",
-			"fileUploadId": "3f202166-35ec-8172-ac19-00b2eaf7c3b7",
+			"fileUploadId": "3f302166-35ec-81c8-9e6b-00b2de6abeb0",
 			"movedFrom": "wiki/The Shattered Sea/attachments/River Otter - Token.png"
 		},
 		"wiki/shattered-sea/attachments/Sem Holst - Portrait.webp": {
@@ -4242,7 +4243,7 @@
 			"id": "3f202166-35ec-8184-9770-f45036384932",
 			"url": "https://app.notion.com/p/Sem-Holst-Portrait-webp-3f20216635ec81849770f45036384932",
 			"hash": "18463b5ff89ba7b1707b78c616b66433d51bdcbe6f024bee2153f5865f80e5b0",
-			"fileUploadId": "3f202166-35ec-8167-8959-00b2257c548b",
+			"fileUploadId": "3f302166-35ec-8169-9ad8-00b2d6c3d01b",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Sem Holst - Portrait.webp"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - Angry Birds - Battle Map Canopy Valley.jpg": {
@@ -4250,7 +4251,7 @@
 			"id": "3f202166-35ec-81f4-a50c-c890412e686a",
 			"url": "https://app.notion.com/p/Session-11-Angry-Birds-Battle-Map-Canopy-Valley-jpg-3f20216635ec81f4a50cc890412e686a",
 			"hash": "4b45c6415e6e2c2a3a52e9a52945cde2cc254e5e809cd96a1c404c361059d263",
-			"fileUploadId": "3f202166-35ec-811c-b2f5-00b2ea78cd54",
+			"fileUploadId": "3f302166-35ec-81df-ac77-00b2990c71ec",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - Angry Birds - Battle Map Canopy Valley.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - Angry Birds - Battle Map Descent.jpg": {
@@ -4258,7 +4259,7 @@
 			"id": "3f202166-35ec-8141-9883-e0e60f84924a",
 			"url": "https://app.notion.com/p/Session-11-Angry-Birds-Battle-Map-Descent-jpg-3f20216635ec81419883e0e60f84924a",
 			"hash": "8df9342e914e8505a42fea8bfe533a36e0634155322cb14bc19568e9459943a1",
-			"fileUploadId": "3f202166-35ec-8154-9abe-00b29d1cbb04",
+			"fileUploadId": "3f302166-35ec-8199-a48c-00b230b8d83a",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - Angry Birds - Battle Map Descent.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - Angry Birds - Battle Map.jpg": {
@@ -4266,7 +4267,7 @@
 			"id": "3f202166-35ec-81c6-a58e-c3660ddca684",
 			"url": "https://app.notion.com/p/Session-11-Angry-Birds-Battle-Map-jpg-3f20216635ec81c6a58ec3660ddca684",
 			"hash": "c73b81c69adcdc088033eeb786285ef2b166a474b899b5c961cad985d3903328",
-			"fileUploadId": "3f202166-35ec-8168-8e99-00b28d95f664",
+			"fileUploadId": "3f302166-35ec-8178-80b8-00b25f73ef54",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - Angry Birds - Battle Map.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - Birds of a Feather - Handout Art.png": {
@@ -4274,7 +4275,7 @@
 			"id": "3f202166-35ec-8135-80e0-f7e4949d1513",
 			"url": "https://app.notion.com/p/Session-11-Birds-of-a-Feather-Handout-Art-png-3f20216635ec813580e0f7e4949d1513",
 			"hash": "f76d22d627f722cdf4025dab60009eb4553a910949ecbfc7713183e69acc76f8",
-			"fileUploadId": "3f202166-35ec-8151-b703-00b2dbf0f147",
+			"fileUploadId": "3f302166-35ec-81ec-b1ae-00b248dffedf",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - Birds of a Feather - Handout Art.png"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - False Help - Battle Map.jpg": {
@@ -4282,7 +4283,7 @@
 			"id": "3f202166-35ec-817d-81e7-fd93f6b11970",
 			"url": "https://app.notion.com/p/Session-11-False-Help-Battle-Map-jpg-3f20216635ec817d81e7fd93f6b11970",
 			"hash": "02a95b0313736bf25a6fd3c8493aa677c06f0558fcc183a48a98be147d2dab6f",
-			"fileUploadId": "3f202166-35ec-819d-8c3d-00b25e68f363",
+			"fileUploadId": "3f302166-35ec-8135-9b22-00b28538196e",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - False Help - Battle Map.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - False Help - Handout Art 2.jpg": {
@@ -4290,7 +4291,7 @@
 			"id": "3f202166-35ec-81be-a428-c07c524e3d14",
 			"url": "https://app.notion.com/p/Session-11-False-Help-Handout-Art-2-jpg-3f20216635ec81bea428c07c524e3d14",
 			"hash": "1a9672c8da7aeb72b4df772177684c5a7bc6d77f75d5926c525faa15407baf1b",
-			"fileUploadId": "3f202166-35ec-81d1-becc-00b289e53a31",
+			"fileUploadId": "3f302166-35ec-81dd-b168-00b226eaba38",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - False Help - Handout Art 2.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - False Help - Handout Art.jpg": {
@@ -4298,7 +4299,7 @@
 			"id": "3f202166-35ec-8183-a751-e659692700d9",
 			"url": "https://app.notion.com/p/Session-11-False-Help-Handout-Art-jpg-3f20216635ec8183a751e659692700d9",
 			"hash": "ab36ad8774777f15e26845b2118764b92ca650445391a782621b213cbb23be80",
-			"fileUploadId": "3f202166-35ec-811d-8d6d-00b295e9767f",
+			"fileUploadId": "3f302166-35ec-8181-b218-00b2d6650b3c",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - False Help - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - Farthest Camp - Handout Art.jpg": {
@@ -4306,7 +4307,7 @@
 			"id": "3f202166-35ec-81c9-88b7-f8c88ce6ce16",
 			"url": "https://app.notion.com/p/Session-11-Farthest-Camp-Handout-Art-jpg-3f20216635ec81c988b7f8c88ce6ce16",
 			"hash": "f690ac20ab0b22b4862b09d5faee3494a08654debc1d3ef572ab930bbf250b63",
-			"fileUploadId": "3f202166-35ec-8151-abeb-00b2eb51a4aa",
+			"fileUploadId": "3f302166-35ec-8181-b6b6-00b2486aebc7",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - Farthest Camp - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - Landing Sign - Battle Map Valley.jpg": {
@@ -4314,7 +4315,7 @@
 			"id": "3f202166-35ec-81a6-964f-f68ae152327e",
 			"url": "https://app.notion.com/p/Session-11-Landing-Sign-Battle-Map-Valley-jpg-3f20216635ec81a6964ff68ae152327e",
 			"hash": "fadfc39d17bc425b0ec635b8920f652ec21dcd5131c5af4b4129b9fe14ab23ca",
-			"fileUploadId": "3f202166-35ec-813f-9285-00b2bfab3332",
+			"fileUploadId": "3f302166-35ec-814b-af86-00b2fea784ce",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - Landing Sign - Battle Map Valley.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - Landing Sign - Battle Map.jpg": {
@@ -4322,7 +4323,7 @@
 			"id": "3f202166-35ec-81b1-8d59-c398448c2433",
 			"url": "https://app.notion.com/p/Session-11-Landing-Sign-Battle-Map-jpg-3f20216635ec81b18d59c398448c2433",
 			"hash": "71fe994880f8b5bd33d0e129445e8b204f3be2dd5d3f814def8927b2f993af5a",
-			"fileUploadId": "3f202166-35ec-81ae-905b-00b2753976b9",
+			"fileUploadId": "3f302166-35ec-81bf-9454-00b288cc0648",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - Landing Sign - Battle Map.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - Landing Sign - Handout Art.jpg": {
@@ -4330,7 +4331,7 @@
 			"id": "3f202166-35ec-81da-af0d-def03773d21a",
 			"url": "https://app.notion.com/p/Session-11-Landing-Sign-Handout-Art-jpg-3f20216635ec81daaf0ddef03773d21a",
 			"hash": "684c5caa11db4794e3254027893ce4abfda2af05bc516eb228759676990e0577",
-			"fileUploadId": "3f202166-35ec-813b-97a6-00b2fd85326e",
+			"fileUploadId": "3f302166-35ec-819f-923f-00b2407e9064",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - Landing Sign - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - Night Watch - Handout Art.jpg": {
@@ -4338,7 +4339,7 @@
 			"id": "3f202166-35ec-818f-a6db-d657bdfeeaae",
 			"url": "https://app.notion.com/p/Session-11-Night-Watch-Handout-Art-jpg-3f20216635ec818fa6dbd657bdfeeaae",
 			"hash": "5632a26b5b0ec432e9f67ae8db113adbe3c14bc8cd546b9dd4a21408522d0232",
-			"fileUploadId": "3f202166-35ec-819c-9bd1-00b24fd0f55c",
+			"fileUploadId": "3f302166-35ec-8123-b73c-00b2395051bc",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - Night Watch - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - Otter Hole - Battle Map.jpg": {
@@ -4346,7 +4347,7 @@
 			"id": "3f202166-35ec-81ad-9e45-e104c39683cf",
 			"url": "https://app.notion.com/p/Session-11-Otter-Hole-Battle-Map-jpg-3f20216635ec81ad9e45e104c39683cf",
 			"hash": "a304553175a3544d2939366e634d77240a1c90fcc0b0eba962bec2ab05afa20b",
-			"fileUploadId": "3f202166-35ec-81bb-9c16-00b2975ff2c5",
+			"fileUploadId": "3f302166-35ec-81b0-8df5-00b259028fa6",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - Otter Hole - Battle Map.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - Theft on the Watch - Battle Map.jpg": {
@@ -4354,7 +4355,7 @@
 			"id": "3f202166-35ec-81ca-8787-d4bf8d7e44ef",
 			"url": "https://app.notion.com/p/Session-11-Theft-on-the-Watch-Battle-Map-jpg-3f20216635ec81ca8787d4bf8d7e44ef",
 			"hash": "a4331e7826ebed976725e77f428809733c19c90b183db47a56cf19fc4c6f5321",
-			"fileUploadId": "3f202166-35ec-810c-bdb8-00b20c2c6724",
+			"fileUploadId": "3f302166-35ec-81ef-85fe-00b2e99fbf8f",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - Theft on the Watch - Battle Map.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - What They Ate - Handout Art.jpg": {
@@ -4362,7 +4363,7 @@
 			"id": "3f202166-35ec-8178-90d1-e320536e0359",
 			"url": "https://app.notion.com/p/Session-11-What-They-Ate-Handout-Art-jpg-3f20216635ec817890d1e320536e0359",
 			"hash": "d5f5df3367f6e03dbf1cde75d190a204a3db73919ea7780884727a659407c6aa",
-			"fileUploadId": "3f202166-35ec-81f7-bc6b-00b2779d7519",
+			"fileUploadId": "3f302166-35ec-8187-8b36-00b2f277dacc",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - What They Ate - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Session 11 - Wolfrabbits - Handout Art.jpg": {
@@ -4370,7 +4371,7 @@
 			"id": "3f202166-35ec-8173-a964-f56217bafa06",
 			"url": "https://app.notion.com/p/Session-11-Wolfrabbits-Handout-Art-jpg-3f20216635ec8173a964f56217bafa06",
 			"hash": "7240c8c73795bfe6c7fe680696c92afa0ee7cf2e1b613df9bf32265cde1dee3f",
-			"fileUploadId": "3f202166-35ec-81f4-aaf3-00b2999d25ee",
+			"fileUploadId": "3f302166-35ec-8189-a278-00b27356b6b6",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Session 11 - Wolfrabbits - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Slack Basin - Handout Art.jpg": {
@@ -4378,7 +4379,7 @@
 			"id": "3f202166-35ec-8130-bb12-ded1f5a0264b",
 			"url": "https://app.notion.com/p/Slack-Basin-Handout-Art-jpg-3f20216635ec8130bb12ded1f5a0264b",
 			"hash": "410da13b26548ab68a23dc221a690df029eded46f175ec3f8fbc8cbb7a5117d8",
-			"fileUploadId": "3f202166-35ec-8101-8878-00b26f0a02d1",
+			"fileUploadId": "3f302166-35ec-8109-9f33-00b2748cf5b8",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Slack Basin - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Snakewood - Handout Art.jpg": {
@@ -4386,7 +4387,7 @@
 			"id": "3f202166-35ec-8159-914a-fcdb301b5185",
 			"url": "https://app.notion.com/p/Snakewood-Handout-Art-jpg-3f20216635ec8159914afcdb301b5185",
 			"hash": "b4204b40aa8ebeafb59e7f4affebad95455de53b0140f823b8ab1516b67ddfc7",
-			"fileUploadId": "3f202166-35ec-8114-a9bd-00b26fe28a98",
+			"fileUploadId": "3f302166-35ec-813d-937d-00b26f6fe3c3",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Snakewood - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Spiguar - Portrait.jpg": {
@@ -4394,7 +4395,7 @@
 			"id": "3f202166-35ec-818b-bc6e-d61d8c8161bc",
 			"url": "https://app.notion.com/p/Spiguar-Portrait-jpg-3f20216635ec818bbc6ed61d8c8161bc",
 			"hash": "54634f8bfd98a091129861e0c84460971181299ba272042b7afd9523834ff6a8",
-			"fileUploadId": "3f202166-35ec-8151-8597-00b292ac1683",
+			"fileUploadId": "3f302166-35ec-816f-b5c0-00b244300c62",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Spiguar - Portrait.jpg"
 		},
 		"wiki/shattered-sea/attachments/Spiguar - Reference Sheet.png": {
@@ -4402,7 +4403,7 @@
 			"id": "3f202166-35ec-8126-8859-fb4c615deb0b",
 			"url": "https://app.notion.com/p/Spiguar-Reference-Sheet-png-3f20216635ec81268859fb4c615deb0b",
 			"hash": "41e17c168d41f3e47cbe19ee5876cca0f540050e49775c5b43c50b7ca3cc0311",
-			"fileUploadId": "3f202166-35ec-81db-aa86-00b2e2975a2f",
+			"fileUploadId": "3f302166-35ec-816e-9490-00b223a9fae9",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Spiguar - Reference Sheet.png"
 		},
 		"wiki/shattered-sea/attachments/Spiguar - Token Stand.jpg": {
@@ -4410,7 +4411,7 @@
 			"id": "3f202166-35ec-81ab-8397-ce34247c1f62",
 			"url": "https://app.notion.com/p/Spiguar-Token-Stand-jpg-3f20216635ec81ab8397ce34247c1f62",
 			"hash": "a19f961ea5365208d75a80a25d0f7048a2d1ec669ec2f8128f400709f9ce471d",
-			"fileUploadId": "3f202166-35ec-81fd-bf5b-00b253b8e180",
+			"fileUploadId": "3f302166-35ec-81e8-9cc2-00b2d0fcfbcd",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Spiguar - Token Stand.jpg"
 		},
 		"wiki/shattered-sea/attachments/Spiguar - Token.jpg": {
@@ -4418,7 +4419,7 @@
 			"id": "3f202166-35ec-812f-b3e4-e78c1b93833a",
 			"url": "https://app.notion.com/p/Spiguar-Token-jpg-3f20216635ec812fb3e4e78c1b93833a",
 			"hash": "3274dbeee9bbd384ebf74fba6e8949412afd0e8c458d56eefd57419ab36be298",
-			"fileUploadId": "3f202166-35ec-8133-9432-00b2ac8e066f",
+			"fileUploadId": "3f302166-35ec-8100-bd8e-00b2d8ea980e",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Spiguar - Token.jpg"
 		},
 		"wiki/shattered-sea/attachments/Spiritpollen - Handout Art.jpg": {
@@ -4426,7 +4427,7 @@
 			"id": "3f202166-35ec-814b-89da-cc7219928090",
 			"url": "https://app.notion.com/p/Spiritpollen-Handout-Art-jpg-3f20216635ec814b89dacc7219928090",
 			"hash": "d1527a5bbfd96a907854d4795031232bf0b0b05e06c1a16304264c56ebc5d6ce",
-			"fileUploadId": "3f202166-35ec-8116-b426-00b22b70d549",
+			"fileUploadId": "3f302166-35ec-81d8-9a65-00b2dbea442d",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Spiritpollen - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Spoke Ring - Handout Art.jpg": {
@@ -4434,7 +4435,7 @@
 			"id": "3f202166-35ec-8116-94f3-ded0778c6976",
 			"url": "https://app.notion.com/p/Spoke-Ring-Handout-Art-jpg-3f20216635ec811694f3ded0778c6976",
 			"hash": "77d2da7beaaaaa5a7f02f2fdcd0f3af5844886f24d3a2e8e30e68b2c1f3393bb",
-			"fileUploadId": "3f202166-35ec-8172-9b2e-00b26bd8a6e7",
+			"fileUploadId": "3f302166-35ec-81e7-b5f9-00b27b635555",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Spoke Ring - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Star Cut - Handout Art.jpg": {
@@ -4442,7 +4443,7 @@
 			"id": "3f202166-35ec-81ba-9f14-c5561d1dec10",
 			"url": "https://app.notion.com/p/Star-Cut-Handout-Art-jpg-3f20216635ec81ba9f14c5561d1dec10",
 			"hash": "8a1fa9ffafcf44989157779c603d8841c3b26a6db29d014f38b53b9179b12670",
-			"fileUploadId": "3f202166-35ec-81a1-8383-00b26ba099d4",
+			"fileUploadId": "3f302166-35ec-814a-b4a2-00b2fcaaf046",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Star Cut - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Stillbloom - Handout Art.jpg": {
@@ -4450,7 +4451,7 @@
 			"id": "3f202166-35ec-81bb-81b8-cf6f9e51ebb7",
 			"url": "https://app.notion.com/p/Stillbloom-Handout-Art-jpg-3f20216635ec81bb81b8cf6f9e51ebb7",
 			"hash": "4e890bea37712da789dbc9f75cbf5abaa6cd037791d34b87bcec5f1d78fce59a",
-			"fileUploadId": "3f202166-35ec-81e1-b897-00b21b7a3e91",
+			"fileUploadId": "3f302166-35ec-8139-8486-00b25fe7543e",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Stillbloom - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Stonepear - Handout Art.jpg": {
@@ -4458,7 +4459,7 @@
 			"id": "3f202166-35ec-81c1-8242-e79d721be4a1",
 			"url": "https://app.notion.com/p/Stonepear-Handout-Art-jpg-3f20216635ec81c18242e79d721be4a1",
 			"hash": "4ae56c0da806da46235fb2597e07236bee1026abd8967304ad1177137b3aa8a0",
-			"fileUploadId": "3f202166-35ec-8125-879f-00b22f7df3b8",
+			"fileUploadId": "3f302166-35ec-818c-a0a1-00b202808c2f",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Stonepear - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Taking on Aruhe - Handout Art.png": {
@@ -4466,7 +4467,7 @@
 			"id": "3f202166-35ec-81d2-94a8-c2b64de55443",
 			"url": "https://app.notion.com/p/Taking-on-Aruhe-Handout-Art-png-3f20216635ec81d294a8c2b64de55443",
 			"hash": "d1f8174456940390eb568c938a6c3dd3c542a9f4deba9ae857c896073063ddd5",
-			"fileUploadId": "3f202166-35ec-817a-b7cc-00b26e1e4e8d",
+			"fileUploadId": "3f302166-35ec-810d-a2cb-00b27fa6dd50",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Taking on Aruhe - Handout Art.png"
 		},
 		"wiki/shattered-sea/attachments/Talon Skarn - Portrait.jpg": {
@@ -4474,7 +4475,7 @@
 			"id": "3f202166-35ec-813d-abbc-eb4023a59951",
 			"url": "https://app.notion.com/p/Talon-Skarn-Portrait-jpg-3f20216635ec813dabbceb4023a59951",
 			"hash": "34cb3b206239af40906d17a8d7eab89ddf9fd60ff9689ba840a11fbaf086187b",
-			"fileUploadId": "3f202166-35ec-8185-a419-00b2237fa7ab",
+			"fileUploadId": "3f302166-35ec-818c-b87d-00b2134c0fac",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Talon Skarn - Portrait.jpg"
 		},
 		"wiki/shattered-sea/attachments/Talon Skarn - Reference Sheet.jpg": {
@@ -4482,7 +4483,7 @@
 			"id": "3f202166-35ec-81cb-a59c-cbf437936368",
 			"url": "https://app.notion.com/p/Talon-Skarn-Reference-Sheet-jpg-3f20216635ec81cba59ccbf437936368",
 			"hash": "d86c8df4986f94f34c2232f1096c386cdfe434b949b13832e775d0f992e0dedd",
-			"fileUploadId": "3f202166-35ec-811d-a864-00b2c5908eaa",
+			"fileUploadId": "3f302166-35ec-81f5-ba7f-00b26d2c703d",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Talon Skarn - Reference Sheet.jpg"
 		},
 		"wiki/shattered-sea/attachments/Talon Skarn - Token.png": {
@@ -4490,7 +4491,7 @@
 			"id": "3f202166-35ec-81d7-97ef-d0b8954ba1c5",
 			"url": "https://app.notion.com/p/Talon-Skarn-Token-png-3f20216635ec81d797efd0b8954ba1c5",
 			"hash": "3dbdb1060291908c8d390b17cf3cbe98e92b2f4438666dc0b55095223b3e9e02",
-			"fileUploadId": "3f202166-35ec-8102-90b4-00b27dc9a8fb",
+			"fileUploadId": "3f302166-35ec-8133-8dad-00b277c5fde1",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Talon Skarn - Token.png"
 		},
 		"wiki/shattered-sea/attachments/Talon Vantyrus - Portrait Banner.png": {
@@ -4498,7 +4499,7 @@
 			"id": "3f202166-35ec-81ef-b1dd-dbe1d45dd066",
 			"url": "https://app.notion.com/p/Talon-Vantyrus-Portrait-Banner-png-3f20216635ec81efb1dddbe1d45dd066",
 			"hash": "4992d59b18d3e79c4e1fe06a46ea68887bf20be13b0693691a313a9756876821",
-			"fileUploadId": "3f202166-35ec-819a-8a7e-00b2d438abfd",
+			"fileUploadId": "3f302166-35ec-81c2-bf08-00b24869bbc4",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Talon Vantyrus - Portrait Banner.png"
 		},
 		"wiki/shattered-sea/attachments/Talon Vantyrus - Portrait.png": {
@@ -4506,7 +4507,7 @@
 			"id": "3f202166-35ec-8196-8bfd-e57929251184",
 			"url": "https://app.notion.com/p/Talon-Vantyrus-Portrait-png-3f20216635ec81968bfde57929251184",
 			"hash": "712d649511f81a25352202eb3c2322bfedcd04a7faa65d4296faadb417829d3d",
-			"fileUploadId": "3f202166-35ec-812f-bb80-00b27b6888df",
+			"fileUploadId": "3f302166-35ec-811d-9e95-00b28861821a",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Talon Vantyrus - Portrait.png"
 		},
 		"wiki/shattered-sea/attachments/Talon Vantyrus - Reference Sheet.png": {
@@ -4514,7 +4515,7 @@
 			"id": "3f202166-35ec-812c-95dc-ec664935a3e7",
 			"url": "https://app.notion.com/p/Talon-Vantyrus-Reference-Sheet-png-3f20216635ec812c95dcec664935a3e7",
 			"hash": "e61d63eaef8d0b7be082b30dd36499fe27b9d40cc440cf61f05a2da2c336be87",
-			"fileUploadId": "3f202166-35ec-8158-b684-00b25a3209a9",
+			"fileUploadId": "3f302166-35ec-81b0-9030-00b2ccaebc9d",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Talon Vantyrus - Reference Sheet.png"
 		},
 		"wiki/shattered-sea/attachments/Terror-Bird - Portrait.jpg": {
@@ -4522,7 +4523,7 @@
 			"id": "3f202166-35ec-813a-9e8a-d29604f76043",
 			"url": "https://app.notion.com/p/Terror-Bird-Portrait-jpg-3f20216635ec813a9e8ad29604f76043",
 			"hash": "5a4a13f02e7241eaaf50ada47017d132b6339d858c09a0b76f0e7e7bfb85167d",
-			"fileUploadId": "3f202166-35ec-8126-a795-00b27f780cd8",
+			"fileUploadId": "3f302166-35ec-8126-8e37-00b2cb02fa87",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Terror-Bird - Portrait.jpg"
 		},
 		"wiki/shattered-sea/attachments/The Quiet - Handout Art.jpg": {
@@ -4530,7 +4531,7 @@
 			"id": "3f202166-35ec-81d7-a830-fac7577fc4c5",
 			"url": "https://app.notion.com/p/The-Quiet-Handout-Art-jpg-3f20216635ec81d7a830fac7577fc4c5",
 			"hash": "e76b7df86c319e7d8c238620cff0445af949091a0da2d1b5290dd4f1f13ba6d5",
-			"fileUploadId": "3f202166-35ec-81f8-87b2-00b211dee2ad",
+			"fileUploadId": "3f302166-35ec-814e-8dbc-00b2ce02fe52",
 			"movedFrom": "wiki/The Shattered Sea/attachments/The Quiet - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/The River - Handout Art.jpg": {
@@ -4538,7 +4539,7 @@
 			"id": "3f202166-35ec-812e-871f-ea5771f5498e",
 			"url": "https://app.notion.com/p/The-River-Handout-Art-jpg-3f20216635ec812e871fea5771f5498e",
 			"hash": "81faafdedd45aff222f8f31fe3f07098b69642a41301b944857182710df5a081",
-			"fileUploadId": "3f202166-35ec-8125-84d0-00b2146c2066",
+			"fileUploadId": "3f302166-35ec-81e1-bd63-00b2fe77de37",
 			"movedFrom": "wiki/The Shattered Sea/attachments/The River - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/The River - Portrait.jpg": {
@@ -4546,7 +4547,7 @@
 			"id": "3f202166-35ec-81da-8b2d-fab42054f162",
 			"url": "https://app.notion.com/p/The-River-Portrait-jpg-3f20216635ec81da8b2dfab42054f162",
 			"hash": "90df99d1c3d05348e61281c86c41b15d566fd3bd6e1e35e7eabaaf93732bcb0e",
-			"fileUploadId": "3f202166-35ec-81d6-91f2-00b260835254",
+			"fileUploadId": "3f302166-35ec-812c-88fc-00b25693174d",
 			"movedFrom": "wiki/The Shattered Sea/attachments/The River - Portrait.jpg"
 		},
 		"wiki/shattered-sea/attachments/The Shattered Sea - Handout Art.jpg": {
@@ -4554,7 +4555,7 @@
 			"id": "3f202166-35ec-81d4-ac75-df526e2fdffb",
 			"url": "https://app.notion.com/p/The-Shattered-Sea-Handout-Art-jpg-3f20216635ec81d4ac75df526e2fdffb",
 			"hash": "060a3169e36e90fb675f7758b1c428b7c6d50cb9806f8c994b090756788b865b",
-			"fileUploadId": "3f202166-35ec-81ac-adec-00b21db40136",
+			"fileUploadId": "3f302166-35ec-81fa-9e6a-00b2803c9d2c",
 			"movedFrom": "wiki/The Shattered Sea/attachments/The Shattered Sea - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Torn Crossing - Handout Art.jpg": {
@@ -4562,7 +4563,7 @@
 			"id": "3f202166-35ec-817b-a686-f018005147f7",
 			"url": "https://app.notion.com/p/Torn-Crossing-Handout-Art-jpg-3f20216635ec817ba686f018005147f7",
 			"hash": "e2ca2b2e2d8dbb91578a461dbe0e2586f9797062f34ac393d29eefa905ea6387",
-			"fileUploadId": "3f202166-35ec-8160-b3ca-00b2a8f95207",
+			"fileUploadId": "3f302166-35ec-811b-8019-00b298dce92b",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Torn Crossing - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Two-Grave Orders - Handout Art.png": {
@@ -4570,7 +4571,7 @@
 			"id": "3f202166-35ec-81bc-ba55-f529cd50f1a1",
 			"url": "https://app.notion.com/p/Two-Grave-Orders-Handout-Art-png-3f20216635ec81bcba55f529cd50f1a1",
 			"hash": "c8b8be0df4ca7e5c92864706526abb36187646feef0810a87ca7789e86c8bdb3",
-			"fileUploadId": "3f202166-35ec-8186-8988-00b258b7dbbe",
+			"fileUploadId": "3f302166-35ec-8193-a48c-00b2eec9f853",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Two-Grave Orders - Handout Art.png"
 		},
 		"wiki/shattered-sea/attachments/Unsaid Macaw - Portrait.jpg": {
@@ -4578,7 +4579,7 @@
 			"id": "3f202166-35ec-81df-927f-d679be1b88b9",
 			"url": "https://app.notion.com/p/Unsaid-Macaw-Portrait-jpg-3f20216635ec81df927fd679be1b88b9",
 			"hash": "e0769437ecf2766dac8ae9647ccf60342c29f6625ca8904fb0d5aa9360ad19c7",
-			"fileUploadId": "3f202166-35ec-8133-940f-00b29aeec61f",
+			"fileUploadId": "3f302166-35ec-8166-9aab-00b26032e4e7",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Unsaid Macaw - Portrait.jpg"
 		},
 		"wiki/shattered-sea/attachments/Vine Lash - Portrait.png": {
@@ -4586,7 +4587,7 @@
 			"id": "3f202166-35ec-8191-b1f3-d3bca1ea9f7e",
 			"url": "https://app.notion.com/p/Vine-Lash-Portrait-png-3f20216635ec8191b1f3d3bca1ea9f7e",
 			"hash": "82b6b7caf6de6f8fabce07d69f4eb129b5b7415f87ccffb297be0ee9e72dd1cf",
-			"fileUploadId": "3f202166-35ec-817b-941a-00b2751c7f4f",
+			"fileUploadId": "3f302166-35ec-8197-9830-00b24f37ba59",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Vine Lash - Portrait.png"
 		},
 		"wiki/shattered-sea/attachments/Western Landing - Battle Map Alternative.jpg": {
@@ -4594,7 +4595,7 @@
 			"id": "3f202166-35ec-81ed-a630-c6783c77f550",
 			"url": "https://app.notion.com/p/Western-Landing-Battle-Map-Alternative-jpg-3f20216635ec81eda630c6783c77f550",
 			"hash": "66c297e91ca832e42706f4df50529f5a20c599a4d4cba11460b4038387b03304",
-			"fileUploadId": "3f202166-35ec-81a2-af26-00b294ced1b0",
+			"fileUploadId": "3f302166-35ec-8171-9325-00b2ff6109e7",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Western Landing - Battle Map Alternative.jpg"
 		},
 		"wiki/shattered-sea/attachments/Western Landing - Battle Map.jpg": {
@@ -4602,7 +4603,7 @@
 			"id": "3f202166-35ec-8139-a8f6-e176bd14d03c",
 			"url": "https://app.notion.com/p/Western-Landing-Battle-Map-jpg-3f20216635ec8139a8f6e176bd14d03c",
 			"hash": "6f990d89e6605e056200940cec2ea3a5bd409c7041c5a5b9aa04623061b2c35b",
-			"fileUploadId": "3f202166-35ec-81c1-9ded-00b24c019f71",
+			"fileUploadId": "3f302166-35ec-8137-b675-00b28bc3449b",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Western Landing - Battle Map.jpg"
 		},
 		"wiki/shattered-sea/attachments/Wolfrabbit - Portrait 2.jpg": {
@@ -4610,7 +4611,7 @@
 			"id": "3f202166-35ec-8157-8661-e3a68a80b830",
 			"url": "https://app.notion.com/p/Wolfrabbit-Portrait-2-jpg-3f20216635ec81578661e3a68a80b830",
 			"hash": "ef0f1a9af2146172a8de34cb191ae862642fa483c146da0f0cf69deedafb1d21",
-			"fileUploadId": "3f202166-35ec-81ea-950d-00b2be23286f",
+			"fileUploadId": "3f302166-35ec-8166-ba27-00b239d1b224",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Wolfrabbit - Portrait 2.jpg"
 		},
 		"wiki/shattered-sea/attachments/Wolfrabbit - Portrait.jpg": {
@@ -4618,7 +4619,7 @@
 			"id": "3f202166-35ec-8174-8701-d5f105533a6d",
 			"url": "https://app.notion.com/p/Wolfrabbit-Portrait-jpg-3f20216635ec81748701d5f105533a6d",
 			"hash": "adbe2fd9f7abd951e4e6cc51a4bb184164cd9a0020924f6b8726a126765023ce",
-			"fileUploadId": "3f202166-35ec-819a-9500-00b2f5501050",
+			"fileUploadId": "3f302166-35ec-8157-bf88-00b24c7322d4",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Wolfrabbit - Portrait.jpg"
 		},
 		"wiki/shattered-sea/attachments/Wolfrabbit - Reference Sheet.jpg": {
@@ -4626,7 +4627,7 @@
 			"id": "3f202166-35ec-81e0-b348-dd350eb82c92",
 			"url": "https://app.notion.com/p/Wolfrabbit-Reference-Sheet-jpg-3f20216635ec81e0b348dd350eb82c92",
 			"hash": "9b7fe0298ae6d058824eda95a0cf77d069fc5c64be5f6b1b3a215bc3d11de327",
-			"fileUploadId": "3f202166-35ec-81e0-b224-00b27eca2b37",
+			"fileUploadId": "3f302166-35ec-8144-a04f-00b21650245a",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Wolfrabbit - Reference Sheet.jpg"
 		},
 		"wiki/shattered-sea/attachments/Wolfrabbit - Token.jpg": {
@@ -4634,7 +4635,7 @@
 			"id": "3f202166-35ec-8171-847e-e14bd89e0b4e",
 			"url": "https://app.notion.com/p/Wolfrabbit-Token-jpg-3f20216635ec8171847ee14bd89e0b4e",
 			"hash": "75483f32a3d02057935be6a7b81ec375cc729a225f758f1f1b53979a92690a70",
-			"fileUploadId": "3f202166-35ec-8152-a108-00b2b94e3cf7",
+			"fileUploadId": "3f302166-35ec-8122-ac99-00b20f5081ed",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Wolfrabbit - Token.jpg"
 		},
 		"wiki/shattered-sea/attachments/Young Bloodhawk - Handout Art.jpg": {
@@ -4642,7 +4643,7 @@
 			"id": "3f202166-35ec-811d-8e7f-c46982562e93",
 			"url": "https://app.notion.com/p/Young-Bloodhawk-Handout-Art-jpg-3f20216635ec811d8e7fc46982562e93",
 			"hash": "57ddeb048a750c7a46055066ba1095cb4492ae9ab3f6f30fcb40329e9f8cea03",
-			"fileUploadId": "3f202166-35ec-8150-b8ee-00b2088cd7aa",
+			"fileUploadId": "3f302166-35ec-81a4-8d39-00b254b768c4",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Young Bloodhawk - Handout Art.jpg"
 		},
 		"wiki/shattered-sea/attachments/Young Bloodhawk - Token.jpg": {
@@ -4650,35 +4651,33 @@
 			"id": "3f202166-35ec-81ac-ba1d-f8e2e09a8ea0",
 			"url": "https://app.notion.com/p/Young-Bloodhawk-Token-jpg-3f20216635ec81acba1df8e2e09a8ea0",
 			"hash": "6adb5dd9c4d10ccb4b13bb990d50893f7031693b7fba3ab88afa4d93e3003b38",
-			"fileUploadId": "3f202166-35ec-8187-89a1-00b247222f79",
+			"fileUploadId": "3f302166-35ec-81b5-80bc-00b25909d9da",
 			"movedFrom": "wiki/The Shattered Sea/attachments/Young Bloodhawk - Token.jpg"
 		},
 		"wiki/shattered-sea/campaign-config.md": {
 			"kind": "markdown",
 			"id": "3f202166-35ec-8103-a87f-d05fa3b92721",
 			"url": "https://app.notion.com/p/campaign-config-3f20216635ec8103a87fd05fa3b92721",
-			"hash": "444341b1f3f72821b64b009af1c65a9e8052a47eb8a1992591d437bea12d149b",
-			"movedFrom": "wiki/The Shattered Sea/Shattered Sea/campaign-config.md"
+			"hash": "444341b1f3f72821b64b009af1c65a9e8052a47eb8a1992591d437bea12d149b"
 		},
 		"wiki/shattered-sea/hot.md": {
 			"kind": "markdown",
 			"id": "3f202166-35ec-812a-8d3a-c3d4ae849021",
 			"url": "https://app.notion.com/p/hot-3f20216635ec812a8d3ac3d4ae849021",
-			"hash": "ec307238ba92b342c699832b656e950ff727d680e1eceb9daf9a7317d4d9b5e2",
-			"movedFrom": "wiki/The Shattered Sea/Shattered Sea/hot.md"
+			"hash": "ec307238ba92b342c699832b656e950ff727d680e1eceb9daf9a7317d4d9b5e2"
 		},
 		"wiki/shattered-sea/index.md": {
 			"kind": "markdown",
 			"id": "3f202166-35ec-81a8-bd81-c6f29ab6fabe",
 			"url": "https://app.notion.com/p/index-3f20216635ec81a8bd81c6f29ab6fabe",
-			"hash": "9db42ac527126a0502be807354f8e1b149cd5bcaf53f3df2b1cad287422e57a1",
+			"hash": "aead2fe4c2f9f4a2c548268202fa4937b74ea9208e3a5546048ab26546dcb772",
 			"movedFrom": "wiki/The Shattered Sea/index.md"
 		},
 		"wiki/shattered-sea/log.md": {
 			"kind": "markdown",
 			"id": "3f202166-35ec-816e-95c2-c82140d38f24",
 			"url": "https://app.notion.com/p/log-3f20216635ec816e95c2c82140d38f24",
-			"hash": "849bb22dee0d33af1f66bb13b50543cf378803dcda7efaf2e8868290cee6246d",
+			"hash": "82a80f432a9ea0ac41dfb2a1acd9b67d6828c3b80999173ef8105365b68a689a",
 			"movedFrom": "wiki/The Shattered Sea/log.md"
 		}
 	},
