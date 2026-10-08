@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { cp, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
 import { checkFixture, copyFixture, findingsFor, type JsonReport, realTemplates, cf } from "./helpers.ts";
@@ -74,6 +74,34 @@ describe("template layer: failure classes", () => {
 		const result = await cf(["check", "--json", "--layer", "template", "--vault", join(dir, "wiki"), "--root", dir, "--templates", join(dir, "templates")], dir);
 		const edited = JSON.parse(result.stdout) as JsonReport;
 		expect(findingsFor(edited, "/Sources Ok.md").map((f) => f.rule)).toEqual(["missing-key"]);
+	});
+
+	it("reads `Optional` guidance as an optional section: absent passes, present keeps order, empty is droppable", async () => {
+		const dir = await copyFixture("template");
+		const templates = join(dir, "templates");
+		await cp(realTemplates, templates, { recursive: true });
+		const npc = await readFile(join(templates, "NPC.md"), "utf8");
+		expect(npc).toMatch(/## Depth\n\n%% /);
+		await writeFile(join(templates, "NPC.md"), npc.replace(/## Depth\n\n%% /, "## Depth\n\n%% Optional. "));
+		const flags = ["--vault", join(dir, "wiki"), "--root", dir, "--templates", templates];
+		const result = await cf(["check", "--json", "--layer", "template", ...flags], dir);
+		const edited = JSON.parse(result.stdout) as JsonReport;
+		const of = (page: string): string[] => findingsFor(edited, `/${page}.md`).map((f) => f.rule).sort();
+		expect(of("Short Sections")).toEqual(["missing-section"]);
+		expect(findingsFor(edited, "/Short Sections.md")[0]?.hint).toContain("`Depth` (optional)");
+		expect(of("Swapped Sections")).toEqual(["section-order"]);
+		const empty = findingsFor(edited, "/Empty Section.md");
+		expect(empty.map((f) => f.rule)).toEqual(["empty-heading"]);
+		expect(empty[0]?.hint).toContain("marks `## Depth` optional");
+
+		await cf(["check", "--json", "--layer", "template", "--fix", ...flags], dir);
+		const fixed = await readFile(join(dir, "wiki/Aldermoor/NPCs/Empty Section.md"), "utf8");
+		expect(fixed).not.toContain("## Depth");
+		expect(fixed).toContain("## Links");
+	});
+
+	it("points a missing callout at the section the template puts it in", () => {
+		expect(findingsFor(report, "/No Callout.md")[0]?.hint).toContain("under `## At a glance`");
 	});
 });
 

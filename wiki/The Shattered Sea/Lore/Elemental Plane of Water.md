@@ -28,7 +28,7 @@ sources:
 
 ### The full truth
 
-The [[Drowned Maw]] is a trench-floor puncture through the Border Ethereal into the Elemental Plane of Water, and it forms a boundary around the ocean. About 2000 years before the current era the Antheri expanded towards the plane, built into the Maw's far sidewall, and built Auralis about -2000 DR to hold the fissure shut. They vanished in 495 DR and left the breach and their machinery behind. The [[Sentinels of the Eyrie]] began watching the Maw in 1295 DR. In 1495 DR the theft of the [[Pearl of Souls]] from Umberlee's [[Umberlee's Shrine|shrine]] sent a signal across the boundary, and the signal drew the Leviathan through the fissure from the plane.
+The [[Drowned Maw]] is a trench-floor puncture through the Border Ethereal into the Elemental Plane of Water, and it forms a boundary around the ocean. About 2000 years before the current era the Antheri expanded towards the plane, built into the Maw's far sidewall, and built Auralis about -2000 DR to hold the fissure shut. They vanished in 495 DR and left the breach and their machinery behind. The [[Sentinels of the Eyrie]] have kept their watch on the Maw since 1295 DR. In 1495 DR the theft of the [[Pearl of Souls]] from Umberlee's [[Umberlee's Shrine|shrine]] sent a signal across the boundary, and the signal drew the Leviathan through the fissure from the plane.
 
 The [[Sea Elf|sea elves]] of [[Halythion]] claim an ancestral connection to the plane, though the record doesn't say what the tie obliges of them.
 

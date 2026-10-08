@@ -1,10 +1,10 @@
 import { spawnSync } from "node:child_process";
 import { mkdtemp, mkdir, readFile, rm, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { afterEach, describe, expect, it } from "vitest";
-import { calculateStats, packageSkill, validateSkill } from "../../evals/authoring.ts";
+import { packageSkill, validateSkill } from "../../evals/authoring.ts";
 
 const roots: string[] = [];
 afterEach(async () => {
@@ -52,13 +52,53 @@ describe("native authoring helpers", () => {
 		await expect(packageSkill(directory, output)).rejects.toThrow("symbolic link");
 		expect(await readFile(output, "utf8")).toBe("previous bundle");
 	});
-	it("reports sample rather than population deviation from actual observations", () => {
-		expect(calculateStats([1, 2, 3])).toEqual({ mean: 2, stddev: 1, min: 1, max: 3 });
-		expect(calculateStats([0.25])).toEqual({ mean: 0.25, stddev: 0, min: 0.25, max: 0.25 });
-		expect(calculateStats([-2, 0, 2])).toEqual({ mean: 0, stddev: 2, min: -2, max: 2 });
+});
+describe("skill reference checks", () => {
+	async function linkedSkill(files: Record<string, string>) {
+		const { directory } = await skill();
+		for (const [name, content] of Object.entries(files)) {
+			await mkdir(join(directory, dirname(name)), { recursive: true });
+			await writeFile(join(directory, name), content);
+		}
+		return directory;
+	}
+	it("rejects a relative link to a missing file, naming file, line, link and reason", async () => {
+		const { directory } = await skill();
+		await writeFile(join(directory, "SKILL.md"), '---\nname: sample\ndescription: Use for <sample> work.\ndisable-model-invocation: true\ncustom: extension\n---\n# Sample\nSee the [guide](references/guide.md) first.\n');
+		await expect(validateSkill(directory)).rejects.toThrow("SKILL.md:8: [guide](references/guide.md) — target does not exist");
 	});
-	it("rejects unavailable metric placeholders instead of returning estimated statistics", () => {
-		expect(() => calculateStats([1, Number.NaN])).toThrow("finite numeric observations");
-		expect(() => calculateStats([Infinity])).toThrow("finite numeric observations");
+	it("rejects anchors no heading slugs to, in SKILL.md and in a linked skill-local file", async () => {
+		const directory = await linkedSkill({ "references/guide.md": "# Guide\n\n## Real section\n\nSee [also](#nope).\n" });
+		await writeFile(join(directory, "SKILL.md"), '---\nname: sample\ndescription: Use for <sample> work.\n---\n# Sample\nRead [the guide](references/guide.md#wrong-anchor).\n[jump](#gone)\n');
+		const result = validateSkill(directory);
+		await expect(result).rejects.toThrow("SKILL.md:6: [the guide](references/guide.md#wrong-anchor) — no heading slugs to #wrong-anchor");
+		await expect(result).rejects.toThrow("SKILL.md:7: [jump](#gone) — no heading slugs to #gone");
+		await expect(result).rejects.toThrow("references/guide.md:5: [also](#nope) — no heading slugs to #nope");
+	});
+	it("passes with valid file, directory, heading, anchor-only and scheme links, and never scans second-level files", async () => {
+		const directory = await linkedSkill({
+			"references/guide.md": "# Guide\n\n## Real section\n\nContinue in [deep](deep.md).\n",
+			"references/deep.md": "# Deep\n\n[ghost](ghost.md) is a level-two link that must stay unchecked.\n",
+		});
+		await writeFile(
+			join(directory, "SKILL.md"),
+			'---\nname: sample\ndescription: Use for <sample> work.\n---\n# Sample\n\n[guide](references/guide.md#real-section), [refs](references), [top](#sample), [web](https://example.com/a), [internal](skill://lint), [past](history://x), and code `[skip](references/nothing.md)`.\n',
+		);
+		await expect(validateSkill(directory)).resolves.toMatchObject({ name: "sample" });
+	});
+	it("ignores links inside code fences", async () => {
+		const directory = await linkedSkill({});
+		await writeFile(
+			join(directory, "SKILL.md"),
+			'---\nname: sample\ndescription: Use for <sample> work.\n---\n# Sample\n\nExample:\n\n```markdown\n[nope](references/missing.md)\n```\n',
+		);
+		await expect(validateSkill(directory)).resolves.toMatchObject({ name: "sample" });
+	});
+	it("scans SKILL.md once even when it links itself", async () => {
+		const { directory } = await skill();
+		await writeFile(join(directory, "SKILL.md"), '---\nname: sample\ndescription: Use for <sample> work.\n---\n# Sample\n[self](SKILL.md#sample), then [gone](references/gone.md).\n');
+		const error = await validateSkill(directory).then(() => undefined, (error: unknown) => error as Error);
+		expect(error?.message).toContain("SKILL.md:6: [gone](references/gone.md) — target does not exist");
+		expect(error?.message.match(/\[gone\]\(references\/gone\.md\)/g)).toHaveLength(1);
 	});
 });

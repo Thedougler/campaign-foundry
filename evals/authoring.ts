@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: Apache-2.0
-// Adapted from Anthropic's skills/skill-creator validation, packaging and
-// calculate_stats helpers: https://github.com/anthropics/skills/tree/main/skills/skill-creator
+// Adapted from Anthropic's skills/skill-creator validation and packaging
+// helpers: https://github.com/anthropics/skills/tree/main/skills/skill-creator
 // Modified for native omp frontmatter, streaming ZIP packaging and TypeScript.
 // License: https://www.apache.org/licenses/LICENSE-2.0
 
 import { createWriteStream } from "node:fs";
 import { lstat, mkdir, mkdtemp, readFile, readdir, rename, rm, stat } from "node:fs/promises";
-import { basename, dirname, join, resolve, sep } from "node:path";
+import { basename, dirname, join, relative, resolve, sep } from "node:path";
 import type { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import { ZipFile } from "yazl";
@@ -27,13 +27,6 @@ export interface SkillPackage {
 	output: string;
 	files: string[];
 	excluded: string[];
-}
-
-export interface Statistics {
-	mean: number;
-	stddev: number;
-	min: number;
-	max: number;
 }
 
 function errorMessage(error: unknown): string {
@@ -90,7 +83,140 @@ export async function validateSkill(skillDirectory: string): Promise<SkillValida
 	if ("globs" in frontmatter && (!Array.isArray(frontmatter.globs) || frontmatter.globs.some((glob) => typeof glob !== "string"))) {
 		throw new UsageError(`Frontmatter globs in ${skillFile} must be an array of strings.`, hint);
 	}
+	const breaks = await brokenSkillReferences(skillDir, skillFile, content);
+	if (breaks.length > 0) {
+		const listed = breaks.map((brk) => `  ${brk.file}:${brk.line}: [${brk.text}](${brk.destination}) — ${brk.reason}`).join("\n");
+		throw new UsageError(`Broken references in ${skillDir}:\n${listed}`, `Repair each listed link (fix the target path or the heading it names), then run cf eval validate ${JSON.stringify(skillDir)}.`);
+	}
 	return { skillDir, skillFile, name, description, frontmatter };
+}
+
+interface MarkdownLink {
+	line: number;
+	text: string;
+	destination: string;
+}
+
+interface ReferenceBreak {
+	file: string;
+	line: number;
+	text: string;
+	destination: string;
+	reason: string;
+}
+
+/** GitHub's heading anchor rule: lowercase, drop punctuation except hyphens and spaces, spaces become hyphens. */
+function headingSlug(heading: string): string {
+	return heading.toLowerCase().trim().replace(/[^\p{L}\p{N} -]/gu, "").replace(/ /g, "-");
+}
+
+/** Visit each line outside fenced code blocks with its 1-based line number, tracking fence delimiters. */
+function forEachVisibleLine(content: string, visit: (line: string, index: number) => void): void {
+	let fence: { character: string; length: number } | undefined;
+	for (const [index, line] of content.split("\n").entries()) {
+		const marker = /^ {0,3}(`{3,}|~{3,})/.exec(line);
+		if (marker) {
+			const character = marker[1]![0]!;
+			if (fence === undefined) fence = { character, length: marker[1]!.length };
+			else if (fence.character === character && marker[1]!.length >= fence.length) fence = undefined;
+			continue;
+		}
+		if (fence === undefined) visit(line, index);
+	}
+}
+
+/** Heading anchors a Markdown file answers to; repeated headings get GitHub's -1, -2 suffixes. */
+export function headingAnchors(content: string): Set<string> {
+	const counts = new Map<string, number>();
+	forEachVisibleLine(content, (line) => {
+		const heading = /^ {0,3}#{1,6}[ \t]+(.+?)[ \t]*#*[ \t]*$/.exec(line);
+		if (!heading) return;
+		const base = headingSlug(heading[1]!);
+		if (base === "") return;
+		counts.set(base, (counts.get(base) ?? 0) + 1);
+	});
+	return new Set([...counts].flatMap(([base, count]) => Array.from({ length: count }, (_, seen) => (seen === 0 ? base : `${base}-${seen}`))));
+}
+
+const INLINE_CODE = /`+[^`]*`+/g;
+const MARKDOWN_LINK = /\[([^\]\n]*)\]\([ \t]*(<[^<>]*>|[^)\s]+)(?:[ \t]+(?:"[^"]*"|'[^']*'))?[ \t]*\)/g;
+const NON_RELATIVE = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
+
+/** Inline links and images on visible lines with inline code spans blanked out. */
+function markdownLinks(content: string): MarkdownLink[] {
+	const links: MarkdownLink[] = [];
+	forEachVisibleLine(content, (line, index) => {
+		for (const match of line.replace(INLINE_CODE, " ").matchAll(MARKDOWN_LINK)) {
+			links.push({ line: index + 1, text: match[1]!, destination: match[2]!.replace(/^<|>$/g, "") });
+		}
+	});
+	return links;
+}
+
+function decodedPath(rawPath: string): string {
+	if (!rawPath.includes("%")) return rawPath;
+	try {
+		return decodeURIComponent(rawPath);
+	} catch {
+		return rawPath;
+	}
+}
+
+/**
+ * Broken relative references in SKILL.md and the skill-local Markdown files it links to (one
+ * level, no further): a path that resolves to nothing, or a Markdown anchor no heading slugs to.
+ */
+async function brokenSkillReferences(skillDir: string, skillFile: string, skillContent: string): Promise<ReferenceBreak[]> {
+	const breaks: ReferenceBreak[] = [];
+	const anchorCache = new Map<string, Promise<Set<string>>>();
+	const anchorsOf = (path: string): Promise<Set<string>> => {
+		let anchors = anchorCache.get(path);
+		if (anchors === undefined) {
+			anchors = readFile(path, "utf8").then(headingAnchors);
+			anchorCache.set(path, anchors);
+		}
+		return anchors;
+	};
+	const check = async (sourcePath: string, display: string, link: MarkdownLink): Promise<void> => {
+		const destination = link.destination;
+		if (destination === "" || NON_RELATIVE.test(destination)) return;
+		const hash = destination.indexOf("#");
+		const anchor = hash === -1 ? undefined : destination.slice(hash + 1);
+		const rawPath = hash === -1 ? destination : destination.slice(0, hash);
+		const target = rawPath === "" ? sourcePath : resolve(dirname(sourcePath), decodedPath(rawPath));
+		let info;
+		try {
+			info = await stat(target);
+		} catch {
+			breaks.push({ file: display, line: link.line, text: link.text, destination, reason: "target does not exist" });
+			return;
+		}
+		if (anchor === undefined || anchor === "" || !info.isFile() || !/\.md$/i.test(target)) return;
+		if (!(await anchorsOf(target)).has(anchor)) {
+			breaks.push({ file: display, line: link.line, text: link.text, destination, reason: `no heading slugs to #${anchor}` });
+		}
+	};
+	const scan = async (sourcePath: string, display: string, content: string): Promise<void> => {
+		for (const link of markdownLinks(content)) await check(sourcePath, display, link);
+	};
+	const sources = new Map<string, string>();
+	anchorCache.set(skillFile, Promise.resolve(headingAnchors(skillContent)));
+	for (const link of markdownLinks(skillContent)) {
+		if (link.destination === "" || NON_RELATIVE.test(link.destination)) continue;
+		const hash = link.destination.indexOf("#");
+		const target = resolve(dirname(skillFile), decodedPath(hash === -1 ? link.destination : link.destination.slice(0, hash)));
+		if (target === skillFile) continue;
+		if (!/\.md$/i.test(target) || !(target === skillDir || target.startsWith(skillDir + sep))) continue;
+		try {
+			if (!(await stat(target)).isFile()) continue;
+		} catch {
+			continue;
+		}
+		if (!sources.has(target)) sources.set(target, relative(skillDir, target).split(sep).join("/"));
+	}
+	await scan(skillFile, "SKILL.md", skillContent);
+	for (const [path, display] of sources) await scan(path, display, await readFile(path, "utf8"));
+	return breaks;
 }
 
 const EXCLUDED_DIRECTORIES: Record<string, true> = {
@@ -186,35 +312,4 @@ export async function packageSkill(skillDirectory: string, outputFile: string): 
 	} finally {
 		if (temporaryDir !== undefined) await rm(temporaryDir, { recursive: true, force: true });
 	}
-}
-
-/** Python-compatible four-place rounding, including exactly representable half-even ties. */
-function roundFour(value: number): number {
-	const scaled = value * 10_000;
-	const lower = Math.floor(scaled);
-	// Exact decimal midpoints at four places are representable in binary only
-	// when they are multiples of 1/32. Other values use their actual binary value.
-	if (Number.isInteger(value * 32) && scaled - lower === 0.5) {
-		return (lower % 2 === 0 ? lower : lower + 1) / 10_000;
-	}
-	return Number(value.toFixed(4));
-}
-
-/** Summarize only supplied observations; callers decide which metrics are available. */
-export function calculateStats(values: readonly number[]): Statistics {
-	if (values.length === 0) return { mean: 0, stddev: 0, min: 0, max: 0 };
-	let sum = 0;
-	let min = Infinity;
-	let max = -Infinity;
-	for (const value of values) {
-		if (typeof value !== "number" || !Number.isFinite(value)) throw new TypeError("calculateStats requires finite numeric observations; omit unavailable metrics instead of estimating them.");
-		sum += value;
-		min = Math.min(min, value);
-		max = Math.max(max, value);
-	}
-	const mean = sum / values.length;
-	let squaredDifferences = 0;
-	for (const value of values) squaredDifferences += (value - mean) ** 2;
-	const stddev = values.length > 1 ? Math.sqrt(squaredDifferences / (values.length - 1)) : 0;
-	return { mean: roundFour(mean), stddev: roundFour(stddev), min: roundFour(min), max: roundFour(max) };
 }

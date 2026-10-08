@@ -53,7 +53,7 @@ Slack basin camp.
 
 ### Balance
 
-Play stops mid-fight. One Legendary Resistance is spent.
+Play stops mid-fight, with one Legendary Resistance gone.
 
 ## Outcomes
 

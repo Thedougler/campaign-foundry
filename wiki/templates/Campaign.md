@@ -7,7 +7,7 @@ session_length_hours:
 
 ## At a glance
 
-%% 3-5 facts. Party names the PCs; Now says where the Party stands. %%
+%% Give the DM a ten-second read, one line per bullet. Players pairs each Player with their PC, since the pull replaces the sheet side of PC pages. Party links the PCs. Now gives where the Party stands today. %%
 
 - **Players.**
 - **Premise.**
@@ -16,25 +16,31 @@ session_length_hours:
 - **Now.**
 
 > [!narration] The Campaign
-> %% Spoken opening for the first Session: the Party's situation in second person, about 100 words. %%
+> %% Spoken opening for the first Session, second person, about 100 words. Give the Party's situation, and end on the promise of what they will do. %%
 
 ## Play
 
-%% Table agreements and rules of this Campaign: cadence, Session length override (set session_length_hours, blank inherits DM Settings), safety tools, House Rules in force. %%
+%% Give this Campaign's table agreements, one line per bullet. Session length inherits DM Settings unless `session_length_hours` is set. House Rules links each House Rule in force. %%
 
-- **Session length.** Inherits DM Settings unless session_length_hours is set.
+- **Session length.**
 - **Table agreements.**
 - **House Rules.**
 
 ## Depth
 
-%% What the Campaign is for: the central tension, themes, where the Threads are heading. DM-only. %%
+%% DM only. Give the purpose of the Campaign. Tone and Lines and Veils belong in `campaign-config.md`. %%
 
 ### Premise
 
+%% Give the central tension the Party walks into. %%
+
 ### Themes
 
+%% Give the pressures the Campaign keeps returning to, as the DM names them. %%
+
 ### Direction
+
+%% Give the DM's anchors that later planning keeps, then other futures written as possibilities. %%
 
 ## Links
 

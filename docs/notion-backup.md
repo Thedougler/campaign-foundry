@@ -1,6 +1,6 @@
 # Notion backup
 
-`bun run cf -- backup` copies the Shattered Sea Wiki (`wiki/The Shattered Sea/`), the agent skills (`.agents/skills/`) and every image in those trees to Notion. `.github/workflows/notion-backup.yml` runs it on each push to `main` that touches those paths. GitHub stays the working copy: an edit made in Notion is overwritten the next time its file changes. The decision record is [ADR 0021](adr/0021-notion-backs-up-main.md).
+`bun run cf -- backup` copies the Shattered Sea Wiki (`wiki/The Shattered Sea/`), the agent skills (`.agents/skills/`) and every image in those trees to Notion. `.github/workflows/notion-backup.yml` runs it on each push to `main` that touches those paths. GitHub stays the working copy: an edit made in Notion is overwritten the next time its file changes. The decision record is [ADR 0023](adr/0023-notion-backs-up-main.md).
 
 ## Set up (once)
 

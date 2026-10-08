@@ -2,6 +2,7 @@
 type: Creature
 summary: "A River Otter creature (CR 4) used as a controller in The Shattered Sea."
 sources:
+ - "archive/session-11-transcript-archived-version.md"
  - "archive/river-otter.md"
 ---
 
@@ -12,7 +13,7 @@ sources:
 ## At a glance
 
 - **Role at the table.** A controller that repositions swimmers and steals what they hold.
-- **Threat.** CR 4, and never just one, for the family hunts as one.
+- **Threat.** CR 4, and never just one, for the family brings down its prey as one.
 - **Tell.** Play that stops mid-tumble, every head in the water coming round at once.
 - **Weak to.** Dry ground, and isolation from the second otter its ambush advantage needs.
 - **Used by.** [[Snakewood]] patrols the same territory.
@@ -69,7 +70,7 @@ In play they steal whatever dangles from the camp, all of it sport. The whole fa
 
 ### Outside a fight
 
-A family at play gives itself away in stripped gear and stolen lines hauled off through the water, and the sport holds until the family itself is hurt.
+A family at play gives itself away in stripped gear and stolen lines hauled off through the water, and the sport holds until the family itself is hurt. The Slack Basin family kept its game gentle for a full hour of acrobatics and illusions, and swam off downriver whistling once the play wore thin.
 
 ## Depth
 

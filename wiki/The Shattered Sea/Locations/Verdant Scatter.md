@@ -10,21 +10,21 @@ parent: "[[The Shattered Sea]]"
 ## At a glance
 
 - **Character.** Not one island chain but two, the [[Crown Islands]] north and the [[Midchain]] south, with the [[Central Strait]] running between them. Routes here punish bad charts.
-- **Held by.** Contested. The [[Dravosi Crown]] holds its strongest regional authority along the northern arc. The southern arc answers to island councils, free ports, pilot families, market bosses and Grung trade boundaries that fit no colonial ledger.
+- **Held by.** Contested. The [[Dravosi Crown]] holds its strongest regional authority along the northern arc. The southern arc rests with island councils, free ports, pilot families, market bosses and Grung trade boundaries that fit no colonial ledger.
 - **Changing.** Both arcs narrow eastward toward [[The Tail]], where the water grows colder under the [[Drowned Maw]]'s influence.
 - **Crossing.** The Strait road is fast and inspected. The local reef routes through the Midchain are slower and owe nothing to any ledger. The eastern approach belongs to the Maw.
 - **Danger.** Reefs older than every chart, an inspection regime that prices every hull, piracy that scales with the water it works, and the eastern convergence.
 
 > [!narration] Arrival
-> Two long lines of islands lie ahead of you with a road of blue-green water between them. Down the near line the land stands mountainous and green, canal towns and fort guns marking its deep harbours, while the far line breaks into dozens of small islands packed reef to reef. The shipping road carries an orderly line of sails, all of them bound for or away from the same inspection pier where the road meets the Gate. Follow the road's far end and the two lines close together, the water past the last islands going a shade too deep for the charts.
+> Ahead of you lie two long lines of islands, with a road of blue-green water between them. Down the near line the land stands mountainous and green, canal towns and fort guns marking its deep harbours, while the far line breaks into dozens of small islands packed reef to reef. An orderly line of sails fills the shipping road, all of them bound for or away from the same inspection pier where the road meets the Gate. Follow the road's far end and the two lines close together, the water past the last islands going a shade too deep for the charts.
 
 ## Play
 
 ### Travel
 
-The Scatter runs east from the [[Galewall]] to the [[Drowned Maw]]. The northern arc is five larger, mountainous islands with deep harbours, forested highlands and fortifications, and it carries the Crown's strongest regional foothold. The southern arc is dozens of smaller islands packed close together, with free ports, reefs, local councils and pilot families, and routes that make more sense learned from grandparents than from charts. Between them the [[Central Strait]] carries nearly everything that moves, and at the eastern end both arcs converge at [[The Tail]].
+The Scatter runs east from the [[Galewall]] to the [[Drowned Maw]]. The northern arc is five larger, mountainous islands with deep harbours, forested highlands and fortifications, and the Crown's regional foothold is strongest there. The southern arc is dozens of smaller islands packed close together, with free ports, reefs, local councils and pilot families, and routes that make more sense learned from grandparents than from charts. Between them nearly everything that moves funnels through the [[Central Strait]], and at the eastern end both arcs converge at [[The Tail]].
 
-Three ways through:
+The ways through:
 
 - **The Strait road.** From the Tidefall Gate to the Narrows on the current's back, fast eastbound, inspected and entered in the Crown's ledger at the western mouth. The cost is papers, fees and the Crown knowing your hull. Full routes and readings on the [[Central Strait]].
 - **The local routes.** Through the Midchain's reefs and harbours under pilot guidance, days slower, invisible to the Crown's ledgers, and priced in trust and pilot fees instead of inspection fees. The same road the [[Passage]] and the smuggling trade work.
@@ -54,7 +54,7 @@ Three ways through:
 
 - "The Teeth are closed, and the clans hold them shut." Midchain pilot talk about the [[Verdant Teeth]]. True: the [[Grung Clans]] keep the Teeth closed. Investigate: ask a [[Kalowe]] pilot what passing the Teeth costs, and who has paid it lately.
 - "Out here a chart is a rumour with lines drawn on it." Pilot-family talk. True: the routes make sense learned from grandparents, not from charts. Investigate: set a harbour chart against a pilot family's route and count what the chart omits.
-- "Crown law ends where the deep water starts." Free-port talk. Mostly true: the Crown's authority is strongest on the northern arc. The southern arc answers to island councils and free ports, and the pilot families hold its routes. Investigate: watch whose flag a dispute settles under at a southern free port.
+- "Crown law ends where the deep water starts." Free-port talk. Mostly true: the Crown's authority is strongest on the northern arc. Island councils and free ports set the terms along the southern arc, and its routes belong to the pilot families. Investigate: watch whose flag a dispute settles under at a southern free port.
 
 ## Depth
 
@@ -64,13 +64,13 @@ The Crown occupied the northern arc in 1195 DR and founded the inspection port a
 
 ### Hidden truths
 
-- **The corridor is a funnel.** The Strait road concentrates nearly every hull past one inspection. The western gate exists for that funnel, and the local routes stay worth their risk.
+- **The corridor is a funnel.** The Strait road concentrates nearly every hull past one inspection. The western gate exists for that funnel, and hulls still take the local routes, reefs and all.
 - **The east rewrites the charts.** The Maw's water changes the routes faster than any chart house works, and the convergence at [[The Tail]] is where the charts give out first.
-- **Two ledgers.** The northern arc keeps the Crown's ledger. The southern arc runs on trust, pilot families and boundaries the ledger cannot record. A hull can be lawful in one ledger and smuggled in the other before the crossing ends.
+- **Ledgers that disagree.** The northern arc keeps the Crown's ledger. The southern arc runs on trust, pilot families and boundaries the ledger cannot record. A hull can be lawful in one ledger and smuggled in the other before the crossing ends.
 
 ### Threads
 
-[[Drowned Maw Awakening]] owns the eastern water. [[The Crown Inspection]] keeps the Crown's pursuit on the corridor. [[Simone's Hunters]] run their captive route across the Midchain toward [[Karath]].
+[[Drowned Maw Awakening]] covers the eastern water. [[The Crown Inspection]] keeps the Crown's pursuit on the corridor. [[Simone's Hunters]] run their captive route across the Midchain toward [[Karath]].
 
 ## Links
 

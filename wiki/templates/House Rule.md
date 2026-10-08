@@ -6,7 +6,7 @@ sources: []
 
 ## At a glance
 
-%% Changes names the 2024 rule it replaces or extends. A House Rule outranks every other rules source. %%
+%% Give the table a ten-second read, one line per bullet. Changes links or cites the 2024 rule it replaces or extends. Applies to gives who or what it covers. A House Rule takes precedence over every other rules source. %%
 
 - **Changes.**
 - **Applies to.**
@@ -14,15 +14,19 @@ sources: []
 
 ## Play
 
-%% The runnable text in 2024 language: who rolls what, DCs, what each result does. Full text, never a reference. %%
+%% Write the full runnable text in 2024 language. Give who rolls what and against which DC, and what each result does. %%
 
 ## Depth
 
-%% Why the DM made it, edge cases, interactions with other rules. %%
+%% Give the DM's reason for it and how it meets other rules. %%
 
 ### Why
 
+%% Give the table problem it solves. %%
+
 ### Edge cases
+
+%% Give each interaction with another rule or feature, with its ruling. %%
 
 ## Links
 

@@ -27,7 +27,7 @@ sources:
 
 A lizardfolk is a medium reptilian humanoid with a scaled hide, powerful jaws, and a swim speed to match its walk. The bite is a natural weapon that deals 1d6 slashing on a hit. It holds its breath for a quarter-hour, and its unarmoured hide turns a blow at AC 13 plus its Dexterity, with a shield in hand if the work calls for one. Once per long rest it can throw in a hungry jaws bite as a bonus action. On a hit it feeds for temporary hit points equal to its proficiency bonus. It reads animals, bodies, weather and ground the way a hunter reads them, without study.
 
-Waste is the only sin that registers without translation. Bone becomes tools, hide becomes armour, shell becomes currency. Warm-bloods read the pragmatism as cold, and the word misses a lizardfolk parent who dies for a clutch without hesitation, because the calculation is instant. The flatness is efficiency: the help arrives at the same speed, and the face stays still while it does.
+Waste is the only sin that registers without translation. Bone becomes tools, hide becomes armour, shell becomes currency. Warm-bloods read the pragmatism as cold, and the word misses a lizardfolk parent who dies for a clutch without hesitation, because the calculation is instant. The flatness is efficiency: the help arrives at the same speed, and the face is still while it does.
 
 A lizardfolk who spends years inside a warm-blooded crew develops what outsiders call emotional range. Whether it is learned performance or felt warmth, the lizardfolk cannot say. The laugh is real either way.
 

@@ -39,6 +39,8 @@ export interface FixResult {
 
 export interface CheckContext {
 	vault: Vault;
+	/** Selects vault-relative paths to evaluate; omitted means every page. The Vault remains global read-only context. */
+	target?(vaultPath: string): boolean;
 	templates: TemplateSet;
 	/** Repository root: `sources` paths and `archive/` resolve against it. */
 	root: string;

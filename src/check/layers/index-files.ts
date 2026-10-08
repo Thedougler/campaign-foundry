@@ -1,5 +1,6 @@
 import { generateIndexes } from "../../vault/indexes.ts";
 import type { CheckContext, Finding, Fix, Layer } from "../types.ts";
+import { isTarget } from "../util.ts";
 
 const LAYER = "index";
 
@@ -15,6 +16,7 @@ interface Drift {
 function drift(ctx: CheckContext): (Drift & { content: string })[] {
 	const out: (Drift & { content: string })[] = [];
 	for (const [path, content] of generateIndexes(ctx.vault)) {
+		if (!isTarget(ctx, path)) continue;
 		const page = ctx.vault.pageByPath.get(path);
 		if (page === undefined) {
 			out.push({ path, rule: "missing", line: 1, message: `\`${path}\` does not exist; it is generated from every page's summary.`, content });

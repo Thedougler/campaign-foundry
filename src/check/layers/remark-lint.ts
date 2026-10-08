@@ -7,8 +7,9 @@ import remarkPresetLintRecommended from "remark-preset-lint-recommended";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
 import { VFile } from "vfile";
-import { lintText, prosePages } from "../prose.ts";
+import { isProsePage, lintText } from "../prose.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
+import { checkedPages } from "../util.ts";
 
 const LAYER = "remark-lint";
 
@@ -54,7 +55,7 @@ async function lintSource(source: string, path: string) {
 }
 
 export async function run(ctx: CheckContext): Promise<Finding[]> {
-	const pages = prosePages(ctx.vault);
+	const pages = checkedPages(ctx).filter(isProsePage);
 	const perPage = await Promise.all(
 		pages.map(async (page) => {
 			const { text, lines, skip } = lintText(page);

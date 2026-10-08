@@ -30,7 +30,7 @@ Picking or cutting fruit wakes up to three Vine-Lashes. The channel can sweep a 
 
 ### Occupants
 
-[[Renzo Canale]], Carlo Ferrante, Tommaso Brasca, Sandrino Vale, Ilario Pozzo, Beppe Sarti and Marco Lenzi.
+[[Renzo Canale]], [[Carlo Ferrante]], [[Tommaso Brasca]], [[Sandrino Vale]], [[Ilario Pozzo]], [[Beppe Sarti]] and [[Marco Lenzi]].
 
 ### Likely actions
 
@@ -40,15 +40,15 @@ Talk to survivors, bring Luca and Ettore home, take fallen fruit, cross by raft 
 
 ### History
 
-Seven survivors followed Hinewai's law into this clearing. Four want the ship. Three believe protection ends here and stay.
+Into this clearing, seven survivors followed Hinewai's law. Four of them want the ship. The last three believe her protection ends here and stay.
 
 ### Hidden truths
 
-Beppe is wrong that Hinewai's protection ends at the clearing. It covers those she counts anywhere on Aruhe.
+[[Beppe Sarti|Beppe]] is wrong that Hinewai's protection ends at the clearing. It covers those she counts anywhere on Aruhe.
 
 ### Threads
 
-Seven survivors sheltering under one fruit-heavy vine tie this clearing to [[Taking on Aruhe]], [[Perrin and Nona]], and [[The Crown Inspection]].
+This clearing's seven survivors, sheltering under one fruit-heavy vine, tie it to [[Taking on Aruhe]], [[Perrin and Nona]], and [[The Crown Inspection]].
 
 ## Links
 

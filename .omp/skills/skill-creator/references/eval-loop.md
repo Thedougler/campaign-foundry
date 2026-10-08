@@ -1,6 +1,6 @@
 # Eval loop — paired with-skill/baseline runs
 
-Read this for skill-creator step 4. Every run is one pass of the per-case recipe in `evals/README.md` § [Run a case](../../../../evals/README.md#run-a-case); read that section first. Read [`schemas.md`](schemas.md) before writing artifacts.
+Read this for skill-creator step 4. The pair answers whether the skill helps or hurts: one with-skill run and one baseline run per selected case, compared criterion by criterion. Every run is one pass of the per-case recipe in `evals/README.md` § [Run a case](../../../../evals/README.md#run-a-case); read that section first. Read [`schemas.md`](schemas.md) before writing artifacts.
 
 ## Layout
 
@@ -17,7 +17,7 @@ Read this for skill-creator step 4. Every run is one pass of the per-case recipe
 ```
 
 - `<baseline>` is `without_skill` for a new skill and `old_skill` for a revision.
-- Each `<config>/<case-id>/` directory is the recipe's `$out`. Repeat observations use `<case-id>-run<k>/` beside it, each a full run directory.
+- Each `<config>/<case-id>/` directory is the recipe's `$out`.
 
 ## Run the pair
 
@@ -31,7 +31,7 @@ Both configurations run the recipe with the same case prompt, model role and liv
 
 The iteration follows the recipe's [Concurrency and cleanliness](../../../../evals/README.md#concurrency-and-cleanliness) with `<workspace>/iteration-<N>` as its Eval root: record the Wiki state before the Runner batch and diff it after the last grade.
 
-1. **Runners.** Dispatch every selected case's two Runners in one `task` call, as the recipe's Runner step specifies, naming each item `<CaseCamel>With` or `<CaseCamel>Base` (repeat observations append `Run<k>`). Names can repeat across iterations, so take each run's `agent://` id from the task result. Done when every item has settled.
+1. **Runners.** Dispatch every selected case's two Runners in one `task` call, as the recipe's Runner step specifies, naming each item `<CaseCamel>With` or `<CaseCamel>Base`. Names can repeat across iterations, so take each run's `agent://` id from the task result. Done when every item has settled.
 2. **Save, split and Check.** In one Bash call, per run, set `out=<workspace>/iteration-<N>/<config>/<case-id>` as the recipe's `$out`, then run its Save and split and Checks steps; Checks land in `$out/checks.txt`. Write `$out/eval_metadata.json` per [`schemas.md`](schemas.md) so the viewer shows the prompt. A Runner task that failed or was aborted, or Checks exit 2, is that run's execution error. Done when every run directory holds `reply.txt` and `checks.txt`, or its execution error is recorded.
 3. **Graders.** For every run whose case has rubrics and whose `outputs/reply.md` exists, dispatch the recipe's Grade in one `task` call, named `<CaseCamel>WithGrade` or `<CaseCamel>BaseGrade`, then `cp agent://<id> "$out/grades.json"` per run. Done when each such run holds `grades.json` or a named grading error.
 
@@ -49,15 +49,11 @@ A pair counts toward paired summaries only when neither run has an execution or 
 
 **Done when** each pair has a recorded comparable/excluded decision.
 
-## Aggregate
+## Compare
 
-Write `<iteration-dir>/benchmark.json` by hand per [`schemas.md`](schemas.md) from the iteration's `grading.json` files and pair decisions. Compute each summary with `calculateStats` over the comparable observations, from the repo root:
+Write `<iteration-dir>/benchmark.json` by hand per [`schemas.md`](schemas.md) from the iteration's `grading.json` files and pair decisions. For each comparable pair, compare the two runs criterion by criterion and write one `notes[]` line per case: the criteria where the skill **helps** (with-skill passes, baseline fails) and where it **hurts** (baseline passes, with-skill fails). A case the baseline run passes outright teaches nothing; it goes back to Design step 4 in `evals/README.md`.
 
-```bash
-bun -e 'import { calculateStats } from "./evals/authoring.ts"; console.log(JSON.stringify(calculateStats([1, 0.5, 1])))'
-```
-
-**Done when** `benchmark.json` accounts for every run directory, and its summaries use only comparable pairs.
+**Done when** `benchmark.json` accounts for every run directory and every comparable pair has its helps/hurts line.
 
 ## Viewer and feedback
 
@@ -67,8 +63,8 @@ bun run cf -- eval review <iteration-dir> --skill-name <name> --benchmark <itera
 
 From iteration 2 on, add `--previous-workspace <workspace>/iteration-<N-1>`. The page is written to `<iteration-dir>/review.html` (override with `--static`); its path comes back in JSON.
 
-1. Open the page in the browser and confirm the Outputs and Benchmark tabs show this iteration's runs and stats.
-2. Hand the DM the controls: Outputs walks each run (prompt, pages, `reply.md`, grading, feedback box, previous iteration's output and feedback from iteration 2 on); Benchmark shows per-configuration stats and notes. **Download feedback.json** exports the review.
+1. Open the page in the browser and confirm the Outputs and Benchmark tabs show this iteration's runs and per-criterion results.
+2. Hand the DM the controls: Outputs walks each run (prompt, pages, `reply.md`, grading, feedback box, previous iteration's output and feedback from iteration 2 on); Benchmark shows each run's pass rate, each criterion's PASS/FAIL per configuration, and the notes. **Download feedback.json** exports the review.
 3. Save the download verbatim as `<iteration-dir>/feedback.json`.
 
 **Done when** both tabs show this iteration, the DM has reviewed the outputs, and the downloaded feedback is saved verbatim. Rendering the page is not review.
@@ -81,4 +77,4 @@ For "is the revision actually better?" on a comparable pair, follow [`comparator
 
 ## Report
 
-Report per-case results, pair exclusions and paired deltas in chat. The workspace is scratch under OS temp; copy out whatever the DM asks to keep.
+Report per-case results, pair exclusions and each case's helps/hurts line in chat. The workspace is scratch under OS temp; copy out whatever the DM asks to keep.

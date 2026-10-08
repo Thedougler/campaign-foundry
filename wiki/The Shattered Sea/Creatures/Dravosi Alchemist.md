@@ -3,12 +3,13 @@ type: Creature
 summary: "A Dravosi Crown boarding alchemist who deployed Grung toxin across the Saltwright's gangplank and died to her own redirected cloud."
 sources:
  - "archive/ssw-session-01.md"
+ - "archive/ssw-the-canister.md"
 ---
 
 ## At a glance
 
 - **Role at the table.** Crown boarding specialist who answers a failing boarding with Grung toxin gas.
-- **Threat.** Threat is set by the statblock. The danger is the cloud, not the thrower.
+- **Threat.** CR 1/4 behind a weak dagger. The danger is the cloud, not the thrower.
 - **Tell.** A hand goes to the bandolier and unhooks an iron canister before anything is thrown.
 - **Weak to.** Her own cloud. Wind that catches it puts it back where it came from.
 - **Used by.** [[Barnaby Rook]].
@@ -64,7 +65,7 @@ She travels with Crown boarding crews as the answer to unwinnable decks. The ban
 
 ### Ecology
 
-The Crown's boarding alchemists carry ordnance manufactured from Grung hunting toxin concentrate, supplied through [[Simone Tabarnack]]'s network.
+The Crown issues its boarding alchemists ordnance manufactured from Grung hunting toxin concentrate, supplied through [[Simone Tabarnack]]'s network.
 
 ### History
 

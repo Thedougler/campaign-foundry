@@ -49,7 +49,7 @@ Calder's Tooth is limestone and basalt at the far side mouth of the [[Central St
 
 ### Hidden truths
 
-Sealed Crestwall orders and the fort vaults are separate Crown secrets. The [[Tessarine Trade House|Tessarine house]] applies pressure through credit, legal paper and mail.
+Orders arrive at Fort Crestwall sealed, and they stay Crown secrets even from Governor Voss. The fort's vaults keep a second secret of their own. The [[Tessarine Trade House|Tessarine house]] applies pressure through credit, legal paper and mail.
 
 ### Threads
 

@@ -5,6 +5,7 @@ summary: "The western dive terrace of the Drowned Maw, where salvage crews work 
 sources:
  - "archive/drowned-maw.md"
  - "archive/ssw-giant-squid.md"
+ - "archive/Episode-09-Transcript.md"
 parent: "[[Drowned Maw]]"
 ---
 
@@ -33,7 +34,7 @@ Past the agreed depth the water belongs to whatever pulled Orvalle's partner dow
 
 ### Occupants
 
-Fathomrush stages the dives and crews the lines. [[Orvalle]] runs the air pumps and no longer dives.
+[[Fathomrush]] stages the dives and crews the lines. [[Orvalle]] runs the air pumps and no longer dives.
 
 ### Likely actions
 

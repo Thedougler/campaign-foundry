@@ -5,6 +5,8 @@ sources:
  - "archive/sending-stone-nonas.md"
  - "archive/ssw-session-03.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/ssw-sending-stone-nona.md"
+ - "archive/Episode-09-Transcript.md"
 ---
 
 ## At a glance
@@ -22,7 +24,7 @@ sources:
 
 ### Properties
 
-Speaking to this stone reaches only Nona's twin. No charges, range limits or other activation rules are established. The pair is the whole item.
+Speaking to this stone reaches only Nona's twin. No charges, range limits or other activation rules are established. The pair is the whole item, and the type itself doesn't tell a sender when a message has been read (the DM's ruling, [[Session 9 - Recap]]).
 
 ### In use
 
@@ -32,7 +34,7 @@ Until Nona calls, the stone is silent. Her call is a job, warning or both. It ca
 
 ### History
 
-Nona gave the stone to Perrin in [[Le Paludi]] for an unrevealed favour. Perrin agreed to end Dravosi attacks at The Warren as part of the exchange. Through it she later called in that favour, with Perrin to bring his friends to her safe-house table, the blue one above all, plus any fighter among them. When Perrin reported the Grung powder under the city, she answered through the stone that Enzo and more would come, and that she would speak to him in person.
+Nona gave the stone to Perrin in [[Le Paludi]] at the end of their meeting, for an unrevealed favour he accepted without hearing its terms. Perrin agreed to end Dravosi attacks at The Warren as part of the exchange. Through it she later called in that favour, with Perrin to bring his friends to her safe-house table, the blue one above all, plus any fighter among them. When Perrin reported the Grung powder under the city, she answered through the stone that Enzo and more would come, and that she would speak to him in person.
 
 ### Hidden truths
 

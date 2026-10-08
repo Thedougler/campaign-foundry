@@ -1,7 +1,7 @@
 import { buildLinkGraph } from "../../vault/links.ts";
 import type { Page } from "../../vault/types.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
-import { dirOf, isSpecialPage } from "../util.ts";
+import { checkedPages, dirOf, isSpecialPage } from "../util.ts";
 
 const LAYER = "orphans";
 
@@ -41,7 +41,7 @@ function isRoot(page: Page): boolean {
 export function run(ctx: CheckContext): Finding[] {
 	const graph = buildLinkGraph(ctx.vault);
 	const findings: Finding[] = [];
-	for (const page of ctx.vault.pages) {
+	for (const page of checkedPages(ctx)) {
 		if (isRoot(page)) continue;
 		const sources = [...(graph.inbound.get(page) ?? [])].filter((p) => !isSpecialPage(p));
 		if (sources.length > 0) continue;

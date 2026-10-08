@@ -1,4 +1,5 @@
 import type { CheckContext, Finding, Layer } from "../types.ts";
+import { checkedPages } from "../util.ts";
 import { bodyLines } from "../text.ts";
 
 const LAYER = "hot";
@@ -12,7 +13,7 @@ export const hotLayer: Layer = {
 	description: `hot.md stays orientation: its body is at most ${HOT_WORD_CAP} words (the convention is about 500).`,
 	run(ctx: CheckContext): Finding[] {
 		const findings: Finding[] = [];
-		for (const page of ctx.vault.pages) {
+		for (const page of checkedPages(ctx)) {
 			if (page.name !== "hot") continue;
 			let count = 0;
 			let crossed = 0;

@@ -4,14 +4,16 @@ summary: ""
 sources: []
 ---
 
+%% Instructions every agent follows when writing for this Campaign, set by the DM. Add a `##` section for any other standing instruction the DM gives. %%
+
 ## Tone
 
-%% How play should feel and its content rating, set by the DM. %%
+%% Give how play should feel and its content rating, in the DM's words. Then give what that means for NPCs and for Scenes. %%
 
 ## Themes
 
-%% The pressures that should keep showing up. %%
+%% Give the pressures that keep showing up. %%
 
 ## Lines and Veils
 
-%% Content limits every agent honours when writing for this Campaign. A line never appears, not even implied; a veil may happen in the fiction but cuts away before it is shown. Everything not listed here is allowed. %%
+%% Give the content limits every agent honours when writing for this Campaign. A line stays out of the fiction entirely, even by implication. A veil may happen in the fiction, and the telling cuts away before it is shown. Everything else is allowed. %%

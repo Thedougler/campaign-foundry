@@ -15,7 +15,7 @@ sources:
 - **Used by.** Nobody. It is associated with the blue holes of the southern [[Midchain]] approaches.
 
 > [!narration] First sight
-> The lead comes up wet and the pilot calls for the reel with no bottom to show for it. Where the strait ran deep and chattering, the water ahead sits flat and silent, a patch of stillness the wind cannot explain. The pilot puts the island between the ship and that patch and holds course along the shallows, and the talk on deck drops to a murmur until the stillness falls astern.
+> The lead comes up wet and the pilot calls for the reel with no bottom to show for it. Where the strait ran deep and chattering, the water ahead sits flat and silent, a patch of stillness the wind cannot explain. The pilot puts the island between the ship and that patch and steers a course along the shallows, and the talk on deck drops to a murmur until the stillness falls astern.
 
 ## Statblock
 

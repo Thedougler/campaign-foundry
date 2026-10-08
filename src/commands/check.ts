@@ -49,7 +49,7 @@ export function checkCommand(): Command {
 	const layerLines = layers.map((l) => `  ${l.name.padEnd(width)}${l.description}`).join("\n");
 	return new Command("check")
 		.description("Gate the Wiki: errors fail; warnings are reported. Exits 0 no errors, 1 errors, 2 usage error.")
-		.argument("[paths...]", "report only findings under these files or folders (the whole Wiki is still checked)")
+		.argument("[paths...]", "check only these files or folders, using the whole Wiki as read-only context")
 		.option("--vault <dir>", "the Wiki folder to check (default: <root>/wiki)")
 		.option("--templates <dir>", "folder of page templates (default: <root>/wiki/templates, else the repo's)")
 		.option("--root <dir>", "repository root, where sources paths like archive/x.md resolve (default: nearest git root)")

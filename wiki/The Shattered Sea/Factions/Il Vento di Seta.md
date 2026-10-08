@@ -10,7 +10,7 @@ aliases:
 ## At a glance
 
 - **Goal.** To place first without changing a note.
-- **Next move.** Play the same set, perfectly, and let the devoted crowd hold the stage at the [[Il Palio delle Voci Contese|Palio]].
+- **Next move.** Play the same set, perfectly, and let the devoted crowd keep the stage at the [[Il Palio delle Voci Contese|Palio]].
 - **Led by.** The halfling trio. A [[Tessarine Concordat|Tessarine]] booking agent handles the business.
 - **Strength.** A crowd that already knows all the words and returns at exactly the same size every year.
 

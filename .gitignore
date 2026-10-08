@@ -12,6 +12,14 @@ node_modules/
 coverage/
 dist/
 
+# Python (python/): uv venv and tool caches
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
 # cf push: the Foundry module it builds and its per-Campaign manifest of what was last pushed
 build/
 .push/
@@ -37,6 +45,15 @@ build/
 
 # Per-file check results, keyed by content hash (src/check/cache.ts)
 .cache/
+
+# Benchmark run artifacts: untracked from git, kept as local archive copies.
+# Briefs (*.brief.md, deterministic prompts) stay committed.
+/evals/benchmark-samples/**
+!/evals/benchmark-samples/**/
+!/evals/benchmark-samples/**/*.brief.md
+/evals/benchmark.md
+/evals/benchmark.json
+/archive/evals-benchmark/
 
 # Residual eval/authoring dumps; live artifacts belong in OS-temp Sessions
 **/*-workspace/

@@ -14,13 +14,13 @@ parent: "[[Aruhe]]"
 ## At a glance
 
 - **Character.** Open river valleys inside Aruhe's jungle.
-- **Held by.** Terror-Birds, Spiguars, Deer-Stalkers and River Otters in their niches.
+- **Held by.** Terror-Birds, Spiguar, Deer-Stalkers and River Otters in their niches.
 - **Changing.** Calveno prints and survivors move north through the cuts.
 - **Crossing.** Follow water, stay on a ridge, or choose cover in the tall grass.
 - **Danger.** Razer-grass, predators and the island's taking rule.
 
 > [!narration] Arrival
-> Clear water winds through gold-green grass taller than you are. Sun shafts flash on wet stones, and the cut carries a warm smell of water and bird calls. Red berries shine at the bends.
+> Clear water winds through gold-green grass taller than you are. Sun shafts flash on wet stones, and a warm smell of water hangs in the cut under the bird calls. Red berries shine at the bends.
 
 ## Play
 
@@ -34,7 +34,7 @@ Along the River. [[Landing Bank]], [[Line Bank]], [[Torn Crossing]] and [[Slack 
 
 ### Encounters
 
-Terror-Birds hold shaded rims. Spiguars hunt channels. Wolfrabbits cross the grass. River Otters play in water. Deer-Stalkers use cover. Unsaid Macaws repeat thoughts.
+Terror-Birds hold shaded rims. Spiguar hunt channels. Wolfrabbits cross the grass. River Otters play in water. Deer-Stalkers use cover. Unsaid Macaws say back the thoughts they hear.
 
 ### Rumors
 

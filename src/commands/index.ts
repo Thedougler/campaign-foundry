@@ -3,13 +3,16 @@ import { backupCommand } from "./backup.ts";
 import { benchCommand } from "./bench.ts";
 import { checkCommand } from "./check.ts";
 import { contextCommand } from "./context.ts";
+import { ddbCommand } from "./ddb.ts";
 import { encounterBudgetCommand } from "./encounter-budget.ts";
+import { foundryCommand } from "./foundry.ts";
 import { evalCommand } from "./eval.ts";
 import { indexCommand } from "./index-cmd.ts";
 import { logCommand } from "./log.ts";
 import { pullCommand } from "./pull.ts";
 import { pushCommand } from "./push.ts";
 import { styleCommand } from "./style.ts";
+import { transcriptCommand } from "./transcript.ts";
 
 /**
  * Every `cf` subcommand. To add one (`index`, `log`, `pull`, `push`): create `src/commands/<name>.ts`
@@ -20,11 +23,14 @@ export const commands: (() => Command)[] = [
  benchCommand,
  checkCommand,
  contextCommand,
+ ddbCommand,
  encounterBudgetCommand,
  evalCommand,
+ foundryCommand,
  indexCommand,
  logCommand,
  pullCommand,
  pushCommand,
  styleCommand,
+ transcriptCommand,
 ];

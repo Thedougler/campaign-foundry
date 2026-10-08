@@ -1,9 +1,10 @@
 ---
 type: Location
 kind: Site
-summary: "The one Quiet grass cut where the roof breaks open. Two Terror-Birds own its halves and the Calveno trail must cross the Gap."
+summary: "The one Quiet grass cut where the roof breaks open. Two Terror-Birds own its halves, and the four survivors once trapped below the skylight are out with the Party."
 sources:
  - "archive/the-long-meadow.md"
+ - "archive/session-12-full.md"
 parent: "[[The Quiet]]"
 ---
 
@@ -13,7 +14,7 @@ parent: "[[The Quiet]]"
 - **Entrance.** Fruit-pile trail from Quiet forest.
 - **Occupants.** South and North Terror-Birds hold opposite rims.
 - **Danger.** Open ground draws a straight charge. A skylight drops forty feet.
-- **Prize.** Four survivors below the smoking skylight and routes onward.
+- **Prize.** Routes onward. The survivors below the smoking skylight left with the Party in Session 12.
 
 > [!narration] Entering
 > A half-mile strip of short grass opens beneath the sky. Tall grass walls both edges. A deep channel and glittering white blades divide the gap, while mossy stumps wait at each end.
@@ -30,25 +31,25 @@ Terror-Birds charge straight lines. Tall grass, deep water and Razer-Grass end a
 
 ### Occupants
 
-Two [[Terror-Bird]]s. Four Calveno survivors lie on the skylight ledge below.
+A [[Terror-Bird]] on each rim. The skylight ledge below stands empty since the Party ferried the survivors out.
 
 ### Likely actions
 
-Read the meadow, cross through cover and the stand, go around at an hour's cost, or lower a rescue line.
+Read the meadow, cross through cover and the stand, or go around at an hour's cost.
 
 ## Depth
 
 ### History
 
-The South Bird drove four survivors into the skylight nineteen days ago.
+The South Bird drove four survivors into the skylight nineteen days ago. In Session 12 the Party ferried all four out through the pit and travelled the lava tubes below instead of crossing the Gap.
 
 ### Hidden truths
 
-Each bird holds one half and will not enter tall grass, deep channel or Razer-Grass. The Gap is the safe puzzle, not a straight sprint.
+One half belongs to each bird, and neither will enter tall grass, deep channel or Razer-Grass. The Gap is the safe puzzle, not a straight sprint.
 
 ### Threads
 
-Two Terror-Bird halves and four trapped survivors carry this cut into [[Taking on Aruhe]] and [[Perrin and Nona]].
+This cut joins [[Taking on Aruhe]] and [[Perrin and Nona]] through its two Terror-Bird halves and the skylight rescue that emptied its ledge.
 
 ## Links
 

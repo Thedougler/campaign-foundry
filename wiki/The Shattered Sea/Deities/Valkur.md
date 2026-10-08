@@ -21,7 +21,7 @@ sources:
 
 - **Boons.** Protection in weather another power sent, and help backing a crew's own plan that leaves the doing of it to them.
 - **Costs.** Donations for temples and voyage blessings, and the expectation that a crew works its own difficulty before it prays.
-- **Clergy and shrines.** Captains, officers and privateers who serve aboard ship and in port, aid stranded sailors and sponsor exploration. Ashore they wear white and blue with silver trim, and aboard ship they dress with the rank they hold. Cutlasses and seawater holy symbols ride at their belts.
+- **Clergy and shrines.** Captains, officers and privateers who serve aboard ship and in port, aid sailors cast ashore and sponsor exploration. Ashore they wear white and blue with silver trim, and aboard ship they dress for their rank. Cutlasses and seawater holy symbols ride at their belts.
 - **How it intervenes.** He stands between ships and the sea powers that would break them, and he answers crews that help themselves first.
 
 ## Depth

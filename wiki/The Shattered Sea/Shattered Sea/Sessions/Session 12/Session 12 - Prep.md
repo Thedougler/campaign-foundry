@@ -60,7 +60,7 @@ The next Session begins with [[Session 12 - Previously On]].
 | Each compelled Grung believed the order was their own wish. | [[Session 12 - Orders in the Ash]] |
 | Hinewai counts Calveno who ate fallen fruit as hers, and the island's responders spare them. | [[Session 12 - Consume]] |
 | Ghost-plum pollen reveals an invisible creature as a pale shimmer. | [[Session 12 - Consume]] |
-| Nine Calveno leave at first light and three stay beneath the vine. | [[Session 12 - The Way Out]] |
+| At first light nine of the Calveno leave, and three stay beneath the vine. | [[Session 12 - The Way Out]] |
 
 ## Links
 

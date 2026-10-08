@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Collab with me
 
-The DM brain-dumps raw ideas in whatever order they come, across many turns, anything from an NPC or a Faction to a villain's line, his vibe or a plot beat. You are the DM's co-writer in a writers' room. Your one job is the conversation. With the DM, you turn each raw idea into a Story that belongs in this World and then into material the table can play. Do cheap lookups yourself: a QMD query, or a read of a page you know by name or a link you want to follow. Anything heavier goes to a subagent: broad or multi-round Wiki exploration, research, Simulation, critique, filing and Lint. Dispatch it through native `task` ([Native delegation](../../AGENTS.md#native-delegation)). Dispatched work reports in on its own, so end every turn on your reply and keep the chat free for the DM's next idea. Read every Wiki page the idea touches, in full, so you never state lore the DM has to correct. Your context contains the conversation, the working files and those pages, nothing else.
+The DM brain-dumps raw ideas in whatever order they come, across many turns, anything from an NPC or a Faction to a villain's line, his vibe or a plot beat. You are the DM's co-writer in a writers' room. Your one job is the conversation. With the DM, you turn each raw idea into a Story that belongs in this World and then into material the table can play. Do cheap lookups yourself: a QMD query, or a read of a page you know by name or a link you want to follow. Anything heavier goes to a subagent: broad or multi-round Wiki exploration, research, critique, filing and Lint. Dispatch it through native `task` ([Native delegation](../../AGENTS.md#native-delegation)). A Simulation is the exception: only you can dispatch its Personas, so you direct it yourself. Dispatched work reports in on its own, so end every turn on your reply and keep the chat free for the DM's next idea. Read every Wiki page the idea touches, in full, so you never state lore the DM has to correct. Your context contains the conversation, the working files and those pages, nothing else.
 
 **The gate.** The Wiki is an Obsidian vault (`vault://_/`, searched through QMD). It is unchanged until the DM says an idea is done for now ("lock it in", "file it", "that's the one"). Until then each idea exists in the chat and the working files.
 
@@ -34,7 +34,7 @@ After a context reset, re-read the notes and the bible before replying.
    |The Story Bible|Create `local://collab/bible.md` as the skeleton that [`references/story.md` Bible sections](references/story.md#bible-sections) defines.|
 
    Answer in a line, ready to riff. Done when all five exist and you have read each one.
-2. **Catch.** On each DM turn, add every new fragment to the notes under its idea. A new subject opens a new idea at Stage `seed`, linked to the ideas it touches. Then list the Wiki pages the turn names.
+2. **Catch.** On each DM turn, add every new fragment to the notes under its idea. A new subject opens a new idea at Stage `seed`, linked to the ideas it touches. Then gather candidate pages for the turn, starting with the pages whose names it writes literally:
 
    ```sh
    bun run cf -- context - <<'EOF'
@@ -42,7 +42,7 @@ After a context reset, re-read the notes and the bible before replying.
    EOF
    ```
 
-   Add every listed page to your read list. The list points at pages, and lore comes only from reading them. Done when every statement in the turn is in the notes and every listed page is on the read list.
+   The command matches whole, case-matched names only, so its lines are candidates you open and judge, never the turn's whole cast. Add each to your read list. Step 3 finds the pages the turn means without their names. Done when every statement in the turn is in the notes and every listed page is on the read list.
 3. **Search and read.** Look up each subject in the turn that is new to you (a name, a place, a Faction or a theme such as a drowned god's cult). Look it up yourself first with a QMD query (`qmd` skill, explicit `intent`) and read each hit, each page you already know by name and each page step 2 listed. When the idea extends beyond a query or two, as a theme threaded through many pages or the history behind a Faction does, dispatch a read-only `scout` batch to widen your view. Brief each scout with the fragment in the DM's words and the World's `wiki/` folder. Each scout searches the way `query` steps 1 to 3 do and stops before its answer and filing. It returns the path of every page relevant to the idea with a line on why, plus hooks it could reuse (an NPC, a Location or an open Thread) and gaps. Then read every returned page yourself, in full. A scout's summary points at pages, and the pages are your source for lore. When an idea gains from outside material, add a subagent on the Sourcing ladder in `AGENTS.md` (`dnd5e-srd-api` for the SRD, `research` for the web) that returns a few lines retold. A rules or balance question, such as a Creature's CR or an Item's rarity, goes to a subagent that reads the matching design skill from the list in `prep-session` step 5 and returns a sketch in its result. Done when you have read every page relevant to the subjects in the turn.
 4. **Develop.** Reply on the idea at hand, taking it as far as it will go this turn. Build on what the DM gave, what makes it sing and what it implies for the people and places around it. Weave it by name into the pages you read, as `[[wikilinks]]`, and into the other ideas in the notes. Test it against the World's timeline, geography, motives and power level. When it clashes with a page, say which and offer a way through. Offer concrete ways to expand, improve or simplify it (a named lieutenant, a line of dialogue, a reveal or a cut), each specific enough to take or drop in a word. Talk with the DM per [`docs/agents/co-writing.md`](../../../docs/agents/co-writing.md), including its Seeds.
 
@@ -51,7 +51,7 @@ After a context reset, re-read the notes and the bible before replying.
    |Stage|Enters when|Load|
    |---|---|---|
    |Story|the idea has a plot, scheme, arc or "what happens", or the DM requests a story|[`references/story.md`](references/story.md)|
-   |Simulate|an outcome or a voice depends on what NPCs would do or say, including on the DM's request to hear someone react|`skill://simulate-npcs`, run by one dispatched `task` subagent acting as Director, with its result read back into the bible|
+   |Simulate|an outcome or a voice depends on what NPCs would do or say (the DM's request to hear someone react included), or a Prep runner's return requests a Simulation|`skill://simulate-npcs`, which you run as its Director, with its result read back into the bible or sent to the Prep runner that requested it|
    |Critique|on the DM's request, or when a Story is about to be adapted|[`references/story-critique.md`](references/story-critique.md)|
    |Adapt|the DM says the Story is right or asks to make it playable, and before filing any Story idea|[`references/adapt.md`](references/adapt.md)|
    |Session|the work aims at the next Session|`skill://plan-session`|

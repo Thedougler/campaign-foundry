@@ -14,13 +14,13 @@ sources:
 - **Opposition.** [[Talon Skarn]].
 
 > [!narration] Opening
-> The falcon is still in your face. The camp has not yet decided who owns the night.
+> The falcon is still in your face. The night has no master yet.
 >
 ## Play
 
 ### Stakes
 
-The Party must survive the unfinished ambush.
+The Party must live through the unfinished ambush.
 
 ### Pressure
 

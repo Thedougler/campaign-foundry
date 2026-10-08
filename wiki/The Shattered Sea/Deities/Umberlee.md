@@ -9,6 +9,8 @@ sources:
  - "archive/ssw-what-sunk-the-vestra.md"
  - "archive/ssw-umberlee-shrine.md"
  - "archive/collab-2026-10-04-authority-themes.md"
+ - "archive/Episode-09-Transcript.md"
+ - "archive/session-10.md"
 ---
 
 ## At a glance
@@ -24,10 +26,10 @@ sources:
 
 ## Play
 
-- **Boons.** A paid tribute is recorded as a blessing, and a shrine offers a sailor a place to acknowledge the sea.
-- **Costs.** Coin, rope, fish bones, buttons, a compass needle, a carved token or a spoken promise. Refusal risks her attention.
-- **Clergy and shrines.** [[Waveservants]] collect at the same rate in working harbours, with basins and booklets by the quay.
-- **How it intervenes.** She can sink a fleet on material-plane water and press captains into a mortal survivor. She speaks through her clergy when the debt needs a voice, and she sends a collection hull such as [[The Dead Lady]]. A stalled debtor finds the appointment rescheduled rather than a pursuit, and the deep water calls to him harder the next time he touches it.
+- **Boons.** A paid tribute is recorded as a blessing, and a shrine offers a sailor a place to acknowledge the sea. When [[Shepherd Grigori]] named the Party's job a curse, [[Perrin Black-Jaw]] froze until [[Delmar Fisk]] checked a porthole. He said, “I’m paying his toll on the ship.”
+- **Costs.** Coin, rope, fish bones, buttons, a compass needle, a carved token or a spoken promise. Refusal risks her attention. The payment is common knowledge on any quay: most people flick a coin over the side as they board any ship, and the amount is nebulous so long as something goes in. One rescued crewman of the raid took the tribute for a myth until the hurricane that shattered his hull. His words on deck: "You always gotta pay the sea bitch."
+- **Clergy and shrines.** [[Waveservants]] collect at the same rate in working harbours, with basins and booklets by the quay. A rescued sailor claimed [[Calven and Calveno|Calveno]] keeps a shrine for paying the sea toll. The black shrine on [[Vel-Orn]], [[Umberlee's Shrine]], serves debts of an older kind.
+- **How it intervenes.** She can sink a fleet on material-plane water and press captains into a mortal survivor. She speaks through her clergy when the debt needs a voice, and she sends a collection hull such as [[The Dead Lady]]. A stalled debtor finds the appointment rescheduled rather than a pursuit, and the deep water calls to him harder the next time he touches it. [[Shepherd Grigori]] called her a god unworthy of worship in open water, and the sea beneath the [[Uncertainty]] kept its calm.
 
 ## Depth
 
@@ -39,14 +41,15 @@ She is tempestuous and petty, and her title came from her wrath and her greed. S
 
 ### Rivals and allies
 
-[[Valkur]] is a sailor's courage, Tyr is the land-and-paper counterweight, [[Auralis]] is an older Antheri machine rather than a rival, and the [[Sentinels of the Eyrie]] oppose Waveservant collection through observation.
+[[Valkur]] is a sailor's courage, [[Tyr]] is the land-and-paper counterweight, [[Auralis]] is an older Antheri machine rather than a rival, and the [[Sentinels of the Eyrie]] oppose Waveservant collection through observation. [[Aleksander Malone]] counted the sea's goddess a heathen beside his one god, and he threw the toll coin [[Delmar Fisk]] offered back across the deck.
 
 ### Hidden truths
 
 - Umberlee's claim ends where trench water becomes elemental water at the [[Drowned Maw]] fissure. She cannot reach into it to reclaim the [[Pearl of Souls]].
-- Tribute may be the procedural plug holding the fissure shut, though clergy do not advertise this suspicion. Shrine records and Maw pressure can reveal it.
+- Tribute may be the procedural plug holding the fissure shut, though clergy do not advertise this suspicion. Her shrine ledgers and a reading of the Maw's pressure could confirm it.
 - The Pearl remains a mortal recovery path after the theft from Vel-Orn, and the five captains ride [[Delmar Fisk]] while their crews remain inside it.
 - An older shrine of hers stands on [[Vel-Orn]], cut into black stone: it marks debts and keeps drowned names, and the older worship of the [[Blue Hole]] is preserved there. [[Keth-Naar]] petitions her for terms there, and the shrine's protection of the [[Sunken Crown]] fails without the [[Pearl of Souls]].
+- [[Shepherd Grigori]] read the Pearl job's curse at a glance and named it “quite the curse” unasked. He offered help with it in future, calling himself “fairly familiar with matters of the divine, being a shepherd.”
 
 ## Links
 

@@ -16,11 +16,11 @@ date: "1495 DR, date not established"
 
 ## What happened
 
-With Felix still alive under Nona's protection, the crew returned to the Calveno sewer magazines. Catarina Da'Virelli came from her canal workshop with her cannon Ragnetto and owl Strix, which joined the local defence.
+With Felix still alive under Nona's protection, the crew returned to the Calveno sewer magazines. Catarina Da'Virelli came from her canal workshop with her cannon Ragnito and owl Strix, which joined the local defence.
 
-Ruma Delacroix surrendered Room 6 rather than fight. The crew accepted the surrender and continued. Two rooms later, Bazzoth waited at his still. He poured his last good vintage into one of his bombs and lit it. The blast took Bazzoth, two Grung labourers, his still, and Magazine Beta's barrels into the water. It was the second powder cache destroyed after the Warren boat.
+Ruma Delacroix surrendered Room 6 rather than fight. The crew accepted the surrender and continued. Bazzoth waited at his still two rooms later. He poured his last good vintage into one of his bombs and lit it. The blast took Bazzoth, two Grung labourers, his still, and Magazine Beta's barrels into the water. It was the second powder cache destroyed after the Warren boat.
 
-The crew reached Room 8 during an active ritual. Solange Barret chanted over a circle on the floor. Four Grung Elite Warriors stood between her and the door, one already down against the wall. The circle remained active, Solange continued chanting, and three Elite Warriors still blocked the approach.
+The crew arrived at Room 8 during an active ritual. Solange Barret chanted over a circle on the floor. Between her and the door stood four Grung Elite Warriors, one already down against the wall. The circle remained active, Solange continued chanting, and three Elite Warriors still blocked the approach.
 
 ## Changes
 

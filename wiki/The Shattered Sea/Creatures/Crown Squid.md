@@ -2,22 +2,24 @@
 type: Creature
 summary: "A Crown Squid creature (CR 17) used as a controller in The Shattered Sea."
 sources:
+ - "archive/session-11-transcript-archived-version.md"
  - "archive/crown-squid.md"
  - "archive/agentic-co-dm-Aruhe-Crown-Squid.md"
+ - "archive/session-10.md"
 ---
 
 ![[Crown Squid - Portrait.jpg]]
 
 ## At a glance
 
-- **Role at the table.** Controller. It hooks its prey from a distance and holds each catch at the end of a line while the arms close.
+- **Role at the table.** Controller. It hooks its prey from a distance, and each catch stays on the line while the arms close.
 - **Threat.** CR 17. Its hook-tipped lines reach 80 feet, four catches can hang at once, and each Reel hauls a creature 30 feet closer.
 - **Tell.** The hooked arm goes still above the gap, and all eight eyes settle on one spot before the line shoots.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation. The spot directly beneath the mantle's centre hides from all eight eyes, and cutting the lines frees the fight. It avoids open grassland and water that [[River Otter]] packs are working.
+- **Weak to.** A Party that closes under its lines and stands together. The spot directly beneath the mantle's centre hides from all eight eyes, and cutting the lines frees the fight. It avoids open grassland and water that [[River Otter]] packs are working.
 - **Used by.** [[Deer-Stalker]] patrols the same territory.
 
 > [!narration] First sight
-> Where the hanging roots part, a mantle big as a ship's sail hangs under the canopy, propped on eight thick arms. One arm stretches out past the rest, ringed with hooks, and it sways over the gap in the roots. Eight eyes ring the mantle's rim, all of them aimed down into the foliage below. Branches creak under the whole weight, and the hooked arm holds still above the way through.
+> Where the hanging roots part, a mantle big as a ship's sail hangs under the canopy, propped on eight thick arms. One arm stretches out past the rest, ringed with hooks, and it sways over the gap in the roots. A ring of eyes circles the mantle's rim, all eight aimed down into the foliage below. Branches creak under the whole weight, and the hooked arm holds still above the way through.
 
 ## Statblock
 
@@ -88,21 +90,29 @@ legendary_actions:
 
 ### Tactics
 
-Open among the hanging roots, where it braces itself on its arms, and mark the hooked arm gone still before the first line flies. Let the Party answer with positioning, cover, or focused fire. It releases its grip and hauls itself up into the canopy when its height no longer serves or its wounds tell.
+Open among the hanging roots, where it braces itself on its arms, and mark the hooked arm gone still before the first line flies. The Party answers from directly under the mantle, with the hanging roots for cover, and cuts any line that has caught one of them. It releases its grip and hauls itself up into the canopy when its height no longer serves or its wounds tell.
 
 ### Outside a fight
 
-Branches that creak under more than wind, and a broad mantle hanging among the roots, warn the Party before an encounter. Sucker scars high on trunks, bark stripped upward, shredded sixty-foot vines, and prey tracks that end going up all mark its paths, and a hanging line that moves where no root would sits above the ambush. One the crew watched held at the treeline after the spore-plant disturbance, refusing the open ground. Its carcass offers parts only. Severed lines, rubbery hide and mantle tissue reward a careful harvester. It keeps to one stretch of canopy and does not chase beyond the roots it knows.
+Branches that creak under more than wind, and a broad mantle hanging among the roots, warn the Party before an encounter. Sucker scars high on trunks, bark stripped upward, shredded sixty-foot vines, and prey tracks that end going up all mark its paths, and a hanging line that moves where no root would sits above the ambush. One the crew watched held at the treeline after the spore-plant disturbance, refusing the open ground. That watched squid came down above the Old Gardens when a Bloodhawk out hunting struck it out of the canopy and dropped it through the trees. Its carcass offers parts only. Severed lines, rubbery hide and mantle tissue reward a careful harvester. It keeps to one stretch of canopy and does not chase beyond the roots it knows.
 
 ## Depth
 
 ### Ecology
 
-It lives high in the wet canopy of [[The Quiet]], the Marshes, and the Mangrove roof, where massive trunks, hanging roots and broken light let its mantle read as part of the trees. The mantle is house-sized and translucent, with a deep violet glow inside, and the arms beneath it carry bark-dark skin ridged and studded with thorny suckers. Bear-Elk, wounded hunters, climbing creatures, and anyone who trails behind a group are what its long lines haul up. Juveniles work the upper terraces, and the oldest sit heavy in the Marshes where walkers cannot easily reach the roof. Each adult keeps a stretch of canopy to itself and treats other large Aruhe hunters as boundaries rather than allies. It shares a kill only with one already beaten and leaving. A traveller working Wisdom (Survival) reads its signs in the stripped bark along its paths.
+It lives high in the wet canopy of [[The Quiet]], the Marshes, and the Mangrove roof, where massive trunks, hanging roots and broken light let its mantle read as part of the trees. The mantle is house-sized and translucent, with a deep violet glow inside, and the arms beneath it carry bark-dark skin ridged and studded with thorny suckers. Bear-Elk, wounded hunters, climbing creatures, and anyone who trails behind a group are what its long lines haul up. Juveniles work the upper terraces, and the oldest keep to the Marshes where walkers cannot easily reach the roof. Each adult keeps a stretch of canopy to itself and treats other large Aruhe hunters as boundaries rather than allies. It shares a kill only with one already beaten and leaving. A traveller working Wisdom (Survival) reads its signs in the stripped bark along its paths.
+
+### History
+
+Session 10 brought the Party's first recorded meeting with one, and it stalked them unseen from below. As the Party flew over the [[Old Gardens]], the forest floor looked wrong below them, a faint shimmer hanging near the ground, and the rum Delmar poured stopped short, pooled 25 feet down, and ran down the sides of something large.
+
+Its first strike came from below on an 80-foot reach and opened Delmar's side for 18 slashing damage, and a hooked line wrapped him while he carried Jean-Claude. Both faced a DC 19 Strength save against the grapple, and both saves held, each bought with spent inspiration. A later hit for 18 he halved to 9 with Uncanny Dodge. Perrin burned a spell slot on a Silent Image of a flying humanoid dropped off to the side, and the squid ripped through the garden's trees after the decoy, bellowing its anger at the empty illusion.
+
+Initiative fell in a tie at 23, the squid first. The DM called it by far the most dangerous thing the Party had met, and set it at CR 17 with three attacks and legendary actions. The Party fled rather than meet it in a fight. It kept beneath the canopy while the Party flew for the ship. A second Silent Image, Perrin tumbling from Crissdalynn's back into the bushes, turned it away on an inspired natural 20. The beast stopped where the trees end and the terraces begin. There it dragged two [[Wolfrabbit|wolfrabbits]] under its mantle and vanished into the trees.
 
 ### Hidden truths
 
-Careful study of its territory shows the habits of the hooks, and with them the space beneath the mantle's centre where its eight eyes cannot reach. A successful relevant Intelligence check confirms what the stripped wood suggests.
+Careful study of its territory shows the habits of the hooks, and with them the space beneath the mantle's centre, out of sight of all eight eyes. A successful relevant Intelligence check confirms what the stripped wood suggests.
 
 ## Links
 

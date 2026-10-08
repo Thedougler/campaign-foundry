@@ -17,6 +17,34 @@ sources:
 
 ## Statblock
 
+```statblock
+layout: Basic 5e Layout
+name: "Arclight Phoenix"
+size: Large
+type: elemental
+alignment: unaligned
+ac: 14
+hp: 114
+hit_dice: "12d10 + 48"
+speed: "60 ft., fly 90 ft."
+stats: [10, 18, 18, 4, 14, 8]
+damage_resistances: "lightning, thunder"
+damage_immunities: "fire"
+senses: "darkvision 120 ft., passive Perception 12"
+languages: "none"
+cr: 5
+traits:
+  - name: Storm-Light Form
+    desc: "The phoenix is storm-light in a bird-shape. A creature that touches it or hits it with a melee attack while within 5 feet of it takes 5 (1d10) fire damage."
+  - name: Iron Hums
+    desc: "Loose iron within 30 feet of the phoenix hums and pulls toward it."
+actions:
+  - name: Crossing
+    desc: "The phoenix flies in a straight line up to 60 feet, and it can move through the space of creatures and objects. Every creature and flammable object in that line takes 14 (4d6) fire damage, or half damage with a successful DC 15 Dexterity saving throw, and flammable objects catch fire."
+  - name: Burning Talons
+    desc: "Melee Attack Roll: +7, reach 5 ft., one target. Hit: 11 (2d6 + 4) fire damage."
+```
+
 ## Play
 
 ### Outside a fight
@@ -27,7 +55,7 @@ Experienced pilots treat moving storm-light as a different warning from ordinary
 
 ### Ecology
 
-Arclight phoenixes are born inside the Ashwall volcanoes. The volcanic discharge is what hatches them. The egg left behind when a phoenix dies needs lightning to open, and the vent systems provide it continuously and at close range. The bird climbs out of the stone already oriented toward the storm edge. It flies west into the [[Galewall]] and does not come back east until it has died again somewhere inside the weather.
+Arclight phoenixes are born inside the Ashwall volcanoes. The volcanic discharge is what hatches them. The egg a phoenix leaves at its death needs lightning to open, and the vent systems provide it continuously and at close range. The bird climbs out of the stone already oriented toward the storm edge. It flies west into the [[Galewall]] and does not come back east until it has died again somewhere inside the weather.
 
 ### Hidden truths
 

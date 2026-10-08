@@ -22,7 +22,7 @@
       The Shattered Sea/Shattered Sea/Sessions/Session 12/Session 12 - The Way Out.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Resolution\s*$'
-        - '^> \[!narration\] Closing image\s*$'
+        - '^> \[!narration\] Closing image(?:: .+)?\s*$'
   rubrics:
     - >-
       The DM can select and run a short aftermath for every reachable Consume

@@ -1,8 +1,11 @@
 ---
 type: Creature
 summary: "Hinewai the Blight, a unique Creature stat block from the archived NPC record."
+aliases:
+ - "Blight"
 sources:
  - "archive/hinewai.md"
+ - "archive/campaign-os-raw-blight.md"
 ---
 
 ![[Hinewai the Blight - Portrait.png]]
@@ -10,13 +13,13 @@ sources:
 ## At a glance
 
 - **Role at the table.** Unique named Creature represented by the NPC, the blight at the grove's heart.
-- **Threat.** See the stat block, CR 19. Rotten claws, acid blooms, and grasping roots carry her will into the fight.
+- **Threat.** See the stat block, CR 19. She fights with rotten claws, acid blooms and grasping roots.
 - **Tell.** The plants lean toward her target before she moves, and thorned vines rise where the next blow will fall.
-- **Weak to.** The counter play described in Tactics. The Death Bloom roots her return, and destroying it first makes her next death permanent.
+- **Weak to.** Her weakness is the Death Bloom itself. It roots her return, and destroying it first makes her next death permanent.
 - **Used by.** The NPC of the same name, whose archived record this block renders.
 
 > [!narration] First sight
-> A tall figure, once a woman, steps out between the grove's trees, and the undergrowth bends aside before her. Rot greens her long claws, and thorned vines lean after her as she walks. Where her foot lands, the moss curls back, and the air carries a taste of spores. Under the great tree she halts, and her eyes find you through the leaves.
+> A tall figure, once a woman, steps out between the grove's trees, and the undergrowth bends aside before her. Rot greens her long claws, and thorned vines lean after her as she walks. Where she steps, the moss curls back, and the air carries a taste of spores. Under the great tree she halts, and her eyes find you through the leaves.
 
 ## Statblock
 
@@ -81,7 +84,7 @@ legendary_actions:
 
 ### Tactics
 
-Her archived record carries the full tactics, and the Death Bloom sits behind every ability she spends. Show the leaning plants and the rising thorns before the Grasping Roots close, and let the Party answer with positioning, cover, or focused fire. She falls back toward the Bloom when her purpose is lost or her edge is gone.
+Her archived record lists the full tactics, and she spends every ability to defend the Death Bloom or draw power from it. Show the leaning plants and the rising thorns before the Grasping Roots close, and let the Party answer with positioning, cover, or focused fire. She falls back toward the Bloom when her purpose is lost or her edge is gone.
 
 ### Outside a fight
 
@@ -95,7 +98,7 @@ Habitat, diet, and signs follow her archived record. A traveller working Wisdom 
 
 ### Hidden truths
 
-Her history and the motives beneath the rot sit in the archived record, and examination of the grove or the right questions reveal them. What the Death Bloom means to her waits in that record.
+Her history and her motives under the rot are in the archived record, and examination of the grove or the right questions reveal them. What the Death Bloom means to her waits in that record.
 
 ## Links
 

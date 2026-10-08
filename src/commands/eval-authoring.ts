@@ -6,13 +6,16 @@ export function validateCommand(): Command {
 	return new Command("validate")
 		.exitOverride()
 		.showHelpAfterError("Example: cf eval validate .omp/skills/skill-creator\nRun cf eval validate --help for options.")
-		.description("Validate a skill's native omp frontmatter and directory name.")
-		.argument("<skill-dir>", "directory containing SKILL.md")
-		.addHelpText(
-			"after",
-			`
-Checks name, description and declared native invocation fields. Does not apply
-Anthropic-specific key, name-length or description-character restrictions.
+	.description("Validate a skill's native omp frontmatter, directory name and relative Markdown references.")
+	.argument("<skill-dir>", "directory containing SKILL.md")
+	.addHelpText(
+		"after",
+		`
+Checks name, description, declared native invocation fields and relative
+Markdown links in SKILL.md and the skill-local Markdown files it links to (one
+level, no further): each path must resolve and each Markdown anchor must match
+a heading. Does not apply Anthropic-specific key, name-length or
+description-character restrictions.
 Success prints JSON; failures identify the offending path and how to fix it.
 
 Exit codes:

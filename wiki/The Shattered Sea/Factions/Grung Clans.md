@@ -8,6 +8,7 @@ sources:
  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
  - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
+ - "archive/Episode-09-Transcript.md"
 ---
 
 ## At a glance
@@ -35,7 +36,7 @@ Raids from the [[Verdant Teeth]] have worsened, and the [[Chain Council]] at Kal
 
 ### History
 
-The clans control five rainforest islands as one closed system of canopy routes, pools, flooded cuts and beaches. Their maritime routes is shrinking, so raids, toxin exports and the fighting-age levy sustain a pipeline towards Karath. They captured and tortured a druid whose grief became [[Aruhe]], and later raided festival ports for captives. [[Grung and the Making of Aruhe]] holds the full account of that capture. Free clans still sail round Aruhe's eastern reef when the water lies flat, and they stay in their boats. The sand keeps the crews sent against it.
+The clans rule five rainforest islands as one closed territory of canopy paths, pools, flooded cuts and beaches. Their maritime routes are shrinking, so raids, toxin exports and the fighting-age levy sustain a pipeline towards Karath. They captured and tortured a druid whose grief became [[Aruhe]], and later raided festival ports for captives. [[Grung and the Making of Aruhe]] holds the full account of that capture. The festival raid put a captured fleet to sea, and a storm broke it. A hull ripped on a reef two days out of [[Calven and Calveno|Calveno]], and a purple guard came ashore on [[Aruhe]] with two others, driving to survive and reach [[Karath]] with whatever captives they could bring. [[Sandro]] and [[Nino]] stayed under the broken [[Vethka]] proa while the island's wolfrabbits ran the beach: the pack killed one guard in the surf, and the fates of the other two remain unknown. A wreck the Party later surveyed mid-ocean was one of the clans' lost hulls, Grung-made, its paint identical to the raider boat blown up in Calveno, crushed and tossed like the [[Red Lady]]. By one rescued captive's account, the hurricane cut the captured fleet in two. Half got through. The back half was pushed east and is presumed lost at sea or shipwrecked. Free clans still sail round Aruhe's eastern reef when the water lies flat, and they stay in their boats. The sand keeps the crews sent against it.
 
 ### Hidden truths
 

@@ -30,41 +30,32 @@ In each run directory, written under [`grader.md`](grader.md):
 
 ## `benchmark.json`
 
-At `<iteration-dir>/benchmark.json`: the paired authoring summary, not the cross-family Narration Benchmark. Required keys are `metadata`, `runs` and `notes`; `run_summary` exists only when there is at least one comparable pair.
+At `<iteration-dir>/benchmark.json`: the paired authoring record, not the cross-family Narration Benchmark. Required keys are `metadata`, `runs` and `notes`.
 
 ```json
 {
-  "metadata":{"skill_name":"example-skill","skill_path":".omp/skills/example-skill","timestamp":"2026-10-01T10:30:00Z","evals_run":["clarify-pressure"],"runs_per_configuration":1},
+  "metadata":{"skill_name":"example-skill","skill_path":".omp/skills/example-skill","timestamp":"2026-10-01T10:30:00Z","evals_run":["clarify-pressure"]},
   "runs":[{
     "eval_id":"clarify-pressure",
     "configuration":"with_skill",
-    "run_number":1,
     "result":{"pass_rate":1,"passed":2,"failed":0,"total":2},
     "expectations":[{"text":"Checks","passed":true,"evidence":"ok: 3 passed, 0 failed, 0 skipped for example-skill/clarify-pressure"},{"text":"The verbatim rubric","passed":true,"evidence":"The grader's reason"}],
     "notes":[]
   },{
     "eval_id":"clarify-pressure",
     "configuration":"old_skill",
-    "run_number":1,
     "result":{"pass_rate":0.5,"passed":1,"failed":1,"total":2},
     "expectations":[{"text":"Checks","passed":true,"evidence":"ok: 3 passed, 0 failed, 0 skipped for example-skill/clarify-pressure"},{"text":"The verbatim rubric","passed":false,"evidence":"The grader's reason"}],
     "notes":[]
   }],
-  "run_summary":{
-    "with_skill":{"pass_rate":{"mean":1,"stddev":0,"min":1,"max":1}},
-    "old_skill":{"pass_rate":{"mean":0.5,"stddev":0,"min":0.5,"max":0.5}},
-    "delta":{"pass_rate":"+0.50"}
-  },
-  "notes":[]
+  "notes":["clarify-pressure: helps on 'The verbatim rubric'; hurts on none."]
 }
 ```
 
-- `runs[]` has one entry per run directory, with-skill before its baseline counterpart; `configuration` is the directory name (`with_skill`, `without_skill`, `old_skill`); `run_number` starts at 1. `expectations` and `result` copy the run's `grading.json`.
+- `runs[]` has one entry per run directory, with-skill before its baseline counterpart; `configuration` is the directory name (`with_skill`, `without_skill`, `old_skill`). `expectations` and `result` copy the run's `grading.json`.
 - An execution or grading error keeps its run entry with `result: {"errors": 1}` and the reason in that run's `notes`.
-- `result.time_seconds` and `result.tokens` exist only where the Runner task result reported that run's duration and tokens; otherwise omit them and their summaries.
-- `run_summary` holds one `calculateStats` result per metric per configuration, over comparable pairs only, so both configurations average the same cases.
-- `delta` sits inside `run_summary`: with-skill mean minus baseline mean as a signed string — two decimals for `pass_rate`, one for `time_seconds`, none for `tokens`.
-- With no comparable pair, omit `run_summary` and say why in `notes`.
+- `result.time_seconds` and `result.tokens` exist only where the Runner task result reported that run's duration and tokens; otherwise omit them.
+- Top-level `notes` holds one helps/hurts line per comparable pair ([`eval-loop.md`](eval-loop.md) § Compare) and each excluded pair's reason.
 
 ## `feedback.json`
 

@@ -14,7 +14,7 @@ creature: ""
 - **Found at.** [[Calven and Calveno|Calveno]], by [[Shepherd Grigori]]'s account.
 
 > [!narration] First look
-> Nobody has met Impuni. The name surfaced once, spoken by a healer going ashore at [[La Vasca]], someone in Calveno he was short of time to reach. Whether Impuni is a patient, a bind, or a plain visit, only Grigori knows.
+> Nobody has met Impuni. A healer going ashore at [[La Vasca]] spoke the name once, someone in Calveno he was short of time to reach. Whether Impuni is a patient, a bind, or a plain visit, only Grigori knows.
 
 ## Play
 

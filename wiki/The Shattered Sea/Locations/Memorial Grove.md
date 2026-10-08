@@ -7,6 +7,7 @@ sources:
  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
+ - "archive/session-12-full.md"
 parent: "[[Aruhe]]"
 ---
 
@@ -46,6 +47,10 @@ Enter as a guest, take fallen fruit, study roots and graves, talk to Hinewai, or
 ### History
 
 Hinewai carried her drowned [[The Unnamed Companion|companion]] up from the surf and buried him beneath the tree, a grave opened by hand through a day and most of a night. Her own grave anchors the mechanism. The second grave went in beside his over two days, after the grung sail traced the treeline. She lay down in it alive and spoke the vow from inside the soil. The Gold caste sends compelled Grung to destroy both. The capture and escape behind these graves are [[Grung and the Making of Aruhe]].
+
+#### Session 12: the summons
+
+[[Hinewai]]'s voice left the Party with "Meet me in the grove" and the sense that the road the grung have been burning leads to her, and the Party set out along it. The spent seals along that road name this place in their orders, from "Find the grove" through "Find the graves at the grove" to "Destroy the grave", and the farthest, oldest seals speak of destroying two graves ([[Two-Grave Orders]]).
 
 ### Hidden truths
 

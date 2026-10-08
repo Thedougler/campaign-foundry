@@ -4,7 +4,7 @@ import { parseDocument } from "yaml";
 import { findTemplate } from "../../vault/vault.ts";
 import type { Page, Template } from "../../vault/types.ts";
 import type { CheckContext, Finding, Fix, FixResult, Layer } from "../types.ts";
-import { isSpecialPage, quoteList, suggest } from "../util.ts";
+import { checkedPages, isSpecialPage, quoteList, suggest } from "../util.ts";
 
 const LAYER = "template";
 
@@ -24,7 +24,7 @@ function validTypes(ctx: CheckContext): string {
 /** Resolves each page to its template, or reports why it has none. */
 function resolvePages(ctx: CheckContext, findings: Finding[]): Resolved[] {
 	const resolved: Resolved[] = [];
-	for (const page of ctx.vault.pages) {
+	for (const page of checkedPages(ctx)) {
 		if (isSpecialPage(page)) continue;
 		const at = (rule: string, line: number, message: string, hint: string): void => {
 			findings.push({ layer: LAYER, severity: "error", rule, path: ctx.display(page.path), line, message, hint });
@@ -157,17 +157,19 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 	}
 
 	const headings2 = page.headings.filter((h) => h.depth === 2);
+	const order = template.sections.map((s) => `\`${s}\`${template.optional.has(s) ? " (optional)" : ""}`).join(", ");
 	let lastIndex = -1;
 	let lastName = "";
 	for (const section of template.sections) {
 		const at = headings2.findIndex((h) => h.text === section);
 		if (at === -1) {
+			if (template.optional.has(section)) continue;
 			const previous = template.sections[template.sections.indexOf(section) - 1];
-			add("missing-section", 1, `Missing section \`## ${section}\` (required by templates/${template.name}.md).`, `Add \`## ${section}\` ${previous ? `after \`## ${previous}\`` : "first"}; the template's section order is ${template.sections.map((s) => `\`${s}\``).join(", ")}.`);
+			add("missing-section", 1, `Missing section \`## ${section}\` (required by templates/${template.name}.md).`, `Add \`## ${section}\` ${previous ? `after \`## ${previous}\`` : "first"}; the template's section order is ${order}.`);
 			continue;
 		}
 		if (at < lastIndex) {
-			add("section-order", headings2[at]?.line ?? 1, `Section \`## ${section}\` comes before \`## ${lastName}\`, but the template puts it after.`, `Move \`## ${section}\` below \`## ${lastName}\`. Template order: ${template.sections.map((s) => `\`${s}\``).join(", ")}.`);
+			add("section-order", headings2[at]?.line ?? 1, `Section \`## ${section}\` comes before \`## ${lastName}\`, but the template puts it after.`, `Move \`## ${section}\` below \`## ${lastName}\`. Template order: ${order}.`);
 			continue;
 		}
 		lastIndex = at;
@@ -177,8 +179,10 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 	const present = new Map(page.callouts.map((c) => [c.type, c]));
 	for (const type of template.callouts) {
 		if (!present.has(type)) {
-			const title = template.page.callouts.find((c) => c.type === type)?.title ?? "Title";
-			add("missing-callout", 1, `Missing \`[!${type}]\` callout (required by templates/${template.name}.md).`, `Add a callout under \`## At a glance\`, e.g.\n> [!${type}] ${title}\n> Spoken text for the table.`);
+			const callout = template.page.callouts.find((c) => c.type === type);
+			const title = callout?.title ?? "Title";
+			const home = template.page.headings.filter((h) => h.depth === 2 && h.line < (callout?.line ?? 0)).at(-1)?.text;
+			add("missing-callout", 1, `Missing \`[!${type}]\` callout (required by templates/${template.name}.md).`, `Add a callout ${home ? `under \`## ${home}\`` : "where templates/" + template.name + ".md puts it"}, e.g.\n> [!${type}] ${title}\n> Spoken text for the table.`);
 		}
 	}
 	for (const callout of page.callouts) {
@@ -191,8 +195,12 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 		add("leftover-comment", comment.line, "Leftover `%% %%` authoring guidance.", "Delete the comment; a finished page keeps none. `cf check --fix` strips it.");
 	}
 	for (const heading of emptyHeadings(page)) {
-		const fixable = heading.depth >= 3;
-		add("empty-heading", heading.line, `Heading \`${"#".repeat(heading.depth)} ${heading.text}\` has no content.`, fixable ? "Write content under it or delete the heading; `###` headings are optional structure. `cf check --fix` removes it." : `Write the section's content; a \`##\` section is required by templates/${template.name}.md so it cannot be dropped.`);
+		const hint = heading.depth >= 3
+			? "Write content under it or delete the heading; `###` headings are optional structure. `cf check --fix` removes it."
+			: template.optional.has(heading.text)
+				? `Write content under it or delete the heading; templates/${template.name}.md marks \`## ${heading.text}\` optional. \`cf check --fix\` removes it.`
+				: `Write the section's content; a \`##\` section is required by templates/${template.name}.md so it cannot be dropped.`;
+		add("empty-heading", heading.line, `Heading \`${"#".repeat(heading.depth)} ${heading.text}\` has no content.`, hint);
 	}
 }
 
@@ -273,7 +281,7 @@ export function fix(ctx: CheckContext): FixResult {
 			}
 		}
 		if (page.comments.length > 0) notes.push(`stripped ${page.comments.length} leftover %% %% comment${page.comments.length === 1 ? "" : "s"}`);
-		const empties = emptyHeadings(page).filter((h) => h.depth >= 3);
+		const empties = emptyHeadings(page).filter((h) => h.depth >= 3 || (h.depth === 2 && template.optional.has(h.text)));
 		for (const heading of empties) deletions.push(lineRange(lines, offsets, heading.line, heading.line));
 		if (empties.length > 0) notes.push(`removed ${empties.length} empty heading${empties.length === 1 ? "" : "s"} (${empties.map((h) => h.text).join(", ")})`);
 

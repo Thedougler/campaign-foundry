@@ -3,6 +3,7 @@ type: Faction
 summary: "Breakaway Sentinel order that erases names and hunts Fate Spinner carriers through one-job agents."
 sources:
  - "archive/countless.md"
+ - "archive/session-10.md"
 ---
 
 ![[Countless - Handout Art.png]]
@@ -30,13 +31,15 @@ sources:
 
 ### History
 
-The faction broke away from the [[Sentinels of the Eyrie]] after [[Talon Vantyrus]] rejected nonintervention. It retired the name The Uncounted and uses taken names in place of Eyrie names. Its agents know only one assignment at a time.
+The faction broke away from the [[Sentinels of the Eyrie]] after [[Talon Vantyrus]] rejected non-intervention. It retired the name The Uncounted and uses taken names in place of Eyrie names. Its agents know only one assignment at a time.
+
+[[Shepherd Grigori]] warned the Party aboard the [[Uncertainty]] of a pursuer an hour or two behind them, meaning to rob them of what they carried, and named [[Talon Vantyrus]] as the hand that sent it. The pursuer closed after dark. The Party held speed until it neared, then raked it with a broadside at the last moment. [[Crissdalynn Khinriss]]'s Gust of Wind had slowed its turn, and an explosive round from [[Delmar Fisk]] set its sails alight. The Party left the bandit ship burning and listing, its chase finished.
 
 ### Hidden truths
 
 - Vantyrus wants the Fate Spinner's gift tied to the Soul Incarnate transformation technique. The hunt's orders reveal this. Learned through the hunt's orders.
 - Skarn serves Vantyrus now but will try to kill him once trained enough. This open secret is learned from either Talon or a captured agent.
-- The Rule of Two decides to control by survival, not inheritance. The [[Rule of Two]] quest and a Talon confrontation reveal it.
+- Under the [[Rule of Two]], control passes to whoever survives, and inheritance does not enter the succession. The [[Rule of Two]] quest and a Talon confrontation reveal it.
 
 ### Threads
 

@@ -18,7 +18,7 @@ parent: "[[The River]]"
 - **Prize.** The Calveno trail to [[Cutoff Lip]] and evidence of Dario's death.
 
 > [!narration] Entering
-> A clear pool sits behind pale stone while the River roars beyond, and a cane stands in a red smear. Prints climb into hanging roots. A pack and torn sleeve hang in the water without drifting.
+> A clear pool rests behind pale stone while the River roars beyond, and a cane stands in a red smear. Prints climb into hanging roots. A pack and torn sleeve hang in the water without drifting.
 
 ## Play
 
@@ -42,7 +42,7 @@ Read prints, speak to Matteo, avoid fishing, retrieve gear only at a cost, or fo
 
 ### History
 
-Dario Fumagalli drowned here nineteen days ago while fishing. Renzo planted the cane as a warning. Survivors climbed inland.
+[[Dario Fumagalli]] drowned here nineteen days ago while fishing. Renzo planted the cane as a warning. Survivors climbed inland.
 
 ### Hidden truths
 

@@ -12,7 +12,7 @@ parent: "[[Outer Reach]]"
 ## At a glance
 
 - **Draws the Party because.** It is the one fixed structure east of the [[Drowned Maw]], and eastbound pilots still use it for a mark.
-- **Danger.** It is structurally unstable and still subsiding.
+- **Danger.** The ring crumbles further every year, and each season's depth marks sit lower than the last.
 
 > [!narration] Entering
 > Broken stone stands in a ring at the waterline ahead, sitting lower in the water than the last pilot's account of it. The ring gives you your mark for the leg ahead.

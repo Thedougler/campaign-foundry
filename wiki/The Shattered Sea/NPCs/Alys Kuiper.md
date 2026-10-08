@@ -5,6 +5,7 @@ sources:
  - "archive/ssw-old-faas.md"
  - "archive/ssw-session-02.md"
  - "archive/ssw-shepherd-grigori-island.md"
+ - "archive/Episode-09-Transcript.md"
 creature: "[[Commoner]]"
 ---
 
@@ -27,6 +28,8 @@ creature: "[[Commoner]]"
 She served aboard the HCS Surety and was named to the prize crew when the crew took the cutter. The [[Murrat]] shore party returned with wounded, four of them, and they were hers to see to.
 
 At Calveno she went ashore on shore leave and did not return to the ship. A man visited her at her [[Le Paludi]] boardinghouse, and she left the next morning. What can be found of her ends there.
+
+In Session 9 the Party counted the [[Uncertainty]]'s five original crew and named her among them, with [[Thunk]], [[Geoffrey Draves]] and the galley's Gregory ([[Shepherd Grigori]]), one more besides. They recalled that she and Gregory went ashore at [[Calven and Calveno|Calveno]] together.
 
 ### Hidden truths
 

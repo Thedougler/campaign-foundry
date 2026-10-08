@@ -2,7 +2,10 @@
 type: Creature
 summary: "A Wolfrabbit creature (CR 4) used as a skirmisher in The Shattered Sea."
 sources:
+ - "archive/session-11-transcript-archived-version.md"
  - "archive/wolfrabbit.md"
+ - "archive/Episode-09-Transcript.md"
+ - "archive/session-10.md"
 ---
 
 ![[Wolfrabbit - Token.jpg]]
@@ -71,17 +74,27 @@ reactions:
 
 ### Tactics
 
-Each one opens from beyond thirty feet, springs, and rakes as it lands, putting its target on the ground for the pack to rend. The low crouch is the telegraph, and terrain, cover, and focused fire answer it before the pack closes a ring. When one falls the rest converge on the body, and the fight breaks off only when the pack is bled thin.
+Each one opens from beyond thirty feet, springs, and rakes as it comes down, putting its target on the ground for the pack to rend. The low crouch is the telegraph, and terrain, cover, and focused fire answer it before the pack closes a ring. When one falls the rest converge on the body, and the fight breaks off only when the pack is bled thin.
 
 ### Outside a fight
 
-A pack's torn carcasses, eaten where they fell, tell sharp travellers that hunters hold this ground, and any bleeding wound draws their noses. It works its own beat and does not trail prey beyond it.
+A pack's torn carcasses, eaten where they fell, tell sharp travellers this ground is theirs, and any bleeding wound draws their noses. It works its own beat and does not trail prey beyond it. The pack that burst on the Party's picked fruit ignored standing prey for the illusory food beside it, and turned on the young Bloodhawks that came for the same bait.
 
 ## Depth
 
 ### Ecology
 
 A pack hunter of the World's open ground, it eats what its teeth take, and a tracker following its prints rolls Wisdom (Survival).
+
+### History
+
+In Session 9's cold open, wolfrabbits attacked three shipwrecked purple Grung on [[Aruhe]] before the Party's landing. The DM described the creatures as looking like rabbits, with the threat of a tiger or wolf. About twenty charged the three guards along the beach. One ran beside a fleeing Grung for three strides, close enough for him to see its muscles roll.
+
+The rabbits fought with a berserker's frenzy. A planted spear impaled two through the chest as they lunged at its wielder. Another three followed a swimming Grung into the surf and drowned him. A fresh pack of six to eight spread across the channel mouth in thirty-foot arcs.
+
+The escape established that deep saltwater defeats them: they swim and breathe worse than Grung. Grung skin-poison caused convulsions that stopped; the DM ruled that they were too frenzied for the poison to affect them. A spear thrown to draw their blood lust failed to distract them. They ignored the blood and charged the thrower instead.
+
+In Session 10 the Party went ashore on [[Aruhe]] and found the species on its home ground. Wolfrabbits nested in the terrace caves of the [[Old Gardens]], their red eyes marking the dens, and piles of bones filled every hiding spot with the fruit gone, so the DM ruled them carnivorous. Crissdalynn asked why they frenzy "with, like, a squishy or a bird", and the DM offered blood fruit as a theory. A black lotus snapped shut around one that walked past, a small squeal and a crunch, and the flower sat still. After an arrow killed a dart-throwing bulb plant, about a dozen converged on the spot where Jean-Claude had been; the first to arrive found nothing, and the rest jumped on it and killed it. Perrin noted from the castaway parley that an injured rabbit had triggered the island's creatures as well. When the [[Crown Squid]] broke off its chase at the treeline, it snatched two wolfrabbits and pulled them under its mantle.
 
 ### Hidden truths
 

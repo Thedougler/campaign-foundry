@@ -10,7 +10,7 @@ sources:
 - **Role at the table.** Unique named Creature represented by the NPC, the distiller of the reagent-spirits himself.
 - **Threat.** See the stat block, CR 6. His hurled flasks, his sump-reek cloud, and the envenomed lash do the harm.
 - **Tell.** A swig from the gourd means the rite has begun, and a cocked arm means a flask is already loose.
-- **Weak to.** The counter play described in Tactics. Break his concentration and the rite ends with it.
+- **Weak to.** His own throws, each announced early. The cocked arm gives away every flask, and the sealed one shows the cloud while it is still in his hand. Break his concentration and the rite ends with it.
 - **Used by.** The NPC of the same name. His archived record is the source of every line above.
 
 > [!narration] First sight
@@ -78,7 +78,7 @@ reactions:
 
 ### Tactics
 
-His archived record holds the full tactics, and the sealed bone flask shows the Sump-Reek Bomb before it flies. Let the Party answer with positioning, cover, or focused fire. He quits the bench when his purpose is lost or his edge is spent.
+His archived record holds the full tactics, and the sealed bone flask shows the Sump-Reek Bomb before it flies. His reek cloud catches a whole crowd at once. The Party spreads out and keeps to cover. Its fire comes down on him alone. He quits the bench when his purpose is lost or his edge is spent.
 
 ### Outside a fight
 

@@ -31,7 +31,7 @@ The release gives a listener only the arrow's flight to follow, and the shooter'
 
 ### History
 
-[[Jean-Claude Tabarnack]] bought the bow from [[Casa Lupo]] in [[Le Paludi]] for 50 gp during Session 4, after selling three whip-shark eggs. The shopkeeper said it came from someone passing through quickly, making extra coin on the sale.
+[[Jean-Claude Tabarnack]] bought the bow from [[Casa Lupo]] in [[Le Paludi]] for 50 gp during Session 4, after selling three whip-shark eggs. The shopkeeper said a traveller in a hurry had sold it on for extra coin.
 
 ### Hidden truths
 

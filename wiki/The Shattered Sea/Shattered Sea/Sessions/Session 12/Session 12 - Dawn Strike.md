@@ -15,7 +15,7 @@ sources:
 - **Who.** [[Talon Skarn]], [[Crissdalynn Khinriss]], the other three PCs, and sleeping Matteo Scola. The route begins at [[Session 12 - Prep]].
 
 > [!narration] Opening
-> Over the dead coals the falcon has Crissdalynn locked beak to beak, and his sword grinds against her staff while the sickle in his other fist picks at her harness buckles. Dawn has come up grey, and spray drifting off the rapids beads cold on the faces of everyone still in their blankets. A few strides past the fight the bank drops sheer into the still pool, and beyond its stone lip the whitewater roars loud enough to swallow the scrape of steel. Matteo sleeps through all of it on his mat, curled around his sling. Its curved point slides under the first strap and starts to saw.
+> Over the dead coals the falcon has Crissdalynn locked beak to beak, and his sword grinds against her staff while the sickle in the other fist picks at her harness buckles. Dawn has come up grey, and spray drifting off the rapids beads cold on the faces of everyone still in their blankets. A few strides past the fight the bank drops sheer into the still pool, and beyond its stone lip the whitewater roars loud enough to swallow the scrape of steel. Matteo sleeps through all of it on his mat, curled around his sling. Its curved point slides under the first strap and starts to saw.
 
 ## Play
 

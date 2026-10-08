@@ -28,7 +28,7 @@ creature: "[[Commoner]]"
 
 ### History
 
-Renzo heard Hinewai's voice first after the wreck and taught the camp how to survive. At Spoke Ring he led the survivors to the Pantry after Carlo rose to follow the voice. He stays when the other Calveno leave.
+Renzo heard Hinewai's voice first after the wreck and showed the camp how to survive. At Spoke Ring he led the survivors to the Pantry after Carlo rose to follow the voice. He stays when the other Calveno leave.
 
 ### Hidden truths
 

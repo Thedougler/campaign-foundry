@@ -4,6 +4,7 @@ kind: Site
 summary: "A mature magic-feeding bloom in Aruhe that clamps shut, drains spell slots and can yield a Black Lotus Heart."
 sources:
  - "archive/black-lotus.md"
+ - "archive/session-10.md"
 parent: "[[Old Gardens]]"
 ---
 
@@ -43,6 +44,10 @@ Stay beyond ten feet, bait it from outside, force petals with Athletics DC 16, o
 ### History
 
 Grung legend names mature Black Lotuses among the Hungry Isle's killers. They feed on ambient magic as plants take light.
+
+#### Session 10: a wolfrabbit taken
+
+A wolfrabbit walked past a mature bloom in the [[Old Gardens]], and the flower snapped shut around it with a small squeal and a crunch. Then it sat still. The Party passed that way during their crossing.
 
 ### Hidden truths
 

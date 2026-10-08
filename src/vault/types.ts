@@ -86,8 +86,10 @@ export interface Template {
 	kind?: string;
 	/** Frontmatter keys in template order, with the template's own values. */
 	keys: { key: string; value: unknown }[];
-	/** `##` headings in template order. */
+	/** `##` headings in template order, optional ones included. */
 	sections: string[];
+	/** The `##` headings whose guidance comment opens with `Optional`: a page may leave them out, and keeps them in template order when it has them. */
+	optional: Set<string>;
 	/** Callout types in the template. */
 	callouts: string[];
 	page: Page;

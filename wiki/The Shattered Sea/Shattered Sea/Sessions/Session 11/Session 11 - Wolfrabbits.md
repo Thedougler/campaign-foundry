@@ -11,7 +11,7 @@ sources:
 
 ## At a glance
 
-- **Contest.** Survive the grassland hunt.
+- **Contest.** Come through the grassland hunt alive.
 - **At risk.** Bodies and supplies.
 - **Where.** Aruhe's grassland.
 - **Opposition.** [[Wolfrabbit]]s and [[Young Bloodhawk]]s.

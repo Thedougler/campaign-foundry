@@ -20,7 +20,7 @@ sources:
 
 ### Properties
 
-As a Bonus Action, invoke the sliver. For 1 minute, regain 2d8 Hit Points at the start of each turn. Fire or Acid damage taken since the end of the previous turn suppresses that turn's healing. It resumes next turn unless blocked again. Once invoked, it cannot be invoked again until a Long Rest. It works at 0 Hit Points and can end Unconscious.
+As a Bonus Action, invoke the sliver. For 1 minute, regain 2d8 Hit Points at the start of each turn. Fire or Acid damage taken since the end of the previous turn suppresses that turn's healing. It resumes next turn unless blocked again. Once invoked, it cannot be invoked again until a Long Rest. It works even when its bearer has dropped to 0 Hit Points, and its healing can end Unconscious.
 
 ### In use
 

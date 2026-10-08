@@ -3,6 +3,9 @@ type: Item
 summary: "A cursed cloak of displacement that redirects nearby ranged attacks to its wearer."
 sources:
  - "archive/nightmantle.md"
+ - "archive/ssw-nightmantle.md"
+ - "archive/session-10.md"
+ - "archive/session-12-full.md"
 ---
 
 ## At a glance
@@ -26,11 +29,15 @@ The cloak projects an illusion, giving creatures attacking the wearer Disadvanta
 
 Redirection is automatic and cannot be declined or used for melee attacks. The original target must be within 10 feet when the attack is declared. The cloak grants that ally no other benefit. Crissdalynn carries the cursed variant in her kit.
 
+During the [[Crown Squid]] encounter on [[Aruhe]] in [[Session 10 - Recap|Session 10]], the DM confirmed that Crissdalynn's cloak would impose Disadvantage on the creature's first attack against her.
+
+In the two fights with [[Talon Skarn]] on [[Aruhe]], his grab for the necklace under Crissdalynn's feathers missed against the cloak's disadvantage, and she charged into the trees after him with her turn built on that protection. At the road camp the limit showed. Crissdalynn lay prone and stunned with her speed at zero, and the illusion down with it. The ruling set the bar at any movement, not necessarily running. A five-foot sway within his threat range held the protection in place without provoking him.
+
 ## Depth
 
 ### History
 
-[[Lavinia Sordi]] sold it to Crissdalynn for 900 gp at La Cenere in [[Le Paludi]], believing it a Cloak of Protection. She acquired it from the falcon-featured [[Osset]]. Play identified it as a cursed Cloak of Displacement.
+[[Lavinia Sordi]] sold it to Crissdalynn for 900 gp at [[La Cenere]] in [[Le Paludi]], believing it a Cloak of Protection. Her rack had listed the deep grey wool cloak at 120 gp on the grey market, with her comment: "Cloak of protection. The previous owner returned it. The owner before that did not." She acquired it from [[Osset]], whom she described as falcon-featured. Play identified it as a cursed Cloak of Displacement.
 
 The Party acquired the Nightmantle in Session 8.
 

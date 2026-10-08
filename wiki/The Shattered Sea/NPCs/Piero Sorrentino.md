@@ -1,8 +1,9 @@
 ---
 type: NPC
-summary: "Weathered Calveno net-mender trapped in a lava tube, waiting for salt water."
+summary: "Weathered Calveno net-mender lifted from the lava tube, marching inland with the Party."
 sources:
  - "archive/piero-sorrentino.md"
+ - "archive/session-12-full.md"
 creature: "[[Commoner]]"
 ---
 
@@ -11,7 +12,7 @@ creature: "[[Commoner]]"
 - **Role.** Wreck survivor and net-mender.
 - **Wants.** Salt water, a working hull, and a way off Aruhe.
 - **Voice.** Fisherman-blunt, describing the tube as a hold and the skylight as a hatch.
-- **Found at.** The lava-tube ledge beneath the smoking skylight, hailing anyone at the hatch.
+- **Found at.** Lifted out of the lava tube and walking inland with the Party.
 
 > [!narration] First look
 > A wiry man with rope-scarred hands watches the strip of sky above him while twisting vine fibre into cord. “You, on the hatch,” he calls. “Have you got a line?”

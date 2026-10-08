@@ -7,7 +7,7 @@ date: ""
 
 ## At a glance
 
-%% Rewritten, never appended, after every Ingest and Prep. Cap about 500 words. Orientation, not evidence. date is the Party's in-world date. %%
+%% Rewrite this page whole after every Ingest and Prep, about 500 words in all. It orients an agent, and the linked pages give the evidence. Set `date` to the Party's in-world date. %%
 
 - **In-world date.**
 - **Party at.**
@@ -17,12 +17,12 @@ date: ""
 
 ## Active Threads
 
-%% One line per active Thread: its name linked, where it stands, what moves next. Written out, not a Base, so the Agent can read it. %%
+%% Give one line per active Thread with its name linked and where it stands, then its next move. Write the lines out rather than using a Base, so an agent can read them. %%
 
 ## Last Session
 
-%% What changed, in a few bullets. %%
+%% Give the changes in a few bullets, each with a link to the page it changed. %%
 
 ## Next
 
-%% What the next Session is set to run: Hook and open questions. %%
+%% Link the next Session's Prep and Hook, and give the open questions it is set to run. %%

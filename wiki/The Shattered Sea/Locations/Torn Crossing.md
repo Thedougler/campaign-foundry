@@ -13,7 +13,7 @@ parent: "[[Grasslands]]"
 
 - **Draws the Party because.** Fresh prints and river water continue inland.
 - **Entrance.** Upstream from [[Landing Bank]].
-- **Occupants.** A Spiguar hunts Wolfrabbit packs in the cut.
+- **Occupants.** A Spiguar stalks Wolfrabbit packs in the cut.
 - **Danger.** Pale stands cut and choke. Grass hides the hunter.
 - **Prize.** Fallen Redheart Berries and the trail to [[Line Bank]].
 
@@ -46,7 +46,7 @@ Floods tore this river lane open. The Spiguar now uses it to hunt packs.
 
 ### Hidden truths
 
-Wolfrabbits jump Razer-Grass rather than land in it, revealing a route through the predator's pressure.
+Wolfrabbits jump Razer-Grass instead of coming down inside it, revealing a route through the predator's pressure.
 
 ### Threads
 

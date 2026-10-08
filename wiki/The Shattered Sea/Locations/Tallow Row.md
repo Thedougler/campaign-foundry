@@ -21,7 +21,7 @@ parent: ""
 
 ### Areas
 
-The tables. Play runs long and the stakes sit in small stacks.
+The tables. Play runs long and the stakes rest in small stacks.
 
 ### Hazards
 

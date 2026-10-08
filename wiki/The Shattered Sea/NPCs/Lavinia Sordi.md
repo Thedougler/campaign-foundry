@@ -3,6 +3,8 @@ type: NPC
 summary: "Seller of cursed goods who named Osset a second time."
 sources:
  - "archive/lavinia-sordi.md"
+ - "archive/ssw-nightmantle.md"
+ - "archive/Episode-09-Transcript.md"
 creature: "[[Commoner]]"
 ---
 
@@ -11,14 +13,14 @@ creature: "[[Commoner]]"
 - **Role.** Seller and contact for unusual or cursed goods.
 - **Wants.** To sell dangerous stock without surrendering control of what she knows.
 - **Voice.** Attentive, dry, and always counting the curse before the price.
-- **Found at.** La Cenere in Le Paludi.
+- **Found at.** [[La Cenere]] in [[Le Paludi]].
 
 > [!narration] First look
 > A younger, angular woman watches you with the stillness of someone who has handled objects other people fear. She sounds like a seller waiting for you to ask what the item costs after the curse is counted.
 
 ## Play
 
-- **Opens them up.** A buyer who asks about an object's history and accepts its risk.
+- **Opens them up.** Asking about an object's history and accepting its risk.
 - **Shuts them down.** Treating cursed stock as harmless or demanding clean safety.
 - **Will share.** What she knows about Nightmantle and the name Osset.
 - **Will not share.** A clean promise that the goods are safe, or speculation about her workplace.
@@ -28,7 +30,9 @@ creature: "[[Commoner]]"
 
 ### History
 
-Lavinia sells unusual and cursed goods at La Cenere. She sold Nightmantle and named Osset a second time, linking traces to the Sentinel schism.
+Lavinia sells unusual and cursed goods at [[La Cenere]]. She sold Nightmantle and named Osset a second time, linking traces to the Sentinel schism.
+
+Delmar holds a sending stone paired to hers, and the Party counted her among the stone's contacts in Session 9. By his account, he called on her during the hour before the [[Uncertainty]] sailed, and the romantic meeting went comically badly: he turned out the tender, swooning admirer instead of what she had expected. Afterwards he wiped her from his stone's returning contacts, saying, "now I have a burner crystal," and sent his warning of the coming Dravosi warship to [[Serena]] instead.
 
 ### Hidden truths
 

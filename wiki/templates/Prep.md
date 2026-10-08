@@ -7,7 +7,7 @@ date: ""
 
 ## At a glance
 
-%% 3-5 facts. date is the in-world date of the Session. Length comes from DM Settings or the Campaign. %%
+%% Give the DM a ten-second read, one line per bullet. Set `date` to the in-world date of the Session. Session question is the one question the Climax settles. Length comes from DM Settings or the Campaign. %%
 
 - **Session question.**
 - **Party at.**
@@ -16,7 +16,7 @@ date: ""
 
 ## Scene Chart
 
-%% The planned order: a Hook, then alternating Developments and Cliffhangers, then a Climax and a Resolution. About half an hour per Scene. It paces the Session and never fixes outcomes. Link each Scene page. %%
+%% Order the Scenes as a Hook, alternating Developments and Cliffhangers, a Climax and a Resolution, at about half an hour each. The chart paces the Session and leaves outcomes to play. Link each Scene page. Under the table, add one numbered planning note per row. Each note gives the row's situation and independent trigger with its card and Spotlight. Then it gives the incoming alternatives and conditional destination, with any escalation. %%
 
 | #   | Scene | Kind | Minutes | Threads |
 | --- | ----- | ---- | ------- | ------- |
@@ -24,19 +24,19 @@ date: ""
 
 ## Threads
 
-%% One line per Thread in play: where it stands and the lever it gives the Party this Session. %%
+%% Give one line per Thread in play, linked. Say where it is planted and tested, where it moves or resolves, and the lever it gives the Party this Session. %%
 
 ## Opposition
 
-%% Creatures and NPCs the Party can meet. Link each; embed a statblock only on the Scene where it is fought. %%
+%% Link each opposing NPC, Creature and Faction, with its Session goal and means and why that goal crosses the Party's path. Then give its unopposed timeline. Each entry pairs a trigger with an action and its sign, and states the consequence and what interference changes. Each speaking cast member gets a bench line with the moment they grab the Scene and how to play them at once. Statblocks are embedded only on the Scene where they are fought. %%
 
 ## Clues
 
-%% About ten true, concrete facts, unattached until play shows where they belong. Each can be found in more than one Scene. %%
+%% Give about ten true, concrete facts, each findable in at least two linked Scenes, with the source or interaction that reveals it in each. A conclusion essential to progress gets three independent routes. %%
 
 | Clue | Found in |
-| ---- | -------------- |
-|      |                |
+| ---- | -------- |
+|      |          |
 
 ## Links
 

@@ -16,7 +16,7 @@ date: "1495 DR, date not established"
 
 ## What happened
 
-On the second day of the festival, Kyzil refused the pranks. Thunk signed a thousand gold pieces of cannon onto *Uncertainty*'s credit, and Nona threw a tomato back. Below the city, Catarina Da'Virelli fought beside the Party until Ragnetto fell. Delmar dropped a guard with one pistol shot, while Perrin took a blow and heard his patron refuse him with the words “Not yet”.
+On the second day of the festival, Kyzil refused the pranks. Thunk signed a thousand gold pieces of cannon onto *Uncertainty*'s credit, and Nona threw a tomato back. Below the city, Catarina Da'Virelli fought beside the Party until Ragnito fell. Delmar dropped a guard with one pistol shot, while Perrin took a blow and heard his patron refuse him with the words “Not yet”.
 
 Vashu and Ozzeth died covering Solange's continuing chant. Crissdalynn broke Vashu's throat after surviving her attacks. Ozzeth reached for Delmar's mind, but Jean-Claude helped Delmar keep control. Delmar shot Ozzeth's arm away, and Jean-Claude finished him. Ozzeth's last act was to tell Solange to do it now.
 
@@ -26,7 +26,7 @@ Crissdalynn still held Solange and the poison on her. Solange escaped the grappl
 
 - [[Vashu, the Weeping Veil]] and [[Ozzeth, the Twiceborn]] died defending Solange Barret.
 - [[Solange Barret]] completed her ritual and stood remade at twelve feet.
-- The primary chamber of the [[Calveno Sewer Magazines]] lost its ceiling. Ragnetto was destroyed in the fight.
+- The primary chamber of the [[Calveno Sewer Magazines]] lost its ceiling. Ragnito was destroyed in the fight.
 - [[Perrin Black-Jaw]]'s patron answered his call with “Not yet”, refusing him again.
 
 ## Threads

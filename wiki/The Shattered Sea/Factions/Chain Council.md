@@ -7,6 +7,7 @@ sources:
  - "archive/pearl-of-souls.md"
  - "archive/tessarine-concordat.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/session-10.md"
 ---
 
 ## At a glance
@@ -33,6 +34,8 @@ sources:
 ### History
 
 The Council governs from a seized fort and shares control of arrival with the Waveservant shrine. Under its direction, [[Delmar Fisk]] stole the [[Pearl of Souls]] from a Waveservant shrine. [[Umberlee]] sank his five ships in anger.
+
+[[Shepherd Grigori]] told the Party that the Pearl job ran through the Council itself, and that someone had spoken to the Council to set the commission rolling. [[Delmar Fisk]] had filed the job under an independent operator the Party had trusted and worked with before, and Grigori's account was news to him.
 
 ### Hidden truths
 

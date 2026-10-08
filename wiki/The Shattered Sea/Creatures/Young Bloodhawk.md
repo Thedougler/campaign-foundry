@@ -2,6 +2,7 @@
 type: Creature
 summary: "A Young Bloodhawk creature (CR 2) used as a skirmisher in The Shattered Sea."
 sources:
+ - "archive/session-11-transcript-archived-version.md"
  - "archive/young-bloodhawk.md"
 ---
 
@@ -11,14 +12,14 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** A fast striker that dives out of the canopy, strikes, and is airborne again before blades reach it.
+- **Role at the table.** A fast striker that dives out of the canopy, strikes, and is airborne again before blades touch it.
 - **Threat.** CR 2, with a dive that hurls a flying target thirty feet straight down.
 - **Tell.** A rattling beat of wings overhead comes moments before the dive.
 - **Weak to.** A readied weapon waiting along its diving path, and trees thick enough to spoil that path.
 - **Used by.** [[Commoner]] patrols the same territory.
 
 > [!narration] First sight
-> Wings clatter in the canopy, and a young bloodhawk bursts out of the leaves after a smaller bird. The chase drops low, and the young hunter tucks its wings to fall on its target from above. One beak strike in midair tumbles the quarry, and the hawk slams it down into the trail. Feathers heaving, the hunter lands on its catch amid a rain of leaves.
+> Wings clatter in the canopy, and a young bloodhawk bursts out of the leaves after a smaller bird. The chase drops low, and the young hunter tucks its wings to fall on its target from above. One beak strike in midair tumbles the quarry, and the hawk slams it down into the trail. Feathers heaving, the hunter comes down on its catch amid a rain of leaves.
 
 ## Statblock
 
@@ -61,11 +62,11 @@ actions:
 
 ### Tactics
 
-It hunts from the canopy, one flat dive carrying it through the leaves to slam a flying quarry down onto the trail. Call the rattling wing beats as the telegraph, and set readied weapons along its line of fall. It wheels off once the leaves stop hiding it or its wounds ground it.
+It takes flying quarry from the canopy, one flat dive through the leaves that slams the catch down onto the trail. Call the rattling wing beats as the telegraph, and set readied weapons along its line of fall. It wheels off once the leaves stop hiding it or its wounds ground it.
 
 ### Outside a fight
 
-Small birds scatter ahead of it along a trail, the young hunter's calling card, and the hawk shows itself as a burst of leaves at each stoop. It works a stretch of canopy and does not follow prey out of the trees.
+Small birds scatter ahead of it along a trail, the young hunter's calling card, and the hawk shows itself as a burst of leaves at each stoop. It works a stretch of canopy and does not follow prey out of the trees. Two of the young hawks stooped on flying quarry over Aruhe's grass, turned at Delmar's ship recall whistle and a fatter illusion, then set on the wolfrabbits the illusions had baited.
 
 ## Depth
 

@@ -6,6 +6,7 @@ sources:
  - "archive/ssw-grung.md"
  - "archive/ssw-midchain.md"
  - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
+ - "archive/Episode-09-Transcript.md"
 parent: "[[Midchain]]"
 ---
 
@@ -29,6 +30,7 @@ Sanctioned contact happens on the beach, and the interior takes no visitors. The
 ### Places
 
 - [[Karath]], the grung island the Wiki names directly, with its reef gaps, hatcheries and captive pens.
+- [[Sparhold]], a defended lumber town at the cluster's edge. Its crews risk capture and enslavement cutting the massive Grung trees for shipbuilding.
 
 ### Encounters
 

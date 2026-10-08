@@ -14,7 +14,7 @@ creature: "[[Bandit Captain]]"
 - **Found at.** The Undertow in [[Saltwick]] by day, and [[Gullhook Lighthouse]] on dark nights when the take is large.
 
 > [!narration] First look
-> She is a woman of about fifty in a clean grey coat with a ledger clerk's ink stains on two fingers. Her hair is tied back under a plain cap, and her face is pleasant and forgettable. A pistol sits in her belt beside a pen case. She smells of lamp oil and cloves. "You must be the ones Hobb hired," she says. "Sit down before we talk."
+> She is a woman of about fifty in a clean grey coat with a ledger clerk's ink stains on two fingers. Her hair is tied back under a plain cap, and her face is pleasant and forgettable. A pistol is tucked in her belt beside a pen case. She smells of lamp oil and cloves. "You must be the ones Hobb hired," she says. "Sit down before we talk."
 
 ## Play
 

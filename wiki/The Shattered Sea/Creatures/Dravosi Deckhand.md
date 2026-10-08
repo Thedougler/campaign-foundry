@@ -7,8 +7,8 @@ sources:
 
 ## At a glance
 
-- **Role at the table.** Deck filler for Crown boarding parties. It crowds a rail and dies to the first real fight.
-- **Threat.** Threat is set by the statblock. They count by numbers, not quality.
+- **Role at the table.** Deck filler for Crown boarding parties. It crowds a rail, and the first real fight kills it.
+- **Threat.** CR 0 and four hit points apiece. They count by numbers, not quality.
 - **Tell.** Boards in a pair, hesitating at anything that does not look like a deck.
 - **Weak to.** Uncertainty. An illusion or a strong first blow turns them.
 - **Used by.** [[Barnaby Rook]].
@@ -52,7 +52,7 @@ legendary_actions: []
 
 ### Tactics
 
-Deckhands board in numbers and hold whatever rail or hatch they are pointed at. In the Saltwright's hold they came down uncertain and followed an illusory doorway because their officer did. None came back.
+Deckhands board in numbers and keep to whatever rail or hatch they are pointed at. In the Saltwright's hold they came down uncertain and followed an illusory doorway because their officer did. None came back.
 
 ### Outside a fight
 
@@ -66,7 +66,7 @@ Deckhands are Dravosi sailors serving Crown cutters, drawn from the same pressed
 
 ### History
 
-Four died in the Saltwright boarding at Session 1: two behind Perrin Black-Jaw's illusory doorway with Cap'n Gorgeous, and two more when the Party cleared the deck above the hold.
+The Saltwright boarding at Session 1 killed four: two behind Perrin Black-Jaw's illusory doorway with Cap'n Gorgeous, and two more when the Party cleared the deck above the Saltwright's hold.
 
 ### Hidden truths
 

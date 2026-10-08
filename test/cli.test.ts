@@ -1,5 +1,8 @@
 import { spawnSync } from "node:child_process";
+import { mkdtempSync, realpathSync } from "node:fs";
 import { mkdir, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { afterAll, describe, expect, it } from "vitest";
 import { repoRoot } from "./check/helpers.ts";
 
@@ -92,6 +95,29 @@ describe("cf style", () => {
 		const result = run(["style", ".scratch/style-dir", ...styleVault]);
 		expect(result.status).toBe(1);
 		expect(result.stdout).toContain(".scratch/style-dir/note.md:2");
+		expect(result.stdout).toContain("Narration.NoEmDash");
+	});
+
+	it("skips a skill folder's eval history: climb logs and snapshots quote the prose they judged", async () => {
+		await mkdir(".scratch/style-dir/skill/evals/snapshot", { recursive: true });
+		await writeFile(".scratch/style-dir/skill/evals/climb.md", dashCallout);
+		await writeFile(".scratch/style-dir/skill/evals/snapshot/SKILL.md", dashCallout);
+		await writeFile(".scratch/style-dir/skill/SKILL.md", dashCallout);
+		const result = run(["style", ".scratch/style-dir/skill", ...styleVault]);
+		expect(result.stdout).toContain(".scratch/style-dir/skill/SKILL.md:2");
+		expect(result.stdout).not.toContain("climb.md");
+		expect(result.stdout).not.toContain("snapshot/");
+	});
+
+	it("checks a draft outside the repo and reports its absolute path", async () => {
+		const drafts = realpathSync(mkdtempSync(join(tmpdir(), "style-drafts-")));
+		const page = join(drafts, "The Shattered Sea", "NPCs", "Cobb.md");
+		await mkdir(join(drafts, "The Shattered Sea", "NPCs"), { recursive: true });
+		await writeFile(page, dashCallout);
+		const result = run(["style", page, ...styleVault]);
+		await rm(drafts, { recursive: true, force: true });
+		expect(result.status).toBe(1);
+		expect(result.stdout).toContain(`${page}:2`);
 		expect(result.stdout).toContain("Narration.NoEmDash");
 	});
 

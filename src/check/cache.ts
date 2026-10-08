@@ -59,6 +59,8 @@ export async function cachedByPage(
 	salt: string,
 	pages: Page[],
 	compute: (misses: Page[]) => Promise<Map<Page, CachedFinding[]>>,
+	/** Scoped runs must not discard cached answers for pages they did not evaluate. */
+	preserveUnused = false,
 ): Promise<Map<Page, CachedFinding[]>> {
 	const fullSalt = `${CACHE_VERSION}:${salt}`;
 	const stored = await read(root, layer, fullSalt);
@@ -74,8 +76,8 @@ export async function cachedByPage(
 		const computed = await compute(misses);
 		for (const page of misses) result.set(page, computed.get(page) ?? []);
 	}
-	// Keep only what this run used, so deleted and edited pages do not pile up.
-	const next: Record<string, CachedFinding[]> = {};
+	// Only a full run can prune unused entries; scoped runs merge their answers into the existing cache.
+	const next: Record<string, CachedFinding[]> = preserveUnused ? { ...stored } : {};
 	for (const page of pages) next[keyOf.get(page) ?? ""] = result.get(page) ?? [];
 	if (misses.length > 0 || Object.keys(next).length !== Object.keys(stored).length) await write(root, layer, fullSalt, next);
 	return result;

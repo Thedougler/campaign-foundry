@@ -88,6 +88,7 @@ shortbows
 shortsword
 shortswords
 skillful
+bladesong
 
 # Names D&D Beyond prints in a pulled Sheet (its 2024 spellings, one of them American)
 bloodwell

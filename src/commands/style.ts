@@ -1,6 +1,6 @@
 import { existsSync, statSync } from "node:fs";
 import { readFile } from "node:fs/promises";
-import { join, relative, resolve, sep } from "node:path";
+import { isAbsolute, join, relative, resolve, sep } from "node:path";
 import { glob } from "tinyglobby";
 import { Command } from "commander";
 import { narrationLayer } from "../check/layers/narration.ts";
@@ -20,26 +20,29 @@ interface StyleFlags {
 	json?: boolean;
 }
 
-/** Virtual vault prefix for the target files, stripped from reported findings. */
+/** Virtual vault prefix for the target files; a target outside the cwd sits under its own prefix by absolute path. */
 const PREFIX = "_style/";
+const OUTSIDE = "_style-outside/";
 
 /**
- * The `cf style` targets as cwd-relative virtual paths: `-` becomes `stdin.md`, a directory expands to its
- * `*.md` files, a missing path is a usage error.
+ * The `cf style` targets by reported path — cwd-relative inside the cwd, absolute outside it: `-` becomes
+ * `stdin.md`, a directory expands to its `*.md` files, a missing path is a usage error.
  */
 async function targetFiles(paths: string[]): Promise<Map<string, string>> {
 	const targets = new Map<string, string>();
-	const add = async (rel: string, abs: string): Promise<void> => {
+	const add = async (abs: string): Promise<void> => {
+		const rel = relative(process.cwd(), abs);
+		const shown = rel === ".." || rel.startsWith(`..${sep}`) || isAbsolute(rel) ? abs : rel;
 		let source: string;
 		try {
 			source = await readFile(abs, "utf8");
 		} catch {
 			throw new UsageError(
-				`No such file: ${rel}.`,
+				`No such file: ${shown}.`,
 				"Pass markdown files or folders, or - for stdin. Example: bun run cf -- style notes/draft.md",
 			);
 		}
-		targets.set(rel.split(sep).join("/"), source);
+		targets.set(shown.split(sep).join("/"), source);
 	};
 	for (const input of paths) {
 		if (input === "-") {
@@ -54,15 +57,21 @@ async function targetFiles(paths: string[]): Promise<Map<string, string>> {
 			);
 		}
 		if (statSync(abs).isDirectory()) {
-			// Same ignores as a vault read: generated and machine folders are not prose to review.
-			const md = await glob("**/*.md", { cwd: abs, onlyFiles: true, dot: false, ignore: ["templates/**", ".obsidian/**", "node_modules/**"] });
-			for (const p of md.sort()) await add(join(relative(process.cwd(), abs), p), join(abs, p));
+			// Same ignores as a vault read: generated and machine folders are not prose to review. A skill's eval
+			// history (climb logs, frozen snapshots) quotes the prose it judged, so it is a record, not agent text.
+			const md = await glob("**/*.md", {
+				cwd: abs,
+				onlyFiles: true,
+				dot: false,
+				ignore: ["templates/**", ".obsidian/**", "node_modules/**", "**/evals/climb.md", "**/evals/snapshot/**"],
+			});
+			for (const p of md.sort()) await add(join(abs, p));
 			continue;
 		}
 		if (!input.endsWith(".md")) {
 			throw new UsageError(`Not markdown: ${input}.`, "Pass .md files or folders of them, or - for stdin.");
 		}
-		await add(relative(process.cwd(), abs), abs);
+		await add(abs);
 	}
 	return targets;
 }
@@ -99,7 +108,13 @@ Examples:
 			}
 			const files: VaultFiles = await readVaultFiles(vaultDir);
 			const targets = await targetFiles(paths.length > 0 ? paths : ["-"]);
-			for (const [rel, source] of targets) files.markdown.set(PREFIX + rel, source);
+			const shownByKey = new Map<string, string>();
+			for (const [shown, source] of targets) {
+				// A target outside the cwd keys under OUTSIDE, so no key climbs out of the Vale scratch folder.
+				const key = isAbsolute(shown) ? OUTSIDE + shown.replace(/^[A-Za-z]:/, "").replace(/^[/\\]+/, "") : PREFIX + shown;
+				shownByKey.set(key, shown);
+				files.markdown.set(key, source);
+			}
 			const vault = buildVault(vaultDir, files);
 			// ponytail: the target files join the vault's name mask, so a file stem like `SKILL` masks only that exact word; revisit if a target stem collides with a Wiki name.
 			const ctx: CheckContext = {
@@ -112,8 +127,8 @@ Examples:
 			const started = performance.now();
 			const found = (await Promise.all([styleLayer.run(ctx), narrationLayer.run(ctx)])).flat();
 			const findings = found
-				.filter((f) => f.path.startsWith(PREFIX))
-				.map((f) => ({ ...f, path: f.path.slice(PREFIX.length) }))
+				.filter((f) => shownByKey.has(f.path))
+				.map((f) => ({ ...f, path: shownByKey.get(f.path) ?? f.path }))
 				.sort(byLocation);
 			const result: CheckResult = {
 				findings,

@@ -15,7 +15,7 @@ creature: "[[Commoner]]"
 - **Found at.** The [[Uncertainty]]'s galley, manual within reach.
 
 > [!narration] First look
-> Down the deck from you, the galley hatch breathes out the smell of stew, and a youth steps through it with a sailing manual in oilcloth under one arm. They are fifteen, maybe, and a new face gets a question before it gets their name, because any ship under way teaches more than Port Tidefall ever did. The book comes out for every problem, from a foul wind to a new course, and pages turn to see whether the sea has been there before. When the pages have no answer, they nod, sure the book is what needs the work. "Where are we bound? If it's not in the book, good."
+> Down the deck from you, the galley hatch breathes out the smell of stew, and a youth steps through it with a sailing manual in oilcloth under one arm. They are fifteen, maybe, and a new face gets a question before it gets their name, because they learned more under way than Port Tidefall ever gave them. The book comes out for every problem, from a foul wind to a new course, and pages turn to see whether the sea has been there before. When the pages have no answer, they nod, sure the book is what needs the work. "Where are we bound? If it's not in the book, good."
 
 ## Play
 

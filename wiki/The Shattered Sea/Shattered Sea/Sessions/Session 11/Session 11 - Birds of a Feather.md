@@ -34,7 +34,7 @@ Terraces, canopy, grass and river below.
 
 ### Checks
 
-Use Perception only when a Player asks what is above.
+Use Perception only when a Player wonders what is above.
 
 ## Encounter
 

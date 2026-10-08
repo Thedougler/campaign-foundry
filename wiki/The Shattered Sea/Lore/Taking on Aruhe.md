@@ -6,6 +6,8 @@ sources:
  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
+ - "archive/session-10.md"
+ - "archive/session-11-transcript-archived-version.md"
 ---
 
 ![[Taking on Aruhe - Handout Art.png]]
@@ -14,7 +16,7 @@ sources:
 
 - **The truth.** Taking living growth, fresh water life, or an island animal's flesh marks the taker until the next dawn.
 - **Who knows it.** Hinewai hears every claim. Survivors in Calveno who follow the law can show new arrivals its practical rules.
-- **Limits.** Fallen fruit, deadwood, loose stone, shed fibre, shed shell, sea fish below the tideline, and a loose body are safe to receive. Fighting back is allowed. One exception rides outside the taking itself. Aruhe attacks Grung on sight, take or no take.
+- **Limits.** Fallen fruit, deadwood, loose stone, shed fibre, shed shell, sea fish below the tideline, and a loose body are safe to receive. The taker may fight a responder off. One exception rides outside the taking itself. Aruhe attacks Grung on sight, take or no take. A frenzy strikes at everyone on the island, picking fruit or not, and a calmed forest is safe to stand in.
 - **Reaches play through.** Plants lean, birds and insects stop calling, then local responders hunt the marked creature.
 
 > [!narration] As it is told
@@ -36,6 +38,7 @@ Aruhe's law is Hinewai's grief made reflex and holds while the Death Bloom remai
 
 - **Before the law.** The raid, the escape and the grave that made it: [[Grung and the Making of Aruhe]].
 - **Since Hinewai bound herself to Aruhe.** The law has governed living growth, animals, and fresh water on the island.
+- **Session 10.** The Party first met the law through [[Sandro]] and a fellow survivor of the Calveno raid, questioned off Aruhe's shore. His instruction was to take nothing from the island, a place he called cursed outright, for he had seen people beyond counting die horrible, quick deaths for taking "just any, a fruit". The wolf rabbits had killed at least a dozen of the first people who went into the woods, and an injured rabbit drew the creatures as surely as a stolen fruit did. [[Crissdalynn Khinriss|Crissdalynn]] read the rule's shape from the deck, that the creatures ignore whatever comes from the ocean and strike at whatever comes from the island, and Sandro confirmed her reading. He added that the island hates the [[Grung]] worst of all, its animals choosing death if it means killing one. Even the air above the canopy seemed unsafe.
 - **Session 11.** Fallen red heart berry was safe. Picking one from its stem drew wolf rabbits. Matteo confirmed the fallen-fruit rule.
 
 ## Links

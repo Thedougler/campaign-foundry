@@ -7,7 +7,7 @@ sources: []
 
 ## At a glance
 
-%% The one opening pressure and the choice it puts to the Party. 3-5 facts. %%
+%% Give the DM a ten-second read, one line per bullet. Pressure is the one opening pressure, and Choice is the decision it puts to the Party. Where links the Location, and Who links the NPCs. %%
 
 - **Pressure.**
 - **Choice.**
@@ -15,25 +15,31 @@ sources: []
 - **Who.**
 
 > [!narration] Opening
-> %% Spoken: the disturbance in the first sentence, texture that makes the Location felt, ending on the point where the Party reacts. Second person, present tense, under 120 words. %%
+> %% Spoken, second person, present tense, under 120 words. Put the disturbance in the first sentence and make the Location felt, then end on the point where the Party reacts. %%
 
 ## Play
 
-%% Run from here. Link NPCs, Creatures and the Location. %%
+%% Run the Scene from here. Link the NPCs, Creatures and Location. %%
 
 ### Situation
 
+%% Give the opposition's goal and the next change on its clock. Then give the visible commitment that ends this Hook. %%
+
 ### Handles
 
-%% At least three materially different responses, each with upside and cost. %%
+%% Give at least three materially different responses, each with its upside and cost and the World's answer. Give each PC present a first action. %%
 
 ### Checks
 
-%% Only where the outcome is in doubt. %%
+%% Use only where the outcome is in doubt. Give the trigger and the Ability (Skill) with its DC, then success and failure with their costs. %%
+
+### Encounter
+
+%% Use this only for a Hook the Party may fight. Give forces and deployment, the battlefield, and the break or escape conditions. Embed each fought Creature as `![[Creature#Statblock]]`, and add a `#### Balance` with the `bun run cf -- encounter-budget` lines. %%
 
 ## Outcomes
 
-%% One line per outcome the Scene can plausibly produce: what changes, and which Scene it hands to. %%
+%% Give one row per outcome the Scene can plausibly produce, waiting and refusal included. Each row gives the trigger and the change, then the Scene it hands to. %%
 
 | If  | Then | Hands to |
 | --- | ---- | -------- |
@@ -41,10 +47,16 @@ sources: []
 
 ## Depth
 
-%% Hidden truths (each with how the Party can learn it), Threads in play, Spotlight opportunities. %%
+%% DM only. Give what the opening hides and the Threads it pulls. %%
 
 ### Hidden truths
 
+%% Give each truth with how the Party can learn it. %%
+
 ### Threads
 
+%% Link each Thread in play, with the pressure this Hook puts on it. %%
+
 ### Spotlight
+
+%% Give the PC this Scene pulls on through their own goal, bond or fear, and the reason every other PC has to act. %%

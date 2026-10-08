@@ -3,6 +3,7 @@ type: Item
 summary: "The Dravosi Alchemist's bandolier of Grung toxin canisters, lying unexamined somewhere on the Saltwright's deck since the boarding."
 sources:
  - "archive/ssw-session-01.md"
+ - "archive/ssw-the-canister.md"
 ---
 
 ## At a glance
@@ -14,7 +15,7 @@ sources:
 - **Held by.** Nobody. It lies somewhere on the [[Saltwright]]'s deck, unexamined since the boarding.
 
 > [!narration] First look
-> A canvas bandolier the length of a forearm, stiff where spilled paste has dried into the stitching. Each loop holds an iron canister the size of a flask, stencilled with a Crown mark and a grung handprint, and the pin of every canister is wired for a one-handed pull.
+> A canvas bandolier the length of a forearm, stiff where spilled paste has dried into the stitching. An iron canister the size of a flask fills each loop, stencilled with a Crown mark and a grung handprint, and the pin of every canister is wired for a one-handed pull.
 
 ## Play
 
@@ -36,8 +37,8 @@ The bandolier was field kit for the [[Dravosi Alchemist|alchemist]] in [[Barnaby
 
 ### Hidden truths
 
-- The canisters carry the same preparation [[Jean-Claude Tabarnack]] recognised as his sister [[Simone Tabarnack|Simone]]'s batch. He has said nothing (**[[The Canister]]**). The Party can learn it by having a canister analysed or by pressing Jean-Claude on what he knew at the gangplank.
-- A canister traced to a Crown chandler or magazine opens the supply line the Crown wants kept quiet. The Party can learn this by following the stencil mark.
+- The canisters contain the same preparation [[Jean-Claude Tabarnack]] recognised as his sister [[Simone Tabarnack|Simone]]'s batch. He has said nothing (**[[The Canister]]**). The Party can learn it by having a canister analysed or by pressing Jean-Claude on what he knew.
+- A canister traced to a Crown chandler or magazine opens the supply line its officers keep off the books. The Party can learn this by following the stencil mark.
 
 ## Links
 

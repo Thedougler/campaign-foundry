@@ -61,7 +61,7 @@ bun run cf -- check --fix "<page path>" "<page path>"
 bun run cf -- check "<page path>" "<page path>"
 ```
 
-The paths narrow the report, not the check: the whole Wiki is still checked behind them. Never edit generated indexes by hand. When the caller assigns an explicit filesystem target, add its `--vault`, `--root` and `--templates` paths to the check commands, and `--vault`/`--root` to indexing and logging.
+Never edit generated indexes by hand. When the caller assigns an explicit filesystem target, add its `--vault`, `--root` and `--templates` paths to the check commands, and `--vault`/`--root` to indexing and logging.
 
 After a successful standalone operation, append exactly one entry listing each touched content page, using its vault-relative path. Replace the placeholders and repeat `--page` as needed:
 

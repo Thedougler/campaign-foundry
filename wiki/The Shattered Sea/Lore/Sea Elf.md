@@ -9,7 +9,7 @@ sources:
 
 - **The truth.** Sea elves are elves adapted to the water, who breathe air and water alike, shrug off cold, and trade simple ideas with swimming beasts. In the Shattered Sea they are centred on [[Halythion]] and worship [[Deep Sashelas]].
 - **Who knows it.** [[Halythion]] knows itself. [[Coralyra Dranra]], a self-exiled sea elf, is the one of them the Sea's ports are most likely to have met.
-- **Limits.** Where Halythion stands, how many sea elves live there, and what the folk's ancestral claim on the [[Elemental Plane of Water]] is worth are all beyond the record.
+- **Limits.** Where Halythion stands, how many sea elves dwell there, and what the folk's ancestral claim on the [[Elemental Plane of Water]] amounts to are all beyond the record.
 - **Reaches play through.** [[Coralyra Dranra]] and any road that leads to [[Halythion]].
 
 > [!narration] As it is told
@@ -25,7 +25,7 @@ sources:
 
 ### The full truth
 
-Sea elves are medium elves built for both worlds. They breathe air and water alike, and cold water doesn't slow them. Darkvision carries them sixty feet into the dark, and the old elven guard against charms holds. Their senses stay sharp on land or under it. Like all elves they skip sleep. A long rest is four hours of trance, at the end of which elven memory hands them two weapon or tool proficiencies that last until the next rest. Speaking to any beast that swims takes no magic either, just simple ideas in gesture and sound.
+Sea elves are medium elves built for both worlds. They breathe air and water alike, and cold water doesn't slow them. Darkvision carries them sixty feet into the dark, and the old elven guard against charms holds. Their senses are sharp on land or under it. Like all elves they skip sleep. A long rest is four hours of trance, at the end of which elven memory hands them two weapon or tool proficiencies that last until the next rest. Speaking to any beast that swims takes no magic either, just simple ideas in gesture and sound.
 
 The folk's older tradition arms a sea elf with spear, trident, light crossbow and net, and their old tongue runs to Common, Elven and Aquan.
 

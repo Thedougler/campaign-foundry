@@ -32,7 +32,7 @@ sources:
 
 ### Threads
 
-The Tarahs sit behind one called-off attack in [[Perrin and Nona]], and Nona keeps watching.
+The Tarahs prompted one called-off attack in [[Perrin and Nona]], and Nona keeps watching.
 
 ## Links
 

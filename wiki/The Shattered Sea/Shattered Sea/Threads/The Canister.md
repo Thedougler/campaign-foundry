@@ -3,13 +3,14 @@ type: Thread
 summary: "Jean-Claude recognised his sister's toxin in a Crown canister at the Saltwright gangplank and told nobody. The Party does not know."
 sources:
  - "archive/ssw-session-01.md"
+ - "archive/ssw-the-canister.md"
 status: active
 ---
 
 ## At a glance
 
 - **Driven by.** Jean-Claude Tabarnack's recognition of [[Simone Tabarnack|Simone]]'s Grung toxin preparation in the Dravosi alchemist's canister.
-- **Stands at.** Jean-Claude holds the secret and has told nobody. The [[Alchemist's Bandolier|alchemist's bandolier]] lies unexamined on the Saltwright's deck.
+- **Stands at.** Jean-Claude holds the secret and has told nobody. The [[Alchemist's Bandolier|alchemist's bandolier]] lies unexamined on the Saltwright's deck, and twenty Surety vials now share the Party's own inventory with six sewer vials, still unexamined for what they are.
 - **If nobody acts.** The Party keeps sailing with the evidence of Simone's Crown supply aboard, and Jean-Claude keeps carrying it alone.
 - **Levers.** The bandolier on the deck, a canister's analysis, and pressing Jean-Claude on what he knew at the gangplank.
 
@@ -20,6 +21,13 @@ status: active
 - **Levers.** Poison analysis, Jean-Claude's tells, and anything that puts a vial and his sister's work in the same room.
 - **Resolves when.** The Party learns what Jean-Claude knows, or he chooses to tell them.
 
+### Triggers
+
+- The Party examines or uses the vials → Jean-Claude must explain or lie.
+- Jean-Claude tells someone → the secret turns into an open confrontation, and the Party is in it.
+- The Party meets Crown toxin again → three instances now, and the pattern turns undeniable.
+- Simone appears → Jean-Claude decides in the moment, with her in the room.
+
 ## Depth
 
 ### Origin
@@ -29,6 +37,7 @@ At the Saltwright's gangplank the deployed canister showed Jean-Claude his siste
 ### Hidden truths
 
 - The same preparation later surfaced in the Surety's cargo. Every confirmation widens the gap between what Jean-Claude knows and what he has told the Party. They can learn it by pressing him or tracing the supply line themselves.
+- [[Grung Toxin Vials|Twenty vials]] of that preparation ride in Party hands beside six more from the Calveno sewer loot, and the two lots have yet to meet a comparison. Twenty is a supply contract, so the line from Simone to the Crown is real and running at scale. Nona's people catalogued the sewer loot, [[Ruk]] sorted its vials as ordinary Grung poison, and the pattern of canister, crate and sewer has surfaced for Jean-Claude alone.
 
 ### Possible endings
 

@@ -3,6 +3,7 @@ type: Quest
 summary: "Aleksander Malone pursues Shepherd Grigori through the Midchain and tightens the trail towards the crew's wake."
 sources:
  - "archive/the-hound-of-god.md"
+ - "archive/Episode-09-Transcript.md"
 status: active
 ---
 
@@ -29,7 +30,14 @@ status: active
 
 ### Hidden truths
 
-Malone wants Grigori dead, acts on his own authority and pronounces what he knows with scripture-cadenced certainty. He does not interrogate or negotiate. The crew transported Grigori to Calveno but Malone has only the port and ship class, not the crew. The HCS Surety theft and heir's death do not interest him unless they reveal heresy.
+Malone wants Grigori dead, acts on his own authority and pronounces what he knows with scripture-cadenced certainty. He does not interrogate or negotiate. The crew transported Grigori to Calveno but Malone has only the port and ship class, not the crew. The HCS Surety theft and heir's death do not interest him unless they reveal heresy. The Dravosi count him among their top hunters, a self-directed zealot of [[Tyr]] who works from his temple as his own contractor, hunting what he calls "perfects", anyone against Dravosi law.
+
+### Session 9
+
+- Dispatched "after the Calveno incident", [[Aleksander Malone]] came aboard the [[Uncertainty]] with the boarding party, hunting the one "responsible for the incident in Calveno".
+- Malone's account of the hunt: [[Shepherd Grigori]] "destroyed the Surety and killed Officer Rook". The Dravosi have pursued him since, and believe he was dropped in Calveno, unsure where.
+- [[Delmar Fisk|Delmar]]'s word to the inquisitor: "I can assure you, he is in Calveno." He urged hunting Grigori there over a search of the ship. Delmar's Persuasion 21 stood against the inquisitor's 11, and Malone searched the ship anyway.
+- The search broke when [[Corbin Knighton]] drew a flintlock on Malone: "You heard them. I believe them. Go. We're going to Calveno." The warship then made sail for Calveno.
 
 ## Links
 

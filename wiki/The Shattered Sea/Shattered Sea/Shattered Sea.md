@@ -5,6 +5,7 @@ sources:
  - "archive/story-so-far.md"
  - "archive/campaign-timeline.md"
  - "archive/session-11-transcript.md"
+ - "archive/session-12-full.md"
  - "archive/ssw-lines-and-veils.md"
  - "archive/collab-2026-10-04-authority-themes.md"
 session_length_hours:
@@ -16,7 +17,7 @@ session_length_hours:
 - **Premise.** Debts, pursuers, and secrets follow four strangers who become a crew in the Shattered Sea.
 - **Party.** [[Perrin Black-Jaw]], [[Delmar Fisk]], [[Crissdalynn Khinriss]], and [[Jean-Claude Tabarnack]].
 - **Cadence.** Sessions follow the Party's crossings, port bargains, and consequences.
-- **Now.** After Session 11, the Party is camped at the River's slack basin on [[Aruhe]]. [[Jean-Claude Tabarnack]] is catatonic in [[Delmar Fisk]]'s coat, [[Matteo Scola]] wants passage off the island, and [[Talon Skarn]]'s attack on [[Crissdalynn Khinriss]] for the [[Fate Spinner]] remains unresolved. Session 12 Prep begins from this camp.
+- **Now.** After Session 12, the Party camps beside [[The Burnt Road]] deep inland on [[Aruhe]] with [[Matteo Scola]] and four rescued Calveno survivors, still mid-combat with [[Talon Skarn]], who returned invisible for the [[Fate Spinner]]. [[Jean-Claude Tabarnack]] answers to the garden-keeper's rules and is owed to her grove. Session 13 resumes the fight with the Party at level 6.
 
 > [!narration] The Campaign
 > You reached the Saltwright along separate roads. One of you lived through a wreck and another hides an older name, while a third was pulled from the sea. Hunters trail the fourth by one island. Crown sailors board to seize the ship while you are all together in the hold. Explaining whose ship it is will have to wait. Make the hold yours, get through the inspection, and decide what kind of crew crosses a sea where others own every route.
@@ -40,7 +41,7 @@ The Campaign is about the different kinds of authority and who should wield it, 
 
 ### Direction
 
-The Party is crossing [[Aruhe]] toward inland survivors while keeping the Fate Spinner from its hunters and protecting the Calveno survivors. Session 12 continues from the River's slack basin, with Hinewai's garden, the Grung orders, and Perrin's patron pressing the route. [[Take on Aruhe]] remains active. The [[Campaign Timeline]] orders the causes behind those pressures. [[Session 11 Assets]] records the later evidence-routing procedure.
+The Party follows the burnt road toward the grove with the rescued Calveno survivors, the [[Fate Spinner]] hidden in [[Delmar Fisk]]'s Bag of Holding from its hunters, and [[Jean-Claude Tabarnack]] bound to [[Hinewai]]'s garden rules. Session 13 resumes [[Talon Skarn]]'s night ambush mid-combat with the Party at level 6, the graves at the grove and Perrin's patron pressing the route. [[Take on Aruhe]] remains active. The [[Campaign Timeline]] orders the causes behind those pressures. [[Session 11 Assets]] records the later evidence-routing procedure.
 
 ## Links
 

@@ -2,7 +2,7 @@ import { bindingsFromPath, describe, matchDir, nameOk, PLACEMENTS, resolveDir } 
 import type { Location } from "../placement-table.ts";
 import type { Page } from "../../vault/types.ts";
 import type { CheckContext, Finding, Fix, FixResult, Layer } from "../types.ts";
-import { dirOf, isSpecialPage } from "../util.ts";
+import { checkedPages, dirOf, isSpecialPage, isTarget } from "../util.ts";
 
 const LAYER = "placement";
 /** Exact file names the placement table requires, plus generated index and log pages. They repeat across Worlds and Campaigns. */
@@ -104,7 +104,7 @@ function sessionNameProblem(page: Page, type: string): string | undefined {
 export function run(ctx: CheckContext): Finding[] {
 	const findings: Finding[] = [];
 	const exists = (path: string): boolean => ctx.vault.pageByPath.has(path);
-	for (const page of ctx.vault.pages) {
+	for (const page of checkedPages(ctx)) {
 		const path = ctx.display(page.path);
 		const add = (rule: string, message: string, hint: string): void => {
 			findings.push({ layer: LAYER, severity: "error", rule, path, line: 1, message, hint });
@@ -150,6 +150,7 @@ export function run(ctx: CheckContext): Finding[] {
 	for (const pages of byName.values()) {
 		if (pages.length < 2) continue;
 		for (const page of pages) {
+			if (!isTarget(ctx, page.path)) continue;
 			const others = pages.filter((p) => p !== page).map((p) => p.path);
 			findings.push({
 				layer: LAYER,
@@ -169,7 +170,7 @@ export function fix(ctx: CheckContext): FixResult {
 	const fixes: Fix[] = [];
 	const claimed = new Set<string>();
 	const taken = (path: string): boolean => ctx.vault.pageByPath.has(path) || claimed.has(path);
-	for (const page of ctx.vault.pages) {
+	for (const page of checkedPages(ctx)) {
 		const type = wikiType(page);
 		if (!type || isSpecialPage(page)) continue;
 		const verdict = judge(page, type, taken);

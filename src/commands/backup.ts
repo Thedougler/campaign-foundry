@@ -3,9 +3,10 @@ import { resolve } from "node:path";
 import { Command } from "commander";
 import { UsageError } from "../check/run.ts";
 import { BACKUP_ROOTS, type BackupFile, titleOf, walkBackup, type WalkResult } from "../backup/files.ts";
-import { diffSince, headCommit, lfsPull, repoWebUrl, usableBase } from "../backup/git.ts";
+import { diffSince, hashAt, headCommit, lfsPull, repoWebUrl, usableBase } from "../backup/git.ts";
 import { loadMap, MAP_PATH, normalizeId, saveMap, type BackupMap } from "../backup/map.ts";
 import { notionClient } from "../backup/notion.ts";
+import { reconcile, type Reconciliation } from "../backup/reconcile.ts";
 import { estimate, type Plan, planBackup, runBackup, type Scope } from "../backup/sync.ts";
 import { findRepoRoot } from "./check.ts";
 
@@ -74,8 +75,10 @@ What it does:
                callouts, statblock and base fences stay as YAML code, frontmatter becomes a YAML code block
     images     uploaded once through the File Upload API and shown on their own page and inline wherever embedded
     other text YAML, JSON, scripts and licences as code blocks
-  A push run diffs the map's synced commit to HEAD and touches only those files; a file deleted from the repo keeps its
-  page, retitled "(deleted from repo)". Requests are throttled to about 3 a second and retried on 429 and 5xx.
+  Before planning, a real run reads the Backup tree in Notion and repairs the map from each page's marker, so a lost or
+  stale map never makes a page twice. A push run diffs the map's synced commit to HEAD and touches only those files; a
+  file deleted from the repo keeps its page, retitled "(deleted from repo)". Requests are throttled to about 3 a second
+  and retried on 429 and 5xx.
 
 Examples:
   cf backup --dry-run                       counts and estimate for the next run
@@ -97,6 +100,16 @@ Examples:
 			if (!flags.dryRun && !token) throw new UsageError("NOTION_TOKEN is not set.", "Set it to a Notion internal integration token shared with the parent page, or run cf backup --dry-run.");
 
 			const walk = walkBackup(root);
+			const log = (line: string): void => {
+				if (!flags.json) process.stderr.write(`${line}\n`);
+			};
+			// Notion is the record and the map a cache: a real run repairs the map from the Backup tree before planning.
+			const api = flags.dryRun ? undefined : notionClient(token ?? "");
+			let reconciled: Reconciliation | undefined;
+			if (api) {
+				reconciled = await reconcile({ walk, map, api, hashAt: (commit, path) => hashAt(root, commit, path, walk.links), save: (m) => saveMap(mapFile, m), log });
+				log(`reconciled with Notion: ${reconciled.adopted.length} adopted, ${reconciled.dropped.length} dropped, ${reconciled.markersAdded} markers added, ${reconciled.uploadsReused} uploads reused, ${reconciled.duplicates.length} duplicated paths, ${reconciled.foreign} unmarked pages`);
+			}
 			const { scope, why } = chooseScope(root, map, flags, walk);
 			const plan = planBackup(walk, map, scope, { rewrite: flags.rewrite ?? false });
 			const commit = headCommit(root);
@@ -129,20 +142,19 @@ Examples:
 					`  skipped    ${walk.skipped.length} paths (${[...new Set(walk.skipped.map((s) => s.reason))].join("; ") || "none"})`,
 				];
 				if (flags.tree) out.push("", ...tree(walk, plan));
-				out.push("", "(dry run: nothing sent to Notion)");
+				out.push("", "(dry run: nothing sent to Notion, and only the map read; a real run first repairs the map from the Backup tree in Notion)");
 				process.stdout.write(`${out.join("\n")}\n`);
 				return;
 			}
 
-			const log = (line: string): void => {
-				if (!flags.json) process.stderr.write(`${line}\n`);
-			};
+			if (!api || !reconciled) throw new Error("unreachable: a real run reconciles with Notion first");
 			log(`backing up (${scope.kind}: ${why}): ${plan.createDirs.length + plan.createFiles.length} pages to create, ${plan.writeFiles.length} to write, ${plan.deletePaths.length} to flag deleted`);
 			const result = await runBackup({
 				walk,
 				map,
 				plan,
-				api: notionClient(token ?? ""),
+				api,
+				reconciled,
 				...(commit ? { commit } : {}),
 				sourceUrl,
 				save: (m) => saveMap(mapFile, m),

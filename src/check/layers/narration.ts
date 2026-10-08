@@ -1,18 +1,9 @@
-import { getDefaultSettings, getDictionary, mergeSettings } from "cspell-lib";
 import { analyzeCallout } from "../../narration/analyze.ts";
 import { calloutLines, linkedPages, pageWords } from "../../narration/sources.ts";
+import { englishWords } from "../english.ts";
 import { maskNames, vaultNameWords } from "../prose.ts";
 import type { Finding, Layer } from "../types.ts";
-
-let english: Promise<(word: string) => boolean> | undefined;
-
-/** The British English dictionary, case-sensitive, so a lowercase lookup misses proper names. */
-function englishWords(): Promise<(word: string) => boolean> {
-	english ??= getDefaultSettings()
-		.then((defaults) => getDictionary(mergeSettings(defaults, { dictionaries: ["en-gb"] })))
-		.then((dictionary) => (word: string) => dictionary.has(word, { ignoreCase: false }));
-	return english;
-}
+import { checkedPages } from "../util.ts";
 
 export const narrationLayer: Layer = {
 	name: "narration",
@@ -21,7 +12,7 @@ export const narrationLayer: Layer = {
 		const findings: Finding[] = [];
 		const names = new Set(vaultNameWords(ctx.vault));
 		const isWord = await englishWords();
-		for (const page of ctx.vault.pages) {
+		for (const page of checkedPages(ctx)) {
 			const callouts = page.callouts.filter((callout) => callout.type === "narration");
 			if (callouts.length === 0) continue;
 			const linked = linkedPages(ctx.vault, page).map((source) => pageWords(source));

@@ -38,6 +38,16 @@ describe("cf log", () => {
 		expect(await read(dir)).toContain("## [2026-02-01] lint | Headings");
 	});
 
+	it("keeps every entry when parallel agents log at once", async () => {
+		const dir = await copyFixture("clean");
+		const titles = Array.from({ length: 8 }, (_, i) => `Slice ${i + 1}`);
+		const results = await Promise.all(titles.map((title) => log(dir, ["--op", "lint", "--title", title, "--page", "Mara Voss", "--date", "2026-02-01"])));
+		expect(results.map((r) => r.code)).toEqual(titles.map(() => 0));
+		const text = await read(dir);
+		for (const title of titles) expect(text).toContain(`## [2026-02-01] lint | ${title}\n\n- [[Mara Voss]]\n`);
+		expect(text.startsWith(FIRST)).toBe(true);
+	});
+
 	it("takes pages as a name, a vault-relative path or a path from the working directory", async () => {
 		const dir = await copyFixture("clean");
 		const { code } = await log(dir, [
@@ -218,6 +228,68 @@ describe("cf log", () => {
 			const dir = await copyFixture("clean");
 			const { code } = await log(dir, ["--op", "prep", "--title", "two\nlines", "--page", "Mara Voss"]);
 			expect(code).toBe(2);
+		});
+
+		// The gate fails each of these on a generated log.md heading, so the command refuses the title
+		// instead of writing a finding the next `cf check` reports.
+		it.each([
+			["an em dash", "Session 3 — recap", "—", "ai-tells.EmDashUsage"],
+			["an en dash", "Sessions 2–4 mapped", "–", "ai-tells.EmDashUsage"],
+			["a double hyphen", "Session 3 -- recap", "--", "ai-tells.DoubleHyphen"],
+			["a semicolon", "Ingest; Session 3 done", ";", "ai-tells.SemicolonUsage"],
+			["trailing full stop", "Recap of Session 3.", ".", "MD026"],
+			["trailing colon", "Who holds the bridge:", ":", "MD026"],
+		])("rejects %s in the title, naming the character and the rule", async (_, title, character, rule) => {
+			const dir = await copyFixture("clean");
+			const { code, stderr } = await log(dir, ["--op", "prep", "--title", title, "--page", "Mara Voss"]);
+			expect(code).toBe(2);
+			expect(stderr).toContain(character);
+			expect(stderr).toContain(rule);
+			expect(stderr).toContain("cf log --world");
+			expect(await read(dir)).toBe(FIRST);
+		});
+
+		it("accepts a mid-title colon: the gate exempts headings", async () => {
+			const dir = await copyFixture("clean");
+			const { code } = await log(dir, ["--op", "query", "--title", "Who holds the bridge: north tower", "--page", "Ravenhold", "--date", "2026-02-01"]);
+			expect(code).toBe(0);
+			expect(await read(dir)).toContain("## [2026-02-01] query | Who holds the bridge: north tower");
+		});
+
+		// The defect: lint and ingest agents wrote titles the next `cf check` failed on log.md. The command now
+		// runs the entry heading through the same Vale rules the gate applies, so it refuses its own gate failures.
+		it("refuses a title the style gate fails, naming rule, message and fix, and writes nothing", async () => {
+			const dir = await copyFixture("clean");
+			const { code, stderr } = await log(dir, ["--op", "lint", "--title", "Fixed Vale misfire handling", "--page", "Mara Voss", "--date", "2026-02-01"]);
+			expect(code).toBe(2);
+			expect(stderr).toContain("ai-tells.FigurativeFires");
+			expect(stderr).toContain("AI overused verb");
+			expect(stderr).toContain("fix:");
+			expect(stderr).toContain("cf log --world");
+			expect(await read(dir)).toBe(FIRST);
+		});
+
+		it("refuses a three-item title the gate reads as a verb tricolon", async () => {
+			const dir = await copyFixture("clean");
+			const { code, stderr } = await log(dir, ["--op", "lint", "--title", "Recorded census counts, updated the ADR, promoted rule errors", "--page", "Mara Voss", "--date", "2026-02-01"]);
+			expect(code).toBe(2);
+			expect(stderr).toContain("ai-tells.VerbTricolon");
+			expect(await read(dir)).toBe(FIRST);
+		});
+
+		it("refuses a four-noun stack the gate reads as a noun string", async () => {
+			const dir = await copyFixture("clean");
+			const { code, stderr } = await log(dir, ["--op", "lint", "--title", "Updated boss room loot tables", "--page", "Mara Voss", "--date", "2026-02-01"]);
+			expect(code).toBe(2);
+			expect(stderr).toContain("ai-tells.NounString");
+			expect(await read(dir)).toBe(FIRST);
+		});
+
+		it("--dry-run refuses a failing title too, and writes nothing", async () => {
+			const dir = await copyFixture("clean");
+			const { code } = await log(dir, ["--op", "lint", "--title", "Fixed Vale misfire handling", "--page", "Mara Voss", "--date", "2026-02-01", "--dry-run"]);
+			expect(code).toBe(2);
+			expect(await read(dir)).toBe(FIRST);
 		});
 	});
 

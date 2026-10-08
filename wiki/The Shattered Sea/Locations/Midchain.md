@@ -9,6 +9,7 @@ sources:
  - "archive/ssw-minotaur.md"
  - "archive/ssw-verdant-scatter.md"
  - "archive/ssw-midchain.md"
+ - "archive/session-10.md"
 parent: "[[Verdant Scatter]]"
 ---
 
@@ -27,12 +28,12 @@ parent: "[[Verdant Scatter]]"
 
 ### Travel
 
-Open water links the [[Crown Islands]], [[Aruhe]], [[Karath]], [[Murrat]], [[Kalowe]] and [[Sparhold]]. Dozens of smaller islands packed close together carry free ports, local councils and pilot families whose routes come down through generations rather than charts. The northern reef faces look across the [[Central Strait]] toward the Crown Islands. A minotaur pilot is the most expensive crew hire in the Midchain and worth every coin, and minotaur communities sit where the water is hardest, in every major port.
+Open water links the [[Crown Islands]], [[Aruhe]], [[Karath]], [[Murrat]], [[Kalowe]] and [[Sparhold]]. [[Uncertainty]]'s dawn run south raised [[Sparhold]] to starboard first, its supplies and settled streets this close to the [[Verdant Teeth]]. Gizanmor and [[Murrat]] followed, with [[Karath]] and Sorn beyond. [[Aruhe]] lay half a mile off Karath across the channel to port, and Jean-Claude Tabarnack recognized Karath as lying close to his homeland. Dozens of smaller islands packed close together carry free ports, local councils and pilot families whose routes come down through generations rather than charts. The northern reef faces look across the [[Central Strait]] toward the Crown Islands. A minotaur pilot is the most expensive crew hire in the Midchain, and the price buys passage through the hardest water. Minotaur communities sit where the water is hardest, in every major port.
 
 The treeline often shows before land. Rainforest reaches the water on many coasts, while elsewhere pale limestone cliffs fall straight to reef. Turquoise shallows give way abruptly to blue-black water at the shelf edge.
 
 - **Reef channels.** Sail between neighbouring islands, usually half a day apart, paying a pilot or buying local waypoints. Fresh water and shelter are rarely far away, but charts disagree and reefs shift. Avoid unnamed blue holes, even when they offer shelter. Pilots associate some with Sawek lairs. [[Knife's Wake]] can escape through channels a frigate captain refuses to enter.
-- **Open lanes.** Sail between the established harbours without threading the inner reefs. The ship stays clear of confined passages but loses shelter and remains visible to patrols and raiders. Crown cutters intercept the predictable lanes.
+- **Open lanes.** Sail between the established harbours without threading the inner reefs. The ship avoids confined passages but loses shelter and remains visible to patrols and raiders. Crown cutters intercept the predictable lanes.
 - **Westbound back channels.** Near [[The Doldrums]], winds turn more westerly and help ships avoid Strait inspection. The [[Passage]] knows which channels are clean. Buy current route knowledge before departure, because the Doldrums' seasonal drift changes the southern approach.
 
 Replenish water and seek sheltered anchorages among the islands before an exposed crossing. [[Kalowe]] provides repairs, pilots and supplies, with a shrine payment at its reef gap. Rest in a harbour is sheltered from weather, but arrival can expose the ship to local authorities.
@@ -52,7 +53,7 @@ Replenish water and seek sheltered anchorages among the islands before an expose
 
 ### Encounters
 
-1. A harbour pilot asks what route the Party intends.
+1. A harbour pilot's first question is the Party's intended route.
 2. A Grung raiding scout watches a berth.
 3. A storm belt closes a familiar lane.
 4. A Waveservant collects a crossing price.

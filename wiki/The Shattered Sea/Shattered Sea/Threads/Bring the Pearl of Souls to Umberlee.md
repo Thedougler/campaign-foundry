@@ -10,6 +10,7 @@ sources:
  - "archive/ssw-what-sunk-the-vestra.md"
  - "archive/ssw-umberlee-shrine.md"
  - "archive/ssw-session-04-ingest-recap.md"
+ - "archive/session-10.md"
 status: active
 ---
 
@@ -34,6 +35,8 @@ status: active
 Delmar assembled the [[Red Lady]], the Narrow, Heft, Fernen, and Loud Argument to steal the Pearl from Umberlee's [[Umberlee's Shrine|shrine]] on [[Vel-Orn]]. The fleet succeeded and then sank over the Drowned Maw when Umberlee struck it.
 
 Delmar later confessed the theft to the Party. Umberlee named the Pearl as her price after the five-ship fleet sank. In Calveno [[Umberlee - Branca|an older servant in blue-grey robes]] found Delmar specifically, carrying a message from the Bitch Queen, and waited at the [[Waveservant Shrine]] without sleeping until he came. He told her Umberlee herself had required this errand first, and she believed him and left. The summons itself is filed in [[Umberlee's Message]].
+
+[[Shepherd Grigori|Grigori]]'s night visit to the [[Uncertainty]]'s galley, on the approach to Aruhe, put the job's making in front of the whole crew. He asked whether Delmar had considered "who put you up to this job that is currently cursed to you". The answer, as Grigori laid it out, was that the Party's contract for the job ran through the island chain council, and that someone had spoken to the council to set the job rolling. Delmar had gone aboard believing he answered to an independent contractor, a man he trusted. Grigori called the curse real ("It is quite the curse") and offered help with it in future, being "fairly familiar with matters of the divine". He named Umberlee a god unworthy of worship while the ship lay on open ocean, and nothing answered the insult. At the word "curse", Perrin's tail went still, and he stayed tense until Delmar had checked the porthole for listeners, saying he was "paying his toll on the ship".
 
 ### Hidden truths
 

@@ -28,7 +28,7 @@ creature: "[[Solange Barret (Creature)]]"
 
 ### History
 
-Solange left seminary to become a demolitions engineer. She alone could run Simone's summoning circle and learned binding shapes from her patron, le courant. Ozzeth protected her while the party reached the Primary Chamber. She finished the ritual after his death and Otar emerged through her body. Solange completed Agni and stood remade at twelve feet.
+Solange left seminary to become a demolitions engineer. She alone could run Simone's summoning circle and learned binding shapes from her patron, le courant. Ozzeth protected her until the party arrived at the Primary Chamber. She finished the ritual after his death and Otar emerged through her body. Solange completed Agni and stood remade at twelve feet.
 
 ### Hidden truths
 

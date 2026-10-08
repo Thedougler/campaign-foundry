@@ -16,7 +16,7 @@ date: "1495 DR, date not established"
 
 ## What happened
 
-Three nights earlier, Thunk counted cards and left with silver that was not his. Days later, the primary chamber's ceiling opened onto the Mercatura plaza. Otar the Foul rose from the crater, twelve feet tall, and his wounds closed as quickly as the Party made them. Five Minor Slaad clawed from the rubble. One ate a trapped villager and grew more like a person with every mouthful.
+Thunk had counted cards three nights earlier and left with silver that was not his. Days later, the primary chamber's ceiling opened onto the Mercatura plaza. Otar the Foul rose from the crater, twelve feet tall, and his wounds closed as quickly as the Party made them. Minor Slaad clawed from the rubble, five in all. One ate a trapped villager and grew more like a person with every mouthful.
 
 The Warren's alarm called the city to shelter or fight. Kyzil took the brood apart after Delmar's whistle, while Catarina worked at the crater's edge. Delmar ended Otar by swinging the Fleet Commander's Chair into his throat and shooting through his eye. The crowd did not cheer. Otar's carcass began to rot. An unread scrap of paper, the Grung Authority Seal, and an unstable sliver lay in the rot.
 

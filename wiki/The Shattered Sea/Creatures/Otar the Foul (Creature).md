@@ -83,7 +83,7 @@ legendary_actions:
 
 ### Tactics
 
-Bring Otar's archived tactics to its claws, tongue and Chaos Pulse. Warn the Party before its strongest option takes effect. They can seek cover, reposition or focus their fire in response. Otar withdraws after losing its objective or the advantage it held.
+Bring Otar's archived tactics to its claws, tongue and Chaos Pulse. Warn the Party before its strongest option takes effect. They can seek cover, reposition or focus their fire in response. Otar withdraws after losing its objective or its advantage.
 
 ### Outside a fight
 
@@ -93,7 +93,7 @@ Otar's appearance, habits and traces announce its identity ahead of an encounter
 
 ### Ecology
 
-Otar's archived NPC record governs its habitat, diet and the signs by which it can be identified. A traveller attentive to those signs can recognise them using Wisdom (Survival).
+Otar's archived NPC record supplies its habitat, diet and the signs by which it can be identified. A traveller attentive to those signs can recognise them using Wisdom (Survival).
 
 ### Hidden truths
 

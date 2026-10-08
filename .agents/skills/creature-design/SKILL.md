@@ -163,8 +163,8 @@ statblock and canon.
 
 Follow [references/filing-and-operations.md](references/filing-and-operations.md)
 and copy `wiki/templates/Creature.md` exactly to `<World>/Creatures/<Name>.md`.
-Fill its existing sections in the template's order (At a glance, the First sight
-Narration, Statblock, Play, Depth and Links). Keep one `statblock` fence with `Basic 5e
+Fill its sections in the template's order, following each section's `%%`
+guidance and leaving out the `###` parts this Creature has nothing for. Keep one `statblock` fence with `Basic 5e
 Layout`, complete 2024 rules text, explicit derived values, and the template's
 Base view. Add at least one real incoming wikilink besides the generated index;
 an NPC's `creature` property counts.
@@ -190,7 +190,7 @@ Before commands, read the installed syntax with `bun run cf -- index --help`,
 `bun run cf -- check --help`, and `bun run cf -- log --help`. Regenerate indexes with the
 scoped `bun run cf -- index` command. Run the page gate, `bun run cf -- check`
 with no `--layer` given the Creature page and every page this run touched; all
-layers are mandatory, and the whole Wiki is still checked behind those paths.
+layers are mandatory.
 Use `--fix` only for mechanical repairs, then rerun the page gate.
 
 Log only once the page gate prints `ok: 0 findings`. When another skill invoked

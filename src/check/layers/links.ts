@@ -1,7 +1,7 @@
 import { buildLinkGraph } from "../../vault/links.ts";
 import type { Page } from "../../vault/types.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
-import { isSpecialPage, suggest } from "../util.ts";
+import { checkedPages, isSpecialPage, suggest } from "../util.ts";
 
 const LAYER = "links";
 
@@ -13,7 +13,7 @@ function headingList(page: Page): string {
 export function run(ctx: CheckContext): Finding[] {
 	const graph = buildLinkGraph(ctx.vault);
 	const findings: Finding[] = [];
-	for (const page of ctx.vault.pages) {
+	for (const page of checkedPages(ctx)) {
 		const path = ctx.display(page.path);
 		const add = (rule: string, line: number, message: string, hint: string): void => {
 			findings.push({ layer: LAYER, severity: "error", rule, path, line, message, hint });

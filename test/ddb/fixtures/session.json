@@ -1,0 +1,8 @@
+{
+	"cookies": [
+		{ "name": "CobaltSession", "value": "fixture-cobalt-1", "domain": ".dndbeyond.com", "path": "/" },
+		{ "name": "User.ID", "value": "4242", "domain": ".dndbeyond.com", "path": "/" },
+		{ "name": "verification-token", "value": "fixture-csrf-1", "domain": ".dndbeyond.com", "path": "/" }
+	],
+	"savedAt": "2026-10-06T12:00:00.000Z"
+}

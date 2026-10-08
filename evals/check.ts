@@ -1,9 +1,16 @@
 /** Deterministic case checks against live Wiki text overlaid with Runner output files. */
-import { existsSync, readFileSync, statSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, realpathSync, rmSync, statSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 import YAML from "yaml";
+import { narrationLayer } from "../src/check/layers/narration.ts";
+import { styleLayer } from "../src/check/layers/style.ts";
+import { UsageError } from "../src/check/errors.ts";
+import type { Finding } from "../src/check/types.ts";
+import { buildVault, readVaultFiles } from "../src/vault/vault.ts";
+import type { Template } from "../src/vault/types.ts";
 import { readRunnerOutput, wikiPagePath } from "./outputs.ts";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -17,14 +24,15 @@ Options:
   -h, --help      show this help
 
 cases.yaml is a list of { id, prompt, source_pages, raw_sources, checks, rubrics }.
-Checks: pages, sections, canon regexes and absent regexes. The .md extension is optional.
+Checks: pages (written by the run), sections, canon regexes and absent regexes. The .md extension is optional.
+After the case checks, the production gate (style and narration layers) runs read-only
+over the Outcome; findings on output pages become gate results — an error fails, a
+warning is reported (WARN) and passes.
 Exit codes: 0 all passed, 1 a quality check failed, 2 usage/cases/output error.
 
 Example:
   bun run eval:check theatre-of-the-mind fatespinner-chat wiki --output /tmp/runner-output
 `;
-
-class UsageError extends Error { }
 
 export interface Checks {
   pages?: string[];
@@ -45,14 +53,16 @@ export interface Case {
 export interface Result {
   ok: boolean;
   skip?: boolean;
+  /** Gate results carry the finding's severity: a warning is reported and passes, an error fails. */
+  severity?: Finding["severity"];
   kind: string;
   detail: string;
 }
 
 const CHECK_KEYS = ["pages", "sections", "canon", "absent"];
 
-function fail(message: string): never {
-  throw new UsageError(message);
+function fail(message: string, hint = ""): never {
+  throw new UsageError(message, hint);
 }
 
 function isStringList(value: unknown): value is string[] {
@@ -105,6 +115,8 @@ export function loadCases(file: string): Case[] {
 
 export interface Outcome {
   readPage: (path: string) => string | undefined;
+  /** True when the run itself returned this page, so a live page left untouched does not count as a deliverable. */
+  wrote: (path: string) => boolean;
 }
 
 /** Omitted pages remain live; output pages and recorded deletions shadow live files. */
@@ -119,7 +131,38 @@ export function createOutcome(vault: string, outputRoot: string): Outcome {
       const file = join(vault, page);
       return existsSync(file) && statSync(file).isFile() ? readFileSync(file, "utf8") : undefined;
     },
+    wrote: (path) => overlay.pages.has(wikiPagePath(path)),
   };
+}
+
+/**
+ * The production gate (`cf check`'s style and narration layers, ADR 0015) over the Outcome: the live
+ * Wiki with the run's output pages overlaid and its recorded deletions shadowing live pages. Read-only:
+ * no `--fix`, and Vale's scratch lives in a temp directory. Findings are scoped to the run's output
+ * pages — the Runner's writing — so live-Wiki noise never lands on a case. Setup failures (no Vale, no
+ * synced ai-tells) throw `UsageError` and exit 2, an execution error rather than a quality failure.
+ */
+export async function runGate(vaultDir: string, outputRoot: string): Promise<Finding[]> {
+  const overlay = readRunnerOutput(outputRoot);
+  const scratch = realpathSync(mkdtempSync(join(tmpdir(), "eval-gate-")));
+  try {
+    const files = await readVaultFiles(vaultDir);
+    for (const page of overlay.deleted) files.markdown.delete(page);
+    for (const [page, text] of overlay.pages) files.markdown.set(page, text);
+    const ctx = {
+      vault: buildVault(vaultDir, files),
+      // The style and narration layers read no templates.
+      templates: { byName: new Map<string, Template>(), types: new Map<string, string[]>() },
+      root: scratch,
+      display: (vaultPath: string): string => vaultPath,
+    };
+    const found = (await Promise.all([styleLayer.run(ctx), narrationLayer.run(ctx)])).flat();
+    return found
+      .filter((finding) => overlay.pages.has(finding.path))
+      .sort((a, b) => a.path.localeCompare(b.path) || a.line - b.line || a.layer.localeCompare(b.layer) || a.rule.localeCompare(b.rule));
+  } finally {
+    rmSync(scratch, { recursive: true, force: true });
+  }
 }
 
 export function toRegExp(source: string): RegExp {
@@ -153,8 +196,8 @@ function hasHeading(text: string, spec: string): boolean {
 export function runChecks(checks: Checks, outcome: Outcome): Result[] {
   const results: Result[] = [];
   for (const page of checks.pages ?? []) {
-    const ok = outcome.readPage(page) !== undefined;
-    results.push({ ok, kind: "pages", detail: `${page} ${ok ? "exists" : "is missing"}` });
+    const ok = outcome.wrote(page);
+    results.push({ ok, kind: "pages", detail: `${page} ${ok ? "written by the run" : "not written by the run"}` });
   }
   const perPage = (kind: "sections" | "canon" | "absent", test: (text: string, item: string) => boolean, pass: string, miss: string) => {
     for (const [page, items] of Object.entries(checks[kind] ?? {})) {
@@ -176,7 +219,7 @@ export function runChecks(checks: Checks, outcome: Outcome): Result[] {
 }
 
 
-function main(argv: string[]): number {
+async function main(argv: string[]): Promise<number> {
   let parsed;
   try {
     parsed = parseArgs({
@@ -206,17 +249,23 @@ function main(argv: string[]): number {
     const found = cases.find((c) => c.id === caseId);
     if (!found) fail(`no case "${caseId}" in ${relative(process.cwd(), casesFile)}; cases: ${cases.map((c) => c.id).join(", ")}`);
     if (!parsed.values.output) fail("--output <dir> is required; see --help for an example");
-    const results = runChecks(found.checks ?? {}, createOutcome(vault, resolve(parsed.values.output)));
-    for (const r of results) process.stdout.write(`${r.skip ? "SKIP" : r.ok ? "PASS" : "FAIL"}  ${r.kind}  ${r.detail}\n`);
+    const outputRoot = resolve(parsed.values.output);
+    const results = runChecks(found.checks ?? {}, createOutcome(vault, outputRoot));
+    for (const finding of await runGate(vault, outputRoot)) {
+      results.push({ ok: finding.severity !== "error", severity: finding.severity, kind: "gate", detail: `${finding.rule} ${finding.path}:${finding.line} ${finding.message}` });
+    }
+    for (const r of results) process.stdout.write(`${r.skip ? "SKIP" : !r.ok ? "FAIL" : r.severity === "warning" ? "WARN" : "PASS"}  ${r.kind}  ${r.detail}\n`);
     const failed = results.filter((r) => !r.ok).length;
     const skipped = results.filter((r) => r.skip).length;
-    process.stdout.write(`${failed === 0 ? "ok" : "failed"}: ${results.length - failed - skipped} passed, ${failed} failed, ${skipped} skipped for ${skill}/${caseId}\n`);
+    const warnings = results.filter((r) => r.severity === "warning").length;
+    process.stdout.write(`${failed === 0 ? "ok" : "failed"}: ${results.length - failed - skipped - warnings} passed, ${failed} failed, ${skipped} skipped, ${warnings} gate warnings for ${skill}/${caseId}\n`);
     return failed === 0 ? 0 : 1;
   } catch (error) {
     if (!(error instanceof Error)) throw error;
-    process.stderr.write(`error: ${error.message}\n\n${USAGE}`);
+    const hint = error instanceof UsageError && error.hint ? `\n  ${error.hint}` : "";
+    process.stderr.write(`error: ${error.message}${hint}\n\n${USAGE}`);
     return 2;
   }
 }
 
-if (import.meta.main) process.exitCode = main(process.argv.slice(2));
+if (import.meta.main) void main(process.argv.slice(2)).then((code) => { process.exitCode = code; });

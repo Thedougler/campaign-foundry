@@ -29,7 +29,7 @@ creature: "[[Commoner]]"
 
 ### History
 
-Cap'n Gorgeous led the Crown boarding party that came down into the [[Saltwright]]'s hold. A poisoned arrow and a musket shot put him down in the dark, and [[Crissdalynn Khinriss]] dragged him behind Perrin Black-Jaw's illusory doorway. Two deckhands followed the illusion and did not come back. The fight went on without them. The Crown counts him dead. [[Rupert Knighton]] took the loss as a father would, because Gorgeous was effectively his son, and word of the death has not yet reached him. [[Shepherd Grigori]] told the Party what he knew of Gorgeous, and of the ships Knighton would send once it did.
+Cap'n Gorgeous led the Crown boarding party that came down into the [[Saltwright]]'s hold. A poisoned arrow and a musket shot put him down in the dark, and [[Crissdalynn Khinriss]] dragged him behind Perrin Black-Jaw's illusory doorway. The pair of deckhands who followed the illusion did not come back. The fight went on without them. The Crown counts him dead. [[Rupert Knighton]] took the loss as a father would, because Gorgeous was effectively his son, and word of the death has not yet reached him. [[Shepherd Grigori]] told the Party what he knew of Gorgeous, and of the ships Knighton would send once it did.
 
 ### Threads
 

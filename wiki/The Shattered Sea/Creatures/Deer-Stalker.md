@@ -22,11 +22,11 @@ sources:
 - **Role at the table.** Ambusher. It waits in dim shade for one creature, and the lunge drags its catch toward the dark.
 - **Threat.** CR 8. Three claws a turn at a 10-foot reach, and a grapple that ends in a drag toward deeper foliage, give its movement its teeth.
 - **Tell.** The whole body winds up where all can watch it. Weight rocks back, a breath before the lunge.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation. Open light strips its approach, and standing shoulder to shoulder denies it a target with no ally near.
+- **Weak to.** Ground without shade. Open light strips its approach, and standing shoulder to shoulder denies it a target with no ally near.
 - **Used by.** [[River Otter]] patrols the same territory.
 
 > [!narration] First sight
-> The deer-stalker hunts out of dim shade, and the last stretch closes in one low strike with claws already spread. It rocks its weight back first, the whole body winding up in plain view before the lunge lands. One claw snags a limb, and the drag begins, back toward deeper foliage. Pressed hard, it gives ground toward the dark.
+> The deer-stalker stalks out of dim shade, and the last stretch closes in one low strike with claws already spread. It rocks its weight back first, the whole body winding up in plain view before the lunge comes. One claw snags a limb, and the drag begins, back toward deeper foliage. Pressed hard, it gives ground toward the dark.
 
 ## Statblock
 
@@ -75,7 +75,7 @@ reactions:
 
 ### Tactics
 
-Open from deep shade at the Party's flank and show the winding body before the first lunge. Let the Party answer with positioning, cover, or focused fire. It backs away into deeper shade once its ambush is spent or it is badly hurt.
+Open from deep shade at the Party's flank and show the winding body before the first lunge. The Party drags the fight into open light and keeps close together. Focused fire then ends the ambush. It backs away into deeper shade once its ambush is spent or it is badly hurt.
 
 ### Outside a fight
 
@@ -89,7 +89,7 @@ It haunts the dim mid-storey of the Shattered Sea's woods and eats what it can d
 
 ### Hidden truths
 
-A close look at its territory shows the pattern of its ambushes, a target apart from its allies on a shaded path, and with the pattern its weaknesses. A successful relevant Intelligence check confirms them.
+A close look at its territory shows the pattern of its ambushes, a target apart from its allies on a shaded path, and with the pattern its weaknesses. One Intelligence check bears both out.
 
 ## Links
 

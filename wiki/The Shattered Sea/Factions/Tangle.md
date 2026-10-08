@@ -32,7 +32,7 @@ The [[Passage]] grew from the [[Warren]] around 1240 DR without a public hierarc
 
 ### Threads
 
-The Tangle sits behind the Passage's standing with the Party and the rescue work in [[Bring the Pearl of Souls to Umberlee]].
+The Tangle underlies the Passage's standing with the Party and the rescue work in [[Bring the Pearl of Souls to Umberlee]].
 
 ## Links
 

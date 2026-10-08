@@ -6,8 +6,9 @@ import type { CSpellSettings } from "cspell-lib";
 import type { Page } from "../../vault/types.ts";
 import { cachedByPage, hash, lockfileSalt } from "../cache.ts";
 import type { CachedFinding } from "../cache.ts";
-import { lineAt, lineStarts, proseView, prosePages, sourceOffset, templateWords, toolRoot, vaultNameWords, vaultWordList } from "../prose.ts";
+import { isProsePage, lineAt, lineStarts, proseView, sourceOffset, templateWords, toolRoot, vaultNameWords, vaultWordList } from "../prose.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
+import { checkedPages } from "../util.ts";
 
 const LAYER = "spelling";
 const MAX_SUGGESTED_WORDS = 40;
@@ -69,14 +70,14 @@ function finding(word: string, line: number, near: string[]): CachedFinding {
 		message: `\`${word}\` is not in the British English dictionary, the D&D term list, a template, the vault word list or any page name.`,
 		hint: [
 			near.length > 0 ? `Did you mean ${near.map((s) => `\`${s}\``).join(", ")}? Use British spelling (harbourmaster, organised).` : "Correct the spelling; use British English (harbourmaster, organised).",
-			"For an in-world name, give it a page (a Wiki page named for it makes it a known word) or, if it is a coinage no page fits, add it to .cspell-words.txt at the vault root; for a D&D rules term, add it to .cspell/dnd-terms.txt.",
+			"For an in-world name, give it a page (a Wiki page named for it makes it a known word) or, if it is a coinage no page fits or a real-world word no dictionary has, add it to .cspell-words.txt at the vault root; for a D&D rules term, add it to .cspell/dnd-terms.txt.",
 		].join(" "),
 	};
 }
 
 export async function run(ctx: CheckContext): Promise<Finding[]> {
 	const words = [...vaultNameWords(ctx.vault), ...templateWords(ctx.templates), ...(await vaultWordList(ctx.vault))];
-	const pages = prosePages(ctx.vault);
+	const pages = checkedPages(ctx).filter(isProsePage);
 	const config = await Promise.all([".cspell/dnd-terms.txt", "cspell.json"].map((file) => readFile(join(toolRoot, file), "utf8").catch(() => "")));
 	// A page's answer depends on its text, cspell's version, the committed config and word list, and the name dictionary.
 	const salt = hash(`${await lockfileSalt()}|${config.join("\n")}|${words.join(",")}`);
@@ -92,7 +93,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 			out.set(page, list);
 		}
 		return out;
-	});
+	}, ctx.target !== undefined);
 	return pages.flatMap((page) => (byPage.get(page) ?? []).map((f): Finding => ({ ...f, severity: "error", path: ctx.display(page.path) })));
 }
 

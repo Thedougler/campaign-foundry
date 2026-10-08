@@ -1,0 +1,20 @@
+{
+	"kind": "cf-ddb-capture",
+	"version": 1,
+	"capturedAt": "2026-10-06T12:00:00.000Z",
+	"notes": "fixture: created one private homebrew monster",
+	"requests": [
+		{
+			"method": "POST",
+			"url": "https://www.dndbeyond.com/api/homebrew/monster/create",
+			"headers": {
+				"Content-Type": "application/json",
+				"Authorization": "<session>",
+				"Cookie": "<session>"
+			},
+			"body": "{\"name\":\"cf-test Bloodhawk\"}",
+			"status": 200,
+			"responsePreview": "{\"id\":4000001}"
+		}
+	]
+}

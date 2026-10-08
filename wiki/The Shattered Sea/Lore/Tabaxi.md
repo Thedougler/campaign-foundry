@@ -7,7 +7,7 @@ sources:
 
 ## At a glance
 
-- **The truth.** Tabaxi are a feline folk who hold [[Keth-Naar]], the city at the [[Blue Hole]]'s edge east of the [[Drowned Maw]].
+- **The truth.** Tabaxi are a feline folk whose city is [[Keth-Naar]], at the [[Blue Hole]]'s edge east of the [[Drowned Maw]].
 - **Who knows it.** Western crews that have run the eastern road know the city. [[Perrin Black-Jaw]] washed up there after the Vestra went down.
 - **Limits.** Tabaxi numbers, customs and range beyond Keth-Naar are beyond the record.
 - **Reaches play through.** The last city on the eastern road, and the water and repairs its harbour sells before the unmarked water beyond.

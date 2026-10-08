@@ -1,0 +1,19 @@
+{
+	"kind": "cf-ddb-capture",
+	"version": 1,
+	"capturedAt": "2026-10-07T05:37:00.000Z",
+	"notes": "UI save of the monster builder form: POST multipart/form-data carrying EVERY form field (wysiwyg pairs and empty ones included) plus the edit page's fresh security-token/authenticity-token hidden inputs; the URL embeds the monster's CURRENT slug, which changes on rename; 303 on success. The body below is a redacted sample only: the adapter rebuilds the complete body per run by parsing the live edit page's field-* controls and overriding the canonical fields (docs/adr/0022). Captured live 2026-10-07.",
+	"requests": [
+		{
+			"method": "POST",
+			"url": "https://www.dndbeyond.com/homebrew/creations/monsters/6833448-copy_of_blood-hawk/edit",
+			"headers": {
+				"Content-Type": "multipart/form-data; boundary=<boundary>",
+				"Cookie": "<session>"
+			},
+			"body": "--<boundary>\r\nContent-Disposition: form-data; name=\"security-token\"\r\n\r\n<session>\r\n--<boundary>\r\nContent-Disposition: form-data; name=\"authenticity-token\"\r\n\r\n<session>\r\n…(every field-* control of the live edit page follows, sample only)…\r\n--<boundary>--\r\n",
+			"status": 303,
+			"responsePreview": "303 See Other -> the builder reloads at the (possibly renamed) monster's edit URL"
+		}
+	]
+}

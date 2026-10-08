@@ -9,7 +9,7 @@ sources:
 
 - **Role at the table.** Noncombatant.
 - **Threat.** CR 0. A 5-foot reach and a two-handed club are the whole of it, enough to press only the careless.
-- **Tell.** The swing is readable well before it lands, and the club hangs a moment at the top of its arc.
+- **Tell.** The swing is readable well before the club comes down, and it hangs a moment at the top of its arc.
 - **Weak to.** Cover, broken ground, and getting inside the swing leave it harmless. Scatter the group it stands with, and it has nothing to lean on.
 - **Used by.** [[Grung (Creature)]] patrols the same territory.
 
@@ -41,11 +41,11 @@ actions:
 
 ### Tactics
 
-Open on the home ground it knows, and let the raised club announce the one swing it has. The Party answers with positioning, cover, or focused fire. It runs once it is hurt or the weight of numbers turns against it.
+Open on the home ground it knows, and let the raised club announce the one swing it has. Getting inside the club's arc leaves it harmless, and cover gets the Party there. It runs once it is hurt or the weight of numbers turns against it.
 
 ### Outside a fight
 
-Boot prints, a worn path, and wood cut for the evening fire warn the Party that someone lives here before an encounter. The commoner keeps to home ground and does not chase far past it.
+Boot prints, a worn path, and wood cut for the evening fire warn the Party before an encounter that someone makes their home here. The commoner keeps to home ground and does not chase far past it.
 
 ## Depth
 

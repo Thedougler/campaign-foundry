@@ -33,7 +33,7 @@ Simone Tabarnack contracted the summoning beneath Mercatura. Solange Barret comp
 ### Hidden truths
 
 - Otar's regeneration fails for a round after fire or acid damage. His stalled caste transformation produces the foul miasma.
-- The corpse held a scrap of paper nobody has read, while the summoning circle remained beneath the rubble.
+- A scrap of paper nobody has read stayed with the corpse, and the summoning circle remained beneath the rubble.
 
 ### Threads
 

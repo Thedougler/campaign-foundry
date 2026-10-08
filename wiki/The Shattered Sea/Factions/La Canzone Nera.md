@@ -16,7 +16,7 @@ aliases:
 - **Strength.** Technique no local band matches, an immaculate stage, and the Council families' favour.
 
 > [!narration] Public face
-> Four players in brushed coats take the stage, music stands squared, and open the set with each entry on time. Applause comes first from the Council quarter and lasts longest there. Word crosses the second bridge before the set ends, and it carries only one name, La Canzone Nera.
+> Players in brushed coats take the stage, four of them, music stands squared, and open the set with each entry on time. Applause comes first from the Council quarter and lasts longest there. Word crosses the second bridge before the set ends, and its one name is La Canzone Nera.
 
 ## Play
 
@@ -27,7 +27,7 @@ aliases:
 
 ### History
 
-They came to Calveno from the interior for the contest, favoured by the Council families. They win La Prova on execution and then watch their crowd erode across the two nights that follow.
+They came to Calveno from the interior for the contest, favoured by the Council families. They take La Prova on flawless technique. Across the two nights after it, their audience thins away.
 
 ## Links
 

@@ -28,7 +28,7 @@ creature: "[[Commoner]]"
 
 ### History
 
-Iacopo runs Concordat work in Calveno through letters and money. He holds debt on six of the Seven Houses and extends credit to the rest. After the Mercatura raid he claimed Concordat debt aloud and negotiated a reward with Delmar, Crissdalynn, Catarina, and Jean-Claude, binding the crew to his interests. He paid the Defenders with trade credit, Casa Falier and a diamond ring.
+Iacopo runs Concordat work in Calveno through letters and money. He holds debt on six of the Seven Houses and extends credit to the rest. After the Mercatura raid he claimed Concordat debt aloud and negotiated a reward with Delmar, Crissdalynn, Catarina, and Jean-Claude, binding the crew to his interests. He paid the Defenders with trade credit, [[Casa Falier]] and a diamond ring.
 
 ### Hidden truths
 

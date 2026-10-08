@@ -9,6 +9,8 @@ sources:
  - "archive/ssw-session-04-ingest-recap.md"
  - "archive/collab-2026-10-04-authority-themes.md"
  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+ - "archive/agentic-co-dm-nona-black-jaw-narration.md"
+ - "archive/Episode-09-Transcript.md"
 creature: "[[Commoner]]"
 aliases:
  - "Nona"
@@ -26,7 +28,7 @@ aliases:
 - **Found at.** Her guarded kitchen safe house in the Warren, Calveno.
 
 > [!narration] First look
-> A very small Rattkin woman sits perfectly straight by the kitchen fire, silver-white fur against the dark jaw mask her family takes its name from, a flour-dusted floral apron over dark, well-made cloth. Garlic and fresh bread hang in the air, and the kitchen runs like a courtroom. She hears the case. She issues the ruling. Sharp pink-rimmed eyes find you last, on purpose. "Sit. You eat first."
+> By the kitchen fire a very small Rattkin woman sits perfectly straight, calloused paws moving a pen across one receipt after another without a pause. Silver-white fur stands out against the dark jaw mask her family takes its name from, and a flour-dusted floral apron covers dark, well-made cloth. Garlic and fresh bread hang in the air, and under it the kitchen runs like a courtroom, knives and names and the scrape of a stool being claimed. She hears the case and issues the ruling. She never raises her voice, and the queue thins when she looks up. Sharp pink-rimmed eyes find you last, on purpose. "Sit. You eat first."
 
 ## Play
 
@@ -55,7 +57,7 @@ She called in the favour by sending stone, telling Perrin to gather his friends 
 
 When her grandson's name surfaced with the capture of the Surety, her search for him was already live, and her message reached him through [[Beaumont Sel]].
 
-Nona was warned by sending stone about the HCS Ordinance and the Hound.
+Perrin reported Thunk's refit spending on the [[Uncertainty]] to her by sending stone the day the Party left Calveno, and she answered: "I know about the money. I figured guns were useful for protecting yourself, but the break room is unnecessary." The next day Delmar warned her that the Dravosi were coming to Calveno. She asked which ship, and whether they meant to occupy the harbour or just park in it. The Party gave her the name, the [[HCS Ordinance]], and Perrin added that the Hound of Tyr was named [[Aleksander Malone|Aleksander]] and that he was hunting [[Shepherd Grigori]]. The Hound she already knew by reputation. Of Grigori she knew little.
 
 ### Hidden truths
 

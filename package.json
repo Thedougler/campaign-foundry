@@ -1,10 +1,20 @@
 {
   "type": "module",
   "packageManager": "bun@1.3.14",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "cf": "node src/cli.ts",
-    "lint:agent-text": "node src/cli.ts style .omp/skills/collab-with-me .omp/skills/lint .omp/agents/creative-writer.md .omp/agents/persona.md docs/agents/scene-pages.md docs/agents/co-writing.md wiki/templates .agents/skills/plan-session .agents/skills/prep-session .agents/skills/hook-scene .agents/skills/development-scene .agents/skills/cliffhanger-scene .agents/skills/climax-scene .agents/skills/resolution-scene .agents/skills/theatre-of-the-mind .agents/skills/npc-design .agents/skills/faction-design .agents/skills/location-design .agents/skills/lore-design .agents/skills/creature-design .agents/skills/item-design .agents/skills/dungeon-design .agents/skills/vehicle-design .agents/skills/spell-design .agents/skills/simulate-npcs .agents/skills/new-world .agents/skills/new-campaign .agents/skills/ingest .agents/skills/audit",
+    "lint:agent-text": "node src/cli.ts style .omp/skills/collab-with-me .omp/skills/lint .omp/agents/creative-writer.md .omp/agents/persona.md .omp/agents/transcript-reader.md docs/agents/scene-pages.md docs/agents/co-writing.md wiki/templates .agents/skills/plan-session .agents/skills/prep-session .agents/skills/hook-scene .agents/skills/development-scene .agents/skills/cliffhanger-scene .agents/skills/climax-scene .agents/skills/resolution-scene .agents/skills/theatre-of-the-mind .agents/skills/npc-design .agents/skills/faction-design .agents/skills/location-design .agents/skills/lore-design .agents/skills/creature-design .agents/skills/item-design .agents/skills/dungeon-design .agents/skills/vehicle-design .agents/skills/spell-design .agents/skills/simulate-npcs .agents/skills/new-world .agents/skills/new-campaign .agents/skills/ingest .agents/skills/audit",
     "setup": "vale sync && node scripts/vale-patch.ts",
+    "py:install": "uv sync --directory python",
+    "py:lint": "uv run --directory python ruff check .",
+    "py:fmt": "uv run --directory python ruff format .",
+    "py:fmt:check": "uv run --directory python ruff format --check .",
+    "py:test": "uv run --directory python pytest",
+    "py:test:slow": "uv run --directory python --extra highlights pytest -m slow",
+    "check:all": "bun run lint:agent-text && bun run typecheck && bun run test && bun run py:lint && bun run py:fmt:check && bun run py:test",
     "typecheck": "tsc",
     "test": "vitest run",
     "eval:check": "bun evals/check.ts"
@@ -43,6 +53,7 @@
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.4",
+    "@oh-my-pi/pi-coding-agent": "18.8.0",
     "@types/mdast": "^4.0.4",
     "@types/node": "^26.6.3",
     "@types/stopword": "^2.0.3",

@@ -10,11 +10,11 @@ sources:
 - **Role at the table.** Warrior.
 - **Threat.** CR 2. Poison rides both its dagger and its shortbow, and the Mesmerizing Chirr can hold a whole trail still.
 - **Tell.** The throat swells, the chirr rises, and the legs bend before each leap.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation. Cover spoils the bow's aim, and the chirr touches nothing that cannot hear it.
+- **Weak to.** Cover spoils the bow's aim, and the chirr touches nothing that cannot hear it, so step inside both and it must leap.
 - **Used by.** [[Minor Slaad]] patrols the same territory.
 
 > [!narration] First sight
-> The grung elite warrior steps out along the branch, a small frog-bodied fighter with a dagger in one fist and a shortbow slung across its back. Its throat swells and a chirr rolls out over the trail, rising as its legs bend for a leap. When it springs, the jump carries it across half the gap at a bound, dagger leading.
+> The grung elite warrior steps out along the branch, a small frog-bodied fighter with a dagger in one fist and a shortbow slung across its back. Its throat swells and a chirr rolls out over the trail, rising as its legs bend for a leap. When it springs, it crosses half the gap at a bound, dagger leading.
 
 ## Statblock
 
@@ -64,7 +64,7 @@ actions:
 
 ### Tactics
 
-Open from the branches above the trail, where the shortbow and the 25-foot leap both serve, and let the swelling throat announce the chirr. The Party answers with positioning, cover, or focused fire. It springs away through the canopy once the leap no longer serves or its wounds mount.
+Open from the branches above the trail, where the shortbow and the 25-foot leap both serve, and let the swelling throat announce the chirr. The Party meets it with positioning, cover, or focused fire. It springs away through the canopy once the leap no longer serves or its wounds mount.
 
 ### Outside a fight
 
@@ -78,7 +78,7 @@ It lives in the branches above the Shattered Sea's waterways, and its diet follo
 
 ### Hidden truths
 
-Careful examination of its haunts shows the habits of its patrols, and with them its weaknesses. A successful relevant Intelligence check confirms them.
+Careful examination of its haunts shows the habits of its patrols, and with them its weaknesses. A successful relevant Intelligence check confirms the routes its patrols walk, and through them the failings of both bow and chirr.
 
 ## Links
 

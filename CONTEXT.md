@@ -14,6 +14,10 @@ _Avoid_: GM, user, Dungeon Master (in prose, fine to expand once)
 A human who plays a PC at the DM's table. Never a character in the fiction.
 _Avoid_: user, PC (the character, not the human)
 
+**Guest character**:
+An NPC whom a guest Player, someone beyond the Campaign's regular Players, plays as a member of the Party for a quest. Its page stays an NPC page. Its quest deeds go into that page's History and into the Recap as a PC's do, with no PC page and no `pull-pcs`. A guest adds a Player to the table, and every PC is still at the table.
+_Avoid_: guest PC, temporary PC, quest character
+
 **Agent**:
 The AI assistant that does worldbuilding, Prep and Ingest between Sessions. Never present at the table.
 _Avoid_: co-DM, AI DM, assistant
@@ -166,6 +170,22 @@ _Avoid_: boxed text, read-aloud, flavour text
 The full text of one recorded Session, handed to the Agent as Raw.
 _Avoid_: log, recording (that's the audio), notes
 
+**Session Ledger**:
+The line-cited record of what happened in one Session, built from its Transcript by Transcript readers and kept in `archive/` beside it; Ingest writes the Wiki from it.
+_Avoid_: transcript summary, notes, companion
+
+**Laugh Highlights**:
+The Session's biggest table laughs, measured from its recording by `cf transcript highlights` and aligned with the lines of a timestamped Transcript (markdown or CSV); the detector proposes them, and Ingest judges which are play before they enter the Session Ledger as MOMENT events.
+_Avoid_: funniest moments, laugh track, highlight reel
+
+**Transcript Summary**:
+The AI summary TranscribeX exports beside a Transcript: an index of candidate events that Ingest checks against the Session Ledger, never evidence.
+_Avoid_: recap, meeting report
+
+**TranscribeX Dictionary**:
+`transcribex-dictionary.csv` at the repo root: misheard words mapped to their Canon spelling, which the DM imports into TranscribeX so later Transcripts come out right.
+_Avoid_: glossary, word list
+
 **Handout**:
 Anything meant for the Players' eyes, such as a letter, wanted poster, player map or portrait. The only material Push makes visible to Players.
 _Avoid_: prop, player document, reveal
@@ -175,7 +195,7 @@ The DM-facing account of what happened in one Session, compiled from its Transcr
 _Avoid_: summary, session notes, log
 
 **Previously On**:
-A short account of the last Session, written for the DM to read aloud to the Players at the start of the next one.
+A short account of the last Session, written for the DM to read aloud to the Players at the start of the next one, so they pick up where they left off. It lives in the folder of the Session it opens.
 _Avoid_: player recap, read-aloud recap, boxed text
 
 ### Creative work
@@ -299,10 +319,10 @@ The grader that scores every Prose Benchmark sample — Opus 5.5 when the claude
 The families under test and their pinned cheap and top models, kept in `evals/models.yaml`.
 
 **Prose Benchmark**:
-The rarely-run, cached ranking of Matrix families by Narration quality, one sample per content type. Every prompt in it is committed and rendered deterministically (Runner brief, Judge brief).
+The rarely-run, cached ranking of Matrix families by Narration quality, one sample per content type. Every prompt in it is committed and rendered deterministically (Runner brief, Judge brief); its run outputs (`evals/benchmark.json`, `evals/benchmark.md`, and everything under `evals/benchmark-samples/` except the briefs) are untracked, gitignored and archived locally under `archive/evals-benchmark/`.
 
 **Runner brief**:
-The committed, byte-exact prompt a benchmark entry runs from: the entry's `context`, then its `prompt` verbatim, rendered by `cf bench briefs` into `evals/benchmark-samples/<bench_version>/<id>/<id>.brief.md`.
+The byte-exact prompt a benchmark entry runs from: the entry's `context`, then its `prompt` verbatim, rendered by `cf bench briefs` into `evals/benchmark-samples/<bench_version>/<id>/<id>.brief.md`, committed.
 
 **Judge brief**:
 The committed scoring prompt `evals/bench/judge-brief.md`, filled per anonymized sample by `cf bench judge-brief`. The Judge sees the writer's brief, the sample and the rubrics — nothing that names a family or model.

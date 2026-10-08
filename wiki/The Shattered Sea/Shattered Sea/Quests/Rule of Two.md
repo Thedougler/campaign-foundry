@@ -12,11 +12,11 @@ status: active
 - **Reward.** No promised reward. Leverage over the faction's routes is possible.
 - **Deadline.** None fixed. Pressure rises when either Talon cuts off the other.
 - **Done when.** Crissdalynn is protected or the contest redirects or breaks the hunt.
-- **Failed when.** The faction reaches the Fate Spinner carrier and gives Vantyrus its transformation path.
+- **Failed when.** The faction gets to the Fate Spinner carrier and gives Vantyrus its transformation path.
 - **Advances.** The faction and the [[Fate Spinner]] hunt.
 
 > [!narration] The offer
-> Two Talons claim the same order, and one of them wants the master gone. The other treats the apprentice like a standing threat. Names vanish from ledgers, and Crissdalynn is who the contest would sharpen into a weapon.
+> A pair of Talons claims the same order, and one of them wants the master gone. The other treats the apprentice like a standing threat. Names vanish from ledgers, and Crissdalynn is who the contest would sharpen into a weapon.
 
 ## Play
 
@@ -29,7 +29,7 @@ status: active
 
 ### Hidden truths
 
-Vantyrus leads the faction and wants the Fate Spinner's gift tied to Soul Incarnate transformation. Skarn hunts for him now but will try to kill him once trained enough. Both know this. Whoever wins controls the surviving routes, while one-job contacts continue only assignments they already know.
+Vantyrus leads the faction. He wants the Fate Spinner's gift tied to Soul Incarnate transformation. Skarn is his hunter for now but will try to kill him once trained enough. Both know this. Whoever wins controls the surviving routes, while one-job contacts continue only assignments they already know.
 
 ## Links
 

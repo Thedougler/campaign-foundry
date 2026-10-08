@@ -1,0 +1,10 @@
+{
+	"id": "cf-bridge",
+	"title": "Campaign Foundry Bridge",
+	"description": "Connects this world to the campaign-foundry control daemon over an authenticated WebSocket, answering its document, compendium, setting, macro and event tools. The mutation discipline (dry run, preconditions, idempotency, backup, verification) lives daemon-side.",
+	"version": "0.1.0",
+	"authors": [{ "name": "Campaign Foundry" }],
+	"esmodules": ["main.mjs"],
+	"compatibility": { "minimum": "12", "verified": "14" },
+	"license": "MIT"
+}

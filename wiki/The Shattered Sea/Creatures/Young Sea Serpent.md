@@ -11,7 +11,7 @@ sources:
 - **Threat.** Expect a pod rather than one animal.
 
 > [!narration] First sight
-> A wake circles your hull with no whale in it. Heads rise along the wake and hold their distance.
+> A wake circles your hull with no whale in it. Heads rise along the wake and stay at a distance.
 
 ## Statblock
 

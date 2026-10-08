@@ -53,7 +53,7 @@ This is a minimal 2024 SRD flying blood-feeder adaptation because the archive gi
 
 ### Outside a fight
 
-Moucherons roost in warm rafters and approach quietly. A smear of blood and tiny punctures reveal a feeding site.
+A Moucheron roosts in warm rafters and approaches quietly. A smear of blood and tiny punctures reveal a feeding site.
 
 ## Depth
 

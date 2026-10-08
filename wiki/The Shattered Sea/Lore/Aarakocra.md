@@ -19,7 +19,7 @@ sources:
 
 - **Players notice.** Crissdalynn steps off the rail into open air and the wind carries her. Her *gust of wind* arrives without material components. She picks out land or sail well before the lookout calls it.
 - **Clues.** Wind with no weather behind it marks a Wind Caller, as at [[Uncertainty]]'s rail. A watcher in robes with every mark stripped away, mottled pale plumage and old eyes, is an aarakocra grown old, as with [[Osset]]. Ledgers recording time, weather, position and occurrence to the exact minute belong to aarakocra record-keepers, the [[Sentinels of the Eyrie]].
-- **Accounts.** Sailors tell the sky-born version, a folk that owes the sea nothing. The Sentinels tell it as duty: watch, record, do not interpret. Crissdalynn tells it as a trade: she charts from the air because the air is where she thinks. Each telling holds part of it.
+- **Accounts.** Sailors tell the sky-born version, a folk that owes the sea nothing. The Sentinels tell it as duty: watch, record, do not interpret. Crissdalynn tells it as a trade: she charts from the air because the air is where she thinks. Each telling gives a piece of the truth about the winged folk.
 
 ## Depth
 
@@ -30,7 +30,7 @@ Aarakocra are medium humanoids, feathered from crown to heel, with large wings c
 ### Known aarakocra
 
 - [[Master Kyzil]], a barn-owl aarakocra and master of the Sentinels at High Eyrie.
-- [[Osset]], a snowy-owl aarakocra grown old, the master who once taught the Sentinels.
+- [[Osset]], a snowy-owl aarakocra grown old, the master who once trained the Sentinels.
 - [[Talon Vantyrus]], an aged snowy-owl aarakocra who watches without blinking, a thin blade at his hip.
 - [[Talon Skarn]], a peregrine aarakocra in a black robe with chains, who attacked the Party on Aruhe.
 - [[Crissdalynn Khinriss]], the crew's aarakocra Kensei monk, level 5, a cartographer who works from above.

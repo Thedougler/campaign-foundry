@@ -15,6 +15,32 @@ sources:
 
 ## Statblock
 
+```statblock
+layout: Basic 5e Layout
+name: "Giant Shark"
+size: Huge
+type: beast
+alignment: unaligned
+ac: 13
+hp: 92
+hit_dice: "8d12 + 40"
+speed: "5 ft., swim 60 ft."
+stats: [23, 11, 21, 1, 10, 5]
+skillsaves:
+  - perception: 3
+senses: "blindsight 60 ft., passive Perception 13"
+languages: "none"
+cr: "5"
+traits:
+  - name: Water Breathing
+    desc: "The shark can breathe only underwater."
+actions:
+  - name: Multiattack
+    desc: "The shark makes two Bite attacks."
+  - name: Bite
+    desc: "Melee Attack Roll: +9, reach 5 ft., one target. Advantage on the roll if the target does not have all its Hit Points. Hit: 22 (3d10 + 6) Piercing damage."
+```
+
 ## Play
 
 ### Outside a fight

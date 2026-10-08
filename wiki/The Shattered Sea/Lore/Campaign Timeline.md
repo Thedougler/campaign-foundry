@@ -26,7 +26,7 @@ sources:
 
 ### The full truth
 
-The Antheri built into the far sidewall of the Drowned Maw towards the Elemental Plane of Water around 2000 years before the current era. They vanished in 495 DR. Their departure left the breach and their machinery behind. The Sentinels of the Eyrie began watching the Maw in 1295 DR. The Dravosi Crown, Tessarine Concordat, Passage, and the independent Scatter each influence modern routes. In 1495 DR Admiral Fisk assembled five ships to steal the Pearl of Souls from Umberlee's [[Umberlee's Shrine|shrine]] on [[Vel-Orn]]. The theft succeeded on Day -6. Umberlee destroyed the fleet over the Maw on Day -5, and the Pearl's signal drew the Leviathan through the fissure and woke Auralis.
+The Antheri built into the far sidewall of the Drowned Maw towards the Elemental Plane of Water around 2000 years before the current era. They vanished in 495 DR. Their departure left the breach and their machinery behind. The Sentinels of the Eyrie took up their watch over the Maw in 1295 DR. The Dravosi Crown, Tessarine Concordat, Passage, and the independent Scatter each influence modern routes. In 1495 DR Admiral Fisk assembled five ships to steal the Pearl of Souls from Umberlee's [[Umberlee's Shrine|shrine]] on [[Vel-Orn]]. The theft succeeded on Day -6. Umberlee destroyed the fleet over the Maw on Day -5, and the Pearl's signal drew the Leviathan through the fissure and woke Auralis.
 
 ### Chronology
 

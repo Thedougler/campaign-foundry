@@ -82,7 +82,7 @@ Use Beaumont's archived NPC account for the habitat he occupies, his diet and th
 
 ### Hidden truths
 
-Beaumont's archived record holds both his past and his concealed reasons for acting. Relevant questions or examination can bring those details to light.
+Beaumont's archived record contains both his past and his concealed reasons for acting. Relevant questions or examination can bring those details to light.
 
 ## Links
 

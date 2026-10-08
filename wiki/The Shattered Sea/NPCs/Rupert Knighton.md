@@ -4,6 +4,7 @@ summary: "Commodore of the Knight Squadron, tightening the Crown net around the 
 sources:
  - "archive/rupert-knighton.md"
  - "archive/ssw-session-02.md"
+ - "archive/Episode-09-Transcript.md"
 creature: "[[Commoner]]"
 ---
 
@@ -30,6 +31,12 @@ creature: "[[Commoner]]"
 ### History
 
 Rupert commands the Knight Squadron and calls every Crown vessel under him a Knight. Captain Gorgeous was effectively his son. Barnaby Rook served as his tool, while Dorian Bishop is the escalation before Rupert acts directly. His ships have chased the wrong trail toward Calveno and still have not identified the Uncertainty as the Surety's alias.
+
+#### Session 9: the private fleet
+
+The [[HCS Ordinance]], a Dravosi Crown man-of-war built at Harwick, belonged to Rupert's private fleet when it intercepted the [[Uncertainty]].
+
+[[Corbin Knighton]] told Catarina that Rupert had dispatched him and that he was newly in charge of the knights. Catarina said she had spoken with Rupert, who had strongly encouraged her to evacuate [[Calven and Calveno|Calveno]].
 
 ### Hidden truths
 

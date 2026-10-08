@@ -8,13 +8,13 @@ sources:
 ## At a glance
 
 - **Role at the table.** Scout.
-- **Threat.** CR 1/4. Use its attack range, movement, or control to pressure the Party.
+- **Threat.** CR 1/4. It presses with a dagger thrown out to sixty feet and a standing leap that covers twenty-five feet.
 - **Tell.** It goes dead still and stares at one point before the dagger hand moves.
-- **Weak to.** Cover, terrain, and breaking its preferred range or formation. Its poison works only by touch, and a spear's reach is the longer of the two weapons.
+- **Weak to.** Its poison works only by touch, and a spear's reach is the longer of the two weapons. A steady spear holds it off.
 - **Used by.** [[Grung Elite Warrior]] patrols the same territory.
 
 > [!narration] First sight
-> Something small rises out of the shallows ahead of you and pulls itself onto a half-sunken rock, water running off its back. It moves in springs rather than steps, and one jump carries it out of the water and onto the rock. A dagger hangs ready in its hand, the blade bare. Then it goes still, watching the water, and has not turned your way yet.
+> Something small rises out of the shallows ahead of you and pulls itself onto a half-sunken rock, water running off its back. It moves in springs rather than steps, and with one jump it is out of the water and onto the rock. A dagger hangs ready in its hand, the blade bare. Then it goes still, watching the water, and has not turned your way yet.
 
 ## Statblock
 
@@ -58,7 +58,7 @@ actions:
 
 ### Tactics
 
-Open at the water's edge, where the scout can leap and swim, and let the sudden stillness announce the strike. The Party answers with positioning, cover, or focused fire. It retreats through the shallows once its watching is spoiled or it is badly hurt.
+Open at the water's edge, where the scout can leap and swim, and let the sudden stillness announce the strike. A braced line takes the leap away, and cover blunts the thrown daggers. Concentrated fire catches it before it swims clear. It retreats through the shallows once its watching is spoiled or it is badly hurt.
 
 ### Outside a fight
 
@@ -72,7 +72,7 @@ It lives along the Shattered Sea's shallows and banks, and its diet follows what
 
 ### Hidden truths
 
-Examination of its haunts shows how far its kind range from the water, and with the pattern its weaknesses. A successful relevant Intelligence check confirms them.
+Examination of its haunts shows how far its kind range from the water, and with the pattern its weaknesses. A successful relevant Intelligence check confirms the ranging pattern, and with it the touch-only poison of its skin.
 
 ## Links
 

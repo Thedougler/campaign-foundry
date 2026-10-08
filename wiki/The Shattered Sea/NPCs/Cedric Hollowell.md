@@ -15,7 +15,7 @@ creature: ""
 - **Found at.** Once, at the shore spot where Geoffrey and Verity danced, the evening he chose to be there.
 
 > [!narration] First look
-> His voice stays level. He has done the arithmetic, and he reads the terms off the ledger of what a man is worth.
+> His voice stays level. He has done the arithmetic, and he reads the terms off the ledger of what a man must provide.
 
 ## Play
 

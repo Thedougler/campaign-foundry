@@ -8,7 +8,7 @@ sources:
 ## At a glance
 
 - **Role at the table.** The NPC himself, as a named Creature unique to this record.
-- **Threat.** CR 8, most of it carried in nine levels of spell slots.
+- **Threat.** CR 8, most of it from nine levels of spell slots.
 - **Tell.** Skin that runs blue against red, the colours wandering as he moves.
 - **Weak to.** Room, for his venom must touch skin and his tongue stops at ten feet.
 - **Used by.** The NPC of the same name brings him to the table.
@@ -94,7 +94,7 @@ Away from a fight he is the NPC the table already knows, a grung whose skin wand
 
 ### Ecology
 
-His haunts, diet and traces all sit in his archived record, and travellers who study the ground can pick his signs out with Wisdom (Survival).
+His archived record lists his haunts, diet and traces, and travellers who study the ground can pick his signs out with Wisdom (Survival).
 
 ### Hidden truths
 
