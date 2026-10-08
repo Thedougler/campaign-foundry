@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import { walkBackup } from "../../src/backup/files.ts";
 import { type BackupMap, emptyMap } from "../../src/backup/map.ts";
 import { throttle } from "../../src/backup/notion.ts";
+import { dirMarker, pendingHeader, rootCallout } from "../../src/backup/markers.ts";
 import { estimate, planBackup, type Scope } from "../../src/backup/sync.ts";
 import { backup, FakeNotion, lfsPointer, repo, textOf } from "./helpers.ts";
 
@@ -181,6 +182,59 @@ describe("backup sync", () => {
 		expect(est).toMatchObject({ markdown: 3, text: 1, images: 1, skills: 1, dirs: 8 });
 		expect(est.blocks).toBeGreaterThan(5);
 		expect(est.requests).toBeGreaterThanOrEqual(2 + 8 + 5 + 5 + 2);
+	});
+
+	it("a folder renamed around its children moves only what really changed parents, retitles the folder, retires the emptied one", async () => {
+		const root = repo({
+			[`${W}/hot.md`]: "# Hot\n",
+			[`${W}/NPCs/Ilse Corran.md`]: "---\ntype: NPC\n---\n\nA tall woman.\n",
+			[`${W}/PCs/Tam.md`]: "---\ntype: PC\n---\n\nA ferry pilot.\n",
+		});
+		const api = new FakeNotion();
+		// Notion as the failed run left it: the old World folder page became the Campaign folder page (stale
+		// title), its kind subfolders stayed put, and the old nested Campaign folder page is emptied of dirs
+		// but the rerun must tolerate a page it already moved, and one whose old parent has no map entry.
+		const rootId = api.add(PARENT, "campaign-foundry backup", [rootCallout()]);
+		const wikiId = api.add(rootId, "wiki", [dirMarker("wiki")]);
+		const folderId = api.add(wikiId, "The Shattered Sea", [dirMarker(W)]);
+		const npcsId = api.add(folderId, "NPCs", [dirMarker(`${W}/NPCs`)]);
+		const retiredId = api.add(folderId, "Shattered Sea", [dirMarker("wiki/The Shattered Sea/Shattered Sea")]);
+		const pcsId = api.add(retiredId, "PCs", [dirMarker(`${W}/PCs`)]);
+		const tamId = api.add(pcsId, "Tam", [pendingHeader("wiki/The Shattered Sea/Shattered Sea/PCs/Tam.md")]);
+		const hotId = api.add(folderId, "hot", [pendingHeader("wiki/The Shattered Sea/hot.md")]);
+		const logId = api.add(folderId, "log", [pendingHeader("gone/Old/log.md")]);
+		const map = emptyMap(PARENT);
+		map.root = { id: rootId, url: `https://www.notion.so/${rootId}` };
+		const entry = (id: string, kind: "dir" | "markdown", movedFrom: string, retired?: true): BackupMap["entries"][string] => ({ kind, id, url: `https://www.notion.so/${id}`, movedFrom, ...(retired ? { retired } : {}) });
+		map.entries["wiki"] = { kind: "dir", id: wikiId, url: `https://www.notion.so/${wikiId}` };
+		map.entries[W] = entry(folderId, "dir", "wiki/The Shattered Sea");
+		map.entries[`${W}/NPCs`] = entry(npcsId, "dir", "wiki/The Shattered Sea/NPCs");
+		map.entries[`${W}/PCs`] = entry(pcsId, "dir", "wiki/The Shattered Sea/Shattered Sea/PCs");
+		map.entries[`${W}/hot.md`] = entry(hotId, "markdown", "wiki/The Shattered Sea/hot.md");
+		map.entries[`${W}/log.md`] = entry(logId, "markdown", "gone/Old/log.md");
+		map.entries[`${W}/PCs/Tam.md`] = entry(tamId, "markdown", "wiki/The Shattered Sea/Shattered Sea/PCs/Tam.md");
+		map.entries["wiki/The Shattered Sea/Shattered Sea"] = { kind: "dir", id: retiredId, url: `https://www.notion.so/${retiredId}`, retired: true };
+
+		const { result } = await backup(root, map, api, ALL);
+
+		expect(result.failures).toEqual([]);
+		// Ilse Corran is not in the map, so it is created; the six moved pages all count, whatever moved them.
+		expect(result.created).toBe(1);
+		expect(result.moved).toBe(6);
+		expect(result.retired).toBe(1);
+		const moves = api.calls.filter((c) => c.op === "move");
+		// No move is sent for a page whose parent page the layout renamed around it: the folder page, NPCs,
+		// hot and Tam (his parent page, PCs, is the renamed one). PCs moves out of the retired page for real.
+		// Log's old parent has neither a map key nor a rename, so its move is attempted even though it sits
+		// in place already — and Notion's same-parent refusal is taken as moved, not a failure.
+		expect(moves.map((c) => c.id).sort()).toEqual([logId, pcsId].sort());
+		expect(api.calls.some((c) => c.op === "retitle" && c.id === folderId && c.arg === "shattered-sea")).toBe(true);
+		expect(api.calls.some((c) => c.op === "trash" && c.id === retiredId)).toBe(true);
+		expect(api.pages.get(retiredId)?.inTrash).toBe(true);
+		for (const path of [W, `${W}/NPCs`, `${W}/PCs`, `${W}/hot.md`, `${W}/log.md`, `${W}/PCs/Tam.md`]) {
+			expect(map.entries[path]?.movedFrom, path).toBeUndefined();
+		}
+		expect(map.entries["wiki/The Shattered Sea/Shattered Sea"]).toBeUndefined();
 	});
 });
 

@@ -234,7 +234,21 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 			continue;
 		}
 		try {
-			await api.move(entry.id, parent);
+			// When the old path's parent page became the new parent page (a folder renamed around its children),
+			// the page already sits in place and Notion rejects a same-parent move. The map sees that without
+			// asking Notion: the old parent path is either a kept key or a renamed entry's movedFrom.
+			const old = entry.movedFrom!;
+			const slash = old.lastIndexOf("/");
+			const oldParentPath = slash === -1 ? "" : old.slice(0, slash);
+			const oldParent = map.entries[oldParentPath]?.id ?? Object.values(map.entries).find((e) => e.movedFrom === oldParentPath)?.id;
+			if (oldParent !== parent) {
+				try {
+					await api.move(entry.id, parent);
+				} catch (error) {
+					// Without old-parent data the lookups cannot see it; Notion's own answer settles it.
+					if (!message(error).includes("New parent must be different from the current parent")) throw error;
+				}
+			}
 			if (entry.kind === "dir") await api.retitle(entry.id, titleOf(path, "dir"), ICONS.dir);
 			result.moved++;
 		} catch (error) {

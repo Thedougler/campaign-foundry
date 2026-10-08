@@ -40,7 +40,7 @@ export interface FakePage {
 	createdTime: string;
 }
 
-const WRITES = new Set(["create", "append", "prepend", "update", "clear", "retitle", "trash", "upload"]);
+const WRITES = new Set(["create", "append", "prepend", "update", "clear", "retitle", "trash", "upload", "move"]);
 
 /**
  * An in-memory Notion holding a page tree: pages get ids p1, p2, …, child pages list under their parent, trashed pages
@@ -107,7 +107,9 @@ export class FakeNotion implements NotionApi {
 	async move(pageId: string, parentId: string): Promise<void> {
 		this.record({ op: "move", id: pageId, arg: parentId });
 		const page = this.pages.get(pageId);
-		if (page) page.parent = parentId;
+		if (!page) throw new Error(`no page ${pageId}`);
+		if (page.parent === parentId) throw new Error("validation_error: New parent must be different from the current parent");
+		page.parent = parentId;
 	}
 
 	async clear(pageId: string): Promise<void> {
