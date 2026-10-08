@@ -103,10 +103,11 @@ describe("cf check: layers and paths", () => {
 		expect(report.findings.every((f) => f.layer === "links" || f.layer === "orphans")).toBe(true);
 	});
 
-	it("reports only findings under the given paths, but checks the whole vault", async () => {
+	it("checks the given paths with the whole vault as link context", async () => {
 		// Lonely is an orphan only because nothing anywhere links to it: that needs the global link graph.
 		const scoped = await checkFixture("orphans", ["--layer", "orphans", join(fixtures, "orphans/wiki/Aldermoor/NPCs/Lonely.md")]);
 		expect(scoped.report.findings.map((f) => f.path)).toEqual(["wiki/Aldermoor/NPCs/Lonely.md"]);
+		expect(scoped.report.counts.pages).toBe(1);
 		const dir = await checkFixture("orphans", ["--layer", "orphans", join(fixtures, "orphans/wiki/Aldermoor/NPCs")]);
 		expect(dir.report.findings.map((f) => f.path)).toEqual([
 			"wiki/Aldermoor/NPCs/Lonely.md",
@@ -115,6 +116,7 @@ describe("cf check: layers and paths", () => {
 			"wiki/Aldermoor/NPCs/Orphan With Link.md",
 		]);
 		const clean = await checkFixture("orphans", ["--layer", "orphans", join(fixtures, "orphans/wiki/Aldermoor/NPCs/Linked.md")]);
+		expect(clean.report.counts.pages).toBe(1);
 		expect(clean.code).toBe(0);
 	});
 

@@ -11,9 +11,23 @@ ttsr:
   judge: "on"
 skills:
   ignoredSkills:
+    - "*-history-ingest"
+    - code-understand
+    - cross-linker
+    - daily-update
+    - graph-colorize
+    - impl-validator
+    - llm-wiki
+    - memory-bridge
+    - obsidian-layout-adjustment
     - omp
     - sentry-cli
-    - "vercel-*"
+    - session-brain
+    - session-search
+    - tag-taxonomy
+    - vault-skill-factory
+    - vercel-*
+    - wiki-*
     - tavily-*
     - exa-search
     - firecrawl-scrape

@@ -120,7 +120,7 @@ bun run cf -- check --fix --vault "$VAULT" --root "$ROOT" --templates "$VAULT/te
 bun run cf -- check --vault "$VAULT" --root "$ROOT" --templates "$VAULT/templates" "$NPC_PATH" "$CREATURE_PATH" "$THREAD_PATH"
 ```
 
-Run the page gate with no `--layer` filter, given the NPC, Creature and Thread pages and every other page this run touched; the whole Wiki is still checked behind those paths, across placement, links, orphans, statblock arithmetic, index, hot, log, Markdown, spelling, grammar, and style. Link every Creature the NPC uses so its 2024 arithmetic is checked. Fix findings on those pages, and rerun until the page gate reports `ok: 0 findings`. Never hand-edit `index.md`.
+Run the page gate with no `--layer` filter, given the NPC, Creature and Thread pages and every other page this run touched. It runs every layer on them: placement, links, orphans, statblock arithmetic, index, hot, log, Markdown, spelling, grammar, and style. Link every Creature the NPC uses so its 2024 arithmetic is checked. Fix findings on those pages, and rerun until the page gate reports `ok: 0 findings`. Never hand-edit `index.md`.
 
 For a standalone NPC creation, append one `create` entry only after the page gate reports `ok: 0 findings`:
 

@@ -5,8 +5,9 @@ import type { Configuration, LintError } from "markdownlint";
 import { lint } from "markdownlint/promise";
 import { parse } from "yaml";
 import type { Page } from "../../vault/types.ts";
-import { lintText, prosePages, toolRoot } from "../prose.ts";
+import { isProsePage, lintText, toolRoot } from "../prose.ts";
 import type { CheckContext, Finding, Fix, FixResult, Layer } from "../types.ts";
+import { checkedPages } from "../util.ts";
 
 const LAYER = "markdownlint";
 
@@ -52,7 +53,7 @@ async function lintPages(pages: Page[]): Promise<Map<Page, LintError[]>> {
 
 export async function run(ctx: CheckContext): Promise<Finding[]> {
 	const findings: Finding[] = [];
-	for (const [page, errors] of await lintPages(prosePages(ctx.vault))) {
+	for (const [page, errors] of await lintPages(checkedPages(ctx).filter(isProsePage))) {
 		for (const e of errors) {
 			const rule = e.ruleNames[0] ?? "markdownlint";
 			const detail = e.errorDetail ? ` ${e.errorDetail}` : "";
@@ -73,7 +74,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 
 export async function fix(ctx: CheckContext): Promise<FixResult> {
 	const fixes: Fix[] = [];
-	for (const [page, errors] of await lintPages(prosePages(ctx.vault))) {
+	for (const [page, errors] of await lintPages(checkedPages(ctx).filter(isProsePage))) {
 		const fixable = errors.filter((e) => e.fixInfo);
 		if (fixable.length === 0) continue;
 		const content = applyFixes(page.source, fixable);

@@ -1,6 +1,6 @@
 # Prose fixes
 
-Read by whoever fixes lint's `narration`, `style` and `boilerplate` findings: the lint run itself, or a subagent given a page batch. The page check is the **checker**. It runs in about two seconds and reports each rule a draft matches, with each echo's source and line. Check each draft at once and fix what the checker reports. A callout written fresh for a new stub page is judged the same way, pairing against the Canon facts it is drawn from.
+Read by whoever fixes lint's `narration`, `style` and `boilerplate` findings: the lint run itself, or a subagent given a page batch. The page check is the **checker**. It reports each rule a draft matches, with each echo's source and line. Check each draft at once and fix what the checker reports. A callout written fresh for a new stub page is judged the same way, pairing against the Canon facts it is drawn from.
 
 Each rewrite is judged as a **pair**: the block as it stood when you started, and your rewrite. A pair passes when all of these hold:
 

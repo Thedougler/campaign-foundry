@@ -4,7 +4,7 @@ import { parseStatblock } from "../statblock/parse.ts";
 import type { Issue } from "../statblock/parse.ts";
 import { checkStatblock } from "../statblock/rules.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
-import { isSpecialPage } from "../util.ts";
+import { checkedPages, isSpecialPage } from "../util.ts";
 
 const LAYER = "statblock";
 
@@ -21,7 +21,7 @@ function fences(page: Page): Code[] {
 
 export function run(ctx: CheckContext): Finding[] {
 	const findings: Finding[] = [];
-	for (const page of ctx.vault.pages) {
+	for (const page of checkedPages(ctx)) {
 		if (isSpecialPage(page)) continue;
 		const path = ctx.display(page.path);
 		const add = (rule: string, line: number, message: string, hint: string): void => {

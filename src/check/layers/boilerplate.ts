@@ -1,5 +1,6 @@
 import type { Finding, Layer } from "../types.ts";
 import type { Page } from "../../vault/types.ts";
+import { isTarget } from "../util.ts";
 
 const segmenter = new Intl.Segmenter("en", { granularity: "sentence" });
 
@@ -102,6 +103,7 @@ export const boilerplateLayer: Layer = {
 			if (pages.size < 2) continue;
 			const quoted = quote.length > 80 ? `${quote.slice(0, 77)}…` : quote;
 			for (const [page, line] of pages) {
+				if (!isTarget(ctx, page.path)) continue;
 				if (!reported.add(`${page.path}:${line}`)) continue;
 				const others = [...pages].filter(([other]) => other !== page).map(([other, at]) => `${ctx.display(other.path)}:${at}`);
 				findings.push({

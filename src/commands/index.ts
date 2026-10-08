@@ -4,6 +4,7 @@ import { checkCommand } from "./check.ts";
 import { contextCommand } from "./context.ts";
 import { ddbCommand } from "./ddb.ts";
 import { encounterBudgetCommand } from "./encounter-budget.ts";
+import { foundryCommand } from "./foundry.ts";
 import { evalCommand } from "./eval.ts";
 import { indexCommand } from "./index-cmd.ts";
 import { logCommand } from "./log.ts";
@@ -23,6 +24,7 @@ export const commands: (() => Command)[] = [
  ddbCommand,
  encounterBudgetCommand,
  evalCommand,
+ foundryCommand,
  indexCommand,
  logCommand,
  pullCommand,

@@ -4,8 +4,9 @@ import { binary } from "harper.js/binary";
 import type { Page } from "../../vault/types.ts";
 import { cachedByPage, hash, lockfileSalt } from "../cache.ts";
 import type { CachedFinding } from "../cache.ts";
-import { lineAt, lineStarts, projectWords, proseView, prosePages, sourceOffset, templateWords, vaultNameWords, vaultWordList } from "../prose.ts";
+import { isProsePage, lineAt, lineStarts, projectWords, proseView, sourceOffset, templateWords, vaultNameWords, vaultWordList } from "../prose.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
+import { checkedPages } from "../util.ts";
 
 const LAYER = "grammar";
 
@@ -132,14 +133,14 @@ async function lintPages(l: LocalLinter, pages: Page[]): Promise<Map<Page, Cache
 
 export async function run(ctx: CheckContext): Promise<Finding[]> {
 	const words = [...vaultNameWords(ctx.vault), ...templateWords(ctx.templates), ...(await vaultWordList(ctx.vault)), ...(await projectWords())];
-	const pages = prosePages(ctx.vault);
+	const pages = checkedPages(ctx).filter(isProsePage);
 	// A page's answer depends on its text, Harper's version, the disabled rules, the name dictionary and the misfire filters.
 	const salt = hash(`${await lockfileSalt()}|${DISABLED_RULES.join(",")}|${words.join(",")}|${Object.keys(MISREAD_PAST).join(",")}|${CASTE_COLOUR.source}`);
 	const byPage = await cachedByPage(ctx.root, LAYER, salt, pages, async (misses) => {
 		const l = await linter();
 		await l.importWords(words);
 		return lintPages(l, misses);
-	});
+	}, ctx.target !== undefined);
 	return pages.flatMap((page) => (byPage.get(page) ?? []).map((f): Finding => ({ ...f, severity: "error", path: ctx.display(page.path) })));
 }
 

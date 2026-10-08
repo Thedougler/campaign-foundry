@@ -3,6 +3,7 @@ import { calloutLines, linkedPages, pageWords } from "../../narration/sources.ts
 import { englishWords } from "../english.ts";
 import { maskNames, vaultNameWords } from "../prose.ts";
 import type { Finding, Layer } from "../types.ts";
+import { checkedPages } from "../util.ts";
 
 export const narrationLayer: Layer = {
 	name: "narration",
@@ -11,7 +12,7 @@ export const narrationLayer: Layer = {
 		const findings: Finding[] = [];
 		const names = new Set(vaultNameWords(ctx.vault));
 		const isWord = await englishWords();
-		for (const page of ctx.vault.pages) {
+		for (const page of checkedPages(ctx)) {
 			const callouts = page.callouts.filter((callout) => callout.type === "narration");
 			if (callouts.length === 0) continue;
 			const linked = linkedPages(ctx.vault, page).map((source) => pageWords(source));

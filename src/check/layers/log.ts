@@ -1,5 +1,6 @@
 import { ENTRY_BULLET, ENTRY_HEADING, isLogOp, isRealDate, LOG_OPS } from "../../vault/log.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
+import { checkedPages } from "../util.ts";
 import { bodyLines } from "../text.ts";
 
 const LAYER = "log";
@@ -11,7 +12,7 @@ export const logLayer: Layer = {
 	description: "log.md and log-YYYY.md: entry headings are `## [YYYY-MM-DD] op | Title`, bullets are `- [[Page]]`, entries run in date order, and a log-YYYY.md holds only that year.",
 	run(ctx: CheckContext): Finding[] {
 		const findings: Finding[] = [];
-		for (const page of ctx.vault.pages) {
+		for (const page of checkedPages(ctx)) {
 			const rotatedYear = /^log-(\d{4})$/.exec(page.name)?.[1];
 			if (page.name !== "log" && rotatedYear === undefined) continue;
 			const add = (line: number, rule: string, message: string, hint: string): void => {

@@ -6,8 +6,9 @@ import { calloutLines } from "../../narration/sources.ts";
 import { parsePage } from "../../vault/parse.ts";
 import type { Page, Vault } from "../../vault/types.ts";
 import { UsageError } from "../errors.ts";
-import { nameWords, proseView, prosePages, toolRoot } from "../prose.ts";
+import { isProsePage, nameWords, proseView, toolRoot } from "../prose.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
+import { checkedPages } from "../util.ts";
 
 const LAYER = "style";
 
@@ -182,7 +183,8 @@ function findingFor(alert: ValeAlert, lineText: string, path: string, names: Set
  */
 export async function run(ctx: CheckContext): Promise<Finding[]> {
 	requireAiTells();
-	const pages = prosePages(ctx.vault);
+	const pages = checkedPages(ctx).filter(isProsePage);
+	if (pages.length === 0) return [];
 	const cacheDir = join(ctx.root, ".cache", "check");
 	await mkdir(cacheDir, { recursive: true });
 	const scratch = await mkdtemp(join(cacheDir, "vale-"));

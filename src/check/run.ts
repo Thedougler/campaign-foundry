@@ -5,6 +5,7 @@ import type { VaultFiles } from "../vault/vault.ts";
 import type { Vault } from "../vault/types.ts";
 import { layers as allLayers } from "./layers/index.ts";
 import type { CheckContext, FileEdit, Finding, Fix, Layer } from "./types.ts";
+import { checkedPages } from "./util.ts";
 
 import { UsageError } from "./errors.ts";
 
@@ -21,7 +22,7 @@ export interface CheckOptions {
 	cwd: string;
 	/** Layer names to run; all when empty or omitted. */
 	layers?: string[];
-	/** Report only findings under these paths (files or directories). */
+	/** Check only these files or directories, retaining the whole vault as read-only context. */
 	paths?: string[];
 	fix?: boolean;
 	dryRun?: boolean;
@@ -83,7 +84,8 @@ export async function runCheck(options: CheckOptions): Promise<CheckResult> {
 	const [files, templates] = await Promise.all([readVaultFiles(options.vault), loadTemplates(options.templates)]);
 	let vault: Vault = buildVault(options.vault, files);
 	const display = (vaultPath: string): string => relative(options.cwd, join(options.vault, vaultPath)).split(sep).join("/");
-	const context = (): CheckContext => ({ vault, templates, root: options.root, display });
+	const target = scope.length === 0 ? undefined : (vaultPath: string): boolean => inScope(display(vaultPath));
+	const context = (): CheckContext => ({ vault, templates, root: options.root, display, target });
 
 	const fixes: Fix[] = [];
 	if (options.fix) {
@@ -115,7 +117,7 @@ export async function runCheck(options: CheckOptions): Promise<CheckResult> {
 	return {
 		findings,
 		fixes,
-		pages: vault.pages.length,
+		pages: checkedPages(ctx).length,
 		layers: active.map((l) => l.name),
 		durationMs: Math.round(performance.now() - started),
 	};

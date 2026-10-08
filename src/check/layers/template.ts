@@ -4,7 +4,7 @@ import { parseDocument } from "yaml";
 import { findTemplate } from "../../vault/vault.ts";
 import type { Page, Template } from "../../vault/types.ts";
 import type { CheckContext, Finding, Fix, FixResult, Layer } from "../types.ts";
-import { isSpecialPage, quoteList, suggest } from "../util.ts";
+import { checkedPages, isSpecialPage, quoteList, suggest } from "../util.ts";
 
 const LAYER = "template";
 
@@ -24,7 +24,7 @@ function validTypes(ctx: CheckContext): string {
 /** Resolves each page to its template, or reports why it has none. */
 function resolvePages(ctx: CheckContext, findings: Finding[]): Resolved[] {
 	const resolved: Resolved[] = [];
-	for (const page of ctx.vault.pages) {
+	for (const page of checkedPages(ctx)) {
 		if (isSpecialPage(page)) continue;
 		const at = (rule: string, line: number, message: string, hint: string): void => {
 			findings.push({ layer: LAYER, severity: "error", rule, path: ctx.display(page.path), line, message, hint });

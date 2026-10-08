@@ -1,5 +1,16 @@
 import { closest, distance } from "fastest-levenshtein";
 import type { Page } from "../vault/types.ts";
+import type { CheckContext } from "./types.ts";
+
+/** Also accepts generated paths whose pages do not exist yet. */
+export function isTarget(ctx: CheckContext, path: string): boolean {
+	return ctx.target?.(path) ?? true;
+}
+
+/** Pages to evaluate, never a replacement for the full Vault used as context. */
+export function checkedPages(ctx: CheckContext): Page[] {
+	return ctx.target ? ctx.vault.pages.filter((page) => isTarget(ctx, page.path)) : ctx.vault.pages;
+}
 
 /** Generated or append-only pages: `index.md`, `log.md`, `log-YYYY.md`. They carry no template. */
 export function isSpecialPage(page: Page): boolean {

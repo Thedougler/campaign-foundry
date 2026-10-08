@@ -190,7 +190,7 @@ Before commands, read the installed syntax with `bun run cf -- index --help`,
 `bun run cf -- check --help`, and `bun run cf -- log --help`. Regenerate indexes with the
 scoped `bun run cf -- index` command. Run the page gate, `bun run cf -- check`
 with no `--layer` given the Creature page and every page this run touched; all
-layers are mandatory, and the whole Wiki is still checked behind those paths.
+layers are mandatory.
 Use `--fix` only for mechanical repairs, then rerun the page gate.
 
 Log only once the page gate prints `ok: 0 findings`. When another skill invoked
