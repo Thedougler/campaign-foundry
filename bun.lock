@@ -4,6 +4,7 @@
   "workspaces": {
     "": {
       "dependencies": {
+        "@notionhq/client": "^5.27.0",
         "@tavily/core": "^0.7.13",
         "ajv": "^8.20.0",
         "ajv-formats": "^3.0.1",
@@ -276,6 +277,8 @@
     "@nodelib/fs.stat": ["@nodelib/fs.stat@2.0.5", "", {}, "sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A=="],
 
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
+
+    "@notionhq/client": ["@notionhq/client@5.27.0", "", {}, "sha512-JnkLtAzSDrEnvtZ8dQ5L4KO+xyL5g01xK5qmKTmhJ5KFY8LWsMyFG033vHCj0mFcsz9thAMjfcAQz/SWxiexag=="],
 
     "@oh-my-pi/omp-stats": ["@oh-my-pi/omp-stats@18.8.0", "", { "dependencies": { "@oh-my-pi/pi-ai": "18.8.0", "@oh-my-pi/pi-catalog": "18.8.0", "@oh-my-pi/pi-utils": "18.8.0", "lucide-react": "^1.24.0", "react": "19.2.7", "react-dom": "19.2.7" }, "bin": { "omp-stats": "src/index.ts" } }, "sha512-IOFrKU75rbp0Pj9iIBAjblLqB9WZmUSgN9e+yQczPTtDkzZfGuagUa+fOv7eUPS1loVYBGdTikGC0LNmRIhbMA=="],
 
