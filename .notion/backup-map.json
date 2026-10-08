@@ -796,7 +796,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8191-ad52-de4a66783ddd",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec8191ad52de4a66783ddd",
-			"hash": "7f6fa250699d08140f2a87bf6d15da9e66c35ff744338d004803226d9debb182"
+			"hash": "6973bd3edcaa80c71b8bd5c2f238e92a71bd06568cee88709751299d58f37398"
 		},
 		".agents/skills/query/evals": {
 			"kind": "dir",
@@ -1940,7 +1940,8 @@
 		"wiki/The Shattered Sea/Locations/La Cenere.md": {
 			"kind": "markdown",
 			"id": "3f302166-35ec-8121-a6a1-f1329939aba5",
-			"url": "https://app.notion.com/p/La-Cenere-3f30216635ec8121a6a1f1329939aba5"
+			"url": "https://app.notion.com/p/La-Cenere-3f30216635ec8121a6a1f1329939aba5",
+			"hash": "5731dbb1d3932ef0fca389d8d33ffcb6bcaf78e477618caeb2029a677016ab66"
 		},
 		"wiki/The Shattered Sea/Locations/La Vasca.md": {
 			"kind": "markdown",
@@ -4190,6 +4191,6 @@
 		"id": "3f202166-35ec-815c-9ba6-dacbda0f6f1b",
 		"url": "https://app.notion.com/p/campaign-foundry-backup-3f20216635ec815c9ba6dacbda0f6f1b"
 	},
-	"syncedCommit": "b168fba5ec266c729c9bd4f7254a953e8e6d0f7c",
-	"syncedAt": "2026-10-07T23:05:30.656Z"
+	"syncedCommit": "88b88b8404611cb1b1c8ce6708dd11f87cbe87e0",
+	"syncedAt": "2026-10-08T06:14:41.632Z"
 }
