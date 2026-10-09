@@ -4,6 +4,8 @@ kind: Site
 summary: "A flooded chapel under the river wall."
 sources: []
 parent: "[[Ravenhold]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

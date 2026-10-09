@@ -1,10 +1,14 @@
 ---
 type: Lore
-summary: "Small humanoids built for infiltration, survival, swimming and impossible spaces; the oldest continuous presence in every major Shattered Sea port."
+summary: "Small humanoids built for infiltration, survival, swimming and
+  impossible spaces; the oldest continuous presence in every major Shattered Sea
+  port."
 sources:
- - "archive/ssw-rattkin.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/ssw-rattkin.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +19,7 @@ sources:
 - **Reaches play through.** The [[Passage]] and the [[Warren]], and [[Perrin Black-Jaw]] and [[Nona Black-Jaw]] of the Black-Jaw kin.
 
 > [!narration] As it is told
-> A locked hold costs you an hour at most before you are through. The drainage pipe behind the fish market runs like a road. As for the bilge, it is a neighbourhood, and ours long before the city drew its first harbour chart.
+> A locked hold costs you an hour at most before you are through. The drainage pipe behind the fish market runs like a road. As for the bilge, we keep a neighbourhood there, ours long before the city drew its first harbour chart.
 
 ## Play
 

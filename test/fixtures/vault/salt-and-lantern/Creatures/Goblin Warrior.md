@@ -2,6 +2,8 @@
 type: Creature
 summary: "A small, quick fey skirmisher that hits harder with advantage and disappears after."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

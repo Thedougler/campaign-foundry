@@ -1,9 +1,12 @@
 ---
 type: Faction
-summary: "Breakaway Sentinel order that erases names and hunts Fate Spinner carriers through one-job agents."
+summary: "Breakaway Sentinel order that erases names and hunts Fate Spinner
+  carriers through one-job agents."
 sources:
- - "archive/countless.md"
- - "archive/session-10.md"
+  - "archive/countless.md"
+  - "archive/session-10.md"
+revealed: ""
+title: ""
 ---
 
 ![[Countless - Handout Art.png]]

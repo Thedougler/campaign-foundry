@@ -1,13 +1,16 @@
 ---
 type: Lore
-summary: "The peoples who share the Shattered Sea's ports and waters; the rattkin hold the oldest continuous presence in every major port."
+summary: "The peoples who share the Shattered Sea's ports and waters; the
+  rattkin hold the oldest continuous presence in every major port."
 sources:
- - "archive/ssw-rattkin.md"
- - "archive/ssw-grung.md"
- - "archive/ssw-minotaur.md"
- - "archive/ssw-lizardfolk.md"
- - "archive/ssw-human-culture.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/ssw-rattkin.md"
+  - "archive/ssw-grung.md"
+  - "archive/ssw-minotaur.md"
+  - "archive/ssw-lizardfolk.md"
+  - "archive/ssw-human-culture.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

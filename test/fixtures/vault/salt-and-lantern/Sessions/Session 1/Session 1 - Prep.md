@@ -3,6 +3,8 @@ type: Prep
 summary: "Plan for Session 1: the lamp goes dark, the Party takes the Warden's job, and the Reedrunners come for the oil."
 sources: []
 date: "14 Eelrun 412 CY"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

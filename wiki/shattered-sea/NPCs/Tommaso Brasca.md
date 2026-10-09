@@ -1,11 +1,14 @@
 ---
 type: NPC
-summary: "A Pantry survivor who passes Aruhe's rules to the departing survivors and leaves with the column."
+summary: "A Pantry survivor who passes Aruhe's rules to the departing survivors
+  and leaves with the column."
 sources:
- - "archive/the-pantry.md"
+  - "archive/the-pantry.md"
 aliases:
- - "Tommaso"
+  - "Tommaso"
 creature: "[[Commoner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

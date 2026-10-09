@@ -1,10 +1,14 @@
 ---
 type: Faction
-summary: "Four human musicians from the interior who play the Palio with flawless technique and keep a crowd only as long as the Council quarter is watching."
+summary: "Four human musicians from the interior who play the Palio with
+  flawless technique and keep a crowd only as long as the Council quarter is
+  watching."
 sources:
- - "archive/ssw-il-palio-delle-voci.md"
+  - "archive/ssw-il-palio-delle-voci.md"
 aliases:
- - "The Black Song"
+  - "The Black Song"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

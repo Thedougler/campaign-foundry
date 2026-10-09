@@ -1,10 +1,13 @@
 ---
 type: NPC
-summary: "Calveno cooper, lifted from the skylight pit by the Party, who nearly followed Hinewai's voice."
+summary: "Calveno cooper, lifted from the skylight pit by the Party, who nearly
+  followed Hinewai's voice."
 sources:
- - "archive/gianni-moro.md"
- - "archive/session-12-full.md"
+  - "archive/gianni-moro.md"
+  - "archive/session-12-full.md"
 creature: "[[Commoner]]"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance

@@ -1,13 +1,16 @@
 ---
 type: Faction
-summary: "Umberlee's grey clergy, who collect the sea's tribute at every working harbour and keep the rites ordinary."
+summary: "Umberlee's grey clergy, who collect the sea's tribute at every working
+  harbour and keep the rites ordinary."
 sources:
- - "archive/ssw-umberlee.md"
- - "archive/Umberlee.md"
- - "archive/ssw-campaign-timeline.md"
- - "archive/ssw-umberlee-and-waveservants.md"
- - "archive/ssw-umberlees-message.md"
- - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-umberlee.md"
+  - "archive/Umberlee.md"
+  - "archive/ssw-campaign-timeline.md"
+  - "archive/ssw-umberlee-and-waveservants.md"
+  - "archive/ssw-umberlees-message.md"
+  - "archive/ssw-umberlee-shrine.md"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

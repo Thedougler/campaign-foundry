@@ -2,9 +2,11 @@
 type: NPC
 summary: "Freed Moucheron prisoner who traded blood and information for a flight home."
 sources:
- - "archive/ket.md"
- - "archive/ssw-session-02.md"
+  - "archive/ket.md"
+  - "archive/ssw-session-02.md"
 creature: "[[Moucheron]]"
+revealed: "Session 2"
+title: ""
 ---
 
 ## At a glance

@@ -92,7 +92,10 @@ export class ConcurrentRunError extends Error {}
 const lower = (s: string): string => s.toLowerCase();
 const stripMd = (s: string): string => s.replace(/\.(md|markdown)$/i, "");
 
-/** Indexes the backed-up files by Obsidian name and by path, so `[[Name]]`, `[[Folder/Name]]` and embeds resolve. */
+/**
+ * Indexes the backed-up files by Obsidian name and by path, so `[[Name]]`, `[[Folder/Name]]` and embeds resolve.
+ * A markdown page answers to its frontmatter `title` and `aliases` too, before its file name (ADR 0028).
+ */
 export function linkIndex(files: BackupFile[]): { page(target: string): string | undefined; image(target: string): string | undefined } {
 	const pagesByName = new Map<string, string[]>();
 	const pagesByPath = new Map<string, string>();
@@ -102,6 +105,11 @@ export function linkIndex(files: BackupFile[]): { page(target: string): string |
 		if (f.kind === "markdown") {
 			const key = stripMd(name);
 			pagesByName.set(key, [...(pagesByName.get(key) ?? []), f.path]);
+			for (const n of [f.title, ...(f.aliases ?? [])]) {
+				if (n === undefined || n === "") continue;
+				const nameKey = lower(n);
+				pagesByName.set(nameKey, [...(pagesByName.get(nameKey) ?? []), f.path]);
+			}
 			const vaultPath = f.path.startsWith("wiki/") ? f.path.slice(5) : f.path;
 			pagesByPath.set(lower(stripMd(vaultPath)), f.path);
 			pagesByPath.set(lower(stripMd(f.path)), f.path);
@@ -284,11 +292,11 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 		try {
 			const previous = map.entries[file.path];
 			if (previous?.deletedAt) {
-				await api.retitle(previous.id, titleOf(file.path, file.kind), ICONS[file.kind]);
+				await api.retitle(previous.id, titleOf(file.path, file.kind, file.title), ICONS[file.kind]);
 				const { deletedAt: _, hash: __, ...kept } = previous;
 				map.entries[file.path] = { ...kept, kind: file.kind };
 			} else {
-				const page = await api.createPage(parent, titleOf(file.path, file.kind), ICONS[file.kind], [pendingHeader(file.path)]);
+				const page = await api.createPage(parent, titleOf(file.path, file.kind, file.title), ICONS[file.kind], [pendingHeader(file.path)]);
 				map.entries[file.path] = { kind: file.kind, id: page.id, url: page.url };
 				filesCreated.set(file.path, { id: page.id, parentId: parent, createdTime: page.createdTime ?? "" });
 				result.created++;

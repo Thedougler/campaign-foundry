@@ -5,6 +5,8 @@ summary: "Living fruit triggers a wolfrabbit hunt and young Bloodhawks."
 sources:
   - "archive/Session-11-03-Wolfrabbits.md"
   - "archive/Session-11-03-Wolfrabbits-archived-version.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Session 11 - Wolfrabbits - Handout Art.jpg]]

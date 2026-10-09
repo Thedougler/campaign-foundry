@@ -3,6 +3,8 @@ type: DM Settings
 summary: "One line."
 sources: []
 session_length_hours: 4
+revealed: ""
+title: ""
 ---
 
 ## At a glance

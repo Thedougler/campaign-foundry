@@ -1,17 +1,20 @@
 ---
 type: Thread
-summary: "Delmar's theft of the Pearl of Souls destroyed his fleet and left Umberlee with a price that the new crew may inherit."
+summary: "Delmar's theft of the Pearl of Souls destroyed his fleet and left
+  Umberlee with a price that the new crew may inherit."
 sources:
- - "archive/story-so-far.md"
- - "archive/campaign-timeline.md"
- - "archive/delmar-fisk.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-umberlees-message.md"
- - "archive/ssw-what-sunk-the-vestra.md"
- - "archive/ssw-umberlee-shrine.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/session-10.md"
+  - "archive/story-so-far.md"
+  - "archive/campaign-timeline.md"
+  - "archive/delmar-fisk.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-umberlees-message.md"
+  - "archive/ssw-what-sunk-the-vestra.md"
+  - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/session-10.md"
 status: active
+revealed: "Session 1"
+title: ""
 ---
 
 ## At a glance

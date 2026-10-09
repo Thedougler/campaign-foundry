@@ -37,8 +37,12 @@ describe("cf backup", () => {
 	it("exits 2 without NOTION_TOKEN, and on a bad parent page", async () => {
 		const root = repo({ [`${W}/hot.md`]: "# Hot\n" });
 		// An empty NOTION_TOKEN also keeps a developer's .env token from loading (dotenv never overrides a set variable).
-		const noToken = spawnSync("node", [join(repoRoot, "src/cli.ts"), "backup", "--root", root], { cwd: root, encoding: "utf8", env: { ...process.env, NOTION_TOKEN: "" } });
-		expect(noToken.status).toBe(2);
+		const saved = process.env.NOTION_TOKEN;
+		process.env.NOTION_TOKEN = "";
+		const noToken = await cf(["backup", "--root", root], root);
+		if (saved === undefined) delete process.env.NOTION_TOKEN;
+		else process.env.NOTION_TOKEN = saved;
+		expect(noToken.code).toBe(2);
 		expect(noToken.stderr).toContain("NOTION_TOKEN is not set");
 		const badParent = await cf(["backup", "--dry-run", "--parent", "nope", "--root", root], root);
 		expect(badParent.code).toBe(2);

@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A flood-scoured Grasslands crossing where prints, slick stone, Razer-Grass, deep water and a Spiguar hunting lane constrain movement."
+summary: "A flood-scoured Grasslands crossing where prints, slick stone,
+  Razer-Grass, deep water and a Spiguar hunting lane constrain movement."
 sources:
- - "archive/torn-crossing.md"
+  - "archive/torn-crossing.md"
 parent: "[[Grasslands]]"
+revealed: ""
+title: ""
 ---
 
 ![[Torn Crossing - Handout Art.jpg]]

@@ -5,6 +5,8 @@ summary: "The Party sets a watch, cooks porcupine and learns the lantern's value
 sources:
   - "archive/Session-11-08-Night-Watch.md"
   - "archive/Session-11-08-Night-Watch-archived-version.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Session 11 - Night Watch - Handout Art.jpg]]

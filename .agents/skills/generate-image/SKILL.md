@@ -26,7 +26,7 @@ Codex (the model set in `AGENTS.md`) draws; you write the spec, check the result
    node -e "require('sharp')(process.argv[1]).webp({quality:85}).toFile(process.argv[2])" "<file>.png" "<file>.webp"
    ```
 
-7. **Embed** `![[<Name> - <Kind>.webp]]` where the kind's table row says, then run `bun run cf -- check --fix` and `bun run cf -- check` given the page until that page gate reports `ok: 0 findings`. List the page in the log entry of the operation this image is part of.
+7. **Embed** `![[<Name> - <Kind>.webp]]` where the kind's table row says, then close per `skill://lint` § Commands with the page.
 
 ## Kinds
 

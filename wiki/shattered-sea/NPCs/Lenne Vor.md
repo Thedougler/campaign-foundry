@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Saltwright's navigator; twenty years of chart work, consulted once, quietly right about everything."
+summary: "Saltwright's navigator; twenty years of chart work, consulted once,
+  quietly right about everything."
 sources:
- - "archive/ssw-beaumonts-crew.md"
+  - "archive/ssw-beaumonts-crew.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +17,7 @@ creature: ""
 - **Found at.** The [[Midchain]] run, aboard the [[Saltwright]].
 
 > [!narration] First look
-> A lean woman with silver hair cropped close to the skull stands at the stern chart table, one ink-darkened fingertip tracing a line she has clearly drawn a hundred times. She doesn't look up until she's finished. "If you've come to ask whether we'll make the passage, we will. I've run this chain under three captains. Ask something that deserves my ink."
+> A lean woman with silver hair cropped close to the skull stands at the stern chart table, one ink-darkened fingertip tracing a line she has drawn a hundred times. She doesn't look up until she's finished. "If you've come to ask whether we'll make the passage, we will. I've run this chain under three captains. Ask something that deserves my ink."
 
 ## Play
 

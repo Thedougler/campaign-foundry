@@ -1,13 +1,16 @@
 ---
 type: Location
 kind: Region
-summary: "A chart-edge trench where currents reverse, the Pearl lies below the waterline and a planar fissure strains containment."
+summary: "A chart-edge trench where currents reverse, the Pearl lies below the
+  waterline and a planar fissure strains containment."
 sources:
- - "archive/drowned-maw.md"
- - "archive/ssw-giant-squid.md"
- - "archive/ssw-umberlee.md"
- - "archive/agentic-co-dm-the-drowned-maw-narration.md"
+  - "archive/drowned-maw.md"
+  - "archive/ssw-giant-squid.md"
+  - "archive/ssw-umberlee.md"
+  - "archive/agentic-co-dm-the-drowned-maw-narration.md"
 parent: "[[Midchain]]"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance
@@ -54,6 +57,8 @@ The Antheri built into the far sidewall roughly two thousand years before the cu
 ### Hidden truths
 
 [[Umberlee]]'s claim stops at the living blue-green line. Beyond it depth and instruments disagree. The Pearl wreck lies below that boundary.
+
+The Antheri works run upward from the fissure. The visible Shelfworks are the newest tier, vents and pressure bleeds for the machine below. When the works could no longer hold the boundary, the Antheri sealed the vents and left the upper tiers empty. A final fail-safe went in at the bottom, and Auralis keeps the door shut from inside. The soul-pledge chamber in the Deep Works predates Auralis and was built for repeated use, and whether any other pledged mind still runs is unknown.
 
 ### Threads
 

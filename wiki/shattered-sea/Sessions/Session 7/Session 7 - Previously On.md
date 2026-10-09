@@ -1,10 +1,13 @@
 ---
 type: Previously On
-summary: "Solange Barret spoke Agni, the chamber ceiling fell, and she stood remade at twelve feet."
+summary: "Solange Barret spoke Agni, the chamber ceiling fell, and she stood
+  remade at twelve feet."
 sources:
   - "archive/Session 06 - Recap.md"
   - "archive/session-06-recap.md"
 date: "1495 DR, date not established"
+revealed: "Session 7"
+title: ""
 ---
 
 ## At a glance
@@ -14,4 +17,4 @@ date: "1495 DR, date not established"
 - **Leads into.** The thing the ritual made and the city above the chamber.
 
 > [!narration] Previously on
-> Small business filled the festival's second morning above ground while violence continued below. After a cannon was charged against your vessel, a tomato came flying back across the square. Meanwhile, the artificer's weapon failed in the chamber, and one of you heard the patron's refusal. A pair of defenders died buying the chanter time. When a throat strike felled the blind guard, the spell caster tried and failed against your gunner's mind. A pistol took his arm, then an arrow killed him. With his final breath, he urged the chanter to begin. She slipped free and crossed to the artificer. Saying “Agni” tore stone loose overhead. As the dust cleared, the figure who had knelt now filled the chamber, with daylight pouring through its open roof.
+> Above ground, the festival's second morning went on with small business while the fighting continued below. After Thunk signed for a thousand gold of cannon on your ship's credit, Nona Black-Jaw flung a tomato back across the square. Meanwhile, the artificer's weapon failed in the chamber, and one of you heard the patron's refusal. A pair of defenders died buying the chanter time. When a throat strike felled the blind guard, the spell caster struck at your gunner's mind and failed. A pistol took his arm, then an arrow killed him. With his final breath, he urged the chanter to begin. She slipped free and crossed to the artificer. When she spoke the word "Agni", stone tore loose overhead. As the dust cleared, the kneeling figure had grown to fill the chamber, with daylight pouring through the open roof.

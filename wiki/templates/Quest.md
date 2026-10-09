@@ -1,8 +1,10 @@
 ---
+title: ""
 type: Quest
 summary: ""
 sources: []
 status: ""
+revealed: ""
 ---
 
 ## At a glance

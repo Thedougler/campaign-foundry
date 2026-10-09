@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "The Crown island whose naval yard and deep-water anchorage face the Central Strait, and from which the Reach patrols stage."
+summary: "The Crown island whose naval yard and deep-water anchorage face the
+  Central Strait, and from which the Reach patrols stage."
 sources:
- - "archive/ssw-central-strait.md"
+  - "archive/ssw-central-strait.md"
 parent: "[[Crown Islands]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -1,16 +1,19 @@
 ---
 type: Deity
-summary: "The sea as it is, claiming tribute from every harbour while the Pearl remains beyond her reach at the Drowned Maw."
+summary: "The sea as it is, claiming tribute from every harbour while the Pearl
+  remains beyond her reach at the Drowned Maw."
 sources:
- - "archive/Umberlee.md"
- - "archive/ssw-umberlee.md"
- - "archive/ssw-umberlee-and-waveservants.md"
- - "archive/ssw-umberlees-message.md"
- - "archive/ssw-what-sunk-the-vestra.md"
- - "archive/ssw-umberlee-shrine.md"
- - "archive/collab-2026-10-04-authority-themes.md"
- - "archive/Episode-09-Transcript.md"
- - "archive/session-10.md"
+  - "archive/Umberlee.md"
+  - "archive/ssw-umberlee.md"
+  - "archive/ssw-umberlee-and-waveservants.md"
+  - "archive/ssw-umberlees-message.md"
+  - "archive/ssw-what-sunk-the-vestra.md"
+  - "archive/ssw-umberlee-shrine.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/session-10.md"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

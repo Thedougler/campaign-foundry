@@ -1,9 +1,12 @@
 ---
 type: Vehicle
-summary: "The lowest rung of the Scatter's piracy scale, the threat that makes a single bad channel choice expensive."
+summary: "The lowest rung of the Scatter's piracy scale, the threat that makes a
+  single bad channel choice expensive."
 sources:
- - "archive/ssw-verdant-scatter.md"
- - "archive/ssw-midchain.md"
+  - "archive/ssw-verdant-scatter.md"
+  - "archive/ssw-midchain.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

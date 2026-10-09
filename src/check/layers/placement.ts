@@ -1,15 +1,17 @@
 import { bindingsFromPath, describe, matchDir, PLACEMENTS, resolveDir } from "../placement-table.ts";
 import type { Location } from "../placement-table.ts";
+import { slugify } from "../../vault/parse.ts";
 import type { Page } from "../../vault/types.ts";
 import type { CheckContext, Finding, Fix, FixResult, Layer } from "../types.ts";
 import { checkedPages, dirOf, isSpecialPage, isTarget } from "../util.ts";
 
 const LAYER = "placement";
-/** Exact file names the placement table requires, plus generated index and log pages. They repeat across Campaign folders. */
+/** Exact file names the placement table requires, plus their slugs (ADR 0028), plus generated index and log pages. They repeat across Campaign folders. */
 const FIXED_NAME = new Set(
-	Object.values(PLACEMENTS).flatMap((locs) => locs.flatMap((l) => (typeof l.name === "string" ? [l.name] : []))),
+	Object.values(PLACEMENTS).flatMap((locs) => locs.flatMap((l) => (typeof l.name === "string" ? [l.name, slugify(l.name)] : []))),
 );
-const REPEATABLE = (name: string): boolean => FIXED_NAME.has(name) || name === "index" || name === "log" || /^log-\d{4}$/.test(name);
+const REPEATABLE = (slug: string): boolean =>
+	FIXED_NAME.has(slug) || slug === "index" || slug === "log" || /^log-\d{4}$/.test(slug);
 
 const segmentsOf = (page: Page): string[] => dirOf(page.path).split("/").filter(Boolean);
 const wikiType = (page: Page): string | undefined => {
@@ -17,19 +19,9 @@ const wikiType = (page: Page): string | undefined => {
 	return typeof t === "string" && t in PLACEMENTS ? t : undefined;
 };
 
-/** `black-lotus` and `black_lotus` become `Black Lotus`. */
-function unslug(name: string): string {
-	return name
-		.split(/[-_\s]+/)
-		.filter(Boolean)
-		.map((w) => w[0]!.toUpperCase() + w.slice(1))
-		.join(" ");
-}
-
-function isSlug(name: string): boolean {
-	if (/\s/.test(name)) return false;
-	return name.includes("_") || (name.includes("-") && name === name.toLowerCase());
-}
+/** The page's file slug answers to the location's fixed name, in either spelling: the in-world name or its slug. */
+const nameMatches = (page: Page, location: Location): boolean =>
+	location.name === undefined || page.slug === location.name || page.slug === slugify(location.name);
 
 interface Verdict {
 	ok: boolean;
@@ -47,15 +39,16 @@ function judge(page: Page, type: string, taken: (path: string) => boolean): Verd
 	for (const location of locations) {
 		const bound = matchDir(location, segments);
 		if (!bound) continue;
-		if (location.name === undefined || page.name === location.name) return { ok: true, expected: locations };
+		if (nameMatches(page, location)) return { ok: true, expected: locations };
 		wrongName = location.name;
 	}
 	if (wrongName) return { ok: false, wrongName, expected: locations };
 	const fromPath = bindingsFromPath(segments);
 	for (const location of locations) {
 		const dir = resolveDir(location, fromPath);
-		if (!dir || (location.name !== undefined && page.name !== location.name)) continue;
-		const target = [...dir, `${page.name}.md`].join("/");
+		if (!dir || (location.name !== undefined && !nameMatches(page, location))) continue;
+		// The file keeps its own slug on the way in; `cf rename` owns renames.
+		const target = [...dir, `${page.slug}.md`].join("/");
 		if (taken(target)) return { ok: false, expected: locations };
 		return { ok: false, target, expected: locations };
 	}
@@ -66,6 +59,7 @@ function judge(page: Page, type: string, taken: (path: string) => boolean): Verd
 function example(location: Location, name: string): string {
 	const sample = { campaign: "salt-and-lantern", session: "Session 1" };
 	const dir = location.dir.map((s) => (typeof s === "string" ? s : sample[s.bind]));
+	// `name` is the page's own slug: placement moves never rename, `cf rename` does (ADR 0028).
 	const file = location.name === undefined ? name : location.name;
 	return ["wiki", ...dir, `${file}.md`].join("/");
 }
@@ -75,10 +69,10 @@ function specialFindings(ctx: CheckContext, page: Page, out: Finding[]): void {
 	const add = (rule: string, message: string, hint: string): void => {
 		out.push({ layer: LAYER, severity: "error", rule, path: ctx.display(page.path), line: 1, message, hint });
 	};
-	if (page.name === "index" && segments.length > 1) {
+	if (page.slug === "index" && segments.length > 1) {
 		add("misplaced-special", "`index.md` is not at the Wiki root or a Campaign folder.", "`index.md` is generated: one at the vault root listing the Campaigns, one per Campaign folder at `<Campaign folder>/index.md`. Regenerate it in the right place.");
-	} else if (page.name !== "index" && isSpecialPage(page) && segments.length !== 1) {
-		add("misplaced-special", `\`${page.name}.md\` is not directly in a Campaign folder.`, `The append-only log lives at \`<Campaign folder>/${page.name}.md\`, e.g. wiki/salt-and-lantern/${page.name}.md.`);
+	} else if (page.slug !== "index" && isSpecialPage(page) && segments.length !== 1) {
+		add("misplaced-special", `\`${page.slug}.md\` is not directly in a Campaign folder.`, `The append-only log lives at \`<Campaign folder>/${page.slug}.md\`, e.g. wiki/salt-and-lantern/${page.slug}.md.`);
 	}
 }
 
@@ -87,17 +81,21 @@ const SESSION_NAMED = new Set(["Prep", "Scene", "Recap", "Previously On"]);
 /** For these kinds the part after `Session N - ` is the kind itself; a Scene uses its own title. */
 const FIXED_TITLE = new Set(["Prep", "Recap", "Previously On"]);
 
-/** The name a Session page should have, or undefined when its name is fine (or the rule does not apply). */
+/** The name a Session page should have, or undefined when its name is fine (or the rule does not apply). A file answers in its in-world `Session N - …` spelling or, once migrated, as a lowercase-hyphen slug of it (ADR 0028). */
 function sessionNameProblem(page: Page, type: string): string | undefined {
 	if (!SESSION_NAMED.has(type)) return undefined;
 	const bound = matchDir(PLACEMENTS[type]![0]!, segmentsOf(page));
 	const n = bound?.session ? /^Session (\d+)$/.exec(bound.session)?.[1] : undefined;
 	if (!n) return undefined;
+	const stem = page.slug;
+	const low = stem.toLowerCase();
+	const inWorld = new RegExp(`^session ${n} - .+$`).test(low);
+	const slugForm = low === slugify(stem) && low.startsWith(`session-${n}-`) && low.length > `session-${n}-`.length;
 	if (FIXED_TITLE.has(type)) {
 		const want = `Session ${n} - ${type}`;
-		return page.name === want ? undefined : want;
+		return inWorld && low === want.toLowerCase() ? undefined : slugForm && low === slugify(want) ? undefined : want;
 	}
-	return page.name.startsWith(`Session ${n} - `) && page.name.length > `Session ${n} - `.length ? undefined : `Session ${n} - <Scene title>`;
+	return inWorld || slugForm ? undefined : `Session ${n} - <Scene title>`;
 }
 
 export function run(ctx: CheckContext): Finding[] {
@@ -112,9 +110,6 @@ export function run(ctx: CheckContext): Finding[] {
 			specialFindings(ctx, page, findings);
 			continue;
 		}
-		if (!REPEATABLE(page.name) && isSlug(page.name)) {
-			add("slug-name", `Page name \`${page.name}\` is a file slug, not an in-world name.`, `Name pages as the World names them, with spaces and capitals: rename to \`${unslug(page.name)}.md\`. Links use the name (\`[[${unslug(page.name)}]]\`), so update them too.`);
-		}
 		const type = wikiType(page);
 		if (!type) continue;
 		const verdict = judge(page, type, exists);
@@ -122,27 +117,27 @@ export function run(ctx: CheckContext): Finding[] {
 			const want = sessionNameProblem(page, type);
 			if (want) {
 				const example = want.replace("<Scene title>", "The Drowned Bell");
-				add("session-page-name", `A ${type} page in a Session folder must be named \`${want}\`, not \`${page.name}\`.`, `Session pages are named \`Session <N> - <Prep, Recap, Previously On or the Scene's title>\`, with N the folder's number. Rename the file to \`${example}.md\` and update links to \`[[${page.name}]]\`.`);
+				add("session-page-name", `A ${type} page in a Session folder must be named \`${want}\`, not \`${page.slug}\`.`, `Session pages are named \`Session <N> - <Prep, Recap, Previously On or the Scene's title>\`, with N the folder's number. Rename the file to \`${example}.md\`, and update links that spelled the old file name.`);
 			}
 			continue;
 		}
 		const where = verdict.expected.map((l) => `\`${describe(l)}\``).join(" or ");
 		if (verdict.wrongName) {
-			add("wrong-file-name", `A page of type ${type} in \`${dirOf(page.path)}/\` must be named \`${verdict.wrongName}.md\`, not \`${page.name}.md\`.`, `Rename the file to \`${verdict.wrongName}.md\`, and update links to \`[[${page.name}]]\`.`);
+			add("wrong-file-name", `A page of type ${type} in \`${dirOf(page.path)}/\` must be named \`${verdict.wrongName}.md\`, not \`${page.slug}.md\`.`, `Rename the file to \`${verdict.wrongName}.md\`, and update links that spelled the old file name.`);
 			continue;
 		}
 		const first = verdict.expected[0]!;
 		const owners = first.dir.some((s) => typeof s !== "string") ? ", inside the Campaign folder that owns it" : "";
 		const hint = verdict.target
 			? `Move it to \`${verdict.target}\`. \`cf check --fix\` does this.`
-			: `Move it to ${where}${owners}, e.g. \`${example(first, page.name)}\`.`;
+			: `Move it to ${where}${owners}, e.g. \`${example(first, page.slug)}\`.`;
 		const here = dirOf(page.path) ? `in \`${dirOf(page.path)}/\`` : "at the Wiki root";
 		add("misplaced", `A page of type ${type} belongs in ${where}, but this one is ${here}.`, hint);
 	}
 
 	const byName = new Map<string, Page[]>();
 	for (const page of ctx.vault.pages) {
-		if (REPEATABLE(page.name)) continue;
+		if (REPEATABLE(page.slug)) continue;
 		const key = page.name.toLowerCase();
 		byName.set(key, [...(byName.get(key) ?? []), page]);
 	}

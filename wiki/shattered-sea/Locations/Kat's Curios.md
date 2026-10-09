@@ -3,8 +3,10 @@ type: Location
 kind: Site
 summary: "A curiosity shop where the sea's oddities are bought, sold, and appraised."
 sources:
- - "archive/ssw-whip-shark-barb.md"
+  - "archive/ssw-whip-shark-barb.md"
 parent: "[[The Shattered Sea]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

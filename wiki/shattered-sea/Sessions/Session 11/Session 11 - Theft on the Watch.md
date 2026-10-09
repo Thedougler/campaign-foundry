@@ -5,6 +5,8 @@ summary: "Talon Skarn attacks Crissdalynn's pack for the Fate Spinner."
 sources:
   - "archive/Session-11-09-Theft-on-the-Watch.md"
   - "archive/Session-11-09-Theft-on-the-Watch-archived-version.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Session 11 - Theft on the Watch - Battle Map.jpg]]

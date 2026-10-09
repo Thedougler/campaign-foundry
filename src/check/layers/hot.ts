@@ -14,7 +14,7 @@ export const hotLayer: Layer = {
 	run(ctx: CheckContext): Finding[] {
 		const findings: Finding[] = [];
 		for (const page of checkedPages(ctx)) {
-			if (page.name !== "hot") continue;
+			if (page.slug !== "hot") continue;
 			let count = 0;
 			let crossed = 0;
 			bodyLines(page).forEach((line, i) => {

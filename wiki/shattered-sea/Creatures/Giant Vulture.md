@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "A cliff scavenger of the Ashwalls whose numbers spike after a wreck, a rough tally of what the storm took."
+summary: "A cliff scavenger of the Ashwalls whose numbers spike after a wreck, a
+  rough tally of what the storm took."
 sources:
- - "archive/ssw-ashwall-islands.md"
+  - "archive/ssw-ashwall-islands.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

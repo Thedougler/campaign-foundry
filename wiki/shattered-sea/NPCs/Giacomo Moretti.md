@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "A Calveno name at the Beffa who welcomes attempts after twenty clean years, and this year's registered mark."
+summary: "A Calveno name at the Beffa who welcomes attempts after twenty clean
+  years, and this year's registered mark."
 sources:
- - "archive/il-gioco-delle-beffe.md"
+  - "archive/il-gioco-delle-beffe.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

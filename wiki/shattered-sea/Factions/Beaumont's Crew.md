@@ -1,10 +1,13 @@
 ---
 type: Faction
-summary: "The four working hirelings crewing the Saltwright under Captain Beaumont Sel — navigator, bosun, cook, and ordinary sailor."
+summary: "The four working hirelings crewing the Saltwright under Captain
+  Beaumont Sel — navigator, bosun, cook, and ordinary sailor."
 sources:
- - "archive/ssw-beaumonts-crew.md"
+  - "archive/ssw-beaumonts-crew.md"
 aliases:
- - "Saltwright Crew"
+  - "Saltwright Crew"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

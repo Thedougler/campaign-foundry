@@ -1,10 +1,13 @@
 ---
 type: Lore
-summary: "Karath's Gold caste compelled generations of Grung onto Aruhe: report, replace the lost, then destroy the two graves."
+summary: "Karath's Gold caste compelled generations of Grung onto Aruhe: report,
+  replace the lost, then destroy the two graves."
 sources:
- - "archive/two-grave-orders.md"
- - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
- - "archive/session-12-full.md"
+  - "archive/two-grave-orders.md"
+  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
+  - "archive/session-12-full.md"
+revealed: ""
+title: ""
 ---
 
 ![[Two-Grave Orders - Handout Art.png]]

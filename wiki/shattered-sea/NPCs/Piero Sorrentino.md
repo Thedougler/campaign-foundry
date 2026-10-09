@@ -1,10 +1,13 @@
 ---
 type: NPC
-summary: "Weathered Calveno net-mender lifted from the lava tube, marching inland with the Party."
+summary: "Weathered Calveno net-mender lifted from the lava tube, marching
+  inland with the Party."
 sources:
- - "archive/piero-sorrentino.md"
- - "archive/session-12-full.md"
+  - "archive/piero-sorrentino.md"
+  - "archive/session-12-full.md"
 creature: "[[Commoner]]"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance

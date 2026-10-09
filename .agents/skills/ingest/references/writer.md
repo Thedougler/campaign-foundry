@@ -54,4 +54,6 @@ Your brief gives the touched list, the paths the other writers returned.
 1. **Orient.** Do SKILL.md step 2. Done when step 2's criterion holds.
 2. **Threads.** Do SKILL.md step 13's sentence on Threads for each active Thread of the Campaign outside the touched list, then check each Thread page you changed and repair every finding. Done when each due Thread has its Next development applied, or a later Session in the Wiki has already moved it, and each changed page's last check came back clean.
 3. **hot.md.** Do SKILL.md step 13's sentences on `hot.md`, reading the Recap and the touched pages for what changed. Check `hot.md` and repair every finding. Done when step 13's `hot.md` criterion holds and the page's last check came back clean.
-4. **Return** every path you changed. Done when the return lists each one.
+4. **Story so far.** Do SKILL.md step 13's sentence on `story-so-far.md`. Done when its **Through.** line names the latest Recap and the page's last check came back clean.
+5. **Revealed.** Run `skill://revealed-in-play` with the Ledger as its record. Done when its Return criterion holds.
+6. **Return** every path you changed, with `revealed-in-play`'s return. Done when the return lists each one.

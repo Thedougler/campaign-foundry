@@ -2,6 +2,8 @@
 type: Deity
 summary: "Goddess of hearths and second chances."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

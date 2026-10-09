@@ -1,8 +1,10 @@
 ---
+title: ""
 type: Scene
 kind: Resolution
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

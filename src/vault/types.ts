@@ -47,8 +47,12 @@ export interface Comment {
 export interface Page {
 	/** Vault-relative, posix separators, with `.md`. */
 	path: string;
-	/** Basename without `.md`; the name Obsidian links by. */
+	/** Basename without `.md`: the file slug (ADR 0028). Stable and path-safe, but not the page's name. */
+	slug: string;
+	/** The page's name: frontmatter `title`, else the slug (ADR 0028). An alias is another handle, never the name. */
 	name: string;
+	/** Every name the page answers to, in resolution order: `title`, each `aliases` entry, the slug; duplicates removed case-insensitively. */
+	names: string[];
 	source: string;
 	/** Parsed frontmatter, or null when the page has none or it is not a map. */
 	frontmatter: Record<string, unknown> | null;

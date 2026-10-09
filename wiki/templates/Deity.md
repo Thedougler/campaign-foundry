@@ -1,7 +1,9 @@
 ---
+title: ""
 type: Deity
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

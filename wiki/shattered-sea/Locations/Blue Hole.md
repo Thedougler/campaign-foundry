@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Site
-summary: "A sea mark at Keth-Naar's edge on the eastern road, the one feature the charts agree on."
+summary: "A sea mark at Keth-Naar's edge on the eastern road, the one feature
+  the charts agree on."
 sources:
- - "archive/ssw-outer-reach.md"
- - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-outer-reach.md"
+  - "archive/ssw-umberlee-shrine.md"
 parent: "[[Outer Reach]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

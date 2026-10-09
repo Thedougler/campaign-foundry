@@ -3,6 +3,8 @@ type: Campaign
 summary: "One line."
 sources: []
 session_length_hours:
+revealed: ""
+title: ""
 ---
 
 ## At a glance

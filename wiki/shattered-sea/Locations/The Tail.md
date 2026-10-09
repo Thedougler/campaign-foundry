@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Region
-summary: "The eastern convergence of the island arcs, recorded as aarakocra ground and the water that crosses under the Maw's influence."
+summary: "The eastern convergence of the island arcs, recorded as aarakocra
+  ground and the water that crosses under the Maw's influence."
 sources:
- - "archive/ssw-aarakocra.md"
- - "archive/ssw-verdant-scatter.md"
+  - "archive/ssw-aarakocra.md"
+  - "archive/ssw-verdant-scatter.md"
 parent: "[[The Shattered Sea]]"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

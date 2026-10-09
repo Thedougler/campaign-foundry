@@ -1,12 +1,15 @@
 ---
 type: Item
 aliases:
- - "Fleet Commander's Chair"
-summary: "An unbreakable command chair that grants Charisma advantage while occupied and is secretly an elder mimic."
+  - "Fleet Commander's Chair"
+summary: "An unbreakable command chair that grants Charisma advantage while
+  occupied and is secretly an elder mimic."
 sources:
- - "archive/fleet-commanders-chair.md"
- - "archive/agentic-co-dm-fleet-commanders-chair-narration.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/fleet-commanders-chair.md"
+  - "archive/agentic-co-dm-fleet-commanders-chair-narration.md"
+  - "archive/Episode-09-Transcript.md"
+revealed: "Session 7"
+title: ""
 ---
 
 ## At a glance
@@ -18,7 +21,7 @@ sources:
 - **Held by.** [[Delmar Fisk]], aboard [[Uncertainty]].
 
 > [!narration] First look
-> A broad, high-backed armchair of deep red leather smells of pipe smoke and old oil. Privateer hands have worn the armrests where they gripped through weather, and the joinery still sits tight at every corner. Its dark wooden legs are too heavy for its size, and the armrest gives a fraction more than good leather should. When the ship rolls, the deck boards give under it before its legs do, and the chair doesn't creak. Dust settles over the cabin and leaves the seat clean.
+> A broad, high-backed armchair of deep red leather smells of pipe smoke and old oil. Privateer hands have worn the armrests where they gripped through weather. The joinery still sits tight at every corner. Its dark wooden legs are too heavy for its size, and the armrest gives a fraction more than good leather should. When the ship rolls, the deck boards give under it before its legs do. It doesn't creak. Dust coats every plank and fitting around it. The seat alone is bare.
 
 ## Play
 

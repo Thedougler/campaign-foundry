@@ -95,6 +95,7 @@
 - [[Aleksander Malone]] — A reserved Hound of Tyr whom the Dravosi Crown releases only for confirmed Flock infiltration and righteous judgement.
 - [[Alys Kuiper]] — Surgeon of the Uncertainty's crew since the Surety, named to the prize crew and the one who saw to the Murrat four.
 - [[Anzolo]] — Nona Black-Jaw's tortle enforcer and trusted fixer, sent hunting for Perrin and recalled when the attacks stopped.
+- [[Auralis (Patron)]] — Perrin's unwitting warlock patron, an Antheri machine bound to the Drowned Maw's fissure, reaching the surface as whale-light and single words.
 - [[Barnaby Rook]] — Presumed-dead Crown privateer captain who enforced surrender aboard the Surety.
 - [[Bastian Crev]] — Lizardfolk salvage-hand who rose to captain the Loud Argument in Fisk's Fleet; his fate after the fleet sank is not recorded.
 - [[Bazzoth, the Steeped]] — Old red-caste Grung alchemist who guarded a sewer powder magazine until Session 05.
@@ -342,12 +343,16 @@
 
 - [[campaign-config]] — Dark heroic fantasy about authority in its rungs and who should wield it, told through rebellion, grey morality, freedom from slavery and corrupting power.
 
+## Story so far
+
+- [[story-so-far]] — After Session 12 the Aruhe arc rises towards the grove, while the Pearl debt, the Crown hunt and the captive route wait offshore.
+
 ## PCs
 
-- [[Crissdalynn Khinriss]] — Courtney's level 5 aarakocra Kensei monk: a cartographer, aerial skirmisher, and fiercely protective member of the crew.
-- [[Delmar Fisk]] — Frederick's level 5 Swashbuckler rogue and former admiral, carrying the secret cost of stealing the Pearl of Souls.
-- [[Jean-Claude Tabarnack]] — Chad's level 5 Gloom Stalker ranger and blue-caste Grung fugitive, one island ahead of Simone's hunters.
-- [[Perrin Black-Jaw]] — Kaden's level 5 rattkin Warlock and Lore Bard, the crew's voice and force multiplier with an unknown bond to Auralis.
+- [[Crissdalynn Khinriss]] — Level 5 aarakocra Kensei monk: a cartographer, aerial skirmisher, and fiercely protective member of the crew.
+- [[Delmar Fisk]] — Level 5 Swashbuckler rogue and former admiral, carrying the secret cost of stealing the Pearl of Souls.
+- [[Jean-Claude Tabarnack]] — Level 5 Gloom Stalker ranger and blue-caste Grung fugitive, one island ahead of Simone's hunters.
+- [[Perrin Black-Jaw]] — Level 5 rattkin Warlock and Lore Bard, the crew's voice and force multiplier with an unknown bond to Auralis.
 
 ## Threads
 

@@ -1,10 +1,14 @@
 ---
 type: Location
 kind: Region
-summary: "The primary archipelago of the sea: two island arcs, the Crown Islands and the Midchain, with the inspected Central Strait running between them and the Maw waiting at the eastern convergence."
+summary: "The primary archipelago of the sea: two island arcs, the Crown Islands
+  and the Midchain, with the inspected Central Strait running between them and
+  the Maw waiting at the eastern convergence."
 sources:
- - "archive/ssw-verdant-scatter.md"
+  - "archive/ssw-verdant-scatter.md"
 parent: "[[The Shattered Sea]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -16,7 +20,7 @@ parent: "[[The Shattered Sea]]"
 - **Danger.** Reefs older than every chart, an inspection regime that prices every hull, piracy that scales with the water it works, and the eastern convergence.
 
 > [!narration] Arrival
-> Ahead of you lie two long lines of islands, with a road of blue-green water between them. Down the near line the land stands mountainous and green, canal towns and fort guns marking its deep harbours, while the far line breaks into dozens of small islands packed reef to reef. An orderly line of sails fills the shipping road, all of them bound for or away from the same inspection pier where the road meets the Gate. Follow the road's far end and the two lines close together, the water past the last islands going a shade too deep for the charts.
+> Ahead of you lie two long lines of islands. A road of blue-green water runs between them. Down the near line the land stands mountainous and green, canal towns and fort guns marking its deep harbours, while the far line breaks into dozens of small islands packed reef to reef. An orderly line of sails fills the shipping road, all bound for or away from the same inspection pier where the road meets the Gate. Follow the road's far end and the two lines close together. The water past the last islands goes a shade too deep for the charts.
 
 ## Play
 

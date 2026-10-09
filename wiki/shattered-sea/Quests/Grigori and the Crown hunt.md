@@ -1,13 +1,16 @@
 ---
 type: Quest
-summary: "Choose whether to protect Shepherd Grigori, hand him to Malone or let the Crown hunt continue."
+summary: "Choose whether to protect Shepherd Grigori, hand him to Malone or let
+  the Crown hunt continue."
 sources:
- - "archive/grigori-and-the-crown-hunt.md"
- - "archive/ssw-shepherd-grigori-island.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
- - "archive/collab-2026-10-04-authority-themes.md"
- - "archive/session-10.md"
+  - "archive/grigori-and-the-crown-hunt.md"
+  - "archive/ssw-shepherd-grigori-island.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/session-10.md"
 status: active
+revealed: "Session 10"
+title: ""
 ---
 
 ## At a glance

@@ -1,14 +1,17 @@
 ---
 type: NPC
-summary: "Nona Black-Jaw's literal-minded lizardfolk guardian, a patient physical shield who never ignores a lie or threat."
+summary: "Nona Black-Jaw's literal-minded lizardfolk guardian, a patient
+  physical shield who never ignores a lie or threat."
 sources:
- - "archive/Ruk.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/ssw-the-canister.md"
- - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/Ruk.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/ssw-the-canister.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
 creature: ""
 aliases:
- - "Ruck"
+  - "Ruck"
+revealed: "Session 4"
+title: ""
 ---
 
 ## At a glance
@@ -29,6 +32,12 @@ aliases:
 - **Will not share.** A way past the people or territory he is guarding.
 - **If pressed.** He names the threat without raising his voice. “You threatened her. I heard you.”
 - **Combat profile.** AC 16, 104 HP, speed 30 ft. Swim speed 30 ft. CR 6. He grapples with a great club and bite. He then uses Pin Down. Relentless Endurance, Hungry Jaws, Hold Breath, and Territorial Senses keep him standing.
+
+## Quotes
+
+> "YOUR NONA WAS WORRIED SICK ABOUT YOU. Sorry Ma'am"
+
+Rounding on [[Perrin Black-Jaw]] for letting his grandmother, [[Nona Black-Jaw]], go on thinking he had died in the sinking of the [[Vestra]], then catching himself before her.
 
 ## Depth
 

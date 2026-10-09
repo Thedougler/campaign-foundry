@@ -1,8 +1,10 @@
 ---
+title: ""
 type: DM Settings
 summary: ""
 sources: []
 session_length_hours: 4
+revealed: ""
 ---
 
 ## At a glance

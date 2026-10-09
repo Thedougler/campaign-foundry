@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A used fruiting margin on the Aruhe River where a fishing line, fresh prints and three fruit piles mark the route upriver."
+summary: "A used fruiting margin on the Aruhe River where a fishing line, fresh
+  prints and three fruit piles mark the route upriver."
 sources:
- - "archive/line-bank.md"
+  - "archive/line-bank.md"
 parent: "[[Grasslands]]"
+revealed: ""
+title: ""
 ---
 
 ![[Line Bank - Handout Art.jpg]]
@@ -18,7 +21,7 @@ parent: "[[Grasslands]]"
 - **Prize.** Fallen restorative fruit and evidence of travellers.
 
 > [!narration] Entering
-> Turquoise water runs past you beside wet sand and gold-green grass. Along the bank, three fruit bushes grow. A thin fishing line hangs from a rough pole above the current. Silver scales lie scattered below it among fish bones.
+> Turquoise water runs past wet sand and gold-green grass. Three fruit bushes grow along the bank. A thin fishing line hangs from a rough pole over the current, and silver scales lie scattered beneath it among fish bones.
 
 ## Play
 

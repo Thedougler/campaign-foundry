@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Region
-summary: "A limestone reef in the Northern Midchain where Moucheron kin-villages hide above the tide and blood is currency."
+summary: "A limestone reef in the Northern Midchain where Moucheron kin-villages
+  hide above the tide and blood is currency."
 sources:
- - "archive/murrat.md"
- - "archive/ssw-midchain.md"
+  - "archive/murrat.md"
+  - "archive/ssw-midchain.md"
 parent: "[[Midchain]]"
+revealed: "Session 2"
+title: ""
 ---
 
 ## At a glance

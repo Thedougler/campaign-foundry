@@ -1,6 +1,8 @@
 ---
 type: NPC
 summary: "A ferrywoman."
+revealed: ""
+title: ""
 ---
 
 ## At a glance

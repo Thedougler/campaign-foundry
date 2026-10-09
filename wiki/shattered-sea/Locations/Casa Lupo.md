@@ -1,12 +1,15 @@
 ---
 type: Location
 kind: Site
-summary: "A general-goods shop in Le Paludi where Jean-Claude Tabarnack bought the Silent Shortbow."
+summary: "A general-goods shop in Le Paludi where Jean-Claude Tabarnack bought
+  the Silent Shortbow."
 sources:
- - "archive/ssw-silent-shortbow.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/ssw-silent-shortbow.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-session-04-ingest-recap.md"
 parent: "[[Le Paludi]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -18,7 +21,7 @@ parent: "[[Le Paludi]]"
 - **Prize.** Ordinary goods, and whatever passing traders have left behind.
 
 > [!narration] Entering
-> A shopfront opens onto the Le Paludi canal walk, close enough that water traffic passes the door. Goods arrive the way customers do, carried in by strangers who trade and go, and the shopkeeper sells them on. Ask what has come in lately. The question is an easy one here, and the answer is usually a story about someone in a hurry.
+> A shopfront opens onto the Le Paludi canal walk, close enough that water traffic passes the door. Goods arrive the way customers do, carried in by strangers who trade and go, and the shopkeeper sells them on. Ask what has come in lately. The question is an easy one here, and the answer comes as a story about someone in a hurry.
 
 ## Play
 

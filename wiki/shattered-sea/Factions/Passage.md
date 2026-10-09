@@ -1,12 +1,15 @@
 ---
 type: Faction
-summary: "Rescue and smuggling network that moves people off official routes without treating them as property."
+summary: "Rescue and smuggling network that moves people off official routes
+  without treating them as property."
 sources:
- - "archive/Passage.md"
- - "archive/the-passage.md"
- - "archive/ssw-nona-black-jaw.md"
- - "archive/ssw-midchain.md"
- - "archive/ssw-session-02.md"
+  - "archive/Passage.md"
+  - "archive/the-passage.md"
+  - "archive/ssw-nona-black-jaw.md"
+  - "archive/ssw-midchain.md"
+  - "archive/ssw-session-02.md"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

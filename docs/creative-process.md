@@ -7,6 +7,7 @@ The DM starts every creative exercise with `/skill:collab-with-me`. The design d
 - [0018 Story first, then adapt](adr/0018-story-first-then-adapt.md)
 - [0019 Content follows the DM](adr/0019-content-follows-the-dm.md)
 - [0020 Agent text passes the style gate](adr/0020-agent-text-passes-the-style-gate.md)
+- [0027 One story-so-far page per Campaign](adr/0027-story-so-far-page.md)
 
 The terms (Story, Story Bible, Beat, Seed, Stance, Simulation, Persona, Director, Adaptation) are defined in [`CONTEXT.md`](../CONTEXT.md#creative-work).
 
@@ -20,6 +21,9 @@ flowchart TD
     Catch --> Develop{"Develop with the DM"}
     Develop -->|"options, stuck, blank idea"| Seeds["Seeds"]
     Seeds --> Develop
+    Develop -->|"where the story stands, pacing, where next"| Arc["Arc"]
+    Arc -->|"new plots"| Seeds
+    Arc -->|"a plotline for the next Session"| Session
     Develop -->|"a plot, scheme or arc"| Story["Story"]
     Develop -->|"how would they react"| Simulate["Simulate"]
     Story --> Simulate
@@ -29,6 +33,7 @@ flowchart TD
     Story -->|"the DM says it is right"| Adapt
     Adapt --> Session["Session"]
     Adapt --> File["File: raw, Ingest, Lint"]
+    File -->|"a new Recap"| Arc
     Develop -->|"a settled non-Story idea"| File
     Session --> Prep["prep-session"]
     Prep -->|"offscreen opposition"| Simulate
@@ -40,6 +45,7 @@ flowchart TD
 |---|---|---|
 |Open and bootstrap|[`collab-with-me`](../.omp/skills/collab-with-me/SKILL.md) step 1, whose table names the owner of each missing required file|`user-config.md`, the World, `campaign-config.md`, `hot.md` and the Story Bible, all read|
 |Catch|`collab-with-me` step 2|each DM fragment in the notes, and the candidate pages `cf context` listed on the read list|
+|Arc|[`story-arc`](../.agents/skills/story-arc/SKILL.md)|`story-so-far.md` rewritten through the latest Recap, and pacing, plotline or new-plot pitches in the reply|
 |Seeds|[`docs/agents/co-writing.md`](agents/co-writing.md#seeds)|3 or 5 Seeds in the reply, each verdict in the notes|
 |Story|[`references/story.md`](../.omp/skills/collab-with-me/references/story.md)|the Story Bible with its Story Outline of Beats, and prose drafts when the DM asks|
 |Simulate|[`simulate-npcs`](../.agents/skills/simulate-npcs/SKILL.md)|dossiers, a ledger and a report of possibilities|
@@ -76,7 +82,7 @@ Everything under `local://` stays outside the Wiki. Ingest files a Story into th
 |`scout`|bundled|collab step 3|read-only|widens the Wiki search and returns relevant paths|
 |Ingest, Lint and Prep runners|fresh native `task` subagents|collab steps 5 and 6|full|file, check and build one chain at a time|
 
-Both `creative-writer` and `persona` default to `zai/glm-5.3` (pinned in their frontmatter; test runs use the flash variant per [`.omp/AGENTS.md`](../.omp/AGENTS.md#native-delegation)) with `blocking: false`, so collab can keep talking while they work. A Persona has `tools: []` on purpose. Without reads, it knows only its dossier and the events the Director sends it, so no Persona can learn another NPC's secrets.
+Both `creative-writer` and `persona` default to `zai/glm-5.3`, pinned in their frontmatter, with `blocking: false`, so collab can keep talking while they work. [`.omp/AGENTS.md`](../.omp/AGENTS.md#native-delegation) sets when a dispatch passes another model. A Persona has `tools: []` on purpose. Without reads, it knows only its dossier and the events the Director sends it, so no Persona can learn another NPC's secrets.
 
 The Director sends each Persona its turns with `write agent://<id>`. Personas are named `Persona<NpcNameCamelCase>`, and `read history://<id>` shows a Persona's whole transcript for an isolation check. Delegation rules for every agent are in [`.omp/AGENTS.md`](../.omp/AGENTS.md#native-delegation).
 
@@ -88,7 +94,7 @@ The Director sends each Persona its turns with `write agent://<id>`. Personas ar
 |`bun run cf -- style [paths\|-]`|findings from the style (Vale) and narration layers alone, over any markdown files or directories, with the output and exit codes of `cf check`|
 |`bun run lint:agent-text`|`cf style` over the paths in `package.json`'s `lint:agent-text` script, which defines agent-facing content text (ADR 0020)|
 
-The helpers are diagnostic: their output is input the agent reads, and every call about relevance or meaning is the agent's. A page from `cf context` is a candidate to read, and a page the text means without writing its name (another case, a mishearing, a description) comes from a QMD search by `skill://qmd`. A finding from `cf style` marks text for the agent to rewrite with judgement.
+The helpers are diagnostic: their output is input the agent reads, and every call about relevance or meaning is the agent's. A page from `cf context` is a candidate to read, and a page the text means without writing its name (another case, a mishearing, a description) comes from a QMD search (`.omp/AGENTS.md` § Wiki access). A finding from `cf style` marks text for the agent to rewrite with judgement.
 
 ## TTSR rules
 
@@ -106,6 +112,7 @@ The TTSR rules in `.omp/rules/` interrupt an agent mid-output and point it back 
 |The only content limits|the Lines and Veils in each Campaign's `campaign-config.md`|
 |The Agent's voice with the DM: talk form, yes-and, Canon and pitches, Seeds and Stances, ownership, quiet mode, questions|[`docs/agents/co-writing.md`](agents/co-writing.md)|
 |Stage routing, bootstrap, working files and the filing chain|[`collab-with-me`](../.omp/skills/collab-with-me/SKILL.md)|
+|The arc view of the Campaign and its forward pitches|[`story-arc`](../.agents/skills/story-arc/SKILL.md)|
 |Story Bible sections, Beats and the drafting brief|[`references/story.md`](../.omp/skills/collab-with-me/references/story.md)|
 |The critique checklist and finding shape|[`references/story-critique.md`](../.omp/skills/collab-with-me/references/story-critique.md)|
 |Story to table conversion|[`references/adapt.md`](../.omp/skills/collab-with-me/references/adapt.md), whose rows point at each form's owner|
@@ -114,6 +121,7 @@ The TTSR rules in `.omp/rules/` interrupt an agent mid-output and point it back 
 |NPC voice lines and their check|[`npc-design` craft reference](../.agents/skills/npc-design/references/craft.md)|
 |Session intent and its Playable checks|[`plan-session`](../.agents/skills/plan-session/SKILL.md)|
 |Scene procedure|[`docs/agents/scene-pages.md`](agents/scene-pages.md)|
+|Presence facts a page stocks before its Narration|[`flesh-out`](../.agents/skills/flesh-out/SKILL.md)|
 |Narration craft|[`theatre-of-the-mind`](../.agents/skills/theatre-of-the-mind/SKILL.md)|
 |Flagged words and phrases|the Vale YAML in [`.vale/styles/ai-tells/`](../.vale/styles/ai-tells/) and [`.vale/styles/Narration/`](../.vale/styles/Narration/); skills cite the rule ID|
 |Gate layers and passing-form hints|[`src/check/layers/`](../src/check/layers/)|

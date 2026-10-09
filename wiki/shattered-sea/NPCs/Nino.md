@@ -1,10 +1,14 @@
 ---
 type: NPC
-summary: "A Calveno captive's name the table has used twice: the Mercatura metalworker aboard since Session 9, and Sandro's wordless beach companion. Which man is Nino is open."
+summary: "A Calveno captive's name the table has used twice: the Mercatura
+  metalworker aboard since Session 9, and Sandro's wordless beach companion.
+  Which man is Nino is open."
 sources:
- - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+  - "archive/Episode-09-Transcript.md"
 creature: ""
+revealed: "Session 9"
+title: ""
 ---
 
 ## At a glance

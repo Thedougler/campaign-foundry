@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A straight Quiet aisle beneath a slit of sky where the Calveno kept watch and the route continues toward Memorial Grove."
+summary: "A straight Quiet aisle beneath a slit of sky where the Calveno kept
+  watch and the route continues toward Memorial Grove."
 sources:
- - "archive/star-cut.md"
+  - "archive/star-cut.md"
 parent: "[[The Quiet]]"
+revealed: ""
+title: ""
 ---
 
 ![[Star Cut - Handout Art.jpg]]

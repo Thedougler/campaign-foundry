@@ -1,12 +1,16 @@
 ---
 type: Lore
-summary: "Calveno's three-night open bardic contest, where bands play simultaneous stages across the canal district and the crowd's feet alone decide who takes the Palio."
+summary: "Calveno's three-night open bardic contest, where bands play
+  simultaneous stages across the canal district and the crowd's feet alone
+  decide who takes the Palio."
 sources:
- - "archive/ssw-il-palio-delle-voci.md"
+  - "archive/ssw-il-palio-delle-voci.md"
 aliases:
- - "Il Palio delle Voci"
- - "Il Palio"
- - "Battle of the Bands"
+  - "Il Palio delle Voci"
+  - "Il Palio"
+  - "Battle of the Bands"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -3,6 +3,8 @@ type: DM Settings
 summary: "The DM's defaults for every World and Campaign; Session length is 4 hours."
 sources: []
 session_length_hours: 4
+revealed: ""
+title: ""
 ---
 
 ## At a glance

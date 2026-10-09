@@ -2,6 +2,8 @@
 type: Faction
 summary: "A smuggling and salvage guild that runs the back channels of the Brack and taxes Saltwick's trade."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

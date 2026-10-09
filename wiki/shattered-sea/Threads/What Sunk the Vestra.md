@@ -1,9 +1,12 @@
 ---
 type: Thread
-summary: "Whether the hand behind the Pearl theft also placed the fleet and the Vestra where two powers would destroy them."
+summary: "Whether the hand behind the Pearl theft also placed the fleet and the
+  Vestra where two powers would destroy them."
 sources:
- - "archive/ssw-what-sunk-the-vestra.md"
+  - "archive/ssw-what-sunk-the-vestra.md"
 status: active
+revealed: "Session 3"
+title: ""
 ---
 
 ## At a glance

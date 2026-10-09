@@ -1,6 +1,7 @@
 ---
 type: Location
 summary: "A chain ferry across the Drown, poled by a ferryman who never speaks."
+title: ""
 ---
 
 The ferry hangs from a chain of rusted links and drags a wet rope behind it.

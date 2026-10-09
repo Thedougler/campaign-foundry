@@ -1,9 +1,12 @@
 ---
 type: Lore
-summary: "The Dravosi Crown's standing price on rattkin lives: 15 gp a head, dead or alive, paid at any Crown fort, and still in force."
+summary: "The Dravosi Crown's standing price on rattkin lives: 15 gp a head,
+  dead or alive, paid at any Crown fort, and still in force."
 sources:
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/Episode-09-Transcript.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

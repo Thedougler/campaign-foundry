@@ -2,8 +2,10 @@
 type: Creature
 summary: "A Spiguar creature (CR 11) used as a ambusher in The Shattered Sea."
 sources:
- - "archive/session-11-transcript-archived-version.md"
- - "archive/spiguar.md"
+  - "archive/session-11-transcript-archived-version.md"
+  - "archive/spiguar.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Spiguar - Token.jpg]]
@@ -23,7 +25,7 @@ sources:
 - **Used by.** [[Terror-Bird]] patrols the same territory.
 
 > [!narration] First sight
-> The tall grass bows in a travelling line, green stalks rising again behind it. The spiguar surfaces for one stride, sabre teeth bared, and the line bends toward you. It gathers and launches, and the pounce lands claws first to tip its catch over. From there the grass takes the fight, and the closed stalks hide where it drags its prize.
+> Ahead of you a travelling line bows through the grass, its green stalks standing up again behind it. Sabre teeth surface for one stride. The line swings toward you, and the spiguar gathers itself beneath the grass and launches, landing claws first so its catch tips over. From there the fight goes to the grass, closed stalks hiding where the spiguar drags its prize.
 
 ## Statblock
 

@@ -1,10 +1,13 @@
 ---
 type: Scene
 kind: Development
-summary: "On the Burnt Road, Jean-Claude reads Gold-caste orders from eleven dead Grung while Hinewai calls him a kidnapper."
+summary: "On the Burnt Road, Jean-Claude reads Gold-caste orders from eleven
+  dead Grung while Hinewai calls him a kidnapper."
 sources:
   - "archive/session-12-index.md"
   - "archive/session-12-04-orders-in-the-ash.md"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +18,7 @@ sources:
 - **Who.** Jean-Claude, Hinewai's unseen voice, eleven Grung corpses, and the Calveno column.
 
 > [!narration] Opening
-> Fruit heaps lead you out of forest so dense that for an hour you could barely see the back ahead of you. They bring you onto a road fire cut straight through the forest, with small skeletons half swallowed by black flowers. Long afternoon light pours along the open scar, where fresh bark covers the charcoal on the trunks lining either side. Underfoot, blossoms squash like soaked sponge, wringing out a reek of rot and copper with every step. Another stone's throw along the trail, a further heap of windfall rests on a wide leaf beside a corpse no larger than Jean-Claude. Something gold glints between its ribs.
+> Fruit heaps lead you out of forest so dense that for an hour you could barely see the back ahead of you. They bring you onto a road fire cut straight through the forest. Small skeletons lie half swallowed by black flowers. Long afternoon light pours along the open scar, where fresh bark covers the charcoal on the trunks lining either side. Underfoot, blossoms squash like soaked sponge, wringing out a reek of rot and copper with every step. Another stone's throw along the trail, a further heap of windfall rests on a wide leaf beside a corpse no larger than Jean-Claude. Something gold glints between its ribs.
 
 ## Play
 

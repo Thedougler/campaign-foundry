@@ -1,10 +1,13 @@
 ---
 type: NPC
-summary: "Crown captain and Rupert Knighton's adopted son, lost through an illusory doorway aboard the Saltwright."
+summary: "Crown captain and Rupert Knighton's adopted son, lost through an
+  illusory doorway aboard the Saltwright."
 sources:
- - "archive/ssw-shepherd-grigori.md"
- - "archive/ssw-session-01.md"
+  - "archive/ssw-shepherd-grigori.md"
+  - "archive/ssw-session-01.md"
 creature: "[[Commoner]]"
+revealed: "Session 1"
+title: ""
 ---
 
 ## At a glance

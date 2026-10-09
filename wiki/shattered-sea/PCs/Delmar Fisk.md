@@ -1,18 +1,21 @@
 ---
 type: PC
 aliases:
- - "Admiral Fisk"
-summary: "Frederick's level 5 Swashbuckler rogue and former admiral, carrying the secret cost of stealing the Pearl of Souls."
+  - "Admiral Fisk"
+summary: "Level 5 Swashbuckler rogue and former admiral, carrying the secret
+  cost of stealing the Pearl of Souls."
 sources:
- - "archive/delmar-fisk.md"
- - "archive/ssw-admiral-fisk.md"
- - "archive/ssw-human-culture.md"
- - "archive/ssw-session-02.md"
- - "archive/ssw-umberlee.md"
- - "archive/ssw-umberlee-shrine.md"
- - "archive/session-10.md"
- - "archive/session-12-full.md"
+  - "archive/delmar-fisk.md"
+  - "archive/ssw-admiral-fisk.md"
+  - "archive/ssw-human-culture.md"
+  - "archive/ssw-session-02.md"
+  - "archive/ssw-umberlee.md"
+  - "archive/ssw-umberlee-shrine.md"
+  - "archive/session-10.md"
+  - "archive/session-12-full.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/Tabalicious/characters/164202916"
+revealed: "Backstory"
+title: ""
 ---
 
 ![[Delmar Fisk - Reference Sheet.png]]

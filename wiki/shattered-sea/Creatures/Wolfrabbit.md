@@ -2,10 +2,12 @@
 type: Creature
 summary: "A Wolfrabbit creature (CR 4) used as a skirmisher in The Shattered Sea."
 sources:
- - "archive/session-11-transcript-archived-version.md"
- - "archive/wolfrabbit.md"
- - "archive/Episode-09-Transcript.md"
- - "archive/session-10.md"
+  - "archive/session-11-transcript-archived-version.md"
+  - "archive/wolfrabbit.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/session-10.md"
+revealed: "Session 9"
+title: ""
 ---
 
 ![[Wolfrabbit - Token.jpg]]

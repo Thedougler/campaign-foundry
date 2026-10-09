@@ -5,6 +5,8 @@ summary: "The Party learns Aruhe's fallen-fruit rule and drives off a Spiguar."
 sources:
   - "archive/Session-11-04-What-They-Ate.md"
   - "archive/Session-11-04-What-They-Ate-archived-version.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Session 11 - What They Ate - Handout Art.jpg]]

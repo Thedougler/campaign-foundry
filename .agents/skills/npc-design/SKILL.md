@@ -11,8 +11,8 @@ An NPC is a named person who wants something now, with agency and a story. Their
 
 - The caller's `root`, `vault`, and Campaign are authoritative. In an isolated fixture, scope every read, search, edit, command, index, and log to that target. Leave the ambient live Wiki untouched.
 - Read `CONTEXT.md`, `docs/wiki-layout.md`, and `wiki/templates/NPC.md`. The NPC template alone defines the page's sections and properties. Do not copy headings, fields, or paths from intent material.
-- Canon precedence is explicit DM instruction, what the DM or Players established at the table and the played Session record, then the Wiki, then Raw. Preserve existing facts, heard Narration, played Session pages, and `hot.md`. An explicit DM change overrides them. When Canon is silent, choose one concrete answer at the selected scale, file it as Canon, and report the decision with the pages it grew from. Never ask for bookkeeping approval or confirmation of edits.
-- Before invention, read the target Campaign folder's `index.md`, its `hot.md`, and the last ten entries of its `log.md`. Then use target-scoped QMD retrieval for the NPC, backlinks, home Location, Faction, connected people, relevant Threads and Recaps, and each relevant PC's `Goals and bonds` and `Plans`. Record every used hit or a reason it is irrelevant.
+- Canon precedence is explicit DM instruction, what the DM or Players established at the table and the played Session record, then the Wiki, then Raw. Preserve heard Narration, played Session pages, and `hot.md`, and change each other page as its `revealed` property allows (`CONTEXT.md` **Revealed**). An explicit DM change overrides them. When Canon is silent, choose one concrete answer at the selected scale, file it as Canon, and report the decision with the pages it grew from. Never ask for bookkeeping approval or confirmation of edits.
+- Before invention, read the target Campaign folder's `index.md`, its `hot.md`, and the last ten entries of its `log.md`. Then search QMD, scoped to the caller's target (`.omp/AGENTS.md` § Wiki access), for the NPC, backlinks, home Location, Faction, connected people, relevant Threads and Recaps, and each relevant PC's `Goals and bonds` and `Plans`. Record every used hit or a reason it is irrelevant.
 - Page links make pages reachable. Every new NPC, Creature, or Thread gets an incoming link other than an index link before the gate runs.
 
 ## Scale
@@ -60,7 +60,7 @@ Write facts that change play:
 - **Knowledge:** for every question the page raises, state the truth separately from what the NPC knows, shares, sells, or lies about.
 - **If ignored:** the next action the NPC takes without the Party.
 
-Make the person distinctive. Give them a repeatable face with two or three specific visible details, a sourced sound or smell and an activity. Root their voice in what they care about, with word choice, rhythm, habit, an avoided subject, and an ask, refusal and pressure line. Apply the swap test against a plausible NPC from the same place or Faction. Put every hidden truth's tell in the DM-facing material, not in Player-facing Narration.
+Make the person distinctive. Give them a repeatable face with two or three specific visible details, a sourced sound or smell and an activity. Root their voice in what they care about, with word choice, rhythm, habit, an avoided subject, and an ask, refusal and pressure line. Apply the swap test against a plausible NPC from the same place or Faction. Put every hidden truth's tell in the DM-facing material, not in Player-facing Narration. A filed NPC whose drives are sound but whose presence reads generic gets a `flesh-out` pass in place of a rebuild.
 
 **Gate:** every required drive field is concrete. The secret has stakes and three non-duplicate routes. Truth and NPC knowledge are separate, the face and voice fail the swap test, and every hidden truth has a testable tell.
 
@@ -106,28 +106,14 @@ With no active Campaign, retain the plan on the NPC in the World, do not invent 
 
 Load `theatre-of-the-mind` for the NPC template's `[!narration] First look` and write it to the recipe in [references/craft.md](references/craft.md#first-look). Preserve Narration already heard at the table unless the DM explicitly requests a rewrite.
 
-Copy `wiki/templates/NPC.md` exactly in `<campaign-folder>/NPCs/`. A page already filed keeps its folder. Fill its required `At a glance`, `Play`, `Depth`, and `Links` sections with only the facts the selected scale needs. Link the Creature, Location, Faction, PCs, Threads, supporters, and other owners. If a Creature or Thread was created, file it with its own template and link it from the owner page.
+Copy `wiki/templates/NPC.md` exactly in `<campaign-folder>/NPCs/`. A page already filed keeps its folder. Fill its required `At a glance`, `Play`, `Depth`, and `Links` sections with only the facts the selected scale needs. Fill the optional `Quotes` only with lines the DM, a Transcript or a source gives this person, word for word, and leave it out when there are none. Link the Creature, Location, Faction, PCs, Threads, supporters, and other owners. If a Creature or Thread was created, file it with its own template and link it from the owner page.
 
 **Gate:** the page has the template's required properties, sections, and callout; the first look is speakable and Player-safe; every new page is inbound-linked; no page contains agent process notes, inline rules, or empty filler.
 
-### 9. Run the repository gate and log once
+### 9. Close against the caller's target
 
-Use the actual CLI against the caller's target, not an ambient default:
+Close per `skill://lint` § Commands over the NPC, Creature and Thread pages and every other page this run touched, using the caller's target, not an ambient default (**Another root** there: every command takes `--vault "$VAULT" --root "$ROOT"`, each check `--templates "$VAULT/templates"`). The page gate runs every layer on them: placement, links, orphans, statblock arithmetic, index, hot, log, Markdown, spelling, grammar, and style. Link every Creature the NPC uses so its 2024 arithmetic is checked. Never hand-edit `index.md`.
 
-```sh
-bun run cf -- index --vault "$VAULT" --root "$ROOT"
-bun run cf -- check --fix --vault "$VAULT" --root "$ROOT" --templates "$VAULT/templates" "$NPC_PATH" "$CREATURE_PATH" "$THREAD_PATH"
-bun run cf -- check --vault "$VAULT" --root "$ROOT" --templates "$VAULT/templates" "$NPC_PATH" "$CREATURE_PATH" "$THREAD_PATH"
-```
+Omit absent `--page` values (`$NPC_PATH`, `$CREATURE_PATH`, `$THREAD_PATH`). If an enclosing Ingest, Prep, Push, Audit, Pull, or Query operation called this skill, that operation writes the log entry for the work and this skill writes none.
 
-Run the page gate with no `--layer` filter, given the NPC, Creature and Thread pages and every other page this run touched. It runs every layer on them: placement, links, orphans, statblock arithmetic, index, hot, log, Markdown, spelling, grammar, and style. Link every Creature the NPC uses so its 2024 arithmetic is checked. Fix findings on those pages, and rerun until the page gate reports `ok: 0 findings`. Never hand-edit `index.md`.
-
-For a standalone NPC creation, append one `create` entry only after the page gate reports `ok: 0 findings`:
-
-```sh
-bun run cf -- log --campaign "$CAMPAIGN" --op create --title "<one-line result>" --page "$NPC_PATH" --page "$CREATURE_PATH" --page "$THREAD_PATH" --vault "$VAULT" --root "$ROOT"
-```
-
-Omit absent `--page` values. If an enclosing Ingest, Prep, Push, Audit, Pull, or Query operation called this skill, that operation writes the log entry for the work and this skill writes none.
-
-**Done:** the selected-scale result is complete. Canon and explicit inventions are preserved and reported, and every source limitation is stated. All relevant Creature and Thread pages are linked, and the target's page gate reports `ok: 0 findings`. The index is regenerated, and the log has one entry under the standalone-versus-enclosing rule.
+**Done:** the selected-scale result is complete. Canon and explicit inventions are preserved and reported, and every source limitation is stated. All relevant Creature and Thread pages are linked, and the close is complete, with one `create` entry under the standalone-versus-enclosing rule.

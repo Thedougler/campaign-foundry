@@ -1,12 +1,15 @@
 ---
 type: Location
 kind: Site
-summary: "A scorched terrace flower that answers violent disturbance by casting a nearby spell back at its attacker."
+summary: "A scorched terrace flower that answers violent disturbance by casting
+  a nearby spell back at its attacker."
 sources:
- - "archive/Aruhe - Lesser Black Lotus.md"
- - "archive/lesser-black-lotus.md"
- - "archive/session-11-transcript-archived-version.md"
+  - "archive/Aruhe - Lesser Black Lotus.md"
+  - "archive/lesser-black-lotus.md"
+  - "archive/session-11-transcript-archived-version.md"
 parent: "[[Old Gardens]]"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Lesser Black Lotus - Handout Art.jpg]]

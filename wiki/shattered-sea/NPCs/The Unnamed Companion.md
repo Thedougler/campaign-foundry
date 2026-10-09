@@ -1,11 +1,14 @@
 ---
 type: NPC
-summary: "Hinewai's fellow captive at Karath, killed in the surf during their escape and buried beneath the Death Bloom's fruit tree."
+summary: "Hinewai's fellow captive at Karath, killed in the surf during their
+  escape and buried beneath the Death Bloom's fruit tree."
 sources:
- - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
- - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
- - "archive/hinewai.md"
+  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
+  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
+  - "archive/hinewai.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

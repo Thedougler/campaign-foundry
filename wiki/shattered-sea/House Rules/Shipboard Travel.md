@@ -1,8 +1,12 @@
 ---
 type: House Rule
-summary: "House rules for a voyage: cooked meals grant temporary hit points on every long rest, each check takes one roll per PC, and three passes hold the ship's course."
+summary: "House rules for a voyage: cooked meals grant temporary hit points on
+  every long rest, each check takes one roll per PC, and three passes hold the
+  ship's course."
 sources:
- - "archive/Episode-09-Transcript.md"
+  - "archive/Episode-09-Transcript.md"
+revealed: "Session 9"
+title: ""
 ---
 
 ## At a glance

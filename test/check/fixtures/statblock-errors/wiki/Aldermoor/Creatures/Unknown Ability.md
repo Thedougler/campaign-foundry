@@ -2,6 +2,8 @@
 type: Creature
 summary: "Seeded stat block: Unknown Ability."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

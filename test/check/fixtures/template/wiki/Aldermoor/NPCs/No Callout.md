@@ -3,6 +3,8 @@ type: NPC
 summary: "A ferrywoman."
 sources: []
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

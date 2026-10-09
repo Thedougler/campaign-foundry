@@ -1,10 +1,13 @@
 ---
 type: NPC
-summary: "Captured green-caste Grung labourer who traded bombing intelligence for protection."
+summary: "Captured green-caste Grung labourer who traded bombing intelligence
+  for protection."
 sources:
- - "archive/felix-aho.md"
- - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/felix-aho.md"
+  - "archive/ssw-session-04-ingest-recap.md"
 creature: "[[Commoner]]"
+revealed: "Session 4"
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +18,7 @@ creature: "[[Commoner]]"
 - **Found at.** Nona Black-Jaw's Warren safe house, guarded by Ruk.
 
 > [!narration] First look
-> A lean green Grung sits under guard, old leaves of colour on matte skin and amber eyes fixed on the door. He looks like a labourer who has decided to answer anyway, however much breath it costs.
+> A lean green Grung sits under guard, old leaves of colour on matte skin and amber eyes fixed on the door. He looks like a labourer who has decided to answer, whatever the answer costs him in breath.
 
 ## Play
 

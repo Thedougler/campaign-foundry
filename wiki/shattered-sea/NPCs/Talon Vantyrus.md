@@ -1,11 +1,14 @@
 ---
 type: NPC
-summary: "Master of the faction and former Sentinel Osset, seeking the Soul Incarnate transformation through Crissdalynn."
+summary: "Master of the faction and former Sentinel Osset, seeking the Soul
+  Incarnate transformation through Crissdalynn."
 sources:
- - "archive/talon-vantyrus.md"
- - "archive/session-10.md"
- - "archive/session-12-full.md"
+  - "archive/talon-vantyrus.md"
+  - "archive/session-10.md"
+  - "archive/session-12-full.md"
 creature: "[[Talon Vantyrus (Creature)]]"
+revealed: "Session 10"
+title: ""
 ---
 
 ![[Talon Vantyrus - Reference Sheet.png]]

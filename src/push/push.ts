@@ -1,4 +1,4 @@
-import { basename, join } from "node:path";
+import { join } from "node:path";
 import { UsageError } from "../check/run.ts";
 import { appendLogEntry, today } from "../vault/log.ts";
 import { buildVault, readVaultFiles } from "../vault/vault.ts";
@@ -61,8 +61,8 @@ export async function runPush(options: PushOptions): Promise<PushResult> {
 	for (const { doc, change } of compared) counts[doc.type][change]++;
 	const changedDocs: PlanDoc[] = compared.filter((c) => c.change !== "unchanged").map((c) => c.doc);
 	const changed = compared.filter((c) => c.change !== "unchanged").map(({ doc, change }) => ({ type: doc.type, id: doc.id, name: doc.name, change }));
-	// A folder or an unchanged-only Push carries no page; the log lists pages, not folders.
-	const pages = [...new Set(changedDocs.filter((d) => d.path !== "").map((d) => basename(d.path).replace(/\.md$/, "")))].sort();
+	// The log lists pages, not folders; a doc's name is its page's name (ADR 0028).
+	const pages = [...new Set(changedDocs.filter((d) => d.path !== "").map((d) => d.name))].sort();
 	const result: PushResult = { plan, counts, changed, upToDate: changedDocs.length === 0, dryRun: options.dryRun ?? false, manifest: path, pages };
 	if (result.upToDate || options.dryRun) return result;
 

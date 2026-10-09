@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "The Crown island whose eastern cliffs and signal tower are the last charted landmark before the Narrows close."
+summary: "The Crown island whose eastern cliffs and signal tower are the last
+  charted landmark before the Narrows close."
 sources:
- - "archive/ssw-central-strait.md"
+  - "archive/ssw-central-strait.md"
 parent: "[[Crown Islands]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

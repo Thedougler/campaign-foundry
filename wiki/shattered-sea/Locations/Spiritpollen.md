@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A pale pollen stand whose cloud makes breathing creatures hallucinate hostile spirits and attack their companions."
+summary: "A pale pollen stand whose cloud makes breathing creatures hallucinate
+  hostile spirits and attack their companions."
 sources:
- - "archive/spiritpollen.md"
+  - "archive/spiritpollen.md"
 parent: "[[Aruhe]]"
+revealed: ""
+title: ""
 ---
 
 ![[Spiritpollen - Handout Art.jpg]]

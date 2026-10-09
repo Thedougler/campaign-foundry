@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Site
-summary: "A small reef-bound island in the ring around the Blue Hole, with Umberlee's hidden shrine cut into its cliff."
+summary: "A small reef-bound island in the ring around the Blue Hole, with
+  Umberlee's hidden shrine cut into its cliff."
 sources:
- - "archive/ssw-umberlee-shrine.md"
- - "archive/ssw-campaign-timeline.md"
+  - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-campaign-timeline.md"
 parent: "[[Outer Reach]]"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

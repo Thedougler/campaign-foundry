@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Blind purple-caste Grung master of the Still-Water Discipline and former Magazine Gamma guardian."
+summary: "Blind purple-caste Grung master of the Still-Water Discipline and
+  former Magazine Gamma guardian."
 sources:
- - "archive/vashu-the-weeping-veil.md"
+  - "archive/vashu-the-weeping-veil.md"
 creature: "[[Vashu the Weeping Veil]]"
+revealed: "Session 6"
+title: ""
 ---
 
 ## At a glance

@@ -1,10 +1,13 @@
 ---
 type: NPC
-summary: "Minotaur captain of the Fernen in Fisk's Fleet, who ran the fleet's perimeter survey operations."
+summary: "Minotaur captain of the Fernen in Fisk's Fleet, who ran the fleet's
+  perimeter survey operations."
 sources:
- - "archive/ssw-minotaur.md"
- - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-minotaur.md"
+  - "archive/ssw-umberlee-shrine.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

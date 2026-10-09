@@ -3,6 +3,8 @@ type: PC
 summary: "A ferry pilot with a borrowed name."
 sources: []
 dndbeyond_url: ""
+revealed: "Backstory"
+title: ""
 ---
 
 

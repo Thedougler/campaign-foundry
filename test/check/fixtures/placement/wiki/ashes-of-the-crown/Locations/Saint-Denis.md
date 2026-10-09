@@ -4,6 +4,8 @@ kind: Site
 summary: "One line."
 sources: []
 parent: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

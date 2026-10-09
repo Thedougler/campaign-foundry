@@ -2,6 +2,8 @@
 type: Creature
 summary: "Seeded stat block: Good Mage."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

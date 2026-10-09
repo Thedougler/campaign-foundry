@@ -1,10 +1,13 @@
 ---
 type: Previously On
-summary: "Delmar confessed the Pearl theft, Umberlee named her price, and Felix revealed the festival attack."
+summary: "Delmar confessed the Pearl theft, Umberlee named her price, and Felix
+  revealed the festival attack."
 sources:
   - "archive/Session 04 - Recap.md"
   - "archive/Session-04-Recap.md"
 date: "1495 DR, date not established"
+revealed: "Session 5"
+title: ""
 ---
 
 ## At a glance

@@ -1,12 +1,15 @@
 ---
 type: Location
 kind: Region
-summary: "A closed Grung raid and hatchery island where the Gold caste sends compelled raiders toward Aruhe."
+summary: "A closed Grung raid and hatchery island where the Gold caste sends
+  compelled raiders toward Aruhe."
 sources:
- - "archive/karath.md"
- - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/karath.md"
+  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 parent: "[[Midchain]]"
+revealed: "Session 9"
+title: ""
 ---
 
 ![[Karath - Handout Art.png]]

@@ -1,6 +1,7 @@
 ---
 type: Prep
-summary: "Four-hour inland rescue through Hinewai's garden, ending with Skarn's last attempt at the Fate Spinner and Perrin's choice to consume."
+summary: "Four-hour inland rescue through Hinewai's garden, ending with Skarn's
+  last attempt at the Fate Spinner and Perrin's choice to consume."
 sources:
   - "archive/session-12-index.md"
   - "archive/session-12-00-the-garden-keeps-its-own.md"
@@ -11,6 +12,8 @@ sources:
   - "archive/session-12-05-consume.md"
   - "archive/session-12-06-the-way-out.md"
 date: "1495 DR, date not established"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance

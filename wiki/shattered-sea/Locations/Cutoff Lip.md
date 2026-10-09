@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A packed dirt shelf at the Quiet's edge, where Calveno prints run north and a Deer-Stalker marks the trees."
+summary: "A packed dirt shelf at the Quiet's edge, where Calveno prints run
+  north and a Deer-Stalker marks the trees."
 sources:
- - "archive/cutoff-lip.md"
+  - "archive/cutoff-lip.md"
 parent: "[[The Quiet]]"
+revealed: ""
+title: ""
 ---
 
 ![[Cutoff Lip - Handout Art.jpg]]

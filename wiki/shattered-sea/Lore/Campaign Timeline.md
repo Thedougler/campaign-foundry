@@ -1,9 +1,12 @@
 ---
 type: Lore
-summary: "A chronology from the Antheri's height through the Pearl theft and the Party's opening aboard the Saltwright."
+summary: "A chronology from the Antheri's height through the Pearl theft and the
+  Party's opening aboard the Saltwright."
 sources:
- - "archive/campaign-timeline.md"
- - "archive/ssw-umberlee-shrine.md"
+  - "archive/campaign-timeline.md"
+  - "archive/ssw-umberlee-shrine.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

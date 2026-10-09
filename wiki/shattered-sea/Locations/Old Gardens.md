@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Site
-summary: "Ancient stone terraces rising from Western Landing, crowded with fruit, water channels and things that hunt among them."
+summary: "Ancient stone terraces rising from Western Landing, crowded with
+  fruit, water channels and things that hunt among them."
 sources:
- - "archive/old-gardens.md"
- - "archive/session-10.md"
+  - "archive/old-gardens.md"
+  - "archive/session-10.md"
 parent: "[[Aruhe]]"
+revealed: "Session 10"
+title: ""
 ---
 
 ![[Old Gardens - Portrait.jpg]]

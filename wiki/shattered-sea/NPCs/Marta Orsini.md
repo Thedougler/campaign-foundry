@@ -1,10 +1,13 @@
 ---
 type: NPC
-summary: "Le Paludi's buyer of eggs and curiosities at Studio Orsini, whom the Casa Lupo shopkeeper sends egg inquiries to."
+summary: "Le Paludi's buyer of eggs and curiosities at Studio Orsini, whom the
+  Casa Lupo shopkeeper sends egg inquiries to."
 sources:
- - "archive/ssw-session-03.md"
- - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-session-04-ingest-recap.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

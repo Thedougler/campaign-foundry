@@ -2,7 +2,9 @@
 type: Creature
 summary: "A Vine Lash creature (CR 3) used as a controller in The Shattered Sea."
 sources:
- - "archive/vine-lash.md"
+  - "archive/vine-lash.md"
+revealed: ""
+title: ""
 ---
 
 ![[Vine Lash - Portrait.png]]
@@ -16,7 +18,7 @@ sources:
 - **Used by.** [[Wolfrabbit]] patrols the same territory.
 
 > [!narration] First sight
-> Pale stems wind round a branch over the path, leafless and ringed with grey bark. A few loose root tips hang down past head height. The bundle has hung there so long it could pass for a length of spare rigging. Then one tip twitches, and the whole coil shifts its grip on the branch.
+> Pale stems wind round a branch over the path, leafless and ringed with grey bark, and a few loose root tips hang down past head height. The bundle has hung there so long. It could pass for a length of spare rigging. Then one tip twitches, and the whole coil shifts its grip on the branch.
 
 ## Statblock
 

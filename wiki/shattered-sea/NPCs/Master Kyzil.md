@@ -1,16 +1,19 @@
 ---
 type: NPC
-summary: "Barn-owl Sentinel master testing Crissdalynn while investigating a foul wind beneath Calveno."
+summary: "Barn-owl Sentinel master testing Crissdalynn while investigating a
+  foul wind beneath Calveno."
 sources:
- - "archive/master-kyzil.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-le-paludi.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/agentic-co-dm-master-kyzil-narration.md"
- - "archive/Episode-09-Transcript.md"
- - "archive/session-10.md"
- - "archive/session-12-full.md"
+  - "archive/master-kyzil.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-le-paludi.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/agentic-co-dm-master-kyzil-narration.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/session-10.md"
+  - "archive/session-12-full.md"
 creature: "[[Master Kyzil (Creature)]]"
+revealed: "Backstory"
+title: ""
 ---
 
 ![[Master Kyzil - Portrait.png]]
@@ -23,7 +26,7 @@ creature: "[[Master Kyzil (Creature)]]"
 - **Found at.** High Eyrie, or temporarily at the Waveservant Shrine in Calveno, staying in town through the festival.
 
 > [!narration] First look
-> A barn-owl aarakocra sits over an untouched meal, tall and lean in plain sentinel robes, his gaze on something far off and the place beside him empty. Tawny-brown feathers frame a broad, pale facial disc and fade to ash across crown and mantle, and his wings fold tight against his back. When his head turns, his body swings round after it at its own slow pace. He smooths his robes and crosses his right wing over the left before he asks his question in a voice so composed that worry sounds like weather.
+> A barn-owl aarakocra sits over an untouched meal, tall and lean in plain sentinel robes, his gaze on something far off and the place beside him empty. Tawny-brown feathers frame a broad, pale facial disc and fade to ash across crown and mantle, and his wings fold tight against his back. His head turns. Then his body swings round after it at its own slow pace. He smooths his robes and crosses his right wing over the left before he asks his question in a voice so composed that worry sounds like weather.
 
 ## Play
 

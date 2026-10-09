@@ -1,14 +1,14 @@
-import { execFile } from "node:child_process";
-import { readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { promisify } from "node:util";
 import { describe, expect, it } from "vitest";
 import { cf, copyFixture, type JsonReport, realTemplates, vaultFlags } from "./helpers.ts";
 
-/** Today as a node child sees it, the same clock `cf log` runs on. */
-const nodeToday = (): Promise<string> =>
-	promisify(execFile)("node", ["-e", "const d=new Date();const p=(n)=>String(n).padStart(2,'0');console.log(`${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`)"])
-		.then(({ stdout }) => stdout.trim());
+/** Today as `cf log` sees it: the same clock and process, now that the command runs in-process. */
+const nodeToday = (): string => {
+	const d = new Date();
+	const p = (n: number): string => String(n).padStart(2, "0");
+	return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+};
 
 const LOG = "wiki/ashes-of-the-crown/log.md";
 const FIRST = "## [2026-01-05] ingest | Session 1 transcript\n\n- [[Session 1 - Recap]]\n";
@@ -76,7 +76,7 @@ describe("cf log", () => {
 	});
 
 	it("dates the entry today, in the real world, when --date is left out", async () => {
-		const stamp = await nodeToday();
+		const stamp = nodeToday();
 		const dir = await copyFixture("clean");
 		await log(dir, ["--op", "pull", "--title", "D&D Beyond", "--page", "Tam Brightwater"]);
 		expect(await read(dir)).toContain(`## [${stamp}] pull | D&D Beyond\n`);
@@ -177,11 +177,21 @@ describe("cf log", () => {
 			expect(stderr).toContain("cf log --campaign");
 		});
 
-		it("requires --campaign", async () => {
+		it("defaults --campaign to the only Campaign in the Wiki", async () => {
 			const dir = await copyFixture("clean");
+			const { code } = await cf(["log", ...vaultFlags(dir), ...base, "--date", "2026-02-01"], dir);
+			expect(code).toBe(0);
+			expect(await read(dir)).toContain("## [2026-02-01] prep | T");
+		});
+
+		it("requires --campaign when the Wiki holds more than one Campaign", async () => {
+			const dir = await copyFixture("clean");
+			await mkdir(join(dir, "wiki", "second"), { recursive: true });
+			await writeFile(join(dir, "wiki", "second", "Second.md"), "---\ntype: Campaign\nsummary: \"Another table.\"\nsources: []\n---\n");
 			const { code, stderr } = await cf(["log", ...vaultFlags(dir), ...base], dir);
 			expect(code).toBe(2);
 			expect(stderr).toContain("--campaign");
+			expect(stderr).toContain("Second");
 		});
 
 		it("requires at least one page", async () => {

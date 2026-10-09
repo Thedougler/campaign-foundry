@@ -3,6 +3,8 @@ type: Scene
 kind: Hook
 summary: "The Gullhook lamp dies as the ferry enters the channel, and the boat grounds on a mud bank."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

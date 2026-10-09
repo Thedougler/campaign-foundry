@@ -1,10 +1,13 @@
 ---
 type: Faction
-summary: "Aarakocra monks at High Eyrie who watch and record the Drowned Maw without interpreting or intervening."
+summary: "Aarakocra monks at High Eyrie who watch and record the Drowned Maw
+  without interpreting or intervening."
 sources:
- - "archive/sentinels-of-the-eyrie.md"
- - "archive/session-10.md"
- - "archive/session-12-full.md"
+  - "archive/sentinels-of-the-eyrie.md"
+  - "archive/session-10.md"
+  - "archive/session-12-full.md"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance
@@ -16,7 +19,7 @@ sources:
 - **Strength.** Monastic training and continuous observation at the Maw since 1295 DR.
 
 > [!narration] Public face
-> Aarakocra monks have kept High Eyrie for two centuries. They record time, weather, position, water and occurrence at the Drowned Maw. The place matters, not the reason. Exact movement in peak wind is the training standard. Fairness is not part of it.
+> For two centuries Aarakocra monks have kept High Eyrie, recording time, weather, position, water and occurrence at the Drowned Maw. The place matters, not the reason. Exact movement in peak wind is the training standard, and fairness is not part of it.
 
 ## Play
 
@@ -36,6 +39,7 @@ The Sentinels began the continuous Maw ledger in 1295 DR and predate Dravosi rul
 
 ### Hidden truths
 
+- Two centuries of watch have never recorded [[Auralis]], and the order does not know the Maw is a planar breach. He watches from below, the order watches from above, and neither side knows of the other.
 - Founding documents beneath the summit may connect the Maw seal to the Soul Incarnate. Access requires reaching the guarded vault.
 - The order's non-intervention doctrine prevents it acting on what it observes. Reading the ledgers alongside a fresh danger makes the cost plain.
 - The Sentinels' records do not explain why events occur, even when the cause seems obvious.

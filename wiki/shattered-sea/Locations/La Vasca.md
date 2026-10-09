@@ -1,14 +1,17 @@
 ---
 type: Location
 kind: Site
-summary: "A concealed Black-Jaw dry dock in Le Paludi, disguised as a defunct tannery and maintained by Cobb."
+summary: "A concealed Black-Jaw dry dock in Le Paludi, disguised as a defunct
+  tannery and maintained by Cobb."
 sources:
- - "archive/la-vasca.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-cobb.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/la-vasca.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-cobb.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/Episode-09-Transcript.md"
 parent: "[[Le Paludi]]"
+revealed: "Session 3"
+title: ""
 ---
 
 ## At a glance

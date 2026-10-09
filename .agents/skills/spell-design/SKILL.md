@@ -9,7 +9,7 @@ The Wiki stores a Spell page only for a spell the rules sources lack. A spell fr
 
 ## Steps
 
-1. **Read the Canon.** With qmd, find the Spell's page if it exists, every page that links to it, and the traditions, casters, Factions and places it touches.
+1. **Read the Canon.** With qmd, find the Spell's page if it exists, every page that links to it, and the traditions, casters, Factions and places it touches. Change each page as its `revealed` property allows (`CONTEXT.md` **Revealed**).
 2. **Source it** in the order `AGENTS.md` sets. Search the SRD (`dnd5e-srd-api`) and published and homebrew spells on the web for one that already does it. A published spell that fits is used as it is, without a page of its own. Otherwise take the two or three closest as peers.
 3. **The lever.** One sentence stating what the Spell does that no peer does, and the choice it gives its caster (where to put the wall, whom to spare, when to end it).
 4. **Tie it to the World.** Link the **tradition** that casts it (a Faction, NPC or Creature page). State where its casters learned it and why it exists. Describe the **signature**, the sight, sound or smell of casting it, rooted in that tradition. When it has a **price** beyond the slot, make it a material the World makes rare, a mark the spell leaves or a debt. Run the swap test with a generic spell's name.
@@ -17,7 +17,7 @@ The Wiki stores a Spell page only for a spell the rules sources lack. A spell fr
 6. **Rulings.** Answer the 3 to 5 tricks Players will try with it. State how a target or rival caster counters it and which named NPC or Creature casts it against the Party.
 7. **Discovery.** One named source (an NPC, Item, Site or Faction page) with a reason to hold it, the price of learning it (coin, a favour, a task, a risk), the Clue that tells the Party the source exists, and who notices when a PC first casts it.
 8. **Narration.** Hand `theatre-of-the-mind` the Casting slot with the signature.
-9. **File** to `wiki/templates/Spell.md` in `<campaign-folder>/Spells/` (a page already filed keeps its folder). The casting fields go under At a glance, Effect (the full rules text) and Rulings under Play, and Tradition and Who knows it (the source and its price) under Depth. Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Run `bun run cf -- check --fix`, then `bun run cf -- check`, given the page path, until that page gate reports `ok: 0 findings`, and list it in the operation's `bun run cf -- log` entry (`--op create` when this skill runs on its own).
+9. **File** to `wiki/templates/Spell.md` in `<campaign-folder>/Spells/` (a page already filed keeps its folder). The casting fields go under At a glance, Effect (the full rules text) and Rulings under Play, and Tradition and Who knows it (the source and its price) under Depth. Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Close per `skill://lint` § Commands with the page path.
 
 ## Damage by level
 

@@ -1,10 +1,13 @@
 ---
 type: Lore
-summary: "The Grung raid that took Hinewai for Karath's hatcheries, the escape that cost her companion his life, and the grave that made Aruhe's law."
+summary: "The Grung raid that took Hinewai for Karath's hatcheries, the escape
+  that cost her companion his life, and the grave that made Aruhe's law."
 sources:
- - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
- - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
- - "archive/hinewai.md"
+  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
+  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
+  - "archive/hinewai.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

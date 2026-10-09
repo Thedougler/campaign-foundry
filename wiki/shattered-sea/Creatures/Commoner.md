@@ -2,7 +2,9 @@
 type: Creature
 summary: "An ordinary untrained person represented by the standard commoner statblock."
 sources:
- - "archive/commoner.md"
+  - "archive/commoner.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

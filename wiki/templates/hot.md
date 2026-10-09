@@ -1,8 +1,10 @@
 ---
+title: ""
 type: hot
 summary: ""
 sources: []
 date: ""
+revealed: ""
 ---
 
 ## At a glance

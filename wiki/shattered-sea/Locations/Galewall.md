@@ -1,12 +1,16 @@
 ---
 type: Location
 kind: Region
-summary: "The permanent western storm belt between the Scatter and the colonial homelands: a three-week crossing that loses one hull in three and prices every mistake."
+summary: "The permanent western storm belt between the Scatter and the colonial
+  homelands: a three-week crossing that loses one hull in three and prices every
+  mistake."
 sources:
- - "archive/ssw-galewall.md"
- - "archive/ssw-ashwall-islands.md"
- - "archive/agentic-co-dm-Galewall.md"
+  - "archive/ssw-galewall.md"
+  - "archive/ssw-ashwall-islands.md"
+  - "archive/agentic-co-dm-Galewall.md"
 parent: ""
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance
@@ -18,7 +22,7 @@ parent: ""
 - **Danger.** The storm first. Then the wreck-fed predators and the recovery-lane piracy that live on what the storm leaves.
 
 > [!narration] Arrival
-> Ahead of you a dark band lies along the horizon and will not break apart as you run toward it. Chop arrives long before the weather does, and the wind builds in stages while the water turns cold under the hull. What looked like one wall of cloud resolves into grey and slate-blue weather stacked on itself, with storm systems working inside it without pause. Behind you, the charted sea keeps its last calm.
+> Ahead of you a dark band lies along the horizon and will not break apart as you run toward it. Chop arrives long before the weather does. The wind builds in stages, and the water turns cold under the hull. What looked like one wall of cloud resolves into grey and slate-blue weather stacked on itself, with storm systems working inside it without pause. Behind you, the charted sea keeps its last calm.
 
 ## Play
 

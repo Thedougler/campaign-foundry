@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "Talon Vantyrus (Creature), a unique Creature stat block from the archived NPC record."
+summary: "Talon Vantyrus (Creature), a unique Creature stat block from the
+  archived NPC record."
 sources:
- - "archive/talon-vantyrus.md"
+  - "archive/talon-vantyrus.md"
+revealed: "Session 10"
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +17,7 @@ sources:
 - **Used by.** The NPC represented by these statistics is Talon Vantyrus.
 
 > [!narration] First sight
-> The Creature's distinctive silhouette and signature tell are apparent before it attacks.
+> The aarakocra's shape stands out before the first strike, and threads cross between his blade's arcs as he moves.
 
 ## Statblock
 

@@ -18,7 +18,7 @@ export interface ProseView {
 
 /** Generated catalog pages are machine output: the prose layers skip them. `log.md` is written by the Agent and is checked. */
 export function isProsePage(page: Page): boolean {
-	return page.name !== "index";
+	return page.slug !== "index";
 }
 
 /** Pages the prose layers read. */
@@ -154,9 +154,7 @@ function nameMask(vault: Vault): NameMask | null {
 	for (const page of vault.pages) {
 		if (!isProsePage(page)) continue;
 		const type = page.frontmatter?.type;
-		if (!kinds.has(page.name)) kinds.set(page.name, type);
-		const aliases = page.frontmatter?.aliases;
-		for (const alias of Array.isArray(aliases) ? aliases : [aliases]) if (typeof alias === "string" && !kinds.has(alias)) kinds.set(alias, type);
+		for (const name of page.names) if (!kinds.has(name)) kinds.set(name, type);
 	}
 	const sorted = [...kinds.keys()].filter((n) => /\p{Lu}/u.test(n)).sort((a, b) => b.length - a.length);
 	const letters = (i: number): string => (i < 26 ? "" : letters(Math.floor(i / 26) - 1)) + String.fromCharCode(97 + (i % 26));
@@ -191,11 +189,7 @@ export function mentionedPages(text: string, vault: Vault): { page: Page; name: 
 	const pageOf = new Map<string, Page>();
 	for (const page of vault.pages) {
 		if (!isProsePage(page)) continue;
-		if (!pageOf.has(page.name)) pageOf.set(page.name, page);
-		const aliases = page.frontmatter?.aliases;
-		for (const alias of Array.isArray(aliases) ? aliases : [aliases]) {
-			if (typeof alias === "string" && !pageOf.has(alias)) pageOf.set(alias, page);
-		}
+		for (const name of page.names) if (!pageOf.has(name)) pageOf.set(name, page);
 	}
 	const first = new Map<Page, string>();
 	for (const m of text.matchAll(mask.pattern)) {
@@ -244,7 +238,11 @@ export function proseView(page: Page, mask?: Vault): ProseView {
 	}
 	for (const m of masked.matchAll(CALLOUT_MARKER)) {
 		const start = m.index ?? 0;
-		edits.push({ start, end: start + m[0].length, text: "", from: [] });
+		const end = start + m[0].length;
+		edits.push({ start, end, text: "", from: [] });
+		// The title is a label, not the start of the body's first sentence: end it there, as Obsidian shows it on its own line.
+		const lineEnd = masked.indexOf("\n", end) === -1 ? masked.length : masked.indexOf("\n", end);
+		if (/[\p{L}\p{N}]\s*$/u.test(masked.slice(end, lineEnd))) edits.push({ start: lineEnd, end: lineEnd, text: ".", from: [lineEnd] });
 	}
 	for (const m of masked.matchAll(BLOCK_ID)) {
 		const start = m.index ?? 0;
@@ -302,11 +300,7 @@ export function vaultNameWords(vault: Vault): string[] {
 	if (cached) return cached;
 	const words = new Set<string>();
 	for (const page of vault.pages) {
-		for (const word of nameWords(page.name)) words.add(word);
-		const aliases = page.frontmatter?.aliases;
-		for (const alias of Array.isArray(aliases) ? aliases : typeof aliases === "string" ? [aliases] : []) {
-			if (typeof alias === "string") for (const word of nameWords(alias)) words.add(word);
-		}
+		for (const name of page.names) for (const word of nameWords(name)) words.add(word);
 	}
 	const list = [...words].sort();
 	dictionaryCache.set(vault, list);

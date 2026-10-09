@@ -1,11 +1,14 @@
 ---
 type: Item
-summary: "Twenty-six vials of Simone Tabarnack's Grung toxin tincture riding in Party hands, their one common thread known only to Jean-Claude."
+summary: "Twenty-six vials of Simone Tabarnack's Grung toxin tincture riding in
+  Party hands, their one common thread known only to Jean-Claude."
 sources:
- - "archive/ssw-the-canister.md"
+  - "archive/ssw-the-canister.md"
 aliases:
- - "Grung tincture"
- - "Grung poison vials"
+  - "Grung tincture"
+  - "Grung poison vials"
+revealed: "Session 2"
+title: ""
 ---
 
 ## At a glance

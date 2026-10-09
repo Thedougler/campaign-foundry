@@ -1,14 +1,17 @@
 ---
 type: Thread
-summary: "Perrin's return to Nona Black-Jaw reconnects the Party to the Passage rescue network and an obligation to report on the lost Vestra."
+summary: "Perrin's return to Nona Black-Jaw reconnects the Party to the Passage
+  rescue network and an obligation to report on the lost Vestra."
 sources:
- - "archive/story-so-far.md"
- - "archive/perrin-black-jaw.md"
- - "archive/Cobb.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-sending-stone-nona.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/story-so-far.md"
+  - "archive/perrin-black-jaw.md"
+  - "archive/Cobb.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-sending-stone-nona.md"
+  - "archive/Episode-09-Transcript.md"
 status: active
+revealed: "Session 1"
+title: ""
 ---
 
 ## At a glance

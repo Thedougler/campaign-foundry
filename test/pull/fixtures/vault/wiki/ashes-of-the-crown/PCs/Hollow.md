@@ -3,6 +3,8 @@ type: PC
 summary: "A private one."
 sources: []
 dndbeyond_url: "https://www.dndbeyond.com/characters/1000003"
+revealed: "Backstory"
+title: ""
 ---
 
 ## Sheet

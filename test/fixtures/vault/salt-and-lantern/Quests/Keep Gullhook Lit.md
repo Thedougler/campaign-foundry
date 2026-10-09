@@ -3,6 +3,8 @@ type: Quest
 summary: "Keep the Gullhook lamp burning every night until the end of the coming Long Ebb."
 sources: []
 status: active
+revealed: ""
+title: ""
 ---
 
 ## At a glance

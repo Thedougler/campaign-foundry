@@ -1,9 +1,12 @@
 ---
 type: Creature
-summary: "A pack hunter of the eastern water that tests wounded hulls, and of the Galewall's cold water, where pods follow lifeboats for hours."
+summary: "A pack hunter of the eastern water that tests wounded hulls, and of
+  the Galewall's cold water, where pods follow lifeboats for hours."
 sources:
- - "archive/ssw-outer-reach.md"
- - "archive/ssw-galewall.md"
+  - "archive/ssw-outer-reach.md"
+  - "archive/ssw-galewall.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -12,7 +15,7 @@ sources:
 - **Threat.** Unrecorded so far. The danger is to steering and to boats.
 
 > [!narration] First sight
-> A fin cuts across your wake, and another keeps pace. The pack works along the rudder line, the way a wound is tested.
+> A fin cuts across your wake, and another keeps pace. The pack works along the rudder line as if testing a wound.
 
 ## Statblock
 

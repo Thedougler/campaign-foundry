@@ -5,6 +5,8 @@ summary: "Verity Hollowell's father, who met Geoffrey Draves at the dancing spot
 sources:
   - "archive/ssw-geoffrey-draves.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -1,11 +1,15 @@
 ---
 type: Location
 kind: Site
-summary: "A fire-cleared scar twenty feet across, burned from the coast deep into Aruhe by compelled Grung and lined with their clean white dead; it runs toward the grove."
+summary: "A fire-cleared scar twenty feet across, burned from the coast deep
+  into Aruhe by compelled Grung and lined with their clean white dead; it runs
+  toward the grove."
 sources:
- - "archive/the-burnt-road.md"
- - "archive/session-12-full.md"
+  - "archive/the-burnt-road.md"
+  - "archive/session-12-full.md"
 parent: "[[The Quiet]]"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance

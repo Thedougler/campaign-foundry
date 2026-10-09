@@ -1,10 +1,13 @@
 ---
 type: Scene
 kind: Resolution
-summary: "At first light nine Calveno leave the Pantry with the Party, while three choose to stay beneath Hinewai's vine."
+summary: "At first light nine Calveno leave the Pantry with the Party, while
+  three choose to stay beneath Hinewai's vine."
 sources:
   - "archive/session-12-index.md"
   - "archive/session-12-06-the-way-out.md"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance

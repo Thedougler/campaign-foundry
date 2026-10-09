@@ -1,7 +1,9 @@
 ---
+title: ""
 type: Faction
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

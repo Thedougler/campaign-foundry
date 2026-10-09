@@ -3,7 +3,7 @@ import { chmod, mkdir, readdir, readFile, realpath, stat, writeFile } from "node
 import { dirname, join, sep } from "node:path";
 import { promisify } from "node:util";
 import { beforeAll, describe, expect, it } from "vitest";
-import { cf, checkFixture, copyFixture, findingsFor, fixtures, realTemplates, repoRoot, type JsonFinding, type JsonReport } from "./helpers.ts";
+import { cf, cfWithEnv, checkFixture, copyFixture, findingsFor, fixtures, realTemplates, repoRoot, type JsonFinding, type JsonReport } from "./helpers.ts";
 
 const A = "Aldermoor";
 const LAYERS = ["markdownlint", "remark-lint", "spelling", "grammar", "style"] as const;
@@ -47,7 +47,7 @@ describe.each(LAYERS)("%s layer", (layer) => {
 describe("markdownlint layer", () => {
 	it("flags trailing spaces and extra blank lines on their lines, with the rule id", () => {
 		const found = on("markdownlint", "NPCs/Bad Markdown");
-		expect(found.map((f) => [f.rule, f.line])).toEqual(expect.arrayContaining([["MD009", 10], ["MD012", 13]]));
+		expect(found.map((f) => [f.rule, f.line])).toEqual(expect.arrayContaining([["MD009", 11], ["MD012", 14]]));
 		expect(found[0]?.hint).toMatch(/--fix/);
 	});
 
@@ -85,7 +85,7 @@ describe("spelling layer", () => {
 	it("flags American and misspelt words on their lines", () => {
 		const found = on("spelling", "NPCs/Bad Spelling");
 		expect(found.map((f) => [f.message.match(/`([^`]+)`/)?.[1], f.line])).toEqual(
-			expect.arrayContaining([["harbormaster", 10], ["recieved", 10]]),
+			expect.arrayContaining([["harbormaster", 11], ["recieved", 11]]),
 		);
 		expect(found.find((f) => f.message.includes("harbormaster"))?.hint).toContain("harbourmaster");
 	});
@@ -105,7 +105,7 @@ describe("grammar layer", () => {
 	it("flags agreement, repeated words and a/an on their lines", () => {
 		const found = on("grammar", "NPCs/Bad Grammar");
 		const lines = found.map((f) => f.line);
-		expect(lines).toEqual(expect.arrayContaining([10, 11]));
+		expect(lines).toEqual(expect.arrayContaining([11, 12]));
 		expect(found.map((f) => f.rule)).toEqual(expect.arrayContaining(["RepeatedWords", "AnA"]));
 	});
 
@@ -131,37 +131,45 @@ describe("grammar layer", () => {
 		for (const finding of found) expect(finding.hint).not.toMatch(/[\u2013\u2014]/u);
 		expect(found.map((f) => f.hint).join(" ")).toContain("3 to 5");
 	});
+
+	it("reads a callout title as its own sentence, not run into the first line of the body", async () => {
+		const dir = await copyFixture("prose");
+		await writeFile(join(dir, "wiki", A, "NPCs", "Recap.md"), "> [!narration] Previously on\n> On the quay the crew waited for the tide.\n");
+		const args = ["check", "--json", "--layer", "grammar", "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates];
+		const found = findingsFor(JSON.parse((await cf(args, dir)).stdout) as JsonReport, `${A}/NPCs/Recap.md`);
+		expect(found.map((f) => f.rule)).not.toContain("RepeatedWords");
+	});
 });
 
 describe("style layer", () => {
 	it("enforces the Narration hard lines inside a narration callout only", () => {
 		const found = on("style", "NPCs/Bad Style");
-		const narration = found.filter((f) => f.line === 13 && f.rule.startsWith("Narration."));
+		const narration = found.filter((f) => f.line === 14 && f.rule.startsWith("Narration."));
 		expect(narration.map((f) => f.rule)).toEqual(expect.arrayContaining(["Narration.NoCompass", "Narration.NoSemicolon", "Narration.NoFootMileCounts", "Narration.NoEmDash", "Narration.NoColon"]));
 		expect(narration.every((f) => f.severity === "error")).toBe(true);
 		expect(narration.every((f) => /theatre-of-the-mind.*(?:Clean prose|Speakable)|(?:Clean prose|Speakable).*theatre-of-the-mind/.test(f.hint))).toBe(true);
 	});
 
 	it("leaves compass words, counts and punctuation alone outside a callout: those are the DM's notes", () => {
-		const notes = on("style", "NPCs/Bad Style").filter((f) => f.line === 19);
+		const notes = on("style", "NPCs/Bad Style").filter((f) => f.line === 20);
 		expect(notes.filter((f) => f.rule.startsWith("Narration."))).toEqual([]);
 	});
 
 	it("leaves non-narration callouts outside Narration rules", () => {
-		const notes = on("style", "NPCs/Bad Style").filter((f) => f.line === 22);
+		const notes = on("style", "NPCs/Bad Style").filter((f) => f.line === 23);
 		expect(notes.filter((f) => f.rule.startsWith("Narration."))).toEqual([]);
 	});
 
 	it("flags ai-tells prose", () => {
 		const found = on("style", "NPCs/Bad Style");
-		const aiTells = found.filter((f) => f.rule.startsWith("ai-tells.") && f.line === 17);
+		const aiTells = found.filter((f) => f.rule.startsWith("ai-tells.") && f.line === 18);
 		expect(aiTells.length).toBeGreaterThan(0);
 		expect(aiTells.every((f) => f.severity === "error")).toBe(true);
 	});
 
 	it("reads a page name as its kind: a ship that carried passengers is literal, an abstract subject still fails", () => {
 		const carries = on("style", "Vehicles/Saltwright").filter((f) => f.rule === "ai-tells.FigurativeCarries");
-		expect(carries.map((f) => f.line)).toEqual([15]);
+		expect(carries.map((f) => f.line)).toEqual([16]);
 	});
 
 	it("never advises disabling a rule: the DM alone switches one off", () => {
@@ -171,12 +179,12 @@ describe("style layer", () => {
 	});
 
 	it.each([
-		["JudgementWords", 13, "Evidence"],
-		["MechanicalTerms", 14, "Evidence"],
-		["PerceptionHedges", 15, "Evidence"],
-		["FilterVerbs", 16, "Situation first"],
-		["PcInterior", 17, "Hard line 1"],
-		["StockTells", 18, "People"],
+		["JudgementWords", 14, "Evidence"],
+		["MechanicalTerms", 15, "Evidence"],
+		["PerceptionHedges", 16, "Evidence"],
+		["FilterVerbs", 17, "Situation first"],
+		["PcInterior", 18, "Hard line 1"],
+		["StockTells", 19, "People"],
 	] as const)("%s warns on the dirty twin and stays silent on the clean twin", (name, line, item) => {
 		const rule = `Narration.${name}`;
 		const found = on("style", "NPCs/Dirty Narration").filter((f) => f.rule === rule);
@@ -184,6 +192,19 @@ describe("style layer", () => {
 		expect(found.every((f) => f.line === line && f.severity === "warning")).toBe(true);
 		expect(found.every((f) => f.hint.includes("theatre-of-the-mind") && f.hint.includes(item) && f.hint.includes("becomes"))).toBe(true);
 		expect(on("style", "NPCs/Clean Narration").filter((f) => f.rule === rule)).toEqual([]);
+	});
+
+	it("warns on a write-good hit inside a narration callout", () => {
+		const found = on("style", "NPCs/Craft Narration").filter((f) => f.rule.startsWith("write-good."));
+		expect(found.length).toBeGreaterThan(0);
+		expect(found.every((f) => f.line === 14 && f.severity === "warning")).toBe(true);
+	});
+
+	it("holds craft checks to narration callouts: the same words pass outside them and inside quotes", () => {
+		const craft = on("style", "NPCs/Craft Narration").filter((f) => f.rule.startsWith("write-good.") || f.rule.startsWith("proselint."));
+		expect(craft.length).toBeGreaterThan(0);
+		expect(craft.every((f) => f.severity === "warning")).toBe(true);
+		expect([...new Set(craft.map((f) => f.line))]).toEqual([14]);
 	});
 
 	it.each([
@@ -197,12 +218,15 @@ describe("style layer", () => {
 		await mkdir(binDir, { recursive: true });
 		await writeFile(vale, [
 			"#!/bin/sh",
+			"# The narration craft pass reads .vale-narration.ini; this fake reports only the page pass.",
+			'for arg do case "$arg" in *.vale-narration.ini) exit 0 ;; esac; done',
 			"for arg do input=$arg; done",
 			'file=$(find "$input" -type f -name "*.md" -print -quit)',
 			`printf '{"%s":[{"Check":"Narration.FilterVerbs","Message":"Rewrite you see.","Line":1,"Match":"you see","Severity":"${valeSeverity}"}]}\\n' "$file"`,
 			"",
 		].join("\n"));
 		await chmod(vale, 0o755);
+		// Spawned: the test shims a child's PATH, which the in-process runner does not isolate per call here.
 		const result = await promisify(execFile)(
 			process.execPath,
 			[join(repoRoot, "src/cli.ts"), "check", "--json", "--layer", "style", "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates],
@@ -223,24 +247,10 @@ describe("style layer", () => {
 describe("style layer setup", () => {
 	it("exits 2 with an install hint when Vale is not on the PATH", async () => {
 		const root = join(fixtures, "clean");
-		const bare = dirname(process.execPath);
-		const run = promisify(execFile);
-		const result = await run(process.execPath, [join(repoRoot, "src/cli.ts"), "check", "--layer", "style", "--vault", join(root, "wiki"), "--root", root, "--templates", realTemplates], {
-			cwd: root,
-			env: { ...process.env, PATH: bare },
-		}).then(
-			() => ({ code: 0, stderr: "" }),
-			(error: unknown) => {
-				if (
-					error &&
-					typeof error === "object" &&
-					"code" in error && typeof error.code === "number" &&
-					"stderr" in error && typeof error.stderr === "string"
-				) {
-					return { code: error.code, stderr: error.stderr };
-				}
-				throw error;
-			},
+		const result = await cfWithEnv(
+			["check", "--layer", "style", "--vault", join(root, "wiki"), "--root", root, "--templates", realTemplates],
+			{ PATH: dirname(process.execPath) },
+			root,
 		);
 		expect(result.code).toBe(2);
 		expect(result.stderr).toMatch(/Vale is not installed[\s\S]*bun run setup[\s\S]*cf check/);
@@ -270,39 +280,30 @@ describe("prose layer scratch paths", () => {
 		await chmod(vale, 0o755);
 
 		const repoCache = join(repoRoot, ".cache", "check");
-		const snapshotRepoCache = async () => {
+		// Names only: other test workers share this real cache and legitimately rewrite their entries,
+		// so the invariant this test protects is that the run adds none of its own.
+		const snapshotRepoCache = async (): Promise<string[] | null> => {
 			try {
-				const entries = (await readdir(repoCache)).sort();
-				return await Promise.all(
-					entries.map(async (name) => {
-						const info = await stat(join(repoCache, name));
-						return { name, modified: info.mtimeMs, size: info.size };
-					}),
-				);
+				return (await readdir(repoCache)).sort();
 			} catch (error) {
 				if (error && typeof error === "object" && "code" in error && error.code === "ENOENT") return null;
 				throw error;
 			}
 		};
 		const before = await snapshotRepoCache();
+		// Spawned: the test shims a child's PATH and hands Vale an env var only the stub reads.
 		await promisify(execFile)(
 			process.execPath,
 			[
 				join(repoRoot, "src/cli.ts"),
 				"check",
 				"--json",
-				"--layer",
-				"spelling",
-				"--layer",
-				"grammar",
-				"--layer",
-				"style",
-				"--vault",
-				join(dir, "wiki"),
-				"--root",
-				dir,
-				"--templates",
-				realTemplates,
+				"--layer", "spelling",
+				"--layer", "grammar",
+				"--layer", "style",
+				"--vault", join(dir, "wiki"),
+				"--root", dir,
+				"--templates", realTemplates,
 			],
 			{
 				cwd: dir,
@@ -319,7 +320,8 @@ describe("prose layer scratch paths", () => {
 		expect(entries.filter((name) => name.startsWith("vale-"))).toEqual([]);
 		const valeInput = await readFile(capture, "utf8");
 		expect(valeInput.startsWith(`${await realpath(cacheDir)}${sep}vale-`)).toBe(true);
-		expect(await snapshotRepoCache()).toEqual(before);
+		const after = await snapshotRepoCache();
+		expect(after === null ? [] : after.filter((name) => before === null || !before.includes(name))).toEqual([]);
 	});
 });
 

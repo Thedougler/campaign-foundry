@@ -1,10 +1,13 @@
 ---
 type: Vehicle
-summary: "A deep-water flagship of the water east of the Drowned Maw and the Galewall's recovery lanes; its crew is not established."
+summary: "A deep-water flagship of the water east of the Drowned Maw and the
+  Galewall's recovery lanes; its crew is not established."
 sources:
- - "archive/ssw-outer-reach.md"
- - "archive/ssw-galewall.md"
- - "archive/ssw-central-strait.md"
+  - "archive/ssw-outer-reach.md"
+  - "archive/ssw-galewall.md"
+  - "archive/ssw-central-strait.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

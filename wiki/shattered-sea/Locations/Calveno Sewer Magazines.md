@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "Underground powder magazines beneath Calveno where the Grung bombing operation stored supplies and held a live ritual."
+summary: "Underground powder magazines beneath Calveno where the Grung bombing
+  operation stored supplies and held a live ritual."
 sources:
- - "archive/calveno-sewer-magazines.md"
+  - "archive/calveno-sewer-magazines.md"
 parent: "[[Calven and Calveno]]"
+revealed: "Session 5"
+title: ""
 ---
 
 ## At a glance

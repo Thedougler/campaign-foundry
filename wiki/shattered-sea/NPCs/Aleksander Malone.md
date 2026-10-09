@@ -1,11 +1,14 @@
 ---
 type: NPC
-summary: "A reserved Hound of Tyr whom the Dravosi Crown releases only for confirmed Flock infiltration and righteous judgement."
+summary: "A reserved Hound of Tyr whom the Dravosi Crown releases only for
+  confirmed Flock infiltration and righteous judgement."
 sources:
- - "archive/aleksander-malone.md"
- - "archive/collab-2026-10-04-authority-themes.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/aleksander-malone.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/Episode-09-Transcript.md"
 creature: ""
+revealed: "Session 9"
+title: ""
 ---
 
 ## At a glance
@@ -27,11 +30,19 @@ creature: ""
 - **If pressed.** His calm turns cold. He says, “There is nothing to negotiate.”
 - **Combat profile.** AC 18, 195 HP, speed 30 ft. CR 14. Regeneration, Heretic's Bane, Sneak Attack, and 7th-level Wisdom spellcasting (DC 17) define him. Blessed longsword and bayonet attacks, Bayonet Barrage, Action Surge, Spiritual Weapon, Rebuke the Unclean, Guided Judgement, and Withdraw by Judgement define his threat.
 
+## Quotes
+
+> "Ask of me, and I shall give thee the heathen for thine inheritance, And the uttermost parts of the earth for thy possession. Thou shalt break them with a rod of iron; Thou shalt dash them in pieces like a potter's vessel. Be wise now therefore, O ye kings: Be instructed, ye judges of the earth. Serve the LORD with fear, And rejoice with trembling. Worship Tyr, lest he be angry, and ye perish from the way, When his wrath is kindled but a little. Blessed are all they that put their trust in him."
+
+Recited inside the church he had just emptied, over a congregation he slaughtered during service (see History).
+
 ## Depth
 
 ### History
 
-Malone trains at Blackrule and leaves only when formal confirmation reaches him. Aboard the HCS Ordinance, under merchant cover, he pursued Shepherd Grigori. After he was released in public at Sarns Landing, the result was so violent that the Crown made confirmation a requirement before releasing him again. A former handler did not survive contact.
+Early in his Crown service, Malone was sent against a church at Sarns Landing whose Dravosi congregation was suspected of sheltering enemies of the Crown and of keeping pagan rites. The rites were real and harmless. The sheltering was false. Malone killed the whole congregation during service and reported back for duty at once, seeing nothing wrong in it. To the Dravosi it was a horrific slaughter of innocents, and it showed even them that he was a zealot and a loose cannon.
+
+The Crown kept him anyway. His record of service is peerless, and he does things that defy mortal explanation, as if Tyr truly sent him. He now spends most of his time at Blackrule, and the Crown controls what information ever reaches him. It uses him sparingly, against especially dangerous threats, by letting him learn of the threat and offering him transport and the resources of the Dravosi navy. Aboard the HCS Ordinance, under merchant cover, he pursued Shepherd Grigori. A former handler did not survive contact.
 
 #### Session 9: the Uncertainty boarding
 
@@ -45,12 +56,12 @@ He cast Command on Delmar with the order “Confess”, requiring a DC 17 Wisdom
 
 Catarina unsettled him by imitating Umberlee's laughter and whispers with her umbrella. Corbin drew a flintlock on Malone and ordered him off the ship, saying he believed the Party. The Ordinance departed for Calveno after warnings that Grigori was dangerous. This boarding became part of [[The Hound of God]].
 
-At that time, Malone was one of the Crown's top hunters, a self-directed zealot of Tyr working from his temple as his own contractor. His targets were “perfects”, meaning anyone against Dravosi law. His later requirement for formal confirmation remains his present constraint.
+At that time, Malone was one of the Crown's top hunters, a self-directed zealot of Tyr working from his temple as his own contractor. His targets were “perfects”, meaning anyone against Dravosi law. The Crown still sets his course only through what it lets him hear.
 
 ### Hidden truths
 
 - He already suspects the Party of transporting [[Shepherd Grigori]] to [[Calven and Calveno|Calveno]], though the Crown has yet to confirm it, and suspicion alone doesn't put a Hound on a trail.
-- The Crown's confirmation rule is both his authorisation and his leash. The Party can interfere by challenging whether a target is formally confirmed.
+- The Crown's control of what he hears is both his authorisation and his leash. A Party that gets word to him, or keeps word from him, can set him moving where the Crown would not.
 - His grim joy appears only when someone gives him a true heretic to judge. Otherwise, he remains patient and almost still.
 
 ### Threads

@@ -1,9 +1,12 @@
 ---
 type: Vehicle
-summary: "Sienne Orre's ship in Fisk's Fleet, lost with the whole fleet over the Drowned Maw."
+summary: "Sienne Orre's ship in Fisk's Fleet, lost with the whole fleet over the
+  Drowned Maw."
 sources:
- - "archive/ssw-minotaur.md"
- - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-minotaur.md"
+  - "archive/ssw-umberlee-shrine.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

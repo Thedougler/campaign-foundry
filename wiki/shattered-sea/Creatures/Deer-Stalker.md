@@ -2,7 +2,9 @@
 type: Creature
 summary: "A Deer-Stalker creature (CR 8) used as a ambusher in The Shattered Sea."
 sources:
- - "archive/deer-stalker.md"
+  - "archive/deer-stalker.md"
+revealed: ""
+title: ""
 ---
 
 ![[Deer-Stalker - Token.png]]
@@ -26,7 +28,7 @@ sources:
 - **Used by.** [[River Otter]] patrols the same territory.
 
 > [!narration] First sight
-> The deer-stalker stalks out of dim shade, and the last stretch closes in one low strike with claws already spread. It rocks its weight back first, the whole body winding up in plain view before the lunge comes. One claw snags a limb, and the drag begins, back toward deeper foliage. Pressed hard, it gives ground toward the dark.
+> The deer-stalker stalks out of dim shade, and the last stretch closes in one low strike with claws already spread. It rocks its weight back first. The whole body coils in plain view before the lunge comes. One claw snags a limb, and the drag begins, back toward deeper foliage. Pressed hard, it gives ground toward the dark.
 
 ## Statblock
 

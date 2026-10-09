@@ -1,11 +1,15 @@
 ---
 type: NPC
-summary: "Nona Black-Jaw's late husband: dangerous mob boss of Le Paludi and Calveno's underground, builder and captain of the Vestra, empty chair at family meals."
+summary: "Nona Black-Jaw's late husband: dangerous mob boss of Le Paludi and
+  Calveno's underground, builder and captain of the Vestra, empty chair at
+  family meals."
 sources:
- - "archive/ssw-nona-black-jaw.md"
- - "archive/collab-2026-10-04-authority-themes.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/ssw-nona-black-jaw.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 creature: "[[Commoner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

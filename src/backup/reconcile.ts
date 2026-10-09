@@ -122,7 +122,7 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 		if (first.some((b) => b.type !== "child_page")) return undefined;
 		const matches: { path: string; kind: "dir" | "file" }[] = [];
 		for (const d of walkDirs) if (parentPath(d) === folder && titleOf(d, "dir") === title) matches.push({ path: d, kind: "dir" });
-		if (first.length === 0) for (const f of walk.files) if (parentPath(f.path) === folder && titleOf(f.path, f.kind) === title) matches.push({ path: f.path, kind: "file" });
+		if (first.length === 0) for (const f of walk.files) if (parentPath(f.path) === folder && titleOf(f.path, f.kind, f.title) === title) matches.push({ path: f.path, kind: "file" });
 		return matches.length === 1 ? matches[0] : undefined;
 	};
 	while (queue.length > 0) {

@@ -1,13 +1,16 @@
 ---
 type: NPC
-summary: "Presumed-dead Crown privateer captain who enforced surrender aboard the Surety."
+summary: "Presumed-dead Crown privateer captain who enforced surrender aboard
+  the Surety."
 sources:
- - "archive/barnaby-rook.md"
- - "archive/agentic-co-dm-barnaby-rook-narration.md"
- - "archive/ssw-session-02.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-miras-blade.md"
+  - "archive/barnaby-rook.md"
+  - "archive/agentic-co-dm-barnaby-rook-narration.md"
+  - "archive/ssw-session-02.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-miras-blade.md"
 creature: "[[Barnaby Rook (Creature)]]"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance
@@ -18,7 +21,7 @@ creature: "[[Barnaby Rook (Creature)]]"
 - **Found at.** The HCS Surety and the Crown inspection corridor. Presumed dead after falling into dark water.
 
 > [!narration] First look
-> Barnaby Rook fills the gangway ahead of you in a dark officer's coat gone salt-stiff. Brass buttons catch the deck's last light, and a day of stubble covers his square jaw. A flintlock and cutlass ride his hips, their grips worn smooth by use. He speaks under the wind, and the crew nearest him have fallen still. One hand taps the rail once, twice, reading the roll of the deck. Each sentence comes down flat, like an order read from a list. He is deciding where the fight starts.
+> Barnaby Rook fills the gangway ahead of you, and the deck's last light catches the brass buttons of a dark officer's coat gone salt-stiff. Stubble darkens his square jaw. A flintlock and a cutlass hang at his hips, their grips worn smooth by use. He speaks under the wind, and every word comes down flat, like orders read from a list. The crew nearest him have fallen still. As the deck rolls, one hand taps the rail once, twice. His gaze moves across the deck from one of you to the next.
 
 ## Play
 

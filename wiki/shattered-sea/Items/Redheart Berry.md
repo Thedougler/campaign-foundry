@@ -2,9 +2,11 @@
 type: Item
 summary: "A rare Aruhe berry that restores 8d4 + 8 hit points as a Bonus Action."
 sources:
- - "archive/redheart-berry.md"
- - "archive/session-11-transcript-archived-version.md"
- - "archive/session-12-full.md"
+  - "archive/redheart-berry.md"
+  - "archive/session-11-transcript-archived-version.md"
+  - "archive/session-12-full.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Redheart Berry - Handout Art.jpg]]

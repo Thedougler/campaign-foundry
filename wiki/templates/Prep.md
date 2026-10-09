@@ -1,8 +1,10 @@
 ---
+title: ""
 type: Prep
 summary: ""
 sources: []
 date: ""
+revealed: ""
 ---
 
 ## At a glance

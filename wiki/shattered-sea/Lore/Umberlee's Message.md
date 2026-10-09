@@ -1,9 +1,13 @@
 ---
 type: Lore
-summary: "The Bitch Queen's standing summons to Delmar Fisk, delivered through Branca: bring the Pearl up from the wreck, keep his life, and her souls stay hers."
+summary: "The Bitch Queen's standing summons to Delmar Fisk, delivered through
+  Branca: bring the Pearl up from the wreck, keep his life, and her souls stay
+  hers."
 sources:
- - "archive/ssw-umberlees-message.md"
- - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/ssw-umberlees-message.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

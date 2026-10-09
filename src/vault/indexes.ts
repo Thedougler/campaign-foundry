@@ -38,6 +38,7 @@ const SECTIONS: Section[] = [
 	{ heading: "House Rules", type: "House Rule" },
 	{ heading: "Worlds", type: "World" },
 	{ heading: "Campaign config", type: "campaign-config" },
+	{ heading: "Story so far", type: "story-so-far" },
 	{ heading: "PCs", type: "PC" },
 	{ heading: "Threads", type: "Thread" },
 	{ heading: "Quests", type: "Quest" },
@@ -70,14 +71,14 @@ export function compareNames(a: string, b: string): number {
 
 const compareByName = (a: Page, b: Page): number => compareNames(a.name, b.name) || (a.path < b.path ? -1 : a.path > b.path ? 1 : 0);
 
-/** `[[Page]] — summary`, with the summary flattened to one line. */
+/** `[[Page]] — summary`, with the summary flattened to one line. The link spells the page's name (ADR 0028). */
 function line(page: Page): string {
 	const summary = typeof page.frontmatter?.summary === "string" ? page.frontmatter.summary.replace(/\s+/g, " ").trim() : "";
 	return summary === "" ? `- [[${page.name}]]` : `- [[${page.name}]] — ${summary}`;
 }
 
 const segmentsOf = (page: Page): string[] => page.path.split("/").slice(0, -1);
-const isHot = (page: Page): boolean => page.name === "hot";
+const isHot = (page: Page): boolean => page.slug === "hot";
 
 /** Where a page sits in an index: its section, and its `###` sub-group when the section has one. */
 function place(page: Page): { section: string; sub?: string } {
@@ -125,9 +126,19 @@ export function campaignOverviews(vault: Vault): Page[] {
 		.sort(compareByName);
 }
 
-/** Each Campaign's name — its overview page's name, what `--campaign` takes — mapped to its Campaign folder. */
+/** Each Campaign's names — its overview page answers to these (`title`, aliases, slug); `--campaign` takes any of them — mapped to its Campaign folder. */
 export function campaignFolders(vault: Vault): Map<string, string> {
-	return new Map(campaignOverviews(vault).map((p) => [p.name, segmentsOf(p)[0]!]));
+	const folders = new Map<string, string>();
+	for (const overview of campaignOverviews(vault)) {
+		const folder = segmentsOf(overview)[0]!;
+		for (const name of overview.names) if (!folders.has(name)) folders.set(name, folder);
+	}
+	return folders;
+}
+
+/** The Campaigns by name, one per overview: what `--campaign` lists. */
+export function campaignNames(vault: Vault): string[] {
+	return campaignOverviews(vault).map((p) => p.name);
 }
 
 /**

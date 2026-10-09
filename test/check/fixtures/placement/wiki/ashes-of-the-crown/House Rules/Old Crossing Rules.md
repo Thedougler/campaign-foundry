@@ -2,6 +2,8 @@
 type: House Rule
 summary: "One line."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

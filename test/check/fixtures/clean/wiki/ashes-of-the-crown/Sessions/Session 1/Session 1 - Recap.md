@@ -3,6 +3,8 @@ type: Recap
 summary: "The Party crossed the bridge and met Mara Voss."
 sources: ["archive/session-1-transcript.md"]
 date: "14 Emberfall 1492"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

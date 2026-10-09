@@ -4,6 +4,8 @@ kind: Site
 summary: "The great tide gate of the Compact, which no longer closes fully."
 sources: []
 parent: "[[The Brack]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

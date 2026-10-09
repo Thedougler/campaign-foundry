@@ -3,8 +3,10 @@ type: Location
 kind: Site
 summary: "Lavinia Sordi's Le Paludi shop for grey-market cursed and unusual goods."
 sources:
- - "archive/ssw-nightmantle.md"
+  - "archive/ssw-nightmantle.md"
 parent: "[[Le Paludi]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -16,7 +18,7 @@ parent: "[[Le Paludi]]"
 - **Prize.** Unusual wares at grey-market prices, and Lavinia's account of where each piece has been.
 
 > [!narration] Entering
-> Lavinia Sordi's racks fill the shop, unusual goods among the ordinary, and every price sits in plain sight. She lets you lift what you like and names figures without hurry. Ask what a piece did to its last owner. She gives that answer in the tone she uses for the price.
+> Lavinia Sordi's racks fill the shop, unusual goods mixed among the ordinary, every price in plain sight. She lets you handle whatever you like and names her figures without hurry. Ask what a piece did to its last owner, and she answers in the same tone she uses for the price.
 
 ## Play
 

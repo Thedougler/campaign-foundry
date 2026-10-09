@@ -2,11 +2,13 @@
 type: Item
 summary: "Winged Boots that grant Delmar a 30-foot Fly Speed for 1 hour per charge."
 aliases:
- - "Winged Boots"
+  - "Winged Boots"
 sources:
- - "archive/flying-boots.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/session-10.md"
+  - "archive/flying-boots.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/session-10.md"
+revealed: "Session 4"
+title: ""
 ---
 
 ![[Flying Boots - Handout Art.png]]

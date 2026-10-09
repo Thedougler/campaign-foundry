@@ -1,8 +1,11 @@
 ---
 type: Lore
-summary: "Elves adapted to life in the water, who breathe air and water alike; in the Shattered Sea they are centred on Halythion and worship Deep Sashelas."
+summary: "Elves adapted to life in the water, who breathe air and water alike;
+  in the Shattered Sea they are centred on Halythion and worship Deep Sashelas."
 sources:
- - "archive/ssw-sea-elf.md"
+  - "archive/ssw-sea-elf.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

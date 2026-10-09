@@ -1,7 +1,6 @@
 import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { spawnSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 import { UsageError } from "../../src/check/errors.ts";
 import { findHit, loadCache, upsertRow, type BenchFile, type BenchRow } from "../../src/bench/cache.ts";
@@ -11,7 +10,7 @@ import { loadPromptSet, promptSha, renderBrief, type PromptSet } from "../../src
 import { loadGrades, proseScore } from "../../src/bench/record.ts";
 import { renderLeaderboard } from "../../src/bench/render.ts";
 import type { Matrix } from "../../src/bench/matrix.ts";
-import { repoRoot } from "../check/helpers.ts";
+import { cf } from "../check/helpers.ts";
 
 const PERSONA = "You are writing for a home D&D 5e campaign wiki.";
 
@@ -231,9 +230,9 @@ describe("bench leaderboard", () => {
 });
 
 describe("cf bench (committed repo state)", () => {
-	it("committed briefs match evals/prose-bench.yaml: no drift", () => {
-		const run = spawnSync("node", ["src/cli.ts", "bench", "briefs", "--check"], { cwd: repoRoot, encoding: "utf8" });
-		expect(run.status).toBe(0);
+	it("committed briefs match evals/prose-bench.yaml: no drift", async () => {
+		const run = await cf(["bench", "briefs", "--check"]);
+		expect(run.code).toBe(0);
 		expect(run.stdout.trim()).not.toMatch(/^DRIFT/m);
 	});
 });

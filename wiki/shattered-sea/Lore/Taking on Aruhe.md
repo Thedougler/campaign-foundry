@@ -1,13 +1,16 @@
 ---
 type: Lore
-summary: "Aruhe marks anyone who takes from living island life until dawn, while fallen fruit, deadwood, loose stone, and shed shell may be received safely."
+summary: "Aruhe marks anyone who takes from living island life until dawn, while
+  fallen fruit, deadwood, loose stone, and shed shell may be received safely."
 sources:
- - "archive/taking-on-aruhe.md"
- - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
- - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
- - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
- - "archive/session-10.md"
- - "archive/session-11-transcript-archived-version.md"
+  - "archive/taking-on-aruhe.md"
+  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
+  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
+  - "archive/session-10.md"
+  - "archive/session-11-transcript-archived-version.md"
+revealed: ""
+title: ""
 ---
 
 ![[Taking on Aruhe - Handout Art.png]]

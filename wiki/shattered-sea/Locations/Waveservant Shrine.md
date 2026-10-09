@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Site
-summary: "The Waveservants' harbour shrine in Calveno, where tribute is collected, appointments are kept, and Umberlee has spoken."
+summary: "The Waveservants' harbour shrine in Calveno, where tribute is
+  collected, appointments are kept, and Umberlee has spoken."
 sources:
- - "archive/ssw-umberlees-message.md"
- - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/ssw-umberlees-message.md"
+  - "archive/ssw-session-04-ingest-recap.md"
 parent: "[[Calven and Calveno]]"
+revealed: "Session 4"
+title: ""
 ---
 
 ## At a glance

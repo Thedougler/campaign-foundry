@@ -1,13 +1,16 @@
 ---
 type: Location
 kind: Region
-summary: "The Grung Clans' closed island cluster: sanctioned beach trade outward, interiors forbidden to outsiders."
+summary: "The Grung Clans' closed island cluster: sanctioned beach trade
+  outward, interiors forbidden to outsiders."
 sources:
- - "archive/ssw-grung.md"
- - "archive/ssw-midchain.md"
- - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/ssw-grung.md"
+  - "archive/ssw-midchain.md"
+  - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
+  - "archive/Episode-09-Transcript.md"
 parent: "[[Midchain]]"
+revealed: "Session 10"
+title: ""
 ---
 
 ## At a glance

@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Nona Black-Jaw's tortle enforcer and trusted fixer, sent hunting for Perrin and recalled when the attacks stopped."
+summary: "Nona Black-Jaw's tortle enforcer and trusted fixer, sent hunting for
+  Perrin and recalled when the attacks stopped."
 sources:
- - "archive/ssw-nona-black-jaw.md"
+  - "archive/ssw-nona-black-jaw.md"
 creature: "[[Commoner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

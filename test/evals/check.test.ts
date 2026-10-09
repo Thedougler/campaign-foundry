@@ -1,9 +1,9 @@
-import { spawnSync } from "node:child_process";
 import { mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
-import { createOutcome, loadCases, runChecks, runGate } from "../../evals/check.ts";
+import { captureIO } from "../../src/cli.ts";
+import { main as evalCheckCli, createOutcome, loadCases, runChecks, runGate } from "../../evals/check.ts";
 
 const vault = resolve("test/fixtures/vault");
 const cases = resolve("test/evals/cases.yaml");
@@ -19,7 +19,7 @@ function output(pages: Record<string, string> = {}, deleted: string[] = [], repl
 	return root;
 }
 function evalCheck(caseId: string, root: string, extra: string[] = []) {
-	return spawnSync("bun", ["evals/check.ts", "sample", caseId, vault, "--cases", cases, "--output", root, ...extra], { encoding: "utf8" });
+	return captureIO(() => evalCheckCli(["sample", caseId, vault, "--cases", cases, "--output", root, ...extra]));
 }
 
 describe("eval:check Outcome", () => {
@@ -45,18 +45,18 @@ describe("eval:check Outcome", () => {
 		expect(results.map((result) => result.ok)).toEqual([true, false, true, true, true]);
 		expect(outcome.readPage(page)).toBeUndefined();
 	});
-	it("reports CLI pass/fail and malformed outputs as execution errors", () => {
-		const passed = evalCheck("fixture-holds", output(writtenFixture));
-		expect(passed.status).toBe(0); expect(passed.stdout).toContain("PASS  pages");
-		expect(evalCheck("fixture-holds", output()).stdout).toContain("FAIL  pages");
-		const failed = evalCheck("every-check-fails", output());
-		expect(failed.status).toBe(1); expect(failed.stdout).toContain("FAIL  absent");
-		const malformed = evalCheck("fixture-holds", output({}, ["../outside.md"]));
-		expect(malformed.status).toBe(2); expect(malformed.stderr).toContain("unsafe Wiki-relative");
-		expect(evalCheck("fixture-holds", output({}, [], false)).stderr).toContain("missing reply.md");
-		expect(evalCheck("bad-regex", output()).status).toBe(2);
-		expect(evalCheck("nope", output()).stderr).toContain('no case "nope"');
-		expect(evalCheck("fixture-holds", output(), ["--reply", "obsolete.md"]).status).toBe(2);
+	it("reports CLI pass/fail and malformed outputs as execution errors", async () => {
+		const passed = await evalCheck("fixture-holds", output(writtenFixture));
+		expect(passed.code).toBe(0); expect(passed.stdout).toContain("PASS  pages");
+		expect((await evalCheck("fixture-holds", output())).stdout).toContain("FAIL  pages");
+		const failed = await evalCheck("every-check-fails", output());
+		expect(failed.code).toBe(1); expect(failed.stdout).toContain("FAIL  absent");
+		const malformed = await evalCheck("fixture-holds", output({}, ["../outside.md"]));
+		expect(malformed.code).toBe(2); expect(malformed.stderr).toContain("unsafe Wiki-relative");
+		expect((await evalCheck("fixture-holds", output({}, [], false))).stderr).toContain("missing reply.md");
+		expect((await evalCheck("bad-regex", output())).code).toBe(2);
+		expect((await evalCheck("nope", output())).stderr).toContain('no case "nope"');
+		expect((await evalCheck("fixture-holds", output(), ["--reply", "obsolete.md"])).code).toBe(2);
 	});
 });
 
@@ -85,17 +85,17 @@ describe("eval:check gate", () => {
 
 	it("fails gate errors and passes gate warnings through the CLI", async () => {
 		const probe = "salt-and-lantern/NPCs/Gate Probe.md";
-		const error = evalCheck("gate-probe", output({ [probe]: telling }));
-		expect(error.status).toBe(1); expect(error.stdout).toContain("FAIL  gate");
-		const warned = evalCheck("gate-probe", output({ [probe]: flagged }));
-		expect(warned.status).toBe(0);
+		const error = await evalCheck("gate-probe", output({ [probe]: telling }));
+		expect(error.code).toBe(1); expect(error.stdout).toContain("FAIL  gate");
+		const warned = await evalCheck("gate-probe", output({ [probe]: flagged }));
+		expect(warned.code).toBe(0);
 		expect(warned.stdout).toContain("WARN  gate  Narration.FilterVerbs");
 		expect(warned.stdout).toContain("1 gate warnings");
 	});
 });
 
-it("prints output-directory help", () => {
-	const result = spawnSync("bun", ["evals/check.ts", "--help"], { encoding: "utf8" });
-	expect(result.status).toBe(0); expect(result.stdout).toContain("cases.yaml is a list of");
+it("prints output-directory help", async () => {
+	const result = await captureIO(() => evalCheckCli(["--help"]));
+	expect(result.code).toBe(0); expect(result.stdout).toContain("cases.yaml is a list of");
 	expect(result.stdout).toContain("--output <dir>"); expect(result.stdout).not.toContain("--reply");
 });

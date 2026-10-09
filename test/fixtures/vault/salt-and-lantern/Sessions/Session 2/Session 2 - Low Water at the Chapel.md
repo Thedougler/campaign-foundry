@@ -3,6 +3,8 @@ type: Scene
 kind: Climax
 summary: "In the bell loft Sable asks the Party to speak the names while Reedrunner hands climb the stair."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

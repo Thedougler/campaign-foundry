@@ -1,9 +1,13 @@
 ---
 type: Recap
-summary: "Uncertainty out-lied the HCS Ordinance towards Calveno, rescued three driftwood captives, and closed on the Midchain with Lamarae's Fang promised for an axolotl."
+summary: "Uncertainty out-lied the HCS Ordinance towards Calveno, rescued three
+  driftwood captives, and closed on the Midchain with Lamarae's Fang promised
+  for an axolotl."
 sources:
   - "archive/Episode-09-Transcript.md"
 date: "1495 DR, date not established"
+revealed: "Session 9"
+title: ""
 ---
 
 ## At a glance

@@ -4,6 +4,8 @@ kind: Fortress
 summary: "A chapel."
 sources: []
 parent: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

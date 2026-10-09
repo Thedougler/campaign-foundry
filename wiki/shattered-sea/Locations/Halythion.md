@@ -1,12 +1,15 @@
 ---
 type: Location
 kind: Settlement
-summary: "The sea elves' primary settlement in the Shattered Sea and the seat of their worship of Deep Sashelas."
+summary: "The sea elves' primary settlement in the Shattered Sea and the seat of
+  their worship of Deep Sashelas."
 sources:
- - "archive/ssw-sea-elf.md"
- - "archive/ssw-midchain.md"
- - "archive/ssw-umberlee.md"
+  - "archive/ssw-sea-elf.md"
+  - "archive/ssw-midchain.md"
+  - "archive/ssw-umberlee.md"
 parent: "[[Midchain]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

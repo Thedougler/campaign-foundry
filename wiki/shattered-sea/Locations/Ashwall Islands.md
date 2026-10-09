@@ -1,11 +1,15 @@
 ---
 type: Location
 kind: Region
-summary: "Cold volcanic spires at the Galewall's edge: the last solid ground outbound, the first proof inbound, and a reckoning point rather than a destination."
+summary: "Cold volcanic spires at the Galewall's edge: the last solid ground
+  outbound, the first proof inbound, and a reckoning point rather than a
+  destination."
 sources:
- - "archive/ssw-ashwall-islands.md"
- - "archive/ssw-galewall.md"
+  - "archive/ssw-ashwall-islands.md"
+  - "archive/ssw-galewall.md"
 parent: ""
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

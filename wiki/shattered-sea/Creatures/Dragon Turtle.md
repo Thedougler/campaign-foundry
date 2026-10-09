@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "A shoal-haunting hazard of the Outer Reach that surfaces to scrape and to collect from traffic over its shoal."
+summary: "A shoal-haunting hazard of the Outer Reach that surfaces to scrape and
+  to collect from traffic over its shoal."
 sources:
- - "archive/ssw-outer-reach.md"
+  - "archive/ssw-outer-reach.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

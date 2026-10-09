@@ -1,9 +1,12 @@
 ---
 type: Item
-summary: "A yew shortbow whose draw and release make no sound, bought by Jean-Claude Tabarnack from Casa Lupo in Le Paludi."
+summary: "A yew shortbow whose draw and release make no sound, bought by
+  Jean-Claude Tabarnack from Casa Lupo in Le Paludi."
 sources:
- - "archive/ssw-silent-shortbow.md"
- - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/ssw-silent-shortbow.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+revealed: "Session 4"
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +18,7 @@ sources:
 - **Held by.** [[Jean-Claude Tabarnack]].
 
 > [!narration] First look
-> A recurved shortbow of yew lies before you, its grip worn pale from earlier hands. It folds at a hinge in the grip into a doubled length that slips beneath a coat. The string seats into lined channels along the limbs, bedded deep in cloth and wax. Drawn back an inch, the string gives the ear just a padded slide along its bed.
+> A recurved shortbow of yew lies before you. Earlier hands have worn its grip pale. Hinged at the grip, it folds down to half its length, small enough to slip beneath a coat. The string rests in lined channels. Draw it back an inch, and the string slides through cloth and wax with barely a whisper.
 
 ## Play
 

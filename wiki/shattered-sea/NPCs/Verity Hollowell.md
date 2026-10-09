@@ -5,6 +5,8 @@ summary: "The dancer who caught Geoffrey Draves mid-movement on his shore leave,
 sources:
   - "archive/ssw-geoffrey-draves.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

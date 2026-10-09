@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Site
-summary: "A Le Paludi studio that buys what nesting things and the sea give up, run by Marta Orsini."
+summary: "A Le Paludi studio that buys what nesting things and the sea give up,
+  run by Marta Orsini."
 sources:
- - "archive/ssw-session-03.md"
- - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-session-04-ingest-recap.md"
 parent: "[[Le Paludi]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

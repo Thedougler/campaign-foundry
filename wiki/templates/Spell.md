@@ -1,7 +1,9 @@
 ---
+title: ""
 type: Spell
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

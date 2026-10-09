@@ -1,11 +1,14 @@
 ---
 type: Faction
-summary: "The secret flock Shepherd Grigori shepherds: healed noble heirs bound by blood to feed an undead ascension."
+summary: "The secret flock Shepherd Grigori shepherds: healed noble heirs bound
+  by blood to feed an undead ascension."
 sources:
- - "archive/ssw-shepherd-grigori.md"
- - "archive/ssw-shepherd-grigori-island.md"
+  - "archive/ssw-shepherd-grigori.md"
+  - "archive/ssw-shepherd-grigori-island.md"
 aliases:
- - "The Flock"
+  - "The Flock"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

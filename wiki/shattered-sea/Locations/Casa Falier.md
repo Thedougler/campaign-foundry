@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Site
-summary: "A house paid to the Defenders by Iacopo Fieschi alongside trade credit and a diamond ring."
+summary: "A house paid to the Defenders by Iacopo Fieschi alongside trade credit
+  and a diamond ring."
 sources:
- - "archive/agentic-co-dm-Session-08-Recap-journal.md"
- - "archive/Session-08-Recap.md"
+  - "archive/agentic-co-dm-Session-08-Recap-journal.md"
+  - "archive/Session-08-Recap.md"
 parent: ""
+revealed: "Session 8"
+title: ""
 ---
 
 ## At a glance

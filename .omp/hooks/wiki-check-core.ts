@@ -93,7 +93,7 @@ function isFinding(value: unknown): value is Finding {
 		(f.severity === "error" || f.severity === "warning");
 }
 
-const repairGuidance = "wiki-check is read-only page-check feedback, not repair authority. Load skill://lint and repair the reported findings; clean means zero findings, including warnings, regardless of ok or exit code. The hook applies no fixes. This feedback supplements, and does not replace, the final combined slice gate.";
+const repairGuidance = "wiki-check is read-only page-check feedback, not repair authority. Load skill://lint and repair the reported findings; clean means zero findings, including warnings, regardless of ok or exit code. The hook applies no fixes. The final combined slice gate still applies.";
 const manualGuidance = "wiki-check did not provide a complete page check. Do not treat any unchecked page or capped list as clean. Run bun run cf -- check for all affected pages yourself, then use skill://lint as the repair authority. The hook applies no fixes; the final combined slice gate still applies.";
 
 /** Raw findings stay in tool data. Only fixed, hook-authored guidance enters trusted context. */

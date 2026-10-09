@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "Ozzeth the Twiceborn, a unique Creature stat block from the archived NPC record."
+summary: "Ozzeth the Twiceborn, a unique Creature stat block from the archived
+  NPC record."
 sources:
- - "archive/ozzeth-the-twiceborn.md"
+  - "archive/ozzeth-the-twiceborn.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +17,7 @@ sources:
 - **Used by.** The NPC of the same name brings him to the table.
 
 > [!narration] First sight
-> A small grung crouches ahead on the trail, skin blue in one place and red in another, the colours sliding over him as he moves. His throat swells, and a bitter scent rises with the first movement of his fingers. When he moves on, it is one long flat leap, and a pale tongue flicks out to drag its catch a step toward him.
+> A small grung crouches ahead on the trail, skin blue in one place and red in another, the colours sliding over him as he moves. His throat swells, and a bitter scent rises with the first movement of his fingers. When he moves on, he springs into one long flat leap, and a pale tongue flicks out to drag its catch a step toward him.
 
 ## Statblock
 

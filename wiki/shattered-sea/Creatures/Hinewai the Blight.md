@@ -1,11 +1,14 @@
 ---
 type: Creature
-summary: "Hinewai the Blight, a unique Creature stat block from the archived NPC record."
+summary: "Hinewai the Blight, a unique Creature stat block from the archived NPC
+  record."
 aliases:
- - "Blight"
+  - "Blight"
 sources:
- - "archive/hinewai.md"
- - "archive/campaign-os-raw-blight.md"
+  - "archive/hinewai.md"
+  - "archive/campaign-os-raw-blight.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Hinewai the Blight - Portrait.png]]
@@ -19,7 +22,7 @@ sources:
 - **Used by.** The NPC of the same name, whose archived record this block renders.
 
 > [!narration] First sight
-> A tall figure, once a woman, steps out between the grove's trees, and the undergrowth bends aside before her. Rot greens her long claws, and thorned vines lean after her as she walks. Where she steps, the moss curls back, and the air carries a taste of spores. Under the great tree she halts, and her eyes find you through the leaves.
+> Between the grove's trees, a tall figure steps out, once a woman, and the undergrowth bends out of her way as she comes. Her long claws are green with rot. Thorned vines trail after her, and moss curls back where her feet fall. The air tastes of spores. She halts. Under the great tree, her gaze finds you through the leaves.
 
 ## Statblock
 

@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Armless goblin animal dealer who trades Midchain names for work he cannot do himself."
+summary: "Armless goblin animal dealer who trades Midchain names for work he
+  cannot do himself."
 sources:
- - "archive/zort.md"
+  - "archive/zort.md"
 creature: "[[Commoner]]"
+revealed: "Session 8"
+title: ""
 ---
 
 ## At a glance

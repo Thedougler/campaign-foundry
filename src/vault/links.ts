@@ -67,7 +67,11 @@ export function buildLinkGraph(vault: Vault): LinkGraph {
 	const cached = graphs.get(vault);
 	if (cached) return cached;
 
-	const pageIndex = index(vault.pages, (p) => suffixes(p.path.replace(/\.md$/, "").toLowerCase()));
+	// Links resolve by path suffix and by page name (ADR 0028): the frontmatter `title`, each alias, then the slug.
+	const pageIndex = index(vault.pages, (p) => [
+		...suffixes(p.path.replace(/\.md$/, "").toLowerCase()),
+		...p.names.map((n) => n.toLowerCase()),
+	]);
 	const fileIndex = index(vault.attachments, (p) => suffixes(p.toLowerCase()));
 
 	const resolve = (from: Page, link: WikiLink): Resolution => {
@@ -129,7 +133,7 @@ export function buildLinkGraph(vault: Vault): LinkGraph {
 	const graph: LinkGraph = {
 		links,
 		inbound,
-		pageNames: [...new Set(vault.pages.map((p) => p.name))],
+		pageNames: [...new Set(vault.pages.flatMap((p) => p.names))],
 		attachmentNames: vault.attachments.map((p) => p.slice(p.lastIndexOf("/") + 1)),
 	};
 	graphs.set(vault, graph);

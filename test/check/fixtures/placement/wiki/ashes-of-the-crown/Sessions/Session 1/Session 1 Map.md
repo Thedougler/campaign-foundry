@@ -2,6 +2,8 @@
 type: Handout
 summary: "One line."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

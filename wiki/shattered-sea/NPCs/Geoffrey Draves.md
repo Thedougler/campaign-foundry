@@ -1,15 +1,18 @@
 ---
 type: NPC
-summary: "Dravosi carpenter aboard the Uncertainty, working under Sem Holst, dancing toward the means to claim Verity Hollowell's hand."
+summary: "Dravosi carpenter aboard the Uncertainty, working under Sem Holst,
+  dancing toward the means to claim Verity Hollowell's hand."
 sources:
- - "archive/geoffrey-draves.md"
- - "archive/ssw-geoffrey-draves.md"
- - "archive/ssw-session-02.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-party-crew.md"
- - "archive/Episode-09-Transcript.md"
- - "archive/session-10.md"
+  - "archive/geoffrey-draves.md"
+  - "archive/ssw-geoffrey-draves.md"
+  - "archive/ssw-session-02.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-party-crew.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/session-10.md"
 creature: "[[Geoffrey Draves (Creature)]]"
+revealed: "Session 1"
+title: ""
 ---
 
 ![[Geoffrey Draves - Portrait.webp|Geoffrey Draves, a lean nineteen-year-old Dravosi deckhand and ship's carpenter]]

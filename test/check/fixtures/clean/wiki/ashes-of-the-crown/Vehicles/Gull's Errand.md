@@ -2,6 +2,8 @@
 type: Vehicle
 summary: "A river barge with a patched sail."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

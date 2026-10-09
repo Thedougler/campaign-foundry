@@ -1,8 +1,10 @@
 ---
+title: ""
 type: Previously On
 summary: ""
 sources: []
 date: ""
+revealed: ""
 ---
 
 ## At a glance

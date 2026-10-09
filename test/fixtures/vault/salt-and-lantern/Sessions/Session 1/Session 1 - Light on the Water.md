@@ -3,6 +3,8 @@ type: Scene
 kind: Resolution
 summary: "The lamp burns again, Hobb lends the Ebb Lantern, and a bell rings once out on the flats."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "Bazzoth the Steeped, a unique Creature stat block from the archived NPC record."
+summary: "Bazzoth the Steeped, a unique Creature stat block from the archived
+  NPC record."
 sources:
- - "archive/bazzoth-the-steeped.md"
+  - "archive/bazzoth-the-steeped.md"
+revealed: "Session 5"
+title: ""
 ---
 
 ## At a glance

@@ -2,8 +2,10 @@
 type: NPC
 summary: "Tessarine factor who turned Calveno's victory into Concordat credit."
 sources:
- - "archive/iacopo-fieschi.md"
+  - "archive/iacopo-fieschi.md"
 creature: "[[Commoner]]"
+revealed: "Session 7"
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +16,7 @@ creature: "[[Commoner]]"
 - **Found at.** His factor house, the correspondence routes of Calveno, and the [[Il Gioco delle Beffe]] marks as a first-year Tessarine entry.
 
 > [!narration] First look
-> A well-dressed factor comes down before the crowd clears, refolding a letter while he speaks. His voice is flat and careful, as though every sentence has already been entered into a contract.
+> A well-dressed factor comes down before the crowd clears, refolding a letter while he speaks. His voice is flat and careful, as though he copied every sentence out of a contract.
 
 ## Play
 

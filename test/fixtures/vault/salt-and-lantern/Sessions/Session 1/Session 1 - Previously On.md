@@ -3,6 +3,8 @@ type: Previously On
 summary: "Read aloud before Session 2: the lamp burning again, Ilse's escape and a bell on the flats."
 sources: []
 date: "15 Eelrun 412 CY"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

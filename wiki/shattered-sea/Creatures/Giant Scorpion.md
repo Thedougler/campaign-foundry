@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "An ambush predator holding the Ashwalls' warm fissures, where the handholds run back into occupied dark."
+summary: "An ambush predator holding the Ashwalls' warm fissures, where the
+  handholds run back into occupied dark."
 sources:
- - "archive/ssw-ashwall-islands.md"
+  - "archive/ssw-ashwall-islands.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

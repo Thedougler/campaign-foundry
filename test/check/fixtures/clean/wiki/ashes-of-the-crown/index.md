@@ -18,6 +18,7 @@
 
 ## NPCs
 
+- [[Captain Morrow]] — One line.
 - [[Mara Voss]] — Harbormaster with a bandit's past.
 
 ## Creatures

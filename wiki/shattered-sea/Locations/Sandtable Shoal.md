@@ -1,10 +1,14 @@
 ---
 type: Location
 kind: Site
-summary: "A mid-strait sandbank south of Aldenmere where the bottom rises fast, the Blue Lane kinks south, and giant octopuses prey on the wrecks in its limestone."
+summary: "A mid-strait sandbank south of Aldenmere where the bottom rises fast,
+  the Blue Lane kinks south, and giant octopuses prey on the wrecks in its
+  limestone."
 sources:
- - "archive/ssw-central-strait.md"
+  - "archive/ssw-central-strait.md"
 parent: "[[Central Strait]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

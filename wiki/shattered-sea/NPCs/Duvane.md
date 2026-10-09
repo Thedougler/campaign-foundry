@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "An Ashwall repair-crew carpenter whose scorpion attack in a handhold fissure is why two hands now climb the stone."
+summary: "An Ashwall repair-crew carpenter whose scorpion attack in a handhold
+  fissure is why two hands now climb the stone."
 sources:
- - "archive/ssw-ashwall-islands.md"
+  - "archive/ssw-ashwall-islands.md"
 creature: "[[Commoner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

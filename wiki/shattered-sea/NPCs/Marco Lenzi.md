@@ -2,10 +2,12 @@
 type: NPC
 summary: "A Pantry survivor who stays beneath the vine when the column leaves."
 sources:
- - "archive/the-pantry.md"
+  - "archive/the-pantry.md"
 aliases:
- - "Marco"
+  - "Marco"
 creature: "[[Commoner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

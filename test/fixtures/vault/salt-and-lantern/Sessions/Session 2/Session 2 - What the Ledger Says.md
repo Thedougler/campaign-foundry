@@ -3,6 +3,8 @@ type: Scene
 kind: Resolution
 summary: "The Party reads the ledger in Reedholt, learns the Compact ordered the flood and hears the sluice groan."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

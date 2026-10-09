@@ -1,9 +1,13 @@
 ---
 type: Thread
-summary: "Rook alive and armed aboard the Surety with his flintlock spent, the fight the Party left undecided at the Session 1 break. Resolved when he went into the water."
+summary: "Rook alive and armed aboard the Surety with his flintlock spent, the
+  fight the Party left undecided at the Session 1 break. Resolved when he went
+  into the water."
 sources:
- - "archive/ssw-session-01.md"
+  - "archive/ssw-session-01.md"
 status: resolved
+revealed: "Session 1"
+title: ""
 ---
 
 ## At a glance

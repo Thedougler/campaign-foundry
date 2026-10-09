@@ -1,9 +1,12 @@
 ---
 type: Lore
-summary: "Everything beautiful the sea has claimed across centuries, scattered on the Sunken Crown's seafloor and cursed to whoever lifts a piece."
+summary: "Everything beautiful the sea has claimed across centuries, scattered
+  on the Sunken Crown's seafloor and cursed to whoever lifts a piece."
 sources:
- - "archive/ssw-umberlee.md"
- - "archive/Umberlee.md"
+  - "archive/ssw-umberlee.md"
+  - "archive/Umberlee.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

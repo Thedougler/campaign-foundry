@@ -3,6 +3,8 @@ type: Recap
 summary: "One line."
 sources: []
 date: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -1,8 +1,11 @@
 ---
 type: Item
-summary: "A warm fragment of Otar the Foul's hide that grants conditional regeneration to its attuned bearer."
+summary: "A warm fragment of Otar the Foul's hide that grants conditional
+  regeneration to its attuned bearer."
 sources:
- - "archive/a-sliver-of-the-unstable-form.md"
+  - "archive/a-sliver-of-the-unstable-form.md"
+revealed: "Session 7"
+title: ""
 ---
 
 ## At a glance

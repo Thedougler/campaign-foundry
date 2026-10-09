@@ -1,11 +1,15 @@
 ---
 type: Location
 kind: Site
-summary: "Broad basalt tubes beneath Aruhe, linking marsh, Grove and Clear Lake. The four Calveno survivors once trapped below the Long Meadow skylight are out and travel with the Party."
+summary: "Broad basalt tubes beneath Aruhe, linking marsh, Grove and Clear Lake.
+  The four Calveno survivors once trapped below the Long Meadow skylight are out
+  and travel with the Party."
 sources:
- - "archive/lava-tubes.md"
- - "archive/session-12-full.md"
+  - "archive/lava-tubes.md"
+  - "archive/session-12-full.md"
 parent: "[[Aruhe]]"
+revealed: "Session 12"
+title: ""
 ---
 
 ![[Lava Tubes - Handout Art.jpg]]

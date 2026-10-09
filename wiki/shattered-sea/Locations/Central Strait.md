@@ -1,11 +1,15 @@
 ---
 type: Location
 kind: Region
-summary: "The inspected east-west corridor between the Crown Islands and the Midchain, run through by an east-setting current and narrowed by the Maw's water at its eastern end."
+summary: "The inspected east-west corridor between the Crown Islands and the
+  Midchain, run through by an east-setting current and narrowed by the Maw's
+  water at its eastern end."
 sources:
- - "archive/ssw-central-strait.md"
- - "archive/ssw-midchain.md"
+  - "archive/ssw-central-strait.md"
+  - "archive/ssw-midchain.md"
 parent: "[[Verdant Scatter]]"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

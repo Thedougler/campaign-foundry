@@ -1,10 +1,13 @@
 ---
 type: NPC
-summary: "Lizardfolk salvage-hand who rose to captain the Loud Argument in Fisk's Fleet; his fate after the fleet sank is not recorded."
+summary: "Lizardfolk salvage-hand who rose to captain the Loud Argument in
+  Fisk's Fleet; his fate after the fleet sank is not recorded."
 sources:
- - "archive/ssw-lizardfolk.md"
- - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-lizardfolk.md"
+  - "archive/ssw-umberlee-shrine.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

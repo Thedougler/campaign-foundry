@@ -3,6 +3,8 @@ type: hot
 summary: "The Party holds the Vessen ledger in Reedholt, fifty days before the Long Ebb."
 sources: []
 date: "23 Eelrun 412 CY"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

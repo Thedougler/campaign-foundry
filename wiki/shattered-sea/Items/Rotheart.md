@@ -1,8 +1,11 @@
 ---
 type: Item
-summary: "A black Aruhe fruit that strips sickness and makes rolled healing take its maximum for 24 hours."
+summary: "A black Aruhe fruit that strips sickness and makes rolled healing take
+  its maximum for 24 hours."
 sources:
- - "archive/session-12-full.md"
+  - "archive/session-12-full.md"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance

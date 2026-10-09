@@ -1,10 +1,13 @@
 ---
 type: Scene
 kind: Development
-summary: "Four Calveno trapped in a lava tube reveal that the rest of their camp followed Hinewai's voice north-east, while a terror-bird waits above."
+summary: "Four Calveno trapped in a lava tube reveal that the rest of their camp
+  followed Hinewai's voice north-east, while a terror-bird waits above."
 sources:
   - "archive/session-12-index.md"
   - "archive/session-12-02-the-smoking-skylight.md"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance

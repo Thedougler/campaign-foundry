@@ -1,11 +1,14 @@
 ---
 type: NPC
-summary: "Peregrine the faction apprentice hunting Crissdalynn's Fate Spinner under the Rule of Two."
+summary: "Peregrine the faction apprentice hunting Crissdalynn's Fate Spinner
+  under the Rule of Two."
 sources:
- - "archive/talon-skarn.md"
- - "archive/session-11-transcript-archived-version.md"
- - "archive/session-12-full.md"
+  - "archive/talon-skarn.md"
+  - "archive/session-11-transcript-archived-version.md"
+  - "archive/session-12-full.md"
 creature: "[[Talon Skarn (Creature)]]"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Talon Skarn - Token.png]]

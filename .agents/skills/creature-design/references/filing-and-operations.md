@@ -25,17 +25,8 @@ Never edit a played Session Prep, Scene, Recap, Previously On, Transcript-derive
 
 ## Scope and verification
 
-Resolve the caller's explicit root, vault and Campaign first. All reads, qmd searches, writes and checks use that target. Before editing, read the Campaign's `hot.md`, its Campaign folder's `index.md`, the last ten entries of its `log.md`, and the target pages needed by the request.
+Resolve the caller's explicit root, vault and Campaign first. All reads, QMD searches, writes and checks use that target. Before editing, read the Campaign's `hot.md`, its Campaign folder's `index.md`, the last ten entries of its `log.md`, and the target pages needed by the request.
 
 Add at least one incoming wikilink from a real relevant page besides the generated index. An NPC's `creature` property counts as one. Verify every link target exists. Create or change an index only through the CLI.
 
-Discover exact CLI syntax from the installed program before using it: `bun run cf -- index --help`, `bun run cf -- check --help`, and `bun run cf -- log --help`. The supported forms are scoped by `--root <dir>` and `--vault <dir>`:
-
-```text
-bun run cf -- index --root "$ROOT" --vault "$VAULT"
-bun run cf -- check --root "$ROOT" --vault "$VAULT" --templates "$VAULT/templates" --fix "<page path>" "<page path>"
-bun run cf -- check --root "$ROOT" --vault "$VAULT" --templates "$VAULT/templates" "<page path>" "<page path>"
-bun run cf -- log --root "$ROOT" --vault "$VAULT" --campaign "$CAMPAIGN" --op create --title "Create <Name>" --page "<Name>"
-```
-
-Use `--fix` only for mechanical repairs, then rerun. The final check is the page gate. Run `bun run cf -- check` with all layers (no `--layer` flag) over the Creature page and every page this run touched, and repeat until it reports `ok: 0 findings`. Run this check before logging. When another skill invoked this one, that caller writes the operation log. Append a `create` entry only when this invocation is explicitly standalone and responsible for its own log, after the page gate passes.
+Close per `skill://lint` § Commands over the Creature page and every page this run touched. Give every command `--root "$ROOT" --vault "$VAULT"` and each check `--templates "$VAULT/templates"` (**Another root** there), and read `bun run cf -- check --help` first for the installed syntax. Run the page gate before logging. When another skill invoked this one, that caller writes the operation log. Append a `create` entry only when this invocation is explicitly standalone and responsible for its own log, after the page gate passes.

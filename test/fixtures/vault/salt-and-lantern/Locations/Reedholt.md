@@ -4,6 +4,8 @@ kind: Settlement
 summary: "A stilt village in the deep Brack where the ferries tie up and the drowned chapel is closest."
 sources: []
 parent: "[[The Brack]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

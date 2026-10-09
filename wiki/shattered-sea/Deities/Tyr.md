@@ -1,8 +1,11 @@
 ---
 type: Deity
-summary: "The Dravosi Crown's inquisitorial god, whose Hound Aleksander Malone hunts what he calls perfects as his own contractor."
+summary: "The Dravosi Crown's inquisitorial god, whose Hound Aleksander Malone
+  hunts what he calls perfects as his own contractor."
 sources:
- - "archive/Episode-09-Transcript.md"
+  - "archive/Episode-09-Transcript.md"
+revealed: "Session 9"
+title: ""
 ---
 
 ## At a glance

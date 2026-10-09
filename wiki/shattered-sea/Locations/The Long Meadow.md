@@ -1,11 +1,15 @@
 ---
 type: Location
 kind: Site
-summary: "The one Quiet grass cut where the roof breaks open. Two Terror-Birds own its halves, and the four survivors once trapped below the skylight are out with the Party."
+summary: "The one Quiet grass cut where the roof breaks open. Two Terror-Birds
+  own its halves, and the four survivors once trapped below the skylight are out
+  with the Party."
 sources:
- - "archive/the-long-meadow.md"
- - "archive/session-12-full.md"
+  - "archive/the-long-meadow.md"
+  - "archive/session-12-full.md"
 parent: "[[The Quiet]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

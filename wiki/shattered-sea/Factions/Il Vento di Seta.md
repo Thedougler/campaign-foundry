@@ -1,10 +1,13 @@
 ---
 type: Faction
-summary: "A halfling trio with a Tessarine booking agent. The same perfect set every Palio, for a devoted crowd of exactly the same size."
+summary: "A halfling trio with a Tessarine booking agent. The same perfect set
+  every Palio, for a devoted crowd of exactly the same size."
 sources:
- - "archive/ssw-il-palio-delle-voci.md"
+  - "archive/ssw-il-palio-delle-voci.md"
 aliases:
- - "The Silk Wind"
+  - "The Silk Wind"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -1,15 +1,19 @@
 ---
 type: Location
 kind: Region
-summary: "An island chain whose name is geographic: the Dravosi Crown and the Tessarine Concordat hold separate harbours across it, and trade credit and old routes meet between them."
+summary: "An island chain whose name is geographic: the Dravosi Crown and the
+  Tessarine Concordat hold separate harbours across it, and trade credit and old
+  routes meet between them."
 sources:
- - "archive/calven-and-calveno.md"
- - "archive/high-eyrie.md"
- - "archive/calders-tooth-and-port-tidefall.md"
- - "archive/ssw-galewall.md"
- - "archive/ssw-verdant-scatter.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/calven-and-calveno.md"
+  - "archive/high-eyrie.md"
+  - "archive/calders-tooth-and-port-tidefall.md"
+  - "archive/ssw-galewall.md"
+  - "archive/ssw-verdant-scatter.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 parent: ""
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

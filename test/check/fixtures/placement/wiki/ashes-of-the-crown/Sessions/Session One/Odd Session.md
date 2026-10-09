@@ -3,6 +3,8 @@ type: Scene
 kind: Hook
 summary: "One line."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

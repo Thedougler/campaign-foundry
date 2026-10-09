@@ -1,15 +1,18 @@
 ---
 type: Item
-summary: "A shrine relic that collects drowned souls, signals across the Drowned Maw and remains beyond Umberlee's reach."
+summary: "A shrine relic that collects drowned souls, signals across the Drowned
+  Maw and remains beyond Umberlee's reach."
 sources:
- - "archive/pearl-of-souls.md"
- - "archive/ssw-giant-squid.md"
- - "archive/ssw-what-sunk-the-vestra.md"
- - "archive/ssw-umberlee.md"
- - "archive/ssw-umberlee-shrine.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/session-10.md"
+  - "archive/pearl-of-souls.md"
+  - "archive/ssw-giant-squid.md"
+  - "archive/ssw-what-sunk-the-vestra.md"
+  - "archive/ssw-umberlee.md"
+  - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/session-10.md"
 
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

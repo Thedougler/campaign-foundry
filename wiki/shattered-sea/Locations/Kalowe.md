@@ -1,12 +1,15 @@
 ---
 type: Location
 kind: Settlement
-summary: "Three reef-linked islets joined by stone bridges, with one navigable gap, a seized fort council and a shrine that charges every hull."
+summary: "Three reef-linked islets joined by stone bridges, with one navigable
+  gap, a seized fort council and a shrine that charges every hull."
 sources:
- - "archive/kalowe.md"
- - "archive/ssw-midchain.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/kalowe.md"
+  - "archive/ssw-midchain.md"
+  - "archive/Episode-09-Transcript.md"
 parent: "[[Midchain]]"
+revealed: "Session 9"
+title: ""
 ---
 
 ## At a glance

@@ -1,8 +1,10 @@
 ---
+title: ""
 type: Scene
 kind: Hook
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

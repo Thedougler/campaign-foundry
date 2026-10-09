@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A Crown island whose position off Sandtable Shoal makes it the pilot's mark on the mid-strait lane."
+summary: "A Crown island whose position off Sandtable Shoal makes it the pilot's
+  mark on the mid-strait lane."
 sources:
- - "archive/ssw-central-strait.md"
+  - "archive/ssw-central-strait.md"
 parent: "[[Crown Islands]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

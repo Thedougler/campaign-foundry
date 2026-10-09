@@ -1,10 +1,13 @@
 ---
 type: Faction
-summary: "An orc and tortle two-piece on drums and a massive horn whose Palio crowd surges, compresses and occasionally ends up in the canal."
+summary: "An orc and tortle two-piece on drums and a massive horn whose Palio
+  crowd surges, compresses and occasionally ends up in the canal."
 sources:
- - "archive/ssw-il-palio-delle-voci.md"
+  - "archive/ssw-il-palio-delle-voci.md"
 aliases:
- - "The Bones of the Bull"
+  - "The Bones of the Bull"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

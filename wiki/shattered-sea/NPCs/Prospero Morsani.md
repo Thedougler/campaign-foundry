@@ -1,9 +1,13 @@
 ---
 type: NPC
-summary: "Keeper of the Velo Quarter cabinet of lost objects, and a fixture at every Calveno festival whose appearance at the winning stage the crowd reads as an omen."
+summary: "Keeper of the Velo Quarter cabinet of lost objects, and a fixture at
+  every Calveno festival whose appearance at the winning stage the crowd reads
+  as an omen."
 sources:
- - "archive/ssw-il-palio-delle-voci.md"
+  - "archive/ssw-il-palio-delle-voci.md"
 creature: "[[Commoner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

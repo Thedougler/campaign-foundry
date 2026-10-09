@@ -1,9 +1,12 @@
 ---
 type: Creature
-summary: "Shepherd Grigori as a CR 19 undead: a sorcerer-lich whose blood phylactery is the Family of cured heirs."
+summary: "Shepherd Grigori as a CR 19 undead: a sorcerer-lich whose blood
+  phylactery is the Family of cured heirs."
 sources:
- - "archive/ssw-shepherd-grigori-island.md"
- - "archive/shepherd-grigori.md"
+  - "archive/ssw-shepherd-grigori-island.md"
+  - "archive/shepherd-grigori.md"
+revealed: "Session 10"
+title: ""
 ---
 
 ## At a glance

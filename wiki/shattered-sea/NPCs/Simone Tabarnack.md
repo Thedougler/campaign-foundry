@@ -1,14 +1,17 @@
 ---
 type: NPC
-summary: "Purple-caste Grung officer pursuing Jean-Claude while an unmaintained rite threatens her rise to Gold."
+summary: "Purple-caste Grung officer pursuing Jean-Claude while an unmaintained
+  rite threatens her rise to Gold."
 sources:
- - "archive/simone-tabarnack.md"
- - "archive/ssw-midchain.md"
- - "archive/ssw-session-01.md"
- - "archive/ssw-the-canister.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
- - "archive/agentic-co-dm-simone-tabarnack-narration.md"
+  - "archive/simone-tabarnack.md"
+  - "archive/ssw-midchain.md"
+  - "archive/ssw-session-01.md"
+  - "archive/ssw-the-canister.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/agentic-co-dm-simone-tabarnack-narration.md"
 creature: "[[Commoner]]"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance
@@ -19,7 +22,7 @@ creature: "[[Commoner]]"
 - **Found at.** Sorn and the Grung scouting network around the Midchain.
 
 > [!narration] First look
-> A compact grung officer of the purple caste steps in, her fitted armour worn smooth and unadorned, spear easy in one hand. Her eyes work the room ahead of her face, doors and corners first, and she is moving again before the look is done. As she passes, a chemical sharpness comes off the oil on her armour, and bands and dots of gold show in her black skin where it gaps. She speaks before she is greeted, gives an order once, and the spear stays in her hand when she sits.
+> A compact grung officer of the purple caste steps in, spear easy in one hand, her fitted armour worn smooth and unadorned. Her eyes go first. They take doors and corners, and she is moving again before they finish. A chemical sharpness comes off the oil on her armour as she passes, and bands and dots of gold show in her black skin at the gaps. She speaks before any greeting and gives an order once. The spear stays in her hand when she sits.
 
 ## Play
 

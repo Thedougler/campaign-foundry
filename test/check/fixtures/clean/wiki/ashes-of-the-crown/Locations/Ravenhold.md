@@ -4,6 +4,8 @@ kind: Settlement
 summary: "A walled river port that taxes every barge."
 sources: []
 parent: "[[Ashen Reach]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

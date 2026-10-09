@@ -1,11 +1,14 @@
 ---
 type: NPC
-summary: "Wreck survivor who lives by Aruhe's fallen-fruit rule, will not approach Hinewai, and now travels inland with the Party."
+summary: "Wreck survivor who lives by Aruhe's fallen-fruit rule, will not
+  approach Hinewai, and now travels inland with the Party."
 sources:
- - "archive/matteo-scola.md"
- - "archive/session-11-transcript-archived-version.md"
- - "archive/session-12-full.md"
+  - "archive/matteo-scola.md"
+  - "archive/session-11-transcript-archived-version.md"
+  - "archive/session-12-full.md"
 creature: "[[Commoner]]"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Matteo Scola - Portrait.png]]

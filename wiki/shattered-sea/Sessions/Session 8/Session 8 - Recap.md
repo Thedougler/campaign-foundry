@@ -1,10 +1,13 @@
 ---
 type: Recap
-summary: "Nona's missing-persons list passed 314, Osset was named twice, and Uncertainty's refit was twelve hours out."
+summary: "Nona's missing-persons list passed 314, Osset was named twice, and
+  Uncertainty's refit was twelve hours out."
 sources:
   - "archive/Session 08 - Recap.md"
   - "archive/Session-08-Recap.md"
 date: "1495 DR, date not established"
+revealed: "Session 8"
+title: ""
 ---
 
 ## At a glance

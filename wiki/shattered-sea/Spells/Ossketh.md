@@ -1,10 +1,14 @@
 ---
 type: Spell
-summary: "A suppressed grung transmutation that sets the caster's caste colour permanently; cast before the diet finishes its work, it lodges and keeps running."
+summary: "A suppressed grung transmutation that sets the caster's caste colour
+  permanently; cast before the diet finishes its work, it lodges and keeps
+  running."
 sources:
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
- - "archive/simone-tabarnack.md"
- - "archive/ozzeth-the-twiceborn.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/simone-tabarnack.md"
+  - "archive/ozzeth-the-twiceborn.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -27,7 +27,8 @@ function findPage(vault: Vault, input: string): Page {
 			if (page) return page;
 		}
 	} else {
-		const named = vault.pages.filter((p) => p.name === raw);
+		const wanted = raw.toLowerCase();
+		const named = vault.pages.filter((p) => p.names.some((n) => n.toLowerCase() === wanted));
 		if (named.length === 1) return named[0]!;
 		if (named.length > 1) {
 			throw new UsageError(
@@ -36,7 +37,7 @@ function findPage(vault: Vault, input: string): Page {
 			);
 		}
 	}
-	const closest = suggest(raw.replace(/\.md$/, "").split("/").at(-1) ?? raw, vault.pages.map((p) => p.name));
+	const closest = suggest(raw.replace(/\.md$/, "").split("/").at(-1) ?? raw, vault.pages.flatMap((p) => p.names));
 	throw new UsageError(`No page \`${raw}\` in the Wiki.${closest ? ` Did you mean \`${closest}\`?` : ""}`, `Name a page that exists, by name or vault path. ${EXAMPLE}`);
 }
 

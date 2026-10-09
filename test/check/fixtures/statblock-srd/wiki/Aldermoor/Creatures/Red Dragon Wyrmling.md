@@ -2,6 +2,8 @@
 type: Creature
 summary: "Red Dragon Wyrmling, from the SRD 5.2 monsters."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

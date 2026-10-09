@@ -5,6 +5,8 @@ summary: "The Party pulls Matteo Scola from three giant river otters."
 sources:
   - "archive/session-11-05-otter-hole.md"
   - "archive/Session-11-05-Otter-Hole-archived-version.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Session 11 - Otter Hole - Battle Map.jpg]]

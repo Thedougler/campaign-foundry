@@ -2,6 +2,8 @@
 type: Handout
 summary: "A poster for the Bandit Captain."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

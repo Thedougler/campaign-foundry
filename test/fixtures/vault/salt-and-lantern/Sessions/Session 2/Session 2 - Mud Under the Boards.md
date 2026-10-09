@@ -3,6 +3,8 @@ type: Scene
 kind: Cliffhanger
 summary: "Two Mire Drowners rise from the silt beneath Reedholt as the Party crosses the Under-Boards."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

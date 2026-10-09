@@ -1,9 +1,12 @@
 ---
 type: Lore
-summary: "Heavy, horned humanoids with perfect recall of any passage; a minotaur pilot is the dearest crew hire in the Midchain and worth every coin."
+summary: "Heavy, horned humanoids with perfect recall of any passage; a minotaur
+  pilot is the dearest crew hire in the Midchain and worth every coin."
 sources:
- - "archive/ssw-minotaur.md"
- - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-minotaur.md"
+  - "archive/ssw-umberlee-shrine.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

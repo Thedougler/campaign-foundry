@@ -1,10 +1,13 @@
 ---
 type: Recap
-summary: "Calveno's artificer helped with the magazine raid, Magazine Beta went into the water, and Room 8 held a live ritual under Solange Barret."
+summary: "Calveno's artificer helped with the magazine raid, Magazine Beta went
+  into the water, and Room 8 held a live ritual under Solange Barret."
 sources:
   - "archive/Session 05 - Recap.md"
   - "archive/Session-05-Recap.md"
 date: "1495 DR, date not established"
+revealed: "Session 5"
+title: ""
 ---
 
 ## At a glance

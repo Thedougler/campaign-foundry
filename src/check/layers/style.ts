@@ -15,6 +15,9 @@ const LAYER = "style";
 /** The gate's committed Vale config, shared by the page run and the snippet check, so there is one style vocabulary. */
 const VALE_CONFIG = join(toolRoot, ".vale.ini");
 
+/** Craft checks (proselint, write-good) over [!narration] callouts only; never added to .vale.ini, which reads all prose. */
+const NARRATION_VALE_CONFIG = join(toolRoot, ".vale-narration.ini");
+
 interface ValeAlert {
 	Check: string;
 	Message: string;
@@ -28,10 +31,12 @@ function setupError(message: string, hint: string): never {
 	throw new UsageError(message, hint);
 }
 
-/** The synced ai-tells package is the gate's vocabulary; without it nothing can be judged. */
-function requireAiTells(): void {
-	if (!existsSync(join(toolRoot, ".vale/styles/ai-tells"))) {
-		setupError("The Vale ai-tells package is not installed.", "Run `bun run setup` (it runs `vale sync`), then `cf check` again.");
+/** The synced packages are the gate's vocabulary; without them nothing can be judged. */
+function requireStyles(): void {
+	for (const style of ["ai-tells", "proselint", "write-good"]) {
+		if (!existsSync(join(toolRoot, `.vale/styles/${style}`))) {
+			setupError(`The Vale ${style} package is not installed.`, "Run `bun run setup` (it runs `vale sync`), then `cf check` again.");
+		}
 	}
 }
 
@@ -76,11 +81,7 @@ function properNouns(vault: Vault): Set<string> {
 		}
 	};
 	for (const page of vault.pages) {
-		add(page.name);
-		const aliases = page.frontmatter?.aliases;
-		for (const alias of Array.isArray(aliases) ? aliases : typeof aliases === "string" ? [aliases] : []) {
-			if (typeof alias === "string") add(alias);
-		}
+		for (const name of page.names) add(name);
 	}
 	for (const word of lowercased) capitalized.delete(word);
 	return capitalized;
@@ -103,6 +104,19 @@ function quoteMask(line: string): boolean[] {
 // A masked name's stand-in (see prose.ts): whatever its source, it is a name.
 const MASK_STAND_IN = /^(?:Person|People|Place|Ship|Object|Placename[a-z]*)$/;
 
+/** Whether every occurrence of `match` on the line sits inside double quotes: quoted speech is NPC voice, not narration. */
+function allQuoted(line: string, match: string): boolean {
+	if (match === "") return false;
+	const inside = quoteMask(line);
+	let count = 0;
+	let quoted = 0;
+	for (let i = line.indexOf(match); i !== -1; i = line.indexOf(match, i + 1)) {
+		count++;
+		if (inside.slice(i, i + match.length).every(Boolean)) quoted++;
+	}
+	return count > 0 && count === quoted;
+}
+
 /**
  * Two DM-confirmed Vale misfires, dropped here because the rules themselves cannot see the distinction.
  * - FillerIntensifier reads "a single" as padding, but inside quoted in-world speech it is a count: Hinewai's
@@ -115,14 +129,7 @@ const MASK_STAND_IN = /^(?:Person|People|Place|Ship|Object|Placename[a-z]*)$/;
  */
 function isConfirmedMisfire(line: string, alert: ValeAlert, names: Set<string>): boolean {
 	if (alert.Check === "ai-tells.FillerIntensifier") {
-		const inside = quoteMask(line);
-		let count = 0;
-		let quoted = 0;
-		for (let i = line.indexOf(alert.Match); i !== -1; i = line.indexOf(alert.Match, i + 1)) {
-			count++;
-			if (inside.slice(i, i + alert.Match.length).every(Boolean)) quoted++;
-		}
-		return count > 0 && count === quoted;
+		return allQuoted(line, alert.Match);
 	}
 	if (alert.Check === "ai-tells.ColonUsage") {
 		const word = /:\s(\p{L}[\p{L}'’-]*)$/u.exec(alert.Match)?.[1] ?? "";
@@ -143,11 +150,33 @@ function valeText(text: string, page: Page): string {
 		const [start, end] = calloutLines(page, callout);
 		for (let line = start; line <= end; line++) narrationLines.add(line);
 	}
-	// Only narration stays a blockquote: other callouts and ordinary quotes are DM-side prose.
-	const scoped = text.split("\n").map((line, index) =>
-		narrationLines.has(index + 1) ? line : line.replace(/^[ \t]*(?:>[ \t]?)+/, ""),
-	).join("\n");
+	// Only narration stays a blockquote: other callouts and ordinary quotes are DM-side prose. A quote line under an
+	// NPC's `## Quotes` is that person's verbatim speech, so it leaves the view (blanked) while its context line stays.
+	let inQuotes = false;
+	const scoped = text.split("\n").map((line, index) => {
+		if (/^#{1,6}\s/.test(line)) inQuotes = /^##\s+Quotes\s*$/.test(line);
+		if (inQuotes && /^[ \t]*>/.test(line)) return "";
+		return narrationLines.has(index + 1) ? line : line.replace(/^[ \t]*(?:>[ \t]?)+/, "");
+	}).join("\n");
 	return scoped.replace(/^([ \t]*(?:[-*+]|\d+\.)[ \t]+\*\*[^*\n]+?)\.(\*\*)/gm, "$1$2");
+}
+
+/**
+ * The view the craft checks read: the body lines of every [!narration] callout with their `>` markers stripped,
+ * and every other line, the callout's title line included, blanked to "" so line numbers stay the page's. Null
+ * when the page has no narration callout, so the craft pass is skipped entirely.
+ */
+function narrationValeText(text: string, page: Page): string | null {
+	const narrationLines = new Set<number>();
+	for (const callout of page.callouts) {
+		if (callout.type !== "narration") continue;
+		const [start, end] = calloutLines(page, callout);
+		for (let line = start + 1; line <= end; line++) narrationLines.add(line);
+	}
+	if (narrationLines.size === 0) return null;
+	return text.split("\n").map((line, index) =>
+		narrationLines.has(index + 1) ? line.replace(/^[ \t]*(?:>[ \t]?)+/, "") : "",
+	).join("\n");
 }
 
 function runVale(args: string[]): Promise<{ stdout: string; missing: boolean }> {
@@ -177,32 +206,70 @@ function findingFor(alert: ValeAlert, lineText: string, path: string, names: Set
 }
 
 /**
+ * One craft-check alert as a gate finding, or null when every occurrence of the match on the line sits inside
+ * double quotes: quoted speech is NPC voice, not the DM's narration. Craft checks always warn, whatever level
+ * the package gives the rule.
+ */
+function narrationFinding(alert: ValeAlert, lineText: string, path: string): Finding | null {
+	if (allQuoted(lineText, alert.Match)) return null;
+	return {
+		layer: LAYER,
+		rule: alert.Check,
+		severity: "warning",
+		path,
+		line: alert.Line,
+		// The upstream packages end messages with "Disable this rule ..."; only the DM disables a rule (.vale-narration.ini).
+		message: alert.Message.replace(/\s*Disable this rule\b[^.]*\./g, ""),
+		hint: hintFor(alert.Check),
+	};
+}
+
+/**
  * Vale reads the prose view of every page in one invocation: the view is the page with frontmatter, code,
  * comments, embeds and callout markers removed, wikilinks shown as their alias (a name with no alias is masked), written to a scratch folder
  * with the page's own relative path and line numbers.
  */
 export async function run(ctx: CheckContext): Promise<Finding[]> {
-	requireAiTells();
+	requireStyles();
 	const pages = checkedPages(ctx).filter(isProsePage);
 	if (pages.length === 0) return [];
 	const cacheDir = join(ctx.root, ".cache", "check");
 	await mkdir(cacheDir, { recursive: true });
-	const scratch = await mkdtemp(join(cacheDir, "vale-"));
 	const written: Record<string, string> = {};
+	const narrated: Record<string, string> = {};
+	for (const page of pages) {
+		const view = proseView(page, ctx.vault).text;
+		written[page.path] = valeText(view, page);
+		const narration = narrationValeText(view, page);
+		if (narration !== null) narrated[page.path] = narration;
+	}
+	const scratch = await mkdtemp(join(cacheDir, "vale-"));
+	// The craft checks read a second view of the same pages, so they get their own scratch folder.
+	const scratch2 = Object.keys(narrated).length > 0 ? await mkdtemp(join(cacheDir, "vale-")) : "";
 	try {
-		await Promise.all(
-			pages.map(async (page) => {
-				const file = join(scratch, page.path);
-				await mkdir(dirname(file), { recursive: true });
-				const text = valeText(proseView(page, ctx.vault).text, page);
-				written[page.path] = text;
-				await writeFile(file, text);
-			}),
+		const writeViews = (dir: string, views: Record<string, string>) =>
+			Promise.all(
+				Object.entries(views).map(async ([path, text]) => {
+					const file = join(dir, path);
+					await mkdir(dirname(file), { recursive: true });
+					await writeFile(file, text);
+				}),
+			);
+		await Promise.all([writeViews(scratch, written), scratch2 ? writeViews(scratch2, narrated) : undefined]);
+		// The craft checks run over [!narration] callouts only, beside the gate's own rules (.vale.ini), in parallel.
+		const [main, craft] = await Promise.all([
+			runVale(["--config", VALE_CONFIG, "--output=JSON", "--no-exit", scratch]),
+			scratch2 ? runVale(["--config", NARRATION_VALE_CONFIG, "--output=JSON", "--no-exit", scratch2]) : undefined,
+		]);
+		if (main.missing || craft?.missing) valeMissing();
+		const [byFile = new Map<string, ValeAlert[]>(), craftByFile = new Map<string, ValeAlert[]>()] = ([[main.stdout, scratch], [craft?.stdout ?? "", scratch2]] as const).map(
+			([stdout, dir]) =>
+				new Map(
+					Object.entries((stdout.trim() === "" ? {} : JSON.parse(stdout)) as Record<string, ValeAlert[]>).map(
+						([file, alerts]) => [file.startsWith(dir) ? file.slice(dir.length + 1) : file, alerts],
+					),
+				),
 		);
-		const { stdout, missing } = await runVale(["--config", VALE_CONFIG, "--output=JSON", "--no-exit", scratch]);
-		if (missing) valeMissing();
-		const results = (stdout.trim() === "" ? {} : JSON.parse(stdout)) as Record<string, ValeAlert[]>;
-		const byFile = new Map(Object.entries(results).map(([file, alerts]) => [file.startsWith(scratch) ? file.slice(scratch.length + 1) : file, alerts]));
 		const names = properNouns(ctx.vault);
 		const findings: Finding[] = [];
 		for (const page of pages) {
@@ -211,10 +278,16 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 				const finding = findingFor(alert, lines[alert.Line - 1] ?? "", ctx.display(page.path), names);
 				if (finding) findings.push(finding);
 			}
+			const narration = (narrated[page.path] ?? "").split("\n");
+			for (const alert of craftByFile.get(page.path) ?? []) {
+				const finding = narrationFinding(alert, narration[alert.Line - 1] ?? "", ctx.display(page.path));
+				if (finding) findings.push(finding);
+			}
 		}
 		return findings;
 	} finally {
 		await rm(scratch, { recursive: true, force: true });
+		if (scratch2) await rm(scratch2, { recursive: true, force: true });
 	}
 }
 
@@ -230,7 +303,7 @@ export interface StyleFinding extends Finding {
  * append through this, so the command cannot author text its own gate fails on `log.md`.
  */
 export async function styleSnippet(vault: Vault, root: string, rel: string, text: string): Promise<StyleFinding[]> {
-	requireAiTells();
+	requireStyles();
 	const page = parsePage(rel, text);
 	const body = valeText(proseView(page, vault).text, page);
 	const cacheDir = join(root, ".cache", "check");

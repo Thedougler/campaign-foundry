@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Calveno dock foreman who led survivors to the Pantry and believes his brother died behind him."
+summary: "Calveno dock foreman who led survivors to the Pantry and believes his
+  brother died behind him."
 sources:
- - "archive/carlo-ferrante.md"
+  - "archive/carlo-ferrante.md"
 creature: "[[Commoner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

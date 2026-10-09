@@ -1,9 +1,12 @@
 ---
 type: Deity
-summary: "Sailor's courage made divine, invoked below decks when the basin's price feels wrong."
+summary: "Sailor's courage made divine, invoked below decks when the basin's
+  price feels wrong."
 sources:
- - "archive/ssw-umberlee.md"
- - "archive/Umberlee.md"
+  - "archive/ssw-umberlee.md"
+  - "archive/Umberlee.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

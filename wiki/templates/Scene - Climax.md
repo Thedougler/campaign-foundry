@@ -1,8 +1,10 @@
 ---
+title: ""
 type: Scene
 kind: Climax
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

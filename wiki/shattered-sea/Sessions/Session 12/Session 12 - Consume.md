@@ -1,10 +1,13 @@
 ---
 type: Scene
 kind: Climax
-summary: "At dusk in the Pantry, Perrin must consume the island's fruit as invisible Skarn makes his last attempt at the Fate Spinner."
+summary: "At dusk in the Pantry, Perrin must consume the island's fruit as
+  invisible Skarn makes his last attempt at the Fate Spinner."
 sources:
   - "archive/session-12-index.md"
   - "archive/session-12-05-consume.md"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance

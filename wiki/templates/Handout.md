@@ -1,7 +1,9 @@
 ---
+title: ""
 type: Handout
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

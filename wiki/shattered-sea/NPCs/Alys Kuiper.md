@@ -1,12 +1,15 @@
 ---
 type: NPC
-summary: "Surgeon of the Uncertainty's crew since the Surety, named to the prize crew and the one who saw to the Murrat four."
+summary: "Surgeon of the Uncertainty's crew since the Surety, named to the prize
+  crew and the one who saw to the Murrat four."
 sources:
- - "archive/ssw-old-faas.md"
- - "archive/ssw-session-02.md"
- - "archive/ssw-shepherd-grigori-island.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/ssw-old-faas.md"
+  - "archive/ssw-session-02.md"
+  - "archive/ssw-shepherd-grigori-island.md"
+  - "archive/Episode-09-Transcript.md"
 creature: "[[Commoner]]"
+revealed: "Session 2"
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +18,7 @@ creature: "[[Commoner]]"
 - **Found at.** Last known ashore at [[Calven and Calveno|Calveno]] on shore leave. She left her [[Le Paludi]] boardinghouse the morning after a man called on her.
 
 > [!narration] First look
-> A needle moves through bandage work in the better light below the deck, and a surgeon's kit lies open beside it with every tool in its loop. The work stops when the light is blocked, and she looks up, asking her question before any word is spoken.
+> A needle moves through bandage work in the better light below the deck, and a surgeon's kit lies open beside it with every tool in its loop. The work stops when a shadow falls across her hands, and she looks up, asking her question before anyone speaks.
 
 ## Play
 

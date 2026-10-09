@@ -5,6 +5,8 @@ summary: "A garden voice offers help while the Party camps beside the river."
 sources:
   - "archive/Session-11-07-False-Help.md"
   - "archive/Session-11-07-False-Help-archived-version.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Session 11 - False Help - Handout Art 2.jpg]]

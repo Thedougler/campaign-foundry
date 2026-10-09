@@ -70,4 +70,8 @@ describe("links layer", () => {
 		const other = report.findings.filter((f) => !f.path.endsWith("Broken Links.md") && !f.path.endsWith("Unquoted.md"));
 		expect(other).toEqual([]);
 	});
+
+	it("resolves a titled page by title, alias and slug stem, though its filename is a slug", () => {
+		expect(findingsFor(report, `${A}/NPCs/Valid Links.md`)).toEqual([]); // holds [[Nona Black-Jaw]], [[Black-Jaw]] and [[nona-black-jaw]]
+	});
 });

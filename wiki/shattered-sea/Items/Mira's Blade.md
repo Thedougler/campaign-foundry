@@ -1,10 +1,13 @@
 ---
 type: Item
-summary: "A +1 shortsword Perrin Black-Jaw took from Barnaby Rook's cabin aboard the HCS Surety; who Mira was is not recorded."
+summary: "A +1 shortsword Perrin Black-Jaw took from Barnaby Rook's cabin aboard
+  the HCS Surety; who Mira was is not recorded."
 sources:
- - "archive/ssw-session-02.md"
- - "archive/ssw-miras-blade.md"
- - "archive/ssw-the-canister.md"
+  - "archive/ssw-session-02.md"
+  - "archive/ssw-miras-blade.md"
+  - "archive/ssw-the-canister.md"
+revealed: "Session 2"
+title: ""
 ---
 
 ## At a glance
@@ -16,7 +19,7 @@ sources:
 - **Held by.** [[Perrin Black-Jaw]], who took it from [[Barnaby Rook]]'s cabin.
 
 > [!narration] First look
-> A plain blade slides from a scabbard gone stiff with salt. It sits light in the hand, the cord of its grip worn shiny where fingers closed on it, the fittings pitted grey by sea air. The pommel is notched where a thumb has ridden for years, its hollow rubbed smooth. The scabbard knocks against a palm like any other prize, and the name does the rest of the work.
+> A plain blade slides from a scabbard gone stiff with salt. It sits light in the hand. Fingers have worn the grip's cord shiny, and sea air has pitted the fittings grey. Years of riding have worn a notch for a thumb into the pommel, its hollow rubbed smooth. The scabbard knocks against a palm like any other prize, and the name does the rest of the work.
 
 ## Play
 

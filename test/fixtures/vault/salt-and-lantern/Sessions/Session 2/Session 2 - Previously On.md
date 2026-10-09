@@ -3,6 +3,8 @@ type: Previously On
 summary: "Read aloud before Session 3: the names spoken, the ledger taken and the sluice groaning."
 sources: []
 date: "23 Eelrun 412 CY"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

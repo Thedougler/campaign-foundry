@@ -2,7 +2,9 @@
 type: Creature
 summary: "A carnivorous canopy vine colony that grips travellers and feeds with acid."
 sources:
- - "archive/snakewood.md"
+  - "archive/snakewood.md"
+revealed: ""
+title: ""
 ---
 
 ![[Snakewood - Handout Art.jpg]]

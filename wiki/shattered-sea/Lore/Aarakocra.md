@@ -1,8 +1,11 @@
 ---
 type: Lore
-summary: "Winged bird folk who think in altitude: rare in Crown waters, most at home with the Sentinels at High Eyrie, and seen in the crew of Uncertainty."
+summary: "Winged bird folk who think in altitude: rare in Crown waters, most at
+  home with the Sentinels at High Eyrie, and seen in the crew of Uncertainty."
 sources:
- - "archive/ssw-aarakocra.md"
+  - "archive/ssw-aarakocra.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

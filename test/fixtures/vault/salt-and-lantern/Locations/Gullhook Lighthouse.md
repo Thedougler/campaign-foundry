@@ -4,6 +4,8 @@ kind: Site
 summary: "The white lighthouse at the tip of Saltwick's mole, whose lamp has been failing on moonless nights."
 sources: []
 parent: "[[Saltwick]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

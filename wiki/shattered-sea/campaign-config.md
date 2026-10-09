@@ -1,12 +1,16 @@
 ---
 type: campaign-config
-summary: "Dark heroic fantasy about authority in its rungs and who should wield it, told through rebellion, grey morality, freedom from slavery and corrupting power."
+summary: "Dark heroic fantasy about authority in its rungs and who should wield
+  it, told through rebellion, grey morality, freedom from slavery and corrupting
+  power."
 sources:
- - "archive/ssw-lines-and-veils.md"
- - "archive/agentic-co-dm-shattered-sea-tone-guide.md"
- - "archive/collab-2026-10-04-authority-themes.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
- - "archive/ssw-party-crew.md"
+  - "archive/ssw-lines-and-veils.md"
+  - "archive/agentic-co-dm-shattered-sea-tone-guide.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/ssw-party-crew.md"
+revealed: ""
+title: ""
 ---
 
 ## Tone

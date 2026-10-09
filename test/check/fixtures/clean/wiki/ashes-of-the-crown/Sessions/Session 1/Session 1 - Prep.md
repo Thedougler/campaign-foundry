@@ -3,6 +3,8 @@ type: Prep
 summary: "A storm pins the Party at the bridge."
 sources: []
 date: "14 Emberfall 1492"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

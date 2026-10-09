@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A three-storey Concordat house on the Shelf that turns trade, salvage and mail into signed terms."
+summary: "A three-storey Concordat house on the Shelf that turns trade, salvage
+  and mail into signed terms."
 sources:
- - "archive/ssw-tessarine-trade-house.md"
+  - "archive/ssw-tessarine-trade-house.md"
 parent: "[[Calder's Tooth and Port Tidefall]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -16,7 +19,7 @@ parent: "[[Calder's Tooth and Port Tidefall]]"
 - **Prize.** The salvage contract, or Concordat credit, sealed mail and legal cover for a crew willing to sign.
 
 > [!narration] Entering
-> Pale stone rises three storeys on the Shelf, and a blue-triangle pennant hangs above the door. Ink and cedar oil greet you before the counter does, past four chairs lined against the wall and a stair climbing at the back. A clerk looks up behind the partition and slides a bound appointment book across the wood without a word. The book's next open slot is the day after tomorrow.
+> Pale stone rises three storeys on the Shelf. A blue-triangle pennant hangs above the door. Ink and cedar oil greet you before the counter does, past four chairs lined against the wall and a stair climbing at the back. Behind the partition, a clerk looks up and, without a word, slides a bound appointment book across the wood. Its next open slot is the day after tomorrow.
 
 ## Play
 

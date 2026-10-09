@@ -2,7 +2,9 @@
 type: Creature
 summary: "A Dravosi Enforcer Creature (CR 1/8) adapted from the 2024 SRD Guard."
 sources:
- - "archive/corbin-knighton.md"
+  - "archive/corbin-knighton.md"
+revealed: "Session 1"
+title: ""
 ---
 
 ## At a glance

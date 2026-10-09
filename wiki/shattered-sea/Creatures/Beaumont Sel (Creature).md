@@ -2,7 +2,9 @@
 type: Creature
 summary: "Beaumont Sel, a unique Creature stat block from the archived NPC record."
 sources:
- - "archive/beaumont-sel.md"
+  - "archive/beaumont-sel.md"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +16,7 @@ sources:
 - **Used by.** This Creature stat block represents Beaumont Sel.
 
 > [!narration] First sight
-> The Creature's distinctive silhouette and signature tell are apparent before it attacks.
+> A tortle wider than the doorway shuffles along at his own pace, his shell the brown of river mud and ridged with wear. He wears a mirror-bright plate over an old dent in the shell, and it throws a hard glare. Sun-bleached leather shades one eye. A short-stemmed clay pipe rides the corner of his undershot jaw. Before any throw he turns the object over in his open palm, and the capuchin on his shoulder leans out to watch. Then the pipe returns, and both settle into waiting.
 
 ## Statblock
 

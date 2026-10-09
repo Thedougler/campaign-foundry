@@ -4,6 +4,8 @@ kind: Site
 summary: "A bell-tower chapel from drowned Vessen that stands clear of the mud only at low water."
 sources: []
 parent: "[[Reedholt]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

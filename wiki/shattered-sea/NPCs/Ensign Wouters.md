@@ -1,12 +1,15 @@
 ---
 type: NPC
-summary: "Crown ensign and navigator of the HCS Surety, shot through a gun port by Delmar Fisk; the Party fed his body to Ket."
+summary: "Crown ensign and navigator of the HCS Surety, shot through a gun port
+  by Delmar Fisk; the Party fed his body to Ket."
 sources:
- - "archive/Session 02 - Recap.md"
- - "archive/session-02-recap.md"
- - "archive/ket.md"
- - "archive/ssw-session-02.md"
+  - "archive/Session 02 - Recap.md"
+  - "archive/session-02-recap.md"
+  - "archive/ket.md"
+  - "archive/ssw-session-02.md"
 creature: ""
+revealed: "Session 2"
+title: ""
 ---
 
 ## At a glance

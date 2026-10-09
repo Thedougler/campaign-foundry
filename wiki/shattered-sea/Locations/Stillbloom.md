@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A vibration-triggered Aruhe plant that launches venomous spines at fast grounded creatures and rewards careful passage."
+summary: "A vibration-triggered Aruhe plant that launches venomous spines at
+  fast grounded creatures and rewards careful passage."
 sources:
- - "archive/stillbloom.md"
+  - "archive/stillbloom.md"
 parent: "[[The Quiet]]"
+revealed: ""
+title: ""
 ---
 
 ![[Stillbloom - Handout Art.jpg]]

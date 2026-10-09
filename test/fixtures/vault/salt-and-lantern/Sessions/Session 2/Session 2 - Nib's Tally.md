@@ -3,6 +3,8 @@ type: Scene
 kind: Development
 summary: "Nib shows the Party the tally-sticks of the drowned and tells them where the ledger lies."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

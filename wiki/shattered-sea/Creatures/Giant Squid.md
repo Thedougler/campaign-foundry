@@ -1,9 +1,12 @@
 ---
 type: Creature
-summary: "A huge deep-water beast of the Drowned Maw that takes divers from the Shelfworks drop-off after dark."
+summary: "A huge deep-water beast of the Drowned Maw that takes divers from the
+  Shelfworks drop-off after dark."
 sources:
- - "archive/drowned-maw.md"
- - "archive/ssw-giant-squid.md"
+  - "archive/drowned-maw.md"
+  - "archive/ssw-giant-squid.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +18,7 @@ sources:
 - **Used by.** It takes its own prey, an unaligned beast of the deep channels.
 
 > [!narration] First sight
-> Your lamp gives out on black water past the depth the rule allows. Broad as the arch you work through, a body hangs where the light fails. Drifting from that body, one arm long as a boarding pike feels for your line. The line comes taut, then hangs loose again. Then the arm draws back in. The pulse of air through your hose goes on.
+> Your lamp gives out on black water past the depth the rule allows. Something is hanging there, broad as the arch you work through. Where the light fails, the body fills it. One arm, long as a boarding pike, drifts from that bulk and feels for your line. The line comes taut. Then it hangs loose, and the arm draws back in. Air pulses through your hose, and keeps on.
 
 ## Statblock
 

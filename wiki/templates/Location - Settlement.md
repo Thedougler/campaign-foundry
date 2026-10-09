@@ -1,9 +1,11 @@
 ---
+title: ""
 type: Location
 kind: Settlement
 summary: ""
 sources: []
 parent: ""
+revealed: ""
 ---
 
 ## At a glance

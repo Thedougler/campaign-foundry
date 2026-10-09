@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Region
-summary: "Aruhe's silent inland rainforest, where silence moths ate small singers and the Calveno trail runs to the Pantry."
+summary: "Aruhe's silent inland rainforest, where silence moths ate small
+  singers and the Calveno trail runs to the Pantry."
 sources:
- - "archive/the-quiet.md"
- - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+  - "archive/the-quiet.md"
+  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
 parent: "[[Aruhe]]"
+revealed: ""
+title: ""
 ---
 
 ![[The Quiet - Handout Art.jpg]]

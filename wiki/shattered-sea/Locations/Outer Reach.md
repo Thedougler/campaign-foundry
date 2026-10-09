@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Region
-summary: "The under-governed water east of the Drowned Maw, where governance stops at the chart edge and pilots sell the easting for as much as cargo."
+summary: "The under-governed water east of the Drowned Maw, where governance
+  stops at the chart edge and pilots sell the easting for as much as cargo."
 sources:
- - "archive/ssw-outer-reach.md"
- - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-outer-reach.md"
+  - "archive/ssw-umberlee-shrine.md"
 parent: "[[The Shattered Sea]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -17,7 +20,7 @@ parent: "[[The Shattered Sea]]"
 - **Danger.** Rescue stays west of the chart edge. The losses share one pattern, a hull already damaged, and whatever circles a wreck has learned the pattern too.
 
 > [!narration] Arrival
-> You cross the last bearing your charts trust, and the sea stops answering them. Grey water runs to every horizon, and even the frigate birds that worked the roads behind you are gone. On the third day a ring of broken stone rides low ahead, sitting lower than the crews who work the wreck remember, and beyond that mark a smudge of islands sits where your two charts disagree. A sail moves out there, too far off to read its colours, and past it, five days on if the bearings hold, waits the last harbour that will water you.
+> You cross the last bearing your charts trust, and the sea stops answering them. Grey water runs to every horizon, and even the frigate birds that worked the roads behind you have flown. On the third day a ring of broken stone rides low ahead, sitting lower than the crews who work the wreck remember, and beyond that mark a smudge of islands sits where your two charts disagree. A sail moves out there, too far off to read its colours, and past it, five days on if the bearings hold, waits the last harbour that will water you.
 
 ## Play
 

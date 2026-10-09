@@ -1,9 +1,12 @@
 ---
 type: Item
-summary: "A four-foot serrated spike of bone and cartilage cut from the dead whip-shark, recovered by Delmar Fisk and under appraisal at Kat's Curios."
+summary: "A four-foot serrated spike of bone and cartilage cut from the dead
+  whip-shark, recovered by Delmar Fisk and under appraisal at Kat's Curios."
 sources:
- - "archive/ssw-whip-shark-barb.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/ssw-whip-shark-barb.md"
+  - "archive/Episode-09-Transcript.md"
+revealed: "Session 3"
+title: ""
 ---
 
 ## At a glance

@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Settlement
-summary: "A Grung settlement of the clans and the birthplace of Jean-Claude Tabarnack, the blue-caste fugitive."
+summary: "A Grung settlement of the clans and the birthplace of Jean-Claude
+  Tabarnack, the blue-caste fugitive."
 sources:
- - "archive/ssw-grung.md"
- - "archive/jean-claude-tabarnack.md"
+  - "archive/ssw-grung.md"
+  - "archive/jean-claude-tabarnack.md"
 parent: ""
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +18,7 @@ parent: ""
 - **Unsettled by.** The flight of a born son his own family chases through [[Simone's Hunters]].
 
 > [!narration] Arrival
-> You come to a settlement of the [[Grung Clans]], where colour sets every grung's work and word. [[Jean-Claude Tabarnack]] was born within it, a blue-caste child. He freed slaves and ran when the reprisal took [[Pell]]. The family he left still sends its hunters, and his sister [[Simone Tabarnack]] commands them.
+> You come to a settlement of the [[Grung Clans]], where colour sets every grung's work and word. [[Jean-Claude Tabarnack]], a blue-caste child born within it, freed slaves and ran when the reprisal took [[Pell]]. The family he left still sends its hunters. His sister [[Simone Tabarnack]] commands them.
 
 ## Play
 

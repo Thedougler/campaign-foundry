@@ -1,14 +1,18 @@
 ---
 type: Creature
-summary: "A Whip Shark creature (CR 8) used as a controller in The Shattered Sea; the crew killed the one that struck the cutter through the night, and its barb, scales and three eggs went with them."
+summary: "A Whip Shark creature (CR 8) used as a controller in The Shattered
+  Sea; the crew killed the one that struck the cutter through the night, and its
+  barb, scales and three eggs went with them."
 aliases:
- - "Whip-Shark"
+  - "Whip-Shark"
 sources:
- - "archive/whip-shark.md"
- - "archive/Session 03 - Recap.md"
- - "archive/ssw-whip-shark-barb.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/whip-shark.md"
+  - "archive/Session 03 - Recap.md"
+  - "archive/ssw-whip-shark-barb.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+revealed: "Session 3"
+title: ""
 ---
 
 ## At a glance

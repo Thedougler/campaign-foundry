@@ -1,9 +1,12 @@
 ---
 type: Vehicle
-summary: "A three-deck Crown court warship carrying 96 guns and enforcing Admiralty authority across the lanes."
+summary: "A three-deck Crown court warship carrying 96 guns and enforcing
+  Admiralty authority across the lanes."
 sources:
- - "archive/hcs-ordinance.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/hcs-ordinance.md"
+  - "archive/Episode-09-Transcript.md"
+revealed: "Session 9"
+title: ""
 ---
 
 ## At a glance

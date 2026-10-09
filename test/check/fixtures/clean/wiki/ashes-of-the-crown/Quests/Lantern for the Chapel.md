@@ -3,6 +3,8 @@ type: Quest
 summary: "Bring the Ashen Lantern out of the chapel."
 sources: []
 status: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

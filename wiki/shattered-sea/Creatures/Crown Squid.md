@@ -2,10 +2,12 @@
 type: Creature
 summary: "A Crown Squid creature (CR 17) used as a controller in The Shattered Sea."
 sources:
- - "archive/session-11-transcript-archived-version.md"
- - "archive/crown-squid.md"
- - "archive/agentic-co-dm-Aruhe-Crown-Squid.md"
- - "archive/session-10.md"
+  - "archive/session-11-transcript-archived-version.md"
+  - "archive/crown-squid.md"
+  - "archive/agentic-co-dm-Aruhe-Crown-Squid.md"
+  - "archive/session-10.md"
+revealed: "Session 10"
+title: ""
 ---
 
 ![[Crown Squid - Portrait.jpg]]
@@ -19,7 +21,7 @@ sources:
 - **Used by.** [[Deer-Stalker]] patrols the same territory.
 
 > [!narration] First sight
-> Where the hanging roots part, a mantle big as a ship's sail hangs under the canopy, propped on eight thick arms. One arm stretches out past the rest, ringed with hooks, and it sways over the gap in the roots. A ring of eyes circles the mantle's rim, all eight aimed down into the foliage below. Branches creak under the whole weight, and the hooked arm holds still above the way through.
+> Where the hanging roots part, a mantle big as a ship's sail hangs under the canopy, propped on eight thick arms. One arm stretches out past the rest, ringed with hooks, and it sways over the gap in the roots. Then a ring of eyes circles the mantle's rim, all eight aimed down into the foliage below. Branches creak under the whole weight. The hooked arm holds still above the way through.
 
 ## Statblock
 

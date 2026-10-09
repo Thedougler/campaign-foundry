@@ -2,10 +2,12 @@
 type: NPC
 summary: "Crown boarder whose false report now drives a quiet hunt for the crew."
 sources:
- - "archive/corbin-knighton.md"
- - "archive/Episode-09-Transcript.md"
- - "archive/session-10.md"
+  - "archive/corbin-knighton.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/session-10.md"
 creature: "[[Dravosi Enforcer]]"
+revealed: "Session 9"
+title: ""
 ---
 
 ## At a glance

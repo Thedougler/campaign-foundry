@@ -2,8 +2,10 @@
 type: Creature
 summary: "A named elemental horror that hunts the open water around the Drowned Maw."
 sources:
- - "archive/leviathan.md"
- - "archive/ssw-what-sunk-the-vestra.md"
+  - "archive/leviathan.md"
+  - "archive/ssw-what-sunk-the-vestra.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +17,7 @@ sources:
 - **Used by.** [[Bloodhawk]] patrols the same territory.
 
 > [!narration] First sight
-> Where the sea lies open, a patch of water begins to churn and boil over a long dark bulk. Steam lifts off the foam, and a back the length of a longboat rolls through the middle of it, sleek and dark. The rough water keeps pace with the bulk in a moving ring, and the sea outside it is calm. Then the back settles, the ring slows with it, and the leviathan goes on turning below, wide and slow.
+> Out where the sea lies open, a patch of water begins to churn and boil over a long dark bulk. Steam lifts off the foam. A back the length of a longboat rolls through the middle of the patch, sleek and dark. Rough water keeps pace with the bulk in a moving ring. Outside the ring, the sea stays calm. Then the back settles, the ring slows with it, and the leviathan goes on turning below, wide and slow.
 
 ## Statblock
 

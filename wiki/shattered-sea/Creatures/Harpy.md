@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "A storm-gap singer of the Ashwalls, filed under weather until someone follows the wrong sound inland."
+summary: "A storm-gap singer of the Ashwalls, filed under weather until someone
+  follows the wrong sound inland."
 sources:
- - "archive/ssw-ashwall-islands.md"
+  - "archive/ssw-ashwall-islands.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -12,7 +15,7 @@ sources:
 - **Used by.** The [[Ashwall Islands]] storm gaps.
 
 > [!narration] First sight
-> Wind fills the channel with one long note, and beneath it another sound begins, a voice singing where no ship could lie. The spray drives one way and the singing holds another course. It is a clear, patient sound, and it comes from inland, up the black stone.
+> Wind fills the channel with one long note, and beneath it another sound begins, a voice singing where no ship could lie. The spray drives one way, and the singing goes the other. It comes from inland, up the black stone, clear and unhurried under the wind.
 
 ## Statblock
 

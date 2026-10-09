@@ -1,8 +1,12 @@
 ---
 type: Lore
-summary: "Reptilian humanoids who run on utility and survival first; in the Shattered Sea they settle the tidal margins and crew the Sea's hulls as salvagers and repair hands."
+summary: "Reptilian humanoids who run on utility and survival first; in the
+  Shattered Sea they settle the tidal margins and crew the Sea's hulls as
+  salvagers and repair hands."
 sources:
- - "archive/ssw-lizardfolk.md"
+  - "archive/ssw-lizardfolk.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

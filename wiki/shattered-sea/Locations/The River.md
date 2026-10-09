@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Region
-summary: "Clear Lake's braided rivers are Aruhe's best road, but River Otter families own the fast clear water."
+summary: "Clear Lake's braided rivers are Aruhe's best road, but River Otter
+  families own the fast clear water."
 sources:
- - "archive/the-river.md"
+  - "archive/the-river.md"
 parent: "[[Aruhe]]"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[The River - Portrait.jpg]]

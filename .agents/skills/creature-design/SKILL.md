@@ -32,8 +32,10 @@ explicitly, and run all retrieval and writes inside them.
 
 Read the World overview, the target Campaign's overview, `hot.md`, its Campaign
 folder's `index.md` and the last ten entries of its `log.md`, applicable House
-Rules, and every page the request touches. Read qmd results and retrieve the
-full target-root pages they identify.
+Rules, and every page the request touches. Search QMD (`.omp/AGENTS.md`
+§ Wiki access) and retrieve the full target-root pages each hit identifies.
+Change each page as its `revealed`
+property allows (`CONTEXT.md` **Revealed**).
 
 For a retune, read the existing Creature and its complete backlink set. Include
 every NPC whose `creature` property names it and every planned or unplayed
@@ -145,7 +147,9 @@ Give it a habitat, diet, social life, local name or use, predators or prey,
 ecology, and a niche that differs from neighbours. For every signature ability,
 write a trace players can find before contact: tracks, kills, shed material,
 damaged terrain, smell, sound, or a changed pattern of prey. State origin and
-hidden truths with concrete ways the Party can learn them.
+hidden truths with concrete ways the Party can learn them. A filed Creature
+whose statistics are sound but whose presence reads generic gets a
+`flesh-out` pass in place of a retune.
 
 Prepare a First sight packet for `theatre-of-the-mind`: body and size against a
 familiar object, striking feature, surface, one sound or smell, behaviour at
@@ -184,22 +188,19 @@ for a design or retune.
 valid statblock and one incoming link, complete source attribution, and no
 changed played record or NPC identity.
 
-### 8. Run the actual gate and finish the operation
+### 8. Close the operation
 
-Before commands, read the installed syntax with `bun run cf -- index --help`,
-`bun run cf -- check --help`, and `bun run cf -- log --help`. Regenerate indexes with the
-scoped `bun run cf -- index` command. Run the page gate, `bun run cf -- check`
-with no `--layer` given the Creature page and every page this run touched; all
-layers are mandatory.
-Use `--fix` only for mechanical repairs, then rerun the page gate.
+Close per `skill://lint` § Commands over the Creature page and every page this
+run touched, reading `bun run cf -- check --help` first for the installed
+syntax. The page gate runs every layer, and `--fix` covers the mechanical
+repairs it names. Log only once the page gate prints `ok: 0 findings`. When
+another skill invoked this one, that caller writes the operation log. Append a
+`create` log entry only when this invocation is explicitly standalone and
+responsible for logging. Report the page path, source candidates and decision,
+tuning assumptions and estimates, affected consumers, new canon and
+verification result.
 
-Log only once the page gate prints `ok: 0 findings`. When another skill invoked
-this one, that caller writes the operation log. Append a `create` log entry
-only when this invocation is explicitly standalone and responsible for logging. Report the page path, source
-candidates and decision, tuning assumptions and estimates, affected consumers,
-new canon and verification result.
-
-**Final gate:** the target-root page passes the page gate. The generated
-indexes, links, source record, Party dossier, three-round model and consumer
-audit are all complete, and every pointer in this skill resolves to an existing
-file or installed skill.
+**Final gate:** the target-root page passes the page gate (`skill://lint`
+§ Commands). The generated indexes, links, source record, Party dossier,
+three-round model and consumer audit are all complete, and every pointer in
+this skill resolves to an existing file or installed skill.

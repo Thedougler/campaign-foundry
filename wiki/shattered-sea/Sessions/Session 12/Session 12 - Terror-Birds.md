@@ -1,10 +1,13 @@
 ---
 type: Scene
 kind: Cliffhanger
-summary: "Two Terror-Birds charge the rescued column across the Long Meadow, forcing the Party to protect civilians and a carried man."
+summary: "Two Terror-Birds charge the rescued column across the Long Meadow,
+  forcing the Party to protect civilians and a carried man."
 sources:
   - "archive/session-12-index.md"
   - "archive/session-12-03-terror-birds.md"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +18,7 @@ sources:
 - **Opposition.** Two [[Terror-Bird]]s, with civilians running into their lanes.
 
 > [!narration] Opening
-> The earth jumps under your boots, and the mossy stump under the trees unfolds a pair of scaled legs. It heaves itself up, ferns swaying off its shoulders, head higher than a mounted rider's, and its hooked beak swings round toward the hole. The tall grass behind you ends a few strides away. Before you, bare ground runs to the next wall of green. Black water runs along its foot, and halfway across, a low patch of white blades throws back the sun. The bird lowers its head, and pebbles skip on the packed dirt.
+> The earth jumps under your boots, and the mossy stump under the trees unfolds a pair of scaled legs. It heaves itself up, ferns swaying off its shoulders, head higher than a mounted rider's, and its hooked beak swings round toward the hole. The tall grass behind you ends a few strides away. Before you, bare ground runs to the next wall of green. Black water runs along its foot, and halfway across, a low patch of white blades throws back the sun. The bird lowers its head. Pebbles skip on the packed dirt.
 
 ## Play
 

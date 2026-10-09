@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "Steam-warmed fissures in the Ashwall spires, warm enough to shelter in and warm enough to be occupied."
+summary: "Steam-warmed fissures in the Ashwall spires, warm enough to shelter in
+  and warm enough to be occupied."
 sources:
- - "archive/ssw-ashwall-islands.md"
+  - "archive/ssw-ashwall-islands.md"
 parent: "[[Ashwall Islands]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +17,7 @@ parent: "[[Ashwall Islands]]"
 - **Danger.** Occupied dark: the same crack systems that look like good handholds run back several feet into where things live.
 
 > [!narration] Entering
-> A draught of warm air comes off the stone where the cave opens to the day, and it is thick with the sulphur bite of the high rock. Inside, the dark runs back further than the light reaches, and the warmth holds like a wall. Somewhere above the lantern's reach, something shifts its weight.
+> A draught of warm air comes off the stone where the cave opens to the day, thick with the sulphur bite of the high rock. Inside, the dark runs back further than the light reaches, and the warmth holds like a wall. Somewhere above the lantern's reach, something shifts its weight.
 
 ## Play
 

@@ -2,6 +2,8 @@
 type: Creature
 summary: "Seeded stat block: Bad Hit Die."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

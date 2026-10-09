@@ -86,7 +86,7 @@ When the decision belongs to a PC, mark it `Party choice:`.
 
 Draft prose only when the DM asks, one Beat at a time, so the DM can edit between Beats. For each Beat:
 
-1. Find the Beat's pages. `bun run cf -- context -` on the Beat's text gives the pages it names literally. Search QMD by `skill://qmd` for each subject the Beat describes without its page's name. Read the candidates and keep each page the Beat is about.
+1. Find the Beat's pages. `bun run cf -- context -` on the Beat's text gives the pages it names literally. Search QMD (`.omp/AGENTS.md` § Wiki access) for each subject the Beat describes without its page's name. Read the candidates and keep each page the Beat is about.
 2. Dispatch one `creative-writer` with the brief below. Its field labels are Re3's and DOC's drafting labels ([planning-architectures.md](../../../../docs/research/creative-writing/planning-architectures.md) §2 and §3), and its closing instructions are the Agents' Room continuation instructions (§1), each carried exactly as written. Add the pointer to the [Content stance](../../../../AGENTS.md#content-stance).
 
    ```text

@@ -1,8 +1,11 @@
 ---
 type: Lore
-summary: "A routing record that keeps Session 11 recap, transcript, and recording assets distinct until their owning ingest workflow promotes them."
+summary: "A routing record that keeps Session 11 recap, transcript, and
+  recording assets distinct until their owning ingest workflow promotes them."
 sources:
- - "archive/assets.md"
+  - "archive/assets.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

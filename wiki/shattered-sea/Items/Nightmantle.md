@@ -1,11 +1,14 @@
 ---
 type: Item
-summary: "A cursed cloak of displacement that redirects nearby ranged attacks to its wearer."
+summary: "A cursed cloak of displacement that redirects nearby ranged attacks to
+  its wearer."
 sources:
- - "archive/nightmantle.md"
- - "archive/ssw-nightmantle.md"
- - "archive/session-10.md"
- - "archive/session-12-full.md"
+  - "archive/nightmantle.md"
+  - "archive/ssw-nightmantle.md"
+  - "archive/session-10.md"
+  - "archive/session-12-full.md"
+revealed: "Session 8"
+title: ""
 ---
 
 ## At a glance

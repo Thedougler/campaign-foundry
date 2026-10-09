@@ -1,11 +1,15 @@
 ---
 type: Item
-summary: "A thumb-sized quartz top that watches one known creature from afar and lends it luck. Delmar Fisk hides it in his Bag of Holding while Talon Skarn hunts it for the faction."
+summary: "A thumb-sized quartz top that watches one known creature from afar and
+  lends it luck. Delmar Fisk hides it in his Bag of Holding while Talon Skarn
+  hunts it for the faction."
 sources:
- - "archive/fate-spinner.md"
- - "archive/session-11-transcript-archived-version.md"
- - "archive/session-10.md"
- - "archive/session-12-full.md"
+  - "archive/fate-spinner.md"
+  - "archive/session-11-transcript-archived-version.md"
+  - "archive/session-10.md"
+  - "archive/session-12-full.md"
+revealed: "Backstory"
+title: ""
 ---
 
 ![[Fate Spinner - Handout Art.png]]

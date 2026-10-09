@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Eldest Calveno survivor who teaches Aruhe's fallen-fruit rule and will stay at the Pantry."
+summary: "Eldest Calveno survivor who teaches Aruhe's fallen-fruit rule and will
+  stay at the Pantry."
 sources:
- - "archive/renzo-canale.md"
+  - "archive/renzo-canale.md"
 creature: "[[Commoner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

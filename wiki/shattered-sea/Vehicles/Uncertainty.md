@@ -1,24 +1,27 @@
 ---
 type: Vehicle
-summary: "A Crown cutter taken as HCS Surety, renamed Uncertainty and kept moving as the Party's mobile base."
+summary: "A Crown cutter taken as HCS Surety, renamed Uncertainty and kept
+  moving as the Party's mobile base."
 sources:
- - "archive/hcs-surety.md"
- - "archive/uncertainty.md"
- - "archive/agentic-co-dm-noor.md"
- - "archive/ssw-sem-holst.md"
- - "archive/ssw-old-faas.md"
- - "archive/ssw-session-01.md"
- - "archive/ssw-session-02.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-cobb.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/ssw-the-canister.md"
- - "archive/ssw-party-crew.md"
- - "archive/Episode-09-Transcript.md"
- - "archive/session-10.md"
+  - "archive/hcs-surety.md"
+  - "archive/uncertainty.md"
+  - "archive/agentic-co-dm-noor.md"
+  - "archive/ssw-sem-holst.md"
+  - "archive/ssw-old-faas.md"
+  - "archive/ssw-session-01.md"
+  - "archive/ssw-session-02.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-cobb.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/ssw-the-canister.md"
+  - "archive/ssw-party-crew.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/session-10.md"
 aliases:
- - "HCS Surety"
- - "Surety"
+  - "HCS Surety"
+  - "Surety"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance
@@ -31,7 +34,7 @@ aliases:
 - **Berth.** [[La Vasca]], Calveno during refit. Currently kept offshore near Aruhe.
 
 > [!narration] First sight
-> a short distance of cutter, low and lean, runs blue-black from cap rail to copper. Gun muzzles sit along the side above an iron-edged ram, while a hardwood woman walks forward at the bow. From half a mile she reads as somebody's coastal trader.
+> A short distance of cutter, low and lean, runs blue-black from cap rail to copper. Gun muzzles sit along the side above an iron-edged ram, while a hardwood woman walks forward at the bow. From half a mile she reads as somebody's coastal trader.
 
 ## Play
 

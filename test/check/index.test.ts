@@ -32,6 +32,7 @@ const CAMPAIGN_INDEX = `${NOTE}
 
 ## NPCs
 
+- [[Captain Morrow]] — One line.
 - [[Mara Voss]] — Harbormaster with a bandit's past.
 
 ## Creatures
@@ -144,6 +145,12 @@ describe("cf index", () => {
 		expect(await readIndexes(dir)).toEqual(await readIndexes(committed));
 	});
 
+	it("prints a slug-filename page under its title", async () => {
+		const text = (await readIndexes(await copyFixture("clean"))).get("wiki/ashes-of-the-crown/index.md")!; // morrow.md carries `title: Captain Morrow`
+		expect(text).toContain("- [[Captain Morrow]] — One line.");
+		expect(text).not.toContain("morrow");
+	});
+
 	it("changing one summary changes exactly one line", async () => {
 		const dir = await unindexed();
 		await cf(["index", ...vaultFlags(dir)], dir);
@@ -164,7 +171,7 @@ describe("cf index", () => {
 		await cf(["index", ...vaultFlags(dir)], dir);
 		const text = (await readIndexes(dir)).get("wiki/ashes-of-the-crown/index.md")!;
 		const npcLines = text.split("\n## NPCs\n\n")[1]!.split("\n\n")[0]!.split("\n");
-		expect(npcLines.map((l) => l.replace(/^- \[\[(.*?)\]\].*$/, "$1"))).toEqual(["Guard 2", "Guard 10", "Mara Voss", "Zed", "apple", "Édith"]);
+		expect(npcLines.map((l) => l.replace(/^- \[\[(.*?)\]\].*$/, "$1"))).toEqual(["Captain Morrow", "Guard 2", "Guard 10", "Mara Voss", "Zed", "apple", "Édith"]);
 	});
 
 	it("--dry-run prints what would change and writes nothing", async () => {

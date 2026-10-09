@@ -4,6 +4,8 @@ kind: Hook
 summary: "The Party pursues the Crown Squid over Aruhe's terraces."
 sources:
   - "archive/Session-11-00-Birds-of-a-Feather.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Session 11 - Birds of a Feather - Handout Art.png]]

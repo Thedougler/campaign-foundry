@@ -3,6 +3,8 @@ type: PC
 summary: "One line."
 sources: []
 dndbeyond_url: ""
+revealed: "Backstory"
+title: ""
 ---
 
 

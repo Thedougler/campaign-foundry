@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Site
-summary: "A mature magic-feeding bloom in Aruhe that clamps shut, drains spell slots and can yield a Black Lotus Heart."
+summary: "A mature magic-feeding bloom in Aruhe that clamps shut, drains spell
+  slots and can yield a Black Lotus Heart."
 sources:
- - "archive/black-lotus.md"
- - "archive/session-10.md"
+  - "archive/black-lotus.md"
+  - "archive/session-10.md"
 parent: "[[Old Gardens]]"
+revealed: "Session 10"
+title: ""
 ---
 
 ![[Black Lotus - Handout Art.jpg]]

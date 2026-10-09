@@ -4,6 +4,8 @@ summary: "The Party lit the Gullhook lamp again, fought Ilse Corran in the lamp 
 sources:
   - archive/session-1-transcript.md
 date: "15 Eelrun 412 CY"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

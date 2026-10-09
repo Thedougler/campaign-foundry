@@ -1,11 +1,14 @@
 ---
 type: Creature
-summary: "Catarina Da'Virelli's spider-like construct, run on a reskinned 2024 SRD Giant Spider stat block."
+summary: "Catarina Da'Virelli's spider-like construct, run on a reskinned 2024
+  SRD Giant Spider stat block."
 sources:
- - "archive/catarina-davirelli.md"
- - "archive/Episode-09-Transcript.md"
- - "archive/Episode-09-Transcript.ledger.md"
- - "archive/Session 06 - Recap.md"
+  - "archive/catarina-davirelli.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/Episode-09-Transcript.ledger.md"
+  - "archive/Session 06 - Recap.md"
+revealed: "Session 5"
+title: ""
 ---
 
 ## At a glance

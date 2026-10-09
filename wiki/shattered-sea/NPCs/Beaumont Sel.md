@@ -2,12 +2,14 @@
 type: NPC
 summary: "Patient tortle captain of the Saltwright and a trusted Friend of the Passage."
 sources:
- - "archive/beaumont-sel.md"
- - "archive/ssw-nona-black-jaw.md"
- - "archive/ssw-session-01.md"
- - "archive/ssw-session-02.md"
- - "archive/ssw-beaumonts-crew.md"
+  - "archive/beaumont-sel.md"
+  - "archive/ssw-nona-black-jaw.md"
+  - "archive/ssw-session-01.md"
+  - "archive/ssw-session-02.md"
+  - "archive/ssw-beaumonts-crew.md"
 creature: "[[Beaumont Sel (Creature)]]"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance
@@ -18,7 +20,7 @@ creature: "[[Beaumont Sel (Creature)]]"
 - **Found at.** Kalowe and the Midchain route aboard the Saltwright.
 
 > [!narration] First look
-> A wide, low tortle stands at the wheel, a mirror-bright plate fitted over a dent in a shell worn blunt by salt air. A capuchin monkey rides his shoulder, tail looped around his neck.
+> A broad, low-slung tortle holds the wheel, and a plate polished to a shine covers a dent in his salt-blunted shell. A capuchin monkey rides his shoulder, tail looped around his neck.
 
 ## Play
 

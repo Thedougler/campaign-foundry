@@ -1,10 +1,13 @@
 ---
 type: NPC
-summary: "Sixteen-year-old wreck survivor who counts everything and knows which way his uncle walked."
+summary: "Sixteen-year-old wreck survivor who counts everything and knows which
+  way his uncle walked."
 sources:
- - "archive/luca-ferrante.md"
- - "archive/session-12-full.md"
+  - "archive/luca-ferrante.md"
+  - "archive/session-12-full.md"
 creature: "[[Commoner]]"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance

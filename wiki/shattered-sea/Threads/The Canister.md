@@ -1,10 +1,13 @@
 ---
 type: Thread
-summary: "Jean-Claude recognised his sister's toxin in a Crown canister at the Saltwright gangplank and told nobody. The Party does not know."
+summary: "Jean-Claude recognised his sister's toxin in a Crown canister at the
+  Saltwright gangplank and told nobody. The Party does not know."
 sources:
- - "archive/ssw-session-01.md"
- - "archive/ssw-the-canister.md"
+  - "archive/ssw-session-01.md"
+  - "archive/ssw-the-canister.md"
 status: active
+revealed: "Session 1"
+title: ""
 ---
 
 ## At a glance

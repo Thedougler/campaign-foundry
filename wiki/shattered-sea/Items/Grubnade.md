@@ -1,10 +1,13 @@
 ---
 type: Item
 aliases:
- - "Grubnades"
-summary: "A volatile Aruhe caterpillar that detonates when disturbed, scattering harmless juveniles and igniting nearby growth."
+  - "Grubnades"
+summary: "A volatile Aruhe caterpillar that detonates when disturbed, scattering
+  harmless juveniles and igniting nearby growth."
 sources:
   - "archive/grubnade.md"
+revealed: ""
+title: ""
 ---
 
 ![[Grubnade - Handout Art.jpg]]

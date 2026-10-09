@@ -2,6 +2,8 @@
 type: Lore
 summary: "In 271 CY the Compact opened Crookback Sluice on purpose and drowned the river city of Vessen in one night."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

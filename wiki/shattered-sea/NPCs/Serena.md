@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Delmar's most recent mate, warned by his sending stone of the Dravosi warship."
+summary: "Delmar's most recent mate, warned by his sending stone of the Dravosi
+  warship."
 sources:
- - "archive/Episode-09-Transcript.md"
+  - "archive/Episode-09-Transcript.md"
 creature: ""
+revealed: "Session 9"
+title: ""
 ---
 
 ## At a glance

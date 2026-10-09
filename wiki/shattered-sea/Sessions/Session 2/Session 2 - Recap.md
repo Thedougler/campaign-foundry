@@ -1,10 +1,13 @@
 ---
 type: Recap
-summary: "The crew took the HCS Surety, freed Ket, specified its prize crew, and suffered three hull strikes from below in a tropical storm."
+summary: "The crew took the HCS Surety, freed Ket, specified its prize crew, and
+  suffered three hull strikes from below in a tropical storm."
 sources:
   - "archive/Session 02 - Recap.md"
   - "archive/session-02-recap.md"
 date: "1495 DR, date not established"
+revealed: "Session 2"
+title: ""
 ---
 
 ## At a glance

@@ -1,14 +1,17 @@
 ---
 type: Faction
-summary: "Political Grung clans that keep the Verdant Teeth closed, trade toxin and raid for captives as their water power declines."
+summary: "Political Grung clans that keep the Verdant Teeth closed, trade toxin
+  and raid for captives as their water power declines."
 sources:
- - "archive/grung-clans.md"
- - "archive/ssw-grung.md"
- - "archive/ssw-midchain.md"
- - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
- - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
- - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/grung-clans.md"
+  - "archive/ssw-grung.md"
+  - "archive/ssw-midchain.md"
+  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
+  - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
+  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
+  - "archive/Episode-09-Transcript.md"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

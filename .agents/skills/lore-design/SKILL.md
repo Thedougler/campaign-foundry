@@ -9,7 +9,7 @@ Lore is knowledge that belongs to no one Location, NPC, Faction, Deity, Creature
 
 ## Steps
 
-1. **Read the Canon.** With qmd, find the page if it exists, every page that links to it, and every page that tells part of the story, including Recaps and Transcripts in `archive/`. Note each claim with the page that makes it. Done when every telling in the Wiki is on the list.
+1. **Read the Canon.** With qmd, find the page if it exists, every page that links to it, and every page that tells part of the story, including Recaps and Transcripts in `archive/`. Note each claim with the page that makes it. Change each page as its `revealed` property allows (`CONTEXT.md` **Revealed**). Done when every telling in the Wiki is on the list.
 2. **Source it** in the order `AGENTS.md` sets. Start with the Wiki's own tellings. Next, search the web for published or homebrew lore that fits and adapt it. Last, invent new lore inspired by the search.
 3. **Answer the question.** Write the truth in one plain sentence. Then give the full account of what happened and when (in the World's Calendar), who did it and why, and what it left behind. Mark each claim from step 1 true, distorted (and how), or false (and who spreads it). Where the Canon is silent, decide it as Canon (ADR 0003).
 4. **Make it matter now.** Why it matters to the current Campaign: a person, place or prize it touches. Who else knows or wants the truth, as named NPCs or Factions, and what each does about it on their own clock. What the Party gains by acting on it.
@@ -20,7 +20,7 @@ Lore is knowledge that belongs to no one Location, NPC, Faction, Deity, Creature
    - **Play:** what Players notice and the accounts with their holders. List each Clue with the page it appears on.
    - **Depth:** the full truth in `###` parts titled for their content, such as `Chronology`, `How it works` or `Tenets`.
 
-   Link each page where a Clue appears, and add the Clue's line to that page. New facts decided as Canon are listed in your reply. Run `bun run cf -- check --fix`, then `bun run cf -- check`, given every touched page, until that page gate reports `ok: 0 findings`, and list them all in the operation's `bun run cf -- log` entry (`--op create` when this skill runs on its own).
+   Link each page where a Clue appears, and add the Clue's line to that page. New facts decided as Canon are listed in your reply. Close per `skill://lint` § Commands with every touched page.
 
 ## Done
 

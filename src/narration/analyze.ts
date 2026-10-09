@@ -17,7 +17,8 @@ export interface Finding {
 		| "relative-chain"
 		| "invented-names"
 		| "spoken-word-trap"
-		| "dialogue-attribution";
+		| "dialogue-attribution"
+		| "voice-envelope";
 	severity: "error" | "warning";
 	message: string;
 	hint: string;
@@ -29,6 +30,12 @@ export interface EchoRun {
 	occurrences: { source: string; line: number }[];
 }
 
+/** p5–p95 band of reference GM passage rhythm, built by `scripts/voice-envelope.ts`. */
+export interface Envelope {
+	meanWords: { p5: number; p95: number };
+	spread: { p5: number; p95: number };
+}
+
 export interface CalloutReport {
 	echo: EchoRun[];
 	freshStarts: { starts: string[]; runs: { from: number; to: number; starts: string[] }[] };
@@ -37,6 +44,7 @@ export interface CalloutReport {
 	inventedProperNouns: string[];
 	spokenWordTraps: { type: "tongue-twister" | "alliteration" | "pun-name" | "homophone"; text: string }[];
 	dialogueAttributions: string[];
+	voiceEnvelope: { meanWords: number; spread: number } | null;
 	findings: Finding[];
 }
 
@@ -45,6 +53,8 @@ const SPEECH = /"[^"]*"|“[^”]*”/g;
 const WIKILINK = /!?\[\[([^[\]\n]*)\]\]/g;
 const MIN_RUN = 4;
 const LIST_RUN = 3;
+/** Narration sentences measured against the GM voice envelope: fewer than this says nothing about pacing. */
+const ENVELOPE_MIN_SENTENCES = 4;
 
 const normalise = (word: string): string => word.toLowerCase().replace(/['’]/g, "");
 const STOP = new Set(stopword.eng.map(normalise));
@@ -77,11 +87,29 @@ export function wordsWithLines(text: string, firstLine = 1): { word: string; lin
 
 const PLACEHOLDER = "SPOKENLINE";
 
-/** Narration sentences: the callout's sentences with spoken lines cut out; a sentence with nothing left is not one. */
+/**
+ * Narration sentences: the callout's sentences with spoken lines cut out; a sentence with nothing left is not one.
+ * A quoted line that ends on its own full stop, question or exclamation ends the narration sentence it sits in.
+ */
 function narrationSentences(text: string): string[] {
-	const masked = text.replace(SPEECH, ` ${PLACEHOLDER} `).replace(/\s+/g, " ").trim();
+	const masked = text
+		.replace(SPEECH, (quote) => ` ${PLACEHOLDER}${/[.!?]["”]$/.test(quote) ? quote.at(-2) : ""} `)
+		.replace(/\s+/g, " ")
+		.trim();
 	const sentences = segment("en", masked).map((s) => s.replaceAll(PLACEHOLDER, " ").replace(/\s+/g, " ").trim());
 	return sentences.filter((s) => /[\p{L}\p{N}]/u.test(s));
+}
+
+/**
+ * Rhythm of a passage: mean words per sentence, and the population stdev of sentence lengths over that mean
+ * (0 means every sentence is the same length). The corpus script and the gate both measure with this.
+ */
+export function sentenceShape(sentences: string[]): { meanWords: number; spread: number } {
+	const counts = sentences.map((sentence) => (sentence.match(WORD) ?? []).length);
+	const meanWords = counts.length === 0 ? 0 : counts.reduce((sum, n) => sum + n, 0) / counts.length;
+	let variance = 0;
+	if (meanWords > 0) for (const n of counts) variance += (n - meanWords) ** 2;
+	return { meanWords, spread: meanWords > 0 ? Math.sqrt(variance / counts.length) / meanWords : 0 };
 }
 
 const PREPOSITIONS = new Set(
@@ -250,6 +278,7 @@ function findEcho(outside: string[], sources: SourceWords[]): EchoRun[] {
 const matches = (text: string, pattern: RegExp): string[] => [...text.matchAll(pattern)].map((m) => m[0]);
 const count = (text: string, pattern: RegExp): number => matches(text, pattern).length;
 const plural = (n: number, one: string, many = `${one}s`): string => `${n} ${n === 1 ? one : many}`;
+const round2 = (n: number): number => Math.round(n * 100) / 100;
 
 export interface AnalyzeInput {
 	/** The callout body, `>` markers already stripped. */
@@ -261,9 +290,11 @@ export interface AnalyzeInput {
 	isWord?: (word: string) => boolean;
 	/** Swaps page names in text for words no source holds, so echo never counts a shared name as shared phrasing. */
 	maskNames?: (text: string) => string;
+	/** Reference GM rhythm band: when set, narration of 4+ sentences is measured against it. */
+	envelope?: Envelope;
 }
 
-export function analyzeCallout({ body, sources, names = new Set(), isWord = () => false, maskNames = (t) => t }: AnalyzeInput): CalloutReport {
+export function analyzeCallout({ body, sources, names = new Set(), isWord = () => false, maskNames = (t) => t, envelope }: AnalyzeInput): CalloutReport {
 	const text = plainText(body);
 	const outside = text.split(SPEECH);
 	const sentences = narrationSentences(text);
@@ -346,6 +377,20 @@ export function analyzeCallout({ body, sources, names = new Set(), isWord = () =
 			hint: 'People/Delivery: put the speaker and action before the complete line. For example, replace \'"Coins first," he mutters.\' with \'The ferryman grips his pole and mutters, "Coins first."\'.',
 		});
 	}
+	const voiceEnvelope = envelope && sentences.length >= ENVELOPE_MIN_SENTENCES ? sentenceShape(sentences) : null;
+	if (envelope && voiceEnvelope) {
+		const { meanWords: m, spread: s } = voiceEnvelope;
+		const outside =
+			m < envelope.meanWords.p5 || m > envelope.meanWords.p95 || s < envelope.spread.p5 || s > envelope.spread.p95;
+		if (outside) {
+			findings.push({
+				rule: "voice-envelope",
+				severity: "warning",
+				message: `Sentence rhythm falls outside the reference GM range: mean ${round2(m)} words per sentence (range ${round2(envelope.meanWords.p5)}–${round2(envelope.meanWords.p95)}), length spread ${round2(s)} (range ${round2(envelope.spread.p5)}–${round2(envelope.spread.p95)}).`,
+				hint: "Speakable: vary sentence length the way a DM talks at the table. Spread is how far sentence lengths stray from their average (stdev over mean). Below the range, set a short sentence of five to eight words against one of twenty or more: split one of the block's own sentences, or join two into the long one. Open a split-off sentence on a pronoun or name and its verb (\"She turns\") or a connective (\"Then\"), since \"The\", \"A\" or a place phrase starts a list (fresh-starts). Above the range, even the extremes out. Mean out of range: split or join sentences. Rerun the page check to measure a draft.",
+			});
+		}
+	}
 
 	return {
 		echo,
@@ -355,6 +400,7 @@ export function analyzeCallout({ body, sources, names = new Set(), isWord = () =
 		inventedProperNouns,
 		spokenWordTraps,
 		dialogueAttributions,
+		voiceEnvelope,
 		findings,
 	};
 }

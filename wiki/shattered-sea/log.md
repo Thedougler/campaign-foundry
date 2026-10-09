@@ -1700,3 +1700,563 @@
 - [[Session 3 - Recap]]
 - [[Session 4 - Recap]]
 - [[Session 12 - Recap]]
+
+## [2026-10-08] ingest | DM lore: Malone's Sarns Landing massacre and first Quotes
+
+- [[Aleksander Malone]]
+
+## [2026-10-08] lint | Recast Giant Squid First sight callout for voice envelope
+
+- [[Giant Squid]]
+
+## [2026-10-08] lint | Recast Mira's Blade First look for voice-envelope and passive voice
+
+- [[Mira's Blade]]
+
+## [2026-10-08] lint | Orvalle: recast First look callout (archaic divers, passive, TooWordy, negation)
+
+- [[Orvalle]]
+
+## [2026-10-08] lint | Shelfworks: recast Entering callout to clear archaism and rhythm findings
+
+- [[Shelfworks]]
+
+## [2026-10-08] lint | Recast Session 4 Previously On callout to clear rhythm, passive, weasel and ai-tells findings
+
+- [[Session 4 - Previously On]]
+
+## [2026-10-08] lint | Gold Caste: recast Public face callout for voice-envelope and fresh-starts
+
+- [[Gold Caste]]
+
+## [2026-10-08] ingest | DM quote: Nona on Vincenzo
+
+- [[Nona Black-Jaw]]
+
+## [2026-10-08] ingest | DM quotes: Ruk and Enzo
+
+- [[Ruk]]
+- [[Enzo]]
+
+## [2026-10-08] lint | Lint: recast Aruhe arrival narration (weasel word) and Hinewai first sight (voice-envelope rhythm)
+
+- [[Aruhe]]
+- [[Hinewai the Blight]]
+
+## [2026-10-08] lint | Lint Vestra and Casa Lupo narration: voice-envelope rhythm recast and weasel-word repair
+
+- [[Vestra]]
+- [[Casa Lupo]]
+
+## [2026-10-08] lint | Narration rhythm and wording repairs on the two Galewall pages
+
+- [[Galewall]]
+- [[The Galewall Runner's Drop]]
+
+## [2026-10-08] lint | Recast both Bloodhawk First sight callouts for sentence rhythm
+
+- [[Bloodhawk]]
+- [[Young Bloodhawk]]
+
+## [2026-10-08] lint | Lint: narration rhythm and passive voice in Simone Tabarnack and Gold Fruit
+
+- [[Simone Tabarnack]]
+- [[Gold Fruit]]
+
+## [2026-10-08] lint | Lint Session 12: varied Narration sentence rhythm to sit inside the GM voice envelope
+
+- [[Session 12 - Previously On]]
+- [[Session 12 - Terror-Birds]]
+
+## [2026-10-08] lint | Lint Terror-Bird and Deer-Stalker First sight: split sentences to bring rhythm inside the GM voice envelope
+
+- [[Terror-Bird]]
+- [[Deer-Stalker]]
+
+## [2026-10-08] lint | Lint: split Public face rhythm (Black-Jaw Run), recast on-the-rocks cliché (Stripes Bitemore)
+
+- [[Black-Jaw Run]]
+- [[Stripes Bitemore]]
+
+## [2026-10-08] lint | Recast passive and wordy lines in Rattkin and Human narration
+
+- [[Rattkin]]
+- [[Human]]
+
+## [2026-10-08] lint | Recast narration rhythm and passive voice in Sentinels of the Eyrie and Strix
+
+- [[Sentinels of the Eyrie]]
+- [[Strix]]
+
+## [2026-10-08] lint | Recast First sight rhythm on Crown Squid and Leviathan
+
+- [[Crown Squid]]
+- [[Leviathan]]
+
+## [2026-10-08] lint | Previously On callouts: voice-envelope rhythm fixes
+
+- [[Session 10 - Previously On]]
+- [[Session 11 - Previously On]]
+
+## [2026-10-08] ingest | DM voice: Hinewai's two-conversation voice, fury triggers and Quotes
+
+- [[Hinewai]]
+
+## [2026-10-08] lint | Lint Items slice: active pin wording and varied first-look rhythm
+
+- [[Alchemist's Bandolier]]
+- [[Fleet Commanders Chair]]
+- [[Silent Shortbow]]
+- [[Truth Stone]]
+
+## [2026-10-08] lint | Recast four Creature first-sight callouts to clear write-good and voice-envelope findings
+
+- [[Giant Bat]]
+- [[Harpy]]
+- [[Killer Whale]]
+- [[River Otter]]
+
+## [2026-10-08] lint | Lint: rhythm and voice recasts on Rook pages, Red Lady and Letters of Marque
+
+- [[Barnaby Rook]]
+- [[Barnaby Rook (Creature)]]
+- [[Red Lady]]
+- [[Letters of Marque]]
+
+## [2026-10-08] lint | Lint Locations slice: voice-envelope rhythm and passive repairs
+
+- [[Tessarine Trade House]]
+- [[The Ponte Bassa]]
+- [[La Cenere]]
+- [[Line Bank]]
+
+## [2026-10-08] lint | Recast four Previously On callouts: voice-envelope rhythm in three, one passive in the fourth
+
+- [[Session 0 - Previously On]]
+- [[Session 2 - Previously On]]
+- [[Session 3 - Previously On]]
+- [[Session 7 - Previously On]]
+
+## [2026-10-08] lint | Lint: filled the three archived Creature pages' placeholder First sight callouts with each creature's own first look, and varied the Master Kyzil NPC first look rhythm
+
+- [[Master Kyzil (Creature)]]
+- [[Solange Barret (Creature)]]
+- [[Beaumont Sel (Creature)]]
+- [[Master Kyzil]]
+
+## [2026-10-08] lint | Recast First sight narration to Print grade on Giant Bat and Harpy
+
+- [[Giant Bat]]
+- [[Harpy]]
+
+## [2026-10-08] lint | Recast three Entering callouts: voice-envelope rhythm at the Trade House, tiers alliteration at The Ponte Bassa, gold-green grass echo at Line Bank
+
+- [[Tessarine Trade House]]
+- [[The Ponte Bassa]]
+- [[Line Bank]]
+
+## [2026-10-08] lint | Recast Item First look callouts for voice-envelope rhythm and print grade
+
+- [[Fleet Commanders Chair]]
+- [[Alchemist's Bandolier]]
+- [[Silent Shortbow]]
+- [[Truth Stone]]
+
+## [2026-10-08] lint | Print-grade recasts on Rook First look, Red Lady First sight and Letters of Marque First look, Rook statblock splices repaired
+
+- [[Barnaby Rook]]
+- [[Barnaby Rook (Creature)]]
+- [[Red Lady]]
+- [[Letters of Marque]]
+
+## [2026-10-08] lint | Previously On recasts: print-grade and gate repairs across Sessions 0, 2, 3, 7
+
+- [[Session 0 - Previously On]]
+- [[Session 2 - Previously On]]
+- [[Session 3 - Previously On]]
+- [[Session 7 - Previously On]]
+
+## [2026-10-08] lint | Reveal Session 2: prose repairs on first looks
+
+- [[Thunk]]
+- [[Alys Kuiper]]
+- [[Noor]]
+- [[Uncertainty]]
+
+## [2026-10-08] ingest | raw/auralis-legacy.md: deepened the Auralis lore page and added the patron NPC page
+
+- [[Auralis (Patron)]]
+- [[Auralis]]
+- [[Drowned Maw]]
+- [[Vestra]]
+- [[Sentinels of the Eyrie]]
+
+## [2026-10-08] audit | Vestra's loss decoupled from the Day -5 wake (Campaign Timeline dates it Day -4 to -1)
+
+- [[Auralis]]
+
+## [2026-10-09] create | Story so far: arc view through Session 12
+
+- [[story-so-far]]
+- [[Shattered Sea]]
+- [[shattered-sea/index]]
+
+## [2026-10-09] audit | Reveal backfill through Session 12
+
+- [[Aarakocra]]
+- [[Alchemist's Bandolier]]
+- [[Aldenmere]]
+- [[Aldous Draves]]
+- [[Aleksander Malone]]
+- [[Alys Kuiper]]
+- [[Ancient Sea Serpent]]
+- [[Anzolo]]
+- [[Arclight Phoenix]]
+- [[Aruhe]]
+- [[Ashkevet]]
+- [[Ashwall Islands]]
+- [[Ashwall Lee]]
+- [[A Sliver of the Unstable Form]]
+- [[Auralis]]
+- [[Auralis (Patron)]]
+- [[Bad Receipt]]
+- [[Barnaby Rook]]
+- [[Barnaby Rook (Creature)]]
+- [[Bastian Crev]]
+- [[Bazzoth the Steeped]]
+- [[Bazzoth, the Steeped]]
+- [[Beaumont's Crew]]
+- [[Beaumont Sel]]
+- [[Beaumont Sel (Creature)]]
+- [[Beppe Sarti]]
+- [[Bisou]]
+- [[Black-Jaw Run]]
+- [[Black Lotus]]
+- [[Bloodhawk]]
+- [[Blue Hole]]
+- [[Botukuri]]
+- [[Bring the Pearl of Souls to Umberlee]]
+- [[Calder's Tooth and Port Tidefall]]
+- [[Calven and Calveno]]
+- [[Calveno Sewer Magazines]]
+- [[Campaign Timeline]]
+- [[Cap'n Gorgeous]]
+- [[Carlo Ferrante]]
+- [[Casa Falier]]
+- [[Casa Lupo]]
+- [[Catalina Curio]]
+- [[Catarina Da'Virelli]]
+- [[Cedric Hollowell]]
+- [[Celia Parel]]
+- [[Central Strait]]
+- [[Chain Council]]
+- [[Cobb]]
+- [[Commoner]]
+- [[Coralyra Dranra]]
+- [[Corbin Knighton]]
+- [[Corvin Knighton]]
+- [[Countless]]
+- [[Crissdalynn Khinriss]]
+- [[Crown Islands]]
+- [[Crown Squid]]
+- [[Cutoff Lip]]
+- [[Dario Fumagalli]]
+- [[Deep Sashelas]]
+- [[Deer-Stalker]]
+- [[Delmar Fisk]]
+- [[Dragon Turtle]]
+- [[Drav Holke]]
+- [[Dravosi Alchemist]]
+- [[Dravosi Crown]]
+- [[Dravosi Deckhand]]
+- [[Dravosi Enforcer]]
+- [[Drowned Maw]]
+- [[Drowned Maw Awakening]]
+- [[Duvane]]
+- [[Elemental Plane of Water]]
+- [[Ensign Wouters]]
+- [[Enzo]]
+- [[Ettore Ferrante]]
+- [[Fate Spinner]]
+- [[Fathomrush]]
+- [[Felix Aho]]
+- [[Fen]]
+- [[Fernen]]
+- [[Fisk's Fleet]]
+- [[Fleet Commanders Chair]]
+- [[Flying Boots]]
+- [[Galewall]]
+- [[Geoffrey Draves]]
+- [[Geoffrey Draves (Creature)]]
+- [[Ghost Plum]]
+- [[Giacomo Moretti]]
+- [[Gianni Moro]]
+- [[Giant Bat]]
+- [[Giant Scorpion]]
+- [[Giant's Guava]]
+- [[Giant Shark]]
+- [[Giant Squid]]
+- [[Giant Vulture]]
+- [[Glass Debt]]
+- [[Gold Caste]]
+- [[Gold Fruit]]
+- [[Grasslands]]
+- [[Grigori and the Crown hunt]]
+- [[Grinning Ape]]
+- [[Grubnade]]
+- [[Grung]]
+- [[Grung and the Making of Aruhe]]
+- [[Grung Authority Seal]]
+- [[Grung Clans]]
+- [[Grung (Creature)]]
+- [[Grung Elite Warrior]]
+- [[Grung Toxin Vials]]
+- [[Halythion]]
+- [[Harpy]]
+- [[Harwick]]
+- [[HCS Ordinance]]
+- [[High Eyrie]]
+- [[Hinewai]]
+- [[Hinewai the Blight]]
+- [[Huahei]]
+- [[Human]]
+- [[Iacopo Fieschi]]
+- [[Ilario Pozzo]]
+- [[Il Gioco delle Beffe]]
+- [[Il Palio delle Voci Contese]]
+- [[Il Vento di Seta]]
+- [[Impuni]]
+- [[Istishia]]
+- [[Jean-Claude Tabarnack]]
+- [[Kalowe]]
+- [[Karath]]
+- [[Kat's Curios]]
+- [[Ket]]
+- [[Keth-Naar]]
+- [[Khlysty]]
+- [[Killer Whale]]
+- [[Knife's Wake]]
+- [[La Canzone Nera]]
+- [[La Cenere]]
+- [[Lamarae's Fang]]
+- [[Landing Bank]]
+- [[La Vasca]]
+- [[Lava Tubes]]
+- [[Lavinia Sordi]]
+- [[Lenne Vor]]
+- [[Le Ossa del Toro]]
+- [[Le Paludi]]
+- [[Lesser Black Lotus]]
+- [[Letters of Marque]]
+- [[Leviathan]]
+- [[Line Bank]]
+- [[Lizardfolk]]
+- [[Loud Argument]]
+- [[Luca Ferrante]]
+- [[Marco Lenzi]]
+- [[Marta Orsini]]
+- [[Master Kyzil]]
+- [[Master Kyzil (Creature)]]
+- [[Matteo Scola]]
+- [[Memorial Grove]]
+- [[Mercatura]]
+- [[Midchain]]
+- [[Minor Slaad]]
+- [[Minotaur]]
+- [[Mira's Blade]]
+- [[Moucheron]]
+- [[Murrat]]
+- [[Mystra]]
+- [[Nightmantle]]
+- [[Nino]]
+- [[Nona Black-Jaw]]
+- [[Noor]]
+- [[Old Faas]]
+- [[Old Gardens]]
+- [[Oren Vask]]
+- [[Orvalle]]
+- [[Osset]]
+- [[Ossketh]]
+- [[Otar the Foul]]
+- [[Otar the Foul (Creature)]]
+- [[Outer Reach]]
+- [[Ozzeth the Twiceborn]]
+- [[Ozzeth, the Twiceborn]]
+- [[Passage]]
+- [[Pearl of Souls]]
+- [[Pell]]
+- [[Peoples of the Shattered Sea]]
+- [[Perrin and Nona]]
+- [[Perrin Black-Jaw]]
+- [[Piero Sorrentino]]
+- [[Print Braid]]
+- [[Prospero Morsani]]
+- [[Ragnito]]
+- [[Rattkin]]
+- [[Rattkin Bounty]]
+- [[Razer-Grass]]
+- [[Redheart Berry]]
+- [[Red Lady]]
+- [[Redwind Isles]]
+- [[Renzo Canale]]
+- [[River Otter]]
+- [[Roc]]
+- [[Roka Sten]]
+- [[Rotheart]]
+- [[Ruk]]
+- [[Rule of Two]]
+- [[Ruma Delacroix]]
+- [[Rupert Knighton]]
+- [[Saltwright]]
+- [[Sandrino Vale]]
+- [[Sandro]]
+- [[Sandtable Shoal]]
+- [[Sawek]]
+- [[Sea Elf]]
+- [[Sem Holst]]
+- [[Sending Stone (Nona's)]]
+- [[Sentinels of the Eyrie]]
+- [[Serena]]
+- [[Session 0 - Previously On]]
+- [[Session 0 - Recap]]
+- [[Session 10 - Previously On]]
+- [[Session 10 - Recap]]
+- [[Session 11 - Aftermath]]
+- [[Session 11 - Angry Birds]]
+- [[Session 11 Assets]]
+- [[Session 11 - Birds of a Feather]]
+- [[Session 11 - False Help]]
+- [[Session 11 - Farthest Camp]]
+- [[Session 11 - Landing Sign]]
+- [[Session 11 - Night Watch]]
+- [[Session 11 - Otter Hole]]
+- [[Session 11 - Prep]]
+- [[Session 11 - Previously On]]
+- [[Session 11 - Recap]]
+- [[Session 11 - Theft on the Watch]]
+- [[Session 11 - What They Ate]]
+- [[Session 11 - Wolfrabbits]]
+- [[Session 12 - Consume]]
+- [[Session 12 - Dawn Strike]]
+- [[Session 12 - Orders in the Ash]]
+- [[Session 12 - Prep]]
+- [[Session 12 - Previously On]]
+- [[Session 12 - Recap]]
+- [[Session 12 - Terror-Birds]]
+- [[Session 12 - The Smoking Skylight]]
+- [[Session 12 - The Way Out]]
+- [[Session 13 - Previously On]]
+- [[Session 1 - Previously On]]
+- [[Session 1 - Recap]]
+- [[Session 2 - Previously On]]
+- [[Session 2 - Recap]]
+- [[Session 3 - Previously On]]
+- [[Session 3 - Recap]]
+- [[Session 4 - Previously On]]
+- [[Session 4 - Recap]]
+- [[Session 5 - Previously On]]
+- [[Session 5 - Recap]]
+- [[Session 6 - Previously On]]
+- [[Session 6 - Recap]]
+- [[Session 7 - Previously On]]
+- [[Session 7 - Recap]]
+- [[Session 8 - Previously On]]
+- [[Session 8 - Recap]]
+- [[Session 9 - Previously On]]
+- [[Session 9 - Recap]]
+- [[Seven Houses Council]]
+- [[Shelfworks]]
+- [[Shepherd Grigori]]
+- [[Shepherd Grigori (Creature)]]
+- [[Shipboard Travel]]
+- [[Sienne Orre]]
+- [[Silent Shortbow]]
+- [[Simone's Hunters]]
+- [[Simone Tabarnack]]
+- [[Slack Basin]]
+- [[Snakewood]]
+- [[Solange Barret]]
+- [[Solange Barret (Creature)]]
+- [[Solange's Authority Seal]]
+- [[Sparhold]]
+- [[Spiguar]]
+- [[Spiritpollen]]
+- [[Spoke Ring]]
+- [[Star Cut]]
+- [[Stenmark]]
+- [[Stillbloom]]
+- [[Stonepear]]
+- [[Stripes Bitemore]]
+- [[Strix]]
+- [[Studio Orsini]]
+- [[Sunken Crown]]
+- [[Tabaxi]]
+- [[Take on Aruhe]]
+- [[Taking on Aruhe]]
+- [[Tallow Row]]
+- [[Talon Skarn]]
+- [[Talon Skarn (Creature)]]
+- [[Talon Vantyrus]]
+- [[Talon Vantyrus (Creature)]]
+- [[Tangle]]
+- [[Tarahs]]
+- [[Terror-Bird]]
+- [[Tessarine Concordat]]
+- [[Tessarine Trade House]]
+- [[Thassos]]
+- [[The Burnt Road]]
+- [[The Cabinet of Morsani]]
+- [[The Canister]]
+- [[The Crown Inspection]]
+- [[The Dead Lady]]
+- [[The Doldrums]]
+- [[The Galewall Runner's Drop]]
+- [[The Hound of God]]
+- [[The Long Meadow]]
+- [[The Pantry]]
+- [[The Ponte Bassa]]
+- [[The Quiet]]
+- [[The River]]
+- [[The Rook Resolution]]
+- [[The Snap]]
+- [[The Tail]]
+- [[The Tithe of the Bitch Queen]]
+- [[The Unnamed Companion]]
+- [[Thunk]]
+- [[Tommaso Brasca]]
+- [[Tomo]]
+- [[Torn Crossing]]
+- [[Truth Stone]]
+- [[Two-Grave Orders]]
+- [[Tyr]]
+- [[Umberlee]]
+- [[Umberlee - Branca]]
+- [[Umberlee's Message]]
+- [[Umberlee's Shrine]]
+- [[Uncertainty]]
+- [[Unsaid Macaw]]
+- [[Valkur]]
+- [[Vashu the Weeping Veil]]
+- [[Vashu, the Weeping Veil]]
+- [[Vel-Orn]]
+- [[Velvet Noose]]
+- [[Verdant Scatter]]
+- [[Verdant Teeth]]
+- [[Verity Hollowell]]
+- [[Vestra]]
+- [[Vethka]]
+- [[Vincenzo Black-Jaw]]
+- [[Vine Lash]]
+- [[Volcanic Vent Caves]]
+- [[Warren]]
+- [[Waveservants]]
+- [[Waveservant Shrine]]
+- [[Wessa]]
+- [[Western Landing]]
+- [[What Sunk the Vestra]]
+- [[Whip Shark]]
+- [[Whip-Shark Barb]]
+- [[Wolfrabbit]]
+- [[Young Bloodhawk]]
+- [[Young Sea Serpent]]
+- [[Zort]]

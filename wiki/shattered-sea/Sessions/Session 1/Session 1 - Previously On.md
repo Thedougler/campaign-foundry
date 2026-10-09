@@ -1,11 +1,14 @@
 ---
 type: Previously On
-summary: "The Party defended the Saltwright, recruited Geoffrey Draves, and left Barnaby Rook aboard the Surety with the gangplank fight unresolved."
+summary: "The Party defended the Saltwright, recruited Geoffrey Draves, and left
+  Barnaby Rook aboard the Surety with the gangplank fight unresolved."
 sources:
   - "archive/Session 01 - Recap.md"
   - "archive/session-01-recap.md"
   - "archive/ssw-session-01.md"
 date: "1495 DR, date not established"
+revealed: "Session 1"
+title: ""
 ---
 
 ## At a glance

@@ -1,9 +1,8 @@
-import { spawnSync } from "node:child_process";
 import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, describe, expect, it } from "vitest";
-import { repoRoot } from "../check/helpers.ts";
+import { cf, repoRoot } from "../check/helpers.ts";
 import { runDdbCreate, runDdbDelete, runDdbReplay, runDdbUpdate, runDdbVerify } from "../../src/commands/ddb.ts";
 import type { DdbCliDeps } from "../../src/commands/ddb.ts";
 import { DdbAuth, COBALT_TOKEN_URL } from "../../src/ddb/auth.ts";
@@ -13,16 +12,13 @@ import type { DdbMonsterRecord } from "../../src/ddb/monster.ts";
 
 const FIXTURES = join(repoRoot, "test/ddb/fixtures");
 
-/** Runs `bun run cf -- ddb <args>` — the supported invocation, through the npm script. */
-function runDdb(args: string[]): { status: number; stdout: string; stderr: string } {
-	const result = spawnSync("bun", ["run", "cf", "--", "ddb", ...args], { cwd: repoRoot, encoding: "utf8" });
-	return { status: result.status ?? 1, stdout: result.stdout, stderr: result.stderr };
-}
+/** One `cf ddb` invocation in this process. */
+const runDdb = async (args: string[]) => cf(["ddb", ...args]);
 
 describe("cf ddb --help", () => {
-	it("documents the Authentication and Capture procedures with examples", () => {
-		const help = runDdb(["--help"]);
-		expect(help.status).toBe(0);
+	it("documents the Authentication and Capture procedures with examples", async () => {
+		const help = await runDdb(["--help"]);
+		expect(help.code).toBe(0);
 		expect(help.stdout).toContain("Usage: cf ddb");
 		expect(help.stdout).toContain("Authentication");
 		expect(help.stdout).toContain("ddb-session.json");
@@ -31,33 +27,33 @@ describe("cf ddb --help", () => {
 		expect(help.stdout).toContain("cf ddb verify --id 4000001 --file monster.json");
 	});
 
-	it("runs each subcommand's help", () => {
+	it("runs each subcommand's help", async () => {
 		for (const sub of ["status", "verify", "replay"]) {
-			const help = runDdb([sub, "--help"]);
-			expect(help.status).toBe(0);
+			const help = await runDdb([sub, "--help"]);
+			expect(help.code).toBe(0);
 			expect(help.stdout).toContain(`Usage: cf ddb ${sub}`);
 		}
 	});
 });
 
 describe("cf ddb status", () => {
-	it("exits 1 with the login remedy when no session is stored", () => {
-		const result = runDdb(["status", "--session", join(tmpdir(), "no-such-ddb-session.json")]);
-		expect(result.status).toBe(1);
+	it("exits 1 with the login remedy when no session is stored", async () => {
+		const result = await runDdb(["status", "--session", join(tmpdir(), "no-such-ddb-session.json")]);
+		expect(result.code).toBe(1);
 		expect(result.stderr).toMatch(/session/i);
 		expect(result.stderr).toMatch(/cf ddb --help/);
 	});
 
-	it("reports a stored session and exits 0", () => {
-		const result = runDdb(["status", "--session", join(FIXTURES, "session.json")]);
-		expect(result.status).toBe(0);
+	it("reports a stored session and exits 0", async () => {
+		const result = await runDdb(["status", "--session", join(FIXTURES, "session.json")]);
+		expect(result.code).toBe(0);
 		expect(result.stdout).toContain("CobaltSession");
 		expect(result.stdout).toContain("4242");
 	});
 
-	it("prints machine-readable state with --json", () => {
-		const result = runDdb(["status", "--session", join(FIXTURES, "session.json"), "--json"]);
-		expect(result.status).toBe(0);
+	it("prints machine-readable state with --json", async () => {
+		const result = await runDdb(["status", "--session", join(FIXTURES, "session.json"), "--json"]);
+		expect(result.code).toBe(0);
 		const parsed = JSON.parse(result.stdout) as { session: string; cookies: number; userId: number };
 		expect(parsed.session).toBe("present");
 		expect(parsed.cookies).toBe(3);
@@ -66,17 +62,17 @@ describe("cf ddb status", () => {
 });
 
 describe("cf ddb replay", () => {
-	it("prints the plan and exits 2 without --yes, sending nothing", () => {
-		const result = runDdb(["replay", join(FIXTURES, "capture.json")]);
-		expect(result.status).toBe(2);
+	it("prints the plan and exits 2 without --yes, sending nothing", async () => {
+		const result = await runDdb(["replay", join(FIXTURES, "capture.json")]);
+		expect(result.code).toBe(2);
 		expect(result.stdout).toContain("POST https://www.dndbeyond.com/api/homebrew/monster/create");
 		expect(result.stdout).toMatch(/--yes/);
 		expect(result.stdout).not.toMatch(/sent|performed/i);
 	});
 
-	it("exits 2 naming the capture procedure for a missing capture file", () => {
-		const result = runDdb(["replay", join(tmpdir(), "no-such-capture.json")]);
-		expect(result.status).toBe(2);
+	it("exits 2 naming the capture procedure for a missing capture file", async () => {
+		const result = await runDdb(["replay", join(tmpdir(), "no-such-capture.json")]);
+		expect(result.code).toBe(2);
 		expect(result.stderr + result.stdout).toMatch(/cf ddb --help|Capture/i);
 	});
 });

@@ -1,7 +1,9 @@
 ---
+title: ""
 type: Lore
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

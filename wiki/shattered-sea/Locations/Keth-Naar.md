@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Settlement
-summary: "A tabaxi city at the Blue Hole's edge, the furthest reliable landmark east of the Drowned Maw and the last harbour on the eastern road."
+summary: "A tabaxi city at the Blue Hole's edge, the furthest reliable landmark
+  east of the Drowned Maw and the last harbour on the eastern road."
 sources:
- - "archive/ssw-outer-reach.md"
- - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-outer-reach.md"
+  - "archive/ssw-umberlee-shrine.md"
 parent: "[[Outer Reach]]"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

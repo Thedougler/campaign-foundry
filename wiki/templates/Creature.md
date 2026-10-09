@@ -1,7 +1,9 @@
 ---
+title: ""
 type: Creature
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

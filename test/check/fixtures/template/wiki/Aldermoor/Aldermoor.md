@@ -2,6 +2,8 @@
 type: World
 summary: "A test world."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

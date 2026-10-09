@@ -1,14 +1,17 @@
 ---
 type: Thread
-summary: "Simone's elite Grung unit is hunting Jean-Claude across the Midchain after his escape and the death of Pell."
+summary: "Simone's elite Grung unit is hunting Jean-Claude across the Midchain
+  after his escape and the death of Pell."
 sources:
- - "archive/story-so-far.md"
- - "archive/campaign-timeline.md"
- - "archive/jean-claude-tabarnack.md"
- - "archive/ssw-session-01.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/session-12-full.md"
+  - "archive/story-so-far.md"
+  - "archive/campaign-timeline.md"
+  - "archive/jean-claude-tabarnack.md"
+  - "archive/ssw-session-01.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/session-12-full.md"
 status: active
+revealed: "Session 1"
+title: ""
 ---
 
 ## At a glance

@@ -1,16 +1,19 @@
 ---
 type: Location
 kind: Site
-summary: "Umberlee's old shrine on Vel-Orn, cut into black stone off every colonial chart, keeper of drowned names and water-debts."
+summary: "Umberlee's old shrine on Vel-Orn, cut into black stone off every
+  colonial chart, keeper of drowned names and water-debts."
 sources:
- - "archive/ssw-umberlee-shrine.md"
- - "archive/ssw-campaign-timeline.md"
+  - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-campaign-timeline.md"
 parent: "[[Vel-Orn]]"
 aliases:
   - "Umberlee Shrine — Sunken Crown"
   - "Umberlee's Hidden Shrine"
   - "Vel-Orn Shrine"
   - "Blue Shrine"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

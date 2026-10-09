@@ -1,12 +1,15 @@
 ---
 type: Location
 kind: Site
-summary: "A Rattkin settlement beneath Le Paludi and deepest Passage anchor, reached through learned routes and trust."
+summary: "A Rattkin settlement beneath Le Paludi and deepest Passage anchor,
+  reached through learned routes and trust."
 sources:
- - "archive/warren.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/warren.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
 parent: "[[Le Paludi]]"
+revealed: "Session 4"
+title: ""
 ---
 
 ## At a glance

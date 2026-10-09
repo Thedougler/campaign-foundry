@@ -3,23 +3,23 @@ import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, describe, expect, it } from "vitest";
-import { repoRoot } from "../check/helpers.ts";
+import { cf, repoRoot } from "../check/helpers.ts";
 
 /**
- * Runs `bun run cf -- foundry ...` with a scripted host fixture (CF_FOUNDRY_SCRIPTED), the way an
- * agent drives the command: the fixture answers the host's SSH commands without reaching rpi4.
+ * One `cf foundry` invocation in this process, with a scripted host fixture (CF_FOUNDRY_SCRIPTED)
+ * pointed at `fixture`, or the flag cleared when none is given, the way an agent drives the command:
+ * the fixture answers the host's SSH commands without reaching rpi4.
  */
-function run(args: string[], fixture?: string, stdin = ""): { status: number; stdout: string; stderr: string } {
-	const env = { ...process.env };
-	if (fixture === undefined) delete env.CF_FOUNDRY_SCRIPTED;
-	else env.CF_FOUNDRY_SCRIPTED = fixture;
-	const result = spawnSync("bun", ["run", "cf", "--", "foundry", ...args], {
-		cwd: repoRoot,
-		env,
-		encoding: "utf8",
-		input: stdin,
-	});
-	return { status: result.status ?? 1, stdout: result.stdout ?? "", stderr: result.stderr ?? "" };
+async function run(args: string[], fixture?: string, stdin = "") {
+	const saved = process.env.CF_FOUNDRY_SCRIPTED;
+	try {
+		if (fixture === undefined) delete process.env.CF_FOUNDRY_SCRIPTED;
+		else process.env.CF_FOUNDRY_SCRIPTED = fixture;
+		return await cf(["foundry", ...args], repoRoot, stdin);
+	} finally {
+		if (saved === undefined) delete process.env.CF_FOUNDRY_SCRIPTED;
+		else process.env.CF_FOUNDRY_SCRIPTED = saved;
+	}
 }
 
 const DOCKER_STATE = JSON.stringify({ Status: "running", StartedAt: "2026-10-05T17:05:32.615Z", Health: { Status: "healthy" } });
@@ -60,9 +60,9 @@ afterAll(async () => {
 });
 
 describe("cf foundry --help", () => {
-	it("lists every subcommand with examples, and never crashes at import", () => {
-		const result = run(["--help"]);
-		expect(result.status).toBe(0);
+	it("lists every subcommand with examples, and never crashes at import", async () => {
+		const result = await run(["--help"]);
+		expect(result.code).toBe(0);
 		for (const name of ["status", "logs", "options", "service", "backup", "assets", "install", "serve", "tool"]) {
 			expect(result.stdout, `subcommand ${name}`).toContain(name);
 		}
@@ -70,29 +70,29 @@ describe("cf foundry --help", () => {
 		expect(result.stdout).toContain("cf foundry serve --token <secret>");
 	});
 
-	it("parses service --help and assets put --help (import crash or mis-parenting fails here)", () => {
-		const service = run(["service", "--help"]);
-		expect(service.status).toBe(0);
+	it("parses service --help and assets put --help (import crash or mis-parenting fails here)", async () => {
+		const service = await run(["service", "--help"]);
+		expect(service.code).toBe(0);
 		expect(service.stdout).toContain("<op>");
 		expect(service.stdout).toContain("start, stop or restart");
-		const put = run(["assets", "put", "--help"]);
-		expect(put.status).toBe(0);
+		const put = await run(["assets", "put", "--help"]);
+		expect(put.code).toBe(0);
 		expect(put.stdout).toContain("<src> <dest>");
 	});
 });
 
 describe("cf foundry status", () => {
 	it("prints the one-screen snapshot against a scripted host", async () => {
-		const result = run(["status"], await fixture(statusReplies()));
-		expect(result.status).toBe(0);
+		const result = await run(["status"], await fixture(statusReplies()));
+		expect(result.code).toBe(0);
 		expect(result.stdout).toContain("container: foundry (running, healthy)");
 		expect(result.stdout).toContain("version:   14.368");
 		expect(result.stdout).toContain("(none installed)");
 	});
 
 	it("prints HostStatus JSON with --json", async () => {
-		const result = run(["status", "--json"], await fixture(statusReplies()));
-		expect(result.status).toBe(0);
+		const result = await run(["status", "--json"], await fixture(statusReplies()));
+		expect(result.code).toBe(0);
 		const status = JSON.parse(result.stdout) as { container: string; version: string | null; state: string };
 		expect(status).toMatchObject({ container: "foundry", version: "14.368", state: "running" });
 	});
@@ -100,22 +100,22 @@ describe("cf foundry status", () => {
 
 describe("cf foundry tool", () => {
 	it("answers host.status through the registry, read-only, no module needed", async () => {
-		const result = run(["tool", "host.status"], await fixture(statusReplies()));
-		expect(result.status).toBe(0);
+		const result = await run(["tool", "host.status"], await fixture(statusReplies()));
+		expect(result.code).toBe(0);
 		const status = JSON.parse(result.stdout) as { version: string | null };
 		expect(status.version).toBe("14.368");
 	});
 
 	it("refuses a host mutation with the DM approval command and exit 2", async () => {
-		const result = run(["tool", "host.restart"], await fixture(statusReplies()));
-		expect(result.status).toBe(2);
+		const result = await run(["tool", "host.restart"], await fixture(statusReplies()));
+		expect(result.code).toBe(2);
 		expect(result.stderr).toContain("dm_gate");
 		expect(result.stderr).toContain("cf foundry service restart --yes");
 	});
 
 	it("refuses a module tool with the no-module remedy and exit 1", async () => {
-		const result = run(["tool", "world.inspect"], await fixture(statusReplies()));
-		expect(result.status).toBe(1);
+		const result = await run(["tool", "world.inspect"], await fixture(statusReplies()));
+		expect(result.code).toBe(1);
 		expect(result.stderr).toContain("no_module");
 		expect(result.stderr).toContain("cf foundry serve");
 	});
@@ -123,39 +123,39 @@ describe("cf foundry tool", () => {
 
 describe("cf foundry mutating commands gate on --yes", () => {
 	it("service stop prints the plan and the approval command, exit 2, and runs nothing", async () => {
-		const result = run(["service", "stop"], await fixture(statusReplies()));
-		expect(result.status).toBe(2);
+		const result = await run(["service", "stop"], await fixture(statusReplies()));
+		expect(result.code).toBe(2);
 		expect(result.stderr).toContain("Approve with: cf foundry service stop --yes");
 	});
 
 	it("service restart --yes runs the compose command against the scripted host", async () => {
-		const result = run(
+		const result = await run(
 			["service", "restart", "--yes"],
 			await fixture(statusReplies([{ match: "docker compose", stdout: "" }])),
 		);
-		expect(result.status).toBe(0);
+		expect(result.code).toBe(0);
 		expect(result.stdout).toContain("ran: docker compose -f /home/nick/compose/foundry/compose.yaml restart");
 	});
 
 	it("options set shows the plan until --yes, then writes through the scripted host", async () => {
-		const plan = run(["options", "set", "port=30001"], await fixture(statusReplies()));
-		expect(plan.status).toBe(2);
+		const plan = await run(["options", "set", "port=30001"], await fixture(statusReplies()));
+		expect(plan.code).toBe(2);
 		expect(plan.stderr).toContain("port = 30001");
 		expect(plan.stderr).toContain("Approve with: cf foundry options set port=30001 --yes");
-		const written = run(
+		const written = await run(
 			["options", "set", "port=30001", "--yes"],
 			await fixture(statusReplies([{ match: "cat >", stdout: "" }])),
 		);
-		expect(written.status).toBe(0);
+		expect(written.code).toBe(0);
 		expect(written.stdout).toContain("restart");
 	});
 
 	it("backup create reports the host's refusal to copy a running world, with the stop command", async () => {
-		const result = run(
+		const result = await run(
 			["backup", "create", "--yes"],
 			await fixture(statusReplies([{ match: "mkdir -p", stdout: "" }])),
 		);
-		expect(result.status).toBe(2);
+		expect(result.code).toBe(2);
 		expect(result.stderr).toContain("shut down");
 		expect(result.stderr).toContain("cf foundry backup create --stop --yes");
 	});

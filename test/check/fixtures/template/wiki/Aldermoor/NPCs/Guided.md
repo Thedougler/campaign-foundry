@@ -2,6 +2,8 @@
 type: NPC
 summary: "A ferrywoman."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

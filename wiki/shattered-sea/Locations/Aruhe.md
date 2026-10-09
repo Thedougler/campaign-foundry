@@ -1,20 +1,23 @@
 ---
 type: Location
 kind: Region
-summary: "A vast untamed volcanic island where excessive life distinguishes receiving from taking."
+summary: "A vast untamed volcanic island where excessive life distinguishes
+  receiving from taking."
 sources:
- - "archive/aruhe.md"
- - "archive/Aruhe - Hungry Isle.md"
- - "archive/hungry-isle.md"
- - "archive/ssw-midchain.md"
- - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
- - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
- - "archive/collab-2026-10-04-authority-themes.md"
- - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
- - "archive/Episode-09-Transcript.md"
- - "archive/session-10.md"
- - "archive/session-12-full.md"
+  - "archive/aruhe.md"
+  - "archive/Aruhe - Hungry Isle.md"
+  - "archive/hungry-isle.md"
+  - "archive/ssw-midchain.md"
+  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/session-10.md"
+  - "archive/session-12-full.md"
 parent: "[[Midchain]]"
+revealed: "Session 9"
+title: ""
 ---
 
 ![[Aruhe - Handout Art.jpg]]
@@ -28,7 +31,7 @@ parent: "[[Midchain]]"
 - **Danger.** Taking living things wakes hostile local life, and once the frenzy rises it punishes anyone present, picking fruit or not. Growth, healing and rot run beyond normal limits. Fire turns the forest on its maker: creatures run from a burning tree in every direction, and the commotion and blood a fire leaves draw hunters toward the source. A feeling of being watched follows everyone who walks the island, and no camp has slept free of it yet.
 
 > [!narration] Arrival
-> From offshore, a vast green volcano rises around a dark crater lake, gold-tan bands mark its slopes and white water foams on the reef. No road, field or smoke breaks the island's crowded life.
+> From offshore, a green volcano fills the horizon, rising around a dark crater lake. Gold-tan bands cross its slopes, and white water foams along the reef. No road, field or smoke breaks the island's crowded life.
 
 ## Play
 

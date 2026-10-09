@@ -1,20 +1,23 @@
 ---
 type: NPC
-summary: "Black-Jaw Run matriarch, senior Tangle elder, and Perrin Black-Jaw's grandmother, who turns trust into routes and obligations."
+summary: "Black-Jaw Run matriarch, senior Tangle elder, and Perrin Black-Jaw's
+  grandmother, who turns trust into routes and obligations."
 sources:
- - "archive/nona-black-jaw.md"
- - "archive/ssw-nona-black-jaw.md"
- - "archive/ssw-session-02.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/collab-2026-10-04-authority-themes.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
- - "archive/agentic-co-dm-nona-black-jaw-narration.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/nona-black-jaw.md"
+  - "archive/ssw-nona-black-jaw.md"
+  - "archive/ssw-session-02.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/agentic-co-dm-nona-black-jaw-narration.md"
+  - "archive/Episode-09-Transcript.md"
 creature: "[[Commoner]]"
 aliases:
- - "Nona"
- - "The Calveno Candle"
+  - "Nona"
+  - "The Calveno Candle"
+revealed: "Backstory"
+title: ""
 ---
 
 ![[Nona Black-Jaw - Portrait.jpg]]
@@ -28,7 +31,7 @@ aliases:
 - **Found at.** Her guarded kitchen safe house in the Warren, Calveno.
 
 > [!narration] First look
-> By the kitchen fire a very small Rattkin woman sits perfectly straight, calloused paws moving a pen across one receipt after another without a pause. Silver-white fur stands out against the dark jaw mask her family takes its name from, and a flour-dusted floral apron covers dark, well-made cloth. Garlic and fresh bread hang in the air, and under it the kitchen runs like a courtroom, knives and names and the scrape of a stool being claimed. She hears the case and issues the ruling. She never raises her voice, and the queue thins when she looks up. Sharp pink-rimmed eyes find you last, on purpose. "Sit. You eat first."
+> By the kitchen fire a small Rattkin woman sits perfectly straight, calloused paws moving a pen across one receipt after another without a pause. Silver-white fur stands out against the dark jaw mask her family takes its name from, and a flour-dusted floral apron covers dark, well-made cloth. Garlic and fresh bread hang in the air, and under it the kitchen runs like a courtroom, knives and names and the scrape of a stool someone claims. She hears the case and issues the ruling. She never raises her voice, and the queue thins when she looks up. Sharp pink-rimmed eyes find you last, on purpose. "Sit. You eat first."
 
 ## Play
 
@@ -38,6 +41,12 @@ aliases:
 - **Will share.** Safe houses, couriers, ships, bodyguards, and a [[Sending Stone (Nona's)|sending stone]], at a price.
 - **Will not share.** The whole Passage to save one request.
 - **If pressed.** She turns family language into business terms and calls the network to protect it.
+
+## Quotes
+
+> "Oh Vincenzo... Our love was like...how you say...Explosion? He made me so angry! THREE FRYING PANS I BROKE ON HIM! THREE! *Wipes tear* Oh I miss that old fool."
+
+Remembering her late husband, [[Vincenzo Black-Jaw]].
 
 ## Depth
 

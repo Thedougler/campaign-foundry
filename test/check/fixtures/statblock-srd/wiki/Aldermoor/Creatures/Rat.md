@@ -2,6 +2,8 @@
 type: Creature
 summary: "Rat, from the SRD 5.2 monsters."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

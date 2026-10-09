@@ -2,10 +2,12 @@
 type: NPC
 summary: "A Pantry survivor who leaves with the column when it sets out."
 sources:
- - "archive/the-pantry.md"
+  - "archive/the-pantry.md"
 aliases:
- - "Sandrino"
+  - "Sandrino"
 creature: "[[Commoner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

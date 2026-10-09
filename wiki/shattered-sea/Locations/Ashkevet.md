@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A stop on the Midchain run where a yard bell rings from shore and the hand behind it has never shown itself."
+summary: "A stop on the Midchain run where a yard bell rings from shore and the
+  hand behind it has never shown itself."
 sources:
- - "archive/kalowe.md"
+  - "archive/kalowe.md"
 parent: "[[Midchain]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

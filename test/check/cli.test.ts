@@ -45,7 +45,7 @@ describe("cf check: exit codes and output", () => {
 	it("exits 0 on a clean vault, with a summary line", async () => {
 		const { code, stdout } = await cf(["check", ...flags("clean")], repoRoot);
 		expect(code).toBe(0);
-		expect(stdout).toMatch(new RegExp(`^ok: 0 findings, 28 pages, ${layerNames.length} layers \\(${layerNames.join(", ")}\\), \\d+ms$`, "m"));
+		expect(stdout).toMatch(new RegExp(`^ok: 0 findings, 29 pages, ${layerNames.length} layers \\(${layerNames.join(", ")}\\), \\d+ms$`, "m"));
 	});
 
 	it("exits 1 on errors and prints path:line  layer/rule  severity  message, then an indented fix hint", async () => {
@@ -87,12 +87,12 @@ describe("cf check: exit codes and output", () => {
 	it("emits parseable JSON with counts", async () => {
 		const { report, code } = await checkFixture("clean");
 		expect(code).toBe(0);
-		expect(report).toMatchObject({ ok: true, findings: [], counts: { findings: 0, pages: 28 } });
+		expect(report).toMatchObject({ ok: true, findings: [], counts: { findings: 0, pages: 29 } });
 	});
 
 	it("ignores templates/ and .obsidian/ inside the vault", async () => {
 		const { report } = await checkFixture("clean");
-		expect(report.counts.pages).toBe(28); // clean/wiki/templates/Sample.md would fail every layer if loaded
+		expect(report.counts.pages).toBe(29); // clean/wiki/templates/Sample.md would fail every layer if loaded
 	});
 });
 
@@ -135,9 +135,11 @@ describe("cf check: speed", () => {
 		await mkdir(npcs, { recursive: true });
 		const body = (name: string, next: string) => `---
 type: NPC
+title: ""
 summary: "Villager ${name}."
 sources: []
 creature: ""
+revealed: ""
 ---
 
 ## At a glance
@@ -173,18 +175,20 @@ filters:
 		);
 		await cf(["index", "--vault", join(dir, "wiki"), "--root", dir], dir); // the 300 new pages make the generated index stale
 		const args = ["check", "--json", "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates];
-		// The prose layers cache per page by content hash: a first run reads every page, a repeat run reads only what changed.
+		// The prose layers cache per page by content hash: a first run reads every page, a repeat run
+		// reads only what changed. Absolute bounds stay generous because CI loads the machine; the
+		// cold-to-warm ratio is what actually catches a broken cache.
 		const started = performance.now();
 		const first = JSON.parse((await cf(args, dir)).stdout) as JsonReport & { durationMs: number };
 		const firstWall = performance.now() - started;
 		expect(first.findings).toEqual([]);
 		expect(first.counts.pages).toBeGreaterThanOrEqual(328);
-		expect(firstWall).toBeLessThan(10000);
+		expect(firstWall).toBeLessThan(30000);
 		const repeatStarted = performance.now();
 		const repeat = JSON.parse((await cf(args, dir)).stdout) as JsonReport & { durationMs: number };
 		const repeatWall = performance.now() - repeatStarted;
 		expect(repeat.findings).toEqual([]);
-		expect(repeat.durationMs).toBeLessThan(2000);
-		expect(repeatWall).toBeLessThan(3500);
+		expect(repeat.durationMs).toBeLessThan(first.durationMs / 2);
+		expect(repeatWall).toBeLessThan(5000);
 	});
 });

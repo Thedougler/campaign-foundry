@@ -1,13 +1,16 @@
 ---
 type: Faction
-summary: "Mortal Grung who proclaim themselves the Grung's living gods; the gold presence their sages preach is the caste itself."
+summary: "Mortal Grung who proclaim themselves the Grung's living gods; the gold
+  presence their sages preach is the caste itself."
 sources:
- - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
- - "archive/collab-2026-10-04-authority-themes.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
 aliases:
- - "Gold caste"
- - "gold presence"
+  - "Gold caste"
+  - "gold presence"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance
@@ -19,7 +22,7 @@ aliases:
 - **Strength.** Authority Seals that overwrite a will, a sage-kept religion, hatcheries, captive pens and gold farms the lower castes never see.
 
 > [!narration] Public face
-> A gold grung walks the line of pens with two red sages a step behind, and every head at the work goes down before his shadow crosses it. He stops where the river mud has taken a row of hatchery stakes, says one word, and the grung hauling stone repeat it like a breath. One of them glances at your boat, then back to the mud, and keeps hauling. The blue ones on the beach use the sages' name for them, the gold presence, gods walking the earth.
+> A gold grung walks the line of pens, two red sages a step behind him, and every head at the work goes down before his shadow crosses it. Where the river mud has taken a row of hatchery stakes, he stops and says one word. The haulers repeat it like a breath, and one of them glances at your boat, then back to the mud, and keeps hauling. Still every head stays down. On the beach the blue ones use the sages' name for them, the gold presence, gods walking the earth.
 
 ## Play
 

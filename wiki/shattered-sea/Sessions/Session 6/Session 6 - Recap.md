@@ -1,10 +1,13 @@
 ---
 type: Recap
-summary: "Vashu and Ozzeth died defending Solange's ritual, and Agni opened the primary chamber ceiling."
+summary: "Vashu and Ozzeth died defending Solange's ritual, and Agni opened the
+  primary chamber ceiling."
 sources:
   - "archive/Session 06 - Recap.md"
   - "archive/session-06-recap.md"
 date: "1495 DR, date not established"
+revealed: "Session 6"
+title: ""
 ---
 
 ## At a glance

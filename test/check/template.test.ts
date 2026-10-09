@@ -121,7 +121,7 @@ describe("template layer: --fix", () => {
 		expect(fixed).toContain("## At a glance\n\n- **Role.**");
 
 		const missing = await readFile(join(dir, "wiki/Aldermoor/NPCs/Missing Keys.md"), "utf8");
-		expect(missing).toMatch(/^---\ntype: NPC\nsummary: "A ferrywoman."\nsources: \[\]\ncreature: ""\n---\n/);
+		expect(missing).toMatch(/^---\ntype: NPC\nsummary: "A ferrywoman."\nrevealed: ""\ntitle: ""\nsources: \[\]\ncreature: ""\n---\n/);
 
 		const second = JSON.parse((await cf(args, dir)).stdout) as JsonReport;
 		expect(second.fixes).toEqual([]);

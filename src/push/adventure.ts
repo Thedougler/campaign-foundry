@@ -123,7 +123,7 @@ function creatureOf(vault: Vault, graph: LinkGraph, npc: Page): Page | undefined
 	for (const { link, resolution } of graph.links.get(npc) ?? []) {
 		if (link.frontmatter && link.target === raw && resolution.status === "ok") return resolution.pages.find((p) => typeof p.frontmatter?.type === "string" && p.frontmatter.type === "Creature");
 	}
-	return vault.pages.find((p) => p.name === raw && typeof p.frontmatter?.type === "string" && p.frontmatter.type === "Creature");
+	return vault.pages.find((p) => p.names.some((n) => n === raw) && typeof p.frontmatter?.type === "string" && p.frontmatter.type === "Creature");
 }
 
 async function thumbnail(path: string): Promise<string> {

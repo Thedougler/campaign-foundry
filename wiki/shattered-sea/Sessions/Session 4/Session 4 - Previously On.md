@@ -1,10 +1,13 @@
 ---
 type: Previously On
-summary: "The crew killed the whip-shark, reached Calveno, reported Vestra's loss to Nona, and met Master Kyzil."
+summary: "The crew killed the whip-shark, reached Calveno, reported Vestra's
+  loss to Nona, and met Master Kyzil."
 sources:
   - "archive/Session 03 - Recap.md"
   - "archive/session-03-recap.md"
 date: "1495 DR, date not established"
+revealed: "Session 4"
+title: ""
 ---
 
 ## At a glance
@@ -14,4 +17,4 @@ date: "1495 DR, date not established"
 - **Leads into.** The festival, the waiting shrine, and Delmar's secret.
 
 > [!narration] Previously on
-> Perrin was on watch when the thing below returned, filling his vision with a huge form and the command “Grow”. When a whip-shark surfaced, Crissdalynn held it aloft while you killed it. Delmar took the barb as his prize, and Jean-Claude claimed three eggs. After five days, the cutter came into Calveno, where you removed its Imperial prefix before La Vasca cradled *Uncertainty*. Water in the harbour called Delmar by name, and Branca sent him towards Umberlee's shrine. He declined the summons. When Nona learned Vestra was gone, she stopped her attacks and gave Perrin a sending stone in exchange for a favour. Before nightfall, Kyzil descended from the sky and spoke of a changed wind. Still open, the shrine awaited a price you had yet to pay.
+> The thing below returned on Perrin's watch, and a form filled his whole vision with the command "Grow". A whip-shark rose from the deep, and Crissdalynn held it aloft while you killed it. Delmar took the barb as his prize. Jean-Claude claimed three eggs. Five days of sailing then brought the cutter into Calveno, where you stripped its Imperial prefix before La Vasca cradled *Uncertainty*. The harbour water called Delmar by name, and Branca sent him towards Umberlee's shrine. He declined the summons. Nona heard of Vestra's loss and stopped her attacks, giving Perrin a sending stone in exchange for a favour. Kyzil came down from the sky before nightfall and spoke of a changed wind. Still open, the shrine awaited a price you had yet to pay.

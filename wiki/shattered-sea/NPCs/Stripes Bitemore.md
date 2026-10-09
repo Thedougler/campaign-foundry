@@ -1,10 +1,13 @@
 ---
 type: NPC
-summary: "A tribesman who was on Vel-Orn as the seas turned wrong, and feels a guiding pull from the shrine water."
+summary: "A tribesman who was on Vel-Orn as the seas turned wrong, and feels a
+  guiding pull from the shrine water."
 sources:
- - "archive/ssw-campaign-timeline.md"
- - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-campaign-timeline.md"
+  - "archive/ssw-umberlee-shrine.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -13,7 +16,7 @@ creature: ""
 - **Found at.** [[Vel-Orn]], and the water near [[Umberlee's Shrine]].
 
 > [!narration] First look
-> Stripes Bitemore stands on the rocks above the landing, and his weight leans toward the black cliff before the rest of him decides. A pull comes off the shrine water and his whole body follows it, while dread finds Delmar in the same swell.
+> Stripes Bitemore stands on stone above the landing, and his weight leans toward the black cliff before the rest of him decides. A pull comes off the shrine water and his whole body follows it, while dread finds Delmar in the same swell.
 
 ## Play
 

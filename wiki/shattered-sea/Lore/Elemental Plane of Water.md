@@ -1,11 +1,15 @@
 ---
 type: Lore
-summary: "The plane on the far side of the Drowned Maw's fissure, sealed by Auralis, tied to the vanished Antheri and claimed as the sea elves' ancestral home."
+summary: "The plane on the far side of the Drowned Maw's fissure, sealed by
+  Auralis, tied to the vanished Antheri and claimed as the sea elves' ancestral
+  home."
 sources:
- - "archive/ssw-sea-elf.md"
- - "archive/agentic-co-dm-istishia.md"
- - "archive/ssw-umberlee-shrine.md"
- - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
+  - "archive/ssw-sea-elf.md"
+  - "archive/agentic-co-dm-istishia.md"
+  - "archive/ssw-umberlee-shrine.md"
+  - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -16,7 +20,7 @@ sources:
 - **Reaches play through.** The [[Pearl of Souls]]' signal, which crosses the boundary and drew the [[Leviathan]] through.
 
 > [!narration] As it is told
-> Under the Maw there is water, and under that water there is more water, and it is not ours. Something holds the two apart, and the holding is starting to strain.
+> Under the Maw there is water, and under that water there is more water, and none of it belongs to us. Something holds the two apart, and the holding is starting to strain.
 
 ## Play
 

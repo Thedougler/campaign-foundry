@@ -240,15 +240,18 @@ describe("backup sync", () => {
 
 describe("throttle", () => {
 	it("spaces request starts by the interval", async () => {
-		const waits: number[] = [];
-		const fake = (async () => new Response("{}")) as unknown as typeof fetch;
-		const t = throttle(fake, 350, async (ms) => {
-			waits.push(ms);
-		});
+		const starts: number[] = [];
+		const fake = (async () => {
+			starts.push(Date.now());
+			return new Response("{}");
+		}) as unknown as typeof fetch;
+		const t = throttle(fake, 350);
 		await Promise.all([t("a"), t("b"), t("c")]);
-		expect(waits.length).toBe(2);
-		expect(waits[0]).toBeGreaterThan(300);
-		expect(waits[1]).toBeGreaterThan(650);
+		expect(starts.length).toBe(3);
+		// The first goes at once; the other two start a full interval and two after it. Real sleeps and
+		// start stamps, because the invariant is the spacing, and late scheduling may only widen it.
+		expect(starts[1]! - starts[0]!).toBeGreaterThanOrEqual(340);
+		expect(starts[2]! - starts[0]!).toBeGreaterThanOrEqual(690);
 	});
 });
 

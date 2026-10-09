@@ -1,10 +1,13 @@
 ---
 type: Quest
-summary: "Aleksander Malone pursues Shepherd Grigori through the Midchain and tightens the trail towards the crew's wake."
+summary: "Aleksander Malone pursues Shepherd Grigori through the Midchain and
+  tightens the trail towards the crew's wake."
 sources:
- - "archive/the-hound-of-god.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/the-hound-of-god.md"
+  - "archive/Episode-09-Transcript.md"
 status: active
+revealed: ""
+title: ""
 ---
 
 ## At a glance

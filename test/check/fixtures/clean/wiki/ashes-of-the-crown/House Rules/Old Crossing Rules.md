@@ -2,6 +2,8 @@
 type: House Rule
 summary: "Crossing the bridge at Ravenhold costs a toll roll."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

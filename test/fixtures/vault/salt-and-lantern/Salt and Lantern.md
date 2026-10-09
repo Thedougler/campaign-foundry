@@ -3,6 +3,8 @@ type: Campaign
 summary: "Three newcomers keep a marsh lighthouse burning and find the bell of a drowned city ringing early."
 sources: []
 session_length_hours: 3
+revealed: ""
+title: ""
 ---
 
 ## At a glance

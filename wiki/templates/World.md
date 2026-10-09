@@ -1,7 +1,9 @@
 ---
+title: ""
 type: World
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

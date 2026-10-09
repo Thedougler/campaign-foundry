@@ -2,6 +2,8 @@
 type: House Rule
 summary: "Marsh mud and silt cost extra movement and can drop a runner on their face."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

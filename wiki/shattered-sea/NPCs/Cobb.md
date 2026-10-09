@@ -1,12 +1,15 @@
 ---
 type: NPC
-summary: "A young rattkin dockworker and Nona Black-Jaw's runner who keeps La Vasca's refit on schedule."
+summary: "A young rattkin dockworker and Nona Black-Jaw's runner who keeps La
+  Vasca's refit on schedule."
 sources:
- - "archive/Cobb.md"
- - "archive/ssw-nona-black-jaw.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-cobb.md"
+  - "archive/Cobb.md"
+  - "archive/ssw-nona-black-jaw.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-cobb.md"
 creature: ""
+revealed: "Session 3"
+title: ""
 ---
 
 ## At a glance

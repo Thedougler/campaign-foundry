@@ -2,7 +2,9 @@
 type: Creature
 summary: "A Grung Elite Warrior creature (CR 2) used as a warrior in The Shattered Sea."
 sources:
- - "archive/grung-elite-warrior.md"
+  - "archive/grung-elite-warrior.md"
+revealed: "Session 5"
+title: ""
 ---
 
 ## At a glance

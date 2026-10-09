@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A legendary colonial-era privateer cache on the Ashwall Islands, named the way crews name a thing they have not found."
+summary: "A legendary colonial-era privateer cache on the Ashwall Islands, named
+  the way crews name a thing they have not found."
 sources:
- - "archive/ssw-galewall.md"
+  - "archive/ssw-galewall.md"
 parent: "[[Ashwall Islands]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -13,7 +16,7 @@ parent: "[[Ashwall Islands]]"
 - **Prize.** Whatever the colonial privateers left behind, if the legend is more than a legend.
 
 > [!narration] Entering
-> You come ashore beneath cold black spires, and spray whips off the rock. Ask two crews after the privateers' cache and they give you two different shores, with no agreement that anything of it is left. The repair hands who climb the stone by daylight have heard every tale of it.
+> You come ashore beneath cold black spires, and spray whips off the rock. Ask two crews after the privateers' cache and they give you two different shores, but none agrees that anything of it survives. The repair hands who climb the stone by daylight have heard every tale of it.
 
 ## Play
 

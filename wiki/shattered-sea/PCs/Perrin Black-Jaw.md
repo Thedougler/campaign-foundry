@@ -1,15 +1,18 @@
 ---
 type: PC
-summary: "Kaden's level 5 rattkin Warlock and Lore Bard, the crew's voice and force multiplier with an unknown bond to Auralis."
+summary: "Level 5 rattkin Warlock and Lore Bard, the crew's voice and force
+  multiplier with an unknown bond to Auralis."
 sources:
- - "archive/perrin-black-jaw.md"
- - "archive/ssw-what-sunk-the-vestra.md"
- - "archive/ssw-session-02.md"
- - "archive/ssw-cobb.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
- - "archive/session-10.md"
- - "archive/session-12-full.md"
+  - "archive/perrin-black-jaw.md"
+  - "archive/ssw-what-sunk-the-vestra.md"
+  - "archive/ssw-session-02.md"
+  - "archive/ssw-cobb.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/session-10.md"
+  - "archive/session-12-full.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/Krab02/characters/166013448"
+revealed: "Backstory"
+title: ""
 ---
 
 ![[Perrin Black-Jaw - Reference Sheet.png]]

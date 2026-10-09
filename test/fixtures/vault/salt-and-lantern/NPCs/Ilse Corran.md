@@ -4,6 +4,8 @@ aliases: [Ledger Clerk]
 summary: "Leader of the Reedrunners, a former Weir Street clerk who runs the back channels of Saltwick."
 sources: []
 creature: "[[Bandit Captain]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

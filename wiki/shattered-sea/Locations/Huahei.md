@@ -3,8 +3,10 @@ type: Location
 kind: Region
 summary: "A small overgrown marshy island in the Midchain with a fey presence."
 sources:
- - "archive/ssw-midchain.md"
+  - "archive/ssw-midchain.md"
 parent: "[[Midchain]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

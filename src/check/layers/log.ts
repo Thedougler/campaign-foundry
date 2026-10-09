@@ -13,8 +13,8 @@ export const logLayer: Layer = {
 	run(ctx: CheckContext): Finding[] {
 		const findings: Finding[] = [];
 		for (const page of checkedPages(ctx)) {
-			const rotatedYear = /^log-(\d{4})$/.exec(page.name)?.[1];
-			if (page.name !== "log" && rotatedYear === undefined) continue;
+			const rotatedYear = /^log-(\d{4})$/.exec(page.slug)?.[1];
+			if (page.slug !== "log" && rotatedYear === undefined) continue;
 			const add = (line: number, rule: string, message: string, hint: string): void => {
 				findings.push({ layer: LAYER, severity: "error", rule, path: ctx.display(page.path), line, message, hint });
 			};
@@ -42,7 +42,7 @@ export const logLayer: Layer = {
 					}
 					previous = date;
 					if (rotatedYear !== undefined && date.slice(0, 4) !== rotatedYear) {
-						add(line, "wrong-year", `${page.name}.md holds ${rotatedYear} entries only, but this one is dated ${date}.`, `Move it to log-${date.slice(0, 4)}.md (or log.md for the current year).`);
+						add(line, "wrong-year", `${page.slug}.md holds ${rotatedYear} entries only, but this one is dated ${date}.`, `Move it to log-${date.slice(0, 4)}.md (or log.md for the current year).`);
 					}
 					return;
 				}

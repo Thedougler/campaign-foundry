@@ -30,8 +30,10 @@ const LAYER = "grammar";
  * - `OneOfTheSingular`: "one of the two" and "one of the three rivers" are standard English, but the rule flags the
  *   number standing alone and the noun that is already plural, and its suggestion is wrong ("two" → "twos"). The DM
  *   confirmed the disable; `ai-tells.VerbTricolon`, raised by the same run, stays on.
+ * - `AvoidCurses`: people in the World swear where it fits (AGENTS.md Content stance), so a curse is never a fault.
+ *   The DM confirmed the disable.
  */
-const DISABLED_RULES = ["SpellCheck", "UseTitleCase", "OxfordComma", "PhrasalVerbAsCompoundNoun", "UseEllipsisCharacter", "OrthographicConsistency", "MergeWords", "DisjointPrefixes", "OneOfTheSingular"] as const;
+const DISABLED_RULES = ["SpellCheck", "UseTitleCase", "OxfordComma", "PhrasalVerbAsCompoundNoun", "UseEllipsisCharacter", "OrthographicConsistency", "MergeWords", "DisjointPrefixes", "OneOfTheSingular", "AvoidCurses"] as const;
 
 /**
  * Two DM-confirmed Harper misfires on literal campaign meaning, dropped per lint so each rule keeps catching real

@@ -3,6 +3,8 @@ type: Thread
 summary: "A bell rings under the water before each Long Ebb, and the drowned bell-ringer wants the truth spoken."
 sources: []
 status: active
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -19,7 +19,7 @@ The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scen
    - `### Payoffs`: the answer to the Session's opening question, the concrete World change and the cost still visible.
    - `### Reactions`: each relevant NPC's or Faction's response as an action or offer, and its effect. Give each PC an opportunity to answer a goal, bond or Spotlight as their Player chooses.
    - `### Rewards`: write a row only for a branch that grants something. Give the amounts, linked Items and the grantor. State the practical effect of favours, titles or access, and advancement under the Campaign's actual practice where applicable. State availability and any remaining choice, such as accepting terms or dividing a reward.
-   - `### Stinger`, only for a grounded next pressure, sign or arrival.
+   - `### Stinger`, only for a grounded next pressure, sign or arrival, built per `docs/agents/narrative-devices.md` § Closing stinger.
    - `## At a glance`: what is true now, the cost, where, and who reacts first, by branch where they differ.
 
    **Done when** each branch contains its actual payoffs, persisting losses, playable responses and precise rewards, and the Players retain control of their reactions and decisions.

@@ -37,7 +37,7 @@ one group of Players moving through a World over a series of Sessions, with its 
 _Avoid_: game, adventure, run
 
 **Campaign folder**:
-the Wiki folder of one Campaign, named for it as a lowercase-hyphenated slug (`wiki/shattered-sea/`). It keeps the Campaign's pages and its World's pages together: both overviews, `campaign-config.md`, `hot.md`, `index.md`, `log.md` and the page folders. Kind folders at the vault root (`NPCs`, `Items`) exist only for pages a second Campaign reuses.
+the Wiki folder of one Campaign, named for it as a lowercase-hyphenated slug (`wiki/shattered-sea/`). It keeps the Campaign's pages and its World's pages together: both overviews, `campaign-config.md`, `story-so-far.md`, `hot.md`, `index.md`, `log.md` and the page folders. Kind folders at the vault root (`NPCs`, `Items`) exist only for pages a second Campaign reuses.
 _Avoid_: campaign directory, World folder
 
 **Session**:
@@ -250,6 +250,10 @@ _Avoid_: config, preferences, settings (bare)
 the DM's instructions to agents for one Campaign, kept as `campaign-config.md` in the Campaign folder: its tone, themes, and Lines and Veils. Its Lines and Veils are the only content limits. Everything else follows the DM's rating (`AGENTS.md` Content stance). Meta content that tells agents how to write content, rather than being Campaign content, lives here, or on DM Settings when it spans every Campaign. Agents read it after `user-config.md` before Wiki work in the Campaign.
 _Avoid_: DM Settings, user-config
 
+**story-so-far**:
+the arc-level view of one Campaign, kept as `story-so-far.md` in the Campaign folder by the `story-arc` skill and rewritten after each Session's Ingest. It retells the played story from the Recaps, and it says where the arc stands, which pressures move, what promises the Players can still pick up and where each PC's choices point. It links the Thread, Quest and PC pages and leaves their state on them.
+_Avoid_: campaign summary, timeline, hot.md
+
 **Repo**:
 the Campaign Foundry git project. Its root, the repo root, is the checkout `cf --root` names: it holds the Wiki at `wiki/`, plus `raw/`, `archive/`, `.cspell/`, `src/`, `evals/` and `docs/`. Repo-relative paths start here, such as a page's `sources` (`archive/session-11-transcript.md`). When run from the repo root, `cf` prints page paths this way (`wiki/shattered-sea/NPCs/Nona Black-Jaw.md`).
 _Avoid_: project, workspace, bare "root", "vault" for the Repo
@@ -259,8 +263,12 @@ the canonical, human-readable record of Worlds and Campaigns: the Obsidian vault
 _Avoid_: notes, knowledge base, "vault" for the Repo
 
 **Canon**:
-what is true in a World or Campaign. By precedence, what the DM says to the Agent or at the table comes first, then what the Wiki says, then material being ingested.
-_Avoid_: draft, approved, official
+what is true in a World or Campaign. By precedence, what the DM says to the Agent or at the table comes first, then what the Wiki says, then material being ingested. The Wiki holds it in two tiers, and fixed Canon on revealed pages takes precedence over draft Canon on unrevealed ones (**Revealed**).
+_Avoid_: approved, official
+
+**Revealed**:
+the record of when a page's subject first came up at the table. A page's `revealed` property is `"Backstory"` when the Players held the subject before play began, because a PC's backstory established it (on the PC page or in the Player's words) or a player-facing primer did (a player or world primer, campaign pitch or similar handout given before the first Session, such as `archive/Session-00-Prologue.md`, recorded in the Campaign's Session 0 pages). Otherwise it is `"Session N"` for the first Session where the subject came up at the table in any way, else `""`. A PC page is always `"Backstory"`, since its Player wrote it. `"Backstory"` counts as earlier than any Session. A claim heard at the table fixes that it was said, not that it is true. A page with `revealed: ""` is **draft Canon**: true until changed, and an agent may freely reflavour it or reuse it elsewhere. Once revealed, a page is **fixed Canon**, and each later change to it must be narratively additive. Such a change builds only on what is present, adding depth, history, consequences or new facts without contradicting or retconning anything already revealed. The PC pages, the primers and the Session records (Recaps, Previously Ons and the Session Ledgers in `archive/`) are the evidence for each value.
+_Avoid_: known, public, played (for a page)
 
 **Raw**:
 any file waiting to be ingested into the Wiki, such as a Transcript, a brain-dump, a PDF or an image. It waits in `raw/` at the repo root, outside the Wiki.

@@ -2,6 +2,8 @@
 type: campaign-config
 summary: "Ashes of the Crown creative preferences."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## Tone

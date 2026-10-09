@@ -1,9 +1,12 @@
 ---
 type: Previously On
-summary: "Talon Skarn attacked the Party twice for the Fate Spinner on Aruhe, and the second fight was still joined when play stopped."
+summary: "Talon Skarn attacked the Party twice for the Fate Spinner on Aruhe,
+  and the second fight was still joined when play stopped."
 sources:
- - "archive/session-12-full.md"
+  - "archive/session-12-full.md"
 date: "1495 DR, date not established"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

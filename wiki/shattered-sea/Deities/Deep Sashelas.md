@@ -1,8 +1,11 @@
 ---
 type: Deity
-summary: "The power the sea elves of Halythion worship; nothing else of the deity is recorded in the Shattered Sea."
+summary: "The power the sea elves of Halythion worship; nothing else of the
+  deity is recorded in the Shattered Sea."
 sources:
- - "archive/ssw-sea-elf.md"
+  - "archive/ssw-sea-elf.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

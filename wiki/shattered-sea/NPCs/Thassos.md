@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "A fixture of the Tallow Row card tables who tests new players and calls the game."
+summary: "A fixture of the Tallow Row card tables who tests new players and
+  calls the game."
 sources:
- - "archive/ssw-old-faas.md"
+  - "archive/ssw-old-faas.md"
 creature: "[[Commoner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -13,7 +16,7 @@ creature: "[[Commoner]]"
 - **Found at.** The [[Tallow Row]] tables.
 
 > [!narration] First look
-> A player at the corner table watches the new face longer than the cards, and folds a good hand without a shrug. When the play turns, it is this player's word the table waits on.
+> A player at the corner table watches the new face longer than the cards, and folds a good hand without a shrug. The table waits on this player's word when the play turns.
 
 ## Play
 

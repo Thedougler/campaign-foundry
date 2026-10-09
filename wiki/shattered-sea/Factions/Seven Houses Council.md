@@ -1,10 +1,13 @@
 ---
 type: Faction
-summary: "The council of seven Tessarine houses that leads the Concordat from Calveno; four houses usually vote its way while three stall."
+summary: "The council of seven Tessarine houses that leads the Concordat from
+  Calveno; four houses usually vote its way while three stall."
 aliases:
   - Seven Houses
   - Seven Houses of Calven and Calveno
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

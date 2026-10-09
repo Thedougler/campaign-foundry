@@ -2,8 +2,10 @@
 type: Creature
 summary: "A Terror-Bird creature (CR 13) used as a bruiser in The Shattered Sea."
 sources:
- - "archive/terror-bird.md"
- - "archive/session-12-full.md"
+  - "archive/terror-bird.md"
+  - "archive/session-12-full.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Terror-Bird - Portrait.jpg]]
@@ -17,7 +19,7 @@ sources:
 - **Used by.** [[Unsaid Macaw]] patrols the same territory.
 
 > [!narration] First sight
-> The trail begins to thrum, pebbles ticking together along its length. Moss quivers on a hump beside the path, and the hump rises on legs thick as fence posts. It keeps rising past the fern tops until a beaked head swings into view above them. A first stride takes it onto the trail, dead straight and building speed, and the beak opens wide enough for a head and shoulders.
+> The trail begins to thrum, pebbles ticking together along its length. Moss quivers on a hump beside the path. The hump rises on legs thick as fence posts. It keeps rising past the fern tops until a beaked head swings into view above them. A first stride takes it onto the trail, dead straight and building speed, and the beak opens wide enough for a head and shoulders.
 
 ## Statblock
 

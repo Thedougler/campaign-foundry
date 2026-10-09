@@ -1,10 +1,13 @@
 ---
 type: Creature
-summary: "A macaw that echoes surface thoughts and can briefly compel a truthful sentence."
+summary: "A macaw that echoes surface thoughts and can briefly compel a truthful
+  sentence."
 sources:
- - "archive/unsaid-macaw.md"
- - "archive/session-11-transcript-archived-version.md"
- - "archive/session-10.md"
+  - "archive/unsaid-macaw.md"
+  - "archive/session-11-transcript-archived-version.md"
+  - "archive/session-10.md"
+revealed: "Session 10"
+title: ""
 ---
 
 ![[Unsaid Macaw - Portrait.jpg]]

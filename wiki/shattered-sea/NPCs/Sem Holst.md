@@ -1,13 +1,16 @@
 ---
 type: NPC
-summary: "Lean shipwright aboard Uncertainty who catalogues hull damage unasked and judges people by what they ask about the ship."
+summary: "Lean shipwright aboard Uncertainty who catalogues hull damage unasked
+  and judges people by what they ask about the ship."
 sources:
- - "archive/ssw-sem-holst.md"
- - "archive/ssw-session-02.md"
- - "archive/ssw-session-03.md"
- - "archive/agentic-co-dm-sem-holst-narration.md"
- - "archive/session-10.md"
+  - "archive/ssw-sem-holst.md"
+  - "archive/ssw-session-02.md"
+  - "archive/ssw-session-03.md"
+  - "archive/agentic-co-dm-sem-holst-narration.md"
+  - "archive/session-10.md"
 creature: "[[Commoner]]"
+revealed: "Session 2"
+title: ""
 ---
 
 ![[Sem Holst - Portrait.webp]]

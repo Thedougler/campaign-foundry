@@ -2,6 +2,8 @@
 type: Creature
 summary: "A Creature with no stat block."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

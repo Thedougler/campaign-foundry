@@ -44,6 +44,8 @@ const structuralTwins = [
 	["Traps dirty", "Six slick silver snakes slide past Eileen Dover, who must ring the wring bell."],
 	["Traps clean", "Snakes glide past the watchman beside a brass bell."],
 	["Dialogue clean", 'The ferryman grips his pole and mutters, "Coins first."'],
+	["Envelope dirty", "Rain hammers the empty pier. Lanterns sway above black water. Something splashes beyond the pilings. Nets twist around a beam. Gulls circle the mast heights. Boots splash along the boards."],
+	["Envelope clean", "The ferry casts off before the rain arrives, and the current takes the hull sideways toward the far pylons where herons stand in rigid rows. Water seeps between the boards. A lantern gutters out, and Tovin hauls the rope tighter without looking up. Downstream someone rings the chapel bell twice, a flat sound that carries over the masts and stops the gulls midair for one held breath. Then the door of the ferryhouse opens. Inside, three strangers wait with their hoods still dripping, and the smallest one sets a coin on the counter without a word."],
 	["Non narration", "You cross the yard. In the tower, a bell rings. Back in the yard, guards gather."],
 ];
 
@@ -83,11 +85,11 @@ describe("cf check --layer narration", () => {
 	it("warns on echoes, not on the clean callout's own text", () => {
 		twin(existing, "echo", ["Crossing", "Echo"], ["Crossing", "Clean"], "Fresh words");
 		const [echo] = findings(existing, "Crossing", "Echo", "echo");
-		expect(echo?.line).toBe(17);
+		expect(echo?.line).toBe(19);
 		expect(echo?.message).toContain("mud slick as butter coats every plank of the dock");
-		expect(echo?.message).toContain("Drown/Scenes/Crossing.md:7");
+		expect(echo?.message).toContain("Drown/Scenes/Crossing.md:9");
 		expect(echo?.message).toContain("the ferry hangs from a chain of rusted links");
-		expect(echo?.message).toContain("Drown/Locations/Old Ferry.md:6");
+		expect(echo?.message).toContain("Drown/Locations/Old Ferry.md:7");
 	});
 
 	it("ignores shared runs made only of stop words", () => {
@@ -137,13 +139,24 @@ describe("cf check --layer narration", () => {
 		twin(added, "dialogue-attribution", ["Speech", "Speech"], ["Dialogue clean", "Dialogue clean"], "People/Delivery");
 	});
 
+	it("warns when six same-length sentences fall outside the GM voice envelope, not on varied rhythm", () => {
+		const hits = findings(added, "Envelope dirty", "Envelope dirty", "voice-envelope");
+		expect(hits.length).toBeGreaterThan(0);
+		for (const finding of hits) {
+			expect(finding.layer).toBe("narration");
+			expect(finding.severity).toBe("warning");
+			expect(finding.message).toContain("mean 5 words per sentence");
+		}
+		expect(findings(added, "Envelope clean", "Envelope clean", "voice-envelope")).toEqual([]);
+	});
+
 	it("ignores callouts other than narration", () => {
 		expect(added.report.findings.filter((finding) => finding.message.startsWith("Non narration:"))).toEqual([]);
 	});
 
 	it("leaves token rules and length bands out of structural analysis", () => {
 		const structuralRules = [
-			"echo", "fresh-starts", "evaluative-stack", "relative-chain", "invented-names", "spoken-word-trap", "dialogue-attribution",
+			"echo", "fresh-starts", "evaluative-stack", "relative-chain", "invented-names", "spoken-word-trap", "dialogue-attribution", "voice-envelope",
 		];
 		expect(added.report.findings.every((finding) => structuralRules.includes(finding.rule))).toBe(true);
 	});

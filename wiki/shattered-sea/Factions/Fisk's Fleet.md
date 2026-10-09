@@ -1,14 +1,17 @@
 ---
 type: Faction
-summary: "Delmar Fisk's five-ship fleet, assembled to steal the Pearl of Souls from Umberlee; it sank over the Drowned Maw."
+summary: "Delmar Fisk's five-ship fleet, assembled to steal the Pearl of Souls
+  from Umberlee; it sank over the Drowned Maw."
 sources:
- - "archive/ssw-minotaur.md"
- - "archive/ssw-lizardfolk.md"
- - "archive/ssw-umberlee.md"
- - "archive/ssw-what-sunk-the-vestra.md"
- - "archive/ssw-umberlee-shrine.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/ssw-admiral-fisk.md"
+  - "archive/ssw-minotaur.md"
+  - "archive/ssw-lizardfolk.md"
+  - "archive/ssw-umberlee.md"
+  - "archive/ssw-what-sunk-the-vestra.md"
+  - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/ssw-admiral-fisk.md"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

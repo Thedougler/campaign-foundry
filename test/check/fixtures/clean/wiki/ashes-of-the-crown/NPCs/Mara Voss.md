@@ -3,6 +3,8 @@ type: NPC
 summary: "Harbormaster with a bandit's past."
 sources: []
 creature: "[[Bandit Captain]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -20,7 +20,7 @@ Every figure in the answer is read from a fetched response.
 The 2024 API has no `rules` or glossary endpoint and no vehicles. Rules Glossary entries (Influence and the other actions, Attitude, Short Rest, Long Rest), Playing the Game sections (Social Interaction, Exploration, Travel) and Equipment's Mounts and Vehicles come from the [SRD 5.2.1 PDF](https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf), the official machine-readable copy. D&D Beyond's Free Rules pages return only site chrome to `read`.
 
 1. **Convert once.** When `/tmp/srd-5.2.1.txt` is missing: `curl -s -o /tmp/srd-5.2.1.pdf https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf && pdftotext -raw /tmp/srd-5.2.1.pdf /tmp/srd-5.2.1.txt`.
-2. **Find the heading.** `grep` the text file for it. Glossary entries read `Name [Tag]` (`Influence [Action]`, `Friendly [Attitude]`, `Blinded [Condition]`) or a bare name (`Long Rest`). Chapter sections are bare headings (`Social Interaction`).
+2. **Find the heading.** Find it with the `grep` tool (pattern `<heading>`, path `/tmp/srd-5.2.1.txt`). Glossary entries read `Name [Tag]` (`Influence [Action]`, `Friendly [Attitude]`, `Blinded [Condition]`) or a bare name (`Long Rest`). Chapter sections are bare headings (`Social Interaction`).
 3. **Read the entry.** `read` from the hit to the next heading.
 
 Retell the text in fresh words and cite the PDF with the section or glossary entry.

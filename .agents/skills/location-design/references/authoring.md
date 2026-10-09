@@ -5,11 +5,11 @@ Location-design uses sections 1 and 2 before kind-specific design and sections 3
 ## 1. Orient and establish Canon
 
 1. Read `AGENTS.md`, `CONTEXT.md` and `docs/wiki-layout.md` before authoring. Read ADRs 0003, 0005 and 0010 when resolving Canon, rules ownership or gate requirements. Establish the World, active Campaign, requested purpose and containing Location from the DM's brief and repo. Keep a caller's objective and operation. A standalone worldbuilding request is `create`.
-2. Use the installed `qmd` skill to discover the orientation pages. Read the Campaign's `hot.md`, then its Campaign folder's `index.md`, then the last ten entries of its `log.md`, before task pages. If fewer entries exist, read them all and take the remainder from the latest rotated log. Hot is orientation, not evidence for new facts.
-3. Search qmd for the target, aliases, containing Location, neighbours and relevant people, Factions, Creatures, Items, Lore, House Rules, Threads, Quests and Recaps. Retrieve the full source behind each relied-on fact and follow its relevant links, children and backlinks. Keep a private inventory of facts, owner paths and why each matters here. Account for every relevant hit by using it or recording why it does not apply.
+2. Follow root `AGENTS.md` **Orient** for the read order: `hot.md`, the Campaign folder's `index.md`, and the last ten entries of its `log.md` (all of them when fewer exist, taking the remainder from the latest rotated log), before task pages. Hot is orientation, not evidence for new facts.
+3. Search QMD (`.omp/AGENTS.md` § Wiki access) for the target, aliases, containing Location, neighbours and relevant people, Factions, Creatures, Items, Lore, House Rules, Threads, Quests and Recaps. Retrieve the full source behind each relied-on fact and follow its relevant links, children and backlinks. Keep a private inventory of facts, owner paths and why each matters here. Account for every relevant hit by using it or recording why it does not apply.
 4. Read the current `wiki/templates/Location - <Kind>.md` before designing the page. The Kind is exactly Region, Settlement or Site. Choose `parent` by physical containment alone: any Location may contain another, including a Site inside a Site. Preserve an established containing Location unless the DM changes it. A top-level Region has an empty parent.
 
-Canon precedence is DM statements, then the Wiki, then material being ingested. Preserve established geography, inhabitants, mechanics and events while moving them into the current template's headings and properties. Distinguish a superseded state from a contradiction: a recorded event advances the World, while closed events remain history. Decide missing design facts consistently with the retrieved Canon and list those decisions in the reply, which is their only record. Keep inventory and source-comparison notes out of the page.
+Canon precedence is DM statements, then the Wiki, then material being ingested. Preserve established geography, inhabitants, mechanics and events while moving them into the current template's headings and properties, and change each page only as its `revealed` property allows (`CONTEXT.md` **Revealed**). Distinguish a superseded state from a contradiction: a recorded event advances the World, while closed events remain history. Decide missing design facts consistently with the retrieved Canon and list those decisions in the reply, which is their only record. Keep inventory and source-comparison notes out of the page.
 
 Use live `vault://` reads/edits in omp.
 
@@ -46,27 +46,12 @@ Write British English. Add an in-world word without its own page to `.cspell-wor
 
 ## 4. Gate and record the operation
 
-Read `package.json` and these help commands before running the gate or logging, so paths and flags match the installed CLI:
-
-```bash
-bun run cf -- check --help
-bun run cf -- log --help
-```
-
-From the repo root, regenerate indexes, apply mechanical fixes and resolve the remaining findings without changing Canon, then run the page gate with no layer filter, given every page this run touched:
-
-```bash
-bun run cf -- index
-bun run cf -- check --fix "<page path>" "<page path>"
-bun run cf -- check "<page path>" "<page path>"
-```
-
-Never edit generated indexes by hand. When the caller assigns an explicit filesystem target, add its `--vault`, `--root` and `--templates` paths to the check commands, and `--vault`/`--root` to indexing and logging.
+Close per `skill://lint` § Commands over every page this run touched, repairing each finding without changing Canon and reading `bun run cf -- check --help` first so paths and flags match the installed CLI. Never edit generated indexes by hand. When the caller assigns an explicit filesystem target, give every command its `--vault` and `--root`, and each check `--templates` (**Another root** there).
 
 After a successful standalone operation, append exactly one entry listing each touched content page, using its vault-relative path. Replace the placeholders and repeat `--page` as needed:
 
 ```bash
-bun run cf -- log --campaign "<Campaign>" --op create --title "Design <Location>" --page "<campaign-folder>/Locations/<Location>.md"
+bun run cf -- log --op create --title "Design <Location>" --page "<campaign-folder>/Locations/<Location>.md"
 ```
 
 `create` includes deepening a Location outside Ingest or Prep. A composed request returns touched paths, Canon decisions and unresolved findings to its caller. The caller runs the final gate and writes one entry under its existing operation. A child handoff leaves logging to the caller.

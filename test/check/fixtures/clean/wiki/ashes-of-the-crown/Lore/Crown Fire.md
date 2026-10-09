@@ -2,6 +2,8 @@
 type: Lore
 summary: "How the Crown burned in a single night."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

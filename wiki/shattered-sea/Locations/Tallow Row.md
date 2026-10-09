@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A card house of long-running tables where Thunk won silver, Thassos tests the players, and Old Faas holds fifteen years of standing."
+summary: "A card house of long-running tables where Thunk won silver, Thassos
+  tests the players, and Old Faas holds fifteen years of standing."
 sources:
- - "archive/ssw-old-faas.md"
+  - "archive/ssw-old-faas.md"
 parent: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

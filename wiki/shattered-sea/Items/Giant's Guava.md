@@ -1,9 +1,12 @@
 ---
 type: Item
-summary: "A rare Aruhe fruit that raises a chosen ability score for 1 hour; one gourd cooks into five weaker kebabs."
+summary: "A rare Aruhe fruit that raises a chosen ability score for 1 hour; one
+  gourd cooks into five weaker kebabs."
 sources:
- - "archive/giants-guava.md"
- - "archive/session-12-full.md"
+  - "archive/giants-guava.md"
+  - "archive/session-12-full.md"
+revealed: "Session 12"
+title: ""
 ---
 
 ![[Giant's Guava - Handout Art.jpg]]

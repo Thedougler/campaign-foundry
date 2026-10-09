@@ -1,9 +1,12 @@
 ---
 type: Faction
-summary: "Nona Black-Jaw's family crew: the Passage's Warren anchor Run, smuggling under four hard rules."
+summary: "Nona Black-Jaw's family crew: the Passage's Warren anchor Run,
+  smuggling under four hard rules."
 sources:
- - "archive/ssw-nona-black-jaw.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/ssw-nona-black-jaw.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +18,7 @@ sources:
 - **Strength.** A family that has fought the [[Dravosi Crown]] for forty years, dock crews, trusted fronts, and rules enforced with broken hands.
 
 > [!narration] Public face
-> To the docks they read as a dock family, paint and pitch over honest rates. Vouched, you eat in Nona's kitchen before any talk of cargo, and board a ship that keeps itself off the ledger. Push past the four rules and the same hands that fed you break yours. On the water they answer to one name, and the name is the Black-Jaws.
+> To the docks they read as a dock family, paint and pitch over honest rates. Vouched, you eat in Nona's kitchen before any talk of cargo, and board a ship that keeps itself off the ledger. Push past the four rules. The same hands that fed you break yours. On the water they answer to one name, and the name is the Black-Jaws.
 
 ## Play
 

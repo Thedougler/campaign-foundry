@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "An unarmored Dravosi Crown deck sailor, uncertain the moment a boarding turns strange and quick to follow illusions."
+summary: "An unarmored Dravosi Crown deck sailor, uncertain the moment a
+  boarding turns strange and quick to follow illusions."
 sources:
- - "archive/ssw-session-01.md"
+  - "archive/ssw-session-01.md"
+revealed: "Session 1"
+title: ""
 ---
 
 ## At a glance

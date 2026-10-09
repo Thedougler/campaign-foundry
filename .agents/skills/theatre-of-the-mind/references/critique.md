@@ -11,7 +11,7 @@ One bounded pass after Revise, run once per block. It reads the block the way th
    - **Fix**: the rewrite or cut that recovers it.
    - **Severity**: one of three levels.
      - *critical* when a hard line breaks or the table cannot act
-     - *major* when the table read loses the picture, attention or an NPC's voice
+     - *major* when the table read loses the picture, attention or an NPC's voice, or a line is below root `AGENTS.md` **Print grade**
      - *minor* when the table hears it fine and it could still be sharper
 
    Done when every finding has all four parts and the list holds five or fewer, ordered by table cost.

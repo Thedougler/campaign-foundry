@@ -2,12 +2,14 @@
 type: NPC
 summary: "Undead elf archdruid bound to Aruhe, whose grief became the island's law."
 sources:
- - "archive/hinewai.md"
- - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
- - "archive/collab-2026-10-04-authority-themes.md"
- - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
- - "archive/session-12-full.md"
+  - "archive/hinewai.md"
+  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
+  - "archive/session-12-full.md"
 creature: "[[Hinewai the Blight]]"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Hinewai - Token.jpg]]
@@ -22,7 +24,7 @@ creature: "[[Hinewai the Blight]]"
 
 - **Role.** Undead guardian bound to [[Aruhe]] and the Death Bloom.
 - **Wants.** Aruhe untaken, her graves unharmed, and the [[Calven and Calveno|Calveno]] survivors to remain in her garden.
-- **Voice.** Low, calm, and old, with long silences between short sentences.
+- **Voice.** Calm, loving and regal, with two conversations at once. Each line speaks to the listener and to someone only she hears, and both halves are about the listener. At rest she drifts. Grung trigger her fury most of all, and so do harm to the land and anything taken without leave.
 - **Found at.** [[Memorial Grove]]. Elsewhere she appears only as the woman in the woods.
 
 > [!narration] First look
@@ -31,10 +33,56 @@ creature: "[[Hinewai the Blight]]"
 ## Play
 
 - **Opens them up.** A Grung without a gold seal who stands before her without the pull toward the graves.
-- **Shuts them down.** Taking from the island or threatening fire.
+- **Shuts them down.** A grung in sight or named, fire or felling on the island, and anything picked, trapped or pocketed without leave. Each trigger drops her drifting at once. Grung take her furthest, to the point of screaming.
 - **Will share.** The Grung send expeditions against her graves. She explains her garden's rules and permits anyone who wishes to leave to do so.
 - **Will not share.** Her history or any reason to trust the Grung.
-- **If pressed.** She claims fruit-eaters as hers and can bind an intruder with roots. She released Jean-Claude when the Party agreed to bring him before her and obey her garden's rules. Damage to the Death Bloom brings her Blight form.
+- **If pressed.** She claims fruit-eaters as hers and binds an intruder with roots. Her magic is the land's own: roots, opening earth, beasts, swarms and weather, never fire. She released Jean-Claude when the Party agreed to bring him before her and obey her garden's rules. Damage to the Death Bloom brings her Blight form.
+
+## Quotes
+
+> "You ate what fell, so you are welcome here. *He was thin like this one, once.* Rest, child. Nothing here will hurt you."
+
+The DM's voice sample, at rest, to a survivor who ate windfall. The italic half is said to the drowned companion she still hears.
+
+> "You may leave whenever you wish. *They never wish it.* Why would you leave the only place that will never hurt you?"
+
+The DM's voice sample, at rest, to anyone asking to leave.
+
+> "That was not given to you. *It's crying.* Put it back, and I will forget your hand."
+
+The DM's voice sample, triggered by something taken without leave.
+
+> "Then the island will take you back instead. *Don't watch.* It will be gentle. It is always gentle."
+
+The DM's voice sample, to a taker who will not give it back.
+
+> "You lit a fire in my garden. *They lit fires too.* The earth will open for you, and what you burned will grow from what is left of you."
+
+The DM's voice sample, triggered by fire on the island.
+
+> "Run if you like. *They ran.* Every root on this island knows your weight."
+
+The DM's voice sample, to anyone fleeing her.
+
+> "You came out of the water at night. *I remember this one's shape.* I will remember yours."
+
+The DM's voice sample, at first sight of a grung, remembering the raid that took her.
+
+> "Gold on your skin. *Rotting gods.* Your gods can watch you go into the earth."
+
+The DM's voice sample, to a grung bearing gold.
+
+> "Gold sent you for my graves. *He's under the tree, he's safe.* You are only a spade, and spades go in the ground."
+
+The DM's voice sample, to grung sent against her graves.
+
+> "No grung leaves my island. *Not one, I promised him.* Not one, not ever."
+
+The DM's voice sample, her fury at its height.
+
+> "There is no gold on you. *Is it a trick?* Tell me truly who speaks in your head, and I may love you as I love the rest."
+
+The DM's voice sample, to [[Jean-Claude Tabarnack|Jean-Claude]], a grung with no seal.
 
 ## Depth
 

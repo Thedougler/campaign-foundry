@@ -1,9 +1,13 @@
 ---
 type: Creature
-summary: "A storm-light bird born in the Ashwall volcanoes and flown west into the [[Galewall]]. Its white-fire crossings leave burned rigging and no agreement."
+summary: "A storm-light bird born in the Ashwall volcanoes and flown west into
+  the [[Galewall]]. Its white-fire crossings leave burned rigging and no
+  agreement."
 sources:
- - "archive/ssw-galewall.md"
- - "archive/ssw-ashwall-islands.md"
+  - "archive/ssw-galewall.md"
+  - "archive/ssw-ashwall-islands.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

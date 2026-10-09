@@ -2,10 +2,12 @@
 type: Item
 summary: "A rare Aruhe fruit that grants Resistance to all damage for 1 minute."
 sources:
- - "archive/Aruhe - Stonepear.md"
- - "archive/stonepear.md"
- - "archive/session-11-transcript-archived-version.md"
- - "archive/session-12-full.md"
+  - "archive/Aruhe - Stonepear.md"
+  - "archive/stonepear.md"
+  - "archive/session-11-transcript-archived-version.md"
+  - "archive/session-12-full.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Stonepear - Handout Art.jpg]]

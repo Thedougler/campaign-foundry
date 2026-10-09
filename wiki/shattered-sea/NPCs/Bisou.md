@@ -2,11 +2,13 @@
 type: NPC
 summary: "Beaumont Sel's capuchin monkey, the Saltwright's quick delivery hand."
 sources:
- - "archive/beaumont-sel.md"
- - "archive/Session 02 - Recap.md"
- - "archive/ssw-bisou.md"
- - "archive/ssw-session-02.md"
+  - "archive/beaumont-sel.md"
+  - "archive/Session 02 - Recap.md"
+  - "archive/ssw-bisou.md"
+  - "archive/ssw-session-02.md"
 creature: "[[Beaumont Sel (Creature)]]"
+revealed: "Session 2"
+title: ""
 ---
 
 ## At a glance

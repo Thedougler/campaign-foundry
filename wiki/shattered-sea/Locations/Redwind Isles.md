@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Region
-summary: "An under-charted island chain in the Outer Reach, likely held under an ancient blue dragon's sphere of control even when no sighting occurs."
+summary: "An under-charted island chain in the Outer Reach, likely held under an
+  ancient blue dragon's sphere of control even when no sighting occurs."
 sources:
- - "archive/ssw-outer-reach.md"
+  - "archive/ssw-outer-reach.md"
 parent: "[[Outer Reach]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

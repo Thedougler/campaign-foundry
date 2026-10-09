@@ -1,9 +1,12 @@
 ---
 type: Lore
-summary: "Calveno's five-day prank festival, where teams scheme against willing marks for bragging rights and a bronze medallion."
+summary: "Calveno's five-day prank festival, where teams scheme against willing
+  marks for bragging rights and a bronze medallion."
 sources:
- - "archive/il-gioco-delle-beffe.md"
- - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/il-gioco-delle-beffe.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+revealed: "Session 4"
+title: ""
 ---
 
 ## At a glance

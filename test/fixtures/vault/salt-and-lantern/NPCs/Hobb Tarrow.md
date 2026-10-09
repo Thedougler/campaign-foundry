@@ -3,6 +3,8 @@ type: NPC
 summary: "Harbor Warden of Saltwick, a tired veteran who hires the Party to keep the lighthouse lit."
 sources: []
 creature: "[[Bandit Captain]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Settlement
-summary: "An eastern boom town near the Drowned Maw that stages Shelfworks dives and supplies the line crews."
+summary: "An eastern boom town near the Drowned Maw that stages Shelfworks dives
+  and supplies the line crews."
 sources:
- - "archive/Episode-09-Transcript.md"
- - "archive/drowned-maw.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/drowned-maw.md"
 parent: "[[Midchain]]"
+revealed: "Session 9"
+title: ""
 ---
 
 ## At a glance

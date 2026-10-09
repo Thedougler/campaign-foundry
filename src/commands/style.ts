@@ -119,6 +119,8 @@ Examples:
 			// ponytail: the target files join the vault's name mask, so a file stem like `SKILL` masks only that exact word; revisit if a target stem collides with a Wiki name.
 			const ctx: CheckContext = {
 				vault,
+				// Only the target files are evaluated; the Wiki stays read-only context and name list.
+				target: (vaultPath) => shownByKey.has(vaultPath),
 				// The style and narration layers read no templates; an empty set keeps the CheckContext shape.
 				templates: { byName: new Map(), types: new Map() },
 				root,
@@ -133,7 +135,7 @@ Examples:
 			const result: CheckResult = {
 				findings,
 				fixes: [],
-				pages: vault.pages.length,
+				pages: shownByKey.size,
 				layers: [styleLayer.name, narrationLayer.name],
 				durationMs: Math.round(performance.now() - started),
 			};

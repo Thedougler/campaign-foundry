@@ -1,14 +1,17 @@
 ---
 type: Campaign
-summary: "Four survivors and fugitives seize a chance at a crew aboard the Saltwright while Crown inspection and the Drowned Maw close around them."
+summary: "Four survivors and fugitives seize a chance at a crew aboard the
+  Saltwright while Crown inspection and the Drowned Maw close around them."
 sources:
- - "archive/story-so-far.md"
- - "archive/campaign-timeline.md"
- - "archive/session-11-transcript.md"
- - "archive/session-12-full.md"
- - "archive/ssw-lines-and-veils.md"
- - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/story-so-far.md"
+  - "archive/campaign-timeline.md"
+  - "archive/session-11-transcript.md"
+  - "archive/session-12-full.md"
+  - "archive/ssw-lines-and-veils.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
 session_length_hours:
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -20,7 +23,7 @@ session_length_hours:
 - **Now.** After Session 12, the Party camps beside [[The Burnt Road]] deep inland on [[Aruhe]] with [[Matteo Scola]] and four rescued Calveno survivors, still mid-combat with [[Talon Skarn]], who returned invisible for the [[Fate Spinner]]. [[Jean-Claude Tabarnack]] answers to the garden-keeper's rules and is owed to her grove. Session 13 resumes the fight with the Party at level 6.
 
 > [!narration] The Campaign
-> You reached the Saltwright along separate roads. One of you lived through a wreck and another hides an older name, while a third was pulled from the sea. Hunters trail the fourth by one island. Crown sailors board to seize the ship while you are all together in the hold. Explaining whose ship it is will have to wait. Make the hold yours, get through the inspection, and decide what kind of crew crosses a sea where others own every route.
+> You reached the Saltwright along separate roads. One of you lived through a wreck and another hides an older name, while the sea gave up a third. Hunters trail the fourth by one island. Crown sailors board to seize the ship while you are all together in the hold. Who owns her can wait. Make the hold yours, get through the inspection, and decide what kind of crew crosses a sea where others own every route.
 
 ## Play
 
@@ -28,6 +31,7 @@ session_length_hours:
 - **Table agreements.** The Campaign follows the World tone of consequential travel, hard choices, and discoveries that remain useful beyond one Session.
 - **House Rules.** None established.
 - **Tone, themes, Lines and Veils.** [[campaign-config|Tone, themes, Lines and Veils]]
+- **Story so far.** [[story-so-far|The arc so far, its pressures and open promises]]
 
 ## Depth
 

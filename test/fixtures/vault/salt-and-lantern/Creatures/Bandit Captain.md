@@ -2,6 +2,8 @@
 type: Creature
 summary: "A hardened crew leader who fights with scimitar and pistol and knows when to leave."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

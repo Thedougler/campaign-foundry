@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Settlement
-summary: "A timber fortress-market and harbour stop on the raiding-fleet trail, where route information is currency."
+summary: "A timber fortress-market and harbour stop on the raiding-fleet trail,
+  where route information is currency."
 sources:
- - "archive/Sparhold.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/Sparhold.md"
+  - "archive/Episode-09-Transcript.md"
 parent: "[[Midchain]]"
+revealed: "Session 9"
+title: ""
 ---
 
 ## At a glance
@@ -17,7 +20,7 @@ parent: "[[Midchain]]"
 - **Known for.** Shipbuilding timber, berths and pilots. Visitors also seek departure records and information about the taken.
 
 > [!narration] Arrival
-> Arrivals at Sparhold are counted before anyone asks what brought you. Pitch and wet timber scent the berths below the market, enclosed by timber walls above the water towards the Verdant Teeth.
+> Sparhold counts every arrival before anyone asks what brought you. Pitch and wet timber scent the berths below the market, enclosed by timber walls above the water towards the Verdant Teeth.
 
 ## Play
 

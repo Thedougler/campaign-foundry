@@ -2,7 +2,9 @@
 type: Deity
 summary: "Goddess of magic who keeps the Weave, cursed by name on Aruhe's shore."
 sources:
- - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
+  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +16,7 @@ sources:
 - **Asks of followers.** Treat the Weave as a gift given in trust, and work it with care.
 
 > [!narration] Invocation
-> The Weave was given like a promise. Work it the way it was given, and it answers.
+> Mystra gave the Weave like a promise. Work it the way she gave it, and it answers.
 
 ## Play
 

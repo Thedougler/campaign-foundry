@@ -1,8 +1,12 @@
 ---
 type: Item
-summary: "The Gold caste's diet fruit from Karath's secret farms: enough of it turns a grung's skin gold, and a casting of Ossketh then holds the colour for life."
+summary: "The Gold caste's diet fruit from Karath's secret farms: enough of it
+  turns a grung's skin gold, and a casting of Ossketh then holds the colour for
+  life."
 sources:
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +18,7 @@ sources:
 - **Held by.** The Gold caste, on the farms at [[Karath]]. Small quantities reach outside buyers.
 
 > [!narration] First look
-> The fruit feels heavy for its size, skin gold-green and taut over dense flesh. The smell is thick and sweet, closer to a distillery than an orchard. Bite it and your lips stain saffron for a day. The stain is the tell. A grung fed on these wears the same colour on the skin, and it holds.
+> The fruit feels heavy in the hand for its size, gold-green skin pulled taut over the dense flesh within. The smell is thick and sweet, closer to a distillery than an orchard. Bite it and your lips stain saffron for a day. The stain is the tell. A grung fed on these wears the same colour on the skin, and it holds.
 
 ## Play
 

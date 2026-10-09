@@ -3,6 +3,8 @@ type: NPC
 summary: "The goblin tally-keeper of Reedholt, who records every boat and remembers where the old ledger lies."
 sources: []
 creature: "[[Goblin Warrior]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

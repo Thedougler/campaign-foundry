@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Calveno wreck survivor who keeps Aruhe's taking-law as debt, sealing every cut he passes and counting what he owes."
+summary: "Calveno wreck survivor who keeps Aruhe's taking-law as debt, sealing
+  every cut he passes and counting what he owes."
 sources:
- - "archive/taking-on-aruhe.md"
+  - "archive/taking-on-aruhe.md"
 creature: "[[Commoner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -3,6 +3,8 @@ type: Prep
 summary: "One line."
 sources: []
 date: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

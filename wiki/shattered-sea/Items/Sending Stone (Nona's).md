@@ -1,12 +1,15 @@
 ---
 type: Item
-summary: "A paired sending stone that gives Perrin a private line to Nona Black-Jaw in exchange for an unrevealed favour."
+summary: "A paired sending stone that gives Perrin a private line to Nona
+  Black-Jaw in exchange for an unrevealed favour."
 sources:
- - "archive/sending-stone-nonas.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/ssw-sending-stone-nona.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/sending-stone-nonas.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/ssw-sending-stone-nona.md"
+  - "archive/Episode-09-Transcript.md"
+revealed: "Session 3"
+title: ""
 ---
 
 ## At a glance

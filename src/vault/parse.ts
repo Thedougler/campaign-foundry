@@ -13,6 +13,38 @@ const WIKILINK = /(!?)\[\[([^[\]\n]*)\]\]/g;
 const CALLOUT_TITLE = /^\[!([^\]\s]+)\][+-]?[ \t]*(.*)$/;
 const BLOCK_ID = /(?:^|\s)\^([A-Za-z0-9-]+)\s*$/;
 
+/** A frontmatter value as a list of trimmed non-empty strings: a scalar becomes one entry, other shapes read as absent. */
+function stringValues(value: unknown): string[] {
+	if (typeof value === "string") return value.trim() === "" ? [] : [value.trim()];
+	return Array.isArray(value) ? value.filter((v): v is string => typeof v === "string" && v.trim() !== "").map((v) => v.trim()) : [];
+}
+
+/**
+ * A page's names in resolution order (ADR 0028): the frontmatter `title`, then each `aliases` entry, then the slug.
+ * A blank `title` counts as unset, so `cf check --fix`'s blank keys change nothing. Duplicates are removed
+ * case-insensitively, first spelling wins. Display uses the `title` alone (or the slug while unset) — see `Page.name`.
+ */
+export function pageNames(frontmatter: Record<string, unknown> | null, slug: string): string[] {
+	const seen = new Set<string>();
+	const out: string[] = [];
+	for (const name of [...stringValues(frontmatter?.title), ...stringValues(frontmatter?.aliases), slug]) {
+		const key = name.toLowerCase();
+		if (seen.has(key)) continue;
+		seen.add(key);
+		out.push(name);
+	}
+	return out;
+}
+
+/** Lowercase, hyphenated, no spaces: the slug form of a name (ADR 0028). */
+export function slugify(name: string): string {
+	return name
+		.toLowerCase()
+		.replace(/[''’]/g, "")
+		.replace(/[^a-z0-9]+/g, "-")
+		.replace(/^-+|-+$/g, "");
+}
+
 /** Replaces every non-newline character in the ranges with a space, so offsets and lines survive. */
 export function blank(source: string, ranges: [number, number][], keepQuoteMarkers: boolean): string {
 	if (ranges.length === 0) return source;
@@ -102,7 +134,7 @@ function findLinks(masked: string, starts: number[], frontmatterEnd: number, out
 }
 
 export function parsePage(path: string, source: string): Page {
-	const name = path.slice(path.lastIndexOf("/") + 1).replace(/\.md$/, "");
+	const slug = path.slice(path.lastIndexOf("/") + 1).replace(/\.md$/, "");
 
 	// Pass 1: find code, so `%%` inside code is not read as a comment.
 	const first = processor.parse(source);
@@ -178,7 +210,9 @@ export function parsePage(path: string, source: string): Page {
 
 	const page: Page = {
 		path,
-		name,
+		slug,
+		name: slug,
+		names: [slug],
 		source,
 		frontmatter: null,
 		frontmatterEndLine: 0,
@@ -193,6 +227,9 @@ export function parsePage(path: string, source: string): Page {
 	};
 	if (yamlNode?.position && yamlNode.type === "yaml") readFrontmatter(page, yamlNode.value, yamlNode.position.start.line);
 	if (yamlNode?.position) page.frontmatterEndLine = yamlNode.position.end.line;
+	page.names = pageNames(page.frontmatter, slug);
+	// Display keeps the file's spelling until a `title` exists; an alias is another handle, never the page's name.
+	page.name = stringValues(page.frontmatter?.title)[0] ?? slug;
 	return page;
 }
 

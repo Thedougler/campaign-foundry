@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "A young serpent of the eastern water that travels in numbers, listed among the Outer Reach's known threats."
+summary: "A young serpent of the eastern water that travels in numbers, listed
+  among the Outer Reach's known threats."
 sources:
- - "archive/ssw-outer-reach.md"
+  - "archive/ssw-outer-reach.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -1,6 +1,7 @@
 ---
 type: Recap
-summary: "The crew defended the Saltwright, recruited Geoffrey Draves, and left Barnaby Rook on the HCS Surety with a spent flintlock."
+summary: "The crew defended the Saltwright, recruited Geoffrey Draves, and left
+  Barnaby Rook on the HCS Surety with a spent flintlock."
 sources:
   - "archive/Session 01 - Recap.md"
   - "archive/session-01-recap.md"
@@ -8,6 +9,8 @@ sources:
   - "archive/agentic-co-dm-Session-01-Recap.md"
   - "archive/ssw-session-01.md"
 date: "1495 DR, date not established"
+revealed: "Session 1"
+title: ""
 ---
 
 ## At a glance

@@ -3,6 +3,8 @@ type: NPC
 summary: ""
 sources: []
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

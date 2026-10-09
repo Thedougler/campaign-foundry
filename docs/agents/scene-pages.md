@@ -34,7 +34,7 @@ Run every command from the repo root. A page path in a `cf` command starts with 
 
 ## Ground
 
-Find the pages that bear on this Scene by searching QMD (`skill://qmd`) and following links on the pages you read, then read each page behind a hit. Which pages matter is your judgement. Look for:
+Find the pages that bear on this Scene by searching QMD (`.omp/AGENTS.md` § Wiki access) and following links on the pages you read, then read each page behind a hit. Which pages matter is your judgement. Look for:
 
 - **The Session around it.** The Prep's Scene Chart row, Clues, Party and Opposition, the Scene's own page when it exists, and the archived files its `sources` list. For a Scene after the Hook, find the prepared outcomes that hand into it. A Resolution needs the Climax's, and a Hook needs the last played Recap and final Scene.
 - **What play has settled.** For a played Session, its Recap and the next Session's Previously On, which record what happened.
@@ -98,6 +98,7 @@ Write each `[!narration]` callout yourself with `theatre-of-the-mind`, once the 
 - `.agents/skills/theatre-of-the-mind/SKILL.md`, Steps 1 to 4, Craft, Hard lines and Final check. Its Step 5 gate runs once, in **Completion** below.
 - `.agents/skills/theatre-of-the-mind/references/recipes.md`: the shared rules at its top, `## Openings and first looks`, `## Scene openings`, and the recipe heading for each callout you write. The template callout uses the kind's heading (`### Hook`, `### Development`, `### Cliffhanger`, `### Climax` or `### Closing image`). A callout titled with an NPC's or Creature's name uses `### NPC entering` or `### Creature entering`. A major reveal uses `### Revelation`, and a cut across unplayed time or space uses `### Transition`.
 - `.agents/skills/theatre-of-the-mind/references/critique.md`, once, at its Step 4.
+- `reference/gm-voice/passages.md`: the three example passages theatre-of-the-mind Step 2 reads, as that step sets out.
 
 Its caller-supplied pages are this Scene and the pages you read in **Ground**. Give each callout its title, the Scene kind, the actual viewpoint, the entry condition and the spatial facts.
 
@@ -191,37 +192,19 @@ Compare the heading spine with the template, each `sources` path with its file, 
 
 ### Standalone
 
-Read `bun run cf -- index --help`, `bun run cf -- check --help` and `bun run cf -- log --help` before using the completion commands.
+From the repo root, close per `skill://lint` § Commands over the Scene and every page this run touched, reading `bun run cf -- check --help` first for the installed syntax. Gate findings are unfinished authoring: rewrite the flagged sentence for every finding while keeping Canon, then rerun the gate to `ok: 0 findings` (`AGENTS.md` **Zero findings**). Keep every layer enabled. For an assigned filesystem root, see **Another root** there.
 
-From the repo root, regenerate the index and run the page gate (`AGENTS.md` **Gate scope**) over the Scene and every page this run touched, applying mechanical fixes without changing Canon:
-
-```bash
-bun run cf -- index
-bun run cf -- check --fix "wiki/<page path>" "wiki/<page path>"
-bun run cf -- check "wiki/<page path>" "wiki/<page path>"
-```
-
-- Gate findings are unfinished authoring. Apply the mechanical fixes, rewrite the flagged sentence for every grammar, style and Narration finding while keeping Canon, and rerun the gate. Continue until it reports `ok: 0 findings`, warnings included.
-- Keep every layer enabled. A `--layer` filter is diagnostic only and never counts as completion evidence.
-- For an assigned filesystem root, add `--vault "<wiki>" --root "<root>"` to index, check and log, and `--templates "<wiki>/templates"` to check.
-
-After the latest gate reports `ok: 0 findings`, append one log entry listing every touched content page by its vault-relative path:
+After the page gate passes, append one log entry listing every touched content page by its vault-relative path:
 
 ```bash
-bun run cf -- log --campaign "<Campaign>" --op create --title "Author Session <N> <Scene title>" --page "<campaign>/Sessions/Session <N>/Session <N> - <Scene title>.md"
+bun run cf -- log --op create --title "Author Session <N> <Scene title>" --page "<campaign>/Sessions/Session <N>/Session <N> - <Scene title>.md"
 ```
-
-Repeat `--page` for Prep and every dependent page actually changed. Direct single-Scene work uses `create`. Any open finding leaves the operation unlogged. `index.md` and `log.md` belong to the CLI. Single-Scene work leaves `hot.md` and played Session records as they are. Full Prep rewrites `hot.md` and runs Push itself.
-
-Return the Scene and dependency paths, substantive design decisions and their grounding, conditional carry-forward, and the observed gate and log result. Page findings remain work in progress, never blockers. An unavailable prerequisite is a blocker only when failed tool or capability output establishes it and supported remedies are exhausted. Report that evidence and the exact missing prerequisite, and leave the operation unlogged.
 
 **Done when** the page and all dependencies are runnable, the index is current, the page gate reported `ok: 0 findings`, and the log entry exists.
 
-### Composed
+When an explicit caller runs the final operation, check each page you write by its **Page check** (`skill://lint` § Commands) and repair its findings. Return the authored Scene, owner pages, changed Prep material, every touched path, design decisions, conditional incoming and outgoing states, and any tooling findings. Give the caller the actual pending destination paths and entry variants, not name-only promises.
 
-When an explicit caller runs the final operation, check each page you write with `bun run cf -- check "wiki/<page path>"` and repair its findings. Return the authored Scene, owner pages, changed Prep material, every touched path, design decisions, conditional incoming and outgoing states, and any tooling findings. Give the caller the actual pending destination paths and entry variants, not name-only promises.
-
-The caller regenerates the index and runs the page-gate loop above over every touched path. Once the gate prints `ok: 0 findings`, the caller records one log entry for all touched pages, then performs its remaining hot and Push steps. Leave those duties with that caller. A child return is not a claim that Prep or Push has completed.
+The caller closes per `skill://lint` § Commands over every touched path. Once the gate prints `ok: 0 findings`, the caller records one log entry for all touched pages, then performs its remaining hot and Push steps. Leave those duties with that caller. A child return is not a claim that Prep or Push has completed.
 
 **Done when** every local craft and cold-read criterion holds, each page you wrote passed its own check, and the caller has the full return needed to finish end to end. A handoff with a failing gate is still an incomplete operation.
 

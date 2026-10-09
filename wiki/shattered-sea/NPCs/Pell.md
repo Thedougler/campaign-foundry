@@ -1,10 +1,13 @@
 ---
 type: NPC
-summary: "A gnome enslaved as a labourer at Sorn, killed in the reprisal after Jean-Claude freed slaves."
+summary: "A gnome enslaved as a labourer at Sorn, killed in the reprisal after
+  Jean-Claude freed slaves."
 sources:
- - "archive/ssw-midchain.md"
- - "archive/ssw-grung.md"
+  - "archive/ssw-midchain.md"
+  - "archive/ssw-grung.md"
 creature: "[[Commoner]]"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

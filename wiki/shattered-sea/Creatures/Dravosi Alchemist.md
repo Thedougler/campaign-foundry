@@ -1,9 +1,12 @@
 ---
 type: Creature
-summary: "A Dravosi Crown boarding alchemist who deployed Grung toxin across the Saltwright's gangplank and died to her own redirected cloud."
+summary: "A Dravosi Crown boarding alchemist who deployed Grung toxin across the
+  Saltwright's gangplank and died to her own redirected cloud."
 sources:
- - "archive/ssw-session-01.md"
- - "archive/ssw-the-canister.md"
+  - "archive/ssw-session-01.md"
+  - "archive/ssw-the-canister.md"
+revealed: "Session 1"
+title: ""
 ---
 
 ## At a glance

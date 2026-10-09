@@ -1,8 +1,11 @@
 ---
 type: Item
-summary: "An unused Grung authority seal that can replace one Grung's will with a lifelong order."
+summary: "An unused Grung authority seal that can replace one Grung's will with
+  a lifelong order."
 sources:
- - "archive/solanges-authority-seal.md"
+  - "archive/solanges-authority-seal.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

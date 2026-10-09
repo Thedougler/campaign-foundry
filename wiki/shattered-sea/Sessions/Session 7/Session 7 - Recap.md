@@ -1,10 +1,13 @@
 ---
 type: Recap
-summary: "Otar died in the Mercatura crater, and Iacopo Fieschi signed the crew as Calveno's Defenders."
+summary: "Otar died in the Mercatura crater, and Iacopo Fieschi signed the crew
+  as Calveno's Defenders."
 sources:
   - "archive/Session 07 - Recap.md"
   - "archive/session-07-recap.md"
 date: "1495 DR, date not established"
+revealed: "Session 7"
+title: ""
 ---
 
 ## At a glance

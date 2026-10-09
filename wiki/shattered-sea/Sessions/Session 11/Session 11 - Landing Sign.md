@@ -5,6 +5,8 @@ summary: "The Party lands at a cold stone ring and sees smoke inland."
 sources:
   - "archive/Session-11-02-Landing-Sign.md"
   - "archive/Session-11-02-Landing-Sign-archived-version.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Session 11 - Landing Sign - Handout Art.jpg]]

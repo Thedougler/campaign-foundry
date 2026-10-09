@@ -2,6 +2,7 @@
 type: Vehicle
 summary: "A coastal cutter."
 sources: []
+title: ""
 ---
 
 ## At a glance

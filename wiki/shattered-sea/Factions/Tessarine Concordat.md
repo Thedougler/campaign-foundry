@@ -1,12 +1,15 @@
 ---
 type: Faction
-summary: "Eastern mercantile colonial power that holds the Scatter with paper, debt and courtesy that is always a contract."
+summary: "Eastern mercantile colonial power that holds the Scatter with paper,
+  debt and courtesy that is always a contract."
 sources:
- - "archive/ssw-giant-squid.md"
- - "archive/ssw-tessarine-trade-house.md"
- - "archive/tessarine-concordat.md"
- - "archive/collab-2026-10-04-authority-themes.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/ssw-giant-squid.md"
+  - "archive/ssw-tessarine-trade-house.md"
+  - "archive/tessarine-concordat.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

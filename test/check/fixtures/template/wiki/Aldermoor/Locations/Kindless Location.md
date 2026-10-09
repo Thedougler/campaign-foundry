@@ -3,6 +3,8 @@ type: Location
 summary: "A chapel."
 sources: []
 parent: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

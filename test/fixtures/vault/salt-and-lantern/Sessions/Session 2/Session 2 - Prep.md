@@ -3,6 +3,8 @@ type: Prep
 summary: "Plan for Session 2: the bell rings early, the tide drops and the Party goes down to the Drowned Chapel."
 sources: []
 date: "22 Eelrun 412 CY"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

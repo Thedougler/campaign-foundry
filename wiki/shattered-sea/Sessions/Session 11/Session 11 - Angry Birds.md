@@ -5,6 +5,8 @@ summary: "An adult Bloodhawk stoops on the Crown Squid while the Party flees inl
 sources:
   - "archive/Session-11-01-Angry-Birds.md"
   - "archive/Session-11-01-Angry-Birds-archived-version.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Session 11 - Angry Birds - Battle Map.jpg]]

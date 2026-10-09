@@ -1,10 +1,13 @@
 ---
 type: Recap
-summary: "The crew killed the whip-shark, renamed the prize Uncertainty, and made landfall at Calveno with Nona's favour unpaid."
+summary: "The crew killed the whip-shark, renamed the prize Uncertainty, and
+  made landfall at Calveno with Nona's favour unpaid."
 sources:
   - "archive/Session 03 - Recap.md"
   - "archive/session-03-recap.md"
 date: "1495 DR, date not established"
+revealed: "Session 3"
+title: ""
 ---
 
 ## At a glance

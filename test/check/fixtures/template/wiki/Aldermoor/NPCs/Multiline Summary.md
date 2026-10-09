@@ -5,6 +5,8 @@ summary: |
   Line two.
 sources: []
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

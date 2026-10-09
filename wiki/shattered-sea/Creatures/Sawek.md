@@ -1,9 +1,13 @@
 ---
 type: Creature
-summary: "The strait's rumoured apex, a blue-hole predator associated with the darkest sections of the southern Midchain approaches, whose range in the open strait no pilot will state."
+summary: "The strait's rumoured apex, a blue-hole predator associated with the
+  darkest sections of the southern Midchain approaches, whose range in the open
+  strait no pilot will state."
 sources:
- - "archive/ssw-central-strait.md"
- - "archive/ssw-midchain.md"
+  - "archive/ssw-central-strait.md"
+  - "archive/ssw-midchain.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

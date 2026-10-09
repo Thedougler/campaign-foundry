@@ -2,6 +2,8 @@
 type: Creature
 summary: "A veteran raider who leads from the front."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

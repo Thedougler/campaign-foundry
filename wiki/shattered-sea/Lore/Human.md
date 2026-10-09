@@ -1,9 +1,12 @@
 ---
 type: Lore
-summary: "The Sea's most numerous and varied people, spread from Sigil, the City of Doors, across every water; no culture, god or look is common to all."
+summary: "The Sea's most numerous and varied people, spread from Sigil, the City
+  of Doors, across every water; no culture, god or look is common to all."
 sources:
- - "archive/ssw-human-culture.md"
- - "archive/agentic-co-dm-Human.md"
+  - "archive/ssw-human-culture.md"
+  - "archive/agentic-co-dm-Human.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +17,7 @@ sources:
 - **Reaches play through.** [[Delmar Fisk]] and every colonial dock where the [[Rattkin|rattkin]], the [[Grung|grung]] and the other [[Peoples of the Shattered Sea|peoples of the Sea]] share the quay.
 
 > [!narration] As it is told
-> Humans work every water, and no two quays keep the same gods. The old tellers walk them out of Sigil's doors, the city where Common was born, and they never stopped walking. Ask one where his people began and he names the street he was born on.
+> Humans work every water, and no two quays keep the same gods. The old tellers walk them out of Sigil's doors, the city of Common's birth, and they never stopped walking. Ask one where his people began and he names the street of his birth.
 
 ## Play
 

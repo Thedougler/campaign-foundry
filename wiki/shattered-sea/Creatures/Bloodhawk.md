@@ -4,8 +4,10 @@ aliases:
   - Bloodhawks
 summary: "A Bloodhawk creature (CR 11) used as a skirmisher in The Shattered Sea."
 sources:
- - "archive/session-11-transcript-archived-version.md"
- - "archive/bloodhawk.md"
+  - "archive/session-11-transcript-archived-version.md"
+  - "archive/bloodhawk.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Bloodhawk - Token.jpg]]
@@ -23,7 +25,7 @@ sources:
 - **Used by.** [[Crown Squid]] patrols the same territory.
 
 > [!narration] First sight
-> A blood-red bird glides over the treetops on four wide wings, and its shadow slides across the ground toward you. It circles once overhead, and its wings tip at one stretch of ground and hold. The whole bird folds, and the hiss of its stoop builds as it drops. Talons spread beneath it, each claw a hooked sickle, and the shadow covers one of you.
+> A blood-red bird glides over the treetops on four wide wings. Below, its shadow slides across the ground toward you. It circles once overhead. Then the wings tip at one stretch of ground and hold. The whole bird folds. Its talons spread beneath it as it drops, the hiss of the stoop building, each claw a hooked sickle, and the shadow covers one of you.
 
 ## Statblock
 

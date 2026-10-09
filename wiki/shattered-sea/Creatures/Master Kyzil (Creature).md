@@ -2,8 +2,10 @@
 type: Creature
 summary: "Master Kyzil, a unique Creature stat block from the archived NPC record."
 sources:
- - "archive/master-kyzil.md"
- - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/master-kyzil.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +17,7 @@ sources:
 - **Used by.** These statistics represent the NPC Master Kyzil.
 
 > [!narration] First sight
-> The Creature's distinctive silhouette and signature tell are apparent before it attacks.
+> A barn owl the size of a man glides over your heads on wide, round-tipped wings, and the breeze under them makes more noise than his wing beats. He wears plain sentinel robes. Feathers clothe him from ankle to crown, ash-grey along the wings and tawny over the chest. Then his wings stop mid-beat, he draws one long breath you can hear, and the blow follows it. At rest he perches, head turning toward each small noise.
 
 ## Statblock
 

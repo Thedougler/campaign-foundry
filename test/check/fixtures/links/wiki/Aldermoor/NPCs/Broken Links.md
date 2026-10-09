@@ -4,6 +4,8 @@ summary: "One line."
 sources: []
 creature: ""
 parent: "[[Ghost Parent]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

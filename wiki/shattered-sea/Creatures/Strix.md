@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "Catarina Da'Virelli's clockwork owl scout, run on the 2024 SRD Owl stat block."
+summary: "Catarina Da'Virelli's clockwork owl scout, run on the 2024 SRD Owl
+  stat block."
 sources:
- - "archive/Session 05 - Recap.md"
+  - "archive/Session 05 - Recap.md"
+revealed: "Session 5"
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +17,7 @@ sources:
 - **Used by.** [[Catarina Da'Virelli]].
 
 > [!narration] First sight
-> A clockwork owl comes down the tunnel ahead of you on quiet wings and hangs in the air, looking you over. Then it is gone through a grate the way it came.
+> A clockwork owl comes down the tunnel ahead of you on quiet wings and hangs in the air, looking you over. Then it slips away through a grate the way it came.
 
 ## Statblock
 

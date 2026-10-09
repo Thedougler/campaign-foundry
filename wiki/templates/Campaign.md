@@ -1,8 +1,10 @@
 ---
+title: ""
 type: Campaign
 summary: ""
 sources: []
 session_length_hours:
+revealed: ""
 ---
 
 ## At a glance

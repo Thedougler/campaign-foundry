@@ -1,11 +1,14 @@
 ---
 type: Recap
-summary: "Delmar confessed the Pearl theft, Umberlee named her price, and the Warren raid took Felix Aho two days before the festival bombs."
+summary: "Delmar confessed the Pearl theft, Umberlee named her price, and the
+  Warren raid took Felix Aho two days before the festival bombs."
 sources:
   - "archive/Session 04 - Recap.md"
   - "archive/Session-04-Recap.md"
   - "archive/ssw-silent-shortbow.md"
 date: "1495 DR, date not established"
+revealed: "Session 4"
+title: ""
 ---
 
 ## At a glance

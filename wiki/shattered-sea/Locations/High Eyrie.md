@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A basalt sea-stack beyond the Crown chain held by the Sentinels for two centuries above the Drowned Maw."
+summary: "A basalt sea-stack beyond the Crown chain held by the Sentinels for
+  two centuries above the Drowned Maw."
 sources:
- - "archive/high-eyrie.md"
+  - "archive/high-eyrie.md"
 parent: "[[Crown Islands]]"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

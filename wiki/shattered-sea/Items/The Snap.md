@@ -1,8 +1,11 @@
 ---
 type: Item
-summary: "A wrist bracer that unfolds into a hand-free shield granting +2 AC to Perrin Black-Jaw."
+summary: "A wrist bracer that unfolds into a hand-free shield granting +2 AC to
+  Perrin Black-Jaw."
 sources:
- - "archive/the-snap.md"
+  - "archive/the-snap.md"
+revealed: "Session 8"
+title: ""
 ---
 
 ## At a glance

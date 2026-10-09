@@ -1,8 +1,10 @@
 ---
+title: ""
 type: Recap
 summary: ""
 sources: []
 date: ""
+revealed: ""
 ---
 
 ## At a glance

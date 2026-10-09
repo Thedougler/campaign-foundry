@@ -4,6 +4,8 @@ kind: Settlement
 summary: "A walled port at the edge of the Brack, ruled by a Harbor Council and quietly taxed by smugglers."
 sources: []
 parent: "[[The Brack]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

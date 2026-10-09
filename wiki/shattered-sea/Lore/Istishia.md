@@ -1,8 +1,11 @@
 ---
 type: Lore
-summary: "A name for the water cosmology around the Drowned Maw that points at the Elemental Plane of Water, committed to nothing further."
+summary: "A name for the water cosmology around the Drowned Maw that points at
+  the Elemental Plane of Water, committed to nothing further."
 sources:
- - "archive/agentic-co-dm-istishia.md"
+  - "archive/agentic-co-dm-istishia.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

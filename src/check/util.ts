@@ -12,9 +12,9 @@ export function checkedPages(ctx: CheckContext): Page[] {
 	return ctx.target ? ctx.vault.pages.filter((page) => isTarget(ctx, page.path)) : ctx.vault.pages;
 }
 
-/** Generated or append-only pages: `index.md`, `log.md`, `log-YYYY.md`. They carry no template. */
+/** Generated or append-only pages: `index.md`, `log.md`, `log-YYYY.md`. They carry no template. File names, so slugs (ADR 0028). */
 export function isSpecialPage(page: Page): boolean {
-	return page.name === "index" || page.name === "log" || /^log-\d{4}$/.test(page.name);
+	return page.slug === "index" || page.slug === "log" || /^log-\d{4}$/.test(page.slug);
 }
 
 /** The candidate closest to `value`, when it is close enough to be a plausible typo. */

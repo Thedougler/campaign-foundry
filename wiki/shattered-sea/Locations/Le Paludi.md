@@ -1,14 +1,17 @@
 ---
 type: Location
 kind: Site
-summary: "Calveno's canal district of taverns, goods, alchemy and discreet routes below the city toward Warren."
+summary: "Calveno's canal district of taverns, goods, alchemy and discreet
+  routes below the city toward Warren."
 sources:
- - "archive/le-paludi.md"
- - "archive/ssw-silent-shortbow.md"
- - "archive/ssw-le-paludi.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/le-paludi.md"
+  - "archive/ssw-silent-shortbow.md"
+  - "archive/ssw-le-paludi.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
 parent: "[[Calven and Calveno]]"
+revealed: "Session 3"
+title: ""
 ---
 
 ## At a glance

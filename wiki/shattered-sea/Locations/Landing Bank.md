@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "The first river mouth after the terraces, where a used camp, northbound prints and fallen redheart berries mark the inland route."
+summary: "The first river mouth after the terraces, where a used camp,
+  northbound prints and fallen redheart berries mark the inland route."
 sources:
- - "archive/landing-bank.md"
+  - "archive/landing-bank.md"
 parent: "[[Grasslands]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

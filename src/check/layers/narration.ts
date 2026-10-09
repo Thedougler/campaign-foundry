@@ -1,4 +1,5 @@
 import { analyzeCallout } from "../../narration/analyze.ts";
+import envelope from "../../narration/envelope.json" with { type: "json" };
 import { calloutLines, linkedPages, pageWords } from "../../narration/sources.ts";
 import { englishWords } from "../english.ts";
 import { maskNames, vaultNameWords } from "../prose.ts";
@@ -22,6 +23,7 @@ export const narrationLayer: Layer = {
 					sources: [pageWords(page, calloutLines(page, callout)), ...linked],
 					names,
 					isWord,
+					envelope,
 					maskNames: (text) => maskNames(text, ctx.vault),
 				});
 				for (const finding of report.findings) {

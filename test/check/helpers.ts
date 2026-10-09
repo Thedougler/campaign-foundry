@@ -1,8 +1,8 @@
-import { spawn } from "node:child_process";
 import { cp, mkdtemp, readFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { runCli } from "../../src/cli.ts";
 const here = dirname(fileURLToPath(import.meta.url));
 export const repoRoot = resolve(here, "../..");
 export const fixtures = join(here, "fixtures");
@@ -14,19 +14,37 @@ export interface CliResult {
 	stderr: string;
 }
 
-/** Runs `node src/cli.ts <args>` exactly as an agent would, from `cwd`. */
+/** Runs one cf invocation in this process: the same program `node src/cli.ts` runs, minus the process. */
 export async function cf(args: string[], cwd: string = repoRoot, stdin = ""): Promise<CliResult> {
-	const child = spawn("node", [join(repoRoot, "src/cli.ts"), ...args], { cwd });
-	child.stdin?.end(stdin);
-	let stdout = "";
-	let stderr = "";
-	child.stdout.on("data", (chunk) => (stdout += chunk));
-	child.stderr.on("data", (chunk) => (stderr += chunk));
-	const code = await new Promise<number>((resolve) => {
-		child.on("error", () => resolve(1));
-		child.on("close", (exitCode) => resolve(exitCode ?? 1));
-	});
-	return { code, stdout, stderr };
+	const run = await runCli(args, { cwd, stdin });
+	return { code: run.code, stdout: run.stdout, stderr: run.stderr };
+}
+
+/**
+ * One cf invocation with process env entries set just for the call: how tests put a stub `vale` on
+ * PATH, hide it, or hand the command extra variables. Each entry is restored afterwards, `undefined`
+ * meaning removed for the call.
+ */
+export async function cfWithEnv(
+	args: string[],
+	env: Record<string, string | undefined>,
+	cwd: string = repoRoot,
+	stdin = "",
+): Promise<CliResult> {
+	const saved: Record<string, string | undefined> = {};
+	for (const name of Object.keys(env)) saved[name] = process.env[name];
+	try {
+		for (const [name, value] of Object.entries(env)) {
+			if (value === undefined) delete process.env[name];
+			else process.env[name] = value;
+		}
+		return await cf(args, cwd, stdin);
+	} finally {
+		for (const [name, value] of Object.entries(saved)) {
+			if (value === undefined) delete process.env[name];
+			else process.env[name] = value;
+		}
+	}
 }
 
 export interface JsonFinding {

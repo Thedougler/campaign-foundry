@@ -4,6 +4,7 @@ import { runCheck, UsageError } from "../check/run.ts";
 import type { CheckResult } from "../check/run.ts";
 import { campaignFolders, generateIndexes } from "../vault/indexes.ts";
 import { appendLogEntry, today } from "../vault/log.ts";
+import type { Page } from "../vault/types.ts";
 import { buildVault, readVaultFiles } from "../vault/vault.ts";
 import { fetchCharacter, PullError } from "./ddb.ts";
 import type { FetchLike } from "./ddb.ts";
@@ -76,14 +77,16 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 	const inCampaign = all.filter((p) => options.campaign === undefined || nameByFolder.get(p.folder) === options.campaign);
 	const wanted = (options.pcs ?? []).map((n) => n.toLowerCase());
 	for (const name of options.pcs ?? []) {
-		if (!inCampaign.some((p) => p.page.name.toLowerCase() === name.toLowerCase())) {
+		const wantedName = name.toLowerCase();
+		if (!inCampaign.some((p) => p.page.names.some((n) => n.toLowerCase() === wantedName))) {
 			throw new UsageError(
 				`No PC named "${name}".`,
 				inCampaign.length > 0 ? `PCs: ${inCampaign.map((p) => p.page.name).join(", ")}. Example: cf pull --pc "${inCampaign[0]!.page.name}"` : "Add a PC page under <Campaign folder>/PCs/ first.",
 			);
 		}
 	}
-	const targets = inCampaign.filter((p) => wanted.length === 0 || wanted.includes(p.page.name.toLowerCase()));
+	const answersTo = (page: Page, wanted: string[]): boolean => page.names.some((n) => wanted.includes(n.toLowerCase()));
+	const targets = inCampaign.filter((p) => wanted.length === 0 || answersTo(p.page, wanted));
 
 	const outcomes: PcOutcome[] = [];
 	const changed: { folder: string; name: string }[] = [];
@@ -93,7 +96,7 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 		const url = typeof page.frontmatter?.dndbeyond_url === "string" ? page.frontmatter.dndbeyond_url.trim() : "";
 		if (url === "") {
 			// Skipped when swept up with the Party; a failure when the DM named this PC.
-			const named = wanted.includes(page.name.toLowerCase());
+			const named = answersTo(page, wanted);
 			outcomes.push({
 				...base,
 				status: named ? "failed" : "skipped",

@@ -35,7 +35,7 @@ function resolvePages(ctx: CheckContext, findings: Finding[]): Resolved[] {
 		}
 		const fm = page.frontmatter;
 		if (!fm) {
-			at("missing-frontmatter", 1, "Page has no frontmatter.", `Start the page with a property block naming its page kind, e.g.\n---\ntype: NPC\nsummary: One line.\nsources: []\ncreature: ""\n---\nValid types: ${validTypes(ctx)}.`);
+			at("missing-frontmatter", 1, "Page has no frontmatter.", `Start the page with a property block naming its page kind, e.g.\n---\ntype: NPC\nsummary: One line.\nsources: []\ncreature: ""\nrevealed: ""\n---\nValid types: ${validTypes(ctx)}.`);
 			continue;
 		}
 		const typeLine = page.frontmatterKeyLines.type ?? 1;

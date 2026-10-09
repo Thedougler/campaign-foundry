@@ -1,8 +1,11 @@
 ---
 type: Lore
-summary: "A feline folk of the eastern water; the tabaxi city of Keth-Naar is the furthest reliable landmark east of the Drowned Maw."
+summary: "A feline folk of the eastern water; the tabaxi city of Keth-Naar is
+  the furthest reliable landmark east of the Drowned Maw."
 sources:
- - "archive/ssw-outer-reach.md"
+  - "archive/ssw-outer-reach.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -1,12 +1,15 @@
 ---
 type: Location
 kind: Site
-summary: "A broken structure east of the Drowned Maw, structurally unstable and still subsiding."
+summary: "A broken structure east of the Drowned Maw, structurally unstable and
+  still subsiding."
 sources:
- - "archive/ssw-outer-reach.md"
- - "archive/ssw-umberlee.md"
- - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-outer-reach.md"
+  - "archive/ssw-umberlee.md"
+  - "archive/ssw-umberlee-shrine.md"
 parent: "[[Outer Reach]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

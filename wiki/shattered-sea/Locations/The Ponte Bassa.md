@@ -1,12 +1,15 @@
 ---
 type: Location
 kind: Site
-summary: "A canal-side tavern built into Calveno's main crossing, where Oleandro Fuschi serves fish broth and remembers ships."
+summary: "A canal-side tavern built into Calveno's main crossing, where Oleandro
+  Fuschi serves fish broth and remembers ships."
 sources:
- - "archive/ponte-bassa.md"
- - "archive/ssw-il-palio-delle-voci.md"
- - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/ponte-bassa.md"
+  - "archive/ssw-il-palio-delle-voci.md"
+  - "archive/ssw-session-04-ingest-recap.md"
 parent: "[[Calven and Calveno]]"
+revealed: "Session 4"
+title: ""
 ---
 
 ## At a glance
@@ -18,7 +21,7 @@ parent: "[[Calven and Calveno]]"
 - **Prize.** A hot bowl, canal view and a ship's movement or the captain who knows more.
 
 > [!narration] Entering
-> The tavern is built into the bridge, with a window on canal traffic. Damp rises beneath the tiers. Hot fish stock and bread mark the room as a place to stop while boats work below.
+> The tavern is part of the bridge itself, its window looking out on the canal traffic. Damp rises beneath the tiers. Inside, hot fish stock and bread scent the air, a reason to stop while the boats work below.
 
 ## Play
 

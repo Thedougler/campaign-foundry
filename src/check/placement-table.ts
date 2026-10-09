@@ -46,6 +46,7 @@ export const PLACEMENTS: Record<string, Location[]> = {
 	Campaign: [{ dir: [CAMPAIGN] }],
 	hot: [{ dir: [CAMPAIGN], name: "hot" }],
 	"campaign-config": [{ dir: [CAMPAIGN], name: "campaign-config" }],
+	"story-so-far": [{ dir: [CAMPAIGN], name: "story-so-far" }],
 	PC: [{ dir: [CAMPAIGN, "PCs"] }],
 	Thread: [{ dir: [CAMPAIGN, "Threads"] }],
 	Quest: [{ dir: [CAMPAIGN, "Quests"] }],

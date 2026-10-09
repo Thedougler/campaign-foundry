@@ -3,6 +3,8 @@ type: NPC
 summary: "The drowned bell-ringer of Vessen, who rings the chapel bell and wants the gate opened again."
 sources: []
 creature: "[[Mire Drowner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

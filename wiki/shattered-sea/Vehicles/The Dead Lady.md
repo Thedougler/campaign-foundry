@@ -1,9 +1,12 @@
 ---
 type: Vehicle
-summary: "The collection hull Umberlee sends when her Waveservants are not enough, known by the red wake she leaves."
+summary: "The collection hull Umberlee sends when her Waveservants are not
+  enough, known by the red wake she leaves."
 sources:
- - "archive/ssw-umberlee.md"
- - "archive/Umberlee.md"
+  - "archive/ssw-umberlee.md"
+  - "archive/Umberlee.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -16,7 +19,7 @@ sources:
 - **Berth.** No berth the record names.
 
 > [!narration] First sight
-> A hull stands off the harbour mouth in the fog with her wake running red behind her, and she answers no hail. Collecting stops at the quay until she is gone.
+> A hull stands off the harbour mouth in the fog with her wake running red behind her, and she answers no hail. Collecting stops at the quay until she leaves.
 
 ## Play
 

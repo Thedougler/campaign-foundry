@@ -2,8 +2,10 @@
 type: Creature
 summary: "A River Otter creature (CR 4) used as a controller in The Shattered Sea."
 sources:
- - "archive/session-11-transcript-archived-version.md"
- - "archive/river-otter.md"
+  - "archive/session-11-transcript-archived-version.md"
+  - "archive/river-otter.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[River Otter - Token.png]]
@@ -19,7 +21,7 @@ sources:
 - **Used by.** [[Snakewood]] patrols the same territory.
 
 > [!narration] First sight
-> Otters as big as sheepdogs tumble in the shallows, rolling one another under and letting go. One clamps both paws on the end of a trailing line and hauls it under, then bobs up empty-pawed. Another surges from below and fastens on the first one, and the two of them go down in a swirl of foam. Then both surface in a slapping of tails, and the smallest one drags the line away through the weeds.
+> Otters as big as sheepdogs tumble in the shallows, rolling one another under and letting go. One clamps both paws on the end of a trailing line and hauls it under. It bobs up empty-pawed. Another surges from below and fastens on the first one, and the two of them go down in a swirl of foam. Then both surface in a slapping of tails, and the smallest one drags the line away through the weeds.
 
 ## Statblock
 

@@ -1,9 +1,12 @@
 ---
 type: Vehicle
-summary: "A dark Grung raiding proa broken above the tideline on Aruhe's landing beach, last shelter of the wreck's castaways."
+summary: "A dark Grung raiding proa broken above the tideline on Aruhe's landing
+  beach, last shelter of the wreck's castaways."
 sources:
- - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+  - "archive/Episode-09-Transcript.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

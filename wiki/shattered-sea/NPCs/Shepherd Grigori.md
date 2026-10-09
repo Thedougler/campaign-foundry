@@ -1,16 +1,19 @@
 ---
 type: NPC
-summary: "Korabl of the Flock, a healer whose blood-anchor survival trick feeds an undead ascension."
+summary: "Korabl of the Flock, a healer whose blood-anchor survival trick feeds
+  an undead ascension."
 sources:
- - "archive/shepherd-grigori.md"
- - "archive/ssw-shepherd-grigori.md"
- - "archive/ssw-session-02.md"
- - "archive/ssw-shepherd-grigori-island.md"
- - "archive/collab-2026-10-04-authority-themes.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
- - "archive/Episode-09-Transcript.md"
- - "archive/session-10.md"
+  - "archive/shepherd-grigori.md"
+  - "archive/ssw-shepherd-grigori.md"
+  - "archive/ssw-session-02.md"
+  - "archive/ssw-shepherd-grigori-island.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/session-10.md"
 creature: "[[Shepherd Grigori (Creature)]]"
+revealed: "Session 2"
+title: ""
 ---
 
 ## At a glance

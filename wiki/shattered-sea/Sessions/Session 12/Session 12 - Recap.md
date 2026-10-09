@@ -1,9 +1,13 @@
 ---
 type: Recap
-summary: "The Party kept the Fate Spinner from Skarn, rescued four Calveno survivors and followed compelled Grung's trail inland before Skarn ambushed their next camp."
+summary: "The Party kept the Fate Spinner from Skarn, rescued four Calveno
+  survivors and followed compelled Grung's trail inland before Skarn ambushed
+  their next camp."
 sources:
- - "archive/session-12-full.md"
+  - "archive/session-12-full.md"
 date: "1495 DR, date not established"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance

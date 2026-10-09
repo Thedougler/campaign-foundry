@@ -2,10 +2,12 @@
 type: NPC
 summary: "Commodore of the Knight Squadron, tightening the Crown net around the crew."
 sources:
- - "archive/rupert-knighton.md"
- - "archive/ssw-session-02.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/rupert-knighton.md"
+  - "archive/ssw-session-02.md"
+  - "archive/Episode-09-Transcript.md"
 creature: "[[Commoner]]"
+revealed: "Session 2"
+title: ""
 ---
 
 ## At a glance

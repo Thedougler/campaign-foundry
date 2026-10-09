@@ -2,7 +2,9 @@
 type: Creature
 summary: "A Minor Slaad creature (CR 1/2) used as a bruiser in The Shattered Sea."
 sources:
- - "archive/minor-slaad.md"
+  - "archive/minor-slaad.md"
+revealed: "Session 7"
+title: ""
 ---
 
 ## At a glance

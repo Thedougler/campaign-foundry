@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Calveno wreck survivor who keeps Aruhe's taking-law the way a tradeswoman keeps a rule that holds, with no worship in it."
+summary: "Calveno wreck survivor who keeps Aruhe's taking-law the way a
+  tradeswoman keeps a rule that holds, with no worship in it."
 sources:
- - "archive/taking-on-aruhe.md"
+  - "archive/taking-on-aruhe.md"
 creature: "[[Commoner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

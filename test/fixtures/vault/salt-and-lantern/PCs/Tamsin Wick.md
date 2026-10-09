@@ -3,6 +3,8 @@ type: PC
 summary: "A halfling Thief rogue from Saltwick's Undertow who once ran errands for the Reedrunners."
 sources: []
 dndbeyond_url: "https://www.dndbeyond.com/characters/000000002"
+revealed: "Backstory"
+title: ""
 ---
 
 ## Sheet

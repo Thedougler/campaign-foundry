@@ -1,8 +1,10 @@
 ---
+title: ""
 type: PC
 summary: ""
 sources: []
 dndbeyond_url: ""
+revealed: "Backstory"
 ---
 
 %% Two sides. The D&D Beyond pull (ADR 0009) replaces the sheet side (Sheet, Spells, Inventory) whole, so nobody edits it by hand. The pull leaves the story side (Story, Goals and bonds, Plans) as written. %%

@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "A giant bird crews place above the Ashwall spires, riding the Galewall stormfronts in high weather."
+summary: "A giant bird crews place above the Ashwall spires, riding the Galewall
+  stormfronts in high weather."
 sources:
- - "archive/ssw-galewall.md"
+  - "archive/ssw-galewall.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

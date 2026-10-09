@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "An older Calveno captive who broke Aruhe's fruit taboo the first night ashore and left only drag marks behind."
+summary: "An older Calveno captive who broke Aruhe's fruit taboo the first night
+  ashore and left only drag marks behind."
 sources:
- - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

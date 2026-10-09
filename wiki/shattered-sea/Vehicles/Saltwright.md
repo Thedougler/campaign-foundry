@@ -1,11 +1,14 @@
 ---
 type: Vehicle
-summary: "Beaumont Sel's battered brig and the Party's first berth, carrying four strangers toward Calveno when the Crown inspection began."
+summary: "Beaumont Sel's battered brig and the Party's first berth, carrying
+  four strangers toward Calveno when the Crown inspection began."
 sources:
- - "archive/Session-00-Prologue.md"
- - "archive/ssw-session-01.md"
- - "archive/ssw-the-canister.md"
- - "archive/ssw-beaumonts-crew.md"
+  - "archive/Session-00-Prologue.md"
+  - "archive/ssw-session-01.md"
+  - "archive/ssw-the-canister.md"
+  - "archive/ssw-beaumonts-crew.md"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

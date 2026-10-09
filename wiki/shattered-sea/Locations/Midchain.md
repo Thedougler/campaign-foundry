@@ -1,16 +1,19 @@
 ---
 type: Location
 kind: Region
-summary: "The remote island chain whose reefs, harbours and rival powers shape every crossing."
+summary: "The remote island chain whose reefs, harbours and rival powers shape
+  every crossing."
 sources:
- - "archive/aruhe.md"
- - "archive/Sparhold.md"
- - "archive/ssw-grung.md"
- - "archive/ssw-minotaur.md"
- - "archive/ssw-verdant-scatter.md"
- - "archive/ssw-midchain.md"
- - "archive/session-10.md"
+  - "archive/aruhe.md"
+  - "archive/Sparhold.md"
+  - "archive/ssw-grung.md"
+  - "archive/ssw-minotaur.md"
+  - "archive/ssw-verdant-scatter.md"
+  - "archive/ssw-midchain.md"
+  - "archive/session-10.md"
 parent: "[[Verdant Scatter]]"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

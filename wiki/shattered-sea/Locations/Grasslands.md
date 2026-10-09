@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Region
-summary: "Hot river-cut valleys of eight-foot gold-green grass where water, cover and predators force exposed choices."
+summary: "Hot river-cut valleys of eight-foot gold-green grass where water,
+  cover and predators force exposed choices."
 sources:
- - "archive/grasslands.md"
+  - "archive/grasslands.md"
 parent: "[[Aruhe]]"
+revealed: ""
+title: ""
 ---
 
 ![[Grasslands - Portrait.jpg]]

@@ -1,9 +1,12 @@
 ---
 type: Item
-summary: "Crown parchment licensing Barnaby Rook as a privateer and carrying a 30,000 gp Crown bond."
+summary: "Crown parchment licensing Barnaby Rook as a privateer and carrying a
+  30,000 gp Crown bond."
 sources:
- - "archive/letters-of-marque.md"
- - "archive/ssw-letters-of-marque.md"
+  - "archive/letters-of-marque.md"
+  - "archive/ssw-letters-of-marque.md"
+revealed: "Session 2"
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +18,7 @@ sources:
 - **Held by.** The Party took them from [[Uncertainty]].
 
 > [!narration] First look
-> Soft parchment bears one name in a clerk's hand and a Crown seal pressed into wax. The folds are worried, the edges nicked and dark from handling.
+> The parchment is soft under your fingers. A clerk's hand has written one name across it, beside a Crown seal pressed into the wax. Handling has worried the folds and darkened the nicked edges.
 
 ## Play
 

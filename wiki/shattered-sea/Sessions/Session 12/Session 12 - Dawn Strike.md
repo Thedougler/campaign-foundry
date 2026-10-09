@@ -1,10 +1,13 @@
 ---
 type: Scene
 kind: Hook
-summary: "At first light Talon Skarn cuts at Crissdalynn's harness for the Fate Spinner, and the Party must drive him off before he takes it."
+summary: "At first light Talon Skarn cuts at Crissdalynn's harness for the Fate
+  Spinner, and the Party must drive him off before he takes it."
 sources:
   - "archive/session-12-index.md"
   - "archive/session-12-01-dawn-strike.md"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +18,7 @@ sources:
 - **Who.** [[Talon Skarn]], [[Crissdalynn Khinriss]], the other three PCs, and sleeping Matteo Scola. The route begins at [[Session 12 - Prep]].
 
 > [!narration] Opening
-> Over the dead coals the falcon has Crissdalynn locked beak to beak, and his sword grinds against her staff while the sickle in the other fist picks at her harness buckles. Dawn has come up grey, and spray drifting off the rapids beads cold on the faces of everyone still in their blankets. A few strides past the fight the bank drops sheer into the still pool, and beyond its stone lip the whitewater roars loud enough to swallow the scrape of steel. Matteo sleeps through all of it on his mat, curled around his sling. Its curved point slides under the first strap and starts to saw.
+> Over the dead coals the falcon has Crissdalynn locked beak to beak, and his sword grinds against her staff while the sickle in the other fist picks at her harness buckles. Dawn has come up grey, and spray drifting off the rapids beads cold on the faces of everyone still in their blankets. A few strides past the fight the bank drops sheer into the still pool, and beyond its stone lip the whitewater roars loud enough to swallow the scrape of steel. Matteo sleeps through it all on his mat, curled around his sling. Its curved point slides under the first strap and starts to saw.
 
 ## Play
 

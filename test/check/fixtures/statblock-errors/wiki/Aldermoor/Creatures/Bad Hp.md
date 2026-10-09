@@ -2,6 +2,8 @@
 type: Creature
 summary: "Seeded stat block: Bad Hp."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

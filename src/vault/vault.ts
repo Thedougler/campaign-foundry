@@ -65,7 +65,8 @@ export async function loadTemplates(templatesDir: string): Promise<TemplateSet> 
 	const types = new Map<string, string[]>();
 	paths.forEach((path, i) => {
 		const page = parsePage(path, sources[i] ?? "");
-		const name = page.name;
+		// The template's name is its file's stem, not the example `title` its frontmatter may carry.
+		const name = path.replace(/\.md$/, "");
 		const [type = name, kind] = name.split(" - ");
 		const fm = page.frontmatter ?? {};
 		byName.set(name, {

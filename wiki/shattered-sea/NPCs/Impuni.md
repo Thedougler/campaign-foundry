@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "A name Shepherd Grigori said he needed to reach in Calveno, in time; nothing else on record."
+summary: "A name Shepherd Grigori said he needed to reach in Calveno, in time;
+  nothing else on record."
 sources:
- - "archive/ssw-shepherd-grigori.md"
+  - "archive/ssw-shepherd-grigori.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

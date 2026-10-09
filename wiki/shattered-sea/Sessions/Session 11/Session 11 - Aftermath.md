@@ -5,6 +5,8 @@ summary: "The theft attempt remains unresolved as play ends in the river camp."
 sources:
   - "archive/Session-11-10-Aftermath.md"
   - "archive/Session-11-10-Aftermath-archived-version.md"
+revealed: "Session 11"
+title: ""
 ---
 ## At a glance
 

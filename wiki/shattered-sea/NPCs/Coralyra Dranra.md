@@ -2,8 +2,10 @@
 type: NPC
 summary: "Sea elf sorcerer and bard, self-exiled from her post as Aoidos of Halythion."
 sources:
- - "archive/ssw-sea-elf.md"
+  - "archive/ssw-sea-elf.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

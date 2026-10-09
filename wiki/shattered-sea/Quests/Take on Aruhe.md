@@ -1,10 +1,13 @@
 ---
 type: Quest
-summary: "Learn Aruhe's law and reach its survivors without claiming living island life or drawing the island's responders."
+summary: "Learn Aruhe's law and reach its survivors without claiming living
+  island life or drawing the island's responders."
 sources:
- - "archive/taking-on-aruhe.md"
- - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+  - "archive/taking-on-aruhe.md"
+  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
 status: active
+revealed: "Session 10"
+title: ""
 ---
 
 ## At a glance

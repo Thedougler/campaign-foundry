@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Settlement
-summary: "A functioning Calveno city whose closed Season 1 crisis leaves its durable urban identity only partly recorded."
+summary: "A functioning Calveno city whose closed Season 1 crisis leaves its
+  durable urban identity only partly recorded."
 sources:
- - "archive/mercatura.md"
+  - "archive/mercatura.md"
 parent: "[[Calven and Calveno]]"
+revealed: "Session 7"
+title: ""
 ---
 
 ## At a glance

@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A Velo Quarter curio shop where Prospero Morsani sells rare objects together with the stories of those who lost them."
+summary: "A Velo Quarter curio shop where Prospero Morsani sells rare objects
+  together with the stories of those who lost them."
 sources:
- - "archive/cabinet-of-morsani.md"
+  - "archive/cabinet-of-morsani.md"
 parent: "[[Calven and Calveno]]"
+revealed: "Session 8"
+title: ""
 ---
 
 ## At a glance

@@ -3,6 +3,8 @@ type: hot
 summary: "Party at Ravenhold, one Thread burning."
 sources: []
 date: "14 Emberfall 1492"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

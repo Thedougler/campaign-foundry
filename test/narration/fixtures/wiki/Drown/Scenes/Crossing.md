@@ -2,6 +2,8 @@
 type: Scene
 summary: "The crossing at dusk."
 npc: "[[Ferryman]]"
+revealed: ""
+title: ""
 ---
 
 Mud slick as butter coats every plank of the dock. The reed beds hum with midges here too, and the [[Old Ferry|ferry]] waits.

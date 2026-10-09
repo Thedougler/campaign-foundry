@@ -1,8 +1,11 @@
 ---
 type: Faction
-summary: "A power whose ships Rattkin families watch for; threat enough that Nona Black-Jaw keeps count of their ports."
+summary: "A power whose ships Rattkin families watch for; threat enough that
+  Nona Black-Jaw keeps count of their ports."
 sources:
- - "archive/ssw-nona-black-jaw.md"
+  - "archive/ssw-nona-black-jaw.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +17,7 @@ sources:
 - **Strength.** Ships, and a reputation that makes matriarchs move.
 
 > [!narration] Public face
-> Sailors discuss the Tarahs as they discuss weather, in someone else's lowered voice. A Rattkin matriarch counts their ships and calls off a family reunion because one put in at her port. Nobody volunteers what they do to the families they find. Crews who sight their sails just say the Tarahs are out.
+> Sailors discuss the Tarahs as they discuss weather, in someone else's lowered voice. A Rattkin matriarch counts their ships and calls off a family reunion because one put in at her port. Nobody volunteers what they do to the families they find. Crews who sight their sails report only the sighting. The Tarahs are out, they say.
 
 ## Play
 

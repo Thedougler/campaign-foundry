@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Keeper of Kat's Curios, holding Delmar Fisk's whip-shark barb under appraisal."
+summary: "Keeper of Kat's Curios, holding Delmar Fisk's whip-shark barb under
+  appraisal."
 sources:
- - "archive/ssw-whip-shark-barb.md"
+  - "archive/ssw-whip-shark-barb.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

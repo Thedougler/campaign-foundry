@@ -2,6 +2,8 @@
 type: Item
 summary: "A lantern that shows what burned."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

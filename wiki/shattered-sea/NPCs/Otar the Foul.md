@@ -2,8 +2,10 @@
 type: NPC
 summary: "Ancient red slaad summoned through Solange Barret to destroy Mercatura."
 sources:
- - "archive/otar-the-foul.md"
+  - "archive/otar-the-foul.md"
 creature: "[[Otar the Foul (Creature)]]"
+revealed: "Session 7"
+title: ""
 ---
 
 ## At a glance

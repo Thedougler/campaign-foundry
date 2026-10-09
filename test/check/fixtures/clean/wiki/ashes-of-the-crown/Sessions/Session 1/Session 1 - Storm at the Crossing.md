@@ -3,6 +3,8 @@ type: Scene
 kind: Hook
 summary: "A storm pins the Party at the bridge."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

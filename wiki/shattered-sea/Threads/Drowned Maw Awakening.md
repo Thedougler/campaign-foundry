@@ -1,14 +1,17 @@
 ---
 type: Thread
-summary: "The Drowned Maw's fissure and Auralis's awakening are changing the sea, while Perrin hears a patron he does not understand."
+summary: "The Drowned Maw's fissure and Auralis's awakening are changing the
+  sea, while Perrin hears a patron he does not understand."
 sources:
- - "archive/story-so-far.md"
- - "archive/campaign-timeline.md"
- - "archive/perrin-black-jaw.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/session-12-full.md"
+  - "archive/story-so-far.md"
+  - "archive/campaign-timeline.md"
+  - "archive/perrin-black-jaw.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/session-12-full.md"
 status: active
+revealed: "Session 1"
+title: ""
 ---
 
 ![[Drowned Maw Awakening - Handout Art.png]]

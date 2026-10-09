@@ -1,9 +1,12 @@
 ---
 type: Quest
-summary: "Keep Crissdalynn out of the contest between Skarn and Vantyrus for control of Countless."
+summary: "Keep Crissdalynn out of the contest between Skarn and Vantyrus for
+  control of Countless."
 sources:
   - "archive/rule-of-two.md"
 status: active
+revealed: ""
+title: ""
 ---
 
 ## At a glance

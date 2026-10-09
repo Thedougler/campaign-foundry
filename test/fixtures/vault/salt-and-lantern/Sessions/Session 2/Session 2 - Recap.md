@@ -4,6 +4,8 @@ summary: "The Party crossed the Under-Boards, spoke the names of the drowned and
 sources:
   - archive/session-2-transcript.md
 date: "23 Eelrun 412 CY"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

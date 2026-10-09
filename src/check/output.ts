@@ -31,7 +31,7 @@ export function formatHuman(result: CheckResult, opts: { fix: boolean; dryRun: b
 		n === 0
 			? "ok: 0 findings"
 			: `${n} finding${n === 1 ? "" : "s"} (${errors} error${errors === 1 ? "" : "s"}, ${warnings} warning${warnings === 1 ? "" : "s"}) in ${files} file${files === 1 ? "" : "s"}`,
-		`${result.pages} pages`,
+		`${result.pages} page${result.pages === 1 ? "" : "s"}`,
 		`${result.layers.length} layer${result.layers.length === 1 ? "" : "s"} (${result.layers.join(", ")})`,
 	];
 	if (opts.fix) parts.push(`${result.fixes.length} ${opts.dryRun ? "fixable" : "fixed"}`);

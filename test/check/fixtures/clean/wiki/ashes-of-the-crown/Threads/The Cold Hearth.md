@@ -3,6 +3,8 @@ type: Thread
 summary: "Mara's hearth is failing, and so is her hold."
 sources: []
 status: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

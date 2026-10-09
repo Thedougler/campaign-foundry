@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A clearing deep in the Quiet roofed by one fruit-heavy vine, where seven Calveno survivors live on what falls."
+summary: "A clearing deep in the Quiet roofed by one fruit-heavy vine, where
+  seven Calveno survivors live on what falls."
 sources:
- - "archive/the-pantry.md"
+  - "archive/the-pantry.md"
 parent: "[[The Quiet]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

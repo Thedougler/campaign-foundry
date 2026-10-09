@@ -2,8 +2,10 @@
 type: NPC
 summary: "Saltwright's bosun; clipped, correct, and no interest in small talk."
 sources:
- - "archive/ssw-beaumonts-crew.md"
+  - "archive/ssw-beaumonts-crew.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

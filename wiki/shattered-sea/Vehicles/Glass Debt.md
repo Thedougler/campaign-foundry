@@ -1,9 +1,13 @@
 ---
 type: Vehicle
-summary: "The name for what piracy becomes when it grows until convoys, patrols and councils all have to react; a report of her consolidates the strait's shipping by evening."
+summary: "The name for what piracy becomes when it grows until convoys, patrols
+  and councils all have to react; a report of her consolidates the strait's
+  shipping by evening."
 sources:
- - "archive/ssw-central-strait.md"
- - "archive/ssw-verdant-scatter.md"
+  - "archive/ssw-central-strait.md"
+  - "archive/ssw-verdant-scatter.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

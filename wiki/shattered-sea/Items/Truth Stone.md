@@ -1,12 +1,15 @@
 ---
 type: Item
-summary: "A grey stone that heats white-hot when its holder knowingly lies, dealing fire damage with every Deception check until it is dropped."
+summary: "A grey stone that heats white-hot when its holder knowingly lies,
+  dealing fire damage with every Deception check until it is dropped."
 sources:
- - "archive/beaumont-sel.md"
- - "archive/Session 02 - Recap.md"
- - "archive/session-02-recap.md"
- - "archive/ssw-truth-stone.md"
- - "archive/ssw-session-02.md"
+  - "archive/beaumont-sel.md"
+  - "archive/Session 02 - Recap.md"
+  - "archive/session-02-recap.md"
+  - "archive/ssw-truth-stone.md"
+  - "archive/ssw-session-02.md"
+revealed: "Session 2"
+title: ""
 ---
 
 ## At a glance
@@ -18,7 +21,7 @@ sources:
 - **Held by.** [[Jean-Claude Tabarnack]], given by [[Beaumont Sel]] aboard the [[Saltwright]].
 
 > [!narration] First look
-> Beaumont Sel weighs a smooth grey stone in his palm, then rolls it over the planks to you. It is river-worn and unmarked, no bigger than the last joint of a thumb, and warm, as if fresh from a hand. No mark on the stone hints at why he parts with it.
+> Beaumont Sel weighs a smooth grey stone in his palm, then rolls it over the planks to you. The stone is river-worn and unmarked, no bigger than the last joint of a thumb, and warm, as if fresh from a hand.
 
 ## Play
 

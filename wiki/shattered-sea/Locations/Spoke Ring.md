@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "The Calveno survivors' last camp under the Quiet, a round fire hub where trails leave like spokes toward Hinewai's voice."
+summary: "The Calveno survivors' last camp under the Quiet, a round fire hub
+  where trails leave like spokes toward Hinewai's voice."
 sources:
- - "archive/spoke-ring.md"
+  - "archive/spoke-ring.md"
 parent: "[[The Quiet]]"
+revealed: ""
+title: ""
 ---
 
 ![[Spoke Ring - Handout Art.jpg]]

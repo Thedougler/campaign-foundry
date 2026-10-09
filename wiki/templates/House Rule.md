@@ -1,7 +1,9 @@
 ---
+title: ""
 type: House Rule
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

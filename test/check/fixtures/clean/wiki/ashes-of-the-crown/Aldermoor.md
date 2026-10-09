@@ -2,6 +2,8 @@
 type: World
 summary: "A river country on the edge of the Ashen Reach."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

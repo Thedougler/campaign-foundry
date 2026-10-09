@@ -1,11 +1,14 @@
 ---
 type: NPC
-summary: "Blue-caste Grung handler who became an ally while hiding the party in a sewer nap room."
+summary: "Blue-caste Grung handler who became an ally while hiding the party in
+  a sewer nap room."
 sources:
- - "archive/ruma-delacroix.md"
- - "archive/Episode-09-Transcript.md"
- - "archive/session-10.md"
+  - "archive/ruma-delacroix.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/session-10.md"
 creature: "[[Commoner]]"
+revealed: "Session 5"
+title: ""
 ---
 
 ## At a glance

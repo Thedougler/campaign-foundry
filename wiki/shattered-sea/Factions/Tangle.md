@@ -1,8 +1,11 @@
 ---
 type: Faction
-summary: "The Passage's elder council of Run families, setting wider policy from kitchen tables rather than thrones."
+summary: "The Passage's elder council of Run families, setting wider policy from
+  kitchen tables rather than thrones."
 sources:
- - "archive/ssw-nona-black-jaw.md"
+  - "archive/ssw-nona-black-jaw.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

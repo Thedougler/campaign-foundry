@@ -219,7 +219,8 @@ export function runChecks(checks: Checks, outcome: Outcome): Result[] {
 }
 
 
-async function main(argv: string[]): Promise<number> {
+/** The CLI entry: parse args, run the case's checks and the gate, print PASS/FAIL/WARN lines. Exported for tests. */
+export async function main(argv: string[]): Promise<number> {
   let parsed;
   try {
     parsed = parseArgs({

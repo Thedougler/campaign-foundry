@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Settlement
-summary: "A cliff-tier fortress-port whose docks, trade shelf and Crestwall guns watch the far side Strait."
+summary: "A cliff-tier fortress-port whose docks, trade shelf and Crestwall guns
+  watch the far side Strait."
 sources:
- - "archive/calders-tooth-and-port-tidefall.md"
- - "archive/ssw-tessarine-trade-house.md"
+  - "archive/calders-tooth-and-port-tidefall.md"
+  - "archive/ssw-tessarine-trade-house.md"
 parent: "[[Crown Islands]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

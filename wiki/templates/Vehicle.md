@@ -1,7 +1,9 @@
 ---
+title: ""
 type: Vehicle
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

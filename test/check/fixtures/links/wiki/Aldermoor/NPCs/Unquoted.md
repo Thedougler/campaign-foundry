@@ -4,6 +4,8 @@ summary: "One line."
 sources: []
 creature: ""
 parent: [[Ravenhold]]
+revealed: ""
+title: ""
 ---
 
 ## At a glance

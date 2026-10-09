@@ -387,9 +387,9 @@ function highlightsCommand(): Command {
 			const help = args.includes("--help") || args.includes("-h");
 			const project = fileURLToPath(new URL("../../python", import.meta.url));
 			const extra = help ? [] : ["--extra", "highlights"];
-			const result = spawnSync("uv", ["run", "--project", project, ...extra, "python", "-m", "campaign_foundry.highlights", ...args], {
-				stdio: "inherit",
-			});
+			const result = spawnSync("uv", ["run", "--project", project, ...extra, "python", "-m", "campaign_foundry.highlights", ...args], { encoding: "utf8" });
+			if (result.stdout) process.stdout.write(result.stdout);
+			if (result.stderr) process.stderr.write(result.stderr);
 			if (result.error) {
 				throw new UsageError("uv is not on PATH.", "Install uv (https://docs.astral.sh/uv/), then run bun run py:install.");
 			}

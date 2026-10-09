@@ -60,4 +60,10 @@ describe("narration structural analysis", () => {
 		expect(report.dialogueAttributions).toEqual(['" he mutters']);
 		expect(report.findings.map((finding) => finding.rule)).toContain("dialogue-attribution");
 	});
+
+	it("ends the measured sentence where a quoted line ends its own", () => {
+		const envelope = { meanWords: { p5: 0, p95: 100 }, spread: { p5: 0, p95: 10 } };
+		const body = 'The man nods once. Something kept saying, "Admire my garden." Nobody answered him. The fire burned low.';
+		expect(analyzeCallout({ body, sources: [], envelope }).voiceEnvelope?.meanWords).toBe(3.5);
+	});
 });

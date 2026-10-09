@@ -1,11 +1,14 @@
 ---
 type: NPC
-summary: "Former High Eyrie master now hidden behind Talon Vantyrus while he studies Crissdalynn's Long Sight."
+summary: "Former High Eyrie master now hidden behind Talon Vantyrus while he
+  studies Crissdalynn's Long Sight."
 sources:
   - "archive/osset.md"
   - "archive/agentic-co-dm-osset-narration.md"
   - "archive/session-10.md"
 creature: "[[Talon Vantyrus]]"
+revealed: "Session 8"
+title: ""
 ---
 
 ## At a glance
@@ -16,7 +19,7 @@ creature: "[[Talon Vantyrus]]"
 - **Found at.** The faction routes under the alias Talon Vantyrus. His original name is unrevealed.
 
 > [!narration] First look
-> You face a snowy-owl aarakocra grown old in Sentinel martial robes with every mark stripped away, his pale plumage mottled by age and grey deepest at the crown. Yellow-gold eyes hold the composure of the master who once trained the Sentinels. He clicks a coin steadily between two fingers, a habit older than the errand, and salt sits deep in his robes from years above open water. His hands fold at his waist in a monk's stillness that never breaks, talons filed to blunt points, and one eye is already on the door. "You may sit. You already know what I am asking, or you would not be here."
+> You face a snowy-owl aarakocra grown old in Sentinel martial robes with every mark stripped away, his pale plumage mottled by age and grey deepest at the crown. Yellow-gold eyes hold the composure of the master who once trained the Sentinels. He clicks a coin steadily between two fingers, a habit older than the errand. Salt sits deep in his robes from years above open water. His hands fold at his waist in a monk's stillness that never breaks, talons filed to blunt points, and one eye is already on the door. "You may sit. You already know what I am asking, or you would not be here."
 
 ## Play
 

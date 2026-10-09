@@ -1,7 +1,9 @@
 ---
+title: ""
 type: campaign-config
 summary: ""
 sources: []
+revealed: ""
 ---
 
 %% Instructions every agent follows when writing for this Campaign, set by the DM. Add a `##` section for any other standing instruction the DM gives. %%

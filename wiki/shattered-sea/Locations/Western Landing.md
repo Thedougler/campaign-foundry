@@ -1,12 +1,15 @@
 ---
 type: Location
 kind: Site
-summary: "Aruhe's one known sea approach: a reef half a mile offshore with a boat gap, short shingle beach and Uncertainty waiting beyond."
+summary: "Aruhe's one known sea approach: a reef half a mile offshore with a
+  boat gap, short shingle beach and Uncertainty waiting beyond."
 sources:
   - "archive/western-landing.md"
   - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
   - "archive/session-10.md"
 parent: "[[Aruhe]]"
+revealed: "Session 10"
+title: ""
 ---
 
 ![[Western Landing - Battle Map.jpg]]

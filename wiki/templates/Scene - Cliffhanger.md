@@ -1,8 +1,10 @@
 ---
+title: ""
 type: Scene
 kind: Cliffhanger
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

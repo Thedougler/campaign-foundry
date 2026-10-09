@@ -3,6 +3,8 @@ type: NPC
 summary: "A goblin ferry hand on the Marl Ferry who knows every channel and every rumor in the Brack."
 sources: []
 creature: "[[Goblin Warrior]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

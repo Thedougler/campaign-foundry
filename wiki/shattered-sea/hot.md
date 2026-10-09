@@ -1,6 +1,8 @@
 ---
 type: hot
-summary: "Post-Session 12: the Party fights an invisible Talon Skarn at a burnt-road camp deep on Aruhe, the combat unresolved; Session 13 resumes it with the Party at level 6."
+summary: "Post-Session 12: the Party fights an invisible Talon Skarn at a
+  burnt-road camp deep on Aruhe, the combat unresolved; Session 13 resumes it
+  with the Party at level 6."
 sources:
   - "archive/session-12-full.md"
   - "archive/session-11-transcript-archived-version.md"
@@ -10,6 +12,8 @@ sources:
   - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
   - "archive/ssw-what-sunk-the-vestra.md"
 date: "1495 DR, date not established"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

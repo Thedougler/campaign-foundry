@@ -1,9 +1,8 @@
-import { spawnSync } from "node:child_process";
 import { mkdtemp, mkdir, readFile, rm, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { afterEach, describe, expect, it } from "vitest";
+import { cf } from "../check/helpers.ts";
 import { packageSkill, validateSkill } from "../../evals/authoring.ts";
 
 const roots: string[] = [];
@@ -25,9 +24,9 @@ describe("native authoring helpers", () => {
 		["package", ".omp/skills/skill-creator"],
 		["review", "/tmp/iteration"],
 		["description-review", "/tmp/queries.json"],
-	])("returns the documented usage status for missing %s inputs", (...args) => {
-		const result = spawnSync(process.execPath, [fileURLToPath(new URL("../../src/cli.ts", import.meta.url)), "eval", ...args], { encoding: "utf8" });
-		expect(result.status).toBe(2);
+	])("returns the documented usage status for missing %s inputs", async (...args) => {
+		const result = await cf(["eval", ...args]);
+		expect(result.code).toBe(2);
 	});
 	it("accepts native invocation metadata and extension keys without Anthropic character restrictions", async () => {
 		const { directory } = await skill();

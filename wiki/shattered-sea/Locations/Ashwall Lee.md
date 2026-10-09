@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Site
-summary: "Sheltered repair water at the foot of the Ashwall spires, where damaged survivors gather and predators follow the wreckage."
+summary: "Sheltered repair water at the foot of the Ashwall spires, where
+  damaged survivors gather and predators follow the wreckage."
 sources:
- - "archive/ssw-ashwall-islands.md"
- - "archive/ssw-galewall.md"
+  - "archive/ssw-ashwall-islands.md"
+  - "archive/ssw-galewall.md"
 parent: "[[Ashwall Islands]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -7,10 +7,13 @@ import { ddbCommand } from "./ddb.ts";
 import { encounterBudgetCommand } from "./encounter-budget.ts";
 import { foundryCommand } from "./foundry.ts";
 import { evalCommand } from "./eval.ts";
+import { findCommand } from "./find.ts";
 import { indexCommand } from "./index-cmd.ts";
 import { logCommand } from "./log.ts";
 import { pullCommand } from "./pull.ts";
 import { pushCommand } from "./push.ts";
+import { renameCommand } from "./rename.ts";
+import { revealedCommand } from "./revealed.ts";
 import { styleCommand } from "./style.ts";
 import { transcriptCommand } from "./transcript.ts";
 
@@ -26,11 +29,14 @@ export const commands: (() => Command)[] = [
  ddbCommand,
  encounterBudgetCommand,
  evalCommand,
+ findCommand,
  foundryCommand,
  indexCommand,
  logCommand,
  pullCommand,
  pushCommand,
+ renameCommand,
+ revealedCommand,
  styleCommand,
  transcriptCommand,
 ];

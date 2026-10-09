@@ -3,6 +3,8 @@ type: Previously On
 summary: "One line."
 sources: []
 date: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

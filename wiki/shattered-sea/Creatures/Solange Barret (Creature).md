@@ -2,7 +2,9 @@
 type: Creature
 summary: "Solange Barret, a unique Creature stat block from the archived NPC record."
 sources:
- - "archive/solange-barret.md"
+  - "archive/solange-barret.md"
+revealed: "Session 5"
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +16,7 @@ sources:
 - **Used by.** Solange Barret is the NPC who uses this stat block.
 
 > [!narration] First sight
-> The Creature's distinctive silhouette and signature tell are apparent before it attacks.
+> A red-skinned grung no bigger than a child crouches over a floor chalked with half-finished lines and never lifts her head. She wears a sleeveless leather harness, its loops heavy with tools and sticks of chalk. Chalk dust and something iridescent stain her hands. She crosses the room in one flat spring and lands back on her heels. The chalk scratches, and her lips move.
 
 ## Statblock
 

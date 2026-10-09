@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "Vashu the Weeping Veil, a unique Creature stat block from the archived NPC record."
+summary: "Vashu the Weeping Veil, a unique Creature stat block from the archived
+  NPC record."
 sources:
- - "archive/vashu-the-weeping-veil.md"
+  - "archive/vashu-the-weeping-veil.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +17,7 @@ sources:
 - **Used by.** The NPC who bears her name carries this stat block.
 
 > [!narration] First sight
-> The Creature's distinctive silhouette and signature tell are apparent before it attacks.
+> A small grung stands ahead, her tongue clicking in a rapid rattle. A bone vial cracks, and bitter mist follows a breath later.
 
 ## Statblock
 

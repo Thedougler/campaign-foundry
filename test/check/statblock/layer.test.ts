@@ -94,7 +94,7 @@ describe("statblock layer: seeded errors, one page per class", () => {
 	it("flags a stat block on an NPC page and says where it belongs", () => {
 		const [finding] = findingsFor(report, "/Misplaced Statblock.md");
 		expect(findingsFor(report, "/Misplaced Statblock.md")).toHaveLength(1);
-		expect(finding).toMatchObject({ layer: "statblock", rule: "statblock-misplaced", line: 20 });
+		expect(finding).toMatchObject({ layer: "statblock", rule: "statblock-misplaced", line: 22 });
 		expect(finding?.hint).toContain("`creature:");
 		expect(finding?.hint).toContain("![[Name#Statblock]]");
 	});

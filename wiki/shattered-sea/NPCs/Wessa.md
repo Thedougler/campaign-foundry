@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Saltwright's cook; impossible standards, zero theatrics, the food just appears."
+summary: "Saltwright's cook; impossible standards, zero theatrics, the food just
+  appears."
 sources:
- - "archive/ssw-beaumonts-crew.md"
+  - "archive/ssw-beaumonts-crew.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

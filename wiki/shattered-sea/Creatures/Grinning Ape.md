@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "A watching face of the Old Gardens canopy, almost human and not quite, split by an unnaturally wide grin."
+summary: "A watching face of the Old Gardens canopy, almost human and not quite,
+  split by an unnaturally wide grin."
 sources:
- - "archive/session-10.md"
+  - "archive/session-10.md"
+revealed: "Session 10"
+title: ""
 ---
 
 ## At a glance

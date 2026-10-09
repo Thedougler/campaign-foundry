@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A pale glass-edged stand that cuts movement and bursts into slashing shards and choking dust when shattered."
+summary: "A pale glass-edged stand that cuts movement and bursts into slashing
+  shards and choking dust when shattered."
 sources:
- - "archive/razer-grass.md"
+  - "archive/razer-grass.md"
 parent: "[[Grasslands]]"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Razer-Grass - Handout Art.jpg]]

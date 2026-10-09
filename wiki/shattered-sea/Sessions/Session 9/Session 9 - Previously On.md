@@ -1,10 +1,13 @@
 ---
 type: Previously On
-summary: "Otar died in the Mercatura crater, Fieschi made the Party Calveno's Defenders, and Nona began the pursuit of the raiders."
+summary: "Otar died in the Mercatura crater, Fieschi made the Party Calveno's
+  Defenders, and Nona began the pursuit of the raiders."
 sources:
   - "archive/Session 08 - Recap.md"
   - "archive/Session-08-Recap.md"
 date: "1495 DR, date not established"
+revealed: "Session 9"
+title: ""
 ---
 
 ## At a glance

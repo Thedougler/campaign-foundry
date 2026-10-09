@@ -4,6 +4,8 @@ kind: Region
 summary: "Burnt hills north of the river."
 sources: []
 parent: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

@@ -1,9 +1,12 @@
 ---
 type: Creature
-summary: "Talon Skarn's Creature stat block, as played: a CR 13 falcon monk who hunts the Fate Spinner, flees beaten, and comes back invisible."
+summary: "Talon Skarn's Creature stat block, as played: a CR 13 falcon monk who
+  hunts the Fate Spinner, flees beaten, and comes back invisible."
 sources:
- - "archive/talon-skarn.md"
- - "archive/session-12-full.md"
+  - "archive/talon-skarn.md"
+  - "archive/session-12-full.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ## At a glance

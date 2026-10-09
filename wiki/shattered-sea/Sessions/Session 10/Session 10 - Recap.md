@@ -1,9 +1,12 @@
 ---
 type: Recap
-summary: "A night visit from Shepherd Grigori, a broadside that burned the follower ship, and a crown squid chase off Aruhe's terraces."
+summary: "A night visit from Shepherd Grigori, a broadside that burned the
+  follower ship, and a crown squid chase off Aruhe's terraces."
 sources:
   - "archive/session-10.md"
 date: "1495 DR, date not established"
+revealed: "Session 10"
+title: ""
 ---
 
 ## At a glance

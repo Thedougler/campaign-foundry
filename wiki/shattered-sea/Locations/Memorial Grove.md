@@ -1,14 +1,17 @@
 ---
 type: Location
 kind: Site
-summary: "Aruhe's heart: one fruit tree over two unmarked graves in a ring of black flowers, the Death Bloom that is Hinewai's body."
+summary: "Aruhe's heart: one fruit tree over two unmarked graves in a ring of
+  black flowers, the Death Bloom that is Hinewai's body."
 sources:
- - "archive/memorial-grove.md"
- - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
- - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
- - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
- - "archive/session-12-full.md"
+  - "archive/memorial-grove.md"
+  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+  - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
+  - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
+  - "archive/session-12-full.md"
 parent: "[[Aruhe]]"
+revealed: "Session 12"
+title: ""
 ---
 
 ![[Memorial Grove - Handout Art.jpg]]

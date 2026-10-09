@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Crown-licensed import factor at Port Tidefall who placed his son Geoffrey aboard the HCS Surety through connections he has never written down."
+summary: "Crown-licensed import factor at Port Tidefall who placed his son
+  Geoffrey aboard the HCS Surety through connections he has never written down."
 sources:
- - "archive/dravosi-crown.md"
+  - "archive/dravosi-crown.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

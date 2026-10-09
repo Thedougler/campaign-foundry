@@ -2,7 +2,9 @@
 type: Creature
 summary: "A Moucheron Creature (CR 1/8) adapted from the 2024 SRD Stirge."
 sources:
- - "archive/ket.md"
+  - "archive/ket.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

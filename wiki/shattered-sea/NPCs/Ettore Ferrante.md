@@ -1,10 +1,13 @@
 ---
 type: NPC
-summary: "Calveno bridge-toll clerk, lifted from the skylight pit with his son and two companions, his mended shin still splinted."
+summary: "Calveno bridge-toll clerk, lifted from the skylight pit with his son
+  and two companions, his mended shin still splinted."
 sources:
- - "archive/ettore-ferrante.md"
- - "archive/session-12-full.md"
+  - "archive/ettore-ferrante.md"
+  - "archive/session-12-full.md"
 creature: "[[Commoner]]"
+revealed: "Session 12"
+title: ""
 ---
 
 ## At a glance

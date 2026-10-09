@@ -1,9 +1,13 @@
 ---
 type: Vehicle
-summary: "A Kalowe-refit schooner that works the inspection approaches off the Tidefall Gate, carrying enough false registry to make a lawful captain hesitate."
+summary: "A Kalowe-refit schooner that works the inspection approaches off the
+  Tidefall Gate, carrying enough false registry to make a lawful captain
+  hesitate."
 sources:
- - "archive/ssw-central-strait.md"
- - "archive/ssw-verdant-scatter.md"
+  - "archive/ssw-central-strait.md"
+  - "archive/ssw-verdant-scatter.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

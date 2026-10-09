@@ -1,12 +1,15 @@
 ---
 type: NPC
-summary: "Nona Black-Jaw's polished tabaxi bodyguard, a quiet enforcer who reads every guest before violence reaches her."
+summary: "Nona Black-Jaw's polished tabaxi bodyguard, a quiet enforcer who reads
+  every guest before violence reaches her."
 sources:
- - "archive/Enzo.md"
- - "archive/ssw-session-03.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/Enzo.md"
+  - "archive/ssw-session-03.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -27,6 +30,12 @@ creature: ""
 - **Will not share.** Weaknesses in Nona's network or anything that makes her easier to reach.
 - **If pressed.** He taps cigar ash to mark Nona's patience. When it burns too low, he draws one claw.
 - **Combat profile.** AC 16, 78 HP, speed 30 ft. Climb speed 20 ft. CR 5. He uses a rapier and claws, Cunning Step, Cut Clean, Evasion, Uncanny Dodge, and Interpose to protect Nona.
+
+## Quotes
+
+> "FUCK."
+
+During the Calveno crisis, escorting [[Perrin Black-Jaw]] through the sewers. He turned away for a moment to deal with some Grung captives and looked back to see a Grung elite already on Perrin, a poisoned spear moments from striking.
 
 ## Depth
 

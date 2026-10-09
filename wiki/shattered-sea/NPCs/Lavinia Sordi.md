@@ -2,10 +2,12 @@
 type: NPC
 summary: "Seller of cursed goods who named Osset a second time."
 sources:
- - "archive/lavinia-sordi.md"
- - "archive/ssw-nightmantle.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/lavinia-sordi.md"
+  - "archive/ssw-nightmantle.md"
+  - "archive/Episode-09-Transcript.md"
 creature: "[[Commoner]]"
+revealed: "Session 8"
+title: ""
 ---
 
 ## At a glance
@@ -16,7 +18,7 @@ creature: "[[Commoner]]"
 - **Found at.** [[La Cenere]] in [[Le Paludi]].
 
 > [!narration] First look
-> A younger, angular woman watches you with the stillness of someone who has handled objects other people fear. She sounds like a seller waiting for you to ask what the item costs after the curse is counted.
+> A younger, angular woman watches you with the stillness of someone who has handled objects other people fear. She waits for you to ask what the item costs, like a seller who counts the curse before she quotes a price.
 
 ## Play
 

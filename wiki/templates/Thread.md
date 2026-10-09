@@ -1,8 +1,10 @@
 ---
+title: ""
 type: Thread
 summary: ""
 sources: []
 status: ""
+revealed: ""
 ---
 
 ## At a glance

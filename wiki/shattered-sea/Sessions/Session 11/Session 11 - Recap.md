@@ -1,11 +1,14 @@
 ---
 type: Recap
-summary: "The Party crossed inland Aruhe, rescued Matteo Scola, and ended the night inside a falcon's ambush on Crissdalynn's watch."
+summary: "The Party crossed inland Aruhe, rescued Matteo Scola, and ended the
+  night inside a falcon's ambush on Crissdalynn's watch."
 sources:
   - "archive/session-11-transcript-archived-version.md"
   - "archive/Session-11-Transcript.md"
   - "archive/session-11-recap.md"
 date: "1495 DR, date not established"
+revealed: "Session 11"
+title: ""
 ---
 
 ## At a glance

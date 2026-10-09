@@ -1,8 +1,10 @@
 ---
+title: ""
 type: NPC
 summary: ""
 sources: []
 creature: ""
+revealed: ""
 ---
 
 ## At a glance
@@ -30,6 +32,10 @@ creature: ""
 - **If pressed.**
 - **If ignored.**
 - **Invitations.**
+
+## Quotes
+
+%% Optional. Include it when the DM, a Transcript or a source gives lines this person said. Give each line word for word as a blockquote, then one short line of context: when, to whom and why. The lines show how this person talks, and agents copy the voice (diction, rhythm, register and habits) in new lines of their own. DM only, so the context may hold secrets. %%
 
 ## Depth
 

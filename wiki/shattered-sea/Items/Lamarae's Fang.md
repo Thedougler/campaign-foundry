@@ -1,9 +1,13 @@
 ---
 type: Item
-summary: "A sword of whip shark bone twined with worked metal, forged by Catarina Da'Virelli aboard the Uncertainty and taken up by Delmar Fisk against his promise of an axolotl."
+summary: "A sword of whip shark bone twined with worked metal, forged by
+  Catarina Da'Virelli aboard the Uncertainty and taken up by Delmar Fisk against
+  his promise of an axolotl."
 sources:
- - "archive/Episode-09-Transcript.md"
- - "archive/session-12-full.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/session-12-full.md"
+revealed: "Session 9"
+title: ""
 ---
 
 ## At a glance

@@ -2,8 +2,10 @@
 type: NPC
 summary: "Saltwright's ordinary sailor; young, earnest, and eight months at sea."
 sources:
- - "archive/ssw-beaumonts-crew.md"
+  - "archive/ssw-beaumonts-crew.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +16,7 @@ creature: ""
 - **Found at.** The [[Midchain]] run, aboard the [[Saltwright]], wherever hands are short.
 
 > [!narration] First look
-> A young sailor works the deck with careful attention, a beard on his jaw that hasn't committed to arriving. He catches you watching and straightens. "Eight months I've been at sea now. Proper sea time." He seems to want you to be impressed.
+> A young sailor works the deck with careful attention, a beard on his jaw that hasn't committed to arriving. He catches you watching and straightens. "Eight months I've been at sea now. Proper sea time." He seems to want your admiration.
 
 ## Play
 

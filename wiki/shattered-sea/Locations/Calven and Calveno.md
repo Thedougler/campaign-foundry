@@ -1,13 +1,17 @@
 ---
 type: Location
 kind: Settlement
-summary: "Calven's marsh, tidal flats and farms rise to Calveno, a neutral canal city the Tessarine Concordat primarily controls, where Crown law stops at the waterline."
+summary: "Calven's marsh, tidal flats and farms rise to Calveno, a neutral canal
+  city the Tessarine Concordat primarily controls, where Crown law stops at the
+  waterline."
 sources:
- - "archive/calven-and-calveno.md"
- - "archive/ssw-il-palio-delle-voci.md"
- - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/calven-and-calveno.md"
+  - "archive/ssw-il-palio-delle-voci.md"
+  - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/Episode-09-Transcript.md"
 parent: "[[Crown Islands]]"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance

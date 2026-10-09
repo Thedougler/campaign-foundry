@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Calveno sailor who drowned fishing the Slack Basin pool nineteen days before the Party's arrival."
+summary: "Calveno sailor who drowned fishing the Slack Basin pool nineteen days
+  before the Party's arrival."
 sources:
- - "archive/river-slack-basin.md"
+  - "archive/river-slack-basin.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -12,7 +15,7 @@ creature: ""
 - **Found at.** [[Slack Basin]], as a bloodstain and a planted walking stick.
 
 > [!narration] First look
-> A walking stick stands upright in a dried red stain at the pool's edge, nineteen days after the fisherman who owned it went under.
+> A walking stick stands upright in a dried red stain at the pool's edge, nineteen days after the fisher who owned it went under.
 
 ## Play
 

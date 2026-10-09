@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Old red-caste Grung alchemist who guarded a sewer powder magazine until Session 05."
+summary: "Old red-caste Grung alchemist who guarded a sewer powder magazine
+  until Session 05."
 sources:
- - "archive/bazzoth-the-steeped.md"
+  - "archive/bazzoth-the-steeped.md"
 creature: "[[Bazzoth the Steeped]]"
+revealed: "Session 5"
+title: ""
 ---
 
 ## At a glance

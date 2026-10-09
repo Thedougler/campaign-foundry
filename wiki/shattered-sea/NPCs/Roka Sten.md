@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Zort's Midchain animal supplier, whose name Zort paid to Catarina's workshop and handed the Party in Session 08."
+summary: "Zort's Midchain animal supplier, whose name Zort paid to Catarina's
+  workshop and handed the Party in Session 08."
 sources:
- - "archive/zort.md"
+  - "archive/zort.md"
 creature: ""
+revealed: "Session 8"
+title: ""
 ---
 
 ## At a glance

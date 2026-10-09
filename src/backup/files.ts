@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { lstatSync, readdirSync, readFileSync, realpathSync, statSync } from "node:fs";
 import { basename, extname, join, relative, sep } from "node:path";
+import { parseDocument } from "yaml";
 
 /**
  * What the Backup copies to Notion: the Shattered Sea Campaign folder and the agent skills. `.claude/skills/` is left
@@ -22,6 +23,10 @@ export interface BackupFile {
 	/** True when the working file is an LFS pointer, so the bytes must be pulled before an upload. */
 	lfsPointer: boolean;
 	size: number;
+	/** The markdown frontmatter `title` (ADR 0028: the title names the page), unset when absent or blank. */
+	title?: string;
+	/** The markdown frontmatter `aliases`, unset when absent. */
+	aliases?: string[];
 }
 
 export interface WalkResult {
@@ -72,6 +77,24 @@ export function contentHash(bytes: Buffer): { hash: string; lfsPointer: boolean;
 export function ancestors(path: string): string[] {
 	const parts = path.split("/");
 	return parts.slice(0, -1).map((_, i) => parts.slice(0, i + 1).join("/"));
+}
+
+/** A markdown file's frontmatter `title` and `aliases`, read leniently: broken YAML and blank values give nothing (ADR 0028). */
+export function frontmatterNames(source: string): { title?: string; aliases?: string[] } {
+	const match = /^---\r?\n([\s\S]*?)\r?\n---/.exec(source);
+	if (!match) return {};
+	const doc = parseDocument(match[1] ?? "");
+	if (doc.errors.length > 0) return {};
+	const data = doc.toJS();
+	if (data === null || typeof data !== "object" || Array.isArray(data)) return {};
+	const fm = data as Record<string, unknown>;
+	const title = typeof fm.title === "string" && fm.title.trim() !== "" ? fm.title.trim() : undefined;
+	const aliases = Array.isArray(fm.aliases)
+		? fm.aliases.filter((a): a is string => typeof a === "string" && a.trim() !== "").map((a) => a.trim())
+		: typeof fm.aliases === "string" && fm.aliases.trim() !== ""
+			? [fm.aliases.trim()]
+			: undefined;
+	return { ...(title === undefined ? {} : { title }), ...(aliases === undefined || aliases.length === 0 ? {} : { aliases }) };
 }
 
 /**
@@ -135,7 +158,8 @@ export function walkBackup(root: string, roots: readonly string[] = BACKUP_ROOTS
 			skipped.push({ path: rel, reason: "binary file that is not an image" });
 			return;
 		}
-		files.push({ path: rel, kind, abs: real, ...contentHash(bytes) });
+		const names = kind === "markdown" ? frontmatterNames(bytes.toString("utf8")) : {};
+		files.push({ path: rel, kind, abs: real, ...contentHash(bytes), ...names });
 	};
 
 	roots.forEach((r, i) => {
@@ -158,8 +182,9 @@ export function byDepthThenName(a: string, b: string): number {
 	return depth !== 0 ? depth : a.localeCompare(b);
 }
 
-/** The Notion title for a backed-up path: a Markdown page drops `.md`, like its Obsidian name; other files keep the extension. */
-export function titleOf(path: string, kind: FileKind | "dir"): string {
+/** The Notion title for a backed-up path: a Markdown page drops `.md`, like its Obsidian name; other files keep the extension. A markdown page with a frontmatter `title` carries that title instead (ADR 0028). */
+export function titleOf(path: string, kind: FileKind | "dir", pageTitle?: string): string {
+	if (kind === "markdown" && pageTitle !== undefined && pageTitle !== "") return pageTitle;
 	const name = basename(path);
 	return kind === "markdown" ? name.replace(/\.(md|markdown)$/i, "") : name;
 }

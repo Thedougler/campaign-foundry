@@ -1,10 +1,13 @@
 ---
 type: Location
 kind: Site
-summary: "A braid of packed paths along the Quiet's edge where only one strand carries the Calveno trail north."
+summary: "A braid of packed paths along the Quiet's edge where only one strand
+  carries the Calveno trail north."
 sources:
- - "archive/print-braid.md"
+  - "archive/print-braid.md"
 parent: "[[Grasslands]]"
+revealed: ""
+title: ""
 ---
 
 ![[Print Braid - Handout Art.jpg]]

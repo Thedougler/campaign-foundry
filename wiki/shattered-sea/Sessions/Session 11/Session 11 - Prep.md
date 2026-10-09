@@ -16,6 +16,8 @@ sources:
   - "archive/Session-11-09-Theft-on-the-Watch.md"
   - "archive/Session-11-10-Aftermath.md"
 date: "1495 DR, date not established"
+revealed: "Session 11"
+title: ""
 ---
 ## At a glance
 

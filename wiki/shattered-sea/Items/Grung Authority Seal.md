@@ -1,10 +1,13 @@
 ---
 type: Item
-summary: "Spent gold seals that compelled lower-caste Grung onto Aruhe and preserve each bearer's whole order chain."
+summary: "Spent gold seals that compelled lower-caste Grung onto Aruhe and
+  preserve each bearer's whole order chain."
 sources:
- - "archive/grung-authority-seal.md"
- - "archive/collab-2026-10-04-authority-themes.md"
- - "archive/session-12-full.md"
+  - "archive/grung-authority-seal.md"
+  - "archive/collab-2026-10-04-authority-themes.md"
+  - "archive/session-12-full.md"
+revealed: "Session 7"
+title: ""
 ---
 
 ![[Grung Authority Seal - Handout Art.png]]

@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "A huge shark that follows damaged hulls near the Ashwall lee, where wreckage feeds the food chain."
+summary: "A huge shark that follows damaged hulls near the Ashwall lee, where
+  wreckage feeds the food chain."
 sources:
- - "archive/ssw-galewall.md"
+  - "archive/ssw-galewall.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

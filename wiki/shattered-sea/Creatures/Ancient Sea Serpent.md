@@ -1,8 +1,11 @@
 ---
 type: Creature
-summary: "An old serpent of the deep roads east of the Drowned Maw, listed among the Outer Reach's known threats."
+summary: "An old serpent of the deep roads east of the Drowned Maw, listed among
+  the Outer Reach's known threats."
 sources:
- - "archive/ssw-outer-reach.md"
+  - "archive/ssw-outer-reach.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

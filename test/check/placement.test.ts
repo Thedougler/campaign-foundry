@@ -57,8 +57,9 @@ describe("placement layer: failure classes", () => {
 		[`${A}/Sessions/Session 1/Session 2 - Recap.md`, ["session-page-name"]],
 		[`${A}/Sessions/Session 1/Session 1 Previously On.md`, ["session-page-name"]],
 		[`${A}/Sessions/Session 1/Wrong Prefix.md`, ["session-page-name"]],
-		[`${A}/Locations/black-lotus.md`, ["slug-name"]],
-		[`${A}/NPCs/black_lotus.md`, ["slug-name"]],
+		// ADR 0028: a file name is a slug, so `black-lotus.md` and `black_lotus.md` are ordinary names now.
+		[`${A}/Locations/black-lotus.md`, []],
+		[`${A}/NPCs/black_lotus.md`, []],
 		[`${A}/Locations/Doubled.md`, ["duplicate-name"]],
 		[`${A}/NPCs/Doubled.md`, ["duplicate-name"]],
 		[`${A}/Locations/index.md`, ["misplaced-special"]],
@@ -82,8 +83,6 @@ describe("placement layer: failure classes", () => {
 		const stuck = findingsFor(report, `${A}/Loose Scene.md`)[0];
 		expect(stuck?.hint).toContain("Sessions/Session 1/");
 		expect(stuck?.hint).not.toContain("--fix");
-		expect(findingsFor(report, `${A}/Locations/black-lotus.md`)[0]?.hint).toContain("Black Lotus");
-		expect(findingsFor(report, `${A}/NPCs/black_lotus.md`)[0]?.hint).toContain("Black Lotus");
 		expect(findingsFor(report, `${A}/Locations/Doubled.md`)[0]?.hint).toContain("Doubled (Keep)");
 	});
 });

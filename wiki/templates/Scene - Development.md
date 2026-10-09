@@ -1,8 +1,10 @@
 ---
+title: ""
 type: Scene
 kind: Development
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

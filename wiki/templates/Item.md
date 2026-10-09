@@ -1,7 +1,9 @@
 ---
+title: ""
 type: Item
 summary: ""
 sources: []
+revealed: ""
 ---
 
 ## At a glance

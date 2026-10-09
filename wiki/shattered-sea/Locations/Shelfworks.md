@@ -1,12 +1,15 @@
 ---
 type: Location
 kind: Site
-summary: "The western dive terrace of the Drowned Maw, where salvage crews work the upper Antheri tiers above squid-dark water."
+summary: "The western dive terrace of the Drowned Maw, where salvage crews work
+  the upper Antheri tiers above squid-dark water."
 sources:
- - "archive/drowned-maw.md"
- - "archive/ssw-giant-squid.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/drowned-maw.md"
+  - "archive/ssw-giant-squid.md"
+  - "archive/Episode-09-Transcript.md"
 parent: "[[Drowned Maw]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -18,7 +21,7 @@ parent: "[[Drowned Maw]]"
 - **Prize.** Antheri salvage, and the information a working line buys.
 
 > [!narration] Entering
-> The dive floor is a cut terrace of Antheri stone partway down the wall, roped at the shelf end, with dive lines running off the edge into water your lamp quits on. Air lines cross the stone to a rack of pumps, and pump levers rise and fall in a slow thud. A hand in oilskins watches the dials and counts the divers on the lines. Worked stone runs on a short span to the last arch, and past it the shelf ends over black water. A board at the rope shows the rule, and the rule is simple. Divers stay above the depth the crews agreed.
+> The dive floor is a terrace of cut Antheri stone partway down the wall, roped at the shelf end. Dive lines run off the edge into water the lamp cannot light. Air lines cross the stone to a rack of pumps, and their levers rise and fall in a slow thud while a hand in oilskins watches the dials and counts the crew out on the lines. Worked stone runs on to the last arch. Past it the shelf ends over black water, and a board at the rope gives the one rule. Those on the lines stay above the depth the crews agreed.
 
 ## Play
 

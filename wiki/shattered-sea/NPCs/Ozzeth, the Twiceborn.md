@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Disgraced Grung mage who maintained Simone's colour rite until his death in the sewer magazines."
+summary: "Disgraced Grung mage who maintained Simone's colour rite until his
+  death in the sewer magazines."
 sources:
- - "archive/ozzeth-the-twiceborn.md"
+  - "archive/ozzeth-the-twiceborn.md"
 creature: "[[Ozzeth the Twiceborn]]"
+revealed: "Session 6"
+title: ""
 ---
 
 ## At a glance

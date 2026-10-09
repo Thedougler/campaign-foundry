@@ -2,6 +2,8 @@
 type: World
 summary: "One line."
 sources: []
+revealed: ""
+title: ""
 ---
 
 ## At a glance

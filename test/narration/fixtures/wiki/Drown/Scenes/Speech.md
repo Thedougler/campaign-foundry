@@ -2,6 +2,8 @@
 type: Scene
 summary: "A case."
 npc: "[[Ferryman]]"
+revealed: ""
+title: ""
 ---
 
 The [[Old Ferry|ferry]] waits.

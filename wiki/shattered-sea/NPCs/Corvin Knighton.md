@@ -1,10 +1,13 @@
 ---
 type: NPC
-summary: "Rupert Knighton's nephew and heir, a Tessarine-trained bladesong duellist seeking recognition through personal skill."
+summary: "Rupert Knighton's nephew and heir, a Tessarine-trained bladesong
+  duellist seeking recognition through personal skill."
 sources:
- - "archive/corbin-knighton.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/corbin-knighton.md"
+  - "archive/Episode-09-Transcript.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance

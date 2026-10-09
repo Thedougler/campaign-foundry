@@ -1,11 +1,14 @@
 ---
 type: NPC
-summary: "A Pantry survivor who stays beneath the vine, wrongly sure Hinewai's protection ends at the clearing."
+summary: "A Pantry survivor who stays beneath the vine, wrongly sure Hinewai's
+  protection ends at the clearing."
 sources:
- - "archive/the-pantry.md"
+  - "archive/the-pantry.md"
 aliases:
- - "Beppe"
+  - "Beppe"
 creature: "[[Commoner]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

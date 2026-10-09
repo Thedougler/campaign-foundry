@@ -1,11 +1,14 @@
 ---
 type: Location
 kind: Region
-summary: "A windless band of mirror-flat water below the Midchain's southern edge, where sound carries too far and a black dragon hunts becalmed ships."
+summary: "A windless band of mirror-flat water below the Midchain's southern
+  edge, where sound carries too far and a black dragon hunts becalmed ships."
 sources:
- - "archive/ssw-doldrums.md"
- - "archive/ssw-midchain.md"
+  - "archive/ssw-doldrums.md"
+  - "archive/ssw-midchain.md"
 parent: "[[The Shattered Sea]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -19,7 +22,7 @@ parent: "[[The Shattered Sea]]"
 Winds near the band turn more westerly, helping westbound ships use the [[Midchain]]'s back channels to avoid Strait inspection.
 
 > [!narration] Arrival
-> The wind stops between one watch and the next, leaving your sails slack against the masts and the water flat from rail to horizon. On that flat water the ship's own sounds return to you louder than they left, and from the bow the lookout's call comes down whole. Pale rafts of jellyfish drift with the still water, packed so close the hull will drag going through. High overhead frigate birds wheel in numbers and go nowhere. Your charts show open water here, yet the frigate birds knew before you did.
+> The wind stops between one watch and the next, leaving your sails slack against the masts and the water flat from rail to horizon. On that flat water the ship's own sounds return to you louder than they left, and from the bow the lookout's call comes down whole. Pale rafts of jellyfish drift with the still water, packed so close the hull will drag going through. High overhead frigate birds wheel in numbers. They go nowhere. Your charts show open water here, yet the frigate birds knew before you did.
 
 ## Play
 

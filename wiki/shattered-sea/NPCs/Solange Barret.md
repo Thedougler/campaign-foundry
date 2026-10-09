@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "Red-caste Grung ritual specialist whose circle summoned Otar beneath Mercatura."
+summary: "Red-caste Grung ritual specialist whose circle summoned Otar beneath
+  Mercatura."
 sources:
- - "archive/solange-barret.md"
+  - "archive/solange-barret.md"
 creature: "[[Solange Barret (Creature)]]"
+revealed: "Session 5"
+title: ""
 ---
 
 ## At a glance

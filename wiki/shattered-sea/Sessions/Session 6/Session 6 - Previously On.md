@@ -1,10 +1,13 @@
 ---
 type: Previously On
-summary: "The crew destroyed Magazine Beta and reached Solange Barret's ritual in Room 8."
+summary: "The crew destroyed Magazine Beta and reached Solange Barret's ritual
+  in Room 8."
 sources:
   - "archive/Session 05 - Recap.md"
   - "archive/Session-05-Recap.md"
 date: "1495 DR, date not established"
+revealed: "Session 6"
+title: ""
 ---
 
 ## At a glance

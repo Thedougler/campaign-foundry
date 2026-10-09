@@ -2,8 +2,10 @@
 type: Creature
 summary: "A Young Bloodhawk creature (CR 2) used as a skirmisher in The Shattered Sea."
 sources:
- - "archive/session-11-transcript-archived-version.md"
- - "archive/young-bloodhawk.md"
+  - "archive/session-11-transcript-archived-version.md"
+  - "archive/young-bloodhawk.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Young Bloodhawk - Token.jpg]]
@@ -19,7 +21,7 @@ sources:
 - **Used by.** [[Commoner]] patrols the same territory.
 
 > [!narration] First sight
-> Wings clatter in the canopy, and a young bloodhawk bursts out of the leaves after a smaller bird. The chase drops low, and the young hunter tucks its wings to fall on its target from above. One beak strike in midair tumbles the quarry, and the hawk slams it down into the trail. Feathers heaving, the hunter comes down on its catch amid a rain of leaves.
+> Wings clatter in the canopy. A young bloodhawk bursts out of the leaves after a smaller bird. The chase drops low. Then the young hunter tucks its wings to drop onto its target from above. One beak strike in midair tumbles the quarry, and the hawk slams it down into the trail. Feathers heaving, the hunter comes down on its catch amid a rain of leaves.
 
 ## Statblock
 

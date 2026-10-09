@@ -2,7 +2,9 @@
 type: Creature
 summary: "Otar the Foul, a unique Creature stat block from the archived NPC record."
 sources:
- - "archive/otar-the-foul.md"
+  - "archive/otar-the-foul.md"
+revealed: "Session 7"
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +16,7 @@ sources:
 - **Used by.** These Creature statistics belong to Otar the Foul.
 
 > [!narration] First sight
-> The Creature's distinctive silhouette and signature tell are apparent before it attacks.
+> Fumes rise off the Creature, and its split hide shows plainly before it strikes.
 
 ## Statblock
 

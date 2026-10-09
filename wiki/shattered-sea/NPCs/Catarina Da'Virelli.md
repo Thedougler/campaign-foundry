@@ -2,10 +2,12 @@
 type: NPC
 summary: "Calveno artificer and salvage engineer who keeps her workshop in the city."
 sources:
- - "archive/catarina-davirelli.md"
- - "archive/Episode-09-Transcript.md"
- - "archive/session-10.md"
+  - "archive/catarina-davirelli.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/session-10.md"
 creature: "[[Commoner]]"
+revealed: "Session 5"
+title: ""
 ---
 
 ## At a glance

@@ -1,13 +1,16 @@
 ---
 type: Faction
-summary: "Kalowe's council in a seized fort, balancing arrival tribute, complaints about grung raids and concealment of the Pearl theft."
+summary: "Kalowe's council in a seized fort, balancing arrival tribute,
+  complaints about grung raids and concealment of the Pearl theft."
 sources:
- - "archive/ssw-midchain.md"
- - "archive/kalowe.md"
- - "archive/pearl-of-souls.md"
- - "archive/tessarine-concordat.md"
- - "archive/ssw-session-04-ingest-recap.md"
- - "archive/session-10.md"
+  - "archive/ssw-midchain.md"
+  - "archive/kalowe.md"
+  - "archive/pearl-of-souls.md"
+  - "archive/tessarine-concordat.md"
+  - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/session-10.md"
+revealed: "Session 10"
+title: ""
 ---
 
 ## At a glance

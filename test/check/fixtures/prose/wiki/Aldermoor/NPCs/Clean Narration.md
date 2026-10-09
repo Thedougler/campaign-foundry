@@ -3,6 +3,7 @@ type: NPC
 summary: "A guard described through perceivable facts."
 sources: []
 creature: ""
+title: ""
 ---
 
 ## At a glance

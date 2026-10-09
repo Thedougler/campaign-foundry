@@ -1,10 +1,13 @@
 ---
 type: Item
-summary: "A rare Aruhe fruit that makes its eater Invisible for 1 hour, while its pollen reveals invisible creatures as a shimmer."
+summary: "A rare Aruhe fruit that makes its eater Invisible for 1 hour, while
+  its pollen reveals invisible creatures as a shimmer."
 sources:
- - "archive/ghost-plum.md"
- - "archive/session-11-transcript-archived-version.md"
- - "archive/session-12-full.md"
+  - "archive/ghost-plum.md"
+  - "archive/session-11-transcript-archived-version.md"
+  - "archive/session-12-full.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Ghost Plum - Handout Art.jpg]]

@@ -4,6 +4,8 @@ summary: "One line."
 sources: []
 creature: ""
 parent: "[[Ravenhold]]"
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -32,6 +34,7 @@ Text.
 
 Plain [[Ravenhold]], aliased [[Ravenhold|the keep]], with heading [[Ravenhold#Areas]], nested [[Ravenhold#Play#Areas]].
 By path [[Aldermoor/Locations/Ravenhold]], with extension [[Ravenhold.md]], lowercase [[ravenhold]].
+By title [[Nona Black-Jaw]] and by slug stem [[nona-black-jaw]], whose file is `nona-black-jaw.md`; by alias, [[Black-Jaw]].
 Statblock embed: ![[Bandit Captain#Statblock]]
 Image: ![[map.png]] and sized ![[map.png|300]] and by path ![[attachments/map.png]].
 Same page: [[#Depth]], and a block reference [[Valid Links#^pointer]].

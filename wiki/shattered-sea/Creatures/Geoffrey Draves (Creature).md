@@ -1,9 +1,12 @@
 ---
 type: Creature
-summary: "Geoffrey Draves, the crew's carpenter — a background crew stat block useful for his ship's hand, not his cutlass."
+summary: "Geoffrey Draves, the crew's carpenter — a background crew stat block
+  useful for his ship's hand, not his cutlass."
 sources:
- - "archive/geoffrey-draves.md"
- - "archive/ssw-geoffrey-draves.md"
+  - "archive/geoffrey-draves.md"
+  - "archive/ssw-geoffrey-draves.md"
+revealed: "Session 1"
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +18,7 @@ sources:
 - **Used by.** [[Geoffrey Draves]], crew carpenter aboard [[Uncertainty]].
 
 > [!narration] First sight
-> A lean young sailor holds his cutlass like a tool he was issued, not one he chose. When the deck lurches he doesn't, and his eyes have already found the plank that will fail.
+> A lean young sailor holds his cutlass like a tool the Crown issued him rather than one he chose. The deck lurches under him and he keeps his feet, his eyes already on the plank that will fail.
 
 ## Statblock
 

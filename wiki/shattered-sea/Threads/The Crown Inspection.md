@@ -1,11 +1,14 @@
 ---
 type: Thread
-summary: "Crown sailors board the Saltwright under HCS Surety's flag, forcing the new crew to choose between surrender, deception, and taking the ship."
+summary: "Crown sailors board the Saltwright under HCS Surety's flag, forcing
+  the new crew to choose between surrender, deception, and taking the ship."
 sources:
- - "archive/story-so-far.md"
- - "archive/campaign-timeline.md"
- - "archive/Episode-09-Transcript.md"
+  - "archive/story-so-far.md"
+  - "archive/campaign-timeline.md"
+  - "archive/Episode-09-Transcript.md"
 status: active
+revealed: "Session 1"
+title: ""
 ---
 
 ## At a glance

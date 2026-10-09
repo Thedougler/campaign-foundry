@@ -200,9 +200,9 @@ describe("runCheck execution scope", () => {
 		expect(scoped.layers).toEqual(layers.map((layer) => layer.name));
 		expect(scoped.findings).toEqual(full.findings.filter((finding) => finding.path === target));
 		expect(scoped.findings.map(({ layer, rule, line }) => ({ layer, rule, line }))).toEqual([
-			{ layer: "narration", rule: "fresh-starts", line: 18 },
-			{ layer: "boilerplate", rule: "shared-line", line: 32 },
+			{ layer: "narration", rule: "fresh-starts", line: 20 },
+			{ layer: "boilerplate", rule: "shared-line", line: 34 },
 		]);
-		expect(scoped.findings[1]?.message).toContain("Session 1 - The Lamp Room.md:31");
+		expect(scoped.findings[1]?.message).toContain("Session 1 - The Lamp Room.md:33");
 	});
 });

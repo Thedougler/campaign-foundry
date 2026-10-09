@@ -1,12 +1,15 @@
 ---
 type: NPC
-summary: "Senior Calveno Waveservant who delivers Umberlee's command about the Pearl of Souls."
+summary: "Senior Calveno Waveservant who delivers Umberlee's command about the
+  Pearl of Souls."
 sources:
- - "archive/umberlee-branca.md"
- - "archive/ssw-umberlee.md"
- - "archive/ssw-umberlees-message.md"
- - "archive/ssw-session-04-ingest-recap.md"
+  - "archive/umberlee-branca.md"
+  - "archive/ssw-umberlee.md"
+  - "archive/ssw-umberlees-message.md"
+  - "archive/ssw-session-04-ingest-recap.md"
 creature: "[[Commoner]]"
+revealed: "Session 3"
+title: ""
 ---
 
 ## At a glance
@@ -17,7 +20,7 @@ creature: "[[Commoner]]"
 - **Found at.** The [[Waveservant Shrine]] in Calveno.
 
 > [!narration] First look
-> A senior Calveno Waveservant keeps the appointment and delivers the message without softening it. The very Pearl of Souls must come to her first, before any other matter. Only then does she discuss the commissioners.
+> A senior Calveno Waveservant keeps the appointment and delivers the message without softening it. The Pearl of Souls must come to her first, before any other matter. Only then does she discuss the commissioners.
 
 ## Play
 

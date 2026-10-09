@@ -1,4 +1,5 @@
 import { buildLinkGraph } from "../../vault/links.ts";
+import { slugify } from "../../vault/parse.ts";
 import type { Page } from "../../vault/types.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
 import { checkedPages, isSpecialPage } from "../util.ts";
@@ -19,6 +20,7 @@ const LINK_FROM: Record<string, string> = {
 	"House Rule": "the World or Campaign overview, under `- **House Rules.**`",
 	PC: "the Campaign overview, on its `- **Party.**` line",
 	"campaign-config": "the Campaign overview",
+	"story-so-far": "the Campaign overview, beside its `[[campaign-config]]` link",
 	Thread: "`hot.md` under `## Active Threads`",
 	Quest: "the Thread it advances, or `hot.md`",
 	Prep: "`hot.md` under `## Next`",
@@ -31,7 +33,7 @@ const LINK_FROM: Record<string, string> = {
 /** Pages that need no inbound link: the roots of the Wiki (the World and Campaign overviews, DM Settings, indexes, logs) and hot.md. */
 function isRoot(page: Page): boolean {
 	if (isSpecialPage(page)) return true;
-	if (page.name === "hot" || page.name === "DM Settings") return true;
+	if (page.slug === "hot" || page.name === "DM Settings" || page.slug === slugify("DM Settings")) return true;
 	return page.frontmatter?.type === "World" || page.frontmatter?.type === "Campaign";
 }
 

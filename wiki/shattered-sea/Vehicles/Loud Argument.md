@@ -1,9 +1,12 @@
 ---
 type: Vehicle
-summary: "Bastian Crev's ship in Fisk's Fleet, lost with the whole fleet over the Drowned Maw."
+summary: "Bastian Crev's ship in Fisk's Fleet, lost with the whole fleet over
+  the Drowned Maw."
 sources:
- - "archive/ssw-lizardfolk.md"
- - "archive/ssw-umberlee-shrine.md"
+  - "archive/ssw-lizardfolk.md"
+  - "archive/ssw-umberlee-shrine.md"
+revealed: ""
+title: ""
 ---
 
 ## At a glance

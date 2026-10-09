@@ -5,6 +5,8 @@ summary: "The planned inland survivor camp remains beyond the Party's route."
 sources:
   - "archive/Session-11-06-Farthest-Camp.md"
   - "archive/Session-11-06-Farthest-Camp-archived-version.md"
+revealed: "Session 11"
+title: ""
 ---
 
 ![[Session 11 - Farthest Camp - Handout Art.jpg]]

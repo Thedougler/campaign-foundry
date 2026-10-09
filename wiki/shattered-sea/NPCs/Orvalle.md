@@ -1,9 +1,12 @@
 ---
 type: NPC
-summary: "A Shelfworks air-pump hand who stopped diving after the drop-off took his partner, and rations the telling to once a season."
+summary: "A Shelfworks air-pump hand who stopped diving after the drop-off took
+  his partner, and rations the telling to once a season."
 sources:
- - "archive/ssw-giant-squid.md"
+  - "archive/ssw-giant-squid.md"
 creature: ""
+revealed: ""
+title: ""
 ---
 
 ## At a glance
@@ -14,7 +17,7 @@ creature: ""
 - **Found at.** The air pumps at the [[Shelfworks]].
 
 > [!narration] First look
-> At the pump rack on the [[Shelfworks]] dive floor a man works the air levers in slow rhythm and keeps his eyes on the gauges. His oilskins are patched for work and none of it is diving gear. He counts the divers out along the lines and counts them back, and only then does he look up. "One story a season. If your crew has heard it, you have heard it."
+> At the pump rack on the [[Shelfworks]] dive floor a man works the air levers in slow rhythm and keeps his eyes on the gauges. He wears oilskins patched for pump work, kitted for the levers and gauges alone. He counts the diving crews out along the lines and counts them back, and only then looks up. "One story a season. If your crew has heard it, you have heard it."
 
 ## Play
 

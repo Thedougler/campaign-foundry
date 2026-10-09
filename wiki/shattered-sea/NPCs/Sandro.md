@@ -1,11 +1,15 @@
 ---
 type: NPC
-summary: "A Calveno captive the Party lifted off Aruhe's landing beach, whose account drew the island's taking-rule, its threats and its hatred of the Grung."
+summary: "A Calveno captive the Party lifted off Aruhe's landing beach, whose
+  account drew the island's taking-rule, its threats and its hatred of the
+  Grung."
 sources:
- - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
- - "archive/Episode-09-Transcript.md"
- - "archive/session-10.md"
+  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
+  - "archive/Episode-09-Transcript.md"
+  - "archive/session-10.md"
 creature: ""
+revealed: "Session 10"
+title: ""
 ---
 
 ## At a glance

@@ -1,8 +1,11 @@
 ---
 type: Vehicle
-summary: "Fisk's fleet ship sunk by Umberlee's storm over the Drowned Maw, her wreck holding the Pearl of Souls and the fleet's commission records."
+summary: "Fisk's fleet ship sunk by Umberlee's storm over the Drowned Maw, her
+  wreck holding the Pearl of Souls and the fleet's commission records."
 sources:
- - "archive/ssw-what-sunk-the-vestra.md"
+  - "archive/ssw-what-sunk-the-vestra.md"
+revealed: "Backstory"
+title: ""
 ---
 
 ## At a glance
@@ -15,7 +18,7 @@ sources:
 - **Berth.** The seafloor on the shelf's outer edge in the [[Shelfworks]], below the end of Umberlee's claim over the water.
 
 > [!narration] First sight
-> The [[Red Lady]] rests keel down in the clay of the [[Shelfworks]], past the line where the water stops belonging to Umberlee. Rigging still stands on her masts, and a crow's nest hangs over the deck the sea has opened. Spars and planks lie scattered on the shelf around her, and past her the ground falls away into the deep. The nearer you come to her hull, the stronger the feel of the dead grows in the water ahead. Her opened deck is the way in.
+> The [[Red Lady]] rests keel down in the clay of the [[Shelfworks]], past the line where the water stops belonging to Umberlee. Rigging still stands on her masts. The sea has opened her deck, and a crow's nest hangs above it. Spars and planks lie scattered on the shelf around her, and past her the ground falls away into the deep. The nearer you come to her hull, the stronger the feel of the dead in the water ahead. Her opened deck is the way in.
 
 ## Play
 
