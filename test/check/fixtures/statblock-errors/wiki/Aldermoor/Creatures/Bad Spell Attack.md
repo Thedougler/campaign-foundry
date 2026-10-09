@@ -3,7 +3,7 @@ type: Creature
 summary: "Seeded stat block: Bad Spell Attack."
 sources: []
 revealed: ""
-title: ""
+title: "Bad Spell Attack"
 ---
 
 ## At a glance

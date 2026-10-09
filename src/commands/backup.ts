@@ -41,12 +41,12 @@ function chooseScope(root: string, map: BackupMap, flags: BackupFlags, walk: Wal
 function tree(walk: WalkResult, plan: Plan): string[] {
 	const create = new Set([...plan.createDirs, ...plan.createFiles.map((f) => f.path)]);
 	const write = new Set(plan.writeFiles.map((f) => f.path));
-	const items: { path: string; kind: string }[] = [...walk.dirs.map((path) => ({ path, kind: "dir" })), ...walk.files.map((f) => ({ path: f.path, kind: f.kind }))];
+	const items: { path: string; kind: BackupFile["kind"] | "dir"; title?: string; aliases?: string[] }[] = [...walk.dirs.map((path) => ({ path, kind: "dir" as const })), ...walk.files];
 	items.sort((a, b) => a.path.localeCompare(b.path));
-	return items.map(({ path, kind }) => {
+	return items.map(({ path, kind, title: pageTitle, aliases }) => {
 		const depth = path.split("/").length - 1;
 		const mark = create.has(path) ? "+" : write.has(path) ? "~" : " ";
-		const title = titleOf(path, kind === "dir" ? "dir" : (kind as BackupFile["kind"]));
+		const title = titleOf(path, kind, pageTitle, aliases);
 		return `${mark} ${"  ".repeat(depth)}${title}${kind === "dir" ? "/" : ""}`;
 	});
 }
@@ -75,6 +75,8 @@ What it does:
                callouts, statblock and base fences stay as YAML code, frontmatter becomes a YAML code block
     images     uploaded once through the File Upload API and shown on their own page and inline wherever embedded
     other text YAML, JSON, scripts and licences as code blocks
+  Wiki content uses its frontmatter title (or first alias); technical documents and attachments keep filename labels.
+  Slug paths key the map, and a deleted content page retains its last backed-up title.
   Before planning, a real run reads the Backup tree in Notion and repairs the map from each page's marker, so a lost or
   stale map never makes a page twice. A push run diffs the map's synced commit to HEAD and touches only those files; a
   file deleted from the repo keeps its page, retitled "(deleted from repo)". Requests are throttled to about 3 a second

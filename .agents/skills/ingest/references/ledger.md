@@ -16,7 +16,7 @@ Write `<work>/brief.md`, at most about 3,000 words. The Wiki may stand later tha
 - **Real names:** a whole copy of the **Real names** list in `user-config.md` `## Table`, which pairs each real name or nickname with the name that replaces it.
 - **PCs:** one line each, copied from that PC's page: name, pronouns, species, class and subclass, 4 to 8 signature features, and the spells and items that identify their actions. An item goes on a PC's line only when that PC's page lists it. Give each Guest character a line too, copied from its NPC page in the same way. End each line with the page path it came from.
 - **With the party:** NPCs and companions in the Party's company at the end of Session N−1, from Session N−1's Recap.
-- **Where we left off:** Session N−1's Recap `## At a glance` bullets and the last paragraph of `## What happened`. With no Recap for Session N−1, use the latest Recap before Session N, else Session N's Prep opening.
+- **Where we left off:** the `## At a glance` bullets of Session N−1's Recap and the last paragraph of its `## What happened`. With no Recap for Session N−1, use the latest Recap before Session N, else Session N's Prep opening.
 - **Prep:** each Scene Chart row (title, kind), its Scene page's `## At a glance` turn line, and the NPCs and Creatures that Scene page links.
 - **Vocabulary:** one `name — type — path — aliases` line for every in-world name that `hot.md` or the pages this brief draws from write, linked or plain. Write each under its page's title, as you judge it on reading (`terror-birds` in `hot.md` is the Terror-Bird). Add every `Target` in `transcribex-dictionary.csv` (when present), and add its enabled `Source → Target` rows as "known mishearings".
 

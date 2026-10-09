@@ -1,0 +1,44 @@
+---
+type: Recap
+summary: "The crew killed the whip-shark, renamed the prize Uncertainty, and
+  made landfall at Calveno with Nona's favour unpaid."
+sources:
+  - "archive/Session 03 - Recap.md"
+  - "archive/session-03-recap.md"
+date: "1495 DR, date not established"
+revealed: "Session 3"
+title: "Session 3 - Recap"
+---
+
+## At a glance
+
+- **Session.** 3. [[session-3-previously-on|Session 3 - Previously On]] records the opening.
+- **Party at.** Calveno, with *[[uncertainty|Uncertainty]]* in La Vasca's cradle.
+- **Big moments.** The crew killed the whip-shark and crossed five days of sea before reaching Calveno, where they reported Vestra's loss to [[nona-black-jaw|Nona Black-Jaw]].
+- **Left open.** Nona's favour, Umberlee's waiting shrine, and [[master-kyzil|Master Kyzil]]'s arrival.
+
+## What happened
+
+The thing striking the cutter's hull returned during Perrin's watch. A vision placed him inside a sixty-foot body and left him the word “Grow”. The creature came up from below, a whip-shark. Crissdalynn held it clear of the water while the crew killed it. Delmar kept its barb, Jean-Claude took three fertilised eggs, and the scales patched the hull. [[shepherd-grigori|Shepherd Grigori]] passed a red light from his wrist over Jean-Claude, which Perrin could not identify.
+
+The crossing to Calveno took five days. Crissdalynn found two forbidden Drowned Maw crossings in [[barnaby-rook|Barnaby Rook]]'s chart archive, with no account of what he had seen. A pale, lit outline held the cutter's course. Delmar entered Admiral Fisk and remained there until Crissdalynn brought him back. Jean-Claude repaired the hull, with Sem Holst fixing what the spell missed.
+
+The main approach was too busy for Crown colours. The crew removed the prefix and brought the prize in as *[[uncertainty|Uncertainty]]*. La Vasca placed her in a cradle in Le Paludi, with Cobb at the open gate. Water called Delmar's name once. Grigori left for a week or two. Branca stopped Delmar and Crissdalynn and demanded Delmar attend Umberlee's shrine, but he kept walking.
+
+In Nona's kitchen, the crew reported Vestra's loss. Nona called off the attacks already underway, asked Perrin for an unspecified favour, and gave him a sending stone. That afternoon Kyzil found Crissdalynn in Calveno, knocked her back, held her, and left after saying the wind had turned foul.
+
+## Changes
+
+- *[[uncertainty|Uncertainty]]* is docked in La Vasca's cradle without Crown colours.
+- The whip-shark is dead. Its barb is with Delmar, and its scales patch the cutter's hull.
+- Perrin carries Nona's sending stone and owes her an unspecified favour.
+- [[master-kyzil|Master Kyzil]] is in Calveno after searching for Crissdalynn.
+- The Drowned Maw crossings in Rook's charts and the pale outline at sea remain unexplained.
+
+## Threads
+
+- [[the-crown-inspection|The Crown Inspection]] moved the story on. The prize escaped inspection and the Crown name is gone.
+- [[simones-hunters|Simone's Hunters]] remain active. The crew came ashore at Calveno, while the search for Jean-Claude goes on.
+- [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]] moved the story on. The shrine has called Delmar, but he has not answered.
+- [[drowned-maw-awakening|Drowned Maw Awakening]] moved the story on. The Maw struck the hull and spoke to Perrin during the crossing.
+- [[perrin-and-nona|Perrin and Nona]] moved the story on. Perrin reported Vestra's loss, accepted a favour, and carries a sending stone.

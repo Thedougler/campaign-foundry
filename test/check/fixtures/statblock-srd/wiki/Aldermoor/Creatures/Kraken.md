@@ -3,7 +3,7 @@ type: Creature
 summary: "Kraken, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Kraken"
 ---
 
 ## At a glance

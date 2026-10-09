@@ -4,7 +4,7 @@ summary: "A dwarf Champion fighter who guards the Party's front and searches for
 sources: []
 dndbeyond_url: "https://www.dndbeyond.com/characters/000000001"
 revealed: "Backstory"
-title: ""
+title: "Brannoch Vell"
 ---
 
 ## Sheet

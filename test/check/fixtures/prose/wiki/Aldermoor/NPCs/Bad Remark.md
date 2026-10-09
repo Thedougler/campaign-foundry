@@ -3,7 +3,7 @@ type: NPC
 summary: "A page with a remark-lint problem."
 sources: []
 creature: ""
-title: ""
+title: "Bad Remark"
 ---
 
 ## At a glance

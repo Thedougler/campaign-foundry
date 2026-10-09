@@ -3,7 +3,7 @@ type: Handout
 summary: "A short note from Hobb Tarrow warning the Party that Ilse Corran's boats are on the water."
 sources: []
 revealed: ""
-title: ""
+title: "Hobb's Warning"
 ---
 
 ## At a glance

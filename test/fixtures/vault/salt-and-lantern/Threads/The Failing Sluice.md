@@ -4,7 +4,7 @@ summary: "Crookback Sluice no longer closes fully, and the sea is creeping inlan
 sources: []
 status: dormant
 revealed: ""
-title: ""
+title: "The Failing Sluice"
 ---
 
 ## At a glance

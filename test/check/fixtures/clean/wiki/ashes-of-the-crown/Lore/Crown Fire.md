@@ -3,7 +3,7 @@ type: Lore
 summary: "How the Crown burned in a single night."
 sources: []
 revealed: ""
-title: ""
+title: "Crown Fire"
 ---
 
 ## At a glance

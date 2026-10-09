@@ -3,7 +3,7 @@ type: Creature
 summary: "Seeded stat block: Bad Attack Bonus."
 sources: []
 revealed: ""
-title: ""
+title: "Bad Attack Bonus"
 ---
 
 ## At a glance

@@ -1,10 +1,10 @@
 # Grounded adaptation of an existing cutter; Saltwright's inspection needs are covered here.
 - id: vehicle
   source_pages:
-    - shattered-sea/Vehicles/Uncertainty.md
-    - shattered-sea/NPCs/Geoffrey Draves.md
-    - shattered-sea/NPCs/Thunk.md
-    - shattered-sea/Locations/Western Landing.md
+    - shattered-sea/Vehicles/uncertainty.md
+    - shattered-sea/NPCs/geoffrey-draves.md
+    - shattered-sea/NPCs/thunk.md
+    - shattered-sea/Locations/western-landing.md
   prompt: >-
     Make Uncertainty ready to run for a rescue embarkation, a Crown chase
     and a boarding off Aruhe. Geoffrey is acting captain while the Party
@@ -14,9 +14,9 @@
     and a proper first sight I can read out. I want the whole Vehicle page.
   checks:
     pages:
-      - shattered-sea/Vehicles/Uncertainty.md
+      - shattered-sea/Vehicles/uncertainty.md
     sections:
-      shattered-sea/Vehicles/Uncertainty.md:
+      shattered-sea/Vehicles/uncertainty.md:
         - "## At a glance"
         - "### Statistics"
         - "### Crew and stations"
@@ -26,7 +26,7 @@
         - "### Hidden truths"
         - "## Links"
     canon:
-      shattered-sea/Vehicles/Uncertainty.md:
+      shattered-sea/Vehicles/uncertainty.md:
         - '^type:\s*Vehicle\s*$'
         - '\[!narration\] First sight'
   rubrics:

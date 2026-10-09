@@ -2260,3 +2260,1465 @@
 - [[Young Bloodhawk]]
 - [[Young Sea Serpent]]
 - [[Zort]]
+
+## [2026-10-09] audit | Renamed DM Settings to dm-settings.md
+
+- [[DM Settings]]
+
+## [2026-10-09] audit | Renamed Ancient Sea Serpent to ancient-sea-serpent.md
+
+- [[Ancient Sea Serpent]]
+
+## [2026-10-09] audit | Renamed Arclight Phoenix to arclight-phoenix.md
+
+- [[Arclight Phoenix]]
+
+## [2026-10-09] audit | Renamed Barnaby Rook (Creature) to barnaby-rook-creature.md
+
+- [[Barnaby Rook (Creature)]]
+
+## [2026-10-09] audit | Renamed Bazzoth the Steeped to bazzoth-the-steeped-creature.md
+
+- [[Bazzoth the Steeped]]
+
+## [2026-10-09] audit | Renamed Beaumont Sel (Creature) to beaumont-sel-creature.md
+
+- [[Beaumont Sel (Creature)]]
+
+## [2026-10-09] audit | Renamed Bloodhawk to bloodhawk.md
+
+- [[Bloodhawk]]
+
+## [2026-10-09] audit | Renamed Commoner to commoner.md
+
+- [[Commoner]]
+
+## [2026-10-09] audit | Renamed Crown Squid to crown-squid.md
+
+- [[Crown Squid]]
+
+## [2026-10-09] audit | Renamed Deer-Stalker to deer-stalker.md
+
+- [[Deer-Stalker]]
+
+## [2026-10-09] audit | Renamed Dragon Turtle to dragon-turtle.md
+
+- [[Dragon Turtle]]
+
+## [2026-10-09] audit | Renamed Dravosi Alchemist to dravosi-alchemist.md
+
+- [[Dravosi Alchemist]]
+
+## [2026-10-09] audit | Renamed Dravosi Deckhand to dravosi-deckhand.md
+
+- [[Dravosi Deckhand]]
+
+## [2026-10-09] audit | Renamed Dravosi Enforcer to dravosi-enforcer.md
+
+- [[Dravosi Enforcer]]
+
+## [2026-10-09] audit | Renamed Geoffrey Draves (Creature) to geoffrey-draves-creature.md
+
+- [[Geoffrey Draves (Creature)]]
+
+## [2026-10-09] audit | Renamed Giant Bat to giant-bat.md
+
+- [[Giant Bat]]
+
+## [2026-10-09] audit | Renamed Giant Scorpion to giant-scorpion.md
+
+- [[Giant Scorpion]]
+
+## [2026-10-09] audit | Renamed Giant Shark to giant-shark.md
+
+- [[Giant Shark]]
+
+## [2026-10-09] audit | Renamed Giant Squid to giant-squid.md
+
+- [[Giant Squid]]
+
+## [2026-10-09] audit | Renamed Giant Vulture to giant-vulture.md
+
+- [[Giant Vulture]]
+
+## [2026-10-09] audit | Renamed Grinning Ape to grinning-ape.md
+
+- [[Grinning Ape]]
+
+## [2026-10-09] audit | Renamed Grung (Creature) to grung-creature.md
+
+- [[Grung (Creature)]]
+
+## [2026-10-09] audit | Renamed Grung Elite Warrior to grung-elite-warrior.md
+
+- [[Grung Elite Warrior]]
+
+## [2026-10-09] audit | Renamed Harpy to harpy.md
+
+- [[Harpy]]
+
+## [2026-10-09] audit | Renamed Hinewai the Blight to hinewai-the-blight.md
+
+- [[Hinewai the Blight]]
+
+## [2026-10-09] audit | Renamed Killer Whale to killer-whale.md
+
+- [[Killer Whale]]
+
+## [2026-10-09] audit | Renamed Leviathan to leviathan.md
+
+- [[Leviathan]]
+
+## [2026-10-09] audit | Renamed Master Kyzil (Creature) to master-kyzil-creature.md
+
+- [[Master Kyzil (Creature)]]
+
+## [2026-10-09] audit | Renamed Minor Slaad to minor-slaad.md
+
+- [[Minor Slaad]]
+
+## [2026-10-09] audit | Renamed Moucheron to moucheron.md
+
+- [[Moucheron]]
+
+## [2026-10-09] audit | Renamed Otar the Foul (Creature) to otar-the-foul-creature.md
+
+- [[Otar the Foul (Creature)]]
+
+## [2026-10-09] audit | Renamed Ozzeth the Twiceborn to ozzeth-the-twiceborn-creature.md
+
+- [[Ozzeth the Twiceborn]]
+
+## [2026-10-09] audit | Renamed Ragnito to ragnito.md
+
+- [[Ragnito]]
+
+## [2026-10-09] audit | Renamed River Otter to river-otter.md
+
+- [[River Otter]]
+
+## [2026-10-09] audit | Renamed Roc to roc.md
+
+- [[Roc]]
+
+## [2026-10-09] audit | Renamed Sawek to sawek.md
+
+- [[Sawek]]
+
+## [2026-10-09] audit | Renamed Shepherd Grigori (Creature) to shepherd-grigori-creature.md
+
+- [[Shepherd Grigori (Creature)]]
+
+## [2026-10-09] audit | Renamed Snakewood to snakewood.md
+
+- [[Snakewood]]
+
+## [2026-10-09] audit | Renamed Solange Barret (Creature) to solange-barret-creature.md
+
+- [[Solange Barret (Creature)]]
+
+## [2026-10-09] audit | Renamed Spiguar to spiguar.md
+
+- [[Spiguar]]
+
+## [2026-10-09] audit | Renamed Strix to strix.md
+
+- [[Strix]]
+
+## [2026-10-09] audit | Renamed Talon Skarn (Creature) to talon-skarn-creature.md
+
+- [[Talon Skarn (Creature)]]
+
+## [2026-10-09] audit | Renamed Talon Vantyrus (Creature) to talon-vantyrus-creature.md
+
+- [[Talon Vantyrus (Creature)]]
+
+## [2026-10-09] audit | Renamed Terror-Bird to terror-bird.md
+
+- [[Terror-Bird]]
+
+## [2026-10-09] audit | Renamed Unsaid Macaw to unsaid-macaw.md
+
+- [[Unsaid Macaw]]
+
+## [2026-10-09] audit | Renamed Vashu the Weeping Veil to vashu-the-weeping-veil-creature.md
+
+- [[Vashu the Weeping Veil]]
+
+## [2026-10-09] audit | Renamed Vine Lash to vine-lash.md
+
+- [[Vine Lash]]
+
+## [2026-10-09] audit | Renamed Whip Shark to whip-shark.md
+
+- [[Whip Shark]]
+
+## [2026-10-09] audit | Renamed Wolfrabbit to wolfrabbit.md
+
+- [[Wolfrabbit]]
+
+## [2026-10-09] audit | Renamed Young Bloodhawk to young-bloodhawk.md
+
+- [[Young Bloodhawk]]
+
+## [2026-10-09] audit | Renamed Young Sea Serpent to young-sea-serpent.md
+
+- [[Young Sea Serpent]]
+
+## [2026-10-09] audit | Renamed Deep Sashelas to deep-sashelas.md
+
+- [[Deep Sashelas]]
+
+## [2026-10-09] audit | Renamed Mystra to mystra.md
+
+- [[Mystra]]
+
+## [2026-10-09] audit | Renamed Tyr to tyr.md
+
+- [[Tyr]]
+
+## [2026-10-09] audit | Renamed Umberlee to umberlee.md
+
+- [[Umberlee]]
+
+## [2026-10-09] audit | Renamed Valkur to valkur.md
+
+- [[Valkur]]
+
+## [2026-10-09] audit | Renamed Beaumont's Crew to beaumonts-crew.md
+
+- [[Beaumont's Crew]]
+
+## [2026-10-09] audit | Renamed Black-Jaw Run to black-jaw-run.md
+
+- [[Black-Jaw Run]]
+
+## [2026-10-09] audit | Renamed Chain Council to chain-council.md
+
+- [[Chain Council]]
+
+## [2026-10-09] audit | Renamed Countless to countless.md
+
+- [[Countless]]
+
+## [2026-10-09] audit | Renamed Dravosi Crown to dravosi-crown.md
+
+- [[Dravosi Crown]]
+
+## [2026-10-09] audit | Renamed Fisk's Fleet to fisks-fleet.md
+
+- [[Fisk's Fleet]]
+
+## [2026-10-09] audit | Renamed Gold Caste to gold-caste.md
+
+- [[Gold Caste]]
+
+## [2026-10-09] audit | Renamed Grung Clans to grung-clans.md
+
+- [[Grung Clans]]
+
+## [2026-10-09] audit | Renamed Il Vento di Seta to il-vento-di-seta.md
+
+- [[Il Vento di Seta]]
+
+## [2026-10-09] audit | Renamed Khlysty to khlysty.md
+
+- [[Khlysty]]
+
+## [2026-10-09] audit | Renamed La Canzone Nera to la-canzone-nera.md
+
+- [[La Canzone Nera]]
+
+## [2026-10-09] audit | Renamed Le Ossa del Toro to le-ossa-del-toro.md
+
+- [[Le Ossa del Toro]]
+
+## [2026-10-09] audit | Renamed Passage to passage.md
+
+- [[Passage]]
+
+## [2026-10-09] audit | Renamed Sentinels of the Eyrie to sentinels-of-the-eyrie.md
+
+- [[Sentinels of the Eyrie]]
+
+## [2026-10-09] audit | Renamed Seven Houses Council to seven-houses-council.md
+
+- [[Seven Houses Council]]
+
+## [2026-10-09] audit | Renamed Tangle to tangle.md
+
+- [[Tangle]]
+
+## [2026-10-09] audit | Renamed Tarahs to tarahs.md
+
+- [[Tarahs]]
+
+## [2026-10-09] audit | Renamed Tessarine Concordat to tessarine-concordat.md
+
+- [[Tessarine Concordat]]
+
+## [2026-10-09] audit | Renamed Waveservants to waveservants.md
+
+- [[Waveservants]]
+
+## [2026-10-09] audit | Renamed Shipboard Travel to shipboard-travel.md
+
+- [[Shipboard Travel]]
+
+## [2026-10-09] audit | Renamed A Sliver of the Unstable Form to a-sliver-of-the-unstable-form.md
+
+- [[A Sliver of the Unstable Form]]
+
+## [2026-10-09] audit | Renamed Alchemist's Bandolier to alchemists-bandolier.md
+
+- [[Alchemist's Bandolier]]
+
+## [2026-10-09] audit | Renamed Fate Spinner to fate-spinner.md
+
+- [[Fate Spinner]]
+
+## [2026-10-09] audit | Renamed Fleet Commanders Chair to fleet-commanders-chair.md
+
+- [[Fleet Commanders Chair]]
+
+## [2026-10-09] audit | Renamed Flying Boots to flying-boots.md
+
+- [[Flying Boots]]
+
+## [2026-10-09] audit | Renamed Ghost Plum to ghost-plum.md
+
+- [[Ghost Plum]]
+
+## [2026-10-09] audit | Renamed Giant's Guava to giants-guava.md
+
+- [[Giant's Guava]]
+
+## [2026-10-09] audit | Renamed Gold Fruit to gold-fruit.md
+
+- [[Gold Fruit]]
+
+## [2026-10-09] audit | Renamed Grubnade to grubnade.md
+
+- [[Grubnade]]
+
+## [2026-10-09] audit | Renamed Grung Authority Seal to grung-authority-seal.md
+
+- [[Grung Authority Seal]]
+
+## [2026-10-09] audit | Renamed Grung Toxin Vials to grung-toxin-vials.md
+
+- [[Grung Toxin Vials]]
+
+## [2026-10-09] audit | Renamed Lamarae's Fang to lamaraes-fang.md
+
+- [[Lamarae's Fang]]
+
+## [2026-10-09] audit | Renamed Letters of Marque to letters-of-marque.md
+
+- [[Letters of Marque]]
+
+## [2026-10-09] audit | Renamed Mira's Blade to miras-blade.md
+
+- [[Mira's Blade]]
+
+## [2026-10-09] audit | Renamed Nightmantle to nightmantle.md
+
+- [[Nightmantle]]
+
+## [2026-10-09] audit | Renamed Pearl of Souls to pearl-of-souls.md
+
+- [[Pearl of Souls]]
+
+## [2026-10-09] audit | Renamed Redheart Berry to redheart-berry.md
+
+- [[Redheart Berry]]
+
+## [2026-10-09] audit | Renamed Rotheart to rotheart.md
+
+- [[Rotheart]]
+
+## [2026-10-09] audit | Renamed Sending Stone (Nona's) to sending-stone-nonas.md
+
+- [[Sending Stone (Nona's)]]
+
+## [2026-10-09] audit | Renamed Silent Shortbow to silent-shortbow.md
+
+- [[Silent Shortbow]]
+
+## [2026-10-09] audit | Renamed Solange's Authority Seal to solanges-authority-seal.md
+
+- [[Solange's Authority Seal]]
+
+## [2026-10-09] audit | Renamed Stonepear to stonepear.md
+
+- [[Stonepear]]
+
+## [2026-10-09] audit | Renamed The Snap to the-snap.md
+
+- [[The Snap]]
+
+## [2026-10-09] audit | Renamed Truth Stone to truth-stone.md
+
+- [[Truth Stone]]
+
+## [2026-10-09] audit | Renamed Whip-Shark Barb to whip-shark-barb.md
+
+- [[Whip-Shark Barb]]
+
+## [2026-10-09] audit | Renamed Aldenmere to aldenmere.md
+
+- [[Aldenmere]]
+
+## [2026-10-09] audit | Renamed Aruhe to aruhe.md
+
+- [[Aruhe]]
+
+## [2026-10-09] audit | Renamed Ashkevet to ashkevet.md
+
+- [[Ashkevet]]
+
+## [2026-10-09] audit | Renamed Ashwall Islands to ashwall-islands.md
+
+- [[Ashwall Islands]]
+
+## [2026-10-09] audit | Renamed Ashwall Lee to ashwall-lee.md
+
+- [[Ashwall Lee]]
+
+## [2026-10-09] audit | Renamed Black Lotus to black-lotus.md
+
+- [[Black Lotus]]
+
+## [2026-10-09] audit | Renamed Blue Hole to blue-hole.md
+
+- [[Blue Hole]]
+
+## [2026-10-09] audit | Renamed Botukuri to botukuri.md
+
+- [[Botukuri]]
+
+## [2026-10-09] audit | Renamed Calder's Tooth and Port Tidefall to calders-tooth-and-port-tidefall.md
+
+- [[Calder's Tooth and Port Tidefall]]
+
+## [2026-10-09] audit | Renamed Calven and Calveno to calven-and-calveno.md
+
+- [[Calven and Calveno]]
+
+## [2026-10-09] audit | Renamed Calveno Sewer Magazines to calveno-sewer-magazines.md
+
+- [[Calveno Sewer Magazines]]
+
+## [2026-10-09] audit | Renamed Casa Falier to casa-falier.md
+
+- [[Casa Falier]]
+
+## [2026-10-09] audit | Renamed Casa Lupo to casa-lupo.md
+
+- [[Casa Lupo]]
+
+## [2026-10-09] audit | Renamed Central Strait to central-strait.md
+
+- [[Central Strait]]
+
+## [2026-10-09] audit | Renamed Crown Islands to crown-islands.md
+
+- [[Crown Islands]]
+
+## [2026-10-09] audit | Renamed Cutoff Lip to cutoff-lip.md
+
+- [[Cutoff Lip]]
+
+## [2026-10-09] audit | Renamed Drowned Maw to drowned-maw.md
+
+- [[Drowned Maw]]
+
+## [2026-10-09] audit | Renamed Fathomrush to fathomrush.md
+
+- [[Fathomrush]]
+
+## [2026-10-09] audit | Renamed Galewall to galewall.md
+
+- [[Galewall]]
+
+## [2026-10-09] audit | Renamed Grasslands to grasslands.md
+
+- [[Grasslands]]
+
+## [2026-10-09] audit | Renamed Halythion to halythion.md
+
+- [[Halythion]]
+
+## [2026-10-09] audit | Renamed Harwick to harwick.md
+
+- [[Harwick]]
+
+## [2026-10-09] audit | Renamed High Eyrie to high-eyrie.md
+
+- [[High Eyrie]]
+
+## [2026-10-09] audit | Renamed Huahei to huahei.md
+
+- [[Huahei]]
+
+## [2026-10-09] audit | Renamed Kalowe to kalowe.md
+
+- [[Kalowe]]
+
+## [2026-10-09] audit | Renamed Karath to karath.md
+
+- [[Karath]]
+
+## [2026-10-09] audit | Renamed Kat's Curios to kats-curios.md
+
+- [[Kat's Curios]]
+
+## [2026-10-09] audit | Renamed Keth-Naar to keth-naar.md
+
+- [[Keth-Naar]]
+
+## [2026-10-09] audit | Renamed La Cenere to la-cenere.md
+
+- [[La Cenere]]
+
+## [2026-10-09] audit | Renamed La Vasca to la-vasca.md
+
+- [[La Vasca]]
+
+## [2026-10-09] audit | Renamed Landing Bank to landing-bank.md
+
+- [[Landing Bank]]
+
+## [2026-10-09] audit | Renamed Lava Tubes to lava-tubes.md
+
+- [[Lava Tubes]]
+
+## [2026-10-09] audit | Renamed Le Paludi to le-paludi.md
+
+- [[Le Paludi]]
+
+## [2026-10-09] audit | Renamed Lesser Black Lotus to lesser-black-lotus.md
+
+- [[Lesser Black Lotus]]
+
+## [2026-10-09] audit | Renamed Line Bank to line-bank.md
+
+- [[Line Bank]]
+
+## [2026-10-09] audit | Renamed Memorial Grove to memorial-grove.md
+
+- [[Memorial Grove]]
+
+## [2026-10-09] audit | Renamed Mercatura to mercatura.md
+
+- [[Mercatura]]
+
+## [2026-10-09] audit | Renamed Midchain to midchain.md
+
+- [[Midchain]]
+
+## [2026-10-09] audit | Renamed Murrat to murrat.md
+
+- [[Murrat]]
+
+## [2026-10-09] audit | Renamed Old Gardens to old-gardens.md
+
+- [[Old Gardens]]
+
+## [2026-10-09] audit | Renamed Outer Reach to outer-reach.md
+
+- [[Outer Reach]]
+
+## [2026-10-09] audit | Renamed Print Braid to print-braid.md
+
+- [[Print Braid]]
+
+## [2026-10-09] audit | Renamed Razer-Grass to razer-grass.md
+
+- [[Razer-Grass]]
+
+## [2026-10-09] audit | Renamed Redwind Isles to redwind-isles.md
+
+- [[Redwind Isles]]
+
+## [2026-10-09] audit | Renamed Sandtable Shoal to sandtable-shoal.md
+
+- [[Sandtable Shoal]]
+
+## [2026-10-09] audit | Renamed Shelfworks to shelfworks.md
+
+- [[Shelfworks]]
+
+## [2026-10-09] audit | Renamed Slack Basin to slack-basin.md
+
+- [[Slack Basin]]
+
+## [2026-10-09] audit | Renamed Sparhold to sparhold.md
+
+- [[Sparhold]]
+
+## [2026-10-09] audit | Renamed Spiritpollen to spiritpollen.md
+
+- [[Spiritpollen]]
+
+## [2026-10-09] audit | Renamed Spoke Ring to spoke-ring.md
+
+- [[Spoke Ring]]
+
+## [2026-10-09] audit | Renamed Star Cut to star-cut.md
+
+- [[Star Cut]]
+
+## [2026-10-09] audit | Renamed Stenmark to stenmark.md
+
+- [[Stenmark]]
+
+## [2026-10-09] audit | Renamed Stillbloom to stillbloom.md
+
+- [[Stillbloom]]
+
+## [2026-10-09] audit | Renamed Studio Orsini to studio-orsini.md
+
+- [[Studio Orsini]]
+
+## [2026-10-09] audit | Renamed Sunken Crown to sunken-crown.md
+
+- [[Sunken Crown]]
+
+## [2026-10-09] audit | Renamed Tallow Row to tallow-row.md
+
+- [[Tallow Row]]
+
+## [2026-10-09] audit | Renamed Tessarine Trade House to tessarine-trade-house.md
+
+- [[Tessarine Trade House]]
+
+## [2026-10-09] audit | Renamed The Burnt Road to the-burnt-road.md
+
+- [[The Burnt Road]]
+
+## [2026-10-09] audit | Renamed The Cabinet of Morsani to the-cabinet-of-morsani.md
+
+- [[The Cabinet of Morsani]]
+
+## [2026-10-09] audit | Renamed The Doldrums to the-doldrums.md
+
+- [[The Doldrums]]
+
+## [2026-10-09] audit | Renamed The Galewall Runner's Drop to the-galewall-runners-drop.md
+
+- [[The Galewall Runner's Drop]]
+
+## [2026-10-09] audit | Renamed The Long Meadow to the-long-meadow.md
+
+- [[The Long Meadow]]
+
+## [2026-10-09] audit | Renamed The Pantry to the-pantry.md
+
+- [[The Pantry]]
+
+## [2026-10-09] audit | Renamed The Ponte Bassa to the-ponte-bassa.md
+
+- [[The Ponte Bassa]]
+
+## [2026-10-09] audit | Renamed The Quiet to the-quiet.md
+
+- [[The Quiet]]
+
+## [2026-10-09] audit | Renamed The River to the-river.md
+
+- [[The River]]
+
+## [2026-10-09] audit | Renamed The Tail to the-tail.md
+
+- [[The Tail]]
+
+## [2026-10-09] audit | Renamed Torn Crossing to torn-crossing.md
+
+- [[Torn Crossing]]
+
+## [2026-10-09] audit | Renamed Umberlee's Shrine to umberlees-shrine.md
+
+- [[Umberlee's Shrine]]
+
+## [2026-10-09] audit | Renamed Vel-Orn to vel-orn.md
+
+- [[Vel-Orn]]
+
+## [2026-10-09] audit | Renamed Verdant Scatter to verdant-scatter.md
+
+- [[Verdant Scatter]]
+
+## [2026-10-09] audit | Renamed Verdant Teeth to verdant-teeth.md
+
+- [[Verdant Teeth]]
+
+## [2026-10-09] audit | Renamed Volcanic Vent Caves to volcanic-vent-caves.md
+
+- [[Volcanic Vent Caves]]
+
+## [2026-10-09] audit | Renamed Warren to warren.md
+
+- [[Warren]]
+
+## [2026-10-09] audit | Renamed Waveservant Shrine to waveservant-shrine.md
+
+- [[Waveservant Shrine]]
+
+## [2026-10-09] audit | Renamed Western Landing to western-landing.md
+
+- [[Western Landing]]
+
+## [2026-10-09] audit | Renamed Aarakocra to aarakocra.md
+
+- [[Aarakocra]]
+
+## [2026-10-09] audit | Renamed Auralis to auralis.md
+
+- [[Auralis]]
+
+## [2026-10-09] audit | Renamed Campaign Timeline to campaign-timeline.md
+
+- [[Campaign Timeline]]
+
+## [2026-10-09] audit | Renamed Elemental Plane of Water to elemental-plane-of-water.md
+
+- [[Elemental Plane of Water]]
+
+## [2026-10-09] audit | Renamed Grung and the Making of Aruhe to grung-and-the-making-of-aruhe.md
+
+- [[Grung and the Making of Aruhe]]
+
+## [2026-10-09] audit | Renamed Grung to grung.md
+
+- [[Grung]]
+
+## [2026-10-09] audit | Renamed Human to human.md
+
+- [[Human]]
+
+## [2026-10-09] audit | Renamed Il Gioco delle Beffe to il-gioco-delle-beffe.md
+
+- [[Il Gioco delle Beffe]]
+
+## [2026-10-09] audit | Renamed Il Palio delle Voci Contese to il-palio-delle-voci-contese.md
+
+- [[Il Palio delle Voci Contese]]
+
+## [2026-10-09] audit | Renamed Istishia to istishia.md
+
+- [[Istishia]]
+
+## [2026-10-09] audit | Renamed Lizardfolk to lizardfolk.md
+
+- [[Lizardfolk]]
+
+## [2026-10-09] audit | Renamed Minotaur to minotaur.md
+
+- [[Minotaur]]
+
+## [2026-10-09] audit | Renamed Peoples of the Shattered Sea to peoples-of-the-shattered-sea.md
+
+- [[Peoples of the Shattered Sea]]
+
+## [2026-10-09] audit | Renamed Rattkin Bounty to rattkin-bounty.md
+
+- [[Rattkin Bounty]]
+
+## [2026-10-09] audit | Renamed Rattkin to rattkin.md
+
+- [[Rattkin]]
+
+## [2026-10-09] audit | Renamed Sea Elf to sea-elf.md
+
+- [[Sea Elf]]
+
+## [2026-10-09] audit | Renamed Session 11 Assets to session-11-assets.md
+
+- [[Session 11 Assets]]
+
+## [2026-10-09] audit | Renamed Tabaxi to tabaxi.md
+
+- [[Tabaxi]]
+
+## [2026-10-09] audit | Renamed Taking on Aruhe to taking-on-aruhe.md
+
+- [[Taking on Aruhe]]
+
+## [2026-10-09] audit | Renamed The Tithe of the Bitch Queen to the-tithe-of-the-bitch-queen.md
+
+- [[The Tithe of the Bitch Queen]]
+
+## [2026-10-09] audit | Renamed Two-Grave Orders to two-grave-orders.md
+
+- [[Two-Grave Orders]]
+
+## [2026-10-09] audit | Renamed Umberlee's Message to umberlees-message.md
+
+- [[Umberlee's Message]]
+
+## [2026-10-09] audit | Renamed Aldous Draves to aldous-draves.md
+
+- [[Aldous Draves]]
+
+## [2026-10-09] audit | Renamed Aleksander Malone to aleksander-malone.md
+
+- [[Aleksander Malone]]
+
+## [2026-10-09] audit | Renamed Alys Kuiper to alys-kuiper.md
+
+- [[Alys Kuiper]]
+
+## [2026-10-09] audit | Renamed Anzolo to anzolo.md
+
+- [[Anzolo]]
+
+## [2026-10-09] audit | Renamed Auralis (Patron) to auralis-patron.md
+
+- [[Auralis (Patron)]]
+
+## [2026-10-09] audit | Renamed Barnaby Rook to barnaby-rook.md
+
+- [[Barnaby Rook]]
+
+## [2026-10-09] audit | Renamed Bastian Crev to bastian-crev.md
+
+- [[Bastian Crev]]
+
+## [2026-10-09] audit | Renamed Bazzoth, the Steeped to bazzoth-the-steeped.md
+
+- [[Bazzoth, the Steeped]]
+
+## [2026-10-09] audit | Renamed Beaumont Sel to beaumont-sel.md
+
+- [[Beaumont Sel]]
+
+## [2026-10-09] audit | Renamed Beppe Sarti to beppe-sarti.md
+
+- [[Beppe Sarti]]
+
+## [2026-10-09] audit | Renamed Bisou to bisou.md
+
+- [[Bisou]]
+
+## [2026-10-09] audit | Renamed Cap'n Gorgeous to capn-gorgeous.md
+
+- [[Cap'n Gorgeous]]
+
+## [2026-10-09] audit | Renamed Carlo Ferrante to carlo-ferrante.md
+
+- [[Carlo Ferrante]]
+
+## [2026-10-09] audit | Renamed Catalina Curio to catalina-curio.md
+
+- [[Catalina Curio]]
+
+## [2026-10-09] audit | Renamed Catarina Da'Virelli to catarina-davirelli.md
+
+- [[Catarina Da'Virelli]]
+
+## [2026-10-09] audit | Renamed Cedric Hollowell to cedric-hollowell.md
+
+- [[Cedric Hollowell]]
+
+## [2026-10-09] audit | Renamed Celia Parel to celia-parel.md
+
+- [[Celia Parel]]
+
+## [2026-10-09] audit | Renamed Cobb to cobb.md
+
+- [[Cobb]]
+
+## [2026-10-09] audit | Renamed Coralyra Dranra to coralyra-dranra.md
+
+- [[Coralyra Dranra]]
+
+## [2026-10-09] audit | Renamed Corbin Knighton to corbin-knighton.md
+
+- [[Corbin Knighton]]
+
+## [2026-10-09] audit | Renamed Corvin Knighton to corvin-knighton.md
+
+- [[Corvin Knighton]]
+
+## [2026-10-09] audit | Renamed Dario Fumagalli to dario-fumagalli.md
+
+- [[Dario Fumagalli]]
+
+## [2026-10-09] audit | Renamed Drav Holke to drav-holke.md
+
+- [[Drav Holke]]
+
+## [2026-10-09] audit | Renamed Duvane to duvane.md
+
+- [[Duvane]]
+
+## [2026-10-09] audit | Renamed Ensign Wouters to ensign-wouters.md
+
+- [[Ensign Wouters]]
+
+## [2026-10-09] audit | Renamed Enzo to enzo.md
+
+- [[Enzo]]
+
+## [2026-10-09] audit | Renamed Ettore Ferrante to ettore-ferrante.md
+
+- [[Ettore Ferrante]]
+
+## [2026-10-09] audit | Renamed Felix Aho to felix-aho.md
+
+- [[Felix Aho]]
+
+## [2026-10-09] audit | Renamed Fen to fen.md
+
+- [[Fen]]
+
+## [2026-10-09] audit | Renamed Geoffrey Draves to geoffrey-draves.md
+
+- [[Geoffrey Draves]]
+
+## [2026-10-09] audit | Renamed Giacomo Moretti to giacomo-moretti.md
+
+- [[Giacomo Moretti]]
+
+## [2026-10-09] audit | Renamed Gianni Moro to gianni-moro.md
+
+- [[Gianni Moro]]
+
+## [2026-10-09] audit | Renamed Hinewai to hinewai.md
+
+- [[Hinewai]]
+
+## [2026-10-09] audit | Renamed Iacopo Fieschi to iacopo-fieschi.md
+
+- [[Iacopo Fieschi]]
+
+## [2026-10-09] audit | Renamed Ilario Pozzo to ilario-pozzo.md
+
+- [[Ilario Pozzo]]
+
+## [2026-10-09] audit | Renamed Impuni to impuni.md
+
+- [[Impuni]]
+
+## [2026-10-09] audit | Renamed Ket to ket.md
+
+- [[Ket]]
+
+## [2026-10-09] audit | Renamed Lavinia Sordi to lavinia-sordi.md
+
+- [[Lavinia Sordi]]
+
+## [2026-10-09] audit | Renamed Lenne Vor to lenne-vor.md
+
+- [[Lenne Vor]]
+
+## [2026-10-09] audit | Renamed Luca Ferrante to luca-ferrante.md
+
+- [[Luca Ferrante]]
+
+## [2026-10-09] audit | Renamed Marco Lenzi to marco-lenzi.md
+
+- [[Marco Lenzi]]
+
+## [2026-10-09] audit | Renamed Marta Orsini to marta-orsini.md
+
+- [[Marta Orsini]]
+
+## [2026-10-09] audit | Renamed Master Kyzil to master-kyzil.md
+
+- [[Master Kyzil]]
+
+## [2026-10-09] audit | Renamed Matteo Scola to matteo-scola.md
+
+- [[Matteo Scola]]
+
+## [2026-10-09] audit | Renamed Nino to nino.md
+
+- [[Nino]]
+
+## [2026-10-09] audit | Renamed Nona Black-Jaw to nona-black-jaw.md
+
+- [[Nona Black-Jaw]]
+
+## [2026-10-09] audit | Renamed Noor to noor.md
+
+- [[Noor]]
+
+## [2026-10-09] audit | Renamed Old Faas to old-faas.md
+
+- [[Old Faas]]
+
+## [2026-10-09] audit | Renamed Oren Vask to oren-vask.md
+
+- [[Oren Vask]]
+
+## [2026-10-09] audit | Renamed Orvalle to orvalle.md
+
+- [[Orvalle]]
+
+## [2026-10-09] audit | Renamed Osset to osset.md
+
+- [[Osset]]
+
+## [2026-10-09] audit | Renamed Otar the Foul to otar-the-foul.md
+
+- [[Otar the Foul]]
+
+## [2026-10-09] audit | Renamed Ozzeth, the Twiceborn to ozzeth-the-twiceborn.md
+
+- [[Ozzeth, the Twiceborn]]
+
+## [2026-10-09] audit | Renamed Pell to pell.md
+
+- [[Pell]]
+
+## [2026-10-09] audit | Renamed Piero Sorrentino to piero-sorrentino.md
+
+- [[Piero Sorrentino]]
+
+## [2026-10-09] audit | Renamed Prospero Morsani to prospero-morsani.md
+
+- [[Prospero Morsani]]
+
+## [2026-10-09] audit | Renamed Renzo Canale to renzo-canale.md
+
+- [[Renzo Canale]]
+
+## [2026-10-09] audit | Renamed Roka Sten to roka-sten.md
+
+- [[Roka Sten]]
+
+## [2026-10-09] audit | Renamed Ruk to ruk.md
+
+- [[Ruk]]
+
+## [2026-10-09] audit | Renamed Ruma Delacroix to ruma-delacroix.md
+
+- [[Ruma Delacroix]]
+
+## [2026-10-09] audit | Renamed Rupert Knighton to rupert-knighton.md
+
+- [[Rupert Knighton]]
+
+## [2026-10-09] audit | Renamed Sandrino Vale to sandrino-vale.md
+
+- [[Sandrino Vale]]
+
+## [2026-10-09] audit | Renamed Sandro to sandro.md
+
+- [[Sandro]]
+
+## [2026-10-09] audit | Renamed Sem Holst to sem-holst.md
+
+- [[Sem Holst]]
+
+## [2026-10-09] audit | Renamed Serena to serena.md
+
+- [[Serena]]
+
+## [2026-10-09] audit | Renamed Shepherd Grigori to shepherd-grigori.md
+
+- [[Shepherd Grigori]]
+
+## [2026-10-09] audit | Renamed Sienne Orre to sienne-orre.md
+
+- [[Sienne Orre]]
+
+## [2026-10-09] audit | Renamed Simone Tabarnack to simone-tabarnack.md
+
+- [[Simone Tabarnack]]
+
+## [2026-10-09] audit | Renamed Solange Barret to solange-barret.md
+
+- [[Solange Barret]]
+
+## [2026-10-09] audit | Renamed Stripes Bitemore to stripes-bitemore.md
+
+- [[Stripes Bitemore]]
+
+## [2026-10-09] audit | Renamed Talon Skarn to talon-skarn.md
+
+- [[Talon Skarn]]
+
+## [2026-10-09] audit | Renamed Talon Vantyrus to talon-vantyrus.md
+
+- [[Talon Vantyrus]]
+
+## [2026-10-09] audit | Renamed Thassos to thassos.md
+
+- [[Thassos]]
+
+## [2026-10-09] audit | Renamed The Unnamed Companion to the-unnamed-companion.md
+
+- [[The Unnamed Companion]]
+
+## [2026-10-09] audit | Renamed Thunk to thunk.md
+
+- [[Thunk]]
+
+## [2026-10-09] audit | Renamed Tommaso Brasca to tommaso-brasca.md
+
+- [[Tommaso Brasca]]
+
+## [2026-10-09] audit | Renamed Tomo to tomo.md
+
+- [[Tomo]]
+
+## [2026-10-09] audit | Renamed Umberlee - Branca to umberlee-branca.md
+
+- [[Umberlee - Branca]]
+
+## [2026-10-09] audit | Renamed Vashu, the Weeping Veil to vashu-the-weeping-veil.md
+
+- [[Vashu, the Weeping Veil]]
+
+## [2026-10-09] audit | Renamed Verity Hollowell to verity-hollowell.md
+
+- [[Verity Hollowell]]
+
+## [2026-10-09] audit | Renamed Vincenzo Black-Jaw to vincenzo-black-jaw.md
+
+- [[Vincenzo Black-Jaw]]
+
+## [2026-10-09] audit | Renamed Wessa to wessa.md
+
+- [[Wessa]]
+
+## [2026-10-09] audit | Renamed Zort to zort.md
+
+- [[Zort]]
+
+## [2026-10-09] audit | Renamed Crissdalynn Khinriss to crissdalynn-khinriss.md
+
+- [[Crissdalynn Khinriss]]
+
+## [2026-10-09] audit | Renamed Delmar Fisk to delmar-fisk.md
+
+- [[Delmar Fisk]]
+
+## [2026-10-09] audit | Renamed Jean-Claude Tabarnack to jean-claude-tabarnack.md
+
+- [[Jean-Claude Tabarnack]]
+
+## [2026-10-09] audit | Renamed Perrin Black-Jaw to perrin-black-jaw.md
+
+- [[Perrin Black-Jaw]]
+
+## [2026-10-09] audit | Renamed Grigori and the Crown hunt to grigori-and-the-crown-hunt.md
+
+- [[Grigori and the Crown hunt]]
+
+## [2026-10-09] audit | Renamed Rule of Two to rule-of-two.md
+
+- [[Rule of Two]]
+
+## [2026-10-09] audit | Renamed Take on Aruhe to take-on-aruhe.md
+
+- [[Take on Aruhe]]
+
+## [2026-10-09] audit | Renamed The Hound of God to the-hound-of-god.md
+
+- [[The Hound of God]]
+
+## [2026-10-09] audit | Renamed Session 0 - Previously On to session-0-previously-on.md
+
+- [[Session 0 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 0 - Recap to session-0-recap.md
+
+- [[Session 0 - Recap]]
+
+## [2026-10-09] audit | Renamed Session 1 - Previously On to session-1-previously-on.md
+
+- [[Session 1 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 1 - Recap to session-1-recap.md
+
+- [[Session 1 - Recap]]
+
+## [2026-10-09] audit | Renamed Session 10 - Previously On to session-10-previously-on.md
+
+- [[Session 10 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 10 - Recap to session-10-recap.md
+
+- [[Session 10 - Recap]]
+
+## [2026-10-09] audit | Renamed Session 11 - Aftermath to session-11-aftermath.md
+
+- [[Session 11 - Aftermath]]
+
+## [2026-10-09] audit | Renamed Session 11 - Angry Birds to session-11-angry-birds.md
+
+- [[Session 11 - Angry Birds]]
+
+## [2026-10-09] audit | Renamed Session 11 - Birds of a Feather to session-11-birds-of-a-feather.md
+
+- [[Session 11 - Birds of a Feather]]
+
+## [2026-10-09] audit | Renamed Session 11 - False Help to session-11-false-help.md
+
+- [[Session 11 - False Help]]
+
+## [2026-10-09] audit | Renamed Session 11 - Farthest Camp to session-11-farthest-camp.md
+
+- [[Session 11 - Farthest Camp]]
+
+## [2026-10-09] audit | Renamed Session 11 - Landing Sign to session-11-landing-sign.md
+
+- [[Session 11 - Landing Sign]]
+
+## [2026-10-09] audit | Renamed Session 11 - Night Watch to session-11-night-watch.md
+
+- [[Session 11 - Night Watch]]
+
+## [2026-10-09] audit | Renamed Session 11 - Otter Hole to session-11-otter-hole.md
+
+- [[Session 11 - Otter Hole]]
+
+## [2026-10-09] audit | Renamed Session 11 - Prep to session-11-prep.md
+
+- [[Session 11 - Prep]]
+
+## [2026-10-09] audit | Renamed Session 11 - Previously On to session-11-previously-on.md
+
+- [[Session 11 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 11 - Recap to session-11-recap.md
+
+- [[Session 11 - Recap]]
+
+## [2026-10-09] audit | Renamed Session 11 - Theft on the Watch to session-11-theft-on-the-watch.md
+
+- [[Session 11 - Theft on the Watch]]
+
+## [2026-10-09] audit | Renamed Session 11 - What They Ate to session-11-what-they-ate.md
+
+- [[Session 11 - What They Ate]]
+
+## [2026-10-09] audit | Renamed Session 11 - Wolfrabbits to session-11-wolfrabbits.md
+
+- [[Session 11 - Wolfrabbits]]
+
+## [2026-10-09] audit | Renamed Session 12 - Consume to session-12-consume.md
+
+- [[Session 12 - Consume]]
+
+## [2026-10-09] audit | Renamed Session 12 - Dawn Strike to session-12-dawn-strike.md
+
+- [[Session 12 - Dawn Strike]]
+
+## [2026-10-09] audit | Renamed Session 12 - Orders in the Ash to session-12-orders-in-the-ash.md
+
+- [[Session 12 - Orders in the Ash]]
+
+## [2026-10-09] audit | Renamed Session 12 - Prep to session-12-prep.md
+
+- [[Session 12 - Prep]]
+
+## [2026-10-09] audit | Renamed Session 12 - Previously On to session-12-previously-on.md
+
+- [[Session 12 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 12 - Recap to session-12-recap.md
+
+- [[Session 12 - Recap]]
+
+## [2026-10-09] audit | Renamed Session 12 - Terror-Birds to session-12-terror-birds.md
+
+- [[Session 12 - Terror-Birds]]
+
+## [2026-10-09] audit | Renamed Session 12 - The Smoking Skylight to session-12-the-smoking-skylight.md
+
+- [[Session 12 - The Smoking Skylight]]
+
+## [2026-10-09] audit | Renamed Session 12 - The Way Out to session-12-the-way-out.md
+
+- [[Session 12 - The Way Out]]
+
+## [2026-10-09] audit | Renamed Session 13 - Previously On to session-13-previously-on.md
+
+- [[Session 13 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 2 - Previously On to session-2-previously-on.md
+
+- [[Session 2 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 2 - Recap to session-2-recap.md
+
+- [[Session 2 - Recap]]
+
+## [2026-10-09] audit | Renamed Session 3 - Previously On to session-3-previously-on.md
+
+- [[Session 3 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 3 - Recap to session-3-recap.md
+
+- [[Session 3 - Recap]]
+
+## [2026-10-09] audit | Renamed Session 4 - Previously On to session-4-previously-on.md
+
+- [[Session 4 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 4 - Recap to session-4-recap.md
+
+- [[Session 4 - Recap]]
+
+## [2026-10-09] audit | Renamed Session 5 - Previously On to session-5-previously-on.md
+
+- [[Session 5 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 5 - Recap to session-5-recap.md
+
+- [[Session 5 - Recap]]
+
+## [2026-10-09] audit | Renamed Session 6 - Previously On to session-6-previously-on.md
+
+- [[Session 6 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 6 - Recap to session-6-recap.md
+
+- [[Session 6 - Recap]]
+
+## [2026-10-09] audit | Renamed Session 7 - Previously On to session-7-previously-on.md
+
+- [[Session 7 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 7 - Recap to session-7-recap.md
+
+- [[Session 7 - Recap]]
+
+## [2026-10-09] audit | Renamed Session 8 - Previously On to session-8-previously-on.md
+
+- [[Session 8 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 8 - Recap to session-8-recap.md
+
+- [[Session 8 - Recap]]
+
+## [2026-10-09] audit | Renamed Session 9 - Previously On to session-9-previously-on.md
+
+- [[Session 9 - Previously On]]
+
+## [2026-10-09] audit | Renamed Session 9 - Recap to session-9-recap.md
+
+- [[Session 9 - Recap]]
+
+## [2026-10-09] audit | Renamed Shattered Sea to shattered-sea.md
+
+- [[Shattered Sea]]
+
+## [2026-10-09] audit | Renamed Ossketh to ossketh.md
+
+- [[Ossketh]]
+
+## [2026-10-09] audit | Renamed The Shattered Sea to the-shattered-sea.md
+
+- [[The Shattered Sea]]
+
+## [2026-10-09] audit | Renamed Bring the Pearl of Souls to Umberlee to bring-the-pearl-of-souls-to-umberlee.md
+
+- [[Bring the Pearl of Souls to Umberlee]]
+
+## [2026-10-09] audit | Renamed Drowned Maw Awakening to drowned-maw-awakening.md
+
+- [[Drowned Maw Awakening]]
+
+## [2026-10-09] audit | Renamed Perrin and Nona to perrin-and-nona.md
+
+- [[Perrin and Nona]]
+
+## [2026-10-09] audit | Renamed Simone's Hunters to simones-hunters.md
+
+- [[Simone's Hunters]]
+
+## [2026-10-09] audit | Renamed The Canister to the-canister.md
+
+- [[The Canister]]
+
+## [2026-10-09] audit | Renamed The Crown Inspection to the-crown-inspection.md
+
+- [[The Crown Inspection]]
+
+## [2026-10-09] audit | Renamed The Rook Resolution to the-rook-resolution.md
+
+- [[The Rook Resolution]]
+
+## [2026-10-09] audit | Renamed What Sunk the Vestra to what-sunk-the-vestra.md
+
+- [[What Sunk the Vestra]]
+
+## [2026-10-09] audit | Renamed Bad Receipt to bad-receipt.md
+
+- [[Bad Receipt]]
+
+## [2026-10-09] audit | Renamed Fernen to fernen.md
+
+- [[Fernen]]
+
+## [2026-10-09] audit | Renamed Glass Debt to glass-debt.md
+
+- [[Glass Debt]]
+
+## [2026-10-09] audit | Renamed HCS Ordinance to hcs-ordinance.md
+
+- [[HCS Ordinance]]
+
+## [2026-10-09] audit | Renamed Knife's Wake to knifes-wake.md
+
+- [[Knife's Wake]]
+
+## [2026-10-09] audit | Renamed Loud Argument to loud-argument.md
+
+- [[Loud Argument]]
+
+## [2026-10-09] audit | Renamed Red Lady to red-lady.md
+
+- [[Red Lady]]
+
+## [2026-10-09] audit | Renamed Saltwright to saltwright.md
+
+- [[Saltwright]]
+
+## [2026-10-09] audit | Renamed The Dead Lady to the-dead-lady.md
+
+- [[The Dead Lady]]
+
+## [2026-10-09] audit | Renamed Uncertainty to uncertainty.md
+
+- [[Uncertainty]]
+
+## [2026-10-09] audit | Renamed Velvet Noose to velvet-noose.md
+
+- [[Velvet Noose]]
+
+## [2026-10-09] audit | Renamed Vestra to vestra.md
+
+- [[Vestra]]
+
+## [2026-10-09] audit | Renamed Vethka to vethka.md
+
+- [[Vethka]]
+
+## [2026-10-09] audit | Renamed shattered-sea/hot.md to Hot
+
+- [[hot|Hot]]
+
+## [2026-10-09] audit | Set title on [[campaign-config|Campaign config]]
+
+- [[campaign-config|Campaign config]]
+
+## [2026-10-09] audit | Renamed shattered-sea/story-so-far.md to Story so far
+
+- [[story-so-far|Story so far]]
+
+## [2026-10-09] lint | Slug migration prose repairs
+
+- [[rattkin-bounty|Rattkin Bounty]]
+- [[aldous-draves|Aldous Draves]]
+- [[oren-vask|Oren Vask]]
+- [[session-12-orders-in-the-ash|Session 12 - Orders in the Ash]]
+- [[session-12-the-way-out|Session 12 - The Way Out]]
+- [[session-9-recap|Session 9 - Recap]]
+- [[story-so-far|Story so far]]

@@ -3,7 +3,7 @@ type: Creature
 summary: "Priest, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Priest"
 ---
 
 ## At a glance

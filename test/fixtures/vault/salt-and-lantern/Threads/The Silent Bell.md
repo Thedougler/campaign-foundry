@@ -4,7 +4,7 @@ summary: "A bell rings under the water before each Long Ebb, and the drowned bel
 sources: []
 status: active
 revealed: ""
-title: ""
+title: "The Silent Bell"
 ---
 
 ## At a glance

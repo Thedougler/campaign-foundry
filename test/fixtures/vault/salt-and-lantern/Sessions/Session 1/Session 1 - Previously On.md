@@ -4,7 +4,7 @@ summary: "Read aloud before Session 2: the lamp burning again, Ilse's escape and
 sources: []
 date: "15 Eelrun 412 CY"
 revealed: ""
-title: ""
+title: "Session 1 - Previously On"
 ---
 
 ## At a glance

@@ -3,7 +3,7 @@ type: NPC
 summary: "A wall captain whose narration carries craft-check problems."
 sources: []
 creature: ""
-title: ""
+title: "Craft Narration"
 ---
 
 ## At a glance

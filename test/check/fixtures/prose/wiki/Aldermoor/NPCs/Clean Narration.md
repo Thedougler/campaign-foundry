@@ -3,7 +3,7 @@ type: NPC
 summary: "A guard described through perceivable facts."
 sources: []
 creature: ""
-title: ""
+title: "Clean Narration"
 ---
 
 ## At a glance

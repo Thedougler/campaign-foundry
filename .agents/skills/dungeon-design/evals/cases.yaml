@@ -1,16 +1,16 @@
 # Default: grounded adaptation combining rescue, nested refuge and repeat expeditions in one exploration Site.
 - id: dungeon
   source_pages:
-    - shattered-sea/Locations/Lava Tubes.md
-    - shattered-sea/Locations/The Long Meadow.md
-    - shattered-sea/Locations/Memorial Grove.md
-    - shattered-sea/Lore/Taking on Aruhe.md
-    - shattered-sea/NPCs/Gianni Moro.md
+    - shattered-sea/Locations/lava-tubes.md
+    - shattered-sea/Locations/the-long-meadow.md
+    - shattered-sea/Locations/memorial-grove.md
+    - shattered-sea/Lore/taking-on-aruhe.md
+    - shattered-sea/NPCs/gianni-moro.md
     - shattered-sea/hot.md
-    - shattered-sea/PCs/Crissdalynn Khinriss.md
-    - shattered-sea/PCs/Delmar Fisk.md
-    - shattered-sea/PCs/Jean-Claude Tabarnack.md
-    - shattered-sea/PCs/Perrin Black-Jaw.md
+    - shattered-sea/PCs/crissdalynn-khinriss.md
+    - shattered-sea/PCs/delmar-fisk.md
+    - shattered-sea/PCs/jean-claude-tabarnack.md
+    - shattered-sea/PCs/perrin-black-jaw.md
   prompt: >-
     Stock the Lava Tubes so I can run the rescue from the smoking skylight
     and exploration beyond it. Make the ledge a small nested Site called
@@ -20,10 +20,10 @@
     as they enter and how searching, resting and coming back change things.
   checks:
     pages:
-      - shattered-sea/Locations/Lava Tubes.md
-      - shattered-sea/Locations/Lava Tube Refuge.md
+      - shattered-sea/Locations/lava-tubes.md
+      - shattered-sea/Locations/lava-tube-refuge.md
     sections:
-      shattered-sea/Locations/Lava Tubes.md:
+      shattered-sea/Locations/lava-tubes.md:
         - '## At a glance'
         - '## Play'
         - '### Areas'
@@ -35,7 +35,7 @@
         - '### Hidden truths'
         - '### Threads'
         - '## Links'
-      shattered-sea/Locations/Lava Tube Refuge.md:
+      shattered-sea/Locations/lava-tube-refuge.md:
         - '## At a glance'
         - '## Play'
         - '### Areas'
@@ -48,19 +48,19 @@
         - '### Threads'
         - '## Links'
     canon:
-      shattered-sea/Locations/Lava Tubes.md:
+      shattered-sea/Locations/lava-tubes.md:
         - '^type:\s*Location\s*$'
         - '^kind:\s*Site\s*$'
         - '^>\s*\[!narration\]\s+Entering\s*$'
-      shattered-sea/Locations/Lava Tube Refuge.md:
+      shattered-sea/Locations/lava-tube-refuge.md:
         - '^type:\s*Location\s*$'
         - '^kind:\s*Site\s*$'
-        - '^parent:\s*"\[\[Lava Tubes\]\]"\s*$'
+        - '^parent:\s*"\[\[lava-tubes\|Lava Tubes\]\]"\s*$'
         - '^>\s*\[!narration\]\s+Entering\s*$'
     absent:
-      shattered-sea/Locations/Lava Tubes.md:
+      shattered-sea/Locations/lava-tubes.md:
         - '^```statblock\b'
-      shattered-sea/Locations/Lava Tube Refuge.md:
+      shattered-sea/Locations/lava-tube-refuge.md:
         - '^```statblock\b'
   rubrics:
     - >-

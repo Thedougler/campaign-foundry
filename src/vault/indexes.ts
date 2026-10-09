@@ -71,10 +71,10 @@ export function compareNames(a: string, b: string): number {
 
 const compareByName = (a: Page, b: Page): number => compareNames(a.name, b.name) || (a.path < b.path ? -1 : a.path > b.path ? 1 : 0);
 
-/** `[[Page]] — summary`, with the summary flattened to one line. The link spells the page's name (ADR 0028). */
+/** A canonical `[[slug|Title]]` and optional summary, flattened to one line. */
 function line(page: Page): string {
 	const summary = typeof page.frontmatter?.summary === "string" ? page.frontmatter.summary.replace(/\s+/g, " ").trim() : "";
-	return summary === "" ? `- [[${page.name}]]` : `- [[${page.name}]] — ${summary}`;
+	return summary === "" ? `- [[${page.slug}|${page.name}]]` : `- [[${page.slug}|${page.name}]] — ${summary}`;
 }
 
 const segmentsOf = (page: Page): string[] => page.path.split("/").slice(0, -1);

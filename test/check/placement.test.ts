@@ -19,7 +19,7 @@ describe("placement layer: failure classes", () => {
 
 	it("accepts every kind in the place docs/wiki-layout.md gives it", async () => {
 		for (const ok of [
-			"DM Settings.md",
+			"dm-settings.md",
 			`${A}/Aldermoor.md`,
 			`${A}/Ashes of the Crown.md`,
 			`${A}/Locations/Saint-Denis.md`,
@@ -71,9 +71,9 @@ describe("placement layer: failure classes", () => {
 	it("hints the right Session page name, with an example", () => {
 		const recap = findingsFor(report, `${A}/Sessions/Session 1/Session 2 - Recap.md`)[0];
 		expect(recap?.message).toContain("`Session 1 - Recap`");
-		expect(recap?.hint).toContain("Session 1 - Recap.md");
+		expect(recap?.hint).toContain('title: "Session 1 - Recap"');
 		const scene = findingsFor(report, `${A}/Sessions/Session 1/Wrong Prefix.md`)[0];
-		expect(scene?.hint).toContain("Session 1 - The Drowned Bell.md");
+		expect(scene?.hint).toContain('title: "Session 1 - The Drowned Bell"');
 	});
 
 	it("names the destination in the hint, and says when --fix can move it", () => {

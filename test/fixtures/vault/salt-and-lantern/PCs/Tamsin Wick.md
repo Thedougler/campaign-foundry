@@ -4,7 +4,7 @@ summary: "A halfling Thief rogue from Saltwick's Undertow who once ran errands f
 sources: []
 dndbeyond_url: "https://www.dndbeyond.com/characters/000000002"
 revealed: "Backstory"
-title: ""
+title: "Tamsin Wick"
 ---
 
 ## Sheet

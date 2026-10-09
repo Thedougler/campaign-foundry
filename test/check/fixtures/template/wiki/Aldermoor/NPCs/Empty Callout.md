@@ -4,7 +4,7 @@ summary: "A ferrywoman."
 sources: []
 creature: ""
 revealed: ""
-title: ""
+title: "Empty Callout"
 ---
 
 ## At a glance

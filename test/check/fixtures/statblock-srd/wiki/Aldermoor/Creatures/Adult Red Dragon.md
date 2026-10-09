@@ -3,7 +3,7 @@ type: Creature
 summary: "Adult Red Dragon, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Adult Red Dragon"
 ---
 
 ## At a glance

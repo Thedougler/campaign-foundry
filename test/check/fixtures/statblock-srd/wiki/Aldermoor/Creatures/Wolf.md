@@ -3,7 +3,7 @@ type: Creature
 summary: "Wolf, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Wolf"
 ---
 
 ## At a glance

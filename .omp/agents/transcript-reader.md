@@ -90,7 +90,7 @@ Each event line starts with its line refs. `<NN>` is the chunk number from your 
 # Chunk <NN> · lines <A>–<B>
 
 ## Scenes
-### <short scene name> · L<a>–<b> · Prep: [[<Prep Scene page title>]] | unplanned
+### <short scene name> · L<a>–<b> · Prep: [[<prep-scene-slug>|<Prep Scene title>]] | unplanned
 - L<a>[–<b>] · PLAY · <who>: <what happened, past tense, one sentence>
 - L<a> · RULING · <the DM's ruling or stated fact>
 - L<a> · SAID · <character> (<DM or PC who voiced it>): "<verbatim words>"

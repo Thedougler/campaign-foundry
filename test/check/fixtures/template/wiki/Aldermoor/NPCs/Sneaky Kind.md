@@ -5,7 +5,7 @@ sources: []
 creature: ""
 kind: Hero
 revealed: ""
-title: ""
+title: "Sneaky Kind"
 ---
 
 ## At a glance

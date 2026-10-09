@@ -4,7 +4,7 @@ kind: Cliffhanger
 summary: "Two Mire Drowners rise from the silt beneath Reedholt as the Party crosses the Under-Boards."
 sources: []
 revealed: ""
-title: ""
+title: "Session 2 - Mud Under the Boards"
 ---
 
 ## At a glance

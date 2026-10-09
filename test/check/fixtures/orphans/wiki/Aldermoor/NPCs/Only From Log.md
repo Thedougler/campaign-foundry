@@ -4,7 +4,7 @@ summary: "One line."
 sources: []
 creature: ""
 revealed: ""
-title: ""
+title: "Only From Log"
 ---
 
 ## At a glance

@@ -4,7 +4,7 @@ summary: "One line."
 sources: []
 session_length_hours:
 revealed: ""
-title: ""
+title: "Ashes"
 ---
 
 ## At a glance

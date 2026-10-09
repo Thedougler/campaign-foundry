@@ -1,17 +1,17 @@
 # Default: grounded adaptation of the existing Crown pursuit, not recovered creation history.
 - id: faction
   source_pages:
-    - shattered-sea/Factions/Dravosi Crown.md
-    - shattered-sea/Threads/The Crown Inspection.md
-    - shattered-sea/NPCs/Rupert Knighton.md
-    - shattered-sea/NPCs/Corbin Knighton.md
-    - shattered-sea/Vehicles/Uncertainty.md
-    - shattered-sea/Locations/Calven and Calveno.md
+    - shattered-sea/Factions/dravosi-crown.md
+    - shattered-sea/Threads/the-crown-inspection.md
+    - shattered-sea/NPCs/rupert-knighton.md
+    - shattered-sea/NPCs/corbin-knighton.md
+    - shattered-sea/Vehicles/uncertainty.md
+    - shattered-sea/Locations/calven-and-calveno.md
     - shattered-sea/hot.md
-    - shattered-sea/PCs/Crissdalynn Khinriss.md
-    - shattered-sea/PCs/Delmar Fisk.md
-    - shattered-sea/PCs/Jean-Claude Tabarnack.md
-    - shattered-sea/PCs/Perrin Black-Jaw.md
+    - shattered-sea/PCs/crissdalynn-khinriss.md
+    - shattered-sea/PCs/delmar-fisk.md
+    - shattered-sea/PCs/jean-claude-tabarnack.md
+    - shattered-sea/PCs/perrin-black-jaw.md
   prompt: >-
     Deepen the Dravosi Crown as opposition while the crew is on Aruhe.
     Give me people I can put in front of them, divisions they can exploit
@@ -21,10 +21,10 @@
     Crown people at work.
   checks:
     pages:
-      - shattered-sea/Factions/Dravosi Crown.md
-      - shattered-sea/Threads/The Crown Inspection.md
+      - shattered-sea/Factions/dravosi-crown.md
+      - shattered-sea/Threads/the-crown-inspection.md
     sections:
-      shattered-sea/Factions/Dravosi Crown.md:
+      shattered-sea/Factions/dravosi-crown.md:
         - '## At a glance'
         - '## Play'
         - '## Depth'
@@ -32,20 +32,20 @@
         - '### Hidden truths'
         - '### Threads'
         - '## Links'
-      shattered-sea/Threads/The Crown Inspection.md:
+      shattered-sea/Threads/the-crown-inspection.md:
         - '## At a glance'
         - '## Play'
         - '## Depth'
         - '## Links'
     canon:
-      shattered-sea/Factions/Dravosi Crown.md:
+      shattered-sea/Factions/dravosi-crown.md:
         - '^type:\s*Faction\s*$'
         - '^>\s*\[!narration\]\s+Public face\s*$'
-      shattered-sea/Threads/The Crown Inspection.md:
+      shattered-sea/Threads/the-crown-inspection.md:
         - '^type:\s*Thread\s*$'
         - '^status:\s*active\s*$'
     absent:
-      shattered-sea/Factions/Dravosi Crown.md:
+      shattered-sea/Factions/dravosi-crown.md:
         - '^```statblock\b'
   rubrics:
     - >-

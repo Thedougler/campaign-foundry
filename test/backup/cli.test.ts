@@ -17,7 +17,7 @@ describe("cf backup", () => {
 
 	it("dry-runs without a token, printing counts, the estimate and the planned tree", async () => {
 		const root = repo({
-			[`${W}/hot.md`]: "# Hot\n",
+			[`${W}/hot.md`]: "---\ntitle: The next session\n---\n# Hot\n",
 			[`${W}/attachments/Map.png`]: lfsPointer(),
 			".agents/skills/npc-design/SKILL.md": "# NPC design\n",
 			".claude/skills/npc-design": { link: "../../.agents/skills/npc-design" },
@@ -27,7 +27,7 @@ describe("cf backup", () => {
 		expect(text.stdout).toContain("would back up (all: first run: the map has no synced commit)");
 		expect(text.stdout).toContain("2 Markdown, 0 other text, 1 images");
 		expect(text.stdout).toContain("1 as LFS pointers here");
-		expect(text.stdout).toContain("+     hot");
+		expect(text.stdout).toContain("+     The next session");
 		expect(text.stdout).toContain("(dry run: nothing sent to Notion, and only the map read");
 		const json = await cf(["backup", "--dry-run", "--json", "--root", root], root);
 		const report = JSON.parse(json.stdout) as { ok: boolean; scope: string; create: { root: boolean; dirs: number; files: number }; estimate: { skills: number } };
@@ -35,7 +35,7 @@ describe("cf backup", () => {
 	});
 
 	it("exits 2 without NOTION_TOKEN, and on a bad parent page", async () => {
-		const root = repo({ [`${W}/hot.md`]: "# Hot\n" });
+		const root = repo({ [`${W}/hot.md`]: "---\ntitle: The next session\n---\n# Hot\n" });
 		// An empty NOTION_TOKEN also keeps a developer's .env token from loading (dotenv never overrides a set variable).
 		const saved = process.env.NOTION_TOKEN;
 		process.env.NOTION_TOKEN = "";
@@ -62,7 +62,7 @@ describe("cf backup after the PR that ran it merges", () => {
 		const { MAP_PATH, serializeMap } = await import("../../src/backup/map.ts");
 		const { DEFAULT_PARENT } = await import("../../src/commands/backup.ts");
 		const git = (root: string, ...args: string[]): string => execFileSync("git", ["-c", "user.name=t", "-c", "user.email=t@t", "-c", "commit.gpgsign=false", ...args], { cwd: root, encoding: "utf8" }).trim();
-		const root = repo({ [`${W}/a.md`]: "a\n", [`${W}/b.md`]: "b\n", "src/x.ts": "x\n" });
+		const root = repo({ [`${W}/a.md`]: "---\ntitle: First page\n---\na\n", [`${W}/b.md`]: "---\ntitle: Second page\n---\nb\n", "src/x.ts": "x\n" });
 		git(root, "init", "-q", "-b", "main");
 		git(root, "add", "-A");
 		git(root, "commit", "-qm", "base");
@@ -84,7 +84,7 @@ describe("cf backup after the PR that ran it merges", () => {
 			git(root, "merge", "-q", "--squash", "pr");
 			git(root, "commit", "-qm", "squashed PR");
 		}
-		writeFileSync(join(root, W, "b.md"), "b2\n");
+		writeFileSync(join(root, W, "b.md"), "---\ntitle: Second page\n---\nb2\n");
 		git(root, "commit", "-qam", "edit b");
 		mkdirSync(join(root, ".notion"), { recursive: true });
 		writeFileSync(join(root, MAP_PATH), serializeMap(map as never));

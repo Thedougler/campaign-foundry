@@ -5,7 +5,7 @@ summary: "A chapel."
 sources: []
 parent: ""
 revealed: ""
-title: ""
+title: "Bad Kind"
 ---
 
 ## At a glance

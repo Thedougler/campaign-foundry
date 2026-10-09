@@ -2,4 +2,4 @@
 
 # Wiki
 
-- [[Salt and Lantern]] — Three newcomers keep a marsh lighthouse burning and find the bell of a drowned city ringing early.
+- [[Salt and Lantern|Salt and Lantern]] — Three newcomers keep a marsh lighthouse burning and find the bell of a drowned city ringing early.

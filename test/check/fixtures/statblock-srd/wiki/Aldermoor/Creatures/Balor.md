@@ -3,7 +3,7 @@ type: Creature
 summary: "Balor, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Balor"
 ---
 
 ## At a glance

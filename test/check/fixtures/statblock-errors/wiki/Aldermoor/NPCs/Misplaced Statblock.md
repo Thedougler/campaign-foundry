@@ -4,7 +4,7 @@ summary: "A villager who carries a stat block."
 sources: []
 creature: ""
 revealed: ""
-title: ""
+title: "Misplaced Statblock"
 ---
 
 ## At a glance

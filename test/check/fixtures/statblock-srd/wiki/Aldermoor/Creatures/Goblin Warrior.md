@@ -3,7 +3,7 @@ type: Creature
 summary: "Goblin Warrior, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Goblin Warrior"
 ---
 
 ## At a glance

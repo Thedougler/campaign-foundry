@@ -3,7 +3,7 @@ type: Creature
 summary: "Giant Eagle, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Giant Eagle"
 ---
 
 ## At a glance

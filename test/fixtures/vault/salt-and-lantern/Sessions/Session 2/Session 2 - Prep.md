@@ -4,7 +4,7 @@ summary: "Plan for Session 2: the bell rings early, the tide drops and the Party
 sources: []
 date: "22 Eelrun 412 CY"
 revealed: ""
-title: ""
+title: "Session 2 - Prep"
 ---
 
 ## At a glance

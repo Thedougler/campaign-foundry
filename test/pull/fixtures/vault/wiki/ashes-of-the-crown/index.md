@@ -4,11 +4,11 @@
 
 ## Worlds
 
-- [[Aldermoor]] — One line.
+- [[Aldermoor|Aldermoor]] — One line.
 
 ## PCs
 
-- [[Hollow]] — A private one.
-- [[Tam]] — No D&D Beyond link.
-- [[Vale]] — The crew's quiet knife.
-- [[Wren]]
+- [[Hollow|Hollow]] — A private one.
+- [[Tam|Tam]] — No D&D Beyond link.
+- [[Vale|Vale]] — The crew's quiet knife.
+- [[Wren|Wren]]

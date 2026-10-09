@@ -3,7 +3,7 @@ type: Creature
 summary: "A Creature with two stat blocks."
 sources: []
 revealed: ""
-title: ""
+title: "Two Statblocks"
 ---
 
 ## At a glance

@@ -2,7 +2,7 @@
 
 ## Creature page
 
-The template is the page schema. Copy `wiki/templates/Creature.md` and file the page at `<campaign-folder>/Creatures/<Name>.md`. A page already filed keeps its folder. Keep its required frontmatter, headings, single `[!narration]` callout, Base block and one `statblock` fence with `layout: Basic 5e Layout`. Do not create a second schema or a separate statblock page.
+The template is the page schema. Copy `wiki/templates/Creature.md` and file the page at `<campaign-folder>/Creatures/<slug>.md`, the slug of its `title` (`docs/wiki-layout.md` **Page names**). A page already filed keeps its folder. Keep its required frontmatter, headings, single `[!narration]` callout, Base block and one `statblock` fence with `layout: Basic 5e Layout`. Do not create a second schema or a separate statblock page.
 
 Fill the template in its existing order:
 
@@ -15,7 +15,7 @@ Fill the template in its existing order:
 
 Every signature ability has both an ecological sign before contact and a visible tell in First sight. Use concrete role language. Ordinary reused stats stay concise: do not add bespoke tuning or elaborate fiction when the request only needs an ordinary Creature, but still file complete sourced rules text and the required template sections.
 
-A Creature is rules, never an NPC identity. An NPC page owns history, personality and relationships and points to the shared Creature with `creature: "[[Name]]"`. Do not make a person-specific Creature when a shared block is requested. Each NPC links one Creature, and many NPCs and Encounters may share one Creature page.
+A Creature is rules, never an NPC identity. An NPC page owns history, personality and relationships and points to the shared Creature with `creature: "[[<slug>|<Title>]]"`. Do not make a person-specific Creature when a shared block is requested. Each NPC links one Creature, and many NPCs and Encounters may share one Creature page.
 
 ## Retunes and played records
 

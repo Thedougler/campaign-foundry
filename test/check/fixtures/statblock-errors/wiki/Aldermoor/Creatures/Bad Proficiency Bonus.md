@@ -3,7 +3,7 @@ type: Creature
 summary: "Seeded stat block: Bad Proficiency Bonus."
 sources: []
 revealed: ""
-title: ""
+title: "Bad Proficiency Bonus"
 ---
 
 ## At a glance

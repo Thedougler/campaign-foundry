@@ -4,7 +4,7 @@ summary: "Last time the Party crossed the bridge."
 sources: []
 date: "14 Emberfall 1492"
 revealed: ""
-title: ""
+title: "Session 2 - Previously On"
 ---
 
 ## At a glance

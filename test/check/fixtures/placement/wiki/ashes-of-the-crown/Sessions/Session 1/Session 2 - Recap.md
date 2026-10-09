@@ -4,7 +4,7 @@ summary: "One line."
 sources: []
 date: ""
 revealed: ""
-title: ""
+title: "Session 2 - Recap"
 ---
 
 ## At a glance

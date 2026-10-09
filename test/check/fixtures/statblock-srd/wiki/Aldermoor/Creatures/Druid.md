@@ -3,7 +3,7 @@ type: Creature
 summary: "Druid, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Druid"
 ---
 
 ## At a glance

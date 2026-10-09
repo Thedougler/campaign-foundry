@@ -4,7 +4,7 @@ kind: Resolution
 summary: "The Party reads the ledger in Reedholt, learns the Compact ordered the flood and hears the sluice groan."
 sources: []
 revealed: ""
-title: ""
+title: "Session 2 - What the Ledger Says"
 ---
 
 ## At a glance

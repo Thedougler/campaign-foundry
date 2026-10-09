@@ -1,9 +1,9 @@
 # Grounded adaptation; no original standalone Spell request was recovered.
 - id: spell
   source_pages:
-    - shattered-sea/Deities/Umberlee.md
-    - shattered-sea/NPCs/Umberlee - Branca.md
-    - shattered-sea/Locations/Western Landing.md
+    - shattered-sea/Deities/umberlee.md
+    - shattered-sea/NPCs/umberlee-branca.md
+    - shattered-sea/Locations/western-landing.md
   prompt: >-
     I want a signature Waveservant spell called Tribute Wake that briefly
     opens a safe boarding approach for a small rescue boat in rough water
@@ -12,9 +12,9 @@
     its rules and something I can read out when it's cast.
   checks:
     pages:
-      - shattered-sea/Spells/Tribute Wake.md
+      - shattered-sea/Spells/tribute-wake.md
     sections:
-      shattered-sea/Spells/Tribute Wake.md:
+      shattered-sea/Spells/tribute-wake.md:
         - "## At a glance"
         - "### Effect"
         - "### Rulings"
@@ -22,7 +22,7 @@
         - "### Who knows it"
         - "## Links"
     canon:
-      shattered-sea/Spells/Tribute Wake.md:
+      shattered-sea/Spells/tribute-wake.md:
         - '^type:\s*Spell\s*$'
         - '\[!narration\] Casting'
   rubrics:

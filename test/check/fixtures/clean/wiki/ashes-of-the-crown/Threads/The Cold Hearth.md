@@ -4,7 +4,7 @@ summary: "Mara's hearth is failing, and so is her hold."
 sources: []
 status: ""
 revealed: ""
-title: ""
+title: "The Cold Hearth"
 ---
 
 ## At a glance

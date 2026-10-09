@@ -3,6 +3,10 @@ import { existsSync, statSync } from "node:fs";
 import { mkdir, rename as moveFile, writeFile } from "node:fs/promises";
 import { dirname, join, relative, resolve, sep } from "node:path";
 import { Command } from "commander";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkGfm from "remark-gfm";
+import remarkParse from "remark-parse";
+import { unified } from "unified";
 import { UsageError } from "../check/run.ts";
 import { isSpecialPage, suggest } from "../check/util.ts";
 import { appendLogEntry, formatEntry, today } from "../vault/log.ts";
@@ -14,6 +18,16 @@ import { resolveVault } from "./vault-flags.ts";
 
 /** `![[target#heading#^block|alias]]`; the inner text never spans lines or nests brackets. */
 const WIKILINK = /(!?)\[\[([^[\]\n]*)\]\]/g;
+const linkParser = unified().use(remarkParse).use(remarkFrontmatter, ["yaml"]).use(remarkGfm);
+
+interface LinkSpan {
+	start: number;
+	end: number;
+	raw: string;
+	embed: boolean;
+	inner: string;
+	table: boolean;
+}
 
 interface RenameFlags {
 	title?: string;
@@ -69,14 +83,17 @@ function resolvePage(vault: Vault, input: string): Page {
 	throw new UsageError(`No page \`${raw}\` in the Wiki.${closest ? ` Did you mean \`${closest}\`?` : ""}`, `Name a page that exists, by name or vault path. Example: cf rename "Mara Voss"`);
 }
 
-function collectCodeRanges(node: unknown, out: [number, number][]): void {
+function collectRewriteRanges(node: unknown, code: [number, number][], tables: [number, number][]): void {
 	const n = node as { type?: string; position?: { start?: { offset?: number }; end?: { offset?: number } }; children?: unknown[] };
-	if ((n.type === "code" || n.type === "inlineCode") && n.position) {
+	if (n.position) {
 		const start = n.position.start?.offset;
 		const end = n.position.end?.offset;
-		if (start !== undefined && end !== undefined) out.push([start, end]);
+		if (start !== undefined && end !== undefined) {
+			if (n.type === "code" || n.type === "inlineCode") code.push([start, end]);
+			if (n.type === "table") tables.push([start, end]);
+		}
 	}
-	for (const child of n.children ?? []) collectCodeRanges(child, out);
+	for (const child of n.children ?? []) collectRewriteRanges(child, code, tables);
 }
 
 /**
@@ -84,15 +101,18 @@ function collectCodeRanges(node: unknown, out: [number, number][]): void {
  * out first, exactly as `parsePage` masks them. The frontmatter is left in (its fence is not masked), so
  * links in quoted string values rewrite like body links.
  */
-function linkSpans(page: Page): { start: number; end: number; raw: string; embed: boolean; inner: string }[] {
+function linkSpans(page: Page): LinkSpan[] {
 	const ranges: [number, number][] = page.comments.map((c) => [c.start, c.end]);
-	collectCodeRanges(page.tree, ranges);
+	const tables: [number, number][] = [];
+	// Parse actual GFM tables, including rows without outer pipes, rather than guessing from prose.
+	const commentless = blank(page.source, ranges, true);
+	collectRewriteRanges(linkParser.parse(commentless), ranges, tables);
 	ranges.sort((a, b) => a[0] - b[0]);
 	const masked = blank(page.source, ranges, false);
-	const spans: { start: number; end: number; raw: string; embed: boolean; inner: string }[] = [];
+	const spans: LinkSpan[] = [];
 	for (const match of masked.matchAll(WIKILINK)) {
 		const start = match.index ?? 0;
-		spans.push({ start, end: start + match[0].length, raw: match[0], embed: match[1] === "!", inner: match[2] ?? "" });
+		spans.push({ start, end: start + match[0].length, raw: match[0], embed: match[1] === "!", inner: match[2] ?? "", table: tables.some(([a, b]) => start >= a && start < b) });
 	}
 	return spans;
 }
@@ -107,20 +127,6 @@ function oldTargetKeys(page: Page): Set<string> {
 	return keys;
 }
 
-/**
- * The new spelling of one rewritten link's target, the bare-vs-piped decision:
- *
- * - A link that already shows its own text (`[[old|text]]`) keeps that text and takes the new slug as its
- *   target — ADR 0028: a link showing text other than the target's title stays `[[slug|text]]`.
- * - A bare link or embed takes the new title, so it reads naturally in source and keeps resolving by name
- *   after the rename. A title that could not sit inside `[[ ]]` (it holds `|`, `#` or brackets) becomes
- *   `[[slug|title]]`, which shows the same text without breaking the link.
- */
-function newTargetFor(hasAlias: boolean, newTitle: string, newSlug: string): { target: string; alias?: string } {
-	if (hasAlias) return { target: newSlug };
-	if (newTitle !== "" && !/[|#[\]]/.test(newTitle)) return { target: newTitle };
-	return { target: newSlug, alias: newTitle };
-}
 
 /** Every link edit the rename makes, keyed by the file holding the link; files without edits are absent. */
 function planLinkEdits(vault: Vault, page: Page, newTitle: string, newSlug: string): Map<string, LinkEdit[]> {
@@ -140,14 +146,15 @@ function planLinkEdits(vault: Vault, page: Page, newTitle: string, newSlug: stri
 			const link = parseWikiLinkText(span.raw, span.embed, span.inner, line, false);
 			if (link.target === "" || !keys.has(targetKey(link.target))) continue;
 			const bar = span.inner.indexOf("|");
-			const head = bar === -1 ? span.inner : span.inner.slice(0, bar);
+			const head = bar === -1 ? span.inner : span.inner.slice(0, bar).replace(/\\$/, "");
 			const aliasPart = bar === -1 ? undefined : span.inner.slice(bar + 1);
 			const segments = head.split("#");
 			const head0 = segments[0] ?? "";
-			const chosen = newTargetFor(aliasPart !== undefined, newTitle, newSlug);
-			const newHead0 = head0.includes(link.target) ? head0.replace(link.target, chosen.target) : chosen.target;
+			const newHead0 = head0.includes(link.target) ? head0.replace(link.target, newSlug) : newSlug;
 			const newHead = [newHead0, ...segments.slice(1)].join("#");
-			const newInner = aliasPart !== undefined ? `${newHead}|${aliasPart}` : chosen.alias !== undefined ? `${newHead}|${chosen.alias}` : newHead;
+			// Every rewritten target is the stable slug; existing custom text survives, otherwise show the title.
+			const separator = span.table || (bar !== -1 && span.inner[bar - 1] === "\\") ? "\\|" : "|";
+			const newInner = `${newHead}${separator}${aliasPart ?? newTitle}`;
 			const newRaw = `${span.embed ? "!" : ""}[[${newInner}]]`;
 			if (newRaw === span.raw) continue;
 			found.push({ line, from: span.raw, to: newRaw, start: span.start, end: span.end });
@@ -195,7 +202,7 @@ export function renameCommand(): Command {
 			"Rename a page to a slug filename (ADR 0028): move <folder>/<Old Name>.md to <folder>/<slug>.md, set its `title`, and rewrite every wikilink and embed across the vault that pointed at any of the page's names, keeping displayed text. Exits 0 done, 2 usage error.",
 		)
 		.argument("<page>", "the page to rename, by name, alias, slug or vault path")
-		.option("--title <Title>", "the page's title after the rename (default: the page's current name: its `title`, else its filename stem)")
+		.option("--title <Title>", "the page's title after the rename (default: its current title, else first alias; required if neither exists)")
 		.option("--slug <slug>", "the new filename slug (default: the title, slugified)")
 		.option("--campaign <Campaign>", "the Campaign whose log.md records the rename (default: the page's Campaign folder, else the only Campaign)")
 		.option("--vault <dir>", "the Wiki folder (default: <root>/wiki)")
@@ -213,27 +220,33 @@ Links:
   alias, its filename slug) or its old path is rewritten across the vault. Code spans, code blocks and
   %% %% comments are never touched; links in quoted frontmatter values rewrite like body links; log.md
   entries are history and are never rewritten; index.md is regenerated instead.
-    [[Old Name]]                    [[Title]]            bare links and embeds take the new title
-    [[Old Name#Head]]               [[Title#Head]]       headings and block refs are kept
-    [[Old Name|custom text]]        [[slug|custom text]] displayed text is kept, target becomes the slug
-  So bare links read naturally and resolve by title; piped links keep their text on the slug (ADR 0028).
+    [[Old Name]]                    [[slug|Title]]            bare links gain the display title
+    [[Old Name#Head]]               [[slug#Head|Title]]       headings and block refs are kept
+    ![[Old Name]]                   ![[slug|Title]]           embeds keep their ! marker
+    [[Old Name|custom text]]        [[slug|custom text]]       custom displayed text is kept
+  Every rewritten target is the stable slug; the pipe keeps the title or existing custom text visible.
+  In Markdown tables the alias pipe is escaped as \\| so it does not split the cell. Existing escaped
+  custom labels stay escaped, without doubling the backslash.
 Collisions:
   Refused, touching nothing: a page already at the target path, another page already using the slug, or
   another page already answering to the new title. For twins, keep the distinguishing bracket in the
   title, never the filename: --title "Otar the Foul (Creature)" --slug otar-the-foul-creature
 Log:
-  Each rename appends \`## [<date>] audit | Renamed <old> to <new>\` to the Campaign folder's log.md.
+  Each rename appends \`## [<date>] audit | Renamed <old> to <new>\` to the Campaign folder's log.md,
+  with a \`[[slug|Title]]\` page reference.
 
 Exit codes:
   0  done (or nothing to do)    2  usage error
 
 Examples:
-  cf rename "Mara Voss"                       migrates to mara-voss.md and sets title: "Mara Voss"
-  cf rename "Mara Voss" --dry-run             preview the move and every link rewrite
-  cf rename "Otar the Foul (Creature)"        twin whose title holds brackets: title kept, slug derived
+  cf rename "Mara Voss" --title "Mara Voss"   migrate a titleless page using its explicit display title
+  cf rename "Mara Voss" --title "Mara Voss" --dry-run
+                                              preview the move and every link rewrite
+  cf rename "Otar the Foul (Creature)" --title "Otar the Foul (Creature)"
+                                              keep the distinguishing title, derive the slug
   cf rename "The Cold Hearth" --title "Cold Hearth Inn"
                                               retitle and move, rewriting [[The Cold Hearth]] links
-  cf rename "The Cold Hearth" --slug cold-hearth-inn --campaign "Ashes of the Crown"`,
+  cf rename "The Cold Hearth" --title "The Cold Hearth" --slug cold-hearth-inn --campaign "Ashes of the Crown"`,
 		)
 		.action(async (pageName: string, flags: RenameFlags) => {
 			const { root, vault: vaultDir } = resolveVault(flags, "rename");
@@ -244,10 +257,10 @@ Examples:
 			};
 			if (isSpecialPage(page)) fail(`\`${page.path}\` is generated or append-only (index, log) and is not renamed.`, "Name a Wiki page, e.g. cf rename \"Mara Voss\".");
 
-			const oldName = page.name;
-			const newTitle = (flags.title ?? oldName).trim();
-			if (newTitle === "") fail("No --title given, and the page's name is blank.", `Pass --title "<Title>". Example: cf rename "${page.name}" --title "Mara Voss"`);
-			if (/[\r\n]/.test(newTitle)) fail("--title must be one line.", `cf rename "${page.name}" --title "Mara Voss"`);
+			const oldName = page.name || page.path;
+			const newTitle = (flags.title ?? page.name).trim();
+			if (newTitle === "") fail("The page has no title or alias; --title is required.", `cf rename "${page.path}" --title "<Title>"`);
+			if (/[\r\n]/.test(newTitle)) fail("--title must be one line.", `cf rename "${page.path}" --title "<Title>"`);
 			const newSlug = slugify(flags.slug ?? newTitle);
 			if (newSlug === "") fail(`The slug of \`${flags.slug ?? newTitle}\` is empty.`, "Pass --slug <slug>: lowercase letters and hyphens, e.g. --slug cold-hearth-inn");
 
@@ -323,7 +336,7 @@ Examples:
 				date: today(),
 				op: "audit",
 				title: oldName.toLowerCase() === newTitle.toLowerCase() ? `Renamed ${oldName} to ${newSlug}.md` : `Renamed ${oldName} to ${newTitle}`,
-				pages: [newTitle],
+				pages: [`${newSlug}|${newTitle}`],
 			};
 
 			if (!dry) {

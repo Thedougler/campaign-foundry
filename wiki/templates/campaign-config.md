@@ -1,5 +1,5 @@
 ---
-title: ""
+title: Campaign config
 type: campaign-config
 summary: ""
 sources: []

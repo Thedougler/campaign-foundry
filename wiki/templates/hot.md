@@ -1,5 +1,5 @@
 ---
-title: ""
+title: Hot
 type: hot
 summary: ""
 sources: []

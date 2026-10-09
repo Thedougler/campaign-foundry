@@ -142,7 +142,17 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 
 	const missing = template.keys.filter((k) => !(k.key in fm)).map((k) => k.key);
 	for (const key of missing) {
-		add("missing-key", 1, `Property \`${key}\` is missing (required by templates/${template.name}.md).`, `Add \`${example(key)}\` to the frontmatter; a blank value is fine unless the key is \`summary\`. \`cf check --fix\` adds it.`);
+		add("missing-key", 1, `Property \`${key}\` is missing (required by templates/${template.name}.md).`, `Add \`${example(key)}\` to the frontmatter; a blank value is fine unless the key is \`summary\` or \`title\`. \`cf check --fix\` adds it.`);
+	}
+	if ("title" in fm) {
+		const line = page.frontmatterKeyLines.title ?? 1;
+		if (typeof fm.title !== "string" && !isBlank(fm.title)) {
+			add("title-type", line, "Property `title` must be a string.", 'Set the page display name, e.g. `title: "Mara Voss"`.');
+		} else if (isBlank(fm.title)) {
+			add("blank-title", line, "Property `title` is blank.", 'Set the page display name, e.g. `title: "Mara Voss"`; the filename is only its stable slug.');
+		} else if (/\r|\n/.test(fm.title as string)) {
+			add("title-multiline", line, "Property `title` spans more than one line.", "Keep the display name on one line.");
+		}
 	}
 	if ("summary" in fm) {
 		const line = page.frontmatterKeyLines.summary ?? 1;

@@ -3,7 +3,7 @@ type: Creature
 summary: "One line."
 sources: []
 revealed: ""
-title: ""
+title: "Bandit Captain"
 ---
 
 ## At a glance

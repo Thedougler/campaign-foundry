@@ -16,20 +16,20 @@ Before writing each page kind, read its template in `wiki/templates/`. Fill ever
 
 | Pages | Count | Path | Template | Follow |
 | --- | --- | --- | --- | --- |
-| World overview | 1 | `<campaign-folder>/<World>.md` | `World.md` | this section |
-| Factions | 3 to 5 | `<campaign-folder>/Factions/<Name>.md` | `Faction.md` | `faction-design` |
-| Region | 1 | `<campaign-folder>/Locations/<Name>.md` | `Location - Region.md` | `location-design` |
-| Settlements or Sites | 2 or 3 | `<campaign-folder>/Locations/<Name>.md` | `Location - Settlement.md`, `Location - Site.md` | `location-design` |
-| NPCs | one leader per Faction, plus one or two faces the starting Locations need | `<campaign-folder>/NPCs/<Name>.md` | `NPC.md` | `npc-design` |
-| Creatures | only where statistics are needed | `<campaign-folder>/Creatures/<Name>.md` | `Creature.md` | `creature-design` |
-| Deities | a few | `<campaign-folder>/Deities/<Name>.md` | `Deity.md` | this section |
-| Lore | 2 or 3 | `<campaign-folder>/Lore/<Name>.md` | `Lore.md` | `lore-design` |
+| World overview | 1 | `<campaign-folder>/<world-slug>.md` | `World.md` | this section |
+| Factions | 3 to 5 | `<campaign-folder>/Factions/<slug>.md` | `Faction.md` | `faction-design` |
+| Region | 1 | `<campaign-folder>/Locations/<slug>.md` | `Location - Region.md` | `location-design` |
+| Settlements or Sites | 2 or 3 | `<campaign-folder>/Locations/<slug>.md` | `Location - Settlement.md`, `Location - Site.md` | `location-design` |
+| NPCs | one leader per Faction, plus one or two faces the starting Locations need | `<campaign-folder>/NPCs/<slug>.md` | `NPC.md` | `npc-design` |
+| Creatures | only where statistics are needed | `<campaign-folder>/Creatures/<slug>.md` | `Creature.md` | `creature-design` |
+| Deities | a few | `<campaign-folder>/Deities/<slug>.md` | `Deity.md` | this section |
+| Lore | 2 or 3 | `<campaign-folder>/Lore/<slug>.md` | `Lore.md` | `lore-design` |
 
 Use each design skill for its pages. When this run is a subagent, follow each skill yourself (`AGENTS.md` **Flat dispatch**). A top-level session may delegate owner pages to subagents. Each subagent returns complete pages and every touched path. Read each skill's `SKILL.md` and the references it names. Supply the settled vision and retrieved evidence, the target path, the skeleton-scale allowance and this run's `create` operation. Each skill's own gate and log steps fold into the skill's File step, which runs once for the whole Campaign folder. Page content by kind:
 
 - **World overview.** In `## At a glance`, write bullets for Tone, Magic and technology, and Era. Add Powers with links to every Faction and Deity page, and Table promise with what the Players get to do and what the table keeps out of play. In `## Calendar`, use the template's `| Month | Days | Season or note |` table. Follow it with the weekdays and year numbering, including its epoch, and the holidays people keep. In `## Depth`, fill `### Cosmology`, `### History in brief` (each era linked to its Lore page) and `### Hidden truths` (each truth with how the Party can learn it). Link the powers and Lore rather than retelling their pages.
 - **Factions.** Concrete wants that collide, methods, pressure and next moves. Each agenda becomes a Thread in the skill's Threads step, which links it under the Faction's `### Threads`. Leave `### Agenda` and `### Threads` out of the page until then.
-- **Locations.** The Region's `parent` is blank and the World overview links it. Each Settlement's or Site's `parent` is a quoted wikilink to its containing Location: `parent: "[[<Region>]]"`. Keep visits and local pressures useful without stocking an unrequested dungeon or distant continent.
+- **Locations.** The Region's `parent` is blank and the World overview links it. Each Settlement's or Site's `parent` is a quoted wikilink to its containing Location: `parent: "[[<region-slug>|<Region>]]"`. Keep visits and local pressures useful without stocking an unrequested dungeon or distant continent.
 - **NPCs.** At the scale `npc-design` selects. Share appropriate contacts across pages rather than giving every mention a new person. Where an NPC needs statistics, its `creature` names a shared Creature page.
 - **Creatures.** Where statistics are needed, reuse a shared sourced 2024 SRD figure (a Guard, Noble, Priest, Veteran or the like). Reuse shared rules figures across pages and limit Creature creation to the required statistics. Region encounter rows and Faction rank and file link these pages.
 - **Deities and Lore.** Limited to the powers and history the premise needs. Link worshippers, shrines, accounts and discoverable evidence to the skeleton's cast and Locations.

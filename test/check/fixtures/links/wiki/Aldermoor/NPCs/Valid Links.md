@@ -5,7 +5,7 @@ sources: []
 creature: ""
 parent: "[[Ravenhold]]"
 revealed: ""
-title: ""
+title: "Valid Links"
 ---
 
 ## At a glance

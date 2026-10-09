@@ -3,7 +3,7 @@ type: Creature
 summary: "Tyrannosaurus Rex, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Tyrannosaurus Rex"
 ---
 
 ## At a glance

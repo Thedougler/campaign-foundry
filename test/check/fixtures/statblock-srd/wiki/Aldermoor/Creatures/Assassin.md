@@ -3,7 +3,7 @@ type: Creature
 summary: "Assassin, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Assassin"
 ---
 
 ## At a glance

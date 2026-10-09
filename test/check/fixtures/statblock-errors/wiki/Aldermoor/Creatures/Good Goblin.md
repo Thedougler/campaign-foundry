@@ -3,7 +3,7 @@ type: Creature
 summary: "Seeded stat block: Good Goblin."
 sources: []
 revealed: ""
-title: ""
+title: "Good Goblin"
 ---
 
 ## At a glance

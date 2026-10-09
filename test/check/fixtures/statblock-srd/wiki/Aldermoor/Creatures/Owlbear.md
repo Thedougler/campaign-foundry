@@ -3,7 +3,7 @@ type: Creature
 summary: "Owlbear, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Owlbear"
 ---
 
 ## At a glance

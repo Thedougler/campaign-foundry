@@ -2,4 +2,4 @@
 
 # Wiki
 
-- [[Ashes of the Crown]] — One line.
+- [[Ashes of the Crown|Ashes of the Crown]] — One line.

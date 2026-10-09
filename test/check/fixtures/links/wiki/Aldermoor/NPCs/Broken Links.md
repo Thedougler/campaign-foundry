@@ -5,7 +5,7 @@ sources: []
 creature: ""
 parent: "[[Ghost Parent]]"
 revealed: ""
-title: ""
+title: "Broken Links"
 ---
 
 ## At a glance

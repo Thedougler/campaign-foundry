@@ -1,13 +1,13 @@
 # Grounded successor adaptation; original Campaign/PC creation asks were not recovered.
 - id: successor-campaign
   source_pages:
-    - shattered-sea/Shattered Sea.md
-    - shattered-sea/The Shattered Sea.md
+    - shattered-sea/shattered-sea.md
+    - shattered-sea/the-shattered-sea.md
     - shattered-sea/campaign-config.md
-    - shattered-sea/PCs/Delmar Fisk.md
-    - shattered-sea/PCs/Perrin Black-Jaw.md
-    - shattered-sea/PCs/Jean-Claude Tabarnack.md
-    - shattered-sea/PCs/Crissdalynn Khinriss.md
+    - shattered-sea/PCs/delmar-fisk.md
+    - shattered-sea/PCs/perrin-black-jaw.md
+    - shattered-sea/PCs/jean-claude-tabarnack.md
+    - shattered-sea/PCs/crissdalynn-khinriss.md
   prompt: >-
     We're ending Shattered Sea here and starting a successor, Next Wake, with
     the same four Players and PCs at the current Aruhe camp. Keep the crew
@@ -26,21 +26,21 @@
     Keep the earlier Campaign as a record. Session 12 has not happened yet.
   checks:
     pages:
-      - next-wake/Next Wake.md
+      - next-wake/next-wake.md
       - next-wake/campaign-config.md
       - next-wake/hot.md
-      - The Shattered Sea.md
+      - the-shattered-sea.md
     sections:
-      next-wake/Next Wake.md:
+      next-wake/next-wake.md:
         - '## At a glance'
         - '## Play'
         - '## Depth'
         - '## Links'
     canon:
-      next-wake/Next Wake.md:
+      next-wake/next-wake.md:
         - '^type:\s*Campaign\s*$'
         - '\[\[next-wake/campaign-config\|'
-      The Shattered Sea.md:
+      the-shattered-sea.md:
         - '^type:\s*World\s*$'
       next-wake/log.md:
         - '^## \[\d{4}-\d{2}-\d{2}\] create \| New Campaign: Next Wake'
@@ -79,8 +79,8 @@
 # A new setting founded before the Party exists; carried over from the retired new-world suite, whose original ask was not recovered.
 - id: sourced-new-setting
   source_pages:
-    - shattered-sea/The Shattered Sea.md
-    - shattered-sea/Locations/Calven and Calveno.md
+    - shattered-sea/the-shattered-sea.md
+    - shattered-sea/Locations/calven-and-calveno.md
   prompt: >-
     Start a new Campaign, Renewal Tides, in a new World called Shattered Sea
     Renewal, inspired by the Shattered Sea. Keep its maritime magic and
@@ -93,22 +93,22 @@
     their characters aren't settled yet; we'll add them later.
   checks:
     pages:
-      - renewal-tides/Renewal Tides.md
-      - renewal-tides/Shattered Sea Renewal.md
+      - renewal-tides/renewal-tides.md
+      - renewal-tides/shattered-sea-renewal.md
       - renewal-tides/campaign-config.md
       - renewal-tides/hot.md
       - renewal-tides/index.md
       - renewal-tides/log.md
     sections:
-      renewal-tides/Shattered Sea Renewal.md:
+      renewal-tides/shattered-sea-renewal.md:
         - '## At a glance'
         - '## Calendar'
         - '## Depth'
         - '## Links'
     canon:
-      renewal-tides/Shattered Sea Renewal.md:
+      renewal-tides/shattered-sea-renewal.md:
         - '^type:\s*World\s*$'
-      renewal-tides/Renewal Tides.md:
+      renewal-tides/renewal-tides.md:
         - '^type:\s*Campaign\s*$'
       renewal-tides/log.md:
         - '^## \[\d{4}-\d{2}-\d{2}\] create \| New Campaign: Renewal Tides'

@@ -3,7 +3,7 @@ type: House Rule
 summary: "One line."
 sources: []
 revealed: ""
-title: ""
+title: "Campaign Rule"
 ---
 
 ## At a glance

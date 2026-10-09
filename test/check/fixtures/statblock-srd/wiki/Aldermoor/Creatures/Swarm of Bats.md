@@ -3,7 +3,7 @@ type: Creature
 summary: "Swarm of Bats, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Swarm of Bats"
 ---
 
 ## At a glance

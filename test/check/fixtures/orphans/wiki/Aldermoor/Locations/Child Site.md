@@ -5,7 +5,7 @@ summary: "One line."
 sources: []
 parent: "[[Ravenhold]]"
 revealed: ""
-title: ""
+title: "Child Site"
 ---
 
 ## At a glance

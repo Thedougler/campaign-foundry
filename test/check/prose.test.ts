@@ -95,6 +95,21 @@ describe("proseView masked for wording rules", () => {
 		});
 		expect(proseView(typed.pageByPath.get("A/Test.md")!, typed).text).toBe("The Ship carried Ship home.\n");
 	});
+
+	it("masks canonical title and alias labels, including escaped table pipes, but not custom prose", () => {
+		const typed = buildVault("/v", {
+			markdown: new Map([
+				["A/outer-reach.md", '---\ntitle: "Outer Reach"\ntype: Location\naliases: ["The Open Sea"]\n---\n'],
+				["A/Test.md", "[[outer-reach|Outer Reach]] [[outer-reach|The Open Sea]] [[outer-reach\\|Outer Reach]] [[outer-reach|a reach of rough water]]\n"],
+			]),
+			attachments: [],
+		});
+		expect(proseView(typed.pageByPath.get("A/Test.md")!, typed).text).toBe("Place Place Place a reach of rough water\n");
+		const page = typed.pageByPath.get("A/Test.md")!;
+		const shown = proseView(page, undefined, typed);
+		expect(shown.text).toBe("Outer Reach The Open Sea Outer Reach a reach of rough water\n");
+		expect(shown.names.map(([start, end]) => shown.text.slice(start, end))).toEqual(["Outer Reach", "The Open Sea", "Outer Reach"]);
+	});
 });
 
 describe("name dictionary", () => {

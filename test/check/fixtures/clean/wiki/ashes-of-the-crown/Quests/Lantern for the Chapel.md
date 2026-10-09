@@ -4,7 +4,7 @@ summary: "Bring the Ashen Lantern out of the chapel."
 sources: []
 status: ""
 revealed: ""
-title: ""
+title: "Lantern for the Chapel"
 ---
 
 ## At a glance

@@ -4,7 +4,7 @@ summary: ""
 sources: []
 dndbeyond_url: "https://www.dndbeyond.com/characters/1000001"
 revealed: "Backstory"
-title: ""
+title: "Wren"
 ---
 
 ## Sheet

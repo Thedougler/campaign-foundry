@@ -3,7 +3,7 @@ type: Handout
 summary: "One line."
 sources: []
 revealed: ""
-title: ""
+title: "Session 1 Map"
 ---
 
 ## At a glance

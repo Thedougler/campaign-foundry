@@ -4,7 +4,7 @@ summary: "Harbormaster with a bandit's past."
 sources: []
 creature: "[[Bandit Captain]]"
 revealed: ""
-title: ""
+title: "Mara Voss"
 ---
 
 ## At a glance

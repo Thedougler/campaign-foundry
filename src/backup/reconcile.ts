@@ -42,6 +42,7 @@ interface Candidate {
 	path: string;
 	kind: "dir" | "file";
 	createdTime: string;
+	title?: string;
 	via: "map" | "marker" | "title";
 	/** A file page whose header names the commit it was fully written at, or any folder page. */
 	complete: boolean;
@@ -122,7 +123,7 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 		if (first.some((b) => b.type !== "child_page")) return undefined;
 		const matches: { path: string; kind: "dir" | "file" }[] = [];
 		for (const d of walkDirs) if (parentPath(d) === folder && titleOf(d, "dir") === title) matches.push({ path: d, kind: "dir" });
-		if (first.length === 0) for (const f of walk.files) if (parentPath(f.path) === folder && titleOf(f.path, f.kind, f.title) === title) matches.push({ path: f.path, kind: "file" });
+		if (first.length === 0) for (const f of walk.files) if (parentPath(f.path) === folder && titleOf(f.path, f.kind, f.title, f.aliases) === title) matches.push({ path: f.path, kind: "file" });
 		return matches.length === 1 ? matches[0] : undefined;
 	};
 	while (queue.length > 0) {
@@ -146,6 +147,7 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 				}
 			}
 			if (!c) continue;
+			if (page.title) c.title = page.title;
 			candidates.set(c.path, [...(candidates.get(c.path) ?? []), c]);
 			if (c.kind === "dir") {
 				c.kids = await api.children(c.id);
@@ -175,7 +177,10 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 			await api.append(kept.id, [dirMarker(path)], true);
 			result.markersAdded++;
 		}
-		if (entry && sameId(entry.id, kept.id)) continue;
+		if (entry && sameId(entry.id, kept.id)) {
+			if (kept.kind === "file" && kept.title) entry.title = entry.deletedAt ? kept.title.replace(/ \(deleted from repo\)$/, "") : kept.title;
+			continue;
+		}
 		const info = await api.getPage(kept.id);
 		const file = walk.files.find((f) => f.path === path);
 		const adopted: MapEntry = { kind: kept.kind === "dir" ? "dir" : (file?.kind ?? kindByExtension(path)), id: kept.id, url: info?.url ?? `https://www.notion.so/${norm(kept.id)}` };
@@ -185,6 +190,7 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 			const first = kept.first ?? (await api.children(kept.id, 4));
 			const deletedAt = deletedNote(first);
 			if (deletedAt) adopted.deletedAt = deletedAt;
+			if (kept.title) adopted.title = deletedAt ? kept.title.replace(/ \(deleted from repo\)$/, "") : kept.title;
 			const skipped = uploadSkippedNote(first);
 			if (skipped) adopted.uploadSkipped = skipped;
 		}

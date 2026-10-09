@@ -4,7 +4,7 @@ summary: ""
 sources: []
 creature: ""
 revealed: ""
-title: ""
+title: "Blank Summary"
 ---
 
 ## At a glance

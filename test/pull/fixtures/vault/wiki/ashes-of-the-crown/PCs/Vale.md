@@ -4,7 +4,7 @@ summary: "The crew's quiet knife."
 sources: []
 dndbeyond_url: "https://www.dndbeyond.com/profile/somebody/characters/1000002"
 revealed: "Backstory"
-title: ""
+title: "Vale"
 ---
 
 ## Sheet

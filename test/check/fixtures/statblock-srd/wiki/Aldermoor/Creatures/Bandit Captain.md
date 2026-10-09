@@ -3,7 +3,7 @@ type: Creature
 summary: "Bandit Captain, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Bandit Captain"
 ---
 
 ## At a glance

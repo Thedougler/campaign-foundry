@@ -3,7 +3,7 @@ type: Creature
 summary: "Storm Giant, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Storm Giant"
 ---
 
 ## At a glance

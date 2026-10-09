@@ -3,7 +3,7 @@ type: World
 summary: "A test world."
 sources: []
 revealed: ""
-title: ""
+title: "Aldermoor"
 ---
 
 ## At a glance

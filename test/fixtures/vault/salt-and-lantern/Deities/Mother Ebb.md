@@ -3,7 +3,7 @@ type: Deity
 summary: "The goddess of the tide, who lends the land to the living and asks for everything to be returned."
 sources: []
 revealed: ""
-title: ""
+title: "Mother Ebb"
 ---
 
 ## At a glance

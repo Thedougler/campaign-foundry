@@ -4,7 +4,7 @@ kind: Hook
 summary: "The Gullhook lamp dies as the ferry enters the channel, and the boat grounds on a mud bank."
 sources: []
 revealed: ""
-title: ""
+title: "Session 1 - The Lamp Goes Dark"
 ---
 
 ## At a glance

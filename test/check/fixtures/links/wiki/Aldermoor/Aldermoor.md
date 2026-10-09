@@ -3,7 +3,7 @@ type: World
 summary: "One line."
 sources: []
 revealed: ""
-title: ""
+title: "Aldermoor"
 ---
 
 ## At a glance

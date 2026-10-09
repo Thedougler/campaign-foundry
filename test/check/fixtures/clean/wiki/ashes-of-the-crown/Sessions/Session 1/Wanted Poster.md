@@ -3,7 +3,7 @@ type: Handout
 summary: "A poster for the Bandit Captain."
 sources: []
 revealed: ""
-title: ""
+title: "Wanted Poster"
 ---
 
 ## At a glance

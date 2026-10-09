@@ -17,7 +17,7 @@ describe("backup map", () => {
 
 	it("serializes entries sorted by path so commits diff cleanly, and round-trips", () => {
 		const map = emptyMap(PARENT);
-		map.entries["b.md"] = { kind: "markdown", id: "2", url: "u2", hash: "h" };
+		map.entries["b.md"] = { kind: "markdown", id: "2", url: "u2", hash: "h", title: "Second page" };
 		map.entries["a.md"] = { kind: "markdown", id: "1", url: "u1" };
 		const text = serializeMap(map);
 		expect(text.indexOf('"a.md"')).toBeLessThan(text.indexOf('"b.md"'));
@@ -25,7 +25,7 @@ describe("backup map", () => {
 		const file = join(root, ".notion/backup-map.json");
 		saveMap(file, map);
 		expect(readFileSync(file, "utf8")).toBe(text);
-		expect(loadMap(file, PARENT).entries["b.md"]).toEqual({ kind: "markdown", id: "2", url: "u2", hash: "h" });
+		expect(loadMap(file, PARENT).entries["b.md"]).toEqual({ kind: "markdown", id: "2", url: "u2", hash: "h", title: "Second page" });
 	});
 
 	it("writes each entry's fields in one order, so the same map built in another order is the same file", () => {

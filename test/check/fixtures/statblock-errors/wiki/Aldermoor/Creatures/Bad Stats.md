@@ -3,7 +3,7 @@ type: Creature
 summary: "Seeded stat block: Bad Stats."
 sources: []
 revealed: ""
-title: ""
+title: "Bad Stats"
 ---
 
 ## At a glance

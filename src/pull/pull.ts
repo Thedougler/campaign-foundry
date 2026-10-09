@@ -89,7 +89,7 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 	const targets = inCampaign.filter((p) => wanted.length === 0 || answersTo(p.page, wanted));
 
 	const outcomes: PcOutcome[] = [];
-	const changed: { folder: string; name: string }[] = [];
+	const changed: { folder: string; target: string }[] = [];
 	const pulledPaths: string[] = [];
 	for (const { page, folder } of targets) {
 		const base = { pc: page.name, path: page.path, sections: [] as PulledSection[], summarySet: false, added: 0, removed: 0 };
@@ -116,7 +116,7 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 				outcomes.push({ ...detail, status: "would-update" });
 			} else {
 				await writeFile(join(options.vault, page.path), rewrite.source);
-				changed.push({ folder, name: page.name });
+				changed.push({ folder, target: `${page.slug}|${page.name}` });
 				outcomes.push({ ...detail, status: "updated" });
 			}
 		} catch (error) {
@@ -132,7 +132,7 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 		const date = today((options.now ?? (() => new Date()))());
 		const touchedFolders = [...new Set(changed.map((c) => c.folder))];
 		for (const folder of touchedFolders) {
-			const entry = { date, op: "pull", title: "Pulled PCs from D&D Beyond", pages: changed.filter((c) => c.folder === folder).map((c) => c.name) };
+			const entry = { date, op: "pull", title: "Pulled PCs from D&D Beyond", pages: changed.filter((c) => c.folder === folder).map((c) => c.target) };
 			const example = `cf log --campaign "${nameByFolder.get(folder) ?? folder}" --op pull --title "Pulled PCs from D&D Beyond"`;
 			const appended = await appendLogEntry(options.vault, folder, entry, { example });
 			if (appended.status === "error") throw new UsageError(appended.message, appended.hint);

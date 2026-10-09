@@ -5,7 +5,7 @@ summary: "A flooded chapel under the river wall."
 sources: []
 parent: "[[Ravenhold]]"
 revealed: ""
-title: ""
+title: "The Sunken Chapel"
 ---
 
 ## At a glance

@@ -4,7 +4,7 @@ kind: Hook
 summary: "A storm pins the Party at the bridge."
 sources: []
 revealed: ""
-title: ""
+title: "Session 1 - Storm at the Crossing"
 ---
 
 ## At a glance

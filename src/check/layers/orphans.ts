@@ -1,5 +1,4 @@
 import { buildLinkGraph } from "../../vault/links.ts";
-import { slugify } from "../../vault/parse.ts";
 import type { Page } from "../../vault/types.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
 import { checkedPages, isSpecialPage } from "../util.ts";
@@ -33,7 +32,7 @@ const LINK_FROM: Record<string, string> = {
 /** Pages that need no inbound link: the roots of the Wiki (the World and Campaign overviews, DM Settings, indexes, logs) and hot.md. */
 function isRoot(page: Page): boolean {
 	if (isSpecialPage(page)) return true;
-	if (page.slug === "hot" || page.name === "DM Settings" || page.slug === slugify("DM Settings")) return true;
+	if (page.slug === "hot" || page.frontmatter?.type === "DM Settings") return true;
 	return page.frontmatter?.type === "World" || page.frontmatter?.type === "Campaign";
 }
 
@@ -53,7 +52,7 @@ export function run(ctx: CheckContext): Finding[] {
 			path: ctx.display(page.path),
 			line: 1,
 			message: `No other page links to \`${page.name}\` (index.md and log.md links do not count).`,
-			hint: `Link it from a page that mentions it${where ? `, usually ${where}` : ""}. Example: add \`[[${page.name}]]\` to that page's text.`,
+			hint: `Link it from a page that mentions it${where ? `, usually ${where}` : ""}. Example: add \`[[${page.slug}|${page.name}]]\` to that page's text.`,
 		});
 	}
 	return findings;

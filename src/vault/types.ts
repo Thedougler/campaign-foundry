@@ -49,7 +49,7 @@ export interface Page {
 	path: string;
 	/** Basename without `.md`: the file slug (ADR 0028). Stable and path-safe, but not the page's name. */
 	slug: string;
-	/** The page's name: frontmatter `title`, else the slug (ADR 0028). An alias is another handle, never the name. */
+	/** Display name: frontmatter `title`, else the first alias; blank when neither exists. Never the file slug. */
 	name: string;
 	/** Every name the page answers to, in resolution order: `title`, each `aliases` entry, the slug; duplicates removed case-insensitively. */
 	names: string[];

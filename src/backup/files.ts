@@ -182,9 +182,15 @@ export function byDepthThenName(a: string, b: string): number {
 	return depth !== 0 ? depth : a.localeCompare(b);
 }
 
-/** The Notion title for a backed-up path: a Markdown page drops `.md`, like its Obsidian name; other files keep the extension. A markdown page with a frontmatter `title` carries that title instead (ADR 0028). */
-export function titleOf(path: string, kind: FileKind | "dir", pageTitle?: string): string {
-	if (kind === "markdown" && pageTitle !== undefined && pageTitle !== "") return pageTitle;
+/** Wiki content uses its title or first alias; document and attachment filenames remain labels, not page names. */
+export function titleOf(path: string, kind: FileKind | "dir", pageTitle?: string, aliases?: readonly string[]): string {
+	if (kind === "markdown") {
+		const title = pageTitle?.trim() || aliases?.find((alias) => alias.trim() !== "")?.trim();
+		if (title) return title;
+		if (path.startsWith("wiki/") && !/\/(?:index|log|campaign-config)\.md$/i.test(path)) {
+			throw new Error(`${path} has no page title. Set its frontmatter title before backing it up.`);
+		}
+	}
 	const name = basename(path);
 	return kind === "markdown" ? name.replace(/\.(md|markdown)$/i, "") : name;
 }

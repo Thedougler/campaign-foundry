@@ -6,7 +6,7 @@ summary: |
 sources: []
 creature: ""
 revealed: ""
-title: ""
+title: "Multiline Summary"
 ---
 
 ## At a glance

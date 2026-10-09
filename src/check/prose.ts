@@ -115,7 +115,7 @@ const BLOCK_ID = /[ \t]+\^[A-Za-z0-9-]+[ \t]*$/gm;
  * text Obsidian shows (its alias, else its page name); embeds, callout markers and `^block` ids removed.
  * Build the same view every time for the same page: results are cached on the page object.
  */
-const caches = { show: new WeakMap<Page, ProseView>(), mask: new WeakMap<Page, ProseView>() };
+const caches = { show: new WeakMap<Page, ProseView>(), named: new WeakMap<Page, ProseView>(), mask: new WeakMap<Page, ProseView>() };
 
 /**
  * What a page name becomes in a masked view, so the name's own words (`Fire Watch`, `Countless`) cannot trip a
@@ -200,12 +200,13 @@ export function mentionedPages(text: string, vault: Vault): { page: Page; name: 
 }
 
 /**
- * Without `mask`, a link shows its page name. With the vault as `mask`, each unaliased link and each bare page
- * name or alias becomes its stand-in (see `MASKED_NAME`): the style layer uses it, because a name such as
- * `Fire Watch` or `Countless` is not the DM's prose.
+ * Without `mask`, a link shows its display text. With the vault as `mask`, each unaliased link,
+ * exact owned title/alias label and bare page name becomes its stand-in (see `MASKED_NAME`).
+ * Arbitrary custom labels remain prose; names such as `Fire Watch` or `Countless` are not prose.
+ * `namesFrom` marks owned display labels without replacing their text, for the grammar layer.
  */
-export function proseView(page: Page, mask?: Vault): ProseView {
-	const cache = caches[mask ? "mask" : "show"];
+export function proseView(page: Page, mask?: Vault, namesFrom?: Vault): ProseView {
+	const cache = caches[mask ? "mask" : namesFrom ? "named" : "show"];
 	const cached = cache.get(page);
 	if (cached) return cached;
 	const source = page.source;
@@ -217,6 +218,7 @@ export function proseView(page: Page, mask?: Vault): ProseView {
 		masked = masked.slice(0, range[0]) + masked.slice(range[0], range[1]).replace(/[^\n]/g, " ") + masked.slice(range[1]);
 	}
 
+	const names = mask || namesFrom ? nameMask(mask ?? namesFrom!) : null;
 	for (const m of masked.matchAll(WIKILINK)) {
 		const start = m.index ?? 0;
 		const end = start + m[0].length;
@@ -225,11 +227,11 @@ export function proseView(page: Page, mask?: Vault): ProseView {
 			continue;
 		}
 		const shown = wikilinkDisplay(m[2] ?? "", start + 2);
-		const text = mask && shown.named ? (nameMask(mask)?.standIn.get(shown.text) ?? MASKED_NAME) : shown.text;
-		edits.push({ start, end, text, from: Array.from({ length: text.length }, (_, i) => shown.at + i), name: shown.named });
+		const named = shown.named || (names?.standIn.has(shown.text) ?? false);
+		const text = mask && named ? (names?.standIn.get(shown.text) ?? MASKED_NAME) : shown.text;
+		edits.push({ start, end, text, from: Array.from({ length: text.length }, (_, i) => shown.at + i), name: named });
 	}
-	const names = mask ? nameMask(mask) : null;
-	if (names) {
+	if (mask && names) {
 		for (const m of masked.matchAll(names.pattern)) {
 			const start = m.index ?? 0;
 			const text = names.standIn.get(m[0]) ?? MASKED_NAME;

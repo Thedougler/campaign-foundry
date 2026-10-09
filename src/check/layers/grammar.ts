@@ -1,7 +1,7 @@
 import { Dialect, LocalLinter, SuggestionKind } from "harper.js";
 import type { Lint } from "harper.js";
 import { binary } from "harper.js/binary";
-import type { Page } from "../../vault/types.ts";
+import type { Page, Vault } from "../../vault/types.ts";
 import { cachedByPage, hash, lockfileSalt } from "../cache.ts";
 import type { CachedFinding } from "../cache.ts";
 import { isProsePage, lineAt, lineStarts, projectWords, proseView, sourceOffset, templateWords, vaultNameWords, vaultWordList } from "../prose.ts";
@@ -102,12 +102,12 @@ function hintFor(lint: Lint): string {
 	return `${advice} Change the wording only; keep what the text says.`;
 }
 
-async function lintPages(l: LocalLinter, pages: Page[]): Promise<Map<Page, CachedFinding[]>> {
+async function lintPages(l: LocalLinter, pages: Page[], vault: Vault): Promise<Map<Page, CachedFinding[]>> {
 	const out = new Map<Page, CachedFinding[]>();
 	for (const page of pages) {
 		const found: CachedFinding[] = [];
 		out.set(page, found);
-		const view = proseView(page);
+		const view = proseView(page, undefined, vault);
 		if (view.text.trim() === "") continue;
 		const starts = lineStarts(page.source);
 		const utf16 = toUtf16(view.text);
@@ -137,11 +137,11 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 	const words = [...vaultNameWords(ctx.vault), ...templateWords(ctx.templates), ...(await vaultWordList(ctx.vault)), ...(await projectWords())];
 	const pages = checkedPages(ctx).filter(isProsePage);
 	// A page's answer depends on its text, Harper's version, the disabled rules, the name dictionary and the misfire filters.
-	const salt = hash(`${await lockfileSalt()}|${DISABLED_RULES.join(",")}|${words.join(",")}|${Object.keys(MISREAD_PAST).join(",")}|${CASTE_COLOUR.source}`);
+	const salt = hash(`canonical-name-labels|${await lockfileSalt()}|${DISABLED_RULES.join(",")}|${words.join(",")}|${Object.keys(MISREAD_PAST).join(",")}|${CASTE_COLOUR.source}`);
 	const byPage = await cachedByPage(ctx.root, LAYER, salt, pages, async (misses) => {
 		const l = await linter();
 		await l.importWords(words);
-		return lintPages(l, misses);
+		return lintPages(l, misses, ctx.vault);
 	}, ctx.target !== undefined);
 	return pages.flatMap((page) => (byPage.get(page) ?? []).map((f): Finding => ({ ...f, severity: "error", path: ctx.display(page.path) })));
 }

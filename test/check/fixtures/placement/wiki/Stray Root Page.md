@@ -4,7 +4,7 @@ summary: "One line."
 sources: []
 creature: ""
 revealed: ""
-title: ""
+title: "Stray Root Page"
 ---
 
 ## At a glance

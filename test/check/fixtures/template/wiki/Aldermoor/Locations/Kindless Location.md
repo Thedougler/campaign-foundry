@@ -4,7 +4,7 @@ summary: "A chapel."
 sources: []
 parent: ""
 revealed: ""
-title: ""
+title: "Kindless Location"
 ---
 
 ## At a glance

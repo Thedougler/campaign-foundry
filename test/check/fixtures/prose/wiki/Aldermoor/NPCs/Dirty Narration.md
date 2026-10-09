@@ -3,7 +3,7 @@ type: NPC
 summary: "A guard with advisory narration problems."
 sources: []
 creature: ""
-title: ""
+title: "Dirty Narration"
 ---
 
 ## At a glance

@@ -3,7 +3,7 @@ type: Creature
 summary: "Seeded stat block: Unknown Skill."
 sources: []
 revealed: ""
-title: ""
+title: "Unknown Skill"
 ---
 
 ## At a glance

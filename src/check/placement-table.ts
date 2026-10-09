@@ -31,7 +31,7 @@ const inSession: Location[] = [{ dir: [CAMPAIGN, "Sessions", SESSION] }];
 
 /** Keyed by frontmatter `type`. Where a kind has several valid locations, the most specific comes first. */
 export const PLACEMENTS: Record<string, Location[]> = {
-	"DM Settings": [{ dir: [], name: "DM Settings" }],
+	"DM Settings": [{ dir: [], name: "dm-settings" }],
 	World: [{ dir: [CAMPAIGN] }, { dir: [] }],
 	Location: inCampaign("Locations"),
 	NPC: inCampaign("NPCs"),

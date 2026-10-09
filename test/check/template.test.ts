@@ -103,6 +103,20 @@ describe("template layer: failure classes", () => {
 	it("points a missing callout at the section the template puts it in", () => {
 		expect(findingsFor(report, "/No Callout.md")[0]?.hint).toContain("under `## At a glance`");
 	});
+
+	it.each([
+		['""', "blank-title"],
+		["17", "title-type"],
+		['"First\\nSecond"', "title-multiline"],
+	])("rejects invalid display title %s", async (value, rule) => {
+		const dir = await copyFixture("template");
+		const path = join(dir, "wiki/Aldermoor/NPCs/Sources Ok.md");
+		const source = await readFile(path, "utf8");
+		await writeFile(path, source.replace(/^title: .*$/m, `title: ${value}`));
+		const result = await cf(["check", path, "--json", "--layer", "template", "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates], dir);
+		const edited = JSON.parse(result.stdout) as JsonReport;
+		expect(findingsFor(edited, "/Sources Ok.md").map((f) => f.rule)).toEqual([rule]);
+	});
 });
 
 describe("template layer: --fix", () => {
@@ -121,7 +135,7 @@ describe("template layer: --fix", () => {
 		expect(fixed).toContain("## At a glance\n\n- **Role.**");
 
 		const missing = await readFile(join(dir, "wiki/Aldermoor/NPCs/Missing Keys.md"), "utf8");
-		expect(missing).toMatch(/^---\ntype: NPC\nsummary: "A ferrywoman."\nrevealed: ""\ntitle: ""\nsources: \[\]\ncreature: ""\n---\n/);
+		expect(missing).toMatch(/^---\ntype: NPC\nsummary: "A ferrywoman."\nrevealed: ""\ntitle: "Missing Keys"\nsources: \[\]\ncreature: ""\n---\n/);
 
 		const second = JSON.parse((await cf(args, dir)).stdout) as JsonReport;
 		expect(second.fixes).toEqual([]);

@@ -3,7 +3,7 @@ type: Creature
 summary: "Ancient Red Dragon, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Ancient Red Dragon"
 ---
 
 ## At a glance

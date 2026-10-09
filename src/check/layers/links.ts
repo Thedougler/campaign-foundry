@@ -35,7 +35,7 @@ export function run(ctx: CheckContext): Finding[] {
 					if (isSpecialPage(page) && page.slug !== "index") break;
 					const name = link.target.split("/").pop()!.replace(/\.md$/i, "");
 					const near = suggest(name, graph.pageNames);
-					add("unresolved", link.line, `${link.embed ? "Embed" : "Link"} ${shown} points at no page.`, `${near ? `Did you mean \`[[${near}]]\`? ` : ""}Links use the page name (\`[[Ravenhold]]\`), not a file slug. If the page does not exist yet, create it from its template in wiki/templates/, or remove the link.`);
+					add("unresolved", link.line, `${link.embed ? "Embed" : "Link"} ${shown} points at no page.`, `${near ? `Did you mean \`[[${near}]]\`? ` : ""}Write links as \`[[slug|Title]]\`; title and alias lookup also resolve. If the page does not exist yet, create it from its template in wiki/templates/, or remove the link.`);
 					break;
 				}
 				case "no-attachment": {

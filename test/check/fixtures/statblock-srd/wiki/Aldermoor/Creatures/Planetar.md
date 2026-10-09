@@ -3,7 +3,7 @@ type: Creature
 summary: "Planetar, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Planetar"
 ---
 
 ## At a glance

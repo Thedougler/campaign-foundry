@@ -4,7 +4,7 @@ kind: Development
 summary: "Nib shows the Party the tally-sticks of the drowned and tells them where the ledger lies."
 sources: []
 revealed: ""
-title: ""
+title: "Session 2 - Nib's Tally"
 ---
 
 ## At a glance

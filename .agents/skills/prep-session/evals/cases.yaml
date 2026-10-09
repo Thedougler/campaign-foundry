@@ -1,19 +1,19 @@
 - id: session-prep
   source_pages:
-    - shattered-sea/Sessions/Session 12/Session 12 - Prep.md
-    - shattered-sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-    - shattered-sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
-    - shattered-sea/Sessions/Session 12/Session 12 - Terror-Birds.md
-    - shattered-sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
-    - shattered-sea/Sessions/Session 12/Session 12 - Consume.md
-    - shattered-sea/Sessions/Session 12/Session 12 - The Way Out.md
-    - shattered-sea/Sessions/Session 12/Session 12 - Previously On.md
-    - shattered-sea/Sessions/Session 11/Session 11 - Recap.md
-    - shattered-sea/Shattered Sea.md
-    - shattered-sea/Lore/Two-Grave Orders.md
-    - shattered-sea/Items/Giant's Guava.md
-    - shattered-sea/Items/Ghost Plum.md
-    - shattered-sea/Creatures/Terror-Bird.md
+    - shattered-sea/Sessions/Session 12/session-12-prep.md
+    - shattered-sea/Sessions/Session 12/session-12-dawn-strike.md
+    - shattered-sea/Sessions/Session 12/session-12-the-smoking-skylight.md
+    - shattered-sea/Sessions/Session 12/session-12-terror-birds.md
+    - shattered-sea/Sessions/Session 12/session-12-orders-in-the-ash.md
+    - shattered-sea/Sessions/Session 12/session-12-consume.md
+    - shattered-sea/Sessions/Session 12/session-12-the-way-out.md
+    - shattered-sea/Sessions/Session 12/session-12-previously-on.md
+    - shattered-sea/Sessions/Session 11/session-11-recap.md
+    - shattered-sea/shattered-sea.md
+    - shattered-sea/Lore/two-grave-orders.md
+    - shattered-sea/Items/giants-guava.md
+    - shattered-sea/Items/ghost-plum.md
+    - shattered-sea/Creatures/terror-bird.md
   prompt: >-
     Prep Session 12 from the top, keeping the broad shape of the existing
     plan. We've settled on four hours following the other survivors' smoke
@@ -26,16 +26,16 @@
     to run, with rescuing the survivors still the main driver.
   checks:
     pages:
-      - shattered-sea/Sessions/Session 12/Session 12 - Prep.md
-      - shattered-sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-      - shattered-sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md
-      - shattered-sea/Sessions/Session 12/Session 12 - Terror-Birds.md
-      - shattered-sea/Sessions/Session 12/Session 12 - Orders in the Ash.md
-      - shattered-sea/Sessions/Session 12/Session 12 - Consume.md
-      - shattered-sea/Sessions/Session 12/Session 12 - The Way Out.md
-      - shattered-sea/Sessions/Session 12/Session 12 - Previously On.md
+      - shattered-sea/Sessions/Session 12/session-12-prep.md
+      - shattered-sea/Sessions/Session 12/session-12-dawn-strike.md
+      - shattered-sea/Sessions/Session 12/session-12-the-smoking-skylight.md
+      - shattered-sea/Sessions/Session 12/session-12-terror-birds.md
+      - shattered-sea/Sessions/Session 12/session-12-orders-in-the-ash.md
+      - shattered-sea/Sessions/Session 12/session-12-consume.md
+      - shattered-sea/Sessions/Session 12/session-12-the-way-out.md
+      - shattered-sea/Sessions/Session 12/session-12-previously-on.md
     sections:
-      shattered-sea/Sessions/Session 12/Session 12 - Prep.md:
+      shattered-sea/Sessions/Session 12/session-12-prep.md:
         - '## At a glance'
         - '## Scene Chart'
         - '## Threads'
@@ -43,34 +43,34 @@
         - '## Clues'
         - '## Links'
     canon:
-      shattered-sea/Sessions/Session 12/Session 12 - Prep.md:
+      shattered-sea/Sessions/Session 12/session-12-prep.md:
         - '^type:\s*Prep\s*$'
         - '\|\s*#\s*\|\s*Scene\s*\|\s*Kind\s*\|\s*Minutes\s*\|\s*Threads\s*\|'
-      shattered-sea/Sessions/Session 12/Session 12 - Dawn Strike.md:
+      shattered-sea/Sessions/Session 12/session-12-dawn-strike.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Hook\s*$'
         - '^> \[!narration\] Opening\s*$'
-      shattered-sea/Sessions/Session 12/Session 12 - The Smoking Skylight.md:
+      shattered-sea/Sessions/Session 12/session-12-the-smoking-skylight.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Development\s*$'
         - '^> \[!narration\] Opening\s*$'
-      shattered-sea/Sessions/Session 12/Session 12 - Terror-Birds.md:
+      shattered-sea/Sessions/Session 12/session-12-terror-birds.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Cliffhanger\s*$'
         - '^> \[!narration\] Opening\s*$'
-      shattered-sea/Sessions/Session 12/Session 12 - Orders in the Ash.md:
+      shattered-sea/Sessions/Session 12/session-12-orders-in-the-ash.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Development\s*$'
         - '^> \[!narration\] Opening\s*$'
-      shattered-sea/Sessions/Session 12/Session 12 - Consume.md:
+      shattered-sea/Sessions/Session 12/session-12-consume.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Climax\s*$'
         - '^> \[!narration\] Opening\s*$'
-      shattered-sea/Sessions/Session 12/Session 12 - The Way Out.md:
+      shattered-sea/Sessions/Session 12/session-12-the-way-out.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Resolution\s*$'
         - '^> \[!narration\] Closing image\s*$'
-      shattered-sea/Sessions/Session 12/Session 12 - Previously On.md:
+      shattered-sea/Sessions/Session 12/session-12-previously-on.md:
         - '^type:\s*Previously On\s*$'
         - '^> \[!narration\] Previously on\s*$'
       shattered-sea/log.md:

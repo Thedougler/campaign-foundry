@@ -5,7 +5,7 @@ summary: "Leader of the Reedrunners, a former Weir Street clerk who runs the bac
 sources: []
 creature: "[[Bandit Captain]]"
 revealed: ""
-title: ""
+title: "Ilse Corran"
 ---
 
 ## At a glance

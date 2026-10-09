@@ -27,7 +27,7 @@ describe("cf log", () => {
 		const { code, stdout } = await log(dir, ["--op", "prep", "--title", "Session 2 Prep", "--page", "Session 1 - Recap", "--page", "Mara Voss", "--date", "2026-02-01"]);
 		expect(code).toBe(0);
 		expect(stdout).toContain("logged");
-		expect(await read(dir)).toBe(`${FIRST}\n## [2026-02-01] prep | Session 2 Prep\n\n- [[Session 1 - Recap]]\n- [[Mara Voss]]\n`);
+		expect(await read(dir)).toBe(`${FIRST}\n## [2026-02-01] prep | Session 2 Prep\n\n- [[Session 1 - Recap|Session 1 - Recap]]\n- [[Mara Voss|Mara Voss]]\n`);
 	});
 
 	it("accepts --op lint", async () => {
@@ -44,7 +44,7 @@ describe("cf log", () => {
 		const results = await Promise.all(titles.map((title) => log(dir, ["--op", "lint", "--title", title, "--page", "Mara Voss", "--date", "2026-02-01"])));
 		expect(results.map((r) => r.code)).toEqual(titles.map(() => 0));
 		const text = await read(dir);
-		for (const title of titles) expect(text).toContain(`## [2026-02-01] lint | ${title}\n\n- [[Mara Voss]]\n`);
+		for (const title of titles) expect(text).toContain(`## [2026-02-01] lint | ${title}\n\n- [[Mara Voss|Mara Voss]]\n`);
 		expect(text.startsWith(FIRST)).toBe(true);
 	});
 
@@ -57,14 +57,14 @@ describe("cf log", () => {
 			"--page", "Orsa",
 		]);
 		expect(code).toBe(0);
-		expect((await read(dir)).endsWith("- [[Mara Voss]]\n- [[Ravenhold]]\n- [[Orsa]]\n")).toBe(true);
+		expect((await read(dir)).endsWith("- [[Mara Voss|Mara Voss]]\n- [[Ravenhold|Ravenhold]]\n- [[Orsa|Orsa]]\n")).toBe(true);
 	});
 
 	it("reads page names from stdin with --stdin, one per line", async () => {
 		const dir = await copyFixture("clean");
 		const { code } = await log(dir, ["--op", "ingest", "--title", "Piped", "--date", "2026-02-01", "--stdin"], "Mara Voss\n\nOrsa\n");
 		expect(code).toBe(0);
-		expect((await read(dir)).endsWith("## [2026-02-01] ingest | Piped\n\n- [[Mara Voss]]\n- [[Orsa]]\n")).toBe(true);
+		expect((await read(dir)).endsWith("## [2026-02-01] ingest | Piped\n\n- [[Mara Voss|Mara Voss]]\n- [[Orsa|Orsa]]\n")).toBe(true);
 	});
 
 	it("creates log.md when the World has none", async () => {
@@ -72,7 +72,7 @@ describe("cf log", () => {
 		await rm(join(dir, LOG));
 		const { code } = await log(dir, ["--op", "query", "--title", "Who is Mara", "--page", "Mara Voss", "--date", "2026-03-04"]);
 		expect(code).toBe(0);
-		expect(await read(dir)).toBe("## [2026-03-04] query | Who is Mara\n\n- [[Mara Voss]]\n");
+		expect(await read(dir)).toBe("## [2026-03-04] query | Who is Mara\n\n- [[Mara Voss|Mara Voss]]\n");
 	});
 
 	it("dates the entry today, in the real world, when --date is left out", async () => {
@@ -89,7 +89,7 @@ describe("cf log", () => {
 		expect(stdout).toContain("rotated");
 		expect(stdout).toContain("log-2026.md");
 		expect(await read(dir, "wiki/ashes-of-the-crown/log-2026.md")).toBe(FIRST);
-		expect(await read(dir)).toBe("## [2027-01-02] prep | New year\n\n- [[Mara Voss]]\n");
+		expect(await read(dir)).toBe("## [2027-01-02] prep | New year\n\n- [[Mara Voss|Mara Voss]]\n");
 	});
 
 	it("does not rotate within the same year", async () => {
@@ -187,7 +187,7 @@ describe("cf log", () => {
 		it("requires --campaign when the Wiki holds more than one Campaign", async () => {
 			const dir = await copyFixture("clean");
 			await mkdir(join(dir, "wiki", "second"), { recursive: true });
-			await writeFile(join(dir, "wiki", "second", "Second.md"), "---\ntype: Campaign\nsummary: \"Another table.\"\nsources: []\n---\n");
+			await writeFile(join(dir, "wiki", "second", "Second.md"), "---\ntype: Campaign\ntitle: Second\nsummary: \"Another table.\"\nsources: []\n---\n");
 			const { code, stderr } = await cf(["log", ...vaultFlags(dir), ...base], dir);
 			expect(code).toBe(2);
 			expect(stderr).toContain("--campaign");

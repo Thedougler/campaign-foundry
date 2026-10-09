@@ -2,7 +2,7 @@
 type: NPC
 summary: [unclosed
 revealed: ""
-title: ""
+title: "Bad Yaml"
 ---
 
 ## At a glance

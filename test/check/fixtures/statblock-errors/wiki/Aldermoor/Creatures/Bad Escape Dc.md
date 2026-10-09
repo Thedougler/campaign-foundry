@@ -3,7 +3,7 @@ type: Creature
 summary: "Seeded stat block: Bad Escape Dc."
 sources: []
 revealed: ""
-title: ""
+title: "Bad Escape Dc"
 ---
 
 ## At a glance

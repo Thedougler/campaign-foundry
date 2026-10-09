@@ -3,7 +3,7 @@ type: Vehicle
 summary: "A river barge with a patched sail."
 sources: []
 revealed: ""
-title: ""
+title: "Gull's Errand"
 ---
 
 ## At a glance

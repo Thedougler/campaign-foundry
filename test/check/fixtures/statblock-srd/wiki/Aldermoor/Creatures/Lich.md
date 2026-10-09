@@ -3,7 +3,7 @@ type: Creature
 summary: "Lich, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Lich"
 ---
 
 ## At a glance

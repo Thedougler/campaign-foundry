@@ -3,7 +3,7 @@ type: Creature
 summary: "Aboleth, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Aboleth"
 ---
 
 ## At a glance

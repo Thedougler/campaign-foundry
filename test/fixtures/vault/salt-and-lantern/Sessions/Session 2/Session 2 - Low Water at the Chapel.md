@@ -4,7 +4,7 @@ kind: Climax
 summary: "In the bell loft Sable asks the Party to speak the names while Reedrunner hands climb the stair."
 sources: []
 revealed: ""
-title: ""
+title: "Session 2 - Low Water at the Chapel"
 ---
 
 ## At a glance

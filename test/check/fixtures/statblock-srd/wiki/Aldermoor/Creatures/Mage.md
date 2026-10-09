@@ -3,7 +3,7 @@ type: Creature
 summary: "Mage, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Mage"
 ---
 
 ## At a glance

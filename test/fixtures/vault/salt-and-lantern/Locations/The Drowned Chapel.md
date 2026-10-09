@@ -5,7 +5,7 @@ summary: "A bell-tower chapel from drowned Vessen that stands clear of the mud o
 sources: []
 parent: "[[Reedholt]]"
 revealed: ""
-title: ""
+title: "The Drowned Chapel"
 ---
 
 ## At a glance

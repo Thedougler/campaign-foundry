@@ -21,8 +21,8 @@ function stringValues(value: unknown): string[] {
 
 /**
  * A page's names in resolution order (ADR 0028): the frontmatter `title`, then each `aliases` entry, then the slug.
- * A blank `title` counts as unset, so `cf check --fix`'s blank keys change nothing. Duplicates are removed
- * case-insensitively, first spelling wins. Display uses the `title` alone (or the slug while unset) — see `Page.name`.
+ * A blank `title` counts as unset. Duplicates are removed case-insensitively, first spelling wins.
+ * Display uses the title, then the first alias; the slug is a lookup handle, never a display name.
  */
 export function pageNames(frontmatter: Record<string, unknown> | null, slug: string): string[] {
 	const seen = new Set<string>();
@@ -211,7 +211,7 @@ export function parsePage(path: string, source: string): Page {
 	const page: Page = {
 		path,
 		slug,
-		name: slug,
+		name: "",
 		names: [slug],
 		source,
 		frontmatter: null,
@@ -228,8 +228,8 @@ export function parsePage(path: string, source: string): Page {
 	if (yamlNode?.position && yamlNode.type === "yaml") readFrontmatter(page, yamlNode.value, yamlNode.position.start.line);
 	if (yamlNode?.position) page.frontmatterEndLine = yamlNode.position.end.line;
 	page.names = pageNames(page.frontmatter, slug);
-	// Display keeps the file's spelling until a `title` exists; an alias is another handle, never the page's name.
-	page.name = stringValues(page.frontmatter?.title)[0] ?? slug;
+	// Titles own display names; aliases can name older pages without turning their slug into prose.
+	page.name = stringValues(page.frontmatter?.title)[0] ?? stringValues(page.frontmatter?.aliases)[0] ?? "";
 	return page;
 }
 

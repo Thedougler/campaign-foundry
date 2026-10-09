@@ -4,7 +4,7 @@ summary: "Read aloud before Session 3: the names spoken, the ledger taken and th
 sources: []
 date: "23 Eelrun 412 CY"
 revealed: ""
-title: ""
+title: "Session 2 - Previously On"
 ---
 
 ## At a glance

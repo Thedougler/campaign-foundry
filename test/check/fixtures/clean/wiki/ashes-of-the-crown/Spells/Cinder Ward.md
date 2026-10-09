@@ -3,7 +3,7 @@ type: Spell
 summary: "A ward of drifting embers."
 sources: []
 revealed: ""
-title: ""
+title: "Cinder Ward"
 ---
 
 ## At a glance

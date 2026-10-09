@@ -7,8 +7,8 @@ const W = "wiki/shattered-sea";
 
 describe("backup tree walk", () => {
 	const root = repo({
-		[`${W}/hot.md`]: "# Hot\n",
-		[`${W}/NPCs/Ilse Corran.md`]: "Ilse\n",
+		[`${W}/hot.md`]: "---\ntitle: The next session\n---\n# Hot\n",
+		[`${W}/NPCs/Ilse Corran.md`]: "---\ntitle: Ilse Corran\n---\nIlse\n",
 		[`${W}/attachments/Map.png`]: lfsPointer(),
 		[`${W}/attachments/Sketch.svg`]: "<svg/>",
 		[`${W}/attachments/Rules.pdf`]: lfsPointer("b".repeat(64)),
@@ -71,6 +71,11 @@ describe("backup tree walk", () => {
 		expect(walk.dirs).not.toContain(`${W}/.obsidian`);
 		for (const dir of walk.dirs) for (const parent of ancestors(`${dir}/x`).slice(0, -1)) expect(walk.dirs.indexOf(parent)).toBeLessThan(walk.dirs.indexOf(dir));
 	});
+	it("reads the Wiki title from frontmatter rather than deriving it from the path", () => {
+		const root = repo({ [`${W}/NPCs/ilse-corran.md`]: "---\ntitle: Captain Ilse\naliases: [Ilse]\n---\nIlse\n" });
+		const [file] = walkBackup(root).files;
+		expect(file).toMatchObject({ path: `${W}/NPCs/ilse-corran.md`, title: "Captain Ilse", aliases: ["Ilse"] });
+	});
 });
 
 describe("backup rules", () => {
@@ -81,8 +86,12 @@ describe("backup rules", () => {
 		expect(excludedBy("a/source/x.md")).toBeUndefined();
 	});
 
-	it("titles a page by its Obsidian name, keeping other files' extensions", () => {
-		expect(titleOf(`${W}/NPCs/Ilse Corran.md`, "markdown")).toBe("Ilse Corran");
+	it("titles Wiki content by its title or alias, keeping document and attachment filename labels", () => {
+		expect(titleOf(`${W}/NPCs/ilse-corran.md`, "markdown", "Ilse Corran")).toBe("Ilse Corran");
+		expect(titleOf(`${W}/NPCs/ilse-corran.md`, "markdown", undefined, ["Ilse"])).toBe("Ilse");
+		expect(() => titleOf(`${W}/NPCs/ilse-corran.md`, "markdown")).toThrow("Set its frontmatter title");
+		expect(titleOf(".agents/skills/npc-design/SKILL.md", "markdown")).toBe("SKILL");
+		expect(titleOf(`${W}/index.md`, "markdown")).toBe("index");
 		expect(titleOf("x/evals/cases.yaml", "text")).toBe("cases.yaml");
 		expect(titleOf(`${W}/attachments/Map.png`, "image")).toBe("Map.png");
 		expect(titleOf(W, "dir")).toBe("shattered-sea");

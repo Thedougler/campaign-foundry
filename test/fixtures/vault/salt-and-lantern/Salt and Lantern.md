@@ -4,7 +4,7 @@ summary: "Three newcomers keep a marsh lighthouse burning and find the bell of a
 sources: []
 session_length_hours: 3
 revealed: ""
-title: ""
+title: "Salt and Lantern"
 ---
 
 ## At a glance

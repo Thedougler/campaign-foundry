@@ -166,7 +166,7 @@ statblock and canon.
 ### 7. File, account for consumers, and preserve records
 
 Follow [references/filing-and-operations.md](references/filing-and-operations.md)
-and copy `wiki/templates/Creature.md` exactly to `<campaign-folder>/Creatures/<Name>.md`.
+and copy `wiki/templates/Creature.md` exactly to `<campaign-folder>/Creatures/<slug>.md`, the slug of its `title`.
 Fill its sections in the template's order, following each section's `%%`
 guidance and leaving out the `###` parts this Creature has nothing for. Keep one `statblock` fence with `Basic 5e
 Layout`, complete 2024 rules text, explicit derived values, and the template's

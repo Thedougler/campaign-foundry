@@ -4,7 +4,7 @@ summary: "One line."
 sources: []
 creature: ""
 revealed: ""
-title: ""
+title: "Doubled"
 ---
 
 ## At a glance

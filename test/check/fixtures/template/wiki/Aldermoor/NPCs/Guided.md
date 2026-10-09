@@ -3,7 +3,7 @@ type: NPC
 summary: "A ferrywoman."
 sources: []
 revealed: ""
-title: ""
+title: "Guided"
 ---
 
 ## At a glance

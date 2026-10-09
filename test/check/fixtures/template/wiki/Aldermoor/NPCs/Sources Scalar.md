@@ -4,7 +4,7 @@ summary: "A ferrywoman."
 sources: "archive/real-transcript.md"
 creature: ""
 revealed: ""
-title: ""
+title: "Sources Scalar"
 ---
 
 ## At a glance

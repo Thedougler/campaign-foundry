@@ -3,7 +3,7 @@ type: Creature
 summary: "Seeded stat block: Bad Yaml."
 sources: []
 revealed: ""
-title: ""
+title: "Bad Yaml"
 ---
 
 ## At a glance

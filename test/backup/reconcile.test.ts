@@ -17,8 +17,8 @@ const MAP_PNG = `${W}/attachments/Map.png`;
 
 function campaign(): string {
 	return repo({
-		[`${W}/hot.md`]: "# Hot\n\nThe party meets [[Ilse Corran|Ilse]].\n\n![[Map.png]]\n",
-		[ILSE]: "---\ntype: NPC\n---\n\n> [!narration] First look\n> A tall woman.\n",
+		[`${W}/hot.md`]: "---\ntitle: hot\n---\n# Hot\n\nThe party meets [[Ilse Corran|Ilse]].\n\n![[Map.png]]\n",
+		[ILSE]: "---\ntitle: Ilse Corran\ntype: NPC\n---\n\n> [!narration] First look\n> A tall woman.\n",
 		[MAP_PNG]: Buffer.from("png bytes"),
 		[`${W}/attachments/Token.png`]: Buffer.from("token bytes"),
 		".agents/skills/npc-design/SKILL.md": "# NPC design\n",
@@ -102,7 +102,7 @@ describe("the map is a cache: Notion is the record", () => {
 	it("adopts an orphan left by a run stopped between creating a page and saving the map", async () => {
 		const { root, map, api, git } = await synced();
 		const path = `${W}/NPCs/Geoffrey Draves.md`;
-		writeFileSync(join(root, path), "Geoffrey\n");
+		writeFileSync(join(root, path), "---\ntitle: Geoffrey Draves\n---\nGeoffrey\n");
 		// The page exists in Notion, born with its pending header; the map never heard of it.
 		const orphan = api.add(map.entries[`${W}/NPCs`]?.id ?? "", "Geoffrey Draves", [pendingHeader(path)]);
 		const { result, reconciled } = await backup(root, map, api, { kind: "all" }, { commit: B, git });
@@ -116,8 +116,8 @@ describe("the map is a cache: Notion is the record", () => {
 
 	it("adopts an unmarked empty page (made before pages carried markers) by its title in the right folder", async () => {
 		const { root, map, api, git } = await synced();
-		const path = `${W}/NPCs/Geoffrey Draves.md`;
-		writeFileSync(join(root, path), "Geoffrey\n");
+		const path = `${W}/NPCs/geoffrey-draves.md`;
+		writeFileSync(join(root, path), "---\ntitle: Geoffrey Draves\n---\nGeoffrey\n");
 		const orphan = api.add(map.entries[`${W}/NPCs`]?.id ?? "", "Geoffrey Draves");
 		const { result } = await backup(root, map, api, { kind: "all" }, { commit: B, git });
 		expect(result.created).toBe(0);
@@ -198,7 +198,7 @@ describe("the map is a cache: Notion is the record", () => {
 	it("a concurrent run that made the same new page first wins: this run trashes its copy, stops, and the rerun adopts", async () => {
 		const { root, map, api, git } = await synced();
 		const path = `${W}/NPCs/Geoffrey Draves.md`;
-		writeFileSync(join(root, path), "Geoffrey\n");
+		writeFileSync(join(root, path), "---\ntitle: Geoffrey Draves\n---\nGeoffrey\n");
 		let theirs = "";
 		api.onCreate = ({ parent, title }) => {
 			if (title !== "Geoffrey Draves" || theirs) return;

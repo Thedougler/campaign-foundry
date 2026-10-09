@@ -3,7 +3,7 @@ type: House Rule
 summary: "Anyone on watch may roll a Wisdom save to wake."
 sources: []
 revealed: ""
-title: ""
+title: "Fire Watch"
 ---
 
 ## At a glance

@@ -4,7 +4,7 @@ summary: "One line."
 sources: []
 dndbeyond_url: ""
 revealed: "Backstory"
-title: ""
+title: "Stray PC"
 ---
 
 

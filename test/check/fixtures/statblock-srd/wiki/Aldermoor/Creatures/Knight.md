@@ -3,7 +3,7 @@ type: Creature
 summary: "Knight, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Knight"
 ---
 
 ## At a glance

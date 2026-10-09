@@ -4,7 +4,7 @@ summary: "The goblin tally-keeper of Reedholt, who records every boat and rememb
 sources: []
 creature: "[[Goblin Warrior]]"
 revealed: ""
-title: ""
+title: "Nib Ashwater"
 ---
 
 ## At a glance

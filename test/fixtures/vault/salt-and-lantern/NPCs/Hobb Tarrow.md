@@ -4,7 +4,7 @@ summary: "Harbor Warden of Saltwick, a tired veteran who hires the Party to keep
 sources: []
 creature: "[[Bandit Captain]]"
 revealed: ""
-title: ""
+title: "Hobb Tarrow"
 ---
 
 ## At a glance

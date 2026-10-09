@@ -3,7 +3,7 @@ type: Item
 summary: "A brass lantern from Gullhook Lighthouse that can make shallow water and mud draw away for a minute."
 sources: []
 revealed: ""
-title: ""
+title: "Ebb Lantern"
 ---
 
 ## At a glance

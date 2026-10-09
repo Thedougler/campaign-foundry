@@ -4,7 +4,7 @@ kind: Development
 summary: "Hobb Tarrow hires the Party to keep the lamp burning and shows them the pattern of wrecks."
 sources: []
 revealed: ""
-title: ""
+title: "Session 1 - A Warden's Offer"
 ---
 
 ## At a glance

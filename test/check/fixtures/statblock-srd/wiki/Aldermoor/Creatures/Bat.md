@@ -3,7 +3,7 @@ type: Creature
 summary: "Bat, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Bat"
 ---
 
 ## At a glance

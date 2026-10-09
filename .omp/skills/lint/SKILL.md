@@ -28,7 +28,7 @@ Lint ends on a **clean gate** over its **slice**, the pages it was given or pick
 
 ## Names
 
-A flagged word that is an in-world name or a rules term (`spelling` or `grammar` calls it unknown, or a `style` rule matches the name's own words) keeps its Canon spelling. The gate learns it. Search the Wiki for it (a QMD `lex` query, a title glob), then take the first rung that fits, in order:
+A flagged word that is an in-world name or a rules term (`spelling` or `grammar` calls it unknown, or a `style` rule matches the name's own words) keeps its Canon spelling. The gate learns it. Search the Wiki for it (a QMD `lex` query, a glob of its slug), then take the first rung that fits, in order:
 
 1. **Misspelt Canon.** A Canon name spelt another way (the finding's "Did you mean", or a QMD search finds the page) whose referent is that page's subject: write the Canon spelling. Near names can belong to different subjects, so read the flagged text's context against the page first. A different referent goes on down the ladder.
 2. **Owned.** A page has the name as its title or in `aliases`. Write that exact form, case included. Or add each form the pages use to that page's `aliases`, one entry per form, whether a plural or other inflected form (`Grubnades`), a short form, a nickname or an epithet.

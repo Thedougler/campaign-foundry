@@ -1,11 +1,11 @@
 - id: climax-scene
   source_pages:
-    - shattered-sea/Sessions/Session 12/Session 12 - Prep.md
-    - shattered-sea/Sessions/Session 12/Session 12 - Consume.md
-    - shattered-sea/Sessions/Session 12/Session 12 - Dawn Strike.md
-    - shattered-sea/Items/Giant's Guava.md
-    - shattered-sea/Items/Ghost Plum.md
-    - shattered-sea/Shattered Sea.md
+    - shattered-sea/Sessions/Session 12/session-12-prep.md
+    - shattered-sea/Sessions/Session 12/session-12-consume.md
+    - shattered-sea/Sessions/Session 12/session-12-dawn-strike.md
+    - shattered-sea/Items/giants-guava.md
+    - shattered-sea/Items/ghost-plum.md
+    - shattered-sea/shattered-sea.md
   prompt: >-
     Redo Consume. Skarn is still loyal to Vantyrus and makes the later Spinner
     attempt after a fallen Ghost Plum. Auralis tells Perrin CONSUME beside
@@ -14,9 +14,9 @@
     force the fruit.
   checks:
     pages:
-      - shattered-sea/Sessions/Session 12/Session 12 - Consume.md
+      - shattered-sea/Sessions/Session 12/session-12-consume.md
     sections:
-      shattered-sea/Sessions/Session 12/Session 12 - Consume.md:
+      shattered-sea/Sessions/Session 12/session-12-consume.md:
         - '## At a glance'
         - '## Threads'
         - '## Play'
@@ -28,7 +28,7 @@
         - '### Hidden truths'
         - '### Spotlight'
     canon:
-      shattered-sea/Sessions/Session 12/Session 12 - Consume.md:
+      shattered-sea/Sessions/Session 12/session-12-consume.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Climax\s*$'
         - '^> \[!narration\] Opening\s*$'

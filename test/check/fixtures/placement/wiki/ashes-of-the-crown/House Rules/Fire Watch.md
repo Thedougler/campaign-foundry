@@ -3,7 +3,7 @@ type: House Rule
 summary: "One line."
 sources: []
 revealed: ""
-title: ""
+title: "Fire Watch"
 ---
 
 ## At a glance

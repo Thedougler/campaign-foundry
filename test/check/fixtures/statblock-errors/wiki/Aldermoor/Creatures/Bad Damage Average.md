@@ -3,7 +3,7 @@ type: Creature
 summary: "Seeded stat block: Bad Damage Average."
 sources: []
 revealed: ""
-title: ""
+title: "Bad Damage Average"
 ---
 
 ## At a glance

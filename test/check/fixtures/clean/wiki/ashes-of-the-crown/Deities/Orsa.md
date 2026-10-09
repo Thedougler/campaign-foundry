@@ -3,7 +3,7 @@ type: Deity
 summary: "Goddess of hearths and second chances."
 sources: []
 revealed: ""
-title: ""
+title: "Orsa"
 ---
 
 ## At a glance

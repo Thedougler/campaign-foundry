@@ -2,7 +2,7 @@
 type: Vehicle
 summary: "A coastal cutter."
 sources: []
-title: ""
+title: "Saltwright"
 ---
 
 ## At a glance

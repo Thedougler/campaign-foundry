@@ -4,7 +4,7 @@ summary: "Four friends chase the last flame of the Crown."
 sources: []
 session_length_hours:
 revealed: ""
-title: ""
+title: "Ashes of the Crown"
 ---
 
 ## At a glance

@@ -3,7 +3,7 @@ type: Creature
 summary: "Pit Fiend, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Pit Fiend"
 ---
 
 ## At a glance

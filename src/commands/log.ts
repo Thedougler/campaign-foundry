@@ -56,9 +56,10 @@ function resolvePage(vault: Vault, input: string, campaignFolder: string, exampl
 	);
 }
 
-/** The wikilink target for a page: its name, or its vault path when another page shares the name. */
+/** Stable slug target and display title; qualify the path if a fixture has duplicate slugs. */
 function linkTarget(vault: Vault, page: Page): string {
-	return vault.pages.filter((p) => p.name === page.name).length === 1 ? page.name : page.path.replace(/\.md$/, "");
+	const target = vault.pages.filter((p) => p.slug === page.slug).length === 1 ? page.slug : page.path.replace(/\.md$/, "");
+	return `${target}|${page.name}`;
 }
 
 export function logCommand(): Command {
@@ -79,7 +80,7 @@ export function logCommand(): Command {
 Entry written:
   ## [YYYY-MM-DD] <op> | <Title>
   (blank line)
-  - [[Page]]           one bullet per page touched
+  - [[slug|Title]]     one bullet per page touched
   Entries are separated by a blank line. log.md is created if absent.
 
 Title:

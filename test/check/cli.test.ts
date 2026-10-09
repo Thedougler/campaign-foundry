@@ -135,7 +135,7 @@ describe("cf check: speed", () => {
 		await mkdir(npcs, { recursive: true });
 		const body = (name: string, next: string) => `---
 type: NPC
-title: ""
+title: "${name}"
 summary: "Villager ${name}."
 sources: []
 creature: ""

@@ -4,7 +4,7 @@ summary: "Party at Ravenhold, one Thread burning."
 sources: []
 date: "14 Emberfall 1492"
 revealed: ""
-title: ""
+title: "Hot"
 ---
 
 ## At a glance

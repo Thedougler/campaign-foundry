@@ -3,7 +3,7 @@ type: Item
 summary: "The hidden record of Vessen's harbormaster, which proves the Compact ordered the sluice opened."
 sources: []
 revealed: ""
-title: ""
+title: "Harbormaster's Ledger of Vessen"
 ---
 
 ## At a glance

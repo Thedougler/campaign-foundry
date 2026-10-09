@@ -3,7 +3,7 @@ type: Creature
 summary: "Seeded stat block: Bad Hp Constitution."
 sources: []
 revealed: ""
-title: ""
+title: "Bad Hp Constitution"
 ---
 
 ## At a glance

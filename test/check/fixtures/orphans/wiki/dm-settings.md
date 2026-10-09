@@ -1,0 +1,16 @@
+---
+type: DM Settings
+summary: "One line."
+sources: []
+session_length_hours: 4
+revealed: ""
+title: "DM Settings"
+---
+
+## At a glance
+
+- **Session length.** Text.
+
+## Session length
+
+The default Session length is 4 hours. Prep fits a Scene Chart to it at about half an hour per Scene. A Campaign overrides it with `session_length_hours` on its overview.

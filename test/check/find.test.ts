@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { parsePage } from "../../src/vault/parse.ts";
 import { cf, copyFixture, vaultFlags } from "./helpers.ts";
 
 /** Writes one page with the given frontmatter into a copied fixture. */
@@ -145,5 +146,25 @@ describe("cf revealed", () => {
 		expect(stdout).toContain("Examples:");
 		expect(stdout).toContain("Exit codes:");
 		expect(stdout).toMatch(/^ {2}cf revealed --campaign ".+"/m);
+	});
+});
+
+describe("page display identity", () => {
+	it("uses the title for display while retaining title, aliases and slug lookup", () => {
+		const page = parsePage("NPCs/stable-id.md", '---\ntitle: "Mara / Harbour Captain"\naliases: ["Old Captain"]\n---\n');
+		expect(page.name).toBe("Mara / Harbour Captain");
+		expect(page.names).toEqual(["Mara / Harbour Captain", "Old Captain", "stable-id"]);
+	});
+
+	it("uses the first alias, never the filename, when no title is set", () => {
+		const page = parsePage("NPCs/stable-id.md", '---\ntitle: ""\naliases: ["The Captain", "Mara"]\n---\n');
+		expect(page.name).toBe("The Captain");
+		expect(page.names).toEqual(["The Captain", "Mara", "stable-id"]);
+	});
+
+	it("leaves display unset rather than turning a slug into a name", () => {
+		const page = parsePage("NPCs/stable-id.md", "---\ntitle: \"\"\n---\n");
+		expect(page.name).toBe("");
+		expect(page.names).toEqual(["stable-id"]);
 	});
 });

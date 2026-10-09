@@ -3,7 +3,7 @@ type: Creature
 summary: "A drowned dead thing that lies in silt and drags the living down by the ankle."
 sources: []
 revealed: ""
-title: ""
+title: "Mire Drowner"
 ---
 
 ## At a glance

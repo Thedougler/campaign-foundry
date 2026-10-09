@@ -2,4 +2,4 @@
 
 # Wiki
 
-- [[Shattered Sea]] — Four survivors and fugitives seize a chance at a crew aboard the Saltwright while Crown inspection and the Drowned Maw close around them.
+- [[shattered-sea|Shattered Sea]] — Four survivors and fugitives seize a chance at a crew aboard the Saltwright while Crown inspection and the Drowned Maw close around them.

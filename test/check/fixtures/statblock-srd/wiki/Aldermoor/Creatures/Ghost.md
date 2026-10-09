@@ -3,7 +3,7 @@ type: Creature
 summary: "Ghost, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Ghost"
 ---
 
 ## At a glance

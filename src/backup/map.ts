@@ -12,6 +12,8 @@ export interface MapEntry {
 	url: string;
 	/** Content hash last written to the page (files only). */
 	hash?: string;
+	/** Last backed-up display title, retained when the source file is deleted. */
+	title?: string;
 	/** Notion file upload id holding an image's bytes, reused by every page that embeds it. */
 	fileUploadId?: string;
 	/** Set when the file left the repo: the page stays in Notion, retitled and flagged, never trashed. */
@@ -55,7 +57,7 @@ export function loadMap(file: string, parentPageId: string): BackupMap {
 	return map;
 }
 
-const FIELD_ORDER: (keyof MapEntry)[] = ["kind", "id", "url", "hash", "fileUploadId", "deletedAt", "uploadSkipped", "movedFrom", "retired"];
+const FIELD_ORDER: (keyof MapEntry)[] = ["kind", "id", "url", "hash", "title", "fileUploadId", "deletedAt", "uploadSkipped", "movedFrom", "retired"];
 
 /** Stable JSON: entries sorted by path and fields in one order, so a map rebuilt from Notion is byte-for-byte the same. */
 export function serializeMap(map: BackupMap): string {

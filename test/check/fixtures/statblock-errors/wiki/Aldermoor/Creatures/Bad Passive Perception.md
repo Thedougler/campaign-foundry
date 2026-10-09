@@ -3,7 +3,7 @@ type: Creature
 summary: "Seeded stat block: Bad Passive Perception."
 sources: []
 revealed: ""
-title: ""
+title: "Bad Passive Perception"
 ---
 
 ## At a glance

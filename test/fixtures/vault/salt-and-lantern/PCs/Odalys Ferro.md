@@ -4,7 +4,7 @@ summary: "A human Life cleric of Mother Ebb who wants to know why her order's sh
 sources: []
 dndbeyond_url: "https://www.dndbeyond.com/characters/000000003"
 revealed: "Backstory"
-title: ""
+title: "Odalys Ferro"
 ---
 
 ## Sheet

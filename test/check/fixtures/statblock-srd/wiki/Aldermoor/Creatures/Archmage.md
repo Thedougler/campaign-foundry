@@ -3,7 +3,7 @@ type: Creature
 summary: "Archmage, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Archmage"
 ---
 
 ## At a glance

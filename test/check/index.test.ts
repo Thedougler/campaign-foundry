@@ -9,7 +9,7 @@ const ROOT_INDEX = `${NOTE}
 
 # Wiki
 
-- [[Ashes of the Crown]] — Four friends chase the last flame of the Crown.
+- [[Ashes of the Crown|Ashes of the Crown]] — Four friends chase the last flame of the Crown.
 `;
 
 const CAMPAIGN_INDEX = `${NOTE}
@@ -20,89 +20,89 @@ const CAMPAIGN_INDEX = `${NOTE}
 
 ### Regions
 
-- [[Ashen Reach]] — Burnt hills north of the river.
+- [[Ashen Reach|Ashen Reach]] — Burnt hills north of the river.
 
 ### Settlements
 
-- [[Ravenhold]] — A walled river port that taxes every barge.
+- [[Ravenhold|Ravenhold]] — A walled river port that taxes every barge.
 
 ### Sites
 
-- [[The Sunken Chapel]] — A flooded chapel under the river wall.
+- [[The Sunken Chapel|The Sunken Chapel]] — A flooded chapel under the river wall.
 
 ## NPCs
 
-- [[Captain Morrow]] — One line.
-- [[Mara Voss]] — Harbormaster with a bandit's past.
+- [[morrow|Captain Morrow]] — One line.
+- [[Mara Voss|Mara Voss]] — Harbormaster with a bandit's past.
 
 ## Creatures
 
-- [[Bandit Captain]] — A veteran raider who leads from the front.
+- [[Bandit Captain|Bandit Captain]] — A veteran raider who leads from the front.
 
 ## Factions
 
-- [[Ember Court]] — Nobles who guard the memory of the Crown.
+- [[Ember Court|Ember Court]] — Nobles who guard the memory of the Crown.
 
 ## Deities
 
-- [[Orsa]] — Goddess of hearths and second chances.
+- [[Orsa|Orsa]] — Goddess of hearths and second chances.
 
 ## Items
 
-- [[Ashen Lantern]] — A lantern that shows what burned.
+- [[Ashen Lantern|Ashen Lantern]] — A lantern that shows what burned.
 
 ## Spells
 
-- [[Cinder Ward]] — A ward of drifting embers.
+- [[Cinder Ward|Cinder Ward]] — A ward of drifting embers.
 
 ## Vehicles
 
-- [[Gull's Errand]] — A river barge with a patched sail.
+- [[Gull's Errand|Gull's Errand]] — A river barge with a patched sail.
 
 ## Lore
 
-- [[Crown Fire]] — How the Crown burned in a single night.
+- [[Crown Fire|Crown Fire]] — How the Crown burned in a single night.
 
 ## House Rules
 
-- [[Fire Watch]] — Anyone on watch may roll a Wisdom save to wake.
-- [[Old Crossing Rules]] — Crossing the bridge at Ravenhold costs a toll roll.
+- [[Fire Watch|Fire Watch]] — Anyone on watch may roll a Wisdom save to wake.
+- [[Old Crossing Rules|Old Crossing Rules]] — Crossing the bridge at Ravenhold costs a toll roll.
 
 ## Worlds
 
-- [[Aldermoor]] — A river country on the edge of the Ashen Reach.
+- [[Aldermoor|Aldermoor]] — A river country on the edge of the Ashen Reach.
 
 ## PCs
 
-- [[Tam Brightwater]] — A ferry pilot with a borrowed name.
+- [[Tam Brightwater|Tam Brightwater]] — A ferry pilot with a borrowed name.
 
 ## Threads
 
-- [[The Cold Hearth]] — Mara's hearth is failing, and so is her hold.
+- [[The Cold Hearth|The Cold Hearth]] — Mara's hearth is failing, and so is her hold.
 
 ## Quests
 
-- [[Lantern for the Chapel]] — Bring the Ashen Lantern out of the chapel.
+- [[Lantern for the Chapel|Lantern for the Chapel]] — Bring the Ashen Lantern out of the chapel.
 
 ## Preps
 
-- [[Session 1 - Prep]] — A storm pins the Party at the bridge.
+- [[Session 1 - Prep|Session 1 - Prep]] — A storm pins the Party at the bridge.
 
 ## Scenes
 
-- [[Session 1 - Storm at the Crossing]] — A storm pins the Party at the bridge.
+- [[Session 1 - Storm at the Crossing|Session 1 - Storm at the Crossing]] — A storm pins the Party at the bridge.
 
 ## Recaps
 
-- [[Session 1 - Recap]] — The Party crossed the bridge and met Mara Voss.
+- [[Session 1 - Recap|Session 1 - Recap]] — The Party crossed the bridge and met Mara Voss.
 
 ## Previously On
 
-- [[Session 2 - Previously On]] — Last time the Party crossed the bridge.
+- [[Session 2 - Previously On|Session 2 - Previously On]] — Last time the Party crossed the bridge.
 
 ## Handouts
 
-- [[Wanted Poster]] — A poster for the Bandit Captain.
+- [[Wanted Poster|Wanted Poster]] — A poster for the Bandit Captain.
 `;
 
 /** A copy of the clean fixture with its generated indexes deleted. */
@@ -113,7 +113,7 @@ async function unindexed(): Promise<string> {
 	return dir;
 }
 
-const npcPage = (summary: string) => `---\ntype: NPC\nsummary: "${summary}"\nsources: []\ncreature: ""\n---\n\n## At a glance\n\nSee [[Mara Voss]].\n`;
+const npcPage = (title: string, summary: string) => `---\ntype: NPC\ntitle: "${title}"\nsummary: "${summary}"\nsources: []\ncreature: ""\n---\n\n## At a glance\n\nSee [[Mara Voss|Mara Voss]].\n`;
 
 describe("cf index", () => {
 	it("generates the root and Campaign-folder indexes from every summary, grouped by page kind", async () => {
@@ -147,8 +147,8 @@ describe("cf index", () => {
 
 	it("prints a slug-filename page under its title", async () => {
 		const text = (await readIndexes(await copyFixture("clean"))).get("wiki/ashes-of-the-crown/index.md")!; // morrow.md carries `title: Captain Morrow`
-		expect(text).toContain("- [[Captain Morrow]] — One line.");
-		expect(text).not.toContain("morrow");
+		expect(text).toContain("- [[morrow|Captain Morrow]] — One line.");
+		expect(text).not.toContain("- [[morrow]]");
 	});
 
 	it("changing one summary changes exactly one line", async () => {
@@ -161,17 +161,17 @@ describe("cf index", () => {
 		const after = (await readIndexes(dir)).get("wiki/ashes-of-the-crown/index.md")!.split("\n");
 		expect(after).toHaveLength(before.length);
 		const changed = after.filter((line, i) => line !== before[i]);
-		expect(changed).toEqual(["- [[Mara Voss]] — Harbormaster and secret smuggler."]);
+		expect(changed).toEqual(["- [[Mara Voss|Mara Voss]] — Harbormaster and secret smuggler."]);
 	});
 
 	it("sorts pages by name within a group, numbers by value, independent of locale", async () => {
 		const dir = await unindexed();
 		const npcs = join(dir, "wiki/ashes-of-the-crown/NPCs");
-		for (const name of ["Zed", "apple", "Édith", "Guard 10", "Guard 2"]) await writeFile(join(npcs, `${name}.md`), npcPage(`About ${name}.`));
+		for (const name of ["Zed", "apple", "Édith", "Guard 10", "Guard 2"]) await writeFile(join(npcs, `${name}.md`), npcPage(name, `About ${name}.`));
 		await cf(["index", ...vaultFlags(dir)], dir);
 		const text = (await readIndexes(dir)).get("wiki/ashes-of-the-crown/index.md")!;
 		const npcLines = text.split("\n## NPCs\n\n")[1]!.split("\n\n")[0]!.split("\n");
-		expect(npcLines.map((l) => l.replace(/^- \[\[(.*?)\]\].*$/, "$1"))).toEqual(["Captain Morrow", "Guard 2", "Guard 10", "Mara Voss", "Zed", "apple", "Édith"]);
+		expect(npcLines.map((l) => l.replace(/^- \[\[.*?\|(.*?)\]\].*$/, "$1"))).toEqual(["Captain Morrow", "Guard 2", "Guard 10", "Mara Voss", "Zed", "apple", "Édith"]);
 	});
 
 	it("--dry-run prints what would change and writes nothing", async () => {
@@ -231,35 +231,35 @@ describe("index layer", () => {
 		const [finding] = report.findings;
 		expect(finding).toMatchObject({ path: "wiki/ashes-of-the-crown/index.md", rule: "stale" });
 		const lines = (await readFile(join(dir, "wiki/ashes-of-the-crown/index.md"), "utf8")).split("\n");
-		expect(lines[finding!.line - 1]).toBe("- [[Mara Voss]] — Harbormaster with a bandit's past.");
+		expect(lines[finding!.line - 1]).toBe("- [[Mara Voss|Mara Voss]] — Harbormaster with a bandit's past.");
 		expect(finding!.hint).toContain("cf index");
 	});
 
 	it("flags an index someone edited by hand", async () => {
 		const dir = await copyFixture("clean");
 		const path = join(dir, "wiki/index.md");
-		await writeFile(path, `${await readFile(path, "utf8")}\n- [[Nowhere]] — Added by hand.\n`);
+		await writeFile(path, `${await readFile(path, "utf8")}\n- [[Nowhere|Nowhere]] — Added by hand.\n`);
 		const { report } = await gate(dir);
 		expect(report.findings.map((f) => [f.path, f.rule])).toEqual([["wiki/index.md", "stale"]]);
 	});
 
 	it("flags a page added since the index was generated", async () => {
 		const dir = await copyFixture("clean");
-		await writeFile(join(dir, "wiki/ashes-of-the-crown/NPCs/Newcomer.md"), npcPage("Just arrived."));
+		await writeFile(join(dir, "wiki/ashes-of-the-crown/NPCs/Newcomer.md"), npcPage("Newcomer", "Just arrived."));
 		const { report } = await gate(dir);
 		expect(report.findings.map((f) => [f.path, f.rule])).toEqual([["wiki/ashes-of-the-crown/index.md", "stale"]]);
 	});
 
 	it("--fix regenerates missing and stale indexes, and a re-check is clean", async () => {
 		const dir = await unindexed();
-		await writeFile(join(dir, "wiki/ashes-of-the-crown/NPCs/Newcomer.md"), npcPage("Just arrived."));
+		await writeFile(join(dir, "wiki/ashes-of-the-crown/NPCs/Newcomer.md"), npcPage("Newcomer", "Just arrived."));
 		const fixed = await gate(dir, ["--fix"]);
 		expect(fixed.report.fixes.map((f) => [f.path, f.rule])).toEqual([
 			["wiki/ashes-of-the-crown/index.md", "missing"],
 			["wiki/index.md", "missing"],
 		]);
 		expect(fixed.report.findings).toEqual([]);
-		expect((await readIndexes(dir)).get("wiki/ashes-of-the-crown/index.md")).toContain("- [[Newcomer]] — Just arrived.");
+		expect((await readIndexes(dir)).get("wiki/ashes-of-the-crown/index.md")).toContain("- [[Newcomer|Newcomer]] — Just arrived.");
 		const again = await gate(dir, ["--fix"]);
 		expect(again.report.fixes).toEqual([]);
 		expect(again.code).toBe(0);

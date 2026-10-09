@@ -4,7 +4,7 @@ summary: "Plan for Session 1: the lamp goes dark, the Party takes the Warden's j
 sources: []
 date: "14 Eelrun 412 CY"
 revealed: ""
-title: ""
+title: "Session 1 - Prep"
 ---
 
 ## At a glance

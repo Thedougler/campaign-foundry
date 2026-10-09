@@ -3,7 +3,7 @@ type: Creature
 summary: "Ogre, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Ogre"
 ---
 
 ## At a glance

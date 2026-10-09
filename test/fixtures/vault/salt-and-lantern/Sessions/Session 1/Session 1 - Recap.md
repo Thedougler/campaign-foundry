@@ -5,7 +5,7 @@ sources:
   - archive/session-1-transcript.md
 date: "15 Eelrun 412 CY"
 revealed: ""
-title: ""
+title: "Session 1 - Recap"
 ---
 
 ## At a glance

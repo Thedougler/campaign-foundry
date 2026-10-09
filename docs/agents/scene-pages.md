@@ -6,10 +6,10 @@ The shared procedure for `hook-scene`, `development-scene`, `cliffhanger-scene`,
 
 Run every command from the repo root. A page path in a `cf` command starts with `wiki/`.
 
-- **Content pages.** `wiki/<campaign>/<Folder>/<Name>.md`, in the folders `Locations`, `NPCs`, `Creatures`, `Factions`, `Deities`, `Items`, `Spells`, `Vehicles`, `Lore`, `House Rules`, `PCs`, `Threads` and `Quests`. `<campaign>` is the Campaign folder (`shattered-sea`), which `user-config.md` names.
-- **Session pages.** `wiki/<campaign>/Sessions/Session <N>/Session <N> - <Title>.md`. The titles are `Prep`, `Recap`, `Previously On` (recounting Session N−1) and one per Scene, named for the Scene.
+- **Content pages.** `wiki/<campaign>/<Folder>/<slug>.md`, in the folders `Locations`, `NPCs`, `Creatures`, `Factions`, `Deities`, `Items`, `Spells`, `Vehicles`, `Lore`, `House Rules`, `PCs`, `Threads` and `Quests`. `<slug>` is the slug of the page's `title` (`docs/wiki-layout.md` **Page names**). `<campaign>` is the Campaign folder (`shattered-sea`), which `user-config.md` names.
+- **Session pages.** `wiki/<campaign>/Sessions/Session <N>/session-<N>-<slug>.md`, titled `Session <N> - <Title>`. The titles are `Prep`, `Recap`, `Previously On` (recounting Session N−1) and one per Scene, named for the Scene.
 - **Template.** `wiki/templates/Scene - <Kind>.md`.
-- **Links.** A `[[Name]]` link names a page in its kind's folder above. An NPC's fighting statistics sit on the Creature page its `creature` property links.
+- **Links.** A `[[<slug>|<Title>]]` link targets a page in its kind's folder above and shows its title. An NPC's fighting statistics sit on the Creature page its `creature` property links.
 - **Archived sources.** Repo-relative paths under `archive/`, listed in each page's `sources` property.
 - **PC level.** The `**Class, species and level.**` line in the PC page's `## Sheet`. A multiclass character's level is the sum of its class levels.
 
@@ -68,9 +68,9 @@ Reuse the first fitting source in `AGENTS.md` **Sourcing** order. Start with the
 
 ## Page format
 
-Start from the existing page for a redo, or from the template copied to `wiki/<campaign>/Sessions/Session <N>/Session <N> - <Scene title>.md` for a new Scene.
+Start from the existing page for a redo, or from the template copied to `wiki/<campaign>/Sessions/Session <N>/session-<N>-<scene-slug>.md` for a new Scene.
 
-- **Properties.** `type: Scene`, `kind: <Kind>`, a one-line `summary` in double quotes, and `sources` as a list of quoted archive paths.
+- **Properties.** `title: "Session <N> - <Scene title>"`, `type: Scene`, `kind: <Kind>`, a one-line `summary` in double quotes, and `sources` as a list of quoted archive paths.
 - **Spine.** Keep every `##` heading at its depth and in template order, and every required callout type. A `##` whose guidance opens with `Optional.` appears, in template order, only when the Scene uses it. A `###` is optional structure: keep it where it has content. Add `####` subheadings inside that spine as content needs them.
 - **Guidance.** Delete every `%% %%` comment after filling its section with the content the comment specifies.
 - **At a glance.** Keep each template bullet's bold label and write its line after the label.
@@ -83,8 +83,8 @@ Start from the existing page for a redo, or from the template copied to `wiki/<c
   ```
 
   For a save, specify the ability, DC and effects. For a contest, specify both sides and the tie. A sensible action without real doubt simply works, without a row.
-- **Outcomes.** Keep the template's `| If | Then | Hands to |` table, one row per result. `Hands to` holds the receiving Scene's link, such as `[[Session 12 - Terror-Birds]]`.
-- **Statblocks.** Creature statistics stay on their owner pages. The Scene shows them only as `![[Creature#Statblock]]` embeds in its Encounter.
+- **Outcomes.** Keep the template's `| If | Then | Hands to |` table, one row per result. `Hands to` holds the receiving Scene's link, such as `[[session-12-terror-birds\|Session 12 - Terror-Birds]]` (a pipe inside a table cell is escaped).
+- **Statblocks.** Creature statistics stay on their owner pages. The Scene shows them only as `![[<creature-slug>#Statblock|<Creature title>]]` embeds in its Encounter.
 - **Prep link.** Link the page from Prep's Scene Chart when Prep exists, and update the row's planning notes or Clue routes where this Scene changes them.
 
 Put every table-use fact on the page. State who wants what and by which means, and how each side responds. Give useful spatial relationships, pressure triggers, accessible choices and consequences. Each hidden truth has a concrete way to learn it. Each required conclusion is discoverable through three independent routes across the chart or the standalone Scene. A failed check changes cost or position and leaves a way forward open. Use **Encounters** wherever physical danger is present.
@@ -167,7 +167,7 @@ Read `bun run cf -- encounter-budget --help` before budgeting. The invocations b
 3. **Expose the plan.** Copy the CLI's Encounter Balance lines under `### Balance` in a Cliffhanger's `## Encounter`, or under `#### Balance` in `### Encounter` under `## Play` for a fighting Hook or Climax.
    - Identify `bun run cf -- encounter-budget` as the source, with the participating PCs and the Creature pages supplying XP.
    - Give quantities, deployment, battlefield features, opposition objectives, opening tactics, adaptations and break or escape conditions.
-   - Embed each fought Creature as `![[Creature#Statblock]]` here and link it elsewhere, with named NPC combatants resolved to their Creature owners.
+   - Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]` here and link it elsewhere, with named NPC combatants resolved to their Creature owners.
    - State how terrain, surprise, allies, depleted resources, hazards and objectives change the actual danger.
 
    **Done when** the DM has the entire playable opposition, every XP figure traces to the CLI output and a read statblock, and the page states what the XP comparison does not measure.
@@ -197,7 +197,7 @@ From the repo root, close per `skill://lint` § Commands over the Scene and ever
 After the page gate passes, append one log entry listing every touched content page by its vault-relative path:
 
 ```bash
-bun run cf -- log --op create --title "Author Session <N> <Scene title>" --page "<campaign>/Sessions/Session <N>/Session <N> - <Scene title>.md"
+bun run cf -- log --op create --title "Author Session <N> <Scene title>" --page "<campaign>/Sessions/Session <N>/session-<N>-<scene-slug>.md"
 ```
 
 **Done when** the page and all dependencies are runnable, the index is current, the page gate reported `ok: 0 findings`, and the log entry exists.

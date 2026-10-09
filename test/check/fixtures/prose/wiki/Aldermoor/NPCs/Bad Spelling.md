@@ -3,7 +3,7 @@ type: NPC
 summary: "A page with spelling problems."
 sources: []
 creature: ""
-title: ""
+title: "Bad Spelling"
 ---
 
 ## At a glance

@@ -34,7 +34,7 @@ Reuse linked owner pages before creating new ones. Use `npc-design` when a new r
 
 Use the current template as the only authority for properties, required `##` headings in order and callout types. Fill its properties, use `type: Location` and the chosen Kind, and give the page a useful one-line summary. Retain optional structure only where it has content and remove all `%%` guidance. Keep the template's Links view rather than rebuilding its Base.
 
-File in the flat `<campaign-folder>/Locations/` directory, named for the Location. A page already filed keeps its folder. A nonempty `parent` holds a quoted wikilink that resolves. A top-level Region keeps the empty value. Only `parent` records containment, so folder placement never implies it. Resolve name collisions across the vault before choosing the page name.
+File in the flat `<campaign-folder>/Locations/` directory, its `title` the Location's name and its filename that title's slug (`docs/wiki-layout.md` **Page names**). A page already filed keeps its folder. A nonempty `parent` holds a quoted wikilink that resolves. A top-level Region keeps the empty value. Only `parent` records containment, so folder placement never implies it. Resolve name collisions across the vault before choosing the title.
 
 Link recurring Sites, people, Factions and rules owners. Create only the dependent pages this request needs, with their own templates and complete content. Ensure every new page has a real link from another page: parent properties count, generated index/log entries do not. Give a new top-level Region a link from the World overview or another relevant page. Update a containing page when visitors need the new route or service there.
 
@@ -51,7 +51,7 @@ Close per `skill://lint` § Commands over every page this run touched, repairing
 After a successful standalone operation, append exactly one entry listing each touched content page, using its vault-relative path. Replace the placeholders and repeat `--page` as needed:
 
 ```bash
-bun run cf -- log --op create --title "Design <Location>" --page "<campaign-folder>/Locations/<Location>.md"
+bun run cf -- log --op create --title "Design <Location>" --page "<campaign-folder>/Locations/<location-slug>.md"
 ```
 
 `create` includes deepening a Location outside Ingest or Prep. A composed request returns touched paths, Canon decisions and unresolved findings to its caller. The caller runs the final gate and writes one entry under its existing operation. A child handoff leaves logging to the caller.

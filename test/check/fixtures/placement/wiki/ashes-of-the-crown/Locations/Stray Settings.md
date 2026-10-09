@@ -4,7 +4,7 @@ summary: "One line."
 sources: []
 session_length_hours: 4
 revealed: ""
-title: ""
+title: "Stray Settings"
 ---
 
 ## At a glance

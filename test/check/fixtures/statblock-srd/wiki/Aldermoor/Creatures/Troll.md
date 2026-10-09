@@ -3,7 +3,7 @@ type: Creature
 summary: "Troll, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Troll"
 ---
 
 ## At a glance

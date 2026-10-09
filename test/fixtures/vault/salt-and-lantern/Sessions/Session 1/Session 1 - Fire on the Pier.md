@@ -4,7 +4,7 @@ kind: Cliffhanger
 summary: "Five goblin arsonists burn the oil warehouse on Pier Row while the Party tries to save the barrels."
 sources: []
 revealed: ""
-title: ""
+title: "Session 1 - Fire on the Pier"
 ---
 
 ## At a glance

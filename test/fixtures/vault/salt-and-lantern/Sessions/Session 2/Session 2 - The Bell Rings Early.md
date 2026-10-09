@@ -4,7 +4,7 @@ kind: Hook
 summary: "Before dawn the water under Reedholt drops a foot and the drowned bell rings three strokes at a time."
 sources: []
 revealed: ""
-title: ""
+title: "Session 2 - The Bell Rings Early"
 ---
 
 ## At a glance

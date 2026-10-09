@@ -3,7 +3,7 @@ type: Creature
 summary: "Young Red Dragon, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Young Red Dragon"
 ---
 
 ## At a glance

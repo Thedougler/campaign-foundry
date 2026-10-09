@@ -3,7 +3,7 @@ type: Creature
 summary: "Guard, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Guard"
 ---
 
 ## At a glance

@@ -3,7 +3,7 @@ type: Creature
 summary: "Seeded stat block: Bad Save."
 sources: []
 revealed: ""
-title: ""
+title: "Bad Save"
 ---
 
 ## At a glance

@@ -4,7 +4,7 @@ summary: "Keep the Gullhook lamp burning every night until the end of the coming
 sources: []
 status: active
 revealed: ""
-title: ""
+title: "Keep Gullhook Lit"
 ---
 
 ## At a glance

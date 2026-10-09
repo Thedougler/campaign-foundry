@@ -5,7 +5,7 @@ summary: "One line."
 sources: []
 parent: ""
 revealed: ""
-title: ""
+title: "Doubled"
 ---
 
 ## At a glance

@@ -19,7 +19,7 @@ The Wiki is the evidence. Every fact in an answer comes from a page read during 
 ## Answer
 
 - Lead with the direct answer in one or two plain sentences the DM could use at the table, then only what the question asked for. A related fact the DM didn't ask about gets one line at most.
-- Cite each fact inline: `[[Page]]`, or `[[Page#Section]]` when the page is long.
+- Cite each fact inline: `[[slug|Title]]`, or `[[slug#Section|Title]]` when the page is long.
 - **Records, not plans.** What happened comes from Recaps, Transcripts and the pages they updated. Prep and Scene pages say what was planned, so a planned outcome is cited as the plan.
 - State each gap plainly: what the Wiki leaves unsaid. An answer that is mostly a gap is short. It gives the gap and the nearest recorded facts in a line or two, then the suggestions. Your own readings, inferences and ideas go under a final **Not in the Wiki** line, each marked as yours.
 - **Prior iteration, not Canon.** What step 4 found goes on a **Prior iteration (not Canon)** line after the Wiki's facts, each fact cited by its `agentic-co-dm/…` path. The Wiki takes precedence in any disagreement.

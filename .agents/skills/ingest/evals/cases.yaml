@@ -1,17 +1,17 @@
 # Ingests of real Archive inputs, asked as the DM hands them over.
 - id: brain-dump
   source_pages:
-    - shattered-sea/NPCs/Cobb.md
+    - shattered-sea/NPCs/cobb.md
   raw_sources:
     - archive/Cobb.md
   prompt: Ingest archive/Cobb.md.
   checks:
     canon:
       shattered-sea/log.md: ['/\] ingest \|/']
-    # archive/Cobb.md is a legacy-vault export: its slug links and legacy citations are formatting, not Wiki text.
+    # archive/Cobb.md is a legacy-vault export: its bare slug links and legacy citations are formatting, not Wiki text. Wiki links show their title, [[slug|Title]].
     absent:
-      shattered-sea/NPCs/Cobb.md:
-        - '\[\[[a-z0-9]+(-[a-z0-9]+)+(\||\]\])'
+      shattered-sea/NPCs/cobb.md:
+        - '\[\[[a-z0-9]+(-[a-z0-9]+)+\]\]'
         - 'campaign-os:|vault/episodes|provenance:'
   rubrics:
     - Factual units reach their existing owner pages in the current template shape. Against this run's starting sources, Cobb remains the young rattkin dockworker and Nona's runner at La Vasca, with his childhood connection to Perrin.
@@ -23,24 +23,24 @@
     - Played records remain unchanged. The reply names actual changes and any real conflicts settled, without inventing a table ruling.
 - id: transcript
   source_pages:
-    - shattered-sea/Sessions/Session 11/Session 11 - Recap.md
+    - shattered-sea/Sessions/Session 11/session-11-recap.md
   raw_sources:
     - archive/session-11-transcript-archived-version.md
   prompt: Ingest archive/session-11-transcript-archived-version.md.
   checks:
     pages:
-      - shattered-sea/Sessions/Session 11/Session 11 - Recap.md
-      - shattered-sea/Sessions/Session 12/Session 12 - Previously On.md
+      - shattered-sea/Sessions/Session 11/session-11-recap.md
+      - shattered-sea/Sessions/Session 12/session-12-previously-on.md
     sections:
-      shattered-sea/Sessions/Session 11/Session 11 - Recap.md:
+      shattered-sea/Sessions/Session 11/session-11-recap.md:
         - '## At a glance'
         - '## What happened'
         - '## Changes'
         - '## Threads'
     # leftover-comment is a check finding: written pages that keep template %% guidance skipped the check gate.
     absent:
-      shattered-sea/Sessions/Session 11/Session 11 - Recap.md: ['%%']
-      shattered-sea/Sessions/Session 12/Session 12 - Previously On.md: ['%%']
+      shattered-sea/Sessions/Session 11/session-11-recap.md: ['%%']
+      shattered-sea/Sessions/Session 12/session-12-previously-on.md: ['%%']
   rubrics:
     - The Recap accounts for every active Thread in this run's Campaign, including those that stayed still, and distinguishes played changes from unresolved pressures.
     - "Actual events follow the Session 11 Transcript: flight from the adult Bloodhawk, living fruit drawing hunters, Matteo's rescue from playful otters, ghost-plum invisibility, the Lesser Black Lotus drifting downstream and the unresolved Skarn attack. Unreached inland survivors and a completed theft are not narrated as played."
@@ -55,39 +55,39 @@
 # A file about an already-played Session that is not its Transcript: a legacy session recap re-ingested over existing Session records.
 - id: legacy-session-record
   source_pages:
-    - shattered-sea/Sessions/Session 2/Session 2 - Recap.md
-    - shattered-sea/Sessions/Session 2/Session 2 - Previously On.md
-    - shattered-sea/NPCs/Ket.md
-    - shattered-sea/NPCs/Barnaby Rook.md
-    - shattered-sea/NPCs/Beaumont Sel.md
-    - shattered-sea/NPCs/Shepherd Grigori.md
-    - shattered-sea/Vehicles/Uncertainty.md
+    - shattered-sea/Sessions/Session 2/session-2-recap.md
+    - shattered-sea/Sessions/Session 2/session-2-previously-on.md
+    - shattered-sea/NPCs/ket.md
+    - shattered-sea/NPCs/barnaby-rook.md
+    - shattered-sea/NPCs/beaumont-sel.md
+    - shattered-sea/NPCs/shepherd-grigori.md
+    - shattered-sea/Vehicles/uncertainty.md
   raw_sources:
     - archive/session-02-recap.md
   prompt: Ingest archive/session-02-recap.md.
   checks:
     canon:
-      shattered-sea/Sessions/Session 2/Session 2 - Recap.md:
+      shattered-sea/Sessions/Session 2/session-2-recap.md:
         - 'suffered three hull strikes from below in a tropical storm'
-      shattered-sea/Sessions/Session 2/Session 2 - Previously On.md:
+      shattered-sea/Sessions/Session 2/session-2-previously-on.md:
         - 'named a prize crew before three impacts from below turned the cutter in a storm'
       shattered-sea/log.md: ['/\] ingest \|/']
     absent:
-      shattered-sea/NPCs/Ket.md: ['\[\[[a-z0-9]+(-[a-z0-9]+)+(\||\]\])']
-      shattered-sea/NPCs/Barnaby Rook.md: ['\[\[[a-z0-9]+(-[a-z0-9]+)+(\||\]\])']
-      shattered-sea/NPCs/Beaumont Sel.md: ['\[\[[a-z0-9]+(-[a-z0-9]+)+(\||\]\])']
-      shattered-sea/Vehicles/Uncertainty.md: ['\[\[[a-z0-9]+(-[a-z0-9]+)+(\||\]\])']
+      shattered-sea/NPCs/ket.md: ['\[\[[a-z0-9]+(-[a-z0-9]+)+\]\]']
+      shattered-sea/NPCs/barnaby-rook.md: ['\[\[[a-z0-9]+(-[a-z0-9]+)+\]\]']
+      shattered-sea/NPCs/beaumont-sel.md: ['\[\[[a-z0-9]+(-[a-z0-9]+)+\]\]']
+      shattered-sea/Vehicles/uncertainty.md: ['\[\[[a-z0-9]+(-[a-z0-9]+)+\]\]']
   rubrics:
     - Session 2's Recap and Previously On stay the played record as they stood; the run writes no new Recap, Previously On or file-summary page for Session 2.
     - "Each subject the file says something about beyond its name (Barnaby Rook, Ensign Wouters, Ket, Beaumont Sel, Shepherd Grigori, the prize crew, the HCS Surety later renamed Uncertainty, the unresolved strikes from below) has the file's played facts on its owner page in the Outcome, whether this run changed that page or it already held them. No such claim is left unfiled and no duplicate page is created."
     - Hidden truths the file keeps from the Players (Simone's supply chain behind the Grung vials, Grigori's nature) stay DM-facing on their pages and do not surface in Narration.
-    - Links on touched pages name current Wiki pages by title. The file's legacy frontmatter (provenance scores, relationships, tier, visibility) and its next-session pointer are not carried onto any page.
+    - Links on touched pages target current Wiki pages by slug and show their title or a custom label (`[[slug|Title]]`). The file's legacy frontmatter (provenance scores, relationships, tier, visibility) and its next-session pointer are not carried onto any page.
     - The reply asks the DM nothing and reports no unit, page or check as skipped, deferred or awaiting approval.
 
 - id: the-mortis
   source_pages:
-    - shattered-sea/The Shattered Sea.md
-    - shattered-sea/Shattered Sea.md
+    - shattered-sea/the-shattered-sea.md
+    - shattered-sea/shattered-sea.md
   raw_sources:
     - archive/mortis.md
     - archive/mortis-dm-guide.md
@@ -96,15 +96,15 @@
     archive/mortis-dm-guide.md.
   checks:
     pages:
-      - shattered-sea/House Rules/The Mortis.md
+      - shattered-sea/House Rules/the-mortis.md
     canon:
-      shattered-sea/House Rules/The Mortis.md:
+      shattered-sea/House Rules/the-mortis.md:
         - '^type:\s*House Rule\s*$'
         - Mark
         - Gift
       shattered-sea/log.md: ['/\] ingest \|/']
     absent:
-      shattered-sea/House Rules/The Mortis.md: ['%%']
+      shattered-sea/House Rules/the-mortis.md: ['%%']
   rubrics:
     - >-
       The player-facing Mortis from archive/mortis.md is a World House
@@ -128,15 +128,15 @@
 
 - id: bloodhawk-token
   source_pages:
-    - shattered-sea/Creatures/Bloodhawk.md
+    - shattered-sea/Creatures/bloodhawk.md
   raw_sources:
     - archive/bloodhawk-foundry-token.jpg
   prompt: Ingest archive/bloodhawk-foundry-token.jpg as the Bloodhawk token.
   checks:
     pages:
-      - shattered-sea/Creatures/Bloodhawk.md
+      - shattered-sea/Creatures/bloodhawk.md
     canon:
-      shattered-sea/Creatures/Bloodhawk.md:
+      shattered-sea/Creatures/bloodhawk.md:
         - '^type:\s*Creature\s*$'
         - '/!\[\[Bloodhawk/'
       shattered-sea/log.md: ['/\] ingest \|/']

@@ -3,7 +3,7 @@ type: Item
 summary: "A lantern that shows what burned."
 sources: []
 revealed: ""
-title: ""
+title: "Ashen Lantern"
 ---
 
 ## At a glance

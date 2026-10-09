@@ -3,7 +3,7 @@ type: Creature
 summary: "Giant Crab, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Giant Crab"
 ---
 
 ## At a glance

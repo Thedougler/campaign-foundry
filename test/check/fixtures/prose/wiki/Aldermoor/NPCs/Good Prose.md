@@ -3,7 +3,7 @@ type: NPC
 summary: "Zzxq qzxz frontmatter is never read."
 sources: []
 creature: ""
-title: ""
+title: "Good Prose"
 ---
 
 ## At a glance

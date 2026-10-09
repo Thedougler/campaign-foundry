@@ -1,8 +1,8 @@
 - id: cold-open
   source_pages:
-    - shattered-sea/Sessions/Session 11/Session 11 - Recap.md
-    - shattered-sea/Sessions/Session 12/Session 12 - Prep.md
-    - shattered-sea/Shattered Sea.md
+    - shattered-sea/Sessions/Session 11/session-11-recap.md
+    - shattered-sea/Sessions/Session 12/session-12-prep.md
+    - shattered-sea/shattered-sea.md
   prompt: Help me plan Session 12. We're redoing it from the top since all the skills have had significant upgrades since it was written.
   rubrics:
     - The opening orients the DM in the current Campaign with relevant page links and offers concrete directions connected to the Party's live stakes. Facts about prior play follow this run's starting Recap and current PC pages; conflicts with hot or unplayed Prep are distinguished rather than silently resolved as played events.
@@ -10,9 +10,9 @@
     - The turn is a concise co-writing conversation with useful options and at most two intent questions, rather than a page-maintenance interview. It leaves the Wiki unchanged.
 - id: dm-fixed-points
   source_pages:
-    - shattered-sea/Sessions/Session 12/Session 12 - Prep.md
-    - shattered-sea/Sessions/Session 11/Session 11 - Recap.md
-    - shattered-sea/Lore/Two-Grave Orders.md
+    - shattered-sea/Sessions/Session 12/session-12-prep.md
+    - shattered-sea/Sessions/Session 11/session-11-recap.md
+    - shattered-sea/Lore/two-grave-orders.md
   prompt: >-
     Jean-Claude will be awake at the start. He was only catatonic because his
     Player was absent. Hinewai assuming he's under an authority seal is
@@ -24,8 +24,8 @@
     - The conversation builds on the fixed points with relevant Canon links and a useful next choice, stays concise, and leaves the Wiki unchanged.
 - id: settle
   source_pages:
-    - shattered-sea/Sessions/Session 12/Session 12 - Prep.md
-    - shattered-sea/Sessions/Session 11/Session 11 - Recap.md
+    - shattered-sea/Sessions/Session 12/session-12-prep.md
+    - shattered-sea/Sessions/Session 11/session-11-recap.md
   prompt: >-
     That's the plan, settle Session 12. Four hours following the survivors'
     smoke deeper into Aruhe, with Jean-Claude awake. Skarn wants the Spinner

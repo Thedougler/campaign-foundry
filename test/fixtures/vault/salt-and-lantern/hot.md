@@ -4,7 +4,7 @@ summary: "The Party holds the Vessen ledger in Reedholt, fifty days before the L
 sources: []
 date: "23 Eelrun 412 CY"
 revealed: ""
-title: ""
+title: "Hot"
 ---
 
 ## At a glance

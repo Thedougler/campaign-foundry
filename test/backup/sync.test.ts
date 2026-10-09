@@ -5,7 +5,7 @@ import { walkBackup } from "../../src/backup/files.ts";
 import { type BackupMap, emptyMap } from "../../src/backup/map.ts";
 import { throttle } from "../../src/backup/notion.ts";
 import { dirMarker, pendingHeader, rootCallout } from "../../src/backup/markers.ts";
-import { estimate, planBackup, type Scope } from "../../src/backup/sync.ts";
+import { estimate, linkIndex, planBackup, type Scope } from "../../src/backup/sync.ts";
 import { backup, FakeNotion, lfsPointer, repo, textOf } from "./helpers.ts";
 
 const W = "wiki/shattered-sea";
@@ -14,8 +14,8 @@ const ALL: Scope = { kind: "all" };
 
 function campaign(): string {
 	return repo({
-		[`${W}/hot.md`]: "# Hot\n\nThe party meets [[Ilse Corran|Ilse]].\n\n![[Map.png]]\n",
-		[`${W}/NPCs/Ilse Corran.md`]: "---\ntype: NPC\n---\n\n> [!narration] First look\n> A tall woman.\n",
+		[`${W}/hot.md`]: "---\ntitle: hot\n---\n# Hot\n\nThe party meets [[Ilse Corran|Ilse]].\n\n![[Map.png]]\n",
+		[`${W}/NPCs/Ilse Corran.md`]: "---\ntitle: Ilse Corran\ntype: NPC\n---\n\n> [!narration] First look\n> A tall woman.\n",
 		[`${W}/attachments/Map.png`]: Buffer.from("png bytes"),
 		".agents/skills/npc-design/SKILL.md": "# NPC design\n",
 		".agents/skills/npc-design/evals/cases.yaml": "cases: []\n",
@@ -52,7 +52,9 @@ describe("backup sync", () => {
 		expect(map.syncedCommit).toBe("c0ffee0000000000000000000000000000000000");
 		// The wikilink points at Ilse's page even though hot.md sorts first, and the embed reuses the upload.
 		const hot = api.byTitle("hot")?.blocks ?? [];
-		const link = (hot[2]?.paragraph as { rich_text: { text: { content: string; link?: { url: string } } }[] }).rich_text.find((r) => r.text.content === "Ilse");
+		// The converter produced this paragraph from the fixture's prose after its frontmatter and heading.
+		const paragraph = hot[3]?.paragraph as { rich_text: { text: { content: string; link?: { url: string } } }[] };
+		const link = paragraph.rich_text.find((r) => r.text.content === "Ilse");
 		expect(link?.text.link?.url).toBe(map.entries[`${W}/NPCs/Ilse Corran.md`]?.url);
 		const upload = map.entries[`${W}/attachments/Map.png`]?.fileUploadId;
 		expect(upload).toBeDefined();
@@ -84,8 +86,8 @@ describe("backup sync", () => {
 		const api = new FakeNotion();
 		await run(root, map, api);
 		const ilse = map.entries[`${W}/NPCs/Ilse Corran.md`];
-		writeFileSync(join(root, W, "NPCs/Ilse Corran.md"), "Ilse, rewritten.\n");
-		writeFileSync(join(root, W, "hot.md"), "changed but not in this diff\n");
+		writeFileSync(join(root, W, "NPCs/Ilse Corran.md"), "---\ntitle: Ilse Corran\n---\nIlse, rewritten.\n");
+		writeFileSync(join(root, W, "hot.md"), "---\ntitle: hot\n---\nchanged but not in this diff\n");
 		api.calls = [];
 		await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([`${W}/NPCs/Ilse Corran.md`]), deleted: new Set() }, { commit: "d00d" });
 		// Emptied, written under a pending header, then the header names the commit: a run stopped midway is rewritten.
@@ -96,6 +98,37 @@ describe("backup sync", () => {
 		expect(map.syncedCommit).toBe("d00d");
 	});
 
+	it("keeps slug identity while updating a Wiki title, then preserves the last title on deletion", async () => {
+		const path = `${W}/NPCs/ilse-corran.md`;
+		const root = repo({ [path]: "---\ntitle: Captain Ilse\n---\nA tall woman.\n" });
+		const map = emptyMap(PARENT);
+		const api = new FakeNotion();
+		await run(root, map, api);
+		const id = map.entries[path]?.id ?? "";
+		expect(api.pages.get(id)?.title).toBe("Captain Ilse");
+		writeFileSync(join(root, path), "---\ntitle: Admiral Ilse\n---\nA tall woman.\n");
+		await run(root, map, api);
+		expect(map.entries[path]).toMatchObject({ id, title: "Admiral Ilse" });
+		expect(api.pages.get(id)?.title).toBe("Admiral Ilse");
+		rmSync(join(root, path));
+		await run(root, map, api);
+		expect(api.pages.get(id)?.title).toBe("Admiral Ilse (deleted from repo)");
+	});
+
+	it("resolves titles before aliases and keeps slug paths as identity rather than display names", () => {
+		const named = `${W}/NPCs/ilse-corran.md`;
+		const alias = `${W}/NPCs/a.md`;
+		const root = repo({
+			[named]: "---\ntitle: Captain Ilse\naliases: [Ilse]\n---\n",
+			[alias]: "---\ntitle: Other captain\naliases: [Captain Ilse]\n---\n",
+		});
+		const index = linkIndex(walkBackup(root).files);
+		expect(index.page("Captain Ilse")).toBe(named);
+		expect(index.page("Ilse")).toBe(named);
+		expect(index.page("ilse-corran")).toBe(named);
+		expect(index.page("shattered-sea/NPCs/ilse-corran")).toBe(named);
+		expect(index.page("Ilse Corran")).toBeUndefined();
+	});
 	it("creates a new file's page in a push and flags a deleted file's page without trashing it", async () => {
 		const root = campaign();
 		const map = emptyMap(PARENT);
@@ -103,7 +136,7 @@ describe("backup sync", () => {
 		await run(root, map, api);
 		const ilseId = map.entries[`${W}/NPCs/Ilse Corran.md`]?.id ?? "";
 		rmSync(join(root, W, "NPCs/Ilse Corran.md"));
-		writeFileSync(join(root, W, "NPCs/Geoffrey Draves.md"), "Geoffrey\n");
+		writeFileSync(join(root, W, "NPCs/Geoffrey Draves.md"), "---\ntitle: Geoffrey Draves\n---\nGeoffrey\n");
 		api.calls = [];
 		await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([`${W}/NPCs/Geoffrey Draves.md`]), deleted: new Set([`${W}/NPCs/Ilse Corran.md`]) });
 		expect(api.byTitle("Geoffrey Draves")?.parent).toBe(map.entries[`${W}/NPCs`]?.id);
@@ -115,7 +148,7 @@ describe("backup sync", () => {
 		expect(api.ops()).not.toContain("trash");
 
 		// Restoring the file revives the same page.
-		writeFileSync(join(root, W, "NPCs/Ilse Corran.md"), "Ilse is back.\n");
+		writeFileSync(join(root, W, "NPCs/Ilse Corran.md"), "---\ntitle: Ilse Corran\n---\nIlse is back.\n");
 		await run(root, map, api, ALL);
 		expect(api.pages.get(ilseId)?.title).toBe("Ilse Corran");
 		expect(textOf(api.pages.get(ilseId)?.blocks ?? [])).toContain("Ilse is back.");
@@ -186,9 +219,9 @@ describe("backup sync", () => {
 
 	it("a folder renamed around its children moves only what really changed parents, retitles the folder, retires the emptied one", async () => {
 		const root = repo({
-			[`${W}/hot.md`]: "# Hot\n",
-			[`${W}/NPCs/Ilse Corran.md`]: "---\ntype: NPC\n---\n\nA tall woman.\n",
-			[`${W}/PCs/Tam.md`]: "---\ntype: PC\n---\n\nA ferry pilot.\n",
+			[`${W}/hot.md`]: "---\ntitle: hot\n---\n# Hot\n",
+			[`${W}/NPCs/Ilse Corran.md`]: "---\ntitle: Ilse Corran\ntype: NPC\n---\n\nA tall woman.\n",
+			[`${W}/PCs/Tam.md`]: "---\ntitle: Tam\ntype: PC\n---\n\nA ferry pilot.\n",
 		});
 		const api = new FakeNotion();
 		// Notion as the failed run left it: the old World folder page became the Campaign folder page (stale

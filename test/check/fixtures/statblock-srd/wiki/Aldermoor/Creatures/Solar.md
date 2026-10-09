@@ -3,7 +3,7 @@ type: Creature
 summary: "Solar, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Solar"
 ---
 
 ## At a glance

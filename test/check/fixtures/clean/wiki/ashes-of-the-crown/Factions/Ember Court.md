@@ -3,7 +3,7 @@ type: Faction
 summary: "Nobles who guard the memory of the Crown."
 sources: []
 revealed: ""
-title: ""
+title: "Ember Court"
 ---
 
 ## At a glance

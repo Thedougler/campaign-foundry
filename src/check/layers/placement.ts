@@ -1,14 +1,13 @@
 import { bindingsFromPath, describe, matchDir, PLACEMENTS, resolveDir } from "../placement-table.ts";
 import type { Location } from "../placement-table.ts";
-import { slugify } from "../../vault/parse.ts";
 import type { Page } from "../../vault/types.ts";
 import type { CheckContext, Finding, Fix, FixResult, Layer } from "../types.ts";
 import { checkedPages, dirOf, isSpecialPage, isTarget } from "../util.ts";
 
 const LAYER = "placement";
-/** Exact file names the placement table requires, plus their slugs (ADR 0028), plus generated index and log pages. They repeat across Campaign folders. */
+/** Fixed and generated filenames repeat across Campaign folders. */
 const FIXED_NAME = new Set(
-	Object.values(PLACEMENTS).flatMap((locs) => locs.flatMap((l) => (typeof l.name === "string" ? [l.name, slugify(l.name)] : []))),
+	Object.values(PLACEMENTS).flatMap((locs) => locs.flatMap((l) => (typeof l.name === "string" ? [l.name] : []))),
 );
 const REPEATABLE = (slug: string): boolean =>
 	FIXED_NAME.has(slug) || slug === "index" || slug === "log" || /^log-\d{4}$/.test(slug);
@@ -19,9 +18,9 @@ const wikiType = (page: Page): string | undefined => {
 	return typeof t === "string" && t in PLACEMENTS ? t : undefined;
 };
 
-/** The page's file slug answers to the location's fixed name, in either spelling: the in-world name or its slug. */
+/** Fixed pages keep exactly the filename required by the placement table. */
 const nameMatches = (page: Page, location: Location): boolean =>
-	location.name === undefined || page.slug === location.name || page.slug === slugify(location.name);
+	location.name === undefined || page.slug === location.name;
 
 interface Verdict {
 	ok: boolean;
@@ -81,21 +80,18 @@ const SESSION_NAMED = new Set(["Prep", "Scene", "Recap", "Previously On"]);
 /** For these kinds the part after `Session N - ` is the kind itself; a Scene uses its own title. */
 const FIXED_TITLE = new Set(["Prep", "Recap", "Previously On"]);
 
-/** The name a Session page should have, or undefined when its name is fine (or the rule does not apply). A file answers in its in-world `Session N - …` spelling or, once migrated, as a lowercase-hyphen slug of it (ADR 0028). */
+/** Session display titles identify their Session; filenames remain stable slugs. */
 function sessionNameProblem(page: Page, type: string): string | undefined {
 	if (!SESSION_NAMED.has(type)) return undefined;
 	const bound = matchDir(PLACEMENTS[type]![0]!, segmentsOf(page));
 	const n = bound?.session ? /^Session (\d+)$/.exec(bound.session)?.[1] : undefined;
 	if (!n) return undefined;
-	const stem = page.slug;
-	const low = stem.toLowerCase();
-	const inWorld = new RegExp(`^session ${n} - .+$`).test(low);
-	const slugForm = low === slugify(stem) && low.startsWith(`session-${n}-`) && low.length > `session-${n}-`.length;
+	const low = page.name.toLowerCase();
 	if (FIXED_TITLE.has(type)) {
 		const want = `Session ${n} - ${type}`;
-		return inWorld && low === want.toLowerCase() ? undefined : slugForm && low === slugify(want) ? undefined : want;
+		return low === want.toLowerCase() ? undefined : want;
 	}
-	return inWorld || slugForm ? undefined : `Session ${n} - <Scene title>`;
+	return new RegExp(`^session ${n} - .+$`).test(low) ? undefined : `Session ${n} - <Scene title>`;
 }
 
 export function run(ctx: CheckContext): Finding[] {
@@ -117,7 +113,7 @@ export function run(ctx: CheckContext): Finding[] {
 			const want = sessionNameProblem(page, type);
 			if (want) {
 				const example = want.replace("<Scene title>", "The Drowned Bell");
-				add("session-page-name", `A ${type} page in a Session folder must be named \`${want}\`, not \`${page.slug}\`.`, `Session pages are named \`Session <N> - <Prep, Recap, Previously On or the Scene's title>\`, with N the folder's number. Rename the file to \`${example}.md\`, and update links that spelled the old file name.`);
+				add("session-page-name", `A ${type} page in a Session folder must have title \`${want}\`, not \`${page.name}\`.`, `Set \`title: "${example}"\`, with N the folder's number. The filename is its stable slug; use \`cf rename\` to change it.`);
 			}
 			continue;
 		}

@@ -5,7 +5,7 @@ sources: []
 creature: ""
 parent: [[Ravenhold]]
 revealed: ""
-title: ""
+title: "Unquoted"
 ---
 
 ## At a glance

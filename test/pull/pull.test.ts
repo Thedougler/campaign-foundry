@@ -83,17 +83,17 @@ describe("runPull", () => {
 		const result = await pull();
 		const log = await read("ashes-of-the-crown/log.md");
 		expect(log).toBe(
-			"## [2026-01-05] ingest | Session 1 transcript\n\n- [[Ashes of the Crown]]\n\n## [2026-09-28] pull | Pulled PCs from D&D Beyond\n\n- [[Vale]]\n- [[Wren]]\n",
+			"## [2026-01-05] ingest | Session 1 transcript\n\n- [[Ashes of the Crown]]\n\n## [2026-09-28] pull | Pulled PCs from D&D Beyond\n\n- [[Vale|Vale]]\n- [[Wren|Wren]]\n",
 		);
 		expect(result.logged).toEqual(["ashes-of-the-crown/log.md"]);
 		expect(result.gate?.findings.filter((f) => f.severity === "error")).toEqual([]);
 	});
 
 	it("regenerates the World index for the summary it filled and leaves the index and log layers clean", async () => {
-		expect((await read("ashes-of-the-crown/index.md")).split("\n")).toContain("- [[Wren]]");
+		expect((await read("ashes-of-the-crown/index.md")).split("\n")).toContain("- [[Wren|Wren]]");
 		const result = await pull();
 		expect(result.indexed).toEqual(["ashes-of-the-crown/index.md"]);
-		expect((await read("ashes-of-the-crown/index.md")).split("\n")).toContain("- [[Wren]] — Halfling Sorcerer 9.");
+		expect((await read("ashes-of-the-crown/index.md")).split("\n")).toContain("- [[Wren|Wren]] — Halfling Sorcerer 9.");
 
 		// The whole Wiki, not just the pulled pages.
 		const gate = await runCheck({ vault, templates, root: dir, cwd: dir, layers: ["index", "log"] });

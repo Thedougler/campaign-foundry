@@ -4,7 +4,7 @@ summary: "A goblin ferry hand on the Marl Ferry who knows every channel and ever
 sources: []
 creature: "[[Goblin Warrior]]"
 revealed: ""
-title: ""
+title: "Pell Rushlight"
 ---
 
 ## At a glance

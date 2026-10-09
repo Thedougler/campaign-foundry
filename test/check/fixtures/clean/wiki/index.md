@@ -2,4 +2,4 @@
 
 # Wiki
 
-- [[Ashes of the Crown]] — Four friends chase the last flame of the Crown.
+- [[Ashes of the Crown|Ashes of the Crown]] — Four friends chase the last flame of the Crown.

@@ -4,7 +4,7 @@ kind: Climax
 summary: "Ilse Corran meets the Party in the Gullhook lamp room and asks what the dark is worth."
 sources: []
 revealed: ""
-title: ""
+title: "Session 1 - The Lamp Room"
 ---
 
 ## At a glance

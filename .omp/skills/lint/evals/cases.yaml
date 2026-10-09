@@ -1,11 +1,11 @@
 - id: after-move
   source_pages:
-    - shattered-sea/Locations/Aruhe.md
+    - shattered-sea/Locations/aruhe.md
   prompt: Lint the Wiki.
   checks:
     canon:
       shattered-sea/log.md: ['/\] lint \|/']
-      shattered-sea/Locations/Aruhe.md:
+      shattered-sea/Locations/aruhe.md:
         - 'A vast untamed volcanic island where excessive life distinguishes receiving from taking.'
         - 'Hinewai''s grief binds the island''s living systems.'
     absent:

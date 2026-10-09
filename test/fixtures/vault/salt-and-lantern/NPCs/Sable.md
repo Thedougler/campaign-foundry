@@ -4,7 +4,7 @@ summary: "The drowned bell-ringer of Vessen, who rings the chapel bell and wants
 sources: []
 creature: "[[Mire Drowner]]"
 revealed: ""
-title: ""
+title: "Sable"
 ---
 
 ## At a glance

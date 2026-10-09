@@ -55,7 +55,7 @@ export function findCommand(): Command {
 			`
 Output:
   one block per name: the name with its match count, then each page's vault-relative path, kind
-  (frontmatter \`type\`), \`title\` (what names the page, with the file-name fallback while unset),
+  (frontmatter \`type\`), \`title\` (unset when absent or blank),
   \`aliases\` and \`revealed\` value (unset when the key is absent or empty).
   Several matches all print, and the count says so. A name matching nothing is a usage error
   naming the closest real name.
@@ -91,7 +91,7 @@ Examples:
 					const kind = page.frontmatter?.type;
 					if (typeof kind === "string" && kind !== "") out.push(`    kind: ${kind}`);
 					const title = typeof page.frontmatter?.title === "string" ? page.frontmatter.title.trim() : "";
-					out.push(title === "" ? `    title: unset — the file name (${page.slug}) names the page until a title is set` : `    title: ${title}`);
+					out.push(title === "" ? "    title: unset" : `    title: ${title}`);
 					const aliases = stringValues(page.frontmatter?.aliases);
 					if (aliases.length > 0) out.push(`    aliases: ${aliases.join(", ")}`);
 					out.push(`    revealed: ${revealedOf(page)}`);

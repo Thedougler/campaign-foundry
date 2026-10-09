@@ -3,7 +3,7 @@ type: Creature
 summary: "A hardened crew leader who fights with scimitar and pistol and knows when to leave."
 sources: []
 revealed: ""
-title: ""
+title: "Bandit Captain"
 ---
 
 ## At a glance

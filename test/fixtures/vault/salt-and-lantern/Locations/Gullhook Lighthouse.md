@@ -5,7 +5,7 @@ summary: "The white lighthouse at the tip of Saltwick's mole, whose lamp has bee
 sources: []
 parent: "[[Saltwick]]"
 revealed: ""
-title: ""
+title: "Gullhook Lighthouse"
 ---
 
 ## At a glance

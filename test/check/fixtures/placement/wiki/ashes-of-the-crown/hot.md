@@ -4,7 +4,7 @@ summary: "One line."
 sources: []
 date: ""
 revealed: ""
-title: ""
+title: "Hot"
 ---
 
 ## At a glance

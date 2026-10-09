@@ -3,7 +3,7 @@ type: NPC
 summary: "A page with style problems."
 sources: []
 creature: ""
-title: ""
+title: "Bad Style"
 ---
 
 ## At a glance

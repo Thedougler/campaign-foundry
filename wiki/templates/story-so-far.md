@@ -1,5 +1,5 @@
 ---
-title: ""
+title: Story so far
 type: story-so-far
 summary: ""
 sources: []

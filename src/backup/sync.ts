@@ -93,26 +93,35 @@ const lower = (s: string): string => s.toLowerCase();
 const stripMd = (s: string): string => s.replace(/\.(md|markdown)$/i, "");
 
 /**
- * Indexes the backed-up files by Obsidian name and by path, so `[[Name]]`, `[[Folder/Name]]` and embeds resolve.
- * A markdown page answers to its frontmatter `title` and `aliases` too, before its file name (ADR 0028).
+ * Indexes backed-up pages by title and aliases, with slug paths as identity targets.
+ * Non-Wiki documents retain their filename labels.
  */
 export function linkIndex(files: BackupFile[]): { page(target: string): string | undefined; image(target: string): string | undefined } {
 	const pagesByName = new Map<string, string[]>();
+	const pagesByAlias = new Map<string, string[]>();
+	const pagesBySlug = new Map<string, string[]>();
 	const pagesByPath = new Map<string, string>();
 	const imagesByName = new Map<string, string[]>();
 	for (const f of files) {
 		const name = lower(f.path.slice(f.path.lastIndexOf("/") + 1));
 		if (f.kind === "markdown") {
-			const key = stripMd(name);
-			pagesByName.set(key, [...(pagesByName.get(key) ?? []), f.path]);
-			for (const n of [f.title, ...(f.aliases ?? [])]) {
-				if (n === undefined || n === "") continue;
-				const nameKey = lower(n);
-				pagesByName.set(nameKey, [...(pagesByName.get(nameKey) ?? []), f.path]);
+			if (!f.path.startsWith("wiki/")) {
+				const key = stripMd(name);
+				pagesByName.set(key, [...(pagesByName.get(key) ?? []), f.path]);
+			}
+			if (f.title) {
+				const key = lower(f.title);
+				pagesByName.set(key, [...(pagesByName.get(key) ?? []), f.path]);
+			}
+			for (const alias of new Set(f.aliases ?? [])) {
+				const key = lower(alias);
+				pagesByAlias.set(key, [...(pagesByAlias.get(key) ?? []), f.path]);
 			}
 			const vaultPath = f.path.startsWith("wiki/") ? f.path.slice(5) : f.path;
 			pagesByPath.set(lower(stripMd(vaultPath)), f.path);
 			pagesByPath.set(lower(stripMd(f.path)), f.path);
+			const slug = stripMd(name);
+			pagesBySlug.set(slug, [...(pagesBySlug.get(slug) ?? []), f.path]);
 		} else if (f.kind === "image") {
 			imagesByName.set(name, [...(imagesByName.get(name) ?? []), f.path]);
 		}
@@ -122,7 +131,7 @@ export function linkIndex(files: BackupFile[]): { page(target: string): string |
 	return {
 		page(target) {
 			const t = lower(stripMd(target.trim()));
-			return pagesByPath.get(t) ?? shortest(pagesByName.get(t.slice(t.lastIndexOf("/") + 1)));
+			return shortest(pagesByName.get(t)) ?? shortest(pagesByAlias.get(t)) ?? pagesByPath.get(t) ?? shortest(pagesBySlug.get(t));
 		},
 		image(target) {
 			const t = lower(target.trim());
@@ -292,12 +301,13 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 		try {
 			const previous = map.entries[file.path];
 			if (previous?.deletedAt) {
-				await api.retitle(previous.id, titleOf(file.path, file.kind, file.title), ICONS[file.kind]);
+				await api.retitle(previous.id, titleOf(file.path, file.kind, file.title, file.aliases), ICONS[file.kind]);
 				const { deletedAt: _, hash: __, ...kept } = previous;
-				map.entries[file.path] = { ...kept, kind: file.kind };
+				map.entries[file.path] = { ...kept, kind: file.kind, title: titleOf(file.path, file.kind, file.title, file.aliases) };
 			} else {
-				const page = await api.createPage(parent, titleOf(file.path, file.kind, file.title), ICONS[file.kind], [pendingHeader(file.path)]);
-				map.entries[file.path] = { kind: file.kind, id: page.id, url: page.url };
+				const title = titleOf(file.path, file.kind, file.title, file.aliases);
+				const page = await api.createPage(parent, title, ICONS[file.kind], [pendingHeader(file.path)]);
+				map.entries[file.path] = { kind: file.kind, id: page.id, url: page.url, title };
 				filesCreated.set(file.path, { id: page.id, parentId: parent, createdTime: page.createdTime ?? "" });
 				result.created++;
 			}
@@ -364,9 +374,12 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 		const entry = map.entries[file.path];
 		if (!entry) continue;
 		try {
+			const title = titleOf(file.path, file.kind, file.title, file.aliases);
 			const source = readFileSync(file.abs, "utf8");
 			const body = pageBody(file, source, contextFor(file, map, index, options.sourceUrl));
 			await writePage(api, entry.id, file.path, body, headerBlock(file.path, options.commit, options.sourceUrl(file.path)));
+			if (entry.title !== title) await api.retitle(entry.id, title, ICONS[file.kind]);
+			entry.title = title;
 			entry.hash = file.hash;
 			options.save(map);
 			result.written++;
@@ -380,7 +393,7 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 		if (!entry || entry.kind === "dir") continue;
 		try {
 			const when = now().toISOString().slice(0, 10);
-			await api.retitle(entry.id, `${titleOf(path, entry.kind)} (deleted from repo)`, ICONS.deleted);
+			await api.retitle(entry.id, `${titleOf(path, entry.kind, entry.title)} (deleted from repo)`, ICONS.deleted);
 			await api.append(
 				entry.id,
 				[{ object: "block", type: "callout", callout: { rich_text: textItems(`Deleted from the repo${options.commit ? ` at ${options.commit.slice(0, 7)}` : ""} on ${when}. This page is kept as the last backed-up copy.`), icon: { type: "emoji", emoji: ICONS.deleted }, color: "red_background" } }],

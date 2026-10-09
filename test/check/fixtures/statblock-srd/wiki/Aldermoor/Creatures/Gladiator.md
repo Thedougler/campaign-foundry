@@ -3,7 +3,7 @@ type: Creature
 summary: "Gladiator, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Gladiator"
 ---
 
 ## At a glance

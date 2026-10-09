@@ -3,7 +3,7 @@ type: Creature
 summary: "Mummy Lord, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Mummy Lord"
 ---
 
 ## At a glance

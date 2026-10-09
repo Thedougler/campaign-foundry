@@ -1,8 +1,8 @@
 # Merges the recovered Malone scale-up ask with complete person and first-meeting play.
 - id: npc
   source_pages:
-    - shattered-sea/NPCs/Aleksander Malone.md
-    - shattered-sea/Quests/The Hound of God.md
+    - shattered-sea/NPCs/aleksander-malone.md
+    - shattered-sea/Quests/the-hound-of-god.md
   prompt: >-
     Scale up the Aleksander Malone statblock. He should be roughly equivalent
     in power to a level 12 player character, an optimized cleric, fighter,
@@ -13,36 +13,36 @@
     and his linked Creature page, not just combat numbers.
   checks:
     pages:
-      - shattered-sea/Creatures/Aleksander Malone (Creature).md
-      - shattered-sea/NPCs/Aleksander Malone.md
+      - shattered-sea/Creatures/aleksander-malone-creature.md
+      - shattered-sea/NPCs/aleksander-malone.md
     sections:
-      shattered-sea/NPCs/Aleksander Malone.md:
+      shattered-sea/NPCs/aleksander-malone.md:
         - "## At a glance"
         - "## Play"
         - "### History"
         - "### Hidden truths"
         - "### Threads"
         - "## Links"
-      shattered-sea/Creatures/Aleksander Malone (Creature).md:
+      shattered-sea/Creatures/aleksander-malone-creature.md:
         - "## Statblock"
         - "### Tactics"
         - "### Outside a fight"
         - "### Ecology"
         - "### Hidden truths"
     canon:
-      shattered-sea/Creatures/Aleksander Malone (Creature).md:
+      shattered-sea/Creatures/aleksander-malone-creature.md:
         - '^type:\s*Creature\s*$'
         - 'layout: Basic 5e Layout'
         - '^```statblock\b'
         - '\[!narration\] First sight'
-      shattered-sea/NPCs/Aleksander Malone.md:
+      shattered-sea/NPCs/aleksander-malone.md:
         - '^type:\s*NPC\s*$'
-        - 'creature: "\[\[Aleksander Malone \(Creature\)\]\]"'
+        - 'creature: "\[\[aleksander-malone-creature\|Aleksander Malone \(Creature\)\]\]"'
         - '\[!narration\] First look'
     absent:
-      shattered-sea/NPCs/Aleksander Malone.md:
+      shattered-sea/NPCs/aleksander-malone.md:
         - '^```statblock\b'
-        - '!\[\[[^\]]+#Statblock\]\]'
+        - '!\[\[[^\]|]+#Statblock(\|[^\]]*)?\]\]'
   rubrics:
     - >-
       Malone is a person the DM can play from the page alone, with a distinct

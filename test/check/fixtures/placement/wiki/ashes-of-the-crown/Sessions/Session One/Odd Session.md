@@ -4,7 +4,7 @@ kind: Hook
 summary: "One line."
 sources: []
 revealed: ""
-title: ""
+title: "Odd Session"
 ---
 
 ## At a glance

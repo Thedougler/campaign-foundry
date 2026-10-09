@@ -41,7 +41,7 @@ revealed: ""
 
 ### Encounter
 
-%% Use this for a Climax the Party may fight. Give forces and deployment, the battlefield, and the break or escape conditions. Embed each fought Creature as `![[Creature#Statblock]]`, and add a `#### Balance` with the `bun run cf -- encounter-budget` lines and the PCs able to act. %%
+%% Use this for a Climax the Party may fight. Give forces and deployment, the battlefield, and the break or escape conditions. Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]`, and add a `#### Balance` with the `bun run cf -- encounter-budget` lines and the PCs able to act. %%
 
 ## Outcomes
 

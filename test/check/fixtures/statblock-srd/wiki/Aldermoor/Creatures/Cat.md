@@ -3,7 +3,7 @@ type: Creature
 summary: "Cat, from the SRD 5.2 monsters."
 sources: []
 revealed: ""
-title: ""
+title: "Cat"
 ---
 
 ## At a glance

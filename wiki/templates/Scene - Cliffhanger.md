@@ -49,7 +49,7 @@ revealed: ""
 
 ### Creatures
 
-%% Embed each fought Creature as `![[Creature#Statblock]]`. Give its count and starting position. Add its opening tactic and response to interference, then the loss that breaks it and its route out. %%
+%% Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]`. Give its count and starting position. Add its opening tactic and response to interference, then the loss that breaks it and its route out. %%
 
 ### Balance
 
