@@ -3,7 +3,7 @@ import { dirname, posix } from "node:path";
 import { type Block, chunkBlocks, type ConvertContext, countBlocks, markdownToBlocks, textFileToBlocks, textItems } from "./blocks.ts";
 import { type BackupFile, contentHash, type FileKind, inBackupRoots, titleOf, type WalkResult } from "./files.ts";
 import { type BackupMap, type MapEntry, pageUrl } from "./map.ts";
-import { dirMarker, headerBlock, markerOf, pendingHeader, ROOT_TITLE, rootCallout } from "./markers.ts";
+import { deletedNote, dirMarker, headerBlock, markerOf, pendingHeader, ROOT_TITLE, rootCallout } from "./markers.ts";
 import { contentTypeOf, type NotionApi } from "./notion.ts";
 import { type Duplicate, type Reconciliation, sameId } from "./reconcile.ts";
 
@@ -14,8 +14,11 @@ export const SINGLE_PART_LIMIT = 20 * 1024 * 1024;
 
 export const ICONS: Record<FileKind | "dir" | "root" | "deleted", string> = { root: "🗄️", dir: "📁", markdown: "📄", text: "🧾", image: "🖼️", deleted: "🗑️" };
 
-/** Which files a run looks at: every file (the first run, `--all`) or the ones a git diff names (a push). */
-export type Scope = { kind: "all" } | { kind: "diff"; base: string; changed: Set<string>; deleted: Set<string> };
+/**
+ * Which files a run looks at: every file (the first run, `--all`) or the ones a git diff names (a push), with the
+ * diff's renames from old path to new.
+ */
+export type Scope = { kind: "all" } | { kind: "diff"; base: string; changed: Set<string>; deleted: Set<string>; renamed: Map<string, string> };
 
 export interface Plan {
 	createRoot: boolean;
@@ -25,19 +28,67 @@ export interface Plan {
 	writeFiles: BackupFile[];
 	/** Map paths whose file left the repo: flagged in Notion, never trashed. */
 	deletePaths: string[];
+	/**
+	 * Map paths git records as renamed to a path that already has its own live page (a rename an older run made a
+	 * new page for, or one this run could not follow): the old page is a superseded copy, and it goes to the trash.
+	 */
+	supersededPaths: string[];
+	/** Folder pages the repo no longer holds and no backed-up page sits under: trashed, deepest first. */
+	retireDirs: string[];
+	/** Folder pages the repo no longer holds that still hold pages flagged deleted: flagged the same way. */
+	deleteDirs: string[];
+}
+
+const liveEntry = (map: BackupMap, path: string): MapEntry | undefined => {
+	const e = map.entries[path];
+	return e && !e.deletedAt ? e : undefined;
+};
+
+/**
+ * Re-keys the page of each renamed or moved file to its new path, marked `movedFrom`, so the run re-parents and
+ * rewrites the page it already has instead of making a second page and flagging the first deleted. A push takes
+ * git's renames; a full run pairs a vanished path with a new one holding the same content, when each is the only
+ * one with that content. A rename is left to the delete and add when the new path already has a map entry or the
+ * old page is gone or flagged. Returns the number of pages re-keyed.
+ */
+export function followRenames(walk: WalkResult, map: BackupMap, scope: Scope): number {
+	const onDisk = new Map(walk.files.map((f) => [f.path, f]));
+	let pairs: [string, string][];
+	if (scope.kind === "diff") pairs = [...scope.renamed];
+	else {
+		const group = (into: Map<string, string[]>, hash: string, path: string): void => {
+			into.set(hash, [...(into.get(hash) ?? []), path]);
+		};
+		const added = new Map<string, string[]>();
+		for (const f of walk.files) if (!map.entries[f.path]) group(added, f.hash, f.path);
+		const vanished = new Map<string, string[]>();
+		for (const [path, e] of Object.entries(map.entries)) if (e.kind !== "dir" && !e.deletedAt && e.hash && !onDisk.has(path) && inBackupRoots(path)) group(vanished, e.hash, path);
+		pairs = [];
+		for (const [hash, olds] of vanished) {
+			const news = added.get(hash);
+			if (olds.length === 1 && news?.length === 1) pairs.push([olds[0] as string, news[0] as string]);
+		}
+	}
+	let moved = 0;
+	for (const [from, to] of pairs) {
+		const entry = liveEntry(map, from);
+		const file = onDisk.get(to);
+		if (!entry || entry.kind === "dir" || !file || map.entries[to] || onDisk.has(from)) continue;
+		delete map.entries[from];
+		map.entries[to] = { ...entry, kind: file.kind, movedFrom: entry.movedFrom ?? from };
+		moved++;
+	}
+	return moved;
 }
 
 /** Works out what a run must do from the files on disk, the map and the scope. Pure: no Notion, no git. */
 export function planBackup(walk: WalkResult, map: BackupMap, scope: Scope, options: { rewrite?: boolean } = {}): Plan {
-	const live = (path: string): MapEntry | undefined => {
-		const e = map.entries[path];
-		return e && !e.deletedAt ? e : undefined;
-	};
+	const live = (path: string): MapEntry | undefined => liveEntry(map, path);
 	const createDirs = walk.dirs.filter((d) => !live(d));
 	const createFiles = walk.files.filter((f) => !live(f.path));
 	const inScope = (f: BackupFile): boolean => scope.kind === "all" || scope.changed.has(f.path) || !live(f.path);
 	const writeFiles = walk.files.filter((f) => {
-		// A page whose path the layout changed is rewritten whatever the scope, so its header names the new path.
+		// A page whose path changed is rewritten whatever the scope, so its header names the new path.
 		if (live(f.path)?.movedFrom !== undefined) return true;
 		if (!inScope(f)) return false;
 		const e = live(f.path);
@@ -46,12 +97,41 @@ export function planBackup(walk: WalkResult, map: BackupMap, scope: Scope, optio
 		return f.kind === "image" && !e.fileUploadId && scope.kind === "all";
 	});
 	const onDisk = new Set(walk.files.map((f) => f.path));
+	const supersededPaths =
+		scope.kind === "diff"
+			? [...scope.renamed]
+					.filter(([from, to]) => {
+						const old = map.entries[from];
+						const kept = live(to);
+						return old && old.kind !== "dir" && kept && !sameId(old.id, kept.id) && !onDisk.has(from) && onDisk.has(to);
+					})
+					.map(([from]) => from)
+					.sort()
+			: [];
+	const superseded = new Set(supersededPaths);
 	const deletePaths = Object.entries(map.entries)
-		.filter(([path, e]) => e.kind !== "dir" && !e.deletedAt && !onDisk.has(path))
+		.filter(([path, e]) => e.kind !== "dir" && !e.deletedAt && !onDisk.has(path) && !superseded.has(path))
 		.filter(([path]) => (scope.kind === "all" ? inBackupRoots(path) : scope.deleted.has(path)))
 		.map(([path]) => path)
 		.sort();
-	return { createRoot: !map.root, createDirs, createFiles, writeFiles, deletePaths };
+	// A folder the repo no longer holds: its subfolders are gone too, so only file pages (live ones about to be
+	// flagged, or ones flagged before) can keep it. Without any it is an empty shell; with some it is flagged.
+	const walkDirs = new Set(walk.dirs);
+	const goneDirs = Object.entries(map.entries)
+		.filter(([path, e]) => e.kind === "dir" && !e.deletedAt && !walkDirs.has(path))
+		.map(([path]) => path)
+		.sort((a, b) => b.split("/").length - a.split("/").length || (a < b ? -1 : 1));
+	const holdsFiles = (dir: string): boolean => Object.entries(map.entries).some(([path, e]) => e.kind !== "dir" && !superseded.has(path) && path.startsWith(`${dir}/`));
+	return {
+		createRoot: !map.root,
+		createDirs,
+		createFiles,
+		writeFiles,
+		deletePaths,
+		supersededPaths,
+		retireDirs: goneDirs.filter((d) => !holdsFiles(d)),
+		deleteDirs: goneDirs.filter(holdsFiles),
+	};
 }
 
 export interface SyncOptions {
@@ -78,6 +158,8 @@ export interface SyncResult {
 	written: number;
 	moved: number;
 	retired: number;
+	/** Copies a rename left behind, trashed. */
+	superseded: number;
 	uploaded: number;
 	deleted: number;
 	failures: { path: string; error: string }[];
@@ -193,13 +275,29 @@ async function writePage(api: NotionApi, pageId: string, path: string, body: Blo
 	await api.updateBlock(headerId, header);
 }
 
+/**
+ * Flags a page whose file or folder left the repo: retitled, with a red note above its header or folder marker
+ * naming the commit and the day, so a lost map adopts it as deleted. The page stays in Notion.
+ */
+async function flagDeleted(api: NotionApi, path: string, entry: MapEntry, commit: string | undefined, now: () => Date): Promise<void> {
+	const when = now().toISOString().slice(0, 10);
+	const kept = entry.kind === "dir" ? "This folder page is kept for the pages flagged under it." : "This page is kept as the last backed-up copy.";
+	await api.retitle(entry.id, `${entry.kind === "dir" ? titleOf(path, "dir") : titleOf(path, entry.kind, entry.title)} (deleted from repo)`, ICONS.deleted);
+	await api.append(
+		entry.id,
+		[{ object: "block", type: "callout", callout: { rich_text: textItems(`Deleted from the repo${commit ? ` at ${commit.slice(0, 7)}` : ""} on ${when}. ${kept}`), icon: { type: "emoji", emoji: ICONS.deleted }, color: "red_background" } }],
+		true,
+	);
+	entry.deletedAt = when;
+}
+
 const message = (error: unknown): string => (error instanceof Error ? error.message : String(error));
 
 /** Applies a plan to Notion, saving the map after every write. Failures are collected; the run carries on with the rest. */
 export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 	const { walk, map, plan, api, log } = options;
 	const now = options.now ?? (() => new Date());
-	const result: SyncResult = { created: 0, written: 0, moved: 0, retired: 0, uploaded: 0, deleted: 0, failures: [], duplicates: [] };
+	const result: SyncResult = { created: 0, written: 0, moved: 0, retired: 0, superseded: 0, uploaded: 0, deleted: 0, failures: [], duplicates: [] };
 	const createdHere = new Map<string, { id: string; parentId: string; createdTime: string }>();
 	const fail = (path: string, error: unknown): void => {
 		result.failures.push({ path, error: message(error) });
@@ -226,11 +324,19 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 			continue;
 		}
 		try {
-			const page = await api.createPage(parent, titleOf(dir, "dir"), ICONS.dir, [dirMarker(dir)]);
-			map.entries[dir] = { kind: "dir", id: page.id, url: page.url };
-			createdHere.set(dir, { id: page.id, parentId: parent, createdTime: page.createdTime ?? "" });
+			const previous = map.entries[dir];
+			if (previous?.deletedAt) {
+				// A folder that comes back revives its flagged page: the red note goes, its child pages stay.
+				for (const b of await api.children(previous.id, 4)) if (deletedNote([b])) await api.removeBlock(b.id);
+				await api.retitle(previous.id, titleOf(dir, "dir"), ICONS.dir);
+				delete previous.deletedAt;
+			} else {
+				const page = await api.createPage(parent, titleOf(dir, "dir"), ICONS.dir, [dirMarker(dir)]);
+				map.entries[dir] = { kind: "dir", id: page.id, url: page.url };
+				createdHere.set(dir, { id: page.id, parentId: parent, createdTime: page.createdTime ?? "" });
+				result.created++;
+			}
 			options.save(map);
-			result.created++;
 		} catch (error) {
 			fail(dir, error);
 		}
@@ -238,9 +344,9 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 
 	await checkConcurrentCreates(options, createdHere, result);
 
-	// Pages the layout moved: re-parent each under its new folder, retitling folder pages (whose title is the old
-	// folder's name), then clear movedFrom once every write below has refreshed the page. Parents go first, so a
-	// folder is in place before its children re-parent under it.
+	// Pages whose path changed (a renamed or moved file, a folder the layout renamed): re-parent each under its new
+	// folder, retitling folder pages (whose title is the old folder's name), then clear movedFrom once every write
+	// below has refreshed the page. Parents go first, so a folder is in place before its children re-parent under it.
 	const moved = Object.entries(map.entries)
 		.filter(([, e]) => e.movedFrom !== undefined)
 		.sort(([a], [b]) => a.split("/").length - b.split("/").length || (a < b ? -1 : 1));
@@ -273,12 +379,34 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 		}
 	}
 
-	// Folder pages the layout left behind: trashed once their pages have moved out, so no empty shell remains.
-	for (const [path, entry] of Object.entries(map.entries).filter(([, e]) => e.retired)) {
+	// Copies a rename left behind beside the page that now holds the file: trashed, since the content is not lost.
+	for (const path of plan.supersededPaths) {
+		const entry = map.entries[path];
+		if (!entry) continue;
+		try {
+			await api.trash(entry.id);
+			delete map.entries[path];
+			options.save(map);
+			result.superseded++;
+		} catch (error) {
+			fail(path, error);
+		}
+	}
+
+	// Folder pages the repo left behind with no backed-up page under them, deepest first: trashed once their pages
+	// have moved out, so no empty shell remains. One still holding a page this run failed to move out waits for the
+	// rerun that move's failure calls for; one holding only pages the Backup never made is flagged like a deleted file.
+	const tracked = (id: string): boolean => Object.values(map.entries).some((e) => sameId(e.id, id));
+	for (const path of plan.retireDirs) {
+		const entry = map.entries[path];
+		if (!entry) continue;
 		try {
 			const children = (await api.children(entry.id)).filter((b) => b.type === "child_page");
+			if (children.some((c) => tracked(c.id))) continue;
 			if (children.length > 0) {
-				fail(path, new Error(`still holds ${children.length} page${children.length === 1 ? "" : "s"}; it is left until a run has moved them out`));
+				await flagDeleted(api, path, entry, options.commit, now);
+				options.save(map);
+				result.deleted++;
 				continue;
 			}
 			await api.trash(entry.id);
@@ -392,14 +520,19 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 		const entry = map.entries[path];
 		if (!entry || entry.kind === "dir") continue;
 		try {
-			const when = now().toISOString().slice(0, 10);
-			await api.retitle(entry.id, `${titleOf(path, entry.kind, entry.title)} (deleted from repo)`, ICONS.deleted);
-			await api.append(
-				entry.id,
-				[{ object: "block", type: "callout", callout: { rich_text: textItems(`Deleted from the repo${options.commit ? ` at ${options.commit.slice(0, 7)}` : ""} on ${when}. This page is kept as the last backed-up copy.`), icon: { type: "emoji", emoji: ICONS.deleted }, color: "red_background" } }],
-				true,
-			);
-			entry.deletedAt = when;
+			await flagDeleted(api, path, entry, options.commit, now);
+			options.save(map);
+			result.deleted++;
+		} catch (error) {
+			fail(path, error);
+		}
+	}
+
+	for (const path of plan.deleteDirs) {
+		const entry = map.entries[path];
+		if (!entry) continue;
+		try {
+			await flagDeleted(api, path, entry, options.commit, now);
 			options.save(map);
 			result.deleted++;
 		} catch (error) {
@@ -460,8 +593,8 @@ export function estimate(walk: WalkResult, map: BackupMap, plan: Plan, readSourc
 	const check = 2 + Object.values(map.entries).filter((e) => e.kind === "dir").length;
 	// A moved page costs a re-parent (plus a folder retitle); a retired folder a children read and a trash.
 	const movedCount = Object.values(map.entries).filter((e) => e.movedFrom !== undefined).length;
-	const retiredCount = Object.values(map.entries).filter((e) => e.retired).length;
-	const requests = check + creates + appends + writes * 2 + uploads * 2 + (uploads > 0 ? 1 : 0) + plan.deletePaths.length * 2 + movedCount * 2 + retiredCount * 2;
+	const requests =
+		check + creates + appends + writes * 2 + uploads * 2 + (uploads > 0 ? 1 : 0) + plan.deletePaths.length * 2 + movedCount * 2 + plan.supersededPaths.length + plan.retireDirs.length * 2 + plan.deleteDirs.length * 2;
 	const skills = new Set(walk.files.filter((f) => f.path.startsWith(".agents/skills/")).map((f) => f.path.split("/")[2])).size;
 	return {
 		markdown: walk.files.filter((f) => f.kind === "markdown").length,

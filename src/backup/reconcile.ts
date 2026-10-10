@@ -173,7 +173,7 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 			}
 			result.duplicates.push({ path, kept: kept.id, extras: out });
 		}
-		if (kept.kind === "dir" && !(kept.kids?.[0] && parseMarker(kept.kids[0])?.kind === "dir")) {
+		if (kept.kind === "dir" && markerOf(kept.kids ?? [])?.kind !== "dir") {
 			await api.append(kept.id, [dirMarker(path)], true);
 			result.markersAdded++;
 		}
@@ -184,7 +184,10 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 		const info = await api.getPage(kept.id);
 		const file = walk.files.find((f) => f.path === path);
 		const adopted: MapEntry = { kind: kept.kind === "dir" ? "dir" : (file?.kind ?? kindByExtension(path)), id: kept.id, url: info?.url ?? `https://www.notion.so/${norm(kept.id)}` };
-		if (kept.kind === "file") {
+		if (kept.kind === "dir") {
+			const deletedAt = deletedNote(kept.kids ?? []);
+			if (deletedAt) adopted.deletedAt = deletedAt;
+		} else {
 			const hash = kept.commit ? options.hashAt(kept.commit, path) : undefined;
 			if (hash) adopted.hash = hash;
 			const first = kept.first ?? (await api.children(kept.id, 4));

@@ -1,4 +1,4 @@
-import { APIErrorCode, Client, isNotionClientError } from "@notionhq/client";
+import { APIErrorCode, Client, isHTTPResponseError, isNotionClientError, UnknownHTTPResponseError } from "@notionhq/client";
 import type { Block } from "./blocks.ts";
 import type { ReadBlock } from "./markers.ts";
 
@@ -42,8 +42,10 @@ export interface NotionApi {
 	/** Empties a page's content, leaving its title and child pages alone. */
 	clear(pageId: string): Promise<void>;
 	retitle(pageId: string, title: string, icon: string): Promise<void>;
-	/** Moves a page to Notion's trash (restorable there for 30 days); the Backup only trashes empty pages it made twice. */
+	/** Moves a page to Notion's trash (restorable there for 30 days); the Backup trashes only empty pages: a second copy of one path, or a folder page the repo left with nothing under it. */
 	trash(pageId: string): Promise<void>;
+	/** Deletes one content block (a folder page's deleted-from-repo note, when the folder comes back). */
+	removeBlock(blockId: string): Promise<void>;
 	/** A page's top-level blocks, child pages included and trashed ones left out; `limit` reads only the first few. */
 	children(blockId: string, limit?: number): Promise<ReadBlock[]>;
 	/** A page, or undefined when it no longer exists or the integration cannot see it. */
@@ -101,8 +103,24 @@ function readBlock(b: RawBlock): ReadBlock {
 
 const titleProp = (title: string) => ({ title: { title: [{ type: "text", text: { content: title.slice(0, 2000) } }] } });
 
-/** The live API through the official SDK: it retries 429 and 529 (and 5xx on idempotent calls) with back-off, honouring Retry-After. */
-export function notionClient(token: string, options: { intervalMs?: number; fetch?: typeof fetch } = {}): NotionApi {
+/** Server and gateway failures worth another try; the SDK retries them itself only for GET and DELETE. */
+const TRANSIENT = new Set([500, 502, 503, 504]);
+
+/**
+ * Whether a failed write can be sent again. An idempotent write (a retitle, a trash, a block update, a clear, a
+ * move) repeats safely after any transient failure. A create or append repeats only when Notion's edge proxy
+ * answered without a Notion response (an HTML 502 and the like), so the API never saw it and nothing was made.
+ */
+export function retryableWrite(error: unknown, idempotent: boolean): boolean {
+	if (!isHTTPResponseError(error) || !TRANSIENT.has(error.status)) return false;
+	return idempotent || error instanceof UnknownHTTPResponseError;
+}
+
+/** The live API through the official SDK: it retries 429 and 529 (and 5xx on GET and DELETE) with back-off, honouring Retry-After; writes get {@link retryableWrite}. */
+export function notionClient(
+	token: string,
+	options: { intervalMs?: number; fetch?: typeof fetch; retryDelayMs?: number; sleep?: (ms: number) => Promise<void> } = {},
+): NotionApi {
 	const client = new Client({
 		auth: token,
 		notionVersion: NOTION_VERSION,
@@ -110,8 +128,25 @@ export function notionClient(token: string, options: { intervalMs?: number; fetc
 		retry: { maxRetries: 6, initialRetryDelayMs: 1000, maxRetryDelayMs: 60_000 },
 		timeoutMs: 120_000,
 	});
-	const request = <T extends object>(method: "get" | "post" | "patch" | "delete", path: string, body?: Record<string, unknown>, query?: Record<string, string>): Promise<T> =>
-		client.request<T>({ method, path, ...(body ? { body } : {}), ...(query ? { query } : {}) });
+	const sleep = options.sleep ?? ((ms: number) => new Promise<void>((r) => setTimeout(r, ms)));
+	const retryDelayMs = options.retryDelayMs ?? 2000;
+	const request = async <T extends object>(
+		method: "get" | "post" | "patch" | "delete",
+		path: string,
+		body?: Record<string, unknown>,
+		query?: Record<string, string>,
+		idempotent = false,
+	): Promise<T> => {
+		for (let attempt = 0; ; attempt++) {
+			try {
+				return await client.request<T>({ method, path, ...(body ? { body } : {}), ...(query ? { query } : {}) });
+			} catch (error) {
+				if (method === "get" || method === "delete" || attempt >= 4 || !retryableWrite(error, idempotent)) throw error;
+				await sleep(retryDelayMs * 2 ** attempt);
+			}
+		}
+	};
+	const idempotentWrite = <T extends object>(method: "post" | "patch", path: string, body: Record<string, unknown>): Promise<T> => request<T>(method, path, body, undefined, true);
 
 	return {
 		async createPage(parentId, title, icon, children = []) {
@@ -128,13 +163,16 @@ export function notionClient(token: string, options: { intervalMs?: number; fetc
 			return r.results.map((b) => b.id);
 		},
 		async updateBlock(blockId, block) {
-			await request("patch", `blocks/${blockId}`, { [block.type]: block[block.type] });
+			await idempotentWrite("patch", `blocks/${blockId}`, { [block.type]: block[block.type] });
 		},
 		async move(pageId, parentId) {
-			await request("post", `pages/${pageId}/move`, { parent: { type: "page_id", page_id: parentId } });
+			await idempotentWrite("post", `pages/${pageId}/move`, { parent: { type: "page_id", page_id: parentId } });
 		},
 		async trash(pageId) {
-			await request("patch", `pages/${pageId}`, { in_trash: true });
+			await idempotentWrite("patch", `pages/${pageId}`, { in_trash: true });
+		},
+		async removeBlock(blockId) {
+			await request("delete", `blocks/${blockId}`);
 		},
 		async children(blockId, limit) {
 			const out: ReadBlock[] = [];
@@ -170,7 +208,7 @@ export function notionClient(token: string, options: { intervalMs?: number; fetc
 		},
 		async clear(pageId) {
 			try {
-				await request("patch", `pages/${pageId}/markdown`, { type: "replace_content", replace_content: { new_str: "" } });
+				await idempotentWrite("patch", `pages/${pageId}/markdown`, { type: "replace_content", replace_content: { new_str: "" } });
 				return;
 			} catch (error) {
 				// Older workspaces or an empty-string rejection: fall back to deleting each top-level block.
@@ -186,7 +224,7 @@ export function notionClient(token: string, options: { intervalMs?: number; fetc
 			for (const id of ids) await request("delete", `blocks/${id}`);
 		},
 		async retitle(pageId, title, icon) {
-			await request("patch", `pages/${pageId}`, { icon: { type: "emoji", emoji: icon }, properties: titleProp(title) });
+			await idempotentWrite("patch", `pages/${pageId}`, { icon: { type: "emoji", emoji: icon }, properties: titleProp(title) });
 		},
 		async upload(filename, bytes, contentType) {
 			const created = await request<{ id: string }>("post", "file_uploads", { mode: "single_part", filename, content_type: contentType });

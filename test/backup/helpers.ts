@@ -5,7 +5,7 @@ import type { Block } from "../../src/backup/blocks.ts";
 import { walkBackup } from "../../src/backup/files.ts";
 import type { BackupMap } from "../../src/backup/map.ts";
 import { reconcile } from "../../src/backup/reconcile.ts";
-import { planBackup, runBackup, type Scope } from "../../src/backup/sync.ts";
+import { followRenames, planBackup, runBackup, type Scope } from "../../src/backup/sync.ts";
 import type { ReadBlock } from "../../src/backup/markers.ts";
 import type { CreatedPage, NotionApi, PageInfo, UploadInfo } from "../../src/backup/notion.ts";
 
@@ -40,7 +40,7 @@ export interface FakePage {
 	createdTime: string;
 }
 
-const WRITES = new Set(["create", "append", "prepend", "update", "clear", "retitle", "trash", "upload", "move"]);
+const WRITES = new Set(["create", "append", "prepend", "update", "clear", "retitle", "trash", "remove", "upload", "move"]);
 
 /**
  * An in-memory Notion holding a page tree: pages get ids p1, p2, …, child pages list under their parent, trashed pages
@@ -130,6 +130,19 @@ export class FakeNotion implements NotionApi {
 		if (page) page.inTrash = true;
 	}
 
+	async removeBlock(blockId: string): Promise<void> {
+		this.record({ op: "remove", id: blockId });
+		for (const page of this.pages.values()) {
+			const i = page.blockIds.indexOf(blockId);
+			if (i >= 0) {
+				page.blocks.splice(i, 1);
+				page.blockIds.splice(i, 1);
+				return;
+			}
+		}
+		throw new Error(`no block ${blockId}`);
+	}
+
 	async children(blockId: string, limit?: number): Promise<ReadBlock[]> {
 		this.record({ op: "children", id: blockId });
 		const page = this.pages.get(blockId);
@@ -205,7 +218,7 @@ export class FakeGit {
 
 export const COMMIT = "c0ffee0000000000000000000000000000000000";
 
-/** One `cf backup` run against a fake: reconcile with Notion, plan, then sync, the order the command uses. */
+/** One `cf backup` run against a fake: reconcile with Notion, follow renames, plan, then sync, the order the command uses. */
 export async function backup(
 	root: string,
 	map: BackupMap,
@@ -219,6 +232,7 @@ export async function backup(
 		extra.saves?.push(structuredClone(m));
 	};
 	const reconciled = await reconcile({ walk, map, api, hashAt: (extra.git ?? new FakeGit()).hashAt, save, log: () => {} });
+	followRenames(walk, map, scope);
 	const plan = planBackup(walk, map, scope, { rewrite: extra.rewrite ?? false });
 	extra.git?.record(commit, walk.files);
 	const result = await runBackup({

@@ -14,8 +14,9 @@ function git(root: string, ...args: string[]): string {
 }
 
 describe("backup git diff", () => {
-	it("names changed, added and deleted files under the roots since a commit, renames as delete plus add", () => {
-		const root = repo({ [`${W}/a.md`]: "a\n", [`${W}/b.md`]: "b\n", [`${W}/c.md`]: "c\n", "src/x.ts": "x\n", ".agents/skills/s/SKILL.md": "s\n", ".omp/skills/run-evals/SKILL.md": "r\n", ".agents/skills/run-evals": { link: "../../.omp/skills/run-evals" } });
+	it("names changed, added and deleted files under the roots since a commit, and pairs each rename's old path with its new", () => {
+		const skill = "# Skill\n\nStep one.\nStep two.\nStep three.\nStep four.\n";
+		const root = repo({ [`${W}/a.md`]: "a\n", [`${W}/b.md`]: "b\n", [`${W}/c.md`]: "c\n", "src/x.ts": "x\n", ".agents/skills/s/SKILL.md": skill, ".omp/skills/run-evals/SKILL.md": "r\n", ".agents/skills/run-evals": { link: "../../.omp/skills/run-evals" } });
 		git(root, "init", "-q", "-b", "main");
 		git(root, "add", "-A");
 		git(root, "commit", "-qm", "one");
@@ -23,6 +24,9 @@ describe("backup git diff", () => {
 		writeFileSync(join(root, W, "a.md"), "a2\n");
 		rmSync(join(root, W, "b.md"));
 		git(root, "mv", `${W}/c.md`, `${W}/c2.md`);
+		// A rename that also rewrote part of the page, as the slug migration did to every page's frontmatter.
+		git(root, "mv", ".agents/skills/s/SKILL.md", ".agents/skills/s/guide.md");
+		writeFileSync(join(root, ".agents/skills/s/guide.md"), `---\ntitle: Guide\n---\n${skill}`);
 		writeFileSync(join(root, ".agents/skills/s/new.yaml"), "n: 1\n");
 		writeFileSync(join(root, "src/x.ts"), "y\n");
 		writeFileSync(join(root, ".omp/skills/run-evals/SKILL.md"), "r2\n");
@@ -32,9 +36,10 @@ describe("backup git diff", () => {
 		expect(usableBase(root, "0".repeat(40))).toBe(false);
 		const { links } = walkBackup(root);
 		expect(links).toEqual([{ alias: ".agents/skills/run-evals", target: ".omp/skills/run-evals" }]);
-		const { changed, deleted } = diffSince(root, base, BACKUP_ROOTS, links);
-		expect([...changed].sort()).toEqual([".agents/skills/run-evals/SKILL.md", ".agents/skills/s/new.yaml", `${W}/a.md`, `${W}/c2.md`]);
-		expect([...deleted].sort()).toEqual([`${W}/b.md`, `${W}/c.md`]);
+		const { changed, deleted, renamed } = diffSince(root, base, BACKUP_ROOTS, links);
+		expect([...changed].sort()).toEqual([".agents/skills/run-evals/SKILL.md", ".agents/skills/s/guide.md", ".agents/skills/s/new.yaml", `${W}/a.md`, `${W}/c2.md`]);
+		expect([...deleted].sort()).toEqual([".agents/skills/s/SKILL.md", `${W}/b.md`, `${W}/c.md`]);
+		expect(Object.fromEntries(renamed)).toEqual({ [`${W}/c.md`]: `${W}/c2.md`, ".agents/skills/s/SKILL.md": ".agents/skills/s/guide.md" });
 	});
 
 	it("gives a file's content hash at a commit, as an LFS object id for a pointer and through a followed symlink", () => {

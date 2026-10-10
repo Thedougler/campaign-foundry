@@ -7,7 +7,7 @@ import { diffSince, hashAt, headCommit, lfsPull, repoWebUrl, usableBase } from "
 import { loadMap, MAP_PATH, normalizeId, saveMap, type BackupMap } from "../backup/map.ts";
 import { notionClient } from "../backup/notion.ts";
 import { reconcile, type Reconciliation } from "../backup/reconcile.ts";
-import { estimate, type Plan, planBackup, runBackup, type Scope } from "../backup/sync.ts";
+import { estimate, followRenames, type Plan, planBackup, runBackup, type Scope } from "../backup/sync.ts";
 import { findRepoRoot } from "./check.ts";
 
 /** The Second Brain's "Shattered Sea (campaign)" page; the Backup root is created as its child, never written over it. */
@@ -113,6 +113,8 @@ Examples:
 				log(`reconciled with Notion: ${reconciled.adopted.length} adopted, ${reconciled.dropped.length} dropped, ${reconciled.markersAdded} markers added, ${reconciled.uploadsReused} uploads reused, ${reconciled.duplicates.length} duplicated paths, ${reconciled.foreign} unmarked pages`);
 			}
 			const { scope, why } = chooseScope(root, map, flags, walk);
+			// Before planning, so a renamed file's page is moved rather than made again beside a flagged copy.
+			const renamed = followRenames(walk, map, scope);
 			const plan = planBackup(walk, map, scope, { rewrite: flags.rewrite ?? false });
 			const commit = headCommit(root);
 			const web = repoWebUrl(root);
@@ -124,8 +126,10 @@ Examples:
 				create: { root: plan.createRoot, dirs: plan.createDirs.length, files: plan.createFiles.length },
 				write: plan.writeFiles.length,
 				move: Object.values(map.entries).filter((e) => e.movedFrom !== undefined).length,
-				retire: Object.values(map.entries).filter((e) => e.retired).length,
-				delete: plan.deletePaths.length,
+				renamed,
+				retire: plan.retireDirs.length,
+				superseded: plan.supersededPaths.length,
+				delete: plan.deletePaths.length + plan.deleteDirs.length,
 				skipped: walk.skipped.length,
 			};
 
@@ -142,8 +146,9 @@ Examples:
 					`  pages      ${plan.createRoot ? "backup root + " : ""}${plan.createDirs.length} directory and ${plan.createFiles.length} file pages to create`,
 					`  write      ${plan.writeFiles.length} pages, ~${est.blocks} blocks`,
 					...(summary.move > 0 ? [`  move       ${summary.move} pages to re-parent under their new folder pages`] : []),
-					...(summary.retire > 0 ? [`  retire     ${summary.retire} folder pages the layout left behind, trashed once empty`] : []),
-					`  delete     ${plan.deletePaths.length} pages to flag as deleted from repo`,
+					...(summary.retire > 0 ? [`  retire     ${summary.retire} folder pages the repo no longer holds, trashed once empty`] : []),
+					...(summary.superseded > 0 ? [`  trash      ${summary.superseded} copies a rename left beside the file's live page`] : []),
+					`  delete     ${summary.delete} pages to flag as deleted from repo`,
 					`  requests   ~${est.requests} at 3/s, about ${est.minutes} min`,
 					`  skipped    ${walk.skipped.length} paths (${[...new Set(walk.skipped.map((s) => s.reason))].join("; ") || "none"})`,
 				];
@@ -154,7 +159,7 @@ Examples:
 			}
 
 			if (!api || !reconciled) throw new Error("unreachable: a real run reconciles with Notion first");
-			log(`backing up (${scope.kind}: ${why}): ${plan.createDirs.length + plan.createFiles.length} pages to create, ${plan.writeFiles.length} to write, ${summary.move} to move, ${summary.retire} folder pages to retire, ${plan.deletePaths.length} to flag deleted`);
+			log(`backing up (${scope.kind}: ${why}): ${plan.createDirs.length + plan.createFiles.length} pages to create, ${plan.writeFiles.length} to write, ${summary.move} to move (${renamed} renamed files), ${summary.superseded} rename copies to trash, ${summary.retire} folder pages to retire, ${summary.delete} to flag deleted`);
 			const result = await runBackup({
 				walk,
 				map,
@@ -179,7 +184,7 @@ Examples:
 			else {
 				process.stdout.write(
 					[
-						`backed up: ${result.created} pages created, ${result.written} written, ${result.moved} moved, ${result.retired} retired, ${result.uploaded} images uploaded, ${result.deleted} flagged deleted`,
+						`backed up: ${result.created} pages created, ${result.written} written, ${result.moved} moved, ${result.superseded} rename copies trashed, ${result.retired} retired, ${result.uploaded} images uploaded, ${result.deleted} flagged deleted`,
 						`root: ${map.root?.url ?? "(not created)"}`,
 						result.syncedCommit ? `synced commit: ${result.syncedCommit.slice(0, 7)}` : "synced commit unchanged: rerun to retry the failures",
 						...(result.failures.length > 0 ? ["", "failures:", ...result.failures.map((f) => `  - ${f.path}: ${f.error}`)] : []),

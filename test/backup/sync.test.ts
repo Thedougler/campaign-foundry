@@ -1,9 +1,9 @@
-import { readFileSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { walkBackup } from "../../src/backup/files.ts";
 import { type BackupMap, emptyMap } from "../../src/backup/map.ts";
-import { throttle } from "../../src/backup/notion.ts";
+import { notionClient, throttle } from "../../src/backup/notion.ts";
 import { dirMarker, pendingHeader, rootCallout } from "../../src/backup/markers.ts";
 import { estimate, linkIndex, planBackup, type Scope } from "../../src/backup/sync.ts";
 import { backup, FakeNotion, lfsPointer, repo, textOf } from "./helpers.ts";
@@ -89,7 +89,7 @@ describe("backup sync", () => {
 		writeFileSync(join(root, W, "NPCs/Ilse Corran.md"), "---\ntitle: Ilse Corran\n---\nIlse, rewritten.\n");
 		writeFileSync(join(root, W, "hot.md"), "---\ntitle: hot\n---\nchanged but not in this diff\n");
 		api.calls = [];
-		await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([`${W}/NPCs/Ilse Corran.md`]), deleted: new Set() }, { commit: "d00d" });
+		await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([`${W}/NPCs/Ilse Corran.md`]), deleted: new Set(), renamed: new Map() }, { commit: "d00d" });
 		// Emptied, written under a pending header, then the header names the commit: a run stopped midway is rewritten.
 		expect(api.calls.map((c) => c.op)).toEqual(["clear", "append", "update"]);
 		expect(api.calls[0]?.id).toBe(ilse?.id);
@@ -138,7 +138,7 @@ describe("backup sync", () => {
 		rmSync(join(root, W, "NPCs/Ilse Corran.md"));
 		writeFileSync(join(root, W, "NPCs/Geoffrey Draves.md"), "---\ntitle: Geoffrey Draves\n---\nGeoffrey\n");
 		api.calls = [];
-		await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([`${W}/NPCs/Geoffrey Draves.md`]), deleted: new Set([`${W}/NPCs/Ilse Corran.md`]) });
+		await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([`${W}/NPCs/Geoffrey Draves.md`]), deleted: new Set([`${W}/NPCs/Ilse Corran.md`]), renamed: new Map() });
 		expect(api.byTitle("Geoffrey Draves")?.parent).toBe(map.entries[`${W}/NPCs`]?.id);
 		const ilse = api.pages.get(ilseId);
 		expect(ilse?.title).toBe("Ilse Corran (deleted from repo)");
@@ -238,7 +238,7 @@ describe("backup sync", () => {
 		const logId = api.add(folderId, "log", [pendingHeader("gone/Old/log.md")]);
 		const map = emptyMap(PARENT);
 		map.root = { id: rootId, url: `https://www.notion.so/${rootId}` };
-		const entry = (id: string, kind: "dir" | "markdown", movedFrom: string, retired?: true): BackupMap["entries"][string] => ({ kind, id, url: `https://www.notion.so/${id}`, movedFrom, ...(retired ? { retired } : {}) });
+		const entry = (id: string, kind: "dir" | "markdown", movedFrom: string): BackupMap["entries"][string] => ({ kind, id, url: `https://www.notion.so/${id}`, movedFrom });
 		map.entries["wiki"] = { kind: "dir", id: wikiId, url: `https://www.notion.so/${wikiId}` };
 		map.entries[W] = entry(folderId, "dir", "wiki/The Shattered Sea");
 		map.entries[`${W}/NPCs`] = entry(npcsId, "dir", "wiki/The Shattered Sea/NPCs");
@@ -246,7 +246,7 @@ describe("backup sync", () => {
 		map.entries[`${W}/hot.md`] = entry(hotId, "markdown", "wiki/The Shattered Sea/hot.md");
 		map.entries[`${W}/log.md`] = entry(logId, "markdown", "gone/Old/log.md");
 		map.entries[`${W}/PCs/Tam.md`] = entry(tamId, "markdown", "wiki/The Shattered Sea/Shattered Sea/PCs/Tam.md");
-		map.entries["wiki/The Shattered Sea/Shattered Sea"] = { kind: "dir", id: retiredId, url: `https://www.notion.so/${retiredId}`, retired: true };
+		map.entries["wiki/The Shattered Sea/Shattered Sea"] = { kind: "dir", id: retiredId, url: `https://www.notion.so/${retiredId}` };
 
 		const { result } = await backup(root, map, api, ALL);
 
@@ -269,6 +269,117 @@ describe("backup sync", () => {
 		}
 		expect(map.entries["wiki/The Shattered Sea/Shattered Sea"]).toBeUndefined();
 	});
+
+	it("a push that renames and moves a file moves its page and rewrites it, leaving no flagged copy, and trashes the emptied folder", async () => {
+		const root = campaign();
+		const map = emptyMap(PARENT);
+		const api = new FakeNotion();
+		await run(root, map, api);
+		const ilseId = map.entries[`${W}/NPCs/Ilse Corran.md`]?.id ?? "";
+		const npcsId = map.entries[`${W}/NPCs`]?.id ?? "";
+		const from = `${W}/NPCs/Ilse Corran.md`;
+		const to = `${W}/People/ilse-corran.md`;
+		rmSync(join(root, from));
+		rmSync(join(root, W, "NPCs"), { recursive: true });
+		writeFileSync(join(root, W, "hot.md"), "---\ntitle: hot\n---\n# Hot\n");
+		mkdirSync(join(root, W, "People"));
+		writeFileSync(join(root, to), "---\ntitle: Captain Ilse\ntype: NPC\n---\n\nA tall woman.\n");
+		api.calls = [];
+		const { result } = await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([to, `${W}/hot.md`]), deleted: new Set([from]), renamed: new Map([[from, to]]) });
+
+		expect(result.failures).toEqual([]);
+		expect(result).toMatchObject({ created: 1, moved: 1, retired: 1, deleted: 0 });
+		const ilse = api.pages.get(ilseId);
+		expect(ilse?.parent).toBe(map.entries[`${W}/People`]?.id);
+		expect(ilse?.title).toBe("Captain Ilse");
+		expect(textOf(ilse?.blocks ?? [])).toContain(to);
+		expect(map.entries[to]).toMatchObject({ id: ilseId });
+		expect(map.entries[to]?.movedFrom).toBeUndefined();
+		expect(map.entries[from]).toBeUndefined();
+		expect([...api.pages.values()].some((p) => p.title.endsWith("(deleted from repo)"))).toBe(false);
+		expect(api.pages.get(npcsId)?.inTrash).toBe(true);
+		expect(map.entries[`${W}/NPCs`]).toBeUndefined();
+	});
+
+	it("trashes the copy a rename left beside the file's live page, whether flagged deleted or left live by a failed run", async () => {
+		const root = campaign();
+		const map = emptyMap(PARENT);
+		const api = new FakeNotion();
+		await run(root, map, api);
+		const from = `${W}/NPCs/Ilse Corran.md`;
+		const to = `${W}/NPCs/ilse-corran.md`;
+		const oldId = map.entries[from]?.id ?? "";
+		const source = readFileSync(join(root, from));
+		rmSync(join(root, from));
+		writeFileSync(join(root, to), source);
+		// An older run that did not follow renames: a new page for the new path, the old one flagged.
+		await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([to]), deleted: new Set([from]), renamed: new Map() });
+		const newId = map.entries[to]?.id ?? "";
+		expect(api.pages.get(oldId)?.title).toBe("Ilse Corran (deleted from repo)");
+		// A failed run's leftover: another renamed file whose old page was never flagged.
+		const hot = map.entries[`${W}/hot.md`]?.id ?? "";
+		writeFileSync(join(root, W, "hot-2.md"), readFileSync(join(root, W, "hot.md")));
+		await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([`${W}/hot-2.md`]), deleted: new Set(), renamed: new Map() });
+		rmSync(join(root, W, "hot.md"));
+
+		const { result } = await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([to, `${W}/hot-2.md`]), deleted: new Set([from, `${W}/hot.md`]), renamed: new Map([[from, to], [`${W}/hot.md`, `${W}/hot-2.md`]]) });
+
+		expect(result.failures).toEqual([]);
+		expect(result).toMatchObject({ superseded: 2, deleted: 0, created: 0 });
+		expect(api.pages.get(oldId)?.inTrash).toBe(true);
+		expect(api.pages.get(hot)?.inTrash).toBe(true);
+		expect(api.pages.get(newId)?.inTrash).toBe(false);
+		expect(map.entries[from]).toBeUndefined();
+		expect(map.entries[`${W}/hot.md`]).toBeUndefined();
+	});
+
+	it("a full run pairs a vanished file with a new path holding the same content, and leaves ambiguous pairs to delete and add", async () => {
+		const root = campaign();
+		writeFileSync(join(root, W, "twin-a.md"), "---\ntitle: Twin\n---\nsame\n");
+		writeFileSync(join(root, W, "twin-b.md"), "---\ntitle: Twin\n---\nsame\n");
+		const map = emptyMap(PARENT);
+		const api = new FakeNotion();
+		await run(root, map, api);
+		const ilseId = map.entries[`${W}/NPCs/Ilse Corran.md`]?.id ?? "";
+		const source = readFileSync(join(root, W, "NPCs/Ilse Corran.md"));
+		rmSync(join(root, W, "NPCs/Ilse Corran.md"));
+		writeFileSync(join(root, W, "NPCs/ilse-corran.md"), source);
+		rmSync(join(root, W, "twin-a.md"));
+		rmSync(join(root, W, "twin-b.md"));
+		writeFileSync(join(root, W, "twin-c.md"), "---\ntitle: Twin\n---\nsame\n");
+		writeFileSync(join(root, W, "twin-d.md"), "---\ntitle: Twin\n---\nsame\n");
+		const { result } = await run(root, map, api, ALL);
+
+		expect(result.failures).toEqual([]);
+		expect(map.entries[`${W}/NPCs/ilse-corran.md`]?.id).toBe(ilseId);
+		expect(map.entries[`${W}/NPCs/Ilse Corran.md`]).toBeUndefined();
+		expect(result).toMatchObject({ moved: 1, created: 2, deleted: 2 });
+	});
+
+	it("a deleted folder holding flagged pages is flagged too, never trashed, and comes back with its folder", async () => {
+		const root = campaign();
+		const map = emptyMap(PARENT);
+		const api = new FakeNotion();
+		await run(root, map, api);
+		const evalsId = map.entries[".agents/skills/npc-design/evals"]?.id ?? "";
+		const skillId = map.entries[".agents/skills/npc-design"]?.id ?? "";
+		rmSync(join(root, ".agents/skills/npc-design"), { recursive: true });
+		const { result } = await run(root, map, api, ALL);
+
+		expect(result.failures).toEqual([]);
+		expect(api.pages.get(evalsId)?.title).toBe("evals (deleted from repo)");
+		expect(api.pages.get(skillId)?.title).toBe("npc-design (deleted from repo)");
+		expect(api.ops()).not.toContain("trash");
+		expect(map.entries[".agents/skills/npc-design"]?.deletedAt).toBe("2026-10-07");
+
+		mkdirSync(join(root, ".agents/skills/npc-design"));
+		writeFileSync(join(root, ".agents/skills/npc-design/SKILL.md"), "# NPC design\n");
+		await run(root, map, api, ALL);
+		expect(api.pages.get(skillId)?.title).toBe("npc-design");
+		expect(api.pages.get(skillId)?.blocks.some((b) => b.type === "callout")).toBe(false);
+		expect(map.entries[".agents/skills/npc-design"]?.deletedAt).toBeUndefined();
+		expect(api.byTitle("SKILL")?.parent).toBe(skillId);
+	});
 });
 
 describe("throttle", () => {
@@ -285,6 +396,41 @@ describe("throttle", () => {
 		// start stamps, because the invariant is the spacing, and late scheduling may only widen it.
 		expect(starts[1]! - starts[0]!).toBeGreaterThanOrEqual(340);
 		expect(starts[2]! - starts[0]!).toBeGreaterThanOrEqual(690);
+	});
+});
+
+describe("notion client write retries", () => {
+	const edge502 = (): Response => new Response("<html>bad gateway</html>", { status: 502, headers: { "content-type": "text/html", "cf-ray": "abc-IAD" } });
+	const api500 = (): Response => new Response(JSON.stringify({ object: "error", status: 500, code: "internal_server_error", message: "boom", request_id: "r1" }), { status: 500, headers: { "content-type": "application/json" } });
+	const page = (): Response => new Response(JSON.stringify({ object: "page", id: "p1", url: "https://www.notion.so/p1", created_time: "2026-10-07T12:00:00.000Z" }), { headers: { "content-type": "application/json" } });
+	const client = (responses: (() => Response)[]) => {
+		const sent: string[] = [];
+		const fake = (async (url: string, init?: RequestInit) => {
+			sent.push(`${init?.method} ${new URL(url).pathname}`);
+			return (responses.shift() ?? page)();
+		}) as unknown as typeof fetch;
+		return { sent, api: notionClient("t", { fetch: fake, intervalMs: 0, sleep: async () => {} }) };
+	};
+
+	it("resends an idempotent write after a server error, and a create only when the edge proxy answered", async () => {
+		const retitle = client([api500, edge502]);
+		await retitle.api.retitle("p1", "Ilse", "📄");
+		expect(retitle.sent).toHaveLength(3);
+
+		const created = client([edge502]);
+		expect((await created.api.createPage("parent", "Ilse", "📄")).id).toBe("p1");
+		expect(created.sent).toHaveLength(2);
+
+		// The API itself failed a create: it may have made the page, so it is not sent twice.
+		const failed = client([api500]);
+		await expect(failed.api.createPage("parent", "Ilse", "📄")).rejects.toThrow("boom");
+		expect(failed.sent).toHaveLength(1);
+	});
+
+	it("gives up on a write after five attempts", async () => {
+		const down = client(Array.from({ length: 10 }, () => edge502));
+		await expect(down.api.retitle("p1", "Ilse", "📄")).rejects.toThrow(/502/);
+		expect(down.sent).toHaveLength(5);
 	});
 });
 

@@ -17,24 +17,40 @@ export function usableBase(root: string, base: string): boolean {
 }
 
 /**
- * Paths under `roots` that changed between `base` and HEAD, renames split into a delete and an add. A change inside a
- * followed symlink's target is reported under the link's path (`.omp/skills/x/SKILL.md` as `.agents/skills/x/SKILL.md`).
+ * Paths under `roots` that changed between `base` and HEAD. A rename (git's detection at 30% similarity, low enough
+ * to pair a page whose rename also rewrote its frontmatter and links) lands in all three sets: `renamed` maps the old
+ * path to the new, so the run can move the existing page, and the delete and add stand in when it cannot. A change
+ * inside a followed symlink's target is reported under the link's path (`.omp/skills/x/SKILL.md` as
+ * `.agents/skills/x/SKILL.md`).
  */
-export function diffSince(root: string, base: string, roots: readonly string[], links: { alias: string; target: string }[] = []): { changed: Set<string>; deleted: Set<string> } {
-	const r = git(root, ["diff", "--name-status", "--no-renames", "-z", base, "HEAD", "--", ...roots, ...links.map((l) => l.target)]);
+export function diffSince(
+	root: string,
+	base: string,
+	roots: readonly string[],
+	links: { alias: string; target: string }[] = [],
+): { changed: Set<string>; deleted: Set<string>; renamed: Map<string, string> } {
+	const r = git(root, ["diff", "--name-status", "-M30%", "-z", base, "HEAD", "--", ...roots, ...links.map((l) => l.target)]);
 	if (!r.ok) throw new Error(`git diff ${base}..HEAD failed: ${r.stderr.trim()}`);
+	const alias = (raw: string): string => {
+		const link = links.find((l) => raw === l.target || raw.startsWith(`${l.target}/`));
+		return link ? link.alias + raw.slice(link.target.length) : raw;
+	};
 	const changed = new Set<string>();
 	const deleted = new Set<string>();
+	const renamed = new Map<string, string>();
 	const parts = r.stdout.split("\0").filter(Boolean);
-	for (let i = 0; i + 1 < parts.length; i += 2) {
-		const status = parts[i] ?? "";
-		const raw = parts[i + 1] ?? "";
-		const link = links.find((l) => raw === l.target || raw.startsWith(`${l.target}/`));
-		const path = link ? link.alias + raw.slice(link.target.length) : raw;
-		if (status.startsWith("D")) deleted.add(path);
-		else changed.add(path);
+	for (let i = 0; i < parts.length; ) {
+		const status = parts[i++] ?? "";
+		if (status.startsWith("R")) {
+			const from = alias(parts[i++] ?? "");
+			const to = alias(parts[i++] ?? "");
+			deleted.add(from);
+			changed.add(to);
+			renamed.set(from, to);
+		} else if (status.startsWith("D")) deleted.add(alias(parts[i++] ?? ""));
+		else changed.add(alias(parts[i++] ?? ""));
 	}
-	return { changed, deleted };
+	return { changed, deleted, renamed };
 }
 
 /**

@@ -21,13 +21,11 @@ export interface MapEntry {
 	/** Why an image could not be uploaded (too large for the workspace); a later run retries it. */
 	uploadSkipped?: string;
 	/**
-	 * The repo path this page backed up before the layout moved it (a folder rename). A run re-parents the page
+	 * The repo path this page backed up before its file or folder was renamed or moved. A run re-parents the page
 	 * under its new folder, retitles a folder page, rewrites files so their header names the new path, then clears
 	 * the field.
 	 */
 	movedFrom?: string;
-	/** Set on a folder page the repo no longer holds (a folder the layout removed): the run trashes it once empty. */
-	retired?: true;
 }
 
 export interface BackupMap {
@@ -57,7 +55,7 @@ export function loadMap(file: string, parentPageId: string): BackupMap {
 	return map;
 }
 
-const FIELD_ORDER: (keyof MapEntry)[] = ["kind", "id", "url", "hash", "title", "fileUploadId", "deletedAt", "uploadSkipped", "movedFrom", "retired"];
+const FIELD_ORDER: (keyof MapEntry)[] = ["kind", "id", "url", "hash", "title", "fileUploadId", "deletedAt", "uploadSkipped", "movedFrom"];
 
 /** Stable JSON: entries sorted by path and fields in one order, so a map rebuilt from Notion is byte-for-byte the same. */
 export function serializeMap(map: BackupMap): string {
