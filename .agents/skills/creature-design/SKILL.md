@@ -32,7 +32,7 @@ explicitly, and run all retrieval and writes inside them.
 
 Read the World overview, the target Campaign's overview, `hot.md`, its Campaign
 folder's `index.md` and the last ten entries of its `log.md`, applicable House
-Rules, and every page the request touches. Search QMD (`.omp/AGENTS.md`
+Rules, and every page the request touches. Search the Wiki (`.omp/AGENTS.md`
 § Wiki access) and retrieve the full target-root pages each hit identifies.
 Change each page as its `revealed`
 property allows (`CONTEXT.md` **Revealed**).

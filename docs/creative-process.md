@@ -94,7 +94,7 @@ The Director sends each Persona its turns with `write agent://<id>`. Personas ar
 |`bun run cf -- style [paths\|-]`|findings from the style (Vale) and narration layers alone, over any markdown files or directories, with the output and exit codes of `cf check`|
 |`bun run lint:agent-text`|`cf style` over the paths in `package.json`'s `lint:agent-text` script, which defines agent-facing content text (ADR 0020)|
 
-The helpers are diagnostic: their output is input the agent reads, and every call about relevance or meaning is the agent's. A page from `cf context` is a candidate to read, and a page the text means without writing its name (another case, a mishearing, a description) comes from a QMD search (`.omp/AGENTS.md` § Wiki access). A finding from `cf style` marks text for the agent to rewrite with judgement.
+The helpers are diagnostic: their output is input the agent reads, and every call about relevance or meaning is the agent's. A page from `cf context` is a candidate to read, and a page the text means without writing its name (another case, a mishearing, a description) comes from a Wiki search (`.omp/AGENTS.md` § Wiki access). A finding from `cf style` marks text for the agent to rewrite with judgement.
 
 ## TTSR rules
 

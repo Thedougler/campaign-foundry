@@ -43,4 +43,4 @@ Each Campaign's config loads through its import below, and `new-campaign` adds o
 
 - **Native agents:** `.omp/agents/`
 - **Skills (source of truth):** `.omp/skills/` when the skill is defined there, otherwise `.agents/skills/<name>/`
-- **Wiki access:** the Wiki is an Obsidian vault. Its vault root is `wiki/` (`.obsidian/` lives there): the folder `cf --vault` defaults to, `vault.dir` in `src/`, and what "the vault root" means in `cf` output. The repo root holds `raw/`, `archive/` and `.cspell/`, and `docs/wiki-layout.md` maps both. Search with the Notion Backup and QMD (`.omp/AGENTS.md` § Wiki access). Read and edit through `vault://_/` (the active vault) or `wiki/` paths.
+- **Wiki access:** the Wiki is an Obsidian vault. Its vault root is `wiki/` (`.obsidian/` lives there): the folder `cf --vault` defaults to, `vault.dir` in `src/`, and what "the vault root" means in `cf` output. The repo root holds `raw/`, `archive/` and `.cspell/`, and `docs/wiki-layout.md` maps both. Read from the Notion Backup, and edit through `vault://_/` (the active vault) or `wiki/` paths, as `.omp/AGENTS.md` § Wiki access sets out.

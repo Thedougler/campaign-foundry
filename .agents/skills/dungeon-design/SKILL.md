@@ -22,7 +22,7 @@ Follow the common authoring guidance directly and skip the full `location-design
 
 ### 2. Establish the evidence
 
-Use the caller's retrieved Canon where supplied. When orientation or sourcing is missing, read sections **1. Orient and establish Canon** and **2. Source applicable content** of [common authoring](../location-design/references/authoring.md) before designing. Those sections define the orientation sequence, QMD-first retrieval, Canon precedence and source ladder.
+Use the caller's retrieved Canon where supplied. When orientation or sourcing is missing, read sections **1. Orient and establish Canon** and **2. Source applicable content** of [common authoring](../location-design/references/authoring.md) before designing. Those sections define the orientation sequence, Wiki retrieval, Canon precedence and source ladder.
 
 Read the existing Site and actual Site template. Inventory every established entrance, area, occupant, hazard, date, object and hidden truth, including facts on linked pages. Read Party Sheets, carried Items and applicable House Rules when capabilities or encounter calibration affect choices. Preserve heard Narration, and change each page as its `revealed` property allows (`CONTEXT.md` **Revealed**). Use the DM's newer facts for changed current state without rewriting played Session records.
 

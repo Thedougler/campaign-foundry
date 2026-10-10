@@ -25,7 +25,7 @@ Never edit a played Session Prep, Scene, Recap, Previously On, Transcript-derive
 
 ## Scope and verification
 
-Resolve the caller's explicit root, vault and Campaign first. All reads, QMD searches, writes and checks use that target. Before editing, read the Campaign's `hot.md`, its Campaign folder's `index.md`, the last ten entries of its `log.md`, and the target pages needed by the request.
+Resolve the caller's explicit root, vault and Campaign first. All reads, searches, writes and checks use that target. Before editing, read the Campaign's `hot.md`, its Campaign folder's `index.md`, the last ten entries of its `log.md`, and the target pages needed by the request.
 
 Add at least one incoming wikilink from a real relevant page besides the generated index. An NPC's `creature` property counts as one. Verify every link target exists. Create or change an index only through the CLI.
 

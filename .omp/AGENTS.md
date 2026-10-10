@@ -4,7 +4,52 @@
 
 ## Wiki access
 
-**QMD** is the live local index of `wiki/`, `raw/` and `archive/`, re-indexed by the `qmd-refresh` post hook after each `write` or `edit` under them. Every session and subagent searches it through the mounted MCP devices:
+Read from the Backup and write to `wiki/`. The Wiki is an Obsidian vault; **Wiki access** in `user-config.md`, imported above, defines its vault root and the repo root.
+
+**Notion Backup.** The Backup (`CONTEXT.md`) is the managed Notion database of `main`'s Shattered Sea Wiki and agent skills, under the page "campaign-foundry backup" (`3f20216635ec815c9ba6dacbda0f6f1b`). One Notion AI search there covers a question spanning many pages, faster and for fewer tokens than QMD, `grep` or reading `wiki/`, which makes it the first source for every read. `cf backup` updates it on each push to `main` (`docs/notion-backup.md`), and the `git-sync` hook (`.omp/hooks/pre/git-sync.js`) fast-forwards this checkout at session start. Between them, the Backup matches `wiki/` apart from local work not yet pushed.
+
+- **Read from the Backup.** Answer general questions, surveys of a subject and the context around a task from it. The fixed orientation files (`campaign-config.md`, `hot.md`, `index.md`, `log.md`) are read by path from `wiki/`. Write each search to `xd://mcp__notion_search` with `page_url` set to the Backup root, which keeps the rest of the Second Brain and connected Slack, Mail and Calendar out of the results. The workspace's Notion Business plan gives these search modes:
+  - **Question** (AI search, the default): a bare `query` of keywords or one plain question under 50 words, on one topic. It answers across many pages at once and returns `type: ai_search`.
+  - **Title lookup:** `"filters": {"title_only": true}` with the page's name returns the page by its title.
+  - **Recent changes:** an empty `query` with `"sort": "last_edited"` lists the pages the last pushes synced. `"filters": {"last_edited_date_range": {…}}` limits the list to a date range.
+  - **Folder:** `page_url` set to a folder page from a hit's `path` searches that folder alone.
+  - Any filter or a sort other than relevance turns the call into keyword search (`type: workspace_search`). Ask questions with a bare `query`, and keep filters for lookups.
+  - **Whole page:** a hit gives a title, a folder path and a short highlight. When the highlight is not enough, write the hit's `id` to `xd://mcp__notion_fetch`.
+- **Cite the repo path.** A fetched Backup page is a citable source. Its grey header gives the page's repo path, which a citation uses, and the commit it was synced at. A hit's `title` is the page's `title` property, and its `path` ends at the folder. Title `Nona Black-Jaw` under `… / campaign-foundry backup / wiki / shattered-sea / NPCs` maps to `wiki/shattered-sea/NPCs/nona-black-jaw.md`, the title's slug. A title ending "(deleted from repo)" is a removed file.
+- **Write to `wiki/`.** Read each page you create or edit from `wiki/` (`read`, `vault://_/` or QMD `get`) immediately before the edit, and make the edit there. The next sync overwrites any edit made in Notion. For this Campaign the Wiki takes precedence over the Second Brain.
+- **QMD and `wiki/` answer what the Backup can't:** uncommitted or unpushed Wiki work (`git status --short wiki/` and `git diff --name-only @{u} -- wiki/` list it), pages outside the Shattered Sea Wiki, `raw/`, `archive/`, aliases (the `lint` Names ladder), and every read in a session whose tools lack `xd://mcp__notion_search` (Eval Runners, `omp -p` processes). The Notion MCP server is configured at user level in `~/.omp/agent/mcp.json`. Keep it there.
+
+Ask a question:
+
+```json
+{"query": "Who leads the Black-Jaw Run and where does she operate?", "page_url": "3f20216635ec815c9ba6dacbda0f6f1b", "page_size": 5, "max_highlight_length": 150}
+```
+
+Look up a page by title:
+
+```json
+{"query": "Nona Black-Jaw", "page_url": "3f20216635ec815c9ba6dacbda0f6f1b", "filters": {"title_only": true}, "page_size": 3}
+```
+
+List recent changes:
+
+```json
+{"query": "", "page_url": "3f20216635ec815c9ba6dacbda0f6f1b", "sort": "last_edited", "page_size": 10}
+```
+
+Browse one folder, here NPCs:
+
+```json
+{"query": "Dravosi naval officers", "page_url": "3f20216635ec81e28fd1d7f82bc7f305", "page_size": 10}
+```
+
+Read one Backup page whole (`write` to `xd://mcp__notion_fetch`):
+
+```json
+{"id": "3f20216635ec81a59bb4df08d56bbaf3"}
+```
+
+**QMD** is the live local index of `wiki/`, `raw/` and `archive/`, re-indexed by the `qmd-refresh` post hook after each `write` or `edit` under them. Search it through the mounted MCP devices:
 
 - **Query.** Write JSON to `xd://mcp__qmd_query` (`read` the device once for its schema). Give each query an explicit `intent`. Lead with a `lex` sub-query on names and aliases, then add a `vec` or `hyde` sub-query on what the text says of the subject. Write a hyphenated name bare (`Nona Black-Jaw`), because a quoted phrase holding a hyphen skips the document.
 - **Collections.** A query without `collections` searches `wiki`. Put `raw`, `archive` or `agentic-co-dm` in `collections` to search those.
@@ -15,35 +60,6 @@ A shell reaches `wiki`, `raw` and `archive` through the CLI, run from this proje
 ```bash
 env -u QMD_CONFIG_DIR qmd query $'intent: Find active Shattered Sea Campaign context, not unrelated Campaigns.\nlex: "Shattered Sea" hot' -c wiki --format json --no-rerank -n 3
 env -u QMD_CONFIG_DIR qmd get '<docid>'
-```
-
-The Wiki is an Obsidian vault; **Wiki access** in `user-config.md`, imported above, defines its vault root and the repo root.
-
-**Notion Backup.** The Backup (`CONTEXT.md`) is a read-only copy of `main`'s Shattered Sea Wiki and agent skills in Notion, under the page "campaign-foundry backup" (`3f20216635ec815c9ba6dacbda0f6f1b`), written by `.github/workflows/notion-backup.yml` (`docs/notion-backup.md`). Its search device, `xd://mcp__notion_search`, runs Notion AI search over it and returns titles, folder paths and short highlights, so one call surveys a subject across the whole World for far fewer tokens than reading QMD hits. The Backup offers search and browsing by folder. The Wiki is the record.
-
-- **Start broad in the Backup.** Search the Backup for the task's subjects before you create or edit pages and for any question spanning many pages. Write the arguments to `xd://mcp__notion_search` with `page_url` set to the Backup root, which keeps the rest of the Second Brain and connected Slack, Mail and Calendar out of the results. Ask in keywords or one plain question under 50 words, one topic per call. To browse a folder, set `page_url` to that folder's page from a hit's `path`.
-- **Map each hit to its Wiki page.** The `title` is the page's `title` property and the `path` ends at its folder: title `Nona Black-Jaw` under `… / campaign-foundry backup / wiki / shattered-sea / NPCs` is `wiki/shattered-sea/NPCs/nona-black-jaw.md`, the title's slug. A fetched page (`xd://mcp__notion_fetch`) names the same repo path in its grey header, with the commit it was copied at. A title ending "(deleted from repo)" is a removed file.
-- **Read the Wiki before you rely on a page.** Every edit, citation and Canon decision uses the page as read from `wiki/` through `read` or QMD `get`/`multi_get`. The Backup holds `main` as of its last sync, so uncommitted and unpushed work, `raw/` and `archive/` exist only in the repo and QMD.
-- **Search QMD** for exact names and aliases (the `lint` Names ladder), `raw/` and `archive/`, and pages changed since the last push.
-- **File campaign content in `wiki/`.** The next sync overwrites any edit made on a Backup page, and for this Campaign the Wiki takes precedence over the Second Brain.
-- A session or subagent whose tools lack `xd://mcp__notion_search` (Eval Runners, `omp -p` processes) searches QMD alone. The Notion MCP server is configured at user level in `~/.omp/agent/mcp.json`. Keep it there.
-
-Survey a subject (`write` to `xd://mcp__notion_search`):
-
-```json
-{"query": "Who leads the Black-Jaw Run and where does she operate?", "page_url": "3f20216635ec815c9ba6dacbda0f6f1b", "page_size": 5, "max_highlight_length": 150}
-```
-
-Browse one folder, here NPCs:
-
-```json
-{"query": "Dravosi naval officers", "page_url": "3f20216635ec81e28fd1d7f82bc7f305", "page_size": 10}
-```
-
-Read one Backup page whole, with its repo-path header (`write` to `xd://mcp__notion_fetch`):
-
-```json
-{"id": "3f20216635ec81a59bb4df08d56bbaf3"}
 ```
 
 ## Project decision memory

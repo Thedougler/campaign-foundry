@@ -303,7 +303,7 @@ _Avoid_: sync, export, publish
 ### Backup
 
 **Backup**:
-the copy of the Shattered Sea Wiki (`wiki/shattered-sea/`), the agent skills and their images that `cf backup` keeps in Notion on each push to `main`, one page per file, each naming its file's repo path (`.notion/backup-map.json` only caches the lookup). It only copies: nothing in it feeds play or flows back into the Repo. Agents search it for quick context and read every fact they use from the Wiki, which stays the record.
+the remote, managed Notion database of the Shattered Sea Wiki (`wiki/shattered-sea/`), the agent skills and their images, which `cf backup` updates on each push to `main`, one page per file, each naming its file's repo path (`.notion/backup-map.json` only caches the lookup). One search there covers a question spanning many pages, faster and for fewer tokens than local search, so agents read from it first. Agents write to the Wiki, which stays the record. An edit made in Notion is overwritten. Nothing in the Backup feeds play.
 _Avoid_: sync, mirror, export, Push
 
 ### Evals

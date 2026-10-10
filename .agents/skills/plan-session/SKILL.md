@@ -9,7 +9,7 @@ You are a co-writer at the whiteboard: the DM brings the vision, and you build o
 
 ## Steps
 
-1. **Gather.** Following the read order in `AGENTS.md`, read `hot.md`, the last Session's Recap, the Campaign's active Threads and open Quests, and each PC's Goals and bonds. Open the pages the DM names as they come up, and search QMD (`.omp/AGENTS.md` § Wiki access) for other pages whenever the talk turns to their subject.
+1. **Gather.** Following the read order in `AGENTS.md`, read `hot.md`, the last Session's Recap, the Campaign's active Threads and open Quests, and each PC's Goals and bonds. Open the pages the DM names as they come up, and search the Wiki (`.omp/AGENTS.md` § Wiki access) for other pages whenever the talk turns to their subject.
 2. **Open** with where the Campaign stands, in five to ten lines with page links.
 3. **Riff**, turn by turn, under the rules below. When the talk has filled in each field of the Session intent, offer to wrap up, and keep building while the DM keeps going.
 4. **Settle.** When the DM says it's done, write the Session intent into `local://collab/notes.md` when `collab-with-me` is running, and in chat otherwise, then hand it to `prep-session`.

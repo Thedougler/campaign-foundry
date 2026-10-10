@@ -1,6 +1,6 @@
 ---
 name: qmd
-description: QMD search over this project's markdown. Use when a task needs Wiki pages, Raw files or archive documents by name or meaning.
+description: QMD search over this project's markdown. Use for `raw/` and `archive/` files, Wiki aliases, Wiki work not yet pushed, or any Wiki read in a session without the Notion MCP.
 license: MIT
 compatibility: Requires the qmd CLI or its MCP server.
 allowed-tools: Bash(qmd:*), mcp__qmd__*

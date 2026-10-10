@@ -6,12 +6,12 @@ Location-design uses sections 1 and 2 before kind-specific design and sections 3
 
 1. Read `AGENTS.md`, `CONTEXT.md` and `docs/wiki-layout.md` before authoring. Read ADRs 0003, 0005 and 0010 when resolving Canon, rules ownership or gate requirements. Establish the World, active Campaign, requested purpose and containing Location from the DM's brief and repo. Keep a caller's objective and operation. A standalone worldbuilding request is `create`.
 2. Follow root `AGENTS.md` **Orient** for the read order: `hot.md`, the Campaign folder's `index.md`, and the last ten entries of its `log.md` (all of them when fewer exist, taking the remainder from the latest rotated log), before task pages. Hot is orientation, not evidence for new facts.
-3. Search QMD (`.omp/AGENTS.md` § Wiki access) for the target, aliases, containing Location, neighbours and relevant people, Factions, Creatures, Items, Lore, House Rules, Threads, Quests and Recaps. Retrieve the full source behind each relied-on fact and follow its relevant links, children and backlinks. Keep a private inventory of facts, owner paths and why each matters here. Account for every relevant hit by using it or recording why it does not apply.
+3. Search the Wiki (`.omp/AGENTS.md` § Wiki access) for the target, aliases, containing Location, neighbours and relevant people, Factions, Creatures, Items, Lore, House Rules, Threads, Quests and Recaps. Retrieve the full source behind each relied-on fact and follow its relevant links, children and backlinks. Keep a private inventory of facts, owner paths and why each matters here. Account for every relevant hit by using it or recording why it does not apply.
 4. Read the current `wiki/templates/Location - <Kind>.md` before designing the page. The Kind is exactly Region, Settlement or Site. Choose `parent` by physical containment alone: any Location may contain another, including a Site inside a Site. Preserve an established containing Location unless the DM changes it. A top-level Region has an empty parent.
 
 Canon precedence is DM statements, then the Wiki, then material being ingested. Preserve established geography, inhabitants, mechanics and events while moving them into the current template's headings and properties, and change each page only as its `revealed` property allows (`CONTEXT.md` **Revealed**). Distinguish a superseded state from a contradiction: a recorded event advances the World, while closed events remain history. Decide missing design facts consistently with the retrieved Canon and list those decisions in the reply, which is their only record. Keep inventory and source-comparison notes out of the page.
 
-Use live `vault://` reads/edits in omp.
+Edit through live `vault://` paths in omp.
 
 **Complete when** the requested Kind and parent are resolved, orientation is read in order, every relied-on source is retrieved, and the inventory identifies the facts the edit must keep.
 

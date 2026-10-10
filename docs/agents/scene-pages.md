@@ -34,7 +34,7 @@ Run every command from the repo root. A page path in a `cf` command starts with 
 
 ## Ground
 
-Find the pages that bear on this Scene by searching QMD (`.omp/AGENTS.md` § Wiki access) and following links on the pages you read, then read each page behind a hit. Which pages matter is your judgement. Look for:
+Find the pages that bear on this Scene by searching the Wiki (`.omp/AGENTS.md` § Wiki access) and following links on the pages you read, then read each page behind a hit. Which pages matter is your judgement. Look for:
 
 - **The Session around it.** The Prep's Scene Chart row, Clues, Party and Opposition, the Scene's own page when it exists, and the archived files its `sources` list. For a Scene after the Hook, find the prepared outcomes that hand into it. A Resolution needs the Climax's, and a Hook needs the last played Recap and final Scene.
 - **What play has settled.** For a played Session, its Recap and the next Session's Previously On, which record what happened.
