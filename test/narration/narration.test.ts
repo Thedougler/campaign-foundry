@@ -5,8 +5,8 @@ describe("narration structural analysis", () => {
 	const inspect = (body: string) => analyzeCallout({ body, sources: [] });
 
 	it("warns on evaluative adjective stacks and chained relative clauses", () => {
-		const report = inspect("A beautiful mysterious tower that leans toward the road which climbs the hill.");
-		expect(report.evaluativeAdjectiveStacks).toEqual(["beautiful mysterious tower"]);
+		const report = inspect("A dreadful mysterious tower that leans toward the road which climbs the hill.");
+		expect(report.evaluativeAdjectiveStacks).toEqual(["dreadful mysterious tower"]);
 		expect(report.relativeClauseChains).toHaveLength(1);
 		expect(report.findings.filter((finding) => finding.severity === "warning").map((finding) => finding.rule)).toEqual([
 			"evaluative-stack",

@@ -145,7 +145,7 @@ describe("style layer", () => {
 	it("enforces the Narration hard lines inside a narration callout only", () => {
 		const found = on("style", "NPCs/Bad Style");
 		const narration = found.filter((f) => f.line === 14 && f.rule.startsWith("Narration."));
-		expect(narration.map((f) => f.rule)).toEqual(expect.arrayContaining(["Narration.NoCompass", "Narration.NoSemicolon", "Narration.NoFootMileCounts", "Narration.NoEmDash", "Narration.NoColon"]));
+		expect(narration.map((f) => f.rule)).toEqual(expect.arrayContaining(["Narration.NoSemicolon", "Narration.NoEmDash", "Narration.NoColon"]));
 		expect(narration.every((f) => f.severity === "error")).toBe(true);
 		expect(narration.every((f) => /theatre-of-the-mind.*(?:Clean prose|Speakable)|(?:Clean prose|Speakable).*theatre-of-the-mind/.test(f.hint))).toBe(true);
 	});
@@ -181,8 +181,6 @@ describe("style layer", () => {
 	it.each([
 		["JudgementWords", 14, "Evidence"],
 		["MechanicalTerms", 15, "Evidence"],
-		["PerceptionHedges", 16, "Evidence"],
-		["FilterVerbs", 17, "Situation first"],
 		["PcInterior", 18, "Hard line 1"],
 		["StockTells", 19, "People"],
 	] as const)("%s warns on the dirty twin and stays silent on the clean twin", (name, line, item) => {
@@ -222,7 +220,7 @@ describe("style layer", () => {
 			'for arg do case "$arg" in *.vale-narration.ini) exit 0 ;; esac; done',
 			"for arg do input=$arg; done",
 			'file=$(find "$input" -type f -name "*.md" -print -quit)',
-			`printf '{"%s":[{"Check":"Narration.FilterVerbs","Message":"Rewrite you see.","Line":1,"Match":"you see","Severity":"${valeSeverity}"}]}\\n' "$file"`,
+			`printf '{"%s":[{"Check":"Narration.StockTells","Message":"Give a physical cue.","Line":1,"Match":"eyes widen","Severity":"${valeSeverity}"}]}\\n' "$file"`,
 			"",
 		].join("\n"));
 		await chmod(vale, 0o755);

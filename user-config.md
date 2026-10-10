@@ -34,6 +34,18 @@ Each Campaign's config loads through its import below, and `new-campaign` adds o
   - Chad → Jean-Claude
   - Caitlin, Kaitlyn, Lazamataz → Catarina (guest Player, Session 9)
 
+## Prose voice
+
+How the DM's Narration sounds, from the diction, rhythm, register and humour of his own casual writing (Second Brain page "D&D DM style & narration preferences", § Nick's natural voice). Brennan Lee Mulligan and Matt Mercer set the craft and the sound of a spoken block: its camera, breath and register (ADR 0029). These lines season it with his diction, humour, warmth and handoffs to the players, so it still sounds like him without drifting toward his texting register. His own words such as "yah" and the build of his jokes win over the exemplars. So does the way he builds a player's moment up. Register and length stay with the exemplars.
+
+- **2026-10-10.** Everyday words, always, with contractions and swearing as emphasis within the Campaign's Lines and Veils ("oh fuck yes"). He writes "yah", never "yeah". Purple or literary prose is wrong. Each line should sound spoken across the table, clean and never workshopped.
+- **2026-10-10.** His short punchy lines and fragments are the sound inside a block, the beat and the landing, never a reason for a shorter block. Narration keeps the lengths and bands of `theatre-of-the-mind` and runs longer than his chat. Movement and excitement get his long breathless comma-run, one thought tumbling into the next.
+- **2026-10-10.** Comparisons come from the World in his everyday "basically X, except Y" shape.
+- **2026-10-10.** His humour runs on puns and absurd escalation, with warm crude teasing. Each joke still gives the table information.
+- **2026-10-10.** Warm and conspiratorial with the table. A handoff talks to the player behind the PC by the PC's name and builds their moment up.
+- **2026-10-10.** He performs voices. Give each NPC's line a sound or rhythm he can do, and put any accent or pitch note on the DM's side.
+- **2026-10-10.** A World or Campaign pitch takes his lore-draft register. It is more formal than his table talk, and just as concrete and plain.
+
 ## Evals
 
 - **Human-audit pages:** `<tmp>/audit/<skill>/<case-id>.md` in a `mktemp -d` directory beneath OS `$TMPDIR`. The orchestrator overwrites the current sample and criteria there for human review during that run. `evals/README.md` defines the procedure, and durable export requires an explicit DM request.

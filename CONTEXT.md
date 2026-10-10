@@ -167,8 +167,12 @@ a Scene where one PC's goal, bond or fear drives play.
 _Avoid_: PC hook, character moment
 
 **Narration**:
-prose written for the DM to speak or show to the Players. The Previously On and a Handout's text are Narration.
+prose written for the DM to speak or show to the Players. The Previously On, a Handout's text and every Cue are Narration.
 _Avoid_: boxed text, read-aloud, flavour text
+
+**Cue**:
+a short spoken line (one to three sentences) the DM says in a situational moment, written inline on a DM-side line right after its trigger (a check result, a question, a gambit, a turn), between `==` marks: `Success: ==One stone sits smoother than the rest…==`. Its trigger, rules terms and DCs stay outside the marks. A Cue is Narration and the gate checks it as Narration.
+_Avoid_: blurb, aside, boxed text
 
 **Transcript**:
 the full text of one recorded Session, handed to the Agent as Raw.

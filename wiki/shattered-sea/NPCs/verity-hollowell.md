@@ -17,7 +17,7 @@ title: "Verity Hollowell"
 - **Found at.** Once, a quiet stretch of shore on a port leave. She has not been there in years.
 
 > [!narration] First look
-> She steps into your movement before you decide whether to stop, and she is already on the next count.
+> She steps into your movement before it slows, and she is already on the next count.
 
 ## Play
 

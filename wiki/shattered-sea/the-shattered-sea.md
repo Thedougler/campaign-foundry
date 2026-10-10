@@ -19,7 +19,7 @@ title: "The Shattered Sea"
 - **Table promise.** Navigate, bargain, investigate, and choose which system or allegiance to trust while discovering what the charts omit.
 
 > [!narration] The World
-> You sail a bent chain of islands weeks beyond the last charted coast. Mountain harbours, reef water, storm belts, and a trench treated as a boundary divide the routes, and every crossing leaves a record, a debt, or a secret. Crown patrols demand papers, councils demand compromise, and the sea itself changes its mind. Decide which harbour deserves trust. Then live with the route and price you choose when the charts end.
+> You sail a bent chain of islands weeks beyond the last charted coast. Mountain harbours, reef water, storm belts, and a trench treated as a boundary divide the routes, and every crossing leaves a record, a debt, or a secret. Crown patrols demand papers, councils demand compromise, and the sea itself changes its mind. Decide which harbour deserves trust. Then live with the route and its price when the charts end.
 
 ## Calendar
 

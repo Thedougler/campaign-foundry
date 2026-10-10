@@ -110,13 +110,13 @@ describe("cf check --layer narration", () => {
 	it("warns on a run of three fresh starts, not a run broken before three", () => {
 		twin(existing, "fresh-starts", ["List", "List"], ["Short list", "Short list"], "Told");
 		expect(findings(existing, "List", "List", "fresh-starts")[0]?.message)
-			.toContain('Sentences 1 to 3 open like a list: "You cross", "In the", "Back in"');
+			.toContain('Sentences 1 to 3 open like a list: "In the", "Back in", "Under the"');
 	});
 
 	it("warns on evaluative stacks while exempting quoted speech", () => {
 		twin(existing, "evaluative-stack", ["Judgement", "Judgement"], ["Judgement in speech", "Judgement in speech"], "Evidence");
 		expect(findings(existing, "Judgement", "Judgement", "evaluative-stack")[0]?.message)
-			.toContain("ancient mysterious barge");
+			.toContain("dreadful mysterious barge");
 	});
 
 	it("warns on relative chains, not direct clauses", () => {

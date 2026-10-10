@@ -35,6 +35,7 @@
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Cliffhanger\s*$'
         - '^> \[!narration\] Opening\s*$'
+        - '^### Checks\n(?:(?!#{2,3} ).*\n)*?.*==[^=\n]+=='
   rubrics:
     - >-
       The DM can run the crossing from starting positions, usable terrain,
@@ -68,3 +69,6 @@
       make the danger and ways out pictureable. Narration stops before a
       charge or seizure lands, keeps mechanics and hidden information in DM
       notes, and decides no PC action, feeling or thought.
+    - >-
+      Each uncertain check carries a Cue per result, and no failure Cue is a
+      blank.

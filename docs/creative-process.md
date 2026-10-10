@@ -123,6 +123,7 @@ The TTSR rules in `.omp/rules/` interrupt an agent mid-output and point it back 
 |Scene procedure|[`docs/agents/scene-pages.md`](agents/scene-pages.md)|
 |Presence facts a page stocks before its Narration|[`flesh-out`](../.agents/skills/flesh-out/SKILL.md)|
 |Narration craft|[`theatre-of-the-mind`](../.agents/skills/theatre-of-the-mind/SKILL.md)|
+|Cue craft|[`theatre-of-the-mind`](../.agents/skills/theatre-of-the-mind/SKILL.md), its recipes' Cues section|
 |Flagged words and phrases|the Vale YAML in [`.vale/styles/ai-tells/`](../.vale/styles/ai-tells/) and [`.vale/styles/Narration/`](../.vale/styles/Narration/); skills cite the rule ID|
 |Gate layers and passing-form hints|[`src/check/layers/`](../src/check/layers/)|
 |Every gate finding binds|[`AGENTS.md`](../AGENTS.md) Working rules, Zero findings|

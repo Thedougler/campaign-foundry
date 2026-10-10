@@ -35,6 +35,16 @@ export interface Callout {
 	body: string;
 }
 
+/** An inline `==…==` Cue on a DM-side line (CONTEXT.md): spoken text between the marks, its trigger before them. */
+export interface Cue {
+	/** 1-based line in the file. */
+	line: number;
+	/** The span without marks. */
+	text: string;
+	/** The line's text before the span, markdown stripped, trailing `:` removed. */
+	trigger: string;
+}
+
 /** An Obsidian `%% ... %%` comment. Offsets index the page source. */
 export interface Comment {
 	start: number;
@@ -67,6 +77,7 @@ export interface Page {
 	tree: Root;
 	headings: Heading[];
 	callouts: Callout[];
+	cues: Cue[];
 	comments: Comment[];
 	links: WikiLink[];
 	/** Block ids (`^id`) defined on the page. */

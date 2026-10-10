@@ -4,7 +4,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
 import { parseDocument } from "yaml";
-import type { Callout, Comment, Heading, Page, WikiLink } from "./types.ts";
+import type { Callout, Comment, Cue, Heading, Page, WikiLink } from "./types.ts";
 
 const processor = unified().use(remarkParse).use(remarkFrontmatter, ["yaml"]);
 
@@ -12,6 +12,8 @@ const processor = unified().use(remarkParse).use(remarkFrontmatter, ["yaml"]);
 const WIKILINK = /(!?)\[\[([^[\]\n]*)\]\]/g;
 const CALLOUT_TITLE = /^\[!([^\]\s]+)\][+-]?[ \t]*(.*)$/;
 const BLOCK_ID = /(?:^|\s)\^([A-Za-z0-9-]+)\s*$/;
+/** One `==…==` Cue span: non-greedy text between the marks, one line, non-empty. */
+const CUE_SPAN = /==([^=\n]+)==/g;
 
 /** A frontmatter value as a list of trimmed non-empty strings: a scalar becomes one entry, other shapes read as absent. */
 function stringValues(value: unknown): string[] {
@@ -202,6 +204,41 @@ export function parsePage(path: string, source: string): Page {
 	const links: WikiLink[] = [];
 	findLinks(linkText, starts, frontmatterEnd, links);
 
+	// Cues (`==…==` spans) are read off the same view as links, so code, comments and frontmatter never yield one.
+	// A `[!narration]` callout is already gated as Narration, so its blockquote lines are skipped.
+	const linkLines = linkText.split("\n");
+	const narratedLines = new Set<number>();
+	for (const callout of callouts) {
+		if (callout.type !== "narration") continue;
+		for (let line = callout.line; line <= linkLines.length && /^[ \t]*>/.test(linkLines[line - 1] ?? ""); line++) {
+			narratedLines.add(line);
+		}
+	}
+	// A Cue's trigger keeps its reading text (wikilink alias, else the target's page name; no markdown) and drops
+	// the list marker and the trailing colon. Earlier Cue spans on the line blank out, so a later trigger reads as
+	// its own lead-in.
+	const triggerOf = (raw: string): string =>
+		raw
+			.replace(CUE_SPAN, " ")
+			.replace(WIKILINK, (_, _embed: string, inner: string) => {
+				const bar = inner.indexOf("|");
+				if (bar !== -1) return inner.slice(bar + 1).trim();
+				return ((inner.split("#")[0] ?? "").split("/").pop() ?? "").trim();
+			})
+			.replace(/[*_`]+/g, "")
+			.replace(/^[ \t]*(?:[-*+]|\d+\.)[ \t]+/, "")
+			.trim()
+			.replace(/:$/, "")
+			.trim();
+	const cues: Cue[] = [];
+	for (let index = 0; index < linkLines.length; index++) {
+		const line = index + 1;
+		if (line <= (yamlNode?.position?.end.line ?? 0) || narratedLines.has(line)) continue;
+		for (const match of linkLines[index]?.matchAll(CUE_SPAN) ?? []) {
+			cues.push({ line, text: (match[1] ?? "").trim(), trigger: triggerOf(linkLines[index]?.slice(0, match.index ?? 0) ?? "") });
+		}
+	}
+
 	const blocks = new Set<string>();
 	for (const line of linkText.slice(frontmatterEnd).split("\n")) {
 		const id = BLOCK_ID.exec(line)?.[1];
@@ -221,6 +258,7 @@ export function parsePage(path: string, source: string): Page {
 		tree,
 		headings,
 		callouts,
+		cues,
 		comments,
 		links,
 		blocks,

@@ -26,14 +26,16 @@ For speaking roles, optionally add a **performance anchor**: an unexpected regis
 
 ## Voice
 
-Build voice from what the NPC cares about:
+Build voice from what the NPC cares about, so a listener with eyes shut still knows who is speaking:
 
-- word choice from trade, status, or obsession;
-- rhythm such as clipped answers, winding explanations, or questions returned with questions;
-- one repeatable verbal habit;
-- one subject or name they avoid.
+- **Diction.** Word choice from trade, status or obsession, in a register that is theirs alone in that place: courtly, outlaw slang, guard protocol, a child naming every cart exactly.
+- **Rhythm and length.** Clipped answers, winding explanations or questions returned with questions. Word count follows power and comfort: the killer gets one courteous line, and the comfortable monster talks at length and shortens as it angers.
+- **Habit.** One repeatable verbal habit, and one subject or name they avoid.
+- **Status move.** A trap question, a parting line paused in the doorway, or menace spoken as courtesy. Subtext sits in a qualifier: "friends of the crown, for the time being".
+- **Bounds.** What they will not do for the Party and why ("to the edge of our duty, and no further"). Their confidence rides on each fact they share: "I believe he's there, unless they moved him by another road."
+- **Pairs.** Two people of one Faction in the same Scene split it into two registers, the warm one beside the one who smells blood.
 
-Prove it in Play with three short lines, the **ask** and the **refusal** plus the line **under pressure** when the limit or secret is touched. Write the lines in the World's own words per root `AGENTS.md` In-world voice. An accent or gag is not a voice.
+Prove it in Play with three short lines, the **ask** and the **refusal** plus the line **under pressure** when the limit or secret is touched, each a Cue: the NPC's action first, then the line. The Cue is the spoken line itself in their diction, never a report that they answered. Write the lines in the World's own words per root `AGENTS.md` In-world voice. An accent or gag is not a voice.
 
 ## Tells
 
@@ -53,8 +55,8 @@ Examples:
 The NPC template's `[!narration] First look`: the Party meets this person as they usually are, with no event. `theatre-of-the-mind` writes it to this recipe through its shared rules for first meetings on World pages.
 
 - **Job.** Give the table the face it will recognise each time this person returns.
-- **Build.** A first read (the harbourmaster, a broad woman in a coat two sizes too big), the one feature from **Face** and what they are usually doing.
-- **End.** Their complete first line, in the voice from **Voice**.
+- **Build.** In Brennan's way (`theatre-of-the-mind` **Craft**, **Exemplar**), zoom from what the place is doing to a first read of this person (the harbourmaster, a broad woman in a coat two sizes too big), then onto the one feature from **Face** and what they are usually doing.
+- **End.** Their action, then their complete first line in the voice from **Voice**.
 
 Shape to match (never its words):
 

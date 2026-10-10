@@ -23,7 +23,7 @@ title: "Fate Spinner"
 - **Held by.** [[delmar-fisk|Delmar Fisk]], in his Bag of Holding since Session 12. [[crissdalynn-khinriss|Crissdalynn Khinriss]] wore it hidden before him, given by [[master-kyzil|Master Kyzil]] before her pilgrimage.
 
 > [!narration] First look
-> A four-sided quartz top no bigger than a thumb stays cool in a warm hand. Spun in sunlight, it throws amber, blue and violet pools across the spinner and ticks like glass on glass long after it should stop.
+> You turn a quartz top over in your palm. Four faces, no bigger than the last joint of your thumb, and the stone sits cool against your skin, cool while your hand warms around it. You hold it up to the sunlight and it throws little pools of amber, blue and violet across your knuckles. You flick it into a spin and it ticks, glass on glass. One small hard click for every face, and it should slow, and it doesn't. The ticking goes on. Still it turns.
 
 ## Play
 
@@ -36,6 +36,12 @@ Once per day, a Magic action spins the top and chooses one personally known crea
 The Spinner cannot speak through the vision, aid a fight the holder is in or affect the holder's own rolls. One vision only. Another cannot open until dawn. A target leaving the plane ends it. Hiding it from a search is Sleight of Hand DC 15. Spinners shatter when two of them spin face to face. Ordinary force cannot damage one.
 
 In [[session-10-recap|Session 10]], Crissdalynn tested the Spinner on [[aruhe|Aruhe]]. The DM confirmed that she could not use it on herself. When she asked whether any survivors remained on the island and rolled a natural 16, she sensed a few people whose fates were still uncertain. Their locations and exact number remained unknown.
+
+Asked if a Spinner can watch its holder: ==It watches someone else, and it will not turn on the hand that spins it.==
+
+Natural 16, survivors on the island: ==The Spinner turns, and a few fates on the island are still unsettled. You can't count them and you can't find them, but they are not gone.==
+
+Natural 20, a question through the vision: ==Here's what you would know. While the vision holds, you do not watch the creature from outside. You stand where it stands and hear what it hears, at the height of its eyes.==
 
 ## Depth
 

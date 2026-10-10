@@ -5,14 +5,10 @@ scope: blockquote
 ignorecase: true
 tokens:
   - abandoned
-  - ancient
   - mysterious
   - ominous
   - eerie
-  - strange
   - bustling
   - dangerous
-  - angry
   - afraid
-  - sense of
   - "can['’]t help but"

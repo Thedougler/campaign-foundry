@@ -21,7 +21,7 @@ title: "Grung Authority Seal"
 - **Held by.** The Party's gear includes one spent seal, and Jean-Claude carries samples taken from the burnt road. Other spent seals lie beside Grung remains on Aruhe.
 
 > [!narration] First look
-> A spent seal is a palm-wide gold disc cracked into curved plates. Curling script and raised dots fill its face. Dirt packs every groove, and torn edges clink where it once fused to skin.
+> You lift a spent seal out of the dirt. Gold disc, the width of your palm, cracked clean through into curved plates. Curling script runs ring behind ring across its face, raised dots set among it, and dirt has packed every groove of it. You turn it over and the torn edges clink, ragged where the metal pulled free. Each one sits where the disc fused to skin.
 
 ## Play
 
@@ -32,6 +32,10 @@ A whole seal is pressed to a Grung within 5 feet who is Grappled, Restrained, In
 ### In use
 
 Spent seals do nothing. Their Gold-caste script records the bearer’s order chain, oldest first. Jean-Claude reads it without a check. Others need Investigation DC 13. No seal names Hinewai, the Death Bloom or its officer.
+
+Investigation DC 13, read a spent seal: ==The rings give up their sequence, oldest order first. You can read the whole of the chain, down to the last thing it ordered its bearer to do.==
+
+Failure: ==You read it twice and it all makes sense. Report the land, keep the road open, that's what you do with a road, and you can't see why anyone made so much of it.==
 
 ## Depth
 

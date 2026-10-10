@@ -27,7 +27,7 @@ Everything a Simulation produces is a possibility. It becomes Canon only when th
    - Yu's profile fields: name, gender, age, narrative role, setup, speaking characteristics and the goal for each scene the NPC plays
    - the NPC's knowledge, drawn from the page's `Play` lines and its `Depth` (History, Hidden truths): the facts it knows, the things it wrongly believes and the lies it tells. Keep only this NPC's own knowledge. Leave out another NPC's secrets and DM truths this NPC lacks. Retell every rules term as what the NPC perceived, per [In-world voice](../../../AGENTS.md#in-world-voice). The dossier contains only in-world words
    - physical state: body, wounds, gear and the NPC's position when the first scene opens
-   - three sample lines: an ask, a refusal and a line under pressure. Copy them from the bible card or the page's `Play` when they exist; otherwise write them from the page's Voice per the `Voice` section and closing check of [npc-design's craft reference](../npc-design/references/craft.md)
+   - three sample lines: an ask, a refusal and a line under pressure. Copy them from the bible card or the page's `Play` when they exist; otherwise write them from the page's Voice per the `Voice` section and closing check of [npc-design's craft reference](../npc-design/references/craft.md), with the NPC's diction, length, status move and bounds
    - the lines from the page's `Quotes`, when it has one, each with only the context this NPC knows, as the voice its new lines match
 
 3. **Cast.** In one `task` batch, spawn one `persona` agent per NPC, named `Persona<NpcNameCamelCase>` (`PersonaTalonSkarn`). Each task is that NPC's dossier text, pasted whole, followed by your first Director command for it. The batch's shared `context` contains only what every Persona may know, such as the scene's place and in-world time. PCs stay with you: the Party enters the Simulation only as events you narrate, each labelled `Possible Party action:`. **Done when** every NPC in the scene list has exactly one running Persona and every PC appears only through labelled Director events.
@@ -66,7 +66,7 @@ Everything a Simulation produces is a possibility. It becomes Canon only when th
      ```
      Ensures information provided by character is factually correct and aligned with their background knowledge
      ```
-   - quoted voice lines the DM could reuse in play, attributed to their NPC
+   - quoted voice lines the DM could reuse in play, attributed to their NPC and written as Cues (`==…==`, `theatre-of-the-mind` `references/recipes.md` § Cues) with the trigger each answers
    - offscreen moves, each with its in-world time and the sign a Party could perceive
    - the ledger path
 

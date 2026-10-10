@@ -19,7 +19,7 @@ title: "Terror-Bird"
 - **Used by.** [[unsaid-macaw|Unsaid Macaw]] patrols the same territory.
 
 > [!narration] First sight
-> The trail begins to thrum, pebbles ticking together along its length. Moss quivers on a hump beside the path. The hump rises on legs thick as fence posts. It keeps rising past the fern tops until a beaked head swings into view above them. A first stride takes it onto the trail, dead straight and building speed, and the beak opens wide enough for a head and shoulders.
+> You feel the trail start to thrum under your boots, pebbles ticking together down its length. About thirty feet along the path, a hump you took for a stump shakes its green loose and rises. It unfolds on legs as thick as a fence post and keeps climbing over the fern tops, long as a ship's boat from beak to tail. Moss still hangs off its black shoulders in strings. Then a shaggy head swings up over the fronds, its pale, hooked beak parted a crack, lined with teeth. One gold eye opens under the ridge of its brow and sweeps the fern tops. It does not find you.
 
 ## Statblock
 
@@ -67,7 +67,7 @@ actions:
 
 ### Tactics
 
-It commits to a straight charge and takes its catch in the serrated beak, swallowing whatever fits. A swallowed traveller stabs at it from inside, and enough hurt taken inside or outside the beak makes it gag its catch back up alive. It will not charge into tall grass, deep water or a patch of razer-grass.
+It opens from stillness among the ferns, a hump of moss, and when prey walks open ground, the tell arrives first: ==The ground begins to thrum beneath your feet, and pebbles start ticking together along the path.== It commits to the straight charge, takes its catch in the serrated beak and swallows whatever fits, the beak opening wide enough for a head and shoulders. Reach ground it refuses, grass taller than itself, deep water or a stand of razer-grass, and it stops at the edge, its turn spent there. ==It pulls up hard, neck dropping low, and paces the line it will not cross.== Inside that line it cannot follow, and the Party can shoot at it or stay out of the beak's ten-foot reach. A swallowed traveller stabs at it from inside, and enough hurt taken inside or outside the beak in one turn makes it gag its catch back up alive.
 
 ### Outside a fight
 

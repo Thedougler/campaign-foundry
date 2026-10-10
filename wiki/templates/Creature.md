@@ -63,7 +63,7 @@ legendary_actions: []
 
 ### Tactics
 
-%% Build this Creature's own fight from its statblock and habitat. Give where it opens and the tell before its signature. Give at least two answers the Party has to that signature, each with the opening it creates. Then give the morale or wound that ends its fight. Tie each line to this Creature's own body or terrain. A solo or boss adds its escalation. %%
+%% Build this Creature's own fight from its statblock and habitat. Give where it opens and the tell before its signature as a Cue (`==…==`). Give at least two answers the Party has to that signature, each with the opening it creates. Then give the morale or wound that ends its fight. Tie each line to this Creature's own body or terrain. A solo or boss adds its escalation. %%
 
 ### Outside a fight
 

@@ -94,7 +94,7 @@ State what survives departure and what changes during absence. Opened access, da
 
 ### 7. File or return the stock
 
-Place routes, keys, pressure and rest in Play. Put history and cross-area hidden truths with their revealing Clues in Depth. Keep the template's required properties, `##` sections, order and callout types. Use `theatre-of-the-mind` when writing Narration. Keep hidden truths, DCs and procedures outside spoken cues. Remove template comments and authoring instructions from finished pages.
+Place routes, keys, pressure and rest in Play. Put history and cross-area hidden truths with their revealing Clues in Depth. Keep the template's required properties, `##` sections, order and callout types. Use `theatre-of-the-mind` when writing Narration. Open each keyed area with a Cue (`==…==`) and keep hidden truths, DCs and procedures outside its marks. Remove template comments and authoring instructions from finished pages.
 
 Walk an entrance-to-objective route and retreat using the keys alone, then a delay/rest scenario. Resolve conflicting exits, timings, counts or shared mechanisms against one authoritative procedure. Account for every fact in the step-2 inventory in its final home and ensure each new owner page and link resolves.
 

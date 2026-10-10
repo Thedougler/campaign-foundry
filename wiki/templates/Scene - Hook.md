@@ -17,7 +17,7 @@ revealed: ""
 - **Who.**
 
 > [!narration] Opening
-> %% Spoken, second person, present tense, under 120 words. Put the disturbance in the first sentence and make the Location felt, then end on the point where the Party reacts. %%
+> %% Spoken, second person, present tense, under 120 words. Put the disturbance in the first sentence and make the Location felt, then end on the point where the Party reacts, which may be one situation-specific handoff question or either/or. %%
 
 ## Play
 
@@ -33,7 +33,7 @@ revealed: ""
 
 ### Checks
 
-%% Use only where the outcome is in doubt. Give the trigger and the Ability (Skill) with its DC, then success and failure with their costs. %%
+%% Use only where the outcome is in doubt. Give the trigger and the Ability (Skill) with its DC, then each result the check can produce as a Cue (`==…==`): success, failure, and a critical success where its tier can land, paying world-law. Failure installs a false belief, a constraint or a caused consequence, never a blank. %%
 
 ### Encounter
 

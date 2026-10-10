@@ -29,7 +29,7 @@ revealed: ""
 
 ### Reactions
 
-%% Give each relevant NPC or Faction's response as an action or offer with its effect. Give each PC a chance to answer a goal, bond or Spotlight. %%
+%% Give each relevant NPC or Faction's response as an action or offer with its effect, a spoken offer as a Cue (`==…==`). Give each PC a chance to answer a goal, bond or Spotlight. %%
 
 ### Rewards
 
@@ -37,7 +37,7 @@ revealed: ""
 
 ### Stinger
 
-%% Give one new fact or arrival grown from play that points to the next Session, stopping before a new contest. %%
+%% Give one new fact or arrival grown from play that points to the next Session, stopping before a new contest, or close instead on a quiet decompression coda. %%
 
 ## Threads
 

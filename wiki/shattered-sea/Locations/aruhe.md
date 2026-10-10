@@ -31,7 +31,7 @@ title: "Aruhe"
 - **Danger.** Taking living things wakes hostile local life, and once the frenzy rises it punishes anyone present, picking fruit or not. Growth, healing and rot run beyond normal limits. Fire turns the forest on its maker: creatures run from a burning tree in every direction, and the commotion and blood a fire leaves draw hunters toward the source. A feeling of being watched follows everyone who walks the island, and no camp has slept free of it yet.
 
 > [!narration] Arrival
-> From offshore, a green volcano fills the horizon, rising around a dark crater lake. Gold-tan bands cross its slopes, and white water foams along the reef. No road, field or smoke breaks the island's crowded life.
+> From the deck, the island fills the horizon end to end, a green volcano rising around a black crater lake. Gold-tan bands cross its lower slopes, and the rainforest shoulders down to limestone cliffs at the shore. White water foams along a reef that follows the whole coast. The green runs unbroken to the foam, uncut by road or field, unlit by any smoke. Then you see the way in. A dark lane of flat water runs through the reef toward the beach.
 
 ## Play
 
@@ -49,12 +49,12 @@ From the air during the Party's escape, the jungle east of the landing holds muc
 
 ### Encounters
 
-1. River Otters play with gear in occupied water.
-2. Terror-Birds hunt open grass.
-3. Snakewood coils strike from low canopy.
-4. Razer-grass cuts careless crossings.
-5. A survivor follows fallen fruit.
-6. A Grung expedition burns toward the Grove.
+1. River Otters play with gear in occupied water. ==Something tugs a trailing line from below, and a head as big as a sheepdog's breaks the water beside you, your gear in its paws.==
+2. Terror-Birds hunt open grass. ==The ground starts to thrum, and pebbles tick against each other thirty feet out.==
+3. Snakewood coils strike from low canopy. ==Count the vines over the trail, and one of them is moving when the rest hold still.==
+4. Razer-grass cuts careless crossings. ==The gold grass changes ahead of you, and pale blades stand in it like shards of glass, ticking where they touch.==
+5. A survivor follows fallen fruit. ==There's a figure working down the fruit piles through the grass, stopping at each fallen one to eat as they walk.==
+6. A Grung expedition burns toward the Grove. ==Smoke stands off the trees ahead, and that burn moves toward the grove.==
 
 ### Rumors
 

@@ -23,19 +23,19 @@ title: "Lava Tubes"
 - **Prize.** Survivors and underground routes to the island's interior.
 
 > [!narration] Entering
-> Black basalt tunnels run as wide as a street beneath old lava. Pale roots hang through the roof, daylight falls in columns and every drip echoes over dark pools.
+> The basalt tube runs as wide as a village street under the old lava, and its roof hangs with pale roots. Their glow lifts as you pass, a slow pulse spreading from where you step. Daylight falls in columns through the wells. Between the wells you go by root-light, and the loose rock shifts underfoot. Water drips somewhere out of sight, into dark pools, and each drop comes back off the stone. The tube forks ahead, east and west. The mapped route goes on for the burnt road.
 
 ## Play
 
 ### Areas
 
-The 15-foot smoking skylight, 40-foot ledge, east and west tubes, daylight wells, seep and vents.
+==Mind the skylight, fifteen feet up, and it's still smoking.== The 15-foot smoking skylight, 40-foot ledge, east and west tubes, daylight wells, seep and vents.
 
-The skylight opens into a natural basalt pit that drops away deep in several directions, dimly lit by the white roots along its ceiling as they pulse.
+==Careful at the edge here. The floor just goes, down and away every way at once.== The skylight opens into a natural basalt pit that drops away deep in several directions, dimly lit by the white roots along its ceiling as they pulse.
 
 ### Hazards
 
-Acrobatics DC 10 keeps footing. Athletics DC 15 climbs breaks. Snakewood and Stillbloom answer living movement near roof roots and skylights.
+Acrobatics DC 10 keeps footing. Success: ==You keep your feet, and the glow ripples pale and slow out of the stone a step behind you.== Failure: ==Your heel skates on a loose slab, and the fall knocks a bright pulse out of the roots under you.== Athletics DC 15 climbs breaks. Success: ==Each hold takes your weight, and you come up over the lip onto the ledge.== Failure: ==The hold crumbles in your hand, and you drop back to your last footing with stinging palms.== Snakewood and Stillbloom answer living movement near roof roots and skylights: ==The glow answers you, a pale pulse racing away over the roof, spreading, fading, gone.==
 
 ### Roots
 

@@ -27,11 +27,11 @@ revealed: ""
 
 ### Areas
 
-%% Give one entry per space, a paragraph each or a `####` heading each on a larger Site, in an order the DM can follow from the entrance. Each entry opens with a short spoken cue. Then give occupants and activity, usable objects, immediate danger, hidden answers and onward exits. %%
+%% Give one entry per space, a paragraph each or a `####` heading each on a larger Site, in an order the DM can follow from the entrance. Each entry opens with a Cue (`==…==`). Then give occupants and activity, usable objects, immediate danger, hidden answers and onward exits. %%
 
 ### Hazards
 
-%% Give each fixed hazard with its sign and trigger, its effect, how the Party can counter or bypass it, and the leverage that helps. Any check or save gives what follows on success and on failure. %%
+%% Give each fixed hazard with its sign and trigger, its effect, how the Party can counter or bypass it, and the leverage that helps. Any check or save gives its Cues (`==…==`) for success and for failure. %%
 
 ### Occupants
 

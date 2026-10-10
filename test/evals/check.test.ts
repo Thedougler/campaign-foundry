@@ -61,14 +61,14 @@ describe("eval:check Outcome", () => {
 });
 
 describe("eval:check gate", () => {
-	const flagged = "> [!narration] First look\n> You see a rider approach along the towpath.\n\n## Play\nIlse takes the ledger.";
+	const flagged = "> [!narration] First look\n> Her eyes widen as the ledger opens.\n\n## Play\nIlse takes the ledger.";
 	const telling = "Her hold on the docks is not just power, it is a rich tapestry of debts.";
 
 	it("reports the gate read-only over output pages only", async () => {
 		const original = readFileSync(join(vault, page), "utf8");
 		expect(await runGate(vault, output())).toEqual([]);
 		const findings = await runGate(vault, output({ [page]: flagged }));
-		const filter = findings.find((f) => f.rule === "Narration.FilterVerbs");
+		const filter = findings.find((f) => f.rule === "Narration.StockTells");
 		expect(filter?.severity).toBe("warning");
 		expect(filter?.path).toBe(page);
 		expect(findings.some((f) => f.severity === "error")).toBe(false);
@@ -89,7 +89,7 @@ describe("eval:check gate", () => {
 		expect(error.code).toBe(1); expect(error.stdout).toContain("FAIL  gate");
 		const warned = await evalCheck("gate-probe", output({ [probe]: flagged }));
 		expect(warned.code).toBe(0);
-		expect(warned.stdout).toContain("WARN  gate  Narration.FilterVerbs");
+		expect(warned.stdout).toContain("WARN  gate  Narration.StockTells");
 		expect(warned.stdout).toContain("1 gate warnings");
 	});
 });

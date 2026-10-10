@@ -17,7 +17,7 @@ The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scen
 4. **Make commitment playable.** Start the page as scene-pages **Page format** directs, then fill:
    - `### Situation`: state the opposition's goal and its next clock change. Give the observable commitment that ends this Hook.
    - `### Handles`: give at least three materially different responses. Each has an upside, a cost and a World response. Include an obvious first move and an alternative that rewards using the cast or space. Give each PC present an available first action.
-   - `### Checks`: each uncertain action in the Page format table.
+   - `### Checks`: each uncertain action in the Page format Checks bullets. Give every result its Cue, and add a Critical Cue wherever the roll can critically succeed.
    - `### Encounter`, only when the Party may fight: scene-pages **Encounters**.
    - `## At a glance` and `## Depth`. The row's Spotlight sharpens one PC's personal pull in `### Spotlight`, while every other PC keeps a reason to act.
 

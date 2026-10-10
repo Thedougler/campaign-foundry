@@ -153,8 +153,9 @@ whose statistics are sound but whose presence reads generic gets a
 
 Prepare a First sight packet for `theatre-of-the-mind`: body and size against a
 familiar object, striking feature, surface, one sound or smell, behaviour at
-rest, and the visible appearance behind every signature. Request optional
-in-action narration only when the page's Tactics needs it. The player-facing
+rest, and the visible appearance behind every signature. Write the tell
+before its signature in Tactics as a Cue (`==…==`, `theatre-of-the-mind`
+`references/recipes.md` § Cues). The player-facing
 packet contains appearance and what the Players can sense from where they
 stand. Keep rules, numbers, secrets and any name the Party has not learned out
 of it.

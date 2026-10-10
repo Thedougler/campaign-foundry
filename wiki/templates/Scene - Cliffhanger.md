@@ -17,7 +17,7 @@ revealed: ""
 - **Opposition.**
 
 > [!narration] Opening
-> %% Spoken, second person, present tense, under 120 words. Put the threat in the first sentence and end on the point where the Party reacts. %%
+> %% Spoken, second person, present tense, under 120 words. Put the threat in the first sentence and end on the point where the Party reacts, which may be one situation-specific handoff question or either/or. %%
 
 ## Play
 
@@ -29,7 +29,7 @@ revealed: ""
 
 ### Pressure
 
-%% Give the tick each round or turn, with its timing and effect. Add how the Party counters it and the end state it drives toward. %%
+%% Give the tick each round or turn, with its timing and effect. Add how the Party counters it and the end state it drives toward. When the board changes, open the round with a repaint Cue (`==…==`), the changed field in two spoken sentences. %%
 
 ### Terrain
 
@@ -37,7 +37,7 @@ revealed: ""
 
 ### Checks
 
-%% Give each check or save with its Ability (Skill) and DC and the action it costs. Then give success and failure. Match any reused rule to its owner page. %%
+%% Give each check or save with its Ability (Skill) and DC and the action it costs. Then give each result the check can produce as a Cue (`==…==`): success, failure, and a critical success where its tier can land, paying world-law. Failure installs a false belief, a constraint or a caused consequence, never a blank. Match any reused rule to its owner page. %%
 
 ## Encounter
 
@@ -49,7 +49,7 @@ revealed: ""
 
 ### Creatures
 
-%% Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]`. Give its count and starting position. Add its opening tactic and response to interference, then the loss that breaks it and its route out. %%
+%% Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]`. Give its count and starting position. Add its opening tactic as a Cue (`==…==`) and its enemy-turn answer to interference as a Cue, then the loss that breaks it and its route out. A Creature the Party can kill gets a kill-handoff Cue, the question that hands the finish to a Player. %%
 
 ### Balance
 

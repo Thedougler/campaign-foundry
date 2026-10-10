@@ -17,7 +17,7 @@ revealed: ""
 - **Who.**
 
 > [!narration] Opening
-> %% Spoken, second person, present tense, under 150 words. Give the texture of the Location with the new information source as its anchor, and end on the point where the Party reacts. %%
+> %% Spoken, second person, present tense, under 150 words. Give the texture of the Location with the new information source as its anchor, and end on the point where the Party reacts, which may be one situation-specific handoff question or either/or. %%
 
 ## Play
 
@@ -25,15 +25,15 @@ revealed: ""
 
 ### Situation
 
-%% Give the physical anchor the Party can examine, handle or witness. Then give the deadline, departure or pressure tick that ends circular talk. %%
+%% Give the physical anchor the Party can examine, handle or witness. Then give the deadline, departure or pressure tick that ends circular talk. Lore arrives only when asked or rolled for, as a Cue (`==…==`). %%
 
 ### Handles
 
-%% Give one handle per participating NPC, linked. Each gives their current goal and knowledge, their offer and price, what they hold back or lie about with the tell of each lie, and what changes their posture. %%
+%% Give one handle per participating NPC, linked. Each gives their current goal and knowledge, their offer and price, what they hold back or lie about with the tell of each lie, and what changes their posture, each posture change ending on a Cue (`==…==`). %%
 
 ### Checks
 
-%% Sensible actions with no real doubt succeed and yield their Clue. Each uncertain action gives the trigger and the Ability (Skill) with its DC, then success and failure with their costs. %%
+%% Sensible actions with no real doubt succeed and yield their Clue. Each uncertain action gives the trigger and the Ability (Skill) with its DC, then each result the check can produce as a Cue (`==…==`): success, failure, and a critical success where its tier can land, paying world-law. Failure installs a false belief, a constraint or a caused consequence, never a blank. %%
 
 ## Clues
 

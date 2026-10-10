@@ -7,10 +7,8 @@
     Scale up the Aleksander Malone statblock. He should be roughly equivalent
     in power to a level 12 player character, an optimized cleric, fighter,
     rogue multiclass built for exorcising fiends and killing heretics. Keep
-    it an easy to run monster statblock for the DM. Flesh out Malone as a
+    it an easy to run for the DM monster statblock. Flesh out Malone as a
     person too, so I can run a meeting with him or bring him back later.
-    Give me the complete NPC page, a proper first look I can read out,
-    and his linked Creature page, not just combat numbers.
   checks:
     pages:
       - shattered-sea/Creatures/aleksander-malone-creature.md

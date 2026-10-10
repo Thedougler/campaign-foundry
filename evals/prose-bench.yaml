@@ -1,4 +1,4 @@
-# Nine comparable Narration branches grounded in the real Shattered Sea Wiki.
+# Ten comparable Narration branches grounded in the real Shattered Sea Wiki.
 # fixture_page stays the schema field and is relative to wiki/, not a test vault.
 # Contexts are self-contained fact briefs with provenance, not existing Narration.
 # bench_version is the first 12 hex of this file's sha256; cache is historical.
@@ -28,8 +28,9 @@
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
     - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
-    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Concrete accessible evidence rather than judgement words or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
+    - "Sounds like the DM at the table, at the Brennan Lee Mulligan / Matt Mercer bar: second-person camera, specific and playable detail, a long breath landing on a short sentence, and an ending that hands the table a live choice or stops on the live moment."
 
 - id: creature-first-look
   fixture_page: shattered-sea/Creatures/terror-bird.md
@@ -57,8 +58,9 @@
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
     - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
-    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Concrete accessible evidence rather than judgement words or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
+    - "Sounds like the DM at the table, at the Brennan Lee Mulligan / Matt Mercer bar: second-person camera, specific and playable detail, a long breath landing on a short sentence, and an ending that hands the table a live choice or stops on the live moment."
 
 - id: item-first-look
   fixture_page: shattered-sea/Items/fate-spinner.md
@@ -86,8 +88,9 @@
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
     - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
-    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Concrete accessible evidence rather than judgement words or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
+    - "Sounds like the DM at the table, at the Brennan Lee Mulligan / Matt Mercer bar: second-person camera, specific and playable detail, a long breath landing on a short sentence, and an ending that hands the table a live choice or stops on the live moment."
 
 - id: location-arrival
   fixture_page: shattered-sea/Locations/western-landing.md
@@ -116,8 +119,9 @@
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
     - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
-    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Concrete accessible evidence rather than judgement words or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
+    - "Sounds like the DM at the table, at the Brennan Lee Mulligan / Matt Mercer bar: second-person camera, specific and playable detail, a long breath landing on a short sentence, and an ending that hands the table a live choice or stops on the live moment."
 
 - id: lore-common-telling
   fixture_page: shattered-sea/Lore/two-grave-orders.md
@@ -145,8 +149,9 @@
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
     - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
-    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Concrete accessible evidence rather than judgement words or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
+    - "Sounds like the DM at the table, at the Brennan Lee Mulligan / Matt Mercer bar: second-person camera, specific and playable detail, a long breath landing on a short sentence, and an ending that hands the table a live choice or stops on the live moment."
 
 - id: scene-opening
   fixture_page: shattered-sea/Sessions/Session 12/session-12-dawn-strike.md
@@ -177,8 +182,9 @@
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
     - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
-    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Concrete accessible evidence rather than judgement words or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
+    - "Sounds like the DM at the table, at the Brennan Lee Mulligan / Matt Mercer bar: second-person camera, specific and playable detail, a long breath landing on a short sentence, and an ending that hands the table a live choice or stops on the live moment."
 
 - id: scene-closing-image
   fixture_page: shattered-sea/Sessions/Session 12/session-12-the-way-out.md
@@ -207,8 +213,9 @@
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
     - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
-    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Concrete accessible evidence rather than judgement words or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
+    - "Sounds like the DM at the table, at the Brennan Lee Mulligan / Matt Mercer bar: second-person camera, specific and playable detail, a long breath landing on a short sentence, and an ending that hands the table a live choice or stops on the live moment."
 
 - id: previously-on
   fixture_page: shattered-sea/Sessions/Session 11/session-11-recap.md
@@ -245,8 +252,9 @@
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
     - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
-    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Concrete accessible evidence rather than judgement words or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
+    - "Sounds like the DM at the table, at the Brennan Lee Mulligan / Matt Mercer bar: second-person camera, specific and playable detail, a long breath landing on a short sentence, and an ending that hands the table a live choice or stops on the live moment."
 
 - id: handout-text
   fixture_page: shattered-sea/Lore/two-grave-orders.md
@@ -277,5 +285,41 @@
   rubrics:
     - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
     - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
-    - "Concrete accessible evidence rather than judgement words, perception hedges or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Concrete accessible evidence rather than judgement words or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
     - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
+    - "Sounds like the DM at the table, at the Brennan Lee Mulligan / Matt Mercer bar: second-person camera, specific and playable detail, a long breath landing on a short sentence, and an ending that hands the table a live choice or stops on the live moment."
+
+- id: cues-check-results
+  fixture_page: shattered-sea/NPCs/talon-skarn.md
+  context: |
+    Provenance: shattered-sea/NPCs/talon-skarn.md, At a glance and Play
+    (lines 20-36), History (lines 42-46); hot.md, Party at and Session 12
+    entries. Facts only; no existing Cue text is supplied.
+    Scene: the Party's clearing beside the Burnt Road, several miles inland
+    on Aruhe, the rest just broken. Session 13 resumes here mid-fight.
+    Threat: Talon Skarn, invisible, wounded at 12 of 314 hit points. Falling
+    water outlined him once at the river camp; his dive already broke
+    Crissdalynn's arm. His orders take the Fate Spinner without killing
+    Crissdalynn, and her companions are unprotected. He names people by what
+    they carry, in a level, clipped voice.
+    The check: one PC sweeps the treeline for the unseen attacker,
+    Perception (Wisdom) DC 15. Three results to write.
+    Failure is never a blank: it installs a false belief, a constraint or a
+    consequence with its cause. Success is an aperture that buys exactly the
+    next tier of detail. A critical success pays world-law, the kind of
+    knowing the Player has earned: here is what you would know.
+  prompt: |
+    You are writing for a home D&D 5e campaign wiki. Using only the facts
+    above, write the three Cues for this check as one Checks bullet line:
+    failure, success and critical success. Each Cue is a spoken line between
+    == marks, one to three sentences, second person, present tense, with its
+    trigger and DC outside the marks, in the form "- **Perception (Wisdom)
+    DC 15.** Failure: ==...== Success: ==...== Critical: ==...==". No game
+    mechanics inside the marks, no meta-commentary. Reply with only the
+    Checks bullet line, nothing before or after it.
+  rubrics:
+    - "Every stated detail is grounded in the supplied facts or attributed document/teller claims; perceivable descriptions reveal no hidden fact, prescribe no PC action or feeling, and invent no outcome."
+    - "Obeys the brief's slot-specific person, tense, voice and ending: live action stops before an undeclared outcome the Players could affect, Previously On retells established past events, Closing image stays an image, and Handout uses the document's own form."
+    - "Concrete accessible evidence rather than judgement words or non-mechanical rules terms; a physical first look preserves any perceivable immediate hazard and actionable feature without assuming anatomy, senses, entrance or unconfirmed occupancy."
+    - "Clear on one hearing where spoken: specific nouns, concise interruptible clauses, no stacked evaluative adjectives, chained relative clauses or confusing sounds, at most three unfamiliar names, and speaker lead-in before the complete line; written Handouts remain reusable rather than forced into spoken prose."
+    - "Sounds like the DM at the table, at the Brennan Lee Mulligan / Matt Mercer bar: second-person camera, specific and playable detail, a long breath landing on a short sentence, and an ending that hands the table a live choice or stops on the live moment."

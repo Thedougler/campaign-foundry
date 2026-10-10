@@ -6,7 +6,7 @@ Retold from the [SRD 5.2.1](https://media.dndbeyond.com/compendium-images/srd/5.
 
 - **Attitude** is how the NPC regards a character. A Friendly NPC is well disposed and inclined to help. An Indifferent one, the default, has no wish to help or hinder. A Hostile one is ill disposed and inclined to hinder. Roleplaying moves Attitude, especially play on the NPC's wants, fears and sympathies. An Influence check decides one request.
 - **Influence** is the action a character takes to urge the NPC to do one thing. The player says how the character goes about it, and the GM judges the request against the NPC's desires:
-  - **Willing**: the request suits what the NPC wants. It complies without a roll, in the manner it prefers.
+  - **Willing**: the request suits the NPC's own aims. It complies without a roll, in the manner it prefers.
   - **Unwilling**: the request is repugnant to it or runs against its alignment. It refuses without a roll, and no check can change that.
   - **Hesitant**: anything between. Only this case calls for a check.
 - **The check.** The GM picks it from the approach. Deceiving or persuading an NPC that understands the speaker takes Charisma (Deception) or Charisma (Persuasion). Intimidation and amusement take Charisma (Intimidation) and Charisma (Performance). Coaxing a Beast or Monstrosity takes Wisdom (Animal Handling). The DC defaults to `max(15, the NPC's Intelligence score)`. A Friendly NPC grants Advantage on the check, and a Hostile one imposes Disadvantage.

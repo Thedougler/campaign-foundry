@@ -19,7 +19,8 @@ Score every rubric from 1 to 5:
 {{rubrics}}
 
 Scale: 1 broken or off-voice · 2 mostly misses · 3 adequate · 4 vivid,
-economical, exact · 5 a DM would quote it.
+economical, exact · 5 stands beside Brennan Lee Mulligan or Matt Mercer
+at the table.
 
 Rules:
 

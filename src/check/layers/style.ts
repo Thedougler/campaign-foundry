@@ -49,13 +49,9 @@ const NARRATION_HINTS: Record<string, string> = {
 	"Narration.NoEmDash": "Use theatre-of-the-mind, Clean prose: join the clauses with a comma, 'and' or a full stop, e.g. 'A lantern hangs, still lit.'",
 	"Narration.NoSemicolon": "Use theatre-of-the-mind, Clean prose: split into two sentences or join with a comma or 'and', e.g. 'The road bends past a cairn. A drop waits below.'",
 	"Narration.NoColon": "Use theatre-of-the-mind, Clean prose: turn the colon into a full stop or a comma, e.g. 'Two figures wait. Both carry lanterns.'",
-	"Narration.NoCompass": "Say it in the body's directions, e.g. 'the road bends left past a cairn' or 'uphill'; keep the compass bearing in the DM's notes (theatre-of-the-mind, Speakable).",
-	"Narration.NoFootMileCounts": "Say it in the body's terms, e.g. 'a bowshot away' or 'within reach'; keep the figure in the DM's notes (theatre-of-the-mind, Speakable).",
 	"Narration.JudgementWords": "Use theatre-of-the-mind, Evidence: replace the conclusion with what supports it, e.g. 'an abandoned room' becomes 'a bowl of stew has skinned over on the table'.",
 	"Narration.MechanicalTerms": "Use theatre-of-the-mind, Evidence: describe the visible effect and keep rules resolution in the DM's notes, e.g. 'the guard is stunned' becomes 'the guard drops his spear and stares at the broken door'.",
-	"Narration.PerceptionHedges": "Use theatre-of-the-mind, Evidence: state what reaches the Party, e.g. 'the door appears to be locked' becomes 'a padlock hangs from the door's iron loop'.",
-	"Narration.FilterVerbs": "Use theatre-of-the-mind, Situation first: put the event in the world, e.g. 'you see a rider approach' becomes 'a rider approaches along the towpath'.",
-	"Narration.PcInterior": "Use theatre-of-the-mind, Hard line 1: leave the character's feelings and thoughts to their player, e.g. 'your heart races' becomes 'the scream rattles the lantern glass'.",
+	"Narration.PcInterior": "Use theatre-of-the-mind, Hard line 1: sensations and knowledge are the camera's ('you feel the cold of the stone'); the decision and the emotion belong to the player, e.g. 'you decide to run' becomes 'the road forks, and both paths hold their breath'.",
 	"Narration.StockTells": "Use theatre-of-the-mind, People: give the person a physical cue tied to their want, e.g. 'her jaw clenches' becomes 'she plants a boot against the door and holds out her hand for the key'.",
 };
 
@@ -139,6 +135,32 @@ function isConfirmedMisfire(line: string, alert: ValeAlert, names: Set<string>):
 }
 
 /**
+ * The ai-tells rules the exemplar fixture proved misfire on spoken Narration: the technique is DM craft, not AI
+ * filler, and a rule that flags it would have rewritten both Brennan Lee Mulligan and Matt Mercer (ADR 0029).
+ * Each entry is dropped only when the alert's line is spoken Narration ([!narration] callout or Cue); DM prose
+ * keeps every rule at full strength.
+ * - ai-tells.ColonUsage: the Cue label colon (`Failure:`, `Critical:`) precedes the `==…==` marks on a DM-side
+ *   line, and its capitalised word is the Cue's first spoken word. A colon INSIDE the marks stays caught by
+ *   Narration.NoColon on the Cue view, so the exemption only frees the label.
+ */
+const NARRATION_EXEMPT_AI_TELLS: ReadonlySet<string> = new Set<string>(["ai-tells.ColonUsage"]);
+
+/**
+ * Lines whose alerts count as spoken Narration for NARRATION_EXEMPT_AI_TELLS: every line of a [!narration] callout,
+ * its title line included, and each Cue line.
+ */
+function spokenLines(page: Page): Set<number> {
+	const lines = new Set<number>();
+	for (const callout of page.callouts) {
+		if (callout.type !== "narration") continue;
+		const [start, end] = calloutLines(page, callout);
+		for (let line = start; line <= end; line++) lines.add(line);
+	}
+	for (const cue of page.cues) lines.add(cue.line);
+	return lines;
+}
+
+/**
  * A list item's bold lead-in (`- **Found at.** Ravenhold`) is a field name from the template, not a sentence.
  * Vale would read `Found at.` as a clipped sentence and trip its staccato and mic-drop rules on every page, so the
  * label loses its full stop. Line numbers do not change.
@@ -150,21 +172,26 @@ function valeText(text: string, page: Page): string {
 		const [start, end] = calloutLines(page, callout);
 		for (let line = start; line <= end; line++) narrationLines.add(line);
 	}
+	const cueLines = new Set(page.cues.map((cue) => cue.line));
 	// Only narration stays a blockquote: other callouts and ordinary quotes are DM-side prose. A quote line under an
 	// NPC's `## Quotes` is that person's verbatim speech, so it leaves the view (blanked) while its context line stays.
 	let inQuotes = false;
 	const scoped = text.split("\n").map((line, index) => {
 		if (/^#{1,6}\s/.test(line)) inQuotes = /^##\s+Quotes\s*$/.test(line);
 		if (inQuotes && /^[ \t]*>/.test(line)) return "";
-		return narrationLines.has(index + 1) ? line : line.replace(/^[ \t]*(?:>[ \t]?)+/, "");
+		const lineNo = index + 1;
+		// A Cue line keeps its spoken text but loses the `==` marks: ai-tells reads the words, the gate keeps the line.
+		if (cueLines.has(lineNo)) return line.replace(/^[ \t]*(?:>[ \t]?)+/, "").replaceAll("==", "");
+		return narrationLines.has(lineNo) ? line : line.replace(/^[ \t]*(?:>[ \t]?)+/, "");
 	}).join("\n");
 	return scoped.replace(/^([ \t]*(?:[-*+]|\d+\.)[ \t]+\*\*[^*\n]+?)\.(\*\*)/gm, "$1$2");
 }
 
 /**
- * The view the craft checks read: the body lines of every [!narration] callout with their `>` markers stripped,
- * and every other line, the callout's title line included, blanked to "" so line numbers stay the page's. Null
- * when the page has no narration callout, so the craft pass is skipped entirely.
+ * The view the craft checks read: the body lines of every [!narration] callout with their `>` markers stripped, and
+ * each Cue line holding only its spoken texts (the trigger text is DM side, not Narration); every other line, the
+ * callout's title line included, blanked to "" so line numbers stay the page's. Null when the page has neither a
+ * narration callout nor a Cue, so the craft pass is skipped entirely.
  */
 function narrationValeText(text: string, page: Page): string | null {
 	const narrationLines = new Set<number>();
@@ -173,10 +200,39 @@ function narrationValeText(text: string, page: Page): string | null {
 		const [start, end] = calloutLines(page, callout);
 		for (let line = start + 1; line <= end; line++) narrationLines.add(line);
 	}
-	if (narrationLines.size === 0) return null;
-	return text.split("\n").map((line, index) =>
-		narrationLines.has(index + 1) ? line.replace(/^[ \t]*(?:>[ \t]?)+/, "") : "",
-	).join("\n");
+	const cueTexts = new Map<number, string[]>();
+	for (const cue of page.cues) {
+		if (narrationLines.has(cue.line)) continue;
+		const texts = cueTexts.get(cue.line) ?? [];
+		texts.push(cue.text);
+		cueTexts.set(cue.line, texts);
+	}
+	if (narrationLines.size === 0 && cueTexts.size === 0) return null;
+	return text.split("\n").map((line, index) => {
+		const lineNo = index + 1;
+		if (narrationLines.has(lineNo)) return line.replace(/^[ \t]*(?:>[ \t]?)+/, "");
+		const texts = cueTexts.get(lineNo);
+		return texts ? texts.join(" ") : "";
+	}).join("\n");
+}
+
+/**
+ * The view the Narration token rules read over Cues: each Cue line as a blockquote line holding its spoken texts,
+ * every other line blanked to "" so line numbers stay the page's. Null when the page has no Cue, so the pass is
+ * skipped entirely.
+ */
+function cueValeText(text: string, page: Page): string | null {
+	if (page.cues.length === 0) return null;
+	const byLine = new Map<number, string[]>();
+	for (const cue of page.cues) {
+		const texts = byLine.get(cue.line) ?? [];
+		texts.push(cue.text);
+		byLine.set(cue.line, texts);
+	}
+	return text.split("\n").map((_, index) => {
+		const texts = byLine.get(index + 1);
+		return texts ? `> ${texts.join(" ")}` : "";
+	}).join("\n");
 }
 
 function runVale(args: string[]): Promise<{ stdout: string; missing: boolean }> {
@@ -190,9 +246,15 @@ function runVale(args: string[]): Promise<{ stdout: string; missing: boolean }> 
 	return promise;
 }
 
-/** One Vale alert as a gate finding, or null for a DM-confirmed misfire. Shared by the page run and the snippet check. */
-function findingFor(alert: ValeAlert, lineText: string, path: string, names: Set<string>): Finding | null {
+/**
+ * One Vale alert as a gate finding, or null for a DM-confirmed misfire. Shared by the page run and the snippet
+ * check. `onSpokenLine` says the alert's line is Narration the DM speaks (a [!narration] callout line or a Cue
+ * line of the same page); it alone can drop an ai-tells rule in NARRATION_EXEMPT_AI_TELLS, so DM prose keeps
+ * every rule at full strength.
+ */
+function findingFor(alert: ValeAlert, lineText: string, path: string, names: Set<string>, onSpokenLine = false): Finding | null {
 	if (isConfirmedMisfire(lineText, alert, names)) return null;
+	if (onSpokenLine && NARRATION_EXEMPT_AI_TELLS.has(alert.Check)) return null;
 	return {
 		layer: LAYER,
 		rule: alert.Check,
@@ -237,15 +299,22 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 	await mkdir(cacheDir, { recursive: true });
 	const written: Record<string, string> = {};
 	const narrated: Record<string, string> = {};
+	const cued: Record<string, string> = {};
+	const spoken: Record<string, Set<number>> = {};
 	for (const page of pages) {
 		const view = proseView(page, ctx.vault).text;
 		written[page.path] = valeText(view, page);
 		const narration = narrationValeText(view, page);
 		if (narration !== null) narrated[page.path] = narration;
+		const cues = cueValeText(view, page);
+		if (cues !== null) cued[page.path] = cues;
+		spoken[page.path] = spokenLines(page);
 	}
 	const scratch = await mkdtemp(join(cacheDir, "vale-"));
 	// The craft checks read a second view of the same pages, so they get their own scratch folder.
 	const scratch2 = Object.keys(narrated).length > 0 ? await mkdtemp(join(cacheDir, "vale-")) : "";
+	// The Narration token rules read Cues in a third view, under the gate's own config.
+	const scratch3 = Object.keys(cued).length > 0 ? await mkdtemp(join(cacheDir, "vale-")) : "";
 	try {
 		const writeViews = (dir: string, views: Record<string, string>) =>
 			Promise.all(
@@ -255,27 +324,34 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 					await writeFile(file, text);
 				}),
 			);
-		await Promise.all([writeViews(scratch, written), scratch2 ? writeViews(scratch2, narrated) : undefined]);
-		// The craft checks run over [!narration] callouts only, beside the gate's own rules (.vale.ini), in parallel.
-		const [main, craft] = await Promise.all([
+		await Promise.all([
+			writeViews(scratch, written),
+			scratch2 ? writeViews(scratch2, narrated) : undefined,
+			scratch3 ? writeViews(scratch3, cued) : undefined,
+		]);
+		// The craft checks run over [!narration] callouts and Cues only, beside the gate's own rules (.vale.ini), in parallel.
+		const [main, craft, cue] = await Promise.all([
 			runVale(["--config", VALE_CONFIG, "--output=JSON", "--no-exit", scratch]),
 			scratch2 ? runVale(["--config", NARRATION_VALE_CONFIG, "--output=JSON", "--no-exit", scratch2]) : undefined,
+			scratch3 ? runVale(["--config", VALE_CONFIG, "--output=JSON", "--no-exit", scratch3]) : undefined,
 		]);
-		if (main.missing || craft?.missing) valeMissing();
-		const [byFile = new Map<string, ValeAlert[]>(), craftByFile = new Map<string, ValeAlert[]>()] = ([[main.stdout, scratch], [craft?.stdout ?? "", scratch2]] as const).map(
-			([stdout, dir]) =>
-				new Map(
-					Object.entries((stdout.trim() === "" ? {} : JSON.parse(stdout)) as Record<string, ValeAlert[]>).map(
-						([file, alerts]) => [file.startsWith(dir) ? file.slice(dir.length + 1) : file, alerts],
-					),
+		if (main.missing || craft?.missing || cue?.missing) valeMissing();
+		const [byFile = new Map<string, ValeAlert[]>(), craftByFile = new Map<string, ValeAlert[]>(), cueByFile = new Map<string, ValeAlert[]>()] = (
+			[[main.stdout, scratch], [craft?.stdout ?? "", scratch2], [cue?.stdout ?? "", scratch3]] as const
+		).map(([stdout, dir]) =>
+			new Map(
+				Object.entries((stdout.trim() === "" ? {} : JSON.parse(stdout)) as Record<string, ValeAlert[]>).map(
+					([file, alerts]) => [file.startsWith(dir) ? file.slice(dir.length + 1) : file, alerts],
 				),
+			),
 		);
 		const names = properNouns(ctx.vault);
 		const findings: Finding[] = [];
 		for (const page of pages) {
 			const lines = (written[page.path] ?? "").split("\n");
+			const pageSpoken = spoken[page.path] ?? new Set<number>();
 			for (const alert of byFile.get(page.path) ?? []) {
-				const finding = findingFor(alert, lines[alert.Line - 1] ?? "", ctx.display(page.path), names);
+				const finding = findingFor(alert, lines[alert.Line - 1] ?? "", ctx.display(page.path), names, pageSpoken.has(alert.Line));
 				if (finding) findings.push(finding);
 			}
 			const narration = (narrated[page.path] ?? "").split("\n");
@@ -283,11 +359,19 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 				const finding = narrationFinding(alert, narration[alert.Line - 1] ?? "", ctx.display(page.path));
 				if (finding) findings.push(finding);
 			}
+			// Every Cue-pass line is spoken Narration by construction, so its Narration.* alerts may use the exemption.
+			const cueLines = (cued[page.path] ?? "").split("\n");
+			for (const alert of cueByFile.get(page.path) ?? []) {
+				if (!alert.Check.startsWith("Narration.")) continue;
+				const finding = findingFor(alert, cueLines[alert.Line - 1] ?? "", ctx.display(page.path), names, true);
+				if (finding) findings.push(finding);
+			}
 		}
 		return findings;
 	} finally {
 		await rm(scratch, { recursive: true, force: true });
 		if (scratch2) await rm(scratch2, { recursive: true, force: true });
+		if (scratch3) await rm(scratch3, { recursive: true, force: true });
 	}
 }
 
@@ -306,6 +390,7 @@ export async function styleSnippet(vault: Vault, root: string, rel: string, text
 	requireStyles();
 	const page = parsePage(rel, text);
 	const body = valeText(proseView(page, vault).text, page);
+	const spoken = spokenLines(page);
 	const cacheDir = join(root, ".cache", "check");
 	await mkdir(cacheDir, { recursive: true });
 	const scratch = await mkdtemp(join(cacheDir, "vale-"));
@@ -321,7 +406,7 @@ export async function styleSnippet(vault: Vault, root: string, rel: string, text
 		const findings: StyleFinding[] = [];
 		for (const alerts of Object.values(results)) {
 			for (const alert of alerts) {
-				const finding = findingFor(alert, lines[alert.Line - 1] ?? "", rel, names);
+				const finding = findingFor(alert, lines[alert.Line - 1] ?? "", rel, names, spoken.has(alert.Line));
 				if (finding) findings.push({ ...finding, match: alert.Match });
 			}
 		}

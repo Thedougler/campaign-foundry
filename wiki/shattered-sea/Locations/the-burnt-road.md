@@ -21,17 +21,17 @@ title: "The Burnt Road"
 - **Prize.** Spent authority seals and evidence of the attack on the Grove.
 
 > [!narration] Entering
-> A straight cut the width of a village street runs through charcoal-rooted trees. Black flowers give underfoot. Bodies lie sunk to the shoulders with roots through their ribs, and no fruit or bird breaks the scar.
+> You arrive on the burnt road. It runs dead straight toward the island's heart, twenty feet across, open from side to side. Black flowers give underfoot, and ten feet out on either side the charred trunks grow thick enough to hide whatever hangs between them. You look down the cut, and the open ground keeps going. A skeleton lies sunk to its shoulders, twenty feet to the next, thirty at the most, bone white and clean of decay, roots run through its ribs. No bird crosses the open ground, and no fruit hangs anywhere on the burn. You hear nothing move in the trees. Every skeleton has something brown at its ribs, and gold glints in the brown.
 
 ## Play
 
 ### Areas
 
-The twenty-foot road, bodies and seals, cracked fire pots, black flowers and east side trail.
+==This road runs where you're going, straight toward the grove. The dead keep that spacing all the way down.== The twenty-foot road, bodies and seals, cracked fire pots, black flowers and east side trail.
 
 ### Hazards
 
-The regrown forest hides beyond ten feet. Pulling a body free or burning anything invokes Aruhe's response.
+The regrown forest hides beyond ten feet, and past that line the hanging coils pass for vines. Leave the dead rooted and the burn keeps quiet: ==Only the wind moves the flowers, and that is all.== Pull a body free or light a fire, and that invokes Aruhe's response: ==Ten feet into the regrowth, a loose root tip twitches once.==
 
 ### Occupants
 

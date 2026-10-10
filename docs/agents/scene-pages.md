@@ -74,15 +74,13 @@ Start from the existing page for a redo, or from the template copied to `wiki/<c
 - **Spine.** Keep every `##` heading at its depth and in template order, and every required callout type. A `##` whose guidance opens with `Optional.` appears, in template order, only when the Scene uses it. A `###` is optional structure: keep it where it has content. Add `####` subheadings inside that spine as content needs them.
 - **Guidance.** Delete every `%% %%` comment after filling its section with the content the comment specifies.
 - **At a glance.** Keep each template bullet's bold label and write its line after the label.
-- **Checks.** One row per uncertain action, in this format. In `Intent`, give the trigger and action or time cost:
+- **Checks.** One bullet per uncertain action, in this format. Give the trigger and action or time cost, the Ability (Skill) and DC, then each result's ruling and its Cue (**Narration** below):
 
   ```markdown
-  | Intent | Approach | DC | Success | Failure |
-  | --- | --- | --- | --- | --- |
-  | Climb the wall without rope | Strength (Athletics) | 15 | Up to the ledge. | Slide back and take 1d6 Bludgeoning damage. |
+  - **Climb the wall without rope.** Strength (Athletics) DC 15, one action. Success: ==You get your fingers over the lip of the ledge, and the whole yard opens below you.== Failure: 1d6 Bludgeoning damage. ==The stone crumbles under your boot and drops you back into the ditch, and the guard on the walk turns his lantern your way.==
   ```
 
-  For a save, specify the ability, DC and effects. For a contest, specify both sides and the tie. A sensible action without real doubt simply works, without a row.
+  A failure Cue installs a false belief, a constraint or a consequence with its cause, never a blank. A check that can critically succeed adds `Critical:` with its own Cue paying out world-law (`theatre-of-the-mind` `references/recipes.md` § Cues). For a save, specify the ability, DC and effects. For a contest, specify both sides and the tie. A sensible action without real doubt simply works, without a bullet.
 - **Outcomes.** Keep the template's `| If | Then | Hands to |` table, one row per result. `Hands to` holds the receiving Scene's link, such as `[[session-12-terror-birds\|Session 12 - Terror-Birds]]` (a pipe inside a table cell is escaped).
 - **Statblocks.** Creature statistics stay on their owner pages. The Scene shows them only as `![[<creature-slug>#Statblock|<Creature title>]]` embeds in its Encounter.
 - **Prep link.** Link the page from Prep's Scene Chart when Prep exists, and update the row's planning notes or Clue routes where this Scene changes them.
@@ -93,16 +91,16 @@ Put every table-use fact on the page. State who wants what and by which means, a
 
 ## Narration
 
-Write each `[!narration]` callout yourself with `theatre-of-the-mind`, once the DM-side facts exist. Read exactly these parts:
+Write each `[!narration]` callout and each Cue yourself with `theatre-of-the-mind`, once the DM-side facts exist. Read exactly these parts:
 
 - `.agents/skills/theatre-of-the-mind/SKILL.md`, Steps 1 to 4, Craft, Hard lines and Final check. Its Step 5 gate runs once, in **Completion** below.
-- `.agents/skills/theatre-of-the-mind/references/recipes.md`: the shared rules at its top, `## Openings and first looks`, `## Scene openings`, and the recipe heading for each callout you write. The template callout uses the kind's heading (`### Hook`, `### Development`, `### Cliffhanger`, `### Climax` or `### Closing image`). A callout titled with an NPC's or Creature's name uses `### NPC entering` or `### Creature entering`. A major reveal uses `### Revelation`, and a cut across unplayed time or space uses `### Transition`.
+- `.agents/skills/theatre-of-the-mind/references/recipes.md`: the shared rules at its top, `## Openings and first looks`, `## Scene openings`, `## Cues`, and the recipe heading for each callout you write. The template callout uses the kind's heading (`### Hook`, `### Development`, `### Cliffhanger`, `### Climax` or `### Closing image`). A callout titled with an NPC's or Creature's name uses `### NPC entering` or `### Creature entering`. A major reveal uses `### Revelation`, and a cut across unplayed time or space uses `### Transition`.
 - `.agents/skills/theatre-of-the-mind/references/critique.md`, once, at its Step 4.
-- `reference/gm-voice/passages.md`: the three example passages theatre-of-the-mind Step 2 reads, as that step sets out.
+- `reference/gm-voice/exemplars.md`: the three exemplar passages theatre-of-the-mind Step 2 reads, as that step sets out.
 
 Its caller-supplied pages are this Scene and the pages you read in **Ground**. Give each callout its title, the Scene kind, the actual viewpoint, the entry condition and the spatial facts.
 
-Place callouts in these formats:
+Place callouts and Cues in these formats:
 
 - The template's callout keeps the template's title exactly, such as `> [!narration] Opening`.
 - An NPC or Creature entering sits under `## Play` or the Encounter, titled with the subject's name: `> [!narration] Luca Ferrante`. A major Revelation gets its own conditional callout there.
@@ -121,11 +119,12 @@ Place callouts in these formats:
   ```
 
   The narration gate compares variants with each other, so give each its own wording rather than shared runs of four or more words.
+- A Cue is written on a DM-side line in `## Play` or the Encounter (a Checks bullet, a Handles line, a Creatures tactic), right after its trigger, between `==` marks: `Failure: ==One stone sits smoother than the rest, and your thumb finds the groove before your eyes do.==` The trigger, rules terms, DCs and damage numbers stay outside the marks. One to three sentences, 60 words at most. The gate reads each Cue as Narration.
 - When an established result settles an unplayed cut of time or space, put a `Transition` callout immediately before the destination's opening or closing slot. Leave unresolved travel choices to the Players.
 
 Check the filed prose against the Final check items that apply, quoting its actual words, then against every entry that can select it. Repair mismatched carriers, companions, possessions or positions.
 
-**Done when** every required spoken slot is filed, its applicable Narration checks have quoted evidence, each variant's visible facts are true on its own condition, and live events stop where the Players can respond.
+**Done when** every required spoken slot and every Cue is filed, its applicable Narration checks have quoted evidence, each variant's visible facts are true on its own condition, and live events stop where the Players can respond.
 
 ## Outcomes
 

@@ -30,3 +30,20 @@
   --callout-color: 224, 176, 96;
   background-color: rgba(var(--callout-color), 0.1);
 }
+
+/* Cues (`==…==`): the same gold as [!narration], italic with a baseline rule, so spoken lines read as one family. */
+body {
+  --narration-rgb: 201, 150, 71;
+}
+
+.theme-dark {
+  --narration-rgb: 224, 176, 96;
+}
+
+.markdown-rendered mark,
+.cm-highlight {
+  background-color: rgba(var(--narration-rgb), 0.14);
+  color: inherit;
+  font-style: italic;
+  border-bottom: 2px solid rgb(var(--narration-rgb));
+}

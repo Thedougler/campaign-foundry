@@ -9,7 +9,7 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Wants is an outcome the next Scene or Session can reach. Voice gives word choice, rhythm and a habit. Found at links the Location. The `creature` property links the Creature page with their statistics, and the statblock belongs on that page. %%
+%% Give the DM a ten-second read, one line per bullet. Wants is an outcome the next Scene or Session can reach. Voice gives diction, rhythm, a habit, and how much they say. Found at links the Location. The `creature` property links the Creature page with their statistics, and the statblock belongs on that page. %%
 
 - **Role.**
 - **Wants.**
@@ -21,7 +21,7 @@ revealed: ""
 
 ## Play
 
-%% Write how a meeting runs, one line per bullet, each from this person's own wants and limits. An incidental NPC keeps only the bullets its Scene uses. Opening move gives where they are and what they are doing, with their starting Attitude. Will share and Will not share set what they know beside what is true. Requests gives each likely ask with its answer, its price and what it changes. If pressed gives the sourced Influence roll, or why a request is automatic. Invitations ties a returning NPC to a PC's own Goals, bonds or Plans, one line per PC it touches. %%
+%% Write how a meeting runs, one line per bullet, each from this person's own wants and limits. An incidental NPC keeps only the bullets its Scene uses. Opening move gives where they are and what they are doing, with their starting Attitude. Will share and Will not share set what they know beside what is true. Requests gives each likely ask with its answer as a Cue (`==…==`) in this person's own voice, its price and what it changes. If pressed gives the sourced Influence roll, or why a request is automatic, with the answer as a Cue. Invitations ties a returning NPC to a PC's own Goals, bonds or Plans, one line per PC it touches. %%
 
 - **Opening move.**
 - **Opens them up.**

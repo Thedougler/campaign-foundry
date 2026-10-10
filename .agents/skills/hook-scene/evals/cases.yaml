@@ -5,10 +5,12 @@
     - shattered-sea/Sessions/Session 11/session-11-recap.md
     - shattered-sea/shattered-sea.md
   prompt: >-
-    Redo Dawn Strike for Session 12. Skarn wants the Spinner for Vantyrus, not
-    a kill, and he's loyal to him right now. Jean-Claude is awake; he was only
-    catatonic because his Player was absent. Keep theft, capture and him getting
-    away all possible.
+    Redo Dawn Strike for session 12, we're redoing it from the top since the
+    skills have had significant upgrades. Jean-Claude will be awake at the
+    start of the session, he was only catatonic because the player was absent.
+    Skarn wants it for Vantyrus. Long term Vantyrus knows Skarn will attempt to
+    kill him, as of right now Skarn is loyal. His goal is always the Spinner
+    rather than winning a prolonged fight.
   checks:
     pages:
       - shattered-sea/Sessions/Session 12/session-12-dawn-strike.md
@@ -29,6 +31,7 @@
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Hook\s*$'
         - '^> \[!narration\] Opening\s*$'
+        - '^### Checks\n(?:(?!#{2,3} ).*\n)*?.*==[^=\n]+=='
   rubrics:
     - >-
       The DM can run the Hook from this page and its resolving owner embeds:
@@ -57,7 +60,10 @@
     - >-
       Every Opening variant meets theatre-of-the-mind standard: speakable
       after one hearing, with a concrete disturbance in the Party's sight,
-      clear placement, physical form and scale against familiar things, and
+      clear placement, physical form and scale the table can use, measured or against familiar things, and
       sourced sensory detail. It stops before a live theft, blow or escape
       resolves, keeps secrets and mechanics in DM notes, and assigns no PC
       action, feeling or thought.
+    - >-
+      Each uncertain check carries a Cue per result, and no failure Cue is a
+      blank.

@@ -1,8 +1,9 @@
 extends: existence
-message: "Narration enters a player character's interior ('%s'). Describe the cause in the world and leave their response to the player."
+message: "Narration gives the PC sensations and knowledge; the decision and the emotion belong to the player."
 level: warning
 scope: blockquote
 ignorecase: true
 tokens:
-  - you (?:feel|sense|realize|know|wonder)
-  - your (?:heart|breath|stomach)
+  - you (?:decide|choose|resolve|want to)\b
+  - you feel (?:afraid|scared|frightened|angry|sad|guilty|ashamed|relieved|happy|nervous|anxious|hopeful|dread|a sense of)\b
+  - your heart (?:pounds|races|sinks|leaps)

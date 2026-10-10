@@ -17,7 +17,7 @@ revealed: ""
 - **Opposition.**
 
 > [!narration] Opening
-> %% Spoken, second person, present tense, under 200 words. Show the opposition mid-act and the stakes, with the Location's usable features, and end on the escalation before it strikes. %%
+> %% Spoken, second person, present tense, under 200 words. Show the opposition mid-act and the stakes, with the Location's usable features, and end on the escalation before it strikes, which may be one situation-specific handoff question or either/or. %%
 
 ## Threads
 
@@ -33,15 +33,15 @@ revealed: ""
 
 ### Pressure
 
-%% Give the opposition's first move and its answer to interference. Then give its desperate move and its exit or surrender terms. Each phase has a trigger and a signal, and opens a new opportunity. %%
+%% Give the opposition's first move and its answer to interference. Then give its desperate move and its exit or surrender terms. Each phase has a trigger and a signal as a repaint Cue (`==…==`), and opens a new opportunity. %%
 
 ### Checks
 
-%% Give each check or save with its Ability (Skill) and DC, and success and failure. %%
+%% Give each check or save with its Ability (Skill) and DC, then each result the check can produce as a Cue (`==…==`): success, failure, and a critical success where its tier can land, paying world-law. Failure installs a false belief, a constraint or a caused consequence, never a blank. %%
 
 ### Encounter
 
-%% Use this for a Climax the Party may fight. Give forces and deployment, the battlefield, and the break or escape conditions. Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]`, and add a `#### Balance` with the `bun run cf -- encounter-budget` lines and the PCs able to act. %%
+%% Use this for a Climax the Party may fight. Give forces and deployment, the battlefield, and the break or escape conditions, with each Creature's opening tactic and enemy-turn answers as Cues (`==…==`), and a kill-handoff Cue for each the Party can fell. Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]`, and add a `#### Balance` with the `bun run cf -- encounter-budget` lines and the PCs able to act. %%
 
 ## Outcomes
 

@@ -87,11 +87,9 @@ export function wordsWithLines(text: string, firstLine = 1): { word: string; lin
 
 const PLACEHOLDER = "SPOKENLINE";
 
-/**
- * Narration sentences: the callout's sentences with spoken lines cut out; a sentence with nothing left is not one.
- * A quoted line that ends on its own full stop, question or exclamation ends the narration sentence it sits in.
- */
-function narrationSentences(text: string): string[] {
+/** Narration sentences: the callout's sentences with spoken lines cut out; a sentence with nothing left is not one.
+ * A quoted line that ends on its own full stop, question or exclamation ends the narration sentence it sits in. */
+export function narrationSentences(text: string): string[] {
 	const masked = text
 		.replace(SPEECH, (quote) => ` ${PLACEHOLDER}${/[.!?]["”]$/.test(quote) ? quote.at(-2) : ""} `)
 		.replace(/\s+/g, " ")
@@ -120,18 +118,17 @@ const DETERMINERS = new Set(
 	`the a an this that these those his her their its our my your some each every one two three four five six seven eight nine ten many several both another`.split(" "),
 );
 
-/** The "list" openers: You…, a preposition and its place, or a bare noun phrase. */
+/** The "list" openers: a preposition and its place, or a bare noun phrase. */
 function listOpener(first: string[]): boolean {
 	const w1 = (first[0] ?? "").toLowerCase();
 	const w2 = (first[1] ?? "").toLowerCase();
-	if (w1 === "you" || w1 === "your") return true;
 	if (PREPOSITIONS.has(w1)) return true;
 	if (ADVERBS_BEFORE_PREPOSITION.has(w1) && PREPOSITIONS.has(w2)) return true;
 	return DETERMINERS.has(w1) || /^\d/.test(w1);
 }
 
 const EVALUATIVE_ADJECTIVES = new Set(
-	`abandoned ancient beautiful bleak bustling dangerous dreadful eerie elegant enormous extraordinary fierce grim horrible impressive lovely magnificent mysterious ominous perfect remarkable strange terrible tiny ugly vast wonderful`.split(
+	`abandoned bleak bustling dangerous dreadful eerie elegant extraordinary fierce grim impressive magnificent mysterious ominous perfect remarkable ugly`.split(
 		" ",
 	),
 );
@@ -334,7 +331,7 @@ export function analyzeCallout({ body, sources, names = new Set(), isWord = () =
 			rule: "fresh-starts",
 			severity: "warning",
 			message: `Sentences ${run.from} to ${run.to} open like a list: ${run.starts.map((s) => `"${s}"`).join(", ")}.`,
-			hint: 'Told: connect sentences by cause or motion. For example, replace "You cross. In the tower, a bell rings. Back in the yard, guards gather." with "A bell rings as you cross, drawing guards into the yard."',
+			hint: 'Told: connect sentences by cause or motion. For example, replace "In the tower, a bell rings. Back in the yard, guards gather. By the gate, dogs bark." with "A bell rings in the tower, drawing guards and dogs into the yard."',
 		});
 	}
 	if (evaluativeAdjectiveStacks.length > 0) {

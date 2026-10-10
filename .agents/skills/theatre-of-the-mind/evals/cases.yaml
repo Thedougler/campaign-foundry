@@ -3,8 +3,9 @@
   source_pages:
     - shattered-sea/Items/fate-spinner.md
   prompt: >-
-    Show me an improved version of the Fate Spinner narration block in the
-    chat without editing the file itself.
+    I'd like you to show me an improved version of the Fate Spinner narration
+    block in the chat without editing the file itself, redo the narration
+    following the latest improvements to theatre-of-the-mind.
   checks:
     canon:
       shattered-sea/Items/fate-spinner.md:

@@ -1,4 +1,5 @@
 # Narration craft checks and the voice envelope
+Partly superseded by [0029](0029-exemplar-dms-set-the-narration-bar.md) (rule set, corpus).
 
 Extends [ADR 0015](0015-one-gate-with-warning-and-error-severities.md).
 

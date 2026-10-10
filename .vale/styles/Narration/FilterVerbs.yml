@@ -1,7 +1,0 @@
-extends: existence
-message: "Narration chooses a character's attention ('%s'). Put the subject and its action in the world instead."
-level: warning
-scope: blockquote
-ignorecase: true
-tokens:
-  - you (?:see|hear|notice|watch|spot)

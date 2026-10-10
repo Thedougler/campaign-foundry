@@ -8,7 +8,7 @@ Sort each detail by its job.
 
 - **Essential Clues.** A Clue the Party needs for progress keeps a fixed truth and three independent routes, as `prep-session` step 5 sets out.
 - **Colour.** Optional colour details are left uncommitted, and play decides their meaning later.
-- **Connection.** Between Sessions, read the last two Session Ledgers in `archive/*.ledger.md` for what the Players fixated on: `SAID` lines where a Player or their PC asks a question or offers a theory, `PLAY` choices that chase a detail, and `MOMENT` lines. Connect each of those details to a live Thread. The Ledgers already record these fixations, so no template or Wiki field tracks them.
+- **Connection.** Between Sessions, read the last two Session Ledgers in `archive/*.ledger.md` for what the Players fixated on: `SAID` lines where a Player, in or out of character, asks a question or offers a theory, `PLAY` choices that chase a detail, and `MOMENT` lines. Connect each of those details to a live Thread. The Ledgers already record these fixations, so no template or Wiki field tracks them.
 
 ## Clue ladders
 
@@ -36,4 +36,4 @@ A red herring enters a page only when the DM names it as one.
 
 ## Closing stinger
 
-A Resolution's stinger ends the Session on a peak at least as high as the danger just overcome. It can end on an arrival, such as a new NPC or a new place. It can also end on a revelation of the next goal or a secret, or stop just before initiative. The next Session's Hook resolves the stinger within its opening minutes. The stinger belongs to the Resolution, and a Cliffhanger stays the action Scene `CONTEXT.md` defines.
+A Resolution's stinger ends the Session on a peak at least as high as the danger just overcome. It can end on an arrival, such as a new NPC or a new place. It can also end on a revelation of the next goal or a secret, or cut mid-effect just before initiative. The next Session's Hook resolves the stinger within its opening minutes. Where the Session needs to settle after its peak, it closes on a decompression coda in place of a stinger. The coda is a quiet exchange or a still image of the aftermath, opened out to its scale, and the next Hook owes it nothing. The stinger belongs to the Resolution, and a Cliffhanger stays the action Scene `CONTEXT.md` defines.

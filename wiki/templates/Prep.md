@@ -30,7 +30,7 @@ revealed: ""
 
 ## Opposition
 
-%% Link each opposing NPC, Creature and Faction, with its Session goal and means and why that goal crosses the Party's path. Then give its unopposed timeline. Each entry pairs a trigger with an action and its sign, and states the consequence and what interference changes. Each speaking cast member gets a bench line with the moment they grab the Scene and how to play them at once. Statblocks are embedded only on the Scene where they are fought. %%
+%% Link each opposing NPC, Creature and Faction, with its Session goal and means and why that goal crosses the Party's path. Then give its unopposed timeline. Each entry pairs a trigger with an action and its sign, and states the consequence and what interference changes. Each speaking cast member gets a bench line with the moment they grab the Scene and how to play them at once, ending on the Cue (`==…==`) they open with. Statblocks are embedded only on the Scene where they are fought. %%
 
 ## Clues
 

@@ -60,7 +60,7 @@ Write facts that change play:
 - **Knowledge:** for every question the page raises, state the truth separately from what the NPC knows, shares, sells, or lies about.
 - **If ignored:** the next action the NPC takes without the Party.
 
-Make the person distinctive. Give them a repeatable face with two or three specific visible details, a sourced sound or smell and an activity. Root their voice in what they care about, with word choice, rhythm, habit, an avoided subject, and an ask, refusal and pressure line. Apply the swap test against a plausible NPC from the same place or Faction. Put every hidden truth's tell in the DM-facing material, not in Player-facing Narration. A filed NPC whose drives are sound but whose presence reads generic gets a `flesh-out` pass in place of a rebuild.
+Make the person distinctive. Give them a repeatable face with two or three specific visible details, a sourced sound or smell and an activity. Build their voice per [references/craft.md, Voice](references/craft.md#voice). Apply the swap test against a plausible NPC from the same place or Faction. Put every hidden truth's tell in the DM-facing material, not in Player-facing Narration. A filed NPC whose drives are sound but whose presence reads generic gets a `flesh-out` pass in place of a rebuild.
 
 **Gate:** every required drive field is concrete. The secret has stakes and three non-duplicate routes. Truth and NPC knowledge are separate, the face and voice fail the swap test, and every hidden truth has a testable tell.
 
@@ -72,13 +72,13 @@ Use `references/craft.md` for face, voice, and tells. For a Scene or larger, wri
 - their opening move and starting Attitude
 - what opens them up and what shuts them down
 - what they protect first
-- the Party's likely requests, each with its answer, price and what it changes
+- the Party's likely requests, each with its answer written as a Cue in the NPC's voice, its price and what it changes
 
 For every Influence request, apply `references/influence.md`: it holds the sourced 2024 rule (Attitude, willingness, the check and its DC) and the procedure for running it.
 
 Do not put an essential clue behind one roll. Give each essential conclusion about three independent routes such as a statement, trace, witness, document, or consequence; a miss can add cost, danger, delay, or uncertainty while leaving a way forward.
 
-**Gate:** the DM can run the first five minutes, and every likely request has an answer and outcome. Attitude and willingness are separate. Each roll states a sourced rule, Ability (Skill), DC, success and a miss that changes the situation. Essential information has independent routes.
+**Gate:** the DM can run the first five minutes, and every likely request has an answer and outcome. Attitude and willingness are separate. Each roll states a sourced rule, Ability (Skill), DC, success and a miss that changes the situation, and each result's answer is a Cue. Essential information has independent routes.
 
 ### 5. Attach rules without turning the NPC into a Creature
 
@@ -104,11 +104,11 @@ With no active Campaign, retain the plan on the NPC in the World, do not invent 
 
 ### 8. Write Narration and file the pages
 
-Load `theatre-of-the-mind` for the NPC template's `[!narration] First look` and write it to the recipe in [references/craft.md](references/craft.md#first-look). Preserve Narration already heard at the table unless the DM explicitly requests a rewrite.
+Load `theatre-of-the-mind` for the NPC template's `[!narration] First look` and write it to the recipe in [references/craft.md](references/craft.md#first-look). Write the `Requests` and `If pressed` answers as Cues (`==…==` after their trigger) to its `references/recipes.md` § Cues. Preserve Narration already heard at the table unless the DM explicitly requests a rewrite.
 
 Copy `wiki/templates/NPC.md` exactly in `<campaign-folder>/NPCs/`. A page already filed keeps its folder. Fill its required `At a glance`, `Play`, `Depth`, and `Links` sections with only the facts the selected scale needs. Fill the optional `Quotes` only with lines the DM, a Transcript or a source gives this person, word for word, and leave it out when there are none. Link the Creature, Location, Faction, PCs, Threads, supporters, and other owners. If a Creature or Thread was created, file it with its own template and link it from the owner page.
 
-**Gate:** the page has the template's required properties, sections, and callout; the first look is speakable and Player-safe; every new page is inbound-linked; no page contains agent process notes, inline rules, or empty filler.
+**Gate:** the page has the template's required properties, sections, and callout; the first look and every Cue are speakable and Player-safe; every new page is inbound-linked; no page contains agent process notes, inline rules, or empty filler.
 
 ### 9. Close against the caller's target
 

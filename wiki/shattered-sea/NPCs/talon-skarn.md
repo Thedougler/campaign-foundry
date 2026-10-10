@@ -25,15 +25,16 @@ title: "Talon Skarn"
 - **Found at.** Fighting the Party at their inland camp on [[aruhe|Aruhe]], invisible but outlined by falling water.
 
 > [!narration] First look
-> A peregrine aarakocra drops from the glare, brown wings half open and chains ticking over a black robe. His amber stare fixes on the carrier's straps before he says, “Set the toy on the stone.”
+> You see the glare high over the camp. Then something drops out of the glare. Brown wings half open, chains ticking over a black robe, a peregrine aarakocra braking hard for the last twenty feet to land standing on the stone ten strides from you, katana still sheathed. The wings fold. You see where his amber stare goes, past your faces to the carrier's straps. It stays there while the chains swing still. Then it comes up to the carrier's eyes. “Set the toy on the stone.”
 
 ## Play
 
 - **Opens them up.** A clean defeat or talk that treats Vantyrus as beatable.
 - **Shuts them down.** Questions about his master's name, threats, or pity.
-- **Will share.** He names Vantyrus when he calls for help or offers a meeting in exchange for the Spinner. He says his orders forbid killing Crissdalynn, but leave her companions unprotected.
-- **Will not share.** His routes or the reason for the Spinner.
-- **If pressed.** He threatens companions to force Crissdalynn to surrender the Spinner. He escaped the river-camp fight severely wounded, ate stolen fruit to vanish, and returned to attack their next camp.
+- **Will share.** He names Vantyrus when he calls for help or offers a meeting in exchange for the Spinner. He says his orders forbid killing Crissdalynn, but leave her companions unprotected. Pressed to end the hunt, he answers with the katana still crossed over his forearm: ==My orders forbid killing the staff. They leave the rest of you unmentioned. Give up the toy, and Vantyrus grants you a meeting.==
+- **Will not share.** His routes or the reason for the Spinner. Asked where he flies or what the toy is for, he tips his head away from the question: ==Where I fly is mine to know. The purpose of the toy is my master's to tell, not mine. Ask me something I can answer.==
+- **Requests.** The Fate Spinner laid on open stone where he can watch every hand near it. The price never moves, and what it buys is the meeting with Vantyrus. He hears any other offer out, then repeats the trade: ==Set it on the stone, hands where I can watch. Everything else comes after.==
+- **If pressed.** He threatens companions to force Crissdalynn to surrender the Spinner. He escaped the river-camp fight severely wounded, ate stolen fruit to vanish, and returned to attack their next camp. A talon closes on the fruit pack's strap and drags its carrier a step closer: ==My orders are silent on the fruit carrier. The toy, or his breath.==
 
 ## Depth
 

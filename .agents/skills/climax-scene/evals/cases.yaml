@@ -32,6 +32,7 @@
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Climax\s*$'
         - '^> \[!narration\] Opening\s*$'
+        - '^### Checks\n(?:(?!#{2,3} ).*\n)*?.*==[^=\n]+=='
   rubrics:
     - >-
       The DM can run the Session's highest-stakes question from this page:
@@ -61,7 +62,10 @@
     - >-
       Every Opening and escalation callout meets theatre-of-the-mind
       standard: speakable after one hearing, grounded in the visible brink,
-      with concrete form, scale against familiar things and usable spatial
+      with concrete form, scale the table can use, measured or against familiar things and usable spatial
       relationships. Each live event stops before Players would act; theft
       and Perrin's choice are not resolved in spoken text. Secrets, mechanics
       and PC actions, feelings or thoughts remain outside Narration.
+    - >-
+      Each uncertain check carries a Cue per result, and no failure Cue is a
+      blank.
