@@ -87,7 +87,7 @@ When the decision belongs to a PC, mark it `Party choice:`.
 Draft prose only when the DM asks, one Beat at a time, so the DM can edit between Beats. For each Beat:
 
 1. Find the Beat's pages. `bun run cf -- context -` on the Beat's text gives the pages it names literally. Search the Wiki (`.omp/AGENTS.md` § Wiki access) for each subject the Beat describes without its page's name. Read the candidates and keep each page the Beat is about.
-2. Dispatch one `creative-writer` with the brief below. Its field labels are Re3's and DOC's drafting labels ([planning-architectures.md](../../../../docs/research/creative-writing/planning-architectures.md) §2 and §3), and its closing instructions are the Agents' Room continuation instructions (§1), each carried exactly as written. Add the pointer to the [Content stance](../../../../AGENTS.md#content-stance).
+2. Dispatch one `creative-writer` with the brief below. Its first six lines are Re3's and DOC's drafting labels ([planning-architectures.md](../../../../docs/research/creative-writing/planning-architectures.md) §2 and §3), and its closing instructions are the Agents' Room continuation instructions (§1), each carried exactly as written. Its last seven labels are the scene brief and style anchor of the AI Fiction Prompting Guide in the DM's Second Brain ([ledger](../../../../docs/research/agent-engineering.md), Adopt). Fill each of those seven as what the scene does: what each person wants, hides, senses and ends on. Fill `Target length:` with the count the DM asked for, or else 800 words. A leaf Beat runs roughly 500 words of prose, and models write short of the count they are given ([beats-and-context.md](../../../../docs/research/creative-writing/beats-and-context.md) §1.5 and §1.7). Add the pointer to the [Content stance](../../../../AGENTS.md#content-stance).
 
    ```text
    Premise: <the bible's [Premise]>
@@ -96,6 +96,13 @@ Draft prose only when the DM asks, one Beat at a time, so the DM can edit betwee
    Events immediately prior to the upcoming passage: <a summary of the last drafted Beat>
    The characters currently in the scene are <names>.
    In the upcoming passage, <this Beat, then the next Beat as future context>
+   Character wants: <what each character present wants in this Beat, one line each, from the Beat's goal and each card's Want vs. Need or Goals and bonds>
+   Conflict: <why those wants collide, from the Beat's conflict>
+   Subtext: <what each character keeps hidden or talks around, from the cards' Backstory and fears>
+   Sensory anchors: <2 to 4 concrete sights, sounds, smells or textures, each taken from a page read in step 1>
+   Style anchor: <a passage of prose the DM wrote or rewrote for this Story, quoted exactly from the drafts or the notes, or the dated lines of user-config.md § Prose voice, quoted, when he has written none>
+   Ending state: <the reversal, decision, image, discovery or new problem the Beat closes on, from its outcome and decision, with a PC's decision marked Party choice:>
+   Target length: <a word count>
    ```
 
    When earlier Beats have drafts, append:

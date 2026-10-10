@@ -1,38 +1,69 @@
+import { resolve } from "node:path";
 import { Command } from "commander";
-import { packageSkill, validateSkill } from "../../evals/authoring.ts";
+import { SkillReferenceError, packageSkill, validateSkill } from "../../evals/authoring.ts";
+import { buildSkillGraph } from "../../evals/skill-graph.ts";
+import { findRepoRoot } from "./check.ts";
+
+/** The repository root a `--root` flag names, else the nearest git root; `skill://` names resolve under it. */
+function flagRoot(root: string | undefined): string {
+	return resolve(process.cwd(), root ?? findRepoRoot(process.cwd()));
+}
+
+/**
+ * Print a SkillReferenceError's findings and fail with exit code 1, the gate convention of
+ * `cf check`: broken references are findings, not usage errors.
+ */
+function reportBrokenReferences(error: unknown, rerun: string): void {
+	if (!(error instanceof SkillReferenceError)) throw error;
+	process.stdout.write(`${error.message}\n${rerun}\n`);
+	process.exitCode = 1;
+}
+
+interface ValidateFlags {
+	root?: string;
+}
 
 /** Headless native-frontmatter validation; unknown extension keys remain allowed. */
 export function validateCommand(): Command {
 	return new Command("validate")
 		.exitOverride()
 		.showHelpAfterError("Example: cf eval validate .omp/skills/skill-creator\nRun cf eval validate --help for options.")
-	.description("Validate a skill's native omp frontmatter, directory name and relative Markdown references.")
-	.argument("<skill-dir>", "directory containing SKILL.md")
-	.addHelpText(
-		"after",
-		`
-Checks name, description, declared native invocation fields and relative
-Markdown links in SKILL.md and the skill-local Markdown files it links to (one
-level, no further): each path must resolve and each Markdown anchor must match
-a heading. Does not apply Anthropic-specific key, name-length or
-description-character restrictions.
-Success prints JSON; failures identify the offending path and how to fix it.
+		.description("Validate a skill's native omp frontmatter, directory name, relative Markdown references and skill:// references.")
+		.argument("<skill-dir>", "directory containing SKILL.md")
+		.option("--root <dir>", "repository root whose .omp/skills and .agents/skills resolve skill:// references (default: nearest git root)")
+		.addHelpText(
+			"after",
+			`
+Checks name, description, declared native invocation fields, relative Markdown links and
+skill:// references in SKILL.md and the skill-local Markdown files it links to (one level, no
+further) plus every file under references/: each relative path must resolve and each Markdown
+anchor must match a heading, and each skill://<name>[/<path>] must name a skill under the root's
+.omp/skills or .agents/skills, with <path> a file there (an allowlisted external skill passes
+without a path check).
+Does not apply Anthropic-specific key, name-length or description-character restrictions.
+Success prints JSON; failures identify the offending file, line and how to fix it.
 
 Exit codes:
-  0  valid    2  invalid metadata or usage error
+  0  valid    1  broken references    2  invalid metadata or usage error
 
 Examples:
   cf eval validate .omp/skills/skill-creator
-  cf eval validate /tmp/my-skill`,
+  cf eval validate /tmp/my-skill
+  cf eval validate /tmp/my-skill --root .`,
 		)
-		.action(async (skillDir: string) => {
-			const skill = await validateSkill(skillDir);
-			process.stdout.write(`${JSON.stringify({ valid: true, skillDir: skill.skillDir, skillFile: skill.skillFile, name: skill.name, description: skill.description }, null, 2)}\n`);
+		.action(async (skillDir: string, flags: ValidateFlags) => {
+			try {
+				const skill = await validateSkill(skillDir, { root: flagRoot(flags.root) });
+				process.stdout.write(`${JSON.stringify({ valid: true, skillDir: skill.skillDir, skillFile: skill.skillFile, name: skill.name, description: skill.description }, null, 2)}\n`);
+			} catch (error) {
+				reportBrokenReferences(error, `Repair each listed reference, then run cf eval validate ${JSON.stringify(skillDir)}.`);
+			}
 		});
 }
 
 interface PackageFlags {
 	output: string;
+	root?: string;
 }
 
 /** Optional user-requested distribution, without a runner or viewer process. */
@@ -43,24 +74,68 @@ export function packageCommand(): Command {
 		.description("Validate and package a skill as a real ZIP-format .skill bundle.")
 		.argument("<skill-dir>", "directory containing SKILL.md")
 		.requiredOption("--output <bundle.skill>", "explicit output file ending in .skill (replaced only after successful packaging)")
+		.option("--root <dir>", "repository root whose .omp/skills and .agents/skills resolve skill:// references (default: nearest git root)")
 		.addHelpText(
 			"after",
 			`
-Includes one top-level skill folder, excluding root evals/, dependency/cache/VCS
-directories, OS junk, bytecode and existing .skill bundles. Symbolic links and
-special files are rejected rather than following paths outside the skill.
-Creates the output parent directory if needed. Success prints JSON with the
-output path, archive files and exclusions. No interactive prompts.
+Includes one top-level skill folder, excluding root evals/, dependency/cache/VCS directories,
+OS junk, bytecode and existing .skill bundles. Symbolic links and special files are rejected
+rather than following paths outside the skill. Validation runs first, so broken references
+exit 1 before anything is written. Creates the output parent directory if needed. Success
+prints JSON with the output path, archive files and exclusions. No interactive prompts.
 
 Exit codes:
-  0  packaged    2  invalid metadata, unsafe files or usage error
+  0  packaged    1  broken references    2  invalid metadata, unsafe files or usage error
 
 Examples:
   cf eval package .omp/skills/skill-creator --output dist/skill-creator.skill
   cf eval package /tmp/my-skill --output /tmp/my-skill.skill`,
 		)
 		.action(async (skillDir: string, flags: PackageFlags) => {
-			const result = await packageSkill(skillDir, flags.output);
-			process.stdout.write(`${JSON.stringify({ packaged: true, ...result }, null, 2)}\n`);
+			try {
+				const result = await packageSkill(skillDir, flags.output, { root: flagRoot(flags.root) });
+				process.stdout.write(`${JSON.stringify({ packaged: true, ...result }, null, 2)}\n`);
+			} catch (error) {
+				reportBrokenReferences(error, `Repair each listed reference, then run cf eval package ${JSON.stringify(skillDir)} --output ${JSON.stringify(flags.output)}.`);
+			}
+		});
+}
+
+interface GraphFlags {
+	root?: string;
+}
+
+/** The repo skill graph as JSON: the typed edges behind validate and each skill's related files. */
+export function graphCommand(): Command {
+	return new Command("graph")
+		.exitOverride()
+		.showHelpAfterError("Example: cf eval graph\nRun cf eval graph --help for options.")
+		.description("Print the skill graph as JSON: every repo skill with its skill links and the page templates it names.")
+		.option("--root <dir>", "repository root holding .omp/skills, .agents/skills and wiki/templates (default: nearest git root)")
+		.addHelpText(
+			"after",
+			`
+One entry per skill name, sorted by name; a name held by both .omp/skills and .agents/skills
+is one entry reading both directories (.omp/skills is the source of truth). Each entry holds:
+  skill      the skill's name
+  links      skills it points at, from skill://<name> references and bare backticked skill
+             names; repo skills and allowlisted external skills only, self-links dropped
+  templates  the wiki/templates/<type>.md files it names, by path or as templates/<type>.md,
+             normalised to wiki/templates/<type>.md
+Scanned files: SKILL.md, every file under references/ and the skill-local Markdown files
+SKILL.md links to (one level). Code fences are ignored. cf eval validate fails on the
+skill:// references that resolve to nothing; this command reports the graph as it stands.
+
+Exit codes:
+  0  printed    2  usage error
+
+Examples:
+  cf eval graph
+  cf eval graph --root /Users/nick/campaign-foundry
+  cf eval graph | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.parse(s).filter(e=>e.links.includes("lint")).length))'`,
+		)
+		.action(async (flags: GraphFlags) => {
+			const graph = await buildSkillGraph(flagRoot(flags.root));
+			process.stdout.write(`${JSON.stringify(graph, null, 2)}\n`);
 		});
 }

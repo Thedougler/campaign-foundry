@@ -18,6 +18,15 @@ async function skill(frontmatter = "name: sample\ndescription: Use for <sample> 
 	return { root, directory };
 }
 
+async function linkedSkill(files: Record<string, string>) {
+	const { directory } = await skill();
+	for (const [name, content] of Object.entries(files)) {
+		await mkdir(join(directory, dirname(name)), { recursive: true });
+		await writeFile(join(directory, name), content);
+	}
+	return directory;
+}
+
 describe("native authoring helpers", () => {
 	it.each([
 		["validate"],
@@ -53,14 +62,6 @@ describe("native authoring helpers", () => {
 	});
 });
 describe("skill reference checks", () => {
-	async function linkedSkill(files: Record<string, string>) {
-		const { directory } = await skill();
-		for (const [name, content] of Object.entries(files)) {
-			await mkdir(join(directory, dirname(name)), { recursive: true });
-			await writeFile(join(directory, name), content);
-		}
-		return directory;
-	}
 	it("rejects a relative link to a missing file, naming file, line, link and reason", async () => {
 		const { directory } = await skill();
 		await writeFile(join(directory, "SKILL.md"), '---\nname: sample\ndescription: Use for <sample> work.\ndisable-model-invocation: true\ncustom: extension\n---\n# Sample\nSee the [guide](references/guide.md) first.\n');
@@ -76,12 +77,13 @@ describe("skill reference checks", () => {
 	});
 	it("passes with valid file, directory, heading, anchor-only and scheme links, and never scans second-level files", async () => {
 		const directory = await linkedSkill({
-			"references/guide.md": "# Guide\n\n## Real section\n\nContinue in [deep](deep.md).\n",
-			"references/deep.md": "# Deep\n\n[ghost](ghost.md) is a level-two link that must stay unchecked.\n",
+			"references/guide.md": "# Guide\n\n## Real section\n\nNothing deeper to see.\n",
+			"deep.md": "# Deep\n\nSee the [ghost](ghost.md) notes.\n",
+			"ghost.md": "# Ghost\n\n[missing](missing.md) and `skill://no-such` sit in a second-level file that must stay unchecked.\n",
 		});
 		await writeFile(
 			join(directory, "SKILL.md"),
-			'---\nname: sample\ndescription: Use for <sample> work.\n---\n# Sample\n\n[guide](references/guide.md#real-section), [refs](references), [top](#sample), [web](https://example.com/a), [internal](skill://lint), [past](history://x), and code `[skip](references/nothing.md)`.\n',
+			'---\nname: sample\ndescription: Use for <sample> work.\n---\n# Sample\n\n[guide](references/guide.md#real-section), [refs](references), [deep](deep.md), [top](#sample), [web](https://example.com/a), [internal](skill://lint), [past](history://x), and code `[skip](references/nothing.md)`.\n',
 		);
 		await expect(validateSkill(directory)).resolves.toMatchObject({ name: "sample" });
 	});
@@ -99,5 +101,40 @@ describe("skill reference checks", () => {
 		const error = await validateSkill(directory).then(() => undefined, (error: unknown) => error as Error);
 		expect(error?.message).toContain("SKILL.md:6: [gone](references/gone.md) — target does not exist");
 		expect(error?.message.match(/\[gone\]\(references\/gone\.md\)/g)).toHaveLength(1);
+	});
+});
+describe("skill:// reference checks", () => {
+	it("fails the CLI with exit 1 on an unknown skill, naming file and line", async () => {
+		const { directory } = await skill();
+		await writeFile(join(directory, "SKILL.md"), '---\nname: sample\ndescription: Use for <sample> work.\n---\n# Sample\nRead `skill://does-not-exist` first.\n');
+		const result = await cf(["eval", "validate", directory]);
+		expect(result.code).toBe(1);
+		expect(result.stdout).toContain("SKILL.md:6: skill://does-not-exist — no skill 'does-not-exist' in .omp/skills or .agents/skills");
+	});
+	it("accepts repo skills, files inside them and allowlisted external skills", async () => {
+		const { directory } = await skill();
+		await writeFile(
+			join(directory, "SKILL.md"),
+			'---\nname: sample\ndescription: Use for <sample> work.\n---\n# Sample\n\n`skill://lint`, `skill://lint/prose.md`, `skill://ingest/references/ledger.md`, `skill://run-evals` and `skill://find-skills` all resolve.\n',
+		);
+		await expect(validateSkill(directory)).resolves.toMatchObject({ name: "sample" });
+	});
+	it("rejects a reference whose path is no file in the named skill", async () => {
+		const { directory } = await skill();
+		await writeFile(join(directory, "SKILL.md"), '---\nname: sample\ndescription: Use for <sample> work.\n---\n# Sample\n\nThe bar is `skill://lint/prose`, and `skill://lint/missing.md` too.\n');
+		await expect(validateSkill(directory)).rejects.toThrow("SKILL.md:7: skill://lint/prose — no file 'prose' in skill 'lint'");
+		await expect(validateSkill(directory)).rejects.toThrow("SKILL.md:7: skill://lint/missing.md — no file 'missing.md' in skill 'lint'");
+	});
+	it("scans references/** even when SKILL.md never links them", async () => {
+		const directory = await linkedSkill({ "references/deep.md": "# Deep\n\nSee `skill://nope`.\n" });
+		await expect(validateSkill(directory)).rejects.toThrow("references/deep.md:3: skill://nope — no skill 'nope' in .omp/skills or .agents/skills");
+	});
+	it("ignores skill references inside code fences", async () => {
+		const directory = await linkedSkill({});
+		await writeFile(
+			join(directory, "SKILL.md"),
+			'---\nname: sample\ndescription: Use for <sample> work.\n---\n# Sample\n\nExample:\n\n```markdown\nRead `skill://does-not-exist`.\n```\n',
+		);
+		await expect(validateSkill(directory)).resolves.toMatchObject({ name: "sample" });
 	});
 });
