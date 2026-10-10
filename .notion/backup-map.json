@@ -272,7 +272,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-818a-82cd-de9caf9a5997",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec818a82cdde9caf9a5997",
-			"hash": "afb5885258595b1ee606da7d24c568aa69f435612a566fac35b27b2402360f15",
+			"hash": "5df5deef3927336a64dd102083685c301f2ef597a4fa78c9b81b96bde4c7e70f",
 			"title": "SKILL"
 		},
 		".agents/skills/firecrawl-scrape/references": {
@@ -501,7 +501,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8160-926c-f5342ab8e726",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec8160926cf5342ab8e726",
-			"hash": "f19120019010f9ed5989c61d9a4147df51d1fdc57fe52a3a3dabc0bb06714348",
+			"hash": "ddc0e8ad0f7b16d7dd0c01e9bb6d6bdfefc54f36ac9c60bbbd38c9288739cf39",
 			"title": "SKILL"
 		},
 		".agents/skills/ingest/evals": {
@@ -532,7 +532,7 @@
 			"kind": "markdown",
 			"id": "3f302166-35ec-81f5-b2d2-c5345ffb5f41",
 			"url": "https://app.notion.com/p/transcript-3f30216635ec81f5b2d2c5345ffb5f41",
-			"hash": "eb77522bf06f42d5dd954862eea187e3b1059c56c4df459c77ebe5d7c7002fd1",
+			"hash": "49ded4c0d35d2cddda54c390792651d6c52f1a0c252e9eede8f2fd5466204a10",
 			"title": "transcript"
 		},
 		".agents/skills/ingest/references/units.md": {
@@ -4904,6 +4904,6 @@
 		"id": "3f202166-35ec-815c-9ba6-dacbda0f6f1b",
 		"url": "https://app.notion.com/p/campaign-foundry-backup-3f20216635ec815c9ba6dacbda0f6f1b"
 	},
-	"syncedCommit": "dc84fcca40240213127003b966bf746f11868620",
-	"syncedAt": "2026-10-10T20:55:19.766Z"
+	"syncedCommit": "b488d2cec375ea393bbe43aa501ffe7d1f8d601b",
+	"syncedAt": "2026-10-10T22:26:38.450Z"
 }
