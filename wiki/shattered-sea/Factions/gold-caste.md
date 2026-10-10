@@ -6,6 +6,7 @@ sources:
   - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
   - "archive/collab-2026-10-04-authority-themes.md"
   - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
+  - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
 aliases:
   - "Gold caste"
   - "gold presence"
@@ -22,7 +23,7 @@ title: "Gold Caste"
 - **Strength.** Authority Seals that overwrite a will, a sage-kept religion, hatcheries, captive pens and gold farms the lower castes never see.
 
 > [!narration] Public face
-> A gold grung walks the line of pens, two red sages a step behind him, and every head at the work goes down before his shadow crosses it. Where the river mud has taken a row of hatchery stakes, he stops and says one word. The haulers repeat it like a breath, and one of them glances at your boat, then back to the mud, and keeps hauling. Still every head stays down. On the beach the blue ones use the sages' name for them, the gold presence, gods walking the earth.
+> A gold grung walks the line of pens, two red sages a step behind him, and every head at the work goes down before his shadow crosses it. Where the river mud has taken a row of hatchery stakes, he stops and says one word. The haulers repeat it like a breath. One glances at your boat, then back to the mud, and keeps hauling. Still every head stays down. On the beach the blue ones use the sages' name for them, the gold presence, gods walking the earth.
 
 ## Play
 
@@ -44,7 +45,8 @@ The Gold caste leads the [[grung-clans|Grung Clans]] and rules from [[karath|Kar
 - The caste maintains a species-wide spell. Grung who believe in the caste system all fall under it. Power a grung gives up willingly crosses to the caste, and so does magic a grung believes it lacks. The caste spends both freely as its own, and that constant drain lifts the gold toward something like demigods.
 - The enslavement runs in both directions. The clans enslave other peoples and take their agency, while the same belief figuratively enslaves the grung to the gold.
 - A seal's compulsion holds for life, and the bearer believes the order was always a conviction of their own. Reading a spent seal shows the whole chain of orders it held.
-- Any grung can eat its way to gold. The colour comes from diet, the [[gold-fruit|gold fruit]] grows on the farms at [[karath|Karath]], and a casting of [[ossketh|Ossketh]] locks the change in for life. [[simone-tabarnack|Simone Tabarnack]] proved it with fruit bought from outside the farms, and the caste could not deny her gold without exposing the biology, so it treats her as showing signs of divinity.
+- Any grung can eat its way to gold. The colour comes from diet, the [[gold-fruit|gold fruit]] grows on the farms at [[karath|Karath]] and on the [[memorial-grove|Memorial Grove]] tree, and a casting of [[ossketh|Ossketh]] locks the change in for life. [[simone-tabarnack|Simone Tabarnack]] proved it with golden peaches stolen from that tree, and the caste could not deny her gold without exposing the biology, so it treats her as showing signs of divinity.
+- The expeditions against the two graves protect the caste's hold. [[aruhe|Aruhe]] is valuable territory, and the grove's [[gold-fruit|gold fruit]] tree stands outside the farms' control. In the caste's belief, breaking the graves would destroy [[hinewai|Hinewai]], the island's protector. Her roots have spread far wider since the graves were dug, and that belief is wrong.
 - Breaking the caste means convincing clan after clan across five separate islands that their entire belief system and religion is wrong and a lie. The caste's power weakens once the grung public can hear those facts with proof behind them.
 - The authority mark on [[solanges-authority-seal|Solange's Authority Seal]] matches the spent seals on Aruhe, so the same caste's command reached her too.
 

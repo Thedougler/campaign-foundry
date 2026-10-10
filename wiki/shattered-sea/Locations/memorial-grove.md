@@ -1,14 +1,15 @@
 ---
 type: Location
 kind: Site
-summary: "Aruhe's heart: one fruit tree over two unmarked graves in a ring of
-  black flowers, the Death Bloom that is Hinewai's body."
+summary: "Aruhe's heart: one golden-peach tree over two unmarked graves in a ring of
+  black flowers, where the Death Bloom began."
 sources:
   - "archive/memorial-grove.md"
   - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
   - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
   - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
   - "archive/session-12-full.md"
+  - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
 parent: "[[aruhe|Aruhe]]"
 revealed: "Session 12"
 title: "Memorial Grove"
@@ -18,7 +19,7 @@ title: "Memorial Grove"
 
 ## At a glance
 
-- **Draws the Party because.** It is the answer to Aruhe's law and the place where Hinewai can end.
+- **Draws the Party because.** It is the answer to Aruhe's law and the two graves the Gold caste's burning parties come to break, where the Death Bloom began.
 - **Entrance.** Trails from Grasslands, Clear Lake, Marshes, Star Cut and the Burnt Road.
 - **Occupants.** Hinewai. A Terror-Bird, Wolfrabbits and Deer-Stalker wait beyond the ring in stillness, watching like mourners.
 - **Danger.** Touching tree, graves, flowers or soil ends Hinewai's welcome.
@@ -31,7 +32,7 @@ title: "Memorial Grove"
 
 ### Areas
 
-The flower ring, fruit tree, two graves, bound soil, still grass and root descent into [[lava-tubes|Lava Tubes]].
+The flower ring, the fruit tree, the sapling ring at the clearing's edge, the two graves, bound soil, still grass and root descent into [[lava-tubes|Lava Tubes]].
 
 ### Hazards
 
@@ -39,7 +40,7 @@ Picking fruit, digging, uprooting, striking or carrying away part of the Bloom s
 
 ### Occupants
 
-[[hinewai|Hinewai]] and the still predators at the treeline.
+[[hinewai|Hinewai]], who speaks through the tree, the sapling ring and the figure at the grove's edge, and the still predators at the treeline.
 
 ### Likely actions
 
@@ -49,7 +50,7 @@ Enter as a guest, take fallen fruit, study roots and graves, talk to Hinewai, or
 
 ### History
 
-Hinewai carried her drowned [[the-unnamed-companion|companion]] up from the surf and buried him beneath the tree, a grave opened by hand through a day and most of a night. Her own grave anchors the mechanism. The second grave went in beside his over two days, after the grung sail traced the treeline. She lay down in it alive and spoke the vow from inside the soil. The Gold caste sends compelled Grung to destroy both. The capture and escape behind these graves are [[grung-and-the-making-of-aruhe|Grung and the Making of Aruhe]].
+The tree grew from golden-peach seed Hinewai stole off the gold farms at [[karath|Karath]] on her way out. She carried her drowned [[the-unnamed-companion|companion]] up from the surf and buried him beneath it, a grave opened by hand through a day and most of a night. Her own grave anchors the mechanism. The second grave went in beside his over two days, after the grung sail traced the treeline. She lay down in it alive and spoke the vow from inside the soil. The Gold caste sends compelled Grung to destroy both. The capture and escape behind these graves are [[grung-and-the-making-of-aruhe|Grung and the Making of Aruhe]].
 
 #### Session 12: the summons
 
@@ -57,7 +58,7 @@ Hinewai carried her drowned [[the-unnamed-companion|companion]] up from the surf
 
 ### Hidden truths
 
-The Death Bloom is not portable: tree, graves, flowers and bound soil form one body and phylactery. No root crosses either grave.
+The Death Bloom was once the two graves alone, and [[hinewai|Hinewai]]'s pale roots have spread her across [[aruhe|Aruhe]] in the centuries since. No root crosses either grave.
 
 ### Threads
 

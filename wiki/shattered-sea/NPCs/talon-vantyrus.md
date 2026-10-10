@@ -6,6 +6,7 @@ sources:
   - "archive/talon-vantyrus.md"
   - "archive/session-10.md"
   - "archive/session-12-full.md"
+  - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
 creature: "[[talon-vantyrus-creature|Talon Vantyrus (Creature)]]"
 revealed: "Session 10"
 title: "Talon Vantyrus"
@@ -49,13 +50,14 @@ Later that night, a vessel approached from astern with its lanterns dark and wit
 
 #### Session 12: Skarn's demand
 
-On [[aruhe|Aruhe]], Skarn demanded [[crissdalynn-khinriss|Crissdalynn]]'s [[fate-spinner|Fate Spinner]] and said his orders forbade killing her, but allowed him to kill her companions. Wounded during the river-camp fight, he shouted, “Vantyrus, help!” The DM confirmed that someone watching remotely through a device had helped Skarn counter the disadvantage on an attack. The helper's identity remained unknown.
+On [[aruhe|Aruhe]], Skarn demanded [[crissdalynn-khinriss|Crissdalynn]]'s [[fate-spinner|Fate Spinner]] and said his orders forbade killing her, but allowed him to kill her companions. Wounded during the river-camp fight, he shouted, “Vantyrus, help!” The DM confirmed that someone watching remotely through a device had helped Skarn counter the disadvantage on an attack. The helper was Vantyrus, manipulating fate to Skarn's advantage from afar.
 
 When Skarn returned to attack the Party's next camp, he again claimed orders to take the Spinner without killing Crissdalynn. He offered her companions survival and a possible meeting with Master Vantyrus if they cooperated. Vantyrus remained unseen.
 
 ### Hidden truths
 
 - Born Osset, once master to Kyzil, and given up for dead decades ago.
+- He manipulates fate to [[talon-skarn|Skarn]]'s advantage from afar. Whenever Skarn tries to defy her, [[hinewai|Hinewai]] asserts her own will and overpowers the manipulation.
 - He sent Skarn for the Fate Spinner to read Kyzil's lessons and reach the Soul Incarnate technique. His Long Sight weakens before sacrifice, irrational action, and deliberate chaos.
 
 ### Threads

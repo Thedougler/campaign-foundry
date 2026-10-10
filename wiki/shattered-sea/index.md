@@ -59,7 +59,7 @@
 - [[le-paludi|Le Paludi]] — Calveno's canal district of taverns, goods, alchemy and discreet routes below the city toward Warren.
 - [[lesser-black-lotus|Lesser Black Lotus]] — A scorched terrace flower that answers violent disturbance by casting a nearby spell back at its attacker.
 - [[line-bank|Line Bank]] — A used fruiting margin on the Aruhe River where a fishing line, fresh prints and three fruit piles mark the route upriver.
-- [[memorial-grove|Memorial Grove]] — Aruhe's heart: one fruit tree over two unmarked graves in a ring of black flowers, the Death Bloom that is Hinewai's body.
+- [[memorial-grove|Memorial Grove]] — Aruhe's heart: one golden-peach tree over two unmarked graves in a ring of black flowers, where the Death Bloom began.
 - [[old-gardens|Old Gardens]] — Ancient stone terraces rising from Western Landing, crowded with fruit, water channels and things that hunt among them.
 - [[print-braid|Print Braid]] — A braid of packed paths along the Quiet's edge where only one strand carries the Calveno trail north.
 - [[razer-grass|Razer-Grass]] — A pale glass-edged stand that cuts movement and bursts into slashing shards and choking dust when shattered.
@@ -267,7 +267,7 @@
 - [[flying-boots|Flying Boots]] — Winged Boots that grant Delmar a 30-foot Fly Speed for 1 hour per charge.
 - [[ghost-plum|Ghost Plum]] — A rare Aruhe fruit that makes its eater Invisible for 1 hour, while its pollen reveals invisible creatures as a shimmer.
 - [[giants-guava|Giant's Guava]] — A rare Aruhe fruit that raises a chosen ability score for 1 hour; one gourd cooks into five weaker kebabs.
-- [[gold-fruit|Gold Fruit]] — The Gold caste's diet fruit from Karath's secret farms: enough of it turns a grung's skin gold, and a casting of Ossketh then holds the colour for life.
+- [[gold-fruit|Gold Fruit]] — The Gold caste's diet fruit, a golden peach from Karath's secret farms and the Memorial Grove tree: enough of it turns a grung's skin gold, and a casting of Ossketh then holds the colour for life.
 - [[grubnade|Grubnade]] — A volatile Aruhe caterpillar that detonates when disturbed, scattering harmless juveniles and igniting nearby growth.
 - [[grung-authority-seal|Grung Authority Seal]] — Spent gold seals that compelled lower-caste Grung onto Aruhe and preserve each bearer's whole order chain.
 - [[grung-toxin-vials|Grung Toxin Vials]] — Twenty-six vials of Simone Tabarnack's Grung toxin tincture riding in Party hands, their one common thread known only to Jean-Claude.
@@ -376,6 +376,7 @@
 
 - [[session-11-prep|Session 11 - Prep]] — Aruhe crossing from the Crown Squid's flight to a night watch ambush.
 - [[session-12-prep|Session 12 - Prep]] — Four-hour inland rescue through Hinewai's garden, ending with Skarn's last attempt at the Fate Spinner and Perrin's choice to consume.
+- [[session-13-prep|Session 13 - Prep]] — Finish Skarn, walk the island's lane to Memorial Grove, and stand in a court that cannot be lied to, one woman arguing with herself over Jean-Claude and her own name.
 
 ## Scenes
 
@@ -396,6 +397,11 @@
 - [[session-12-terror-birds|Session 12 - Terror-Birds]] — Two Terror-Birds charge the rescued column across the Long Meadow, forcing the Party to protect civilians and a carried man.
 - [[session-12-the-smoking-skylight|Session 12 - The Smoking Skylight]] — Four Calveno trapped in a lava tube reveal that the rest of their camp followed Hinewai's voice north-east, while a terror-bird waits above.
 - [[session-12-the-way-out|Session 12 - The Way Out]] — At first light nine Calveno leave the Pantry with the Party, while three choose to stay beneath Hinewai's vine.
+- [[session-13-release|Session 13 - Release]] — The survivors choose aloud at the treeline, the peaches become lawful to carry, and a grey hull off the reef at dusk widens the hunt.
+- [[session-13-the-bending-grass|Session 13 - The Bending Grass]] — The island opens a bent lane of grass toward the grove, walks her people in along it, and shows each PC one true flash through the roots.
+- [[session-13-the-hearing|Session 13 - The Hearing]] — The trial inside the flower ring: Jean-Claude and then Hinewai herself examined under the grove's truth, counsel arguing to steer one mind's three tempos, and the verdict falling to whichever part of her has the floor.
+- [[session-13-the-next-blow|Session 13 - The Next Blow]] — The recorded ambush resumes at the road camp, with the falcon outlined by falling water, half-speed and one advantage blow from falling.
+- [[session-13-the-silent-court|Session 13 - The Silent Court]] — The grove convenes its court around two graves, one consciousness in three bodies, and demands Jean-Claude enter the ring with counsel beside him.
 
 ## Recaps
 

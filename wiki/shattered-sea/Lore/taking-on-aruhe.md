@@ -9,6 +9,7 @@ sources:
   - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
   - "archive/session-10.md"
   - "archive/session-11-transcript-archived-version.md"
+  - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
 revealed: ""
 title: "Taking on Aruhe"
 ---
@@ -35,7 +36,7 @@ title: "Taking on Aruhe"
 
 ### The full truth
 
-Aruhe's law is Hinewai's grief made reflex and holds while the Death Bloom remains in place at Memorial Grove. The law began as the vow she spoke going down into her own grave: "Come and look upon my garden of plenty, all who love life. But take a single fruit from my island, fish a single river, forage a single plant, or trap a single beast, and Nature's fury finds you whole: the dirt takes you back." A claim includes taking living growth or removing an island animal's flesh. Digging living ground also counts. Pulling a body from enclosing roots counts as well. Trapping an island animal is another claim. The taker is marked until the next dawn. Responders find a marked creature within 60 feet by scent and root-touch even when Invisible. They attack the marked creature first. The response ends after one minute or when no marked creature is within 60 feet. A responder at half hit points withdraws. Ground responders cannot reach a marked creature more than 30 feet in the air. [[bloodhawk|Bloodhawks]] own the open sky.
+Aruhe's law is Hinewai's grief made reflex, rooted in the Death Bloom that began at Memorial Grove, and her pale roots now spread it beneath the whole island. The law began as the vow she spoke going down into her own grave: "Come and look upon my garden of plenty, all who love life. But take a single fruit from my island, fish a single river, forage a single plant, or trap a single beast, and Nature's fury finds you whole: the dirt takes you back." A claim includes taking living growth or removing an island animal's flesh. Digging living ground also counts. Pulling a body from enclosing roots counts as well. Trapping an island animal is another claim. The taker is marked until the next dawn. Responders find a marked creature within 60 feet by scent and root-touch even when Invisible. They attack the marked creature first. The response ends after one minute or when no marked creature is within 60 feet. A responder at half hit points withdraws. Ground responders cannot reach a marked creature more than 30 feet in the air. [[bloodhawk|Bloodhawks]] own the open sky.
 
 ### Chronology
 

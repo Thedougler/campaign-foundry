@@ -7,6 +7,7 @@ sources:
   - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
   - "archive/simone-tabarnack.md"
   - "archive/ozzeth-the-twiceborn.md"
+  - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
 revealed: ""
 title: "Ossketh"
 ---
@@ -54,7 +55,7 @@ The red-caste sages keep Ossketh. Published grung lore makes the reds a caste of
 
 ### Who knows it
 
-The Gold caste suppresses the rite and seals the lower castes away from it. [[ozzeth-the-twiceborn|Ozzeth, the Twiceborn]] found it first, and his Sending sustained [[simone-tabarnack|Simone Tabarnack]]'s casting until his death in the [[calveno-sewer-magazines|Calveno Sewer Magazines]]. Simone cast it on herself, and her colour sits partway to gold with the rite still running. The [[gold-fruit|Gold Fruit]] her change needed grows behind the farms' fences at [[karath|Karath]], outside her reach.
+The Gold caste suppresses the rite and seals the lower castes away from it. [[ozzeth-the-twiceborn|Ozzeth, the Twiceborn]] found it first, and his Sending sustained [[simone-tabarnack|Simone Tabarnack]]'s casting until his death in the [[calveno-sewer-magazines|Calveno Sewer Magazines]]. Simone cast it on herself, and her colour sits partway to gold with the rite still running. The [[gold-fruit|Gold Fruit]] her change needed grows behind the farms' fences at [[karath|Karath]] and on the [[memorial-grove|Memorial Grove]] tree, and the golden peaches she stole from that tree were not enough to finish the colour.
 
 ## Links
 

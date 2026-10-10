@@ -6,6 +6,7 @@ sources:
   - "archive/two-grave-orders.md"
   - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
   - "archive/session-12-full.md"
+  - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
 revealed: ""
 title: "Two-Grave Orders"
 ---
@@ -36,7 +37,7 @@ The Gold caste of [[karath|Karath]] used [[grung-authority-seal|Grung Authority 
 
 Session 12 confirmed the orders along the burnt road itself. A spent seal lay with a Grung skeleton every twenty or thirty feet, and the nearest read “Report what lies in land”. Read in order, the seals told their history: the earliest read “Report the lives and land”, later ones “Replace the parties that were killed. Continue to roast”. Others read “Find the grove” and “Find the graves at the grove”, and the last read “Destroy the grave”. The orders on the farthest seals were to destroy two graves, and one stage of the orders had the Grung building the road itself. The Grung on the road had been compelled to the work in spring, and the road runs to the [[memorial-grove|grove]].
 
-The graves hold [[the-unnamed-companion|Hinewai's drowned companion]] and Hinewai's body and phylactery. Together with the fruit tree, black-flower ring and bound soil they anchor the Death Bloom. Destroying them would end Hinewai's law over weeks or months and reopen Aruhe to Karath. The capture that set these orders in motion is [[grung-and-the-making-of-aruhe|Grung and the Making of Aruhe]].
+The graves hold [[the-unnamed-companion|Hinewai's drowned companion]] and the place where the Death Bloom began, together with the fruit tree, black-flower ring and bound soil. The [[gold-caste|Gold caste]] sent compelled Grung to destroy them because [[aruhe|Aruhe]] is valuable territory and the grove's [[gold-fruit|gold fruit]] tree stands outside the farms' control. The caste also believes breaking the graves would destroy [[hinewai|Hinewai]], the island's protector. Her roots have spread her across the island in the centuries since, so the belief is wrong. The capture that set these orders in motion is [[grung-and-the-making-of-aruhe|Grung and the Making of Aruhe]].
 
 ### Chronology
 

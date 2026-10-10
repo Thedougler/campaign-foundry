@@ -15,6 +15,7 @@ sources:
   - "archive/Episode-09-Transcript.md"
   - "archive/session-10.md"
   - "archive/session-12-full.md"
+  - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
 parent: "[[midchain|Midchain]]"
 revealed: "Session 9"
 title: "Aruhe"
@@ -65,7 +66,7 @@ From the air during the Party's escape, the jungle east of the landing holds muc
 
 ### History
 
-Hinewai preserved her drowned [[the-unnamed-companion|companion]] at [[memorial-grove|Memorial Grove]]. The Death Bloom is the tree, two graves, black flowers and bound soil together. Her vow, spoken from inside her own grave, made the island's taking-law and gave the grung their name for it: the Hungry Isle. The raid and its aftermath are [[grung-and-the-making-of-aruhe|Grung and the Making of Aruhe]].
+Hinewai preserved her drowned [[the-unnamed-companion|companion]] at [[memorial-grove|Memorial Grove]]. The Death Bloom began as the tree, two graves, black flowers and bound soil together, and her pale roots have spread it beneath the whole island since. Her vow, spoken from inside her own grave, made the island's taking-law and gave the grung their name for it: the Hungry Isle. The raid and its aftermath are [[grung-and-the-making-of-aruhe|Grung and the Making of Aruhe]].
 
 #### Session 9: castaways before the Party's landing
 
@@ -91,7 +92,7 @@ The return from the pursuit added a second trail of smoke to the first on the ho
 
 ### Hidden truths
 
-Pale luminous roots run from Clear Lake through the Marshes into the graves. Destroying the Bloom ends the blight over weeks, months and years, but leaves the memorial's cost.
+Pale roots lead from Clear Lake through the Marshes into the graves, pulsing with a faint glow in the dark beneath the island. In the centuries since the graves were dug they have spread [[hinewai|Hinewai]] across Aruhe, and the [[gold-caste|Gold caste]]'s belief that breaking the graves would destroy her is wrong.
 
 Removing [[hinewai|Hinewai]]'s presence realistically means burning down most of Aruhe, and no one who loves the island calls that a victory. She loves Aruhe back, and her presence stays unhealthy for its flora and fauna all the same.
 

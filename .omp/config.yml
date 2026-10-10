@@ -1,6 +1,8 @@
 task:
   enableLsp: true
   maxRecursionDepth: 1
+  agentModelOverrides:
+    task: zai/glm-5.3
 providers:
   maxInFlightRequests:
     anthropic: 4

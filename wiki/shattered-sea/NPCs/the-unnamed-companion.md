@@ -6,6 +6,7 @@ sources:
   - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
   - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
   - "archive/hinewai.md"
+  - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
 creature: ""
 revealed: ""
 title: "The Unnamed Companion"
@@ -26,19 +27,19 @@ title: "The Unnamed Companion"
 - **Opens them up.** A question at the fruit tree: [[hinewai|Hinewai]] answers with the law the grave made, and the law is the closest she comes to his story.
 - **Shuts them down.** A hand on either mound or the tree's living fruit; the ground answers inside a minute, and she follows.
 - **Will share.** The graves: his and hers.
-- **Will not share.** His name; the record lost it, and only she ever held it.
+- **Will not share.** His name. [[hinewai|Hinewai]] no longer remembers it, and her word for him is only 'him'.
 - **If pressed.** Treat either grave as an obstacle and the island treats you as a claim.
 
 ## Depth
 
 ### History
 
-A raid before hers delivered him to [[karath|Karath]], where the hatcheries set him at [[hinewai|Hinewai]]'s side. On the days her toxin ran weak, the two whispered of fire and open water, and the lantern that burned the long hut was theirs. An arrow met him in the shallows off [[aruhe|Aruhe]], and three castings could not restart his chest. [[hinewai|Hinewai]] cursed [[mystra|Mystra]] by name over his body and carried him inland at first light. His grave took her a day and most of a night, dug by hand beneath a tree already in early fruit, the green kind he ate off the ground. His grave anchors the Death Bloom beside hers, and the Gold caste's expeditions against the graves ([[two-grave-orders|Two-Grave Orders]]) target him as much as her.
+A raid before hers delivered him to [[karath|Karath]], where the hatcheries set him at [[hinewai|Hinewai]]'s side. A male elf druid like her, he was the more talented of the two in druidcraft, and the escape from the hatcheries was his plan. On the days her toxin ran weak, the two whispered of fire and open water, and the lantern that burned the long hut was theirs. An arrow met him in the shallows off [[aruhe|Aruhe]], and three castings could not restart his chest. [[hinewai|Hinewai]] cursed [[mystra|Mystra]] by name over his body and carried him inland at first light. His grave took her a day and most of a night, dug by hand beneath a tree already in early fruit, the green kind he ate off the ground. His grave anchors the Death Bloom beside hers, and the Gold caste's expeditions against the graves ([[two-grave-orders|Two-Grave Orders]]) target him as much as her.
 
 ### Hidden truths
 
-- The record keeps his capture, his hatchery work and his grave. His name appears only if [[hinewai|Hinewai]] speaks it, and she alone can.
-- His grave is one of two anchors of the Death Bloom. Breaking it would end the island's law over weeks or months and hand [[aruhe|Aruhe]] back to [[karath|Karath]].
+- The record keeps his capture, his hatchery work and his grave. [[hinewai|Hinewai]] no longer remembers his name, and she refers to him only as 'him'.
+- His grave is where the Death Bloom began, beside hers. [[hinewai|Hinewai]]'s roots have spread her far across [[aruhe|Aruhe]] in the centuries since, and the island's law now runs on those wider roots.
 
 ### Threads
 

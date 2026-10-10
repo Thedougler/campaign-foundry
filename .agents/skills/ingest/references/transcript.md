@@ -14,7 +14,7 @@ The **Session Ledger** is the contract between stages: the Ledger stages build i
 | C5 Ledger | the Merge agent, resumed | nothing | the Ledger, dictionary rows |
 | C6 Units | Units | nothing | pages files, stubs |
 | C7 Write | page writers, Recap, Previously On | each other | Wiki pages, each checked |
-| C8 Gate | you, with Audit and Close | each other | a clean touched-list check |
+| C8 Gate | you, with Close, then Audit | each other, then nothing | a clean touched-list check, then the audit's return |
 
 ## Dispatch
 
@@ -140,16 +140,18 @@ For a one-shot, dispatch only the page writers. Keep each writer's id for C8. Un
 
 ### C8 Gate
 
-The touched list is every path the writers returned. Write SKILL.md step 12's log entry for it now, since the audit reads its pages from that entry. Then dispatch in one batch the audit and the Close:
-
-```
-Read skill://audit, then audit the Ingest entry for <file>.
-```
+The touched list is every path the writers returned. Dispatch the Close:
 
 ```
 Read skill://ingest/references/writer.md, then close Session <N> from the Session Ledger archive/<stem>.ledger.md. Transcript: <transcript>. Touched: <touched-list paths>.
 ```
 
-While they run, run SKILL.md step 10 over the touched list. Send each finding by `agent://<id>` to the writer whose pages file lists that page, quoting the finding. That writer still has the page in context: it repairs the finding and checks the page again before it replies. Findings on pages outside every pages file go to one `lint` dispatch for those pages, briefed as `skill://lint` sets out, together with each page request a stage returned for an unowned name, which that ladder's rung 3 gives its stub. When the audit and the Close return, add the paths they changed to the touched list and check those pages the same way. The audit logs its own fixes, and the Close's paths take one more step 12 entry. Done when step 10's criterion holds over the whole touched list.
+While it runs, run SKILL.md step 10 over the touched list. Send each finding by `agent://<id>` to the writer whose pages file lists that page, quoting the finding. That writer still has the page in context: it repairs the finding and checks the page again before it replies. Findings on pages outside every pages file go to one `lint` dispatch for those pages, briefed as `skill://lint` sets out, together with each page request a stage returned for an unowned name, which that ladder's rung 3 gives its stub. When the Close returns, add the paths it changed to the touched list and check those pages the same way. Done when step 10's criterion holds over the whole touched list.
 
-Then do SKILL.md step 11, and step 13's index and full gate: its audit, Threads, `hot.md` and `story-so-far.md` are done. The step 14 report gathers every stage's return. Done when step 14's criterion holds.
+Then do SKILL.md steps 11 and 12 over the whole touched list, and step 13's index: its Threads, `hot.md` and `story-so-far.md` are done. Dispatch the audit, which reads its pages from that log entry, and once it returns, run step 13's full gate and its `lint` slices:
+
+```
+Read skill://audit, then audit the Ingest entry for <file>.
+```
+
+The step 14 report gathers every stage's return and the audit's. Done when step 14's criterion holds.

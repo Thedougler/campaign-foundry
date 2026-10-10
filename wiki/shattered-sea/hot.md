@@ -1,16 +1,11 @@
 ---
 type: hot
-summary: "Post-Session 12: the Party fights an invisible Talon Skarn at a
-  burnt-road camp deep on Aruhe, the combat unresolved; Session 13 resumes it
-  with the Party at level 6."
+summary: "Post-Session 12, Session 13 prepared: the Party finishes Skarn's ambush
+  at level 6, walks the island's lane to Memorial Grove, and stands in a court
+  that cannot be lied to."
 sources:
   - "archive/session-12-full.md"
-  - "archive/session-11-transcript-archived-version.md"
-  - "archive/Session-11-Transcript.md"
-  - "archive/session-11-recap.md"
-  - "archive/session-12-index.md"
-  - "archive/agentic-co-dm-Aruhe-Hungry-Isle.md"
-  - "archive/ssw-what-sunk-the-vestra.md"
+  - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
 date: "1495 DR, date not established"
 revealed: ""
 title: "Hot"
@@ -20,18 +15,19 @@ title: "Hot"
 
 - **In-world date.** 1495 DR. No month or weekday is established in the sources.
 - **Party at.** A clearing beside [[the-burnt-road|The Burnt Road]] several miles inland on [[aruhe|Aruhe]], the long rest broken by an invisible [[talon-skarn|Talon Skarn]], the fight still joined.
-- **Active Threads.** [[the-crown-inspection|The Crown Inspection]], [[simones-hunters|Simone's Hunters]], [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]], [[drowned-maw-awakening|Drowned Maw Awakening]], [[perrin-and-nona|Perrin and Nona]], [[what-sunk-the-vestra|What Sunk the Vestra]].
+- **Active Threads.** [[take-on-aruhe|Taking on Aruhe]], [[rule-of-two|Rule of Two]], [[the-canister|The Canister]], [[simones-hunters|Simone's Hunters]], [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]], [[drowned-maw-awakening|Drowned Maw Awakening]], [[perrin-and-nona|Perrin and Nona]].
 - **Last Session.** Session 12: two fights with Talon Skarn and the burnt road of compelled grung.
-- **Next.** Session 13 opens mid-combat, the Party raised to level 6.
+- **Next.** [[session-13-prep|Session 13 - Prep]] is ready, and the Session opens mid-combat with the Party at level 6.
 
 ## Active Threads
 
-- [[the-crown-inspection|The Crown Inspection]]. Opened and overtaken: the Party took HCS Surety as [[uncertainty|Uncertainty]], and the Crown pursuit continues after the Ordinance's deception. Next: stay ahead of the pursuit while on Aruhe.
-- [[simones-hunters|Simone's Hunters]]. Jean-Claude is awake and fought through both attacks, his safety promised by the garden's keeper while he follows her rules. The hunters' last known trail runs the captive route toward Karath. Next: protect Jean-Claude and reach Uncertainty.
-- [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]]. Delmar confessed, and Umberlee named the Pearl as her price. The debt stands and the Pearl lies beyond reach. Next: the choice cannot wait forever.
-- [[drowned-maw-awakening|Drowned Maw Awakening]]. Auralis pressed Perrin twice to consume the living fruit and Perrin refused. Next: what the Maw is after.
-- [[perrin-and-nona|Perrin and Nona]]. Perrin holds Nona's sending stone and owes her the Aruhe rescue. Nona's desk chases the missing of Mercatura. Next: report home once the stone delivers to her.
-- [[what-sunk-the-vestra|What Sunk the Vestra]]. Both disasters share the Maw's water, and whether the theft's hand positioned either is unproven. Next: the Red Lady's records or the reason Auralis saved Perrin.
+- [[take-on-aruhe|Taking on Aruhe]]. The keeper's summons stands over Jean-Claude, and the grove waits at the lane's end. Next: the hearing, and whose authority the survivors choose.
+- [[rule-of-two|Rule of Two]]. Skarn fights under a far watcher's help, and the Spinner rides in Delmar's bag. Next: what snaps when the keeper's will meets the manipulated fate.
+- [[the-canister|The Canister]]. Jean-Claude's silence about his sister's toxin has held since the gangplank. Next: the grove's truth, where his silence breaks.
+- [[simones-hunters|Simone's Hunters]]. Jean-Claude is awake and bound to be brought before the garden's keeper. The hunters' last known trail runs the captive route toward Karath. Next: protect Jean-Claude and reach Uncertainty.
+- [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]]. Delmar confessed, and Umberlee named the Pearl as her price. Next: the debt gains a name in front of the fleet's survivors.
+- [[drowned-maw-awakening|Drowned Maw Awakening]]. Auralis pressed Perrin twice to consume the living fruit and Perrin refused. Next: what the Maw is after, and what the island itself flinches from.
+- [[perrin-and-nona|Perrin and Nona]]. Perrin holds Nona's sending stone and owes her the Aruhe rescue. Next: report home once the stone delivers to her.
 
 ## Last Session
 
@@ -43,6 +39,6 @@ title: "Hot"
 
 ## Next
 
-Session 13 resumes the ambush mid-combat with the Party at level 6, free to adjust builds first. Open questions: whether Skarn drops or slips away again, and what the grove visit costs Jean-Claude.
+Session 13 is built end to end, ambush to stinger. The whole chain is [[session-13-prep|Session 13 - Prep]], and it opens with [[session-13-previously-on|Session 13 - Previously On]] before initiative resumes the ambush, the Party at level 6 on the players' own clock. The hearing's court runs one consciousness at three tempos, and the verdict follows whichever tempo the Party speaks to last.
 
 - [[sandro|Sandro]] and [[nino|Nino]] sail aboard the [[uncertainty|Uncertainty]] since the Session 10 lift-off, and the broken [[vethka|Vethka]]'s shade on the landing beach stands empty. The Death Bloom's destroy-or-preserve choice waits inland.

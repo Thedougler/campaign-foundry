@@ -7,6 +7,7 @@ aliases:
 sources:
   - "archive/hinewai.md"
   - "archive/campaign-os-raw-blight.md"
+  - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
 revealed: "Session 11"
 title: "Hinewai the Blight"
 ---
@@ -18,7 +19,7 @@ title: "Hinewai the Blight"
 - **Role at the table.** Unique named Creature represented by the NPC, the blight at the grove's heart.
 - **Threat.** See the stat block, CR 19. She fights with rotten claws, acid blooms and grasping roots.
 - **Tell.** The plants lean toward her target before she moves, and thorned vines rise where the next blow will fall.
-- **Weak to.** Her weakness is the Death Bloom itself. It roots her return, and destroying it first makes her next death permanent.
+- **Weak to.** The archived record specifies the Death Bloom as her weakness, and her pale roots have spread it across [[aruhe|Aruhe]] since the graves were dug. What began at the graves is now one part of her among many.
 - **Used by.** The NPC of the same name, whose archived record this block renders.
 
 > [!narration] First sight
@@ -52,7 +53,7 @@ languages: "Druidic, Elvish"
 cr: "19"
 traits:
   - name: "Rooted Phylactery"
-    desc: "While the Death Bloom holds, Hinewai reforms at the Grove's tree 1d10 days after her body is destroyed. Destroying the Death Bloom first makes her next death permanent."
+    desc: "While the Death Bloom holds, Hinewai reforms at the Grove's tree 1d10 days after her body is destroyed. Her roots have spread the Bloom across Aruhe since the graves were dug, and breaking the graves destroys one part of her among many."
   - name: "Corrupted Ground"
     desc: "Hinewai moves through plants without spending extra movement, and Difficult Terrain within 1 mile of the Death Bloom costs her no extra movement."
   - name: "Turn Resistance"

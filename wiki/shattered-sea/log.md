@@ -3733,3 +3733,104 @@
 - [[fate-spinner|Fate Spinner]]
 - [[grung-authority-seal|Grung Authority Seal]]
 - [[terror-bird|Terror-Bird]]
+
+## [2026-10-10] ingest | collab-2026-10-10-hinewai-gold-peaches.md
+
+- [[hinewai|Hinewai]]
+- [[the-unnamed-companion|The Unnamed Companion]]
+- [[memorial-grove|Memorial Grove]]
+- [[gold-fruit|Gold Fruit]]
+- [[simone-tabarnack|Simone Tabarnack]]
+- [[gold-caste|Gold Caste]]
+- [[talon-skarn|Talon Skarn]]
+- [[talon-vantyrus|Talon Vantyrus]]
+- [[aruhe|Aruhe]]
+- [[two-grave-orders|Two-Grave Orders]]
+- [[grung-and-the-making-of-aruhe|Grung and the Making of Aruhe]]
+- [[hinewai-the-blight|Hinewai the Blight]]
+
+## [2026-10-10] audit | Death Bloom is no longer the bounded grove set, her roots spread it island-wide (DM collab replaces phylactery claim)
+
+- [[aruhe|Aruhe]]
+
+## [2026-10-10] audit | Law's reach moved from the Grove to the island-wide roots (DM collab replaces the old condition)
+
+- [[taking-on-aruhe|Taking on Aruhe]]
+
+## [2026-10-10] audit | Quest deadline now names the graves, not the Bloom's destruction (DM collab, breaking the graves ends neither her nor the law)
+
+- [[take-on-aruhe|Take on Aruhe]]
+
+## [2026-10-10] audit | Quest hidden truth moved to island-wide roots and named the caste's belief (DM collab replaces it)
+
+- [[take-on-aruhe|Take on Aruhe]]
+
+## [2026-10-10] audit | Skarn's remote helpers identified as Vantyrus manipulating fate (DM collab names him)
+
+- [[talon-skarn|Talon Skarn]]
+
+## [2026-10-10] audit | Grove draw names the graves the burning parties break, not the place where Hinewai can end (DM collab replaces phylactery claim)
+
+- [[memorial-grove|Memorial Grove]]
+
+## [2026-10-10] audit | Quest failure names the graves destruction, not the Death Bloom protection ending (DM collab replaces the old condition)
+
+- [[take-on-aruhe|Take on Aruhe]]
+
+## [2026-10-10] audit | Simone gold fruit source names the grove tree she stole from, not farms beyond her reach (DM collab)
+
+- [[ossketh|Ossketh]]
+
+## [2026-10-10] prep | Session 13 Scenes and Prep filed from the settled hearing intent
+
+- [[session-13-prep|Session 13 - Prep]]
+- [[session-13-the-next-blow|Session 13 - The Next Blow]]
+- [[session-13-the-bending-grass|Session 13 - The Bending Grass]]
+- [[session-13-the-silent-court|Session 13 - The Silent Court]]
+- [[session-13-the-hearing|Session 13 - The Hearing]]
+- [[session-13-release|Session 13 - Release]]
+- [[hot|Hot]]
+- [[gold-fruit|Gold Fruit]]
+- [[shattered-sea/index|]]
+
+## [2026-10-10] push | Pushed Session 13 of Shattered Sea to Foundry
+
+- [[Aleksander Malone]]
+- [[Aruhe]]
+- [[Beppe Sarti]]
+- [[Carlo Ferrante]]
+- [[Commoner]]
+- [[Ettore Ferrante]]
+- [[Fate Spinner]]
+- [[Fleet Commanders Chair]]
+- [[Ghost Plum]]
+- [[Gianni Moro]]
+- [[Gold Fruit]]
+- [[HCS Ordinance]]
+- [[Hinewai]]
+- [[Hinewai the Blight]]
+- [[Khlysty]]
+- [[Luca Ferrante]]
+- [[Marco Lenzi]]
+- [[Master Kyzil]]
+- [[Master Kyzil (Creature)]]
+- [[Matteo Scola]]
+- [[Memorial Grove]]
+- [[Nightmantle]]
+- [[Piero Sorrentino]]
+- [[Renzo Canale]]
+- [[Session 13 - Prep]]
+- [[Session 13 - Previously On]]
+- [[Session 13 - Release]]
+- [[Session 13 - The Bending Grass]]
+- [[Session 13 - The Hearing]]
+- [[Session 13 - The Next Blow]]
+- [[Session 13 - The Silent Court]]
+- [[Simone Tabarnack]]
+- [[Talon Skarn]]
+- [[Talon Skarn (Creature)]]
+- [[Talon Vantyrus]]
+- [[Talon Vantyrus (Creature)]]
+- [[Terror-Bird]]
+- [[The Burnt Road]]
+- [[Western Landing]]

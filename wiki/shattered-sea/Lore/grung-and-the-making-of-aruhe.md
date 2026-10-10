@@ -6,13 +6,14 @@ sources:
   - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
   - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
   - "archive/hinewai.md"
+  - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
 revealed: ""
 title: "Grung and the Making of Aruhe"
 ---
 
 ## At a glance
 
-- **The truth.** Grung raiders took [[hinewai|Hinewai]], a druid of a far island in the [[midchain|Midchain]], from a beach meeting their kind for the first time, and tortured her at the [[karath|Karath]] hatcheries. She and [[the-unnamed-companion|a companion]] taken before her burned their way out; an arrow brought him down in the surf off [[aruhe|Aruhe]], and the grave she dug him stands at the root of the island's law.
+- **The truth.** Hundreds of years ago, Grung raiders took [[hinewai|Hinewai]], a druid of a far island in the [[midchain|Midchain]], from a beach meeting their kind for the first time, and tortured her at the [[karath|Karath]] hatcheries. She and [[the-unnamed-companion|a companion]] taken before her burned their way out; an arrow brought him down in the surf off [[aruhe|Aruhe]], and the grave she dug him stands at the root of the island's law.
 - **Who knows it.** Hinewai holds the whole of it and counts the debt as one still open. The [[grung-clans|Grung Clans]] keep clan-side accounts of their own, uncollected by any record. The Party knows the island's law. The crime behind it stays with Hinewai.
 - **Limits.** One witness remembers the whole escape. The clans kept their accounts uncollected, and the companion's name went with him.
 - **Reaches play through.** The taking-law at [[taking-on-aruhe|Taking on Aruhe]], Hinewai's handling of grung, the two graves under the [[memorial-grove|Memorial Grove]] tree, and the Gold caste's expeditions against them ([[two-grave-orders|Two-Grave Orders]]).
@@ -30,7 +31,7 @@ title: "Grung and the Making of Aruhe"
 
 ### The full truth
 
-The raid that began Aruhe's law was a slaving raid like the clans' others, aimed at a coast four islands east of [[karath|Karath]] that had never met grung. It took [[hinewai|Hinewai]] for the hatcheries, where a dawn toxin at the base of her skull kept her hands useful and her plans slow. [[the-unnamed-companion|A companion]] taken in an earlier raid worked at her side, and on the days the toxin ran weak the two whispered of fire and open water. The lantern that burned the long hut was theirs, and the eastern path to the water was theirs. An arrow took him in the surf within sight of [[aruhe|Aruhe]], and three castings failed to wake his chest. [[hinewai|Hinewai]] cursed [[mystra|Mystra]] over his body before she carried him ashore. His grave went in by hand beneath a fruit tree in [[memorial-grove|Memorial Grove]]. Weeks later she spoke the island's taking-law from inside a second grave dug for herself ([[taking-on-aruhe|Taking on Aruhe]]), and every grung expedition since has sailed for the same two graves ([[two-grave-orders|Two-Grave Orders]]).
+The raid that began Aruhe's law was a slaving raid like the clans' others, aimed at a coast four islands east of [[karath|Karath]] that had never met grung. It took [[hinewai|Hinewai]] for the hatcheries, where a dawn toxin at the base of her skull kept her hands useful and her plans slow. [[the-unnamed-companion|A companion]] taken in an earlier raid worked at her side, and on the days the toxin ran weak the two whispered of fire and open water. The escape was his plan, and the lantern that burned the long hut was theirs, and the eastern path to the water was theirs. An arrow took him in the surf within sight of [[aruhe|Aruhe]], and three castings failed to wake his chest. [[hinewai|Hinewai]] cursed [[mystra|Mystra]] over his body before she carried him ashore. His grave went in by hand beneath a fruit tree in [[memorial-grove|Memorial Grove]]. Weeks later she spoke the island's taking-law from inside a second grave dug for herself ([[taking-on-aruhe|Taking on Aruhe]]), and every grung expedition since has sailed for the same two graves ([[two-grave-orders|Two-Grave Orders]]).
 
 ### Chronology
 

@@ -94,6 +94,7 @@ Claude Opus 5.5 is reserved for writing skills and agent instructions (`skill-wr
 - **Default.** Leave `model` out to run the item on its native agent's model or the configured `task` model. Use it for judgement-heavy or multi-step work such as lint slices, Print-grade prose and investigation.
 - **`zai/glm-5.3`** for creative drafting and mid-weight work.
 - **`zai/glm-5.3-flash`** for cheap, tightly scoped or mechanical runs.
+- **Session material.** The plain `task` agent writes it, which `task.agentModelOverrides` in `.omp/config.yml` sets to `zai/glm-5.3` in this repo. Exploration runs on `scout`, which the user-level overrides route to `zai/glm-5.3-flash`.
 
 Test subjects in `dogfood` runs and evals run on the weakest model realistically capable of the task, usually `zai/glm-5.3-flash`, because a weak model exposes unclear instructions that a strong one quietly compensates for at token cost.
 

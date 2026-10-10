@@ -9,6 +9,7 @@ sources:
   - "archive/ssw-the-canister.md"
   - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
   - "archive/agentic-co-dm-simone-tabarnack-narration.md"
+  - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
 creature: "[[commoner|Commoner]]"
 revealed: "Backstory"
 title: "Simone Tabarnack"
@@ -36,12 +37,12 @@ title: "Simone Tabarnack"
 
 ### History
 
-She stayed in Sorn when Jean-Claude fled and reported him and [[pell|Pell]], believing the caste order made the choice right. She became a garrison folk hero by refusing to spend her soldiers carelessly. She independently found the suppressed colour-sealing rite and cast it on herself, too early: the [[gold-fruit|gold fruit]] she needed grew on [[karath|Karath]]'s secret farms, and the small quantity she bought from outside Karath's control left the colour unfinished. Ozzeth maintained her rite until his death.
+She stayed in Sorn when Jean-Claude fled and reported him and [[pell|Pell]], believing the caste order made the choice right. She became a garrison folk hero by refusing to spend her soldiers carelessly. She independently found the suppressed colour-sealing rite and cast it on herself, too early: the [[gold-fruit|gold fruit]] she needed grew on [[karath|Karath]]'s secret farms. She came to [[aruhe|Aruhe]] herself and stole several golden peaches from the tree at [[memorial-grove|Memorial Grove]], and that small haul left the colour unfinished. Ozzeth maintained her rite until his death.
 
 ### Hidden truths
 
 - Her incomplete Ossketh is still running as arcane transmutation. It is unmaintained, and Detect Magic reveals a spell caught mid-execution.
-- She sealed it too early because she lacked access to the gold fruit, and the small quantity she obtained from outside Karath's control was not enough to finish the colour.
+- She sealed it too early because she lacked access to the gold fruit, and the peaches she stole from the [[memorial-grove|Memorial Grove]] tree were not enough to finish the colour.
 - The Gold caste could not deny her gold without exposing what the diet does, so they go along with her and treat her as showing signs of divinity.
 - She supplied the Crown with Grung poison and built the Calveno raid as a public demonstration. Ozzeth's death now drives her against Karath's toxin monopoly.
 
