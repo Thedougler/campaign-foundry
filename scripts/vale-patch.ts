@@ -14,6 +14,10 @@ const patches: { file: string; exception: string }[] = [
 	// A Player is a person: "a Player asks what is above" (DM-confirmed 2026-10). Upstream excepts "users" and
 	// "readers" but not "players"; the span keeps the subject ("A Player asks what"), so excepting the word works.
 	{ file: ".vale/styles/ai-tells/AnthropomorphicCognition.yml", exception: String.raw`  - "(?i)\\bplayers?\\b"` },
+	// A ship's crew literally carries people and cargo in a sea-going World: "the crew that carried Grigori"
+	// (DM-confirmed 2026-10-11). Upstream already excepts ships, vessels, sailors' kin such as soldiers and porters;
+	// the figurative tokens ("carries weight", "carries risk") keep firing.
+	{ file: ".vale/styles/ai-tells/FigurativeCarries.yml", exception: String.raw`  - "(?i)\\bcrews?\\b"` },
 ];
 
 // A replacement narrows a token the DM confirmed misfiring on a literal campaign meaning; the figurative
@@ -66,7 +70,8 @@ const replacements: { file: string; old: string; replacement: string }[] = [
 	{
 		file: ".vale/styles/ai-tells/MortalityMetaphors.yml",
 		old: String.raw`\\b(?:survives?|survived|surviving) (?:a|an|the|this|that|these|those|each|its|their|both|any|unchanged|intact|untouched|as|into|too|to|as-is)\\b`,
-		replacement: String.raw`\\b(?<!\\b(?:he|she|they|we|i|you) )(?<!\\b(?-i:[A-Z])[a-z'’]*(?:-(?-i:[A-Z])[a-z'’]*)* )(?:(?:survives|survived|surviving)|survive (?! (?:a|an|the|this|that|these|those|each|its|their|both|any)\\b)) (?:a|an|the|this|that|these|those|each|its|their|both|any|unchanged|intact|untouched|as|into|too|to|as-is)\\b`,
+		// The curly apostrophe is interpolated: Bun escapes non-ASCII inside String.raw as a literal `\u2019`.
+		replacement: String.raw`\\b(?<!\\b(?:he|she|they|we|i|you) )(?<!\\b(?-i:[A-Z])[a-z'${"\u2019"}]*(?:-(?-i:[A-Z])[a-z'${"\u2019"}]*)* )(?:(?:survives|survived|surviving)|survive (?! (?:a|an|the|this|that|these|those|each|its|their|both|any)\\b)) (?:a|an|the|this|that|these|those|each|its|their|both|any|unchanged|intact|untouched|as|into|too|to|as-is)\\b`,
 	},
 	// AnthropomorphicCognition, the wanting token: people wanting ("Matteo knows the woman in the woods and
 	// wants the ship", "what the Crown wanted to learn"). The head slot refusing a conjunction stops the match
