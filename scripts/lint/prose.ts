@@ -1,7 +1,7 @@
 /**
- * The prose scope (issue #66): the Wiki gate and nothing else. `cf check` is the one gate
+ * The prose scope (issue #66): the Wiki gate and nothing else. `cfcli check` is the one gate
  * (ADR 0015); this scope shells out to it, never forking its rules, and renders its findings
- * in the shared one-line format. `--fix` passes straight through to `cf check --fix`, whose
+ * in the shared one-line format. `--fix` passes straight through to `cfcli check --fix`, whose
  * fixes are idempotent by construction.
  */
 
@@ -10,7 +10,7 @@ import { join } from "node:path";
 import { capture, markdownUnder, REPO_ROOT, underDir } from "./core.ts";
 import type { LintFinding, ScopeModule, ScopeResult, ScopeRun } from "./types.ts";
 
-/** `cf check --json` output shape (src/check/output.ts `formatJson`). */
+/** `cfcli check --json` output shape (src/check/output.ts `formatJson`). */
 interface CfCheckJson {
 	ok: boolean;
 	findings: { layer: string; rule: string; path: string; line: number; message: string }[];
@@ -49,7 +49,7 @@ async function run(opts: ScopeRun): Promise<ScopeResult> {
 			findings: [],
 			fixes: [],
 			failures: [
-				`cf check failed (exit ${cf.status}): ${(cf.stderr || cf.stdout).trim().split("\n").slice(0, 4).join(" | ")}`,
+				`cfcli check failed (exit ${cf.status}): ${(cf.stderr || cf.stdout).trim().split("\n").slice(0, 4).join(" | ")}`,
 			],
 		};
 	}
@@ -63,7 +63,7 @@ async function run(opts: ScopeRun): Promise<ScopeResult> {
 	const fixes = parsed.fixes.map((f) => `${f.path} ${f.layer}/${f.rule} ${f.description}`);
 	const failures =
 		cf.status === 2
-			? [`cf check usage error (exit 2): ${(cf.stderr || cf.stdout).trim().split("\n").slice(0, 4).join(" | ")}`]
+			? [`cfcli check usage error (exit 2): ${(cf.stderr || cf.stdout).trim().split("\n").slice(0, 4).join(" | ")}`]
 			: [];
 	return { files, findings, fixes, failures };
 }

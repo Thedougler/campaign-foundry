@@ -8,7 +8,7 @@ Summarise the Party's combined nova, sustained damage, healing, hard control, mo
 
 ## 2024 encounter budget
 
-Run `bun run cf -- encounter-budget --help`, then print the actual Party's Low, Moderate and High totals (`--levels` of every participating PC, sheet levels, not pre-offset). The CLI adds +1 combat level by default. Pass `--creature "Name,CR,XP,count"` for the requested count using XP from the retrieved statblock. If the caller says **Hard**, map it to the 2024 **High** budget in the notes. Keep the budget label separate from the Creature's CR estimate. The printout classifies Creature XP. It does not choose the Creature, rewrite Canon, or measure terrain, hazards or objectives, so account for those in the three-round model.
+Run `bun run cfcli -- encounter-budget --help`, then print the actual Party's Low, Moderate and High totals (`--levels` of every participating PC, sheet levels, not pre-offset). The CLI adds +1 combat level by default. Pass `--creature "Name,CR,XP,count"` for the requested count using XP from the retrieved statblock. If the caller says **Hard**, map it to the 2024 **High** budget in the notes. Keep the budget label separate from the Creature's CR estimate. The printout classifies Creature XP. It does not choose the Creature, rewrite Canon, or measure terrain, hazards or objectives, so account for those in the three-round model.
 
 ## Three-round model
 

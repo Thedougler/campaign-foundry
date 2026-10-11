@@ -2,28 +2,28 @@ import { spawnSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 import { cf, repoRoot } from "./check/helpers.ts";
 
-describe("cf npm script", () => {
-	// One smoke test keeps the real channel covered: `bun run cf --` is how every agent invokes the tool,
+describe("cfcli npm script", () => {
+	// One smoke test keeps the real channel covered: `bun run cfcli --` is how every agent invokes the tool,
 	// and the npm-script indirection it depends on has no in-process equivalent.
 	it("identifies itself as Campaign Foundry and documents the supported invocation", () => {
-		const help = spawnSync("bun", ["run", "cf", "--", "--help"], { cwd: repoRoot, encoding: "utf8" });
+		const help = spawnSync("bun", ["run", "cfcli", "--", "--help"], { cwd: repoRoot, encoding: "utf8" });
 		expect(help.status).toBe(0);
 		expect(help.stdout).toContain("Campaign Foundry");
-		expect(help.stdout).toContain("bun run cf --");
-		expect(help.stdout).not.toMatch(/^\s+cf (check|log|index)\b/m);
+		expect(help.stdout).toContain("bun run cfcli --");
+		expect(help.stdout).not.toMatch(/^\s+cfcli (check|log|index)\b/m);
 	});
 
 	it("runs the check subcommand through the `--` separator", async () => {
 		const help = await cf(["check", "--help"]);
 		expect(help.code).toBe(0);
-		expect(help.stdout).toContain("Usage: cf check");
+		expect(help.stdout).toContain("Usage: cfcli check");
 		expect(help.stdout).toContain("--fix");
 	});
 });
 
 const contextVault = ["--vault", "test/fixtures/vault", "--root", "test/fixtures"];
 
-describe("cf context", () => {
+describe("cfcli context", () => {
 	it("lists a named page and an alias once each, sorted by type then name", async () => {
 		const result = await cf(
 			["context", "-", ...contextVault],

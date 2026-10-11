@@ -183,7 +183,7 @@ the line-cited record of what happened in one Session, built from its Transcript
 _Avoid_: transcript summary, notes, companion
 
 **Laugh Highlights**:
-the Session's biggest table laughs, measured from its recording by `cf transcript highlights` and aligned with the lines of a timestamped Transcript (markdown or CSV); the detector proposes them, and Ingest judges which are play before they enter the Session Ledger as MOMENT events.
+the Session's biggest table laughs, measured from its recording by `cfcli transcript highlights` and aligned with the lines of a timestamped Transcript (markdown or CSV); the detector proposes them, and Ingest judges which are play before they enter the Session Ledger as MOMENT events.
 _Avoid_: funniest moments, laugh track or highlight reel
 
 **Transcript Summary**:
@@ -263,11 +263,11 @@ the arc-level view of one Campaign, kept as `story-so-far.md` in the Campaign fo
 _Avoid_: campaign summary, timeline, hot.md
 
 **Repo**:
-the Campaign Foundry git project. Its root, the repo root, is the checkout `cf --root` names: it holds the Wiki at `wiki/`, plus `raw/`, `archive/`, `.cspell/`, `src/`, `evals/` and `docs/`. Repo-relative paths start here, such as a page's `sources` (`archive/session-11-transcript.md`). When run from the repo root, `cf` prints page paths this way (`wiki/shattered-sea/NPCs/Nona Black-Jaw.md`).
+the Campaign Foundry git project. Its root, the repo root, is the checkout `cfcli --root` names: it holds the Wiki at `wiki/`, plus `raw/`, `archive/`, `.cspell/`, `src/`, `evals/` and `docs/`. Repo-relative paths start here, such as a page's `sources` (`archive/session-11-transcript.md`). When run from the repo root, `cfcli` prints page paths this way (`wiki/shattered-sea/NPCs/Nona Black-Jaw.md`).
 _Avoid_: project, workspace, bare "root", "vault" for the Repo
 
 **Wiki** (also **vault**):
-the canonical, human-readable record of Worlds and Campaigns: the Obsidian vault at `wiki/` in the Repo. Wiki and vault are one thing under two names, so the Wiki root and the vault root are both `wiki/`, the folder holding `.obsidian/`, `index.md` and `.cspell-words.txt`. `cf --vault` points there, and wikilinks, `--page` values and vault-relative paths start there. `wiki/` is the only vault this project works in. Vaults elsewhere on the machine are legacy. The DM and the Agent both edit the Wiki, and the DM must be able to run a Session from it alone.
+the canonical, human-readable record of Worlds and Campaigns: the Obsidian vault at `wiki/` in the Repo. Wiki and vault are one thing under two names, so the Wiki root and the vault root are both `wiki/`, the folder holding `.obsidian/`, `index.md` and `.cspell-words.txt`. `cfcli --vault` points there, and wikilinks, `--page` values and vault-relative paths start there. `wiki/` is the only vault this project works in. Vaults elsewhere on the machine are legacy. The DM and the Agent both edit the Wiki, and the DM must be able to run a Session from it alone.
 _Avoid_: notes, knowledge base, "vault" for the Repo
 
 **Canon**:
@@ -287,7 +287,7 @@ the Agent digesting outside material into the Wiki, either a Raw file (afterward
 _Avoid_: import, process, compile, sync
 
 **Lint**:
-the Agent's autonomous repair of mechanical Wiki issues (template layout, headings, wikilinks, placement, index) via `cf check --fix`, the `prose` scope of `bun run lint`. It queries the Wiki when unsure.
+the Agent's autonomous repair of mechanical Wiki issues (template layout, headings, wikilinks, placement, index) via `cfcli check --fix`, the `prose` scope of `bun run lint`. It queries the Wiki when unsure.
 _Avoid_: audit (as routine health), a DM-facing lint report or a blocking review
 
 **Archive**:
@@ -311,7 +311,7 @@ _Avoid_: sync, export, publish
 ### Backup
 
 **Backup**:
-the remote, managed Notion database of the Shattered Sea Wiki (`wiki/shattered-sea/`), the agent skills and their images, which `cf backup` updates on each push to `main`, one page per file, each naming its file's repo path (`.notion/backup-map.json` only caches the lookup). One search there covers a question spanning many pages, faster and for fewer tokens than local search, so agents read from it first. Agents write to the Wiki, which stays the record. An edit made in Notion is overwritten. Nothing in the Backup feeds play.
+the remote, managed Notion database of the Shattered Sea Wiki (`wiki/shattered-sea/`), the agent skills and their images, which `cfcli backup` updates on each push to `main`, one page per file, each naming its file's repo path (`.notion/backup-map.json` only caches the lookup). One search there covers a question spanning many pages, faster and for fewer tokens than local search, so agents read from it first. Agents write to the Wiki, which stays the record. An edit made in Notion is overwritten. Nothing in the Backup feeds play.
 _Avoid_: sync, mirror, export, Push
 
 ### Evals
@@ -341,16 +341,16 @@ the families under test and their pinned cheap and top models, kept in `evals/mo
 the rarely-run, cached ranking of Matrix families by Narration quality, one sample per content type. Its prompts are all committed and rendered deterministically (Runner brief, Judge brief); its run outputs (`evals/benchmark.json`, `evals/benchmark.md`, and everything under `evals/benchmark-samples/` except the briefs) are untracked, gitignored and archived locally under `archive/evals-benchmark/`.
 
 **Runner brief**:
-the byte-exact prompt a benchmark entry runs from: the entry's `context`, then its `prompt` verbatim, rendered by `cf bench briefs` into `evals/benchmark-samples/<bench_version>/<id>/<id>.brief.md`, committed.
+the byte-exact prompt a benchmark entry runs from: the entry's `context`, then its `prompt` verbatim, rendered by `cfcli bench briefs` into `evals/benchmark-samples/<bench_version>/<id>/<id>.brief.md`, committed.
 
 **Judge brief**:
-the committed scoring prompt `evals/bench/judge-brief.md`, filled per anonymised sample by `cf bench judge-brief`. The Judge sees the writer's brief, the sample and the rubrics, but never a family or model name.
+the committed scoring prompt `evals/bench/judge-brief.md`, filled per anonymised sample by `cfcli bench judge-brief`. The Judge sees the writer's brief, the sample and the rubrics, but never a family or model name.
 
 **prompt_sha**:
 the first 12 hex digits of a runner brief's sha256: the byte identity a cached row must match to count. Distinct from `bench_version`, which hashes the whole prompt set.
 
 **Leaderboard**:
-the standing ranked record of Prose Benchmark runs: `evals/benchmark.json`, with `evals/benchmark.md` as its rendered view, regenerated only by `cf bench record` and `cf bench render`.
+the standing ranked record of Prose Benchmark runs: `evals/benchmark.json`, with `evals/benchmark.md` as its rendered view, regenerated only by `cfcli bench record` and `cfcli bench render`.
 
 **dark**:
 a Matrix family over its usage limit for the rest of a session. It is skipped without retry and never cached, and it returns next session.

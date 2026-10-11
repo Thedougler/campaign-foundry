@@ -18,7 +18,7 @@ Each Campaign's config loads through its import below, and `new-campaign` adds o
 
 ## Encounters
 
-- **Combat level offset:** +1. This Party fights at least a level above the 2024 XP calculator. `cf encounter-budget` applies it by default; pass recorded sheet levels, do not pre-add the offset.
+- **Combat level offset:** +1. This Party fights at least a level above the 2024 XP calculator. `cfcli encounter-budget` applies it by default; pass recorded sheet levels, do not pre-add the offset.
 
 ## Language
 
@@ -61,4 +61,4 @@ How every generated Visual and Handout image looks. `skill://visuals` reads this
 
 - **Native agents:** `.omp/agents/`
 - **Skills (source of truth):** `.omp/skills/` when the skill is defined there, otherwise `.agents/skills/<name>/`
-- **Wiki access:** the Wiki is an Obsidian vault. Its vault root is `wiki/` (`.obsidian/` lives there): the folder `cf --vault` defaults to, `vault.dir` in `src/`, and what "the vault root" means in `cf` output. The repo root holds `raw/`, `archive/` and `.cspell/`, and `docs/wiki-layout.md` maps both. Read from the Notion Backup, and edit through `vault://_/` (the active vault) or `wiki/` paths, as `.omp/AGENTS.md` § Wiki access sets out.
+- **Wiki access:** the Wiki is an Obsidian vault. Its vault root is `wiki/` (`.obsidian/` lives there): the folder `cfcli --vault` defaults to, `vault.dir` in `src/`, and what "the vault root" means in `cfcli` output. The repo root holds `raw/`, `archive/` and `.cspell/`, and `docs/wiki-layout.md` maps both. Read from the Notion Backup, and edit through `vault://_/` (the active vault) or `wiki/` paths, as `.omp/AGENTS.md` § Wiki access sets out.

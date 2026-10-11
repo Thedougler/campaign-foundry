@@ -31,7 +31,7 @@ The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scen
    - Fill `## Depth` with hidden truths and the Spotlight. State what each result does to the tested Thread.
 
    **Done when** every plausible result has a conditional continuation, including a prevented escape or a declined fight, and no continuation stacks another Cliffhanger.
-9. **Cold read and complete.** Apply scene-pages **Cold read** to the Scene and its dependencies. Trace each incoming state through the actual Narration, Play, Encounter and Outcomes, checking the chosen card's requirements and the rulings for avoiding or interrupting the contest. Reconcile every local rules summary with its owner and every Balance value with the `bun run cf -- encounter-budget` output. Then apply **Completion**, Standalone or Composed as **Orient** resolved. **Done when** every branch is runnable from the filed page and both sections' Done criteria hold.
+9. **Cold read and complete.** Apply scene-pages **Cold read** to the Scene and its dependencies. Trace each incoming state through the actual Narration, Play, Encounter and Outcomes, checking the chosen card's requirements and the rulings for avoiding or interrupting the contest. Reconcile every local rules summary with its owner and every Balance value with the `bun run cfcli -- encounter-budget` output. Then apply **Completion**, Standalone or Composed as **Orient** resolved. **Done when** every branch is runnable from the filed page and both sections' Done criteria hold.
 
 ## Rulings
 

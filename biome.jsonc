@@ -34,7 +34,7 @@
 			// Fixture bytes are asserted verbatim in tests: lint them, never rewrite them.
 			"!test/fixtures",
 			"!test/check/fixtures",
-			// Tool-owned state, rewritten by `cf backup` (serializeMap), not by hand.
+			// Tool-owned state, rewritten by `cfcli backup` (serializeMap), not by hand.
 			"!.notion/backup-map.json"
 		]
 	},

@@ -1,5 +1,5 @@
 /**
- * The command kit (issue #59): the one seam every `cf` command shares. It owns the example
+ * The command kit (issue #59): the one seam every `cfcli` command shares. It owns the example
  * prefix, environment resolution (`--root`, `--vault`, `--templates`), the shared option
  * declarations, file and stdin input, the Campaign refusal, and the runner result/print
  * harness. Commands keep only their domain flags and domain logic.
@@ -16,10 +16,10 @@ import type { Vault } from "../vault/types.ts";
 import { readStdin } from "./stdin.ts";
 
 /**
- * How every Examples block, hint and approval command spells one invocation. A bare `cf` on
- * PATH is usually Cloudflare's binary (issue #56 renames this tool; that change is this line).
+ * How every Examples block, hint and approval command spells one invocation. ADR 0032 renamed
+ * the script from its old name, which collided with Cloudflare's CLI.
  */
-export const CF = "bun run cf --";
+export const CF = "bun run cfcli --";
 
 /** The repository root: the nearest ancestor of `from` holding `.git` or `bun.lock`, else `from`. */
 export function findRepoRoot(from: string): string {

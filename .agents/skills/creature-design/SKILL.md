@@ -192,7 +192,7 @@ changed played record or NPC identity.
 ### 8. Close the operation
 
 Close per `skill://lint` § Commands over the Creature page and every page this
-run touched, reading `bun run cf -- check --help` first for the installed
+run touched, reading `bun run cfcli -- check --help` first for the installed
 syntax. The page gate runs every layer, and `--fix` covers the mechanical
 repairs it names. Log only once the page gate prints `ok: 0 findings`. When
 another skill invoked this one, that caller writes the operation log. Append a

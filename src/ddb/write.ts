@@ -297,7 +297,7 @@ export async function createMonsterCopy(transport: Transport, baseMonsterId: num
 	if (!page.ok)
 		throw new DdbTransportError(
 			`The create page answered HTTP ${page.status}.`,
-			"the stored session may be stale; cf ddb --help has the Authentication steps",
+			"the stored session may be stale; cfcli ddb --help has the Authentication steps",
 			page.status,
 		);
 	const html = await page.text();
@@ -447,7 +447,7 @@ export async function deleteMonster(transport: Transport, id: number): Promise<v
 	if (token === undefined) {
 		throw new DdbAuthError(
 			"The stored session has no RequestVerificationToken cookie.",
-			"re-save the session from a logged-in browser tab (cf ddb --help, the Authentication section)",
+			"re-save the session from a logged-in browser tab (cfcli ddb --help, the Authentication section)",
 		);
 	}
 	const response = await fetchThrough(transport, url, {

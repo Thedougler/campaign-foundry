@@ -6,7 +6,7 @@ import { afterAll, describe, expect, it } from "vitest";
 import { cf, repoRoot } from "../check/helpers.ts";
 
 /**
- * One `cf foundry` invocation in this process, with a scripted host fixture (CF_FOUNDRY_SCRIPTED)
+ * One `cfcli foundry` invocation in this process, with a scripted host fixture (CF_FOUNDRY_SCRIPTED)
  * pointed at `fixture`, or the flag cleared when none is given, the way an agent drives the command:
  * the fixture answers the host's SSH commands without reaching rpi4.
  */
@@ -63,7 +63,7 @@ afterAll(async () => {
 	if (fixtureDir !== undefined) await rm(fixtureDir, { recursive: true, force: true });
 });
 
-describe("cf foundry --help", () => {
+describe("cfcli foundry --help", () => {
 	it("parses service --help and assets put --help (import crash or mis-parenting fails here)", async () => {
 		const service = await run(["service", "--help"]);
 		expect(service.code).toBe(0);
@@ -75,7 +75,7 @@ describe("cf foundry --help", () => {
 	});
 });
 
-describe("cf foundry status", () => {
+describe("cfcli foundry status", () => {
 	it("prints the one-screen snapshot against a scripted host", async () => {
 		const result = await run(["status"], await fixture(statusReplies()));
 		expect(result.code).toBe(0);
@@ -92,7 +92,7 @@ describe("cf foundry status", () => {
 	});
 });
 
-describe("cf foundry tool", () => {
+describe("cfcli foundry tool", () => {
 	it("answers host.status through the registry, read-only, no module needed", async () => {
 		const result = await run(["tool", "host.status"], await fixture(statusReplies()));
 		expect(result.code).toBe(0);
@@ -104,22 +104,22 @@ describe("cf foundry tool", () => {
 		const result = await run(["tool", "host.restart"], await fixture(statusReplies()));
 		expect(result.code).toBe(2);
 		expect(result.stderr).toContain("dm_gate");
-		expect(result.stderr).toContain("cf foundry service restart --yes");
+		expect(result.stderr).toContain("cfcli foundry service restart --yes");
 	});
 
 	it("refuses a module tool with the no-module remedy and exit 1", async () => {
 		const result = await run(["tool", "world.inspect"], await fixture(statusReplies()));
 		expect(result.code).toBe(1);
 		expect(result.stderr).toContain("no_module");
-		expect(result.stderr).toContain("cf foundry serve");
+		expect(result.stderr).toContain("cfcli foundry serve");
 	});
 });
 
-describe("cf foundry mutating commands gate on --yes", () => {
+describe("cfcli foundry mutating commands gate on --yes", () => {
 	it("service stop prints the plan and the approval command, exit 2, and runs nothing", async () => {
 		const result = await run(["service", "stop"], await fixture(statusReplies()));
 		expect(result.code).toBe(2);
-		expect(result.stderr).toContain("Approve with: bun run cf -- foundry service stop --yes");
+		expect(result.stderr).toContain("Approve with: bun run cfcli -- foundry service stop --yes");
 	});
 
 	it("service restart --yes runs the compose command against the scripted host", async () => {
@@ -135,7 +135,7 @@ describe("cf foundry mutating commands gate on --yes", () => {
 		const plan = await run(["options", "set", "port=30001"], await fixture(statusReplies()));
 		expect(plan.code).toBe(2);
 		expect(plan.stderr).toContain("port = 30001");
-		expect(plan.stderr).toContain("Approve with: bun run cf -- foundry options set port=30001 --yes");
+		expect(plan.stderr).toContain("Approve with: bun run cfcli -- foundry options set port=30001 --yes");
 		const written = await run(
 			["options", "set", "port=30001", "--yes"],
 			await fixture(statusReplies([{ match: "cat >", stdout: "" }])),
@@ -151,11 +151,11 @@ describe("cf foundry mutating commands gate on --yes", () => {
 		);
 		expect(result.code).toBe(2);
 		expect(result.stderr).toContain("shut down");
-		expect(result.stderr).toContain("cf foundry backup create --stop --yes");
+		expect(result.stderr).toContain("cfcli foundry backup create --stop --yes");
 	});
 });
 
-describe("cf foundry serve", () => {
+describe("cfcli foundry serve", () => {
 	it("answers MCP initialize and tools/list on stdio, then exits when stdin closes", async () => {
 		const script = statusReplies();
 		const path = await fixture(script);
@@ -166,7 +166,7 @@ describe("cf foundry serve", () => {
 			JSON.stringify({ jsonrpc: "2.0", id: 2, method: "tools/list" }),
 			JSON.stringify({ jsonrpc: "2.0", id: 3, method: "tools/call", params: { name: "host.status", arguments: {} } }),
 		].join("\n");
-		const child = spawnSync("bun", ["run", "cf", "--", "foundry", "serve", "--port", "0", "--token", "test-token"], {
+		const child = spawnSync("bun", ["run", "cfcli", "--", "foundry", "serve", "--port", "0", "--token", "test-token"], {
 			cwd: repoRoot,
 			env,
 			encoding: "utf8",

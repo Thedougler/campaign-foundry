@@ -6,7 +6,7 @@ A DM's D&D campaign Wiki, kept by coding agents working in this repo. Start with
 
 1. Install Bun 1.3.14, then run `bun install --frozen-lockfile`. `bun.lock` is the committed dependency graph; keep `node_modules/` untracked.
 2. `bun run setup` syncs the pinned Vale style packages. Vale 3.23 or newer must be on your PATH.
-3. `bun run cf -- check` gates the Wiki and `bun run cf -- check --fix` applies mechanical fixes; `bun run cf -- --help` lists the other commands.
+3. `bun run cfcli -- check` gates the Wiki and `bun run cfcli -- check --fix` applies mechanical fixes; `bun run cfcli -- --help` lists the other commands.
 
 Add or update dependencies with `bun add` or `bun update`; commit `package.json` and `bun.lock` together. Use frozen installs in automation so dependency drift fails rather than silently rewriting the lockfile.
 
@@ -22,7 +22,7 @@ Commands run from the repo root through `package.json` scripts:
 - `bun run py:test:slow` — the `slow` tests, which load the real PANNs model (below) and download its checkpoint on first run.
 - `bun run check:all` runs every gate in one pass: `bun run lint --all` (agent text, the Wiki gate, Biome, tsc and ruff), then vitest and pytest.
 
-Python features reach agents through `cf`, the single entry surface: `bun run cf -- transcript highlights <recording or parts…> --transcript <export> [--json] [--clip-dir <dir>]` ranks a Session recording's laughs (PANNs `Cnn14_DecisionLevelMax` sound-event detection, ported from `shattered-sea-wiki`) and aligns each with the lines of its timestamped TranscribeX export, markdown or CSV, which the command tells apart by reading the file. `src/commands/transcript.ts` hands the arguments to `uv run --project python --extra highlights python -m campaign_foundry.highlights`. The `highlights` extra (torch, panns-inference) installs on the first scan, which also downloads the model checkpoint (about 330 MB) to `~/panns_data/` with `wget`; `ffmpeg` decodes the audio and cuts clips. `--help` lists every option and needs neither.
+Python features reach agents through `cfcli`, the single entry surface: `bun run cfcli -- transcript highlights <recording or parts…> --transcript <export> [--json] [--clip-dir <dir>]` ranks a Session recording's laughs (PANNs `Cnn14_DecisionLevelMax` sound-event detection, ported from `shattered-sea-wiki`) and aligns each with the lines of its timestamped TranscribeX export, markdown or CSV, which the command tells apart by reading the file. `src/commands/transcript.ts` hands the arguments to `uv run --project python --extra highlights python -m campaign_foundry.highlights`. The `highlights` extra (torch, panns-inference) installs on the first scan, which also downloads the model checkpoint (about 330 MB) to `~/panns_data/` with `wget`; `ffmpeg` decodes the audio and cuts clips. `--help` lists every option and needs neither.
 
 Add dependencies where they belong: a JS package with `bun add <pkg>`, a Python package with `uv add --directory python <pkg>` (dev tools with `--dev`). Commit `python/pyproject.toml` and `python/uv.lock` together, as you do `package.json` and `bun.lock`. Toolchain versions are pinned by `.node-version` and `packageManager` for Node and Bun, and by `python/.python-version` and `requires-python` for Python 3.14.
 

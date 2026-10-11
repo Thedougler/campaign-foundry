@@ -4,7 +4,7 @@ The shared procedure for `hook-scene`, `development-scene`, `cliffhanger-scene`,
 
 ## Paths
 
-Run every command from the repo root. A page path in a `cf` command starts with `wiki/`.
+Run every command from the repo root. A page path in a `cfcli` command starts with `wiki/`.
 
 - **Content pages.** `wiki/<campaign>/<Folder>/<slug>.md`, in the folders `Locations`, `NPCs`, `Creatures`, `Factions`, `Deities`, `Items`, `Spells`, `Vehicles`, `Lore`, `House Rules`, `PCs`, `Threads` and `Quests`. `<slug>` is the slug of the page's `title` (`docs/wiki-layout.md` **Page names**). `<campaign>` is the Campaign folder (`shattered-sea`), which `user-config.md` names.
 - **Session pages.** `wiki/<campaign>/Sessions/Session <N>/session-<N>-<slug>.md`, titled `Session <N> - <Title>`. The titles are `Prep`, `Recap`, `Previously On` (recounting Session N−1) and one per Scene, named for the Scene.
@@ -142,19 +142,19 @@ A Resolution instead gives its Climax-conditioned payoffs, reactions, rewards an
 
 ## Encounters
 
-Use this section for a Cliffhanger or Climax with Creatures the Party might fight, including a violent fallback to negotiation. Also use it for an action Hook borrowing Cliffhanger craft. `bun run cf -- encounter-budget` classifies Creature spend only. Choosing the opposition and judging other dangers remain your job. When a command exits 2, read its `--help` and correct the call.
+Use this section for a Cliffhanger or Climax with Creatures the Party might fight, including a violent fallback to negotiation. Also use it for an action Hook borrowing Cliffhanger craft. `bun run cfcli -- encounter-budget` classifies Creature spend only. Choosing the opposition and judging other dangers remain your job. When a command exits 2, read its `--help` and correct the call.
 
-Read `bun run cf -- encounter-budget --help` before budgeting. The invocations below show the required syntax. Replace the example levels and force with the Scene's sourced values.
+Read `bun run cfcli -- encounter-budget --help` before budgeting. The invocations below show the required syntax. Replace the example levels and force with the Scene's sourced values.
 
 1. **Budget.** Establish the participating PCs from their Sheets and incoming conditions, excluding anyone unable to participate and stating why. Choose Low, Moderate or High to match the row and the kind's craft. Print the Party's budgets with the sheet levels, comma-separated:
 
-   `bun run cf -- encounter-budget --levels 5,5,5,5`
+   `bun run cfcli -- encounter-budget --levels 5,5,5,5`
 
    Apply sourced House Rules first. Take every total from the CLI output, never from a table, memory or hand arithmetic. The CLI adds a +1 combat offset to each level because this Party fights above the calculator, so pass sheet levels without adding it. **Done when** the contributing PCs and levels match the entry and the CLI has printed that Party's Low, Moderate and High totals.
 
 2. **Spend.** Take each opposing type's count, CR and XP from its read Wiki or 2024 SRD statblock (Canon, then `dnd5e-srd-api`, then published material). Pass them to the same command, one `--creature` per type:
 
-   `bun run cf -- encounter-budget --levels 5,5,5,5 --target high --creature "Terror-Bird,13,10000,2"`
+   `bun run cfcli -- encounter-budget --levels 5,5,5,5 --target high --creature "Terror-Bird,13,10000,2"`
 
    - Equal to a band ceiling is that band, and one XP over High is Beyond High. The bands follow the 2024 rules alone: no 2014 monster-count multiplier and no Easy/Medium/Hard/Deadly thresholds.
    - Read the printed band and any `Vs` delta, then decide whether that spend is the right fight.
@@ -165,7 +165,7 @@ Read `bun run cf -- encounter-budget --help` before budgeting. The invocations b
    **Done when** each comparison is the CLI's printed totals for that force and the page's description of danger matches the planned contest, including what XP does not cover.
 
 3. **Expose the plan.** Copy the CLI's Encounter Balance lines under `### Balance` in a Cliffhanger's `## Encounter`, or under `#### Balance` in `### Encounter` under `## Play` for a fighting Hook or Climax.
-   - Identify `bun run cf -- encounter-budget` as the source, with the participating PCs and the Creature pages supplying XP.
+   - Identify `bun run cfcli -- encounter-budget` as the source, with the participating PCs and the Creature pages supplying XP.
    - Give quantities, deployment, battlefield features, opposition objectives, opening tactics, adaptations and break or escape conditions.
    - Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]` here and link it elsewhere, with named NPC combatants resolved to their Creature owners.
    - State how terrain, surprise, allies, depleted resources, hazards and objectives change the actual danger.
@@ -184,7 +184,7 @@ Read the Scene and its rendered embeds as the DM would, with no sourcebooks or c
 - the Narration fits each entry;
 - no result depends on the Party accepting a predetermined answer.
 
-Compare the heading spine with the template, each `sources` path with its file, each reused ruling with its owner passage, and Balance numbers with the `bun run cf -- encounter-budget` output and Party evidence. Correct mismatches in the Scene and its local Prep material, and return any required chart recomputation to its owner.
+Compare the heading spine with the template, each `sources` path with its file, each reused ruling with its owner passage, and Balance numbers with the `bun run cfcli -- encounter-budget` output and Party evidence. Correct mismatches in the Scene and its local Prep material, and return any required chart recomputation to its owner.
 
 **Done when** the kind's criteria hold in the actual page, every entry and exit is runnable, every source and template comparison agrees, and each cited table-use fact is on the page.
 
@@ -192,12 +192,12 @@ Compare the heading spine with the template, each `sources` path with its file, 
 
 ### Standalone
 
-From the repo root, close per `skill://lint` § Commands over the Scene and every page this run touched, reading `bun run cf -- check --help` first for the installed syntax. Gate findings are unfinished authoring: rewrite the flagged sentence for every finding while keeping Canon, then rerun the gate to `ok: 0 findings` (`AGENTS.md` **Zero findings**). Keep every layer enabled. For an assigned filesystem root, see **Another root** there.
+From the repo root, close per `skill://lint` § Commands over the Scene and every page this run touched, reading `bun run cfcli -- check --help` first for the installed syntax. Gate findings are unfinished authoring: rewrite the flagged sentence for every finding while keeping Canon, then rerun the gate to `ok: 0 findings` (`AGENTS.md` **Zero findings**). Keep every layer enabled. For an assigned filesystem root, see **Another root** there.
 
 After the page gate passes, append one log entry listing every touched content page by its vault-relative path:
 
 ```bash
-bun run cf -- log --op create --title "Author Session <N> <Scene title>" --page "<campaign>/Sessions/Session <N>/session-<N>-<scene-slug>.md"
+bun run cfcli -- log --op create --title "Author Session <N> <Scene title>" --page "<campaign>/Sessions/Session <N>/session-<N>-<scene-slug>.md"
 ```
 
 **Done when** the page and all dependencies are runnable, the index is current, the page gate reported `ok: 0 findings`, and the log entry exists.

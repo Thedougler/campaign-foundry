@@ -5,7 +5,7 @@ The daemon and CLI that read and write the DM's Foundry VTT through two planes b
 ## Architecture
 
 ```
-agent ── MCP (stdio JSON-RPC) ── daemon (`cf foundry serve`)
+agent ── MCP (stdio JSON-RPC) ── daemon (`cfcli foundry serve`)
                                    │ ToolRegistry (discipline: plan, gate, verify)
                                    ├─ host plane: SSH commands on rpi4 (status, logs, backups, installs)
                                    └─ bridge listener (WebSocket, token-authenticated, 127.0.0.1:30426)
@@ -36,7 +36,7 @@ Every module-plane write accepts `dry_run` (default **true**), `preconditions`, 
 3. **Dry run by default**: return the plan as a preview and call nothing. Pass `dry_run: false` to execute.
 4. Idempotency: the same `idempotency_key` with the same params replays the recorded result. The same key with different params is an error, never a silent second write. Failures are never recorded.
 5. Preconditions: each `{uuid, path, equals}` is read through `document.get` and deep-compared at the dot-path before anything runs.
-6. `backup_before`: the host adapter takes a shutdown-aware backup. A running world refuses, per the official guidance that Foundry is shut down before Data is copied, and the refusal specifies the command `cf foundry backup create --stop --yes` for the DM.
+6. `backup_before`: the host adapter takes a shutdown-aware backup. A running world refuses, per the official guidance that Foundry is shut down before Data is copied, and the refusal specifies the command `cfcli foundry backup create --stop --yes` for the DM.
 7. Execute through the bridge.
 8. `verify_after` (default true): every touched document is re-read and the changed paths compared. The result reports uuids, canonical post-write state, warnings, verification per uuid, and the backup's destination.
 
@@ -46,12 +46,12 @@ Through MCP, the daemon runs host-plane mutations **never**: each returns an `is
 
 | Gate | Approval command |
 |---|---|
-| Stop or restart the world | `cf foundry service stop\|restart --yes` |
-| Backup round-trip | `cf foundry backup create --stop --yes`, then `cf foundry backup restore <archive> --yes` |
-| options.json edit | `cf foundry options set <key=value...> --yes` |
-| Asset placement | `cf foundry assets put <src> <dest> --yes` |
-| Foundry update | `cf foundry install update [--version <v>] --yes` |
-| Module install | `cf foundry install module --zip <zip> --name cf-bridge --yes` |
+| Stop or restart the world | `cfcli foundry service stop\|restart --yes` |
+| Backup round-trip | `cfcli foundry backup create --stop --yes`, then `cfcli foundry backup restore <archive> --yes` |
+| options.json edit | `cfcli foundry options set <key=value...> --yes` |
+| Asset placement | `cfcli foundry assets put <src> <dest> --yes` |
+| Foundry update | `cfcli foundry install update [--version <v>] --yes` |
+| Module install | `cfcli foundry install module --zip <zip> --name cf-bridge --yes` |
 | Live document writes | DM instruction per session (issue #46). Dry runs are always safe. |
 
 Read-only commands (`status`, `logs`, `options get`, `tool host.status`, `tool logs.query`) run freely.
@@ -59,26 +59,26 @@ Read-only commands (`status`, `logs`, `options get`, `tool host.status`, `tool l
 ## The CLI
 
 ```
-bun run cf -- foundry status [--json]            one-screen host snapshot
-bun run cf -- foundry logs [--lines --since --until --grep --source] [--json]
-bun run cf -- foundry options get <key> [--json] | set <key=value...> [--yes]
-bun run cf -- foundry service start|stop|restart [--yes]
-bun run cf -- foundry backup create [--stop --dest] [--yes] | restore <archive> [--yes]
-bun run cf -- foundry assets put <src> <dest> [--yes]        (src `-` reads stdin)
-bun run cf -- foundry install update [--version] [--yes] | module --zip --name [--yes]
-bun run cf -- foundry serve [--host --port --token --idempotency]   the daemon
-bun run cf -- foundry tool <name> [--params <json>]                 call one tool through the registry
+bun run cfcli -- foundry status [--json]            one-screen host snapshot
+bun run cfcli -- foundry logs [--lines --since --until --grep --source] [--json]
+bun run cfcli -- foundry options get <key> [--json] | set <key=value...> [--yes]
+bun run cfcli -- foundry service start|stop|restart [--yes]
+bun run cfcli -- foundry backup create [--stop --dest] [--yes] | restore <archive> [--yes]
+bun run cfcli -- foundry assets put <src> <dest> [--yes]        (src `-` reads stdin)
+bun run cfcli -- foundry install update [--version] [--yes] | module --zip --name [--yes]
+bun run cfcli -- foundry serve [--host --port --token --idempotency]   the daemon
+bun run cfcli -- foundry tool <name> [--params <json>]                 call one tool through the registry
 ```
 
 `logs --json` prints `{lines: string[]}`; `options get --json` prints `{key, value}`. CLI runners share the result, usage-error and approval harness in `src/commands/kit.ts` with D&D Beyond.
 
-`cf foundry serve` runs the daemon: the bridge listener plus MCP on newline-delimited stdio (closing stdin stops it). Host read-only tools work without a module. Module tools answer once the world's cf-bridge module connects.
+`cfcli foundry serve` runs the daemon: the bridge listener plus MCP on newline-delimited stdio (closing stdin stops it). Host read-only tools work without a module. Module tools answer once the world's cf-bridge module connects.
 
 ## Installing the module (needs a world)
 
 1. The DM first creates a world. Open Foundry Setup (`http://100.84.226.53:30000` or the kiosk), install a system (dnd5e) under Game Systems, then use Create New World.
-2. Pack the module from its own directory so `module.json` is at the archive root: `zip -j /tmp/cf-bridge.zip src/foundry-control/bridge/module/{module.json,main.mjs,handlers.mjs,ring.mjs}`. After approval, copy it with `scp /tmp/cf-bridge.zip nick@100.84.226.53:/home/nick/cf-bridge.zip`, then run `CF_FOUNDRY_SSH=nick@100.84.226.53 bun run cf -- foundry install module --zip /home/nick/cf-bridge.zip --name cf-bridge --yes`.
-3. In the world's Module Management settings, enable Campaign Foundry Bridge. Set its URL to the daemon machine's reachable address and set its token to the daemon's (`cf foundry serve --token <secret>`). Browser HTTPS requires a `wss://` endpoint. The default loopback URL works only when the browser and daemon are on the same machine.
+2. Pack the module from its own directory so `module.json` is at the archive root: `zip -j /tmp/cf-bridge.zip src/foundry-control/bridge/module/{module.json,main.mjs,handlers.mjs,ring.mjs}`. After approval, copy it with `scp /tmp/cf-bridge.zip nick@100.84.226.53:/home/nick/cf-bridge.zip`, then run `CF_FOUNDRY_SSH=nick@100.84.226.53 bun run cfcli -- foundry install module --zip /home/nick/cf-bridge.zip --name cf-bridge --yes`.
+3. In the world's Module Management settings, enable Campaign Foundry Bridge. Set its URL to the daemon machine's reachable address and set its token to the daemon's (`cfcli foundry serve --token <secret>`). Browser HTTPS requires a `wss://` endpoint. The default loopback URL works only when the browser and daemon are on the same machine.
 
 ## Environment
 
@@ -113,5 +113,5 @@ The live round-trip requires a world on rpi4. Public-interface tests follow v14'
 - `src/foundry-control/bridge/`: the wire contract (`schema.ts`) and the mutation planner with its idempotency store (`mutations.ts`). The transport layer is the WebSocket codec, listener and client. `module/` holds the Foundry module itself: `module.json`, `main.mjs`, `handlers.mjs`, `ring.mjs`.
 - `src/foundry-control/daemon/`: `specs.ts` (the tool table), `registry.ts` (the discipline enforcer), `mcp.ts` (stdio MCP).
 - `src/foundry-control/host/`: SSH host adapter for status, logs, options, service, backup, assets and installs, plus `connect.ts` (env and scripted-fixture resolution).
-- `src/commands/foundry.ts`: the `cf foundry` CLI.
+- `src/commands/foundry.ts`: the `cfcli foundry` CLI.
 - `test/foundry-control/`: module, bridge, registry, MCP, host and CLI tests (public seams: fake `game`/`fromUuid`/WebSocket, `ScriptedHost`, spawn runs).

@@ -112,7 +112,7 @@ function isFinding(value: unknown): value is Finding {
 const repairGuidance =
 	"wiki-check is read-only page-check feedback, not repair authority. Load skill://lint and repair the reported findings; clean means zero findings, including warnings, regardless of ok or exit code. The hook doesn't apply fixes. The final combined slice gate still applies.";
 const manualGuidance =
-	"wiki-check did not provide a complete page check. Do not treat any unchecked page or capped list as clean. Run `bun run cf -- check` for all affected pages yourself, then use skill://lint as the repair authority. The hook doesn't apply fixes. The final combined slice gate still applies.";
+	"wiki-check did not provide a complete page check. Do not treat any unchecked page or capped list as clean. Run `bun run cfcli -- check` for all affected pages yourself, then use skill://lint as the repair authority. The hook doesn't apply fixes. The final combined slice gate still applies.";
 
 /** Raw findings stay in tool data. Only fixed, hook-authored guidance enters trusted context. */
 export function feedback(
@@ -120,8 +120,8 @@ export function feedback(
 	pages: string[],
 	incomplete: { omitted: number; inputCapped: boolean } = { omitted: 0, inputCapped: false },
 ): { text: string; additionalContext?: string } {
-	const manualCheck = `bun run cf -- check ${pages.map((path) => `'${path.replaceAll("'", "'\\''")}'`).join(" ")}`;
-	const base = { hook: "wiki-check", pages, readOnly: true, command: "cf check --json (all layers)", ...incomplete };
+	const manualCheck = `bun run cfcli -- check ${pages.map((path) => `'${path.replaceAll("'", "'\\''")}'`).join(" ")}`;
+	const base = { hook: "wiki-check", pages, readOnly: true, command: "cfcli check --json (all layers)", ...incomplete };
 	const failed = (failure: string, detail?: string) => ({
 		text: JSON.stringify({
 			...base,
@@ -134,7 +134,7 @@ export function feedback(
 	});
 	if ("failure" in execution) return failed(execution.failure, execution.detail);
 	if (execution.exitCode !== 0 && execution.exitCode !== 1)
-		return failed("error", `cf check exited ${execution.exitCode ?? "without a status"}`);
+		return failed("error", `cfcli check exited ${execution.exitCode ?? "without a status"}`);
 	let parsed: unknown;
 	try {
 		parsed = JSON.parse(execution.stdout);

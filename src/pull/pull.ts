@@ -75,7 +75,7 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 		throw new UsageError(
 			`No Campaign named "${options.campaign}" with PCs.`,
 			withPcs.length > 0
-				? `Campaigns with PCs: ${withPcs.join(", ")}. Example: cf pull --campaign "${withPcs[0]}"`
+				? `Campaigns with PCs: ${withPcs.join(", ")}. Example: cfcli pull --campaign "${withPcs[0]}"`
 				: "Add a PC page under <Campaign folder>/PCs/ first.",
 		);
 	}
@@ -89,7 +89,7 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 			throw new UsageError(
 				`No PC named "${name}".`,
 				inCampaign.length > 0
-					? `PCs: ${inCampaign.map((p) => p.page.name).join(", ")}. Example: cf pull --pc "${inCampaign[0]!.page.name}"`
+					? `PCs: ${inCampaign.map((p) => p.page.name).join(", ")}. Example: cfcli pull --pc "${inCampaign[0]!.page.name}"`
 					: "Add a PC page under <Campaign folder>/PCs/ first.",
 			);
 		}
@@ -163,12 +163,12 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 				title: "Pulled PCs from D&D Beyond",
 				pages: changed.filter((c) => c.folder === folder).map((c) => c.target),
 			};
-			const example = `cf log --campaign "${nameByFolder.get(folder) ?? folder}" --op pull --title "Pulled PCs from D&D Beyond"`;
+			const example = `cfcli log --campaign "${nameByFolder.get(folder) ?? folder}" --op pull --title "Pulled PCs from D&D Beyond"`;
 			const appended = await appendLogEntry(options.vault, folder, entry, { example });
 			if (appended.status === "error") throw new UsageError(appended.message, appended.hint);
 			result.logged.push(appended.path);
 		}
-		// A pull can fill a blank summary, which the Campaign folder's index lists; regenerate it with `cf index`'s generator.
+		// A pull can fill a blank summary, which the Campaign folder's index lists; regenerate it with `cfcli index`'s generator.
 		const fresh = buildVault(options.vault, await readVaultFiles(options.vault));
 		for (const [path, content] of generateIndexes(fresh)) {
 			if (!touchedFolders.some((f) => path === `${f}/index.md`) || fresh.pageByPath.get(path)?.source === content)

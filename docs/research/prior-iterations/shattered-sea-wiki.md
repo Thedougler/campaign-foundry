@@ -4,7 +4,7 @@ https://github.com/Thedougler/shattered-sea-wiki · LLM-assisted Obsidian D&D 5e
 
 ## Summary
 
-Predecessor of Campaign Foundry: one vault of canon (`wiki/hot.md`, entities, situations, sessions) plus agent skills that prep run-guides, design toys, ingest transcripts, and lint frontmatter/wikilinks. Table work optimized for cold-read scannability (inline-first cards, NPC handles, visible clock ticks). Superseded by CF’s World/Campaign split, Scene Chart kinds, design skills, and `cf` gate; audio live-co-DM and Astro player UI sit outside CF’s between-Sessions contract (ADR 0002).
+Predecessor of Campaign Foundry: one vault of canon (`wiki/hot.md`, entities, situations, sessions) plus agent skills that prep run-guides, design toys, ingest transcripts, and lint frontmatter/wikilinks. Table work optimized for cold-read scannability (inline-first cards, NPC handles, visible clock ticks). Superseded by CF’s World/Campaign split, Scene Chart kinds, design skills, and `cfcli` gate; audio live-co-DM and Astro player UI sit outside CF’s between-Sessions contract (ADR 0002).
 
 ## Worth salvaging
 
@@ -18,7 +18,7 @@ Predecessor of Campaign Foundry: one vault of canon (`wiki/hot.md`, entities, si
 
 5. **Faction/thread simulation modes** (`.claude/skills/prep-faction/references/faction-simulation.md`, `world-update/`) — Planning (pending pressure only) vs Advancement (canon write) vs Review; collision resolution; urgency→scene placement. **Adopt:** idea into `faction-design` agenda ticks + post-ingest hot rewrite; optional thin world-update step after Recap. CF agendas exist; explicit planning/advancement split does not.
 
-6. **Paint-by-numbers battlemaps** (`.claude/skills/prep-map/`, `docs/superpowers/specs/2026-06-18-prep-map-design.md`, `scripts/lib/scene.mjs`, `map.mjs`) — Agent-authored `grid`+`legend` guide → free render → img2img beautify → vector grid composite; geometry locked, style free. **Adopt:** port code under `cf`/skill if Foundry maps stay weak; else idea only. CF `generate-image` forbids grids—orthogonal upgrade.
+6. **Paint-by-numbers battlemaps** (`.claude/skills/prep-map/`, `docs/superpowers/specs/2026-06-18-prep-map-design.md`, `scripts/lib/scene.mjs`, `map.mjs`) — Agent-authored `grid`+`legend` guide → free render → img2img beautify → vector grid composite; geometry locked, style free. **Adopt:** port code under `cfcli`/skill if Foundry maps stay weak; else idea only. CF `generate-image` forbids grids—orthogonal upgrade.
 
 7. **Narrative island / street banks** (`.claude/skills/prep-island/references/ISLAND-TEMPLATE.md`, `wiki/narrative-islands/calveno-street-encounters.md`) — Self-contained situations with register, default if-ignored, d6 drop-ins (Wrong Mark, canal rescue, papers). **Adopt:** optional Scene bank pages for Settlements; `plan-session` riffs. Partial via dungeon/location design.
 
@@ -38,7 +38,7 @@ Canon already largely lives in CF wiki (Beffe, Solange/Ruma, Pearl/Maw, Calveno)
 
 - **live-co-dm / live-transcription / record-session-audio / tools/audio** — violates CF between-Sessions-only stance; heavy Apple Silicon ML stack.
 - **Astro `ui/` player site + publish/audience pairing** — CF Wiki+Foundry Push owns player surface; dual publish pages add secrecy footguns.
-- **`sea` monorepo / biome hooks / continuous-self-improvement** — CF `cf` + Vale already own gates; don’t re-platform.
+- **`sea` monorepo / biome hooks / continuous-self-improvement** — CF `cfcli` + Vale already own gates; don’t re-platform.
 - **Mandatory world-tick d20 bands** — optional flavor; CF prefers concrete agenda milestones over dice theatre.
 - **Narrative-island `[!secret]` / sprawling callout zoo** — CF narrowed callouts; convert not copy.
 - **Full notebooklm-export / Inbox dumps** — raw provenance, not craft.

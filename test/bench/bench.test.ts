@@ -268,7 +268,7 @@ describe("bench leaderboard", () => {
 	});
 });
 
-describe("cf bench (committed repo state)", () => {
+describe("cfcli bench (committed repo state)", () => {
 	it("committed briefs match evals/prose-bench.yaml: no drift", async () => {
 		const run = await cf(["bench", "briefs", "--check"]);
 		expect(run.code).toBe(0);

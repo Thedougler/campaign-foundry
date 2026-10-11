@@ -44,7 +44,7 @@ export interface CheckResult {
 	durationMs: number;
 }
 
-/** One text gated before it is written (a `cf log` entry), over the Wiki as context. */
+/** One text gated before it is written (a `cfcli log` entry), over the Wiki as context. */
 export interface GateTextOptions {
 	/** Absolute vault directory: the Wiki read as context and name list. */
 	vault: string;
@@ -90,7 +90,7 @@ export async function runCheck(options: CheckOptions): Promise<CheckResult> {
 	if (unknown.length > 0) {
 		throw new UsageError(
 			`Unknown layer ${unknown.map((n) => `\`${n}\``).join(", ")}.`,
-			`Available layers: ${registry.map((l) => l.name).join(", ")}. Example: cf check --layer ${registry[0]?.name ?? "template"}`,
+			`Available layers: ${registry.map((l) => l.name).join(", ")}. Example: cfcli check --layer ${registry[0]?.name ?? "template"}`,
 		);
 	}
 	const active = selected.flatMap((name) => {
@@ -176,7 +176,7 @@ export async function runCheck(options: CheckOptions): Promise<CheckResult> {
 }
 
 /**
- * Gates one text (a `cf log` entry) through the style layer, read exactly as the gate reads the page the
+ * Gates one text (a `cfcli log` entry) through the style layer, read exactly as the gate reads the page the
  * text would become: the text is overlaid at `rel` in a virtual vault, the Wiki stays read-only context
  * and name list, and nothing is written. One-off text earns no cache entry, so the run works from a
  * scratch root instead of the Repo's `.cache/check`.

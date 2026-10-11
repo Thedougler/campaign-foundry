@@ -1,7 +1,7 @@
 /**
  * The daemon's MCP surface: JSON-RPC 2.0 over newline-delimited stdio. `handleLine` is the pure
  * seam (one line in, one response line or null for notifications); `runStdioMcp` wires it between
- * any readable and writable stream, so `cf foundry serve` and tests share the exact same path.
+ * any readable and writable stream, so `cfcli foundry serve` and tests share the exact same path.
  */
 
 import * as readline from "node:readline";

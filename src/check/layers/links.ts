@@ -47,7 +47,7 @@ export function run(ctx: CheckContext): Finding[] {
 					);
 					break;
 				case "no-page": {
-					// The log is append-only history: `cf log` checked each page when the entry was written, and a page later merged away stays named there.
+					// The log is append-only history: `cfcli log` checked each page when the entry was written, and a page later merged away stays named there.
 					if (isFixedPage(page) && page.slug !== "index") break;
 					const name = link.target.split("/").pop()!.replace(/\.md$/i, "");
 					const near = suggest(name, graph.pageNames);

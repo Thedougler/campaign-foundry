@@ -36,7 +36,7 @@ After a context reset, re-read the notes and the bible before replying.
 2. **Catch.** On each DM turn, add every new fragment to the notes under its idea. A new subject opens a new idea at Stage `seed`, linked to the ideas it touches. Then gather candidate pages for the turn, starting with the pages whose names it writes literally:
 
    ```sh
-   bun run cf -- context - <<'EOF'
+   bun run cfcli -- context - <<'EOF'
    <the DM's turn, verbatim>
    EOF
    ```

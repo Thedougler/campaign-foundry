@@ -1,6 +1,6 @@
 /**
  * The one place a host connection is chosen: real SSH by default, or the scripted host when
- * `CF_FOUNDRY_SCRIPTED` points at a fixture. The CLI, `cf foundry serve` and the tests all build
+ * `CF_FOUNDRY_SCRIPTED` points at a fixture. The CLI, `cfcli foundry serve` and the tests all build
  * their host through this, so the fixture path is exactly the real path.
  */
 

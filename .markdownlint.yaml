@@ -1,4 +1,4 @@
-# markdownlint config for the Wiki (an Obsidian vault). Read by the `markdownlint` layer of `cf check`
+# markdownlint config for the Wiki (an Obsidian vault). Read by the `markdownlint` layer of `cfcli check`
 # and, unchanged, by editors that run markdownlint. Every rule is on unless disabled here with a reason.
 default: true
 

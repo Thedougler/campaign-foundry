@@ -48,7 +48,7 @@ Read each reference at its step:
 
 A backfill fills the depictions of fixed-Canon pages that have none, most prominent at the table first, a bounded batch per run:
 
-1. **Candidates.** Run `bun run cf -- revealed --campaign "<Campaign>"` and keep the NPC, PC, Creature, Location, Item, Vehicle, Faction and Deity pages with a set `revealed` value whose depiction slot is empty after step 2's reuse check.
+1. **Candidates.** Run `bun run cfcli -- revealed --campaign "<Campaign>"` and keep the NPC, PC, Creature, Location, Item, Vehicle, Faction and Deity pages with a set `revealed` value whose depiction slot is empty after step 2's reuse check.
 2. **Order** by table prominence. Count the Session pages (Recaps, Preps, Scenes) that link each candidate, with the `grep` tool for `\[\[<slug>[|#\]]` under `wiki/<campaign>/Sessions/`, and sort the most linked first. A tie goes to the later `revealed` Session.
 3. **Batch.** Take the DM's count, else the first five, and run steps 3 to 9 over them.
 

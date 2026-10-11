@@ -46,14 +46,14 @@ export function loadCache(path: string): BenchFile {
 	} catch (error) {
 		throw new UsageError(
 			`\`${path}\` is not valid JSON: ${(error as Error).message}`,
-			`Fix or delete it — \`benchmark.md\` rebuilds on the next \`cf bench record\`; the hit rule is: ${HIT_RULE}.`,
+			`Fix or delete it — \`benchmark.md\` rebuilds on the next \`cfcli bench record\`; the hit rule is: ${HIT_RULE}.`,
 		);
 	}
 	const results = asRecord(parsed).results;
 	if (!Array.isArray(results)) {
 		throw new UsageError(
 			"`evals/benchmark.json` has no results array.",
-			'Rebuild it with `cf bench record`, or empty it to `{ "schema": 1, "results": [] }`.',
+			'Rebuild it with `cfcli bench record`, or empty it to `{ "schema": 1, "results": [] }`.',
 		);
 	}
 	return { schema: 1, hit_rule: HIT_RULE, results: results as BenchRow[] };

@@ -30,4 +30,4 @@ Agents prepared and wrapped up tabletop Sessions through specialised writing ski
 - `docs/intent`-equivalent beat craft, Wiki templates, QMD, and narration fundamentals: already substantially carried forward.
 - `wiki/entities/place/hungry-isle.md`: Aruhe's scale, receiving-versus-taking rule and grief-bound ecology already exist; do not mint a duplicate Site.
 - `.agents/skills/world-tick/SKILL.md`: salvage consequential offscreen movement only if needed; repeated confirmations, ledger approval and obsolete fronts paths clash with current autonomous writing.
-- `tools/wiki_ops/template_contracts.py` and `docs/creative-linting.md`: useful precedent, not another Python subsystem beside `cf` and its unified gate.
+- `tools/wiki_ops/template_contracts.py` and `docs/creative-linting.md`: useful precedent, not another Python subsystem beside `cfcli` and its unified gate.

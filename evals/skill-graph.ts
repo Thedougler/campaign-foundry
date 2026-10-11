@@ -1,4 +1,4 @@
-// Skill-graph scanning for `cf eval validate` and `cf eval graph` (issue #52): the files of a
+// Skill-graph scanning for `cfcli eval validate` and `cfcli eval graph` (issue #52): the files of a
 // skill that references are read from, the skill:// references and backticked skill names those
 // files hold, and the wiki/templates/<template>.md files they name. Everything here is deterministic
 // over the skill text; no judgement and no new frontmatter fields.
@@ -9,8 +9,8 @@ import { dirname, join, relative, resolve, sep } from "node:path";
 
 /**
  * Skill names that repo skills point at but that live outside this repository, as user-level
- * (`~/.agents/skills`) or omp built-in skills. `cf eval validate` passes them without a repo
- * directory, and `cf eval graph` lists them as links. The DM confirms this list (issue #52).
+ * (`~/.agents/skills`) or omp built-in skills. `cfcli eval validate` passes them without a repo
+ * directory, and `cfcli eval graph` lists them as links. The DM confirms this list (issue #52).
  */
 export const EXTERNAL_SKILL_NAMES: Record<string, true> = {
 	"cli-for-agents": true,

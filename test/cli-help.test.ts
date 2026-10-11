@@ -33,13 +33,13 @@ const COMMANDS: CommandCase[] = [
 		listed: "check",
 		help: ["check"],
 		usage: ["check", "--layer", "nope"],
-		example: "cf check --layer template",
+		example: "cfcli check --layer template",
 	},
 	{
 		listed: "index",
 		help: ["index"],
 		usage: ["index", "--vault", "/no/such/folder"],
-		example: "bun run cf -- index --vault <folder>",
+		example: "bun run cfcli -- index --vault <folder>",
 	},
 	{
 		listed: "find",
@@ -51,19 +51,19 @@ const COMMANDS: CommandCase[] = [
 		listed: "revealed",
 		help: ["revealed"],
 		usage: ["revealed", "--campaign", "Nope", "--vault", wikiVault, "--root", repoRoot],
-		example: 'bun run cf -- revealed --campaign "Shattered Sea"',
+		example: 'bun run cfcli -- revealed --campaign "Shattered Sea"',
 	},
 	{
 		listed: "log",
 		help: ["log"],
 		usage: ["log"],
-		example: "bun run cf -- log --campaign",
+		example: "bun run cfcli -- log --campaign",
 	},
 	{
 		listed: "encounter-budget",
 		help: ["encounter-budget"],
 		usage: ["encounter-budget"],
-		example: "bun run cf -- encounter-budget",
+		example: "bun run cfcli -- encounter-budget",
 	},
 	{
 		listed: "eval",
@@ -79,7 +79,7 @@ const COMMANDS: CommandCase[] = [
 			"--root",
 			narrationRoot,
 		],
-		example: "bun run cf -- eval extract",
+		example: "bun run cfcli -- eval extract",
 	},
 	{
 		listed: "ddb",

@@ -11,7 +11,7 @@ Boundary: `evals/README.md` is the only eval procedure and defines its branches.
 
 ## Shared helpers
 
-Skill validation, optional `.skill` packaging and static human-review rendering use the repo's TypeScript `bun run cf -- eval` commands. From the repo, `bun run cf -- <arguments>` invokes `cf`. Each subcommand's `--help` supplies examples, and successful commands return JSON. Read [`references/schemas.md`](references/schemas.md) before writing authoring artifacts. Every paired run and Grade is a native `task` dispatch per `evals/README.md` § [Run a case](../../../evals/README.md#run-a-case). Only description trigger checks are `omp -p` processes.
+Skill validation, optional `.skill` packaging and static human-review rendering use the repo's TypeScript `bun run cfcli -- eval` commands. From the repo, `bun run cfcli -- <arguments>` invokes `cfcli`. Each subcommand's `--help` supplies examples, and successful commands return JSON. Read [`references/schemas.md`](references/schemas.md) before writing authoring artifacts. Every paired run and Grade is a native `task` dispatch per `evals/README.md` § [Run a case](../../../evals/README.md#run-a-case). Only description trigger checks are `omp -p` processes.
 
 ## Process
 
@@ -31,9 +31,9 @@ Before the first edit to an existing skill: `cp -R <skill-path> <workspace>/skil
 
 ### 3. Author or revise through `skill-writer`
 
-Dispatch `skill-writer` with `brief.md`'s intent, trigger branches, inputs/outputs and acceptance criteria, plus the target path and the files involved. It follows `writing-for-agents` and its `SKILL-MECHANICS.md`. Include a content skill's assigned case file when its criteria need revision. Non-content skills need cases only when the DM asks. On return, run `bun run cf -- eval validate <skill-dir>` and check that the description lists the trigger branches, declared resources exist, every pointer states when to read its target and every step meets `writing-for-agents` § Steps and completion criteria. Return concrete gaps to the writer and integrate only what passes.
+Dispatch `skill-writer` with `brief.md`'s intent, trigger branches, inputs/outputs and acceptance criteria, plus the target path and the files involved. It follows `writing-for-agents` and its `SKILL-MECHANICS.md`. Include a content skill's assigned case file when its criteria need revision. Non-content skills need cases only when the DM asks. On return, run `bun run cfcli -- eval validate <skill-dir>` and check that the description lists the trigger branches, declared resources exist, every pointer states when to read its target and every step meets `writing-for-agents` § Steps and completion criteria. Return concrete gaps to the writer and integrate only what passes.
 
-**Done when** the candidate matches the brief, its pointers name existing resources, and `bun run cf -- eval validate` passes.
+**Done when** the candidate matches the brief, its pointers name existing resources, and `bun run cfcli -- eval validate` passes.
 
 ### 4. Paired evals
 
@@ -43,7 +43,7 @@ Read `evals/README.md` § Run a case, then [`references/eval-loop.md`](reference
 
 ### 5. Revise and rerun
 
-Feed `feedback.json` and the grades, plus comparison and analysis results when run, to `skill-writer` as evidence of general process defects. Validate as in step 3. Run the requested pair set once more into `iteration-<N+1>/`, using the same case ids and revision snapshot, with `bun run cf -- eval review --previous-workspace` pointing at `iteration-<N>/`.
+Feed `feedback.json` and the grades, plus comparison and analysis results when run, to `skill-writer` as evidence of general process defects. Validate as in step 3. Run the requested pair set once more into `iteration-<N+1>/`, using the same case ids and revision snapshot, with `bun run cfcli -- eval review --previous-workspace` pointing at `iteration-<N>/`.
 
 **Done when** a fresh iteration meets step 4's criterion, or the DM calls it done. All-empty feedback and flat results both count as done.
 
@@ -55,7 +55,7 @@ Offer once the skill body is stable; run only if the DM accepts, following [`ref
 
 ### 7. Optional bundle and delivery
 
-When the DM requests a portable bundle, run `bun run cf -- eval package <skill-dir> --output <bundle.skill>` and return the JSON-reported path. For a read-only installed skill, snapshot first and give `skill-writer` a writable copy outside active skill trees, preserving its name. Deliver the requested changes and observed results. Label skipped measurements and unavailable evidence.
+When the DM requests a portable bundle, run `bun run cfcli -- eval package <skill-dir> --output <bundle.skill>` and return the JSON-reported path. For a read-only installed skill, snapshot first and give `skill-writer` a writable copy outside active skill trees, preserving its name. Deliver the requested changes and observed results. Label skipped measurements and unavailable evidence.
 
 **Done when** every requested deliverable is locatable, including the `.skill` file when requested, and the report distinguishes measured results from unexecuted branches.
 

@@ -86,7 +86,7 @@ When the decision belongs to a PC, mark it `Party choice:`.
 
 Draft prose only when the DM asks, one Beat at a time, so the DM can edit between Beats. For each Beat:
 
-1. Find the Beat's pages. `bun run cf -- context -` on the Beat's text gives the pages it names literally. Search the Wiki (`.omp/AGENTS.md` § Wiki access) for each subject the Beat describes without its page's name. Read the candidates and keep each page the Beat is about.
+1. Find the Beat's pages. `bun run cfcli -- context -` on the Beat's text gives the pages it names literally. Search the Wiki (`.omp/AGENTS.md` § Wiki access) for each subject the Beat describes without its page's name. Read the candidates and keep each page the Beat is about.
 2. Dispatch one `creative-writer` with the brief below. Its first six lines are Re3's and DOC's drafting labels ([planning-architectures.md](../../../../docs/research/creative-writing/planning-architectures.md) §2 and §3), and its closing instructions are the Agents' Room continuation instructions (§1), each carried exactly as written. Its last seven labels are the scene brief and style anchor of the AI Fiction Prompting Guide in the DM's Second Brain ([ledger](../../../../docs/research/agent-engineering.md), Adopt). Fill each of those seven as what the scene does: what each person wants, hides, senses and ends on. Fill `Target length:` with the count the DM asked for, or else 800 words. A leaf Beat runs roughly 500 words of prose, and models write short of the count they are given ([beats-and-context.md](../../../../docs/research/creative-writing/beats-and-context.md) §1.5 and §1.7). Add the pointer to the [Content stance](../../../../AGENTS.md#content-stance).
 
    ```text

@@ -11,7 +11,7 @@ async function addPage(dir: string, rel: string, frontmatter: string): Promise<v
 	await writeFile(path, `---\n${frontmatter}---\n\nText.\n`);
 }
 
-describe("cf find", () => {
+describe("cfcli find", () => {
 	it("resolves a name by its filename stem, case-insensitively", async () => {
 		const dir = await copyFixture("clean");
 		const { code, stdout } = await cf(["find", "mara voss", ...vaultFlags(dir)], dir);
@@ -97,7 +97,7 @@ describe("cf find", () => {
 	});
 });
 
-describe("cf revealed", () => {
+describe("cfcli revealed", () => {
 	it("lists settled pages first, then the unset ones", async () => {
 		const dir = await copyFixture("clean");
 		const { code, stdout } = await cf(["revealed", ...vaultFlags(dir)], dir);

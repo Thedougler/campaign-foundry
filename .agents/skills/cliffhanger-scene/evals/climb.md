@@ -16,10 +16,10 @@ Issue #18. Frozen 2026-10-03.
 
 ## Baseline
 
-Checks 19/19. Rubrics 5/5. Gate: 22 errors, 3 warnings on the Scene page (mostly `ai-tells.ColonUsage`, `VerbTricolon`). Quality failure on the issue's `cf check` acceptance.
+Checks 19/19. Rubrics 5/5. Gate: 22 errors, 3 warnings on the Scene page (mostly `ai-tells.ColonUsage`, `VerbTricolon`). Quality failure on the issue's `cfcli check` acceptance.
 
 Runner `CliffhangerScene-3` (`test-subject` / `@TEST-SUBJECT`; empty `yield`, page recovered from the transcript). Grader `CliffhangerSceneGrade` (`prose-grader` / `@PROSE-GRADER`).
 
 ## Rounds
 
-None. Hillclimb paused until live Wiki pages of this content type pass `cf check` with 0 errors; skills stay as found.
+None. Hillclimb paused until live Wiki pages of this content type pass `cfcli check` with 0 errors; skills stay as found.

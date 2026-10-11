@@ -1,4 +1,4 @@
-# Backs up the Shattered Sea Wiki, the agent skills and their images to Notion (`cf backup`, docs/notion-backup.md).
+# Backs up the Shattered Sea Wiki, the agent skills and their images to Notion (`cfcli backup`, docs/notion-backup.md).
 # GitHub stays the working copy; Notion holds a copy keyed by repo path in .notion/backup-map.json.
 name: Notion backup
 
@@ -40,7 +40,7 @@ jobs:
         with:
           # Full history so the map's synced commit can be diffed against HEAD.
           fetch-depth: 0
-          # LFS images are pulled per file by `cf backup`, only when they are uploaded, to spare LFS bandwidth.
+          # LFS images are pulled per file by `cfcli backup`, only when they are uploaded, to spare LFS bandwidth.
           lfs: false
 
       - uses: oven-sh/setup-bun@v2

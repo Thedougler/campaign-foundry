@@ -16,7 +16,7 @@ async function check(
 	return { ...result, report: JSON.parse(result.stdout) as JsonReport };
 }
 
-describe("cf check: mechanical repair", () => {
+describe("cfcli check: mechanical repair", () => {
 	it("does not expose the removed commands", async () => {
 		const { stdout } = await cf(["--help"]);
 		for (const command of ["lint", "narration"]) {

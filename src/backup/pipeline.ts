@@ -67,7 +67,7 @@ function chooseScope(options: PipelineOptions): { scope: Scope; why: string } {
 		if (options.since)
 			throw new UsageError(
 				`${base} is not a commit reachable from HEAD in this clone.`,
-				"cf backup --since <commit> (or --all for a full run)",
+				"cfcli backup --since <commit> (or --all for a full run)",
 			);
 		// A squash or rebase merge (or a force push) leaves the synced commit off main's history. Every file is then
 		// compared with the content hash the map stored for it, so only files that really changed are written.

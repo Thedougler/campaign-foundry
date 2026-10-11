@@ -78,13 +78,17 @@ describe("handleLine", () => {
 	it("carries a tool error as an isError result with the approval command", async () => {
 		const registry = stubRegistry({
 			"host.restart": () => {
-				throw new ToolError("dm_gate", "host.restart changes the live instance.", "cf foundry service restart --yes");
+				throw new ToolError(
+					"dm_gate",
+					"host.restart changes the live instance.",
+					"cfcli foundry service restart --yes",
+				);
 			},
 		});
 		const reply = await replyOf(registry, request(4, "tools/call", { name: "host.restart", arguments: {} }));
 		const result = reply.result as { content: { text: string }[]; isError: boolean };
 		expect(result.isError).toBe(true);
-		expect(result.content[0]!.text).toContain("cf foundry service restart --yes");
+		expect(result.content[0]!.text).toContain("cfcli foundry service restart --yes");
 	});
 
 	it("answers an unknown tool name with -32602", async () => {

@@ -206,7 +206,7 @@ function registerSettings() {
 	});
 	game.settings.register(MODULE_ID, "token", {
 		name: "Bridge token",
-		hint: "The shared secret the daemon was started with (cf foundry serve --token).",
+		hint: "The shared secret the daemon was started with (cfcli foundry serve --token).",
 		scope: "client",
 		config: true,
 		restricted: true,

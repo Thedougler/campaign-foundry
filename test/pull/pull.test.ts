@@ -80,7 +80,7 @@ describe("runPull", () => {
 		expect(hollow?.status).toBe("failed");
 		expect(hollow?.message).toMatch(/Hollow/);
 		expect(hollow?.message).toMatch(/public/i);
-		expect(hollow?.message).toMatch(/cf pull --pc "Hollow"/);
+		expect(hollow?.message).toMatch(/cfcli pull --pc "Hollow"/);
 		expect(result.outcomes.filter((o) => o.status === "updated")).toHaveLength(2);
 	});
 
@@ -106,7 +106,7 @@ describe("runPull", () => {
 		expect(result.gate?.findings.filter((f) => f.severity === "error")).toEqual([]);
 	});
 
-	it("writes the log entry exactly as cf log does", async () => {
+	it("writes the log entry exactly as cfcli log does", async () => {
 		const { cf } = await import("../check/helpers.ts");
 		await pull();
 		const viaPull = await read("ashes-of-the-crown/log.md");

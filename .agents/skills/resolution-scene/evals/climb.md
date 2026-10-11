@@ -16,13 +16,13 @@ Issue #18. Frozen 2026-10-03.
 
 ## Baseline
 
-Checks 9/10 (fail: `^> \[!narration\] Closing image\s*$` — titles are `Closing image: …`). Rubrics 5/5. Gate: 59 errors, 8 warnings on the Scene page (mostly `ai-tells.EmDashUsage`, `VerbTricolon`). Quality failure on eval Checks and the issue's `cf check` acceptance.
+Checks 9/10 (fail: `^> \[!narration\] Closing image\s*$` — titles are `Closing image: …`). Rubrics 5/5. Gate: 59 errors, 8 warnings on the Scene page (mostly `ai-tells.EmDashUsage`, `VerbTricolon`). Quality failure on eval Checks and the issue's `cfcli check` acceptance.
 
 Runner `ResolutionScene-3` (`test-subject` / `@TEST-SUBJECT`). Grader `ResolutionSceneGrade` (`prose-grader` / `@PROSE-GRADER`).
 
 ## Rounds
 
-None. Hillclimb paused until live Wiki pages of this content type pass `cf check` with 0 errors; skills stay as found.
+None. Hillclimb paused until live Wiki pages of this content type pass `cfcli check` with 0 errors; skills stay as found.
 
 ## Design repair 2026-10-06
 

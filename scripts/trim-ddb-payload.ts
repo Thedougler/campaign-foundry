@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Trims a D&D Beyond character response into a committable test fixture.
 //   node scripts/trim-ddb-payload.ts <response.json> <out.json> <fake-id> <fake-name>
-// It keeps the shape `cf pull` reads and drops prose (descriptions, snippets), images, notes, the account and
+// It keeps the shape `cfcli pull` reads and drops prose (descriptions, snippets), images, notes, the account and
 // campaign the character belongs to, and anything else personal. The character id and name are replaced.
 import { readFileSync, writeFileSync } from "node:fs";
 

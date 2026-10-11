@@ -73,7 +73,7 @@ Weapons dropped and knees on the ground end it, because the trial is what she wa
 - 1 × Terror-Bird (CR 13, 10000 XP each) = 10000 XP
 - **Total: 32000 XP (Beyond High difficulty)**
 
-Party of four, level 7 recorded as 6, 6, 6 and 6 with the combat offset, against budgets of 3000 low, 5200 moderate and 6800 high XP. Source: `bun run cf -- encounter-budget`, XP from [[hinewai-the-blight|Hinewai the Blight]] and [[terror-bird|Terror-Bird]]. Canon fixes the force at nearly five times the Party's high budget. This is the island's answer to war, and the playable way out runs through submission or bargaining, or along the open lane.
+Party of four, level 7 recorded as 6, 6, 6 and 6 with the combat offset, against budgets of 3000 low, 5200 moderate and 6800 high XP. Source: `bun run cfcli -- encounter-budget`, XP from [[hinewai-the-blight|Hinewai the Blight]] and [[terror-bird|Terror-Bird]]. Canon fixes the force at nearly five times the Party's high budget. This is the island's answer to war, and the playable way out runs through submission or bargaining, or along the open lane.
 
 ## Outcomes
 

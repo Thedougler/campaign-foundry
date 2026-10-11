@@ -69,7 +69,7 @@ export interface AppendOptions {
 }
 
 /**
- * Appends an entry to `<vault>/<Campaign folder>/log.md`, the one place the log's rules live (`cf log` and `cf pull`
+ * Appends an entry to `<vault>/<Campaign folder>/log.md`, the one place the log's rules live (`cfcli log` and `cfcli pull`
  * both call it): repeating the last entry is a no-op, an entry dated before the last is refused because the log is
  * append-only and in date order, and an entry from a later year first rotates the log to `log-<year>.md`. Creates
  * `log.md` when absent.
@@ -81,7 +81,7 @@ export async function appendLogEntry(
 	options: AppendOptions = {},
 ): Promise<AppendResult> {
 	const show = options.show ?? ((p: string): string => p);
-	const example = options.example ?? `cf log --campaign "<Campaign>" --op ${entry.op} --title "${entry.title}"`;
+	const example = options.example ?? `cfcli log --campaign "<Campaign>" --op ${entry.op} --title "${entry.title}"`;
 	const path = `${campaignFolder}/log.md`;
 	const file = join(vaultDir, path);
 	const source = await readFile(file, "utf8").catch(() => "");

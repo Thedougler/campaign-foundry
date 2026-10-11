@@ -34,7 +34,7 @@ export class DdbAuthError extends Error {
 }
 
 const LOGIN_HINT =
-	"save the DM's D&D Beyond login to the session file (the cf ddb --help Authentication section has the steps)";
+	"save the DM's D&D Beyond login to the session file (the cfcli ddb --help Authentication section has the steps)";
 
 interface CobaltTokenResponse {
 	token?: string;

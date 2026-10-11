@@ -58,7 +58,7 @@ Write `<iteration-dir>/benchmark.json` by hand per [`schemas.md`](schemas.md) fr
 ## Viewer and feedback
 
 ```bash
-bun run cf -- eval review <iteration-dir> --skill-name <name> --benchmark <iteration-dir>/benchmark.json
+bun run cfcli -- eval review <iteration-dir> --skill-name <name> --benchmark <iteration-dir>/benchmark.json
 ```
 
 From iteration 2 on, add `--previous-workspace <workspace>/iteration-<N-1>`. The page is written to `<iteration-dir>/review.html` (override with `--static`); its path comes back in JSON.

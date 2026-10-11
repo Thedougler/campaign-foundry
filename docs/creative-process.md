@@ -44,7 +44,7 @@ flowchart TD
 |Stage|Owner|What it leaves behind|
 |---|---|---|
 |Open and bootstrap|[`collab-with-me`](../.omp/skills/collab-with-me/SKILL.md) step 1, whose table names the owner of each missing required file|`user-config.md`, the World, `campaign-config.md`, `hot.md` and the Story Bible, all read|
-|Catch|`collab-with-me` step 2|each DM fragment in the notes, and the candidate pages `cf context` listed on the read list|
+|Catch|`collab-with-me` step 2|each DM fragment in the notes, and the candidate pages `cfcli context` listed on the read list|
 |Arc|[`story-arc`](../.agents/skills/story-arc/SKILL.md)|`story-so-far.md` rewritten through the latest Recap, and pacing, plotline or new-plot pitches in the reply|
 |Seeds|[`docs/agents/co-writing.md`](agents/co-writing.md#seeds)|3 or 5 Seeds in the reply, each verdict in the notes|
 |Story|[`references/story.md`](../.omp/skills/collab-with-me/references/story.md)|the Story Bible with its Story Outline of Beats, and prose drafts when the DM asks|
@@ -90,11 +90,11 @@ The Director sends each Persona its turns with `write agent://<id>`. Personas ar
 
 |Command|Reports|
 |---|---|
-|`bun run cf -- context [file\|-]`|every Wiki page whose title or alias the text writes as whole, case-matched words, one line each as path, type and matched name, sorted by type and then name; `--json` gives the same as objects|
-|`bun run cf -- style [paths\|-]`|findings from the style (Vale) and narration layers alone, over any markdown files or directories, with the output and exit codes of `cf check`|
-|`bun run lint agents [paths]`|objective findings in agent-facing text, with `cf style` over the content-facing paths in `STYLE_PATHS` (`scripts/lint/agents.ts`, ADR 0020); without paths, it checks changed and untracked files|
+|`bun run cfcli -- context [file\|-]`|every Wiki page whose title or alias the text writes as whole, case-matched words, one line each as path, type and matched name, sorted by type and then name; `--json` gives the same as objects|
+|`bun run cfcli -- style [paths\|-]`|findings from the style (Vale) and narration layers alone, over any markdown files or directories, with the output and exit codes of `cfcli check`|
+|`bun run lint agents [paths]`|objective findings in agent-facing text, with `cfcli style` over the content-facing paths in `STYLE_PATHS` (`scripts/lint/agents.ts`, ADR 0020); without paths, it checks changed and untracked files|
 
-The helpers are diagnostic: their output is input the agent reads, and every call about relevance or meaning is the agent's. A page from `cf context` is a candidate to read, and a page the text means without writing its name (another case, a mishearing, a description) comes from a Wiki search (`.omp/AGENTS.md` § Wiki access). A finding from `cf style` marks text for the agent to rewrite with judgement.
+The helpers are diagnostic: their output is input the agent reads, and every call about relevance or meaning is the agent's. A page from `cfcli context` is a candidate to read, and a page the text means without writing its name (another case, a mishearing, a description) comes from a Wiki search (`.omp/AGENTS.md` § Wiki access). A finding from `cfcli style` marks text for the agent to rewrite with judgement.
 
 ## TTSR rules
 
@@ -147,5 +147,5 @@ For Shattered Sea Narration, the DM's Prose voice and ADR 0029's exemplar bar ta
 
 - **Friction.** Run [`dogfood`](../.omp/skills/dogfood/SKILL.md) on collab or on one stage with real ideas, and let `skill-writer` turn verified friction into text changes.
 - **Content skills.** When a content skill's text changes materially, rerun its committed `evals/cases.yaml` through [`run-evals`](../.agents/skills/run-evals/SKILL.md), following [`evals/README.md`](../evals/README.md).
-- **Agent text.** After any edit to an agent-facing content path, run `bun run lint agents` until it exits 0, and `bun run cf -- eval validate <skill-dir>` for each touched skill.
+- **Agent text.** After any edit to an agent-facing content path, run `bun run lint agents` until it exits 0, and `bun run cfcli -- eval validate <skill-dir>` for each touched skill.
 - **Research.** The sources behind every stage are in [`docs/research/creative-writing/`](research/creative-writing/README.md). Quoted prompts there are verbatim, so carry them into skills and briefs in fenced blocks with their wording intact.

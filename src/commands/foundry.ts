@@ -1,5 +1,5 @@
 /**
- * `cf foundry`: the agent-facing surface of the Foundry control plane (issue #46). Read-only
+ * `cfcli foundry`: the agent-facing surface of the Foundry control plane (issue #46). Read-only
  * subcommands run freely against the host. Every mutating subcommand prints its plan plus the
  * exact approval command and exits 2 until `--yes` says the DM approved it. `serve` runs the
  * daemon: the bridge listener plus MCP over stdio. `tool` calls one tool through the registry.

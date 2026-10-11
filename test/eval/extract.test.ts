@@ -6,7 +6,7 @@ const vault = join(repoRoot, "test/narration/fixtures/wiki");
 const root = join(repoRoot, "test/narration/fixtures");
 const flags = ["--vault", vault, "--root", root];
 
-describe("cf eval extract", () => {
+describe("cfcli eval extract", () => {
 	it("prints the callout body for a grader to read", async () => {
 		const { code, stdout, stderr } = await cf(
 			["eval", "extract", "Crossing", "--callout", "Clean", ...flags],

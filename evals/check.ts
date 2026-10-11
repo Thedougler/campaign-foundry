@@ -142,7 +142,7 @@ export function createOutcome(vault: string, outputRoot: string): Outcome {
 }
 
 /**
- * The production gate (`cf check`'s style and narration layers, ADR 0015) over the Outcome: the live
+ * The production gate (`cfcli check`'s style and narration layers, ADR 0015) over the Outcome: the live
  * Wiki with the run's output pages overlaid and its recorded deletions shadowing live pages. Read-only:
  * no `--fix`, and Vale's scratch lives in a temp directory. Findings are scoped to the run's output
  * pages — the Runner's writing — so live-Wiki noise never lands on a case. Setup failures (no Vale, no

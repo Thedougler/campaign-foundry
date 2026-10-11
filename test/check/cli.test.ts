@@ -35,7 +35,7 @@ describe("cf --help", () => {
 	});
 });
 
-describe("cf check: exit codes and output", () => {
+describe("cfcli check: exit codes and output", () => {
 	it("exits 0 on a clean vault, with a summary line", async () => {
 		const { code, stdout } = await cf(["check", ...flags("clean"), ...mechanicalFlags], repoRoot);
 		expect(code).toBe(0);
@@ -74,7 +74,7 @@ describe("cf check: exit codes and output", () => {
 	it("names valid layers and an example invocation when --layer is wrong", async () => {
 		const { stderr } = await cf(["check", "--layer", "nope"], repoRoot);
 		expect(stderr).toContain(`Available layers: ${layerNames.join(", ")}`);
-		expect(stderr).toContain("cf check --layer template");
+		expect(stderr).toContain("cfcli check --layer template");
 	});
 
 	it("--fix on a clean vault changes nothing", async () => {
@@ -99,7 +99,7 @@ describe("cf check: exit codes and output", () => {
 	});
 });
 
-describe("cf check: layers and paths", () => {
+describe("cfcli check: layers and paths", () => {
 	it("--layer runs only the named layers, repeatably", async () => {
 		const { report } = await checkFixture("template", ["--layer", "links", "--layer", "orphans"]);
 		expect((report as JsonReport & { layers: string[] }).layers).toEqual(["links", "orphans"]);

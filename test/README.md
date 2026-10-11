@@ -5,11 +5,11 @@ Everything else the CI gate runs lives in `check:all`.
 
 ## The one harness: `test/check/helpers.ts`
 
-- **`cf(args, cwd?, stdin?)`** runs one `cf` invocation **in this process** (`runCli` from `src/cli.ts`):
+- **`cf(args, cwd?, stdin?)`** runs one `cfcli` invocation **in this process** (`runCli` from `src/cli.ts`):
   same commander program the spawned CLI runs, stdout/stderr captured, exit code returned as `code`.
   Use it for everything a test asserts about command behaviour — help, exit codes, JSON reports, files
   written. A suite pays the CLI's module load once per worker, not once per invocation.
-- **`cfWithEnv(args, env, cwd?, stdin?)`** is `cf` with process env entries set for the call and
+- **`cfWithEnv(args, env, cwd?, stdin?)`** is `cfcli` with process env entries set for the call and
   restored after (`undefined` removes). Use it when a command must see a doctored environment
   (for example a `PATH` without `vale`).
 - **`checkFixture(fixture, extra?)`** / **`copyFixture(fixture)`** / **`vaultFlags(dir)`** /
@@ -18,7 +18,7 @@ Everything else the CI gate runs lives in `check:all`.
 
 Only three things still spawn processes, each for a reason the in-process runner cannot cover:
 
-1. `test/cli.test.ts` — one smoke test through `bun run cf --`, pinning the npm-script invocation channel.
+1. `test/cli.test.ts` — one smoke test through `bun run cfcli --`, pinning the npm-script invocation channel.
 2. `test/foundry-control/cli.test.ts` — `foundry serve`, a real stdio MCP server that must own a process.
 3. `test/check/prose-layers.test.ts` — two tests that put a stub `vale` on a child's `PATH` (env-shim tests).
 
@@ -43,4 +43,4 @@ code and stdio, so each call owns all four in turn, with output routed per call.
   keep their own output and codes. True process-level races (parallel spawned agents appending to one
   log) are not what these tests measure any more — the log concurrency test now proves the command
   keeps every entry and reports idempotency, not OS append atomicity.
-- Tests that need a *child* to see a different environment spawn instead of calling `cf`.
+- Tests that need a *child* to see a different environment spawn instead of calling `cfcli`.

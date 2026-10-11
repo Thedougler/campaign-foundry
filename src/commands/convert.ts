@@ -216,7 +216,7 @@ function assertNotGuarded(root: string, vault: string): void {
 	const inside = (folder: string): boolean => rel === folder || rel.startsWith(`${folder}/`);
 	if (inside("prior") || inside("test")) {
 		throw new UsageError(
-			`The vault ${vault} sits inside ${inside("prior") ? "prior/, the kept history" : "test/, the fixtures"}, which cf convert never touches.`,
+			`The vault ${vault} sits inside ${inside("prior") ? "prior/, the kept history" : "test/, the fixtures"}, which cfcli convert never touches.`,
 			`Run it on the live Wiki: ${CF} convert --vault wiki`,
 		);
 	}

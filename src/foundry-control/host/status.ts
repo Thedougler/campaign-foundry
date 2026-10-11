@@ -131,7 +131,7 @@ export async function hostStatus(host: RemoteHost, config: HostConfig): Promise<
 	};
 }
 
-/** Human-readable one-screen status, as `cf foundry status` prints it. */
+/** Human-readable one-screen status, as `cfcli foundry status` prints it. */
 export function formatStatus(status: HostStatus): string {
 	const lines = [
 		`container: ${status.container} (${status.state}${status.healthy ? `, ${status.healthy}` : ""})`,

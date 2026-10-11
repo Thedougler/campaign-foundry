@@ -8,7 +8,7 @@ Decision:
 
 - **One owner.** The `visuals` skill decides, places, generates, views and files every image and mermaid diagram on Wiki pages. The `generate-image` skill is absorbed and deleted.
 - **Slots, not judgement calls.** Each page kind's template reserves its Visual slots with concrete defaults (`![[<slug>-portrait.webp]]` and kin). Every page of a kind then offers its art in the same place. Each slot takes one Visual. Missing art leaves a `[!visual-aid]` callout that a later run fills.
-- **One file convention.** Visuals file at `wiki/<campaign>/attachments/<slug>-<kind>.<ext>`, kebab-case, webp for raster kinds. A shared `wiki/attachments/` serves subjects a second Campaign reuses. The same name is overwritten on regeneration. Every page embedding it then shows the new image. `cf convert` migrates old files and their embeds to this convention (battle maps keep their source format for Foundry, renamed to match).
+- **One file convention.** Visuals file at `wiki/<campaign>/attachments/<slug>-<kind>.<ext>`, kebab-case, webp for raster kinds. A shared `wiki/attachments/` serves subjects a second Campaign reuses. The same name is overwritten on regeneration. Every page embedding it then shows the new image. `cfcli convert` migrates old files and their embeds to this convention (battle maps keep their source format for Foundry, renamed to match).
 - **Art canon behind a pointer.** The full art guide is `docs/art-style.md`. The always-loaded chain gets only the DM's one-line style and the pointer (ADR 0030).
 - **Viewing is the check.** No Visual gets alt text. The run views the image against its prompt and against the pages it depicts. The reader is the DM at the table, not a screen reader. Two failed regenerations fall back to the callout rather than shipping a miss.
 - **Backfill is bounded.** Revealed pages fill first, ordered by table prominence, five per run. The programme compounds instead of stalling.
@@ -22,6 +22,6 @@ Decision:
 
 ## Consequences
 
-- Old embeds and filenames go stale at cutover. `cf convert --dry-run` previews and the full run migrates them. No page loses its image to the rename.
+- Old embeds and filenames go stale at cutover. `cfcli convert --dry-run` previews and the full run migrates them. No page loses its image to the rename.
 - `.uvtt`/`dd2vtt` battle-map files travel with companions under the same slug, and binaries ride LFS (`.gitattributes`). Git clones without the media.
 - A template change can add or move a slot without code. The template is the source of truth, and the gate's checks read it from there.

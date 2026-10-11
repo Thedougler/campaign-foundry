@@ -54,7 +54,7 @@ Branch `v5` of prior/shattered-sea-site. Copies live under `docs/research/prior-
 ## Wiki synthesize (scoring idea only — do not port the Python)
 
 - source: `.claude/skills/wiki-synthesize/SKILL.md` (found)
-- destination: scoring idea for `cf` or a `lore-design`/`query` companion; keep CF page kinds, not `content/synthesis/`
+- destination: scoring idea for `cfcli` or a `lore-design`/`query` companion; keep CF page kinds, not `content/synthesis/`
 - load-bearing:
   - Discovery loop: build a co-occurrence matrix over all pages; filter pairs already connected; score candidates by co-occurrence count, cross-domain-ness, hub status, contradiction signal; surface ranked top-N plus a skipped-candidates list as the ready-made backlog.
   - Synthesis page `A × B` template sections: The Connection (the non-obvious relationship), Where They Co-occur, Cross-cutting Insight ("the thing you couldn't see from either concept page alone"), Tensions and Trade-offs, Open Questions.
@@ -76,7 +76,7 @@ Branch `v5` of prior/shattered-sea-site. Copies live under `docs/research/prior-
 ## wiki_guard agent presets
 
 - source: not copied — assignment says skip the wiki_guard Python; idea only
-- destination: none (CF already has `bun run cf -- check`/`bun run cf -- log`/QMD; do not reintroduce a Python dual stack)
+- destination: none (CF already has `bun run cfcli -- check`/`bun run cfcli -- log`/QMD; do not reintroduce a Python dual stack)
 - load-bearing: deterministic prep/finalize JSON so agents don't re-scan blindly (per findings); the pattern, not the code.
 - skip-from-this-file: everything else in `.claude/bin/`.
 

@@ -64,7 +64,7 @@ describe("DdbAuth", () => {
 		const auth = new DdbAuth({ cookies: [], savedAt: "" }, fetcher);
 		const error = await auth.bearer().catch((e: DdbAuthError) => e);
 		expect(error).toBeInstanceOf(DdbAuthError);
-		expect((error as DdbAuthError).hint).toMatch(/cf ddb --help/);
+		expect((error as DdbAuthError).hint).toMatch(/cfcli ddb --help/);
 	});
 
 	it("fails with the login remedy when the exchange reports the session expired", async () => {
@@ -72,6 +72,6 @@ describe("DdbAuth", () => {
 		const auth = new DdbAuth({ cookies, savedAt: "" }, fetcher);
 		const error = await auth.bearer().catch((e: DdbAuthError) => e);
 		expect(error).toBeInstanceOf(DdbAuthError);
-		expect((error as DdbAuthError).hint).toMatch(/cf ddb --help/);
+		expect((error as DdbAuthError).hint).toMatch(/cfcli ddb --help/);
 	});
 });

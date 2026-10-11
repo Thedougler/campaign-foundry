@@ -1,6 +1,6 @@
 # Notion backup
 
-`bun run cf -- backup` writes the Shattered Sea Wiki (`wiki/shattered-sea/`), the agent skills (`.agents/skills/`) and every image in those trees to Notion. `.github/workflows/notion-backup.yml` runs it on each push to `main` that touches those paths. GitHub stays the working copy: an edit made in Notion is overwritten the next time its file changes. The decision record is [ADR 0023](adr/0023-notion-backs-up-main.md). Agents read from the Backup first, because one search there covers a question spanning many pages faster and for fewer tokens than local search. They write to the Wiki, as `.omp/AGENTS.md` § Wiki access sets out.
+`bun run cfcli -- backup` writes the Shattered Sea Wiki (`wiki/shattered-sea/`), the agent skills (`.agents/skills/`) and every image in those trees to Notion. `.github/workflows/notion-backup.yml` runs it on each push to `main` that touches those paths. GitHub stays the working copy: an edit made in Notion is overwritten the next time its file changes. The decision record is [ADR 0023](adr/0023-notion-backs-up-main.md). Agents read from the Backup first, because one search there covers a question spanning many pages faster and for fewer tokens than local search. They write to the Wiki, as `.omp/AGENTS.md` § Wiki access sets out.
 
 ## Set up (once)
 
@@ -9,7 +9,7 @@
 3. Add the token as a repository secret: `gh secret set NOTION_TOKEN -R Thedougler/campaign-foundry`. To put the Backup under a different page, set the `NOTION_BACKUP_PARENT` repository variable to that page's id or URL.
 4. Run the first full sync: `gh workflow run notion-backup.yml -R Thedougler/campaign-foundry`, or **Actions → Notion backup → Run workflow**. It creates "campaign-foundry backup" under the parent, or finds the one already there, and commits `.notion/backup-map.json`. A first run takes about 10 minutes. Without the secret, the workflow skips with a warning.
 
-To preview a run without Notion, use `bun run cf -- backup --dry-run`, which prints the counts and a block and request estimate. Add `--tree` for the planned page tree. To run it locally against Notion, put `NOTION_TOKEN=` in `.env`. Committing the map it updates saves the next run some reading. A run without it still finds every page.
+To preview a run without Notion, use `bun run cfcli -- backup --dry-run`, which prints the counts and a block and request estimate. Add `--tree` for the planned page tree. To run it locally against Notion, put `NOTION_TOKEN=` in `.env`. Committing the map it updates saves the next run some reading. A run without it still finds every page.
 
 ## Runs
 

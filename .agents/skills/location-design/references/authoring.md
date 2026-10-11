@@ -46,12 +46,12 @@ Write British English. Add an in-world word without its own page to `.cspell-wor
 
 ## 4. Gate and record the operation
 
-Close per `skill://lint` § Commands over every page this run touched, repairing each finding without changing Canon and reading `bun run cf -- check --help` first so paths and flags match the installed CLI. Never edit generated indexes by hand. When the caller assigns an explicit filesystem target, give every command its `--vault` and `--root`, and each check `--templates` (**Another root** there).
+Close per `skill://lint` § Commands over every page this run touched, repairing each finding without changing Canon and reading `bun run cfcli -- check --help` first so paths and flags match the installed CLI. Never edit generated indexes by hand. When the caller assigns an explicit filesystem target, give every command its `--vault` and `--root`, and each check `--templates` (**Another root** there).
 
 After a successful standalone operation, append exactly one entry listing each touched content page, using its vault-relative path. Replace the placeholders and repeat `--page` as needed:
 
 ```bash
-bun run cf -- log --op create --title "Design <Location>" --page "<campaign-folder>/Locations/<location-slug>.md"
+bun run cfcli -- log --op create --title "Design <Location>" --page "<campaign-folder>/Locations/<location-slug>.md"
 ```
 
 `create` includes deepening a Location outside Ingest or Prep. A composed request returns touched paths, Canon decisions and unresolved findings to its caller. The caller runs the final gate and writes one entry under its existing operation. A child hand-off leaves logging to the caller.

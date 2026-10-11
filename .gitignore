@@ -20,7 +20,7 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 
-# cf push: the Foundry module it builds and its per-Campaign manifest of what was last pushed
+# cfcli push: the Foundry module it builds and its per-Campaign manifest of what was last pushed
 build/
 .push/
 

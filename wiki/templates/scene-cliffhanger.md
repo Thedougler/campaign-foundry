@@ -59,7 +59,7 @@ revealed: ""
 
 ### Balance
 
-%% Copy the `bun run cf -- encounter-budget` lines. List the PCs taking part with their levels, and link the Creature pages supplying XP. %%
+%% Copy the `bun run cfcli -- encounter-budget` lines. List the PCs taking part with their levels, and link the Creature pages supplying XP. %%
 
 ## Outcomes
 

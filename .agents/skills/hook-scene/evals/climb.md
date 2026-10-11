@@ -16,10 +16,10 @@ Issue #18. Frozen 2026-10-03.
 
 ## Baseline
 
-Checks 14/14. Rubrics 5/5. Gate: 39 errors, 4 warnings on the Scene page (mostly `ai-tells.*`, `misspelt` Kusarigama). Quality failure on the issue's `cf check` acceptance, not on eval Checks.
+Checks 14/14. Rubrics 5/5. Gate: 39 errors, 4 warnings on the Scene page (mostly `ai-tells.*`, `misspelt` Kusarigama). Quality failure on the issue's `cfcli check` acceptance, not on eval Checks.
 
 Runner `HookScene-3` (`test-subject` / `@TEST-SUBJECT`). Grader `HookSceneGrade` (`prose-grader` / `@PROSE-GRADER`).
 
 ## Rounds
 
-None. Hillclimb paused until live Wiki pages of this content type pass `cf check` with 0 errors; skills stay as found.
+None. Hillclimb paused until live Wiki pages of this content type pass `cfcli check` with 0 errors; skills stay as found.

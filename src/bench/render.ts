@@ -16,7 +16,7 @@ export function renderLeaderboard(cache: BenchFile, set: PromptSet, matrix: Matr
 		"",
 	].join("\n");
 	if (cache.results.length === 0) {
-		return `${header}## Prose Benchmark — not yet run for bench_version ${version}\n\nNo scored samples. Plan the first Round with \`cf bench status\`.\n`;
+		return `${header}## Prose Benchmark — not yet run for bench_version ${version}\n\nNo scored samples. Plan the first Round with \`cfcli bench status\`.\n`;
 	}
 	const rows = cache.results.filter((row) => row.bench_version === version);
 	const runAt = maxRunAt(rows);

@@ -287,7 +287,7 @@ export class FakeGit {
 
 export const COMMIT = "c0ffee0000000000000000000000000000000000";
 
-/** One `cf backup` run against a fake, through the pipeline the command runs (reconcile, scope, renames, plan, sync). */
+/** One `cfcli backup` run against a fake, through the pipeline the command runs (reconcile, scope, renames, plan, sync). */
 export async function backup(
 	root: string,
 	map: BackupMap,

@@ -14,6 +14,7 @@ import { changedFiles, formatFinding, REPO_ROOT, scopeSummary, sortByLocation } 
 import { agentsScope } from "./lint/agents.ts";
 import { codeScope } from "./lint/code.ts";
 import { proseScope } from "./lint/prose.ts";
+import { retiredNames } from "./lint/retired.ts";
 import type { LintFinding, ScopeModule, ScopeResult, ScopeRun } from "./lint/types.ts";
 
 const SCOPES: Record<string, ScopeModule> = { agents: agentsScope, prose: proseScope, code: codeScope };
@@ -27,8 +28,11 @@ Scopes (no scope given runs all three; each takes only paths in its domain):
           relative links, anchors, \`skill://\` and backtick file references, skill frontmatter
           schema (name/description, limits), the always-loaded chain's \`@\` imports with its
           word count reported (ADR 0030), and the style gate over content-facing agent text (ADR 0020)
-  prose   the Wiki gate: \`cf check\` over wiki/ paths (ADR 0015), \`--fix\` runs its mechanical fixes
+  prose   the Wiki gate: \`cfcli check\` over wiki/ paths (ADR 0015), \`--fix\` runs its mechanical fixes
   code    Biome (lint + format) and tsc for TypeScript, ruff (check + format) for Python
+
+Every run also reports \`names\`: retired names (the old \`cf\` script, ADR 0032) in any text file
+of the selection, whatever its scope.
 
 Options:
   --fix   apply every tool's safe, idempotent auto-fixes, then report what remains
@@ -127,6 +131,9 @@ const main = async (): Promise<void> => {
 			});
 		}
 	}
+	const selection = args.all ? null : args.paths.length > 0 ? args.paths : changed;
+	const named = await retiredNames(selection);
+	results.push({ scope: "names", result: named, ran: named.files.length > 0 || args.all });
 
 	if (args.json) {
 		const payload = {

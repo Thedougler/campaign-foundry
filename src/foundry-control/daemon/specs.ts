@@ -248,7 +248,7 @@ export const TOOL_SPECS: readonly ToolSpec[] = [
 		plane: "host",
 		mutating: true,
 		description:
-			"Place one file under the host's Data/assets (tokens, art) from a daemon-local path or base64 bytes. Host-plane and DM-gated through the daemon: run `cf foundry assets put <src> <dest> --yes` instead.",
+			"Place one file under the host's Data/assets (tokens, art) from a daemon-local path or base64 bytes. Host-plane and DM-gated through the daemon: run `cfcli foundry assets put <src> <dest> --yes` instead.",
 		params: {
 			required: ["dest"],
 			properties: {
@@ -314,7 +314,7 @@ export const TOOL_SPECS: readonly ToolSpec[] = [
 		plane: "host",
 		mutating: true,
 		description:
-			"Restart the Foundry container (stops every connected session). DM-gated: the daemon refuses and returns the approval command `cf foundry service restart --yes`.",
+			"Restart the Foundry container (stops every connected session). DM-gated: the daemon refuses and returns the approval command `cfcli foundry service restart --yes`.",
 		params: WILDCARD,
 	},
 	{
@@ -322,7 +322,7 @@ export const TOOL_SPECS: readonly ToolSpec[] = [
 		plane: "host",
 		mutating: true,
 		description:
-			"Install a module archive from a host-local zip into Data/modules. DM-gated: the daemon refuses and returns the approval command `cf foundry install module --zip <zip> --name <name> --yes`.",
+			"Install a module archive from a host-local zip into Data/modules. DM-gated: the daemon refuses and returns the approval command `cfcli foundry install module --zip <zip> --name <name> --yes`.",
 		params: {
 			required: ["zipPath", "name"],
 			properties: {
@@ -336,7 +336,7 @@ export const TOOL_SPECS: readonly ToolSpec[] = [
 		plane: "host",
 		mutating: true,
 		description:
-			"Update Foundry, optionally pinning a version in the compose .env, then pull and recreate the container. DM-gated: the daemon refuses and returns the approval command `cf foundry install update --yes`.",
+			"Update Foundry, optionally pinning a version in the compose .env, then pull and recreate the container. DM-gated: the daemon refuses and returns the approval command `cfcli foundry install update --yes`.",
 		params: {
 			required: [],
 			properties: {
@@ -349,7 +349,7 @@ export const TOOL_SPECS: readonly ToolSpec[] = [
 		plane: "host",
 		mutating: true,
 		description:
-			"Archive the Foundry data directory (stopping the world first when stop is true, the only allowed way to back up a running world). DM-gated: the daemon refuses and returns the approval command `cf foundry backup create --stop --yes`.",
+			"Archive the Foundry data directory (stopping the world first when stop is true, the only allowed way to back up a running world). DM-gated: the daemon refuses and returns the approval command `cfcli foundry backup create --stop --yes`.",
 		params: {
 			required: [],
 			properties: {
@@ -363,7 +363,7 @@ export const TOOL_SPECS: readonly ToolSpec[] = [
 		plane: "host",
 		mutating: true,
 		description:
-			"Restore an archive over the Foundry data directory (the current directory is kept aside; the world must be stopped). DM-gated: the daemon refuses and returns the approval command `cf foundry backup restore <archive> --yes`.",
+			"Restore an archive over the Foundry data directory (the current directory is kept aside; the world must be stopped). DM-gated: the daemon refuses and returns the approval command `cfcli foundry backup restore <archive> --yes`.",
 		params: {
 			required: ["archive"],
 			properties: { archive: { type: "string", description: "Host-local archive path." } },

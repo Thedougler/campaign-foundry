@@ -12,7 +12,7 @@ vi.mock("../../src/check/vale.ts", () => ({
 	}),
 }));
 
-/** Today as `cf log` sees it: the same clock and process, now that the command runs in-process. */
+/** Today as `cfcli log` sees it: the same clock and process, now that the command runs in-process. */
 const nodeToday = (): string => {
 	const d = new Date();
 	const p = (n: number): string => String(n).padStart(2, "0");
@@ -29,12 +29,12 @@ const exists = async (dir: string, path: string) =>
 		() => false,
 	);
 
-/** `cf log` against a copy of the clean fixture. */
+/** `cfcli log` against a copy of the clean fixture. */
 async function log(dir: string, args: string[], stdin = "") {
 	return cf(["log", ...vaultFlags(dir), "--campaign", "Ashes of the Crown", ...args], dir, stdin);
 }
 
-describe("cf log", () => {
+describe("cfcli log", () => {
 	it("appends an entry with one bullet per page, a blank line between entries", async () => {
 		const dir = await copyFixture("clean");
 		const { code, stdout } = await log(dir, [
@@ -222,7 +222,7 @@ describe("cf log", () => {
 			expect(code).toBe(2);
 			expect(stderr).toContain("create, ingest, prep, push, audit, pull, query, lint");
 			expect(stderr).toContain(
-				'bun run cf -- log --campaign "Ashes of the Crown" --op prep --title "Session 2 Prep" --page',
+				'bun run cfcli -- log --campaign "Ashes of the Crown" --op prep --title "Session 2 Prep" --page',
 			);
 			expect(await read(dir)).toBe(FIRST);
 		});
@@ -232,7 +232,7 @@ describe("cf log", () => {
 			const { code, stderr } = await log(dir, without(flag));
 			expect(code).toBe(2);
 			expect(stderr).toContain(flag);
-			expect(stderr).toContain("bun run cf -- log --campaign");
+			expect(stderr).toContain("bun run cfcli -- log --campaign");
 		});
 
 		it("requires --campaign when the Wiki holds more than one Campaign", async () => {
@@ -253,7 +253,7 @@ describe("cf log", () => {
 			const { code, stderr } = await log(dir, without("--page"));
 			expect(code).toBe(2);
 			expect(stderr).toContain("--page");
-			expect(stderr).toContain("bun run cf -- log --campaign");
+			expect(stderr).toContain("bun run cfcli -- log --campaign");
 		});
 
 		it("rejects a page that does not exist, suggesting the closest name", async () => {
@@ -282,7 +282,7 @@ describe("cf log", () => {
 		});
 
 		// Hardcoded title refusals (not Vale): a semicolon or trailing heading punctuation would fail the next
-		// `cf check` on log.md, so the command refuses them before writing.
+		// `cfcli check` on log.md, so the command refuses them before writing.
 		it.each([
 			["a semicolon", "Ingest; Session 3 done", ";", "ai-tells.SemicolonUsage"],
 			["trailing full stop", "Recap of Session 3.", ".", "MD026"],
@@ -293,7 +293,7 @@ describe("cf log", () => {
 			expect(code).toBe(2);
 			expect(stderr).toContain(character);
 			expect(stderr).toContain(rule);
-			expect(stderr).toContain("bun run cf -- log --campaign");
+			expect(stderr).toContain("bun run cfcli -- log --campaign");
 			expect(await read(dir)).toBe(FIRST);
 		});
 	});

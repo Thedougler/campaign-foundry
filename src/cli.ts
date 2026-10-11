@@ -15,9 +15,9 @@ function overrideExits(command: Command): Command {
 }
 
 function buildProgram(): Command {
-	const program = new Command("cf")
+	const program = new Command("cfcli")
 		.description(
-			`Campaign Foundry: tools that keep the Wiki in shape. Run it as \`${CF} <command>\` (a bare \`cf\` on PATH is usually Cloudflare's, not this tool). Run a subcommand with --help for its options and examples.`,
+			`Campaign Foundry: tools that keep the Wiki in shape. Run it as \`${CF} <command>\`. Run a subcommand with --help for its options and examples.`,
 		)
 		.showHelpAfterError("(run with --help for options and examples)")
 		.addHelpText(
@@ -134,7 +134,7 @@ function exclusive<T>(fn: () => Promise<T>): Promise<T> {
 }
 
 /**
- * One `cf` invocation in this process: the same commander program the spawned `node src/cli.ts`
+ * One `cfcli` invocation in this process: the same commander program the spawned `node src/cli.ts`
  * runs, with output captured, and no process left behind. Tests call this instead of spawning the
  * CLI, so a suite pays the module load once rather than per invocation. `stdin` feeds the command a
  * string in place of the real stdin; left out, the command reads the process's own stdin.
@@ -147,7 +147,7 @@ export function runCli(argv: string[], options: { cwd?: string; stdin?: string }
 		const savedExit = process.exitCode;
 		const savedStdin = Object.getOwnPropertyDescriptor(process, "stdin")!;
 		if (savedCwd !== (options.cwd ?? savedCwd)) process.chdir(options.cwd ?? savedCwd);
-		process.argv = ["cf", "cf", ...argv];
+		process.argv = ["cfcli", "cfcli", ...argv];
 		process.exitCode = 0;
 		if (options.stdin !== undefined) {
 			Object.defineProperty(process, "stdin", {

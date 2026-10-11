@@ -44,12 +44,12 @@ export class DdbCaptureError extends Error {
 	}
 }
 
-/** The capture procedure, as `cf ddb --help` documents it; loader errors point here. */
+/** The capture procedure, as `cfcli ddb --help` documents it; loader errors point here. */
 export const CAPTURE_PROCEDURE =
 	"Capture it first: in an omp browser session with request recording on, create and edit one private homebrew monster, " +
 	"then write the *.dndbeyond.com POST/PUT/PATCH/DELETE traffic (method, url, headers, body, status, response preview) " +
 	"to a cf-ddb-capture file with cookie/authorization/token/csrf header values redacted, " +
-	"and commit it as src/ddb/contracts/<type>/<op>.json (see `cf ddb --help`, the Capture section)";
+	"and commit it as src/ddb/contracts/<type>/<op>.json (see `cfcli ddb --help`, the Capture section)";
 
 /** Header names whose values carry the DM's session; matched case-insensitively. */
 function isSessionHeader(name: string): boolean {

@@ -143,23 +143,23 @@ describe("ToolRegistry routing", () => {
 
 	it("refuses every host-plane mutation with the DM approval command", async () => {
 		const cases: [string, Record<string, unknown>, RegExp][] = [
-			["host.restart", {}, /cf foundry service restart --yes/],
+			["host.restart", {}, /cfcli foundry service restart --yes/],
 			[
 				"package.install",
 				{ zipPath: "/home/nick/cf-bridge.zip", name: "cf-bridge" },
-				/cf foundry install module --zip \/home\/nick\/cf-bridge\.zip --name cf-bridge --yes/,
+				/cfcli foundry install module --zip \/home\/nick\/cf-bridge\.zip --name cf-bridge --yes/,
 			],
-			["package.update", { version: "14.369" }, /cf foundry install update --version 14\.369 --yes/],
-			["backup.create", { stop: true }, /cf foundry backup create --stop --yes/],
+			["package.update", { version: "14.369" }, /cfcli foundry install update --version 14\.369 --yes/],
+			["backup.create", { stop: true }, /cfcli foundry backup create --stop --yes/],
 			[
 				"backup.restore",
 				{ archive: "/home/nick/backup.tar.gz" },
-				/cf foundry backup restore \/home\/nick\/backup\.tar\.gz --yes/,
+				/cfcli foundry backup restore \/home\/nick\/backup\.tar\.gz --yes/,
 			],
 			[
 				"asset.put",
 				{ sourcePath: "/tmp/tok.png", dest: "tokens/tok.png" },
-				/cf foundry assets put \/tmp\/tok\.png tokens\/tok\.png --yes/,
+				/cfcli foundry assets put \/tmp\/tok\.png tokens\/tok\.png --yes/,
 			],
 		];
 		for (const [tool, params, command] of cases) {
@@ -174,7 +174,7 @@ describe("ToolRegistry routing", () => {
 		const { registry: reg } = registry({ client: null });
 		const error = (await reg.callTool("world.inspect", {}).catch((e: unknown) => e)) as ToolError;
 		expect(error.code).toBe("no_module");
-		expect(error.message).toContain("cf foundry serve");
+		expect(error.message).toContain("cfcli foundry serve");
 	});
 
 	it("forwards a read-only module tool to the connected module", async () => {
@@ -293,7 +293,7 @@ describe("ToolRegistry mutation discipline", () => {
 			.callTool("document.batch", { ops: [], dry_run: false })
 			.catch((e: unknown) => e)) as ToolError;
 		expect(error.code).toBe("backup_refused");
-		expect(error.approvalCommand).toBe("cf foundry backup create --stop --yes");
+		expect(error.approvalCommand).toBe("cfcli foundry backup create --stop --yes");
 		expect(client.calls).toEqual([]);
 	});
 

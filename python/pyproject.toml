@@ -8,7 +8,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-# Laugh Highlights (`bun run cf -- transcript highlights`). Needs ffmpeg and wget on PATH; the
+# Laugh Highlights (`bun run cfcli -- transcript highlights`). Needs ffmpeg and wget on PATH; the
 # first scan downloads the PANNs checkpoint (about 330 MB) to ~/panns_data/.
 highlights = [
     "panns-inference>=0.1.1",

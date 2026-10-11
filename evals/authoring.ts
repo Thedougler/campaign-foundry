@@ -51,7 +51,7 @@ export class SkillReferenceError extends Error {}
 export async function validateSkill(skillDirectory: string, options: { root?: string } = {}): Promise<SkillValidation> {
 	const skillDir = resolve(skillDirectory);
 	const skillFile = join(skillDir, "SKILL.md");
-	const hint = `Fix ${skillFile}, then run cf eval validate ${JSON.stringify(skillDir)}.`;
+	const hint = `Fix ${skillFile}, then run cfcli eval validate ${JSON.stringify(skillDir)}.`;
 	let content: string;
 	try {
 		if (!(await stat(skillDir)).isDirectory()) {
@@ -65,7 +65,7 @@ export async function validateSkill(skillDirectory: string, options: { root?: st
 		if (error instanceof UsageError) throw error;
 		throw new UsageError(
 			`Cannot read skill ${skillDir}: ${errorMessage(error)}`,
-			"Pass an existing, readable skill directory containing SKILL.md. Example: cf eval validate .omp/skills/skill-creator",
+			"Pass an existing, readable skill directory containing SKILL.md. Example: cfcli eval validate .omp/skills/skill-creator",
 		);
 	}
 	const match = /^\uFEFF?---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*(?:\r?\n|$)/.exec(content);
@@ -300,7 +300,7 @@ export async function packageSkill(
 	if (!output.endsWith(".skill")) {
 		throw new UsageError(
 			`Skill bundle output must end in .skill: ${output}`,
-			`Example: cf eval package ${JSON.stringify(skill.skillDir)} --output ${JSON.stringify(`${skill.name}.skill`)}`,
+			`Example: cfcli eval package ${JSON.stringify(skill.skillDir)} --output ${JSON.stringify(`${skill.name}.skill`)}`,
 		);
 	}
 	if (skill.name.includes("\\") || /^[A-Za-z]:/.test(skill.name)) {
@@ -309,7 +309,7 @@ export async function packageSkill(
 			"Rename the skill directory and its frontmatter name to avoid backslashes or a drive prefix.",
 		);
 	}
-	const hint = `Check file permissions and fix the reported path, then run cf eval package ${JSON.stringify(skill.skillDir)} --output ${JSON.stringify(output)}.`;
+	const hint = `Check file permissions and fix the reported path, then run cfcli eval package ${JSON.stringify(skill.skillDir)} --output ${JSON.stringify(output)}.`;
 	let temporaryDir: string | undefined;
 	try {
 		const { files, excluded } = await collectSkillFiles(skill.skillDir, skill.name);

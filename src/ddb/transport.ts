@@ -14,7 +14,7 @@ export type BrowserFetcher = (
 export interface Transport {
 	fetch: (url: string, init?: FetchInit) => Promise<FetchResult>;
 	auth: DdbAuth;
-	/** Present only inside an omp session with the browser device; `cf` alone has no browser to fall back to. */
+	/** Present only inside an omp session with the browser device; `cfcli` alone has no browser to fall back to. */
 	browserFetch?: BrowserFetcher;
 }
 
@@ -30,7 +30,7 @@ export class DdbTransportError extends Error {
 }
 
 const LOGIN_HINT =
-	"the stored session was refused; re-login and save the session (cf ddb --help has the Authentication steps)";
+	"the stored session was refused; re-login and save the session (cfcli ddb --help has the Authentication steps)";
 const BROWSER_HINT =
 	"D&D Beyond refused the direct request; retry inside the omp browser session, whose authenticated tab issues the same request (docs/adr/0022 has the steps)";
 

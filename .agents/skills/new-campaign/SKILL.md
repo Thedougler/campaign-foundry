@@ -12,7 +12,7 @@ Every path below is vault-relative (from `wiki/`) unless it starts with `docs/`,
 - the Campaign overview `<campaign-folder>/<campaign-folder>.md`, `campaign-config.md` and `hot.md`;
 - the World overview `<campaign-folder>/<world-slug>.md` and the setting pages by kind (`Locations/`, `NPCs/`, `Factions/` …) when this Campaign's setting is new;
 - `PCs/` and `Threads/`, then `Sessions/` once play starts;
-- the generated `index.md`, and the `log.md` that `cf log` writes.
+- the generated `index.md`, and the `log.md` that `cfcli log` writes.
 
 A page two Campaigns both play is shared: it lives in a top-level kind folder, `<Kind>/<slug>.md`, and a shared World overview sits at the vault root as `<world-slug>.md`. Every page's filename is its title's slug (`docs/wiki-layout.md` **Page names**), and wikilinks resolve by that slug wherever the page lives, because slugs stay unique across the whole vault.
 
@@ -65,10 +65,10 @@ Each run founds its Campaign on one of three settings, which step 1 settles:
 
    The story side is yours. Put the DM's story, including any PC pulls the prompts drew out, in `Story`, `Goals and bonds` and `Plans`, retaining supplied story passages and facts. For a returning PC, write the story side fresh for this Campaign and link the earlier Campaign's PC page for the full Backstory, since the gate flags sentences copied verbatim between pages. Follow `theatre-of-the-mind` for the required `Portrait` callout, using its **Slots** row for Portrait and grounding it in known appearance. Keep the Player-to-PC mapping in the overview because the pull replaces the sheet side.
 
-   The sheet side (`Sheet`, `Spells`, `Inventory`) comes only from D&D Beyond through `bun run cf -- pull`, a live call to the public D&D Beyond service. Run an actual pull, not just a preview:
+   The sheet side (`Sheet`, `Spells`, `Inventory`) comes only from D&D Beyond through `bun run cfcli -- pull`, a live call to the public D&D Beyond service. Run an actual pull, not just a preview:
 
    ```bash
-   bun run cf -- pull --campaign "<Campaign>"
+   bun run cfcli -- pull --campaign "<Campaign>"
    ```
 
    The selector is the Campaign's name, as `skill://lint` § Commands defines it. Account for every intended PC from the command's per-PC output and resulting page: `updated` or `unchanged` establishes a fetched sheet; `skipped`, `failed`, a dry run or an unavailable operation does not. Compare `Story`, `Goals and bonds` and `Plans` before and after: the pull leaves all three unchanged. Repair gate findings on the pulled pages without altering the fetched facts. A `boilerplate` finding between two pulled sheet sides of the same character stays as the pull wrote it. Report each one verbatim. Then follow `audit` over the changed PCs and their linked neighbours.
@@ -87,7 +87,7 @@ Each run founds its Campaign on one of three settings, which step 1 settles:
 Run from the repository root, binding every command to the same repository root, Wiki and template directory (**Another root** in `skill://lint` § Commands states the flags). Generate the index, close per `skill://lint` § Commands over the Campaign folder and every touched page, and append one `create` entry titled `New Campaign: <Campaign>`, repeating `--page` for every touched page by vault-relative path. The pull for an explicit target runs as:
 
 ```bash
-bun run cf -- pull --campaign "<Campaign>" --vault "<wiki>" --root "<root>" --templates "<templates>"
+bun run cfcli -- pull --campaign "<Campaign>" --vault "<wiki>" --root "<root>" --templates "<templates>"
 ```
 
 Command output, rather than an intended invocation, establishes execution.

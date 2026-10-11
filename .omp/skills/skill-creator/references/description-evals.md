@@ -20,7 +20,7 @@ Save as `trigger-eval.json`:
 ## 2. DM review
 
 ```bash
-bun run cf -- eval description-review <workspace>/description-evals/trigger-eval.json \
+bun run cfcli -- eval description-review <workspace>/description-evals/trigger-eval.json \
   --skill-name <name> --description "<current description>" \
   --static <workspace>/description-evals/review.html
 ```
@@ -63,7 +63,7 @@ Each candidate gets one observation per query; that single observation decides t
 
 ## 4. Iterate and select
 
-Observe the current description first. `skill-writer` drafts each next candidate (frontmatter `description` only) from the failing queries, written as the trigger branches they miss or wrongly fire on rather than as query text. Keep a candidate when failures went down and nothing new broke: at least one failing query now passes and no passing query now fails; otherwise discard it and draft from the last kept description. Stop when every query passes or after three discarded candidates. Apply the last kept description permanently and run `bun run cf -- eval validate <skill-dir>`.
+Observe the current description first. `skill-writer` drafts each next candidate (frontmatter `description` only) from the failing queries, written as the trigger branches they miss or wrongly fire on rather than as query text. Keep a candidate when failures went down and nothing new broke: at least one failing query now passes and no passing query now fails; otherwise discard it and draft from the last kept description. Stop when every query passes or after three discarded candidates. Apply the last kept description permanently and run `bun run cfcli -- eval validate <skill-dir>`.
 
 Report, per candidate observed: passing queries over completed observations, should-trigger misses, near-miss false positives, missing observations, and the keep or discard decision.
 

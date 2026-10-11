@@ -217,7 +217,7 @@ describe("loadContract", () => {
 		const error = await loadContract("monster", "create-version").catch((e: unknown) => e);
 		expect(error).toBeInstanceOf(DdbCaptureError);
 		expect((error as DdbCaptureError).message).toMatch(/monster\/create-version\.json/);
-		expect((error as DdbCaptureError).hint).toMatch(/cf ddb --help/);
+		expect((error as DdbCaptureError).hint).toMatch(/cfcli ddb --help/);
 	});
 
 	it("loads the committed monster contracts, bodies redacted", async () => {

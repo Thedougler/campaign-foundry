@@ -1,5 +1,5 @@
 /**
- * D&D Beyond's public character endpoint and the slice of its payload `cf pull` reads.
+ * D&D Beyond's public character endpoint and the slice of its payload `cfcli pull` reads.
  * The envelope and error conventions are the transport's (`src/ddb/transport.ts`): one vocabulary for one vendor.
  * See docs/research/dndbeyond-character-endpoint.md for how the endpoint and shape were verified.
  */
@@ -119,20 +119,20 @@ export async function fetchCharacter(pc: string, url: string, fetcher: FetchLike
 	} catch (error) {
 		throw new DdbTransportError(
 			`could not reach D&D Beyond (${(error as Error).message}).`,
-			`Check the network and run cf pull --pc "${pc}" again.`,
+			`Check the network and run cfcli pull --pc "${pc}" again.`,
 		);
 	}
 	if (response.status === 403 || response.status === 404) {
 		throw new DdbTransportError(
 			`D&D Beyond would not share character ${id} (HTTP ${response.status}).`,
-			`Set the character to public: open it on D&D Beyond, Settings, Character Privacy, Public. Then run cf pull --pc "${pc}". If it is already public, check that dndbeyond_url has the right id.`,
+			`Set the character to public: open it on D&D Beyond, Settings, Character Privacy, Public. Then run cfcli pull --pc "${pc}". If it is already public, check that dndbeyond_url has the right id.`,
 			response.status,
 		);
 	}
 	if (!response.ok) {
 		throw new DdbTransportError(
 			`D&D Beyond answered HTTP ${response.status} for character ${id}.`,
-			`Wait a minute and run cf pull --pc "${pc}" again.`,
+			`Wait a minute and run cfcli pull --pc "${pc}" again.`,
 			response.status,
 		);
 	}

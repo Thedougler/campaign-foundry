@@ -33,7 +33,7 @@ function isVendored(path: string): boolean {
 	);
 }
 
-/** ADR 0020: the content-facing targets checked through the one cf style gate. */
+/** ADR 0020: the content-facing targets checked through the one cfcli style gate. */
 const STYLE_PATHS = [
 	".omp/skills/collab-with-me",
 	".omp/skills/lint",
@@ -241,7 +241,7 @@ async function runStyle(files: string[], wholeDomain: boolean): Promise<ToolResu
 		: files.filter((file) => STYLE_PATHS.some((path) => (path.endsWith(".md") ? file === path : underDir(file, path))));
 	if (selected.length === 0) return { files: [], findings: [], failures: [] };
 	try {
-		// Mirrors cf style's directory expansion for the reported file union, not its lint rules.
+		// Mirrors cfcli style's directory expansion for the reported file union, not its lint rules.
 		const expanded = (
 			await Promise.all(
 				selected.map(async (path) => {
@@ -258,7 +258,7 @@ async function runStyle(files: string[], wholeDomain: boolean): Promise<ToolResu
 		).flat();
 		return { files: expanded, ...(await stylePass(selected)) };
 	} catch (error) {
-		return { files: [], findings: [], failures: [`cf style: ${errorLine(error)}`] };
+		return { files: [], findings: [], failures: [`cfcli style: ${errorLine(error)}`] };
 	}
 }
 
@@ -269,7 +269,7 @@ async function stylePass(paths: string[]): Promise<ToolResult> {
 		parsed = JSON.parse(cf.stdout) as CfStyleJson;
 		if (!Array.isArray(parsed.findings)) throw new Error("missing findings array");
 	} catch {
-		return { findings: [], failures: [`cf style failed (exit ${cf.status}): ${errorLine(cf.stderr || cf.stdout)}`] };
+		return { findings: [], failures: [`cfcli style failed (exit ${cf.status}): ${errorLine(cf.stderr || cf.stdout)}`] };
 	}
 	return {
 		findings: parsed.findings.map((finding) => ({
@@ -279,7 +279,7 @@ async function stylePass(paths: string[]): Promise<ToolResult> {
 			rule: finding.rule,
 			message: finding.message,
 		})),
-		failures: cf.status === 2 ? [`cf style usage error: ${errorLine(cf.stderr || cf.stdout)}`] : [],
+		failures: cf.status === 2 ? [`cfcli style usage error: ${errorLine(cf.stderr || cf.stdout)}`] : [],
 	};
 }
 

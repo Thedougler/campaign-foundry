@@ -11,7 +11,7 @@ const vault = buildVault("/v", {
 	attachments: [],
 });
 
-const hint = (candidate: string): string => `cf example "${candidate}"`;
+const hint = (candidate: string): string => `cfcli example "${candidate}"`;
 
 /** The refusal a call raises, so its `hint` can be checked alongside its message. */
 const refusalOf = (input: string, options: { campaignFolder?: string } = {}) => {
@@ -49,7 +49,7 @@ describe("resolvePage", () => {
 	it("refuses a shared name without a campaign folder, listing every page and naming one in the hint", () => {
 		const error = refusalOf("Mara Voss");
 		expect(error.message).toBe("More than one page is named `Mara Voss`: A/NPCs/Mara Voss.md, B/NPCs/Mara Voss.md.");
-		expect(error.hint).toBe('Pass the vault path of the one you mean. cf example "A/NPCs/Mara Voss.md"');
+		expect(error.hint).toBe('Pass the vault path of the one you mean. cfcli example "A/NPCs/Mara Voss.md"');
 	});
 
 	it("refuses a shared name even the campaign folder cannot settle", () => {
@@ -59,7 +59,7 @@ describe("resolvePage", () => {
 	it("refuses an unknown name with the did-you-mean and the command's own hint", () => {
 		const error = refusalOf("Ravenhod");
 		expect(error.message).toBe("No page `Ravenhod` in the Wiki. Did you mean `Ravenhold`?");
-		expect(error.hint).toBe('Name a page that exists, by name or vault path. cf example "Ravenhold"');
+		expect(error.hint).toBe('Name a page that exists, by name or vault path. cfcli example "Ravenhold"');
 	});
 
 	it("refuses a name nothing is close to, without a did-you-mean", () => {

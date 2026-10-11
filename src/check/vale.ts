@@ -45,7 +45,7 @@ function requireStyles(): void {
 		if (!existsSync(join(toolRoot, `.vale/styles/${style}`))) {
 			throw new UsageError(
 				`The Vale ${style} package is not installed.`,
-				"Run `bun run setup` (it runs `vale sync`), then `cf check` again.",
+				"Run `bun run setup` (it runs `vale sync`), then `cfcli check` again.",
 			);
 		}
 	}
@@ -55,7 +55,7 @@ function requireStyles(): void {
 function valeMissing(): never {
 	throw new UsageError(
 		"Vale is not installed.",
-		"Install Vale 3.23 or newer (https://vale.sh/docs/install; on macOS `brew install vale`), then run `bun run setup` and `cf check` again.",
+		"Install Vale 3.23 or newer (https://vale.sh/docs/install; on macOS `brew install vale`), then run `bun run setup` and `cfcli check` again.",
 	);
 }
 

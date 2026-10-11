@@ -20,7 +20,7 @@ const PREFIX = "_style/";
 const OUTSIDE = "_style-outside/";
 
 /**
- * The `cf style` targets by reported path — cwd-relative inside the cwd, absolute outside it: `-` becomes
+ * The `cfcli style` targets by reported path — cwd-relative inside the cwd, absolute outside it: `-` becomes
  * `stdin.md`, a directory expands to its `*.md` files, a missing path is a usage error.
  */
 async function targetFiles(paths: string[]): Promise<Map<string, string>> {

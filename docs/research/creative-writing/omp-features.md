@@ -12,7 +12,7 @@
 | Skills | `.omp/skills/<name>/SKILL.md` | Model-invoked, `skill://<name>`, `/skill:<name>` | Strong — pipeline stages |
 | Agents | `.omp/agents/*.md` | Native `task` dispatch; async + `agent://` steering | **Strong** — per-NPC persistent writers |
 | Hooks/extensions | `.omp/hooks/pre\|post/*.ts,js` | `pi.on(event)` factories | Situational — mechanical transforms, audit |
-| Custom tools | `.omp/tools/*.ts` | Model-callable, `pi.zod` schema | **Non-fit** — `cf` CLI already covers it via bash |
+| Custom tools | `.omp/tools/*.ts` | Model-callable, `pi.zod` schema | **Non-fit** — `cfcli` CLI already covers it via bash |
 | Context files | `.omp/AGENTS.md`, `RULES.md` | Auto-injected `<repo-rules>`; `@path` imports | Strong — standing law |
 | Magic keywords | user prompt prose | `ultrathink`, `orchestrate`, `workflowz`, `jevify` | Nice-to-have |
 | context_notes / new_context | built-in tools | 16 KiB notebook; survives rollover | Complements `local://collab-notes.md` |
@@ -98,7 +98,7 @@ Events: `tool_call` → `{ block?, reason?, input?, additionalContext? }`; `tool
 
 ## 6–7. Custom tools, context files
 
-Custom tools (`.omp/tools/*.ts`, `pi.zod` schema, globally unique names, `loadMode: "discoverable"` default): **non-fit** — `cf` already exposes filing/lint/encounter flows through bash; a wrapper tool would be a second convention.
+Custom tools (`.omp/tools/*.ts`, `pi.zod` schema, globally unique names, `loadMode: "discoverable"` default): **non-fit** — `cfcli` already exposes filing/lint/encounter flows through bash; a wrapper tool would be a second convention.
 
 Context files: `.omp/AGENTS.md` is native project context (priority 100), injected in `<repo-rules>`; discovery stops at the **nearest non-empty `.omp/`** walking to repo root. `@path` imports expand inline (relative to the importing file, 5 hops, cycles skipped, code spans untouched). Sticky `RULES.md` exists only at `~/.omp/agent/RULES.md` and the nearest non-empty project `.omp/RULES.md`, forced always-apply. `.omp/AGENTS.md` imports `@../AGENTS.md` precisely because native shadows a root `AGENTS.md` at the same depth. **Fit:** standing workflow law (story-first, players-own-PCs) goes in these files; enforcement goes TTSR.
 

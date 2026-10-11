@@ -170,7 +170,7 @@ describe("the highlights payload", () => {
 	});
 });
 
-describe("cf transcript chunks", () => {
+describe("cfcli transcript chunks", () => {
 	it("exits 2 for a file without speaker blocks", async () => {
 		const result = await cf(["transcript", "chunks", "package.json"]);
 		expect(result.code).toBe(2);
@@ -191,11 +191,11 @@ describe("cf transcript chunks", () => {
 	});
 });
 
-describe("cf transcript highlights", () => {
+describe("cfcli transcript highlights", () => {
 	it("documents native --help with examples", async () => {
 		const result = await cf(["transcript", "highlights", "--help"]);
 		expect(result.code).toBe(0);
-		expect(result.stdout).toContain("Usage: cf transcript highlights");
+		expect(result.stdout).toContain("Usage: cfcli transcript highlights");
 		expect(result.stdout).toContain("--transcript <file>");
 	});
 
@@ -213,7 +213,7 @@ describe("cf transcript highlights", () => {
 	});
 });
 
-describe("cf transcript dictionary", () => {
+describe("cfcli transcript dictionary", () => {
 	const dir = mkdtempSync(join(tmpdir(), "cf-dictionary-"));
 	const csv = join(dir, "dictionary.csv");
 	afterAll(() => rmSync(dir, { recursive: true, force: true }));

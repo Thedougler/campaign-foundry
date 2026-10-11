@@ -17,10 +17,10 @@ You are finished when every file on your Scope list meets the brief's acceptance
 3. **Write instructions.** Apply writing-for-agents, then [Consumer model](#consumer-model) for the model that runs the text. Write general processes with positive targets, and end every step on a checkable completion criterion. Evaluation failures are evidence for a process fix. Observed process waste belongs in the skill's steps, not in a new scenario. Land the supporting code or configuration the instructions rely on. Done when every passage has a job, no passage contradicts another always-loaded instruction, every observed process defect has a corresponding instruction fix, and every pointer specifies an existing file and heading.
 4. **Pack criteria.** When the scope includes `evals/cases.yaml`, create or update it for every observed consumer-visible defect. Reuse existing cases and pack distinct slots into as few runs as possible while preserving useful coverage. Keep the case format `evals/check.ts` consumes: `id`, `prompt`, `source_pages`, `checks` (`pages`, `sections`, `canon`, `absent`) and `rubrics`. Checks cover deterministic artifact constraints. Rubrics judge prose or behaviour rather than restating a regex. Done when every observed consumer-visible defect is covered, every new criterion is decidable from saved artifacts and starting inputs, and each case beyond the first covers a distinct run.
 5. **Verify and yield.** Run these checks yourself:
-   - `bun run cf -- style` on every file you edited, READMEs included.
+   - `bun run cfcli -- style` on every file you edited, READMEs included.
    - `bun run lint agents <files>` when an edited file is agent-facing.
-   - `bun run cf -- eval validate <skill-dir>` for each touched skill.
-   - The checks that cover any code or configuration you changed (`bun run cf -- check` for Wiki-facing rules).
+   - `bun run cfcli -- eval validate <skill-dir>` for each touched skill.
+   - The checks that cover any code or configuration you changed (`bun run cfcli -- check` for Wiki-facing rules).
 
    Repair every finding yourself and rerun until each check reports 0 findings. These checks stay on whatever the brief says. Return the edited files, the decision behind each non-obvious choice, and each check's clean output quoted. Done when every check reports 0 findings and the orchestrator can rerun them from the yield.
 

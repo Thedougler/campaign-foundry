@@ -45,7 +45,7 @@ Copies live under `sources/shattered-sea-campaign-os/` (relative paths preserved
 ## Hot cache with Flagged Contradictions
 
 - source: `wiki/hot.md` (found; 29 lines)
-- destination: CF hot-cache/orientation docs + a doctor/`cf`-enforced ledger cap
+- destination: CF hot-cache/orientation docs + a doctor/`cfcli`-enforced ledger cap
 - load-bearing:
   - Shape: ~500–700-word snapshot "updated after every major write": dated `[YYYY-MM-DD] INGEST —` paragraphs naming the source file and the patch, then **Key Takeaways** bullets, then **Flagged Contradictions** queue.
   - Flagged Contradictions entries are one-line human-decision tickets: "Tail Staging Island vs Fathomrush: same Maw-west staging job, two names." / "Wolfrabbit drop frontmatter claimed CR 5 / 75 HP; fence is CR 2 / 45 HP. **Fence wins.**" / "two incompatible mechanics. Human pick required." Each names the conflict, the competing pages, and who decides or the precedence rule.

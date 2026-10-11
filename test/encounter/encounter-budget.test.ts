@@ -3,7 +3,7 @@ import { cf } from "../check/helpers.ts";
 
 const levels5x4 = ["encounter-budget", "--levels", "5,5,5,5", "--level-offset", "0"];
 
-describe("cf encounter-budget: party budgets", () => {
+describe("cfcli encounter-budget: party budgets", () => {
 	it("sums SRD 5.2 per-character Low/Moderate/High for four 5th-level PCs", async () => {
 		const { code, stdout } = await cf(levels5x4);
 		expect(code).toBe(0);
@@ -37,7 +37,7 @@ describe("cf encounter-budget: party budgets", () => {
 	});
 });
 
-describe("cf encounter-budget: exact and just-over High", () => {
+describe("cfcli encounter-budget: exact and just-over High", () => {
 	it("labels total XP equal to High as High", async () => {
 		// 4×5th High budget is 4400; 4×1100 XP is exact High.
 		const { code, stdout } = await cf([
@@ -93,7 +93,7 @@ describe("cf encounter-budget: exact and just-over High", () => {
 	});
 });
 
-describe("cf encounter-budget: target and copy block", () => {
+describe("cfcli encounter-budget: target and copy block", () => {
 	it("prints XP over or under a named band without failing the run", async () => {
 		const exact = await cf([...levels5x4, "--target", "low", "--creature", "Orc,1/2,100,20"]);
 		expect(exact.code).toBe(0);
@@ -110,7 +110,7 @@ describe("cf encounter-budget: target and copy block", () => {
 	});
 });
 
-describe("cf encounter-budget: usage errors", () => {
+describe("cfcli encounter-budget: usage errors", () => {
 	it("exits 2 for a fractional party size, out-of-range level, or negative XP", async () => {
 		const size = await cf(["encounter-budget", "--party-level", "5", "--party-size", "4.5"]);
 		expect(size.code).toBe(2);

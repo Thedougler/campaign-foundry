@@ -11,7 +11,7 @@ interface Drift {
 	message: string;
 }
 
-/** Every generated index that is missing or differs from what `cf index` would write. */
+/** Every generated index that is missing or differs from what `cfcli index` would write. */
 function drift(ctx: CheckContext): (Drift & { content: string })[] {
 	const out: (Drift & { content: string })[] = [];
 	for (const [path, content] of generateIndexes(ctx.vault)) {
@@ -42,12 +42,12 @@ function drift(ctx: CheckContext): (Drift & { content: string })[] {
 	return out;
 }
 
-const HINT = "Regenerate it with `cf index` (or `cf check --layer index --fix`); never edit an index by hand.";
+const HINT = "Regenerate it with `cfcli index` (or `cfcli check --layer index --fix`); never edit an index by hand.";
 
 export const indexLayer: Layer = {
 	name: LAYER,
 	scope: "vault",
-	description: "index.md at the root and in each Campaign folder is present and matches what `cf index` generates.",
+	description: "index.md at the root and in each Campaign folder is present and matches what `cfcli index` generates.",
 	run(ctx: CheckContext): Finding[] {
 		return drift(ctx).map((d) => ({
 			layer: LAYER,

@@ -3,6 +3,7 @@
 
 # Tooling and packages
 asyncio
+cfcli
 docids
 findall
 frontmatter

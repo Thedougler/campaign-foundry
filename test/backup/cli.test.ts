@@ -5,7 +5,7 @@ import { lfsPointer, repo } from "./helpers.ts";
 
 const W = "wiki/shattered-sea";
 
-describe("cf backup", () => {
+describe("cfcli backup", () => {
 	it("dry-runs without a token, printing counts, the estimate and the planned tree", async () => {
 		const root = repo({
 			[`${W}/hot.md`]: "---\ntitle: The next session\n---\n# Hot\n",
@@ -51,7 +51,7 @@ describe("cf backup", () => {
 	});
 });
 
-describe("cf backup after the PR that ran it merges", () => {
+describe("cfcli backup after the PR that ran it merges", () => {
 	it.each([
 		["merge", "diff", "changes since"],
 		["squash", "all", "comparing content hashes"],

@@ -57,7 +57,7 @@ export interface CheckContext {
 export interface Layer {
 	/** Kebab-case; the value `--layer <name>` selects. */
 	name: string;
-	/** One line for `cf check --help`. */
+	/** One line for `cfcli check --help`. */
 	description: string;
 	/**
 	 * `"page"`: the layer evaluates each checked page on its own, so a scoped run skips untouched pages.

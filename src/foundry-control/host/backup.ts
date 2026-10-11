@@ -81,7 +81,7 @@ export async function createBackup(
 	if (wasRunning && !opts.stop) {
 		throw new RefusalError(
 			`Foundry must be shut down before its Data directory is copied (official backup guidance); the world is ${state}. After DM approval, re-run with \`--stop\` so the adapter stops the world for the backup and starts it again after.`,
-			"cf foundry backup create --stop --yes",
+			"cfcli foundry backup create --stop --yes",
 		);
 	}
 	const dest = opts.dest ?? `${backupDestDir(config)}/foundry-data-${stamp(now)}.tar.gz`;
@@ -140,7 +140,7 @@ export async function restoreBackup(
 	if (state === "running") {
 		throw new RefusalError(
 			`A backup can only be restored into a stopped world; Foundry is ${state}. Stop it first (after DM approval), then restore.`,
-			"cf foundry service stop --yes",
+			"cfcli foundry service stop --yes",
 		);
 	}
 	const parent = remoteDirname(config.dataPath);

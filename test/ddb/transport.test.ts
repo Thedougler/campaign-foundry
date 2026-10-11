@@ -74,7 +74,7 @@ describe("request", () => {
 		const error = await request(transportOver(fetcher), MONSTER_URL, {}).catch((e: DdbTransportError) => e);
 		expect(error).toBeInstanceOf(DdbTransportError);
 		expect((error as DdbTransportError).status).toBe(401);
-		expect((error as DdbTransportError).hint).toMatch(/cf ddb --help/);
+		expect((error as DdbTransportError).hint).toMatch(/cfcli ddb --help/);
 	});
 
 	it("reports both failures when the browser fallback is also refused", async () => {

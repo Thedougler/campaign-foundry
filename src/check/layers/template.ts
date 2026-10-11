@@ -199,7 +199,7 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 			"missing-key",
 			1,
 			`Property \`${key}\` is missing (required by templates/${template.name}.md).`,
-			`Add \`${example(key)}\` to the frontmatter; a blank value is fine unless the key is \`summary\` or \`title\`. \`cf check --fix\` adds it.`,
+			`Add \`${example(key)}\` to the frontmatter; a blank value is fine unless the key is \`summary\` or \`title\`. \`cfcli check --fix\` adds it.`,
 		);
 	}
 	if ("title" in fm) {
@@ -309,15 +309,15 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 			"leftover-comment",
 			comment.line,
 			"Leftover `%% %%` authoring guidance.",
-			"Delete the comment; a finished page keeps none. `cf check --fix` strips it.",
+			"Delete the comment; a finished page keeps none. `cfcli check --fix` strips it.",
 		);
 	}
 	for (const heading of emptyHeadings(page)) {
 		const hint =
 			heading.depth >= 3
-				? "Write content under it or delete the heading; `###` headings are optional structure. `cf check --fix` removes it."
+				? "Write content under it or delete the heading; `###` headings are optional structure. `cfcli check --fix` removes it."
 				: template.optional.has(heading.text)
-					? `Write content under it or delete the heading; templates/${template.name}.md marks \`## ${heading.text}\` optional. \`cf check --fix\` removes it.`
+					? `Write content under it or delete the heading; templates/${template.name}.md marks \`## ${heading.text}\` optional. \`cfcli check --fix\` removes it.`
 					: `Write the section's content; a \`##\` section is required by templates/${template.name}.md so it cannot be dropped.`;
 		add(
 			"empty-heading",

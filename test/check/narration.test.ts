@@ -66,7 +66,7 @@ afterAll(async () => {
 	if (temporaryRoot) await rm(temporaryRoot, { recursive: true, force: true });
 });
 
-describe("cf check --layer narration", () => {
+describe("cfcli check --layer narration", () => {
 	it("registers a one-line help description", async () => {
 		const help = await cf(["check", "--help"]);
 		expect(help.code).toBe(0);

@@ -4,9 +4,9 @@ The page gate fails every em dash on a Wiki page under `ai-tells.EmDashUsage`, y
 
 Decision:
 
-- **Same gate.** Content-facing agent text passes `bun run cf -- style` at `ok: 0 findings`, under the same Zero findings rule in `AGENTS.md` as Wiki pages.
+- **Same gate.** Content-facing agent text passes `bun run cfcli -- style` at `ok: 0 findings`, under the same Zero findings rule in `AGENTS.md` as Wiki pages.
 - **One list.** The `STYLE_PATHS` list in `scripts/lint/agents.ts` defines content-facing agent text: the creative and content skills, `collab-with-me`, `lint`, the `creative-writer` and `persona` agents, the co-writing and Scene docs, and `wiki/templates`. Research copies in `docs/research/`, the vendored `humanizer` and the measurement skills stay outside it.
 - **Rule IDs over token lists.** Flagged words and phrases live only in the Vale YAML under `.vale/styles/`. Skills cite the rule ID (`Narration.NoEmDash`) and describe the passing form.
 - **Quoted sources in fences.** A source prompt or rubric that must keep its wording sits in a fenced code block, which the gate's prose view drops, so the quote stays verbatim and the gate stays clean.
 
-Run `bun run lint agents` after any edit to those paths: its style check runs `cf style` over the files on that list.
+Run `bun run lint agents` after any edit to those paths: its style check runs `cfcli style` over the files on that list.

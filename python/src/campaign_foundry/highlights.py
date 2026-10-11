@@ -2,7 +2,7 @@
 
 The detector proposes and agents decide: each highlight is a candidate moment, with the
 Transcript lines from the setup through the end of the laughter, for an agent to read and judge
-as play or table talk. Run it as ``bun run cf -- transcript highlights``.
+as play or table talk. Run it as ``bun run cfcli -- transcript highlights``.
 
 The cf command owns TranscribeX parsing (``src/transcript``): it reads each export once and hands
 it over here as a JSON payload file, so this module never parses a Transcript itself.
@@ -74,7 +74,7 @@ def read_payload(path: Path) -> Transcript:
     )
 
 
-PROG = "bun run cf -- transcript highlights"
+PROG = "bun run cfcli -- transcript highlights"
 
 
 class UsageError(Exception):
@@ -330,9 +330,9 @@ Exit codes:
   0  ranked    1  ffmpeg or the model failed    2  usage error (missing file, untimed transcript)
 
 Examples:
-  bun run cf -- transcript highlights rec.m4a --transcript raw/session-12.md
-  bun run cf -- transcript highlights s12-part*.m4a --transcript raw/s12.csv --json > h.json
-  bun run cf -- transcript highlights rec.m4a --top 7 --clip-dir /tmp/s12-clips"""
+  bun run cfcli -- transcript highlights rec.m4a --transcript raw/session-12.md
+  bun run cfcli -- transcript highlights s12-part*.m4a --transcript raw/s12.csv --json > h.json
+  bun run cfcli -- transcript highlights rec.m4a --top 7 --clip-dir /tmp/s12-clips"""
 
 
 def build_parser() -> argparse.ArgumentParser:

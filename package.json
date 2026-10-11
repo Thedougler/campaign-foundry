@@ -6,7 +6,6 @@
   },
   "scripts": {
     "cfcli": "node src/cli.ts",
-    "cf": "node src/cli.ts",
     "lint": "node scripts/lint.ts",
     "fix": "bun run lint --fix",
     "setup": "vale sync && vale --config .vale-narration.ini sync && node scripts/vale-patch.ts",

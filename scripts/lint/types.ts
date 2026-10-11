@@ -10,7 +10,7 @@ export interface LintFinding {
 	line: number;
 	/** 1-based column, when the tool gives one. */
 	col?: number;
-	/** Tool or engine id, e.g. `markdownlint`, `cspell`, `cf`. */
+	/** Tool or engine id, e.g. `markdownlint`, `cspell`, `cfcli`. */
 	tool: string;
 	/** Stable rule id within the tool, e.g. `MD041`, `unknown-word`, `NoEmDash`. */
 	rule: string;

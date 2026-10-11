@@ -96,7 +96,7 @@ export async function runPush(options: PushOptions): Promise<PushResult> {
 			pages,
 		};
 		const appended = await appendLogEntry(options.vault, plan.campaignFolder, entry, {
-			example: `cf log --campaign "${plan.campaign}" --op push --title "${entry.title}"`,
+			example: `cfcli log --campaign "${plan.campaign}" --op push --title "${entry.title}"`,
 		});
 		if (appended.status === "error") throw new UsageError(appended.message, appended.hint);
 		result.logged = appended.path;

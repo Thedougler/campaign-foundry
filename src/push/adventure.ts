@@ -111,7 +111,7 @@ function locate(vault: Vault, options: PlanOptions): Located {
 		throw new UsageError(
 			`No Campaign named "${options.campaign}".`,
 			names.length > 0
-				? `Campaigns: ${names.join(", ")}. Example: cf push --campaign "${names[0]}" --session 1`
+				? `Campaigns: ${names.join(", ")}. Example: cfcli push --campaign "${names[0]}" --session 1`
 				: "Add a Campaign overview page (type: Campaign) in its Campaign folder first.",
 		);
 	}
@@ -128,7 +128,7 @@ function locate(vault: Vault, options: PlanOptions): Located {
 		throw new UsageError(
 			`No pages for Session ${options.session} of ${options.campaign}.`,
 			sessions.length > 0
-				? `Sessions with pages: ${sessions.join(", ")}. Example: cf push --campaign "${options.campaign}" --session ${sessions[0]}`
+				? `Sessions with pages: ${sessions.join(", ")}. Example: cfcli push --campaign "${options.campaign}" --session ${sessions[0]}`
 				: "Run Prep for the Session first.",
 		);
 	}

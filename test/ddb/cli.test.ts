@@ -11,15 +11,15 @@ import type { Transport } from "../../src/ddb/transport.ts";
 
 const FIXTURES = join(repoRoot, "test/ddb/fixtures");
 
-/** One `cf ddb` invocation in this process. */
+/** One `cfcli ddb` invocation in this process. */
 const runDdb = async (args: string[]) => cf(["ddb", ...args]);
 
-describe("cf ddb status", () => {
+describe("cfcli ddb status", () => {
 	it("exits 1 with the login remedy when no session is stored", async () => {
 		const result = await runDdb(["status", "--credentials", join(tmpdir(), "no-such-ddb-session.json")]);
 		expect(result.code).toBe(1);
 		expect(result.stderr).toMatch(/session/i);
-		expect(result.stderr).toMatch(/bun run cf -- ddb --help/);
+		expect(result.stderr).toMatch(/bun run cfcli -- ddb --help/);
 	});
 
 	it("reports a stored session and exits 0", async () => {
@@ -39,7 +39,7 @@ describe("cf ddb status", () => {
 	});
 });
 
-describe("cf ddb replay", () => {
+describe("cfcli ddb replay", () => {
 	it("prints the plan and exits 2 without --yes, sending nothing", async () => {
 		const result = await runDdb(["replay", join(FIXTURES, "capture.json")]);
 		expect(result.code).toBe(2);
@@ -82,7 +82,7 @@ describe("runDdbVerify", () => {
 			depsOver(() => undefined),
 		);
 		expect(result.exitCode).toBe(1);
-		expect(result.err.join("\n")).toMatch(/bun run cf -- ddb --help/);
+		expect(result.err.join("\n")).toMatch(/bun run cfcli -- ddb --help/);
 	});
 
 	it("exits 2 naming both flags when neither --id nor --name is given", async () => {
@@ -162,7 +162,7 @@ describe("runDdbCreate", () => {
 			emptyWriteDeps(),
 		);
 		expect(result.exitCode).toBe(1);
-		expect(result.err.join("\n")).toMatch(/bun run cf -- ddb --help/);
+		expect(result.err.join("\n")).toMatch(/bun run cfcli -- ddb --help/);
 	});
 });
 

@@ -76,7 +76,7 @@ title: "Nona Black-Jaw"
 
 const convert = (root: string, args: string[] = []) => cf(["convert", ...vaultFlags(root), ...args], root);
 
-describe("cf convert", () => {
+describe("cfcli convert", () => {
 	it("--dry-run prints the whole plan and writes nothing", async () => {
 		const { root } = await workspace();
 		const before = await snapshot(root);

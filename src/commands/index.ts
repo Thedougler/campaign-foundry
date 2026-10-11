@@ -19,7 +19,7 @@ import { styleCommand } from "./style.ts";
 import { transcriptCommand } from "./transcript.ts";
 
 /**
- * Every `cf` subcommand. To add one (`index`, `log`, `pull`, `push`): create `src/commands/<name>.ts`
+ * Every `cfcli` subcommand. To add one (`index`, `log`, `pull`, `push`): create `src/commands/<name>.ts`
  * exporting a function that returns a commander `Command`, then add one import and one entry here.
  */
 export const commands: (() => Command)[] = [

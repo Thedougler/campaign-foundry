@@ -174,7 +174,7 @@ describe("Consumer-visible feedback", () => {
 		const report = feedback(execution, ["wiki/A.md"]);
 		expect(JSON.parse(report.text)).toMatchObject({
 			status: "not-checked",
-			manualCheck: "bun run cf -- check 'wiki/A.md'",
+			manualCheck: "bun run cfcli -- check 'wiki/A.md'",
 		});
 		expect(report.additionalContext).toContain("Do not treat");
 	});
@@ -187,7 +187,7 @@ describe("Consumer-visible feedback", () => {
 			totalFindings: findings.length,
 			findings: findings.slice(0, LIMITS.findings),
 			omittedFindings: 4,
-			manualCheck: "bun run cf -- check 'wiki/A.md'",
+			manualCheck: "bun run cfcli -- check 'wiki/A.md'",
 		});
 		const huge = feedback(success([finding({ hint: "h".repeat(LIMITS.findingsBytes) })]), ["wiki/A.md"]);
 		expect(JSON.parse(huge.text)).toMatchObject({ status: "capped", findings: [], omittedFindings: 1 });
@@ -217,7 +217,7 @@ describe("Post-write adapter", () => {
 		expect(result?.additionalContext).toContain("skill://lint");
 		expect(run).toHaveBeenCalledWith({
 			command: "bun",
-			args: ["run", "cf", "--", "check", "--json", "--root", root, "wiki/A.md"],
+			args: ["run", "cfcli", "--", "check", "--json", "--root", root, "wiki/A.md"],
 			cwd: root,
 			timeoutMs: LIMITS.timeoutMs,
 			maxOutputBytes: LIMITS.outputBytes,

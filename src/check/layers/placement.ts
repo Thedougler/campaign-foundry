@@ -46,7 +46,7 @@ function judge(page: Page, type: string, taken: (path: string) => boolean): Verd
 	for (const location of locations) {
 		const dir = resolveDir(location, fromPath);
 		if (!dir || (location.name !== undefined && !nameMatches(page, location))) continue;
-		// The file keeps its own slug on the way in; `cf rename` owns renames.
+		// The file keeps its own slug on the way in; `cfcli rename` owns renames.
 		const target = [...dir, `${page.slug}.md`].join("/");
 		if (taken(target)) return { ok: false, expected: locations };
 		return { ok: false, target, expected: locations };
@@ -58,7 +58,7 @@ function judge(page: Page, type: string, taken: (path: string) => boolean): Verd
 function example(location: Location, name: string): string {
 	const sample = { campaign: "salt-and-lantern", session: "Session 1" };
 	const dir = location.dir.map((s) => (typeof s === "string" ? s : sample[s.bind]));
-	// `name` is the page's own slug: placement moves never rename, `cf rename` does (ADR 0028).
+	// `name` is the page's own slug: placement moves never rename, `cfcli rename` does (ADR 0028).
 	const file = location.name === undefined ? name : location.name;
 	return ["wiki", ...dir, `${file}.md`].join("/");
 }
@@ -124,7 +124,7 @@ export function run(ctx: CheckContext): Finding[] {
 				add(
 					"session-page-name",
 					`A ${type} page in a Session folder must have title \`${want}\`, not \`${page.name}\`.`,
-					`Set \`title: "${example}"\`, with N the folder's number. The filename is its stable slug; use \`cf rename\` to change it.`,
+					`Set \`title: "${example}"\`, with N the folder's number. The filename is its stable slug; use \`cfcli rename\` to change it.`,
 				);
 			}
 			continue;
@@ -141,7 +141,7 @@ export function run(ctx: CheckContext): Finding[] {
 		const first = verdict.expected[0]!;
 		const owners = first.dir.some((s) => typeof s !== "string") ? ", inside the Campaign folder that owns it" : "";
 		const hint = verdict.target
-			? `Move it to \`${verdict.target}\`. \`cf check --fix\` does this.`
+			? `Move it to \`${verdict.target}\`. \`cfcli check --fix\` does this.`
 			: `Move it to ${where}${owners}, e.g. \`${example(first, page.slug)}\`.`;
 		const here = dirOf(page.path) ? `in \`${dirOf(page.path)}/\`` : "at the Wiki root";
 		add("misplaced", `A page of type ${type} belongs in ${where}, but this one is ${here}.`, hint);

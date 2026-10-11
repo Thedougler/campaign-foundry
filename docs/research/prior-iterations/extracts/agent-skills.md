@@ -87,7 +87,7 @@ Repo root holds one directory per skill (`<skill>/SKILL.md`), plus `hooks/` and 
 
 ## Cross-linker batch runbook
 - source: `cross-linker/SKILL.md` (found)
-- destination: `cf` lint/query companion idea; wiki cross-linking guidance
+- destination: `cfcli` lint/query companion idea; wiki cross-linking guidance
 - load-bearing:
   - Batching: "A full-vault pass is impractical in one session. Every run targets a batch." 15–25 targets per run, prioritized: "Orphans over deadends (orphans are invisible to the graph)"; entity pages over generic items; "Recently created/ingested pages"; skip junk/duplicates and "stat-block-only creature pages (these are reference data, not narrative — link them only if a narrative page references the creature)."
   - `index.md` is "the entity catalog with slugs, display names, and summaries. Use it as your lookup... Do NOT build a separate registry."
@@ -101,7 +101,7 @@ Repo root holds one directory per skill (`<skill>/SKILL.md`), plus `hooks/` and 
 
 ## Wiki write hooks (coalescing regen idea)
 - source: `hooks/README.md` (found)
-- destination: `cf` CLI / Vale wiring idea only
+- destination: `cfcli` CLI / Vale wiring idea only
 - load-bearing:
   - Inventory worth noting: PreToolUse guards that "exit non-zero block the tool call" (env files, lockfiles); PostToolUse linters whose non-zero exit "surface[s] an error to the agent — it can retry or fix"; PostToolUse wiki hooks: wikilink validation warnings, frontmatter auto-completion, background index regen + QMD reindex.
   - **Coalescing pattern**: "Background hooks (`regen-index.sh`, `qmd-reindex.sh`) always exit 0. They detach with a lockfile to coalesce burst edits into one trailing run." — the portable idea for expensive regen after burst writes.

@@ -47,13 +47,14 @@ const MUTATION_KINDS: Record<string, MutationKind> = {
 
 /** Host-plane mutations the daemon refuses, keyed by tool name; each builds the DM approval command. */
 const DM_GATES: Record<string, (params: Record<string, unknown>) => string> = {
-	"host.restart": () => "cf foundry service restart --yes",
-	"package.install": (p) => `cf foundry install module --zip ${p.zipPath} --name ${p.name} --yes`,
-	"package.update": (p) => `cf foundry install update${p.version === undefined ? "" : ` --version ${p.version}`} --yes`,
+	"host.restart": () => "cfcli foundry service restart --yes",
+	"package.install": (p) => `cfcli foundry install module --zip ${p.zipPath} --name ${p.name} --yes`,
+	"package.update": (p) =>
+		`cfcli foundry install update${p.version === undefined ? "" : ` --version ${p.version}`} --yes`,
 	"backup.create": (p) =>
-		`cf foundry backup create${p.stop === true ? " --stop" : ""}${p.dest === undefined ? "" : ` --dest ${p.dest}`} --yes`,
-	"backup.restore": (p) => `cf foundry backup restore ${p.archive} --yes`,
-	"asset.put": (p) => `cf foundry assets put ${p.sourcePath ?? "<base64 bytes>"} ${p.dest} --yes`,
+		`cfcli foundry backup create${p.stop === true ? " --stop" : ""}${p.dest === undefined ? "" : ` --dest ${p.dest}`} --yes`,
+	"backup.restore": (p) => `cfcli foundry backup restore ${p.archive} --yes`,
+	"asset.put": (p) => `cfcli foundry assets put ${p.sourcePath ?? "<base64 bytes>"} ${p.dest} --yes`,
 };
 
 interface Verification {
@@ -150,7 +151,7 @@ export class ToolRegistry {
 		if (client === null) {
 			throw new ToolError(
 				"no_module",
-				"No module is connected: enable the cf-bridge module in the world, start the daemon with `cf foundry serve`, and retry.",
+				"No module is connected: enable the cf-bridge module in the world, start the daemon with `cfcli foundry serve`, and retry.",
 			);
 		}
 		if (kind === undefined) return this.forward(tool as ToolName, params, client);

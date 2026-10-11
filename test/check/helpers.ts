@@ -64,7 +64,7 @@ export interface JsonReport {
 	counts: { findings: number; fixes: number; pages: number };
 }
 
-/** `cf check` over a fixture, with the real templates, as JSON. */
+/** `cfcli check` over a fixture, with the real templates, as JSON. */
 export async function checkFixture(fixture: string, extra: string[] = []): Promise<CliResult & { report: JsonReport }> {
 	const root = join(fixtures, fixture);
 	const result = await cf(
@@ -74,7 +74,7 @@ export async function checkFixture(fixture: string, extra: string[] = []): Promi
 	return { ...result, report: JSON.parse(result.stdout) as JsonReport };
 }
 
-/** `cf check --layer <layer>` over a directory, with the real templates, as JSON. */
+/** `cfcli check --layer <layer>` over a directory, with the real templates, as JSON. */
 export async function checkLayer(
 	layer: string,
 	dir: string,

@@ -1,7 +1,7 @@
 # LintTemplateAudit report (verbatim scout output)
 
 ## 0. Method note (deviation)
-This subagent has no command-execution tool (read/grep/glob/web_search/yield only; `proc://` lists running jobs but cannot spawn one), so `vale --output=line` and `bun run cf -- check --help` could not be run. Everything below is from source and rule YAML. Hit lists are **token-derived**: I grepped the exact literals/patterns from each rule YAML over the target files. For `existence` rules those literals are what Vale matches, so a hit here means Vale fires, quoted verbatim; POS/`sequence` rules (EmptyPaddingStacked, AIAdjectiveNounPairs, VerbTricolonDensity) are described but not simulated. `cf check --help` text was read from src/commands/check.ts (verbatim help strings), not from a run.
+This subagent has no command-execution tool (read/grep/glob/web_search/yield only; `proc://` lists running jobs but cannot spawn one), so `vale --output=line` and `bun run cfcli -- check --help` could not be run. Everything below is from source and rule YAML. Hit lists are **token-derived**: I grepped the exact literals/patterns from each rule YAML over the target files. For `existence` rules those literals are what Vale matches, so a hit here means Vale fires, quoted verbatim; POS/`sequence` rules (EmptyPaddingStacked, AIAdjectiveNounPairs, VerbTricolonDensity) are described but not simulated. `cfcli check --help` text was read from src/commands/check.ts (verbatim help strings), not from a run.
 
 ## 1. Rule inventory
 
@@ -60,7 +60,7 @@ No. `readVaultFiles()` globs the vault with `ignore: ["templates/**", ".obsidian
 4. No skill instructs anything JudgementWords/NoCompass/NoFootMileCounts forbid; recipes and templates consistently teach the passing form.
 
 ## 6. Template guidance comments: removal and linting
-- On pages: template layer flags every `%% %%` comment — rule `leftover-comment`, error: "Leftover `%% %%` authoring guidance." / "Delete the comment; a finished page keeps none. `cf check --fix` strips it." (template.ts checkPage); `fix()` deletes them. All content skills repeat the instruction (e.g. location-design/references/authoring.md §3 "remove all `%%` guidance"; dungeon-design SKILL.md step 7) — that duplication is procedural, not word-level, and matches prep-session step 6.
+- On pages: template layer flags every `%% %%` comment — rule `leftover-comment`, error: "Leftover `%% %%` authoring guidance." / "Delete the comment; a finished page keeps none. `cfcli check --fix` strips it." (template.ts checkPage); `fix()` deletes them. All content skills repeat the instruction (e.g. location-design/references/authoring.md §3 "remove all `%%` guidance"; dungeon-design SKILL.md step 7) — that duplication is procedural, not word-level, and matches prep-session step 6.
 - The style layer never sees guidance text even before fixing: prose.ts `droppedRanges` removes comments from the Vale view. boilerplate/shared-line also exempts comments (lint/prose.md:42). Raw vale would lint them (Vale has no `%%` syntax) — divergence only outside the gate.
 
 ## 7. Duplication candidates (cut per "Word-level tells belong to the style layer", critique.md:20)

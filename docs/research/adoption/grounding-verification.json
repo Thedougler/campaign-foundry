@@ -29,7 +29,7 @@
 			"result": "ok: true after QMD update/embed/search; case named-claim."
 		},
 		{
-			"command": "bun run cf bench briefs --check",
+			"command": "bun run cfcli bench briefs --check",
 			"result": "All nine committed briefs match their current input bytes."
 		}
 	],

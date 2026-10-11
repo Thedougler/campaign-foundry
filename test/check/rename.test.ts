@@ -6,7 +6,7 @@ import { cf, copyFixture, vaultFlags } from "./helpers.ts";
 
 const read = (dir: string, path: string): Promise<string> => readFile(join(dir, path), "utf8");
 
-/** `cf rename` against a copy of the clean fixture. */
+/** `cfcli rename` against a copy of the clean fixture. */
 function rename(dir: string, args: string[]) {
 	return cf(["rename", ...vaultFlags(dir), ...args], dir);
 }
@@ -59,7 +59,7 @@ sources: []
 %% [[The Cold Hearth]] comment stays put %%
 `;
 
-describe("cf rename", () => {
+describe("cfcli rename", () => {
 	it("migrates a titleless page using an explicit title and derived slug", async () => {
 		const dir = await copyFixture("clean");
 		const { code, stdout } = await rename(dir, ["Mara Voss", "--title", "Mara Voss"]);

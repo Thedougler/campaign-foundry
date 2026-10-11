@@ -65,7 +65,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 				path: ctx.display(page.path),
 				line: e.lineNumber,
 				message: `${e.ruleDescription} (${e.ruleNames[1] ?? rule})${detail ? `.${detail}` : ""}`,
-				hint: `${advice}${e.fixInfo ? " `cf check --fix` applies it." : ""}`,
+				hint: `${advice}${e.fixInfo ? " `cfcli check --fix` applies it." : ""}`,
 			});
 		}
 	}

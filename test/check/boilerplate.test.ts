@@ -43,7 +43,7 @@ afterAll(async () => {
 	await rm(root, { recursive: true, force: true });
 });
 
-describe("cf check --layer boilerplate", () => {
+describe("cfcli check --layer boilerplate", () => {
 	it("flags a prose line shared verbatim across pages, on each page holding it", async () => {
 		const { report } = await check();
 		const shared = report.findings.filter((finding) => finding.rule === "shared-line");

@@ -78,7 +78,7 @@ The hostage turn arrives at 75 hit points, or after two stalled rounds. From the
 - 4 characters at level 7 (recorded 6, 6, 6, 6; +1 combat offset) carry budgets of 3000 low, 5200 moderate and 6800 high XP
 - **Total: 10000 XP (Beyond High difficulty)**
 
-Source: `bun run cf -- encounter-budget`, XP from [[talon-skarn-creature|Talon Skarn (Creature)]]. The played record fixes this force, and the label stands with its excess stated. The XP comparison misses what this fight actually is. He enters under half strength with every Legendary Resistance spent, at half speed with the next blow against him at Advantage, and stripped of Invisibility's protection by the spray. He is fighting for an object rather than a kill, with live exit conditions he wants to use.
+Source: `bun run cfcli -- encounter-budget`, XP from [[talon-skarn-creature|Talon Skarn (Creature)]]. The played record fixes this force, and the label stands with its excess stated. The XP comparison misses what this fight actually is. He enters under half strength with every Legendary Resistance spent, at half speed with the next blow against him at Advantage, and stripped of Invisibility's protection by the spray. He is fighting for an object rather than a kill, with live exit conditions he wants to use.
 
 ## Outcomes
 
