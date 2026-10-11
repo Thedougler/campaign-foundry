@@ -9,7 +9,7 @@ revealed: "Session 11"
 title: "Session 11 - Night Watch"
 ---
 
-![[Session 11 - Night Watch - Handout Art.jpg]]
+![[session-11-night-watch-handout-art.webp]]
 
 ## At a glance
 

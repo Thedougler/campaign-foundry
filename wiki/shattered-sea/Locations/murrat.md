@@ -11,6 +11,8 @@ revealed: "Session 2"
 title: "Murrat"
 ---
 
+![[murrat-banner.webp]]
+
 ## At a glance
 
 - **Character.** A mile-and-a-half limestone reef between [[kalowe|Kalowe]] and the [[verdant-teeth|Verdant Teeth]], whose villages hide in cliff hollows.

@@ -55,7 +55,7 @@ export interface Parsed {
 	issues: Issue[];
 }
 
-const FANTASY_STATBLOCKS = "See the Statblock section of templates/Creature.md for the Fantasy Statblocks `Basic 5e Layout` fields.";
+const FANTASY_STATBLOCKS = "See the Statblock section of templates/creature.md for the Fantasy Statblocks `Basic 5e Layout` fields.";
 
 function text(value: unknown): string {
 	return typeof value === "string" ? value : typeof value === "number" ? String(value) : "";

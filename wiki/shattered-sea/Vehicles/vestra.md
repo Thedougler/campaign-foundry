@@ -13,6 +13,8 @@ revealed: "Backstory"
 title: "Vestra"
 ---
 
+![[vestra-banner.webp]]
+
 ## At a glance
 
 - **Kind.** The [[black-jaw-run|Black-Jaw Run]]'s family vessel for its legal operations. She is a smuggler's ship rigged to look like a fishing boat, and often she is literally just a fishing boat.

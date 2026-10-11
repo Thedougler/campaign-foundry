@@ -10,7 +10,7 @@ revealed: "Session 11"
 title: "Razer-Grass"
 ---
 
-![[Razer-Grass - Handout Art.jpg]]
+![[razer-grass-handout-art.webp]]
 
 ## At a glance
 

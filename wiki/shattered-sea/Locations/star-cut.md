@@ -10,7 +10,7 @@ revealed: ""
 title: "Star Cut"
 ---
 
-![[Star Cut - Handout Art.jpg]]
+![[star-cut-handout-art.webp]]
 
 ## At a glance
 

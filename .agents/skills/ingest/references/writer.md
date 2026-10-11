@@ -33,16 +33,16 @@ A flagged in-world name that a template fits (a person, place, group, creature, 
 
 ## Recap
 
-1. **Orient.** Do SKILL.md step 2, then read `wiki/templates/Recap.md` and `skill://lint/prose.md`. Done when step 2's criterion holds and you have read the template and the prose bar.
+1. **Orient.** Do SKILL.md step 2, then read `wiki/templates/recap.md` and `skill://lint/prose.md`. Done when step 2's criterion holds and you have read the template and the prose bar.
 2. **Read** every Thread page of the Campaign. Done when you can say for each Thread whether the Ledger's play moved, opened, resolved or left it still.
-3. **Recap.** Write `Sessions/Session <N>/session-<N>-recap.md` in the Recap template's shape, replacing any earlier Recap there, from the Ledger's events in order. Each PC and Guest character takes the part in it that the Ledger gives them. Link each page a change touches, the pages your brief lists to link included (their own writers fill them), and keep `[[session-<N+1>-previously-on|Session <N+1> - Previously On]]` in the **Left open.** bullet. Check the page and repair every finding. Done when its `## Threads` gives every Thread of the Campaign one line and the page's last check came back clean.
+3. **Recap.** Write `Sessions/Session <N>/session-<N>-recap.md` in the Recap template's shape, replacing any earlier Recap there, from the Ledger's events in order. Each PC and Guest character takes the part in it that the Ledger gives them. Where the Ledger records why someone made a turning choice, write that cause beside the choice in `## What happened`. Link each page a change touches, the pages your brief lists to link included (their own writers fill them), and keep `[[session-<N+1>-previously-on|Session <N+1> - Previously On]]` in the **Left open.** bullet. Check the page and repair every finding. Done when its `## Threads` gives every Thread of the Campaign one line and the page's last check came back clean.
 4. **Return** the Recap's path and each claim kept out (word for word) and what overrode it. Done when every item has its line.
 
 ## Previously On
 
 Session N's Transcript feeds the Previously On read aloud at the start of Session N+1, kept in Session N+1's folder.
 
-1. **Orient.** Do SKILL.md step 2, then read `wiki/templates/Previously On.md` and `skill://lint/prose.md`. Done when step 2's criterion holds and you have read the template and the prose bar.
+1. **Orient.** Do SKILL.md step 2, then read `wiki/templates/previously-on.md` and `skill://lint/prose.md`. Done when step 2's criterion holds and you have read the template and the prose bar.
 2. **Page.** Rewrite `Sessions/Session <N+1>/session-<N+1>-previously-on.md` (a stub or an earlier page) in its template's shape. Fill its frontmatter, with the Transcript in `sources`, then its `## At a glance` bullets. The **Covers** bullet cites `[[session-<N>-recap|Session <N> - Recap]]`. The **Ends on** bullet gives the Ledger's `## Ends`. **Leads into** gives Session N+1's Prep when it exists, else the action the Ledger's `## Ends` leaves open. Done when the frontmatter and every At a glance bullet are filled.
 3. **Callout.** Write the `Previously on` callout by `skill://theatre-of-the-mind`, handing it the Ledger and the Transcript's path. Done when theatre-of-the-mind's File step has filed the callout and the page's last check came back clean.
 4. **Return** the page's path and each Ledger moment you left out, with the reason. Done when every item has its line.

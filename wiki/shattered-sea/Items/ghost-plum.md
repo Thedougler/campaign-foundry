@@ -10,7 +10,7 @@ revealed: "Session 11"
 title: "Ghost Plum"
 ---
 
-![[Ghost Plum - Handout Art.jpg]]
+![[ghost-plum-handout-art.webp]]
 
 ## At a glance
 

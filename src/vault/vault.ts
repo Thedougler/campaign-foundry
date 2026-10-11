@@ -65,11 +65,12 @@ export async function loadTemplates(templatesDir: string): Promise<TemplateSet> 
 	const types = new Map<string, string[]>();
 	paths.forEach((path, i) => {
 		const page = parsePage(path, sources[i] ?? "");
-		// The template's name is its file's stem, not the example `title` its frontmatter may carry.
+		// The file stem names the template in messages; its frontmatter `type` and `kind` say which pages it shapes.
 		const name = path.replace(/\.md$/, "");
-		const [type = name, kind] = name.split(" - ");
 		const fm = page.frontmatter ?? {};
-		byName.set(name, {
+		const type = typeof fm.type === "string" && fm.type.trim() !== "" ? fm.type.trim() : name;
+		const kind = typeof fm.kind === "string" && fm.kind.trim() !== "" ? fm.kind.trim() : undefined;
+		byName.set(templateKey(type, kind), {
 			name,
 			type,
 			...(kind === undefined ? {} : { kind }),
@@ -86,7 +87,11 @@ export async function loadTemplates(templatesDir: string): Promise<TemplateSet> 
 	return { byName, types };
 }
 
+function templateKey(type: string, kind?: string): string {
+	return kind === undefined ? type : `${type} - ${kind}`;
+}
+
 /** The template for a page's `type` and `kind`, or undefined when the pair matches none. */
 export function findTemplate(templates: TemplateSet, type: string, kind?: string): Template | undefined {
-	return templates.byName.get(kind === undefined ? type : `${type} - ${kind}`);
+	return templates.byName.get(templateKey(type, kind));
 }

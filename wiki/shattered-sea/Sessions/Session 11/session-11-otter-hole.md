@@ -9,7 +9,7 @@ revealed: "Session 11"
 title: "Session 11 - Otter Hole"
 ---
 
-![[Session 11 - Otter Hole - Battle Map.jpg]]
+![[session-11-otter-hole-battle-map.jpg]]
 
 ## At a glance
 

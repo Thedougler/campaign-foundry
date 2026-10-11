@@ -10,7 +10,7 @@ revealed: ""
 title: "Grubnade"
 ---
 
-![[Grubnade - Handout Art.jpg]]
+![[grubnade-handout-art.webp]]
 
 ## At a glance
 

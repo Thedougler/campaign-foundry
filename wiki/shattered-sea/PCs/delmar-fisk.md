@@ -18,7 +18,9 @@ revealed: "Backstory"
 title: "Delmar Fisk"
 ---
 
-![[Delmar Fisk - Reference Sheet.png]]
+![[delmar-fisk-portrait.webp]]
+
+![[delmar-fisk-reference-sheet.png]]
 
 ## Sheet
 

@@ -9,7 +9,7 @@ revealed: "Session 11"
 title: "Session 11 - What They Ate"
 ---
 
-![[Session 11 - What They Ate - Handout Art.jpg]]
+![[session-11-what-they-ate-handout-art.webp]]
 
 ## At a glance
 

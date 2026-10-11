@@ -10,7 +10,7 @@ revealed: ""
 title: "Spiritpollen"
 ---
 
-![[Spiritpollen - Handout Art.jpg]]
+![[spiritpollen-handout-art.webp]]
 
 ## At a glance
 

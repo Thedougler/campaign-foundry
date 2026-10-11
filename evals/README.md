@@ -8,7 +8,7 @@ This document defines the procedure for skill evals. It covers suite design and 
 - **Author** a skill: `skill://skill-creator`, paired with-skill/baseline runs. After the skill exists and has a Design'd suite, further quality work is Hillclimb.
 - **Benchmark** Narration: `skill://dnd-benchmark` on DM request. See [Narration benchmark inputs](#narration-benchmark-inputs) for its sources. Its Grades from 1 to 5 rank models. Hillclimb keeps and reverts on Eval criteria alone.
 - **Playtest** feedback follows [Weekly feedback](#weekly-feedback).
-- **Use skills or a process on real work**: `skill://dogfood`, DM-activated. Subagents do real work with them and `skill-writer` revises the text between iterations. This does not use cases or Grades.
+- **Use skills or a process on real work**: `skill://dogfood`, model-invocable on a DM ask to improve a skill or process and on subagent-reported friction. Subagents do real work with them and `skill-writer` fixes the text between rounds. It isn't an Eval, and it is the only branch that creates eval cases, in DM-started runs alone (root `AGENTS.md` **Skill verification**). A friction-started run leaves every `evals/cases.yaml` as it is.
 
 Runners and graders are native `task` dispatches of read-only agents; description trigger checks and Benchmark runs are read-only `omp -p` processes launched from Bash ([Safety](#safety), ADR 0016).
 

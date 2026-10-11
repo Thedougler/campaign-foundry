@@ -42,7 +42,7 @@ export function rewritePcPage(source: string, path: string, sheet: Sheet): Rewri
 	const ranges = SECTIONS.map((name) => {
 		const at = h2.findIndex((h) => h.text === name);
 		if (at === -1) {
-			throw new PullError(`${path}: no "## ${name}" section. A PC page needs the Sheet, Spells and Inventory sections; copy them from wiki/templates/PC.md.`);
+			throw new PullError(`${path}: no "## ${name}" section. A PC page needs the Sheet, Spells and Inventory sections; copy them from wiki/templates/pc.md.`);
 		}
 		const start = h2[at]!.line - 1;
 		const next = h2[at + 1];

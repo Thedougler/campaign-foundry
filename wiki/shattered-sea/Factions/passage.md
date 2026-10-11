@@ -12,6 +12,8 @@ revealed: "Backstory"
 title: "Passage"
 ---
 
+![[passage-sigil.webp]]
+
 ## At a glance
 
 - **Goal.** Move people, cargo and news beyond Crown inspection, and recover captives.

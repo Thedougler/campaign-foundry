@@ -69,8 +69,8 @@ describe("template layer: failure classes", () => {
 		const dir = await copyFixture("template");
 		const { cp, readFile: read, writeFile } = await import("node:fs/promises");
 		await cp(realTemplates, join(dir, "templates"), { recursive: true });
-		const npc = await read(join(dir, "templates/NPC.md"), "utf8");
-		await writeFile(join(dir, "templates/NPC.md"), npc.replace("sources: []", "sources: []\nrole: \"\""));
+		const npc = await read(join(dir, "templates/npc.md"), "utf8");
+		await writeFile(join(dir, "templates/npc.md"), npc.replace("sources: []", "sources: []\nrole: \"\""));
 		const result = await cf(["check", "--json", "--layer", "template", "--vault", join(dir, "wiki"), "--root", dir, "--templates", join(dir, "templates")], dir);
 		const edited = JSON.parse(result.stdout) as JsonReport;
 		expect(findingsFor(edited, "/Sources Ok.md").map((f) => f.rule)).toEqual(["missing-key"]);
@@ -80,9 +80,9 @@ describe("template layer: failure classes", () => {
 		const dir = await copyFixture("template");
 		const templates = join(dir, "templates");
 		await cp(realTemplates, templates, { recursive: true });
-		const npc = await readFile(join(templates, "NPC.md"), "utf8");
+		const npc = await readFile(join(templates, "npc.md"), "utf8");
 		expect(npc).toMatch(/## Depth\n\n%% /);
-		await writeFile(join(templates, "NPC.md"), npc.replace(/## Depth\n\n%% /, "## Depth\n\n%% Optional. "));
+		await writeFile(join(templates, "npc.md"), npc.replace(/## Depth\n\n%% /, "## Depth\n\n%% Optional. "));
 		const flags = ["--vault", join(dir, "wiki"), "--root", dir, "--templates", templates];
 		const result = await cf(["check", "--json", "--layer", "template", ...flags], dir);
 		const edited = JSON.parse(result.stdout) as JsonReport;

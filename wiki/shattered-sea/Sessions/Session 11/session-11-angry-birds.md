@@ -9,11 +9,11 @@ revealed: "Session 11"
 title: "Session 11 - Angry Birds"
 ---
 
-![[Session 11 - Angry Birds - Battle Map.jpg]]
+![[session-11-angry-birds-battle-map.jpg]]
 
-![[Session 11 - Angry Birds - Battle Map Descent.jpg]]
+![[session-11-angry-birds-battle-map-descent.jpg]]
 
-![[Session 11 - Angry Birds - Battle Map Canopy Valley.jpg]]
+![[session-11-angry-birds-battle-map-canopy-valley.jpg]]
 
 ## At a glance
 

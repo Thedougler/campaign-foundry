@@ -10,13 +10,13 @@ revealed: "Session 9"
 title: "Wolfrabbit"
 ---
 
-![[Wolfrabbit - Token.jpg]]
+![[wolfrabbit-token.webp]]
 
-![[Wolfrabbit - Reference Sheet.jpg]]
+![[wolfrabbit-reference-sheet.jpg]]
 
-![[Wolfrabbit - Portrait.jpg]]
+![[wolfrabbit-portrait.webp]]
 
-![[Wolfrabbit - Portrait 2.jpg]]
+![[wolfrabbit-portrait-2.webp]]
 
 ## At a glance
 

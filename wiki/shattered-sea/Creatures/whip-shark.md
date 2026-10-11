@@ -15,6 +15,8 @@ revealed: "Session 3"
 title: "Whip Shark"
 ---
 
+![[whip-shark-portrait.webp]]
+
 ## At a glance
 
 - **Role at the table.** It clears decks, snaring one creature in its tail and hauling it overboard while its bite opens the hull.

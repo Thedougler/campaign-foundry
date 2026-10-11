@@ -10,11 +10,11 @@ revealed: "Session 11"
 title: "Bloodhawk"
 ---
 
-![[Bloodhawk - Token.jpg]]
+![[bloodhawk-token.webp]]
 
-![[Bloodhawk - Portrait.jpg]]
+![[bloodhawk-portrait.webp]]
 
-![[Bloodhawk - Handout Art.jpg]]
+![[bloodhawk-handout-art.webp]]
 
 ## At a glance
 

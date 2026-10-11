@@ -11,7 +11,7 @@ revealed: ""
 title: "Two-Grave Orders"
 ---
 
-![[Two-Grave Orders - Handout Art.png]]
+![[two-grave-orders-handout-art.webp]]
 
 ## At a glance
 

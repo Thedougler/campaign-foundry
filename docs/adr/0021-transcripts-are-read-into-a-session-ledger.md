@@ -15,3 +15,5 @@ Decision:
 - **A Session's Transcript writes the next Session's Previously On.** The Previously On lives in the folder of the Session it opens and retells the Session before, so Session N's Transcript writes `Session N - Recap` and `Session N+1 - Previously On`.
 - **Guest characters act as PCs in the Ledger.** A guest Player playing an NPC as a member of the Party is recorded as a PC is, and the NPC's page keeps its deeds. A guest adds a Player to the table without changing attendance.
 - **Real names are swapped from one list.** `user-config.md`, outside the Wiki, maps each real name spoken at the table to its replacement: a Player's name to that Player's character, the DM's to "the DM". Every stage that reads Transcript words writes the replacement, and a real name is never a Names row.
+
+2026-10-10, the DM raised `task.maxRecursionDepth` to 3, so other work may nest its dispatches (root `AGENTS.md` **Nested dispatch**). Transcript ingest is unchanged by it and dispatched flat as decided above: the top-level session runs every stage, and each stage returns the dispatches it needs.

@@ -366,7 +366,7 @@ export function templateWords(templates: TemplateSet): string[] {
 	const words = new Set<string>();
 	for (const template of templates.byName.values()) {
 		for (const match of proseView(template.page).text.matchAll(/\p{L}[\p{L}'’]*\p{L}|\p{L}/gu)) words.add(match[0]);
-		for (const word of nameWords(template.name)) words.add(word);
+		for (const word of nameWords(`${template.type} ${template.kind ?? ""}`)) words.add(word);
 	}
 	const list = [...words].sort();
 	templateCache.set(templates, list);

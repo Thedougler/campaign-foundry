@@ -16,6 +16,8 @@ revealed: "Backstory"
 title: "Crown Islands"
 ---
 
+![[crown-islands-banner.webp]]
+
 ## At a glance
 
 - **Character.** Five larger, mountainous islands of canals, cliffs, forested highlands and watched sea lanes.

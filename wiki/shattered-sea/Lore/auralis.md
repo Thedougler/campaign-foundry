@@ -13,7 +13,7 @@ revealed: "Backstory"
 title: "Auralis"
 ---
 
-![[Auralis - Reference Sheet.png]]
+![[auralis-reference-sheet.png]]
 
 ## At a glance
 

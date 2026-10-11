@@ -13,7 +13,7 @@ The caller gives the work as a page and its callout or Cue line, a Session Ledge
 
 **Read only:**
 
-- the production start-here context required by `AGENTS.md`, then the caller's named pages/files, Session Ledger and Transcript; `wiki/templates/Handout.md` for a requested new Handout
+- the production start-here context required by `AGENTS.md`, then the caller's named pages/files, Session Ledger and Transcript; `wiki/templates/handout.md` for a requested new Handout
 - this SKILL.md, [references/critique.md](references/critique.md) and the recipe **Slots** gives for the slot, in this skill or in the content skill that writes the page: [references/previously-on.md](references/previously-on.md) for the Previously On; for every other slot, its recipe plus the shared rules in [references/recipes.md](references/recipes.md)
 - an image only where a page you were given already points at it and the file is readable
 - the `## Quotes` section on the page of each NPC who speaks in the block (see **People**)

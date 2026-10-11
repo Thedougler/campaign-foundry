@@ -10,7 +10,7 @@ revealed: ""
 title: "Torn Crossing"
 ---
 
-![[Torn Crossing - Handout Art.jpg]]
+![[torn-crossing-handout-art.webp]]
 
 ## At a glance
 

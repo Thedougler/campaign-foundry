@@ -14,7 +14,7 @@ revealed: ""
 title: "Taking on Aruhe"
 ---
 
-![[Taking on Aruhe - Handout Art.png]]
+![[taking-on-aruhe-handout-art.webp]]
 
 ## At a glance
 

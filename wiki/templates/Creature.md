@@ -6,6 +6,10 @@ sources: []
 revealed: ""
 ---
 
+%% Optional. Include it when this Creature has a portrait from `skill://visuals`: the bare embed below, named with the page's slug. %%
+
+![[<slug>-portrait.webp]]
+
 ## At a glance
 
 %% Give the DM a ten-second read, one line per bullet. Role at the table is the job it does on its first turn. Threat gives its CR and what it does to this Party. Tell is the wind-up the Players see before its signature strikes. Weak to is an action the Party can take. Used by links every NPC and page that uses these statistics. %%

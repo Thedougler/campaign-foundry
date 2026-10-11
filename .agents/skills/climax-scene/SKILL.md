@@ -11,7 +11,7 @@ The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scen
 
 ## Steps
 
-1. **Orient and ground.** Read `docs/agents/scene-pages.md` whole, then apply its **Orient** and **Ground**. The template is `wiki/templates/Scene - Climax.md`. **Done when** both sections' Done criteria hold.
+1. **Orient and ground.** Read `docs/agents/scene-pages.md` whole, then apply its **Orient** and **Ground**. The template is `wiki/templates/scene-climax.md`. **Done when** both sections' Done criteria hold.
 2. **Trace the payoff.** Read the Session's earlier Scenes and their conditional outcomes, not just the Scene immediately before this one.
    - For each Thread converging here, state the question this confrontation decides and the lever the Party gained for it earlier: a Clue, ally, Item, weakness or earlier choice.
    - Carry earlier losses, spent resources and opposition preparation into the relevant entry branches.

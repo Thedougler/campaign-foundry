@@ -11,6 +11,8 @@ revealed: "Backstory"
 title: "Saltwright"
 ---
 
+![[saltwright-banner.webp]]
+
 ## At a glance
 
 - **Kind.** Two-masted merchant brig.

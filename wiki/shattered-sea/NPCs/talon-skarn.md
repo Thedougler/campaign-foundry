@@ -12,11 +12,11 @@ revealed: "Session 11"
 title: "Talon Skarn"
 ---
 
-![[Talon Skarn - Token.png]]
+![[talon-skarn-token.webp]]
 
-![[Talon Skarn - Reference Sheet.jpg]]
+![[talon-skarn-reference-sheet.jpg]]
 
-![[Talon Skarn - Portrait.jpg]]
+![[talon-skarn-portrait.webp]]
 
 ## At a glance
 

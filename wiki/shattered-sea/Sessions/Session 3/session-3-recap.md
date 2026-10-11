@@ -10,6 +10,8 @@ revealed: "Session 3"
 title: "Session 3 - Recap"
 ---
 
+![[session-3-recap-scene.webp]]
+
 ## At a glance
 
 - **Session.** 3. [[session-3-previously-on|Session 3 - Previously On]] records the opening.

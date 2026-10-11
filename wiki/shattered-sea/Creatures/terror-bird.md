@@ -8,7 +8,7 @@ revealed: "Session 11"
 title: "Terror-Bird"
 ---
 
-![[Terror-Bird - Portrait.jpg]]
+![[terror-bird-portrait.webp]]
 
 ## At a glance
 

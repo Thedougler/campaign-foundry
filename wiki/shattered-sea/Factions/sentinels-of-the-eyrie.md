@@ -10,6 +10,8 @@ revealed: "Backstory"
 title: "Sentinels of the Eyrie"
 ---
 
+![[sentinels-of-the-eyrie-sigil.webp]]
+
 ## At a glance
 
 - **Goal.** Hold the watch and keep the Maw ledgers continuous.

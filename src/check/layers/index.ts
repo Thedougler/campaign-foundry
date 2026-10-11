@@ -6,6 +6,7 @@ import { indexLayer } from "./index-files.ts";
 import { linksLayer } from "./links.ts";
 import { logLayer } from "./log.ts";
 import { markdownlintLayer } from "./markdownlint.ts";
+import { mermaidLayer } from "./mermaid.ts";
 import { narrationLayer } from "./narration.ts";
 import { orphansLayer } from "./orphans.ts";
 import { placementLayer } from "./placement.ts";
@@ -28,6 +29,7 @@ export const layers: Layer[] = [
 	indexLayer,
 	hotLayer,
 	logLayer,
+	mermaidLayer,
 	markdownlintLayer,
 	remarkLintLayer,
 	spellingLayer,

@@ -16,6 +16,8 @@ revealed: "Backstory"
 title: "Midchain"
 ---
 
+![[midchain-banner.webp]]
+
 ## At a glance
 
 - **Character.** The southern arc of the [[verdant-scatter|Verdant Scatter]], with dozens of low limestone and coral islands, rainforest coasts and reef channels.

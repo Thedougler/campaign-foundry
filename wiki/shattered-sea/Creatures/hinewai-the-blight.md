@@ -12,7 +12,7 @@ revealed: "Session 11"
 title: "Hinewai the Blight"
 ---
 
-![[Hinewai the Blight - Portrait.png]]
+![[hinewai-the-blight-portrait.webp]]
 
 ## At a glance
 

@@ -12,9 +12,9 @@ revealed: "Session 10"
 title: "Western Landing"
 ---
 
-![[Western Landing - Battle Map.jpg]]
+![[western-landing-battle-map.jpg]]
 
-![[Western Landing - Battle Map Alternative.jpg]]
+![[western-landing-battle-map-alternative.jpg]]
 
 ## At a glance
 

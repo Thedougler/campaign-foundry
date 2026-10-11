@@ -8,9 +8,11 @@ revealed: "Session 11"
 title: "Young Bloodhawk"
 ---
 
-![[Young Bloodhawk - Token.jpg]]
+![[young-bloodhawk-token.webp]]
 
-![[Young Bloodhawk - Handout Art.jpg]]
+![[young-bloodhawk-handout-art.webp]]
+
+![[young-bloodhawk-portrait.webp]]
 
 ## At a glance
 

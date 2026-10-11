@@ -24,6 +24,8 @@ revealed: "Backstory"
 title: "Uncertainty"
 ---
 
+![[uncertainty-banner.webp]]
+
 ## At a glance
 
 - **Kind.** Ship. Captured Crown cutter.

@@ -56,7 +56,7 @@ describe("buildPlan for Salt and Lantern, Session 2", () => {
 		const html: string = page.text.content;
 		expect(html).toContain("The lamp is lit, and I am keeping it.");
 		expect(html).toContain("<img");
-		expect(html).toContain("modules/cf-salt-and-lantern/assets/Hobb-s-Warning-Handout.webp");
+		expect(html).toContain("modules/cf-salt-and-lantern/assets/hobbs-warning-handout-art.webp");
 		expect(html).not.toMatch(/Kind\.|Letter|Presented as|DM hands|Play|Session 2 - Nib/);
 	});
 
@@ -93,7 +93,7 @@ describe("buildPlan for Salt and Lantern, Session 2", () => {
 		const scene = find("Scene", "Session 2 - Mud Under the Boards");
 		expect(scene.grid).toMatchObject({ size: 64, distance: 5 });
 		expect([scene.width, scene.height]).toEqual([640, 448]);
-		expect(scene.levels[0].background.src).toBe("modules/cf-salt-and-lantern/assets/Session-2-Mud-Under-the-Boards-Battle-Map.webp");
+		expect(scene.levels[0].background.src).toBe("modules/cf-salt-and-lantern/assets/session-2-mud-under-the-boards-battle-map.webp");
 		expect(scene.walls).toHaveLength(6);
 		expect(scene.lights).toHaveLength(1);
 		expect(scene.tokens.map((t: Bag) => t.name)).toEqual(["Mire Drowner"]);
@@ -104,7 +104,13 @@ describe("buildPlan for Salt and Lantern, Session 2", () => {
 	});
 
 	it("ships the images the documents use", () => {
-		expect(plan.assets.map((a) => a.to).sort()).toEqual(["Hobb-s-Warning-Handout.webp", "Session-2-Mud-Under-the-Boards-Battle-Map.webp"]);
+		expect(plan.assets.map((a) => a.to).sort()).toEqual(["Mire-Drowner-portrait.webp", "hobbs-warning-handout-art.webp", "session-2-mud-under-the-boards-battle-map.webp"]);
+	});
+
+	it("gives a Creature's Actor and scene token the portrait named for its page slug", () => {
+		expect(find("Actor", "Mire Drowner").img).toBe("modules/cf-salt-and-lantern/assets/Mire-Drowner-portrait.webp");
+		const scene = find("Scene", "Session 2 - Mud Under the Boards");
+		expect(scene.tokens[0].texture.src).toBe("modules/cf-salt-and-lantern/assets/Mire-Drowner-portrait.webp");
 	});
 
 	it("warns about a Climax with no Battle Map and about links left as text, but not about PCs", () => {

@@ -5,6 +5,7 @@
     "node": ">=24"
   },
   "scripts": {
+    "cfcli": "node src/cli.ts",
     "cf": "node src/cli.ts",
     "lint:agent-text": "node src/cli.ts style .omp/skills/collab-with-me .omp/skills/lint .omp/agents/creative-writer.md .omp/agents/persona.md .omp/agents/transcript-reader.md docs/agents/scene-pages.md docs/agents/co-writing.md docs/agents/narrative-devices.md wiki/templates .agents/skills/plan-session .agents/skills/prep-session .agents/skills/hook-scene .agents/skills/development-scene .agents/skills/cliffhanger-scene .agents/skills/climax-scene .agents/skills/resolution-scene .agents/skills/theatre-of-the-mind .agents/skills/flesh-out .agents/skills/npc-design .agents/skills/faction-design .agents/skills/location-design .agents/skills/lore-design .agents/skills/creature-design .agents/skills/item-design .agents/skills/dungeon-design .agents/skills/vehicle-design .agents/skills/spell-design .agents/skills/simulate-npcs .agents/skills/new-campaign .agents/skills/ingest .agents/skills/audit .agents/skills/revealed-in-play .agents/skills/story-arc",
     "setup": "vale sync && vale --config .vale-narration.ini sync && node scripts/vale-patch.ts",
@@ -32,8 +33,10 @@
     "fastest-levenshtein": "^1.0.16",
     "firecrawl": "^4.41.0",
     "harper.js": "^2.10.0",
+    "jsdom": "^30.1.2",
     "markdownlint": "^0.41.1",
     "mdast-util-to-string": "^4.0.0",
+    "mermaid": "^12.1.0",
     "rehype-stringify": "^10.0.1",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.1",
@@ -55,6 +58,7 @@
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.4",
     "@oh-my-pi/pi-coding-agent": "18.8.0",
+    "@types/jsdom": "^30.0.0",
     "@types/mdast": "^4.0.4",
     "@types/node": "^26.6.3",
     "@types/stopword": "^2.0.3",

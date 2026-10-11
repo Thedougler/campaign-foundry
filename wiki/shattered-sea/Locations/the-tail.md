@@ -11,6 +11,8 @@ revealed: "Backstory"
 title: "The Tail"
 ---
 
+![[the-tail-banner.webp]]
+
 ## At a glance
 
 - **Character.** A stretch of the Sea. Its extent, borders and marks are beyond the record.

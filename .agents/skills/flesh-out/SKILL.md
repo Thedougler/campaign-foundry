@@ -116,7 +116,7 @@ Leave more **prose stock** than the page's Narration slot will speak, so `theatr
 - one thing the table can touch or use;
 - the Attention, Contact and Disturbance layers.
 
-Sort each added fact by what the characters can sense or know, the split behind [theatre-of-the-mind § Hard lines](../theatre-of-the-mind/SKILL.md#hard-lines) rule 2. A perceivable fact is one they can sense, and a knowable fact is one they already know or can learn by asking. Both go in `At a glance` and `Play`. A hidden fact is neither, and it goes in `Depth` with how the Party can learn it. A requested look or illustration goes to `generate-image`.
+Sort each added fact by what the characters can sense or know, the split behind [theatre-of-the-mind § Hard lines](../theatre-of-the-mind/SKILL.md#hard-lines) rule 2. A perceivable fact is one they can sense, and a knowable fact is one they already know or can learn by asking. Both go in `At a glance` and `Play`. A hidden fact is neither, and it goes in `Depth` with how the Party can learn it. A requested look or picture goes to `visuals`.
 
 **Done when** every added fact is in its page section and `theatre-of-the-mind` could draft the page's slot from the surface layer's facts without inventing World state.
 

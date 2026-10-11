@@ -54,7 +54,7 @@ Read every doc in the chosen row's **Read** column. For code (tool, hook, extens
 
 Write each file at the row's **Where** location for your scope:
 
-- **Agent-facing text** (context, rule, skill, prompt, agent definition). This project routes skills through `skill://skill-creator` and other agent-facing text to the `skill-writer` agent, per `.omp/AGENTS.md` § Native delegation. A subagent returns that dispatch as a request, per root `AGENTS.md` **Flat dispatch**.
+- **Agent-facing text** (context, rule, skill, prompt, agent definition). This project routes skills through `skill://skill-creator` and other agent-facing text to the `skill-writer` agent, per `.omp/AGENTS.md` § Native delegation.
 - **Settings**: edit `.omp/config.yml` by hand for project keys, since `omp config set` writes the global file. Keep unrelated overrides as they are (`.omp/AGENTS.md` § Configuration).
 - **Code**: apply [Authority and cost](#authority-and-cost). Pin `@oh-my-pi/pi-coding-agent` as a dev dependency at the version `omp --version` prints. A globally installed copy can lag the binary. A new package declares its entry points under `omp.extensions` in `package.json`. `.omp/hooks/post/qmd-refresh.js` is this project's model of a bounded hook.
 - **Embedding**: apply [Host integration](#host-integration).

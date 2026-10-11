@@ -6,6 +6,10 @@ sources: []
 revealed: ""
 ---
 
+%% Optional. Include it when the Faction has a sigil from `skill://visuals`: the bare embed below, named with the page's slug. %%
+
+![[<slug>-sigil.webp]]
+
 ## At a glance
 
 %% Give the DM a ten-second read, one line per bullet. Goal is the change they seek and for whom. Next move is their action if nobody stops them. Led by links the leader's NPC page. Strength gives their numbers and the force they can bring. %%
@@ -38,6 +42,18 @@ revealed: ""
 ### History
 
 %% Give their origin and the events that made them what they are now. Link the Locations and people involved. %%
+
+### Structure
+
+%% Use this when ranks or ties between members shape play. Give one mermaid diagram of who answers to whom, with a dotted line for each tie or rivalry, per `skill://visuals`. The diagram below is the default shape: swap its labels for the linked members. %%
+
+```mermaid
+flowchart TD
+  leader["Leader"] --> face1["Face"]
+  leader --> face2["Face"]
+  face1 --> ranks["Rank and file"]
+  face2 -. rivals .- face1
+```
 
 ### Fracture
 

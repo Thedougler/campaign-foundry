@@ -7,7 +7,7 @@ revealed: ""
 title: "Vine Lash"
 ---
 
-![[Vine Lash - Portrait.png]]
+![[vine-lash-portrait.webp]]
 
 ## At a glance
 

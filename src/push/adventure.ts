@@ -217,7 +217,7 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 		const type = typeOf(page);
 		const ctx = contextFor(page);
 		if (type === "Creature") {
-			const portrait = attachmentByName(`${page.name} - Portrait.webp`);
+			const portrait = attachmentByName(`${page.slug}-portrait.webp`);
 			const biography = renderMarkdown(page, ctx, { omit: ["Statblock"] });
 			try {
 				const built = buildActor(page, { campaign: campaignFolder, name: page.name, biography, ...(portrait ? { img: assetUrl(portrait) } : {}) });
@@ -269,7 +269,7 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 	for (const page of pages) {
 		const creature = creatureFor.get(page.path);
 		if (!creature || typeOf(page) !== "NPC") continue;
-		const portrait = attachmentByName(`${page.name} - Portrait.webp`);
+		const portrait = attachmentByName(`${page.slug}-portrait.webp`);
 		const biography = `<p>@UUID[${uuidOf.get(page.path)}]{${page.name}}</p>${renderMarkdown(creature, contextFor(creature), { omit: ["Statblock"] })}`;
 		try {
 			const built = buildActor(creature, { campaign: campaignFolder, name: page.name, biography, idPath: page.path, role: "actor", disposition: 0, ...(portrait ? { img: assetUrl(portrait) } : {}) });
@@ -288,7 +288,7 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 	for (const scene of scenes) {
 		const embedded = (page: Page): { path: string; link: WikiLink } | undefined => {
 			for (const { link, resolution } of graph.links.get(page) ?? []) {
-				if (link.embed && resolution.status === "attachment" && IMAGE.test(resolution.path) && /battle map/i.test(basename(resolution.path))) return { path: resolution.path, link };
+				if (link.embed && resolution.status === "attachment" && IMAGE.test(resolution.path) && /battle-map/i.test(basename(resolution.path))) return { path: resolution.path, link };
 			}
 			return undefined;
 		};
@@ -316,7 +316,7 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 			const actorId = creature ? actorIdOf.get(creature.path) : undefined;
 			if (!creature || !actorId) continue;
 			const size = statblockOf(creature)?.size.toLowerCase() ?? "medium";
-			const portrait = attachmentByName(`${creature.name} - Portrait.webp`);
+			const portrait = attachmentByName(`${creature.slug}-portrait.webp`);
 			tokens.push({ name: creature.name, actorId, squares: { large: 2, huge: 3, gargantuan: 4 }[size] ?? 1, img: portrait ? assetUrl(portrait) : null });
 		}
 		const built = buildScene({

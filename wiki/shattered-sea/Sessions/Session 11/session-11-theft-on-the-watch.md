@@ -9,7 +9,7 @@ revealed: "Session 11"
 title: "Session 11 - Theft on the Watch"
 ---
 
-![[Session 11 - Theft on the Watch - Battle Map.jpg]]
+![[session-11-theft-on-the-watch-battle-map.jpg]]
 
 ## At a glance
 

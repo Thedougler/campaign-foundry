@@ -12,7 +12,7 @@ revealed: "Session 9"
 title: "Karath"
 ---
 
-![[Karath - Handout Art.png]]
+![[karath-handout-art.webp]]
 
 ## At a glance
 

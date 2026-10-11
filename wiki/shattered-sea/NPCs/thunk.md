@@ -13,6 +13,8 @@ revealed: "Session 2"
 title: "Thunk"
 ---
 
+![[thunk-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Master gunner of the Uncertainty.

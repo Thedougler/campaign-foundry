@@ -13,6 +13,8 @@ revealed: "Session 1"
 title: "Session 1 - Recap"
 ---
 
+![[session-1-recap-scene.webp]]
+
 ## At a glance
 
 - **Session.** 1.

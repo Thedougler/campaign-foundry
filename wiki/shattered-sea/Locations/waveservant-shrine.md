@@ -11,6 +11,8 @@ revealed: "Session 4"
 title: "Waveservant Shrine"
 ---
 
+![[waveservant-shrine-banner.webp]]
+
 ## At a glance
 
 - **Draws the Party because.** It holds the open appointment behind [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]], and it is where [[umberlee|Umberlee]] last spoke.

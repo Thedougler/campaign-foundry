@@ -12,6 +12,8 @@ revealed: "Backstory"
 title: "Ashwall Islands"
 ---
 
+![[ashwall-islands-banner.webp]]
+
 ## At a glance
 
 - **Character.** Black volcanic spires at the storm edge: a threshold the crews measure themselves against, never a destination.

@@ -58,7 +58,7 @@ Top of round two: ==The diving has stopped. He circles now level with your own e
 
 #### Battlefield
 
-![[Session 13 - The Next Blow - Battle Map.webp]]
+![[session-13-the-next-blow-battle-map.webp]]
 
 The clearing runs about sixty feet across. The fire's stone ring with its spray plume rests at the centre, the scattered packs and bedrolls around it, and the five survivors wedged behind the ring's west side. The burnt road's twenty-foot black scar lies twenty-five feet east, and its eroded lip gives dead ground below a low flyer. Trees close at thirty feet on the other sides. Night, firelight, falling water.
 

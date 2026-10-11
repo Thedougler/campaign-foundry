@@ -10,6 +10,8 @@ revealed: "Session 4"
 title: "Felix Aho"
 ---
 
+![[felix-aho-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Captured Grung labourer and informant.

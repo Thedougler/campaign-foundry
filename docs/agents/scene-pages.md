@@ -19,6 +19,7 @@ Run every command from the repo root. A page path in a `cf` command starts with 
    - repo-root `user-config.md`;
    - `wiki/<campaign>/campaign-config.md`;
    - `wiki/<campaign>/hot.md` (orientation, not evidence);
+   - `wiki/<campaign>/story-so-far.md` when it exists, whose Open promises and PC trajectories are the continuity a Scene can put back within the Party's reach;
    - `wiki/<campaign>/index.md`, the catalogue for looking up page names;
    - the last ten entries of `wiki/<campaign>/log.md`;
    - `wiki/templates/Scene - <Kind>.md`.
@@ -98,7 +99,7 @@ Write each `[!narration]` callout and each Cue yourself with `theatre-of-the-min
 - `.agents/skills/theatre-of-the-mind/references/critique.md`, once, at its Step 4.
 - `reference/gm-voice/exemplars.md`: the three exemplar passages theatre-of-the-mind Step 2 reads, as that step sets out.
 
-Its caller-supplied pages are this Scene and the pages you read in **Ground**. Give each callout its title, the Scene kind, the actual viewpoint, the entry condition and the spatial facts.
+Its caller-supplied pages are this Scene and the pages you read in **Ground**. Give each callout its title, the Scene kind, the actual viewpoint, the entry condition and the spatial facts. Add what the Scene must change, and each speaker's want with the secret they talk around.
 
 Place callouts and Cues in these formats:
 

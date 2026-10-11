@@ -9,6 +9,8 @@ revealed: "Session 9"
 title: "HCS Ordinance"
 ---
 
+![[hcs-ordinance-banner.webp]]
+
 ## At a glance
 
 - **Kind.** Ship of the line.

@@ -12,7 +12,9 @@ revealed: "Backstory"
 title: "Fate Spinner"
 ---
 
-![[Fate Spinner - Handout Art.png]]
+![[fate-spinner-render.webp]]
+
+![[fate-spinner-handout-art.webp]]
 
 ## At a glance
 

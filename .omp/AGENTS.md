@@ -4,90 +4,43 @@
 
 ## Wiki access
 
-Read from the Backup and write to `wiki/`. The Wiki is an Obsidian vault; **Wiki access** in `user-config.md`, imported above, defines its vault root and the repo root.
+Read from the Backup and write to `wiki/`. **Wiki access** in `user-config.md`, imported above, defines the vault root and the repo root. Before a run's first Backup or QMD search, read `docs/agents/wiki-search.md` for each route's query grammar, examples and citation mapping.
 
-**Notion Backup.** The Backup (`CONTEXT.md`) is the managed Notion database of `main`'s Shattered Sea Wiki and agent skills, under the page "campaign-foundry backup" (`3f20216635ec815c9ba6dacbda0f6f1b`). One Notion AI search there covers a question spanning many pages, faster and for fewer tokens than QMD, `grep` or reading `wiki/`, which makes it the first source for every read. `cf backup` updates it on each push to `main` (`docs/notion-backup.md`), and the `git-sync` hook (`.omp/hooks/pre/git-sync.js`) fast-forwards this checkout at session start. Between them, the Backup matches `wiki/` apart from local work not yet pushed.
+**Notion Backup.** The Backup (`CONTEXT.md`) sits under the Notion page "campaign-foundry backup" (`3f20216635ec815c9ba6dacbda0f6f1b`) and is the first source for every read. `cf backup` updates it on each push to `main` (`docs/notion-backup.md`), and the `git-sync` hook (`.omp/hooks/pre/git-sync.js`) fast-forwards this checkout at session start. Between them, the Backup matches `wiki/` apart from local work not yet pushed.
 
-- **Read from the Backup.** Answer general questions, surveys of a subject and the context around a task from it. The fixed orientation files (`campaign-config.md`, `hot.md`, `index.md`, `log.md`) are read by path from `wiki/`. Write each search to `xd://mcp__notion_search` with `page_url` set to the Backup root, which keeps the rest of the Second Brain and connected Slack, Mail and Calendar out of the results. The workspace's Notion Business plan gives these search modes:
-  - **Question** (AI search, the default): a bare `query` of keywords or one plain question under 50 words, on one topic. It answers across many pages at once and returns `type: ai_search`.
-  - **Title lookup:** `"filters": {"title_only": true}` with the page's name returns the page by its title.
-  - **Recent changes:** an empty `query` with `"sort": "last_edited"` lists the pages the last pushes synced. `"filters": {"last_edited_date_range": {…}}` limits the list to a date range.
-  - **Folder:** `page_url` set to a folder page from a hit's `path` searches that folder alone.
-  - Any filter or a sort other than relevance turns the call into keyword search (`type: workspace_search`). Ask questions with a bare `query`, and keep filters for lookups.
-  - **Whole page:** a hit gives a title, a folder path and a short highlight. When the highlight is not enough, write the hit's `id` to `xd://mcp__notion_fetch`.
-- **Cite the repo path.** A fetched Backup page is a citable source. Its grey header gives the page's repo path, which a citation uses, and the commit it was synced at. A hit's `title` is the page's `title` property, and its `path` ends at the folder. Title `Nona Black-Jaw` under `… / campaign-foundry backup / wiki / shattered-sea / NPCs` maps to `wiki/shattered-sea/NPCs/nona-black-jaw.md`, the title's slug. A title ending "(deleted from repo)" is a removed file.
+- **Read from the Backup.** Answer general questions, surveys of a subject and the context around a task through `xd://mcp__notion_search` scoped to the Backup root, and cite each page by the repo path its header gives. Read the fixed orientation files (`campaign-config.md`, `hot.md`, `index.md`, `log.md`) by path from `wiki/`.
 - **Write to `wiki/`.** Read each page you create or edit from `wiki/` (`read`, `vault://_/` or QMD `get`) immediately before the edit, and make the edit there. The next sync overwrites any edit made in Notion. For this Campaign the Wiki takes precedence over the Second Brain.
 - **QMD and `wiki/` answer what the Backup can't:** uncommitted or unpushed Wiki work (`git status --short wiki/` and `git diff --name-only @{u} -- wiki/` list it), pages outside the Shattered Sea Wiki, `raw/`, `archive/`, aliases (the `lint` Names ladder), and every read in a session whose tools lack `xd://mcp__notion_search` (Eval Runners, `omp -p` processes). The Notion MCP server is configured at user level in `~/.omp/agent/mcp.json`. Keep it there.
 
-Ask a question:
+## Memory
 
-```json
-{"query": "Who leads the Black-Jaw Run and where does she operate?", "page_url": "3f20216635ec815c9ba6dacbda0f6f1b", "page_size": 5, "max_highlight_length": 150}
-```
+The `mnemopi` backend recalls past sessions. It injects a `<memories>` block on a session's first turn and retains completed turns as episodes, so the way a correction is worded is the way it is later recalled. DM decisions from the earlier backend are stored as facts beginning "Campaign Foundry DM decision (<heading>):" and arrive through recall.
 
-Look up a page by title:
-
-```json
-{"query": "Nona Black-Jaw", "page_url": "3f20216635ec815c9ba6dacbda0f6f1b", "filters": {"title_only": true}, "page_size": 3}
-```
-
-List recent changes:
-
-```json
-{"query": "", "page_url": "3f20216635ec815c9ba6dacbda0f6f1b", "sort": "last_edited", "page_size": 10}
-```
-
-Browse one folder, here NPCs:
-
-```json
-{"query": "Dravosi naval officers", "page_url": "3f20216635ec81e28fd1d7f82bc7f305", "page_size": 10}
-```
-
-Read one Backup page whole (`write` to `xd://mcp__notion_fetch`):
-
-```json
-{"id": "3f20216635ec81a59bb4df08d56bbaf3"}
-```
-
-**QMD** is the live local index of `wiki/`, `raw/` and `archive/`, re-indexed by the `qmd-refresh` post hook after each `write` or `edit` under them. Search it through the mounted MCP devices:
-
-- **Query.** Write JSON to `xd://mcp__qmd_query` (`read` the device once for its schema). Give each query an explicit `intent`. Lead with a `lex` sub-query on names and aliases, then add a `vec` or `hyde` sub-query on what the text says of the subject. Write a hyphenated name bare (`Nona Black-Jaw`), because a quoted phrase holding a hyphen skips the document.
-- **Collections.** A query without `collections` searches `wiki`. Put `raw`, `archive` or `agentic-co-dm` in `collections` to search those.
-- **Retrieve.** Read each hit whole by its path or docid through `xd://mcp__qmd_get`, several at once through `xd://mcp__qmd_multi_get`, or with `read`, and answer from the retrieved text. A snippet only says where to read.
-
-A shell reaches `wiki`, `raw` and `archive` through the CLI, run from this project without `--index`:
-
-```bash
-env -u QMD_CONFIG_DIR qmd query $'intent: Find active Shattered Sea Campaign context, not unrelated Campaigns.\nlex: "Shattered Sea" hot' -c wiki --format json --no-rerank -n 3
-env -u QMD_CONFIG_DIR qmd get '<docid>'
-```
-
-## Project decision memory
-
-The `sharpshooter` memory backend injects DM decisions drawn from past corrections at session start as the **Project decision memory** block. A background model extracts them from the conversation, so the way a decision is worded is the way it is captured.
-
-- **Follow** each injected decision as standing DM direction. The DM's current instruction overrides it. Check it against current repo state before acting on it.
-- **Restate** each DM correction, rejection or decision back in one durable sentence that says what to do and where it applies. Leave out this task's paths, ids and values.
-- **Promote** a decision that is a durable project rule to its repo owner in the same change: a term to `CONTEXT.md`, a decision to `docs/adr/` and a working rule to `AGENTS.md`. Where repo text and an injected decision differ, follow the repo and tell the DM which injected decision is stale.
-- **Brief** native subagents with the injected decisions that bear on their slice, since they start without the block.
-- **Capture** runs through the conversation alone: the consolidator writes the decision files, and the `recall`/`retain`/`learn` tools of other memory backends play no part.
+- **Follow** the injected `<memories>` block as background. A DM decision in it is standing direction, and the DM's current instruction overrides it. Check it against current repo state before acting on it.
+- **Recall** with one specific query through `xd://recall` when the task turns on a past session or a prior DM decision that neither the repo nor the injected block shows. Take Canon from the Wiki and project rules from the repo.
+- **Restate** each DM correction, rejection or decision back in one durable sentence that says what to do and where it applies, leaving out this task's paths, ids and values.
+- **Promote** a decision that is a durable project rule to its repo owner under root `AGENTS.md` **The repo is the memory**, in the same change.
+- **Maintain** recalled memories in the same run. Repair a memory that is out of date or works against the DM's goals, and one that conflicts with the repo, the DM's current instruction or another memory, where the repo and the DM win. To repair it, read `memory://<id>` whole (recall previews are clipped) and `update` it through `xd://memory_edit`, or `invalidate` or `forget` it.
+- **Write** only durable memories: facts, decisions and lessons that hold beyond this task and have no repo home, such as a tool quirk or where something lives. Save one through `xd://retain` or `learn` once a `recall` shows it is not yet stored, and correct a near-match with `memory_edit` instead. Keep task progress, pending work, session state and one-off values in the conversation, todos or `context_notes`. Set `scope: "global"` only for a lesson true in every project.
+- **Brief** each subagent with the memories bearing on its slice: it inherits the parent's first-turn block and recalls nothing for its own slice.
 
 ## Native delegation
 
 Delegate through native `task` (`context` + `tasks[]`) or eval `agent()`/`workpool()`. All subagent work stays inside this omp session. Give each item the `effort` (`lo`/`med`/`hi`) and the model (below) its work needs. Configured fallback chains and usage-reset waits absorb rate limits and keep the chosen model.
 
-Give writers disjoint files and pass briefs and artifact paths explicitly. Set `isolated: true` when parallel writers may touch the same files or a change needs review before it is merged. Message a worker through `agent://` only with an instruction or a deliverable, as **Message with work** in the root `AGENTS.md` sets out: steer it with a new instruction, or send follow-up work to an idle agent that already has the context. Collect completion notifications, and `wait` only when nothing else is left to do.
+**Split by domain.** Related work in a domain other than the run's own task, such as code or docs behind an instruction change or stale instructions behind a code change, goes to the agent fit for that domain (selection below) with a brief complete enough to finish it. The run itself stays on its task. That includes the errors **Fix on sight** hands off. A run without `task` returns the brief as a dispatch request (**Nested dispatch**).
 
-Subagents share one worktree and never change git state: no `stash`, `checkout`, `reset`, `restore`, `switch`, `branch`, `rebase`, `commit` or `clean`. Read-only git (`status`, `diff`, `log`, `show`) is fine, and `git mv` only where the ingest archive step calls for it. To keep a baseline, save `git diff` to a file. Committing is the top-level agent's job.
+Give writers disjoint files and pass briefs and artifact paths explicitly. Set `isolated: true` when parallel writers may touch the same files or a change needs review before it is merged. Message a worker only with work (**Message with work**), and steer a running worker with a new instruction. Place each follow-up by context use, reasoning quality and token cost together. **Revive** the idle or parked agent that holds the context when the work builds on files it read and decisions it made: it pays only for the new instruction, where a fresh agent pays for a brief and every re-read. A worker whose result names a next step it could have taken is revived with the instruction to take it; after two such revivals on one task, read its `history://` transcript for the blocker before sending more. **Dispatch fresh**, with a distilled brief, when the work is unrelated or fits a different specialist, and for each alternative approach to the same work. Stale context costs every turn and biases reasoning. A near-full context or a slice that must run in parallel also calls for a fresh agent: compaction degrades reasoning, and a clean start costs less over a long job.
+
+Subagents share one worktree, so they use read-only git (`status`, `diff`, `log`, `show`) alone, plus `git mv` where the ingest archive step calls for it. To keep a baseline, save `git diff` to a file. Committing and every other change to git state is the top-level agent's job.
 
 Select an agent by its responsibility:
 
-- `skill-writer` (`@SKILL-WRITER`) authors every large or novel change to agent-facing text: skills, `.omp/agents/`, `AGENTS.md`, runbooks and pointers. The orchestrator writes its briefs, owns acceptance criteria, eval fixtures, Wiki and integration, and leaves those files to it. Briefs leave the writer's own verification on, and the orchestrator reruns those checks only as acceptance. When the defect was observed in a run, wait until every ingest subagent in that batch has finished, then pass all of their finished `history://` transcripts together so the writer sees the issues directly; never pass an in-progress transcript, and never pass one run while siblings are still going.
+- `skill-writer` (`@SKILL-WRITER`) authors every large or novel change to agent-facing text: skills, `.omp/agents/`, `AGENTS.md`, runbooks and pointers. The orchestrator writes its briefs, owns acceptance criteria, eval fixtures, Wiki and integration, and leaves those files to it. Briefs leave the writer's own verification on, and the orchestrator reruns those checks only as acceptance. When the defect was observed in a run, wait until every ingest subagent in that batch has finished, then pass all of their finished `history://` transcripts together so the writer sees the issues directly.
 - `test-subject` (`@TEST-SUBJECT`) runs each eval case or baseline and `prose-grader` (`@PROSE-GRADER`) grades rubrics independently; both are native `task` dispatches whose frontmatter `tools:` is read-only except Runner `bash` for diagnostic CLI, batched per `evals/README.md`.
 - `creative-writer` takes Seeds, Story drafts and other explicit creative-writing dispatches outside skill evals.
 - `persona` plays exactly one NPC in a Simulation, dispatched only by `simulate-npcs`.
 - `transcript-reader` (pinned `zai/glm-5.3-flash`) reads Transcript chunks and verify ranges into Session Ledger files, dispatched by the top-level session as `ingest` `references/transcript.md` sets out.
-- A Transcript's ingest runs as flat stages from the top-level session through `ingest` `references/transcript.md`, each stage one subagent turn that returns its outputs and the dispatches it requests. `task.maxRecursionDepth: 1` in `.omp/config.yml` removes `task` from every subagent, as root `AGENTS.md` **Flat dispatch** sets out, so a `skill-writer`, `transcript-reader` or Simulation a subagent needs comes back to the top level as a request in its return.
 
 Claude Opus 5.5 is reserved for writing skills and agent instructions (`skill-writer`) and orchestration. Native agents bring their own models: `creative-writer` and `persona` pin `zai/glm-5.3` in their frontmatter, `transcript-reader` pins `zai/glm-5.3-flash`, and `test-subject` runs on `@TEST-SUBJECT`. The orchestrator chooses each `task` item's model by its work:
 
@@ -104,14 +57,13 @@ Delegation stays native, except description trigger checks and Benchmark runners
 
 ## Tools
 
-- **Search code** with scoped `find` for unknown locations, `grep` for known literals, `ast_grep` for structural patterns and `lsp` for references and definitions. Edits don't report diagnostics, so request `lsp` diagnostics on touched TypeScript before reporting code complete.
-- **Library docs** come from Context7 before memory or web search: read `skill://context7-mcp`, then write to `xd://mcp__context7_resolve_library_id` and `xd://mcp__context7_query_docs` whenever code touches a library, framework, SDK, CLI or API (Bun, vitest, Vale, Foundry VTT, Playwright, the TypeSafe SDK). Training data lags releases, so fetch even for a familiar API, and brief code-writing subagents to do the same.
+- **Internal first.** Use the harness's own command where one exists: `omp commit` for commits, the mounted LSP, judge and QMD devices, and this repo's `cf` commands. Use an external command only when no internal one does the job.
+- **TypeScript diagnostics.** Edits don't report them, so request `lsp` diagnostics on touched TypeScript before reporting code complete.
+- **Library docs** come from Context7 (`skill://context7-mcp`) whenever code touches a library, framework, SDK, CLI or API, even a familiar one such as Bun, Vale or Foundry VTT, and code-writing subagents' briefs say the same.
 - **Judge** bounded classification, yes/no or ranking over a small state with eval `judge`: read `xd://eval/judge` once, batch independent questions over the same evidence into one call and use `judge_batch` for multiple states. Send only the evidence the criteria need; a failed judge item is a tool failure, so inspect `item.error` before concluding.
-- **Extend with TypeSafe** beyond omp's built-in Jev tools, and use those tools first. Eval `judge` and `judge_batch` answer typed questions over a state inside this session's kernel, and judged TTSR rules ask one Noul of each completed output and deliver a yes as a warning. Read `skill://typesafe-ai` and the live docs it links, unprompted, when the work needs something those tools lack:
-  - **Judgment in repo code.** `cf` commands, `src/`, tests and eval scripts run outside the session, so they call Jev through TypeSafe's JavaScript SDK (`bun add`) or HTTP API, which also return the answering model's version and token `usage` for reproducible runs. That code reads `TYPESAFE_API_KEY` from its environment. When the key is unset, report it to the DM as the missing prerequisite.
-  - **Composed judgments.** `xd://eval/judge` documents single calls. The skill's patterns cover pipelines, such as selecting a value from candidates that code found instead of generating it, reranking retrieved pages, a weighted composite of Scores computed in code, a confidence gate that escalates uncertain cases to a reasoning model or the DM, and classification down a hierarchy.
+- **Extend with TypeSafe** beyond omp's built-in Jev tools, and use those tools first. Eval `judge` and `judge_batch` answer typed questions over a state inside this session's kernel, and judged TTSR rules ask one Noul of each completed output and deliver a yes as a warning. When the work needs more, read `skill://typesafe-ai` and the live docs it links, unprompted. Its patterns cover composed judgments, such as picking from candidates code found, reranking, weighted composites, confidence gates and hierarchies. `cf` commands, `src/`, tests and eval scripts run outside the session, so they call Jev through TypeSafe's JavaScript SDK (`bun add`) or HTTP API, which return the model version and token `usage` for reproducible runs. That code reads `TYPESAFE_API_KEY`; when it is unset, report it to the DM as the missing prerequisite.
 - **Grade** Narration and other authored prose with `prose-grader`, dispatched as in `evals/README.md`: it reads the writing, which Jev does not. Execution, diffs, isolation and Checks stay with the orchestrator.
-- **No browser for verification.** Check generated pages such as `cf eval review` HTML from the command's own output. Open a browser only when the DM asks for it.
+- **Verify from command output.** Check generated pages such as `cf eval review` HTML from the command's own output, and open a browser only when the DM asks for it.
 - **Long work.** Keep `context_notes` current with the goal, decisions, touched paths and next step, and call `new_context` at phase boundaries. Trigger-check and Benchmark `omp -p` jobs run in the background; continue other work meanwhile.
 
 ## Skill tooling
@@ -124,25 +76,9 @@ Skill measurement and improvement (Design, Eval, Hillclimb, Author, Benchmark an
 
 Project skills live in `.omp/skills/` and `.agents/skills/`; where both hold a skill, the `.omp/` copy is the source of truth. `manage_skill` holds the DM's cross-project procedures; project skills, rules and decisions live in the repo.
 
-## Prior iterations
-
-Mine these earlier versions of this project (GitHub search for `Shattered Sea`, newest first) under the root **Prior iterations** rule. Start from `docs/research/prior-iterations/README.md` and the repo's findings file; then read a few files through GitHub, or clone to repo-root `prior/<repo-name>/` (gitignored, never committed) when searching or running across a repo.
-
-- agentic-co-dm: https://github.com/Thedougler/agentic-co-dm, findings in `docs/research/prior-iterations/agentic-co-dm.md` (campaign horizons, travel events, PC interview, trap reveal ladders, transcript discourse)
-- shattered-sea-campaign-os: https://github.com/Thedougler/shattered-sea-campaign-os, findings in `docs/research/prior-iterations/shattered-sea-campaign-os.md` (presence pass, canon ladder, transcript reconciliation, prose anti-patterns)
-- campaign-os: https://github.com/Thedougler/campaign-os, findings in `docs/research/prior-iterations/campaign-os.md` (Fronts and world-update, player gravity, cold opens, writers-room compete mode)
-- shattered-sea-wiki: https://github.com/Thedougler/shattered-sea-wiki, findings in `docs/research/prior-iterations/shattered-sea-wiki.md` (run-guide scene cards, mashup roleplay, gravity wells, anti-slop writing law)
-- ai-os: https://github.com/Thedougler/ai-os, findings in `docs/research/prior-iterations/ai-os.md` (umbrella only; routes to shattered-sea-wiki and agent-skills)
-- my-wiki: https://github.com/Thedougler/my-wiki, findings in `docs/research/prior-iterations/my-wiki.md` (Session reflection prompts, research briefs, edit boundaries)
-- agent-skills: https://github.com/Thedougler/agent-skills, findings in `docs/research/prior-iterations/agent-skills.md` (anti-slop rules, world tick, Three Clue gate, empirical combat calibration)
-- dnd-site: https://github.com/Thedougler/dnd-site, findings in `docs/research/prior-iterations/dnd-site.md` (investigation Items, in-world ship manual, festival history, sea-life lore)
-- dnd-wiki: https://github.com/Thedougler/dnd-wiki, findings in `docs/research/prior-iterations/dnd-wiki.md` (world tick, Roleplay Prompt + Anchor, tone guide, Revelation and Question situations)
-- shattered-sea-site: https://github.com/Thedougler/shattered-sea-site, findings in `docs/research/prior-iterations/shattered-sea-site.md` (tone triad, PC gravity, wiki synthesis scoring (branch `v5`))
-- shattered-sea: https://github.com/Thedougler/shattered-sea, findings in `docs/research/prior-iterations/shattered-sea.md` (mashup roleplay, PC gravity, pacing heuristics, strong-start taxonomy)
-
 ## Configuration
 
-**Extend omp.** When the DM asks to change what this repo or the harness can do (a tool, hook, rule, skill, setting, agent, MCP server, extension or plugin), you MUST read `skill://extending-omp` before acting and follow it to build the change.
+**Extend omp.** When the DM asks to change what this repo or the harness can do (a tool, hook, rule, skill, setting, agent, MCP server, extension or plugin), read `skill://extending-omp` first and follow it to build the change.
 
 Native agent definitions live in `.omp/agents/`, with descriptive names and narrow responsibilities. Add a project agent for a new job rather than overriding a bundled one. Before changing configuration, inspect the effective settings and agent definitions and preserve unrelated overrides. Keep approvals and providers as configured when making a task run.
 

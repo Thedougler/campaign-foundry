@@ -14,6 +14,8 @@ revealed: "Backstory"
 title: "Grung Clans"
 ---
 
+![[grung-clans-sigil.webp]]
+
 ## At a glance
 
 - **Goal.** Recover water control while preserving the closed interior and caste-and-rite system.

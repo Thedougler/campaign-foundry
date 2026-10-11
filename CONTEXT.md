@@ -194,6 +194,10 @@ _Avoid_: recap, meeting report
 `transcribex-dictionary.csv` at the repo root: misheard words mapped to their Canon spelling, which the DM imports into TranscribeX so later Transcripts come out right.
 _Avoid_: glossary, word list
 
+**Visual**:
+an image or diagram embedded on a Wiki page that shows its subject or structure to the DM, such as a portrait, map, scene-setter, sigil or mermaid diagram. Art meant for the Players' eyes is a Handout, not a Visual.
+_Avoid_: artwork, illustration, picture, image (as the umbrella term), visual aid
+
 **Handout**:
 anything meant for the Players' eyes, such as a letter, wanted poster, player map or portrait. The only material Push makes visible to Players.
 _Avoid_: prop, player document, reveal

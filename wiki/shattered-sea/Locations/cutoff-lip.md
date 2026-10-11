@@ -10,7 +10,7 @@ revealed: ""
 title: "Cutoff Lip"
 ---
 
-![[Cutoff Lip - Handout Art.jpg]]
+![[cutoff-lip-handout-art.webp]]
 
 ## At a glance
 

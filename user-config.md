@@ -46,6 +46,12 @@ How the DM's Narration sounds, from the diction, rhythm, register and humour of 
 - **2026-10-10.** He performs voices. Give each NPC's line a sound or rhythm he can do, and put any accent or pitch note on the DM's side.
 - **2026-10-10.** A World or Campaign pitch takes his lore-draft register. It is more formal than his table talk, and just as concrete and plain.
 
+## Art style
+
+How every generated Visual and Handout image looks. `skill://visuals` reads this section and the full guide in `docs/art-style.md` (categories, frames, era and costume, negatives, the Party's looks) before each generation. A Campaign whose `campaign-config.md` has its own `## Art style` section uses that in place of both.
+
+- **2026-10-10, the DM:** "characters and scenes are depicted in the stylized 'Archer (Fox)' TV show [style], while items and locations are rendered photorealistically". Maps stay cartographic, outside both styles.
+
 ## Evals
 
 - **Human-audit pages:** `<tmp>/audit/<skill>/<case-id>.md` in a `mktemp -d` directory beneath OS `$TMPDIR`. The orchestrator overwrites the current sample and criteria there for human review during that run. `evals/README.md` defines the procedure, and durable export requires an explicit DM request.

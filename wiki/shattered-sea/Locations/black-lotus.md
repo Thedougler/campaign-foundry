@@ -11,7 +11,7 @@ revealed: "Session 10"
 title: "Black Lotus"
 ---
 
-![[Black Lotus - Handout Art.jpg]]
+![[black-lotus-handout-art.webp]]
 
 ## At a glance
 

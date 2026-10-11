@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { buildScene, parseUvtt } from "../../src/push/scene.ts";
 
 const fixtures = join(import.meta.dirname, "fixtures");
-const uvttText = readFileSync(join(fixtures, "Session 2 - Mud Under the Boards - Battle Map.uvtt"), "utf8");
+const uvttText = readFileSync(join(fixtures, "session-2-mud-under-the-boards-battle-map.uvtt"), "utf8");
 const base = {
 	campaign: "salt-and-lantern",
 	path: "salt-and-lantern/Sessions/Session 2/Session 2 - Mud Under the Boards.md",

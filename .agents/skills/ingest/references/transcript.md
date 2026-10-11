@@ -1,6 +1,6 @@
 # Transcript
 
-A Transcript is ingested in stages, and the **orchestrator** runs them: the top-level session, the one the DM talks to. Only the orchestrator dispatches subagents. Each stage is one subagent turn. The subagent does its stage and returns its outputs with the dispatches it requests. You then dispatch those requests and the next stage. Run every stage whose inputs are ready at once, in one `task` batch. A subagent assigned a Transcript returns at once and asks you to run it here.
+A Transcript is ingested in stages, and the **orchestrator** runs them: the top-level session, the one the DM talks to. Only the orchestrator dispatches subagents, since nested ingest dispatch lost a run 13 minutes ([ADR 0021](../../../../docs/adr/0021-transcripts-are-read-into-a-session-ledger.md)). Each stage is one subagent turn. The subagent does its stage and returns its outputs with the dispatches it requests. You then dispatch those requests and the next stage. Run every stage whose inputs are ready at once, in one `task` batch. A subagent assigned a Transcript returns at once and asks you to run it here.
 
 The **Session Ledger** is the contract between stages: the Ledger stages build it, and every later stage writes the Wiki from it. You read the stages' returns. The Transcript, the chunk files and the Ledger's body stay with the stages. The dispatches, the hand-offs, the touched list and the gate are yours.
 

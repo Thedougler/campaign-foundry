@@ -9,7 +9,7 @@ revealed: "Session 12"
 title: "Giant's Guava"
 ---
 
-![[Giant's Guava - Handout Art.jpg]]
+![[giants-guava-handout-art.webp]]
 
 ## At a glance
 

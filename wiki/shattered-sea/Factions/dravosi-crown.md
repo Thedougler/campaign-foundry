@@ -13,6 +13,8 @@ revealed: "Backstory"
 title: "Dravosi Crown"
 ---
 
+![[dravosi-crown-sigil.webp]]
+
 ## At a glance
 
 - **Goal.** Keep far side approaches under Crown inspection law.

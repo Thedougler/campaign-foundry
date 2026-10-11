@@ -11,9 +11,9 @@ revealed: "Session 10"
 title: "Old Gardens"
 ---
 
-![[Old Gardens - Portrait.jpg]]
+![[old-gardens-portrait.webp]]
 
-![[Old Gardens - Handout Art.jpg]]
+![[old-gardens-handout-art.webp]]
 
 ## At a glance
 

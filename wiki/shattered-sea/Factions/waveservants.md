@@ -13,6 +13,8 @@ revealed: "Backstory"
 title: "Waveservants"
 ---
 
+![[waveservants-sigil.webp]]
+
 ## At a glance
 
 - **Goal.** Collect [[umberlee|Umberlee]]'s tribute from every hull afloat, and witness the sea's payments while they do it.

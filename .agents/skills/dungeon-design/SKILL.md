@@ -13,7 +13,7 @@ Stock a Site that the Party moves through, investigates and changes under pressu
 
 Resolve which Site the request means, its containing Location, the intended objective, the exploration scope and the caller's operation.
 
-- **Direct request:** own Site authoring and the final `create` operation. For a missing Site, use the actual `wiki/templates/Location - Site.md` directly.
+- **Direct request:** own Site authoring and the final `create` operation. For a missing Site, use the actual `wiki/templates/location-site.md` directly.
 - **Composed request:** the caller supplies its Canon inventory and actual template with the Party facts and its operation. Return stocked content and dependent page paths to that caller. The caller does the final filing, the gate, the index and the one log entry. Pass this ownership to any skills used below.
 
 Follow the common authoring guidance directly and skip the full `location-design` workflow. Broad Region travel belongs to `location-design`. Stock only the reachable Site(s) within it.

@@ -10,7 +10,7 @@ revealed: "Session 11"
 title: "Stonepear"
 ---
 
-![[Stonepear - Handout Art.jpg]]
+![[stonepear-handout-art.webp]]
 
 ## At a glance
 

@@ -10,7 +10,7 @@ revealed: ""
 title: "Spoke Ring"
 ---
 
-![[Spoke Ring - Handout Art.jpg]]
+![[spoke-ring-handout-art.webp]]
 
 ## At a glance
 

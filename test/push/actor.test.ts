@@ -100,11 +100,11 @@ describe("buildActor", () => {
 	});
 
 	it("uses the NPC's name and portrait for its own Actor and the given ID role", () => {
-		const a = actorFor("Mire Drowner", "Sable", { img: "modules/m/assets/Sable - Portrait.webp", role: "actor" });
+		const a = actorFor("Mire Drowner", "Sable", { img: "modules/m/assets/sable-portrait.webp", role: "actor" });
 		expect(a.data.name).toBe("Sable");
-		expect(a.data.img).toBe("modules/m/assets/Sable - Portrait.webp");
+		expect(a.data.img).toBe("modules/m/assets/sable-portrait.webp");
 		expect((a.data.prototypeToken as Bag).name).toBe("Sable");
-		expect((a.data.prototypeToken as Bag).texture.src).toBe("modules/m/assets/Sable - Portrait.webp");
+		expect((a.data.prototypeToken as Bag).texture.src).toBe("modules/m/assets/sable-portrait.webp");
 		expect(a.data._id).not.toBe(actorFor("Mire Drowner").data._id);
 	});
 });

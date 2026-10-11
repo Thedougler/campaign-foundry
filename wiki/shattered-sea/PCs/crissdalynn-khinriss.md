@@ -13,7 +13,9 @@ revealed: "Backstory"
 title: "Crissdalynn Khinriss"
 ---
 
-![[Crissdalynn Khinriss - Reference Sheet.png]]
+![[crissdalynn-khinriss-portrait.webp]]
+
+![[crissdalynn-khinriss-reference-sheet.png]]
 
 ## Sheet
 

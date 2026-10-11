@@ -10,6 +10,8 @@ revealed: "Session 6"
 title: "Session 6 - Recap"
 ---
 
+![[session-6-recap-scene.webp]]
+
 ## At a glance
 
 - **Session.** 6

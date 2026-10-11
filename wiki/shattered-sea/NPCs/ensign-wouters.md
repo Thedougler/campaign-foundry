@@ -12,6 +12,8 @@ revealed: "Session 2"
 title: "Ensign Wouters"
 ---
 
+![[ensign-wouters-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Ensign and navigator of the HCS Surety under the Dravosi Crown.

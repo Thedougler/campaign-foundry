@@ -16,6 +16,8 @@ revealed: "Session 2"
 title: "Shepherd Grigori"
 ---
 
+![[shepherd-grigori-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Wandering healer and Korabl of the [[khlysty|Khlysty]] Flock. To the Party he is both a foe and a rival.

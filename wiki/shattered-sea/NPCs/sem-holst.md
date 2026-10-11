@@ -13,7 +13,7 @@ revealed: "Session 2"
 title: "Sem Holst"
 ---
 
-![[Sem Holst - Portrait.webp]]
+![[sem-holst-portrait.webp]]
 
 ## At a glance
 

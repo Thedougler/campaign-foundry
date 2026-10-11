@@ -3,7 +3,7 @@ import type { Ability, Sheet } from "./sheet.ts";
 
 /**
  * The three pulled sections of a PC page as markdown, each starting at its `##` heading and ending with a blank
- * line. The bullet labels and the ability table follow wiki/templates/PC.md. Output is a pure function of the
+ * line. The bullet labels and the ability table follow wiki/templates/pc.md. Output is a pure function of the
  * Sheet, so a second pull with the same payload writes the same bytes.
  */
 

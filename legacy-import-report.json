@@ -1,0 +1,2458 @@
+{
+ "pools": {
+  "prior/shattered-sea-wiki/wiki/assets/": 364,
+  "prior/agentic-co-dm/wiki/attachments/ (top-level + shattered-sea/ subdir)": 206
+ },
+ "total_images": 570,
+ "placed": {
+  "count": 54,
+  "by_kind": {
+   "portrait": 21,
+   "banner": 16,
+   "sigil": 8,
+   "recap scene": 6,
+   "battle map": 2,
+   "render": 1
+  },
+  "detail": [
+   {
+    "source": "prior/agentic-co-dm/wiki/attachments/aruhe-river-otter-of-aruhe.jpg",
+    "file": "river-otter-portrait.webp",
+    "page": "wiki/shattered-sea/Creatures/river-otter.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Whip-Shark-2.webp",
+    "file": "whip-shark-portrait.webp",
+    "page": "wiki/shattered-sea/Creatures/whip-shark.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/agentic-co-dm/wiki/attachments/young-bloodhawk-of-aruhe-flight.jpg",
+    "file": "young-bloodhawk-portrait.webp",
+    "page": "wiki/shattered-sea/Creatures/young-bloodhawk.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Chain-Council-Flag.webp",
+    "file": "chain-council-sigil.webp",
+    "page": "wiki/shattered-sea/Factions/chain-council.md",
+    "kind": "Sigil"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Dravosi-Crown-Flag.webp",
+    "file": "dravosi-crown-sigil.webp",
+    "page": "wiki/shattered-sea/Factions/dravosi-crown.md",
+    "kind": "Sigil"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Fisks-Fleet-Flag.webp",
+    "file": "fisks-fleet-sigil.webp",
+    "page": "wiki/shattered-sea/Factions/fisks-fleet.md",
+    "kind": "Sigil"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Grung-Clans-Flag.webp",
+    "file": "grung-clans-sigil.webp",
+    "page": "wiki/shattered-sea/Factions/grung-clans.md",
+    "kind": "Sigil"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Passage-Flag.webp",
+    "file": "passage-sigil.webp",
+    "page": "wiki/shattered-sea/Factions/passage.md",
+    "kind": "Sigil"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Sentinels-Of-The-Eyrie-Flag.webp",
+    "file": "sentinels-of-the-eyrie-sigil.webp",
+    "page": "wiki/shattered-sea/Factions/sentinels-of-the-eyrie.md",
+    "kind": "Sigil"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Tessarine-Concordat-Flag.webp",
+    "file": "tessarine-concordat-sigil.webp",
+    "page": "wiki/shattered-sea/Factions/tessarine-concordat.md",
+    "kind": "Sigil"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Waveservants-Flag.webp",
+    "file": "waveservants-sigil.webp",
+    "page": "wiki/shattered-sea/Factions/waveservants.md",
+    "kind": "Sigil"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Pearl-of-Souls.webp",
+    "file": "pearl-of-souls-render.webp",
+    "page": "wiki/shattered-sea/Items/pearl-of-souls.md",
+    "kind": "Render"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Ashwall-Islands.webp",
+    "file": "ashwall-islands-banner.webp",
+    "page": "wiki/shattered-sea/Locations/ashwall-islands.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Calveno.webp",
+    "file": "calven-and-calveno-banner.webp",
+    "page": "wiki/shattered-sea/Locations/calven-and-calveno.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-calveno-sewer-magazines-overview-battlemap.png",
+    "file": "calveno-sewer-magazines-battle-map.png",
+    "page": "wiki/shattered-sea/Locations/calveno-sewer-magazines.md",
+    "kind": "Battle Map"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Central-Strait.webp",
+    "file": "central-strait-banner.webp",
+    "page": "wiki/shattered-sea/Locations/central-strait.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Crown-Islands.webp",
+    "file": "crown-islands-banner.webp",
+    "page": "wiki/shattered-sea/Locations/crown-islands.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/The-Drowned-Maw.webp",
+    "file": "drowned-maw-banner.webp",
+    "page": "wiki/shattered-sea/Locations/drowned-maw.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/The-High-Eyrie.webp",
+    "file": "high-eyrie-banner.webp",
+    "page": "wiki/shattered-sea/Locations/high-eyrie.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Kalowe.webp",
+    "file": "kalowe-banner.webp",
+    "page": "wiki/shattered-sea/Locations/kalowe.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/maps/session-04-la-vasca-dry-dock-map.png",
+    "file": "la-vasca-battle-map.png",
+    "page": "wiki/shattered-sea/Locations/la-vasca.md",
+    "kind": "Battle Map"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/The-Midchain.webp",
+    "file": "midchain-banner.webp",
+    "page": "wiki/shattered-sea/Locations/midchain.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Murrat.webp",
+    "file": "murrat-banner.webp",
+    "page": "wiki/shattered-sea/Locations/murrat.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/The-Tail.webp",
+    "file": "the-tail-banner.webp",
+    "page": "wiki/shattered-sea/Locations/the-tail.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Waveservant-Shrine-Tidefall.webp",
+    "file": "waveservant-shrine-banner.webp",
+    "page": "wiki/shattered-sea/Locations/waveservant-shrine.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Alys-Kuiper.webp",
+    "file": "alys-kuiper-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/alys-kuiper.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Banaby-Rook.webp",
+    "file": "barnaby-rook-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/barnaby-rook.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Beaumont-Sel.webp",
+    "file": "beaumont-sel-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/beaumont-sel.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Bisou.webp",
+    "file": "bisou-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/bisou.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Capn-Gorgeous-Archer.webp",
+    "file": "capn-gorgeous-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/capn-gorgeous.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Catarina-DaVirelli.webp",
+    "file": "catarina-davirelli-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/catarina-davirelli.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Ensign-Wouters.webp",
+    "file": "ensign-wouters-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/ensign-wouters.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Felix-Aho.webp",
+    "file": "felix-aho-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/felix-aho.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Ket.webp",
+    "file": "ket-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/ket.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Noor.webp",
+    "file": "noor-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/noor.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Otar-the-Foul.webp",
+    "file": "otar-the-foul-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/otar-the-foul.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Simone-La-Tabarnack.webp",
+    "file": "simone-tabarnack-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/simone-tabarnack.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Thunk.webp",
+    "file": "thunk-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/thunk.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Branca.webp",
+    "file": "umberlee-branca-portrait.webp",
+    "page": "wiki/shattered-sea/NPCs/umberlee-branca.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Crissdalyn-Khriniss.webp",
+    "file": "crissdalynn-khinriss-portrait.webp",
+    "page": "wiki/shattered-sea/PCs/crissdalynn-khinriss.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Delmar-Fisk.webp",
+    "file": "delmar-fisk-portrait.webp",
+    "page": "wiki/shattered-sea/PCs/delmar-fisk.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Jean-Claude-Tabarnack.webp",
+    "file": "jean-claude-tabarnack-portrait.webp",
+    "page": "wiki/shattered-sea/PCs/jean-claude-tabarnack.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/portraits/Perrin-Black-Jaw.webp",
+    "file": "perrin-black-jaw-portrait.webp",
+    "page": "wiki/shattered-sea/PCs/perrin-black-jaw.md",
+    "kind": "Portrait"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/sessions/session-01/art/session-01-03-crisdalynn-breach.webp",
+    "file": "session-1-recap-scene.webp",
+    "page": "wiki/shattered-sea/Sessions/Session 1/session-1-recap.md",
+    "kind": "Scene"
+   },
+   {
+    "source": "prior/agentic-co-dm/wiki/attachments/shattered-sea/sessions/session-11-03-delmar-carries-jean-claude-spiguar.png",
+    "file": "session-11-recap-scene.webp",
+    "page": "wiki/shattered-sea/Sessions/Session 11/session-11-recap.md",
+    "kind": "Scene"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/sessions/session-02/art/session-02-01-rook-final.webp",
+    "file": "session-2-recap-scene.webp",
+    "page": "wiki/shattered-sea/Sessions/Session 2/session-2-recap.md",
+    "kind": "Scene"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-02-whip-shark-hooking-drive.png",
+    "file": "session-3-recap-scene.webp",
+    "page": "wiki/shattered-sea/Sessions/Session 3/session-3-recap.md",
+    "kind": "Scene"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/umberlee-speaks-through-branca.png",
+    "file": "session-4-recap-scene.webp",
+    "page": "wiki/shattered-sea/Sessions/Session 4/session-4-recap.md",
+    "kind": "Scene"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/sessions/session-06/06-solange-chamber.webp",
+    "file": "session-6-recap-scene.webp",
+    "page": "wiki/shattered-sea/Sessions/Session 6/session-6-recap.md",
+    "kind": "Scene"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/HCS-Ordinance.webp",
+    "file": "hcs-ordinance-banner.webp",
+    "page": "wiki/shattered-sea/Vehicles/hcs-ordinance.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Red-Lady.webp",
+    "file": "red-lady-banner.webp",
+    "page": "wiki/shattered-sea/Vehicles/red-lady.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Saltwright.webp",
+    "file": "saltwright-banner.webp",
+    "page": "wiki/shattered-sea/Vehicles/saltwright.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/shattered-sea-wiki/wiki/assets/banners/Uncertainty.webp",
+    "file": "uncertainty-banner.webp",
+    "page": "wiki/shattered-sea/Vehicles/uncertainty.md",
+    "kind": "Banner"
+   },
+   {
+    "source": "prior/agentic-co-dm/wiki/attachments/vestra-overview.png",
+    "file": "vestra-banner.webp",
+    "page": "wiki/shattered-sea/Vehicles/vestra.md",
+    "kind": "Banner"
+   }
+  ]
+ },
+ "reported": {
+  "count": 516,
+  "by_reason": {
+   "no slot for its kind": 143,
+   "no live page for its subject": 134,
+   "duplicate: page's Visual slot already holds live art": 93,
+   "duplicate of art already in the vault (same subject+kind already live)": 63,
+   "page holds draft Canon (revealed empty)": 28,
+   "variant not selected (one Visual per slot)": 25,
+   "no slot for room/area art": 25,
+   "no slot for a map": 2,
+   "contradicts its page": 2,
+   "unidentifiable": 1
+  },
+  "detail": {
+   "no live page for its subject": [
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-clear-lake-day.jpg",
+     "reason": "no live page for its subject: Clear Lake has no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-the-clear-lake.jpg",
+     "reason": "no live page for its subject: Clear Lake has no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-the-grove.jpg",
+     "reason": "no live page for its subject: the Grove has no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-the-mangroves.jpg",
+     "reason": "no live page for its subject: the Mangroves have no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-the-marshes.jpg",
+     "reason": "no live page for its subject: the Marshes have no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/aruhe-clear-lake-day.jpg",
+     "reason": "no live page for its subject: Clear Lake has no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/bear-elk-of-aruhe-01.jpg",
+     "reason": "no live page for its subject: the Bear-Elk has no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/bear-elk-of-aruhe-02.jpg",
+     "reason": "no live page for its subject: the Bear-Elk has no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/bear-elk-of-aruhe-03.jpg",
+     "reason": "no live page for its subject: the Bear-Elk has no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/bear-elk-of-aruhe-04.jpg",
+     "reason": "no live page for its subject: the Bear-Elk has no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-the-clear-lake.jpg",
+     "reason": "no live page for its subject: Clear Lake has no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-the-grove.jpg",
+     "reason": "no live page for its subject: the Grove has no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-the-mangroves.jpg",
+     "reason": "no live page for its subject: the Mangroves have no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-the-marshes.jpg",
+     "reason": "no live page for its subject: the Marshes have no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/reference/sir-quackers-the-fowl-reference.jpg",
+     "reason": "no live page for its subject: Sir Quackers has no page"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/the-taken-314-overview.png",
+     "reason": "no live page for its subject: the Taken 314 has no page"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Al-Fondale.png",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Aldo-Riva.png",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Antheri-Ruins.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Axe-of-the-Dwarvish-Lords.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Baba-Yagas-Mortar-and-Pestle.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Baba-Yagas-Pestle.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Belmore-Archer.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Bice-Riva.png",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Bigbys-Beneficent-Bracelet.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Book-of-Exalted-Deeds.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Book-of-Vile-Darkness.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Brass-Cat.webp",
+     "reason": "no live page: Kat's Curios holds draft Canon (revealed empty), and no page owns the Brass Cat"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Clockwork-Deckcrew.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Clyde.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Colla.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Dario-Vanni.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Detto-Kalash.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Elite-Sorn-Handler.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Essa-Two-Tooth.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Ettore-Lupo.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Fare-Ia.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Fort-Crestwall.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Glutehorn-Island.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Gluthorn.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Governors-Seat-Tidefall.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Grayteeh-Runner.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Grayteeth-Runner.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/HCS-Relentless.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/HCS-Sovereign-Full-Sail.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/HCS-Sovereign.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/HCS-Surety.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Harbourmasters-Office.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Hector-Podge.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Hierarch.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Ia-Miti.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Ilaria-Grimaldi.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Kettil-Ormsson.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Kyrax-Avatar-of-the-Combat-God.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Lasting-Insult.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Maggie-Porcelain-Pots.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Maren-alt.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Maren.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Marrow.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Nigel-Strutt.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Noa-Fifita.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Oleandro-Fuschi.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Oswald-Crench.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Rael-Corven.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Reginald-Fenn.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Reweti-Kahurangi.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Ridgeback.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Savia-Brentino.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Serafina-Windfall-Fisk.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Sorn.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/South-Harbour-Impound.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Suryo-Wibowo.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Taufa-Fifita.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Taviroa.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/The-Anchor-and-Line.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/The-Hook-and-Ledger.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/The-Inspection-Pier.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/The-Lasting-Insult.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/The-Party.png",
+     "reason": "no live page for its subject: the Party has no page, only the four PC pages"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/The-Shelf-Instrument-Dealer.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Vrtek.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Welak.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/handouts/hcs-surety-coloring-handout.png",
+     "reason": "no live page: no HCS Surety page and no Handout page exists for it"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/portraits/Clydes-Beastiary-of-Oceanic-Creatures.webp",
+     "reason": "no live page for its subject"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/aft-stair.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/bilge-pump.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/boarding-locker.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/captains-cabin.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/cargo-hatch.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/central-ladder.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/chain-locker.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/chart-table.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/companionway-hatch.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/crew-quarters.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/foredeck.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/foremast-zone.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/galley.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/general-cargo.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/inspection-storage.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/mainmast-zone.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/medics-cabinet.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/aft-stair.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/bilge-pump.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/boarding-locker.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/captains-cabin.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/cargo-hatch.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/central-ladder.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/chain-locker.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/chart-table.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/companionway-hatch.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/crew-quarters.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/foredeck.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/foremast-zone.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/galley.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/general-cargo.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/inspection-storage.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/mainmast-zone.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/medics-cabinet.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/officers-berth.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/port-cannon.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/powder-magazine.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/prisoner-brig.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/provisions-store.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/quarterdeck.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/starboard-cannon.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/needs-style-fix/stern-swivel.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/officers-berth.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/port-cannon.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/powder-magazine.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/prisoner-brig.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/provisions-store.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/quarterdeck.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/starboard-cannon.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/vehicles/hcs-surety-layout/stern-swivel.webp",
+     "reason": "no live page: HCS Surety has no Vehicle page; no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    }
+   ],
+   "variant not selected (one Visual per slot)": [
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/drowned-maw-overview.png",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the trench panorama was imported)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/wolfrabbit-of-aruhe-v2.jpg",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the live wolfrabbit portrait was kept)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-banner.jpg",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the moored-ship banner was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Alys-Kuiper.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the painterly bust portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Barnaby-Rook.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Beaumont-Sel.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Bisou.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Branca.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Catarina-DaVirelli.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Crissdalynn-Archer.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the painterly image was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Delmar-Fisk-Archer.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the bust portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Ensign-Wouters.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Felix-Aho.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Jean-Claude-Archer.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the bust portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Ket.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Noor.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Perrin-Archer.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the painterly bust portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Simone-Tabarnack.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Thunk.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the portrait was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Uncertainty-blade-refit-v2.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the moored-ship banner was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Uncertainty-blade-refit.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the moored-ship banner was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/combat/otar-the-foul/otar-action.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the bust portrait was imported for Otar the Foul)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/dungeons/calveno-sewers/network-overview-map.png",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (the Session 05 cartographic overview battle map)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/portraits/Jean-Claude-Tabarnack-portrait.webp",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-calveno-sewer-magazines-overview-battlemap-realistic.png",
+     "reason": "variant not selected: its page's one slot takes a single Visual (a better image was imported) (maps stay cartographic; the plain overview was imported)"
+    }
+   ],
+   "no slot for its kind": [
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/11-02-upscaled.jpg",
+     "reason": "no slot: isometric Session 11 area/room art; placement.md defines no home for per-area art, and the Session 11 Scene ledes already hold their Visuals"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/11-03-upscaled.jpg",
+     "reason": "no slot: isometric Session 11 area/room art; placement.md defines no home for per-area art, and the Session 11 Scene ledes already hold their Visuals"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/11-04-upscaled.jpg",
+     "reason": "no slot: isometric Session 11 area/room art; placement.md defines no home for per-area art, and the Session 11 Scene ledes already hold their Visuals"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/11-06-upscaled.jpg",
+     "reason": "no slot: isometric Session 11 area/room art; placement.md defines no home for per-area art, and the Session 11 Scene ledes already hold their Visuals"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/11-07-upscaled.jpg",
+     "reason": "no slot: isometric Session 11 area/room art; placement.md defines no home for per-area art, and the Session 11 Scene ledes already hold their Visuals"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/11-08-upscaled.jpg",
+     "reason": "no slot: isometric Session 11 area/room art; placement.md defines no home for per-area art, and the Session 11 Scene ledes already hold their Visuals"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/great-crown-squid-of-aruhe-token.jpg",
+     "reason": "no slot: tokens and reference sheets are the DM's own uploads, not placement slots"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/11-02-upscaled.jpg",
+     "reason": "no slot: isometric Session 11 area/room art; placement.md defines no home for per-area art, and the Session 11 Scene ledes already hold their Visuals"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/11-03-upscaled.jpg",
+     "reason": "no slot: isometric Session 11 area/room art; placement.md defines no home for per-area art, and the Session 11 Scene ledes already hold their Visuals"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/11-04-upscaled.jpg",
+     "reason": "no slot: isometric Session 11 area/room art; placement.md defines no home for per-area art, and the Session 11 Scene ledes already hold their Visuals"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/11-06-upscaled.jpg",
+     "reason": "no slot: isometric Session 11 area/room art; placement.md defines no home for per-area art, and the Session 11 Scene ledes already hold their Visuals"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/11-07-upscaled.jpg",
+     "reason": "no slot: isometric Session 11 area/room art; placement.md defines no home for per-area art, and the Session 11 Scene ledes already hold their Visuals"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/11-08-upscaled.jpg",
+     "reason": "no slot: isometric Session 11 area/room art; placement.md defines no home for per-area art, and the Session 11 Scene ledes already hold their Visuals"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-handout.jpg",
+     "reason": "no slot: no Handout page exists for the Uncertainty"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Elemental-Plane-of-Water.webp",
+     "reason": "no slot: a cosmology Lore page records no single event the table pictures"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Nona-Black-Jaw-Arson.png",
+     "reason": "no slot: an NPC page's Visual is its portrait (already live); scene images of Nona have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Nona-Black-Jaw-Kitchen.png",
+     "reason": "no slot: an NPC page's Visual is its portrait (already live); scene images of Nona have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Nona-Black-Jaw-Kitchen~2.png",
+     "reason": "no slot: an NPC page's Visual is its portrait (already live); scene images of Nona have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/The-Shattered-Sea.webp",
+     "reason": "no slot: the World page takes no Visual (placement.md), and its lede already holds art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/dungeons/calveno-sewers/blackpowder-magazine.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/dungeons/calveno-sewers/handler-relay.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/dungeons/calveno-sewers/primary-chamber-battlemap.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/dungeons/calveno-sewers/sewer-entrance.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-01/art/session-01-01-hold-waiting.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-01/art/session-01-02-capn-gorgeous-ambush.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-01/art/session-01-04-geoffrey-defects.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-01/art/session-01-05-gangplank-geyser.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-01/art/session-01-06-poison-canister.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-01/art/session-01-07-beaumont-deflection.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-02/art/session-02-02-beaumont-reckoning.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-02/art/session-02-03-grigori-galley.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-02/art/session-02-04-ket-cage.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-02/art/session-02-05-ket-release.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-02/art/session-02-06-beaumont-departure.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-02/art/session-02-07-storm.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-01-auralis-dream.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-01-auralis-the-space.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-01-tail-joint-clue.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-02-hold-lobe.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-02-lobe-release.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-02-probing-fin.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-03-aftermath.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-03-grigori-healing.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-04-the-whale.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-04-watch-whale.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-05-black-jaw-channel.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-05-calveno-approach.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-05-la-vasca.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-05-the-watcher.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-05-watcher-close.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-06-branca-shrine.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-06-gangplank-water.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-06-shrine-communion.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-07-kyzil-arrival.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-07-kyzil-spar.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-03/art/session-03-calveno-sandbox-texture.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/beffa-false-alarm-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/beffa-false-alarm.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/beffa-grung-prank-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/beffa-grung-prank.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/calveno-beffa-evening.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/calveno-raid-aftermath-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/calveno-raid-aftermath.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/calveno-raid-overview-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/calveno-raid-overview.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/calveno-raid-plan-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/calveno-raid-plan.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/calveno-slaad-emergence-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/calveno-slaad-emergence.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/crowd-conditioning-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/crowd-conditioning.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/grung-mask-vendor-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/grung-mask-vendor.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/handler-cell-alley-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/handler-cell-alley.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/handler-crowd-watch-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/handler-crowd-watch.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/mercatura-plaza-collapse-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/mercatura-plaza-collapse.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/nona-aftermath-speech-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/nona-aftermath-speech.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/nona-briefing.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/primary-detonation-chamber-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/primary-detonation-chamber.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/purple-handler-disguise-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/purple-handler-disguise.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/secondary-strike-breach-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/secondary-strike-breach.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/session-04-01-kyzil-reunion.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/session-04-02-branca-pearl-summons.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/session-04-03-warren-ship-face.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/session-04-04-velo-handler.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/session-04-05-red-lady-salvage-money.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/session-04-06-beffe-registration.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/sewer-blackpowder-magazine-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/sewer-blackpowder-magazine.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/sewer-investigation-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/sewer-investigation.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/sewer-powder-discovery.png",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/vethka-at-anchor-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/vethka-at-anchor.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/warren-rattle-cascade-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/warren-rattle-cascade.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/warren-rattle-response-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/warren-rattle-response.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/warren-tunnel-entrance-stylefix.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/art/warren-tunnel-entrance.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/maps/session-04-calveno-raid-overview-map.png",
+     "reason": "no slot: a raid-wide overview map has no Scene page (Session 4) and no single Site"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/maps/session-04-le-paludi-handler-alley-map.png",
+     "reason": "no slot: the maps show unnamed encounter spaces, not Le Paludi's Areas (Al Fondale, Casa Lupo, Studio Orsini, La Vasca)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/maps/session-04-le-paludi-working-yard-breach-map.png",
+     "reason": "no slot: the maps show unnamed encounter spaces, not Le Paludi's Areas (Al Fondale, Casa Lupo, Studio Orsini, La Vasca)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/maps/session-04-mercatura-crater-battlemap.png",
+     "reason": "no slot: Mercatura is a Region (no ### Areas), and Session 4 has no Scene pages"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/maps/session-04-primary-detonation-chamber-map.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-04/maps/session-04-warren-sewer-y-junction-map.png",
+     "reason": "no slot: a sewer junction is not the Warren's Areas (homes, stores, lesson routes), and one battle map per Site"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-01-le-paludi-access-shaft-battlemap-realistic.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-01-le-paludi-access-shaft-battlemap.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-02-y-junction-battlemap-realistic.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-02-y-junction-battlemap.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-03-bridge-connector-battlemap-realistic.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-03-bridge-connector-battlemap.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-04-magazine-alpha-battlemap-realistic.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-04-magazine-alpha-battlemap.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-05-magazine-beta-battlemap-realistic.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-05-magazine-beta-battlemap.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-06-handler-relay-battlemap-realistic.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-06-handler-relay-battlemap.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-07-main-collector-battlemap-realistic.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-07-main-collector-battlemap.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-08-primary-detonation-chamber-battlemap-realistic.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-08-primary-detonation-chamber-battlemap.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-t1-magazine-gamma-battlemap-realistic.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-05/maps/session-05-room-t2-magazine-delta-battlemap-realistic.png",
+     "reason": "no slot: one battle map per Site (Calveno Sewer Magazines takes the Session 05 network overview); per-room maps have no slot"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-06/06-anzolo-at-the-quay.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-06/06-catarina-interrogation.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-06/06-catarina-investigation.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-06/06-catarina-otar-entry.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-06/06-catarina-tunnel-arrival.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-06/06-cats-curios-knighton-visit.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-06/06-magazine-beta-bazzoth.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-06/06-magazine-delta-ozzeth.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-06/06-magazine-gamma-vashu.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-06/06-mercatura-detonation.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/sessions/session-06/06-whale-beneath.webp",
+     "reason": "no slot: Sessions 1-10 have no Scene pages and a Recap takes one illustration, already imported"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/unsorted/aaracockra.jpeg",
+     "reason": "no slot: the only Aarakocra page is a Lore peoples page, which takes no Visual"
+    }
+   ],
+   "unidentifiable": [
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/unsorted/1778831684473.png",
+     "reason": "unidentifiable: a female navigator with a sextant (likely Lenne Vor, whose page holds draft Canon); no subject page to receive it"
+    }
+   ],
+   "no slot for a map": [
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea-overview-map.jpg",
+     "reason": "no slot for a map: placement.md gives Region/Settlement/Site pages a banner, not a map, and the World page takes no Visual"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/maps/Shattered-Sea-Map.webp",
+     "reason": "no slot for a map: placement.md gives Region/Settlement/Site pages a banner, not a map, and the World page takes no Visual"
+    }
+   ],
+   "page holds draft Canon (revealed empty)": [
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-spoke-ring-battlemap.jpg",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed (Spoke Ring)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-star-cut-battlemap.jpg",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed (Star Cut)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/celia-parel-overview.png",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed (Celia Parel)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/oren-vask-overview.png",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed (Oren Vask)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/session-11-06-cutoff-lip-base.jpg",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed (Cutoff Lip), and it is an illustrated scene, not a battle map"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Amatl-Tetl-Sunken-Crown.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Anzolo.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Atl-Tecatl-Sunken-Crown.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Chicau-Tetl-Sunken-Crown.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Fernen.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Giacomo-Moretti.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Halythion.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Leviathan.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Marta-Orsini.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Moucheron.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Outer-Reach.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Port-Tidefall.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Prospero-Morsani.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Sawek.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Sienne-Orre.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Sunken-Crown.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Tessarine-Trade-House-Tidefall.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/The-Doldrums.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/The-Shelfworks.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Tlahui-Can-Sunken-Crown.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Verdant-Scatter.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/portraits/Anzolo.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/portraits/Bastian-Crev.webp",
+     "reason": "page holds draft Canon (revealed empty): no Visual until revealed"
+    }
+   ],
+   "duplicate: page's Visual slot already holds live art": [
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-black-lotus.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Black Lotus)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-cutoff-lip.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Cutoff Lip)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-ghost-plum.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Ghost Plum)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-giants-guava.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Giant's Guava)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-grasslands-day.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Grasslands), and placement.md gives a Region a banner, not a map"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-grasslands-print-braid.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Print Braid)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-grubnade.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Grubnade)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-hungry-isle-v3.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Aruhe)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-lava-tubes-day.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Lava Tubes)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-lesser-black-lotus.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Lesser Black Lotus)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-memorial-grove-day.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Memorial Grove), and placement.md gives a Site a banner, not a map"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-old-gardens-day.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Old Gardens)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-quiet-forest-day.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (The Quiet), and placement.md gives a Region a banner, not a map"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-razer-grass.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Razer-Grass)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-redheart-berry.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Redheart Berry)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-river-day.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (The River), and placement.md gives a Region a banner, not a map"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-river-line-bank.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Line Bank)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-river-slack-basin.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Slack Basin)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-snakewood.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Snakewood)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-spiritpollen.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Spiritpollen)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-spoke-ring.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Spoke Ring)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-star-cut.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Star Cut)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-stillbloom.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Stillbloom)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-stonepear.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Stonepear)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-the-grasslands.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Grasslands)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-the-lava-tubes.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Lava Tubes)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-the-old-gardens.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Old Gardens)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-the-quiet.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (The Quiet)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-the-river.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (The River)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-torn-crossing.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Torn Crossing)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-unsaid-macaw.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Unsaid Macaw)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/bloodhawk-of-aruhe-flight.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Bloodhawk's portrait is live)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/countless-overview.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Countless' lede holds its Visual) and the page holds draft Canon"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/fate-spinner-overview.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Fate Spinner's lede holds its Visual)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/flying-boots-overview.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Flying Boots' lede holds its Visual)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/grung-authority-seal-overview.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Grung Authority Seal's lede holds its Visual)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/hinewai-blight-overview-v2.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Hinewai the Blight's portrait is live)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/hinewai-moonlit-harp.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Hinewai's lede holds her portrait and reveal art)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/hinewai-woman-in-the-woods-overview.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Hinewai's lede holds her portrait and reveal art)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/karath-overview.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Karath's lede holds its Visual)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/master-kyzil-overview.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Master Kyzil's portrait is live)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/matteo-scola-overview.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Matteo Scola's portrait is live)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/nona-black-jaw-banner.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Nona Black-Jaw's portrait is live; an NPC page takes no banner)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/session-11-02-landing-sign-overview.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Landing Sign's lede holds its Visuals)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/session-11-07-false-help-overview.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (False Help's lede holds its Visuals)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/banners/nona-black-jaw-banner.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Nona Black-Jaw's portrait is live; an NPC page takes no banner)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/aruhe-grasslands-day.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Grasslands), and placement.md gives a Region a banner, not a map"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/aruhe-memorial-grove-day.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Memorial Grove), and placement.md gives a Site a banner, not a map"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/aruhe-old-gardens-day.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Old Gardens)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/aruhe-river-day.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (The River), and placement.md gives a Region a banner, not a map"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/session-11-01-angry-birds-river-landing-portrait.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Angry Birds' lede holds three battle maps)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/hazards/aruhe-grubnade.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Grubnade)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/hazards/aruhe-razer-grass.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Razer-Grass)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/hazards/aruhe-snakewood.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Snakewood)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/hazards/aruhe-spiritpollen.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Spiritpollen)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/hazards/aruhe-stillbloom.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Stillbloom)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/hazards/aruhe-unsaid-macaw.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Unsaid Macaw)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/items/aruhe-ghost-plum.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Ghost Plum)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/items/aruhe-giants-guava.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Giant's Guava)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/items/aruhe-redheart-berry.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Redheart Berry)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/items/aruhe-stonepear.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Stonepear)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-hungry-isle-v3.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Aruhe)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-river-line-bank.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Line Bank)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-river-slack-basin.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Slack Basin)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-spoke-ring.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Spoke Ring)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-star-cut.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Star Cut)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-the-grasslands.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Grasslands)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-the-lava-tubes.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Lava Tubes)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-the-old-gardens.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Old Gardens)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-the-quiet.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (The Quiet)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-torn-crossing.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Torn Crossing)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/portraits/hinewai-blight-overview-v2.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Hinewai the Blight's portrait is live)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/portraits/hinewai-moonlit-harp.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Hinewai's lede holds her portrait and reveal art)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/portraits/hinewai-woman-in-the-woods-overview.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Hinewai's lede holds her portrait and reveal art)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/sessions/session-11-01-angry-birds-overview.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Angry Birds' lede holds three battle maps)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/sessions/session-11-02-landing-sign-overview.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (Landing Sign's lede holds its Visuals)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/sessions/session-11-07-false-help-overview.jpg",
+     "reason": "duplicate: its page's Visual slot already holds live art (False Help's lede holds its Visuals)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/taking-on-aruhe-overview.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Taking on Aruhe's lede holds its reveal art)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/talon-vantyrus-banner.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Talon Vantyrus' lede holds his Visuals)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/talon-vantyrus-overview.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Talon Vantyrus' lede holds his Visuals)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/two-grave-orders-overview.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Two-Grave Orders' lede holds its Visual)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/vine-lash-overview.png",
+     "reason": "duplicate: its page's Visual slot already holds live art (Vine-Lash's portrait is live)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Blight.webp",
+     "reason": "duplicate: its page's Visual slot already holds live art (Hinewai the Blight's portrait is live)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Master-Kyzil.webp",
+     "reason": "duplicate: its page's Visual slot already holds live art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Nona-Black-Jaw.webp",
+     "reason": "duplicate: its page's Visual slot already holds live art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Old-Faas.webp",
+     "reason": "duplicate: its page's Visual slot already holds live art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Sem-Holst.webp",
+     "reason": "duplicate: its page's Visual slot already holds live art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/The-Blight.webp",
+     "reason": "duplicate: its page's Visual slot already holds live art (Hinewai the Blight's portrait is live)"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/portraits/Geoffrey-Draves-Archer.webp",
+     "reason": "duplicate: its page's Visual slot already holds live art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/portraits/Geoffrey-Draves.webp",
+     "reason": "duplicate: its page's Visual slot already holds live art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/portraits/Master-Kyzil.webp",
+     "reason": "duplicate: its page's Visual slot already holds live art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/portraits/Old-Faas.webp",
+     "reason": "duplicate: its page's Visual slot already holds live art"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/portraits/Sem-Holst.webp",
+     "reason": "duplicate: its page's Visual slot already holds live art"
+    }
+   ],
+   "contradicts its page": [
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/Pell.webp",
+     "reason": "image contradicts the page: Pell is a gnome labourer; the image shows a female elf scholar"
+    },
+    {
+     "path": "prior/shattered-sea-wiki/wiki/assets/banners/The-Vestra.webp",
+     "reason": "contradicts the page: the Vestra lies wrecked on the seafloor; the seafloor overview was imported instead"
+    }
+   ],
+   "no slot for room/area art": [
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-aft-stair.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-bilge-pump.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-boarding-locker.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-captains-cabin.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-cargo-hatch.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-central-ladder.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-chain-locker.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-chart-table.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-companionway-hatch.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-crew-quarters.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-foredeck.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-foremast-zone.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-galley.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-general-cargo.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-inspection-storage.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-mainmast-zone.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-medics-cabinet.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-officers-berth.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-port-cannon.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-powder-magazine.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-prisoner-brig.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-provisions-store.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-quarterdeck.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-starboard-cannon.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/vehicles/uncertainty-layout-stern-swivel.jpg",
+     "reason": "no slot for room/area art: placement.md gives a Site one battle map under ### Areas and a Vehicle one banner, not per-room art"
+    }
+   ],
+   "duplicate of art already in the vault (same subject+kind already live)": [
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-river-otter-reference-sheet.jpg",
+     "reason": "duplicate of art already in the vault (river-otter-reference-sheet.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-river-otter-token.png",
+     "reason": "duplicate of art already in the vault (river-otter-token.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-western-landing-alternative-map-view.jpg",
+     "reason": "duplicate of art already in the vault (western-landing-battle-map-alternative.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/aruhe-western-landing-battlemap.jpg",
+     "reason": "duplicate of art already in the vault (western-landing-battle-map.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/auralis-reference.png",
+     "reason": "duplicate of art already in the vault (auralis-reference-sheet.png)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/bloodhawk-of-aruhe-token.jpg",
+     "reason": "duplicate of art already in the vault (bloodhawk-token.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/bloodhawk-of-aruhe.jpg",
+     "reason": "duplicate of art already in the vault (bloodhawk-portrait.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/deer-stalker-of-aruhe.jpg",
+     "reason": "duplicate of art already in the vault (deer-stalker-portrait.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/hinewai-reference-sheet.jpg",
+     "reason": "duplicate of art already in the vault (hinewai-reference-sheet.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/hinewai-woman-in-the-woods-token.jpg",
+     "reason": "duplicate of art already in the vault (hinewai-token.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/session-11-01-angry-birds-canopy-valley.jpg",
+     "reason": "duplicate of art already in the vault (session-11-angry-birds-battle-map-canopy-valley.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/session-11-01-angry-birds-descent.jpg",
+     "reason": "duplicate of art already in the vault (session-11-angry-birds-battle-map-descent.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/session-11-02-landing-sign-valley.jpg",
+     "reason": "duplicate of art already in the vault (session-11-landing-sign-battle-map-valley.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/session-11-05-otter-hole-base.jpg",
+     "reason": "duplicate of art already in the vault (session-11-otter-hole-battle-map.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/session-11-05-otter-hole-foundry.jpg",
+     "reason": "duplicate of art already in the vault (session-11-otter-hole-battle-map.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/session-11-07-false-help-base.jpg",
+     "reason": "duplicate of art already in the vault (session-11-false-help-battle-map.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/session-11-09-theft-on-the-watch-base.jpg",
+     "reason": "duplicate of art already in the vault (session-11-theft-on-the-watch-battle-map.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/aruhe-western-landing-battlemap.jpg",
+     "reason": "duplicate of art already in the vault (western-landing-battle-map.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/session-11-01-angry-birds-base.jpg",
+     "reason": "duplicate of art already in the vault (session-11-angry-birds-battle-map.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/session-11-01-angry-birds-canopy-valley.jpg",
+     "reason": "duplicate of art already in the vault (session-11-angry-birds-battle-map-canopy-valley.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/session-11-02-landing-sign-valley.jpg",
+     "reason": "duplicate of art already in the vault (session-11-landing-sign-battle-map-valley.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/session-11-05-otter-hole-foundry.jpg",
+     "reason": "duplicate of art already in the vault (session-11-otter-hole-battle-map.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/battlemaps/session-11-09-theft-on-the-watch-base.jpg",
+     "reason": "duplicate of art already in the vault (session-11-theft-on-the-watch-battle-map.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/character-references/crissdalynn-khinriss-reference.png",
+     "reason": "duplicate of art already in the vault (crissdalynn-khinriss-reference-sheet.png)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/character-references/delmar-fisk-reference.png",
+     "reason": "duplicate of art already in the vault (delmar-fisk-reference-sheet.png)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/character-references/jean-claude-tabarnack-reference.png",
+     "reason": "duplicate of art already in the vault (jean-claude-tabarnack-reference-sheet.png)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/character-references/perrin-black-jaw-reference.png",
+     "reason": "duplicate of art already in the vault (perrin-black-jaw-reference-sheet.png)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/character-references/talon-skarn-reference-sheet.jpg",
+     "reason": "duplicate of art already in the vault (talon-skarn-reference-sheet.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/aruhe-river-otter-reference-sheet.jpg",
+     "reason": "duplicate of art already in the vault (river-otter-reference-sheet.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/aruhe-river-otter-token.png",
+     "reason": "duplicate of art already in the vault (river-otter-token.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/bloodhawk-of-aruhe.jpg",
+     "reason": "duplicate of art already in the vault (bloodhawk-portrait.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/deer-stalker-of-aruhe-01.jpg",
+     "reason": "duplicate of art already in the vault (deer-stalker-portrait-1.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/deer-stalker-of-aruhe-02.jpg",
+     "reason": "duplicate of art already in the vault (deer-stalker-portrait-2.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/deer-stalker-of-aruhe-03.jpg",
+     "reason": "duplicate of art already in the vault (deer-stalker-portrait-3.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/deer-stalker-of-aruhe-reference-sheet.png",
+     "reason": "duplicate of art already in the vault (deer-stalker-reference-sheet.png)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/deer-stalker-of-aruhe-token.png",
+     "reason": "duplicate of art already in the vault (deer-stalker-token.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/deer-stalker-of-aruhe.jpg",
+     "reason": "duplicate of art already in the vault (deer-stalker-portrait.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/great-crown-squid-of-aruhe-01.jpg",
+     "reason": "duplicate of art already in the vault (crown-squid-portrait.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/hinewai-woman-in-the-woods-token.jpg",
+     "reason": "duplicate of art already in the vault (hinewai-token.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/spiguar-of-aruhe-token-stand.jpg",
+     "reason": "duplicate of art already in the vault (spiguar-token-stand.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/spiguar-of-aruhe-token.jpg",
+     "reason": "duplicate of art already in the vault (spiguar-token.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/spiguar-of-aruhe-token.png",
+     "reason": "duplicate of art already in the vault (spiguar-token.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/spiguar-of-aruhe.jpg",
+     "reason": "duplicate of art already in the vault (spiguar-portrait.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/terror-bird-of-aruhe-v4.jpg",
+     "reason": "duplicate of art already in the vault (terror-bird-portrait.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/wolfrabbit-of-aruhe-reference-sheet.jpg",
+     "reason": "duplicate of art already in the vault (wolfrabbit-reference-sheet.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/wolfrabbit-of-aruhe-token-stand.jpg",
+     "reason": "duplicate of art already in the vault (a wolfrabbit token is live)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/wolfrabbit-of-aruhe-token.jpg",
+     "reason": "duplicate of art already in the vault (wolfrabbit-token.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/wolfrabbit-of-aruhe-token.png",
+     "reason": "duplicate of art already in the vault (wolfrabbit-token.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/creatures/wolfrabbit-of-aruhe.jpg",
+     "reason": "duplicate of art already in the vault (wolfrabbit-portrait.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/places/aruhe-western-landing-alternative-map-view.jpg",
+     "reason": "duplicate of art already in the vault (western-landing-battle-map-alternative.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/portraits/talon-skarn-portrait.jpg",
+     "reason": "duplicate of art already in the vault (talon-skarn-portrait.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/reference/hinewai-reference-sheet.jpg",
+     "reason": "duplicate of art already in the vault (hinewai-reference-sheet.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/sessions/session-11-01-angry-birds-descent.jpg",
+     "reason": "duplicate of art already in the vault (session-11-angry-birds-battle-map-descent.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/shattered-sea/sessions/session-11-02-landing-sign-valley.jpg",
+     "reason": "duplicate of art already in the vault (session-11-landing-sign-battle-map-valley.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/spiguar-of-aruhe.jpg",
+     "reason": "duplicate of art already in the vault (spiguar-portrait.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/spiguar-reference.png",
+     "reason": "duplicate of art already in the vault (spiguar-reference-sheet.png)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/talon-skarn-portrait.jpg",
+     "reason": "duplicate of art already in the vault (talon-skarn-portrait.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/talon-skarn-reference-sheet.jpg",
+     "reason": "duplicate of art already in the vault (talon-skarn-reference-sheet.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/talon-skarn-token.png",
+     "reason": "duplicate of art already in the vault (talon-skarn-token.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/talon-vantyrus-reference.png",
+     "reason": "duplicate of art already in the vault (talon-vantyrus-reference-sheet.png)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/wolfrabbit-of-aruhe-reference-sheet.jpg",
+     "reason": "duplicate of art already in the vault (wolfrabbit-reference-sheet.jpg)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/wolfrabbit-of-aruhe.jpg",
+     "reason": "duplicate of art already in the vault (wolfrabbit-portrait.webp)"
+    },
+    {
+     "path": "prior/agentic-co-dm/wiki/attachments/young-bloodhawk-of-aruhe-token.jpg",
+     "reason": "duplicate of art already in the vault (young-bloodhawk-token.webp)"
+    }
+   ]
+  }
+ },
+ "room_set_verdicts": {
+  "hcs_surety_ship_rooms": "Reported (50 files, pool 1 vehicles/ incl. needs-style-fix copies). No HCS Surety Vehicle page exists in the live Wiki (only HCS Ordinance among the HCS ships), and placement.md gives a Vehicle a single banner in its lede - no home for per-room art.",
+  "uncertainty_ship_rooms": "Reported (25 uncertainty-layout files, pool 2). The Uncertainty Vehicle page exists, but placement.md gives a Vehicle one banner, not per-room art. The banner slot was filled from pool 1's moored-sunset ship; pool 2's cutaway banner was the unselected variant.",
+  "calveno_sewer_maps": "One placed: the Session 05 cartographic network overview is now calveno-sewer-magazines-battle-map.png, first line under the Site's ### Areas. The other 30 (per-room battlemaps, realistic variants, the parchment network overview, session-04 sewer maps) reported: one battle map per Site, no slot for per-room art. La Vasca's dry-dock map placed on la-vasca.md; the Warren junction and Le Paludi alley/yard maps reported (they are not those Sites' Areas); the Mercatura crater and raid-overview maps reported (Region has no Areas; no Scene pages for Session 4).",
+  "session_11_area_art": "Reported (12 files: 11-0X-upscaled.jpg top-level + subdir copies). Isometric Session 11 area illustrations; the Scene ledes already hold their Visuals and placement.md defines no per-area home."
+ },
+ "verification": {
+  "page_checks": "bun run cf -- check over all 54 affected pages (two batches): ok: 0 findings each",
+  "full_gate": "bun run cf -- check -> ok: 0 findings, 372 pages, 16 layers (template, placement, links, orphans, statblock, index, hot, log, mermaid, markdownlint, remark-lint, spelling, grammar, narration, style, boilerplate)",
+  "log": "cf log --op create appended one entry to wiki/shattered-sea/log.md listing all 54 pages; full gate re-run after: ok: 0 findings",
+  "attachments": "wiki/shattered-sea/attachments/ holds 158 files (104 pre-existing + 54 imported); every file embedded (gate orphans layer clean); dimensions kept; 6 jpg/png re-encoded to webp q85 by cf convert",
+  "git": "Own footprint: 54 modified pages (each diff exactly one bare embed insert; 6 of them also carry today's earlier cutover embed rewrites), 54 new attachment files, log.md. No old-style staged names remain; prior/ pools untouched; nothing committed."
+ }
+}

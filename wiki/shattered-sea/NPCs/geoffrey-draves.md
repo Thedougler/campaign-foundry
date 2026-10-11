@@ -15,7 +15,7 @@ revealed: "Session 1"
 title: "Geoffrey Draves"
 ---
 
-![[Geoffrey Draves - Portrait.webp|Geoffrey Draves, a lean nineteen-year-old Dravosi deckhand and ship's carpenter]]
+![[geoffrey-draves-portrait.webp|Geoffrey Draves, a lean nineteen-year-old Dravosi deckhand and ship's carpenter]]
 
 ## At a glance
 

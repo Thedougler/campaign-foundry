@@ -14,7 +14,7 @@ revealed: "Session 1"
 title: "Drowned Maw Awakening"
 ---
 
-![[Drowned Maw Awakening - Handout Art.png]]
+![[drowned-maw-awakening-handout-art.webp]]
 
 ## At a glance
 

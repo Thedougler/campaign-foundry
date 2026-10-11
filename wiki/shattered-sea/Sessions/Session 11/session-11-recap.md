@@ -11,6 +11,8 @@ revealed: "Session 11"
 title: "Session 11 - Recap"
 ---
 
+![[session-11-recap-scene.webp]]
+
 ## At a glance
 
 - **Session.** 11.

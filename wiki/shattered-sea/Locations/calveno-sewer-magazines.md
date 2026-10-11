@@ -25,6 +25,8 @@ title: "Calveno Sewer Magazines"
 
 ### Areas
 
+![[calveno-sewer-magazines-battle-map.png]]
+
 Room 5 and Magazine Beta are destroyed. Room 6 was surrendered. Room 8's ritual ended when Solange was consumed and Otar emerged. The Primary Chamber's ceiling collapsed and Ragnito was destroyed. Other cardinal routes are not established.
 
 ### Hazards

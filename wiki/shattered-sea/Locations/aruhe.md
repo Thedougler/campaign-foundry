@@ -21,7 +21,9 @@ revealed: "Session 9"
 title: "Aruhe"
 ---
 
-![[Aruhe - Handout Art.jpg]]
+![[aruhe-banner.webp]]
+
+![[aruhe-handout-art.webp]]
 
 ## At a glance
 

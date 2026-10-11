@@ -10,6 +10,8 @@ revealed: "Session 1"
 title: "Cap'n Gorgeous"
 ---
 
+![[capn-gorgeous-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Crown captain who led the boarding party against the [[saltwright|Saltwright]].

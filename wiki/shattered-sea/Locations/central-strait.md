@@ -12,6 +12,8 @@ revealed: "Backstory"
 title: "Central Strait"
 ---
 
+![[central-strait-banner.webp]]
+
 ## At a glance
 
 - **Character.** A broad corridor of clear blue-green water, forty to eighty miles across, running between the [[crown-islands|Crown Islands]] and the [[midchain|Midchain]]. Deep water, sheltered approaches and a current from astern arrive together almost nowhere else, so nearly everything moving between the colonial homelands and the Midchain uses it.

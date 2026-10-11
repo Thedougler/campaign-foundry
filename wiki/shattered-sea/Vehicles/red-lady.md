@@ -8,6 +8,8 @@ revealed: "Backstory"
 title: "Red Lady"
 ---
 
+![[red-lady-banner.webp]]
+
 ## At a glance
 
 - **Kind.** Ship of [[fisks-fleet|Fisk's Fleet]]'s five.

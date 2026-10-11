@@ -36,8 +36,8 @@ describe("renderMarkdown", () => {
 	});
 
 	it("embeds an attachment image from the module and shows a link line for an embedded page", () => {
-		const html = render("![[Battle Map.webp]]\n\n![[Sable#Statblock]]");
-		expect(html).toContain('<img src="modules/m/assets/Battle Map.webp"');
+		const html = render("![[battle-map.webp]]\n\n![[Sable#Statblock]]");
+		expect(html).toContain('<img src="modules/m/assets/battle-map.webp"');
 		expect(html).toContain("@UUID[Actor.abc123def456ghij]{Sable}");
 	});
 
@@ -49,7 +49,7 @@ describe("renderMarkdown", () => {
 
 	it("can keep only the narration callouts and the image right under each (a Handout)", () => {
 		const html = render(
-			"## At a glance\n\n- **Kind.** Letter.\n\n> [!narration] Handout text\n> To the three.\n\n![[Note - Handout.webp]]\n\n## Play\n\nDM only.",
+			"## At a glance\n\n- **Kind.** Letter.\n\n> [!narration] Handout text\n> To the three.\n\n![[note-handout-art.webp]]\n\n## Play\n\nDM only.",
 			{ narrationOnly: true },
 		);
 		expect(html).toContain("To the three.");

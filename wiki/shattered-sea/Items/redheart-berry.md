@@ -9,7 +9,7 @@ revealed: "Session 11"
 title: "Redheart Berry"
 ---
 
-![[Redheart Berry - Handout Art.jpg]]
+![[redheart-berry-handout-art.webp]]
 
 ## At a glance
 

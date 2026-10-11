@@ -12,6 +12,8 @@ revealed: "Backstory"
 title: "Beaumont Sel"
 ---
 
+![[beaumont-sel-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Captain of the Saltwright and Passage operative.

@@ -15,6 +15,8 @@ revealed: "Backstory"
 title: "Pearl of Souls"
 ---
 
+![[pearl-of-souls-render.webp]]
+
 ## At a glance
 
 - **Kind.** Plot item, instrument of Umberlee.

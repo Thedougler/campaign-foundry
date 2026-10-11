@@ -14,6 +14,8 @@ revealed: "Backstory"
 title: "Calven and Calveno"
 ---
 
+![[calven-and-calveno-banner.webp]]
+
 ## At a glance
 
 - **Size.** Marshes and tidal flats, a middle plateau and one city on solid ground.

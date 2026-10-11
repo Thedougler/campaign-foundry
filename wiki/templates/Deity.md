@@ -6,6 +6,10 @@ sources: []
 revealed: ""
 ---
 
+%% Optional. Include it when the Deity has a symbol from `skill://visuals`: the bare embed below, named with the page's slug. %%
+
+![[<slug>-symbol.webp]]
+
 ## At a glance
 
 %% Give the DM a ten-second read, one line per bullet. Domains are the 2024 rules' domains. Worshipped by links the Factions, peoples and Locations. Asks of followers is the conduct the Deity rewards. %%

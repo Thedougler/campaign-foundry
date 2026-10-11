@@ -41,8 +41,8 @@ describe("runPush", () => {
 			relationships: { systems: [{ id: "dnd5e", compatibility: { minimum: "5.3.3" } }] },
 			packs: [{ name: "adventure", type: "Adventure", system: "dnd5e", path: "packs/adventure" }],
 		});
-		expect(existsSync(join(result.modulePath!, "assets/Session-2-Mud-Under-the-Boards-Battle-Map.webp"))).toBe(true);
-		expect(existsSync(join(result.modulePath!, "assets/Hobb-s-Warning-Handout.webp"))).toBe(true);
+		expect(existsSync(join(result.modulePath!, "assets/session-2-mud-under-the-boards-battle-map.webp"))).toBe(true);
+		expect(existsSync(join(result.modulePath!, "assets/hobbs-warning-handout-art.webp"))).toBe(true);
 	});
 
 	it("unpacks to an Adventure whose documents are the ones planned", async () => {

@@ -10,7 +10,7 @@ revealed: "Session 11"
 title: "Slack Basin"
 ---
 
-![[Slack Basin - Handout Art.jpg]]
+![[slack-basin-handout-art.webp]]
 
 ## At a glance
 

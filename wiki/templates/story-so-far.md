@@ -17,6 +17,19 @@ revealed: ""
 - **Authority rung.**
 - **Central question.**
 
+## Timeline
+
+%% Optional. Include it once the Campaign has two arcs or more. Give one mermaid `timeline` with a section per arc, titled with its Session range, and a few words per Session from its Recap, per `skill://visuals`. The diagram below is the default shape. %%
+
+```mermaid
+timeline
+  section Sessions 1-3
+    Session 1 : The Party's choice
+    Session 3 : What it cost
+  section Sessions 4-6
+    Session 4 : The next turn
+```
+
 ## The story so far
 
 %% One `###` heading per arc, a run of Sessions that shared one question, titled with its Session range. Under each, retell what the Party did and what it cost in three to six sentences, past tense, citing each Session's Recap as a link. Tell only what the Recaps record. %%

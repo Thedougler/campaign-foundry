@@ -15,6 +15,8 @@ revealed: "Backstory"
 title: "Simone Tabarnack"
 ---
 
+![[simone-tabarnack-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Jean-Claude Tabarnack's younger sister, Sorn garrison officer and Grung toxin supplier to the Dravosi Crown.

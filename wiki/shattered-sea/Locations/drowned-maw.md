@@ -13,6 +13,8 @@ revealed: "Backstory"
 title: "Drowned Maw"
 ---
 
+![[drowned-maw-banner.webp]]
+
 ## At a glance
 
 - **Character.** A deep trench and boundary at the chart edge.

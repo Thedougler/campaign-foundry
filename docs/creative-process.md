@@ -77,7 +77,7 @@ Everything under `local://` stays outside the Wiki. Ingest files a Story into th
 |collab (the main agent)|`collab-with-me`|the DM|full|holds the conversation, does cheap reads and dispatches everything heavier|
 |`creative-writer`|[`.omp/agents/creative-writer.md`](../.omp/agents/creative-writer.md)|co-writing Seeds, Story prose drafts and "show me versions"|`read`, `yield`|writes prose to a brief, optimising for any Stance the brief names|
 |`persona`|[`.omp/agents/persona.md`](../.omp/agents/persona.md)|`simulate-npcs` step 3 only|none|plays one NPC from its dossier, one turn per Director command|
-|Director|collab itself, running `simulate-npcs` (only the top-level session dispatches Personas)|collab's Simulate stage, or a Prep runner's request from Prep step 4|full|frames scenes, commands each Persona and keeps the ledger|
+|Director|whichever agent runs `simulate-npcs`: collab itself, or a Prep runner|collab's Simulate stage, or Prep step 5 (Opposition)|full|frames scenes, commands each Persona and keeps the ledger|
 |Critic|a fresh native `task` subagent with `story-critique.md`|collab's Critique stage|full, leaves the bible and drafts as they are|answers the TTCW tests and returns findings|
 |`scout`|bundled|collab step 3|read-only|widens the Wiki search and returns relevant paths|
 |Ingest, Lint and Prep runners|fresh native `task` subagents|collab steps 5 and 6|full|file, check and build one chain at a time|
@@ -102,6 +102,20 @@ The TTSR rules in `.omp/rules/` interrupt an agent mid-output and point it back 
 
 - [`content-stance.md`](../.omp/rules/content-stance.md) is a judged rule over the text output of `creative-writer` and `persona`. Its question checks whether the output softens dark content the DM requested that no Line or Veil covers, and its body points at [Content stance](../AGENTS.md#content-stance). Judged rules run because [`.omp/config.yml`](../.omp/config.yml) sets `ttsr.judge: "on"`. Under the default `auto`, a missing native judge skips them silently.
 - [`wiki-dashes.md`](../.omp/rules/wiki-dashes.md) is a regex rule on `write` and `edit` calls to `wiki/**/*.md`. It matches an em or en dash and names the gate rules `ai-tells.EmDashUsage` and `Narration.NoEmDash`.
+
+## Fiction craft
+
+The DM's AI Fiction Prompting Guide (Second Brain, [ledger](research/agent-engineering.md)) shapes how every model is briefed for prose. Its parts are a story packet kept across scenes, a scene brief, a style anchor, and an editing pass limited to named diagnoses. Each part is already on Wiki pages or in a skill. A skill reads the owning page in place of building a brief of its own:
+
+|Guide part|Where it lives|
+|---|---|
+|Story packet: wants, fears, pressures and secrets|NPC drive fields (`npc-design`), PC Goals and bonds, Faction engines, Lore truths and their tellings|
+|Story packet: unresolved tensions and continuity|Threads, `hot.md` and `story-so-far.md` (`story-arc`), read by Prep and every Scene author|
+|Scene brief: purpose, conflict, subtext, beats and ending state|the Scene page and its Scene Chart row ([`docs/agents/scene-pages.md`](agents/scene-pages.md)), with the recipe's Job, Build and End for each callout; a Story Beat's brief in [`references/story.md`](../.omp/skills/collab-with-me/references/story.md)|
+|Style anchor|repo-root `user-config.md` § Prose voice, three matching passages from `reference/gm-voice/exemplars.md`, and an NPC's `## Quotes`|
+|Editing pass|the Hunt in `theatre-of-the-mind` `references/critique.md`, which rewrites flagged lines in place, and the `prose-grader`'s named diagnoses|
+
+For Shattered Sea Narration, the DM's Prose voice and ADR 0029's exemplar bar take precedence over the guide's generic style advice.
 
 ## Rule owners
 

@@ -106,8 +106,8 @@ What it does:
     journals       one per page, GM-only; a Handout is Player-visible and carries only its [!narration] callout and image
     actors         a dnd5e npc per Creature, and one per NPC that has a Creature, under the NPC's name
     items          a dnd5e Item per Item page, with its full rules text
-    foundry scenes one per Scene whose page or linked Site embeds a "<Page> - Battle Map.webp": 64 px grid, a token per
-                   embedded Creature, and walls, doors and lights from a "<Page> - Battle Map.uvtt" (or .dd2vtt) beside it
+    foundry scenes one per Scene whose page or linked Site embeds a "<page-slug>-battle-map.webp": 64 px grid, a token per
+                   embedded Creature, and walls, doors and lights from a "<page-slug>-battle-map.uvtt" (or .dd2vtt) beside it
   Every document has an ID derived from its Wiki page, so importing again updates it instead of duplicating it. PCs are
   never pushed. The module is packed with the official Foundry CLI; nothing needs a running Foundry. Afterwards it appends
   a "push" entry to the Campaign folder's log.md. A second Push with no Wiki change packs nothing and says "up to date".

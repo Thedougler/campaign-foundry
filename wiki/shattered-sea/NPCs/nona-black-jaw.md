@@ -20,7 +20,7 @@ revealed: "Backstory"
 title: "Nona Black-Jaw"
 ---
 
-![[Nona Black-Jaw - Portrait.jpg]]
+![[nona-black-jaw-portrait.webp]]
 
 ## At a glance
 

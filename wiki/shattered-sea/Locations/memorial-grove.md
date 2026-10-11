@@ -15,7 +15,9 @@ revealed: "Session 12"
 title: "Memorial Grove"
 ---
 
-![[Memorial Grove - Handout Art.jpg]]
+![[memorial-grove-banner.webp]]
+
+![[memorial-grove-handout-art.webp]]
 
 ## At a glance
 

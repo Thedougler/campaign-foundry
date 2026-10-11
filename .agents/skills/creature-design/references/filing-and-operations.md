@@ -2,7 +2,7 @@
 
 ## Creature page
 
-The template is the page schema. Copy `wiki/templates/Creature.md` and file the page at `<campaign-folder>/Creatures/<slug>.md`, the slug of its `title` (`docs/wiki-layout.md` **Page names**). A page already filed keeps its folder. Keep its required frontmatter, headings, single `[!narration]` callout, Base block and one `statblock` fence with `layout: Basic 5e Layout`. Do not create a second schema or a separate statblock page.
+The template is the page schema. Copy `wiki/templates/creature.md` and file the page at `<campaign-folder>/Creatures/<slug>.md`, the slug of its `title` (`docs/wiki-layout.md` **Page names**). A page already filed keeps its folder. Keep its required frontmatter, headings, single `[!narration]` callout, Base block and one `statblock` fence with `layout: Basic 5e Layout`. Do not create a second schema or a separate statblock page.
 
 Fill the template in its existing order:
 

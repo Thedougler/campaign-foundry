@@ -12,11 +12,11 @@ revealed: "Session 10"
 title: "Talon Vantyrus"
 ---
 
-![[Talon Vantyrus - Reference Sheet.png]]
+![[talon-vantyrus-reference-sheet.png]]
 
-![[Talon Vantyrus - Portrait.png]]
+![[talon-vantyrus-portrait.webp]]
 
-![[Talon Vantyrus - Portrait Banner.png]]
+![[talon-vantyrus-portrait-banner.webp]]
 
 ## At a glance
 

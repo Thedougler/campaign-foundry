@@ -11,7 +11,7 @@ revealed: "Session 11"
 title: "Matteo Scola"
 ---
 
-![[Matteo Scola - Portrait.png]]
+![[matteo-scola-portrait.webp]]
 
 ## At a glance
 

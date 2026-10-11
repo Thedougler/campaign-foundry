@@ -120,8 +120,8 @@ is one entry reading both directories (.omp/skills is the source of truth). Each
   skill      the skill's name
   links      skills it points at, from skill://<name> references and bare backticked skill
              names; repo skills and allowlisted external skills only, self-links dropped
-  templates  the wiki/templates/<type>.md files it names, by path or as templates/<type>.md,
-             normalised to wiki/templates/<type>.md
+  templates  the wiki/templates/<template>.md files it names, by path or as templates/<template>.md,
+             normalised to wiki/templates/<template>.md
 Scanned files: SKILL.md, every file under references/ and the skill-local Markdown files
 SKILL.md links to (one level). Code fences are ignored. cf eval validate fails on the
 skill:// references that resolve to nothing; this command reports the graph as it stands.

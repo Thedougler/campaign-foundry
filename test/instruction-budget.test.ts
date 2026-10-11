@@ -11,8 +11,8 @@ const EXPECTED_FILES = [
 	"CONTEXT.md",
 	"wiki/shattered-sea/campaign-config.md",
 ];
-/** The ratchet from ADR 0030: the chain's measured word count (10002 on landing, 2026-10-10). Lower it when the chain shrinks; raising it is a DM decision recorded in the ADR. */
-const WORD_CEILING = 9987;
+/** The ratchet from ADR 0030: the chain's measured word count (10002 on landing, 2026-10-10; 9880 after the 2026-10-10 visual programme and instruction passes). Lower it when the chain shrinks; raising it is a DM decision recorded in the ADR. */
+const WORD_CEILING = 9880;
 
 /** Every file the chain loads, first visit first, following `@path` import lines relative to the importing file. */
 function chainFiles(): string[] {

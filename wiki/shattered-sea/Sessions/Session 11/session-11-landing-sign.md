@@ -9,11 +9,11 @@ revealed: "Session 11"
 title: "Session 11 - Landing Sign"
 ---
 
-![[Session 11 - Landing Sign - Handout Art.jpg]]
+![[session-11-landing-sign-handout-art.webp]]
 
-![[Session 11 - Landing Sign - Battle Map.jpg]]
+![[session-11-landing-sign-battle-map.jpg]]
 
-![[Session 11 - Landing Sign - Battle Map Valley.jpg]]
+![[session-11-landing-sign-battle-map-valley.jpg]]
 
 ## At a glance
 

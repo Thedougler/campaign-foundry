@@ -14,6 +14,8 @@ revealed: "Backstory"
 title: "Fisk's Fleet"
 ---
 
+![[fisks-fleet-sigil.webp]]
+
 ## At a glance
 
 - **Goal.** Steal the Pearl of Souls from [[umberlee|Umberlee]]'s [[umberlees-shrine|shrine]] on [[vel-orn|Vel-Orn]]. The commission is done.

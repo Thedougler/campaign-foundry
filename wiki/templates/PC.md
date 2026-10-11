@@ -9,6 +9,12 @@ revealed: "Backstory"
 
 %% Two sides. The D&D Beyond pull (ADR 0009) replaces the sheet side (Sheet, Spells, Inventory) whole, so nobody edits it by hand. The pull leaves the story side (Story, Goals and bonds, Plans) as written. %%
 
+%% Optional. Include each when the PC has a portrait or a reference sheet from `skill://visuals`: the bare embeds below, named with the page's slug. %%
+
+![[<slug>-portrait.webp]]
+
+![[<slug>-reference-sheet.png]]
+
 ## Sheet
 
 %% Sheet side, pulled. The numbers the DM needs mid-round, with the ten-second read first. %%

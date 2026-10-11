@@ -9,7 +9,7 @@ revealed: "Session 11"
 title: "Session 11 - Wolfrabbits"
 ---
 
-![[Session 11 - Wolfrabbits - Handout Art.jpg]]
+![[session-11-wolfrabbits-handout-art.webp]]
 
 ## At a glance
 

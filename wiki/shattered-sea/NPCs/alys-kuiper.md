@@ -12,6 +12,8 @@ revealed: "Session 2"
 title: "Alys Kuiper"
 ---
 
+![[alys-kuiper-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Ship's surgeon aboard [[uncertainty|Uncertainty]], on the books from the Surety and named to the prize crew.

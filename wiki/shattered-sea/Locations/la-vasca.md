@@ -29,6 +29,8 @@ title: "La Vasca"
 
 ### Areas
 
+![[la-vasca-battle-map.png]]
+
 Canal arch, covered basin, iron-and-timber cradle, tool wall, stock and low-tide aft passage.
 
 ### Hazards

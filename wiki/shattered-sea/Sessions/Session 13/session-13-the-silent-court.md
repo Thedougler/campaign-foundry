@@ -53,7 +53,7 @@ Triggered change: the first seizure is roots through soil, Strength DC 19 or Res
 
 ### Battlefield
 
-![[Session 13 - The Hearing - Battle Map.webp]]
+![[session-13-the-hearing-battle-map.webp]]
 
 The ring and its approaches as under Terrain. The Party starts at the southern rim, the gallery fills the north benches, and the predators bed at the trees on every side.
 

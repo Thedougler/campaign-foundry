@@ -13,13 +13,13 @@ revealed: "Session 11"
 title: "Hinewai"
 ---
 
-![[Hinewai - Token.jpg]]
+![[hinewai-token.webp]]
 
-![[Hinewai - Reference Sheet.jpg]]
+![[hinewai-reference-sheet.jpg]]
 
-![[Hinewai - Portrait.png]]
+![[hinewai-portrait.webp]]
 
-![[Hinewai - Handout Art.jpg]]
+![[hinewai-handout-art.webp]]
 
 ## At a glance
 

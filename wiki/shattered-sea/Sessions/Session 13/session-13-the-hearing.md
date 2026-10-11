@@ -72,7 +72,7 @@ One body of the court has the floor, and the floor is where the verdict goes. Te
 
 ### Battlefield
 
-![[Session 13 - The Hearing - Battle Map.webp]]
+![[session-13-the-hearing-battle-map.webp]]
 
 The ring and its approaches as under Terrain, mapped above all. The Party stands as counsel inside the flowers, the gallery fills the north benches, and the predators bed at the trees.
 

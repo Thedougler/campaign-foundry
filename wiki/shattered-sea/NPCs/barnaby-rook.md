@@ -13,6 +13,8 @@ revealed: "Backstory"
 title: "Barnaby Rook"
 ---
 
+![[barnaby-rook-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Crown privateer captain and boarding officer, licensed by the [[letters-of-marque|Letters of Marque]].

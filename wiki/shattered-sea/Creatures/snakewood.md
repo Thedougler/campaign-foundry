@@ -7,7 +7,7 @@ revealed: ""
 title: "Snakewood"
 ---
 
-![[Snakewood - Handout Art.jpg]]
+![[snakewood-handout-art.webp]]
 
 ## At a glance
 

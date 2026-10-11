@@ -13,7 +13,7 @@ export const FOLDER = "salt-and-lantern";
 export const SESSIONS = `${FOLDER}/Sessions`;
 export const MUD = `${SESSIONS}/Session 2/Session 2 - Mud Under the Boards.md`;
 export const HANDOUT = `${SESSIONS}/Session 2/Hobb's Warning.md`;
-export const MAP = "Session 2 - Mud Under the Boards - Battle Map";
+export const MAP = "session-2-mud-under-the-boards-battle-map";
 
 export interface Workspace {
 	/** Repository-like root: `<root>/wiki` is the vault. */
@@ -45,11 +45,11 @@ export async function workspace(options: { maps?: boolean } = {}): Promise<Works
 	if (options.maps !== false) {
 		const attachments = join(vaultDir, `${FOLDER}/attachments`);
 		await mkdir(attachments, { recursive: true });
-		for (const file of [`${MAP}.webp`, `${MAP}.uvtt`, "Hobb's Warning - Handout.webp"]) await cp(join(pushFixtures, file), join(attachments, file));
+		for (const file of [`${MAP}.webp`, `${MAP}.uvtt`, "Mire Drowner-portrait.webp", "hobbs-warning-handout-art.webp"]) await cp(join(pushFixtures, file), join(attachments, file));
 		const mud = await ws.read(MUD);
 		await ws.write(MUD, mud.replace("### Battlefield\n", `### Battlefield\n\n![[${MAP}.webp]]\n`));
 		const note = await ws.read(HANDOUT);
-		await ws.write(HANDOUT, note.replace("> H. T.\n", "> H. T.\n\n![[Hobb's Warning - Handout.webp]]\n"));
+		await ws.write(HANDOUT, note.replace("> H. T.\n", "> H. T.\n\n![[hobbs-warning-handout-art.webp]]\n"));
 	}
 	return ws;
 }

@@ -12,7 +12,7 @@ revealed: "Session 12"
 title: "Lava Tubes"
 ---
 
-![[Lava Tubes - Handout Art.jpg]]
+![[lava-tubes-handout-art.webp]]
 
 ## At a glance
 

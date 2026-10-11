@@ -10,7 +10,7 @@ revealed: "Session 10"
 title: "Crown Squid"
 ---
 
-![[Crown Squid - Portrait.jpg]]
+![[crown-squid-portrait.webp]]
 
 ## At a glance
 

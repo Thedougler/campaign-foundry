@@ -1,6 +1,6 @@
 // Skill-graph scanning for `cf eval validate` and `cf eval graph` (issue #52): the files of a
 // skill that references are read from, the skill:// references and backticked skill names those
-// files hold, and the wiki/templates/<type>.md files they name. Everything here is deterministic
+// files hold, and the wiki/templates/<template>.md files they name. Everything here is deterministic
 // over the skill text; no judgement and no new frontmatter fields.
 
 import { realpathSync } from "node:fs";
@@ -189,7 +189,7 @@ export interface SkillGraphEntry {
 
 /**
  * The skill graph of a repository, one entry per skill name sorted by name: its links (skill://
- * references and bare backticked skill names, self-links dropped) and the wiki/templates/<type>.md
+ * references and bare backticked skill names, self-links dropped) and the wiki/templates/<template>.md
  * files it names, each list sorted. Where both roots hold a name, the entry reads both directories.
  */
 export async function buildSkillGraph(root: string): Promise<SkillGraphEntry[]> {

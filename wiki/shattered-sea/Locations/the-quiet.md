@@ -11,7 +11,7 @@ revealed: ""
 title: "The Quiet"
 ---
 
-![[The Quiet - Handout Art.jpg]]
+![[the-quiet-handout-art.webp]]
 
 ## At a glance
 

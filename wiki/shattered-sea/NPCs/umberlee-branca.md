@@ -12,6 +12,8 @@ revealed: "Session 3"
 title: "Umberlee - Branca"
 ---
 
+![[umberlee-branca-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Senior Calveno [[waveservants|Waveservant]] and appointment-keeper.

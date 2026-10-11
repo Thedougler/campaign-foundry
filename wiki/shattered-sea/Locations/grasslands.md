@@ -10,9 +10,9 @@ revealed: ""
 title: "Grasslands"
 ---
 
-![[Grasslands - Portrait.jpg]]
+![[grasslands-portrait.webp]]
 
-![[Grasslands - Handout Art.jpg]]
+![[grasslands-handout-art.webp]]
 
 ## At a glance
 

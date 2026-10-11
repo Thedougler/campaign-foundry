@@ -13,6 +13,8 @@ revealed: "Session 10"
 title: "Chain Council"
 ---
 
+![[chain-council-sigil.webp]]
+
 ## At a glance
 
 - **Goal.** Buy silence about the Pearl theft through increased tribute.

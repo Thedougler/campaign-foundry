@@ -9,11 +9,11 @@ revealed: "Session 11"
 title: "Session 11 - False Help"
 ---
 
-![[Session 11 - False Help - Handout Art 2.jpg]]
+![[session-11-false-help-handout-art-2.webp]]
 
-![[Session 11 - False Help - Handout Art.jpg]]
+![[session-11-false-help-handout-art.webp]]
 
-![[Session 11 - False Help - Battle Map.jpg]]
+![[session-11-false-help-battle-map.jpg]]
 
 ## At a glance
 

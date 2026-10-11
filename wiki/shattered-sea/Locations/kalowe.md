@@ -12,6 +12,8 @@ revealed: "Session 9"
 title: "Kalowe"
 ---
 
+![[kalowe-banner.webp]]
+
 ## At a glance
 
 - **Size.** Three reef-linked islets, about 1,800 residents and more when the dry dock is full.

@@ -10,6 +10,8 @@ revealed: "Session 5"
 title: "Catarina Da'Virelli"
 ---
 
+![[catarina-davirelli-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Artificer and salvage engineer.

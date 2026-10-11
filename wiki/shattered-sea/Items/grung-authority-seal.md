@@ -10,7 +10,7 @@ revealed: "Session 7"
 title: "Grung Authority Seal"
 ---
 
-![[Grung Authority Seal - Handout Art.png]]
+![[grung-authority-seal-handout-art.webp]]
 
 ## At a glance
 

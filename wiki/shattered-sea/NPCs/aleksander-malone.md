@@ -11,6 +11,8 @@ revealed: "Session 9"
 title: "Aleksander Malone"
 ---
 
+![[aleksander-malone-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Rival and Crown hunter, Hound of [[tyr|Tyr]], the face of the [[dravosi-crown|Dravosi Crown]]'s local threat in the region, running the [[grigori-and-the-crown-hunt|Grigori and the Crown hunt]].

@@ -12,7 +12,7 @@ revealed: "Session 2"
 title: "Old Faas"
 ---
 
-![[Old Faas - Portrait.webp]]
+![[old-faas-portrait.webp]]
 
 ## At a glance
 

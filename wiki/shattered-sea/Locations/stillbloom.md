@@ -10,7 +10,7 @@ revealed: ""
 title: "Stillbloom"
 ---
 
-![[Stillbloom - Handout Art.jpg]]
+![[stillbloom-handout-art.webp]]
 
 ## At a glance
 

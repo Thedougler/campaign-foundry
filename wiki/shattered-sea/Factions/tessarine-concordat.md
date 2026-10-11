@@ -12,6 +12,8 @@ revealed: "Backstory"
 title: "Tessarine Concordat"
 ---
 
+![[tessarine-concordat-sigil.webp]]
+
 ## At a glance
 
 - **Goal.** Contain public debt exposure while retaining salvage priority and control through paper.

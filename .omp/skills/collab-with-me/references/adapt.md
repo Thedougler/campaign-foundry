@@ -20,7 +20,7 @@ Convert every bible section through the row that names it. Each owner defines th
 |PC arcs (PC cards)|invitations from the PC's Goals and bonds|`npc-design` step 6 (Branch: recurring NPC), `plan-session` PC pull|
 |NPC cards (`[Character Descriptions]`)|NPC pages|`npc-design`|
 |Simulation voice lines|NPC Play lines: the ask, the refusal and the line under pressure|`npc-design` [`references/craft.md`](../../../../.agents/skills/npc-design/references/craft.md) Voice|
-|Simulation offscreen moves|a Thread's `Next development` or `If nobody acts`|[`wiki/templates/Thread.md`](../../../../wiki/templates/Thread.md)|
+|Simulation offscreen moves|a Thread's `Next development` or `If nobody acts`|[`wiki/templates/thread.md`](../../../../wiki/templates/thread.md)|
 |Story prose|Narration, written fresh for its callout|`theatre-of-the-mind`|
 |Setting (`[Setting]`)|Location pages|`location-design`|
 

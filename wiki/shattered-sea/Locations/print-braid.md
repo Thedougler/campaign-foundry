@@ -10,7 +10,7 @@ revealed: ""
 title: "Print Braid"
 ---
 
-![[Print Braid - Handout Art.jpg]]
+![[print-braid-handout-art.webp]]
 
 ## At a glance
 

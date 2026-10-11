@@ -8,13 +8,13 @@ revealed: "Session 11"
 title: "Spiguar"
 ---
 
-![[Spiguar - Token.jpg]]
+![[spiguar-token.webp]]
 
-![[Spiguar - Token Stand.jpg]]
+![[spiguar-token-stand.webp]]
 
-![[Spiguar - Reference Sheet.png]]
+![[spiguar-reference-sheet.png]]
 
-![[Spiguar - Portrait.jpg]]
+![[spiguar-portrait.webp]]
 
 ## At a glance
 

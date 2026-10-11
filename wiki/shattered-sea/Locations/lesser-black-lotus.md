@@ -12,7 +12,7 @@ revealed: "Session 11"
 title: "Lesser Black Lotus"
 ---
 
-![[Lesser Black Lotus - Handout Art.jpg]]
+![[lesser-black-lotus-handout-art.webp]]
 
 ## At a glance
 

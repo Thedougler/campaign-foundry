@@ -15,7 +15,9 @@ revealed: "Backstory"
 title: "Perrin Black-Jaw"
 ---
 
-![[Perrin Black-Jaw - Reference Sheet.png]]
+![[perrin-black-jaw-portrait.webp]]
+
+![[perrin-black-jaw-reference-sheet.png]]
 
 ## Sheet
 

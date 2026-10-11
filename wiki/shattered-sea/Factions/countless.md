@@ -9,7 +9,7 @@ revealed: ""
 title: "Countless"
 ---
 
-![[Countless - Handout Art.png]]
+![[countless-handout-art.webp]]
 
 ## At a glance
 

@@ -6,6 +6,10 @@ sources: []
 revealed: ""
 ---
 
+%% Optional. Include it when the Item has a render from `skill://visuals`: the bare embed below, named with the page's slug. %%
+
+![[<slug>-render.webp]]
+
 ## At a glance
 
 %% Give the DM a ten-second read, one line per bullet. Kind is consumable, magic item, artifact, plot object or mundane gear. Changes is the one choice it alters at the table. Held by links the current holder. %%

@@ -162,7 +162,7 @@ export function buildScene(input: SceneInput): BuiltScene {
 	const warnings: string[] = [];
 	const { uvtt } = input;
 	if (!uvtt) {
-		warnings.push(`${input.name}: no walls, doors or lights, because no Universal VTT file (<Page> - Battle Map.uvtt or .dd2vtt) sits beside the Battle Map.`);
+		warnings.push(`${input.name}: no walls, doors or lights, because no Universal VTT file (<page-slug>-battle-map.uvtt or .dd2vtt) sits beside the Battle Map.`);
 	} else {
 		const { map_size: size, pixels_per_grid: ppg } = uvtt.resolution;
 		if (Math.round(size.x * ppg) !== input.image.width || Math.round(size.y * ppg) !== input.image.height) {

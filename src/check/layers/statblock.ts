@@ -42,7 +42,7 @@ export function run(ctx: CheckContext): Finding[] {
 			continue;
 		}
 		if (blocks.length === 0) {
-			add("missing-statblock", 1, "Creature page has no `statblock` block.", "Add a ```statblock fence under `## Statblock` with the Fantasy Statblocks `Basic 5e Layout` fields; copy it from templates/Creature.md.");
+			add("missing-statblock", 1, "Creature page has no `statblock` block.", "Add a ```statblock fence under `## Statblock` with the Fantasy Statblocks `Basic 5e Layout` fields; copy it from templates/creature.md.");
 			continue;
 		}
 		for (const extra of blocks.slice(1)) {

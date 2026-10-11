@@ -11,7 +11,7 @@ revealed: "Session 4"
 title: "Flying Boots"
 ---
 
-![[Flying Boots - Handout Art.png]]
+![[flying-boots-handout-art.webp]]
 
 ## At a glance
 

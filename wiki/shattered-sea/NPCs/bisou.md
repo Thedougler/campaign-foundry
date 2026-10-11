@@ -11,6 +11,8 @@ revealed: "Session 2"
 title: "Bisou"
 ---
 
+![[bisou-portrait.webp]]
+
 ## At a glance
 
 - **Role.** [[beaumont-sel|Beaumont Sel]]'s capuchin monkey and delivery hand.

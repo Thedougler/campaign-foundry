@@ -95,7 +95,7 @@ export interface Vault {
 
 /** A page kind's template, read from `templates/`. */
 export interface Template {
-	/** Template file name without `.md`, e.g. `Location - Region`. */
+	/** Template file name without `.md`, e.g. `location-region`. */
 	name: string;
 	type: string;
 	kind?: string;
@@ -111,6 +111,7 @@ export interface Template {
 }
 
 export interface TemplateSet {
+	/** Keyed by `type`, or `<type> - <kind>` for a type with kinds, from each template's frontmatter. */
 	byName: Map<string, Template>;
 	/** Every valid `type`, with its valid `kind` values (empty when the type has none). */
 	types: Map<string, string[]>;

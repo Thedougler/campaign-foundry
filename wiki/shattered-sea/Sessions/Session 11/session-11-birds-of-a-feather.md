@@ -8,7 +8,7 @@ revealed: "Session 11"
 title: "Session 11 - Birds of a Feather"
 ---
 
-![[Session 11 - Birds of a Feather - Handout Art.png]]
+![[session-11-birds-of-a-feather-handout-art.webp]]
 
 ## At a glance
 

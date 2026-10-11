@@ -8,9 +8,11 @@ revealed: "Session 11"
 title: "River Otter"
 ---
 
-![[River Otter - Token.png]]
+![[river-otter-token.webp]]
 
-![[River Otter - Reference Sheet.jpg]]
+![[river-otter-reference-sheet.jpg]]
+
+![[river-otter-portrait.webp]]
 
 ## At a glance
 

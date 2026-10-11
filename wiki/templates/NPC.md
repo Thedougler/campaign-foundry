@@ -7,6 +7,10 @@ creature: ""
 revealed: ""
 ---
 
+%% Optional. Include it when this person has a portrait from `skill://visuals`: the bare embed below, named with the page's slug. %%
+
+![[<slug>-portrait.webp]]
+
 ## At a glance
 
 %% Give the DM a ten-second read, one line per bullet. Wants is an outcome the next Scene or Session can reach. Voice gives diction, rhythm, a habit, and how much they say. Found at links the Location. The `creature` property links the Creature page with their statistics, and the statblock belongs on that page. %%

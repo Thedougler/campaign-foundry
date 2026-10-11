@@ -1,6 +1,6 @@
 task:
   enableLsp: true
-  maxRecursionDepth: 1
+  maxRecursionDepth: 3
   agentModelOverrides:
     task: zai/glm-5.3
 providers:

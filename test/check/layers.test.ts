@@ -13,6 +13,7 @@ describe("the gate's layer registry", () => {
 			"index",
 			"hot",
 			"log",
+			"mermaid",
 			"markdownlint",
 			"remark-lint",
 			"spelling",

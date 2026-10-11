@@ -16,7 +16,7 @@ revealed: "Backstory"
 title: "Master Kyzil"
 ---
 
-![[Master Kyzil - Portrait.png]]
+![[master-kyzil-portrait.webp]]
 
 ## At a glance
 

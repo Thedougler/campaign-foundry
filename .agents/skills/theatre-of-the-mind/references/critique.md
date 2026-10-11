@@ -26,6 +26,7 @@ These are the table costs to listen for, each a sentence- or beat-level pattern.
 - **Commentary.** The narrator telling the table how to feel about what it just heard.
 - **Early release.** Tension resolved or a threat explained before a Player can answer it.
 - **Over-intensity.** Every beat pitched at the same high volume, so nothing stands out. Dread or wonder named as a mood where an object, an absence or a number belongs.
+- **Uncaused feeling.** An NPC, a crowd or a creature reacting before the table has heard what caused it. Put the cause in the block first, then the reaction: the rope creaks, and the deckhand flinches.
 - **Closed ambiguity.** A question the sources leave open answered by the block.
 - **Info-dump.** History, plans or lore arriving faster than the table can use in one round of play, or lore no player asked for and no roll bought.
 - **Templating.** Sentences built on one rhythm and shape, fluent and flat. The table stops hearing them.

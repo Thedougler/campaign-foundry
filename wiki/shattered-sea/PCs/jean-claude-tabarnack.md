@@ -14,7 +14,9 @@ revealed: "Backstory"
 title: "Jean-Claude Tabarnack"
 ---
 
-![[Jean-Claude Tabarnack - Reference Sheet.png]]
+![[jean-claude-tabarnack-portrait.webp]]
+
+![[jean-claude-tabarnack-reference-sheet.png]]
 
 ## Sheet
 

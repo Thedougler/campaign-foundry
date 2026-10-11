@@ -6,6 +6,10 @@ sources: []
 revealed: ""
 ---
 
+%% Optional. Include it when the craft has a banner from `skill://visuals`: the bare embed below, named with the page's slug. %%
+
+![[<slug>-banner.webp]]
+
 ## At a glance
 
 %% Give the DM a ten-second read, one line per bullet. Speed gives each mode. Crew gives the minimum crew beside the crew aboard now. Captain and Berth link their pages. %%

@@ -8,6 +8,8 @@ revealed: "Session 7"
 title: "Otar the Foul"
 ---
 
+![[otar-the-foul-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Named chaos entity and Mercatura crater opponent.

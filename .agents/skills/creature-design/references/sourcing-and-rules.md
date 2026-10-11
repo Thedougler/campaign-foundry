@@ -37,6 +37,6 @@ Before filing, reconcile every rule-bearing field against a retrieved 2024 sourc
 - action timing, recharge, uses, concentration, movement, reactions and any legendary or lair timing;
 - damage and condition interactions, resistances, immunities, senses and languages.
 
-Use the exact statblock field shape in `wiki/templates/Creature.md` and 2024 wording. Write derived values explicitly so the gate can recompute them. Apply the 2024 spell-slot rule in place of the 2014 restrictions. Under 2024 rules a creature can spend only one spell slot on its turn. A Bonus Action spell does not by itself forbid a leveled spell in the same turn, subject to that one-slot limit and the creature's actual actions.
+Use the exact statblock field shape in `wiki/templates/creature.md` and 2024 wording. Write derived values explicitly so the gate can recompute them. Apply the 2024 spell-slot rule in place of the 2014 restrictions. Under 2024 rules a creature can spend only one spell slot on its turn. A Bonus Action spell does not by itself forbid a leveled spell in the same turn, subject to that one-slot limit and the creature's actual actions.
 
 Back each mechanical claim with the retrieved rule, the World House Rule, or a clearly labelled design assumption. Do not invent a 2024 defensive/offensive CR formula.

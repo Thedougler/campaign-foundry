@@ -9,7 +9,7 @@ revealed: "Session 11"
 title: "Session 11 - Farthest Camp"
 ---
 
-![[Session 11 - Farthest Camp - Handout Art.jpg]]
+![[session-11-farthest-camp-handout-art.webp]]
 
 ## At a glance
 

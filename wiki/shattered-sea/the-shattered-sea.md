@@ -8,7 +8,7 @@ revealed: "Backstory"
 title: "The Shattered Sea"
 ---
 
-![[The Shattered Sea - Handout Art.jpg]]
+![[the-shattered-sea-handout-art.webp]]
 
 ## At a glance
 

@@ -10,9 +10,9 @@ revealed: "Session 11"
 title: "The River"
 ---
 
-![[The River - Portrait.jpg]]
+![[the-river-portrait.webp]]
 
-![[The River - Handout Art.jpg]]
+![[the-river-handout-art.webp]]
 
 ## At a glance
 

@@ -10,6 +10,8 @@ revealed: "Backstory"
 title: "High Eyrie"
 ---
 
+![[high-eyrie-banner.webp]]
+
 ## At a glance
 
 - **Draws the Party because.** The Sentinels keep the only continuous Maw observation ledgers.

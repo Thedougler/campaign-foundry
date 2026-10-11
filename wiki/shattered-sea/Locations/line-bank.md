@@ -10,7 +10,7 @@ revealed: ""
 title: "Line Bank"
 ---
 
-![[Line Bank - Handout Art.jpg]]
+![[line-bank-handout-art.webp]]
 
 ## At a glance
 

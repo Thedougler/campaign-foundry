@@ -7,6 +7,10 @@ date: ""
 revealed: ""
 ---
 
+%% Optional. Include it when the Session has a recap illustration from `skill://visuals`: the bare embed below, named with the page's slug. %%
+
+![[<slug>-scene.webp]]
+
 ## At a glance
 
 %% Give the DM a ten-second read, one line per bullet. Set `date` to the in-world date at the end of the Session, and `sources` to the Transcript. Left open keeps the link to the next Session's Previously On. %%

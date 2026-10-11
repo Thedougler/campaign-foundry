@@ -7,17 +7,17 @@ revealed: ""
 title: "Deer-Stalker"
 ---
 
-![[Deer-Stalker - Token.png]]
+![[deer-stalker-token.webp]]
 
-![[Deer-Stalker - Reference Sheet.png]]
+![[deer-stalker-reference-sheet.png]]
 
-![[Deer-Stalker - Portrait.jpg]]
+![[deer-stalker-portrait.webp]]
 
-![[Deer-Stalker - Portrait 3.jpg]]
+![[deer-stalker-portrait-3.webp]]
 
-![[Deer-Stalker - Portrait 2.jpg]]
+![[deer-stalker-portrait-2.webp]]
 
-![[Deer-Stalker - Portrait 1.jpg]]
+![[deer-stalker-portrait-1.webp]]
 
 ## At a glance
 

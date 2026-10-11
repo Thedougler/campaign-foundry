@@ -10,7 +10,7 @@ revealed: "Session 10"
 title: "Unsaid Macaw"
 ---
 
-![[Unsaid Macaw - Portrait.jpg]]
+![[unsaid-macaw-portrait.webp]]
 
 ## At a glance
 

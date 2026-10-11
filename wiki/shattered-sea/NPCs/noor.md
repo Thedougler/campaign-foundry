@@ -10,6 +10,8 @@ revealed: "Session 2"
 title: "Noor"
 ---
 
+![[noor-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Ship's cook (learning) aboard the [[uncertainty|Uncertainty]], the youngest of the crew, on the books at four gold a week, the cook rate. Served under [[barnaby-rook|Barnaby Rook]] before the capture.

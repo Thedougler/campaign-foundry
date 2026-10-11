@@ -10,7 +10,7 @@ An NPC is a named person who wants something now, with agency and a story. Their
 ## Guardrails
 
 - The caller's `root`, `vault`, and Campaign are authoritative. In an isolated fixture, scope every read, search, edit, command, index, and log to that target. Leave the ambient live Wiki untouched.
-- Read `CONTEXT.md`, `docs/wiki-layout.md`, and `wiki/templates/NPC.md`. The NPC template alone defines the page's sections and properties. Do not copy headings, fields, or paths from intent material.
+- Read `CONTEXT.md`, `docs/wiki-layout.md`, and `wiki/templates/npc.md`. The NPC template alone defines the page's sections and properties. Do not copy headings, fields, or paths from intent material.
 - Canon precedence is explicit DM instruction, what the DM or Players established at the table and the played Session record, then the Wiki, then Raw. Preserve heard Narration, played Session pages, and `hot.md`, and change each other page as its `revealed` property allows (`CONTEXT.md` **Revealed**). An explicit DM change overrides them. When Canon is silent, choose one concrete answer at the selected scale, file it as Canon, and report the decision with the pages it grew from. Never ask for bookkeeping approval or confirmation of edits.
 - Before invention, read the target Campaign folder's `index.md`, its `hot.md`, and the last ten entries of its `log.md`. Then search the Wiki, scoped to the caller's target (`.omp/AGENTS.md` § Wiki access), for the NPC, backlinks, home Location, Faction, connected people, relevant Threads and Recaps, and each relevant PC's `Goals and bonds` and `Plans`. Record every used hit or a reason it is irrelevant.
 - Page links make pages reachable. Every new NPC, Creature, or Thread gets an incoming link other than an index link before the gate runs.
@@ -24,7 +24,7 @@ An NPC is a named person who wants something now, with agency and a story. Their
 | Recurring | the NPC returns or changes a Thread | Scene result, invitations tied to every relevant PC's existing Goals, bonds, or Plans, and a concrete next move if ignored |
 | Villain | the NPC drives opposition across a Campaign | Recurring result plus an active plan on a suitable Campaign Thread, with the villain branch below |
 
-An incidental NPC still follows `wiki/templates/NPC.md` if filed. Write each required section in a sentence or two at the incidental scale.
+An incidental NPC still follows `wiki/templates/npc.md` if filed. Write each required section in a sentence or two at the incidental scale.
 
 ## Ordered work
 
@@ -96,7 +96,7 @@ Tie the NPC to each relevant PC only through an existing Goal, bond, or Plan. Ea
 
 ### 7. Branch: villain
 
-Read `references/villain.md`. In an active Campaign, put the plan on an existing suitable Thread and build on it in place of a parallel future plan. If no suitable Thread exists, create a Thread with `wiki/templates/Thread.md`, link it from the NPC, and make it reachable. Each step of the Thread is visible and interruptible, with a trigger, sign, resource or cost, consequence if ignored, Party interruption, fallback and villain reaction. Include at least three live endings reached through play, not a required single roll or cutscene. The villain acts between appearances and knows only what the fiction gives them.
+Read `references/villain.md`. In an active Campaign, put the plan on an existing suitable Thread and build on it in place of a parallel future plan. If no suitable Thread exists, create a Thread with `wiki/templates/thread.md`, link it from the NPC, and make it reachable. Each step of the Thread is visible and interruptible, with a trigger, sign, resource or cost, consequence if ignored, Party interruption, fallback and villain reaction. Include at least three live endings reached through play, not a required single roll or cutscene. The villain acts between appearances and knows only what the fiction gives them.
 
 With no active Campaign, retain the plan on the NPC in the World, do not invent a Campaign or Campaign Thread. Keep the plan active, interruptible, and consequential at World scale.
 
@@ -106,7 +106,7 @@ With no active Campaign, retain the plan on the NPC in the World, do not invent 
 
 Load `theatre-of-the-mind` for the NPC template's `[!narration] First look` and write it to the recipe in [references/craft.md](references/craft.md#first-look). Write the `Requests` and `If pressed` answers as Cues (`==…==` after their trigger) to its `references/recipes.md` § Cues. Preserve Narration already heard at the table unless the DM explicitly requests a rewrite.
 
-Copy `wiki/templates/NPC.md` exactly in `<campaign-folder>/NPCs/`. A page already filed keeps its folder. Fill its required `At a glance`, `Play`, `Depth`, and `Links` sections with only the facts the selected scale needs. Fill the optional `Quotes` only with lines the DM, a Transcript or a source gives this person, word for word, and leave it out when there are none. Link the Creature, Location, Faction, PCs, Threads, supporters, and other owners. If a Creature or Thread was created, file it with its own template and link it from the owner page.
+Copy `wiki/templates/npc.md` exactly in `<campaign-folder>/NPCs/`. A page already filed keeps its folder. Fill its required `At a glance`, `Play`, `Depth`, and `Links` sections with only the facts the selected scale needs. Fill the optional `Quotes` only with lines the DM, a Transcript or a source gives this person, word for word, and leave it out when there are none. Link the Creature, Location, Faction, PCs, Threads, supporters, and other owners. If a Creature or Thread was created, file it with its own template and link it from the owner page. Hand the filed pages to `visuals`.
 
 **Gate:** the page has the template's required properties, sections, and callout; the first look and every Cue are speakable and Player-safe; every new page is inbound-linked; no page contains agent process notes, inline rules, or empty filler.
 

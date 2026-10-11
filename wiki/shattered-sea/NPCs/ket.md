@@ -9,6 +9,8 @@ revealed: "Session 2"
 title: "Ket"
 ---
 
+![[ket-portrait.webp]]
+
 ## At a glance
 
 - **Role.** Freed prisoner of the Uncertainty.

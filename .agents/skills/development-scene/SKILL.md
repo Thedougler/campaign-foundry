@@ -14,7 +14,7 @@ The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scen
 
 ## Steps
 
-1. **Orient and ground.** Read `docs/agents/scene-pages.md` whole, then apply its **Orient** and **Ground**. The template is `wiki/templates/Scene - Development.md`. **Done when** both sections' Done criteria hold.
+1. **Orient and ground.** Read `docs/agents/scene-pages.md` whole, then apply its **Orient** and **Ground**. The template is `wiki/templates/scene-development.md`. **Done when** both sections' Done criteria hold.
 2. **Turn.** Select a card from **Cards** below, recorded as scene-pages **Card** directs. From the row's live Threads, preceding outcomes and that card, decide the turn: the new fact, access or choice that changes the Party's next move. Keep unsettled preceding outcomes conditional. A victory may open options, while a loss leaves costs and constraints in place. The assigned Spotlight makes a PC's goal, bond or fear drive the decision, with the PC's response left to their Player. **Done when** each supported entry state has a coherent opening and the turn changes a choice the Party can act on next.
 3. **Resolve the cast.** Apply scene-pages **Cast**. **Done when** its Done criterion holds.
 4. **Evidence.** Start the page as scene-pages **Page format** directs. Write the turn on `## At a glance`'s **The turn.** line. Put the full truth under `### Hidden truths`. In `### Situation`, give the Party's physical anchor to examine, handle or witness, such as a marked map, a document, a body, a meal with a speaker, or a ritual.
