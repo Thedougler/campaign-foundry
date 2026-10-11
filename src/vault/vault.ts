@@ -26,7 +26,7 @@ export async function readVaultFiles(dir: string): Promise<VaultFiles> {
 	const mdPaths = paths.filter((p) => p.endsWith(".md"));
 	for (const p of paths) if (!p.endsWith(".md")) attachments.push(p);
 	const sources = await Promise.all(mdPaths.map((p) => readFile(join(dir, p), "utf8")));
-	mdPaths.forEach((p, i) => markdown.set(p, sources[i] ?? ""));
+	for (const [i, p] of mdPaths.entries()) markdown.set(p, sources[i] ?? "");
 	return { markdown, attachments };
 }
 

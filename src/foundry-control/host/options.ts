@@ -49,9 +49,7 @@ export function mergeOptions(current: FoundryOptions, patch: FoundryOptions): Fo
 	const merged: FoundryOptions = { ...current };
 	for (const [key, value] of Object.entries(patch)) {
 		if (!OPTION_KEYS.includes(key)) {
-			throw new Error(
-				`Unknown option key \`${key}\`. Foundry's options.json accepts: ${OPTION_KEYS.join(", ")}`,
-			);
+			throw new Error(`Unknown option key \`${key}\`. Foundry's options.json accepts: ${OPTION_KEYS.join(", ")}`);
 		}
 		merged[key] = validateOption(key, value);
 	}
@@ -95,22 +93,29 @@ export async function writeOptions(
 	const path = `${config.dataPath}/Config/options.json`;
 	const backupCommand = `cp ${path} ${path}.bak-${stamp(now)}`;
 	const backup = await host.run(backupCommand);
-	if (backup.code !== 0) throw new HostCommandError(`Could not back options.json up: ${backup.stderr.trim()}`, backupCommand, backup.stderr);
+	if (backup.code !== 0)
+		throw new HostCommandError(`Could not back options.json up: ${backup.stderr.trim()}`, backupCommand, backup.stderr);
 
 	const readCommand = `cat ${path}`;
 	const read = await host.run(readCommand);
-	if (read.code !== 0) throw new HostCommandError(`Could not read options.json: ${read.stderr.trim()}`, readCommand, read.stderr);
+	if (read.code !== 0)
+		throw new HostCommandError(`Could not read options.json: ${read.stderr.trim()}`, readCommand, read.stderr);
 	let current: FoundryOptions;
 	try {
 		current = JSON.parse(read.stdout) as FoundryOptions;
 	} catch (error) {
-		throw new HostCommandError(`options.json is not valid JSON: ${error instanceof Error ? error.message : String(error)}`, readCommand, read.stderr);
+		throw new HostCommandError(
+			`options.json is not valid JSON: ${error instanceof Error ? error.message : String(error)}`,
+			readCommand,
+			read.stderr,
+		);
 	}
 
 	const merged = mergeOptions(current, patch);
 	const writeCommand = `cat > ${path}`;
 	const write = await host.run(writeCommand, `${JSON.stringify(merged, null, 2)}\n`);
-	if (write.code !== 0) throw new HostCommandError(`Could not write options.json: ${write.stderr.trim()}`, writeCommand, write.stderr);
+	if (write.code !== 0)
+		throw new HostCommandError(`Could not write options.json: ${write.stderr.trim()}`, writeCommand, write.stderr);
 	return {
 		options: merged,
 		restartRequired: true,

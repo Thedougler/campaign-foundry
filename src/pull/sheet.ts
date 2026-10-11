@@ -1,3 +1,4 @@
+import { slugify } from "../vault/dialect.ts";
 import type { DdbCharacter, DdbClass, DdbClassDefinition, DdbItem, DdbModifier, DdbSpell } from "./ddb.ts";
 
 /**
@@ -9,9 +10,21 @@ import type { DdbCharacter, DdbClass, DdbClassDefinition, DdbItem, DdbModifier, 
 export const ABILITIES = ["str", "dex", "con", "int", "wis", "cha"] as const;
 export type Ability = (typeof ABILITIES)[number];
 const ABILITY_NAMES: Record<Ability, string> = {
-	str: "strength", dex: "dexterity", con: "constitution", int: "intelligence", wis: "wisdom", cha: "charisma",
+	str: "strength",
+	dex: "dexterity",
+	con: "constitution",
+	int: "intelligence",
+	wis: "wisdom",
+	cha: "charisma",
 };
-const ABILITY_LABEL: Record<Ability, string> = { str: "Str", dex: "Dex", con: "Con", int: "Int", wis: "Wis", cha: "Cha" };
+const ABILITY_LABEL: Record<Ability, string> = {
+	str: "Str",
+	dex: "Dex",
+	con: "Con",
+	int: "Int",
+	wis: "Wis",
+	cha: "Cha",
+};
 
 export interface SpellEntry {
 	name: string;
@@ -45,19 +58,44 @@ export interface Sheet {
 
 const mod = (score: number): number => Math.floor((score - 10) / 2);
 const amount = (m: DdbModifier): number => m.fixedValue ?? m.value ?? 0;
-const slug = (name: string): string => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 /** Standard 5e slots by multiclass caster level, index 0 = caster level 1. */
 const MULTICLASS_SLOTS: number[][] = [
-	[2], [3], [4, 2], [4, 3], [4, 3, 2], [4, 3, 3], [4, 3, 3, 1], [4, 3, 3, 2], [4, 3, 3, 3, 1], [4, 3, 3, 3, 2],
-	[4, 3, 3, 3, 2, 1], [4, 3, 3, 3, 2, 1], [4, 3, 3, 3, 2, 1, 1], [4, 3, 3, 3, 2, 1, 1], [4, 3, 3, 3, 2, 1, 1, 1],
-	[4, 3, 3, 3, 2, 1, 1, 1], [4, 3, 3, 3, 2, 1, 1, 1, 1], [4, 3, 3, 3, 3, 1, 1, 1, 1], [4, 3, 3, 3, 3, 2, 1, 1, 1],
+	[2],
+	[3],
+	[4, 2],
+	[4, 3],
+	[4, 3, 2],
+	[4, 3, 3],
+	[4, 3, 3, 1],
+	[4, 3, 3, 2],
+	[4, 3, 3, 3, 1],
+	[4, 3, 3, 3, 2],
+	[4, 3, 3, 3, 2, 1],
+	[4, 3, 3, 3, 2, 1],
+	[4, 3, 3, 3, 2, 1, 1],
+	[4, 3, 3, 3, 2, 1, 1],
+	[4, 3, 3, 3, 2, 1, 1, 1],
+	[4, 3, 3, 3, 2, 1, 1, 1],
+	[4, 3, 3, 3, 2, 1, 1, 1, 1],
+	[4, 3, 3, 3, 3, 1, 1, 1, 1],
+	[4, 3, 3, 3, 3, 2, 1, 1, 1],
 	[4, 3, 3, 3, 3, 2, 2, 1, 1],
 ];
 
 /** Class features that only restate the level table or pick a subclass; the DM gains nothing from them. */
-const BORING_FEATURE = /^(\d+: )?Ability Score Improvement$|^Core .+ Traits$|^(Proficiencies|Hit Points|Equipment)$|(Subclass|Archetype|Specialist|Origin)$/;
-const BORING_TRAIT = new Set(["Creature Type", "Size", "Speed", "Ability Score Increases", "Ability Score Increase", "Languages", "Age", "Alignment"]);
+const BORING_FEATURE =
+	/^(\d+: )?Ability Score Improvement$|^Core .+ Traits$|^(Proficiencies|Hit Points|Equipment)$|(Subclass|Archetype|Specialist|Origin)$/;
+const BORING_TRAIT = new Set([
+	"Creature Type",
+	"Size",
+	"Speed",
+	"Ability Score Increases",
+	"Ability Score Increase",
+	"Languages",
+	"Age",
+	"Alignment",
+]);
 
 interface Context {
 	mods: DdbModifier[];
@@ -102,7 +140,8 @@ export function computeSheet(c: DdbCharacter): Sheet {
 	const ctx: Context = { mods: [], items, bodyArmor, shield, heavyArmor: bodyArmor?.definition.armorTypeId === 3 };
 	// A modifier with dice, or one whose restriction does not hold here ("against being charmed"), is conditional: left out.
 	ctx.mods = gathered.filter((m) => m.dice == null && restrictionHolds(m.restriction, ctx));
-	const of = (type: string, ...subTypes: string[]): DdbModifier[] => ctx.mods.filter((m) => m.type === type && subTypes.includes(m.subType));
+	const of = (type: string, ...subTypes: string[]): DdbModifier[] =>
+		ctx.mods.filter((m) => m.type === type && subTypes.includes(m.subType));
 	const bonus = (...subTypes: string[]): number => of("bonus", ...subTypes).reduce((sum, m) => sum + amount(m), 0);
 	const has = (type: string, subType: string): boolean => of(type, subType).length > 0;
 
@@ -136,7 +175,13 @@ export function computeSheet(c: DdbCharacter): Sheet {
 		const base = c.race?.weightSpeeds?.normal?.[kind] ?? 0;
 		if (base > 0) speeds[kind] = base;
 	}
-	const speedNames = { walk: "walking", fly: "flying", swim: "swimming", climb: "climbing", burrow: "burrowing" } as const;
+	const speedNames = {
+		walk: "walking",
+		fly: "flying",
+		swim: "swimming",
+		climb: "climbing",
+		burrow: "burrowing",
+	} as const;
 	for (const kind of Object.keys(speedNames) as (keyof typeof speedNames)[]) {
 		for (const m of [...of("set", `speed-${speedNames[kind]}`), ...of("set", `innate-speed-${speedNames[kind]}`)]) {
 			if (amount(m) > (speeds[kind] ?? 0)) speeds[kind] = amount(m);
@@ -148,7 +193,13 @@ export function computeSheet(c: DdbCharacter): Sheet {
 	const saves = {} as Sheet["saves"];
 	for (const a of ABILITIES) {
 		const proficient = has("proficiency", `${ABILITY_NAMES[a]}-saving-throws`);
-		saves[a] = { proficient, bonus: abilities[a].mod + (proficient ? proficiencyBonus : 0) + bonus("saving-throws", `${ABILITY_NAMES[a]}-saving-throws`) };
+		saves[a] = {
+			proficient,
+			bonus:
+				abilities[a].mod +
+				(proficient ? proficiencyBonus : 0) +
+				bonus("saving-throws", `${ABILITY_NAMES[a]}-saving-throws`),
+		};
 	}
 
 	const perception = has("expertise", "perception")
@@ -167,7 +218,7 @@ export function computeSheet(c: DdbCharacter): Sheet {
 		const abilityId = caster.spellCastingAbilityId ?? k.definition.spellCastingAbilityId;
 		const ability = ABILITIES[(abilityId ?? 0) - 1];
 		if (!ability) continue;
-		const s = slug(k.definition.name);
+		const s = slugify(k.definition.name);
 		spellcasting.push({
 			class: k.definition.name,
 			ability: ABILITY_LABEL[ability],
@@ -180,7 +231,9 @@ export function computeSheet(c: DdbCharacter): Sheet {
 	const sheet: Sheet = {
 		classes: c.classes.map((k) => ({
 			name: k.definition.name,
-			...(k.subclassDefinition ? { subclass: k.subclassDefinition.name.replace(/\s*\((?:Official[^)]*|[^)]*Subclass)\)$/, "") } : {}),
+			...(k.subclassDefinition
+				? { subclass: k.subclassDefinition.name.replace(/\s*\((?:Official[^)]*|[^)]*Subclass)\)$/, "") }
+				: {}),
 			level: k.level,
 		})),
 		species: c.race?.fullName ?? c.race?.baseRaceName ?? "",
@@ -220,7 +273,9 @@ function computeArmorClass(
 ): Sheet["armorClass"] {
 	const dex = abilities.dex.mod;
 	const magic = (item: DdbItem): number =>
-		(item.definition.grantedModifiers ?? []).filter((m) => m.type === "bonus" && m.subType === "magic").reduce((sum, m) => sum + amount(m), 0);
+		(item.definition.grantedModifiers ?? [])
+			.filter((m) => m.type === "bonus" && m.subType === "magic")
+			.reduce((sum, m) => sum + amount(m), 0);
 	const shieldBonus = ctx.shield ? (ctx.shield.definition.armorClass ?? 2) + magic(ctx.shield) : 0;
 	const extra = bonus("armor-class") + shieldBonus;
 	const shieldName = ctx.shield ? " + shield" : "";
@@ -263,7 +318,10 @@ function computeSlots(classes: DdbClass[]): { slots: number[]; pact?: { count: n
 		slots = (def.spellRules?.levelSpellSlots?.[k.level] ?? []).slice();
 		while (slots.length > 0 && slots[slots.length - 1] === 0) slots.pop();
 	} else if (normal.length > 1) {
-		const casterLevel = normal.reduce((sum, { k, def }) => sum + Math.floor(k.level / (def.spellRules?.multiClassSpellSlotDivisor || 1)), 0);
+		const casterLevel = normal.reduce(
+			(sum, { k, def }) => sum + Math.floor(k.level / (def.spellRules?.multiClassSpellSlotDivisor || 1)),
+			0,
+		);
 		slots = (MULTICLASS_SLOTS[Math.min(casterLevel, 20) - 1] ?? []).slice();
 	}
 	if (!warlock) return { slots };
@@ -282,10 +340,17 @@ function collectSpells(c: DdbCharacter): SpellEntry[] {
 		if (!seen.has(key)) seen.set(key, { name: spell.definition.name, level: spell.definition.level, tags });
 	};
 	for (const cs of c.classSpells ?? []) for (const s of cs.spells ?? []) add(s, undefined);
-	for (const [origin, label] of [["race", "species"], ["feat", "feat"], ["item", "item"], ["background", "background"]] as const) {
+	for (const [origin, label] of [
+		["race", "species"],
+		["feat", "feat"],
+		["item", "item"],
+		["background", "background"],
+	] as const) {
 		for (const s of c.spells?.[origin] ?? []) add(s, label);
 	}
-	return [...seen.values()].sort((a, b) => a.level - b.level || a.name.localeCompare(b.name) || a.tags.join().localeCompare(b.tags.join()));
+	return [...seen.values()].sort(
+		(a, b) => a.level - b.level || a.name.localeCompare(b.name) || a.tags.join().localeCompare(b.tags.join()),
+	);
 }
 
 function collectFeatures(c: DdbCharacter): Sheet["features"] {
@@ -293,11 +358,14 @@ function collectFeatures(c: DdbCharacter): Sheet["features"] {
 	for (const k of c.classes) {
 		const names = new Set<string>();
 		for (const def of [k.definition, k.subclassDefinition]) {
-			for (const f of def?.classFeatures ?? []) if (f.requiredLevel <= k.level && !BORING_FEATURE.test(f.name)) names.add(f.name);
+			for (const f of def?.classFeatures ?? [])
+				if (f.requiredLevel <= k.level && !BORING_FEATURE.test(f.name)) names.add(f.name);
 		}
 		if (names.size > 0) out.push({ source: k.definition.name, names: [...names].sort((a, b) => a.localeCompare(b)) });
 	}
-	const traits = (c.race?.racialTraits ?? []).filter((t) => !t.definition.hideInSheet && !BORING_TRAIT.has(t.definition.name)).map((t) => t.definition.name);
+	const traits = (c.race?.racialTraits ?? [])
+		.filter((t) => !t.definition.hideInSheet && !BORING_TRAIT.has(t.definition.name))
+		.map((t) => t.definition.name);
 	if (traits.length > 0) out.push({ source: "Species", names: [...new Set(traits)] });
 	const feats = [...new Set((c.feats ?? []).map((f) => f.definition.name))].sort((a, b) => a.localeCompare(b));
 	if (feats.length > 0) out.push({ source: "Feats", names: feats });

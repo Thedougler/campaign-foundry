@@ -14,7 +14,7 @@ interface CacheFile {
 }
 
 /** Bump when a prose view or a layer's mapping changes shape, so stale entries are never reused. */
-const CACHE_VERSION = 5;
+const CACHE_VERSION = 6;
 
 export const hash = (text: string): string => createHash("sha256").update(text).digest("hex");
 
@@ -35,7 +35,12 @@ async function read(root: string, layer: string, salt: string): Promise<Record<s
 	}
 }
 
-async function write(root: string, layer: string, salt: string, entries: Record<string, CachedFinding[]>): Promise<void> {
+async function write(
+	root: string,
+	layer: string,
+	salt: string,
+	entries: Record<string, CachedFinding[]>,
+): Promise<void> {
 	try {
 		const cacheDir = join(root, ".cache", "check");
 		await mkdir(cacheDir, { recursive: true });
@@ -79,7 +84,7 @@ export async function cachedByPage(
 	// Only a full run can prune unused entries; scoped runs merge their answers into the existing cache.
 	const next: Record<string, CachedFinding[]> = preserveUnused ? { ...stored } : {};
 	for (const page of pages) next[keyOf.get(page) ?? ""] = result.get(page) ?? [];
-	if (misses.length > 0 || Object.keys(next).length !== Object.keys(stored).length) await write(root, layer, fullSalt, next);
+	if (misses.length > 0 || Object.keys(next).length !== Object.keys(stored).length)
+		await write(root, layer, fullSalt, next);
 	return result;
 }
-

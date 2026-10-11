@@ -4,7 +4,7 @@ Read this for skill-creator step 4. The pair answers whether the skill helps or 
 
 ## Layout
 
-```
+```text
 <workspace>/                          from step 1, under OS temp
 ├── brief.md
 ├── skill-snapshot/                   from step 2, revisions only
@@ -33,9 +33,9 @@ The iteration follows the recipe's [Concurrency and cleanliness](../../../../eva
 
 1. **Runners.** Dispatch every selected case's two Runners in one `task` call, as the recipe's Runner step specifies, naming each item `<CaseCamel>With` or `<CaseCamel>Base`. Names can repeat across iterations, so take each run's `agent://` id from the task result. Done when every item has settled.
 2. **Save, split and Check.** In one Bash call, per run, set `out=<workspace>/iteration-<N>/<config>/<case-id>` as the recipe's `$out`, then run its Save and split and Checks steps; Checks land in `$out/checks.txt`. Write `$out/eval_metadata.json` per [`schemas.md`](schemas.md) so the viewer shows the prompt. A Runner task that failed or was aborted, or Checks exit 2, is that run's execution error. Done when every run directory holds `reply.txt` and `checks.txt`, or its execution error is recorded.
-3. **Graders.** For every run whose case has rubrics and whose `outputs/reply.md` exists, dispatch the recipe's Grade in one `task` call, named `<CaseCamel>WithGrade` or `<CaseCamel>BaseGrade`, then `cp agent://<id> "$out/grades.json"` per run. Done when each such run holds `grades.json` or a named grading error.
+3. **Graders.** For every run whose case has rubrics and whose generated `$out/outputs/reply.md` exists after Save and split, dispatch the recipe's Grade in one `task` call, named `<CaseCamel>WithGrade` or `<CaseCamel>BaseGrade`, then `cp agent://<id> "$out/grades.json"` per run. Done when each such run holds `grades.json` or a named grading error.
 
-**Done when** every selected case has both run directories, each holding `eval_metadata.json`, `reply.txt`, `checks.txt`, and `outputs/reply.md` or a recorded execution error, plus `grades.json` where the case has rubrics.
+**Done when** every selected case has both run directories, each holding `eval_metadata.json`, `reply.txt`, `checks.txt`, and the generated `$out/outputs/reply.md` or a recorded execution error, plus `grades.json` where the case has rubrics.
 
 ## Grade
 

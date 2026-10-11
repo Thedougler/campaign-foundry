@@ -25,7 +25,8 @@ export async function updateInstall(host: RemoteHost, config: HostConfig, opts: 
 		const envPath = `${composeDir}/.env`;
 		const readCommand = `cat ${envPath}`;
 		const read = await host.run(readCommand);
-		if (read.code !== 0) throw new HostCommandError(`Could not read ${envPath}: ${read.stderr.trim()}`, readCommand, read.stderr);
+		if (read.code !== 0)
+			throw new HostCommandError(`Could not read ${envPath}: ${read.stderr.trim()}`, readCommand, read.stderr);
 		const lines = read.stdout.replace(/\n$/, "").split("\n");
 		let replaced = false;
 		const rewritten = lines.map((line) => {
@@ -37,7 +38,8 @@ export async function updateInstall(host: RemoteHost, config: HostConfig, opts: 
 		const content = `${rewritten.join("\n")}\n`;
 		const writeCommand = `cat > ${envPath}`;
 		const write = await host.run(writeCommand, content);
-		if (write.code !== 0) throw new HostCommandError(`Could not write ${envPath}: ${write.stderr.trim()}`, writeCommand, write.stderr);
+		if (write.code !== 0)
+			throw new HostCommandError(`Could not write ${envPath}: ${write.stderr.trim()}`, writeCommand, write.stderr);
 		steps.push(writeCommand);
 		result.envWritten = content;
 	}
@@ -58,15 +60,22 @@ export interface ModuleInstallOptions {
 	name: string;
 }
 
-export async function installModuleArchive(host: RemoteHost, config: HostConfig, opts: ModuleInstallOptions): Promise<{ dir: string }> {
+export async function installModuleArchive(
+	host: RemoteHost,
+	config: HostConfig,
+	opts: ModuleInstallOptions,
+): Promise<{ dir: string }> {
 	if (opts.name.length === 0 || opts.name.includes("/") || opts.name.split("/").includes("..") || opts.name === "..") {
-		throw new Error(`A module name is a plain directory name inside Data/modules (no slashes, no ..); got: ${opts.name || "(empty)"}`);
+		throw new Error(
+			`A module name is a plain directory name inside Data/modules (no slashes, no ..); got: ${opts.name || "(empty)"}`,
+		);
 	}
 	const dir = `${config.dataPath}/Data/modules/${opts.name}`;
 	const steps = [`test -f ${opts.zip}`, `mkdir -p ${dir}`, `unzip -o ${opts.zip} -d ${dir}`];
 	for (const command of steps) {
 		const step = await host.run(command);
-		if (step.code !== 0) throw new HostCommandError(`Module install step failed: ${step.stderr.trim()}`, command, step.stderr);
+		if (step.code !== 0)
+			throw new HostCommandError(`Module install step failed: ${step.stderr.trim()}`, command, step.stderr);
 	}
 	return { dir };
 }

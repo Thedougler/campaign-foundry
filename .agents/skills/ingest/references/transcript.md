@@ -20,7 +20,7 @@ The **Session Ledger** is the contract between stages: the Ledger stages build i
 
 Every dispatch is one `task` call written as below:
 
-```
+```javascript
 task({
   context: "Session <N> Transcript ingest. The DM says: \"<words>\".",
   tasks: [
@@ -41,7 +41,7 @@ task({
 
 ### C0 Place
 
-1. **Pair.** The Transcript Summary is the `raw/` or `archive/` file that contains both `## SUMMARY` and `## KEY DISCUSSION POINTS` and whose name is the Transcript's stem plus ` - Summary`. Failing that, it is the summary the DM named. Failing that, there is none. The recording is the audio the DM named, else the audio files in `raw/` or `archive/` whose names start with the Transcript's stem (one file, or its parts). Failing both, there is none.
+1. **Pair.** The Transcript Summary is the `raw/` or `archive/` file that contains both `## SUMMARY` and `## KEY DISCUSSION POINTS` and whose name is the Transcript's stem plus `- Summary`. Failing that, it is the summary the DM named. Failing that, there is none. The recording is the audio the DM named, else the audio files in `raw/` or `archive/` whose names start with the Transcript's stem (one file, or its parts). Failing both, there is none.
 2. **Number.** Decide the Session number `N` by the first of these that gives one:
    1. the DM's words;
    2. a number in the Transcript's filename (`session[-_ ]?0*(\d+)` or `episode[-_ ]?0*(\d+)`, case-insensitive);
@@ -58,11 +58,11 @@ Done when `profile.json` and the archive copies exist, the detector is running o
 
 Dispatch in one batch the Brief and, when there is a Summary, the Summary check:
 
-```
+```text
 Read skill://ingest/references/ledger.md, then write the brief for Session <N> in <work>. Transcript: <transcript>. The DM says: "<words>".
 ```
 
-```
+```text
 Read skill://ingest/references/ledger.md, then check the Summary <summary> against the Transcript <transcript>. Write: <work>/summary-check.md.
 ```
 
@@ -72,7 +72,7 @@ Done when the Brief has returned the brief's path. The Summary check runs on thr
 
 Dispatch one `transcript-reader` per chunk in `profile.json`, all in one batch, `effort: lo`:
 
-```
+```text
 Chunk mode. Brief: <work>/brief.md. Transcript: <transcript>. Lines <A>-<B>. Write: <work>/chunk-<NN>.md.
 ```
 
@@ -82,15 +82,15 @@ Chunk mode. Brief: <work>/brief.md. Transcript: <transcript>. Lines <A>-<B>. Wri
 
 Dispatch in one batch the Merge and one Names per run of three chunk files (chunks 1 to 3, 4 to 6, and so on), plus the Highlights once the detector has written `highlights.json` (dispatch it on its own when the detector finishes later):
 
-```
+```text
 Read skill://ingest/references/ledger.md, then merge the chunk files in <work> for Session <N>. Transcript: <transcript>.
 ```
 
-```
+```text
 Read skill://ingest/references/ledger.md, then resolve the names in <work>/chunk-<a>.md to <work>/chunk-<b>.md. Transcript: <transcript>. Write: <work>/names-<k>.md.
 ```
 
-```
+```text
 Read skill://ingest/references/ledger.md, then judge the laughs in <work>/highlights.json for Session <N>. Transcript: <transcript>. Write: <work>/highlights.md.
 ```
 
@@ -104,7 +104,7 @@ The C3 returns list Verify task lines, each with its question count. One reader 
 
 Once every C3 and C4 stage and the Summary check have returned, send the Merge agent by `agent://<id>`:
 
-```
+```text
 Finish the Ledger. Verify answers: <work>/verify-*.md paths. Names: <work>/names-*.md paths. Summary check: <work>/summary-check.md or none. Highlights: <work>/highlights.md or none.
 ```
 
@@ -114,7 +114,7 @@ Done when it has returned the Ledger path, the unresolved flags and the dictiona
 
 Dispatch:
 
-```
+```text
 Read skill://ingest/references/units.md, then plan the units of the Session Ledger archive/<stem>.ledger.md for Session <N>. Work: <work>. Sources: <transcript>. The DM says: "<words>".
 ```
 
@@ -124,15 +124,15 @@ Done when it has returned its pages files, the new page titles and any dispatch 
 
 Dispatch in one batch one page writer per pages file, the Recap writer and the Previously On writer, plus each `skill-writer` the Units stage requested. The Units stage seeded the Recap with a link to the Previously On, so both pages pass their checks from the start. A pages file holding pages of a kind whose design skill a requested `skill-writer` is making waits for that `skill-writer` to return, then goes out on its own.
 
-```
+```text
 Read skill://ingest/references/writer.md, then write the pages in <work>/pages-<k>.md from the Session Ledger archive/<stem>.ledger.md. Transcript: <transcript>. The DM says: "<words>".
 ```
 
-```
+```text
 Read skill://ingest/references/writer.md, then write the Session <N> Recap from the Session Ledger archive/<stem>.ledger.md. Transcript: <transcript>. Link these pages, which their own writers fill: <titles>.
 ```
 
-```
+```text
 Read skill://ingest/references/writer.md, then write the Session <N+1> Previously On from the Session Ledger archive/<stem>.ledger.md. Transcript: <transcript>.
 ```
 
@@ -142,7 +142,7 @@ For a one-shot, dispatch only the page writers. Keep each writer's id for C8. Un
 
 The touched list is every path the writers returned. Dispatch the Close:
 
-```
+```text
 Read skill://ingest/references/writer.md, then close Session <N> from the Session Ledger archive/<stem>.ledger.md. Transcript: <transcript>. Touched: <touched-list paths>.
 ```
 
@@ -150,7 +150,7 @@ While it runs, run SKILL.md step 10 over the touched list. Send each finding by 
 
 Then do SKILL.md steps 11 and 12 over the whole touched list, and step 13's index: its Threads, `hot.md` and `story-so-far.md` are done. Dispatch the audit, which reads its pages from that log entry, and once it returns, run step 13's full gate and its `lint` slices:
 
-```
+```text
 Read skill://audit, then audit the Ingest entry for <file>.
 ```
 

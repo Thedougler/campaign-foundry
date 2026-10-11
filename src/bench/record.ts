@@ -9,22 +9,37 @@ export function loadGrades(path: string, entry: BenchEntry): RubricScore[] {
 	try {
 		parsed = JSON.parse(readFileSync(path, "utf8"));
 	} catch (error) {
-		throw new UsageError(`Cannot read grades from \`${path}\`: ${(error as Error).message}`, "The Judge writes a JSON array [{ rubric, score, reason }]; re-dispatch it with the judge brief if the file is broken.");
+		throw new UsageError(
+			`Cannot read grades from \`${path}\`: ${(error as Error).message}`,
+			"The Judge writes a JSON array [{ rubric, score, reason }]; re-dispatch it with the judge brief if the file is broken.",
+		);
 	}
 	if (!Array.isArray(parsed) || parsed.length !== entry.rubrics.length) {
-		throw new UsageError(`Grades in \`${path}\` are not ${entry.rubrics.length} scored rubrics.`, `Entry \`${entry.id}\` scores exactly ${entry.rubrics.length} rubrics; re-dispatch the Judge with its judge brief.`);
+		throw new UsageError(
+			`Grades in \`${path}\` are not ${entry.rubrics.length} scored rubrics.`,
+			`Entry \`${entry.id}\` scores exactly ${entry.rubrics.length} rubrics; re-dispatch the Judge with its judge brief.`,
+		);
 	}
 	return (parsed as Record<string, unknown>[]).map((grade, i) => {
 		const rubric = typeof grade.rubric === "string" ? grade.rubric : "";
 		if (rubric !== entry.rubrics[i]) {
-			throw new UsageError(`Grades in \`${path}\`: rubric ${i + 1} does not match the entry.`, `Expected "${entry.rubrics[i]}", got "${rubric}"; the Judge must quote each rubric verbatim from its brief.`);
+			throw new UsageError(
+				`Grades in \`${path}\`: rubric ${i + 1} does not match the entry.`,
+				`Expected "${entry.rubrics[i]}", got "${rubric}"; the Judge must quote each rubric verbatim from its brief.`,
+			);
 		}
 		const score = grade.score;
 		if (typeof score !== "number" || !Number.isInteger(score) || score < 1 || score > 5) {
-			throw new UsageError(`Grades in \`${path}\`: rubric ${i + 1} scores ${JSON.stringify(score)}.`, "Every rubric scores an integer 1–5; re-dispatch the Judge if it scaled differently.");
+			throw new UsageError(
+				`Grades in \`${path}\`: rubric ${i + 1} scores ${JSON.stringify(score)}.`,
+				"Every rubric scores an integer 1–5; re-dispatch the Judge if it scaled differently.",
+			);
 		}
 		if (typeof grade.reason !== "string" || grade.reason.trim() === "") {
-			throw new UsageError(`Grades in \`${path}\`: rubric ${i + 1} has no reason.`, "Every score carries a one-sentence reason quoting the sample.");
+			throw new UsageError(
+				`Grades in \`${path}\`: rubric ${i + 1} has no reason.`,
+				"Every score carries a one-sentence reason quoting the sample.",
+			);
 		}
 		return { rubric, score, reason: grade.reason };
 	});

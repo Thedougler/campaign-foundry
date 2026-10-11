@@ -48,7 +48,12 @@ export interface PushResult {
 }
 
 const emptyCounts = (): Counts =>
-	Object.fromEntries((["JournalEntry", "Actor", "Item", "Scene", "Folder"] as const).map((t) => [t, { added: 0, updated: 0, unchanged: 0 }])) as Counts;
+	Object.fromEntries(
+		(["JournalEntry", "Actor", "Item", "Scene", "Folder"] as const).map((t) => [
+			t,
+			{ added: 0, updated: 0, unchanged: 0 },
+		]),
+	) as Counts;
 
 export async function runPush(options: PushOptions): Promise<PushResult> {
 	const vault = buildVault(options.vault, await readVaultFiles(options.vault));
@@ -60,10 +65,20 @@ export async function runPush(options: PushOptions): Promise<PushResult> {
 	const counts = emptyCounts();
 	for (const { doc, change } of compared) counts[doc.type][change]++;
 	const changedDocs: PlanDoc[] = compared.filter((c) => c.change !== "unchanged").map((c) => c.doc);
-	const changed = compared.filter((c) => c.change !== "unchanged").map(({ doc, change }) => ({ type: doc.type, id: doc.id, name: doc.name, change }));
+	const changed = compared
+		.filter((c) => c.change !== "unchanged")
+		.map(({ doc, change }) => ({ type: doc.type, id: doc.id, name: doc.name, change }));
 	// The log lists pages, not folders; a doc's name is its page's name (ADR 0028).
 	const pages = [...new Set(changedDocs.filter((d) => d.path !== "").map((d) => d.name))].sort();
-	const result: PushResult = { plan, counts, changed, upToDate: changedDocs.length === 0, dryRun: options.dryRun ?? false, manifest: path, pages };
+	const result: PushResult = {
+		plan,
+		counts,
+		changed,
+		upToDate: changedDocs.length === 0,
+		dryRun: options.dryRun ?? false,
+		manifest: path,
+		pages,
+	};
 	if (result.upToDate || options.dryRun) return result;
 
 	const version = `0.${(previous?.pushes ?? 0) + 1}.0`;
@@ -74,8 +89,15 @@ export async function runPush(options: PushOptions): Promise<PushResult> {
 	if (options.install) result.installedTo = await installModule(out, options.install, plan.moduleId);
 
 	if (pages.length > 0) {
-		const entry = { date: today((options.now ?? (() => new Date()))()), op: "push", title: `Pushed Session ${plan.session} of ${plan.campaign} to Foundry`, pages };
-		const appended = await appendLogEntry(options.vault, plan.campaignFolder, entry, { example: `cf log --campaign "${plan.campaign}" --op push --title "${entry.title}"` });
+		const entry = {
+			date: today((options.now ?? (() => new Date()))()),
+			op: "push",
+			title: `Pushed Session ${plan.session} of ${plan.campaign} to Foundry`,
+			pages,
+		};
+		const appended = await appendLogEntry(options.vault, plan.campaignFolder, entry, {
+			example: `cf log --campaign "${plan.campaign}" --op push --title "${entry.title}"`,
+		});
 		if (appended.status === "error") throw new UsageError(appended.message, appended.hint);
 		result.logged = appended.path;
 	}
@@ -84,9 +106,11 @@ export async function runPush(options: PushOptions): Promise<PushResult> {
 		adventureId: plan.adventureId,
 		moduleId: plan.moduleId,
 		pushes: (previous?.pushes ?? 0) + 1,
-		docs: { ...(previous?.docs ?? {}), ...Object.fromEntries(plan.docs.map((d) => [docKey(d), { hash: d.hash, name: d.name, path: d.path }])) },
+		docs: {
+			...(previous?.docs ?? {}),
+			...Object.fromEntries(plan.docs.map((d) => [docKey(d), { hash: d.hash, name: d.name, path: d.path }])),
+		},
 	};
 	await writeManifest(path, manifest);
 	return result;
 }
-

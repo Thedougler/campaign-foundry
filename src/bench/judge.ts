@@ -22,7 +22,10 @@ export function renderJudgeBrief(templatePath: string, input: JudgeBriefInput): 
 	try {
 		template = readFileSync(templatePath, "utf8");
 	} catch {
-		throw new UsageError(`No judge template at \`${templatePath}\`.`, "The Judge's prompt is committed at `evals/bench/judge-brief.md`; run from the repository root.");
+		throw new UsageError(
+			`No judge template at \`${templatePath}\`.`,
+			"The Judge's prompt is committed at `evals/bench/judge-brief.md`; run from the repository root.",
+		);
 	}
 	const rubrics = input.entry.rubrics.map((rubric) => `- ${rubric}`).join("\n");
 	const filled = template
@@ -32,7 +35,10 @@ export function renderJudgeBrief(templatePath: string, input: JudgeBriefInput): 
 		.replaceAll("{{rubrics}}", rubrics)
 		.replaceAll("{{grades_path}}", input.gradesPath);
 	if (filled.includes("{{")) {
-		throw new UsageError(`Judge template \`${templatePath}\` holds an unknown placeholder.`, "Only {{brief}}, {{sample_id}}, {{sample}}, {{rubrics}} and {{grades_path}} are filled.");
+		throw new UsageError(
+			`Judge template \`${templatePath}\` holds an unknown placeholder.`,
+			"Only {{brief}}, {{sample_id}}, {{sample}}, {{rubrics}} and {{grades_path}} are filled.",
+		);
 	}
 	return filled;
 }

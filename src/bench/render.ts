@@ -9,7 +9,7 @@ export function renderLeaderboard(cache: BenchFile, set: PromptSet, matrix: Matr
 		"# Cross-family prose leaderboard",
 		"",
 		"Ranked Narration quality across model families, rendered from",
-		"`evals/benchmark.json` (the cache; a row is a HIT only when " + cache.hit_rule + ").",
+		`\`evals/benchmark.json\` (the cache; a row is a HIT only when ${cache.hit_rule}).`,
 		`Prompt set: \`evals/prose-bench.yaml\` (bench_version ${version}). Matrix pins:`,
 		"`evals/models.yaml`. Claude runs its own native skill-evals and is not ranked",
 		"here. Rows marked (cached) were not re-executed this run.",
@@ -28,7 +28,9 @@ export function renderLeaderboard(cache: BenchFile, set: PromptSet, matrix: Matr
 			const mean = hits.length === 0 ? 0 : hits.reduce((sum, row) => sum + (row.prose_score ?? 0), 0) / hits.length;
 			return { ...entry, hits, mean };
 		});
-	const order = [...perFamily].sort((a, b) => b.mean - a.mean || matrix.families.indexOf(a.family) - matrix.families.indexOf(b.family));
+	const order = [...perFamily].sort(
+		(a, b) => b.mean - a.mean || matrix.families.indexOf(a.family) - matrix.families.indexOf(b.family),
+	);
 	const table = [
 		"| family | model | samples | mean prose | per-type scores | rank |",
 		"| ------ | ----- | ------- | ---------- | --------------- | ---- |",
@@ -41,12 +43,17 @@ export function renderLeaderboard(cache: BenchFile, set: PromptSet, matrix: Matr
 			.filter((row): row is BenchRow => row !== undefined)
 			.map((row) => `${row.id} ${(row.prose_score ?? 0).toFixed(1)}`)
 			.join(", ");
-		table.push(`| ${family.name} | ${rows.at(-1)?.model ?? ""} | ${hits.length} / ${set.entries.length}${cached} | ${mean.toFixed(1)} | ${perType} | ${i + 1} |`);
+		table.push(
+			`| ${family.name} | ${rows.at(-1)?.model ?? ""} | ${hits.length} / ${set.entries.length}${cached} | ${mean.toFixed(1)} | ${perType} | ${i + 1} |`,
+		);
 	}
 	const notes = order.flatMap(({ family, rows }) => {
 		const unfinished = rows.filter((row) => row.status !== "scored");
 		if (unfinished.length === 0) return [];
-		const ids = unfinished.map((row) => row.id).sort().join(", ");
+		const ids = unfinished
+			.map((row) => row.id)
+			.sort()
+			.join(", ");
 		return [`> ${family.name} — ${unfinished[0]!.status}: ${ids} (${unfinished[0]!.reason ?? "no reason recorded"})`];
 	});
 	return `${header}## Prose Benchmark — ${runAt}\n\n${table.join("\n")}\n${notes.length > 0 ? `\n${notes.join("\n")}\n` : ""}`;
@@ -55,7 +62,8 @@ export function renderLeaderboard(cache: BenchFile, set: PromptSet, matrix: Matr
 /** The bench_version of the most recently recorded row, so the leaderboard always shows the newest run. */
 function latestVersion(cache: BenchFile): string | undefined {
 	const maxAt = new Map<string, string>();
-	for (const row of cache.results) maxAt.set(row.bench_version, maxRunAt(cache.results.filter((r) => r.bench_version === row.bench_version)));
+	for (const row of cache.results)
+		maxAt.set(row.bench_version, maxRunAt(cache.results.filter((r) => r.bench_version === row.bench_version)));
 	let best: { version: string; runAt: string } | undefined;
 	for (const [version, runAt] of maxAt) {
 		if (best === undefined || runAt > best.runAt) best = { version, runAt };

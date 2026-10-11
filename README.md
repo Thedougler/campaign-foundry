@@ -20,7 +20,7 @@ Commands run from the repo root through `package.json` scripts:
 
 - `bun run py:test` — pytest, which skips tests marked `slow`; `bun run py:lint` — `ruff check`; `bun run py:fmt` — `ruff format`, with `bun run py:fmt:check` verifying formatting.
 - `bun run py:test:slow` — the `slow` tests, which load the real PANNs model (below) and download its checkpoint on first run.
-- `bun run check:all` — every gate in one pass: agent-text style, typecheck, vitest, then Python lint, format check and tests.
+- `bun run check:all` runs every gate in one pass: `bun run lint --all` (agent text, the Wiki gate, Biome, tsc and ruff), then vitest and pytest.
 
 Python features reach agents through `cf`, the single entry surface: `bun run cf -- transcript highlights <recording or parts…> --transcript <export> [--json] [--clip-dir <dir>]` ranks a Session recording's laughs (PANNs `Cnn14_DecisionLevelMax` sound-event detection, ported from `shattered-sea-wiki`) and aligns each with the lines of its timestamped TranscribeX export, markdown or CSV, which the command tells apart by reading the file. `src/commands/transcript.ts` hands the arguments to `uv run --project python --extra highlights python -m campaign_foundry.highlights`. The `highlights` extra (torch, panns-inference) installs on the first scan, which also downloads the model checkpoint (about 330 MB) to `~/panns_data/` with `wget`; `ffmpeg` decodes the audio and cuts clips. `--help` lists every option and needs neither.
 

@@ -1,25 +1,24 @@
-import { analyzeCallout, narrationSentences } from "../../narration/analyze.ts";
+import { analyzeCallout, narrationSentences, plural } from "../../narration/analyze.ts";
 import envelope from "../../narration/envelope.json" with { type: "json" };
-import { calloutLines, linkedPages, pageWords } from "../../narration/sources.ts";
+import { linkedPages, pageWords } from "../../narration/sources.ts";
 import { englishWords } from "../english.ts";
-import { maskNames, vaultNameWords } from "../prose.ts";
+import { vaultNameWords } from "../prose.ts";
 import type { Finding, Layer } from "../types.ts";
-import { checkedPages } from "../util.ts";
+import { calloutLines, maskNames } from "../views.ts";
 
 /** A Cue longer than this stops being a table beat; the rest belongs in a callout or the DM notes. */
 const CUE_MAX_SENTENCES = 3;
 const CUE_MAX_WORDS = 60;
 
-const plural = (n: number, one: string, many = `${one}s`): string => `${n} ${n === 1 ? one : many}`;
-
 export const narrationLayer: Layer = {
 	name: "narration",
+	scope: "page",
 	description: "Narration structure and source echoes (craft warnings; token rules live in style).",
 	async run(ctx) {
 		const findings: Finding[] = [];
 		const names = new Set(vaultNameWords(ctx.vault));
 		const isWord = await englishWords();
-		for (const page of checkedPages(ctx)) {
+		for (const page of ctx.pages) {
 			const callouts = page.callouts.filter((callout) => callout.type === "narration");
 			if (callouts.length === 0 && page.cues.length === 0) continue;
 			const linked = linkedPages(ctx.vault, page).map((source) => pageWords(source));

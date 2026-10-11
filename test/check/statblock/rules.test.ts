@@ -150,7 +150,11 @@ describe("hit points", () => {
 	});
 
 	it('accepts either size of "Medium or Small"', () => {
-		expect(rules(change(GOBLIN, "size: Small", "size: Medium or Small").replace('"3d6"', '"3d8"').replace("hp: 10", "hp: 13"))).toEqual([]);
+		expect(
+			rules(
+				change(GOBLIN, "size: Small", "size: Medium or Small").replace('"3d6"', '"3d8"').replace("hp: 10", "hp: 13"),
+			),
+		).toEqual([]);
 	});
 
 	it("hit-dice-format: hit_dice must be NdS with an optional flat term", () => {
@@ -179,7 +183,7 @@ describe("attack rolls", () => {
 	});
 
 	it("without a Spellcasting trait only Str or Dex count", () => {
-		const noCaster = change(MAGE, /  - name: Spellcasting[\s\S]*$/, "");
+		const noCaster = change(MAGE, / {2}- name: Spellcasting[\s\S]*$/, "");
 		expect(rules(noCaster)).toEqual(["attack-bonus"]); // +9 is Int-based, and nothing names a spellcasting ability
 	});
 
@@ -188,7 +192,10 @@ describe("attack rolls", () => {
 	});
 
 	it("checks each attack in a section", () => {
-		const two = `${GOBLIN}`.replace("bonus_actions: []", `bonus_actions:\n  - name: Spit\n    desc: "*Ranged Attack Roll:* +9, range 30 ft. *Hit:* 3 (1d4 + 1) Acid damage."`);
+		const two = `${GOBLIN}`.replace(
+			"bonus_actions: []",
+			`bonus_actions:\n  - name: Spit\n    desc: "*Ranged Attack Roll:* +9, range 30 ft. *Hit:* 3 (1d4 + 1) Acid damage."`,
+		);
 		expect(rules(two)).toEqual(["attack-bonus"]);
 	});
 });
@@ -203,13 +210,19 @@ describe("damage", () => {
 
 	it("handles several dice terms", () => {
 		expect(rules(change(GOBLIN, "5 (1d6 + 2)", "5 (1d6 + 2) Slashing damage plus 7 (2d6) Fire"))).toEqual([]);
-		expect(rules(change(GOBLIN, "5 (1d6 + 2)", "5 (1d6 + 2) Slashing damage plus 8 (2d6) Fire"))).toEqual(["damage-average"]);
+		expect(rules(change(GOBLIN, "5 (1d6 + 2)", "5 (1d6 + 2) Slashing damage plus 8 (2d6) Fire"))).toEqual([
+			"damage-average",
+		]);
 	});
 });
 
 describe("save DCs", () => {
 	it("save-dc: a DC is 8 + proficiency bonus + an ability modifier", () => {
-		const breath = (dc: number) => `${GOBLIN}`.replace("bonus_actions: []", `bonus_actions:\n  - name: Spit\n    desc: "*Dexterity Saving Throw:* DC ${dc}, each creature in a 15-foot Cone."`);
+		const breath = (dc: number) =>
+			`${GOBLIN}`.replace(
+				"bonus_actions: []",
+				`bonus_actions:\n  - name: Spit\n    desc: "*Dexterity Saving Throw:* DC ${dc}, each creature in a 15-foot Cone."`,
+			);
 		expect(rules(breath(12))).toEqual([]); // 8 + 2 + Dex 2
 		expect(rules(breath(11))).toEqual(["save-dc"]); // 8 + 2 + Str -1 = 9, Dex 12, Con 10: 11 fits no ability
 	});
@@ -220,12 +233,19 @@ describe("save DCs", () => {
 	});
 
 	it("ignores DCs of ability checks", () => {
-		const check = `${GOBLIN}`.replace("traits: []", `traits:\n  - name: Knack\n    desc: "It escapes unless a creature succeeds on a DC 15 Wisdom (Perception) check."`);
+		const check = `${GOBLIN}`.replace(
+			"traits: []",
+			`traits:\n  - name: Knack\n    desc: "It escapes unless a creature succeeds on a DC 15 Wisdom (Perception) check."`,
+		);
 		expect(rules(check)).toEqual([]);
 	});
 
 	it("escape-dc: 10 + Str or Dex modifier, or the general 8 + proficiency bonus + an ability modifier", () => {
-		const grab = (dc: number) => `${GOBLIN}`.replace("bonus_actions: []", `bonus_actions:\n  - name: Grab\n    desc: "The target has the Grappled condition (escape DC ${dc})."`);
+		const grab = (dc: number) =>
+			`${GOBLIN}`.replace(
+				"bonus_actions: []",
+				`bonus_actions:\n  - name: Grab\n    desc: "The target has the Grappled condition (escape DC ${dc})."`,
+			);
 		expect(rules(grab(9))).toEqual([]); // 10 + Str -1
 		expect(rules(grab(12))).toEqual([]); // 10 + Dex 2, and 8 + 2 + Dex 2
 		expect(rules(grab(13))).toEqual(["escape-dc"]);

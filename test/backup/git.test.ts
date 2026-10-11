@@ -1,25 +1,26 @@
-import { execFileSync } from "node:child_process";
 import { rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { BACKUP_ROOTS, walkBackup } from "../../src/backup/files.ts";
 import { diffSince, hashAt, headCommit, usableBase } from "../../src/backup/git.ts";
 import { contentHash } from "../../src/backup/files.ts";
-import { lfsPointer, OID, repo } from "./helpers.ts";
+import { git, initGitRepo, lfsPointer, OID, repo } from "./helpers.ts";
 
 const W = "wiki/shattered-sea";
-
-function git(root: string, ...args: string[]): string {
-	return execFileSync("git", ["-c", "user.name=t", "-c", "user.email=t@t", "-c", "commit.gpgsign=false", ...args], { cwd: root, encoding: "utf8" }).trim();
-}
 
 describe("backup git diff", () => {
 	it("names changed, added and deleted files under the roots since a commit, and pairs each rename's old path with its new", () => {
 		const skill = "# Skill\n\nStep one.\nStep two.\nStep three.\nStep four.\n";
-		const root = repo({ [`${W}/a.md`]: "a\n", [`${W}/b.md`]: "b\n", [`${W}/c.md`]: "c\n", "src/x.ts": "x\n", ".agents/skills/s/SKILL.md": skill, ".omp/skills/run-evals/SKILL.md": "r\n", ".agents/skills/run-evals": { link: "../../.omp/skills/run-evals" } });
-		git(root, "init", "-q", "-b", "main");
-		git(root, "add", "-A");
-		git(root, "commit", "-qm", "one");
+		const root = repo({
+			[`${W}/a.md`]: "a\n",
+			[`${W}/b.md`]: "b\n",
+			[`${W}/c.md`]: "c\n",
+			"src/x.ts": "x\n",
+			".agents/skills/s/SKILL.md": skill,
+			".omp/skills/run-evals/SKILL.md": "r\n",
+			".agents/skills/run-evals": { link: "../../.omp/skills/run-evals" },
+		});
+		initGitRepo(root, "one");
 		const base = headCommit(root) ?? "";
 		writeFileSync(join(root, W, "a.md"), "a2\n");
 		rmSync(join(root, W, "b.md"));
@@ -37,16 +38,28 @@ describe("backup git diff", () => {
 		const { links } = walkBackup(root);
 		expect(links).toEqual([{ alias: ".agents/skills/run-evals", target: ".omp/skills/run-evals" }]);
 		const { changed, deleted, renamed } = diffSince(root, base, BACKUP_ROOTS, links);
-		expect([...changed].sort()).toEqual([".agents/skills/run-evals/SKILL.md", ".agents/skills/s/guide.md", ".agents/skills/s/new.yaml", `${W}/a.md`, `${W}/c2.md`]);
+		expect([...changed].sort()).toEqual([
+			".agents/skills/run-evals/SKILL.md",
+			".agents/skills/s/guide.md",
+			".agents/skills/s/new.yaml",
+			`${W}/a.md`,
+			`${W}/c2.md`,
+		]);
 		expect([...deleted].sort()).toEqual([".agents/skills/s/SKILL.md", `${W}/b.md`, `${W}/c.md`]);
-		expect(Object.fromEntries(renamed)).toEqual({ [`${W}/c.md`]: `${W}/c2.md`, ".agents/skills/s/SKILL.md": ".agents/skills/s/guide.md" });
+		expect(Object.fromEntries(renamed)).toEqual({
+			[`${W}/c.md`]: `${W}/c2.md`,
+			".agents/skills/s/SKILL.md": ".agents/skills/s/guide.md",
+		});
 	});
 
 	it("gives a file's content hash at a commit, as an LFS object id for a pointer and through a followed symlink", () => {
-		const root = repo({ [`${W}/a.md`]: "a\n", [`${W}/Map.png`]: lfsPointer(), ".omp/skills/run-evals/SKILL.md": "r\n", ".agents/skills/run-evals": { link: "../../.omp/skills/run-evals" } });
-		git(root, "init", "-q", "-b", "main");
-		git(root, "add", "-A");
-		git(root, "commit", "-qm", "one");
+		const root = repo({
+			[`${W}/a.md`]: "a\n",
+			[`${W}/Map.png`]: lfsPointer(),
+			".omp/skills/run-evals/SKILL.md": "r\n",
+			".agents/skills/run-evals": { link: "../../.omp/skills/run-evals" },
+		});
+		initGitRepo(root, "one");
 		const one = headCommit(root) ?? "";
 		writeFileSync(join(root, W, "a.md"), "a2\n");
 		git(root, "commit", "-qam", "two");

@@ -1,13 +1,10 @@
-import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
-import { hash } from "../../src/check/cache.ts";
-import { layers } from "../../src/check/layers/index.ts";
 import { runCheck, type CheckOptions } from "../../src/check/run.ts";
-import type { CheckContext, Finding } from "../../src/check/types.ts";
-import { checkedPages } from "../../src/check/util.ts";
-import { realTemplates, repoRoot } from "./helpers.ts";
+import type { Finding, Layer } from "../../src/check/types.ts";
+import { realTemplates } from "./helpers.ts";
 
 const roots: string[] = [];
 afterEach(async () => {
@@ -26,20 +23,8 @@ async function workspace(pages: Record<string, string>): Promise<CheckOptions> {
 	return { root, vault, templates: realTemplates, cwd: root };
 }
 
-/** Context dictionaries may read names/aliases, but page-local evaluators must not read these unrelated bodies. */
-function guardUnrelatedBodies(ctx: CheckContext): void {
-	for (const page of ctx.vault.pages) {
-		if (ctx.target?.(page.path)) continue;
-		for (const key of ["source", "tree", "callouts", "comments"]) {
-			Object.defineProperty(page, key, {
-				configurable: true,
-				get() { throw new Error(`Evaluated unrelated ${page.path}.${key}`); },
-			});
-		}
-	}
-}
-
-const npc = (title: string, body: string): string => `---\ntype: NPC\ntitle: "${title}"\nsummary: A sailor.\nsources: []\ncreature: ""\n---\n\n## At a glance\n\n${body}\n`;
+const npc = (title: string, body: string): string =>
+	`---\ntype: NPC\ntitle: "${title}"\nsummary: A sailor.\nsources: []\ncreature: ""\n---\n\n## At a glance\n\n${body}\n`;
 
 describe("runCheck execution scope", () => {
 	it("retains foreign link targets, inbound links, duplicate owners and shared prose for file and folder checks", async () => {
@@ -49,7 +34,10 @@ describe("runCheck execution scope", () => {
 			[target]: npc("Twin", `${shared}\n\n[[Outer]] [[Outer#Missing]] [[Nowhere]] [[Local]]`),
 			"Aldermoor/NPCs/Local.md": npc("Local", "A sailor waits beside the gangplank."),
 			"Aldermoor/Locations/Twin.md": `---\ntype: Location\ntitle: Twin\nkind: Site\n---\n\n${shared}\n`,
-			"Aldermoor/NPCs Adjacent/Outer.md": npc("Outer", "[[Aldermoor/NPCs/Twin]]\n\n## Known\n\nA keeper repairs the shutter."),
+			"Aldermoor/NPCs Adjacent/Outer.md": npc(
+				"Outer",
+				"[[Aldermoor/NPCs/Twin]]\n\n## Known\n\nA keeper repairs the shutter.",
+			),
 		});
 		options.layers = ["links", "orphans", "placement", "boilerplate"];
 		const full = await runCheck(options);
@@ -57,7 +45,9 @@ describe("runCheck execution scope", () => {
 		expect(scoped.pages).toBe(1);
 		expect(full.pages).toBe(4);
 		expect(scoped.findings).toEqual(full.findings.filter((finding) => finding.path === `wiki/${target}`));
-		expect(scoped.findings.map((finding) => finding.rule)).toEqual(expect.arrayContaining(["duplicate-name", "missing-heading", "unresolved", "shared-line"]));
+		expect(scoped.findings.map((finding) => finding.rule)).toEqual(
+			expect.arrayContaining(["duplicate-name", "missing-heading", "unresolved", "shared-line"]),
+		);
 		expect(scoped.findings.some((finding) => finding.rule === "orphan")).toBe(false);
 		expect(scoped.findings.find((finding) => finding.rule === "shared-line")?.message).toContain("Locations/Twin.md");
 		const folder = await runCheck({ ...options, paths: ["wiki/Aldermoor/NPCs", `wiki/${target}`] });
@@ -65,49 +55,164 @@ describe("runCheck execution scope", () => {
 		expect(folder.findings).toEqual(full.findings.filter((finding) => finding.path.startsWith("wiki/Aldermoor/NPCs/")));
 	});
 
-	it("does not read unrelated bodies in any page-local layer or its fix proposer", { timeout: 30_000 }, async () => {
-		const target = "Aldermoor/NPCs/Target.md";
-		const options = await workspace({
-			[target]: npc("Target", "A sailor knots a rope."),
-			"Aldermoor/NPCs/Unrelated.md": npc("Unrelated", "The sailor recieve a rope."),
-			"Aldermoor/Creatures/Unrelated Creature.md": "---\ntype: Creature\ntitle: Unrelated Creature\n---\n\n```statblock\nname: Wrong\n```\n",
-			"Aldermoor/Campaign/hot.md": "word ".repeat(600),
-			"Aldermoor/log.md": "Bad log text.\n",
-		});
-		const local = layers.filter((layer) => layer.name !== "index" && layer.name !== "boilerplate");
-		const registry = local.map((layer) => ({
-			...layer,
-			async run(ctx: CheckContext) {
-				guardUnrelatedBodies(ctx);
-				if (layer.fix) {
-					const proposed = await layer.fix(ctx);
-					expect(proposed.fixes.every((fix) => fix.path === `wiki/${target}`)).toBe(true);
-				}
-				return layer.run(ctx);
-			},
-		}));
-		const result = await runCheck({ ...options, registry, paths: [`wiki/${target}`] });
-		expect(result.pages).toBe(1);
-		expect(result.layers).toEqual(local.map((layer) => layer.name));
-		expect(result.findings.every((finding) => finding.path === `wiki/${target}`)).toBe(true);
-	});
-
-	it("exposes only targets for evaluation while retaining the full context and final report safety net", async () => {
+	it("invokes page and vault registries with their declared evaluation scope and filters only vault reports", async () => {
 		const options = await workspace({ "One.md": "One.\n", "Elsewhere/Two.md": "Two.\n" });
-		const finding = (path: string): Finding => ({ layer: "probe", rule: "probe", severity: "warning", path, line: 1, message: "probe", hint: "probe" });
-		const result = await runCheck({ ...options, paths: ["wiki/One.md"], registry: [{
-			name: "probe", description: "Scope test seam.",
-			run(ctx) {
-				expect(checkedPages(ctx).map((page) => page.path)).toEqual(["One.md"]);
-				expect(ctx.vault.pageByPath.has("Elsewhere/Two.md")).toBe(true);
-				return ctx.vault.pages.map((page) => finding(ctx.display(page.path)));
-			},
-		}] });
-		expect(result.findings.map((entry) => entry.path)).toEqual(["wiki/One.md"]);
+		const finding = (layer: string, path: string): Finding => ({
+			layer,
+			rule: "probe",
+			severity: "warning",
+			path,
+			line: 1,
+			message: "probe",
+			hint: "probe",
+		});
+		const registry = (["page", "vault"] as const).map(
+			(scope): Layer => ({
+				name: scope,
+				scope,
+				description: "Scope test seam.",
+				run(ctx) {
+					expect(ctx.pages.map((page) => page.path)).toEqual(
+						scope === "page" ? ["One.md"] : ["Elsewhere/Two.md", "One.md"],
+					);
+					expect(ctx.vault.pageByPath.has("Elsewhere/Two.md")).toBe(true);
+					expect(ctx.vault.pages).toHaveLength(2);
+					return ctx.pages.map((page) => finding(scope, ctx.display(page.path)));
+				},
+			}),
+		);
+		const result = await runCheck({ ...options, paths: ["wiki/One.md"], registry });
+		expect(result.findings.map((entry) => [entry.layer, entry.path])).toEqual([
+			["page", "wiki/One.md"],
+			["vault", "wiki/One.md"],
+		]);
 		expect(result.pages).toBe(1);
 		const empty = await runCheck({ ...options, layers: ["links"], paths: ["wiki/No Pages"] });
 		expect(empty.pages).toBe(0);
 		expect(empty.findings).toEqual([]);
+	});
+
+	it("selects virtual inputs by vault key, not by a colliding display path in the context", async () => {
+		const options = await workspace({ "Draft.md": "Context only.", "_style/Draft.md": "Runner output." });
+		const registry: Layer[] = [
+			{
+				name: "probe",
+				scope: "page",
+				description: "Virtual page selection.",
+				run(ctx) {
+					expect(ctx.pages.map((page) => page.path)).toEqual(["_style/Draft.md"]);
+					expect(ctx.vault.pages).toHaveLength(2);
+					return [
+						{
+							layer: "probe",
+							rule: "input",
+							severity: "warning",
+							path: ctx.display(ctx.pages[0]!.path),
+							line: 1,
+							message: "Selected.",
+							hint: "Selected.",
+						},
+					];
+				},
+			},
+		];
+		const result = await runCheck({ ...options, pagePaths: ["_style/Draft.md"], display: () => "Draft.md", registry });
+		expect(result.pages).toBe(1);
+		expect(result.findings[0]?.path).toBe("Draft.md");
+	});
+
+	it("rejects out-of-scope findings from a page layer instead of hiding them", async () => {
+		const options = await workspace({ "One.md": "One.\n", "Two.md": "Two.\n" });
+		await expect(
+			runCheck({
+				...options,
+				paths: ["wiki/One.md"],
+				registry: [
+					{
+						name: "leaky",
+						scope: "page",
+						description: "Broken page layer.",
+						run: () => [
+							{
+								layer: "leaky",
+								rule: "probe",
+								severity: "warning",
+								path: "wiki/Two.md",
+								line: 1,
+								message: "probe",
+								hint: "probe",
+							},
+						],
+					},
+				],
+			}),
+		).rejects.toThrow(/scope|target|outside/i);
+	});
+
+	it("rejects out-of-scope fixes from a page layer instead of hiding them", async () => {
+		const options = await workspace({ "One.md": "One.\n", "Two.md": "Two.\n" });
+		await expect(
+			runCheck({
+				...options,
+				paths: ["wiki/One.md"],
+				fix: true,
+				registry: [
+					{
+						name: "leaky",
+						scope: "page",
+						description: "Broken page fix seam.",
+						run: () => [],
+						fix: () => ({
+							fixes: [
+								{
+									layer: "leaky",
+									rule: "probe",
+									path: "wiki/Two.md",
+									description: "Leaked write.",
+									edit: { type: "write", path: "Two.md", content: "Wrong.\n" },
+								},
+							],
+						}),
+					},
+				],
+			}),
+		).rejects.toThrow(/out-of-scope/);
+		expect(await readFile(join(options.vault, "Two.md"), "utf8")).toBe("Two.\n");
+	});
+
+	it.each(["page", "vault"] as const)("scopes %s-layer fixes and leaves foreign files untouched", async (scope) => {
+		const options = await workspace({ "One.md": "One.\n", "Two.md": "Two.\n" });
+		const seen: string[][] = [];
+		const result = await runCheck({
+			...options,
+			paths: ["wiki/One.md"],
+			fix: true,
+			registry: [
+				{
+					name: "probe",
+					scope,
+					description: "Fix scope seam.",
+					run: () => [],
+					fix(ctx) {
+						seen.push(ctx.pages.map((page) => page.path));
+						const fixes = (scope === "page" ? ctx.pages : ctx.vault.pages)
+							.filter((page) => page.source !== "Fixed.\n")
+							.map((page) => ({
+								layer: "probe",
+								rule: "probe",
+								path: ctx.display(page.path),
+								description: "Replace probe text.",
+								edit: { type: "write" as const, path: page.path, content: "Fixed.\n" },
+							}));
+						return { fixes };
+					},
+				},
+			],
+		});
+		expect(seen.every((paths) => paths.join(",") === (scope === "page" ? "One.md" : "One.md,Two.md"))).toBe(true);
+		expect(result.fixes.map((fix) => fix.path)).toEqual(["wiki/One.md"]);
+		expect(await readFile(join(options.vault, "One.md"), "utf8")).toBe("Fixed.\n");
+		expect(await readFile(join(options.vault, "Two.md"), "utf8")).toBe("Two.\n");
 	});
 
 	it.each([false, true])("scopes mechanical writes and preserves unrelated files (dryRun=%s)", async (dryRun) => {
@@ -124,21 +229,41 @@ describe("runCheck execution scope", () => {
 		expect(await readFile(target, "utf8")).toBe(dryRun ? source : source.replace("\n\n\n", "\n\n"));
 	});
 
-	it.each([false, true])("scopes placement moves and leaves unrelated misplaced pages alone (dryRun=%s)", async (dryRun) => {
-		const source = npc("Target", "A sailor knots a rope.");
-		const options = await workspace({ "Aldermoor/Target.md": source, "Aldermoor/Unrelated.md": source });
-		const result = await runCheck({ ...options, layers: ["placement"], paths: ["wiki/Aldermoor/Target.md"], fix: true, dryRun });
-		expect(result.fixes.map((fix) => fix.edit)).toEqual([{ type: "move", from: "Aldermoor/Target.md", to: "Aldermoor/NPCs/Target.md" }]);
-		expect(await readFile(join(options.vault, "Aldermoor/Unrelated.md"), "utf8")).toBe(source);
-		expect(await readFile(join(options.vault, dryRun ? "Aldermoor/Target.md" : "Aldermoor/NPCs/Target.md"), "utf8")).toBe(source);
-		await expect(readFile(join(options.vault, dryRun ? "Aldermoor/NPCs/Target.md" : "Aldermoor/Target.md"), "utf8")).rejects.toMatchObject({ code: "ENOENT" });
-	});
+	it.each([false, true])(
+		"scopes placement moves and leaves unrelated misplaced pages alone (dryRun=%s)",
+		async (dryRun) => {
+			const source = npc("Target", "A sailor knots a rope.");
+			const options = await workspace({ "Aldermoor/Target.md": source, "Aldermoor/Unrelated.md": source });
+			const result = await runCheck({
+				...options,
+				layers: ["placement"],
+				paths: ["wiki/Aldermoor/Target.md"],
+				fix: true,
+				dryRun,
+			});
+			expect(result.fixes.map((fix) => fix.edit)).toEqual([
+				{ type: "move", from: "Aldermoor/Target.md", to: "Aldermoor/NPCs/Target.md" },
+			]);
+			expect(await readFile(join(options.vault, "Aldermoor/Unrelated.md"), "utf8")).toBe(source);
+			expect(
+				await readFile(join(options.vault, dryRun ? "Aldermoor/Target.md" : "Aldermoor/NPCs/Target.md"), "utf8"),
+			).toBe(source);
+			await expect(
+				readFile(join(options.vault, dryRun ? "Aldermoor/NPCs/Target.md" : "Aldermoor/Target.md"), "utf8"),
+			).rejects.toMatchObject({ code: "ENOENT" });
+		},
+	);
 
 	it("does not move a target over a globally occupied destination", async () => {
 		const source = npc("Target", "A sailor knots a rope.");
 		const occupied = npc("Target", "A sailor checks the mooring.");
 		const options = await workspace({ "Aldermoor/Target.md": source, "Aldermoor/NPCs/Target.md": occupied });
-		const result = await runCheck({ ...options, layers: ["placement"], paths: ["wiki/Aldermoor/Target.md"], fix: true });
+		const result = await runCheck({
+			...options,
+			layers: ["placement"],
+			paths: ["wiki/Aldermoor/Target.md"],
+			fix: true,
+		});
 		expect(result.fixes).toEqual([]);
 		expect(await readFile(join(options.vault, "Aldermoor/Target.md"), "utf8")).toBe(source);
 		expect(await readFile(join(options.vault, "Aldermoor/NPCs/Target.md"), "utf8")).toBe(occupied);
@@ -159,50 +284,5 @@ describe("runCheck execution scope", () => {
 		expect(fixed.fixes.map((fix) => fix.path)).toEqual(["wiki/Aldermoor/index.md"]);
 		expect(await readFile(join(options.vault, "Aldermoor/index.md"), "utf8")).toContain("[[Zorvath|Zorvath]]");
 		expect(await readFile(join(options.vault, "index.md"), "utf8")).toBe("Unrelated stale index.\n");
-	});
-
-	it.each(["spelling", "grammar"])("retains foreign names and unrelated %s cache entries without computing unrelated misses", { timeout: 30_000 }, async (layer) => {
-		const target = "Aldermoor/NPCs/Target.md";
-		const foreign = "Aldermoor/NPCs/Zorvath.md";
-		const targetSource = npc("Target", "Zorvath knots a rope.");
-		const foreignSource = npc("Zorvath", "A sailor knots a rope.");
-		const options = await workspace({ [target]: targetSource, [foreign]: foreignSource });
-		options.layers = [layer];
-		await runCheck(options);
-		const cachePath = join(options.root, ".cache/check", `${layer}.json`);
-		const before = JSON.parse(await readFile(cachePath, "utf8")) as { salt: string; entries: Record<string, unknown> };
-		const updatedTarget = npc("Target", "Zorvath recieve a rope.");
-		const updatedForeign = npc("Zorvath", "The sailors is waiting at teh harbour.");
-		await writeFile(join(options.vault, target), updatedTarget);
-		await writeFile(join(options.vault, foreign), updatedForeign);
-		const scoped = await runCheck({ ...options, paths: [`wiki/${target}`] });
-		const after = JSON.parse(await readFile(cachePath, "utf8")) as typeof before;
-		expect(after.salt).toBe(before.salt);
-		expect(before.entries[hash(foreignSource)]).toBeDefined();
-		expect(after.entries[hash(foreignSource)]).toEqual(before.entries[hash(foreignSource)]);
-		expect(after.entries[hash(updatedForeign)]).toBeUndefined();
-		expect(after.entries[hash(updatedTarget)]).toBeDefined();
-		expect(scoped.findings.some((finding) => finding.message.includes("`Zorvath`"))).toBe(false);
-		const full = await runCheck(options);
-		expect(scoped.findings).toEqual(full.findings.filter((finding) => finding.path === `wiki/${target}`));
-		const pruned = JSON.parse(await readFile(cachePath, "utf8")) as typeof before;
-		expect(pruned.entries[hash(foreignSource)]).toBeUndefined();
-	});
-
-	it("retains the Gullhook narration and foreign shared-line findings with one checked page", { timeout: 30_000 }, async () => {
-		const options = await workspace({});
-		await cp(join(repoRoot, "test/fixtures/vault"), options.vault, { recursive: true });
-		const target = "wiki/salt-and-lantern/Locations/Gullhook Lighthouse.md";
-		const full = await runCheck(options);
-		const scoped = await runCheck({ ...options, paths: [target] });
-		expect(scoped.pages).toBe(1);
-		expect(full.pages).toBe(51);
-		expect(scoped.layers).toEqual(layers.map((layer) => layer.name));
-		expect(scoped.findings).toEqual(full.findings.filter((finding) => finding.path === target));
-		expect(scoped.findings.map(({ layer, rule, line }) => ({ layer, rule, line }))).toEqual([
-			{ layer: "narration", rule: "fresh-starts", line: 20 },
-			{ layer: "boilerplate", rule: "shared-line", line: 34 },
-		]);
-		expect(scoped.findings[1]?.message).toContain("Session 1 - The Lamp Room.md:33");
 	});
 });

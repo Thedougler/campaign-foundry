@@ -63,7 +63,12 @@ describe("buildScene", () => {
 	});
 
 	it("wraps a long row of tokens onto the next row down instead of running off the map", () => {
-		const many = Array.from({ length: 12 }, (_, i) => ({ name: `G${i}`, actorId: "ActorGob00000001", squares: 1, img: null }));
+		const many = Array.from({ length: 12 }, (_, i) => ({
+			name: `G${i}`,
+			actorId: "ActorGob00000001",
+			squares: 1,
+			img: null,
+		}));
 		const tokens = buildScene({ ...base, tokens: many }).data.tokens as Bag[];
 		expect(Math.max(...tokens.map((t) => t.x + t.width * 64))).toBeLessThanOrEqual(640);
 		expect(tokens.some((t) => t.y === 64)).toBe(true);

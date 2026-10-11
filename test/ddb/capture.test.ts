@@ -4,7 +4,15 @@ import { join } from "node:path";
 import { afterAll, describe, expect, it } from "vitest";
 import { DdbAuth, COBALT_TOKEN_URL } from "../../src/ddb/auth.ts";
 import type { Fetcher, FetchResult } from "../../src/ddb/auth.ts";
-import { DdbCaptureError, loadCapture, loadContract, loadContractFrom, redactHeaders, replay, REDACTED } from "../../src/ddb/capture.ts";
+import {
+	DdbCaptureError,
+	loadCapture,
+	loadContract,
+	loadContractFrom,
+	redactHeaders,
+	replay,
+	REDACTED,
+} from "../../src/ddb/capture.ts";
 import type { CaptureFile, CapturedRequest } from "../../src/ddb/capture.ts";
 import type { Transport } from "../../src/ddb/transport.ts";
 import type { Cookie } from "../../src/ddb/session.ts";
@@ -49,7 +57,10 @@ describe("redactHeaders", () => {
 	});
 
 	it("matches header names case-insensitively", () => {
-		expect(redactHeaders({ COOKIE: "a=b", AUTHORIZATION: "Bearer x" })).toEqual({ COOKIE: REDACTED, AUTHORIZATION: REDACTED });
+		expect(redactHeaders({ COOKIE: "a=b", AUTHORIZATION: "Bearer x" })).toEqual({
+			COOKIE: REDACTED,
+			AUTHORIZATION: REDACTED,
+		});
 	});
 
 	it("leaves other headers untouched", () => {
@@ -127,10 +138,23 @@ function captureOf(requests: Partial<CapturedRequest>[]): CaptureFile {
 
 describe("replay", () => {
 	it("replays requests in capture order, refilling redacted headers from the live session", async () => {
-		const { calls, fetcher } = fakeFetch(() => ({ status: 200, ok: true, text: async () => JSON.stringify({ id: 4000001 }) }));
+		const { calls, fetcher } = fakeFetch(() => ({
+			status: 200,
+			ok: true,
+			text: async () => JSON.stringify({ id: 4000001 }),
+		}));
 		const capture = captureOf([
-			{ url: "https://www.dndbeyond.com/api/homebrew/monster/create", headers: { Cookie: REDACTED, Authorization: REDACTED, "Content-Type": "application/json" }, body: '{"name":"cf-test A"}' },
-			{ method: "PUT", url: "https://www.dndbeyond.com/api/homebrew/monster/4000001", headers: { Cookie: REDACTED }, body: '{"name":"cf-test A v2"}' },
+			{
+				url: "https://www.dndbeyond.com/api/homebrew/monster/create",
+				headers: { Cookie: REDACTED, Authorization: REDACTED, "Content-Type": "application/json" },
+				body: '{"name":"cf-test A"}',
+			},
+			{
+				method: "PUT",
+				url: "https://www.dndbeyond.com/api/homebrew/monster/4000001",
+				headers: { Cookie: REDACTED },
+				body: '{"name":"cf-test A v2"}',
+			},
 		]);
 		const outcomes = await replay(transportOver(fetcher), capture);
 		expect(outcomes).toHaveLength(2);
@@ -207,7 +231,11 @@ describe("loadContract", () => {
 		const unredactedBody = JSON.stringify({
 			...recorded,
 			requests: [
-				{ ...recorded.requests[0]!, headers: redactHeaders(recorded.requests[0]!.headers), body: "security-token=cb94cc362d0cbc866355368743230f89&monster-type=2&monster=16810" },
+				{
+					...recorded.requests[0]!,
+					headers: redactHeaders(recorded.requests[0]!.headers),
+					body: "security-token=cb94cc362d0cbc866355368743230f89&monster-type=2&monster=16810",
+				},
 			],
 		});
 		const dir = await contractDir("create.json", unredactedBody);
@@ -217,7 +245,10 @@ describe("loadContract", () => {
 	});
 
 	it("loads a committed contract as a capture file", async () => {
-		const committed = { ...recorded, requests: recorded.requests.map((r) => ({ ...r, headers: redactHeaders(r.headers) })) };
+		const committed = {
+			...recorded,
+			requests: recorded.requests.map((r) => ({ ...r, headers: redactHeaders(r.headers) })),
+		};
 		const dir = await contractDir("create.json", JSON.stringify(committed));
 		const contract = await loadContractFrom(dir, "monster", "create");
 		expect(contract.requests[0]?.method).toBe("POST");

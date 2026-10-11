@@ -10,11 +10,13 @@ Tavily is a search API designed for LLMs, enabling AI applications to access rea
 ## Installation
 
 **Python:**
+
 ```bash
 pip install tavily-python
 ```
 
 **JavaScript:**
+
 ```bash
 npm install @tavily/core
 ```
@@ -66,6 +68,7 @@ response = client.search(
 )
 print(response)
 ```
+
 Key parameters: `query`, `max_results`, `search_depth` (ultra-fast/fast/basic/advanced), `include_domains`, `exclude_domains`, `time_range`
 
 See **[references/search.md](references/search.md)** for complete search reference.
@@ -80,6 +83,7 @@ response = client.extract(
 )
 print(response)
 ```
+
 Key parameters: `urls` (max 20), `extract_depth`, `query`, `chunks_per_source` (1-5)
 
 See **[references/extract.md](references/extract.md)** for complete extract reference.
@@ -94,6 +98,7 @@ response = client.crawl(
 )
 print(response)
 ```
+
 Key parameters: `url`, `max_depth`, `max_breadth`, `limit`, `instructions`, `chunks_per_source`, `select_paths`, `exclude_paths`
 
 See **[references/crawl.md](references/crawl.md)** for complete crawl reference.

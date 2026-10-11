@@ -24,33 +24,14 @@ import { serviceOp, type ServiceOp } from "../foundry-control/host/service.ts";
 import { formatStatus, hostStatus } from "../foundry-control/host/status.ts";
 import type { FoundryOptions } from "../foundry-control/host/status.ts";
 
-/** What a foundry runner did: the exit code the action sets, plus the lines to print. */
-export interface FoundryCliResult {
-	exitCode: number;
-	out: string[];
-	err: string[];
-}
+import { CF, gateResult, printCliResult, usageResult, type CliResult } from "./kit.ts";
+import { readStdin } from "./stdin.ts";
 
-function print(result: FoundryCliResult): void {
-	if (result.out.length > 0) process.stdout.write(`${result.out.join("\n")}\n`);
-	if (result.err.length > 0) process.stderr.write(`${result.err.join("\n")}\n`);
-	process.exitCode = result.exitCode;
-}
-
-/** Exit 2 with the plan and the exact approval command: the shape of every un-approved mutation. */
-function gate(plan: string[], approval: string): FoundryCliResult {
-	return {
-		exitCode: 2,
-		out: [],
-		err: [...plan, `  Approve with: ${approval}`],
-	};
-}
-
-function hostFailure(error: unknown): FoundryCliResult {
+function hostFailure(error: unknown): CliResult {
 	return { exitCode: 1, out: [], err: [error instanceof Error ? error.message : String(error)] };
 }
 
-export async function runFoundryStatus(flags: { json?: boolean }): Promise<FoundryCliResult> {
+export async function runFoundryStatus(flags: { json?: boolean }): Promise<CliResult> {
 	try {
 		const { host, config, scripted, fixturePath } = await connectHost();
 		const status = await hostStatus(host, config);
@@ -63,7 +44,14 @@ export async function runFoundryStatus(flags: { json?: boolean }): Promise<Found
 	}
 }
 
-export async function runFoundryLogs(flags: { lines?: number; since?: string; until?: string; grep?: string; source?: string }): Promise<FoundryCliResult> {
+export async function runFoundryLogs(flags: {
+	json?: boolean;
+	lines?: number;
+	since?: string;
+	until?: string;
+	grep?: string;
+	source?: string;
+}): Promise<CliResult> {
 	try {
 		const { host, config } = await connectHost();
 		const logs = await queryLogs(host, config, {
@@ -73,18 +61,21 @@ export async function runFoundryLogs(flags: { lines?: number; since?: string; un
 			grep: flags.grep,
 			source: flags.source as "container" | "error" | "debug" | undefined,
 		});
+		if (flags.json)
+			return { exitCode: 0, out: [JSON.stringify({ lines: logs === "" ? [] : logs.split("\n") })], err: [] };
 		return { exitCode: 0, out: logs === "" ? ["(no log lines matched)"] : logs.split("\n"), err: [] };
 	} catch (error) {
 		return hostFailure(error);
 	}
 }
 
-export async function runFoundryOptionsGet(key: string): Promise<FoundryCliResult> {
+export async function runFoundryOptionsGet(key: string, flags: { json?: boolean } = {}): Promise<CliResult> {
 	try {
 		const { host, config } = await connectHost();
 		const read = await readOptions(host, config);
 		if (read === null) return { exitCode: 1, out: [], err: ["options.json could not be read on the host."] };
 		if (!(key in read.options)) return { exitCode: 1, out: [], err: [`No option \`${key}\` in options.json.`] };
+		if (flags.json) return { exitCode: 0, out: [JSON.stringify({ key, value: read.options[key] })], err: [] };
 		return { exitCode: 0, out: [JSON.stringify(read.options[key], null, 2)], err: [] };
 	} catch (error) {
 		return hostFailure(error);
@@ -95,7 +86,7 @@ export async function runFoundryOptionsGet(key: string): Promise<FoundryCliResul
 function parseOptionPair(pair: string): { key: string; value: unknown } {
 	const equals = pair.indexOf("=");
 	if (equals <= 0) {
-		throw new UsageError(`\`${pair}\` is not key=value.`, "cf foundry options set port=30000 --yes");
+		throw new UsageError(`\`${pair}\` is not key=value.`, `${CF} foundry options set port=30000 --yes`);
 	}
 	const key = pair.slice(0, equals);
 	const raw = pair.slice(equals + 1);
@@ -110,7 +101,7 @@ function parseOptionPair(pair: string): { key: string; value: unknown } {
 	return { key, value };
 }
 
-export async function runFoundryOptionsSet(pairs: string[], yes: boolean): Promise<FoundryCliResult> {
+export async function runFoundryOptionsSet(pairs: string[], yes: boolean): Promise<CliResult> {
 	const patch: FoundryOptions = {};
 	try {
 		for (const pair of pairs) {
@@ -118,12 +109,12 @@ export async function runFoundryOptionsSet(pairs: string[], yes: boolean): Promi
 			patch[key] = value;
 		}
 	} catch (error) {
-		if (error instanceof UsageError) return { exitCode: 2, out: [], err: [error.message, `  ${error.hint}`] };
+		if (error instanceof UsageError) return usageResult(error);
 		throw error;
 	}
-	const approval = `cf foundry options set ${pairs.join(" ")} --yes`;
+	const approval = `${CF} foundry options set ${pairs.join(" ")} --yes`;
 	if (!yes) {
-		return gate(
+		return gateResult(
 			[
 				`options set would write to options.json (a restart applies it):`,
 				...Object.entries(patch).map(([key, value]) => `  ${key} = ${JSON.stringify(value)}`),
@@ -140,10 +131,13 @@ export async function runFoundryOptionsSet(pairs: string[], yes: boolean): Promi
 	}
 }
 
-export async function runFoundryService(op: ServiceOp, yes: boolean): Promise<FoundryCliResult> {
-	const approval = `cf foundry service ${op} --yes`;
+export async function runFoundryService(op: ServiceOp, yes: boolean): Promise<CliResult> {
+	const approval = `${CF} foundry service ${op} --yes`;
 	if (!yes) {
-		return gate([`service ${op} would ${op === "stop" ? "stop every connected session" : `run ${op}`} through Docker Compose.`], approval);
+		return gateResult(
+			[`service ${op} would ${op === "stop" ? "stop every connected session" : `run ${op}`} through Docker Compose.`],
+			approval,
+		);
 	}
 	try {
 		const { host, config } = await connectHost();
@@ -154,8 +148,12 @@ export async function runFoundryService(op: ServiceOp, yes: boolean): Promise<Fo
 	}
 }
 
-export async function runFoundryBackupCreate(flags: { stop?: boolean; dest?: string; yes?: boolean }): Promise<FoundryCliResult> {
-	const approval = `cf foundry backup create${flags.stop ? " --stop" : ""}${flags.dest ? ` --dest ${flags.dest}` : ""} --yes`;
+export async function runFoundryBackupCreate(flags: {
+	stop?: boolean;
+	dest?: string;
+	yes?: boolean;
+}): Promise<CliResult> {
+	const approval = `${CF} foundry backup create${flags.stop ? " --stop" : ""}${flags.dest ? ` --dest ${flags.dest}` : ""} --yes`;
 	const defaultDest = flags.dest ?? `${backupDestDirFromEnv()}/foundry-data-${stamp(new Date())}.tar.gz`;
 	if (!flags.yes) {
 		const plan = [
@@ -165,7 +163,7 @@ export async function runFoundryBackupCreate(flags: { stop?: boolean; dest?: str
 				? "  A running world is stopped first and started again after (the only allowed way to back one up)."
 				: "  A running world refuses the backup: add --stop to stop it for the backup and start it again after.",
 		];
-		return gate(plan, approval);
+		return gateResult(plan, approval);
 	}
 	try {
 		const { host, config } = await connectHost();
@@ -181,16 +179,16 @@ export async function runFoundryBackupCreate(flags: { stop?: boolean; dest?: str
 		};
 	} catch (error) {
 		if (error instanceof RefusalError) {
-			return { exitCode: 2, out: [], err: [error.message, `  Approve with: ${error.command}`] };
+			return gateResult([error.message], error.command);
 		}
 		return hostFailure(error);
 	}
 }
 
-export async function runFoundryBackupRestore(archive: string, yes: boolean): Promise<FoundryCliResult> {
-	const approval = `cf foundry backup restore ${archive} --yes`;
+export async function runFoundryBackupRestore(archive: string, yes: boolean): Promise<CliResult> {
+	const approval = `${CF} foundry backup restore ${archive} --yes`;
 	if (!yes) {
-		return gate(
+		return gateResult(
 			[
 				"backup restore would (destructive):",
 				`  move the current data directory aside, then extract ${archive} over it.`,
@@ -212,27 +210,23 @@ export async function runFoundryBackupRestore(archive: string, yes: boolean): Pr
 		};
 	} catch (error) {
 		if (error instanceof RefusalError) {
-			return { exitCode: 2, out: [], err: [error.message, `  Approve with: ${error.command}`] };
+			return gateResult([error.message], error.command);
 		}
 		return hostFailure(error);
 	}
 }
 
 async function readAssetSource(source: string): Promise<Buffer> {
-	if (source === "-") {
-		const chunks: Buffer[] = [];
-		for await (const chunk of process.stdin) chunks.push(chunk as Buffer);
-		return Buffer.concat(chunks);
-	}
+	if (source === "-") return readStdin();
 	return readFile(source);
 }
 
-export async function runFoundryAssetsPut(source: string, dest: string, yes: boolean): Promise<FoundryCliResult> {
-	const approval = `cf foundry assets put ${source} ${dest} --yes`;
+export async function runFoundryAssetsPut(source: string, dest: string, yes: boolean): Promise<CliResult> {
+	const approval = `${CF} foundry assets put ${source} ${dest} --yes`;
 	try {
 		const data = await readAssetSource(source);
 		if (!yes) {
-			return gate([`assets put would write ${data.length} bytes to Data/assets/${dest}.`], approval);
+			return gateResult([`assets put would write ${data.length} bytes to Data/assets/${dest}.`], approval);
 		}
 		const { host, config } = await connectHost();
 		const result = await putAsset(host, config, { data, dest });
@@ -242,13 +236,15 @@ export async function runFoundryAssetsPut(source: string, dest: string, yes: boo
 	}
 }
 
-export async function runFoundryInstallUpdate(flags: { version?: string; yes?: boolean }): Promise<FoundryCliResult> {
-	const approval = `cf foundry install update${flags.version ? ` --version ${flags.version}` : ""} --yes`;
+export async function runFoundryInstallUpdate(flags: { version?: string; yes?: boolean }): Promise<CliResult> {
+	const approval = `${CF} foundry install update${flags.version ? ` --version ${flags.version}` : ""} --yes`;
 	if (!flags.yes) {
-		return gate(
+		return gateResult(
 			[
 				"install update would (through Docker Compose):",
-				flags.version ? `  pin FOUNDRY_VERSION=${flags.version} in the compose .env,` : "  keep the image tag floating,",
+				flags.version
+					? `  pin FOUNDRY_VERSION=${flags.version} in the compose .env,`
+					: "  keep the image tag floating,",
 				"  then pull and recreate the container (the world restarts).",
 			],
 			approval,
@@ -263,20 +259,20 @@ export async function runFoundryInstallUpdate(flags: { version?: string; yes?: b
 	}
 }
 
-export async function runFoundryInstallModule(zip: string, name: string, yes: boolean): Promise<FoundryCliResult> {
-	const approval = `cf foundry install module --zip ${zip} --name ${name} --yes`;
+export async function runFoundryInstallModule(zip: string, name: string, yes: boolean): Promise<CliResult> {
+	const approval = `${CF} foundry install module --zip ${zip} --name ${name} --yes`;
 	if (!yes) {
-		return gate(
-			[`install module would unzip ${zip} into Data/modules/${name}.`],
-			approval,
-		);
+		return gateResult([`install module would unzip ${zip} into Data/modules/${name}.`], approval);
 	}
 	try {
 		const { host, config } = await connectHost();
 		const result = await installModuleArchive(host, config, { zip, name });
 		return {
 			exitCode: 0,
-			out: [`installed: ${result.dir}`, "next:      enable the module in a world (Module Management), which needs a world to exist."],
+			out: [
+				`installed: ${result.dir}`,
+				"next:      enable the module in a world (Module Management), which needs a world to exist.",
+			],
 			err: [],
 		};
 	} catch (error) {
@@ -291,13 +287,16 @@ export interface ServeFlags {
 	idempotency?: string;
 }
 
-export async function runFoundryServe(flags: ServeFlags): Promise<FoundryCliResult> {
+export async function runFoundryServe(flags: ServeFlags): Promise<CliResult> {
 	const token = flags.token ?? process.env.CF_FOUNDRY_TOKEN;
 	if (token === undefined || token === "") {
 		return {
 			exitCode: 2,
 			out: [],
-			err: ["No bridge token: pass --token <secret> (or set CF_FOUNDRY_TOKEN).", "  cf foundry serve --token <secret>"],
+			err: [
+				"No bridge token: pass --token <secret> (or set CF_FOUNDRY_TOKEN).",
+				`  ${CF} foundry serve --token <secret>`,
+			],
 		};
 	}
 	let listener: BridgeListener;
@@ -312,11 +311,13 @@ export async function runFoundryServe(flags: ServeFlags): Promise<FoundryCliResu
 			idempotency: flags.idempotency === undefined ? undefined : new IdempotencyStore(flags.idempotency),
 		});
 		process.stderr.write(
-			[
+			`${[
 				`bridge:    listening on ${address.host}:${address.port} (waiting for the cf-bridge module)`,
-				connection.scripted ? `host:      scripted fixture ${connection.fixturePath}` : `host:      ${connection.config.ssh} over SSH`,
+				connection.scripted
+					? `host:      scripted fixture ${connection.fixturePath}`
+					: `host:      ${connection.config.ssh} over SSH`,
 				"MCP:       serving tools on stdio (stdin closed stops the daemon)",
-			].join("\n") + "\n",
+			].join("\n")}\n`,
 		);
 		await runStdioMcp(registry, process.stdin, process.stdout);
 		await listener.close();
@@ -326,16 +327,24 @@ export async function runFoundryServe(flags: ServeFlags): Promise<FoundryCliResu
 	}
 }
 
-export async function runFoundryTool(name: string, paramsJson: string): Promise<FoundryCliResult> {
+export async function runFoundryTool(name: string, paramsJson: string): Promise<CliResult> {
 	let params: Record<string, unknown>;
 	try {
 		const parsed: unknown = JSON.parse(paramsJson);
 		if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
-			return { exitCode: 2, out: [], err: ["--params must be a JSON object.", "  cf foundry tool document.get --params '{\"uuid\":\"actors.1\"}'"] };
+			return {
+				exitCode: 2,
+				out: [],
+				err: ["--params must be a JSON object.", `  ${CF} foundry tool document.get --params '{"uuid":"actors.1"}'`],
+			};
 		}
 		params = parsed as Record<string, unknown>;
 	} catch {
-		return { exitCode: 2, out: [], err: ["--params is not valid JSON.", "  cf foundry tool document.get --params '{\"uuid\":\"actors.1\"}'"] };
+		return {
+			exitCode: 2,
+			out: [],
+			err: ["--params is not valid JSON.", `  ${CF} foundry tool document.get --params '{"uuid":"actors.1"}'`],
+		};
 	}
 	try {
 		const connection = await connectHost();
@@ -347,7 +356,10 @@ export async function runFoundryTool(name: string, paramsJson: string): Promise<
 			return {
 				exitCode: error.approvalCommand !== null ? 2 : 1,
 				out: [],
-				err: [`[${error.code}] ${error.message}`, ...(error.approvalCommand !== null ? [`  Approve with: ${error.approvalCommand}`] : [])],
+				err: [
+					`[${error.code}] ${error.message}`,
+					...(error.approvalCommand !== null ? [`  Approve with: ${error.approvalCommand}`] : []),
+				],
 			};
 		}
 		return hostFailure(error);
@@ -372,138 +384,230 @@ CF_FOUNDRY_DATA, and CF_FOUNDRY_SCRIPTED (a JSON fixture answering host commands
 Docs: docs/foundry-control.md.
 
 Examples:
-  cf foundry status                                   one-screen host snapshot (read-only)
-  cf foundry status --json                            the same as HostStatus JSON
-  cf foundry logs --lines 50 --grep error             tail container logs, errors only
-  cf foundry options get port                         read one options.json key
-  cf foundry options set port=30000 --yes             write options.json (DM approved)
-  cf foundry service restart                          shows the plan; --yes runs it
-  cf foundry backup create --stop                     shows the plan; --yes runs it
-  cf foundry backup restore /host/archive.tar.gz      shows the plan; --yes runs it
-  cf foundry assets put token.png tokens/t.png        shows the plan; --yes writes it
-  cf foundry install update --version 14.369          shows the plan; --yes runs it
-  cf foundry install module --zip cf-bridge.zip --name cf-bridge
-  cf foundry serve --token <secret>                   the daemon: bridge listener + MCP on stdio
-  cf foundry tool host.status                         call one tool through the registry`,
+  ${CF} foundry status                                   one-screen host snapshot (read-only)
+  ${CF} foundry status --json                            the same as HostStatus JSON
+  ${CF} foundry logs --lines 50 --grep error             tail container logs, errors only
+  ${CF} foundry options get port                         read one options.json key
+  ${CF} foundry options set port=30000 --yes             write options.json (DM approved)
+  ${CF} foundry service restart                          shows the plan; --yes runs it
+  ${CF} foundry backup create --stop                     shows the plan; --yes runs it
+  ${CF} foundry backup restore /host/archive.tar.gz      shows the plan; --yes runs it
+  ${CF} foundry assets put token.png tokens/t.png        shows the plan; --yes writes it
+  ${CF} foundry install update --version 14.369          shows the plan; --yes runs it
+  ${CF} foundry install module --zip cf-bridge.zip --name cf-bridge
+  ${CF} foundry serve --token <secret>                   the daemon: bridge listener + MCP on stdio
+  ${CF} foundry tool host.status                         call one tool through the registry`,
 		);
 
 	foundry
 		.command("status")
-		.description("One-screen snapshot of the Foundry host: container state, version, ports, data path, worlds. Read-only.")
+		.description(
+			"One-screen snapshot of the Foundry host: container state, version, ports, data path, worlds. Read-only.",
+		)
 		.option("--json", "print the HostStatus object as JSON")
-		.addHelpText("after", "\nExamples:\n  cf foundry status\n  cf foundry status --json")
-		.action(async (flags: { json?: boolean }) => print(await runFoundryStatus(flags)));
+		.addHelpText("after", `\nExamples:\n  ${CF} foundry status\n  ${CF} foundry status --json`)
+		.action(async (flags: { json?: boolean }) => printCliResult(await runFoundryStatus(flags)));
 
 	foundry
 		.command("logs")
 		.description("Query container or on-disk Foundry logs. Read-only.")
+		.option("--json", "print {lines} JSON instead of text")
 		.option("--lines <n>", "tail this many lines (container source)")
 		.option("--since <when>", "docker --since value, e.g. 10m or an ISO timestamp")
 		.option("--until <when>", "docker --until value")
 		.option("--grep <pattern>", "case-insensitive grep -E pattern over the output")
-		.addOption(new Option("--source <source>", "where to read").choices(["container", "error", "debug"]).default("container"))
-		.addHelpText("after", "\nExamples:\n  cf foundry logs --lines 100\n  cf foundry logs --since 30m --grep 'error|warn'\n  cf foundry logs --source error --lines 20")
-		.action(async (flags: { lines?: string; since?: string; until?: string; grep?: string; source?: string }) =>
-			print(
-				await runFoundryLogs({
-					lines: flags.lines === undefined ? undefined : Number.parseInt(flags.lines, 10),
-					since: flags.since,
-					until: flags.until,
-					grep: flags.grep,
-					source: flags.source,
-				}),
-			),
+		.addOption(
+			new Option("--source <source>", "where to read").choices(["container", "error", "debug"]).default("container"),
+		)
+		.addHelpText(
+			"after",
+			`\nExamples:\n  ${CF} foundry logs --lines 100\n  ${CF} foundry logs --since 30m --grep 'error|warn'\n  ${CF} foundry logs --source error --lines 20`,
+		)
+		.action(
+			async (flags: {
+				json?: boolean;
+				lines?: string;
+				since?: string;
+				until?: string;
+				grep?: string;
+				source?: string;
+			}) =>
+				printCliResult(
+					await runFoundryLogs({
+						json: flags.json,
+						lines: flags.lines === undefined ? undefined : Number.parseInt(flags.lines, 10),
+						since: flags.since,
+						until: flags.until,
+						grep: flags.grep,
+						source: flags.source,
+					}),
+				),
 		);
 
-	const options = foundry.command("options").description("Read and write Foundry's Config/options.json (writes apply on restart).");
+	const options = foundry
+		.command("options")
+		.description("Read and write Foundry's Config/options.json (writes apply on restart).")
+		.addHelpText(
+			"after",
+			`\nExamples:\n  ${CF} foundry options get port --json\n  ${CF} foundry options set port=30000 --yes`,
+		);
 	options
 		.command("get <key>")
 		.description("Print one options.json value. Read-only.")
-		.addHelpText("after", "\nExamples:\n  cf foundry options get port\n  cf foundry options get world")
-		.action(async (key: string) => print(await runFoundryOptionsGet(key)));
+		.option("--json", "print {key,value} JSON instead of the value")
+		.addHelpText("after", `\nExamples:\n  ${CF} foundry options get port\n  ${CF} foundry options get world`)
+		.action(async (key: string, flags: { json?: boolean }) => printCliResult(await runFoundryOptionsGet(key, flags)));
 	options
 		.command("set <key=value...>")
-		.description("Merge keys into options.json: values go through JSON first (port=30000 is a number, world=null). Prints the plan and the approval command until --yes.")
+		.description(
+			"Merge keys into options.json: values go through JSON first (port=30000 is a number, world=null). Prints the plan and the approval command until --yes.",
+		)
 		.option("--yes", "the DM approved it: run the write")
-		.addHelpText("after", "\nExamples:\n  cf foundry options set port=30000\n  cf foundry options set port=30000 --yes\n  cf foundry options set world=null hostname=my-table --yes")
-		.action(async (pairs: string[], flags: { yes?: boolean }) => print(await runFoundryOptionsSet(pairs, flags.yes ?? false)));
+		.addHelpText(
+			"after",
+			`\nExamples:\n  ${CF} foundry options set port=30000\n  ${CF} foundry options set port=30000 --yes\n  ${CF} foundry options set world=null hostname=my-table --yes`,
+		)
+		.action(async (pairs: string[], flags: { yes?: boolean }) =>
+			printCliResult(await runFoundryOptionsSet(pairs, flags.yes ?? false)),
+		);
 
 	foundry
 		.command("service")
-		.description("Start, stop or restart the Foundry container through Docker Compose. Prints the plan and the approval command until --yes.")
+		.description(
+			"Start, stop or restart the Foundry container through Docker Compose. Prints the plan and the approval command until --yes.",
+		)
 		.addArgument(new Argument("<op>", "the operation: start, stop or restart").choices(["start", "stop", "restart"]))
 		.option("--yes", "the DM approved it: run it")
-		.addHelpText("after", "\nExamples:\n  cf foundry service restart\n  cf foundry service stop --yes")
-		.action(async (op: ServiceOp, flags: { yes?: boolean }) => print(await runFoundryService(op, flags.yes ?? false)));
+		.addHelpText("after", `\nExamples:\n  ${CF} foundry service restart\n  ${CF} foundry service stop --yes`)
+		.action(async (op: ServiceOp, flags: { yes?: boolean }) =>
+			printCliResult(await runFoundryService(op, flags.yes ?? false)),
+		);
 
-	const backup = foundry.command("backup").description("Shutdown-aware backup and restore of the Foundry data directory. Both print the plan and the approval command until --yes.");
+	const backup = foundry
+		.command("backup")
+		.description(
+			"Shutdown-aware backup and restore of the Foundry data directory. Both print the plan and the approval command until --yes.",
+		)
+		.addHelpText(
+			"after",
+			`\nExamples:\n  ${CF} foundry backup create --stop\n  ${CF} foundry backup restore /host/archive.tar.gz --yes`,
+		);
 	backup
 		.command("create")
-		.description("Archive the data directory. A running world refuses without --stop (official guidance: Foundry is shut down before Data is copied).")
+		.description(
+			"Archive the data directory. A running world refuses without --stop (official guidance: Foundry is shut down before Data is copied).",
+		)
 		.option("--stop", "stop the world for the backup and start it again after")
 		.option("--dest <path>", "archive path on the host (default: the backup-staging directory with a UTC stamp)")
 		.option("--yes", "the DM approved it: run it")
-		.addHelpText("after", "\nExamples:\n  cf foundry backup create --stop\n  cf foundry backup create --stop --yes\n  cf foundry backup create --dest /home/nick/backup-staging/foundry/pre-session.tar.gz --yes")
-		.action(async (flags: { stop?: boolean; dest?: string; yes?: boolean }) => print(await runFoundryBackupCreate(flags)));
+		.addHelpText(
+			"after",
+			`\nExamples:\n  ${CF} foundry backup create --stop\n  ${CF} foundry backup create --stop --yes\n  ${CF} foundry backup create --dest /home/nick/backup-staging/foundry/pre-session.tar.gz --yes`,
+		)
+		.action(async (flags: { stop?: boolean; dest?: string; yes?: boolean }) =>
+			printCliResult(await runFoundryBackupCreate(flags)),
+		);
 	backup
 		.command("restore <archive>")
-		.description("Restore an archive over the data directory (the current one is kept aside). The world must be stopped.")
+		.description(
+			"Restore an archive over the data directory (the current one is kept aside). The world must be stopped.",
+		)
 		.option("--yes", "the DM approved it: run it")
-		.addHelpText("after", "\nExamples:\n  cf foundry backup restore /home/nick/backup-staging/foundry/foundry-data-20261006-220000.tar.gz\n  cf foundry backup restore /home/nick/backup-staging/foundry/foundry-data-20261006-220000.tar.gz --yes")
-		.action(async (archive: string, flags: { yes?: boolean }) => print(await runFoundryBackupRestore(archive, flags.yes ?? false)));
+		.addHelpText(
+			"after",
+			`\nExamples:\n  ${CF} foundry backup restore /home/nick/backup-staging/foundry/foundry-data-20261006-220000.tar.gz\n  ${CF} foundry backup restore /home/nick/backup-staging/foundry/foundry-data-20261006-220000.tar.gz --yes`,
+		)
+		.action(async (archive: string, flags: { yes?: boolean }) =>
+			printCliResult(await runFoundryBackupRestore(archive, flags.yes ?? false)),
+		);
 
 	const assets = foundry
 		.command("assets")
-		.description("Place files under the host's Data/assets (tokens, art). Nothing outside it is writable.");
+		.description("Place files under the host's Data/assets (tokens, art). Nothing outside it is writable.")
+		.addHelpText("after", `\nExamples:\n  ${CF} foundry assets put token.png tokens/token.png --yes`);
 	assets
 		.command("put <src> <dest>")
-		.description("Write one local file (or stdin with -) to Data/assets/<dest>. Prints the plan and the approval command until --yes.")
+		.description(
+			"Write one local file (or stdin with -) to Data/assets/<dest>. Prints the plan and the approval command until --yes.",
+		)
 		.option("--yes", "the DM approved it: run it")
-		.addHelpText("after", "\nExamples:\n  cf foundry assets put tokens/hero.png tokens/hero.png\n  cf foundry assets put tokens/hero.png tokens/hero.png --yes\n  cat art/map.png | cf foundry assets put - maps/tiled.png --yes")
-		.action(async (src: string, dest: string, flags: { yes?: boolean }) => print(await runFoundryAssetsPut(src, dest, flags.yes ?? false)));
+		.addHelpText(
+			"after",
+			`\nExamples:\n  ${CF} foundry assets put tokens/hero.png tokens/hero.png\n  ${CF} foundry assets put tokens/hero.png tokens/hero.png --yes\n  cat art/map.png | ${CF} foundry assets put - maps/tiled.png --yes`,
+		)
+		.action(async (src: string, dest: string, flags: { yes?: boolean }) =>
+			printCliResult(await runFoundryAssetsPut(src, dest, flags.yes ?? false)),
+		);
 
-	const install = foundry.command("install").description("Foundry updates and module installs on the host. Both print the plan and the approval command until --yes.");
+	const install = foundry
+		.command("install")
+		.description(
+			"Foundry updates and module installs on the host. Both print the plan and the approval command until --yes.",
+		)
+		.addHelpText(
+			"after",
+			`\nExamples:\n  ${CF} foundry install update --version 14.369\n  ${CF} foundry install module --zip cf-bridge.zip --name cf-bridge`,
+		);
 	install
 		.command("update")
 		.description("Update Foundry: optionally pin a version in the compose .env, then pull and recreate.")
 		.option("--version <v>", "pin this Foundry version, e.g. 14.369; omit to float on the image tag")
 		.option("--yes", "the DM approved it: run it")
-		.addHelpText("after", "\nExamples:\n  cf foundry install update\n  cf foundry install update --version 14.369 --yes")
-		.action(async (flags: { version?: string; yes?: boolean }) => print(await runFoundryInstallUpdate(flags)));
+		.addHelpText(
+			"after",
+			`\nExamples:\n  ${CF} foundry install update\n  ${CF} foundry install update --version 14.369 --yes`,
+		)
+		.action(async (flags: { version?: string; yes?: boolean }) => printCliResult(await runFoundryInstallUpdate(flags)));
 	install
 		.command("module")
 		.description("Install a module zip into Data/modules (how cf-bridge itself is installed).")
 		.requiredOption("--zip <path>", "host-local path to the module zip")
 		.requiredOption("--name <name>", "plain directory name inside Data/modules")
 		.option("--yes", "the DM approved it: run it")
-		.addHelpText("after", "\nExamples:\n  cf foundry install module --zip /home/nick/cf-bridge.zip --name cf-bridge\n  cf foundry install module --zip /home/nick/cf-bridge.zip --name cf-bridge --yes")
-		.action(async (flags: { zip: string; name: string; yes?: boolean }) => print(await runFoundryInstallModule(flags.zip, flags.name, flags.yes ?? false)));
+		.addHelpText(
+			"after",
+			`\nExamples:\n  ${CF} foundry install module --zip /home/nick/cf-bridge.zip --name cf-bridge\n  ${CF} foundry install module --zip /home/nick/cf-bridge.zip --name cf-bridge --yes`,
+		)
+		.action(async (flags: { zip: string; name: string; yes?: boolean }) =>
+			printCliResult(await runFoundryInstallModule(flags.zip, flags.name, flags.yes ?? false)),
+		);
 
 	foundry
 		.command("serve")
-		.description("Run the control daemon: the bridge listener for the in-world module, plus MCP tools over newline-delimited stdio. Closing stdin stops it.")
+		.description(
+			"Run the control daemon: the bridge listener for the in-world module, plus MCP tools over newline-delimited stdio. Closing stdin stops it.",
+		)
 		.option("--host <iface>", "interface to bind (default 127.0.0.1)")
-		.option("--port <n>", "port to bind (default 30426; the module's default URL matches)", (value) => Number.parseInt(value, 10))
+		.option("--port <n>", "port to bind (default 30426; the module's default URL matches)", (value) =>
+			Number.parseInt(value, 10),
+		)
 		.option("--token <secret>", "the shared bridge secret (or set CF_FOUNDRY_TOKEN)")
 		.option("--idempotency <path>", "jsonl file remembering idempotent writes across restarts (default: memory)")
 		.addHelpText(
 			"after",
 			`
 Examples:
-  cf foundry serve --token hush                           daemon on 127.0.0.1:30426
-  cf foundry serve --token hush --idempotency ~/.campaign-foundry/foundry-idempotency.jsonl
+  ${CF} foundry serve --token hush                           daemon on 127.0.0.1:30426
+  ${CF} foundry serve --token hush --idempotency ~/.campaign-foundry/foundry-idempotency.jsonl
   MCP clients speak JSON-RPC on stdio: initialize, tools/list, tools/call.
 
 The module side (in the world): enable the cf-bridge module, set the token in its settings.`,
 		)
-		.action(async (flags: ServeFlags) => print(await runFoundryServe(flags)));
+		.action(async (flags: ServeFlags) => printCliResult(await runFoundryServe(flags)));
 
 	foundry
 		.command("tool <name>")
-		.description("Call one daemon tool directly through the registry (host read-only tools work without a module; module tools need the daemon running).")
+		.description(
+			"Call one daemon tool directly through the registry (host read-only tools work without a module; module tools need the daemon running).",
+		)
 		.option("--params <json>", "the tool's params as a JSON object (default {})")
-		.addHelpText("after", "\nExamples:\n  cf foundry tool host.status\n  cf foundry tool logs.query --params '{\"lines\":20,\"grep\":\"error\"}'\n  cf foundry tool document.patch --params '{\"uuid\":\"actors.1\",\"changes\":{\"name\":\"Renamed\"},\"dry_run\":false}'")
-		.action(async (name: string, flags: { params?: string }) => print(await runFoundryTool(name, flags.params ?? "{}")));
+		.addHelpText(
+			"after",
+			`\nExamples:\n  ${CF} foundry tool host.status\n  ${CF} foundry tool logs.query --params '{"lines":20,"grep":"error"}'\n  ${CF} foundry tool document.patch --params '{"uuid":"actors.1","changes":{"name":"Renamed"},"dry_run":false}'`,
+		)
+		.action(async (name: string, flags: { params?: string }) =>
+			printCliResult(await runFoundryTool(name, flags.params ?? "{}")),
+		);
 
 	return foundry;
 }

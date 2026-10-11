@@ -7,9 +7,8 @@ import remarkPresetLintRecommended from "remark-preset-lint-recommended";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
 import { VFile } from "vfile";
-import { isProsePage, lintText } from "../prose.ts";
+import { isProsePage, lintText } from "../views.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
-import { checkedPages } from "../util.ts";
 
 const LAYER = "remark-lint";
 
@@ -31,8 +30,10 @@ const processor = unified()
 	.use(remarkLintNoUndefinedReferences, { allowShortcutLink: true });
 
 const HINTS: Record<string, string> = {
-	"no-blockquote-without-marker": "Start every line of the quote with `> `, e.g.\n> [!narration] First look\n> A broad woman hauls a rope.",
-	"no-literal-urls": "Wrap the URL in angle brackets or make it a link, e.g. `<https://example.com>` or `[the harbour site](https://example.com)`.",
+	"no-blockquote-without-marker":
+		"Start every line of the quote with `> `, e.g.\n> [!narration] First look\n> A broad woman hauls a rope.",
+	"no-literal-urls":
+		"Wrap the URL in angle brackets or make it a link, e.g. `<https://example.com>` or `[the harbour site](https://example.com)`.",
 	"final-newline": "End the file with a single newline.",
 	"no-undefined-references": "Write `[text](url)` for a link, or escape the bracket as `\\[` when it is plain text.",
 	"no-duplicate-definitions": "Keep one definition per label; delete the duplicate.",
@@ -44,7 +45,10 @@ const HINTS: Record<string, string> = {
 };
 
 function hintFor(ruleId: string, url: string | undefined): string {
-	return HINTS[ruleId] ?? `Rewrite the text to satisfy remark-lint rule \`${ruleId}\`${url ? `; see ${url}` : ""}. Keep one style across the page.`;
+	return (
+		HINTS[ruleId] ??
+		`Rewrite the text to satisfy remark-lint rule \`${ruleId}\`${url ? `; see ${url}` : ""}. Keep one style across the page.`
+	);
 }
 
 async function lintSource(source: string, path: string) {
@@ -55,7 +59,7 @@ async function lintSource(source: string, path: string) {
 }
 
 export async function run(ctx: CheckContext): Promise<Finding[]> {
-	const pages = checkedPages(ctx).filter(isProsePage);
+	const pages = ctx.pages.filter(isProsePage);
 	const perPage = await Promise.all(
 		pages.map(async (page) => {
 			const { text, lines, skip } = lintText(page);
@@ -81,6 +85,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 
 export const remarkLintLayer: Layer = {
 	name: LAYER,
+	scope: "page",
 	description: "remark-lint: recommended and consistent presets, Obsidian syntax allowed.",
 	run,
 };

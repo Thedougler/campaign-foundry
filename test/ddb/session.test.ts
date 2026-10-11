@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mkdtemp, readFile, writeFile } from "node:fs/promises";
+import { mkdtemp, readFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import {
@@ -40,7 +40,9 @@ describe("DDB session store", () => {
 	});
 
 	it("builds a Cookie header from the session's cookies", () => {
-		expect(cookieHeader(browserCookies)).toBe("CobaltSession=cobalt-1; User.ID=123456; verification-token=csrf-1; unrelated=x");
+		expect(cookieHeader(browserCookies)).toBe(
+			"CobaltSession=cobalt-1; User.ID=123456; verification-token=csrf-1; unrelated=x",
+		);
 		expect(cookieHeader(dndbeyondCookies(browserCookies))).not.toContain("unrelated");
 	});
 

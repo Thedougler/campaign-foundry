@@ -5,7 +5,8 @@ import { parsePage } from "../../src/vault/parse.ts";
 
 const ctx: RenderContext = {
 	// Only Sable is in the Adventure, as an Actor; the map image ships with the module.
-	target: (link) => (link.target === "Sable" ? { uuid: "Actor.abc123def456ghij", label: link.alias ?? "Sable" } : undefined),
+	target: (link) =>
+		link.target === "Sable" ? { uuid: "Actor.abc123def456ghij", label: link.alias ?? "Sable" } : undefined,
 	image: (link) => (link.target.endsWith(".webp") ? `modules/m/assets/${link.target}` : undefined),
 };
 

@@ -27,7 +27,7 @@ bun run cf -- eval description-review <workspace>/description-evals/trigger-eval
 
 Open the returned path in the browser. The DM edits queries, toggles should-trigger, adds and removes entries; **Export Eval Set** downloads `eval_set.json`, which becomes the working set. Bad labels measure the wrong target, so finish review before measuring.
 
-**Done when** the DM's export is saved as `eval_set.json` with 20 labeled queries.
+**Done when** the DM's export is saved as `eval_set.json` with 20 labelled queries.
 
 ## 3. Observe
 

@@ -2,11 +2,10 @@ import { Dialect, LocalLinter, SuggestionKind } from "harper.js";
 import type { Lint } from "harper.js";
 import { binary } from "harper.js/binary";
 import type { Page, Vault } from "../../vault/types.ts";
-import { cachedByPage, hash, lockfileSalt } from "../cache.ts";
 import type { CachedFinding } from "../cache.ts";
-import { isProsePage, lineAt, lineStarts, projectWords, proseView, sourceOffset, templateWords, vaultNameWords, vaultWordList } from "../prose.ts";
-import type { CheckContext, Finding, Layer } from "../types.ts";
-import { checkedPages } from "../util.ts";
+import { runLanguageTool, type LanguageTool } from "../language.ts";
+import { lineAt, lineStarts, proseView, sourceOffset } from "../views.ts";
+import type { Layer } from "../types.ts";
 
 const LAYER = "grammar";
 
@@ -33,7 +32,18 @@ const LAYER = "grammar";
  * - `AvoidCurses`: people in the World swear where it fits (AGENTS.md Content stance), so a curse is never a fault.
  *   The DM confirmed the disable.
  */
-const DISABLED_RULES = ["SpellCheck", "UseTitleCase", "OxfordComma", "PhrasalVerbAsCompoundNoun", "UseEllipsisCharacter", "OrthographicConsistency", "MergeWords", "DisjointPrefixes", "OneOfTheSingular", "AvoidCurses"] as const;
+const DISABLED_RULES = [
+	"SpellCheck",
+	"UseTitleCase",
+	"OxfordComma",
+	"PhrasalVerbAsCompoundNoun",
+	"UseEllipsisCharacter",
+	"OrthographicConsistency",
+	"MergeWords",
+	"DisjointPrefixes",
+	"OneOfTheSingular",
+	"AvoidCurses",
+] as const;
 
 /**
  * Two DM-confirmed Harper misfires on literal campaign meaning, dropped per lint so each rule keeps catching real
@@ -43,7 +53,23 @@ const DISABLED_RULES = ["SpellCheck", "UseTitleCase", "OxfordComma", "PhrasalVer
  * includes "cast"). Real agreement errors ("she have", "he don't") still come through.
  */
 const CASTE_COLOUR = /^(?:a|an) (?:gold|red|blue|green|purple|orange)$/i;
-const MISREAD_PAST: Record<string, true> = { burnt: true, cast: true, clung: true, dug: true, froze: true, ground: true, lent: true, leapt: true, shone: true, sprang: true, stuck: true, struck: true, swore: true, tore: true, woke: true };
+const MISREAD_PAST: Record<string, true> = {
+	burnt: true,
+	cast: true,
+	clung: true,
+	dug: true,
+	froze: true,
+	ground: true,
+	lent: true,
+	leapt: true,
+	shone: true,
+	sprang: true,
+	stuck: true,
+	struck: true,
+	swore: true,
+	tore: true,
+	woke: true,
+};
 
 function isConfirmedMisfire(rule: string, text: string, start: number, end: number): boolean {
 	if (rule === "MassNouns") return CASTE_COLOUR.test(text.slice(start, end)) && /^\s+grungs?\b/i.test(text.slice(end));
@@ -94,11 +120,12 @@ function hintFor(lint: Lint): string {
 			return `change \`${shown}\` to \`${text}\``;
 		});
 	const dashed = suggestions.length > 0 && options.length === 0;
-	const advice = options.length > 0
-		? `Harper suggests: ${options.join("; or ")}.`
-		: dashed
-			? `Rewrite \`${shown}\` without a dash: the style layer fails en and em dashes, so write a range as \`3 to 5\` and join clauses with a comma or a full stop.`
-			: `Rewrite \`${shown}\` so the sentence reads correctly.`;
+	const advice =
+		options.length > 0
+			? `Harper suggests: ${options.join("; or ")}.`
+			: dashed
+				? `Rewrite \`${shown}\` without a dash: the style layer fails en and em dashes, so write a range as \`3 to 5\` and join clauses with a comma or a full stop.`
+				: `Rewrite \`${shown}\` so the sentence reads correctly.`;
 	return `${advice} Change the wording only; keep what the text says.`;
 }
 
@@ -133,21 +160,20 @@ async function lintPages(l: LocalLinter, pages: Page[], vault: Vault): Promise<M
 	return out;
 }
 
-export async function run(ctx: CheckContext): Promise<Finding[]> {
-	const words = [...vaultNameWords(ctx.vault), ...templateWords(ctx.templates), ...(await vaultWordList(ctx.vault)), ...(await projectWords())];
-	const pages = checkedPages(ctx).filter(isProsePage);
-	// A page's answer depends on its text, Harper's version, the disabled rules, the name dictionary and the misfire filters.
-	const salt = hash(`canonical-name-labels|${await lockfileSalt()}|${DISABLED_RULES.join(",")}|${words.join(",")}|${Object.keys(MISREAD_PAST).join(",")}|${CASTE_COLOUR.source}`);
-	const byPage = await cachedByPage(ctx.root, LAYER, salt, pages, async (misses) => {
+const grammarTool: LanguageTool = {
+	name: LAYER,
+	projectDictionary: true,
+	salt: () => JSON.stringify([DISABLED_RULES, Object.keys(MISREAD_PAST), CASTE_COLOUR.source]),
+	async compute(misses, ctx, words) {
 		const l = await linter();
 		await l.importWords(words);
 		return lintPages(l, misses, ctx.vault);
-	}, ctx.target !== undefined);
-	return pages.flatMap((page) => (byPage.get(page) ?? []).map((f): Finding => ({ ...f, severity: "error", path: ctx.display(page.path) })));
-}
+	},
+};
 
 export const grammarLayer: Layer = {
 	name: LAYER,
+	scope: "page",
 	description: "Harper: grammar and usage in British English, over the prose text.",
-	run,
+	run: (ctx) => runLanguageTool(grammarTool, ctx),
 };

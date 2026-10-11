@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { cf, checkFixture, copyFixture, type JsonReport, realTemplates, vaultFlags } from "./helpers.ts";
+import { checkFixture, checkLayer, copyFixture, type JsonReport } from "./helpers.ts";
 
 const HOT = "wiki/ashes-of-the-crown/hot.md";
 
@@ -9,9 +9,12 @@ const HOT = "wiki/ashes-of-the-crown/hot.md";
 async function withWords(extra: number, comment = ""): Promise<{ dir: string; report: JsonReport; code: number }> {
 	const dir = await copyFixture("clean");
 	const path = join(dir, HOT);
-	await writeFile(path, `${await readFile(path, "utf8")}${comment}\n${Array.from({ length: extra }, (_, i) => `word${i}`).join(" ")}\n`);
-	const result = await cf(["check", "--json", "--layer", "hot", ...vaultFlags(dir), "--templates", realTemplates], dir);
-	return { dir, code: result.code, report: JSON.parse(result.stdout) as JsonReport };
+	await writeFile(
+		path,
+		`${await readFile(path, "utf8")}${comment}\n${Array.from({ length: extra }, (_, i) => `word${i}`).join(" ")}\n`,
+	);
+	const result = await checkLayer("hot", dir);
+	return { dir, code: result.code, report: result.report };
 }
 
 describe("hot layer", () => {

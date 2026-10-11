@@ -13,7 +13,13 @@ async function snapshot(root: string): Promise<Map<string, Buffer>> {
 	const out = new Map<string, Buffer>();
 	for (const rel of await readdir(root, { recursive: true })) {
 		const file = join(root, rel as string);
-		if (!(await stat(file).then((s) => s.isFile(), () => false))) continue;
+		if (
+			!(await stat(file).then(
+				(s) => s.isFile(),
+				() => false,
+			))
+		)
+			continue;
 		out.set((rel as string).split("\\").join("/"), await readFile(file));
 	}
 	return out;
@@ -42,7 +48,10 @@ async function workspace(): Promise<{ root: string; vault: string; path(relative
 	await image("Hobb's Warning - Handout.webp", "webp");
 	await image("Wolf - Sigil.gif", "gif");
 	await image("Mysterious - Aquamarine.png", "png");
-	await writeFile(join(vault, A, "attachments", "Session 9 - The Toll - Battle Map.uvtt"), '{"format":0.2,"resolution":{"map_size":{"x":1,"y":1},"pixels_per_grid":64}}\n');
+	await writeFile(
+		join(vault, A, "attachments", "Session 9 - The Toll - Battle Map.uvtt"),
+		'{"format":0.2,"resolution":{"map_size":{"x":1,"y":1},"pixels_per_grid":64}}\n',
+	);
 	await writeFile(join(vault, A, "attachments", "Rules.pdf"), "a pdf, not an image\n");
 	await writeFile(
 		join(vault, A, "NPCs", "nona-black-jaw.md"),
@@ -73,15 +82,27 @@ describe("cf convert", () => {
 		const before = await snapshot(root);
 		const { code, stdout } = await convert(root, ["--dry-run"]);
 		expect(code).toBe(0);
-		expect(stdout).toContain(`would convert  ${ATTACHMENTS}/Nona Black-Jaw - Portrait.png -> ${ATTACHMENTS}/nona-black-jaw-portrait.webp`);
-		expect(stdout).toContain(`would convert  ${ATTACHMENTS}/Aruhe - Handout Art.jpg -> ${ATTACHMENTS}/aruhe-handout-art.webp`);
-		expect(stdout).toContain(`would rename  ${ATTACHMENTS}/Session 9 - The Toll - Battle Map.png -> ${ATTACHMENTS}/session-9-the-toll-battle-map.png`);
-		expect(stdout).toContain(`would rename  ${ATTACHMENTS}/Session 9 - The Toll - Battle Map.uvtt -> ${ATTACHMENTS}/session-9-the-toll-battle-map.uvtt`);
-		expect(stdout).toContain(`would rename  ${ATTACHMENTS}/Hobb's Warning - Handout.webp -> ${ATTACHMENTS}/hobbs-warning-handout-art.webp`);
+		expect(stdout).toContain(
+			`would convert  ${ATTACHMENTS}/Nona Black-Jaw - Portrait.png -> ${ATTACHMENTS}/nona-black-jaw-portrait.webp`,
+		);
+		expect(stdout).toContain(
+			`would convert  ${ATTACHMENTS}/Aruhe - Handout Art.jpg -> ${ATTACHMENTS}/aruhe-handout-art.webp`,
+		);
+		expect(stdout).toContain(
+			`would rename  ${ATTACHMENTS}/Session 9 - The Toll - Battle Map.png -> ${ATTACHMENTS}/session-9-the-toll-battle-map.png`,
+		);
+		expect(stdout).toContain(
+			`would rename  ${ATTACHMENTS}/Session 9 - The Toll - Battle Map.uvtt -> ${ATTACHMENTS}/session-9-the-toll-battle-map.uvtt`,
+		);
+		expect(stdout).toContain(
+			`would rename  ${ATTACHMENTS}/Hobb's Warning - Handout.webp -> ${ATTACHMENTS}/hobbs-warning-handout-art.webp`,
+		);
 		expect(stdout).toContain(`would rename  ${ATTACHMENTS}/Wolf - Sigil.gif -> ${ATTACHMENTS}/wolf-sigil.gif`);
 		expect(stdout).toContain(`would rewrite  wiki/${A}/NPCs/nona-black-jaw.md`);
 		expect(stdout).toContain(`![[Aruhe - Handout Art.jpg|300]] -> ![[aruhe-handout-art.webp|300]]`);
-		expect(stdout).toContain(`![[ashes-of-the-crown/attachments/Aruhe - Handout Art.jpg]] -> ![[ashes-of-the-crown/attachments/aruhe-handout-art.webp]]`);
+		expect(stdout).toContain(
+			`![[ashes-of-the-crown/attachments/Aruhe - Handout Art.jpg]] -> ![[ashes-of-the-crown/attachments/aruhe-handout-art.webp]]`,
+		);
 		expect(stdout).toContain(`skip  ${ATTACHMENTS}/geoffrey-draves-portrait.webp  already follows the naming`);
 		expect(stdout).toContain(`skip  ${ATTACHMENTS}/Mysterious - Aquamarine.png  no known kind in "Aquamarine"`);
 		expect(stdout).toContain(`skip  ${ATTACHMENTS}/Rules.pdf  not an image`);
@@ -93,7 +114,7 @@ describe("cf convert", () => {
 	it("converts art, renames lossless kinds and companions, and rewrites the embeds", async () => {
 		const { root, path } = await workspace();
 		const battleMap = await readFile(path(`${ATTACHMENTS}/Session 9 - The Toll - Battle Map.png`));
-		const { code, stdout } = await convert(root);
+		const { stdout } = await convert(root);
 		expect(stdout).toContain("2 images converted, 5 files renamed, 5 embeds rewritten in 1 page");
 
 		// Art re-encoded: webp bytes, same dimensions.
@@ -112,7 +133,12 @@ describe("cf convert", () => {
 			"Hobb's Warning - Handout.webp",
 			"Wolf - Sigil.gif",
 		]) {
-			expect(await readFile(path(`${ATTACHMENTS}/${gone}`)).then(() => true, () => false)).toBe(false);
+			expect(
+				await readFile(path(`${ATTACHMENTS}/${gone}`)).then(
+					() => true,
+					() => false,
+				),
+			).toBe(false);
 		}
 
 		const page = await readFile(path(`wiki/${A}/NPCs/nona-black-jaw.md`), "utf8");
@@ -146,7 +172,10 @@ title: "Nona Black-Jaw"
 
 	it("refuses, touching nothing, when two files would take one name", async () => {
 		const { root, path } = await workspace();
-		await writeFile(path(`${ATTACHMENTS}/Aruhe - Handout Art.png`), await readFile(path(`${ATTACHMENTS}/Aruhe - Handout Art.jpg`)));
+		await writeFile(
+			path(`${ATTACHMENTS}/Aruhe - Handout Art.png`),
+			await readFile(path(`${ATTACHMENTS}/Aruhe - Handout Art.jpg`)),
+		);
 		const before = await snapshot(root);
 		const { code, stderr } = await convert(root);
 		expect(code).toBe(2);

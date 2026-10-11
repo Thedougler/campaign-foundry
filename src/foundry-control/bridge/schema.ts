@@ -106,9 +106,7 @@ export interface MutationResult {
 
 // --- Tool params (module plane) ---
 
-export interface WorldInspectParams {
-	/** Empty params; the world answers about itself. */
-}
+export type WorldInspectParams = Record<string, never>;
 
 export interface WorldSearchParams {
 	/** Substring matched against document names, case-insensitive. */

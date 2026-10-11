@@ -11,7 +11,9 @@ describe("backup map", () => {
 		expect(normalizeId("3f10216635ec8117af9cd05f042eea59")).toBe(PARENT);
 		expect(normalizeId(PARENT)).toBe(PARENT);
 		expect(normalizeId("https://app.notion.com/p/3f10216635ec8117af9cd05f042eea59")).toBe(PARENT);
-		expect(normalizeId("https://www.notion.so/Shattered-Sea-campaign-3f10216635ec8117af9cd05f042eea59?pvs=4")).toBe(PARENT);
+		expect(normalizeId("https://www.notion.so/Shattered-Sea-campaign-3f10216635ec8117af9cd05f042eea59?pvs=4")).toBe(
+			PARENT,
+		);
 		expect(() => normalizeId("not a page")).toThrow(/not a Notion page id/);
 	});
 
@@ -25,7 +27,13 @@ describe("backup map", () => {
 		const file = join(root, ".notion/backup-map.json");
 		saveMap(file, map);
 		expect(readFileSync(file, "utf8")).toBe(text);
-		expect(loadMap(file, PARENT).entries["b.md"]).toEqual({ kind: "markdown", id: "2", url: "u2", hash: "h", title: "Second page" });
+		expect(loadMap(file, PARENT).entries["b.md"]).toEqual({
+			kind: "markdown",
+			id: "2",
+			url: "u2",
+			hash: "h",
+			title: "Second page",
+		});
 	});
 
 	it("writes each entry's fields in one order, so the same map built in another order is the same file", () => {

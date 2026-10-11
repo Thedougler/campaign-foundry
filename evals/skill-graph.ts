@@ -3,7 +3,7 @@
 // files hold, and the wiki/templates/<template>.md files they name. Everything here is deterministic
 // over the skill text; no judgement and no new frontmatter fields.
 
-import { realpathSync } from "node:fs";
+import { realpathSync, type Dirent } from "node:fs";
 import { readdir, readFile, stat } from "node:fs/promises";
 import { dirname, join, relative, resolve, sep } from "node:path";
 
@@ -12,7 +12,14 @@ import { dirname, join, relative, resolve, sep } from "node:path";
  * (`~/.agents/skills`) or omp built-in skills. `cf eval validate` passes them without a repo
  * directory, and `cf eval graph` lists them as links. The DM confirms this list (issue #52).
  */
-export const EXTERNAL_SKILL_NAMES: Record<string, true> = { "context7-mcp": true, "find-skills": true };
+export const EXTERNAL_SKILL_NAMES: Record<string, true> = {
+	"cli-for-agents": true,
+	"context7-mcp": true,
+	"domain-modeling": true,
+	"find-skills": true,
+	"oh-my-pi-session-history": true,
+	"writing-for-agents": true,
+};
 
 /** Visit each line outside fenced code blocks with its 1-based line number, tracking fence delimiters. */
 export function forEachVisibleLine(content: string, visit: (line: string, index: number) => void): void {
@@ -71,7 +78,7 @@ export interface SkillReferenceScope {
 export async function loadSkillScope(root: string): Promise<SkillReferenceScope> {
 	const skills = new Map<string, string[]>();
 	for (const skillRoot of [join(root, ".omp/skills"), join(root, ".agents/skills")]) {
-		let entries;
+		let entries: Dirent[];
 		try {
 			entries = await readdir(skillRoot, { withFileTypes: true });
 		} catch {
@@ -106,7 +113,7 @@ export async function skillSourceFiles(skillDir: string, skillContent: string): 
 		if (!files.has(path)) files.set(path, relative(skillDir, path).split(sep).join("/"));
 	};
 	async function visit(directory: string): Promise<void> {
-		let entries;
+		let entries: Dirent[];
 		try {
 			entries = await readdir(directory, { withFileTypes: true });
 		} catch {
@@ -122,8 +129,12 @@ export async function skillSourceFiles(skillDir: string, skillContent: string): 
 	for (const link of markdownLinks(skillContent)) {
 		if (link.destination === "" || NON_RELATIVE.test(link.destination)) continue;
 		const hash = link.destination.indexOf("#");
-		const target = resolve(dirname(skillFile), decodedPath(hash === -1 ? link.destination : link.destination.slice(0, hash)));
-		if (target === skillFile || !/\.md$/i.test(target) || !(target === skillDir || target.startsWith(skillDir + sep))) continue;
+		const target = resolve(
+			dirname(skillFile),
+			decodedPath(hash === -1 ? link.destination : link.destination.slice(0, hash)),
+		);
+		if (target === skillFile || !/\.md$/i.test(target) || !(target === skillDir || target.startsWith(skillDir + sep)))
+			continue;
 		try {
 			if (!(await stat(target)).isFile()) continue;
 		} catch {
@@ -145,7 +156,11 @@ export interface SkillLinkBreak {
  * Broken `skill://<name>[/<path>]` references in a skill's files: a name no repo skill or
  * allowlisted external skill answers to, or a path that is no file in the named skill.
  */
-export async function brokenSkillLinks(skillDir: string, scope: SkillReferenceScope, skillContent: string): Promise<SkillLinkBreak[]> {
+export async function brokenSkillLinks(
+	skillDir: string,
+	scope: SkillReferenceScope,
+	skillContent: string,
+): Promise<SkillLinkBreak[]> {
 	const skillFile = join(skillDir, "SKILL.md");
 	const pending: { file: string; line: number; reference: string; name: string; path: string }[] = [];
 	const breaks: SkillLinkBreak[] = [];
@@ -158,11 +173,23 @@ export async function brokenSkillLinks(skillDir: string, scope: SkillReferenceSc
 				if (!scope.skills.has(name)) {
 					// An allowlisted external skill has no repo directory to check; any other unknown name is a break.
 					if (EXTERNAL_SKILL_NAMES[name] !== true) {
-						breaks.push({ file: display, line: index + 1, reference: `skill://${name}${refPath === "" ? "" : `/${refPath}`}`, reason: `no skill '${name}' in .omp/skills or .agents/skills` });
+						breaks.push({
+							file: display,
+							line: index + 1,
+							reference: `skill://${name}${refPath === "" ? "" : `/${refPath}`}`,
+							reason: `no skill '${name}' in .omp/skills or .agents/skills`,
+						});
 					}
 					continue;
 				}
-				if (refPath !== "") pending.push({ file: display, line: index + 1, reference: `skill://${name}/${refPath}`, name, path: refPath });
+				if (refPath !== "")
+					pending.push({
+						file: display,
+						line: index + 1,
+						reference: `skill://${name}/${refPath}`,
+						name,
+						path: refPath,
+					});
 			}
 		});
 	}
@@ -176,7 +203,13 @@ export async function brokenSkillLinks(skillDir: string, scope: SkillReferenceSc
 			}
 			if (isFile) break;
 		}
-		if (!isFile) breaks.push({ file: ref.file, line: ref.line, reference: ref.reference, reason: `no file '${ref.path}' in skill '${ref.name}'` });
+		if (!isFile)
+			breaks.push({
+				file: ref.file,
+				line: ref.line,
+				reference: ref.reference,
+				reason: `no file '${ref.path}' in skill '${ref.name}'`,
+			});
 	}
 	return breaks;
 }
@@ -206,7 +239,8 @@ export async function buildSkillGraph(root: string): Promise<SkillGraphEntry[]> 
 				forEachVisibleLine(text, (line) => {
 					for (const match of line.matchAll(SKILL_REFERENCE)) {
 						const target = match[1]!;
-						if (target !== name && (scope.skills.has(target) || EXTERNAL_SKILL_NAMES[target] === true)) links.add(target);
+						if (target !== name && (scope.skills.has(target) || EXTERNAL_SKILL_NAMES[target] === true))
+							links.add(target);
 					}
 					for (const match of line.matchAll(INLINE_CODE)) {
 						const token = match[0].replace(/^`+|`+$/g, "").trim();

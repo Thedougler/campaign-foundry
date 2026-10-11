@@ -24,7 +24,12 @@ async function fakeFetch(): Promise<{ fetch: FetchLike; calls: string[] }> {
 		calls.push(url);
 		const id = url.slice(url.lastIndexOf("/") + 1);
 		const body = bodies[id];
-		if (body === undefined) return { ok: false, status: 403, json: async () => ({ success: false, message: "An unexpected error has occurred" }) };
+		if (body === undefined)
+			return {
+				ok: false,
+				status: 403,
+				json: async () => ({ success: false, message: "An unexpected error has occurred" }),
+			};
 		return { ok: true, status: 200, json: async () => body };
 	};
 	return { fetch, calls };
@@ -106,7 +111,28 @@ describe("runPull", () => {
 		await pull();
 		const viaPull = await read("ashes-of-the-crown/log.md");
 		// The same entry through the command: already logged, so the file is unchanged.
-		const again = await cf(["log", "--campaign", "Ashes of the Crown", "--op", "pull", "--title", "Pulled PCs from D&D Beyond", "--page", "Vale", "--page", "Wren", "--date", "2026-09-28", "--vault", vault, "--root", dir], dir);
+		const again = await cf(
+			[
+				"log",
+				"--campaign",
+				"Ashes of the Crown",
+				"--op",
+				"pull",
+				"--title",
+				"Pulled PCs from D&D Beyond",
+				"--page",
+				"Vale",
+				"--page",
+				"Wren",
+				"--date",
+				"2026-09-28",
+				"--vault",
+				vault,
+				"--root",
+				dir,
+			],
+			dir,
+		);
 		expect(again.stdout).toContain("already logged");
 		expect(await read("ashes-of-the-crown/log.md")).toBe(viaPull);
 	});
@@ -117,7 +143,10 @@ describe("runPull", () => {
 		const log = await read("ashes-of-the-crown/log.md");
 
 		const again = await pull();
-		expect(again.outcomes.filter((o) => o.pc === "Wren" || o.pc === "Vale").map((o) => o.status)).toEqual(["unchanged", "unchanged"]);
+		expect(again.outcomes.filter((o) => o.pc === "Wren" || o.pc === "Vale").map((o) => o.status)).toEqual([
+			"unchanged",
+			"unchanged",
+		]);
 		expect(await Promise.all(["Wren", "Vale", "Hollow", "Tam"].map((n) => read(`${pcDir}/${n}.md`)))).toEqual(snapshot);
 		expect(await read("ashes-of-the-crown/log.md")).toBe(log);
 		expect(again.logged).toEqual([]);
@@ -127,7 +156,11 @@ describe("runPull", () => {
 		const before = await Promise.all(["Wren", "Vale"].map((n) => read(`${pcDir}/${n}.md`)));
 		const result = await pull({ dryRun: true });
 		const wren = result.outcomes.find((o) => o.pc === "Wren");
-		expect(wren).toMatchObject({ status: "would-update", sections: ["Sheet", "Spells", "Inventory"], summarySet: true });
+		expect(wren).toMatchObject({
+			status: "would-update",
+			sections: ["Sheet", "Spells", "Inventory"],
+			summarySet: true,
+		});
 		expect(wren?.added).toBeGreaterThan(20);
 		expect(await Promise.all(["Wren", "Vale"].map((n) => read(`${pcDir}/${n}.md`)))).toEqual(before);
 		expect(await read("ashes-of-the-crown/log.md")).not.toContain("pull");
@@ -144,7 +177,9 @@ describe("runPull", () => {
 	it("rejects an unknown PC or Campaign with what is available", async () => {
 		await expect(pull({ pcs: ["Nobody"] })).rejects.toThrow(UsageError);
 		await expect(pull({ pcs: ["Nobody"] })).rejects.toMatchObject({ hint: expect.stringMatching(/Wren/) });
-		await expect(pull({ campaign: "Nowhere" })).rejects.toMatchObject({ hint: expect.stringMatching(/Ashes of the Crown/) });
+		await expect(pull({ campaign: "Nowhere" })).rejects.toMatchObject({
+			hint: expect.stringMatching(/Ashes of the Crown/),
+		});
 	});
 
 	it("fails a PC named with --pc that has no D&D Beyond link, and says how to add it", async () => {

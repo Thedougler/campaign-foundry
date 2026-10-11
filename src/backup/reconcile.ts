@@ -1,7 +1,16 @@
 import { extname } from "node:path";
 import { type FileKind, IMAGE_EXTENSIONS, titleOf, type WalkResult } from "./files.ts";
 import type { BackupMap, MapEntry } from "./map.ts";
-import { deletedNote, dirMarker, isRootCallout, markerOf, parseMarker, type ReadBlock, ROOT_TITLE, uploadSkippedNote } from "./markers.ts";
+import {
+	deletedNote,
+	dirMarker,
+	isRootCallout,
+	markerOf,
+	parseMarker,
+	type ReadBlock,
+	ROOT_TITLE,
+	uploadSkippedNote,
+} from "./markers.ts";
 import type { NotionApi } from "./notion.ts";
 
 /** Two or more Notion pages claiming one repo path: one is kept, the rest are reported and never added to. */
@@ -53,7 +62,8 @@ interface Candidate {
 	kids?: ReadBlock[];
 }
 
-export const sameId = (a: string | undefined, b: string | undefined): boolean => Boolean(a && b) && a?.replace(/-/g, "").toLowerCase() === b?.replace(/-/g, "").toLowerCase();
+export const sameId = (a: string | undefined, b: string | undefined): boolean =>
+	Boolean(a && b) && a?.replace(/-/g, "").toLowerCase() === b?.replace(/-/g, "").toLowerCase();
 const norm = (id: string): string => id.replace(/-/g, "").toLowerCase();
 const parentPath = (p: string): string => (p.includes("/") ? p.slice(0, p.lastIndexOf("/")) : "");
 const kindByExtension = (path: string): FileKind => {
@@ -62,7 +72,8 @@ const kindByExtension = (path: string): FileKind => {
 	return IMAGE_EXTENSIONS.has(ext) ? "image" : "text";
 };
 const childPages = (blocks: ReadBlock[]): ReadBlock[] => blocks.filter((b) => b.type === "child_page");
-const older = (a: { createdTime: string; id: string }, b: { createdTime: string; id: string }): number => a.createdTime.localeCompare(b.createdTime) || norm(a.id).localeCompare(norm(b.id));
+const older = (a: { createdTime: string; id: string }, b: { createdTime: string; id: string }): number =>
+	a.createdTime.localeCompare(b.createdTime) || norm(a.id).localeCompare(norm(b.id));
 const normName = (name: string): string => name.toLowerCase().replace(/[^a-z0-9]/g, "");
 
 /**
@@ -75,17 +86,27 @@ const normName = (name: string): string => name.toLowerCase().replace(/[^a-z0-9]
  */
 export async function reconcile(options: ReconcileOptions): Promise<Reconciliation> {
 	const { walk, map, api, log } = options;
-	const result: Reconciliation = { rootAbsent: false, adopted: [], dropped: [], markersAdded: 0, uploadsReused: 0, duplicates: [], foreign: 0 };
+	const result: Reconciliation = {
+		rootAbsent: false,
+		adopted: [],
+		dropped: [],
+		markersAdded: 0,
+		uploadsReused: 0,
+		duplicates: [],
+		foreign: 0,
+	};
 
 	// 1. The root: a child page of the parent titled ROOT_TITLE, or the map's root, or one opening with the root note.
 	const roots: { block: ReadBlock; kids: ReadBlock[] }[] = [];
 	for (const page of childPages(await api.children(map.parentPageId))) {
-		const isRoot = page.title === ROOT_TITLE || sameId(page.id, map.root?.id) || isRootCallout((await api.children(page.id, 1))[0]);
+		const isRoot =
+			page.title === ROOT_TITLE || sameId(page.id, map.root?.id) || isRootCallout((await api.children(page.id, 1))[0]);
 		if (isRoot) roots.push({ block: page, kids: await api.children(page.id) });
 	}
 	if (roots.length === 0) {
 		result.dropped = Object.keys(map.entries).sort();
-		if (map.root || result.dropped.length > 0) log(`no Backup root under the parent page: dropping the map's ${result.dropped.length} entries`);
+		if (map.root || result.dropped.length > 0)
+			log(`no Backup root under the parent page: dropping the map's ${result.dropped.length} entries`);
 		map.root = undefined;
 		map.entries = {};
 		map.syncedCommit = undefined;
@@ -93,7 +114,12 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 		options.save(map);
 		return result;
 	}
-	roots.sort((a, b) => Number(sameId(b.block.id, map.root?.id)) - Number(sameId(a.block.id, map.root?.id)) || childPages(b.kids).length - childPages(a.kids).length || older(a.block, b.block));
+	roots.sort(
+		(a, b) =>
+			Number(sameId(b.block.id, map.root?.id)) - Number(sameId(a.block.id, map.root?.id)) ||
+			childPages(b.kids).length - childPages(a.kids).length ||
+			older(a.block, b.block),
+	);
 	const [root, ...extraRoots] = roots as [(typeof roots)[0], ...typeof roots];
 	if (extraRoots.length > 0) {
 		const extras: Duplicate["extras"] = [];
@@ -119,11 +145,19 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 	const inWalk = new Set([...walkDirs, ...walk.files.map((f) => f.path)]);
 	const candidates = new Map<string, Candidate[]>();
 	const queue: { path: string; kids: ReadBlock[] }[] = [{ path: "", kids: root.kids }];
-	const byTitle = (folder: string, title: string, first: ReadBlock[]): { path: string; kind: "dir" | "file" } | undefined => {
+	const byTitle = (
+		folder: string,
+		title: string,
+		first: ReadBlock[],
+	): { path: string; kind: "dir" | "file" } | undefined => {
 		if (first.some((b) => b.type !== "child_page")) return undefined;
 		const matches: { path: string; kind: "dir" | "file" }[] = [];
-		for (const d of walkDirs) if (parentPath(d) === folder && titleOf(d, "dir") === title) matches.push({ path: d, kind: "dir" });
-		if (first.length === 0) for (const f of walk.files) if (parentPath(f.path) === folder && titleOf(f.path, f.kind, f.title, f.aliases) === title) matches.push({ path: f.path, kind: "file" });
+		for (const d of walkDirs)
+			if (parentPath(d) === folder && titleOf(d, "dir") === title) matches.push({ path: d, kind: "dir" });
+		if (first.length === 0)
+			for (const f of walk.files)
+				if (parentPath(f.path) === folder && titleOf(f.path, f.kind, f.title, f.aliases) === title)
+					matches.push({ path: f.path, kind: "file" });
 		return matches.length === 1 ? matches[0] : undefined;
 	};
 	while (queue.length > 0) {
@@ -133,13 +167,29 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 			const known = pathById.get(norm(page.id));
 			const knownEntry = known === undefined ? undefined : map.entries[known];
 			if (known !== undefined && knownEntry && (parentPath(known) === folder || inWalk.has(known))) {
-				c = { id: page.id, path: known, kind: knownEntry.kind === "dir" ? "dir" : "file", createdTime: page.createdTime, via: "map", complete: true };
+				c = {
+					id: page.id,
+					path: known,
+					kind: knownEntry.kind === "dir" ? "dir" : "file",
+					createdTime: page.createdTime,
+					via: "map",
+					complete: true,
+				};
 			} else {
 				const first = await api.children(page.id, 4);
 				const marker = markerOf(first);
 				if (marker) {
 					const commit = marker.kind === "file" ? marker.commit : undefined;
-					c = { id: page.id, path: marker.path, kind: marker.kind, createdTime: page.createdTime, via: "marker", complete: marker.kind === "dir" || Boolean(commit), ...(commit ? { commit } : {}), first };
+					c = {
+						id: page.id,
+						path: marker.path,
+						kind: marker.kind,
+						createdTime: page.createdTime,
+						via: "marker",
+						complete: marker.kind === "dir" || Boolean(commit),
+						...(commit ? { commit } : {}),
+						first,
+					};
 				} else {
 					const match = byTitle(folder, page.title ?? "", first);
 					if (match) c = { id: page.id, ...match, createdTime: page.createdTime, via: "title", complete: false, first };
@@ -157,7 +207,8 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 	}
 
 	// 3. One page per path: the map's own page first, then a fully written one, then the oldest.
-	const rank = (c: Candidate, entry: MapEntry | undefined): number => (sameId(c.id, entry?.id) ? 0 : 4) + (c.complete ? 0 : 2) + (c.via === "title" ? 1 : 0);
+	const rank = (c: Candidate, entry: MapEntry | undefined): number =>
+		(sameId(c.id, entry?.id) ? 0 : 4) + (c.complete ? 0 : 2) + (c.via === "title" ? 1 : 0);
 	for (const [path, list] of candidates) {
 		const entry = map.entries[path];
 		list.sort((a, b) => rank(a, entry) - rank(b, entry) || older(a, b));
@@ -178,12 +229,17 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 			result.markersAdded++;
 		}
 		if (entry && sameId(entry.id, kept.id)) {
-			if (kept.kind === "file" && kept.title) entry.title = entry.deletedAt ? kept.title.replace(/ \(deleted from repo\)$/, "") : kept.title;
+			if (kept.kind === "file" && kept.title)
+				entry.title = entry.deletedAt ? kept.title.replace(/ \(deleted from repo\)$/, "") : kept.title;
 			continue;
 		}
 		const info = await api.getPage(kept.id);
 		const file = walk.files.find((f) => f.path === path);
-		const adopted: MapEntry = { kind: kept.kind === "dir" ? "dir" : (file?.kind ?? kindByExtension(path)), id: kept.id, url: info?.url ?? `https://www.notion.so/${norm(kept.id)}` };
+		const adopted: MapEntry = {
+			kind: kept.kind === "dir" ? "dir" : (file?.kind ?? kindByExtension(path)),
+			id: kept.id,
+			url: info?.url ?? `https://www.notion.so/${norm(kept.id)}`,
+		};
 		if (kept.kind === "dir") {
 			const deletedAt = deletedNote(kept.kids ?? []);
 			if (deletedAt) adopted.deletedAt = deletedAt;
@@ -214,10 +270,14 @@ export async function reconcile(options: ReconcileOptions): Promise<Reconciliati
 		return f.kind === "image" && e && !e.deletedAt && !e.fileUploadId && !e.uploadSkipped && e.hash === f.hash;
 	});
 	if (needUpload.length > 0) {
-		const uploads = (await api.listUploads()).filter((u) => u.status === "uploaded" && !u.expiryTime).sort((a, b) => b.createdTime.localeCompare(a.createdTime));
+		const uploads = (await api.listUploads())
+			.filter((u) => u.status === "uploaded" && !u.expiryTime)
+			.sort((a, b) => b.createdTime.localeCompare(a.createdTime));
 		for (const f of needUpload) {
 			const name = normName(titleOf(f.path, "image"));
-			const match = uploads.find((u) => normName(u.filename) === name && (u.contentLength === undefined || u.contentLength === f.size));
+			const match = uploads.find(
+				(u) => normName(u.filename) === name && (u.contentLength === undefined || u.contentLength === f.size),
+			);
 			const e = map.entries[f.path];
 			if (match && e) {
 				e.fileUploadId = match.id;

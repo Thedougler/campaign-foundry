@@ -1,8 +1,8 @@
 {
-  "hosts": {
-    "rpi4": {
-      "host": "100.84.226.53",
-      "username": "nick"
-    }
-  }
+	"hosts": {
+		"rpi4": {
+			"host": "100.84.226.53",
+			"username": "nick"
+		}
+	}
 }

@@ -41,7 +41,9 @@ describe("planMutation", () => {
 	});
 
 	it("forces backup_before on for batch, with a warning naming why", () => {
-		const plan = planMutation("document.batch", { ops: [{ tool: "document.create", params: { collection: "actors", data: { name: "A" } } }] });
+		const plan = planMutation("document.batch", {
+			ops: [{ tool: "document.create", params: { collection: "actors", data: { name: "A" } } }],
+		});
 		expect(plan.backup_before).toBe(true);
 		expect(plan.warnings.join("\n")).toMatch(/batch/i);
 	});
@@ -116,16 +118,24 @@ describe("IdempotencyStore", () => {
 		const dir = await tmpDir();
 		const path = join(dir, "idem.jsonl");
 		const store = new IdempotencyStore(path);
-		await withIdempotency(store, "persist-me", "document.patch", { uuid: "Actor.a", changes: {} }, async () => ({ uuids: ["Actor.a"] }));
+		await withIdempotency(store, "persist-me", "document.patch", { uuid: "Actor.a", changes: {} }, async () => ({
+			uuids: ["Actor.a"],
+		}));
 		const line = await readFile(path, "utf8");
 		expect(JSON.parse(line.trim())).toMatchObject({ key: "persist-me", tool: "document.patch", ok: true });
 
 		const reopened = new IdempotencyStore(path);
 		let ran = 0;
-		const replayed = await withIdempotency(reopened, "persist-me", "document.patch", { uuid: "Actor.a", changes: {} }, async () => {
-			ran += 1;
-			return { uuids: [] };
-		});
+		const replayed = await withIdempotency(
+			reopened,
+			"persist-me",
+			"document.patch",
+			{ uuid: "Actor.a", changes: {} },
+			async () => {
+				ran += 1;
+				return { uuids: [] };
+			},
+		);
 		expect(ran).toBe(0);
 		expect(replayed.replayed).toBe(true);
 	});

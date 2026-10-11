@@ -23,7 +23,7 @@ Keep published numbers unchanged unless the chosen variant, new design, or retun
 
 ## Source record
 
-Keep the working source ledger separate from the page. For each candidate it records the source tier, retrieval status, fit and chosen path. Put external attribution and the candidate/change explanation in the Creature body where the DM can find it. The page's `sources` frontmatter contains only archived Raw paths, such as `archive/creature-source.md`; never put URLs, provider names, or live web addresses there.
+Keep the working source ledger separate from the page. For each candidate it records the source tier, retrieval status, fit and chosen path. Put external attribution and the candidate/change explanation in the Creature body where the DM can find it. The page's `sources` frontmatter contains only archived Raw paths, such as the illustrative path `archive/<creature-source>.md`; never put URLs, provider names, or live web addresses there.
 
 ADR 0005 requires the complete rules text in the Wiki. A reused or adapted Creature gets the complete statblock written on its page. Paraphrase rules when writing a new expression, and preserve a reused block's published rules and numbers.
 
@@ -37,6 +37,6 @@ Before filing, reconcile every rule-bearing field against a retrieved 2024 sourc
 - action timing, recharge, uses, concentration, movement, reactions and any legendary or lair timing;
 - damage and condition interactions, resistances, immunities, senses and languages.
 
-Use the exact statblock field shape in `wiki/templates/creature.md` and 2024 wording. Write derived values explicitly so the gate can recompute them. Apply the 2024 spell-slot rule in place of the 2014 restrictions. Under 2024 rules a creature can spend only one spell slot on its turn. A Bonus Action spell does not by itself forbid a leveled spell in the same turn, subject to that one-slot limit and the creature's actual actions.
+Use the exact statblock field shape in `wiki/templates/creature.md` and 2024 wording. Write derived values explicitly so the gate can recompute them. Apply the 2024 spell-slot rule in place of the 2014 restrictions. Under 2024 rules a creature can spend only one spell slot on its turn. A Bonus Action spell does not by itself forbid a levelled spell in the same turn, subject to that one-slot limit and the creature's actual actions.
 
 Back each mechanical claim with the retrieved rule, the World House Rule, or a clearly labelled design assumption. Do not invent a 2024 defensive/offensive CR formula.

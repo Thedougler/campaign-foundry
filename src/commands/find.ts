@@ -1,20 +1,16 @@
 import { Command } from "commander";
 import { UsageError } from "../check/run.ts";
 import { suggest } from "../check/util.ts";
+import { stringValues } from "../vault/dialect.ts";
 import type { Page, Vault } from "../vault/types.ts";
 import { buildVault, readVaultFiles } from "../vault/vault.ts";
+import { CF, envOptions, resolveEnv } from "./kit.ts";
 import { revealedOf } from "./revealed.ts";
-import { resolveVault } from "./vault-flags.ts";
 
 interface FindFlags {
 	vault?: string;
 	root?: string;
-}
-
-/** The frontmatter value as a list of strings: a scalar becomes one entry, other shapes read as absent. */
-function stringValues(value: unknown): string[] {
-	if (typeof value === "string") return value.trim() === "" ? [] : [value];
-	return Array.isArray(value) ? value.filter((v): v is string => typeof v === "string") : [];
+	json?: boolean;
 }
 
 interface NameMatches {
@@ -43,13 +39,14 @@ function matchNames(vault: Vault, queries: string[]): NameMatches {
 }
 
 export function findCommand(): Command {
-	return new Command("find")
+	const command = new Command("find")
 		.description(
 			"Resolves names to Wiki pages: case-insensitive, exact or prefix, over each page's frontmatter `title`, its `aliases` and its filename slug (ADR 0028). Read-only; which page a subject means stays with the agent.",
 		)
-		.argument("<names...>", "one or more names to resolve")
-		.option("--vault <dir>", "the Wiki folder (default: <root>/wiki)")
-		.option("--root <dir>", "repository root (default: nearest git root)")
+		.argument("<names...>", "one or more names to resolve");
+	envOptions(command);
+	return command
+		.option("--json", "print [{query,pages:[{path,kind,title,aliases,revealed}]}] JSON instead of text blocks")
 		.addHelpText(
 			"after",
 			`
@@ -64,45 +61,63 @@ Exit codes:
   0  every name matched    2  usage error, or a name with no match
 
 Examples:
-  cf find "Nona Black-Jaw"
-  cf find "Nona"                  a prefix is enough, and it also matches aliases
-  cf find "Gold Caste" "Nona"     several names, one block each
-  cf find "gold" --vault wiki     every page answering to a gold-prefixed name`,
+  ${CF} find "Nona Black-Jaw"
+  ${CF} find "Nona"                  a prefix is enough, and it also matches aliases
+  ${CF} find "Gold Caste" "Nona"     several names, one block each
+  ${CF} find "gold" --vault wiki     every page answering to a gold-prefixed name
+  ${CF} find "Nona" --json           the same matches as JSON`,
 		)
 		.action(async (names: string[], flags: FindFlags) => {
 			const queries = names.map((n) => n.trim());
 			if (queries.length === 0 || queries.some((q) => q === "")) {
-				throw new UsageError("No name given.", 'Name at least one page by `title`, alias or file slug. Example: cf find "Nona Black-Jaw"');
+				throw new UsageError(
+					"No name given.",
+					`Name at least one page by \`title\`, alias or file slug. Example: ${CF} find "Nona Black-Jaw"`,
+				);
 			}
-			const { vault: vaultDir } = resolveVault(flags, "find");
+			const { vault: vaultDir } = resolveEnv(flags, "find");
 			const vault = buildVault(vaultDir, await readVaultFiles(vaultDir));
 			const { byQuery, candidates } = matchNames(vault, queries);
-			const out: string[] = [];
 			let missed: { query: string; closest?: string } | undefined;
+			const blocks: string[] = [];
+			const report: {
+				query: string;
+				pages: { path: string; kind: string | null; title: string | null; aliases: string[]; revealed: string }[];
+			}[] = [];
 			for (const query of queries) {
 				const hits = byQuery.get(query) ?? [];
 				if (hits.length === 0) {
 					missed ??= { query, closest: suggest(query, candidates) };
 					continue;
 				}
-				out.push(`${query}  ${hits.length} ${hits.length === 1 ? "page" : "pages"}`);
-				for (const page of hits) {
-					out.push(`  ${page.path}`);
+				blocks.push(`${query}  ${hits.length} ${hits.length === 1 ? "page" : "pages"}`);
+				const pages = hits.map((page) => {
 					const kind = page.frontmatter?.type;
-					if (typeof kind === "string" && kind !== "") out.push(`    kind: ${kind}`);
-					const title = typeof page.frontmatter?.title === "string" ? page.frontmatter.title.trim() : "";
-					out.push(title === "" ? "    title: unset" : `    title: ${title}`);
+					const title = stringValues(page.frontmatter?.title)[0] ?? "";
 					const aliases = stringValues(page.frontmatter?.aliases);
-					if (aliases.length > 0) out.push(`    aliases: ${aliases.join(", ")}`);
-					out.push(`    revealed: ${revealedOf(page)}`);
-				}
-				out.push("");
+					blocks.push(`  ${page.path}`);
+					if (typeof kind === "string" && kind !== "") blocks.push(`    kind: ${kind}`);
+					blocks.push(title === "" ? "    title: unset" : `    title: ${title}`);
+					if (aliases.length > 0) blocks.push(`    aliases: ${aliases.join(", ")}`);
+					blocks.push(`    revealed: ${revealedOf(page)}`);
+					return {
+						path: page.path,
+						kind: typeof kind === "string" && kind !== "" ? kind : null,
+						title: title === "" ? null : title,
+						aliases,
+						revealed: revealedOf(page),
+					};
+				});
+				blocks.push("");
+				report.push({ query, pages });
 			}
-			if (out.length > 0) process.stdout.write(out.join("\n"));
+			// A miss refuses after the matches print, so a partial answer still reaches the agent (exit 2 says to look again); JSON refuses whole, since half a document parses as whole.
+			if (flags.json && missed === undefined) process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);
+			else if (!flags.json && blocks.length > 0) process.stdout.write(blocks.join("\n"));
 			if (missed !== undefined) {
 				throw new UsageError(
 					`No page answering to \`${missed.query}\` in the Wiki.${missed.closest ? ` Did you mean \`${missed.closest}\`?` : ""}`,
-					`Name a page by \`title\`, alias or file slug; a prefix is enough. cf find "${missed.closest ?? missed.query}"`,
+					`Name a page by \`title\`, alias or file slug; a prefix is enough. ${CF} find "${missed.closest ?? missed.query}"`,
 				);
 			}
 		});

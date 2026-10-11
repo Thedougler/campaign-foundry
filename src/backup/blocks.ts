@@ -3,7 +3,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
-import { parseWikiLinkText } from "../vault/parse.ts";
+import { BLOCK_ID, CALLOUT_TITLE, parseWikiLinkText, WIKILINK } from "../vault/dialect.ts";
 import type { WikiLink } from "../vault/types.ts";
 
 /** Notion's request limits: https://developers.notion.com/reference/request-limits */
@@ -86,9 +86,117 @@ const CALLOUT_ICON: Record<string, string> = {
 
 /** Code languages Notion accepts; others fall back to `plain text`. */
 const NOTION_LANGUAGES = new Set([
-	"abap", "abc", "agda", "arduino", "ascii art", "assembly", "bash", "basic", "bnf", "c", "c#", "c++", "clojure", "coffeescript", "coq", "css", "dart", "dhall", "diff", "docker", "ebnf", "elixir", "elm", "erlang", "f#", "flow", "fortran", "gherkin", "glsl", "go", "graphql", "groovy", "haskell", "hcl", "html", "idris", "java", "javascript", "json", "julia", "kotlin", "latex", "less", "lisp", "livescript", "llvm ir", "lua", "makefile", "markdown", "markup", "matlab", "mathematica", "mermaid", "nix", "notion formula", "objective-c", "ocaml", "pascal", "perl", "php", "plain text", "powershell", "prolog", "protobuf", "purescript", "python", "r", "racket", "reason", "ruby", "rust", "sass", "scala", "scheme", "scss", "shell", "smalltalk", "solidity", "sql", "swift", "toml", "typescript", "vb.net", "verilog", "vhdl", "visual basic", "webassembly", "xml", "yaml", "java/c/c++/c#",
+	"abap",
+	"abc",
+	"agda",
+	"arduino",
+	"ascii art",
+	"assembly",
+	"bash",
+	"basic",
+	"bnf",
+	"c",
+	"c#",
+	"c++",
+	"clojure",
+	"coffeescript",
+	"coq",
+	"css",
+	"dart",
+	"dhall",
+	"diff",
+	"docker",
+	"ebnf",
+	"elixir",
+	"elm",
+	"erlang",
+	"f#",
+	"flow",
+	"fortran",
+	"gherkin",
+	"glsl",
+	"go",
+	"graphql",
+	"groovy",
+	"haskell",
+	"hcl",
+	"html",
+	"idris",
+	"java",
+	"javascript",
+	"json",
+	"julia",
+	"kotlin",
+	"latex",
+	"less",
+	"lisp",
+	"livescript",
+	"llvm ir",
+	"lua",
+	"makefile",
+	"markdown",
+	"markup",
+	"matlab",
+	"mathematica",
+	"mermaid",
+	"nix",
+	"notion formula",
+	"objective-c",
+	"ocaml",
+	"pascal",
+	"perl",
+	"php",
+	"plain text",
+	"powershell",
+	"prolog",
+	"protobuf",
+	"purescript",
+	"python",
+	"r",
+	"racket",
+	"reason",
+	"ruby",
+	"rust",
+	"sass",
+	"scala",
+	"scheme",
+	"scss",
+	"shell",
+	"smalltalk",
+	"solidity",
+	"sql",
+	"swift",
+	"toml",
+	"typescript",
+	"vb.net",
+	"verilog",
+	"vhdl",
+	"visual basic",
+	"webassembly",
+	"xml",
+	"yaml",
+	"java/c/c++/c#",
 ]);
-const LANGUAGE_ALIASES: Record<string, string> = { sh: "shell", zsh: "shell", console: "shell", ts: "typescript", js: "javascript", py: "python", yml: "yaml", md: "markdown", text: "plain text", txt: "plain text", jsonc: "json", json5: "json", statblock: "yaml", base: "yaml", dockerfile: "docker", toml: "toml", cs: "c#", cpp: "c++" };
+const LANGUAGE_ALIASES: Record<string, string> = {
+	sh: "shell",
+	zsh: "shell",
+	console: "shell",
+	ts: "typescript",
+	js: "javascript",
+	py: "python",
+	yml: "yaml",
+	md: "markdown",
+	text: "plain text",
+	txt: "plain text",
+	jsonc: "json",
+	json5: "json",
+	statblock: "yaml",
+	base: "yaml",
+	dockerfile: "docker",
+	toml: "toml",
+	cs: "c#",
+	cpp: "c++",
+};
 /** Obsidian plugin blocks that render only in Obsidian; their source is kept as YAML with this caption. */
 const PLUGIN_FENCES: Record<string, string> = {
 	statblock: "Fantasy Statblocks source: renders as a stat block in Obsidian only.",
@@ -104,10 +212,6 @@ export function notionLanguage(lang: string | null | undefined): string {
 }
 
 const parser = unified().use(remarkParse).use(remarkFrontmatter, ["yaml"]).use(remarkGfm);
-const WIKILINK = /(!?)\[\[([^[\]\n]*)\]\]/g;
-const CALLOUT_TITLE = /^\[!([^\]\s]+)\][+-]?[ \t]*([^\n]*)/;
-const BLOCK_ID = /\s\^[A-Za-z0-9-]+\s*$/;
-
 const block = (type: string, body: Record<string, unknown>): Block => ({ object: "block", type, [type]: body });
 
 /** Splits text into rich text objects of at most LIMITS.text characters, keeping surrogate pairs whole. */
@@ -168,7 +272,8 @@ class Converter {
 		const src = this.ctx.image(target);
 		if (!src) return undefined;
 		const captionRich = textItems(caption);
-		if ("fileUploadId" in src) return block("image", { type: "file_upload", file_upload: { id: src.fileUploadId }, caption: captionRich });
+		if ("fileUploadId" in src)
+			return block("image", { type: "file_upload", file_upload: { id: src.fileUploadId }, caption: captionRich });
 		return block("image", { type: "external", external: { url: src.url }, caption: captionRich });
 	}
 
@@ -250,7 +355,12 @@ class Converter {
 	}
 
 	/** A text block (paragraph, heading, list item) split into several when its rich text overflows the item limit. */
-	private textBlocks(type: string, rich: RichText[], extra: Record<string, unknown> = {}, children: Block[] = []): Block[] {
+	private textBlocks(
+		type: string,
+		rich: RichText[],
+		extra: Record<string, unknown> = {},
+		children: Block[] = [],
+	): Block[] {
 		const out: Block[] = [];
 		for (let i = 0; i === 0 || i < rich.length; i += LIMITS.richTextItems) {
 			out.push(block(type, { rich_text: rich.slice(i, i + LIMITS.richTextItems), ...extra }));
@@ -269,7 +379,8 @@ class Converter {
 		const chars = Array.from(value);
 		if (chars.length <= perBlock) return [this.code(value, lang, caption)];
 		const out: Block[] = [];
-		for (let i = 0; i < chars.length; i += perBlock) out.push(this.code(chars.slice(i, i + perBlock).join(""), lang, i === 0 ? caption : ""));
+		for (let i = 0; i < chars.length; i += perBlock)
+			out.push(this.code(chars.slice(i, i + perBlock).join(""), lang, i === 0 ? caption : ""));
 		return out;
 	}
 
@@ -278,7 +389,8 @@ class Converter {
 			const [first, ...rest] = item.children;
 			const head = first?.type === "paragraph" ? this.inline(first.children) : { rich: [], images: [] };
 			const children = [...head.images, ...this.nodes(first?.type === "paragraph" ? rest : item.children)];
-			if (typeof item.checked === "boolean") return this.textBlocks("to_do", head.rich, { checked: item.checked }, children);
+			if (typeof item.checked === "boolean")
+				return this.textBlocks("to_do", head.rich, { checked: item.checked }, children);
 			return this.textBlocks(node.ordered ? "numbered_list_item" : "bulleted_list_item", head.rich, {}, children);
 		});
 	}
@@ -314,9 +426,20 @@ class Converter {
 		}
 		const title = this.inline(titleNodes);
 		const body = bodyNodes.length > 0 ? this.paragraph(bodyNodes) : [];
-		const label = title.rich.length > 0 ? title.rich.map((r) => ({ ...r, annotations: { ...r.annotations, bold: true } })) : textItems(type[0]?.toUpperCase() + type.slice(1), { bold: true });
+		const label =
+			title.rich.length > 0
+				? title.rich.map((r) => ({ ...r, annotations: { ...r.annotations, bold: true } }))
+				: textItems(type[0]?.toUpperCase() + type.slice(1), { bold: true });
 		const children = [...title.images, ...body, ...this.nodes(rest)];
-		return this.textBlocks("callout", label, { icon: { type: "emoji", emoji: CALLOUT_ICON[type] ?? "📌" }, color: type === "narration" ? "brown_background" : "gray_background" }, children);
+		return this.textBlocks(
+			"callout",
+			label,
+			{
+				icon: { type: "emoji", emoji: CALLOUT_ICON[type] ?? "📌" },
+				color: type === "narration" ? "brown_background" : "gray_background",
+			},
+			children,
+		);
 	}
 
 	private paragraph(children: PhrasingContent[]): Block[] {
@@ -325,15 +448,25 @@ class Converter {
 	}
 
 	private table(node: Table): Block[] {
-		const rows = node.children.map((row) => row.children.map((cell) => this.inline(cell.children).rich.slice(0, LIMITS.richTextItems)));
+		const rows = node.children.map((row) =>
+			row.children.map((cell) => this.inline(cell.children).rich.slice(0, LIMITS.richTextItems)),
+		);
 		const width = Math.max(1, ...rows.map((r) => r.length));
-		const pad = (r: RichText[][]): RichText[][] => [...r, ...Array.from({ length: width - r.length }, () => [])].slice(0, width);
+		const pad = (r: RichText[][]): RichText[][] =>
+			[...r, ...Array.from({ length: width - r.length }, () => [])].slice(0, width);
 		const [header = [], ...body] = rows;
 		const out: Block[] = [];
 		const perTable = LIMITS.tableRows - 1;
 		for (let i = 0; i === 0 || i < body.length; i += perTable) {
 			const slice = [header, ...body.slice(i, i + perTable)];
-			out.push(block("table", { table_width: width, has_column_header: true, has_row_header: false, children: slice.map((cells) => block("table_row", { cells: pad(cells) })) }));
+			out.push(
+				block("table", {
+					table_width: width,
+					has_column_header: true,
+					has_row_header: false,
+					children: slice.map((cells) => block("table_row", { cells: pad(cells) })),
+				}),
+			);
 		}
 		return out;
 	}
@@ -444,7 +577,12 @@ export function chunkBlocks(blocks: Block[]): Block[][] {
 	for (const b of blocks) {
 		const n = countBlocks(b);
 		const size = Buffer.byteLength(JSON.stringify(b));
-		if (current.length > 0 && (current.length >= LIMITS.children || count + n > LIMITS.blocksPerRequest || bytes + size > LIMITS.bytesPerRequest)) {
+		if (
+			current.length > 0 &&
+			(current.length >= LIMITS.children ||
+				count + n > LIMITS.blocksPerRequest ||
+				bytes + size > LIMITS.bytesPerRequest)
+		) {
 			chunks.push(current);
 			current = [];
 			count = 0;

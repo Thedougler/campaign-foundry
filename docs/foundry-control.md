@@ -59,16 +59,18 @@ Read-only commands (`status`, `logs`, `options get`, `tool host.status`, `tool l
 ## The CLI
 
 ```
-cf foundry status [--json]            one-screen host snapshot
-cf foundry logs [--lines --since --until --grep --source]
-cf foundry options get <key> | set <key=value...> [--yes]
-cf foundry service start|stop|restart [--yes]
-cf foundry backup create [--stop --dest] [--yes] | restore <archive> [--yes]
-cf foundry assets put <src> <dest> [--yes]        (src `-` reads stdin)
-cf foundry install update [--version] [--yes] | module --zip --name [--yes]
-cf foundry serve [--host --port --token --idempotency]   the daemon
-cf foundry tool <name> [--params <json>]                 call one tool through the registry
+bun run cf -- foundry status [--json]            one-screen host snapshot
+bun run cf -- foundry logs [--lines --since --until --grep --source] [--json]
+bun run cf -- foundry options get <key> [--json] | set <key=value...> [--yes]
+bun run cf -- foundry service start|stop|restart [--yes]
+bun run cf -- foundry backup create [--stop --dest] [--yes] | restore <archive> [--yes]
+bun run cf -- foundry assets put <src> <dest> [--yes]        (src `-` reads stdin)
+bun run cf -- foundry install update [--version] [--yes] | module --zip --name [--yes]
+bun run cf -- foundry serve [--host --port --token --idempotency]   the daemon
+bun run cf -- foundry tool <name> [--params <json>]                 call one tool through the registry
 ```
+
+`logs --json` prints `{lines: string[]}`; `options get --json` prints `{key, value}`. CLI runners share the result, usage-error and approval harness in `src/commands/kit.ts` with D&D Beyond.
 
 `cf foundry serve` runs the daemon: the bridge listener plus MCP on newline-delimited stdio (closing stdin stops it). Host read-only tools work without a module. Module tools answer once the world's cf-bridge module connects.
 

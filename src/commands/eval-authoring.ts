@@ -1,17 +1,11 @@
-import { resolve } from "node:path";
 import { Command } from "commander";
 import { SkillReferenceError, packageSkill, validateSkill } from "../../evals/authoring.ts";
 import { buildSkillGraph } from "../../evals/skill-graph.ts";
-import { findRepoRoot } from "./check.ts";
-
-/** The repository root a `--root` flag names, else the nearest git root; `skill://` names resolve under it. */
-function flagRoot(root: string | undefined): string {
-	return resolve(process.cwd(), root ?? findRepoRoot(process.cwd()));
-}
+import { CF, resolveRoot, rootOption } from "./kit.ts";
 
 /**
  * Print a SkillReferenceError's findings and fail with exit code 1, the gate convention of
- * `cf check`: broken references are findings, not usage errors.
+ * `check`: broken references are findings, not usage errors.
  */
 function reportBrokenReferences(error: unknown, rerun: string): void {
 	if (!(error instanceof SkillReferenceError)) throw error;
@@ -25,12 +19,17 @@ interface ValidateFlags {
 
 /** Headless native-frontmatter validation; unknown extension keys remain allowed. */
 export function validateCommand(): Command {
-	return new Command("validate")
+	const command = new Command("validate")
 		.exitOverride()
-		.showHelpAfterError("Example: cf eval validate .omp/skills/skill-creator\nRun cf eval validate --help for options.")
-		.description("Validate a skill's native omp frontmatter, directory name, relative Markdown references and skill:// references.")
-		.argument("<skill-dir>", "directory containing SKILL.md")
-		.option("--root <dir>", "repository root whose .omp/skills and .agents/skills resolve skill:// references (default: nearest git root)")
+		.showHelpAfterError(
+			`Example: ${CF} eval validate .omp/skills/skill-creator\nRun ${CF} eval validate --help for options.`,
+		)
+		.description(
+			"Validate a skill's native omp frontmatter, directory name, relative Markdown references and skill:// references.",
+		)
+		.argument("<skill-dir>", "directory containing SKILL.md");
+	rootOption(command);
+	return command
 		.addHelpText(
 			"after",
 			`
@@ -47,16 +46,21 @@ Exit codes:
   0  valid    1  broken references    2  invalid metadata or usage error
 
 Examples:
-  cf eval validate .omp/skills/skill-creator
-  cf eval validate /tmp/my-skill
-  cf eval validate /tmp/my-skill --root .`,
+  ${CF} eval validate .omp/skills/skill-creator
+  ${CF} eval validate /tmp/my-skill
+  ${CF} eval validate /tmp/my-skill --root .`,
 		)
 		.action(async (skillDir: string, flags: ValidateFlags) => {
 			try {
-				const skill = await validateSkill(skillDir, { root: flagRoot(flags.root) });
-				process.stdout.write(`${JSON.stringify({ valid: true, skillDir: skill.skillDir, skillFile: skill.skillFile, name: skill.name, description: skill.description }, null, 2)}\n`);
+				const skill = await validateSkill(skillDir, { root: resolveRoot(flags.root) });
+				process.stdout.write(
+					`${JSON.stringify({ valid: true, skillDir: skill.skillDir, skillFile: skill.skillFile, name: skill.name, description: skill.description }, null, 2)}\n`,
+				);
 			} catch (error) {
-				reportBrokenReferences(error, `Repair each listed reference, then run cf eval validate ${JSON.stringify(skillDir)}.`);
+				reportBrokenReferences(
+					error,
+					`Repair each listed reference, then run ${CF} eval validate ${JSON.stringify(skillDir)}.`,
+				);
 			}
 		});
 }
@@ -68,13 +72,19 @@ interface PackageFlags {
 
 /** Optional user-requested distribution, without a runner or viewer process. */
 export function packageCommand(): Command {
-	return new Command("package")
+	const command = new Command("package")
 		.exitOverride()
-		.showHelpAfterError("Example: cf eval package .omp/skills/skill-creator --output /tmp/skill-creator.skill\nRun cf eval package --help for options.")
+		.showHelpAfterError(
+			`Example: ${CF} eval package .omp/skills/skill-creator --output /tmp/skill-creator.skill\nRun ${CF} eval package --help for options.`,
+		)
 		.description("Validate and package a skill as a real ZIP-format .skill bundle.")
 		.argument("<skill-dir>", "directory containing SKILL.md")
-		.requiredOption("--output <bundle.skill>", "explicit output file ending in .skill (replaced only after successful packaging)")
-		.option("--root <dir>", "repository root whose .omp/skills and .agents/skills resolve skill:// references (default: nearest git root)")
+		.requiredOption(
+			"--output <bundle.skill>",
+			"explicit output file ending in .skill (replaced only after successful packaging)",
+		);
+	rootOption(command);
+	return command
 		.addHelpText(
 			"after",
 			`
@@ -88,15 +98,18 @@ Exit codes:
   0  packaged    1  broken references    2  invalid metadata, unsafe files or usage error
 
 Examples:
-  cf eval package .omp/skills/skill-creator --output dist/skill-creator.skill
-  cf eval package /tmp/my-skill --output /tmp/my-skill.skill`,
+  ${CF} eval package .omp/skills/skill-creator --output dist/skill-creator.skill
+  ${CF} eval package /tmp/my-skill --output /tmp/my-skill.skill`,
 		)
 		.action(async (skillDir: string, flags: PackageFlags) => {
 			try {
-				const result = await packageSkill(skillDir, flags.output, { root: flagRoot(flags.root) });
+				const result = await packageSkill(skillDir, flags.output, { root: resolveRoot(flags.root) });
 				process.stdout.write(`${JSON.stringify({ packaged: true, ...result }, null, 2)}\n`);
 			} catch (error) {
-				reportBrokenReferences(error, `Repair each listed reference, then run cf eval package ${JSON.stringify(skillDir)} --output ${JSON.stringify(flags.output)}.`);
+				reportBrokenReferences(
+					error,
+					`Repair each listed reference, then run ${CF} eval package ${JSON.stringify(skillDir)} --output ${JSON.stringify(flags.output)}.`,
+				);
 			}
 		});
 }
@@ -107,11 +120,14 @@ interface GraphFlags {
 
 /** The repo skill graph as JSON: the typed edges behind validate and each skill's related files. */
 export function graphCommand(): Command {
-	return new Command("graph")
+	const command = new Command("graph")
 		.exitOverride()
-		.showHelpAfterError("Example: cf eval graph\nRun cf eval graph --help for options.")
-		.description("Print the skill graph as JSON: every repo skill with its skill links and the page templates it names.")
-		.option("--root <dir>", "repository root holding .omp/skills, .agents/skills and wiki/templates (default: nearest git root)")
+		.showHelpAfterError(`Example: ${CF} eval graph\nRun ${CF} eval graph --help for options.`)
+		.description(
+			"Print the skill graph as JSON: every repo skill with its skill links and the page templates it names.",
+		);
+	rootOption(command);
+	return command
 		.addHelpText(
 			"after",
 			`
@@ -123,19 +139,19 @@ is one entry reading both directories (.omp/skills is the source of truth). Each
   templates  the wiki/templates/<template>.md files it names, by path or as templates/<template>.md,
              normalised to wiki/templates/<template>.md
 Scanned files: SKILL.md, every file under references/ and the skill-local Markdown files
-SKILL.md links to (one level). Code fences are ignored. cf eval validate fails on the
+SKILL.md links to (one level). Code fences are ignored. \`eval validate\` fails on the
 skill:// references that resolve to nothing; this command reports the graph as it stands.
 
 Exit codes:
   0  printed    2  usage error
 
 Examples:
-  cf eval graph
-  cf eval graph --root /Users/nick/campaign-foundry
-  cf eval graph | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.parse(s).filter(e=>e.links.includes("lint")).length))'`,
+  ${CF} eval graph
+  ${CF} eval graph --root /Users/nick/campaign-foundry
+  ${CF} eval graph | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.parse(s).filter(e=>e.links.includes("lint")).length))'`,
 		)
 		.action(async (flags: GraphFlags) => {
-			const graph = await buildSkillGraph(flagRoot(flags.root));
+			const graph = await buildSkillGraph(resolveRoot(flags.root));
 			process.stdout.write(`${JSON.stringify(graph, null, 2)}\n`);
 		});
 }

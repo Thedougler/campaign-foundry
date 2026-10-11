@@ -1,14 +1,13 @@
-import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 import { getDefaultSettings, mergeSettings, readSettings, spellCheckDocument } from "cspell-lib";
 import type { CSpellSettings } from "cspell-lib";
 import type { Page } from "../../vault/types.ts";
-import { cachedByPage, hash, lockfileSalt } from "../cache.ts";
 import type { CachedFinding } from "../cache.ts";
-import { isProsePage, lineAt, lineStarts, proseView, sourceOffset, templateWords, toolRoot, vaultNameWords, vaultWordList } from "../prose.ts";
-import type { CheckContext, Finding, Layer } from "../types.ts";
-import { checkedPages } from "../util.ts";
+import { runLanguageTool, type LanguageTool } from "../language.ts";
+import { toolRoot } from "../prose.ts";
+import { lineAt, lineStarts, proseView, sourceOffset } from "../views.ts";
+import type { Layer } from "../types.ts";
 
 const LAYER = "spelling";
 const MAX_SUGGESTED_WORDS = 40;
@@ -20,7 +19,8 @@ let baseSettings: Promise<CSpellSettings> | undefined;
  * word in a page name or a template. Names of in-world people and places therefore pass with no list to keep.
  */
 async function settingsFor(words: string[]): Promise<CSpellSettings> {
-	baseSettings ??= (async () => mergeSettings(await getDefaultSettings(), await readSettings(join(toolRoot, "cspell.json"))))();
+	baseSettings ??= (async () =>
+		mergeSettings(await getDefaultSettings(), await readSettings(join(toolRoot, "cspell.json"))))();
 	return mergeSettings(await baseSettings, { words });
 }
 
@@ -36,11 +36,20 @@ async function misspellings(vaultDir: string, pages: Page[], settings: CSpellSet
 			const view = proseView(page);
 			const starts = lineStarts(page.source);
 			const result = await spellCheckDocument(
-				{ uri: pathToFileURL(join(vaultDir, page.path)).toString(), text: view.text, languageId: "markdown", locale: "en-GB" },
+				{
+					uri: pathToFileURL(join(vaultDir, page.path)).toString(),
+					text: view.text,
+					languageId: "markdown",
+					locale: "en-GB",
+				},
 				{ noConfigSearch: true, generateSuggestions: false },
 				settings,
 			);
-			return result.issues.map((issue) => ({ page, word: issue.text, line: lineAt(starts, sourceOffset(view, issue.offset)) }));
+			return result.issues.map((issue) => ({
+				page,
+				word: issue.text,
+				line: lineAt(starts, sourceOffset(view, issue.offset)),
+			}));
 		}),
 	);
 	return perPage.flat();
@@ -69,19 +78,18 @@ function finding(word: string, line: number, near: string[]): CachedFinding {
 		line,
 		message: `\`${word}\` is not in the British English dictionary, the D&D term list, a template, the vault word list or any page name.`,
 		hint: [
-			near.length > 0 ? `Did you mean ${near.map((s) => `\`${s}\``).join(", ")}? Use British spelling (harbourmaster, organised).` : "Correct the spelling; use British English (harbourmaster, organised).",
+			near.length > 0
+				? `Did you mean ${near.map((s) => `\`${s}\``).join(", ")}? Use British spelling (harbourmaster, organised).`
+				: "Correct the spelling; use British English (harbourmaster, organised).",
 			"For an in-world name, give it a page (a Wiki page named for it makes it a known word) or, if it is a coinage no page fits or a real-world word no dictionary has, add it to .cspell-words.txt at the vault root; for a D&D rules term, add it to .cspell/dnd-terms.txt.",
 		].join(" "),
 	};
 }
 
-export async function run(ctx: CheckContext): Promise<Finding[]> {
-	const words = [...vaultNameWords(ctx.vault), ...templateWords(ctx.templates), ...(await vaultWordList(ctx.vault))];
-	const pages = checkedPages(ctx).filter(isProsePage);
-	const config = await Promise.all([".cspell/dnd-terms.txt", "cspell.json"].map((file) => readFile(join(toolRoot, file), "utf8").catch(() => "")));
-	// A page's answer depends on its text, cspell's version, the committed config and word list, and the name dictionary.
-	const salt = hash(`${await lockfileSalt()}|${config.join("\n")}|${words.join(",")}`);
-	const byPage = await cachedByPage(ctx.root, LAYER, salt, pages, async (misses) => {
+const spellingTool: LanguageTool = {
+	name: LAYER,
+	config: [".cspell/dnd-terms.txt", "cspell.json"],
+	async compute(misses, ctx, words) {
 		const settings = await settingsFor(words);
 		const issues = await misspellings(ctx.vault.dir, misses, settings);
 		const distinct = [...new Set(issues.map((i) => i.word))].slice(0, MAX_SUGGESTED_WORDS);
@@ -93,12 +101,13 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 			out.set(page, list);
 		}
 		return out;
-	}, ctx.target !== undefined);
-	return pages.flatMap((page) => (byPage.get(page) ?? []).map((f): Finding => ({ ...f, severity: "error", path: ctx.display(page.path) })));
-}
+	},
+};
 
 export const spellingLayer: Layer = {
 	name: LAYER,
-	description: "cspell: British English, with a dictionary built from every page name, the vault's .cspell-words.txt and .cspell/dnd-terms.txt.",
-	run,
+	scope: "page",
+	description:
+		"cspell: British English, with a dictionary built from every page name, the vault's .cspell-words.txt and .cspell/dnd-terms.txt.",
+	run: (ctx) => runLanguageTool(spellingTool, ctx),
 };

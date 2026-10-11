@@ -10,7 +10,10 @@ beforeAll(async () => {
 	({ report, code } = await checkFixture("placement", ["--layer", "placement"]));
 });
 
-const rules = (path: string): string[] => findingsFor(report, path).map((f) => f.rule).sort();
+const rules = (path: string): string[] =>
+	findingsFor(report, path)
+		.map((f) => f.rule)
+		.sort();
 const fixtureHas = (path: string) => access(join(fixtures, "placement/wiki", path));
 const A = "ashes-of-the-crown";
 
@@ -88,19 +91,37 @@ describe("placement layer: failure classes", () => {
 });
 
 describe("placement layer: --fix", () => {
-	const fixArgs = (dir: string) => ["check", "--layer", "placement", "--json", "--fix", "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates];
+	const fixArgs = (dir: string) => [
+		"check",
+		"--layer",
+		"placement",
+		"--json",
+		"--fix",
+		"--vault",
+		join(dir, "wiki"),
+		"--root",
+		dir,
+		"--templates",
+		realTemplates,
+	];
 
 	it("moves unambiguous pages, leaves ambiguous ones, and is idempotent", async () => {
 		const dir = await copyFixture("placement");
 		const first = JSON.parse((await cf(fixArgs(dir), dir)).stdout) as JsonReport;
-		expect(first.fixes.map((f) => f.path).sort()).toEqual([
-			`wiki/${A}/Locations/Deep/Nested Site.md`,
-			`wiki/${A}/NPCs/Wrong Home Location.md`,
-			`wiki/${A}/NPCs/Campaign Rule.md`,
-			`wiki/${A}/Sessions/Session 1/Stray PC.md`,
-			"wiki/Stray Root Page.md",
-		].sort());
-		const exists = (p: string) => access(join(dir, "wiki", p)).then(() => true, () => false);
+		expect(first.fixes.map((f) => f.path).sort()).toEqual(
+			[
+				`wiki/${A}/Locations/Deep/Nested Site.md`,
+				`wiki/${A}/NPCs/Wrong Home Location.md`,
+				`wiki/${A}/NPCs/Campaign Rule.md`,
+				`wiki/${A}/Sessions/Session 1/Stray PC.md`,
+				"wiki/Stray Root Page.md",
+			].sort(),
+		);
+		const exists = (p: string) =>
+			access(join(dir, "wiki", p)).then(
+				() => true,
+				() => false,
+			);
 		expect(await exists(`${A}/Locations/Nested Site.md`)).toBe(true);
 		expect(await exists(`${A}/Locations/Wrong Home Location.md`)).toBe(true);
 		expect(await exists(`${A}/NPCs/Wrong Home Location.md`)).toBe(false);

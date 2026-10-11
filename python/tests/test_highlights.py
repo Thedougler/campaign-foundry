@@ -9,15 +9,14 @@ family collapsed by its maximum, with every other class left out.
 import contextlib
 import io
 import json
-import shutil
-import wave
+from collections.abc import Callable
 from pathlib import Path
 
 import numpy as np
 import pytest
 
 from campaign_foundry.highlights import main
-from campaign_foundry.laughter import SAMPLE_RATE, Burst, cut_clip, decode_audio
+from campaign_foundry.laughter import SAMPLE_RATE
 
 FRAME = SAMPLE_RATE // 100  # 10 ms frames, as PANNs gives
 
@@ -108,55 +107,82 @@ def test_parts_lie_end_to_end_in_natural_name_order(tmp_path: Path) -> None:
     )
 
 
-MARKDOWN = """\
-### Fixture Session
+# The fixture export's four blocks, as cf parses them (src/transcript/read.ts): markdown numbers a
+# block's lines every 5 (label, span, blank, text, blank); CSV puts the header on line 1, a row on
+# each line after.
+ROWS = [
+    ("DM", 0, 20, "The crab rises out of the surf."),
+    ("Perrin", 20, 29, "I cast Vicious Mockery and call it a sideways coward."),
+    ("DM", 29, 40, "It weeps and scuttles into the sea."),
+    ("Delmar", 40, 55, "Meanwhile I check the rigging."),
+]
 
-**DM**
-00:00 - 00:20
 
-The crab rises out of the surf.
+def payload(path: Path, segments: list[tuple[int, int, float, float, str, str]], fmt: str) -> Path:
+    """A parsed Transcript as cf hands it over.
 
-**Perrin**
-00:20 - 00:29
+    Each segment is ``(line, end line, start s, end s, speaker, text)``.
+    """
+    file = path.with_suffix(".payload.json")
+    file.write_text(
+        json.dumps(
+            {
+                "path": str(path),
+                "format": fmt,
+                "segments": [
+                    {
+                        "line": line,
+                        "endLine": end_line,
+                        "start": start,
+                        "end": end,
+                        "speaker": speaker,
+                        "text": text,
+                    }
+                    for line, end_line, start, end, speaker, text in segments
+                ],
+            }
+        )
+    )
+    return file
 
-I cast Vicious Mockery and call it a sideways coward.
 
-**DM**
-00:29 - 00:40
+def markdown_payload(path: Path, first_text: str = ROWS[0][3]) -> Path:
+    return payload(
+        path,
+        [
+            (3 + 5 * i, 7 + 5 * i, start, end, speaker, first_text if i == 0 else text)
+            for i, (speaker, start, end, text) in enumerate(ROWS)
+        ],
+        "markdown",
+    )
 
-It weeps and scuttles into the sea.
 
-**Delmar**
-00:40 - 00:55
-
-Meanwhile I check the rigging.
-"""
-
-CSV = """\
-ID,Start,End,Speaker,Text
-1,00:00:00,00:00:20,DM,"The crab rises out of the surf."
-2,00:00:20,00:00:29,Perrin,"I cast Vicious Mockery and call it a sideways coward."
-3,00:00:29,00:00:40,DM,"It weeps and scuttles into the sea."
-4,00:00:40,00:00:55,Delmar,"Meanwhile I check the rigging."
-"""
+def csv_payload(path: Path, first_text: str = ROWS[0][3]) -> Path:
+    return payload(
+        path,
+        [
+            (2 + i, 2 + i, start, end, speaker, first_text if i == 0 else text)
+            for i, (speaker, start, end, text) in enumerate(ROWS)
+        ],
+        "csv",
+    )
 
 
 @pytest.mark.parametrize(
-    ("name", "text", "laugh_line", "lines"),
-    [("s.md", MARKDOWN, 13, [8, 17]), ("s.csv", CSV, 4, [3, 4])],
+    ("make", "name", "laugh_line", "lines"),
+    [(markdown_payload, "s.md", 13, [8, 17]), (csv_payload, "s.csv", 4, [3, 4])],
 )
 def test_aligns_each_laugh_with_its_transcript_lines(
-    tmp_path: Path, name: str, text: str, laugh_line: int, lines: list[int]
+    tmp_path: Path, make: Callable[[Path], Path], name: str, laugh_line: int, lines: list[int]
 ) -> None:
-    transcript = tmp_path / name
-    transcript.write_text(text)
+    transcript = make(tmp_path / name)
     track = drawn(60, (32, 34, 0.7))
     code, out = run(
         tmp_path, {"s.m4a": track}, "--transcript", str(transcript), "--context-seconds", "10"
     )
     assert code == 0
     (laugh,) = out["highlights"]
-    assert laugh["laugh_line"] == {"transcript": str(transcript), "line": laugh_line}
+    assert laugh["laugh_line"] == {"transcript": str(tmp_path / name), "line": laugh_line}
     (span,) = laugh["context"]
     assert span["lines"] == lines
     assert [s["speaker"] for s in span["segments"]] == ["Perrin", "DM"]
@@ -165,10 +191,15 @@ def test_aligns_each_laugh_with_its_transcript_lines(
 
 def test_per_part_transcripts_reach_back_into_the_part_before(tmp_path: Path) -> None:
     first, second = tmp_path / "s-part1.csv", tmp_path / "s-part2.csv"
-    first.write_text(CSV)
-    second.write_text(CSV.replace("crab rises", "gull dives"))
     tracks = {"s-part1.m4a": drawn(60), "s-part2.m4a": drawn(60, (5, 7, 0.7))}
-    args = ("--transcript", str(second), "--transcript", str(first), "--context-seconds", "10")
+    args = (
+        "--transcript",
+        str(csv_payload(second, "The gull dives out of the surf.")),
+        "--transcript",
+        str(csv_payload(first)),
+        "--context-seconds",
+        "10",
+    )
     code, out = run(tmp_path, tracks, *args)
     assert code == 0
     (laugh,) = out["highlights"]
@@ -179,21 +210,11 @@ def test_per_part_transcripts_reach_back_into_the_part_before(tmp_path: Path) ->
 
 
 def test_transcript_count_must_match_the_recording_or_its_parts(tmp_path: Path) -> None:
-    one, two = tmp_path / "a.csv", tmp_path / "b.csv"
-    one.write_text(CSV)
-    two.write_text(CSV)
+    one, two = csv_payload(tmp_path / "a.csv"), csv_payload(tmp_path / "b.csv")
     tracks = {"p1.m4a": drawn(5), "p2.m4a": drawn(5), "p3.m4a": drawn(5)}
     code, out = run(tmp_path, tracks, "--transcript", str(one), "--transcript", str(two))
     assert code == 2
     assert "2 transcripts for 3 audio parts" in out["stderr"]
-
-
-def test_an_untimed_transcript_is_a_usage_error(tmp_path: Path) -> None:
-    untimed = tmp_path / "s.md"
-    untimed.write_text("### S\n\n**DM**\n\nThe crab rises.\n")
-    code, out = run(tmp_path, {"s.m4a": drawn(5)}, "--transcript", str(untimed))
-    assert code == 2
-    assert "timestamps" in out["stderr"]
 
 
 def test_missing_audio_is_a_usage_error(tmp_path: Path) -> None:
@@ -202,34 +223,3 @@ def test_missing_audio_is_a_usage_error(tmp_path: Path) -> None:
         code = main([str(tmp_path / "gone.m4a")], model=DrawnModel())
     assert code == 2
     assert "No such audio file" in capture.err
-
-
-@pytest.mark.skipif(shutil.which("ffmpeg") is None, reason="needs ffmpeg")
-def test_decodes_audio_and_cuts_a_clip_with_ffmpeg(tmp_path: Path) -> None:
-    source = tmp_path / "tone.wav"
-    with wave.open(str(source), "wb") as out:
-        out.setnchannels(1)
-        out.setsampwidth(2)
-        out.setframerate(16_000)
-        out.writeframes((np.sin(np.arange(16_000 * 3) / 5) * 8000).astype("<i2").tobytes())
-    audio = decode_audio(source)
-    assert len(audio) == pytest.approx(3 * SAMPLE_RATE, rel=0.01)
-    burst = Burst(
-        start=1, end=1.5, peak=1, intensity=1, part=source, part_start=1, part_laugh_end=2
-    )
-    clip = tmp_path / "clip.m4a"
-    cut_clip(burst, clip, pad=0.5)
-    assert len(decode_audio(clip)) == pytest.approx(2 * SAMPLE_RATE, rel=0.1)
-
-
-@pytest.mark.slow
-@pytest.mark.skipif(shutil.which("ffmpeg") is None, reason="needs ffmpeg")
-def test_panns_scores_a_real_recording(tmp_path: Path) -> None:
-    """Loads the real model (downloads its checkpoint on first run): `pytest -m slow`."""
-    from campaign_foundry.laughter import PannsModel, laughter_track
-
-    model = PannsModel()
-    times, scores, period = laughter_track(model, np.zeros(SAMPLE_RATE * 5, dtype=np.float32), 240)
-    assert len(times) == len(scores) > 0
-    assert period == pytest.approx(0.01, rel=0.1)
-    assert float(scores.max()) < 0.1

@@ -5,6 +5,7 @@ import { Readable } from "node:stream";
 import { AsyncLocalStorage } from "node:async_hooks";
 import { UsageError } from "./check/run.ts";
 import { commands } from "./commands/index.ts";
+import { CF } from "./commands/kit.ts";
 
 /** `.exitOverride()` on a command and every subcommand registered so far, so help and usage errors come back as CommanderError instead of ending the process. */
 function overrideExits(command: Command): Command {
@@ -16,24 +17,24 @@ function overrideExits(command: Command): Command {
 function buildProgram(): Command {
 	const program = new Command("cf")
 		.description(
-			"Campaign Foundry: tools that keep the Wiki in shape. Run it as `bun run cf -- <command>` (a bare `cf` on PATH is usually Cloudflare's, not this tool). Run a subcommand with --help for its options and examples.",
+			`Campaign Foundry: tools that keep the Wiki in shape. Run it as \`${CF} <command>\` (a bare \`cf\` on PATH is usually Cloudflare's, not this tool). Run a subcommand with --help for its options and examples.`,
 		)
 		.showHelpAfterError("(run with --help for options and examples)")
 		.addHelpText(
 			"after",
 			`
 Examples:
-  bun run cf -- check                       gate the whole Wiki
-  bun run cf -- check --fix                 gate it, applying mechanical fixes
-  bun run cf -- check --help                options, layers and more examples
-  bun run cf -- index                       regenerate the index.md files
-  bun run cf -- encounter-budget --levels 5,5,5,5 --creature "Orc,1/2,100,3"
+  ${CF} check                       gate the whole Wiki
+  ${CF} check --fix                 gate it, applying mechanical fixes
+  ${CF} check --help                options, layers and more examples
+  ${CF} index                       regenerate the index.md files
+  ${CF} encounter-budget --levels 5,5,5,5 --creature "Orc,1/2,100,3"
                                             2024 Encounter XP budgets and Creature spend
-  bun run cf -- eval extract "Ilse Corran" --callout "First look"
+  ${CF} eval extract "Ilse Corran" --callout "First look"
                                             dump a callout body for a grader to read (not a Grade)
-  bun run cf -- log --campaign "Shattered Sea" --op ingest --title "Session 3 transcript" --page "Session 3 - Recap"
+  ${CF} log --campaign "Shattered Sea" --op ingest --title "Session 3 transcript" --page "Session 3 - Recap"
                                             append to a Campaign folder's log.md
-  bun run cf -- push --campaign "Salt and Lantern" --session 2
+  ${CF} push --campaign "Salt and Lantern" --session 2
                                             build a Session's Foundry Adventure module`,
 		)
 		.exitOverride();
@@ -149,7 +150,10 @@ export function runCli(argv: string[], options: { cwd?: string; stdin?: string }
 		process.argv = ["cf", "cf", ...argv];
 		process.exitCode = 0;
 		if (options.stdin !== undefined) {
-			Object.defineProperty(process, "stdin", { get: () => Readable.from([Buffer.from(options.stdin as string, "utf8")]), configurable: true });
+			Object.defineProperty(process, "stdin", {
+				get: () => Readable.from([Buffer.from(options.stdin as string, "utf8")]),
+				configurable: true,
+			});
 		}
 		return captureIO(async () => {
 			let code = 0;

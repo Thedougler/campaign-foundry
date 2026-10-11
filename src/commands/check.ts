@@ -1,36 +1,10 @@
-import { existsSync, realpathSync, statSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
 import { Command, Option } from "commander";
 import { formatHuman, formatJson, gateExitCode } from "../check/output.ts";
 import { layers } from "../check/layers/index.ts";
 import { runCheck, UsageError } from "../check/run.ts";
-
-/** The repository root: nearest ancestor of `from` holding `.git`, else `from`. */
-export function findRepoRoot(from: string): string {
-	for (let dir = from; ; dir = dirname(dir)) {
-		if (existsSync(join(dir, ".git")) || existsSync(join(dir, "bun.lock"))) return dir;
-		if (dirname(dir) === dir) return from;
-	}
-}
-export interface CheckEnv {
-	cwd: string;
-	root: string;
-	vault: string;
-	templates: string;
-}
-
-/** Resolves `--vault`, `--root` and `--templates` for `cf check`. */
-export function resolveCheckEnv(flags: { vault?: string; templates?: string; root?: string }): CheckEnv {
-	const cwd = process.cwd();
-	const real = (p: string): string => (existsSync(p) ? realpathSync(p) : p);
-	const root = real(flags.root ? resolve(cwd, flags.root) : findRepoRoot(cwd));
-	const vault = real(flags.vault ? resolve(cwd, flags.vault) : join(root, "wiki"));
-	const rootTemplates = join(root, "wiki/templates");
-	const templates = real(
-		flags.templates ? resolve(cwd, flags.templates) : existsSync(rootTemplates) ? rootTemplates : join(findRepoRoot(cwd), "wiki/templates"),
-	);
-	return { cwd, root, vault, templates };
-}
+import { collect, envOptions, CF, realPath, requireTemplates, resolveEnv } from "./kit.ts";
 
 interface CheckFlags {
 	vault?: string;
@@ -42,18 +16,19 @@ interface CheckFlags {
 	json?: boolean;
 }
 
-const collect = (value: string, previous: string[]): string[] => [...previous, value];
-
 export function checkCommand(): Command {
 	const width = Math.max(...layers.map((l) => l.name.length)) + 2;
 	const layerLines = layers.map((l) => `  ${l.name.padEnd(width)}${l.description}`).join("\n");
-	return new Command("check")
+	const command = new Command("check")
 		.description("Gate the Wiki: errors fail; warnings are reported. Exits 0 no errors, 1 errors, 2 usage error.")
-		.argument("[paths...]", "check only these files or folders, using the whole Wiki as read-only context")
-		.option("--vault <dir>", "the Wiki folder to check (default: <root>/wiki)")
-		.option("--templates <dir>", "folder of page templates (default: <root>/wiki/templates, else the repo's)")
-		.option("--root <dir>", "repository root, where sources paths like archive/x.md resolve (default: nearest git root)")
-		.addOption(new Option("--layer <name>", "run only this layer; repeat for several").argParser(collect).default([] as string[], "all layers"))
+		.argument("[paths...]", "check only these files or folders, using the whole Wiki as read-only context");
+	envOptions(command, { templates: true });
+	return command
+		.addOption(
+			new Option("--layer <name>", "run only this layer; repeat for several")
+				.argParser(collect)
+				.default([] as string[], "all layers"),
+		)
 		.option("--fix", "apply mechanical fixes, report them, then re-check")
 		.option("--dry-run", "with --fix: show the fixes without writing anything")
 		.option("--json", "print machine-readable JSON instead of text")
@@ -72,37 +47,39 @@ Exit codes:
   0  no errors (warnings may print)    1  errors remain    2  usage error
 
 Examples:
-  cf check
-  cf check wiki/Aldermoor/Locations/Ravenhold.md
-  cf check wiki/Aldermoor --layer links --layer orphans
-  cf check wiki/Aldermoor/NPCs/Mara\ Voss.md --layer spelling --layer style
-  cf check --fix --dry-run
-  cf check --fix
-  cf check --json --vault test/fixtures/vault --root test/fixtures`,
+  ${CF} check
+  ${CF} check wiki/Aldermoor/Locations/Ravenhold.md
+  ${CF} check wiki/Aldermoor --layer links --layer orphans
+  ${CF} check wiki/Aldermoor/NPCs/Mara Voss.md --layer spelling --layer style
+  ${CF} check --fix --dry-run
+  ${CF} check --fix
+  ${CF} check --json --vault test/fixtures/vault --root test/fixtures`,
 		)
 		.action(async (paths: string[], flags: CheckFlags) => {
-			const { cwd, root, vault, templates } = resolveCheckEnv(flags);
-			const real = (p: string): string => (existsSync(p) ? realpathSync(p) : p);
-			const fail = (message: string, hint: string): never => {
-				throw new UsageError(message, hint);
-			};
-			if (flags.dryRun && !flags.fix) fail("--dry-run only applies with --fix.", "cf check --fix --dry-run");
-			for (const [label, dir, flag] of [["vault", vault, "--vault"], ["templates", templates, "--templates"]] as const) {
-				if (!existsSync(dir) || !statSync(dir).isDirectory()) fail(`The ${label} folder ${dir} does not exist.`, `cf check ${flag} <folder>`);
-			}
-			for (const p of paths) if (!existsSync(resolve(cwd, p))) fail(`No such path: ${p}.`, "Pass files or folders inside the Wiki, e.g. cf check wiki/Aldermoor");
+			const env = resolveEnv(flags, "check");
+			requireTemplates(env, "check");
+			if (flags.dryRun && !flags.fix)
+				throw new UsageError("--dry-run only applies with --fix.", `${CF} check --fix --dry-run`);
+			for (const p of paths)
+				if (!existsSync(resolve(env.cwd, p)))
+					throw new UsageError(
+						`No such path: ${p}.`,
+						`Pass files or folders inside the Wiki, e.g. ${CF} check wiki/Aldermoor`,
+					);
 
 			const result = await runCheck({
-				vault,
-				templates,
-				root,
-				cwd,
+				vault: env.vault,
+				templates: env.templates,
+				root: env.root,
+				cwd: env.cwd,
 				layers: flags.layer,
-				paths: paths.map((p) => real(resolve(cwd, p))),
+				paths: paths.map((p) => realPath(resolve(env.cwd, p))),
 				fix: flags.fix ?? false,
 				dryRun: flags.dryRun ?? false,
 			});
-			const text = flags.json ? formatJson(result) : formatHuman(result, { fix: flags.fix ?? false, dryRun: flags.dryRun ?? false });
+			const text = flags.json
+				? formatJson(result)
+				: formatHuman(result, { fix: flags.fix ?? false, dryRun: flags.dryRun ?? false });
 			process.stdout.write(`${text}\n`);
 			process.exitCode = gateExitCode(result);
 		});

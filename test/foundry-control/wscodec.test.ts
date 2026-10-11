@@ -75,7 +75,11 @@ describe("FrameDecoder", () => {
 		const split = mask(encodeText("first message"));
 		const at = Math.floor(split.length / 2);
 		const second = mask(encodeText("second"));
-		const messages = [...decoder.push(split.subarray(0, at)), ...decoder.push(split.subarray(at)), ...decoder.push(second)];
+		const messages = [
+			...decoder.push(split.subarray(0, at)),
+			...decoder.push(split.subarray(at)),
+			...decoder.push(second),
+		];
 		expect(messages.map((m) => m.payload.toString("utf8"))).toEqual(["first message", "second"]);
 	});
 

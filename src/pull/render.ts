@@ -35,10 +35,13 @@ function speedText(speeds: Sheet["speeds"]): string {
 }
 
 export function renderSheet(sheet: Sheet, player: string): string {
-	const dc = sheet.spellcasting.length === 0
-		? "No spell save DC."
-		: `Spell save DC ${sheet.spellcasting.map((s) => `${s.saveDc} (${s.class}, ${s.ability})`).join(" and ")}.`;
-	const saves = ABILITIES.map((a) => `${LABEL[a]} ${signed(sheet.saves[a].bonus)}${sheet.saves[a].proficient ? " (proficient)" : ""}`).join(", ");
+	const dc =
+		sheet.spellcasting.length === 0
+			? "No spell save DC."
+			: `Spell save DC ${sheet.spellcasting.map((s) => `${s.saveDc} (${s.class}, ${s.ability})`).join(" and ")}.`;
+	const saves = ABILITIES.map(
+		(a) => `${LABEL[a]} ${signed(sheet.saves[a].bonus)}${sheet.saves[a].proficient ? " (proficient)" : ""}`,
+	).join(", ");
 	const table = ABILITIES.map((a) => `${sheet.abilities[a].score} (${signed(sheet.abilities[a].mod)})`);
 	const lines = [
 		"## Sheet",
@@ -55,7 +58,9 @@ export function renderSheet(sheet: Sheet, player: string): string {
 		"",
 		"### Features",
 		"",
-		...(sheet.features.length === 0 ? ["None recorded."] : sheet.features.map((f) => `- **${f.source}.** ${f.names.join(", ")}`)),
+		...(sheet.features.length === 0
+			? ["None recorded."]
+			: sheet.features.map((f) => `- **${f.source}.** ${f.names.join(", ")}`)),
 		"",
 	];
 	return lines.join("\n");
@@ -67,11 +72,16 @@ export function renderSpells(sheet: Sheet): string {
 		return [...lines, "This character does not cast spells.", ""].join("\n");
 	}
 	for (const s of sheet.spellcasting) {
-		lines.push(`- **${s.class}.** ${s.ability} spellcasting: save DC ${s.saveDc}, spell attack ${signed(s.attackBonus)}.`);
+		lines.push(
+			`- **${s.class}.** ${s.ability} spellcasting: save DC ${s.saveDc}, spell attack ${signed(s.attackBonus)}.`,
+		);
 	}
 	const slots = sheet.spellSlots.map((n, i) => `${ORDINAL[i]} ${n}`).filter((_, i) => (sheet.spellSlots[i] ?? 0) > 0);
 	if (slots.length > 0) lines.push(`- **Spell slots.** ${slots.join(", ")}.`);
-	if (sheet.pactSlots) lines.push(`- **Pact magic.** ${sheet.pactSlots.count} slot${sheet.pactSlots.count === 1 ? "" : "s"} of ${ORDINAL[sheet.pactSlots.level - 1]} level.`);
+	if (sheet.pactSlots)
+		lines.push(
+			`- **Pact magic.** ${sheet.pactSlots.count} slot${sheet.pactSlots.count === 1 ? "" : "s"} of ${ORDINAL[sheet.pactSlots.level - 1]} level.`,
+		);
 	const levels = [...new Set(sheet.spells.map((s) => s.level))].sort((a, b) => a - b);
 	for (const level of levels) {
 		lines.push("", `### ${level === 0 ? "Cantrips" : `${ORDINAL[level - 1]} level`}`, "");

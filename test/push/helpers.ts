@@ -45,7 +45,8 @@ export async function workspace(options: { maps?: boolean } = {}): Promise<Works
 	if (options.maps !== false) {
 		const attachments = join(vaultDir, `${FOLDER}/attachments`);
 		await mkdir(attachments, { recursive: true });
-		for (const file of [`${MAP}.webp`, `${MAP}.uvtt`, "Mire Drowner-portrait.webp", "hobbs-warning-handout-art.webp"]) await cp(join(pushFixtures, file), join(attachments, file));
+		for (const file of [`${MAP}.webp`, `${MAP}.uvtt`, "Mire Drowner-portrait.webp", "hobbs-warning-handout-art.webp"])
+			await cp(join(pushFixtures, file), join(attachments, file));
 		const mud = await ws.read(MUD);
 		await ws.write(MUD, mud.replace("### Battlefield\n", `### Battlefield\n\n![[${MAP}.webp]]\n`));
 		const note = await ws.read(HANDOUT);

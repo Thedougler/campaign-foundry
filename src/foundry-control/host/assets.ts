@@ -26,17 +26,27 @@ function assetDestination(config: HostConfig, dest: string): string {
 }
 
 /** Places one asset file under `Data/assets`, creating parent directories; returns the remote path and byte count. */
-export async function putAsset(host: RemoteHost, config: HostConfig, source: AssetSource): Promise<{ dest: string; bytes: number }> {
+export async function putAsset(
+	host: RemoteHost,
+	config: HostConfig,
+	source: AssetSource,
+): Promise<{ dest: string; bytes: number }> {
 	const dest = assetDestination(config, source.dest);
 	const data = source.data ?? (source.sourcePath ? await readFile(source.sourcePath) : undefined);
 	if (data === undefined) throw new Error("Give the asset bytes (`data`) or a local `sourcePath`.");
 
 	const mkdirCommand = `mkdir -p ${remoteDirname(dest)}`;
 	const mkdir = await host.run(mkdirCommand);
-	if (mkdir.code !== 0) throw new HostCommandError(`Could not create the asset directory: ${mkdir.stderr.trim()}`, mkdirCommand, mkdir.stderr);
+	if (mkdir.code !== 0)
+		throw new HostCommandError(
+			`Could not create the asset directory: ${mkdir.stderr.trim()}`,
+			mkdirCommand,
+			mkdir.stderr,
+		);
 
 	const writeCommand = `cat > ${dest}`;
 	const write = await host.run(writeCommand, data);
-	if (write.code !== 0) throw new HostCommandError(`Could not write the asset: ${write.stderr.trim()}`, writeCommand, write.stderr);
+	if (write.code !== 0)
+		throw new HostCommandError(`Could not write the asset: ${write.stderr.trim()}`, writeCommand, write.stderr);
 	return { dest, bytes: data.length };
 }

@@ -1,6 +1,6 @@
 # Site: running a visit
 
-Use this branch for an ordinary Site: a shop, landmark, small building or other compact visit. A Site explored room by room with an area network and expedition pressure takes the SKILL.md dungeon-design handoff instead, and dungeon-design writes its stocking and key details. Key a one-space service counter or monument as an ordinary Site.
+Use this branch for an ordinary Site: a shop, landmark, small building or other compact visit. A Site explored room by room with an area network and expedition pressure takes the SKILL.md dungeon-design hand-off instead, and dungeon-design writes its stocking and key details. Key a one-space service counter or monument as an ordinary Site.
 
 ## Design
 

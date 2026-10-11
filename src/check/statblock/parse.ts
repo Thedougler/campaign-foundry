@@ -1,5 +1,5 @@
 import { parse } from "yaml";
-import { ABILITIES, type Ability } from "./tables.ts";
+import { ABILITIES } from "./tables.ts";
 
 /** One arithmetic problem in a stat block, independent of where the block lives. */
 export interface Issue {
@@ -55,7 +55,8 @@ export interface Parsed {
 	issues: Issue[];
 }
 
-const FANTASY_STATBLOCKS = "See the Statblock section of templates/creature.md for the Fantasy Statblocks `Basic 5e Layout` fields.";
+const FANTASY_STATBLOCKS =
+	"See the Statblock section of templates/creature.md for the Fantasy Statblocks `Basic 5e Layout` fields.";
 
 function text(value: unknown): string {
 	return typeof value === "string" ? value : typeof value === "number" ? String(value) : "";
@@ -84,17 +85,35 @@ function entries(value: unknown, key: string, issues: Issue[]): BonusEntry[] {
 	if (value === undefined || value === null || (Array.isArray(value) && value.length === 0)) return [];
 	const out: BonusEntry[] = [];
 	if (!Array.isArray(value)) {
-		issues.push({ rule: "statblock-shape", key, message: `\`${key}\` must be a list of one-key maps.`, hint: `Write each entry as \`- dex: 4\` under \`${key}:\`, or \`${key}: []\` for none.` });
+		issues.push({
+			rule: "statblock-shape",
+			key,
+			message: `\`${key}\` must be a list of one-key maps.`,
+			hint: `Write each entry as \`- dex: 4\` under \`${key}:\`, or \`${key}: []\` for none.`,
+		});
 		return out;
 	}
 	for (const item of value) {
-		const pairs = item && typeof item === "object" && !Array.isArray(item) ? Object.entries(item as Record<string, unknown>) : [];
+		const pairs =
+			item && typeof item === "object" && !Array.isArray(item) ? Object.entries(item as Record<string, unknown>) : [];
 		for (const [k, v] of pairs) {
 			const n = number(v);
-			if (n === undefined) issues.push({ rule: "statblock-shape", key, message: `\`${key}\` entry \`${k}\` is not a number: ${JSON.stringify(v)}.`, hint: `Write the total bonus as a number, e.g. \`- ${k}: 4\`.` });
+			if (n === undefined)
+				issues.push({
+					rule: "statblock-shape",
+					key,
+					message: `\`${key}\` entry \`${k}\` is not a number: ${JSON.stringify(v)}.`,
+					hint: `Write the total bonus as a number, e.g. \`- ${k}: 4\`.`,
+				});
 			else out.push({ key: k.trim().toLowerCase().replace(/[_-]+/g, " "), value: n });
 		}
-		if (pairs.length === 0) issues.push({ rule: "statblock-shape", key, message: `A \`${key}\` entry is not a one-key map: ${JSON.stringify(item)}.`, hint: `Write each entry as \`- dex: 4\` under \`${key}:\`.` });
+		if (pairs.length === 0)
+			issues.push({
+				rule: "statblock-shape",
+				key,
+				message: `A \`${key}\` entry is not a one-key map: ${JSON.stringify(item)}.`,
+				hint: `Write each entry as \`- dex: 4\` under \`${key}:\`.`,
+			});
 	}
 	return out;
 }
@@ -105,12 +124,22 @@ function features(data: Record<string, unknown>, issues: Issue[]): Feature[] {
 		const list = data[section];
 		if (list === undefined || list === null) continue;
 		if (!Array.isArray(list)) {
-			issues.push({ rule: "statblock-shape", key: section, message: `\`${section}\` must be a list.`, hint: `Write each entry as \`- name: Scimitar\` then \`desc: ...\`, or \`${section}: []\` for none.` });
+			issues.push({
+				rule: "statblock-shape",
+				key: section,
+				message: `\`${section}\` must be a list.`,
+				hint: `Write each entry as \`- name: Scimitar\` then \`desc: ...\`, or \`${section}: []\` for none.`,
+			});
 			continue;
 		}
 		for (const item of list) {
 			if (!item || typeof item !== "object" || Array.isArray(item)) {
-				issues.push({ rule: "statblock-shape", key: section, message: `A \`${section}\` entry is not a map with \`name\` and \`desc\`.`, hint: `Write each entry as \`- name: Scimitar\` then \`desc: ...\`.` });
+				issues.push({
+					rule: "statblock-shape",
+					key: section,
+					message: `A \`${section}\` entry is not a map with \`name\` and \`desc\`.`,
+					hint: `Write each entry as \`- name: Scimitar\` then \`desc: ...\`.`,
+				});
 				continue;
 			}
 			const f = item as Record<string, unknown>;
@@ -128,19 +157,48 @@ export function parseStatblock(source: string): Parsed {
 		data = parse(source);
 	} catch (error) {
 		const reason = error instanceof Error ? error.message.split("\n")[0] : String(error);
-		return { issues: [{ rule: "statblock-yaml", message: `Statblock YAML does not parse: ${reason}`, hint: `Fix the YAML inside the \`statblock\` fence; quote strings that contain \`:\` or \`*\`, e.g. \`desc: "*Melee Attack Roll:* +4"\`. ${FANTASY_STATBLOCKS}` }] };
+		return {
+			issues: [
+				{
+					rule: "statblock-yaml",
+					message: `Statblock YAML does not parse: ${reason}`,
+					hint: `Fix the YAML inside the \`statblock\` fence; quote strings that contain \`:\` or \`*\`, e.g. \`desc: "*Melee Attack Roll:* +4"\`. ${FANTASY_STATBLOCKS}`,
+				},
+			],
+		};
 	}
 	if (!data || typeof data !== "object" || Array.isArray(data)) {
-		return { issues: [{ rule: "statblock-yaml", message: "Statblock YAML is not a map of `key: value` lines.", hint: `Start with \`layout: Basic 5e Layout\` and give one \`key: value\` per line. ${FANTASY_STATBLOCKS}` }] };
+		return {
+			issues: [
+				{
+					rule: "statblock-yaml",
+					message: "Statblock YAML is not a map of `key: value` lines.",
+					hint: `Start with \`layout: Basic 5e Layout\` and give one \`key: value\` per line. ${FANTASY_STATBLOCKS}`,
+				},
+			],
+		};
 	}
 	const map = data as Record<string, unknown>;
 
 	let stats: number[] | undefined;
-	if (Array.isArray(map.stats) && map.stats.length === 6 && map.stats.every((s) => number(s) !== undefined)) stats = map.stats.map((s) => number(s) as number);
-	else issues.push({ rule: "stats-invalid", key: "stats", message: "`stats` must be six ability scores.", hint: `Write \`stats: [10, 10, 10, 10, 10, 10]\` in the order ${ABILITIES.join(", ")} (Str Dex Con Int Wis Cha); every derived number is checked against them.` });
+	if (Array.isArray(map.stats) && map.stats.length === 6 && map.stats.every((s) => number(s) !== undefined))
+		stats = map.stats.map((s) => number(s) as number);
+	else
+		issues.push({
+			rule: "stats-invalid",
+			key: "stats",
+			message: "`stats` must be six ability scores.",
+			hint: `Write \`stats: [10, 10, 10, 10, 10, 10]\` in the order ${ABILITIES.join(", ")} (Str Dex Con Int Wis Cha); every derived number is checked against them.`,
+		});
 
 	const cr = parseCr(map.cr);
-	if (cr === undefined) issues.push({ rule: "cr-invalid", key: "cr", message: `\`cr\` is ${map.cr === undefined ? "missing" : `\`${text(map.cr)}\``}, not a challenge rating from 0 to 30.`, hint: 'Write the rating as a number or fraction, e.g. `cr: 1/4`, `cr: "1/8"` or `cr: 5`; the proficiency bonus is derived from it.' });
+	if (cr === undefined)
+		issues.push({
+			rule: "cr-invalid",
+			key: "cr",
+			message: `\`cr\` is ${map.cr === undefined ? "missing" : `\`${text(map.cr)}\``}, not a challenge rating from 0 to 30.`,
+			hint: 'Write the rating as a number or fraction, e.g. `cr: 1/4`, `cr: "1/8"` or `cr: 5`; the proficiency bonus is derived from it.',
+		});
 
 	const lines = source.split("\n");
 	const find = (test: (line: string) => boolean, from = 0): number => {

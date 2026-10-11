@@ -12,16 +12,19 @@ function fakeLayer(severity: Finding["severity"]): Layer {
 	const name = `fake-${severity}`;
 	return {
 		name,
+		scope: "page",
 		description: `Emits one ${severity} for the severity contract test.`,
-		run: (ctx) => [{
-			layer: name,
-			rule: "example",
-			severity,
-			path: ctx.display("index.md"),
-			line: 1,
-			message: `Example ${severity}.`,
-			hint: "Address the example finding.",
-		}],
+		run: (ctx) => [
+			{
+				layer: name,
+				rule: "example",
+				severity,
+				path: ctx.display("index.md"),
+				line: 1,
+				message: `Example ${severity}.`,
+				hint: "Address the example finding.",
+			},
+		],
 	};
 }
 

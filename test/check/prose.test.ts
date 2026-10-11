@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { lineAt, lineStarts, nameWords, proseView, sourceOffset, vaultNameWords } from "../../src/check/prose.ts";
+import { nameWords, vaultNameWords } from "../../src/check/prose.ts";
+import { lineAt, lineStarts, proseView, sourceOffset } from "../../src/check/views.ts";
 import { buildVault } from "../../src/vault/vault.ts";
 import { parsePage } from "../../src/vault/parse.ts";
 
@@ -49,13 +50,17 @@ name: Xyzzyq
 	it("keeps every line break, so a view line is the page's line", () => {
 		expect(view.text.split("\n").length).toBe(source.split("\n").length);
 		const lines = view.text.split("\n");
-		expect(lines.findIndex((l) => l.includes("the newcomer"))).toBe(source.split("\n").findIndex((l) => l.includes("newcomer")));
+		expect(lines.findIndex((l) => l.includes("the newcomer"))).toBe(
+			source.split("\n").findIndex((l) => l.includes("newcomer")),
+		);
 	});
 
 	it("maps a view index back to the line of the source", () => {
 		const starts = lineStarts(source);
 		const at = view.text.indexOf("newcomer");
-		expect(lineAt(starts, sourceOffset(view, at))).toBe(source.split("\n").findIndex((l) => l.includes("newcomer")) + 1);
+		expect(lineAt(starts, sourceOffset(view, at))).toBe(
+			source.split("\n").findIndex((l) => l.includes("newcomer")) + 1,
+		);
 		const alias = source.indexOf("the newcomer");
 		expect(sourceOffset(view, view.text.indexOf("the newcomer"))).toBe(alias);
 	});
@@ -100,15 +105,24 @@ describe("proseView masked for wording rules", () => {
 		const typed = buildVault("/v", {
 			markdown: new Map([
 				["A/outer-reach.md", '---\ntitle: "Outer Reach"\ntype: Location\naliases: ["The Open Sea"]\n---\n'],
-				["A/Test.md", "[[outer-reach|Outer Reach]] [[outer-reach|The Open Sea]] [[outer-reach\\|Outer Reach]] [[outer-reach|a reach of rough water]]\n"],
+				[
+					"A/Test.md",
+					"[[outer-reach|Outer Reach]] [[outer-reach|The Open Sea]] [[outer-reach\\|Outer Reach]] [[outer-reach|a reach of rough water]]\n",
+				],
 			]),
 			attachments: [],
 		});
-		expect(proseView(typed.pageByPath.get("A/Test.md")!, typed).text).toBe("Place Place Place a reach of rough water\n");
+		expect(proseView(typed.pageByPath.get("A/Test.md")!, typed).text).toBe(
+			"Place Place Place a reach of rough water\n",
+		);
 		const page = typed.pageByPath.get("A/Test.md")!;
 		const shown = proseView(page, undefined, typed);
 		expect(shown.text).toBe("Outer Reach The Open Sea Outer Reach a reach of rough water\n");
-		expect(shown.names.map(([start, end]) => shown.text.slice(start, end))).toEqual(["Outer Reach", "The Open Sea", "Outer Reach"]);
+		expect(shown.names.map(([start, end]) => shown.text.slice(start, end))).toEqual([
+			"Outer Reach",
+			"The Open Sea",
+			"Outer Reach",
+		]);
 	});
 });
 
@@ -122,7 +136,7 @@ describe("name dictionary", () => {
 	it("collects every page name and alias in the vault", () => {
 		const files = {
 			markdown: new Map([
-				["A/Zorvath Keep.md", "---\naliases: [\"the Grey Hold\"]\n---\n"],
+				["A/Zorvath Keep.md", '---\naliases: ["the Grey Hold"]\n---\n'],
 				["A/index.md", ""],
 			]),
 			attachments: [],

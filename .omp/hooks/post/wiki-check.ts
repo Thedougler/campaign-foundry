@@ -64,7 +64,12 @@ export function runCheck(request: CheckRequest): Promise<Execution> {
 		done(result);
 	};
 	try {
-		child = spawn(request.command, request.args, { cwd: request.cwd, stdio: ["ignore", "pipe", "pipe"], shell: false, detached: grouped });
+		child = spawn(request.command, request.args, {
+			cwd: request.cwd,
+			stdio: ["ignore", "pipe", "pipe"],
+			shell: false,
+			detached: grouped,
+		});
 	} catch (error) {
 		finish({ failure: "error", detail: String(error) });
 		return promise;
@@ -73,13 +78,18 @@ export function runCheck(request: CheckRequest): Promise<Execution> {
 		try {
 			if (grouped && child.pid) process.kill(-child.pid, "SIGKILL");
 			else child.kill("SIGKILL");
-		} catch { /* The process may already have exited. */ }
+		} catch {
+			/* The process may already have exited. */
+		}
 		finish({ failure });
 	};
 	const capture = (chunk: Buffer, keep: boolean) => {
 		if (settled) return;
 		outputBytes += chunk.length;
-		if (outputBytes > request.maxOutputBytes) { stop("output-capped"); return; }
+		if (outputBytes > request.maxOutputBytes) {
+			stop("output-capped");
+			return;
+		}
 		if (keep) stdout.push(chunk);
 	};
 	child.stdout?.on("data", (chunk: Buffer) => capture(chunk, true));
@@ -91,7 +101,12 @@ export function runCheck(request: CheckRequest): Promise<Execution> {
 }
 
 /** A fresh factory owns one bounded queue; imported module state is not shared session state. */
-export function createWikiCheckHandler(options: WikiCheckOptions): (event: ToolResultEvent, ctx: Pick<ExtensionContext, "cwd" | "agent">) => Promise<ToolResultEventResult | undefined> {
+export function createWikiCheckHandler(
+	options: WikiCheckOptions,
+): (
+	event: ToolResultEvent,
+	ctx: Pick<ExtensionContext, "cwd" | "agent">,
+) => Promise<ToolResultEventResult | undefined> {
 	const run = options.run ?? runCheck;
 	const repoRoot = resolve(options.repoRoot);
 	let queue: Promise<void> = Promise.resolve();
@@ -105,7 +120,10 @@ export function createWikiCheckHandler(options: WikiCheckOptions): (event: ToolR
 			const path = wikiPage(value, ctx.cwd, repoRoot);
 			if (!path || seen.has(path)) continue;
 			seen.add(path);
-			if (pages.length >= LIMITS.pages) { targets.omitted++; continue; }
+			if (pages.length >= LIMITS.pages) {
+				targets.omitted++;
+				continue;
+			}
 			pages.push(relative(repoRoot, path));
 		}
 		if (pages.length === 0) return;
@@ -115,19 +133,33 @@ export function createWikiCheckHandler(options: WikiCheckOptions): (event: ToolR
 			pending++;
 			const task = queue.then(async (): Promise<Execution> => {
 				try {
-					return await run({ command: "bun", args: ["run", "cf", "--", "check", "--json", "--root", repoRoot, ...pages], cwd: repoRoot, timeoutMs: LIMITS.timeoutMs, maxOutputBytes: LIMITS.outputBytes });
+					return await run({
+						command: "bun",
+						args: ["run", "cf", "--", "check", "--json", "--root", repoRoot, ...pages],
+						cwd: repoRoot,
+						timeoutMs: LIMITS.timeoutMs,
+						maxOutputBytes: LIMITS.outputBytes,
+					});
 				} catch (error) {
 					return { failure: "error", detail: String(error) };
-				} finally { pending--; }
+				} finally {
+					pending--;
+				}
 			});
 			queue = task.then(() => undefined);
 			execution = await task;
 		}
 		const result = feedback(execution, pages, targets);
-		return { content: [...event.content, { type: "text", text: `\n[wiki-check]\n${result.text}` }], ...(result.additionalContext ? { additionalContext: result.additionalContext } : {}) };
+		return {
+			content: [...event.content, { type: "text", text: `\n[wiki-check]\n${result.text}` }],
+			...(result.additionalContext ? { additionalContext: result.additionalContext } : {}),
+		};
 	};
 }
 
 export default function wikiCheck(pi: ExtensionAPI): void {
-	pi.on("tool_result", createWikiCheckHandler({ repoRoot: resolve(dirname(fileURLToPath(import.meta.url)), "../../..") }));
+	pi.on(
+		"tool_result",
+		createWikiCheckHandler({ repoRoot: resolve(dirname(fileURLToPath(import.meta.url)), "../../..") }),
+	);
 }

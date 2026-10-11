@@ -44,16 +44,25 @@ export function loadCache(path: string): BenchFile {
 	try {
 		parsed = JSON.parse(readFileSync(path, "utf8"));
 	} catch (error) {
-		throw new UsageError(`\`${path}\` is not valid JSON: ${(error as Error).message}`, "Fix or delete it — `benchmark.md` rebuilds on the next `cf bench record`; the hit rule is: " + HIT_RULE + ".");
+		throw new UsageError(
+			`\`${path}\` is not valid JSON: ${(error as Error).message}`,
+			`Fix or delete it — \`benchmark.md\` rebuilds on the next \`cf bench record\`; the hit rule is: ${HIT_RULE}.`,
+		);
 	}
 	const results = asRecord(parsed).results;
 	if (!Array.isArray(results)) {
-		throw new UsageError("`evals/benchmark.json` has no results array.", "Rebuild it with `cf bench record`, or empty it to `{ \"schema\": 1, \"results\": [] }`.");
+		throw new UsageError(
+			"`evals/benchmark.json` has no results array.",
+			'Rebuild it with `cf bench record`, or empty it to `{ "schema": 1, "results": [] }`.',
+		);
 	}
 	return { schema: 1, hit_rule: HIT_RULE, results: results as BenchRow[] };
 }
 
-export function findHit(cache: BenchFile, key: { version: string; id: string; family: string; model: string; promptSha: string }): BenchRow | undefined {
+export function findHit(
+	cache: BenchFile,
+	key: { version: string; id: string; family: string; model: string; promptSha: string },
+): BenchRow | undefined {
 	return cache.results.find(
 		(row) =>
 			row.status === "scored" &&
@@ -68,7 +77,11 @@ export function findHit(cache: BenchFile, key: { version: string; id: string; fa
 /** Latest state wins: a row replaces the cached row with the same version, entry, family and pin. */
 export function upsertRow(cache: BenchFile, row: BenchRow): void {
 	const index = cache.results.findIndex(
-		(existing) => existing.bench_version === row.bench_version && existing.id === row.id && existing.family === row.family && existing.model === row.model,
+		(existing) =>
+			existing.bench_version === row.bench_version &&
+			existing.id === row.id &&
+			existing.family === row.family &&
+			existing.model === row.model,
 	);
 	if (index === -1) cache.results.push(row);
 	else cache.results[index] = row;

@@ -4,7 +4,7 @@
 // Modified for native omp frontmatter, streaming ZIP packaging and TypeScript.
 // License: https://www.apache.org/licenses/LICENSE-2.0
 
-import { createWriteStream } from "node:fs";
+import { createWriteStream, type Stats } from "node:fs";
 import { lstat, mkdir, mkdtemp, readFile, readdir, rename, rm, stat } from "node:fs/promises";
 import { basename, dirname, join, resolve, sep } from "node:path";
 import type { Readable } from "node:stream";
@@ -12,8 +12,16 @@ import { pipeline } from "node:stream/promises";
 import { ZipFile } from "yazl";
 import { parse } from "yaml";
 import { UsageError } from "../src/check/errors.ts";
-import { findRepoRoot } from "../src/commands/check.ts";
-import { NON_RELATIVE, brokenSkillLinks, decodedPath, forEachVisibleLine, loadSkillScope, markdownLinks, skillSourceFiles } from "./skill-graph.ts";
+import { findRepoRoot } from "../src/commands/kit.ts";
+import {
+	NON_RELATIVE,
+	brokenSkillLinks,
+	decodedPath,
+	forEachVisibleLine,
+	loadSkillScope,
+	markdownLinks,
+	skillSourceFiles,
+} from "./skill-graph.ts";
 import type { MarkdownLink } from "./skill-graph.ts";
 
 export interface SkillValidation {
@@ -47,16 +55,25 @@ export async function validateSkill(skillDirectory: string, options: { root?: st
 	let content: string;
 	try {
 		if (!(await stat(skillDir)).isDirectory()) {
-			throw new UsageError(`Skill path is not a directory: ${skillDir}`, "Pass the directory containing SKILL.md, not the file itself.");
+			throw new UsageError(
+				`Skill path is not a directory: ${skillDir}`,
+				"Pass the directory containing SKILL.md, not the file itself.",
+			);
 		}
 		content = await readFile(skillFile, "utf8");
 	} catch (error) {
 		if (error instanceof UsageError) throw error;
-		throw new UsageError(`Cannot read skill ${skillDir}: ${errorMessage(error)}`, "Pass an existing, readable skill directory containing SKILL.md. Example: cf eval validate .omp/skills/skill-creator");
+		throw new UsageError(
+			`Cannot read skill ${skillDir}: ${errorMessage(error)}`,
+			"Pass an existing, readable skill directory containing SKILL.md. Example: cf eval validate .omp/skills/skill-creator",
+		);
 	}
 	const match = /^\uFEFF?---[ \t]*\r?\n([\s\S]*?)\r?\n---[ \t]*(?:\r?\n|$)/.exec(content);
 	if (!match) {
-		throw new UsageError(`Missing or incomplete YAML frontmatter in ${skillFile}.`, `Start SKILL.md with a --- delimited YAML mapping containing name and description. ${hint}`);
+		throw new UsageError(
+			`Missing or incomplete YAML frontmatter in ${skillFile}.`,
+			`Start SKILL.md with a --- delimited YAML mapping containing name and description. ${hint}`,
+		);
 	}
 	let parsed: unknown;
 	try {
@@ -70,30 +87,49 @@ export async function validateSkill(skillDirectory: string, options: { root?: st
 	const frontmatter = parsed as Record<string, unknown>;
 	const { name, description } = frontmatter;
 	if (typeof name !== "string" || name.trim().length === 0) {
-		throw new UsageError(`Frontmatter name in ${skillFile} must be a nonempty string.`, `Set name: ${JSON.stringify(basename(skillDir))}. ${hint}`);
+		throw new UsageError(
+			`Frontmatter name in ${skillFile} must be a nonempty string.`,
+			`Set name: ${JSON.stringify(basename(skillDir))}. ${hint}`,
+		);
 	}
 	if (name !== basename(skillDir)) {
-		throw new UsageError(`Frontmatter name ${JSON.stringify(name)} does not match directory ${JSON.stringify(basename(skillDir))}.`, `Set name: ${JSON.stringify(basename(skillDir))}, or rename the skill directory to match. ${hint}`);
+		throw new UsageError(
+			`Frontmatter name ${JSON.stringify(name)} does not match directory ${JSON.stringify(basename(skillDir))}.`,
+			`Set name: ${JSON.stringify(basename(skillDir))}, or rename the skill directory to match. ${hint}`,
+		);
 	}
 	if (typeof description !== "string" || description.trim().length === 0) {
-		throw new UsageError(`Frontmatter description in ${skillFile} must be a nonempty string.`, `Describe when the skill should be invoked. ${hint}`);
+		throw new UsageError(
+			`Frontmatter description in ${skillFile} must be a nonempty string.`,
+			`Describe when the skill should be invoked. ${hint}`,
+		);
 	}
 	for (const key of ["hide", "alwaysApply", "disableModelInvocation", "disable-model-invocation", "user-invocable"]) {
 		if (key in frontmatter && typeof frontmatter[key] !== "boolean") {
-			throw new UsageError(`Frontmatter ${key} in ${skillFile} must be a boolean.`, `Use ${key}: true or ${key}: false (without quotes), or remove the optional field. ${hint}`);
+			throw new UsageError(
+				`Frontmatter ${key} in ${skillFile} must be a boolean.`,
+				`Use ${key}: true or ${key}: false (without quotes), or remove the optional field. ${hint}`,
+			);
 		}
 	}
 	if ("argument-hint" in frontmatter && typeof frontmatter["argument-hint"] !== "string") {
 		throw new UsageError(`Frontmatter argument-hint in ${skillFile} must be a string.`, hint);
 	}
-	if ("globs" in frontmatter && (!Array.isArray(frontmatter.globs) || frontmatter.globs.some((glob) => typeof glob !== "string"))) {
+	if (
+		"globs" in frontmatter &&
+		(!Array.isArray(frontmatter.globs) || frontmatter.globs.some((glob) => typeof glob !== "string"))
+	) {
 		throw new UsageError(`Frontmatter globs in ${skillFile} must be an array of strings.`, hint);
 	}
 	const scope = await loadSkillScope(options.root ?? findRepoRoot(process.cwd()));
 	const sourceFiles = await skillSourceFiles(skillDir, content);
 	const breaks = [
-		...(await brokenMarkdownReferences(sourceFiles)).map((brk) => `  ${brk.file}:${brk.line}: [${brk.text}](${brk.destination}) — ${brk.reason}`),
-		...(await brokenSkillLinks(skillDir, scope, content)).map((brk) => `  ${brk.file}:${brk.line}: ${brk.reference} — ${brk.reason}`),
+		...(await brokenMarkdownReferences(sourceFiles)).map(
+			(brk) => `  ${brk.file}:${brk.line}: [${brk.text}](${brk.destination}) — ${brk.reason}`,
+		),
+		...(await brokenSkillLinks(skillDir, scope, content)).map(
+			(brk) => `  ${brk.file}:${brk.line}: ${brk.reference} — ${brk.reason}`,
+		),
 	];
 	if (breaks.length > 0) {
 		throw new SkillReferenceError(`Broken references in ${skillDir}:\n${breaks.join("\n")}`);
@@ -111,7 +147,11 @@ interface ReferenceBreak {
 
 /** GitHub's heading anchor rule: lowercase, drop punctuation except hyphens and spaces, spaces become hyphens. */
 function headingSlug(heading: string): string {
-	return heading.toLowerCase().trim().replace(/[^\p{L}\p{N} -]/gu, "").replace(/ /g, "-");
+	return heading
+		.toLowerCase()
+		.trim()
+		.replace(/[^\p{L}\p{N} -]/gu, "")
+		.replace(/ /g, "-");
 }
 
 /** Heading anchors a Markdown file answers to; repeated headings get GitHub's -1, -2 suffixes. */
@@ -124,7 +164,11 @@ export function headingAnchors(content: string): Set<string> {
 		if (base === "") return;
 		counts.set(base, (counts.get(base) ?? 0) + 1);
 	});
-	return new Set([...counts].flatMap(([base, count]) => Array.from({ length: count }, (_, seen) => (seen === 0 ? base : `${base}-${seen}`))));
+	return new Set(
+		[...counts].flatMap(([base, count]) =>
+			Array.from({ length: count }, (_, seen) => (seen === 0 ? base : `${base}-${seen}`)),
+		),
+	);
 }
 
 /**
@@ -149,7 +193,7 @@ async function brokenMarkdownReferences(sourceFiles: Map<string, string>): Promi
 		const anchor = hash === -1 ? undefined : destination.slice(hash + 1);
 		const rawPath = hash === -1 ? destination : destination.slice(0, hash);
 		const target = rawPath === "" ? sourcePath : resolve(dirname(sourcePath), decodedPath(rawPath));
-		let info;
+		let info: Stats;
 		try {
 			info = await stat(target);
 		} catch {
@@ -158,7 +202,13 @@ async function brokenMarkdownReferences(sourceFiles: Map<string, string>): Promi
 		}
 		if (anchor === undefined || anchor === "" || !info.isFile() || !/\.md$/i.test(target)) return;
 		if (!(await anchorsOf(target)).has(anchor)) {
-			breaks.push({ file: display, line: link.line, text: link.text, destination, reason: `no heading slugs to #${anchor}` });
+			breaks.push({
+				file: display,
+				line: link.line,
+				text: link.text,
+				destination,
+				reason: `no heading slugs to #${anchor}`,
+			});
 		}
 	};
 	for (const [path, display] of sourceFiles) {
@@ -185,7 +235,12 @@ const EXCLUDED_FILES: Record<string, true> = { ".DS_Store": true, "Thumbs.db": t
 export function shouldExcludeSkillPath(relativePath: string): boolean {
 	const parts = relativePath.split(sep);
 	const filename = parts.at(-1)!;
-	return parts[0] === "evals" || parts.some((part) => Object.hasOwn(EXCLUDED_DIRECTORIES, part)) || Object.hasOwn(EXCLUDED_FILES, filename) || /\.(?:py[co]|skill)$/i.test(filename);
+	return (
+		parts[0] === "evals" ||
+		parts.some((part) => Object.hasOwn(EXCLUDED_DIRECTORIES, part)) ||
+		Object.hasOwn(EXCLUDED_FILES, filename) ||
+		/\.(?:py[co]|skill)$/i.test(filename)
+	);
 }
 
 interface ArchiveFile {
@@ -193,7 +248,10 @@ interface ArchiveFile {
 	entry: string;
 }
 
-async function collectSkillFiles(skillDir: string, name: string): Promise<{ files: ArchiveFile[]; excluded: string[] }> {
+async function collectSkillFiles(
+	skillDir: string,
+	name: string,
+): Promise<{ files: ArchiveFile[]; excluded: string[] }> {
 	const files: ArchiveFile[] = [];
 	const excluded: string[] = [];
 	async function visit(relativeDir: string): Promise<void> {
@@ -207,14 +265,24 @@ async function collectSkillFiles(skillDir: string, name: string): Promise<{ file
 			}
 			const path = join(skillDir, relativePath);
 			if (entry.name.includes("\\")) {
-				throw new UsageError(`Cannot safely archive a filename containing a backslash: ${path}`, "Rename the file so ZIP extraction cannot reinterpret its name as a path.");
+				throw new UsageError(
+					`Cannot safely archive a filename containing a backslash: ${path}`,
+					"Rename the file so ZIP extraction cannot reinterpret its name as a path.",
+				);
 			}
 			if (entry.isSymbolicLink()) {
-				throw new UsageError(`Cannot package symbolic link: ${path}`, "Replace it with an ordinary file or directory inside the skill; bundles must not include files outside their source tree.");
+				throw new UsageError(
+					`Cannot package symbolic link: ${path}`,
+					"Replace it with an ordinary file or directory inside the skill; bundles must not include files outside their source tree.",
+				);
 			}
 			if (entry.isDirectory()) await visit(relativePath);
 			else if (entry.isFile()) files.push({ path, entry: `${name}/${relativePath.split(sep).join("/")}` });
-			else throw new UsageError(`Cannot package non-regular file: ${path}`, "Remove sockets, devices and other special files from the skill directory.");
+			else
+				throw new UsageError(
+					`Cannot package non-regular file: ${path}`,
+					"Remove sockets, devices and other special files from the skill directory.",
+				);
 		}
 	}
 	await visit("");
@@ -222,14 +290,24 @@ async function collectSkillFiles(skillDir: string, name: string): Promise<{ file
 }
 
 /** Produce a real, deflated ZIP with one top-level skill folder; replace output only after success. */
-export async function packageSkill(skillDirectory: string, outputFile: string, options: { root?: string } = {}): Promise<SkillPackage> {
+export async function packageSkill(
+	skillDirectory: string,
+	outputFile: string,
+	options: { root?: string } = {},
+): Promise<SkillPackage> {
 	const skill = await validateSkill(skillDirectory, options);
 	const output = resolve(outputFile);
 	if (!output.endsWith(".skill")) {
-		throw new UsageError(`Skill bundle output must end in .skill: ${output}`, `Example: cf eval package ${JSON.stringify(skill.skillDir)} --output ${JSON.stringify(`${skill.name}.skill`)}`);
+		throw new UsageError(
+			`Skill bundle output must end in .skill: ${output}`,
+			`Example: cf eval package ${JSON.stringify(skill.skillDir)} --output ${JSON.stringify(`${skill.name}.skill`)}`,
+		);
 	}
 	if (skill.name.includes("\\") || /^[A-Za-z]:/.test(skill.name)) {
-		throw new UsageError(`Skill directory name cannot be safely used in a ZIP: ${JSON.stringify(skill.name)}`, "Rename the skill directory and its frontmatter name to avoid backslashes or a drive prefix.");
+		throw new UsageError(
+			`Skill directory name cannot be safely used in a ZIP: ${JSON.stringify(skill.name)}`,
+			"Rename the skill directory and its frontmatter name to avoid backslashes or a drive prefix.",
+		);
 	}
 	const hint = `Check file permissions and fix the reported path, then run cf eval package ${JSON.stringify(skill.skillDir)} --output ${JSON.stringify(output)}.`;
 	let temporaryDir: string | undefined;

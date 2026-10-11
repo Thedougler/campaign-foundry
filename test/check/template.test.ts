@@ -10,7 +10,10 @@ beforeAll(async () => {
 	({ report, code } = await checkFixture("template", ["--layer", "template"]));
 });
 
-const rules = (page: string): string[] => findingsFor(report, `/${page}.md`).map((f) => f.rule).sort();
+const rules = (page: string): string[] =>
+	findingsFor(report, `/${page}.md`)
+		.map((f) => f.rule)
+		.sort();
 
 describe("template layer: failure classes", () => {
 	it("exits 1 when any page fails", () => {
@@ -70,8 +73,22 @@ describe("template layer: failure classes", () => {
 		const { cp, readFile: read, writeFile } = await import("node:fs/promises");
 		await cp(realTemplates, join(dir, "templates"), { recursive: true });
 		const npc = await read(join(dir, "templates/npc.md"), "utf8");
-		await writeFile(join(dir, "templates/npc.md"), npc.replace("sources: []", "sources: []\nrole: \"\""));
-		const result = await cf(["check", "--json", "--layer", "template", "--vault", join(dir, "wiki"), "--root", dir, "--templates", join(dir, "templates")], dir);
+		await writeFile(join(dir, "templates/npc.md"), npc.replace("sources: []", 'sources: []\nrole: ""'));
+		const result = await cf(
+			[
+				"check",
+				"--json",
+				"--layer",
+				"template",
+				"--vault",
+				join(dir, "wiki"),
+				"--root",
+				dir,
+				"--templates",
+				join(dir, "templates"),
+			],
+			dir,
+		);
 		const edited = JSON.parse(result.stdout) as JsonReport;
 		expect(findingsFor(edited, "/Sources Ok.md").map((f) => f.rule)).toEqual(["missing-key"]);
 	});
@@ -86,7 +103,10 @@ describe("template layer: failure classes", () => {
 		const flags = ["--vault", join(dir, "wiki"), "--root", dir, "--templates", templates];
 		const result = await cf(["check", "--json", "--layer", "template", ...flags], dir);
 		const edited = JSON.parse(result.stdout) as JsonReport;
-		const of = (page: string): string[] => findingsFor(edited, `/${page}.md`).map((f) => f.rule).sort();
+		const of = (page: string): string[] =>
+			findingsFor(edited, `/${page}.md`)
+				.map((f) => f.rule)
+				.sort();
 		expect(of("Short Sections")).toEqual(["missing-section"]);
 		expect(findingsFor(edited, "/Short Sections.md")[0]?.hint).toContain("`Depth` (optional)");
 		expect(of("Swapped Sections")).toEqual(["section-order"]);
@@ -113,7 +133,22 @@ describe("template layer: failure classes", () => {
 		const path = join(dir, "wiki/Aldermoor/NPCs/Sources Ok.md");
 		const source = await readFile(path, "utf8");
 		await writeFile(path, source.replace(/^title: .*$/m, `title: ${value}`));
-		const result = await cf(["check", path, "--json", "--layer", "template", "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates], dir);
+		const result = await cf(
+			[
+				"check",
+				path,
+				"--json",
+				"--layer",
+				"template",
+				"--vault",
+				join(dir, "wiki"),
+				"--root",
+				dir,
+				"--templates",
+				realTemplates,
+			],
+			dir,
+		);
 		const edited = JSON.parse(result.stdout) as JsonReport;
 		expect(findingsFor(edited, "/Sources Ok.md").map((f) => f.rule)).toEqual([rule]);
 	});
@@ -122,7 +157,19 @@ describe("template layer: failure classes", () => {
 describe("template layer: --fix", () => {
 	it("adds blank keys, strips guidance and empty ### headings, then is idempotent", async () => {
 		const dir = await copyFixture("template");
-		const args = ["check", "--layer", "template", "--json", "--fix", "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates];
+		const args = [
+			"check",
+			"--layer",
+			"template",
+			"--json",
+			"--fix",
+			"--vault",
+			join(dir, "wiki"),
+			"--root",
+			dir,
+			"--templates",
+			realTemplates,
+		];
 		const first = JSON.parse((await cf(args, dir)).stdout) as JsonReport;
 		expect(first.fixes.map((f) => f.path)).toContain("wiki/Aldermoor/NPCs/Guided.md");
 		expect(findingsFor(first, "/Guided.md")).toEqual([]);
@@ -135,18 +182,38 @@ describe("template layer: --fix", () => {
 		expect(fixed).toContain("## At a glance\n\n- **Role.**");
 
 		const missing = await readFile(join(dir, "wiki/Aldermoor/NPCs/Missing Keys.md"), "utf8");
-		expect(missing).toMatch(/^---\ntype: NPC\nsummary: "A ferrywoman."\nrevealed: ""\ntitle: "Missing Keys"\nsources: \[\]\ncreature: ""\n---\n/);
+		expect(missing).toMatch(
+			/^---\ntype: NPC\nsummary: "A ferrywoman."\nrevealed: ""\ntitle: "Missing Keys"\nsources: \[\]\ncreature: ""\n---\n/,
+		);
 
 		const second = JSON.parse((await cf(args, dir)).stdout) as JsonReport;
 		expect(second.fixes).toEqual([]);
-		const third = await cf(args.filter((a) => a !== "--json"), dir);
+		const third = await cf(
+			args.filter((a) => a !== "--json"),
+			dir,
+		);
 		expect(third.stdout).not.toContain("fixed  ");
 	});
 
 	it("--dry-run reports the fixes and writes nothing", async () => {
 		const dir = await copyFixture("template");
 		const before = await readFile(join(dir, "wiki/Aldermoor/NPCs/Guided.md"), "utf8");
-		const result = await cf(["check", "--layer", "template", "--fix", "--dry-run", "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates], dir);
+		const result = await cf(
+			[
+				"check",
+				"--layer",
+				"template",
+				"--fix",
+				"--dry-run",
+				"--vault",
+				join(dir, "wiki"),
+				"--root",
+				dir,
+				"--templates",
+				realTemplates,
+			],
+			dir,
+		);
 		expect(result.stdout).toContain("would fix  wiki/Aldermoor/NPCs/Guided.md");
 		expect(await readFile(join(dir, "wiki/Aldermoor/NPCs/Guided.md"), "utf8")).toBe(before);
 	});

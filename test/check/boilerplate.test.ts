@@ -9,8 +9,16 @@ type Result = CliResult & { report: JsonReport };
 
 function runCheck(vaultRoot: string): Promise<Result> {
 	return cf([
-		"check", "--json", "--layer", "boilerplate",
-		"--vault", join(vaultRoot, "wiki"), "--root", vaultRoot, "--templates", realTemplates,
+		"check",
+		"--json",
+		"--layer",
+		"boilerplate",
+		"--vault",
+		join(vaultRoot, "wiki"),
+		"--root",
+		vaultRoot,
+		"--templates",
+		realTemplates,
 	]).then((result) => ({ ...result, report: JSON.parse(result.stdout) as JsonReport }));
 }
 
@@ -21,8 +29,14 @@ beforeAll(async () => {
 	await mkdir(join(root, "wiki/A"), { recursive: true });
 	const shared = "- **Tell.** The swing comes wide and slow, telegraphed long before it lands.\n";
 	await writeFile(join(root, "wiki/A/One.md"), `---\ntype: Creature\n---\n\n## Play\n\n${shared}\n`);
-	await writeFile(join(root, "wiki/A/Two.md"), `---\ntype: Creature\n---\n\n## Play\n\n- **Tell.** The swing comes wide and slow, telegraphed long before it lands.\n`);
-	await writeFile(join(root, "wiki/A/Three.md"), `---\ntype: Creature\n---\n\n## Play\n\n- **Tell.** It answers a question with silence while its hand finds the knife.\n`);
+	await writeFile(
+		join(root, "wiki/A/Two.md"),
+		`---\ntype: Creature\n---\n\n## Play\n\n- **Tell.** The swing comes wide and slow, telegraphed long before it lands.\n`,
+	);
+	await writeFile(
+		join(root, "wiki/A/Three.md"),
+		`---\ntype: Creature\n---\n\n## Play\n\n- **Tell.** It answers a question with silence while its hand finds the knife.\n`,
+	);
 });
 
 afterAll(async () => {
@@ -41,47 +55,52 @@ describe("cf check --layer boilerplate", () => {
 		}
 		expect(report.findings.filter((finding) => finding.path.endsWith("Three.md"))).toEqual([]);
 	});
-});
-
-describe("cf check --layer boilerplate, sentences inside paragraphs", () => {
-	let root: string;
-	const check = (): Promise<Result> => runCheck(root);
-
-	beforeAll(async () => {
-		root = await mkdtemp(join(tmpdir(), "cf-boilerplate-sentence-"));
-		await mkdir(join(root, "wiki/B"), { recursive: true });
-		const page = (name: string, tactics: string) =>
-			writeFile(join(root, `wiki/B/${name}.md`), `---\ntype: Creature\n---\n\n## Play\n\n- **Tactics.** ${tactics}\n`);
-		await page("One", "It opens from the high ground and dives when the shield line wavers. Let the Party answer with positioning, cover, or focused fire. It withdraws into the surf once the tide turns.");
-		await page("Two", "It circles the boats and strikes at whichever swimmer lags behind. Let the Party answer with positioning, cover, or focused fire. It never lingers after the first wound tells.");
-		await page("Three", "The eel hauls its catch 30 ft. upstream before it feeds. It lurks beneath the weir until dusk.");
-		await page("Four", "The eel hauls its catch 30 ft. downstream before it feeds. It lurks beneath the mill until dawn.");
-	});
-
-	afterAll(async () => {
-		await rm(root, { recursive: true, force: true });
-	});
 
 	it("flags one sentence shared inside different paragraphs, on each page holding it", async () => {
-		const { report } = await check();
-		const shared = report.findings.filter((finding) => finding.rule === "shared-line");
-		expect(shared.length).toBe(2);
-		expect(shared.map((finding) => finding.path.split("/").slice(-2).join("/")).sort())
-			.toEqual(["B/One.md", "B/Two.md"]);
-		for (const finding of shared) {
-			expect(finding.line).toBe(7);
-			expect(finding.severity).toBe("warning");
-			expect(finding.message).toContain('"Let the Party answer with positioning, cover, or focused fire."');
-			const twin = finding.path.endsWith("One.md") ? "B/Two.md:7" : "B/One.md:7";
-			expect(finding.message).toContain(twin);
+		const sentenceRoot = await mkdtemp(join(tmpdir(), "cf-boilerplate-sentence-"));
+		try {
+			await mkdir(join(sentenceRoot, "wiki/B"), { recursive: true });
+			const page = (name: string, tactics: string) =>
+				writeFile(
+					join(sentenceRoot, `wiki/B/${name}.md`),
+					`---\ntype: Creature\n---\n\n## Play\n\n- **Tactics.** ${tactics}\n`,
+				);
+			await page(
+				"One",
+				"It opens from the high ground and dives when the shield line wavers. Let the Party answer with positioning, cover, or focused fire. It withdraws into the surf once the tide turns.",
+			);
+			await page(
+				"Two",
+				"It circles the boats and strikes at whichever swimmer lags behind. Let the Party answer with positioning, cover, or focused fire. It never lingers after the first wound tells.",
+			);
+			await page(
+				"Three",
+				"The eel hauls its catch 30 ft. upstream before it feeds. It lurks beneath the weir until dusk.",
+			);
+			await page(
+				"Four",
+				"The eel hauls its catch 30 ft. downstream before it feeds. It lurks beneath the mill until dawn.",
+			);
+			const { report } = await runCheck(sentenceRoot);
+			const shared = report.findings.filter((finding) => finding.rule === "shared-line");
+			expect(shared.length).toBe(2);
+			expect(shared.map((finding) => finding.path.split("/").slice(-2).join("/")).sort()).toEqual([
+				"B/One.md",
+				"B/Two.md",
+			]);
+			for (const finding of shared) {
+				expect(finding.line).toBe(7);
+				expect(finding.severity).toBe("warning");
+				expect(finding.message).toContain('"Let the Party answer with positioning, cover, or focused fire."');
+				const twin = finding.path.endsWith("One.md") ? "B/Two.md:7" : "B/One.md:7";
+				expect(finding.message).toContain(twin);
+			}
+			expect(shared.filter((finding) => finding.path.endsWith("Three.md") || finding.path.endsWith("Four.md"))).toEqual(
+				[],
+			);
+		} finally {
+			await rm(sentenceRoot, { recursive: true, force: true });
 		}
-	});
-
-	it("does not mistake text before an abbreviation for a shared sentence", async () => {
-		const { report } = await check();
-		const shared = report.findings.filter((finding) => finding.rule === "shared-line");
-		expect(shared.filter((finding) => finding.path.endsWith("Three.md") || finding.path.endsWith("Four.md")))
-			.toEqual([]);
 	});
 
 	it("compares a field's content but not its bold label", async () => {
@@ -90,12 +109,20 @@ describe("cf check --layer boilerplate, sentences inside paragraphs", () => {
 			await mkdir(join(labelled, "wiki/F"), { recursive: true });
 			const page = (name: string, lines: string) =>
 				writeFile(join(labelled, `wiki/F/${name}.md`), `---\ntype: Faction\n---\n\n## Play\n\n${lines}\n`);
-			await page("Gulls", "- **How to notice or interfere.** Gull feathers pinned to a dock post mark a drop.\n- **Offers.** Free passage across the bay, paid back in one favour.");
-			await page("Tide", "- **How to notice or interfere.** A tolling bell at low water calls the crews.\n- **Offers.** Free passage across the bay, paid back in one favour.");
+			await page(
+				"Gulls",
+				"- **How to notice or interfere.** Gull feathers pinned to a dock post mark a drop.\n- **Offers.** Free passage across the bay, paid back in one favour.",
+			);
+			await page(
+				"Tide",
+				"- **How to notice or interfere.** A tolling bell at low water calls the crews.\n- **Offers.** Free passage across the bay, paid back in one favour.",
+			);
 			const { report } = await runCheck(labelled);
 			const shared = report.findings.filter((finding) => finding.rule === "shared-line");
 			expect(shared.map((finding) => finding.line)).toEqual([8, 8]);
-			expect(shared.every((finding) => finding.message.includes('"Free passage across the bay, paid back in one favour."'))).toBe(true);
+			expect(
+				shared.every((finding) => finding.message.includes('"Free passage across the bay, paid back in one favour."')),
+			).toBe(true);
 		} finally {
 			await rm(labelled, { recursive: true, force: true });
 		}

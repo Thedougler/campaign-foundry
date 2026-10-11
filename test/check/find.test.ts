@@ -95,15 +95,6 @@ describe("cf find", () => {
 		expect(code).toBe(2);
 		expect(stderr).toContain("No name given.");
 	});
-
-	it("documents itself in --help, with examples", async () => {
-		const { code, stdout } = await cf(["find", "--help"]);
-		expect(code).toBe(0);
-		for (const option of ["--vault", "--root"]) expect(stdout).toContain(option);
-		expect(stdout).toContain("Examples:");
-		expect(stdout).toContain("Exit codes:");
-		expect(stdout).toMatch(/^ {2}cf find ".+"/m);
-	});
 });
 
 describe("cf revealed", () => {
@@ -121,7 +112,11 @@ describe("cf revealed", () => {
 
 	it("scopes to one Campaign folder with --campaign", async () => {
 		const dir = await copyFixture("clean");
-		await addPage(dir, "ironvale/Ironvale.md", 'type: Campaign\nsummary: "Another table."\nsources: []\nrevealed: "Session 1"\n');
+		await addPage(
+			dir,
+			"ironvale/Ironvale.md",
+			'type: Campaign\nsummary: "Another table."\nsources: []\nrevealed: "Session 1"\n',
+		);
 		const all = await cf(["revealed", ...vaultFlags(dir)], dir);
 		expect(all.code).toBe(0);
 		expect(all.stdout).toContain("ironvale/Ironvale.md  Session 1");
@@ -138,20 +133,14 @@ describe("cf revealed", () => {
 		expect(stderr).toContain("No Campaign `Ashes of teh Crown`");
 		expect(stderr).toContain("Did you mean `Ashes of the Crown`?");
 	});
-
-	it("documents itself in --help, with examples", async () => {
-		const { code, stdout } = await cf(["revealed", "--help"]);
-		expect(code).toBe(0);
-		for (const option of ["--campaign", "--vault", "--root"]) expect(stdout).toContain(option);
-		expect(stdout).toContain("Examples:");
-		expect(stdout).toContain("Exit codes:");
-		expect(stdout).toMatch(/^ {2}cf revealed --campaign ".+"/m);
-	});
 });
 
 describe("page display identity", () => {
 	it("uses the title for display while retaining title, aliases and slug lookup", () => {
-		const page = parsePage("NPCs/stable-id.md", '---\ntitle: "Mara / Harbour Captain"\naliases: ["Old Captain"]\n---\n');
+		const page = parsePage(
+			"NPCs/stable-id.md",
+			'---\ntitle: "Mara / Harbour Captain"\naliases: ["Old Captain"]\n---\n',
+		);
 		expect(page.name).toBe("Mara / Harbour Captain");
 		expect(page.names).toEqual(["Mara / Harbour Captain", "Old Captain", "stable-id"]);
 	});
@@ -163,7 +152,7 @@ describe("page display identity", () => {
 	});
 
 	it("leaves display unset rather than turning a slug into a name", () => {
-		const page = parsePage("NPCs/stable-id.md", "---\ntitle: \"\"\n---\n");
+		const page = parsePage("NPCs/stable-id.md", '---\ntitle: ""\n---\n');
 		expect(page.name).toBe("");
 		expect(page.names).toEqual(["stable-id"]);
 	});

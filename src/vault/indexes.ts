@@ -1,4 +1,4 @@
-import { isSpecialPage } from "../check/util.ts";
+import { isFixedPage } from "../check/views.ts";
 import { isSharedRootFolder } from "../check/placement-table.ts";
 import type { Page, Vault } from "./types.ts";
 
@@ -69,11 +69,13 @@ export function compareNames(a: string, b: string): number {
 	return pa.length - pb.length;
 }
 
-const compareByName = (a: Page, b: Page): number => compareNames(a.name, b.name) || (a.path < b.path ? -1 : a.path > b.path ? 1 : 0);
+const compareByName = (a: Page, b: Page): number =>
+	compareNames(a.name, b.name) || (a.path < b.path ? -1 : a.path > b.path ? 1 : 0);
 
 /** A canonical `[[slug|Title]]` and optional summary, flattened to one line. */
 function line(page: Page): string {
-	const summary = typeof page.frontmatter?.summary === "string" ? page.frontmatter.summary.replace(/\s+/g, " ").trim() : "";
+	const summary =
+		typeof page.frontmatter?.summary === "string" ? page.frontmatter.summary.replace(/\s+/g, " ").trim() : "";
 	return summary === "" ? `- [[${page.slug}|${page.name}]]` : `- [[${page.slug}|${page.name}]] — ${summary}`;
 }
 
@@ -151,12 +153,14 @@ export function generateIndexes(vault: Vault): Map<string, string> {
 	const overviews = campaignOverviews(vault);
 	for (const overview of overviews) {
 		const folder = segmentsOf(overview)[0]!;
-		const pages = vault.pages.filter((p) => segmentsOf(p)[0] === folder && p !== overview && !isSpecialPage(p) && !isHot(p));
-		out.set(`${folder}/index.md`, [GENERATED_NOTE, `# ${overview.name}`, ...indexBody(pages)].join("\n\n") + "\n");
+		const pages = vault.pages.filter(
+			(p) => segmentsOf(p)[0] === folder && p !== overview && !isFixedPage(p) && !isHot(p),
+		);
+		out.set(`${folder}/index.md`, `${[GENERATED_NOTE, `# ${overview.name}`, ...indexBody(pages)].join("\n\n")}\n`);
 	}
 	const shared = vault.pages.filter((p) => {
 		const segments = segmentsOf(p);
-		return segments.length === 1 && isSharedRootFolder(segments[0]!) && !isSpecialPage(p) && !isHot(p);
+		return segments.length === 1 && isSharedRootFolder(segments[0]!) && !isFixedPage(p) && !isHot(p);
 	});
 	const rootBlocks = [GENERATED_NOTE, "# Wiki"];
 	if (overviews.length > 0) rootBlocks.push(overviews.map(line).join("\n"));

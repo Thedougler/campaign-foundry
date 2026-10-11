@@ -1,7 +1,6 @@
 import type { RootContent } from "mdast";
 import type { Page } from "../../vault/types.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
-import { checkedPages } from "../util.ts";
 
 const LAYER = "mermaid";
 
@@ -48,7 +47,11 @@ function loadParser(): Promise<Parser> {
 		// record access is the honest shape for installing and restoring them.
 		const globals = globalThis as unknown as Record<string, unknown>;
 		const keys = ["window", "document", "Element"] as const;
-		const saved: Record<(typeof keys)[number], unknown> = { window: globals.window, document: globals.document, Element: globals.Element };
+		const saved: Record<(typeof keys)[number], unknown> = {
+			window: globals.window,
+			document: globals.document,
+			Element: globals.Element,
+		};
 		const { JSDOM } = await import("jsdom");
 		const dom = new JSDOM("");
 		globals.window = dom.window;
@@ -82,7 +85,7 @@ function oneLine(message: string): string {
 export async function run(ctx: CheckContext): Promise<Finding[]> {
 	const findings: Finding[] = [];
 	const diagrams: { path: string; diagram: Diagram }[] = [];
-	for (const page of checkedPages(ctx)) {
+	for (const page of ctx.pages) {
 		for (const diagram of diagramsOf(page)) diagrams.push({ path: ctx.display(page.path), diagram });
 	}
 	if (diagrams.length === 0) return findings;
@@ -120,6 +123,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 
 export const mermaidLayer: Layer = {
 	name: LAYER,
+	scope: "page",
 	description: "Every fenced mermaid diagram parses; a block Obsidian cannot render fails the gate.",
 	run,
 };

@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { lstatSync, readdirSync, readFileSync, realpathSync, statSync } from "node:fs";
 import { basename, extname, join, relative, sep } from "node:path";
-import { parseDocument } from "yaml";
+import { frontmatterNames } from "../vault/dialect.ts";
 
 /**
  * What the Backup copies to Notion: the Shattered Sea Campaign folder and the agent skills. `.claude/skills/` is left
@@ -41,7 +41,18 @@ export interface WalkResult {
 
 export const IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"]);
 const EXCLUDED_DIRS = new Set([".obsidian", "node_modules", "src", ".git", ".trash"]);
-const LOCKFILES = new Set(["bun.lock", "bun.lockb", "package-lock.json", "pnpm-lock.yaml", "yarn.lock", "uv.lock", "poetry.lock", "Cargo.lock", "Gemfile.lock", "composer.lock"]);
+const LOCKFILES = new Set([
+	"bun.lock",
+	"bun.lockb",
+	"package-lock.json",
+	"pnpm-lock.yaml",
+	"yarn.lock",
+	"uv.lock",
+	"poetry.lock",
+	"Cargo.lock",
+	"Gemfile.lock",
+	"composer.lock",
+]);
 const LFS_POINTER = /^version https:\/\/git-lfs\.github\.com\/spec\/v1\noid sha256:([0-9a-f]{64})\nsize (\d+)\n?$/;
 
 const posix = (p: string): string => p.split(sep).join("/");
@@ -79,24 +90,6 @@ export function ancestors(path: string): string[] {
 	return parts.slice(0, -1).map((_, i) => parts.slice(0, i + 1).join("/"));
 }
 
-/** A markdown file's frontmatter `title` and `aliases`, read leniently: broken YAML and blank values give nothing (ADR 0028). */
-export function frontmatterNames(source: string): { title?: string; aliases?: string[] } {
-	const match = /^---\r?\n([\s\S]*?)\r?\n---/.exec(source);
-	if (!match) return {};
-	const doc = parseDocument(match[1] ?? "");
-	if (doc.errors.length > 0) return {};
-	const data = doc.toJS();
-	if (data === null || typeof data !== "object" || Array.isArray(data)) return {};
-	const fm = data as Record<string, unknown>;
-	const title = typeof fm.title === "string" && fm.title.trim() !== "" ? fm.title.trim() : undefined;
-	const aliases = Array.isArray(fm.aliases)
-		? fm.aliases.filter((a): a is string => typeof a === "string" && a.trim() !== "").map((a) => a.trim())
-		: typeof fm.aliases === "string" && fm.aliases.trim() !== ""
-			? [fm.aliases.trim()]
-			: undefined;
-	return { ...(title === undefined ? {} : { title }), ...(aliases === undefined || aliases.length === 0 ? {} : { aliases }) };
-}
-
 /**
  * Walks the Backup roots under `root`, following symlinks once: a link whose target was already reached (or lies inside
  * another root) is skipped as a duplicate, so a skill reached twice is backed up once.
@@ -129,7 +122,9 @@ export function walkBackup(root: string, roots: readonly string[] = BACKUP_ROOTS
 			return;
 		}
 		const linked = lstatSync(abs).isSymbolicLink();
-		const otherRoot = rootReals.findIndex((r, i) => i !== rootIndex && r !== undefined && (real === r || real.startsWith(r + sep)));
+		const otherRoot = rootReals.findIndex(
+			(r, i) => i !== rootIndex && r !== undefined && (real === r || real.startsWith(r + sep)),
+		);
 		if (linked && otherRoot !== -1) {
 			skipped.push({ path: rel, reason: `symlink into ${roots[otherRoot]}` });
 			return;
@@ -148,7 +143,8 @@ export function walkBackup(root: string, roots: readonly string[] = BACKUP_ROOTS
 			// Real entries before symlinks, so a file is backed up under its own path rather than an alias's.
 			const names = readdirSync(real).sort();
 			const isLink = (name: string): boolean => lstatSync(join(real, name)).isSymbolicLink();
-			for (const name of [...names.filter((n) => !isLink(n)), ...names.filter(isLink)]) visit(join(abs, name), `${rel}/${name}`, rootIndex);
+			for (const name of [...names.filter((n) => !isLink(n)), ...names.filter(isLink)])
+				visit(join(abs, name), `${rel}/${name}`, rootIndex);
 			return;
 		}
 		if (!stat.isFile()) return;

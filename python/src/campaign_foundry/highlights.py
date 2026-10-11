@@ -3,6 +3,9 @@
 The detector proposes and agents decide: each highlight is a candidate moment, with the
 Transcript lines from the setup through the end of the laughter, for an agent to read and judge
 as play or table talk. Run it as ``bun run cf -- transcript highlights``.
+
+The cf command owns TranscribeX parsing (``src/transcript``): it reads each export once and hands
+it over here as a JSON payload file, so this module never parses a Transcript itself.
 """
 
 from __future__ import annotations
@@ -28,7 +31,48 @@ from .laughter import (
     decode_audio,
     scan,
 )
-from .transcript import Segment, Transcript, TranscriptError, read_transcript
+
+
+@dataclass(frozen=True)
+class Segment:
+    """One speaker block: where it sits in the file and when it was spoken (seconds)."""
+
+    line: int
+    end_line: int
+    start: float
+    end: float
+    speaker: str
+    text: str
+
+
+@dataclass(frozen=True)
+class Transcript:
+    """A Transcript as cf parsed it: the export's own path, its format, its timestamped segments."""
+
+    path: Path
+    format: str  # "markdown" or "csv"
+    segments: list[Segment]
+
+
+def read_payload(path: Path) -> Transcript:
+    """Reads one payload file cf wrote: the export's path, format and second-spanned segments."""
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return Transcript(
+        path=Path(payload["path"]),
+        format=payload["format"],
+        segments=[
+            Segment(
+                line=s["line"],
+                end_line=s["endLine"],
+                start=s["start"],
+                end=s["end"],
+                speaker=s["speaker"],
+                text=s["text"],
+            )
+            for s in payload["segments"]
+        ],
+    )
+
 
 PROG = "bun run cf -- transcript highlights"
 
@@ -132,18 +176,16 @@ def highlights(
         raise UsageError(
             f"No such audio file: {', '.join(missing)}.", "Pass the Session's recording."
         )
-    ordered = sorted(transcript_paths, key=_natural)
-    if len(ordered) not in (0, 1, len(paths)):
+    if len(transcript_paths) not in (0, 1, len(paths)):
         raise UsageError(
-            f"{len(ordered)} transcripts for {len(paths)} audio parts.",
+            f"{len(transcript_paths)} transcripts for {len(paths)} audio parts.",
             "Pass one --transcript for the whole recording, or one per part.",
         )
-    try:
-        transcripts = [read_transcript(p) for p in ordered]
-    except TranscriptError as error:
-        raise UsageError(
-            str(error), "TranscribeX exports timestamps in both markdown and CSV."
-        ) from error
+    # cf already parsed and validated each export; payloads keep the export's own path, so parts
+    # pair in its natural name order.
+    transcripts = sorted(
+        (read_payload(p) for p in transcript_paths), key=lambda t: _natural(t.path)
+    )
     parts, bursts = scan(paths, cfg, model, decode=decode, log=log)
     chosen: list[Highlight] = []
     for rank, burst in enumerate(bursts[:top], start=1):
@@ -271,8 +313,8 @@ The first run installs the model stack and downloads the PANNs checkpoint (about
 real time on a CPU.
 
 Parts lay end to end in natural name order (part2 before part10). One --transcript is read on the
-session timeline; one per part is read on each part's own timeline. A Transcript is a timestamped
-TranscribeX export, markdown or CSV, told apart by its own lines.
+session timeline; one per part is read on each part's own timeline. The cf command parses each
+Transcript (markdown or CSV, told apart by its own lines) and hands it over already timestamped.
 
 Output (tab-separated):
   audio       <path>  <session offset>  <duration>
@@ -307,7 +349,7 @@ def build_parser() -> argparse.ArgumentParser:
         type=Path,
         default=[],
         metavar="PATH",
-        help="timestamped TranscribeX export (markdown or CSV): once, or once per part",
+        help="timestamped TranscribeX export, parsed by cf into a payload: once, or once per part",
     )
     p.add_argument("--top", type=int, default=20, help="highlights to align and print (default 20)")
     p.add_argument("--json", action="store_true", help="print JSON instead of tab-separated rows")

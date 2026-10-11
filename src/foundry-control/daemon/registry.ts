@@ -6,7 +6,13 @@
  */
 
 import { BridgeCallError } from "../bridge/client.ts";
-import { IdempotencyStore, planMutation, withIdempotency, type MutationKind, type MutationPlan } from "../bridge/mutations.ts";
+import {
+	IdempotencyStore,
+	planMutation,
+	withIdempotency,
+	type MutationKind,
+	type MutationPlan,
+} from "../bridge/mutations.ts";
 import { ToolError, type MutationResult, type ToolName } from "../bridge/schema.ts";
 import type { HostConfig } from "../host/config.ts";
 import { createBackup, RefusalError } from "../host/backup.ts";
@@ -44,7 +50,8 @@ const DM_GATES: Record<string, (params: Record<string, unknown>) => string> = {
 	"host.restart": () => "cf foundry service restart --yes",
 	"package.install": (p) => `cf foundry install module --zip ${p.zipPath} --name ${p.name} --yes`,
 	"package.update": (p) => `cf foundry install update${p.version === undefined ? "" : ` --version ${p.version}`} --yes`,
-	"backup.create": (p) => `cf foundry backup create${p.stop === true ? " --stop" : ""}${p.dest === undefined ? "" : ` --dest ${p.dest}`} --yes`,
+	"backup.create": (p) =>
+		`cf foundry backup create${p.stop === true ? " --stop" : ""}${p.dest === undefined ? "" : ` --dest ${p.dest}`} --yes`,
 	"backup.restore": (p) => `cf foundry backup restore ${p.archive} --yes`,
 	"asset.put": (p) => `cf foundry assets put ${p.sourcePath ?? "<base64 bytes>"} ${p.dest} --yes`,
 };
@@ -61,16 +68,18 @@ type ReadBack = { found: true; data: unknown; name: unknown } | { found: false; 
 /** The module's per-document result shape (create, patch, compendium rows). */
 function isDocResult(value: unknown): value is { uuid: string; name: string | null; data: unknown } {
 	return (
-		typeof value === "object" &&
-		value !== null &&
-		"uuid" in value &&
-		typeof value.uuid === "string" &&
-		"name" in value
+		typeof value === "object" && value !== null && "uuid" in value && typeof value.uuid === "string" && "name" in value
 	);
 }
 
 function isDeleteResult(value: unknown): value is { uuid: string; deleted: boolean } {
-	return typeof value === "object" && value !== null && "uuid" in value && typeof value.uuid === "string" && "deleted" in value;
+	return (
+		typeof value === "object" &&
+		value !== null &&
+		"uuid" in value &&
+		typeof value.uuid === "string" &&
+		"deleted" in value
+	);
 }
 
 function isBatchResult(value: unknown): value is { mode: string; results: unknown[] } {
@@ -78,9 +87,14 @@ function isBatchResult(value: unknown): value is { mode: string; results: unknow
 }
 
 function isBatchOp(value: unknown): value is { tool: string; params: Record<string, unknown> } {
-	return typeof value === "object" && value !== null && "tool" in value && typeof value.tool === "string" && "params" in value;
+	return (
+		typeof value === "object" &&
+		value !== null &&
+		"tool" in value &&
+		typeof value.tool === "string" &&
+		"params" in value
+	);
 }
-
 
 function isStringRecord(value: unknown): value is Record<string, unknown> {
 	return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -122,7 +136,8 @@ export class ToolRegistry {
 
 	async callTool(tool: string, params: Record<string, unknown>): Promise<unknown> {
 		const spec = specFor(tool);
-		if (spec === undefined) throw new ToolError("unknown_tool", `No tool ${tool}; the tools/list answer names every tool.`);
+		if (spec === undefined)
+			throw new ToolError("unknown_tool", `No tool ${tool}; the tools/list answer names every tool.`);
 		const invalid = validateParams(spec, params);
 		if (invalid !== null) throw new ToolError("invalid_params", invalid);
 		if (spec.plane === "host") return this.hostTool(tool, params);
@@ -165,7 +180,12 @@ export class ToolRegistry {
 		}
 	}
 
-	private async mutate(kind: MutationKind, tool: ToolName, params: Record<string, unknown>, client: ModuleCall): Promise<MutationResult> {
+	private async mutate(
+		kind: MutationKind,
+		tool: ToolName,
+		params: Record<string, unknown>,
+		client: ModuleCall,
+	): Promise<MutationResult> {
 		const plan = planMutation(kind, params);
 		if (plan.dry_run) return this.preview(plan);
 		const run = async (): Promise<MutationResult> => {
@@ -175,7 +195,7 @@ export class ToolRegistry {
 			const verification = plan.verify_after ? await this.verify(kind, params, result, client) : [];
 			return this.assemble(kind, params, result, plan, verification, backup);
 		};
-		if (plan.idempotency_key === undefined) return { ...await run(), replayed: false };
+		if (plan.idempotency_key === undefined) return { ...(await run()), replayed: false };
 		const store = this.deps.idempotency ?? this.memoryStore;
 		return withIdempotency(store, plan.idempotency_key, tool, params, run);
 	}
@@ -212,7 +232,10 @@ export class ToolRegistry {
 			}
 			const read = await this.moduleGet(client, precondition.uuid);
 			if (!read.found) {
-				throw new ToolError("precondition_failed", `Precondition target ${precondition.uuid} could not be read: ${read.message}`);
+				throw new ToolError(
+					"precondition_failed",
+					`Precondition target ${precondition.uuid} could not be read: ${read.message}`,
+				);
 			}
 			const actual = getPath(read.data, precondition.path);
 			if (!deepEqual(actual, precondition.equals)) {
@@ -229,7 +252,8 @@ export class ToolRegistry {
 		if (!plan.backup_before) return null;
 		try {
 			const result = await createBackup(this.deps.host, this.deps.config, {});
-			if (!result.ok) throw new ToolError("backup_failed", `The pre-write backup failed: ${result.error ?? "unknown error"}`);
+			if (!result.ok)
+				throw new ToolError("backup_failed", `The pre-write backup failed: ${result.error ?? "unknown error"}`);
 			return { dest: result.dest };
 		} catch (error) {
 			if (error instanceof RefusalError) throw new ToolError("backup_refused", error.message, error.command);
@@ -243,7 +267,8 @@ export class ToolRegistry {
 			const result = await client.call<{ data?: unknown; name?: unknown } & object>("document.get", { uuid });
 			return { found: true, data: result.data ?? null, name: result.name ?? null };
 		} catch (error) {
-			if (error instanceof BridgeCallError && error.code === "not_found") return { found: false, message: error.message };
+			if (error instanceof BridgeCallError && error.code === "not_found")
+				return { found: false, message: error.message };
 			throw bridgeError(error);
 		}
 	}
@@ -255,7 +280,13 @@ export class ToolRegistry {
 		client: ModuleCall,
 	): Promise<Verification[]> {
 		if (kind === "macro.run") {
-			return [{ uuid: params.uuid as string, ok: false, detail: "Arbitrary macro side effects cannot be verified automatically. Inspect the affected documents." }];
+			return [
+				{
+					uuid: params.uuid as string,
+					ok: false,
+					detail: "Arbitrary macro side effects cannot be verified automatically. Inspect the affected documents.",
+				},
+			];
 		}
 		if (kind === "setting.set") return [await this.verifySetting(params, client)];
 		if (kind === "document.patch") {
@@ -319,7 +350,11 @@ export class ToolRegistry {
 		return verifications;
 	}
 
-	private async verifyBatch(params: Record<string, unknown>, result: unknown, client: ModuleCall): Promise<Verification[]> {
+	private async verifyBatch(
+		params: Record<string, unknown>,
+		result: unknown,
+		client: ModuleCall,
+	): Promise<Verification[]> {
 		const ops = Array.isArray(params.ops) ? params.ops : [];
 		if (!isBatchResult(result)) return [{ uuid: "<unknown>", ok: false, detail: "the module returned no results" }];
 		const verifications: Verification[] = [];
@@ -330,8 +365,11 @@ export class ToolRegistry {
 			if (op.tool === "document.delete" && isDeleteResult(opResult)) {
 				verifications.push(await this.verifyGone(opResult.uuid, client));
 			} else if (opResult !== undefined && isDocResult(opResult)) {
-				const changes = isStringRecord(op.params.changes) ? Object.entries(op.params.changes)
-					: isStringRecord(op.params.data) ? Object.entries(op.params.data) : [];
+				const changes = isStringRecord(op.params.changes)
+					? Object.entries(op.params.changes)
+					: isStringRecord(op.params.data)
+						? Object.entries(op.params.data)
+						: [];
 				verifications.push(await this.verifyPaths(opResult.uuid, changes, client));
 			}
 		}
@@ -385,7 +423,8 @@ export class ToolRegistry {
 
 /** The compendium rows of an import result. */
 function importRows(result: unknown): { uuid: string; name: string | null; data: unknown }[] {
-	if (typeof result !== "object" || result === null || !("documents" in result) || !Array.isArray(result.documents)) return [];
+	if (typeof result !== "object" || result === null || !("documents" in result) || !Array.isArray(result.documents))
+		return [];
 	return result.documents.filter(isDocResult);
 }
 
@@ -393,5 +432,7 @@ function importRows(result: unknown): { uuid: string; name: string | null; data:
 function bridgeError(error: unknown): Error {
 	if (error instanceof ToolError) return error;
 	if (error instanceof BridgeCallError) return new ToolError(error.code, error.message, error.approvalCommand);
-	return error instanceof Error ? new ToolError("module_error", error.message) : new ToolError("module_error", String(error));
+	return error instanceof Error
+		? new ToolError("module_error", error.message)
+		: new ToolError("module_error", String(error));
 }

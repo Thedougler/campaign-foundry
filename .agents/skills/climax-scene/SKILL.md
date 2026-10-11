@@ -25,7 +25,7 @@ The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scen
    - `## At a glance`: the decisive question and what can be saved or lost.
    - `## Threads`: one line per converging Thread, linked, with the question this confrontation decides and the lever from step 2.
    - `### Situation`: give starting positions and access to the objective. State each lever's concrete effect and what happens if the Party arrives without it.
-   - `### Pressure`: give the opposition's first move and its response to interference. Add its desperate move and its exit or surrender terms. Pressure has a trigger, visible warning, consequence and means of interruption. State the next move that changes the situation when play stalls. Each phase used has a trigger, perceptible signal, changed situation and new opportunity. Write the opposition's turns as enemy-turn Cues and each phase signal as a repaint Cue, and give each NPC or Creature the Party can kill a kill-handoff Cue (`theatre-of-the-mind` `references/recipes.md` § Cues).
+   - `### Pressure`: give the opposition's first move and its response to interference. Add its desperate move and its exit or surrender terms. Pressure has a trigger, visible warning, consequence and means of interruption. State the next move that changes the situation when play stalls. Each phase used has a trigger, perceptible signal, changed situation and new opportunity. Write the opposition's turns as enemy-turn Cues and each phase signal as a repaint Cue, and give each NPC or Creature the Party can kill a kill-hand-off Cue (`theatre-of-the-mind` `references/recipes.md` § Cues).
    - `### Checks`: the Page format Checks bullets. Give every result its Cue, and add a Critical Cue wherever the roll can critically succeed. Rule victory and loss beyond hit points, including withdrawal.
    - `### Spotlight` under `## Depth`: concrete opportunities for the Spotlight PC and each other PC to use their distinct goals or abilities, without assigning their decisions.
 
@@ -44,7 +44,7 @@ The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scen
    - If the Party avoids the confrontation, rule what the opposition achieves and what aftermath remains.
 
    **Done when** victory, costly or partial success, and an adverse or refused outcome are runnable where the fiction supports them, and the Resolution can begin from each row without assuming a win or treating an unplayed result as Canon.
-9. **Cold read and complete.** Apply scene-pages **Cold read** to confirm that play can answer the Session's highest-stakes question and that every earlier payoff has an effect. Check each ending's Resolution handoff. Then apply **Completion**, Standalone or Composed as **Orient** resolved. **Done when** both sections' Done criteria hold.
+9. **Cold read and complete.** Apply scene-pages **Cold read** to confirm that play can answer the Session's highest-stakes question and that every earlier payoff has an effect. Check each ending's Resolution hand-off. Then apply **Completion**, Standalone or Composed as **Orient** resolved. **Done when** both sections' Done criteria hold.
 
 ## Cards
 

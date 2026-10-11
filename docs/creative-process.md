@@ -92,7 +92,7 @@ The Director sends each Persona its turns with `write agent://<id>`. Personas ar
 |---|---|
 |`bun run cf -- context [file\|-]`|every Wiki page whose title or alias the text writes as whole, case-matched words, one line each as path, type and matched name, sorted by type and then name; `--json` gives the same as objects|
 |`bun run cf -- style [paths\|-]`|findings from the style (Vale) and narration layers alone, over any markdown files or directories, with the output and exit codes of `cf check`|
-|`bun run lint:agent-text`|`cf style` over the paths in `package.json`'s `lint:agent-text` script, which defines agent-facing content text (ADR 0020)|
+|`bun run lint agents [paths]`|objective findings in agent-facing text, with `cf style` over the content-facing paths in `STYLE_PATHS` (`scripts/lint/agents.ts`, ADR 0020); without paths, it checks changed and untracked files|
 
 The helpers are diagnostic: their output is input the agent reads, and every call about relevance or meaning is the agent's. A page from `cf context` is a candidate to read, and a page the text means without writing its name (another case, a mishearing, a description) comes from a Wiki search (`.omp/AGENTS.md` § Wiki access). A finding from `cf style` marks text for the agent to rewrite with judgement.
 
@@ -141,11 +141,11 @@ For Shattered Sea Narration, the DM's Prose voice and ADR 0029's exemplar bar ta
 |Flagged words and phrases|the Vale YAML in [`.vale/styles/ai-tells/`](../.vale/styles/ai-tells/) and [`.vale/styles/Narration/`](../.vale/styles/Narration/); skills cite the rule ID|
 |Gate layers and passing-form hints|[`src/check/layers/`](../src/check/layers/)|
 |Every gate finding binds|[`AGENTS.md`](../AGENTS.md) Working rules, Zero findings|
-|What counts as agent-facing content text|`package.json`, script `lint:agent-text`|
+|What counts as agent-facing content text|`STYLE_PATHS` in `scripts/lint/agents.ts`|
 
 ## Iterating on the system
 
 - **Friction.** Run [`dogfood`](../.omp/skills/dogfood/SKILL.md) on collab or on one stage with real ideas, and let `skill-writer` turn verified friction into text changes.
 - **Content skills.** When a content skill's text changes materially, rerun its committed `evals/cases.yaml` through [`run-evals`](../.agents/skills/run-evals/SKILL.md), following [`evals/README.md`](../evals/README.md).
-- **Agent text.** After any edit to an agent-facing content path, run `bun run lint:agent-text` to `ok: 0 findings`, and `bun run cf -- eval validate <skill-dir>` for each touched skill.
+- **Agent text.** After any edit to an agent-facing content path, run `bun run lint agents` until it exits 0, and `bun run cf -- eval validate <skill-dir>` for each touched skill.
 - **Research.** The sources behind every stage are in [`docs/research/creative-writing/`](research/creative-writing/README.md). Quoted prompts there are verbatim, so carry them into skills and briefs in fenced blocks with their wording intact.

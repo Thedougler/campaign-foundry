@@ -30,7 +30,7 @@ For an attack roll, compute the d20 threshold once, then clamp the chance to 5% 
 
 Use realistic area targets and list the assumed count. Apply advantage, disadvantage, cover, resistance, vulnerability, temporary hit points, healing and conditions explicitly. A recharge on 5 or 6 is available on the starting turn and has a one-in-three chance to return on each later round. Use the actual recharge rule when it differs.
 
-## CR and tradeoffs
+## CR and trade-offs
 
 Find a close published 2024 peer and cite it in the body or working record. Label defensive CR and offensive CR as **estimates** grounded in that peer and the observed output. Do not invent a 2024 CR formula and do not force the two estimates into an average. The statblock's `cr` is the deliberate label for the chosen peer or design. Explain any divergence from the Party tuning.
 

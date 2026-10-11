@@ -47,15 +47,28 @@ export function emptyMap(parentPageId: string): BackupMap {
 export function loadMap(file: string, parentPageId: string): BackupMap {
 	if (!existsSync(file)) return emptyMap(parentPageId);
 	const map = JSON.parse(readFileSync(file, "utf8")) as BackupMap;
-	if (map.version !== 1) throw new Error(`${file} has map version ${String(map.version)}; this cf understands version 1.`);
+	if (map.version !== 1)
+		throw new Error(`${file} has map version ${String(map.version)}; this cf understands version 1.`);
 	if (normalizeId(map.parentPageId) !== normalizeId(parentPageId)) {
-		throw new Error(`${file} belongs to parent page ${map.parentPageId}, not ${parentPageId}. Move the map aside to start a new Backup tree.`);
+		throw new Error(
+			`${file} belongs to parent page ${map.parentPageId}, not ${parentPageId}. Move the map aside to start a new Backup tree.`,
+		);
 	}
 	map.entries ??= {};
 	return map;
 }
 
-const FIELD_ORDER: (keyof MapEntry)[] = ["kind", "id", "url", "hash", "title", "fileUploadId", "deletedAt", "uploadSkipped", "movedFrom"];
+const FIELD_ORDER: (keyof MapEntry)[] = [
+	"kind",
+	"id",
+	"url",
+	"hash",
+	"title",
+	"fileUploadId",
+	"deletedAt",
+	"uploadSkipped",
+	"movedFrom",
+];
 
 /** Stable JSON: entries sorted by path and fields in one order, so a map rebuilt from Notion is byte-for-byte the same. */
 export function serializeMap(map: BackupMap): string {

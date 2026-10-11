@@ -39,7 +39,6 @@ export interface CreatureSpend {
 	count: number;
 }
 
-
 /** This table's Party fights above listed level. Budget lookup uses recorded level plus this, capped at 20. */
 export const COMBAT_LEVEL_OFFSET = 1;
 

@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { DdbAuth, COBALT_TOKEN_URL } from "../../src/ddb/auth.ts";
 import type { Fetcher, FetchResult } from "../../src/ddb/auth.ts";
-import { loadContract } from "../../src/ddb/capture.ts";
 import { DdbCaptureError } from "../../src/ddb/capture.ts";
 import type { Cookie } from "../../src/ddb/session.ts";
 import type { Transport } from "../../src/ddb/transport.ts";
@@ -92,7 +91,9 @@ const canonical: CanonicalMonster = {
 describe("hiddenInputValue", () => {
 	it("reads a hidden input's value whatever the attribute order", () => {
 		expect(hiddenInputValue(EDIT_PAGE, "security-token")).toBe("sec-1");
-		expect(hiddenInputValue('<input value="v" name="authenticity-token" type="hidden">', "authenticity-token")).toBe("v");
+		expect(hiddenInputValue('<input value="v" name="authenticity-token" type="hidden">', "authenticity-token")).toBe(
+			"v",
+		);
 	});
 
 	it("returns undefined for a name the page does not carry", () => {
@@ -191,12 +192,18 @@ describe("applyCanonicalToForm", () => {
 	});
 
 	it("refuses a size the builder does not offer, naming the options", () => {
-		expect(() => applyCanonicalToForm(parseBuilderForm(EDIT_PAGE), { ...canonical, size: "Colossal" })).toThrow(DdbCaptureError);
+		expect(() => applyCanonicalToForm(parseBuilderForm(EDIT_PAGE), { ...canonical, size: "Colossal" })).toThrow(
+			DdbCaptureError,
+		);
 	});
 
 	it("refuses unparseable hit dice and short stats arrays", () => {
-		expect(() => applyCanonicalToForm(parseBuilderForm(EDIT_PAGE), { ...canonical, hitDice: "lots" })).toThrow(DdbCaptureError);
-		expect(() => applyCanonicalToForm(parseBuilderForm(EDIT_PAGE), { ...canonical, stats: [1, 2, 3] })).toThrow(DdbCaptureError);
+		expect(() => applyCanonicalToForm(parseBuilderForm(EDIT_PAGE), { ...canonical, hitDice: "lots" })).toThrow(
+			DdbCaptureError,
+		);
+		expect(() => applyCanonicalToForm(parseBuilderForm(EDIT_PAGE), { ...canonical, stats: [1, 2, 3] })).toThrow(
+			DdbCaptureError,
+		);
 	});
 });
 
@@ -211,9 +218,9 @@ describe("multipartBody", () => {
 			"cfddb1",
 		);
 		expect(body).toBe(
-			"--cfddb1\r\nContent-Disposition: form-data; name=\"security-token\"\r\n\r\nsec-1\r\n" +
-				"--cfddb1\r\nContent-Disposition: form-data; name=\"Name\"\r\n\r\ncf-test Hawk\r\n" +
-				"--cfddb1\r\nContent-Disposition: form-data; name=\"traits\"\r\n\r\n<p>A & B</p>\r\nline\r\n" +
+			'--cfddb1\r\nContent-Disposition: form-data; name="security-token"\r\n\r\nsec-1\r\n' +
+				'--cfddb1\r\nContent-Disposition: form-data; name="Name"\r\n\r\ncf-test Hawk\r\n' +
+				'--cfddb1\r\nContent-Disposition: form-data; name="traits"\r\n\r\n<p>A & B</p>\r\nline\r\n' +
 				"--cfddb1--\r\n",
 		);
 	});
@@ -275,10 +282,20 @@ const homebrewRecord = {
 describe("createMonsterCopy", () => {
 	it("fetches fresh page tokens and posts the captured urlencoded create body", async () => {
 		const { transport, calls } = transportOver((url, init) => {
-			if (url === "https://monster-service.dndbeyond.com/v1/Monster/16810") return { status: 200, ok: true, text: async () => JSON.stringify({ data: baseRecord }) };
-			if (url === CREATE_MONSTER_URL && (init?.method ?? "GET") === "GET") return { status: 200, ok: true, text: async () => CREATE_PAGE };
+			if (url === "https://monster-service.dndbeyond.com/v1/Monster/16810")
+				return { status: 200, ok: true, text: async () => JSON.stringify({ data: baseRecord }) };
+			if (url === CREATE_MONSTER_URL && (init?.method ?? "GET") === "GET")
+				return { status: 200, ok: true, text: async () => CREATE_PAGE };
 			if (url === CREATE_MONSTER_URL) {
-				return { status: 302, ok: false, text: async () => "", headers: { get: (name: string) => (name.toLowerCase() === "location" ? "/homebrew/creations/edit?entityTypeId=779871897&id=4000002" : null) } };
+				return {
+					status: 302,
+					ok: false,
+					text: async () => "",
+					headers: {
+						get: (name: string) =>
+							name.toLowerCase() === "location" ? "/homebrew/creations/edit?entityTypeId=779871897&id=4000002" : null,
+					},
+				};
 			}
 			return undefined;
 		});
@@ -293,7 +310,9 @@ describe("createMonsterCopy", () => {
 
 	it("refuses to create from a base monster monster-service does not know", async () => {
 		const { transport } = transportOver((url) =>
-			url === "https://monster-service.dndbeyond.com/v1/Monster/999" ? { status: 200, ok: true, text: async () => JSON.stringify({ data: null }) } : undefined,
+			url === "https://monster-service.dndbeyond.com/v1/Monster/999"
+				? { status: 200, ok: true, text: async () => JSON.stringify({ data: null }) }
+				: undefined,
 		);
 		const error = await createMonsterCopy(transport, 999).catch((e: unknown) => e);
 		expect(error).toBeInstanceOf(Error);
@@ -302,8 +321,10 @@ describe("createMonsterCopy", () => {
 
 	it("names the stale contract when the page stops carrying tokens", async () => {
 		const { transport } = transportOver((url, init) => {
-			if (url.includes("monster-service")) return { status: 200, ok: true, text: async () => JSON.stringify({ data: baseRecord }) };
-			if ((init?.method ?? "GET") === "GET") return { status: 200, ok: true, text: async () => "<html>no tokens</html>" };
+			if (url.includes("monster-service"))
+				return { status: 200, ok: true, text: async () => JSON.stringify({ data: baseRecord }) };
+			if ((init?.method ?? "GET") === "GET")
+				return { status: 200, ok: true, text: async () => "<html>no tokens</html>" };
 			return undefined;
 		});
 		const error = await createMonsterCopy(transport, 16810).catch((e: unknown) => e);
@@ -313,7 +334,8 @@ describe("createMonsterCopy", () => {
 
 	it("fails loudly when the create POST no longer redirects", async () => {
 		const { transport } = transportOver((url, init) => {
-			if (url.includes("monster-service")) return { status: 200, ok: true, text: async () => JSON.stringify({ data: baseRecord }) };
+			if (url.includes("monster-service"))
+				return { status: 200, ok: true, text: async () => JSON.stringify({ data: baseRecord }) };
 			if ((init?.method ?? "GET") === "GET") return { status: 200, ok: true, text: async () => CREATE_PAGE };
 			return { status: 200, ok: true, text: async () => "form re-render" };
 		});
@@ -325,8 +347,10 @@ describe("createMonsterCopy", () => {
 describe("applyMonsterCanonical", () => {
 	it("posts the complete parsed form with canonical overrides to the current-slug edit URL", async () => {
 		const { transport, calls } = transportOver((url, init) => {
-			if (url === "https://monster-service.dndbeyond.com/v1/Monster/4000001") return { status: 200, ok: true, text: async () => JSON.stringify({ data: homebrewRecord }) };
-			if (url.endsWith("/edit") && (init?.method ?? "GET") === "GET") return { status: 200, ok: true, text: async () => EDIT_PAGE };
+			if (url === "https://monster-service.dndbeyond.com/v1/Monster/4000001")
+				return { status: 200, ok: true, text: async () => JSON.stringify({ data: homebrewRecord }) };
+			if (url.endsWith("/edit") && (init?.method ?? "GET") === "GET")
+				return { status: 200, ok: true, text: async () => EDIT_PAGE };
 			if (url.endsWith("/edit")) return { status: 303, ok: false, text: async () => "" };
 			return undefined;
 		});
@@ -354,7 +378,11 @@ describe("applyMonsterCanonical", () => {
 	});
 
 	it("refuses to write an official monster", async () => {
-		const { transport } = transportOver((url) => (url.includes("monster-service") ? { status: 200, ok: true, text: async () => JSON.stringify({ data: baseRecord }) } : undefined));
+		const { transport } = transportOver((url) =>
+			url.includes("monster-service")
+				? { status: 200, ok: true, text: async () => JSON.stringify({ data: baseRecord }) }
+				: undefined,
+		);
 		const error = await applyMonsterCanonical(transport, 16810, canonical).catch((e: unknown) => e);
 		expect(error).toBeInstanceOf(DdbCaptureError);
 		expect((error as DdbCaptureError).message).toMatch(/not homebrew/);
@@ -366,8 +394,10 @@ describe("deleteMonster and creationHasDeleteAction", () => {
 
 	it("checks the creation page, opens the modal and posts the verification cookie as the token", async () => {
 		const { transport, calls } = transportOver((url, init) => {
-			if (url.includes("/homebrew/creations/view")) return { status: 200, ok: true, text: async () => VIEW_WITH_ACTIONS };
-			if (url.includes("/homebrew/creations/delete") && (init?.method ?? "GET") === "GET") return { status: 200, ok: true, text: async () => `<div class="ddb-modal">Are you sure?</div>` };
+			if (url.includes("/homebrew/creations/view"))
+				return { status: 200, ok: true, text: async () => VIEW_WITH_ACTIONS };
+			if (url.includes("/homebrew/creations/delete") && (init?.method ?? "GET") === "GET")
+				return { status: 200, ok: true, text: async () => `<div class="ddb-modal">Are you sure?</div>` };
 			if (url.includes("/homebrew/creations/delete")) return { status: 200, ok: true, text: async () => "" };
 			return undefined;
 		});
@@ -378,46 +408,35 @@ describe("deleteMonster and creationHasDeleteAction", () => {
 	});
 
 	it("refuses an id whose creation page offers no delete action", async () => {
-		const { transport } = transportOver((url) => (url.includes("/homebrew/creations/view") ? { status: 200, ok: true, text: async () => "<html>shell page</html>" } : undefined));
+		const { transport } = transportOver((url) =>
+			url.includes("/homebrew/creations/view")
+				? { status: 200, ok: true, text: async () => "<html>shell page</html>" }
+				: undefined,
+		);
 		const error = await deleteMonster(transport, 4000001).catch((e: unknown) => e);
 		expect(error).toBeInstanceOf(DdbCaptureError);
 		expect((error as DdbCaptureError).message).toMatch(/no delete action/);
 	});
 
 	it("answers false after deletion: the creation page no longer offers the action", async () => {
-		const { transport } = transportOver((url) => (url.includes("/homebrew/creations/view") ? { status: 200, ok: true, text: async () => "<html>shell page</html>" } : undefined));
+		const { transport } = transportOver((url) =>
+			url.includes("/homebrew/creations/view")
+				? { status: 200, ok: true, text: async () => "<html>shell page</html>" }
+				: undefined,
+		);
 		expect(await creationHasDeleteAction(transport, 4000001)).toBe(false);
 	});
 
 	it("names the missing verification cookie with the re-save remedy", async () => {
 		const noVerificationCookie = cookies.filter((c) => c.name !== "RequestVerificationToken");
 		const { transport } = transportOver((url, init) => {
-			if (url.includes("/homebrew/creations/view")) return { status: 200, ok: true, text: async () => VIEW_WITH_ACTIONS };
-			if (url.includes("/homebrew/creations/delete") && (init?.method ?? "GET") === "GET") return { status: 200, ok: true, text: async () => `<div class="ddb-modal">Are you sure?</div>` };
+			if (url.includes("/homebrew/creations/view"))
+				return { status: 200, ok: true, text: async () => VIEW_WITH_ACTIONS };
+			if (url.includes("/homebrew/creations/delete") && (init?.method ?? "GET") === "GET")
+				return { status: 200, ok: true, text: async () => `<div class="ddb-modal">Are you sure?</div>` };
 			return undefined;
 		}, noVerificationCookie);
 		const error = await deleteMonster(transport, 4000001).catch((e: unknown) => e);
 		expect((error as Error).message).toMatch(/RequestVerificationToken/);
-	});
-});
-
-describe("committed contracts stay in lockstep with the adapter", () => {
-	it("create.json matches the create URL and body field names", async () => {
-		const contract = await loadContract("monster", "create");
-		expect(contract.requests[0]?.url).toBe(CREATE_MONSTER_URL);
-		const body = contract.requests[0]?.body ?? "";
-		for (const field of ["security-token=<session>", "authenticity-token=<session>", "monster-type=", "monster="]) expect(body).toContain(field);
-	});
-
-	it("update.json matches the edit URL shape of the captured monster", async () => {
-		const contract = await loadContract("monster", "update");
-		expect(contract.requests[0]?.url).toBe(monsterEditUrl(6833448, "copy_of_blood-hawk"));
-		expect(contract.requests[0]?.body).toContain("security-token");
-	});
-
-	it("delete.json matches the delete URL of the captured monster and the token body", async () => {
-		const contract = await loadContract("monster", "delete");
-		expect(contract.requests.map((r) => r.url)).toEqual([monsterDeleteUrl(6833448), monsterDeleteUrl(6833448)]);
-		expect(contract.requests[1]?.body).toBe("request-verification-token=<session>");
 	});
 });

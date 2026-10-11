@@ -26,7 +26,8 @@ async function unpack(modulePath: string): Promise<Bag> {
 	return JSON.parse(await readFile(join(dest, files[0]!), "utf8")) as Bag;
 }
 
-const total = (r: PushResult, change: "added" | "updated" | "unchanged"): number => Object.values(r.counts).reduce((n, c) => n + c[change], 0);
+const total = (r: PushResult, change: "added" | "updated" | "unchanged"): number =>
+	Object.values(r.counts).reduce((n, c) => n + c[change], 0);
 
 describe("runPush", () => {
 	it("packs the Session into an Adventure module: module.json, one Adventure pack and the images", async () => {
@@ -50,9 +51,16 @@ describe("runPush", () => {
 		const result = await push(ws);
 		const adventure = await unpack(result.modulePath!);
 		expect(adventure._id).toBe(result.plan.adventureId);
-		expect((adventure.journal as Bag[]).map((j) => j.name)).toEqual(expect.arrayContaining(["Hobb's Warning", "Session 2 - Prep", "Sable"]));
-		expect((adventure.actors as Bag[]).map((a) => a.name).sort()).toEqual(expect.arrayContaining(["Goblin Warrior", "Mire Drowner", "Nib Ashwater", "Sable"]));
-		expect((adventure.items as Bag[]).map((i) => i.name).sort()).toEqual(["Ebb Lantern", "Harbormaster's Ledger of Vessen"]);
+		expect((adventure.journal as Bag[]).map((j) => j.name)).toEqual(
+			expect.arrayContaining(["Hobb's Warning", "Session 2 - Prep", "Sable"]),
+		);
+		expect((adventure.actors as Bag[]).map((a) => a.name).sort()).toEqual(
+			expect.arrayContaining(["Goblin Warrior", "Mire Drowner", "Nib Ashwater", "Sable"]),
+		);
+		expect((adventure.items as Bag[]).map((i) => i.name).sort()).toEqual([
+			"Ebb Lantern",
+			"Harbormaster's Ledger of Vessen",
+		]);
 		expect((adventure.scenes as Bag[]).map((s) => s.name)).toEqual(["Session 2 - Mud Under the Boards"]);
 		const handout = (adventure.journal as Bag[]).find((j) => j.name === "Hobb's Warning")!;
 		expect(handout.ownership.default).toBe(2);
@@ -73,14 +81,22 @@ describe("runPush", () => {
 		expect(result.logged).toBe("salt-and-lantern/log.md");
 		const entry = parseEntries(await ws.read("salt-and-lantern/log.md")).at(-1)!;
 		expect(entry).toMatchObject({ date: "2026-09-29", op: "push" });
-		expect(entry.pages).toEqual(expect.arrayContaining(["Session 2 - Prep", "Hobb's Warning", "Mire Drowner", "Sable"]));
+		expect(entry.pages).toEqual(
+			expect.arrayContaining(["Session 2 - Prep", "Hobb's Warning", "Mire Drowner", "Sable"]),
+		);
 		expect(entry.pages).not.toContain("");
 	});
 
 	it("leaves the Wiki as clean for the gate as it found it: its log entry is well formed", async () => {
 		const ws = await workspace();
 		const gate = async (): Promise<string[]> => {
-			const result = await runCheck({ vault: ws.vaultDir, templates: join(import.meta.dirname, "../../wiki/templates"), root: ws.root, cwd: ws.root, layers: ["log", "index", "links", "placement"] });
+			const result = await runCheck({
+				vault: ws.vaultDir,
+				templates: join(import.meta.dirname, "../../wiki/templates"),
+				root: ws.root,
+				cwd: ws.root,
+				layers: ["log", "index", "links", "placement"],
+			});
 			return result.findings.map((f) => `${f.path} ${f.rule}`);
 		};
 		const before = await gate();

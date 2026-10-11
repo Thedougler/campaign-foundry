@@ -141,7 +141,7 @@ export async function withIdempotency<T extends object>(
 		if (pending.digest !== digest || pending.tool !== tool) {
 			throw new Error(`idempotency_key \`${key}\` was already used with different params or tool; give a new key.`);
 		}
-		const result = await pending.task as T;
+		const result = (await pending.task) as T;
 		return { ...result, replayed: true };
 	}
 	const task = (async () => {

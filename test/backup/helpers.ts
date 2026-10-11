@@ -1,16 +1,19 @@
+import { execFileSync } from "node:child_process";
 import { mkdirSync, mkdtempSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import type { Block } from "../../src/backup/blocks.ts";
 import { walkBackup } from "../../src/backup/files.ts";
 import type { BackupMap } from "../../src/backup/map.ts";
-import { reconcile } from "../../src/backup/reconcile.ts";
-import { followRenames, planBackup, runBackup, type Scope } from "../../src/backup/sync.ts";
+import type { BackupGit } from "../../src/backup/pipeline.ts";
+import { runBackupPipeline } from "../../src/backup/pipeline.ts";
+import type { Scope } from "../../src/backup/sync.ts";
 import type { ReadBlock } from "../../src/backup/markers.ts";
 import type { CreatedPage, NotionApi, PageInfo, UploadInfo } from "../../src/backup/notion.ts";
 
 export const OID = "a".repeat(64);
-export const lfsPointer = (oid = OID, size = 1234): string => `version https://git-lfs.github.com/spec/v1\noid sha256:${oid}\nsize ${size}\n`;
+export const lfsPointer = (oid = OID, size = 1234): string =>
+	`version https://git-lfs.github.com/spec/v1\noid sha256:${oid}\nsize ${size}\n`;
 
 /** Writes `files` (path to content) under a fresh temp repo root and returns it. A value of `{ link }` makes a symlink. */
 export function repo(files: Record<string, string | Buffer | { link: string }>): string {
@@ -22,6 +25,21 @@ export function repo(files: Record<string, string | Buffer | { link: string }>):
 		else writeFileSync(abs, content);
 	}
 	return root;
+}
+
+/** Runs git in `root` with a fixed test identity and no gpg signing. */
+export function git(root: string, ...args: string[]): string {
+	return execFileSync("git", ["-c", "user.name=t", "-c", "user.email=t@t", "-c", "commit.gpgsign=false", ...args], {
+		cwd: root,
+		encoding: "utf8",
+	}).trim();
+}
+
+/** `git init` + add all + one commit on main, for fixtures that need a tracked tree. */
+export function initGitRepo(root: string, message = "init"): void {
+	git(root, "init", "-q", "-b", "main");
+	git(root, "add", "-A");
+	git(root, "commit", "-qm", message);
 }
 
 export interface Call {
@@ -40,7 +58,18 @@ export interface FakePage {
 	createdTime: string;
 }
 
-const WRITES = new Set(["create", "append", "prepend", "update", "clear", "retitle", "trash", "remove", "upload", "move"]);
+const WRITES = new Set([
+	"create",
+	"append",
+	"prepend",
+	"update",
+	"clear",
+	"retitle",
+	"trash",
+	"remove",
+	"upload",
+	"move",
+]);
 
 /**
  * An in-memory Notion holding a page tree: pages get ids p1, p2, …, child pages list under their parent, trashed pages
@@ -69,9 +98,22 @@ export class FakeNotion implements NotionApi {
 	}
 
 	/** Puts a page into the tree without recording a call, as something already in Notion (another run, a person). */
-	add(parent: string, title: string, blocks: Block[] = [], options: { icon?: string; createdTime?: string } = {}): string {
+	add(
+		parent: string,
+		title: string,
+		blocks: Block[] = [],
+		options: { icon?: string; createdTime?: string } = {},
+	): string {
 		const id = `p${++this.n}`;
-		this.pages.set(id, { parent, title, icon: options.icon ?? "📄", blocks: [...blocks], blockIds: blocks.map(() => `b${++this.n}`), inTrash: false, createdTime: options.createdTime ?? this.time() });
+		this.pages.set(id, {
+			parent,
+			title,
+			icon: options.icon ?? "📄",
+			blocks: [...blocks],
+			blockIds: blocks.map(() => `b${++this.n}`),
+			inTrash: false,
+			createdTime: options.createdTime ?? this.time(),
+		});
 		return id;
 	}
 
@@ -108,7 +150,8 @@ export class FakeNotion implements NotionApi {
 		this.record({ op: "move", id: pageId, arg: parentId });
 		const page = this.pages.get(pageId);
 		if (!page) throw new Error(`no page ${pageId}`);
-		if (page.parent === parentId) throw new Error("validation_error: New parent must be different from the current parent");
+		if (page.parent === parentId)
+			throw new Error("validation_error: New parent must be different from the current parent");
 		page.parent = parentId;
 	}
 
@@ -147,10 +190,23 @@ export class FakeNotion implements NotionApi {
 		this.record({ op: "children", id: blockId });
 		const page = this.pages.get(blockId);
 		const content: ReadBlock[] = (page?.blocks ?? []).map((b, i) => {
-			const body = b[b.type] as { rich_text?: { text: { content: string; link?: { url: string } | null }; annotations?: { code?: boolean } }[] };
-			return { id: page?.blockIds[i] ?? "", type: b.type, createdTime: page?.createdTime ?? "", text: (body.rich_text ?? []).map((r) => ({ text: r.text.content, code: Boolean(r.annotations?.code), ...(r.text.link?.url ? { href: r.text.link.url } : {}) })) };
+			const body = b[b.type] as {
+				rich_text?: { text: { content: string; link?: { url: string } | null }; annotations?: { code?: boolean } }[];
+			};
+			return {
+				id: page?.blockIds[i] ?? "",
+				type: b.type,
+				createdTime: page?.createdTime ?? "",
+				text: (body.rich_text ?? []).map((r) => ({
+					text: r.text.content,
+					code: Boolean(r.annotations?.code),
+					...(r.text.link?.url ? { href: r.text.link.url } : {}),
+				})),
+			};
 		});
-		const kids: ReadBlock[] = [...this.pages].filter(([, p]) => p.parent === blockId && !p.inTrash).map(([id, p]) => ({ id, type: "child_page", createdTime: p.createdTime, title: p.title, text: [] }));
+		const kids: ReadBlock[] = [...this.pages]
+			.filter(([, p]) => p.parent === blockId && !p.inTrash)
+			.map(([id, p]) => ({ id, type: "child_page", createdTime: p.createdTime, title: p.title, text: [] }));
 		const all = [...content, ...kids];
 		return limit === undefined ? all : all.slice(0, limit);
 	}
@@ -158,12 +214,21 @@ export class FakeNotion implements NotionApi {
 	async getPage(pageId: string): Promise<PageInfo | undefined> {
 		this.record({ op: "getPage", id: pageId });
 		const page = this.pages.get(pageId);
-		return page ? { id: pageId, url: `https://www.notion.so/${pageId}`, inTrash: page.inTrash, createdTime: page.createdTime } : undefined;
+		return page
+			? { id: pageId, url: `https://www.notion.so/${pageId}`, inTrash: page.inTrash, createdTime: page.createdTime }
+			: undefined;
 	}
 
 	async listUploads(): Promise<UploadInfo[]> {
 		this.record({ op: "listUploads", id: "" });
-		return [...this.uploads].map(([id, u]) => ({ id, filename: u.filename.replace(/ /g, "_"), contentLength: u.size, status: "uploaded", createdTime: u.createdTime, expiryTime: null }));
+		return [...this.uploads].map(([id, u]) => ({
+			id,
+			filename: u.filename.replace(/ /g, "_"),
+			contentLength: u.size,
+			status: "uploaded",
+			createdTime: u.createdTime,
+			expiryTime: null,
+		}));
 	}
 
 	async upload(filename: string, bytes: Buffer): Promise<string> {
@@ -195,7 +260,11 @@ export class FakeNotion implements NotionApi {
 export function textOf(blocks: Block[]): string {
 	const out: string[] = [];
 	const walk = (b: Block): void => {
-		const body = b[b.type] as { rich_text?: { text: { content: string } }[]; children?: Block[]; cells?: { text: { content: string } }[][] };
+		const body = b[b.type] as {
+			rich_text?: { text: { content: string } }[];
+			children?: Block[];
+			cells?: { text: { content: string } }[][];
+		};
 		for (const r of body.rich_text ?? []) out.push(r.text.content);
 		for (const cell of body.cells ?? []) for (const r of cell) out.push(r.text.content);
 		for (const c of body.children ?? []) walk(c);
@@ -218,38 +287,58 @@ export class FakeGit {
 
 export const COMMIT = "c0ffee0000000000000000000000000000000000";
 
-/** One `cf backup` run against a fake: reconcile with Notion, follow renames, plan, then sync, the order the command uses. */
+/** One `cf backup` run against a fake, through the pipeline the command runs (reconcile, scope, renames, plan, sync). */
 export async function backup(
 	root: string,
 	map: BackupMap,
 	api: FakeNotion,
 	scope: Scope = { kind: "all" },
-	extra: { commit?: string; saves?: BackupMap[]; pulled?: string[][]; pullFails?: boolean; git?: FakeGit; rewrite?: boolean } = {},
+	extra: {
+		commit?: string;
+		saves?: BackupMap[];
+		pulled?: string[][];
+		pullFails?: boolean;
+		git?: FakeGit;
+		rewrite?: boolean;
+	} = {},
 ) {
 	const walk = walkBackup(root);
 	const commit = extra.commit ?? COMMIT;
+	const fake = extra.git ?? new FakeGit();
 	const save = (m: BackupMap): void => {
 		extra.saves?.push(structuredClone(m));
 	};
-	const reconciled = await reconcile({ walk, map, api, hashAt: (extra.git ?? new FakeGit()).hashAt, save, log: () => {} });
-	followRenames(walk, map, scope);
-	const plan = planBackup(walk, map, scope, { rewrite: extra.rewrite ?? false });
-	extra.git?.record(commit, walk.files);
-	const result = await runBackup({
-		walk,
-		map,
-		plan,
-		api,
-		reconciled,
-		commit,
-		sourceUrl: (p) => `https://github.com/o/r/blob/${commit}/${p}`,
-		save,
-		lfsPull: async (paths) => {
+	const git: BackupGit = {
+		hashAt: fake.hashAt,
+		// Never asked: the helper hands the pipeline its scope outright, so nothing diffs.
+		usableBase: () => {
+			throw new Error("the helper passes a scope; chooseScope is never reached");
+		},
+		diffSince: () => {
+			throw new Error("the helper passes a scope; chooseScope is never reached");
+		},
+		headCommit: () => {
+			// The files at HEAD, remembered under the commit this run names (git would answer `git show`).
+			fake.record(commit, walk.files);
+			return commit;
+		},
+		repoWebUrl: () => "https://github.com/o/r",
+		lfsPull: (paths) => {
 			if (extra.pullFails) throw new Error("git lfs pull failed: batch response: rate limit exceeded");
 			extra.pulled?.push(paths);
 		},
+	};
+	const run = await runBackupPipeline({
+		walk,
+		map,
+		api,
+		git,
+		scope,
+		...(extra.rewrite ? { rewrite: true } : {}),
+		save,
 		log: () => {},
 		now: () => new Date("2026-10-07T12:00:00Z"),
 	});
-	return { plan, result, reconciled };
+	if (!run.result || !run.reconciled) throw new Error("unreachable: a real run reconciles and syncs");
+	return { plan: run.plan, result: run.result, reconciled: run.reconciled };
 }

@@ -1,6 +1,5 @@
 import type { CheckContext, Finding, Layer } from "../types.ts";
-import { checkedPages } from "../util.ts";
-import { bodyLines } from "../text.ts";
+import { bodyLines } from "../views.ts";
 
 const LAYER = "hot";
 /** The convention is about 500 words; the gate allows a little slack so it does not nag over a sentence. */
@@ -10,10 +9,11 @@ const isWord = (token: string): boolean => /[\p{L}\p{N}]/u.test(token);
 
 export const hotLayer: Layer = {
 	name: LAYER,
+	scope: "page",
 	description: `hot.md stays orientation: its body is at most ${HOT_WORD_CAP} words (the convention is about 500).`,
 	run(ctx: CheckContext): Finding[] {
 		const findings: Finding[] = [];
-		for (const page of checkedPages(ctx)) {
+		for (const page of ctx.pages) {
 			if (page.slug !== "hot") continue;
 			let count = 0;
 			let crossed = 0;

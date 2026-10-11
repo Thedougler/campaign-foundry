@@ -195,7 +195,7 @@ _Avoid_: recap, meeting report
 _Avoid_: glossary, word list
 
 **Visual**:
-an image or diagram embedded on a Wiki page that shows its subject or structure to the DM, such as a portrait, map, scene-setter, sigil or mermaid diagram. Art meant for the Players' eyes is a Handout, not a Visual.
+an image or diagram embedded on a Wiki page that shows its subject or structure to the DM, such as a portrait, map, scene-setter, sigil or mermaid diagram. Art meant for the Players' eyes is a Handout.
 _Avoid_: artwork, illustration, picture, image (as the umbrella term), visual aid
 
 **Handout**:
@@ -287,7 +287,7 @@ the Agent digesting outside material into the Wiki, either a Raw file (afterward
 _Avoid_: import, process, compile, sync
 
 **Lint**:
-the Agent's autonomous repair of mechanical Wiki issues: template layout, headings, wikilinks, placement, and index, via `cf check --fix`. It finishes without asking, and when something is unclear it queries the Wiki.
+the Agent's autonomous repair of mechanical Wiki issues (template layout, headings, wikilinks, placement, index) via `cf check --fix`, the `prose` scope of `bun run lint`. It queries the Wiki when unsure.
 _Avoid_: audit (as routine health), a DM-facing lint report or a blocking review
 
 **Archive**:
@@ -327,7 +327,6 @@ _Avoid_: scoring speakability with a Check
 **Grade**:
 independent reading of authored prose. Fixture-eval Grades are pass/fail. Benchmark Grades are the Judge's scores from 1 to 5.
 _Avoid_: keyword search as a substitute for reading
-
 
 **Runner**:
 the model that executes an eval or benchmark entry. A cheap Codex or GLM model runs ordinary skill evals, and the top tier runs the Prose Benchmark. A Runner is never the Judge.

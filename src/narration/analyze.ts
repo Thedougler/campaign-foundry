@@ -1,7 +1,7 @@
 import { segment } from "sentencex";
 import stopword from "stopword";
+import { stripBlockIds, wikilinkDisplay, WIKILINK } from "../vault/dialect.ts";
 
-/** Text of a source with the source line each word sits on, for echo matching. */
 export interface SourceWords {
 	/** The vault-relative path named by the finding. */
 	label: string;
@@ -50,7 +50,6 @@ export interface CalloutReport {
 
 const WORD = /[\p{L}\p{N}]+(?:['’][\p{L}\p{N}]+)*/gu;
 const SPEECH = /"[^"]*"|“[^”]*”/g;
-const WIKILINK = /!?\[\[([^[\]\n]*)\]\]/g;
 const MIN_RUN = 4;
 const LIST_RUN = 3;
 /** Narration sentences measured against the GM voice envelope: fewer than this says nothing about pacing. */
@@ -61,14 +60,7 @@ const STOP = new Set(stopword.eng.map(normalise));
 
 /** Wikilinks reduced to what the reader sees (alias, else page name), and `^block` ids dropped. */
 export function plainText(text: string): string {
-	return text
-		.replace(WIKILINK, (_, inner: string) => {
-			const bar = inner.indexOf("|");
-			if (bar !== -1) return inner.slice(bar + 1).trim();
-			const target = inner.split("#")[0] ?? "";
-			return (target.split("/").pop() ?? "").trim();
-		})
-		.replace(/[ \t]+\^[A-Za-z0-9-]+[ \t]*$/gm, "");
+	return stripBlockIds(text.replace(WIKILINK, (_, _embed: string, inner: string) => wikilinkDisplay(inner).text));
 }
 
 /** Words of `text`, each with the line it sits on (`firstLine` is the line of the text's first character). */
@@ -111,11 +103,15 @@ export function sentenceShape(sentences: string[]): { meanWords: number; spread:
 }
 
 const PREPOSITIONS = new Set(
-	`in on at by under over behind beyond inside outside across along through beside above below beneath near past toward towards into onto from within around between against among atop before after upon without`.split(" "),
+	`in on at by under over behind beyond inside outside across along through beside above below beneath near past toward towards into onto from within around between against among atop before after upon without`.split(
+		" ",
+	),
 );
 const ADVERBS_BEFORE_PREPOSITION = new Set(["back", "further", "farther", "out", "up", "down", "off", "just", "right"]);
 const DETERMINERS = new Set(
-	`the a an this that these those his her their its our my your some each every one two three four five six seven eight nine ten many several both another`.split(" "),
+	`the a an this that these those his her their its our my your some each every one two three four five six seven eight nine ten many several both another`.split(
+		" ",
+	),
 );
 
 /** The "list" openers: a preposition and its place, or a bare noun phrase. */
@@ -159,7 +155,11 @@ const HOMOPHONE_GROUPS = [
 	["wear", "ware"],
 ];
 
-const COMMON_SENTENCE_STARTS = new Set(`A An And But Cold Creature DM Each He In It Item Long NPC Once Party Players Scene Session She Some The They This You World`.split(" "));
+const COMMON_SENTENCE_STARTS = new Set(
+	`A An And But Cold Creature DM Each He In It Item Long NPC Once Party Players Scene Session She Some The They This You World`.split(
+		" ",
+	),
+);
 function evaluativeStacks(text: string): string[] {
 	const result = new Set<string>();
 	for (const sentence of narrationSentences(text)) {
@@ -192,26 +192,38 @@ function properNouns(text: string, names: ReadonlySet<string>, isWord: (word: st
 	for (const match of text.matchAll(/\b[A-Z][\p{L}'’-]*(?:(?:[- ]| of (?:the )?)[A-Z][\p{L}'’-]*)*/gu)) {
 		const previous = text.slice(0, match.index).trimEnd().at(-1);
 		const value = match[0].trim();
-		if (value.length > 1) found.push({ value, opens: previous === "." || previous === "!" || previous === "?" || previous === undefined });
+		if (value.length > 1)
+			found.push({ value, opens: previous === "." || previous === "!" || previous === "?" || previous === undefined });
 	}
 	const midSentence = new Set(found.filter((f) => !f.opens).map((f) => f.value));
 	// ponytail: Canon is judged word by word, so an invented name built from page-name words ("Star Bank") passes.
 	const counted = found.filter(({ value, opens }) => {
-		const words = value.split(/[\s-]+/).filter((w) => w !== "of" && w !== "the").map((w) => w.replace(/['’]s$/, ""));
+		const words = value
+			.split(/[\s-]+/)
+			.filter((w) => w !== "of" && w !== "the")
+			.map((w) => w.replace(/['’]s$/, ""));
 		if (words.every((w) => names.has(w))) return false;
-		return !opens || (!COMMON_SENTENCE_STARTS.has(value) && !STOP.has(normalise(value)) && (/[- ]/.test(value) || midSentence.has(value) || !isWord(value.toLowerCase())));
+		return (
+			!opens ||
+			(!COMMON_SENTENCE_STARTS.has(value) &&
+				!STOP.has(normalise(value)) &&
+				(/[- ]/.test(value) || midSentence.has(value) || !isWord(value.toLowerCase())))
+		);
 	});
 	return [...new Set(counted.map((f) => f.value))];
 }
 
-function spokenTraps(text: string): { type: "tongue-twister" | "alliteration" | "pun-name" | "homophone"; text: string }[] {
+function spokenTraps(
+	text: string,
+): { type: "tongue-twister" | "alliteration" | "pun-name" | "homophone"; text: string }[] {
 	const traps: { type: "tongue-twister" | "alliteration" | "pun-name" | "homophone"; text: string }[] = [];
 	const words = [...text.matchAll(/\b[\p{L}][\p{L}'’-]*\b/gu)].map((match) => match[0]);
 	for (let i = 0; i + 2 < words.length; i++) {
 		const window = words.slice(i, i + 3);
 		const initials = window.map((word) => word[0]?.toLowerCase());
 		if (initials.every((initial) => initial === initials[0])) {
-			const type = i + 3 < words.length && words[i + 3]?.[0]?.toLowerCase() === initials[0] ? "tongue-twister" : "alliteration";
+			const type =
+				i + 3 < words.length && words[i + 3]?.[0]?.toLowerCase() === initials[0] ? "tongue-twister" : "alliteration";
 			traps.push({ type, text: window.join(" ") });
 		}
 	}
@@ -227,16 +239,21 @@ function spokenTraps(text: string): { type: "tongue-twister" | "alliteration" | 
 }
 
 function findDialogueAttributions(text: string): string[] {
-	return [...text.matchAll(/[”"][, ]+\s*(?:he|she|they|it|[A-Z][\p{L}'’-]*)\s+(?:says?|said|asks?|asked|replies?|replied|mutters?|muttered|shouts?|shouted|whispers?|whispered)\b/gu)].map(
-		(match) => match[0].trim(),
-	);
+	return [
+		...text.matchAll(
+			/[”"][, ]+\s*(?:he|she|they|it|[A-Z][\p{L}'’-]*)\s+(?:says?|said|asks?|asked|replies?|replied|mutters?|muttered|shouts?|shouted|whispers?|whispered)\b/gu,
+		),
+	].map((match) => match[0].trim());
 }
 
 /** Runs of `MIN_RUN`+ words `words` share with `source`, as `[start in words, length, start in source]`. */
 function sharedRuns(words: string[], source: SourceWords): [number, number, number][] {
 	const index = new Map<string, number[]>();
 	for (let j = 0; j + MIN_RUN <= source.words.length; j++) {
-		const key = source.words.slice(j, j + MIN_RUN).map((w) => w.word).join(" ");
+		const key = source.words
+			.slice(j, j + MIN_RUN)
+			.map((w) => w.word)
+			.join(" ");
 		const at = index.get(key);
 		if (at) at.push(j);
 		else index.set(key, [j]);
@@ -247,7 +264,12 @@ function sharedRuns(words: string[], source: SourceWords): [number, number, numb
 			// Only a maximal run's first word starts a report.
 			if (i > 0 && j > 0 && words[i - 1] === source.words[j - 1]?.word) continue;
 			let length = MIN_RUN;
-			while (i + length < words.length && j + length < source.words.length && words[i + length] === source.words[j + length]?.word) length++;
+			while (
+				i + length < words.length &&
+				j + length < source.words.length &&
+				words[i + length] === source.words[j + length]?.word
+			)
+				length++;
 			runs.push([i, length, j]);
 		}
 	}
@@ -274,7 +296,8 @@ function findEcho(outside: string[], sources: SourceWords[]): EchoRun[] {
 
 const matches = (text: string, pattern: RegExp): string[] => [...text.matchAll(pattern)].map((m) => m[0]);
 const count = (text: string, pattern: RegExp): number => matches(text, pattern).length;
-const plural = (n: number, one: string, many = `${one}s`): string => `${n} ${n === 1 ? one : many}`;
+/** A counted noun in narration findings, shared by callout and Cue diagnostics. */
+export const plural = (n: number, one: string, many = `${one}s`): string => `${n} ${n === 1 ? one : many}`;
 const round2 = (n: number): number => Math.round(n * 100) / 100;
 
 export interface AnalyzeInput {
@@ -291,7 +314,14 @@ export interface AnalyzeInput {
 	envelope?: Envelope;
 }
 
-export function analyzeCallout({ body, sources, names = new Set(), isWord = () => false, maskNames = (t) => t, envelope }: AnalyzeInput): CalloutReport {
+export function analyzeCallout({
+	body,
+	sources,
+	names = new Set(),
+	isWord = () => false,
+	maskNames = (t) => t,
+	envelope,
+}: AnalyzeInput): CalloutReport {
 	const text = plainText(body);
 	const outside = text.split(SPEECH);
 	const sentences = narrationSentences(text);
@@ -314,7 +344,8 @@ export function analyzeCallout({ body, sources, names = new Set(), isWord = () =
 		}
 		let end = i;
 		while (end + 1 < starts.length && listOpener(starts[end + 1] ?? [])) end++;
-		if (end - i + 1 >= LIST_RUN) runs.push({ from: i + 1, to: end + 1, starts: starts.slice(i, end + 1).map((s) => s.join(" ")) });
+		if (end - i + 1 >= LIST_RUN)
+			runs.push({ from: i + 1, to: end + 1, starts: starts.slice(i, end + 1).map((s) => s.join(" ")) });
 		i = end + 1;
 	}
 	const findings: Finding[] = [];
@@ -355,7 +386,7 @@ export function analyzeCallout({ body, sources, names = new Set(), isWord = () =
 			rule: "invented-names",
 			severity: "warning",
 			message: `The block introduces ${inventedProperNouns.length} proper-name candidates, over the ${PROPER_NAME_MAX}-name limit: ${inventedProperNouns.join(", ")}.`,
-			hint: 'Speakable: introduce at most three names now and move surplus introductions to later callouts or DM notes. For example, name Mara, Tovin and Hobb now, then introduce Ilse in the next beat without renaming Canon.',
+			hint: "Speakable: introduce at most three names now and move surplus introductions to later callouts or DM notes. For example, name Mara, Tovin and Hobb now, then introduce Ilse in the next beat without renaming Canon.",
 		});
 	}
 	if (spokenWordTraps.length > 0) {
@@ -371,7 +402,7 @@ export function analyzeCallout({ body, sources, names = new Set(), isWord = () =
 			rule: "dialogue-attribution",
 			severity: "warning",
 			message: `Speech is followed by a mid-block attribution: ${dialogueAttributions.map((tag) => `"${tag}"`).join(", ")}.`,
-			hint: 'People/Delivery: put the speaker and action before the complete line. For example, replace \'"Coins first," he mutters.\' with \'The ferryman grips his pole and mutters, "Coins first."\'.',
+			hint: "People/Delivery: put the speaker and action before the complete line. For example, replace '\"Coins first,\" he mutters.' with 'The ferryman grips his pole and mutters, \"Coins first.\"'.",
 		});
 	}
 	const voiceEnvelope = envelope && sentences.length >= ENVELOPE_MIN_SENTENCES ? sentenceShape(sentences) : null;
@@ -384,7 +415,7 @@ export function analyzeCallout({ body, sources, names = new Set(), isWord = () =
 				rule: "voice-envelope",
 				severity: "warning",
 				message: `Sentence rhythm falls outside the reference GM range: mean ${round2(m)} words per sentence (range ${round2(envelope.meanWords.p5)}–${round2(envelope.meanWords.p95)}), length spread ${round2(s)} (range ${round2(envelope.spread.p5)}–${round2(envelope.spread.p95)}).`,
-				hint: "Speakable: vary sentence length the way a DM talks at the table. Spread is how far sentence lengths stray from their average (stdev over mean). Below the range, set a short sentence of five to eight words against one of twenty or more: split one of the block's own sentences, or join two into the long one. Open a split-off sentence on a pronoun or name and its verb (\"She turns\") or a connective (\"Then\"), since \"The\", \"A\" or a place phrase starts a list (fresh-starts). Above the range, even the extremes out. Mean out of range: split or join sentences. Rerun the page check to measure a draft.",
+				hint: 'Speakable: vary sentence length the way a DM talks at the table. Spread is how far sentence lengths stray from their average (stdev over mean). Below the range, set a short sentence of five to eight words against one of twenty or more: split one of the block\'s own sentences, or join two into the long one. Open a split-off sentence on a pronoun or name and its verb ("She turns") or a connective ("Then"), since "The", "A" or a place phrase starts a list (fresh-starts). Above the range, even the extremes out. Mean out of range: split or join sentences. Rerun the page check to measure a draft.',
 			});
 		}
 	}

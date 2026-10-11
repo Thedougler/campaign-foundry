@@ -4,10 +4,9 @@ import { Command } from "commander";
 import { UsageError } from "../check/run.ts";
 import { runPush } from "../push/push.ts";
 import type { PushResult } from "../push/push.ts";
-import { resolveVault } from "./vault-flags.ts";
-import type { VaultFlags } from "./vault-flags.ts";
+import { CF, envOptions, resolveEnv, type EnvFlags } from "./kit.ts";
 
-interface PushFlags extends VaultFlags {
+interface PushFlags extends EnvFlags {
 	campaign?: string;
 	session?: string;
 	out?: string;
@@ -29,7 +28,10 @@ function nextSteps(result: PushResult, campaign: string): string[] {
 	if (result.upToDate) return [];
 	const module = result.plan.moduleId;
 	const steps = [];
-	if (!result.installedTo) steps.push(`Copy ${result.modulePath} into the Foundry data folder's modules/ folder as modules/${module}/ (or rerun with --install <that modules folder>).`);
+	if (!result.installedTo)
+		steps.push(
+			`Copy ${result.modulePath} into the Foundry data folder's modules/ folder as modules/${module}/ (or rerun with --install <that modules folder>).`,
+		);
 	steps.push(
 		`In the Foundry world's Manage Modules, enable "${campaign} (Campaign Foundry)" (first Push only), then open the Compendium sidebar, the "${campaign} Adventure" pack, and the Adventure inside it.`,
 		"Click Import. When it asks about documents that already exist, keep overwrite on: the same IDs mean an update, not a duplicate. Hand-tweaks to a document survive until its Wiki page changes.",
@@ -45,7 +47,8 @@ export function formatPush(result: PushResult, campaign: string, show: (path: st
 	out.push(`${verb}: Session ${plan.session} of ${campaign} (folder ${plan.campaignFolder}), module ${plan.moduleId}`);
 	for (const [type, label] of TYPES) {
 		const c = result.counts[type];
-		if (c.added + c.updated + c.unchanged > 0) out.push(`  ${label.padEnd(15)} ${c.added} added, ${c.updated} updated, ${c.unchanged} unchanged`);
+		if (c.added + c.updated + c.unchanged > 0)
+			out.push(`  ${label.padEnd(15)} ${c.added} added, ${c.updated} updated, ${c.unchanged} unchanged`);
 	}
 	if (result.upToDate) out.push("", "Nothing changed in the Wiki since the last Push, so nothing was packed.");
 	if (plan.warnings.length > 0) out.push("", "warnings:", ...plan.warnings.map((w) => `  - ${w}`));
@@ -68,7 +71,12 @@ export function pushJson(result: PushResult, campaign: string): string {
 			campaignFolder: plan.campaignFolder,
 			campaign,
 			session: plan.session,
-			module: { id: plan.moduleId, path: result.modulePath ?? null, version: result.version ?? null, installedTo: result.installedTo ?? null },
+			module: {
+				id: plan.moduleId,
+				path: result.modulePath ?? null,
+				version: result.version ?? null,
+				installedTo: result.installedTo ?? null,
+			},
 			adventureId: plan.adventureId,
 			counts: result.counts,
 			changed: result.changed,
@@ -84,19 +92,22 @@ export function pushJson(result: PushResult, campaign: string): string {
 }
 
 export function pushCommand(): Command {
-	return new Command("push")
+	const command = new Command("push")
 		.description(
 			"Push a Session to its Foundry world: build everything the Session needs (its Prep, Scenes, Handouts and Recap, and the NPCs, Creatures, Locations and Items they link) as a Foundry Adventure, packed offline into a module. Only documents that changed since the last Push are packed. Exits 0 on success (warnings included), 2 on a usage error.",
 		)
 		.option("--campaign <Campaign>", "the Campaign to push (required)")
 		.option("--session <N>", "the Session number to push (required)")
 		.option("--out <dir>", "where to build the module (default: <root>/build/push/<module id>)")
-		.option("--install <modules-dir>", "also copy the built module into this Foundry Data/modules folder (never defaulted)")
+		.option(
+			"--install <modules-dir>",
+			"also copy the built module into this Foundry Data/modules folder (never defaulted)",
+		)
 		.option("--all", "include every document, not only the ones that changed since the last Push")
-		.option("--dry-run", "show what would be pushed without packing, logging or writing the manifest")
+		.option("--dry-run", "show what would be pushed without packing, logging or writing the manifest");
+	envOptions(command);
+	return command
 		.option("--json", "print machine-readable JSON instead of text")
-		.option("--vault <dir>", "the Wiki folder (default: <root>/wiki)")
-		.option("--root <dir>", "repository root, where .push/ and build/ live (default: nearest git root)")
 		.addHelpText(
 			"after",
 			`
@@ -113,20 +124,28 @@ What it does:
   a "push" entry to the Campaign folder's log.md. A second Push with no Wiki change packs nothing and says "up to date".
 
 Examples:
-  cf push --campaign "Salt and Lantern" --session 2
-  cf push --campaign "Salt and Lantern" --session 2 --dry-run
-  cf push --campaign "Salt and Lantern" --session 2 --install "$HOME/Library/Application Support/FoundryVTT/Data/modules"
-  cf push --campaign "Salt and Lantern" --session 2 --all --json`,
+  ${CF} push --campaign "Salt and Lantern" --session 2
+  ${CF} push --campaign "Salt and Lantern" --session 2 --dry-run
+  ${CF} push --campaign "Salt and Lantern" --session 2 --install "$HOME/Library/Application Support/FoundryVTT/Data/modules"
+  ${CF} push --campaign "Salt and Lantern" --session 2 --all --json`,
 		)
 		.action(async (flags: PushFlags) => {
-			const example = 'cf push --campaign "<Campaign>" --session <N>';
+			const example = `${CF} push --campaign "<Campaign>" --session <N>`;
 			if (!flags.campaign) throw new UsageError("No Campaign given.", example);
 			const session = Number(flags.session);
-			if (!flags.session || !Number.isInteger(session) || session < 1) throw new UsageError(flags.session ? `"${flags.session}" is not a Session number.` : "No Session given.", example);
+			if (!flags.session || !Number.isInteger(session) || session < 1)
+				throw new UsageError(
+					flags.session ? `"${flags.session}" is not a Session number.` : "No Session given.",
+					example,
+				);
 			const cwd = process.cwd();
-			const { root, vault } = resolveVault(flags, "push");
+			const { root, vault } = resolveEnv(flags, "push");
 			const install = flags.install ? resolve(cwd, flags.install) : undefined;
-			if (install && (!existsSync(install) || !statSync(install).isDirectory())) throw new UsageError(`The modules folder ${install} does not exist.`, `cf push --campaign "${flags.campaign}" --session ${session} --install <Foundry Data/modules folder>`);
+			if (install && (!existsSync(install) || !statSync(install).isDirectory()))
+				throw new UsageError(
+					`The modules folder ${install} does not exist.`,
+					`${CF} push --campaign "${flags.campaign}" --session ${session} --install <Foundry Data/modules folder>`,
+				);
 			const result = await runPush({
 				vault,
 				root,
@@ -138,6 +157,8 @@ Examples:
 				dryRun: flags.dryRun ?? false,
 			});
 			const show = (path: string): string => relative(cwd, path) || ".";
-			process.stdout.write(`${flags.json ? pushJson(result, flags.campaign) : formatPush(result, flags.campaign, show)}\n`);
+			process.stdout.write(
+				`${flags.json ? pushJson(result, flags.campaign) : formatPush(result, flags.campaign, show)}\n`,
+			);
 		});
 }

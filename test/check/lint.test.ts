@@ -5,8 +5,14 @@ import { cf, copyFixture, type JsonReport, realTemplates, vaultFlags } from "./h
 
 const mechanicalLayers = ["template", "placement", "links", "index"].flatMap((layer) => ["--layer", layer]);
 
-async function check(dir: string, extra: string[] = []): Promise<{ code: number; stdout: string; stderr: string; report: JsonReport }> {
-	const result = await cf(["check", "--json", ...vaultFlags(dir), "--templates", realTemplates, ...mechanicalLayers, ...extra], dir);
+async function check(
+	dir: string,
+	extra: string[] = [],
+): Promise<{ code: number; stdout: string; stderr: string; report: JsonReport }> {
+	const result = await cf(
+		["check", "--json", ...vaultFlags(dir), "--templates", realTemplates, ...mechanicalLayers, ...extra],
+		dir,
+	);
 	return { ...result, report: JSON.parse(result.stdout) as JsonReport };
 }
 

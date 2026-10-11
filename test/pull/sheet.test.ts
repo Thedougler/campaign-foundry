@@ -4,7 +4,8 @@ import { describe, expect, it } from "vitest";
 import { computeSheet } from "../../src/pull/sheet.ts";
 import type { DdbCharacter } from "../../src/pull/ddb.ts";
 
-const load = (name: string): DdbCharacter => (JSON.parse(readFileSync(join(import.meta.dirname, "fixtures", name), "utf8")) as { data: DdbCharacter }).data;
+const load = (name: string): DdbCharacter =>
+	(JSON.parse(readFileSync(join(import.meta.dirname, "fixtures", name), "utf8")) as { data: DdbCharacter }).data;
 
 // Expected values are worked by hand from the recorded payloads (base scores, the modifiers and the equipped
 // items in them), never by calling the code under test.

@@ -20,7 +20,6 @@ const SIZE_IDS: Record<string, number> = { tiny: 2, small: 3, medium: 4, large: 
 /** statId order in `stats` matches the wiki statblock's Str Dex Con Int Wis Cha order. */
 const STAT_IDS = [1, 2, 3, 4, 5, 6];
 
-
 /** The canonical monster for a parsed Creature page statblock; `ac` comes from the raw keys. */
 export function canonicalFromStatblock(statblock: Statblock): CanonicalMonster {
 	return {
@@ -77,7 +76,11 @@ function compare(field: string, expected: string | undefined, actual: string | u
  * Verifies a read-back against the canonical monster, field by field. Never retries: a mismatch is
  * reported, not repaired (a wrong write must be visible, not papered over).
  */
-export function verifyMonster(canonical: CanonicalMonster, record: DdbMonsterRecord | undefined, wantedId?: number): VerifyReport {
+export function verifyMonster(
+	canonical: CanonicalMonster,
+	record: DdbMonsterRecord | undefined,
+	wantedId?: number,
+): VerifyReport {
 	if (!record) {
 		return {
 			ok: false,
@@ -86,16 +89,26 @@ export function verifyMonster(canonical: CanonicalMonster, record: DdbMonsterRec
 		};
 	}
 	if (!record.isHomebrew) {
-		return { ok: false, message: `monster ${record.id} is not homebrew; refusing to treat official content as the write's result`, fields: [] };
+		return {
+			ok: false,
+			message: `monster ${record.id} is not homebrew; refusing to treat official content as the write's result`,
+			fields: [],
+		};
 	}
 	const actualStats = new Map((record.stats ?? []).map((s) => [s.statId, s.value]));
 	const expectedStats = canonical.stats ?? [];
-	const statValues = STAT_IDS.map((id) => (expectedStats[id - 1] === undefined ? undefined : String(actualStats.get(id) ?? "")));
+	const statValues = STAT_IDS.map((id) =>
+		expectedStats[id - 1] === undefined ? undefined : String(actualStats.get(id) ?? ""),
+	);
 	const acActual = record.armorClass === undefined ? undefined : String(record.armorClass);
 	const hpActual = record.averageHitPoints === undefined ? undefined : String(record.averageHitPoints);
 	const fields: VerifyField[] = [
 		compare("name", canonical.name, record.name),
-		compare("size", SIZE_IDS[normalize(canonical.size)] === undefined ? undefined : canonical.size, Object.entries(SIZE_IDS).find(([, id]) => id === record.sizeId)?.[0]),
+		compare(
+			"size",
+			SIZE_IDS[normalize(canonical.size)] === undefined ? undefined : canonical.size,
+			Object.entries(SIZE_IDS).find(([, id]) => id === record.sizeId)?.[0],
+		),
 		{
 			field: "ac",
 			match: acNumber(canonical.ac) !== undefined && acNumber(canonical.ac) === acActual,
@@ -111,7 +124,8 @@ export function verifyMonster(canonical: CanonicalMonster, record: DdbMonsterRec
 		},
 		{
 			field: "stats",
-			match: expectedStats.length === 6 && statValues.every((v, i) => v !== undefined && Number(v) === expectedStats[i]),
+			match:
+				expectedStats.length === 6 && statValues.every((v, i) => v !== undefined && Number(v) === expectedStats[i]),
 			expected: expectedStats.length === 6 ? expectedStats.join("/") : "(missing)",
 			actual: STAT_IDS.map((id) => actualStats.get(id) ?? "?").join("/"),
 		},

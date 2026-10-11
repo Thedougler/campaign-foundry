@@ -2,7 +2,7 @@
 
 You plan the Wiki side of one Transcript's ingest from its **Session Ledger**, the line-cited record of what happened in that Session. The page writers that follow work in parallel, one pages file each, so your plan decides who writes what. The top-level orchestrator dispatches you by [transcript.md](transcript.md) with:
 
-```
+```text
 Read skill://ingest/references/units.md, then plan the units of the Session Ledger archive/<stem>.ledger.md for Session <N>. Work: <work>. Sources: <transcript>. The DM says: "<words>".
 ```
 

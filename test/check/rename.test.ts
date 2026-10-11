@@ -1,7 +1,7 @@
-import { spawnSync } from "node:child_process";
 import { readdir, readFile, stat, writeFile } from "node:fs/promises";
 import { join, sep } from "node:path";
 import { describe, expect, it } from "vitest";
+import { git, initGitRepo } from "../backup/helpers.ts";
 import { cf, copyFixture, vaultFlags } from "./helpers.ts";
 
 const read = (dir: string, path: string): Promise<string> => readFile(join(dir, path), "utf8");
@@ -64,19 +64,27 @@ describe("cf rename", () => {
 		const dir = await copyFixture("clean");
 		const { code, stdout } = await rename(dir, ["Mara Voss", "--title", "Mara Voss"]);
 		expect(code).toBe(0);
-		expect(stdout).toContain("move  wiki/ashes-of-the-crown/NPCs/Mara Voss.md -> wiki/ashes-of-the-crown/NPCs/mara-voss.md");
+		expect(stdout).toContain(
+			"move  wiki/ashes-of-the-crown/NPCs/Mara Voss.md -> wiki/ashes-of-the-crown/NPCs/mara-voss.md",
+		);
 		expect(await read(dir, "wiki/ashes-of-the-crown/NPCs/mara-voss.md")).toContain('title: "Mara Voss"');
 		await expect(read(dir, "wiki/ashes-of-the-crown/NPCs/Mara Voss.md")).rejects.toThrow();
 		// Even when the title is unchanged, the stable slug is the rewritten target.
-		expect(await read(dir, "wiki/ashes-of-the-crown/Locations/Ravenhold.md")).toContain("- **Ruled by.** [[mara-voss|Mara Voss]]");
-		expect(await read(dir, "wiki/ashes-of-the-crown/index.md")).toContain("- [[mara-voss|Mara Voss]] — Harbormaster with a bandit's past.");
+		expect(await read(dir, "wiki/ashes-of-the-crown/Locations/Ravenhold.md")).toContain(
+			"- **Ruled by.** [[mara-voss|Mara Voss]]",
+		);
+		expect(await read(dir, "wiki/ashes-of-the-crown/index.md")).toContain(
+			"- [[mara-voss|Mara Voss]] — Harbormaster with a bandit's past.",
+		);
 	});
 
 	it("records the rename in the Campaign folder's log.md as an audit entry", async () => {
 		const dir = await copyFixture("clean");
 		const { code } = await rename(dir, ["Mara Voss", "--title", "Mara Voss"]);
 		expect(code).toBe(0);
-		expect(await read(dir, "wiki/ashes-of-the-crown/log.md")).toMatch(/## \[\d{4}-\d{2}-\d{2}\] audit \| Renamed Mara Voss to mara-voss\.md\n\n- \[\[mara-voss\|Mara Voss\]\]\n$/);
+		expect(await read(dir, "wiki/ashes-of-the-crown/log.md")).toMatch(
+			/## \[\d{4}-\d{2}-\d{2}\] audit \| Renamed Mara Voss to mara-voss\.md\n\n- \[\[mara-voss\|Mara Voss\]\]\n$/,
+		);
 	});
 
 	it("rewrites every link shape when the title changes, leaving code and comments alone", async () => {
@@ -90,7 +98,9 @@ describe("cf rename", () => {
 		// Every target becomes the slug; custom text survives, otherwise the display is the new title.
 		// Headings, block refs and embed markers survive; code spans and %% comments are never touched.
 		expect(await read(dir, "wiki/ashes-of-the-crown/Locations/Link Farm.md")).toBe(LINK_FARM_REWRITTEN);
-		expect(await read(dir, "wiki/ashes-of-the-crown/NPCs/Mara Voss.md")).toContain("Keeps [[cold-hearth-inn|Cold Hearth Inn]] burning.");
+		expect(await read(dir, "wiki/ashes-of-the-crown/NPCs/Mara Voss.md")).toContain(
+			"Keeps [[cold-hearth-inn|Cold Hearth Inn]] burning.",
+		);
 		expect(await read(dir, "wiki/ashes-of-the-crown/hot.md")).not.toContain("[[The Cold Hearth]]");
 		const index = await read(dir, "wiki/ashes-of-the-crown/index.md");
 		expect(index).toContain("[[cold-hearth-inn|Cold Hearth Inn]] — Mara's hearth is failing, and so is her hold.");
@@ -102,7 +112,9 @@ describe("cf rename", () => {
 		const { code } = await rename(dir, ["Bandit Captain", "--title", "Bandit Leader"]);
 		expect(code).toBe(0);
 		expect(await read(dir, "wiki/ashes-of-the-crown/Creatures/bandit-leader.md")).toContain('title: "Bandit Leader"');
-		expect(await read(dir, "wiki/ashes-of-the-crown/NPCs/Mara Voss.md")).toContain('creature: "[[bandit-leader|Bandit Leader]]"');
+		expect(await read(dir, "wiki/ashes-of-the-crown/NPCs/Mara Voss.md")).toContain(
+			'creature: "[[bandit-leader|Bandit Leader]]"',
+		);
 	});
 
 	it("escapes alias pipes in Markdown tables without double-escaping custom text", async () => {
@@ -123,19 +135,21 @@ describe("cf rename", () => {
 		await writeFile(join(dir, "wiki/ashes-of-the-crown/Locations/Table Links.md"), table);
 		const result = await rename(dir, ["The Cold Hearth", "--title", "Cold Hearth Inn"]);
 		expect(result.code).toBe(0);
-		expect(await read(dir, "wiki/ashes-of-the-crown/Locations/Table Links.md")).toBe([
-			"| Scene | Hands to |",
-			"| --- | --- |",
-			"| [[cold-hearth-inn\\|Cold Hearth Inn]] | ![[cold-hearth-inn#Hidden truths\\|Cold Hearth Inn]] |",
-			"| [[cold-hearth-inn\\|custom text]] | [[cold-hearth-inn#Hidden truths\\|custom heading]] |",
-			"",
-			"Scene | Hands to",
-			"--- | ---",
-			"[[cold-hearth-inn\\|Cold Hearth Inn]] | ![[cold-hearth-inn\\|custom embed]]",
-			"",
-			"Ordinary prose: [[cold-hearth-inn|Cold Hearth Inn]]",
-			"",
-		].join("\n"));
+		expect(await read(dir, "wiki/ashes-of-the-crown/Locations/Table Links.md")).toBe(
+			[
+				"| Scene | Hands to |",
+				"| --- | --- |",
+				"| [[cold-hearth-inn\\|Cold Hearth Inn]] | ![[cold-hearth-inn#Hidden truths\\|Cold Hearth Inn]] |",
+				"| [[cold-hearth-inn\\|custom text]] | [[cold-hearth-inn#Hidden truths\\|custom heading]] |",
+				"",
+				"Scene | Hands to",
+				"--- | ---",
+				"[[cold-hearth-inn\\|Cold Hearth Inn]] | ![[cold-hearth-inn\\|custom embed]]",
+				"",
+				"Ordinary prose: [[cold-hearth-inn|Cold Hearth Inn]]",
+				"",
+			].join("\n"),
+		);
 	});
 
 	it("keeps a twin's distinguishing bracket in the title and derives the collision-free slug", async () => {
@@ -144,13 +158,18 @@ describe("cf rename", () => {
 			join(dir, "wiki/ashes-of-the-crown/Creatures/Otar the Foul (Creature).md"),
 			'---\ntype: Creature\ntitle: ""\nsummary: "A swamp horror with a twin."\nsources: []\n---\n\nText.\n',
 		);
-		await writeFile(join(dir, "wiki/ashes-of-the-crown/NPCs/Otar the Foul.md"), '---\ntype: NPC\ntitle: ""\nsummary: "The twin."\nsources: []\n---\n\nText.\n');
+		await writeFile(
+			join(dir, "wiki/ashes-of-the-crown/NPCs/Otar the Foul.md"),
+			'---\ntype: NPC\ntitle: ""\nsummary: "The twin."\nsources: []\n---\n\nText.\n',
+		);
 		const npc = await rename(dir, ["Otar the Foul", "--title", "Otar the Foul"]);
 		expect(npc.code).toBe(0);
 		const creature = await rename(dir, ["Otar the Foul (Creature)", "--title", "Otar the Foul (Creature)"]);
 		expect(creature.code).toBe(0);
 		expect(await read(dir, "wiki/ashes-of-the-crown/NPCs/otar-the-foul.md")).toContain('title: "Otar the Foul"');
-		expect(await read(dir, "wiki/ashes-of-the-crown/Creatures/otar-the-foul-creature.md")).toContain('title: "Otar the Foul (Creature)"');
+		expect(await read(dir, "wiki/ashes-of-the-crown/Creatures/otar-the-foul-creature.md")).toContain(
+			'title: "Otar the Foul (Creature)"',
+		);
 	});
 
 	it("takes an explicit --slug for a title whose derived slug would not do", async () => {
@@ -196,7 +215,7 @@ describe("cf rename", () => {
 		const { code, stdout } = await rename(dir, ["The Cold Hearth", "--title", "Cold Hearth Inn", "--dry-run"]);
 		expect(code).toBe(0);
 		expect(stdout).toContain("would move");
-		expect(stdout).toContain("would set  title: \"Cold Hearth Inn\"");
+		expect(stdout).toContain('would set  title: "Cold Hearth Inn"');
 		expect(stdout).toContain("[[The Cold Hearth]] -> [[cold-hearth-inn|Cold Hearth Inn]]");
 		expect(stdout).toContain("would log");
 		expect(await snapshot(dir)).toEqual(before);
@@ -235,7 +254,10 @@ describe("cf rename", () => {
 
 	it("defaults to the first alias when the title is blank", async () => {
 		const dir = await copyFixture("clean");
-		await writeFile(join(dir, "wiki/ashes-of-the-crown/NPCs/alias-page.md"), '---\ntitle: ""\ntype: NPC\naliases: ["First Alias", "Other Alias"]\n---\n');
+		await writeFile(
+			join(dir, "wiki/ashes-of-the-crown/NPCs/alias-page.md"),
+			'---\ntitle: ""\ntype: NPC\naliases: ["First Alias", "Other Alias"]\n---\n',
+		);
 		const result = await rename(dir, ["alias-page"]);
 		expect(result.code).toBe(0);
 		expect(await read(dir, "wiki/ashes-of-the-crown/NPCs/first-alias.md")).toContain('title: "First Alias"');
@@ -243,7 +265,10 @@ describe("cf rename", () => {
 
 	it("requires --title when there is no title or alias, without touching anything", async () => {
 		const dir = await copyFixture("clean");
-		await writeFile(join(dir, "wiki/ashes-of-the-crown/NPCs/titleless-page.md"), '---\ntype: NPC\ntitle: ""\naliases: []\n---\n\nA page awaiting its title.\n');
+		await writeFile(
+			join(dir, "wiki/ashes-of-the-crown/NPCs/titleless-page.md"),
+			'---\ntype: NPC\ntitle: ""\naliases: []\n---\n\nA page awaiting its title.\n',
+		);
 		const before = await snapshot(dir);
 		const result = await rename(dir, ["titleless-page"]);
 		expect(result.code).toBe(2);
@@ -253,12 +278,10 @@ describe("cf rename", () => {
 
 	it("moves a tracked file with git mv, keeping the rename staged", async () => {
 		const dir = await copyFixture("clean");
-		spawnSync("git", ["init", "-q"], { cwd: dir });
-		spawnSync("git", ["add", "-A"], { cwd: dir });
-		spawnSync("git", ["-c", "user.email=t@t", "-c", "user.name=t", "commit", "-qm", "init"], { cwd: dir });
+		initGitRepo(dir);
 		const { code } = await rename(dir, ["Mara Voss", "--title", "Mara Voss"]);
 		expect(code).toBe(0);
-		const status = spawnSync("git", ["status", "--short"], { cwd: dir, encoding: "utf8" }).stdout;
+		const status = git(dir, "status", "--short");
 		expect(status).toContain("R");
 		expect(status).toContain("wiki/ashes-of-the-crown/NPCs/mara-voss.md");
 		await expect(read(dir, "wiki/ashes-of-the-crown/NPCs/Mara Voss.md")).rejects.toThrow();

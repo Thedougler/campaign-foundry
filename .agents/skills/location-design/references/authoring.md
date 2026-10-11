@@ -28,7 +28,7 @@ Stop when a source fits the need. Skip a source only when nothing in it applies,
 
 Reuse linked owner pages before creating new ones. Use `npc-design` when a new recurring person or someone the Party will directly deal with needs an NPC page, `faction-design` for a new organised actor, and `creature-design`, `item-design` or `spell-design` when their rules are needed. Send each skill only its missing element, Canon, local purpose and caller operation. Receive the real owner pages and their paths. Full owned rules belong on those pages per ADR 0005, while a Location links them and keeps only the local circumstances needed to run it. Creature stat blocks stay off Location pages.
 
-**Complete when** each reused, adapted or invented element has sourcing evidence, and every required owner page exists or has an identified authoring handoff.
+**Complete when** each reused, adapted or invented element has sourcing evidence, and every required owner page exists or has an identified authoring hand-off.
 
 ## 3. Write and link pages
 
@@ -54,6 +54,6 @@ After a successful standalone operation, append exactly one entry listing each t
 bun run cf -- log --op create --title "Design <Location>" --page "<campaign-folder>/Locations/<location-slug>.md"
 ```
 
-`create` includes deepening a Location outside Ingest or Prep. A composed request returns touched paths, Canon decisions and unresolved findings to its caller. The caller runs the final gate and writes one entry under its existing operation. A child handoff leaves logging to the caller.
+`create` includes deepening a Location outside Ingest or Prep. A composed request returns touched paths, Canon decisions and unresolved findings to its caller. The caller runs the final gate and writes one entry under its existing operation. A child hand-off leaves logging to the caller.
 
 **Complete when** the page gate has printed `ok: 0 findings` and the standalone operation has one log entry, or the composed return supplies every artifact and touched path needed for its caller's gate and log. Findings are repair work. Report only missing tooling as an observed blocker, never claiming an unrun or failing gate passed.

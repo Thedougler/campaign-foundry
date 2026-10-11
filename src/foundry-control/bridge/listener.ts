@@ -31,9 +31,9 @@ function tokenFrom(path: string, headers: Map<string, string>): string | null {
 	const match = /(?:^|&)token=([^&]*)/.exec(path.slice(path.indexOf("?") + 1));
 	if (match !== null) return decodeURIComponent(match[1] ?? "");
 	const authorization = headers.get("authorization");
-	if (authorization !== undefined && authorization.toLowerCase().startsWith("bearer ")) return authorization.slice(7).trim();
+	if (authorization?.toLowerCase().startsWith("bearer ")) return authorization.slice(7).trim();
 	const protocol = headers.get("sec-websocket-protocol");
-	if (protocol !== undefined && protocol.startsWith("cf-bridge.")) return protocol.slice("cf-bridge.".length);
+	if (protocol?.startsWith("cf-bridge.")) return protocol.slice("cf-bridge.".length);
 	return null;
 }
 
@@ -122,7 +122,9 @@ export class BridgeListener {
 			return;
 		}
 		if (headers.get("sec-websocket-version") !== "13") {
-			socket.end("HTTP/1.1 426 Upgrade Required\r\nSec-WebSocket-Version: 13\r\nContent-Length: 0\r\nConnection: close\r\n\r\n");
+			socket.end(
+				"HTTP/1.1 426 Upgrade Required\r\nSec-WebSocket-Version: 13\r\nContent-Length: 0\r\nConnection: close\r\n\r\n",
+			);
 			return;
 		}
 		if (tokenFrom(path, headers) !== this.token) {

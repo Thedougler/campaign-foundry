@@ -11,7 +11,10 @@ describe("the real templates", () => {
 			expect(fm.type, t.name).toBe(t.type);
 			if (t.kind) expect(fm.kind, t.name).toBe(t.kind);
 			else expect("kind" in fm, t.name).toBe(false);
-			expect(t.keys.map((k) => k.key), t.name).toEqual(expect.arrayContaining(["summary", "sources"]));
+			expect(
+				t.keys.map((k) => k.key),
+				t.name,
+			).toEqual(expect.arrayContaining(["summary", "sources"]));
 		}
 	});
 

@@ -1,6 +1,6 @@
 ---
 name: simulate-npcs
-description: "Plays NPCs as isolated Persona agents, one per NPC, under a Director: test a Story's cast, draft dialogue in each voice, rehearse a social Scene or find NPCs' offscreen moves. Use when an outcome hinges on what NPCs would do or say."
+description: "Plays NPCs as isolated Persona agents, one per NPC, under a Director: test a Story's cast, draft dialogue in each voice, rehearse a social Scene or find NPCs' off-screen moves. Use when an outcome hinges on what NPCs would do or say."
 ---
 
 # Simulate NPCs
@@ -13,7 +13,7 @@ Everything a Simulation produces is a possibility. It becomes Canon only when th
 
 1. **Frame.** State the purpose: `story test`, `voice`, `rehearsal` or `offscreen`. Choose a short kebab-case slug for the run. List the scenes, each with a name, outline bullets, a specific place, the NPCs present and each NPC's goal for that scene. Label every input `Canon:` when it comes from a played Session or a Wiki page, and `Possibility:` when it comes from a Story Bible, a pitch or Prep. Then order the scenes with Yu's chronological-outline instruction, reading `<Outline>` as your scene list:
 
-   ```
+   ```text
    Sort, and rewrite the scene outline bullet points to be suitable for a role-playing game (RPG). Ensure that:
    - Strict chronological order: Events must be structured in the order they occur, avoiding retrospective narration (e.g., no "recounting" of past events).
    - The outline focuses on character-driven development and role-playing dynamics
@@ -34,18 +34,18 @@ Everything a Simulation produces is a possibility. It becomes Canon only when th
 
 4. **Direct.** Run each scene in chronological order. Before every command, apply Yu's termination check, reading `<ChatHistories>` as the scene's ledger entries:
 
-   ```
+   ```text
    review the <ChatHistories> … decide if the chat has covered the outline of the scene. … The reasoning must be specific, in terms of exact character and event in the scene outline not yet covered.
    ```
 
    While the outline has uncovered events, write the next command with Yu's command format, reading `<Scene>` as the scene's outline bullets:
 
-   ```
+   ```text
    1. Continuation Planning: -Examine the <ChatHistories> ... repeat **EXACTLY** the remaining part of the **outline** of the <Scene> provided that is not shown in the <ChatHistories>.
    2. Agent Selection and Command: -From your continuation plan, ... choose which character agent should role-play next. Provide the exact name of that agent.-Directly address the chosen agent with a concise, high-level command for one turn. The command should provide a summary directive—indicating the intended action or dialogue direction—tailored to the character's age, gender, and personality. Avoid including detailed dialogue or overly specific descriptions. **Be concise**
    ```
 
-   Send each turn with `write agent://<id>`, using the id the batch returned for that Persona. The message contains the events that Persona witnessed since its last turn, from the ledger's witnesses field, followed by the command. The Persona's reply arrives as its delivered result, and `read agent://<id>` shows the latest one. Append the reply to the ledger (step 5) before the next command.
+   Send each turn with `write agent://<id>`, using the id the batch returned for that Persona. The message contains the events that Persona witnessed since its last turn, from the ledger's witnesses field, followed by the command. The Persona's reply arrives as its delivered result. With nothing else to do before it arrives, call `wait`. Append the reply to the ledger (step 5) before the next command.
 
    For the `offscreen` purpose, run `echo $((RANDOM % 10))` before each command. On 0 to 2, StoryBox's Abnormal Factor of 0.3, the command invites the NPC to break from routine in a way true to its dossier.
 
@@ -53,7 +53,7 @@ Everything a Simulation produces is a possibility. It becomes Canon only when th
 
 5. **Ledger.** Keep `local://collab/sim/<slug>/ledger.md` as one entry per event, every Persona reply and every Director-narrated event alike, with StoryBox's fields: id, in-world time, place, participants, witnesses, description and detail. The description is one line. The detail follows StoryBox's definition:
 
-   ```
+   ```text
    incorporates factors such as the environment, the time of day, the status of the characters involved, and the location … including their actions, emotional states, and possible motivations.
    ```
 
@@ -63,11 +63,13 @@ Everything a Simulation produces is a possibility. It becomes Canon only when th
    - each NPC's decisions
    - surprises against the Story Bible or the NPC's page
    - knowledge leaks: each Persona line using knowledge outside its dossier and its witnessed events, judged with CharacterBox's Knowledge Accuracy criterion
-     ```
+
+     ```text
      Ensures information provided by character is factually correct and aligned with their background knowledge
      ```
+
    - quoted voice lines the DM could reuse in play, attributed to their NPC and written as Cues (`==…==`, `theatre-of-the-mind` `references/recipes.md` § Cues) with the trigger each answers
-   - offscreen moves, each with its in-world time and the sign a Party could perceive
+   - off-screen moves, each with its in-world time and the sign a Party could perceive
    - the ledger path
 
    Label the whole report as possibilities for the DM to keep or drop. **Done when** every Persona line has been checked for leaks, and every section above is present or stated as empty.

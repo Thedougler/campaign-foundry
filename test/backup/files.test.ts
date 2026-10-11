@@ -51,7 +51,9 @@ describe("backup tree walk", () => {
 	it("backs up each skill once: a symlink to a skill already walked is a duplicate, a link out of the roots is followed", () => {
 		expect(paths.filter((p) => p.endsWith("npc-design/SKILL.md"))).toEqual([".agents/skills/npc-design/SKILL.md"]);
 		expect(paths.some((p) => p.startsWith(".agents/skills/alias/"))).toBe(false);
-		expect(walk.skipped.find((s) => s.path === ".agents/skills/alias")?.reason).toBe("already backed up through another path");
+		expect(walk.skipped.find((s) => s.path === ".agents/skills/alias")?.reason).toBe(
+			"already backed up through another path",
+		);
 		expect(paths).toContain(".agents/skills/run-evals/SKILL.md");
 	});
 
@@ -60,16 +62,27 @@ describe("backup tree walk", () => {
 		expect(byPath[`${W}/hot.md`]?.kind).toBe("markdown");
 		expect(byPath[".agents/skills/npc-design/evals/cases.yaml"]?.kind).toBe("text");
 		expect(byPath[".agents/skills/npc-design/assets/portrait.webp"]?.kind).toBe("image");
-		expect(byPath[`${W}/attachments/Map.png`]).toMatchObject({ kind: "image", hash: OID, lfsPointer: true, size: 1234 });
+		expect(byPath[`${W}/attachments/Map.png`]).toMatchObject({
+			kind: "image",
+			hash: OID,
+			lfsPointer: true,
+			size: 1234,
+		});
 		const real = Buffer.from("real image bytes");
-		expect(contentHash(real)).toEqual({ hash: createHash("sha256").update(real).digest("hex"), lfsPointer: false, size: real.length });
+		expect(contentHash(real)).toEqual({
+			hash: createHash("sha256").update(real).digest("hex"),
+			lfsPointer: false,
+			size: real.length,
+		});
 	});
 
 	it("lists every directory parents first, roots and their ancestors included", () => {
 		expect(walk.dirs.slice(0, 4)).toEqual([".agents", "wiki", ".agents/skills", "wiki/shattered-sea"]);
 		expect(walk.dirs).toContain(`${W}/attachments`);
 		expect(walk.dirs).not.toContain(`${W}/.obsidian`);
-		for (const dir of walk.dirs) for (const parent of ancestors(`${dir}/x`).slice(0, -1)) expect(walk.dirs.indexOf(parent)).toBeLessThan(walk.dirs.indexOf(dir));
+		for (const dir of walk.dirs)
+			for (const parent of ancestors(`${dir}/x`).slice(0, -1))
+				expect(walk.dirs.indexOf(parent)).toBeLessThan(walk.dirs.indexOf(dir));
 	});
 	it("reads the Wiki title from frontmatter rather than deriving it from the path", () => {
 		const root = repo({ [`${W}/NPCs/ilse-corran.md`]: "---\ntitle: Captain Ilse\naliases: [Ilse]\n---\nIlse\n" });
@@ -98,7 +111,8 @@ describe("backup rules", () => {
 	});
 
 	it("treats every image extension as an image and other text as text", () => {
-		for (const ext of ["png", "JPG", "jpeg", "webp", "gif", "svg"]) expect(kindOf(`a.${ext}`, Buffer.from("x"))).toBe("image");
+		for (const ext of ["png", "JPG", "jpeg", "webp", "gif", "svg"])
+			expect(kindOf(`a.${ext}`, Buffer.from("x"))).toBe("image");
 		expect(kindOf("LICENSE", Buffer.from("MIT"))).toBe("text");
 	});
 });

@@ -33,10 +33,19 @@ const DOCKER_LABELS = JSON.stringify({
 });
 
 const DOCKER_PORTS = JSON.stringify({
-	"30000/tcp": [{ HostIp: "0.0.0.0", HostPort: "30000" }, { HostIp: "::", HostPort: "30000" }],
+	"30000/tcp": [
+		{ HostIp: "0.0.0.0", HostPort: "30000" },
+		{ HostIp: "::", HostPort: "30000" },
+	],
 });
 
-const OPTIONS = JSON.stringify({ port: 30000, dataPath: "/data", world: null, updateChannel: "stable", awsConfig: null });
+const OPTIONS = JSON.stringify({
+	port: 30000,
+	dataPath: "/data",
+	world: null,
+	updateChannel: "stable",
+	awsConfig: null,
+});
 
 /** A ScriptedHost preloaded with the rpi4 probes, keyed by distinctive substrings. */
 function rpi4Script(): ScriptedHost {
@@ -131,13 +140,19 @@ function mutableHost(state: "running" | "stopped" | "missing"): ScriptedHost {
 			? { code: 1, stdout: "", stderr: "Error: No such object: foundry" }
 			: {
 					code: 0,
-					stdout: JSON.stringify({ Status: state === "running" ? "running" : "exited", StartedAt: "2026-10-04T22:14:33Z" }),
+					stdout: JSON.stringify({
+						Status: state === "running" ? "running" : "exited",
+						StartedAt: "2026-10-04T22:14:33Z",
+					}),
 					stderr: "",
 				};
 	return new ScriptedHost([
 		{ match: "{{json .State}}", reply: stateJson },
 		{ match: "options.json", reply: JSON.stringify({ port: 30000, world: null, updateChannel: "stable" }) },
-		{ match: "compose/foundry/.env", reply: "FOUNDRY_USERNAME=dm@example.com\nFOUNDRY_VERSION=14.368\nFOUNDRY_PASSWORD=secret\n" },
+		{
+			match: "compose/foundry/.env",
+			reply: "FOUNDRY_USERNAME=dm@example.com\nFOUNDRY_VERSION=14.368\nFOUNDRY_PASSWORD=secret\n",
+		},
 		// Catch-all: mutating commands succeed unless a test scripts otherwise.
 		{ match: "", reply: "" },
 	]);
@@ -230,9 +245,9 @@ describe("backup", () => {
 	it("restores only into a stopped world, keeping the current data directory aside", async () => {
 		const running = mutableHost("running");
 		const archive = "/home/nick/backup-staging/foundry/foundry-data-20261006-220000.tar.gz";
-		await expect(restoreBackup(running, DEFAULT_HOST_CONFIG, { archive }, new Date("2026-10-06T22:00:00Z"))).rejects.toThrow(
-			/stopped/,
-		);
+		await expect(
+			restoreBackup(running, DEFAULT_HOST_CONFIG, { archive }, new Date("2026-10-06T22:00:00Z")),
+		).rejects.toThrow(/stopped/);
 		expect(running.ran.every((cmd) => !cmd.includes("tar -xzf"))).toBe(true);
 
 		const stopped = mutableHost("stopped");
@@ -256,10 +271,12 @@ describe("assets", () => {
 
 	it("rejects destinations that escape the assets root", async () => {
 		const host = mutableHost("running");
-		await expect(putAsset(host, DEFAULT_HOST_CONFIG, { data: Buffer.from("x"), dest: "../Config/options.json" })).rejects.toThrow(
+		await expect(
+			putAsset(host, DEFAULT_HOST_CONFIG, { data: Buffer.from("x"), dest: "../Config/options.json" }),
+		).rejects.toThrow(/assets/);
+		await expect(putAsset(host, DEFAULT_HOST_CONFIG, { data: Buffer.from("x"), dest: "/etc/evil" })).rejects.toThrow(
 			/assets/,
 		);
-		await expect(putAsset(host, DEFAULT_HOST_CONFIG, { data: Buffer.from("x"), dest: "/etc/evil" })).rejects.toThrow(/assets/);
 		expect(host.ran).toEqual([]);
 	});
 });
@@ -287,7 +304,10 @@ describe("install", () => {
 
 	it("unzips a module archive into Data/modules/<name>", async () => {
 		const host = mutableHost("running");
-		const result = await installModuleArchive(host, DEFAULT_HOST_CONFIG, { zip: "/tmp/cf-bridge.zip", name: "cf-bridge" });
+		const result = await installModuleArchive(host, DEFAULT_HOST_CONFIG, {
+			zip: "/tmp/cf-bridge.zip",
+			name: "cf-bridge",
+		});
 		expect(result.dir).toBe("/home/nick/foundry-data/Data/modules/cf-bridge");
 		expect(host.ran).toEqual([
 			"test -f /tmp/cf-bridge.zip",
@@ -298,9 +318,9 @@ describe("install", () => {
 
 	it("rejects module names that escape the modules directory", async () => {
 		const host = mutableHost("running");
-		await expect(installModuleArchive(host, DEFAULT_HOST_CONFIG, { zip: "/tmp/x.zip", name: "../evil" })).rejects.toThrow(
-			/modules/,
-		);
+		await expect(
+			installModuleArchive(host, DEFAULT_HOST_CONFIG, { zip: "/tmp/x.zip", name: "../evil" }),
+		).rejects.toThrow(/modules/);
 		expect(host.ran).toEqual([]);
 	});
 });
@@ -308,8 +328,16 @@ describe("install", () => {
 describe("backup restore rollback", () => {
 	it("moves the kept directory back when the archive is unusable", async () => {
 		const stopped = mutableHost("stopped");
-		stopped.replies.push({ match: "test -f", reply: "" }, { match: "tar -xzf", reply: { code: 2, stdout: "", stderr: "not a gzip archive" } });
-		const result = await restoreBackup(stopped, DEFAULT_HOST_CONFIG, { archive: "/tmp/b.tar.gz" }, new Date("2026-10-06T22:00:00Z"));
+		stopped.replies.push(
+			{ match: "test -f", reply: "" },
+			{ match: "tar -xzf", reply: { code: 2, stdout: "", stderr: "not a gzip archive" } },
+		);
+		const result = await restoreBackup(
+			stopped,
+			DEFAULT_HOST_CONFIG,
+			{ archive: "/tmp/b.tar.gz" },
+			new Date("2026-10-06T22:00:00Z"),
+		);
 		expect(result.ok).toBe(false);
 		expect(stopped.ran.at(-1)).toBe(`mv /home/nick/foundry-data.pre-restore-20261006-220000 /home/nick/foundry-data`);
 	});

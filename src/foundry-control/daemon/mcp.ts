@@ -34,10 +34,12 @@ function failure(id: number | string | null, code: number, message: string): str
 
 /** A tool's params schema as MCP `inputSchema`. */
 function inputSchemaOf(spec: (typeof TOOL_SPECS)[number]): Record<string, unknown> {
-	const properties = Object.fromEntries(Object.entries(spec.params.properties).map(([key, property]) => {
-		const { type, ...rest } = property;
-		return [key, type === "any" ? rest : { type, ...rest }];
-	}));
+	const properties = Object.fromEntries(
+		Object.entries(spec.params.properties).map(([key, property]) => {
+			const { type, ...rest } = property;
+			return [key, type === "any" ? rest : { type, ...rest }];
+		}),
+	);
 	return { type: "object", required: spec.params.required, properties };
 }
 
@@ -80,7 +82,8 @@ export async function handleLine(registry: McpRegistry, line: string): Promise<s
 
 	switch (method) {
 		case "initialize": {
-			const clientVersion = typeof params.protocolVersion === "string" ? params.protocolVersion : DEFAULT_PROTOCOL_VERSION;
+			const clientVersion =
+				typeof params.protocolVersion === "string" ? params.protocolVersion : DEFAULT_PROTOCOL_VERSION;
 			const result = {
 				protocolVersion: clientVersion,
 				capabilities: { tools: { listChanged: false } },
@@ -91,7 +94,13 @@ export async function handleLine(registry: McpRegistry, line: string): Promise<s
 		case "ping":
 			return isNotification ? null : response(id, {});
 		case "tools/list": {
-			const result = { tools: TOOL_SPECS.map((spec) => ({ name: spec.name, description: spec.description, inputSchema: inputSchemaOf(spec) })) };
+			const result = {
+				tools: TOOL_SPECS.map((spec) => ({
+					name: spec.name,
+					description: spec.description,
+					inputSchema: inputSchemaOf(spec),
+				})),
+			};
 			return isNotification ? null : response(id, result);
 		}
 		case "tools/call": {
@@ -126,7 +135,11 @@ export async function handleLine(registry: McpRegistry, line: string): Promise<s
 }
 
 /** Pumps newline-delimited JSON-RPC from `input` to `output` until `input` ends. */
-export function runStdioMcp(registry: McpRegistry, input: NodeJS.ReadableStream, output: NodeJS.WritableStream): Promise<void> {
+export function runStdioMcp(
+	registry: McpRegistry,
+	input: NodeJS.ReadableStream,
+	output: NodeJS.WritableStream,
+): Promise<void> {
 	const { promise, resolve } = Promise.withResolvers<void>();
 	const lines = readline.createInterface({ input });
 	// Responses serialize through one queue, so replies leave in request order.

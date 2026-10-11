@@ -1,6 +1,6 @@
 /** The daemon's client to the in-world module: JSON request/reply envelopes with id correlation and timeouts. */
 
-import { type ToolName, type BridgeErrorShape } from "./schema.ts";
+import type { ToolName, BridgeErrorShape } from "./schema.ts";
 import type { Transport } from "./transport.ts";
 
 /** The module answered with an error. `approvalCommand` is set when the error is a mutation gate. */
@@ -89,9 +89,21 @@ export class BridgeClient {
 	private errorShapeOf(message: object): BridgeErrorShape | null {
 		if (!("ok" in message) || message.ok === true) return null;
 		const error = "error" in message ? message.error : undefined;
-		if (typeof error === "object" && error !== null && "code" in error && typeof error.code === "string" && "message" in error && typeof error.message === "string") {
-			const approvalCommand = "approvalCommand" in error && typeof error.approvalCommand === "string" ? error.approvalCommand : undefined;
-			return { code: error.code, message: error.message, ...(approvalCommand === undefined ? {} : { approvalCommand }) };
+		if (
+			typeof error === "object" &&
+			error !== null &&
+			"code" in error &&
+			typeof error.code === "string" &&
+			"message" in error &&
+			typeof error.message === "string"
+		) {
+			const approvalCommand =
+				"approvalCommand" in error && typeof error.approvalCommand === "string" ? error.approvalCommand : undefined;
+			return {
+				code: error.code,
+				message: error.message,
+				...(approvalCommand === undefined ? {} : { approvalCommand }),
+			};
 		}
 		return { code: "module_error", message: "The module returned an error without a shape." };
 	}

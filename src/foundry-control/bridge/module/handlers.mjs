@@ -22,8 +22,14 @@ export class ToolFailure extends Error {
 /** World collections the world plane serves. */
 const WORLD_COLLECTIONS = ["actors", "items", "scenes", "journal", "tables", "macros", "playlists", "combats"];
 const COLLECTION_DOCUMENTS = {
-	actors: "Actor", items: "Item", scenes: "Scene", journal: "JournalEntry",
-	tables: "RollTable", macros: "Macro", playlists: "Playlist", combats: "Combat",
+	actors: "Actor",
+	items: "Item",
+	scenes: "Scene",
+	journal: "JournalEntry",
+	tables: "RollTable",
+	macros: "Macro",
+	playlists: "Playlist",
+	combats: "Combat",
 };
 
 /** The ops a batch may wrap; the discipline applies to the batch as a whole, not per op. */
@@ -31,15 +37,17 @@ const BATCH_TOOLS = { "document.create": true, "document.patch": true, "document
 
 function needGame(scope) {
 	const game = scope.game;
-	if (!game) throw new ToolFailure("no_game", "The game global is not available: the module is not running inside a world.");
+	if (!game)
+		throw new ToolFailure("no_game", "The game global is not available: the module is not running inside a world.");
 	return game;
 }
 
 function needCollection(game, id) {
 	const collection = COLLECTION_DOCUMENTS[id]
-		? game[id] ?? game.collections?.get(COLLECTION_DOCUMENTS[id]) ?? game.collections?.get(id)
+		? (game[id] ?? game.collections?.get(COLLECTION_DOCUMENTS[id]) ?? game.collections?.get(id))
 		: null;
-	if (!collection) throw new ToolFailure("collection_not_found", `No world collection ${id}; world.inspect lists what exists.`);
+	if (!collection)
+		throw new ToolFailure("collection_not_found", `No world collection ${id}; world.inspect lists what exists.`);
 	return collection;
 }
 
@@ -61,7 +69,13 @@ async function resolveDoc(scope, uuid) {
 function docData(doc) {
 	const data =
 		typeof doc.toJSON === "function" ? doc.toJSON() : typeof doc.toObject === "function" ? doc.toObject() : null;
-	return { uuid: doc.uuid, name: doc.name ?? null, documentName: doc.documentName ?? null, pack: doc.pack ?? null, data };
+	return {
+		uuid: doc.uuid,
+		name: doc.name ?? null,
+		documentName: doc.documentName ?? null,
+		pack: doc.pack ?? null,
+		data,
+	};
 }
 
 function packUuid(pack, id) {
@@ -106,7 +120,12 @@ export function createHandlers(ring, scope = globalThis) {
 				const collection = game[id] ?? game.collections?.get(COLLECTION_DOCUMENTS[id]) ?? game.collections?.get(id);
 				if (!collection) continue;
 				for (const doc of collection.contents ?? []) {
-					if (!String(doc.name ?? "").toLowerCase().includes(needle)) continue;
+					if (
+						!String(doc.name ?? "")
+							.toLowerCase()
+							.includes(needle)
+					)
+						continue;
 					hits.push({ uuid: doc.uuid, name: doc.name ?? null, collection: id });
 					if (hits.length >= max) return hits;
 				}
@@ -122,7 +141,13 @@ export function createHandlers(ring, scope = globalThis) {
 			const needle = name ? String(name).toLowerCase() : null;
 			const rows = [];
 			for (const doc of docs) {
-				if (needle && !String(doc.name ?? "").toLowerCase().includes(needle)) continue;
+				if (
+					needle &&
+					!String(doc.name ?? "")
+						.toLowerCase()
+						.includes(needle)
+				)
+					continue;
 				rows.push({ uuid: doc.uuid, name: doc.name ?? null });
 				if (rows.length >= (limit ?? 50)) break;
 			}
@@ -172,23 +197,37 @@ export function createHandlers(ring, scope = globalThis) {
 				for (const op of ops ?? []) {
 					const params = op.params;
 					if (op.tool === "document.create") {
-						const target = params.pack ? needPack(needGame(scope), params.pack) : needCollection(needGame(scope), params.collection);
+						const target = params.pack
+							? needPack(needGame(scope), params.pack)
+							: needCollection(needGame(scope), params.collection);
 						operations.push({
-							action: "create", documentName: target.documentClass.documentName,
-							data: [params.data], pack: params.pack ?? null, broadcast: true,
-							renderSheet: false, keepId: params.data._id !== undefined,
+							action: "create",
+							documentName: target.documentClass.documentName,
+							data: [params.data],
+							pack: params.pack ?? null,
+							broadcast: true,
+							renderSheet: false,
+							keepId: params.data._id !== undefined,
 						});
 					} else {
 						const doc = await resolveDoc(scope, params.uuid);
-						const context = { documentName: doc.documentName, parent: doc.parent ?? null, pack: doc.pack ?? null, broadcast: true };
-						operations.push(op.tool === "document.patch"
-							? { action: "update", ...context, updates: [{ ...params.changes, _id: doc.id }] }
-							: { action: "delete", ...context, ids: [doc.id] });
+						const context = {
+							documentName: doc.documentName,
+							parent: doc.parent ?? null,
+							pack: doc.pack ?? null,
+							broadcast: true,
+						};
+						operations.push(
+							op.tool === "document.patch"
+								? { action: "update", ...context, updates: [{ ...params.changes, _id: doc.id }] }
+								: { action: "delete", ...context, ids: [doc.id] },
+						);
 					}
 				}
 				const groups = await modifyBatch(operations);
 				const results = groups.map((docs, index) => {
-					if (docs.length !== 1) throw new ToolFailure("batch_failed", `Batch operation ${index} did not return one document.`);
+					if (docs.length !== 1)
+						throw new ToolFailure("batch_failed", `Batch operation ${index} did not return one document.`);
 					return ops[index].tool === "document.delete" ? { uuid: docs[0].uuid, deleted: true } : docData(docs[0]);
 				});
 				return { mode: "modifyBatch", label: label ?? null, results };
@@ -201,12 +240,18 @@ export function createHandlers(ring, scope = globalThis) {
 		"compendium.query": async ({ pack, name, limit }) => {
 			const game = needGame(scope);
 			const target = needPack(game, pack);
-			const index = typeof target.getIndex === "function" ? await target.getIndex() : target.index ?? [];
+			const index = typeof target.getIndex === "function" ? await target.getIndex() : (target.index ?? []);
 			const entries = typeof index.values === "function" ? [...index.values()] : [...index];
 			const needle = name ? String(name).toLowerCase() : null;
 			const rows = [];
 			for (const entry of entries) {
-				if (needle && !String(entry.name ?? "").toLowerCase().includes(needle)) continue;
+				if (
+					needle &&
+					!String(entry.name ?? "")
+						.toLowerCase()
+						.includes(needle)
+				)
+					continue;
 				rows.push({ uuid: packUuid(target, entry._id), name: entry.name ?? null, type: entry.type ?? null });
 				if (rows.length >= (limit ?? 50)) break;
 			}
@@ -219,7 +264,11 @@ export function createHandlers(ring, scope = globalThis) {
 			const created = [];
 			for (const data of documents ?? []) {
 				// keepId: Adventure import keeps Wiki ids (ADR 0008); compendium imports do the same.
-				const doc = await target.documentClass.create(data, { pack: target.collection ?? target.metadata.id, keepId: true, renderSheet: false });
+				const doc = await target.documentClass.create(data, {
+					pack: target.collection ?? target.metadata.id,
+					keepId: true,
+					renderSheet: false,
+				});
 				created.push(docData(doc));
 			}
 			return { pack: target.metadata.id, documents: created };

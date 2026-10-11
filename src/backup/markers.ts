@@ -36,7 +36,9 @@ export function rootCallout(): Block {
 		object: "block",
 		type: "callout",
 		callout: {
-			rich_text: textItems(`${ROOT_NOTE}, written by the Notion backup workflow on every push to main. GitHub is the working copy: edits made here are overwritten. Each page's first line names its source file; the backup finds its pages by that line, so leave it in place.`),
+			rich_text: textItems(
+				`${ROOT_NOTE}, written by the Notion backup workflow on every push to main. GitHub is the working copy: edits made here are overwritten. Each page's first line names its source file; the backup finds its pages by that line, so leave it in place.`,
+			),
 			icon: { type: "emoji", emoji: "🗄️" },
 			color: "gray_background",
 		},
@@ -44,13 +46,21 @@ export function rootCallout(): Block {
 }
 
 export function dirMarker(path: string): Block {
-	const rich = [...textItems("Folder ", { color: "gray" }), ...textItems(path, { color: "gray", code: true }), ...textItems(" of the campaign-foundry backup.", { color: "gray" })];
+	const rich = [
+		...textItems("Folder ", { color: "gray" }),
+		...textItems(path, { color: "gray", code: true }),
+		...textItems(" of the campaign-foundry backup.", { color: "gray" }),
+	];
 	return { object: "block", type: "paragraph", paragraph: { rich_text: rich } };
 }
 
 /** The header a file page carries from creation until its content is fully written. */
 export function pendingHeader(path: string): Block {
-	const rich = [...textItems("Backup of ", { color: "gray" }), ...textItems(path, { color: "gray", code: true }), ...textItems(" (being written: the next run rewrites this page if it stops here).", { color: "gray" })];
+	const rich = [
+		...textItems("Backup of ", { color: "gray" }),
+		...textItems(path, { color: "gray", code: true }),
+		...textItems(" (being written: the next run rewrites this page if it stops here).", { color: "gray" }),
+	];
 	return { object: "block", type: "paragraph", paragraph: { rich_text: rich } };
 }
 
@@ -59,7 +69,10 @@ export function headerBlock(path: string, commit: string | undefined, url: strin
 	const rich = [
 		...textItems("Backup of ", { color: "gray" }),
 		...textItems(path, { color: "gray", code: true }, url),
-		...textItems(`${commit ? ` at ${commit.slice(0, 7)}` : ""}. Edit it in GitHub: the next change to the file overwrites this page.`, { color: "gray" }),
+		...textItems(
+			`${commit ? ` at ${commit.slice(0, 7)}` : ""}. Edit it in GitHub: the next change to the file overwrites this page.`,
+			{ color: "gray" },
+		),
 	];
 	return { object: "block", type: "paragraph", paragraph: { rich_text: rich } };
 }
@@ -81,7 +94,9 @@ export function parseMarker(block: ReadBlock): Marker | undefined {
 	if (!text.startsWith("Backup of ")) return undefined;
 	if (text.includes("(being written")) return { kind: "file", path };
 	const href = block.text.find((t) => t.code && t.href)?.href ?? "";
-	const commit = /\/blob\/([0-9a-f]{40})\//.exec(href)?.[1] ?? /^ at ([0-9a-f]{7,40})\. Edit it in GitHub/.exec(text.slice(`Backup of ${path}`.length))?.[1];
+	const commit =
+		/\/blob\/([0-9a-f]{40})\//.exec(href)?.[1] ??
+		/^ at ([0-9a-f]{7,40})\. Edit it in GitHub/.exec(text.slice(`Backup of ${path}`.length))?.[1];
 	return commit ? { kind: "file", path, commit } : { kind: "file", path };
 }
 
@@ -102,7 +117,8 @@ export function isRootCallout(block: ReadBlock | undefined): boolean {
 export function deletedNote(blocks: ReadBlock[]): string | undefined {
 	for (const b of blocks.slice(0, 2)) {
 		const text = plain(b);
-		if (b.type === "callout" && text.startsWith("Deleted from the repo")) return /on (\d{4}-\d{2}-\d{2})/.exec(text)?.[1] ?? "unknown";
+		if (b.type === "callout" && text.startsWith("Deleted from the repo"))
+			return /on (\d{4}-\d{2}-\d{2})/.exec(text)?.[1] ?? "unknown";
 	}
 	return undefined;
 }

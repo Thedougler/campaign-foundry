@@ -1,7 +1,14 @@
 import { parsePage } from "../vault/parse.ts";
-import { PullError } from "./ddb.ts";
 import { renderInventory, renderSheet, renderSpells, summaryLine } from "./render.ts";
 import type { Sheet } from "./sheet.ts";
+
+/** Why a PC page could not be rewritten, in a form the caller can show the DM. */
+export class PullError extends Error {
+	constructor(message: string) {
+		super(message);
+		this.name = "PullError";
+	}
+}
 
 export type PulledSection = "Sheet" | "Spells" | "Inventory";
 const SECTIONS: PulledSection[] = ["Sheet", "Spells", "Inventory"];
@@ -42,7 +49,9 @@ export function rewritePcPage(source: string, path: string, sheet: Sheet): Rewri
 	const ranges = SECTIONS.map((name) => {
 		const at = h2.findIndex((h) => h.text === name);
 		if (at === -1) {
-			throw new PullError(`${path}: no "## ${name}" section. A PC page needs the Sheet, Spells and Inventory sections; copy them from wiki/templates/pc.md.`);
+			throw new PullError(
+				`${path}: no "## ${name}" section. A PC page needs the Sheet, Spells and Inventory sections; copy them from wiki/templates/pc.md.`,
+			);
 		}
 		const start = h2[at]!.line - 1;
 		const next = h2[at + 1];
@@ -75,7 +84,11 @@ export function rewritePcPage(source: string, path: string, sheet: Sheet): Rewri
 
 	let summarySet = false;
 	const summary = page.frontmatter?.summary;
-	if (page.frontmatter && (summary === undefined || summary === null || (typeof summary === "string" && summary.trim() === "")) && "summary" in page.frontmatter) {
+	if (
+		page.frontmatter &&
+		(summary === undefined || summary === null || (typeof summary === "string" && summary.trim() === "")) &&
+		"summary" in page.frontmatter
+	) {
 		const line = lines.findIndex((l, i) => i < page.frontmatterEndLine - 1 && /^summary:[ \t]*(""|'')?[ \t]*$/.test(l));
 		if (line !== -1) {
 			lines[line] = `summary: ${JSON.stringify(summaryLine(sheet))}`;
@@ -83,5 +96,11 @@ export function rewritePcPage(source: string, path: string, sheet: Sheet): Rewri
 		}
 	}
 
-	return { source: lines.join("\n"), sections: SECTIONS.filter((s) => changed.includes(s)), summarySet, added, removed };
+	return {
+		source: lines.join("\n"),
+		sections: SECTIONS.filter((s) => changed.includes(s)),
+		summarySet,
+		added,
+		removed,
+	};
 }

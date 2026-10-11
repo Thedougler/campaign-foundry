@@ -13,8 +13,13 @@ describe("v14 Public API adapter", () => {
 	it("loads a pack index and uses the pack's getUuid method", async () => {
 		let loaded = false;
 		const pack = {
-			collection: "world.campaign", documentName: "Actor", metadata: { id: "world.campaign" },
-			getIndex: async () => { loaded = true; return new Map([["a", { _id: "a", name: "Bazzoth" }]]); },
+			collection: "world.campaign",
+			documentName: "Actor",
+			metadata: { id: "world.campaign" },
+			getIndex: async () => {
+				loaded = true;
+				return new Map([["a", { _id: "a", name: "Bazzoth" }]]);
+			},
 			getUuid: (id: string) => `Compendium.world.campaign.Actor.${id}`,
 		};
 		const handlers = createHandlers(new EventRing(), { game: { packs: new Map([[pack.collection, pack]]) } });
@@ -31,31 +36,61 @@ describe("v14 Public API adapter", () => {
 		const handlers = createHandlers(new EventRing(), {
 			game: { actors: { documentClass: { documentName: "Actor" } } },
 			fromUuid: async () => existing,
-			foundry: { documents: { modifyBatch: async (operations: unknown[]) => {
-				submitted.push(operations);
-				return [[created], [{ ...created, uuid: existing.uuid }], [existing]];
-			} } },
+			foundry: {
+				documents: {
+					modifyBatch: async (operations: unknown[]) => {
+						submitted.push(operations);
+						return [[created], [{ ...created, uuid: existing.uuid }], [existing]];
+					},
+				},
+			},
 		});
-		const result = await handlers["document.batch"]({ ops: [
-			{ tool: "document.create", params: { collection: "actors", data: { name: "New" } } },
-			{ tool: "document.patch", params: { uuid: "Actor.a", changes: { name: "Changed" } } },
-			{ tool: "document.delete", params: { uuid: "Actor.a" } },
-		] });
-		expect(submitted).toEqual([[
-			{ action: "create", documentName: "Actor", data: [{ name: "New" }], pack: null, broadcast: true, renderSheet: false, keepId: false },
-			{ action: "update", documentName: "Actor", updates: [{ name: "Changed", _id: "a" }], parent: null, pack: null, broadcast: true },
-			{ action: "delete", documentName: "Actor", ids: ["a"], parent: null, pack: null, broadcast: true },
-		]]);
-		expect(result).toMatchObject({ mode: "modifyBatch", results: [
-			{ uuid: "Actor.new" }, { uuid: "Actor.a" }, { uuid: "Actor.a", deleted: true },
-		] });
+		const result = await handlers["document.batch"]({
+			ops: [
+				{ tool: "document.create", params: { collection: "actors", data: { name: "New" } } },
+				{ tool: "document.patch", params: { uuid: "Actor.a", changes: { name: "Changed" } } },
+				{ tool: "document.delete", params: { uuid: "Actor.a" } },
+			],
+		});
+		expect(submitted).toEqual([
+			[
+				{
+					action: "create",
+					documentName: "Actor",
+					data: [{ name: "New" }],
+					pack: null,
+					broadcast: true,
+					renderSheet: false,
+					keepId: false,
+				},
+				{
+					action: "update",
+					documentName: "Actor",
+					updates: [{ name: "Changed", _id: "a" }],
+					parent: null,
+					pack: null,
+					broadcast: true,
+				},
+				{ action: "delete", documentName: "Actor", ids: ["a"], parent: null, pack: null, broadcast: true },
+			],
+		]);
+		expect(result).toMatchObject({
+			mode: "modifyBatch",
+			results: [{ uuid: "Actor.new" }, { uuid: "Actor.a" }, { uuid: "Actor.a", deleted: true }],
+		});
 	});
 
 	it("uses the documented Macro.execute scope object", async () => {
 		const calls: unknown[] = [];
-		const handlers = createHandlers(new EventRing(), { fromUuid: async () => ({
-			uuid: "Macro.a", execute: async (scope: unknown) => { calls.push(scope); return "ran"; },
-		}) });
+		const handlers = createHandlers(new EventRing(), {
+			fromUuid: async () => ({
+				uuid: "Macro.a",
+				execute: async (scope: unknown) => {
+					calls.push(scope);
+					return "ran";
+				},
+			}),
+		});
 		await handlers["macro.run"]({ uuid: "Macro.a", scope: { speaker: { alias: "DM" } } });
 		expect(calls).toEqual([{ speaker: { alias: "DM" } }]);
 	});

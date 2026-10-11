@@ -5,9 +5,10 @@ import type { DdbAuth, FetchInit, FetchResult } from "./auth.ts";
  * with), used as the fallback when D&D Beyond refuses the direct HTTP transport. The adapter never
  * drives the page: it only re-issues the captured request through the browser's network stack.
  */
-export interface BrowserFetcher {
-	(url: string, init: FetchInit & { method: string; headers: Record<string, string> }): Promise<FetchResult>;
-}
+export type BrowserFetcher = (
+	url: string,
+	init: FetchInit & { method: string; headers: Record<string, string> },
+) => Promise<FetchResult>;
 
 /** How adapter requests reach D&D Beyond: direct HTTP first, the authenticated browser on refusal. */
 export interface Transport {
@@ -28,8 +29,10 @@ export class DdbTransportError extends Error {
 	}
 }
 
-const LOGIN_HINT = "the stored session was refused; re-login and save the session (cf ddb --help has the Authentication steps)";
-const BROWSER_HINT = "D&D Beyond refused the direct request; retry inside the omp browser session, whose authenticated tab issues the same request (docs/adr/0022 has the steps)";
+const LOGIN_HINT =
+	"the stored session was refused; re-login and save the session (cf ddb --help has the Authentication steps)";
+const BROWSER_HINT =
+	"D&D Beyond refused the direct request; retry inside the omp browser session, whose authenticated tab issues the same request (docs/adr/0022 has the steps)";
 
 /** Character-service and Waterdeep envelope both carry `data`; character-service also carries `success`. */
 export function unwrapEnvelope(json: unknown): unknown {
@@ -38,7 +41,10 @@ export function unwrapEnvelope(json: unknown): unknown {
 	if (!("data" in record)) return json;
 	if ("success" in record) {
 		if (record.success !== true) {
-			throw new DdbTransportError(`D&D Beyond rejected the request: ${String(record.message ?? "unknown error")}`, "check the request payload");
+			throw new DdbTransportError(
+				`D&D Beyond rejected the request: ${String(record.message ?? "unknown error")}`,
+				"check the request payload",
+			);
 		}
 		return record.data;
 	}
@@ -51,21 +57,32 @@ export function unwrapEnvelope(json: unknown): unknown {
  * CSRF) through the authenticated browser context when one is wired. A 401 is never retried: the stored
  * session itself is stale and needs the DM's re-login.
  */
-export async function request<T = unknown>(transport: Transport, url: string, init: { method?: string; headers?: Record<string, string>; body?: string }): Promise<T> {
+export async function request<T = unknown>(
+	transport: Transport,
+	url: string,
+	init: { method?: string; headers?: Record<string, string>; body?: string },
+): Promise<T> {
 	const method = init.method ?? "GET";
 	const headers = { ...(await transport.auth.headers(url)), ...init.headers };
 	let direct: FetchResult;
 	try {
 		direct = await transport.fetch(url, { method, headers, ...(init.body === undefined ? {} : { body: init.body }) });
 	} catch (error) {
-		throw new DdbTransportError(`The request to ${url} failed: ${(error as Error).message}`, "check the network, then retry");
+		throw new DdbTransportError(
+			`The request to ${url} failed: ${(error as Error).message}`,
+			"check the network, then retry",
+		);
 	}
 	if (direct.ok) return unwrapEnvelope(JSON.parse(await direct.text())) as T;
 	if (direct.status === 401) {
 		throw new DdbTransportError(`D&D Beyond refused the request: HTTP 401.`, LOGIN_HINT, 401);
 	}
 	if ((direct.status === 403 || direct.status === 429) && transport.browserFetch) {
-		const browser = await transport.browserFetch(url, { method, headers, ...(init.body === undefined ? {} : { body: init.body }) });
+		const browser = await transport.browserFetch(url, {
+			method,
+			headers,
+			...(init.body === undefined ? {} : { body: init.body }),
+		});
 		if (browser.ok) return unwrapEnvelope(JSON.parse(await browser.text())) as T;
 		throw new DdbTransportError(
 			`D&D Beyond refused both the direct request and the browser fallback: HTTP ${browser.status}.`,
@@ -74,7 +91,15 @@ export async function request<T = unknown>(transport: Transport, url: string, in
 		);
 	}
 	if (direct.status === 403 || direct.status === 429) {
-		throw new DdbTransportError(`D&D Beyond refused the direct request: HTTP ${direct.status}.`, BROWSER_HINT, direct.status);
+		throw new DdbTransportError(
+			`D&D Beyond refused the direct request: HTTP ${direct.status}.`,
+			BROWSER_HINT,
+			direct.status,
+		);
 	}
-	throw new DdbTransportError(`D&D Beyond answered HTTP ${direct.status} for ${url}.`, "check the request and the captured contract", direct.status);
+	throw new DdbTransportError(
+		`D&D Beyond answered HTTP ${direct.status} for ${url}.`,
+		"check the request and the captured contract",
+		direct.status,
+	);
 }

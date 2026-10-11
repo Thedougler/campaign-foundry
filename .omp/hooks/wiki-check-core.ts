@@ -34,8 +34,11 @@ export interface Paths {
 const mutations: Record<string, true | undefined> = { write: true, edit: true, apply_patch: true };
 
 export function shouldCheck(toolName: string, isError: boolean, agent?: { kind: string; name?: string }): boolean {
-	return !isError && mutations[toolName] === true &&
-		!(agent?.kind === "sub" && ["test-subject", "prose-grader"].includes((agent.name ?? "").toLowerCase()));
+	return (
+		!isError &&
+		mutations[toolName] === true &&
+		!(agent?.kind === "sub" && ["test-subject", "prose-grader"].includes((agent.name ?? "").toLowerCase()))
+	);
 }
 
 function headerPath(body: string): string {
@@ -51,9 +54,15 @@ export function inputPaths(toolName: string, input: Record<string, unknown>): Pa
 	let inputCapped = false;
 	const add = (value: unknown) => {
 		if (typeof value !== "string" || !value || seen.has(value)) return;
-		if (value.length > LIMITS.pathChars) { inputCapped = true; return; }
+		if (value.length > LIMITS.pathChars) {
+			inputCapped = true;
+			return;
+		}
 		// Bound the deduplication set as well as the retained candidates.
-		if (values.length >= LIMITS.candidates) { omitted++; return; }
+		if (values.length >= LIMITS.candidates) {
+			omitted++;
+			return;
+		}
 		seen.add(value);
 		values.push(value);
 	};
@@ -67,7 +76,10 @@ export function inputPaths(toolName: string, input: Record<string, unknown>): Pa
 	for (const key of toolName === "edit" ? ["input", "_input", "patch"] : ["patch", "input", "_input"]) {
 		const patch = input[key];
 		if (typeof patch !== "string") continue;
-		if (patch.length > LIMITS.inputChars) { inputCapped = true; continue; }
+		if (patch.length > LIMITS.inputChars) {
+			inputCapped = true;
+			continue;
+		}
 		for (const line of patch.split(/\r?\n/u)) {
 			if (toolName === "edit") {
 				const header = /^\[([^\r\n]+)\]$/u.exec(line);
@@ -88,26 +100,47 @@ export function inputPaths(toolName: string, input: Record<string, unknown>): Pa
 function isFinding(value: unknown): value is Finding {
 	if (!value || typeof value !== "object" || Array.isArray(value)) return false;
 	const f = value as Record<string, unknown>;
-	return ["path", "layer", "rule", "message", "hint"].every((key) => typeof f[key] === "string") &&
-		typeof f.line === "number" && Number.isInteger(f.line) && f.line >= 1 &&
-		(f.severity === "error" || f.severity === "warning");
+	return (
+		["path", "layer", "rule", "message", "hint"].every((key) => typeof f[key] === "string") &&
+		typeof f.line === "number" &&
+		Number.isInteger(f.line) &&
+		f.line >= 1 &&
+		(f.severity === "error" || f.severity === "warning")
+	);
 }
 
-const repairGuidance = "wiki-check is read-only page-check feedback, not repair authority. Load skill://lint and repair the reported findings; clean means zero findings, including warnings, regardless of ok or exit code. The hook applies no fixes. The final combined slice gate still applies.";
-const manualGuidance = "wiki-check did not provide a complete page check. Do not treat any unchecked page or capped list as clean. Run bun run cf -- check for all affected pages yourself, then use skill://lint as the repair authority. The hook applies no fixes; the final combined slice gate still applies.";
+const repairGuidance =
+	"wiki-check is read-only page-check feedback, not repair authority. Load skill://lint and repair the reported findings; clean means zero findings, including warnings, regardless of ok or exit code. The hook doesn't apply fixes. The final combined slice gate still applies.";
+const manualGuidance =
+	"wiki-check did not provide a complete page check. Do not treat any unchecked page or capped list as clean. Run `bun run cf -- check` for all affected pages yourself, then use skill://lint as the repair authority. The hook doesn't apply fixes. The final combined slice gate still applies.";
 
 /** Raw findings stay in tool data. Only fixed, hook-authored guidance enters trusted context. */
-export function feedback(execution: Execution, pages: string[], incomplete: { omitted: number; inputCapped: boolean } = { omitted: 0, inputCapped: false }): { text: string; additionalContext?: string } {
+export function feedback(
+	execution: Execution,
+	pages: string[],
+	incomplete: { omitted: number; inputCapped: boolean } = { omitted: 0, inputCapped: false },
+): { text: string; additionalContext?: string } {
 	const manualCheck = `bun run cf -- check ${pages.map((path) => `'${path.replaceAll("'", "'\\''")}'`).join(" ")}`;
 	const base = { hook: "wiki-check", pages, readOnly: true, command: "cf check --json (all layers)", ...incomplete };
 	const failed = (failure: string, detail?: string) => ({
-		text: JSON.stringify({ ...base, status: "not-checked", failure, ...(detail ? { detail: detail.slice(0, 512) } : {}), manualCheck }),
+		text: JSON.stringify({
+			...base,
+			status: "not-checked",
+			failure,
+			...(detail ? { detail: detail.slice(0, 512) } : {}),
+			manualCheck,
+		}),
 		additionalContext: manualGuidance,
 	});
 	if ("failure" in execution) return failed(execution.failure, execution.detail);
-	if (execution.exitCode !== 0 && execution.exitCode !== 1) return failed("error", `cf check exited ${execution.exitCode ?? "without a status"}`);
+	if (execution.exitCode !== 0 && execution.exitCode !== 1)
+		return failed("error", `cf check exited ${execution.exitCode ?? "without a status"}`);
 	let parsed: unknown;
-	try { parsed = JSON.parse(execution.stdout); } catch { return failed("malformed-json"); }
+	try {
+		parsed = JSON.parse(execution.stdout);
+	} catch {
+		return failed("malformed-json");
+	}
 	if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return failed("malformed-json");
 	const findings = (parsed as Record<string, unknown>).findings;
 	if (!Array.isArray(findings) || !findings.every(isFinding)) return failed("malformed-json");
@@ -122,7 +155,23 @@ export function feedback(execution: Execution, pages: string[], incomplete: { om
 	const omittedFindings = findings.length - shown.length;
 	const capped = omittedFindings > 0 || incomplete.omitted > 0 || incomplete.inputCapped;
 	return {
-		text: JSON.stringify({ ...base, status: capped ? "capped" : findings.length === 0 ? "clean" : "findings", totalFindings: findings.length, findings: shown, omittedFindings, ...(capped ? { manualCheck, note: "Incomplete feedback: omitted findings or input targets must be checked manually; this is not a complete clean page check." } : {}) }),
-		...(capped ? { additionalContext: manualGuidance } : findings.length > 0 ? { additionalContext: repairGuidance } : {}),
+		text: JSON.stringify({
+			...base,
+			status: capped ? "capped" : findings.length === 0 ? "clean" : "findings",
+			totalFindings: findings.length,
+			findings: shown,
+			omittedFindings,
+			...(capped
+				? {
+						manualCheck,
+						note: "Incomplete feedback: omitted findings or input targets must be checked manually; this is not a complete clean page check.",
+					}
+				: {}),
+		}),
+		...(capped
+			? { additionalContext: manualGuidance }
+			: findings.length > 0
+				? { additionalContext: repairGuidance }
+				: {}),
 	};
 }

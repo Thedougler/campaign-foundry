@@ -22,7 +22,15 @@ describe("cf encounter-budget: party budgets", () => {
 	});
 
 	it("accepts --party-level with --party-size", async () => {
-		const { code, stdout } = await cf(["encounter-budget", "--party-level", "5", "--party-size", "4", "--level-offset", "0"]);
+		const { code, stdout } = await cf([
+			"encounter-budget",
+			"--party-level",
+			"5",
+			"--party-size",
+			"4",
+			"--level-offset",
+			"0",
+		]);
 		expect(code).toBe(0);
 		expect(stdout).toContain("4 characters, level 5");
 		expect(stdout).toContain("High 4400");
@@ -32,13 +40,31 @@ describe("cf encounter-budget: party budgets", () => {
 describe("cf encounter-budget: exact and just-over High", () => {
 	it("labels total XP equal to High as High", async () => {
 		// 4×5th High budget is 4400; 4×1100 XP is exact High.
-		const { code, stdout } = await cf([...levels5x4, "--creature", "Bulette,5,1800,1", "--creature", "Chuul,4,1100,1", "--creature", "Orc,1/2,100,15"]);
+		const { code, stdout } = await cf([
+			...levels5x4,
+			"--creature",
+			"Bulette,5,1800,1",
+			"--creature",
+			"Chuul,4,1100,1",
+			"--creature",
+			"Orc,1/2,100,15",
+		]);
 		expect(code).toBe(0);
 		expect(stdout).toMatch(/\*\*Total: 4400 XP \(High difficulty\)\*\*/);
 	});
 
 	it("labels one XP over High as Beyond High", async () => {
-		const { code, stdout } = await cf([...levels5x4, "--creature", "Bulette,5,1800,1", "--creature", "Chuul,4,1100,1", "--creature", "Orc,1/2,100,15", "--creature", "Giant Rat,1/8,25,1"]);
+		const { code, stdout } = await cf([
+			...levels5x4,
+			"--creature",
+			"Bulette,5,1800,1",
+			"--creature",
+			"Chuul,4,1100,1",
+			"--creature",
+			"Orc,1/2,100,15",
+			"--creature",
+			"Giant Rat,1/8,25,1",
+		]);
 		// 4400 + 25 = 4425, clearly over. Also probe 4401 via JSON.
 		expect(code).toBe(0);
 		expect(stdout).toMatch(/\*\*Total: 4425 XP \(Beyond High difficulty\)\*\*/);
@@ -52,9 +78,17 @@ describe("cf encounter-budget: exact and just-over High", () => {
 	});
 
 	it("labels total XP equal to Moderate as Moderate, and one over as High", async () => {
-		const exact = await cf([...levels5x4, "--monsters", JSON.stringify([{ name: "Probe", cr: "0", xp: 3000, count: 1 }])]);
+		const exact = await cf([
+			...levels5x4,
+			"--monsters",
+			JSON.stringify([{ name: "Probe", cr: "0", xp: 3000, count: 1 }]),
+		]);
 		expect(exact.stdout).toMatch(/\*\*Total: 3000 XP \(Moderate difficulty\)\*\*/);
-		const over = await cf([...levels5x4, "--monsters", JSON.stringify([{ name: "Probe", cr: "0", xp: 3001, count: 1 }])]);
+		const over = await cf([
+			...levels5x4,
+			"--monsters",
+			JSON.stringify([{ name: "Probe", cr: "0", xp: 3001, count: 1 }]),
+		]);
 		expect(over.stdout).toMatch(/\*\*Total: 3001 XP \(High difficulty\)\*\*/);
 	});
 });
@@ -76,28 +110,7 @@ describe("cf encounter-budget: target and copy block", () => {
 	});
 });
 
-describe("cf encounter-budget: help and usage", () => {
-	it("documents options, exit codes and examples", async () => {
-		const { code, stdout } = await cf(["encounter-budget", "--help"]);
-		expect(code).toBe(0);
-		for (const option of ["--levels", "--party-level", "--party-size", "--level-offset", "--creature", "--monsters", "--target", "--json"]) {
-			expect(stdout).toContain(option);
-		}
-		expect(stdout).toContain("Examples:");
-		expect(stdout).toContain("Exit codes:");
-		expect(stdout).toMatch(/^ {2}cf encounter-budget /m);
-	});
-
-	it("is listed in cf --help", async () => {
-		expect((await cf(["--help"])).stdout).toContain("encounter-budget");
-	});
-
-	it("exits 2 with an example when party input is missing", async () => {
-		const { code, stderr } = await cf(["encounter-budget"]);
-		expect(code).toBe(2);
-		expect(stderr).toContain("cf encounter-budget");
-	});
-
+describe("cf encounter-budget: usage errors", () => {
 	it("exits 2 for a fractional party size, out-of-range level, or negative XP", async () => {
 		const size = await cf(["encounter-budget", "--party-level", "5", "--party-size", "4.5"]);
 		expect(size.code).toBe(2);

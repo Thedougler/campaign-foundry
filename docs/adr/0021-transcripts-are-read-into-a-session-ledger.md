@@ -5,6 +5,7 @@ A TranscribeX Transcript runs 2 to 8 hours of the DM and four Players: about 45,
 Decision:
 
 - **Ledger first.** The writing agent never reads a raw Transcript whole. `cf transcript chunks` cuts it on block ends, and `transcript-reader` subagents on a flash model read one chunk each into a line-cited Session Ledger. Ingest merges the chunks, verifies flagged ranges with further reader dispatches, and keeps the Ledger in `archive/` beside the Transcript. The Wiki is written from the Ledger, and `sources` still cite the Transcript.
+- **One parser reads a Transcript.** `cf transcript`'s Transcript module (`src/transcript`) parses both TranscribeX shapes, markdown and CSV, once. The Python laugh detector receives the parsed blocks as a payload file, so no second parser can drift from the first.
 - **Labels are hints.** A speaker label is judged per block from content: who narrates, who declares a PC's action, who answers a call for a roll. An actor that cannot be settled is flagged, and an unresolved flag keeps its claim out of the Wiki.
 - **The summary is an index.** The Transcript Summary lists candidate events that Ingest checks against the Ledger. It is never evidence, and its action items and open questions are plans.
 - **Mishearings go to the TranscribeX Dictionary.** `transcribex-dictionary.csv` at the repo root, committed, maps each misheard form to its Canon spelling; `cf transcript dictionary` appends to it and the DM imports it into TranscribeX. A mishearing never becomes a Wiki alias or a cspell word.

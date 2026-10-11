@@ -66,7 +66,12 @@ export function startModule(deps = {}) {
 	async function dispatch(request) {
 		const handler = handlers[request.tool];
 		if (handler === undefined) {
-			send({ type: "reply", id: request.id, ok: false, error: { code: "unknown_tool", message: `No module tool ${request.tool}.` } });
+			send({
+				type: "reply",
+				id: request.id,
+				ok: false,
+				error: { code: "unknown_tool", message: `No module tool ${request.tool}.` },
+			});
 			return;
 		}
 		try {

@@ -1,19 +1,29 @@
 import { mkdir, rename as moveFile, unlink, writeFile } from "node:fs/promises";
-import type { RootContent } from "mdast";
 import { basename, dirname, extname, join, relative, sep } from "node:path";
 import { Command } from "commander";
 import sharp from "sharp";
 import { UsageError } from "../check/run.ts";
-import { blank, parseWikiLinkText, slugify } from "../vault/parse.ts";
+import { slugify } from "../vault/dialect.ts";
+import { normalizeTarget, pathSuffixes } from "../vault/links.ts";
+import { applyEdits, type LinkEdit, planLinkEdits } from "../vault/rewrite.ts";
 import type { Page, Vault } from "../vault/types.ts";
 import { buildVault, readVaultFiles } from "../vault/vault.ts";
-import { resolveVault } from "./vault-flags.ts";
-
-/** `![[target#heading#^block|alias]]`; the inner text never spans lines or nests brackets. */
-const WIKILINK = /(!?)\[\[([^[\]\n]*)\]\]/g;
+import { CF, envOptions, resolveEnv } from "./kit.ts";
 
 /** The kind suffixes a Visual's file name carries (`docs/wiki-layout.md`), longest first so `battle-map` beats `map`. */
-const KINDS = ["battle-map", "reference-sheet", "handout-art", "portrait", "token", "scene", "render", "banner", "sigil", "symbol", "map"] as const;
+const KINDS = [
+	"battle-map",
+	"reference-sheet",
+	"handout-art",
+	"portrait",
+	"token",
+	"scene",
+	"render",
+	"banner",
+	"sigil",
+	"symbol",
+	"map",
+] as const;
 type Kind = (typeof KINDS)[number];
 /** Kinds whose files keep their bytes: a map's grid and a sheet's fine print do not survive webp's lossy step. */
 const LOSSLESS: ReadonlySet<Kind> = new Set(["battle-map", "reference-sheet"]);
@@ -28,6 +38,7 @@ const WEBP_QUALITY = 85;
 
 interface ConvertFlags {
 	dryRun?: boolean;
+	json?: boolean;
 	vault?: string;
 	root?: string;
 }
@@ -43,15 +54,6 @@ interface Move {
 interface Skip {
 	path: string;
 	reason: string;
-}
-
-/** One planned `[[old]]` -> `[[new]]` on one line of one page; `start`/`end` offset the page's current source. */
-interface LinkEdit {
-	line: number;
-	from: string;
-	to: string;
-	start: number;
-	end: number;
 }
 
 /** The extension, lowercased: the form every extension comparison in this file uses. */
@@ -110,7 +112,12 @@ function planFiles(vault: Vault): { moves: Move[]; skips: Skip[] } {
 		const separator = stem.lastIndexOf(" - ");
 		if (separator === -1) {
 			const slugKind = stem === slugify(stem) && namesKind(stem);
-			skips.push({ path, reason: slugKind ? "already follows the naming" : `no "<Title> - <Kind>" separator and not already <slug>-<kind>` });
+			skips.push({
+				path,
+				reason: slugKind
+					? "already follows the naming"
+					: `no "<Title> - <Kind>" separator and not already <slug>-<kind>`,
+			});
 			continue;
 		}
 		const title = stem.slice(0, separator);
@@ -128,13 +135,22 @@ function planFiles(vault: Vault): { moves: Move[]; skips: Skip[] } {
 		}
 		const convert = !LOSSLESS.has(kind) && CONVERTIBLE.has(ext) && ext !== "webp";
 		const newExt = convert ? "webp" : extname(path).slice(1);
-		moves.push({ from: path, to: `${path.slice(0, path.lastIndexOf("/") + 1)}${titleSlug}-${kindSegment(slug)}.${newExt}`, convert });
+		moves.push({
+			from: path,
+			to: `${path.slice(0, path.lastIndexOf("/") + 1)}${titleSlug}-${kindSegment(slug)}.${newExt}`,
+			convert,
+		});
 	}
 	for (const path of vault.attachments) {
 		if (!COMPANIONS.has(extOf(path))) continue;
 		const stem = path.slice(0, path.length - extname(path).length);
 		const ride = moves.find((move) => move.from.slice(0, move.from.length - extname(move.from).length) === stem);
-		if (ride) moves.push({ from: path, to: `${ride.to.slice(0, ride.to.lastIndexOf("/") + 1)}${stemOf(ride.to)}.${extname(path).slice(1)}`, convert: false });
+		if (ride)
+			moves.push({
+				from: path,
+				to: `${ride.to.slice(0, ride.to.lastIndexOf("/") + 1)}${stemOf(ride.to)}.${extname(path).slice(1)}`,
+				convert: false,
+			});
 		else skips.push({ path, reason: "no map image of the same name beside it" });
 	}
 	return { moves, skips };
@@ -164,73 +180,34 @@ function assertNoClashes(vault: Vault, moves: Move[]): void {
 	}
 }
 
-/** Source offsets of every code fence and code span: they hold examples and diagrams, not live embeds. */
-function codeRanges(page: Page): [number, number][] {
-	const ranges: [number, number][] = [];
-	const visit = (node: RootContent): void => {
-		if ((node.type === "code" || node.type === "inlineCode") && node.position) {
-			ranges.push([node.position.start.offset ?? 0, node.position.end.offset ?? 0]);
-		}
-		if ("children" in node) for (const child of node.children) visit(child as RootContent);
-	};
-	for (const child of page.tree.children) visit(child);
-	return ranges;
-}
-
 /**
  * Every link that names a renamed attachment, rewritten on the page that holds it. A link may spell the file
- * by any suffix of its path (`![[map.webp]]`, `![[attachments/map.webp]]`), exactly as the link graph
- * resolves it, and keeps its embed marker, size alias and any heading or block fragment.
+ * by any suffix of its path (`![[map.webp]]`, `![[attachments/map.webp]]`), exactly as the link graph resolves
+ * it, and keeps its embed marker, size alias and any heading or block fragment.
  */
-function planRewrites(vault: Vault, moves: Move[]): Map<string, LinkEdit[]> {
+function planRewrites(vault: Vault, moves: Move[]): Map<Page, LinkEdit[]> {
 	const byKey = new Map<string, { move: Move; key: string; depth: number }>();
 	for (const move of moves) {
 		if (!IMAGES.has(extOf(move.from))) continue; // a VTT companion is never embedded
-		const segments = move.from.split("/");
-		segments.forEach((_, i) => {
-			const key = segments.slice(i).join("/").toLowerCase();
-			if (!byKey.has(key)) byKey.set(key, { move, key, depth: segments.length - i });
-		});
-	}
-	const rewrites = new Map<string, LinkEdit[]>();
-	if (byKey.size === 0) return rewrites;
-	for (const page of vault.pages) {
-		const ranges = [...page.comments.map((comment) => [comment.start, comment.end] as [number, number]), ...codeRanges(page)].sort((a, b) => a[0] - b[0]);
-		const masked = blank(page.source, ranges, false);
-		const edits: LinkEdit[] = [];
-		let line = 1;
-		let cursor = 0;
-		for (const match of masked.matchAll(WIKILINK)) {
-			const start = match.index ?? 0;
-			line += page.source.slice(cursor, start).split("\n").length - 1;
-			cursor = start;
-			const embed = match[1] === "!";
-			const inner = match[2] ?? "";
-			const link = parseWikiLinkText(match[0], embed, inner, line, false);
-			if (link.target === "") continue;
-			const hit = byKey.get(link.target.replace(/^\/+/, "").toLowerCase());
-			if (!hit) continue;
-			// The link spelled the file by the last `depth` segments of its path; it now spells the new one the same way.
-			const tail = hit.move.to.split("/").slice(-hit.depth).join("/");
-			const newTarget = `${link.target.slice(0, link.target.length - hit.key.length)}${tail}`;
-			const fragments = [...link.headings.map((heading) => `#${heading}`), ...(link.block !== undefined ? [`#^${link.block}`] : [])].join("");
-			const aliasPart = inner.includes("|") ? inner.slice(inner.indexOf("|") + 1) : undefined;
-			const to = `${embed ? "!" : ""}[[${newTarget}${fragments}${aliasPart !== undefined ? `|${aliasPart}` : ""}]]`;
-			if (to === match[0]) continue;
-			edits.push({ line, from: match[0], to, start, end: start + match[0].length });
+		for (const key of pathSuffixes(move.from.toLowerCase())) {
+			if (!byKey.has(key)) byKey.set(key, { move, key, depth: key.split("/").length });
 		}
-		if (edits.length > 0) rewrites.set(page.path, edits);
 	}
-	return rewrites;
-}
-
-/** Applies edits back to front, so the offsets of the pre-conversion source stay valid. */
-function applyEdits(source: string, edits: LinkEdit[]): string {
-	let out = source;
-	for (const edit of [...edits].sort((a, b) => b.start - a.start)) {
-		out = out.slice(0, edit.start) + edit.to + out.slice(edit.end);
-	}
-	return out;
+	return planLinkEdits(vault.pages, new Set(byKey.keys()), (span) => {
+		const hit = byKey.get(normalizeTarget(span.link.target));
+		if (!hit) return undefined;
+		// The link spelled the file by the last `depth` segments of its path; it now spells the new one the same way.
+		const tail = hit.move.to.split("/").slice(-hit.depth).join("/");
+		const newTarget = `${span.link.target.slice(0, span.link.target.length - hit.key.length)}${tail}`;
+		const fragments = [
+			...span.link.headings.map((heading) => `#${heading}`),
+			...(span.link.block !== undefined ? [`#^${span.link.block}`] : []),
+		].join("");
+		const bar = span.inner.indexOf("|");
+		const aliasPart = bar === -1 ? undefined : span.inner.slice(bar + 1);
+		const separator = span.table || (bar !== -1 && span.inner[bar - 1] === "\\") ? "\\|" : "|";
+		return `${span.link.embed ? "!" : ""}[[${newTarget}${fragments}${aliasPart !== undefined ? `${separator}${aliasPart}` : ""}]]`;
+	});
 }
 
 /** Where the run refuses to work: prior Wiki history and test fixtures are not the DM's vault. */
@@ -238,19 +215,27 @@ function assertNotGuarded(root: string, vault: string): void {
 	const rel = relative(root, vault).split(sep).join("/");
 	const inside = (folder: string): boolean => rel === folder || rel.startsWith(`${folder}/`);
 	if (inside("prior") || inside("test")) {
-		throw new UsageError(`The vault ${vault} sits inside ${inside("prior") ? "prior/, the kept history" : "test/, the fixtures"}, which cf convert never touches.`, "Run it on the live Wiki: cf convert --vault wiki");
+		throw new UsageError(
+			`The vault ${vault} sits inside ${inside("prior") ? "prior/, the kept history" : "test/, the fixtures"}, which cf convert never touches.`,
+			`Run it on the live Wiki: ${CF} convert --vault wiki`,
+		);
 	}
-	if (vault.split(sep).includes(".git")) throw new UsageError(`The vault ${vault} sits inside .git.`, "Point --vault at the Wiki folder, e.g. cf convert --vault wiki");
+	if (vault.split(sep).includes(".git"))
+		throw new UsageError(
+			`The vault ${vault} sits inside .git.`,
+			`Point --vault at the Wiki folder, e.g. ${CF} convert --vault wiki`,
+		);
 }
 
 export function convertCommand(): Command {
-	return new Command("convert")
+	const command = new Command("convert")
 		.description(
 			"Convert the Wiki's image attachments: art re-encodes to webp (quality 85, dimensions kept) and every file takes the slug name `<subject-slug>-<kind>[-<variant>].<ext>`; battle maps and reference sheets keep their bytes and only rename; a renamed battle map's .uvtt/.dd2vtt companion renames with it; every wikilink and embed across the vault is rewritten to the new names. Exits 0 done, 1 some files failed, 2 usage error.",
 		)
-		.option("--dry-run", "print every planned conversion, rename, skip and embed rewrite without touching anything")
-		.option("--vault <dir>", "the Wiki folder (default: <root>/wiki)")
-		.option("--root <dir>", "repository root (default: nearest git root)")
+		.option("--dry-run", "print every planned conversion, rename, skip and embed rewrite without touching anything");
+	envOptions(command);
+	return command
+		.option("--json", "print {moves,rewrites,skips,failures} JSON instead of text")
 		.addHelpText(
 			"after",
 			`
@@ -274,12 +259,13 @@ Exit codes:
   0  done (or nothing to do)    1  some files failed    2  usage error
 
 Examples:
-  cf convert --dry-run
-  cf convert
-  cf convert --vault wiki --dry-run`,
+  ${CF} convert --dry-run
+  ${CF} convert
+  ${CF} convert --vault wiki --dry-run
+  ${CF} convert --json`,
 		)
 		.action(async (flags: ConvertFlags) => {
-			const resolved = resolveVault(flags, "convert");
+			const resolved = resolveEnv(flags, "convert");
 			assertNotGuarded(resolved.root, resolved.vault);
 			const vault = buildVault(resolved.vault, await readVaultFiles(resolved.vault));
 			const { moves, skips } = planFiles(vault);
@@ -309,18 +295,19 @@ Examples:
 						failures.push({ path: move.from, message: (error as Error).message });
 					}
 				}
-				for (const [path, edits] of rewrites) {
+				for (const [page, edits] of rewrites) {
 					try {
-						await writeFile(join(resolved.vault, path), applyEdits(vault.pageByPath.get(path)!.source, edits));
+						await writeFile(join(resolved.vault, page.path), applyEdits(page.source, edits));
 					} catch (error) {
-						failures.push({ path, message: (error as Error).message });
+						failures.push({ path: page.path, message: (error as Error).message });
 					}
 				}
 			}
 
-			for (const move of moves) out.push(`${would(move.convert ? "convert" : "rename")}  ${show(move.from)} -> ${show(move.to)}`);
-			for (const [path, edits] of rewrites) {
-				out.push(`${would("rewrite")}  ${show(path)}`);
+			for (const move of moves)
+				out.push(`${would(move.convert ? "convert" : "rename")}  ${show(move.from)} -> ${show(move.to)}`);
+			for (const [page, edits] of rewrites) {
+				out.push(`${would("rewrite")}  ${show(page.path)}`);
 				for (const edit of edits) out.push(`  ${edit.line}: ${edit.from} -> ${edit.to}`);
 			}
 			for (const skip of skips) out.push(`skip  ${show(skip.path)}  ${skip.reason}`);
@@ -329,14 +316,35 @@ Examples:
 			const converted = moves.filter((move) => move.convert).length;
 			const renamedOnly = moves.length - converted;
 			const links = [...rewrites.values()].reduce((total, edits) => total + edits.length, 0);
-			if (moves.length === 0 && rewrites.size === 0) out.push("nothing to do: every image attachment already follows the naming");
+			if (moves.length === 0 && rewrites.size === 0)
+				out.push("nothing to do: every image attachment already follows the naming");
 			else {
 				out.push(
 					`${would("finish")}: ${converted} ${converted === 1 ? "image" : "images"} converted, ${renamedOnly} ${renamedOnly === 1 ? "file" : "files"} renamed, ${links} ${links === 1 ? "embed" : "embeds"} rewritten in ${rewrites.size} ${rewrites.size === 1 ? "page" : "pages"}`,
 				);
 			}
 			if (dry) out.push("", "(dry run: nothing written)");
+			if (flags.json) {
+				process.stdout.write(
+					`${JSON.stringify(
+						{
+							dryRun: dry,
+							moves: moves.map((m) => ({ from: m.from, to: m.to, convert: m.convert })),
+							rewrites: [...rewrites].map(([page, edits]) => ({
+								page: page.path,
+								edits: edits.map((e) => ({ line: e.line, from: e.from, to: e.to })),
+							})),
+							skips,
+							failures,
+							converted,
+							renamedOnly,
+							links,
+						},
+						null,
+						2,
+					)}\n`,
+				);
+			} else process.stdout.write(`${out.join("\n")}\n`);
 			if (failures.length > 0) process.exitCode = 1;
-			process.stdout.write(`${out.join("\n")}\n`);
 		});
 }

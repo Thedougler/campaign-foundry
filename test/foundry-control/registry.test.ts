@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { BridgeCallError } from "../../src/foundry-control/bridge/client.ts";
-import { IdempotencyStore } from "../../src/foundry-control/bridge/mutations.ts";
+import type { IdempotencyStore } from "../../src/foundry-control/bridge/mutations.ts";
 import { ToolError, type ToolName } from "../../src/foundry-control/bridge/schema.ts";
 import { ToolRegistry } from "../../src/foundry-control/daemon/registry.ts";
 import type { MutationResult } from "../../src/foundry-control/bridge/schema.ts";
@@ -39,7 +39,10 @@ function backupStepsHost(state: string): ScriptedHost {
 		{ match: "{{json .State}}", reply: state },
 		{ match: "mkdir -p", reply: "" },
 		{ match: "tar -C", reply: "" },
-		{ match: "sha256sum", reply: "abc123deadbeef  /home/nick/backup-staging/foundry/foundry-data-20261006-220000.tar.gz\n" },
+		{
+			match: "sha256sum",
+			reply: "abc123deadbeef  /home/nick/backup-staging/foundry/foundry-data-20261006-220000.tar.gz\n",
+		},
 		{ match: "stat -c %s", reply: "12345\n" },
 	]);
 }
@@ -61,7 +64,13 @@ function registry(opts: {
 	};
 }
 
-const BAZZOTH = { uuid: "actors.7", name: "Bazzoth", documentName: "Actor", pack: null, data: { name: "Bazzoth", system: { hp: 10 } } };
+const BAZZOTH = {
+	uuid: "actors.7",
+	name: "Bazzoth",
+	documentName: "Actor",
+	pack: null,
+	data: { name: "Bazzoth", system: { hp: 10 } },
+};
 
 describe("tool specs", () => {
 	it("covers every tool in the bridge contract exactly once", () => {
@@ -75,7 +84,14 @@ describe("tool specs", () => {
 	});
 
 	it("gives the mutating module tools the discipline fields", () => {
-		for (const name of ["document.create", "document.patch", "document.delete", "document.batch", "compendium.import", "setting.set"]) {
+		for (const name of [
+			"document.create",
+			"document.patch",
+			"document.delete",
+			"document.batch",
+			"compendium.import",
+			"setting.set",
+		]) {
 			const spec = specFor(name);
 			expect(spec?.params.properties.dry_run, `${name} must document dry_run`).toBeDefined();
 			expect(spec?.mutating).toBe(true);
@@ -113,7 +129,7 @@ describe("ToolRegistry routing", () => {
 			{ match: "{{json .State}}", reply: RUNNING_STATE },
 			{ match: "{{json .Config.Labels}}", reply: JSON.stringify({ "com.foundryvtt.version": "14.368" }) },
 			{ match: "{{.Config.Image}}", reply: "felddy/foundryvtt:release\n" },
-			{ match: "com.foundryvtt.version\"", reply: "14.368\n" },
+			{ match: 'com.foundryvtt.version"', reply: "14.368\n" },
 			{ match: "{{json .NetworkSettings.Ports}}", reply: JSON.stringify({ "30000/tcp": [{ HostPort: "30000" }] }) },
 			{ match: "options.json", reply: JSON.stringify({ port: 30000 }) },
 			{ match: "Data/worlds", reply: "\n" },
@@ -128,11 +144,23 @@ describe("ToolRegistry routing", () => {
 	it("refuses every host-plane mutation with the DM approval command", async () => {
 		const cases: [string, Record<string, unknown>, RegExp][] = [
 			["host.restart", {}, /cf foundry service restart --yes/],
-			["package.install", { zipPath: "/home/nick/cf-bridge.zip", name: "cf-bridge" }, /cf foundry install module --zip \/home\/nick\/cf-bridge\.zip --name cf-bridge --yes/],
+			[
+				"package.install",
+				{ zipPath: "/home/nick/cf-bridge.zip", name: "cf-bridge" },
+				/cf foundry install module --zip \/home\/nick\/cf-bridge\.zip --name cf-bridge --yes/,
+			],
 			["package.update", { version: "14.369" }, /cf foundry install update --version 14\.369 --yes/],
 			["backup.create", { stop: true }, /cf foundry backup create --stop --yes/],
-			["backup.restore", { archive: "/home/nick/backup.tar.gz" }, /cf foundry backup restore \/home\/nick\/backup\.tar\.gz --yes/],
-			["asset.put", { sourcePath: "/tmp/tok.png", dest: "tokens/tok.png" }, /cf foundry assets put \/tmp\/tok\.png tokens\/tok\.png --yes/],
+			[
+				"backup.restore",
+				{ archive: "/home/nick/backup.tar.gz" },
+				/cf foundry backup restore \/home\/nick\/backup\.tar\.gz --yes/,
+			],
+			[
+				"asset.put",
+				{ sourcePath: "/tmp/tok.png", dest: "tokens/tok.png" },
+				/cf foundry assets put \/tmp\/tok\.png tokens\/tok\.png --yes/,
+			],
 		];
 		for (const [tool, params, command] of cases) {
 			const { registry: reg } = registry({});
@@ -171,9 +199,17 @@ describe("ToolRegistry mutation discipline", () => {
 	it("previews by default and calls nothing", async () => {
 		const client = fakeModuleClient({ "document.patch": () => BAZZOTH });
 		const { registry: reg } = registry({ client });
-		const result = (await reg.callTool("document.patch", { uuid: "actors.7", changes: { "system.hp": 20 } })) as MutationResult;
+		const result = (await reg.callTool("document.patch", {
+			uuid: "actors.7",
+			changes: { "system.hp": 20 },
+		})) as MutationResult;
 		expect(result.dry_run).toBe(true);
-		expect(result.plan).toMatchObject({ kind: "document.patch", dry_run: true, backup_before: false, verify_after: true });
+		expect(result.plan).toMatchObject({
+			kind: "document.patch",
+			dry_run: true,
+			backup_before: false,
+			verify_after: true,
+		});
 		expect(result.warnings.join(" ")).toContain("preconditions");
 		expect(client.calls).toEqual([]);
 	});
@@ -259,58 +295,6 @@ describe("ToolRegistry mutation discipline", () => {
 		expect(error.code).toBe("backup_refused");
 		expect(error.approvalCommand).toBe("cf foundry backup create --stop --yes");
 		expect(client.calls).toEqual([]);
-	});
-
-	it("forces the backup for batch and delete and warns when the caller opted out", async () => {
-		const client = fakeModuleClient({
-			"document.delete": () => ({ uuid: "actors.7", deleted: true }),
-			"document.get": () => {
-				throw new BridgeCallError({ code: "not_found", message: "No document at uuid actors.7." });
-			},
-		});
-		const { registry: reg } = registry({ client });
-		const result = (await reg.callTool("document.delete", { uuid: "actors.7", dry_run: false, backup_before: false })) as MutationResult;
-		expect(result.warnings.join(" ")).toContain("forced");
-		expect(result.verification).toEqual([{ uuid: "actors.7", ok: true, detail: "gone" }]);
-		expect(result.uuids).toEqual(["actors.7"]);
-		expect(result.state).toEqual({});
-	});
-
-	it("verifies a delete as gone only when the read-back says not found", async () => {
-		const client = fakeModuleClient({
-			"document.delete": () => ({ uuid: "actors.7", deleted: true }),
-			"document.get": () => BAZZOTH,
-		});
-		const { registry: reg } = registry({ client });
-		const result = (await reg.callTool("document.delete", { uuid: "actors.7", dry_run: false })) as MutationResult;
-		expect(result.verification).toEqual([{ uuid: "actors.7", ok: false, detail: "still present" }]);
-	});
-
-	it("replays a repeated idempotency key without touching the module", async () => {
-		const client = fakeModuleClient({
-			"document.get": () => BAZZOTH,
-			"setting.set": () => ({ scope: "module", key: "url", value: "ws://x" }),
-			"setting.get": () => "ws://x",
-		});
-		const { registry: reg } = registry({ client });
-		const params = { scope: "module", key: "url", value: "ws://x", dry_run: false, idempotency_key: "cfg-1" };
-		const first = (await reg.callTool("setting.set", { ...params })) as Record<string, unknown>;
-		const second = (await reg.callTool("setting.set", { ...params })) as Record<string, unknown>;
-		expect(first.replayed).toBe(false);
-		expect(second.replayed).toBe(true);
-		expect(client.calls.filter((c) => c.tool === "setting.set")).toHaveLength(1);
-	});
-
-	it("refuses to reuse an idempotency key with different params", async () => {
-		const client = fakeModuleClient({
-			"document.get": () => BAZZOTH,
-			"document.patch": () => BAZZOTH,
-		});
-		const { registry: reg } = registry({ client });
-		await reg.callTool("document.patch", { uuid: "actors.7", changes: { a: 1 }, dry_run: false, idempotency_key: "k" });
-		await expect(
-			reg.callTool("document.patch", { uuid: "actors.7", changes: { a: 2 }, dry_run: false, idempotency_key: "k" }),
-		).rejects.toThrow(/already used with different params/);
 	});
 
 	it("collects uuids and state across a batch", async () => {

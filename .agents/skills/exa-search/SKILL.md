@@ -5,7 +5,7 @@ description: "Call Exa Search directly with cURL or raw HTTP. Use when an agent 
 
 # Exa Search
 
-> Requires API key: Get one at https://dashboard.exa.ai/api-keys
+> Requires API key: Get one at <https://dashboard.exa.ai/api-keys>
 >
 > Header: `x-api-key: $EXA_API_KEY`
 

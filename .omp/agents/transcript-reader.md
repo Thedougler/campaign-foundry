@@ -30,7 +30,7 @@ Each question is one line: `- <id> · WHO|NAME|WHAT · L<a>–<b> · <question> 
 2. **Read.** For each question, read its range with 40 lines of margin on each side, applying the Speaker rules and Play rules. Done when every range of every question has been read.
 3. **Answer** each question under its id, in this format, with no other text:
 
-   ```
+   ```markdown
    ## <id>
    resolved: <answer> (L<lines>)
    ```
@@ -86,7 +86,7 @@ The brief's Prep lists the Scenes the DM planned. A scene's `Prep:` is a hint. W
 
 Each event line starts with its line refs. `<NN>` is the chunk number from your Write path.
 
-```
+```markdown
 # Chunk <NN> · lines <A>–<B>
 
 ## Scenes

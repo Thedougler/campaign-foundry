@@ -1,0 +1,30 @@
+# markdownlint config for agent-facing text: the root instruction files, omp skills, agents,
+# rules and hooks, and docs/agents. Read by `bun run lint agents` (markdownlint-cli2 --config
+# .markdownlint-agents.yaml). Every rule is on unless disabled here with a reason. Mirrors
+# .markdownlint.yaml (the Wiki config) except where agent text is deliberately shaped differently.
+
+default: true
+
+# MD013 line length: agent text is read in terminals and editors that soft-wrap; long lines stay.
+MD013: false
+
+# MD041 first line heading: omp agents and rules intentionally open with instructions
+# after frontmatter; CLAUDE.md is an @ import rather than a standalone document.
+MD041: false
+
+# MD024 duplicate headings: skills repeat sub-headings such as `### Hidden truths` under
+# different `##` sections; only headings that share a parent count as duplicates.
+MD024:
+  siblings_only: true
+
+# MD033 inline HTML: agent text writes <br> in table cells, <kbd> for key caps, <mark> for highlights.
+MD033:
+  allowed_elements: [br, sup, sub, kbd, mark]
+
+# MD036 emphasis as heading: standalone bold leads (`**Every page is its own page.**`) are a
+# deliberate pattern in this repo's agent text, not missed headings — see .omp/skills/lint/SKILL.md line 10.
+MD036: false
+
+# MD060 table column style: 279 findings of pipe padding and alignment, nearly all in vendored reference tables
+# (tavily-*, qmd, humanizer); how a table's pipes line up is noise for text an agent reads.
+MD060: false

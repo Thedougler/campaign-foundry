@@ -206,7 +206,7 @@ When an explicit caller runs the final operation, check each page you write by i
 
 The caller closes per `skill://lint` § Commands over every touched path. Once the gate prints `ok: 0 findings`, the caller records one log entry for all touched pages, then performs its remaining hot and Push steps. Leave those duties with that caller. A child return is not a claim that Prep or Push has completed.
 
-**Done when** every local craft and cold-read criterion holds, each page you wrote passed its own check, and the caller has the full return needed to finish end to end. A handoff with a failing gate is still an incomplete operation.
+**Done when** every local craft and cold-read criterion holds, each page you wrote passed its own check, and the caller has the full return needed to finish end to end. A handover with a failing gate is still an incomplete operation.
 
 ## Scripting the Game
 

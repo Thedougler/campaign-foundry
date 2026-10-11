@@ -32,7 +32,7 @@ export interface LinkGraph {
 const graphs = new WeakMap<Vault, LinkGraph>();
 
 /** Lowercases and drops a trailing `.md` and any leading slash, the form Obsidian compares link targets in. */
-function normalizeTarget(target: string): string {
+export function normalizeTarget(target: string): string {
 	return target.replace(/^\/+/, "").replace(/\.md$/i, "").toLowerCase();
 }
 
@@ -46,9 +46,14 @@ export function normalizeHeading(heading: string): string {
 }
 
 /** Every suffix of a path at a folder boundary: `a/b/c` gives `a/b/c`, `b/c`, `c`. */
-function suffixes(path: string): string[] {
+export function pathSuffixes(path: string): string[] {
 	const parts = path.split("/");
 	return parts.map((_, i) => parts.slice(i).join("/"));
+}
+
+/** Every key a link may spell a page by: each suffix of its path, then each of its names (ADR 0028). */
+export function pageKeys(page: Page): string[] {
+	return [...pathSuffixes(page.path.replace(/\.md$/, "").toLowerCase()), ...page.names.map((n) => n.toLowerCase())];
 }
 
 function index<T>(items: T[], keys: (item: T) => string[]): Map<string, T[]> {
@@ -68,11 +73,8 @@ export function buildLinkGraph(vault: Vault): LinkGraph {
 	if (cached) return cached;
 
 	// Links resolve by path suffix and by page name (ADR 0028): the frontmatter `title`, each alias, then the slug.
-	const pageIndex = index(vault.pages, (p) => [
-		...suffixes(p.path.replace(/\.md$/, "").toLowerCase()),
-		...p.names.map((n) => n.toLowerCase()),
-	]);
-	const fileIndex = index(vault.attachments, (p) => suffixes(p.toLowerCase()));
+	const pageIndex = index(vault.pages, pageKeys);
+	const fileIndex = index(vault.attachments, (p) => pathSuffixes(p.toLowerCase()));
 
 	const resolve = (from: Page, link: WikiLink): Resolution => {
 		if (link.target === "" && link.headings.length === 0 && link.block === undefined) return { status: "empty" };

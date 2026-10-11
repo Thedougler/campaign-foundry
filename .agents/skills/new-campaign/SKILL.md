@@ -7,7 +7,7 @@ description: Campaign founding — use when the DM starts a Campaign, founds a W
 
 A Campaign is one group of Players moving through a World, and its **Campaign folder** holds both: the World's pages beside the Campaign's own. Create the starting state, with just enough World to begin play. `collab-with-me` and Prep build what play needs next.
 
-Every path below is vault-relative (from `wiki/`) unless it starts with `docs/`, `archive/` or `.agents/`. The Campaign folder is `<campaign-folder>/`, the Campaign's name as a lowercase slug with hyphens between words and punctuation dropped (`Next Wake` → `next-wake/`). It holds:
+Every path below is vault-relative (from `wiki/`) unless it starts with `docs/`, `archive/` or `.agents/`. The Campaign folder is `<campaign-folder>/`, the Campaign's name as a lowercase slug with hyphens between words and punctuation dropped (illustrative example: `Next Wake` → the slug `next-wake`). It holds:
 
 - the Campaign overview `<campaign-folder>/<campaign-folder>.md`, `campaign-config.md` and `hot.md`;
 - the World overview `<campaign-folder>/<world-slug>.md` and the setting pages by kind (`Locations/`, `NPCs/`, `Factions/` …) when this Campaign's setting is new;

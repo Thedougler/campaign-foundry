@@ -26,7 +26,13 @@ describe.skipIf(!foundryInstalled)("Foundry v14 core data models", () => {
 
 	it("accepts each document on its own, including a Foundry scene with walls, a door, a light and tokens", async () => {
 		const { documents } = await foundryCore();
-		const model = { JournalEntry: "BaseJournalEntry", Actor: "BaseActor", Item: "BaseItem", Scene: "BaseScene", Folder: "BaseFolder" } as const;
+		const model = {
+			JournalEntry: "BaseJournalEntry",
+			Actor: "BaseActor",
+			Item: "BaseItem",
+			Scene: "BaseScene",
+			Folder: "BaseFolder",
+		} as const;
 		for (const doc of plan.docs) {
 			const Model = documents[model[doc.type]]!;
 			expect(() => new Model(doc.data as never, { strict: true }), `${doc.type} ${doc.name}`).not.toThrow();
@@ -48,7 +54,10 @@ describe.skipIf(!foundryInstalled)("Foundry v14 core data models", () => {
 		const { documents } = await foundryCore();
 		const scene = plan.docs.find((d) => d.type === "Scene")!.data as Record<string, any>;
 		expect(() => new documents.BaseScene!({ ...scene, _id: "short" } as never, { strict: true })).toThrow(/valid/i);
-		expect(() => new documents.BaseScene!({ ...scene, walls: [{ ...scene.walls[0], c: [1, 2] }] } as never, { strict: true })).toThrow(/length-4/);
+		expect(
+			() =>
+				new documents.BaseScene!({ ...scene, walls: [{ ...scene.walls[0], c: [1, 2] }] } as never, { strict: true }),
+		).toThrow(/length-4/);
 	});
 
 	it("accepts the module manifest as a v14 module with an Adventure pack", async () => {

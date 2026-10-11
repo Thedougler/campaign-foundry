@@ -4,7 +4,9 @@ export default defineConfig({
 	test: {
 		include: ["test/**/*.test.ts"],
 		testTimeout: 20000,
-		// Forks: one real process per file, so tests may chdir and commands that spawn children behave.
+		// Forks: `runCli` chdirs per invocation (unsupported in worker threads). isolate:false
+		// reuses the module graph inside each worker across files (issue #61 wall-time).
 		pool: "forks",
+		isolate: false,
 	},
 });

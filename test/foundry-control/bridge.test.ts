@@ -30,7 +30,8 @@ function maskClientFrame(text: string): Buffer {
 	const masked = Buffer.from(payload);
 	for (let i = 0; i < masked.length; i += 1) masked[i] = (masked[i] ?? 0) ^ (key[i & 3] ?? 0);
 	const length = payload.length;
-	const header = length < 126 ? Buffer.from([0x81, 0x80 | length]) : Buffer.from([0x81, 0x80 | 126, length >> 8, length & 0xff]);
+	const header =
+		length < 126 ? Buffer.from([0x81, 0x80 | length]) : Buffer.from([0x81, 0x80 | 126, length >> 8, length & 0xff]);
 	return Buffer.concat([header, key, masked]);
 }
 
@@ -82,7 +83,11 @@ describe("BridgeListener", () => {
 		const request = await readJson(socket, decoder);
 		expect(request).toMatchObject({ type: "request", tool: "document.get", params: { uuid: "Actor.reef" } });
 		expect(typeof request.id).toBe("number");
-		socket.write(maskClientFrame(JSON.stringify({ type: "reply", id: request.id, ok: true, result: { uuid: "Actor.reef", name: "Reef" } })));
+		socket.write(
+			maskClientFrame(
+				JSON.stringify({ type: "reply", id: request.id, ok: true, result: { uuid: "Actor.reef", name: "Reef" } }),
+			),
+		);
 		await expect(call).resolves.toEqual({ uuid: "Actor.reef", name: "Reef" });
 		socket.destroy();
 	});
@@ -145,7 +150,9 @@ describe("BridgeListener", () => {
 		const decoder = new FrameDecoder({ requireMask: false });
 		await readJson(socket, decoder);
 		expect(listener.client()).not.toBeNull();
-		const cleared = new Promise<void>((resolve) => listener.onClient((client) => (client === null ? resolve() : undefined)));
+		const cleared = new Promise<void>((resolve) =>
+			listener.onClient((client) => (client === null ? resolve() : undefined)),
+		);
 		socket.destroy();
 		await cleared;
 		expect(listener.client()).toBeNull();

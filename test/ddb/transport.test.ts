@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { DdbAuth, DdbAuthError, COBALT_TOKEN_URL } from "../../src/ddb/auth.ts";
+import { DdbAuth, COBALT_TOKEN_URL } from "../../src/ddb/auth.ts";
 import type { Fetcher, FetchResult } from "../../src/ddb/auth.ts";
 import { request, unwrapEnvelope, DdbTransportError } from "../../src/ddb/transport.ts";
 import type { Transport } from "../../src/ddb/transport.ts";
@@ -8,7 +8,12 @@ import type { Cookie } from "../../src/ddb/session.ts";
 const cookies: Cookie[] = [{ name: "CobaltSession", value: "cobalt-1" }];
 
 /** A fake fetcher serving canned responses per URL and recording every call it sees. */
-function fakeFetch(routes: (call: { url: string; init?: { headers?: Record<string, string>; body?: string } }) => FetchResult | undefined) {
+function fakeFetch(
+	routes: (call: {
+		url: string;
+		init?: { headers?: Record<string, string>; body?: string };
+	}) => FetchResult | undefined,
+) {
 	const calls: { url: string; init?: { headers?: Record<string, string>; body?: string } }[] = [];
 	const fetcher: Fetcher = async (url, init) => {
 		calls.push({ url, init });
@@ -20,7 +25,11 @@ function fakeFetch(routes: (call: { url: string; init?: { headers?: Record<strin
 function authOver(fetcher: Fetcher): DdbAuth {
 	return new DdbAuth({ cookies, savedAt: "" }, (url, init) => {
 		if (url === COBALT_TOKEN_URL) {
-			return Promise.resolve({ status: 200, ok: true, text: async () => JSON.stringify({ token: "bearer-1", ttl: 300 }) });
+			return Promise.resolve({
+				status: 200,
+				ok: true,
+				text: async () => JSON.stringify({ token: "bearer-1", ttl: 300 }),
+			});
 		}
 		return fetcher(url, init);
 	});
@@ -49,7 +58,11 @@ describe("request", () => {
 		const browserCalls: string[] = [];
 		const browser: Transport["browserFetch"] = async (url) => {
 			browserCalls.push(url);
-			return { status: 200, ok: true, text: async () => JSON.stringify({ status: "success", data: { name: "Spiguar" } }) };
+			return {
+				status: 200,
+				ok: true,
+				text: async () => JSON.stringify({ status: "success", data: { name: "Spiguar" } }),
+			};
 		};
 		const payload = await request(transportOver(fetcher, browser), MONSTER_URL, { method: "GET" });
 		expect(payload).toEqual({ name: "Spiguar" });
@@ -93,6 +106,8 @@ describe("unwrapEnvelope", () => {
 	});
 
 	it("raises on a failure envelope", () => {
-		expect(() => unwrapEnvelope({ id: 1, success: false, message: "no such monster", data: null })).toThrow(/no such monster/);
+		expect(() => unwrapEnvelope({ id: 1, success: false, message: "no such monster", data: null })).toThrow(
+			/no such monster/,
+		);
 	});
 });

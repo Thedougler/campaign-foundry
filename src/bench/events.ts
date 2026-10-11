@@ -46,7 +46,10 @@ export function parseEvents(text: string, source: string): RunResult {
 		try {
 			events.push(JSON.parse(line) as Record<string, unknown>);
 		} catch {
-			throw new UsageError(`${source}:${i + 1} is not JSON — the events stream is broken.`, "The run died mid-stream; check the `.error.log` beside it and re-run the pin (or its fallback).");
+			throw new UsageError(
+				`${source}:${i + 1} is not JSON — the events stream is broken.`,
+				"The run died mid-stream; check the `.error.log` beside it and re-run the pin (or its fallback).",
+			);
 		}
 	}
 	let last: Record<string, unknown> | undefined;
@@ -54,7 +57,10 @@ export function parseEvents(text: string, source: string): RunResult {
 		if (event.type === "turn_end") last = event;
 	}
 	if (!last) {
-		throw new UsageError(`No turn_end event in ${source}.`, "The model never answered; check the `.error.log` beside it, then re-run the pin or its fallback.");
+		throw new UsageError(
+			`No turn_end event in ${source}.`,
+			"The model never answered; check the `.error.log` beside it, then re-run the pin or its fallback.",
+		);
 	}
 	const message = asRecord(last.message);
 	const content = Array.isArray(message.content) ? message.content : [];
@@ -65,7 +71,11 @@ export function parseEvents(text: string, source: string): RunResult {
 		.join("");
 	let sample = raw.trim();
 	const fenced = sample.startsWith("```") && sample.endsWith("```");
-	if (fenced) sample = sample.replace(/^```[a-zA-Z]*\n?/, "").replace(/\n?```$/, "").trim();
+	if (fenced)
+		sample = sample
+			.replace(/^```[a-zA-Z]*\n?/, "")
+			.replace(/\n?```$/, "")
+			.trim();
 	if (sample !== "") sample = `${sample}\n`;
 	let totalTokens = usageOf(message);
 	if (totalTokens === 0) {
@@ -84,7 +94,9 @@ export function parseEvents(text: string, source: string): RunResult {
 
 /** The `<model-tag>` of an events file named `<id>.<tag>[.rerun].events.jsonl`. */
 export function modelTagOf(eventsPath: string): string {
-	let name = basename(eventsPath).replace(/\.events\.jsonl$/, "").replace(/\.rerun$/, "");
+	const name = basename(eventsPath)
+		.replace(/\.events\.jsonl$/, "")
+		.replace(/\.rerun$/, "");
 	const firstDot = name.indexOf(".");
 	return firstDot === -1 ? name : name.slice(firstDot + 1);
 }

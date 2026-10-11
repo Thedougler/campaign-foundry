@@ -20,7 +20,10 @@ export default function gitSync(pi) {
 
 		const fetched = await git(["fetch", "--quiet", "--no-tags", ref.split("/")[0]], FETCH_TIMEOUT_MS);
 		if (fetched.code !== 0) {
-			note(`could not fetch ${ref} (${fetched.killed ? "timed out" : fetched.stderr.trim().split("\n")[0]})`, "warning");
+			note(
+				`could not fetch ${ref} (${fetched.killed ? "timed out" : fetched.stderr.trim().split("\n")[0]})`,
+				"warning",
+			);
 			return;
 		}
 
@@ -35,7 +38,10 @@ export default function gitSync(pi) {
 
 		const merged = await git(["merge", "--ff-only", "--quiet", "@{u}"]);
 		if (merged.code !== 0) {
-			note(`${behind} commit(s) behind ${ref}; fast-forward refused: ${merged.stderr.trim().split("\n")[0]}`, "warning");
+			note(
+				`${behind} commit(s) behind ${ref}; fast-forward refused: ${merged.stderr.trim().split("\n")[0]}`,
+				"warning",
+			);
 			return;
 		}
 		note(`fast-forwarded ${behind} commit(s) from ${ref}`);

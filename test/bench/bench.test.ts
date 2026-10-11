@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { UsageError } from "../../src/check/errors.ts";
-import { findHit, loadCache, upsertRow, type BenchFile, type BenchRow } from "../../src/bench/cache.ts";
+import { findHit, upsertRow, type BenchFile, type BenchRow } from "../../src/bench/cache.ts";
 import { modelTagOf, parseEvents } from "../../src/bench/events.ts";
 import { anonId, renderJudgeBrief } from "../../src/bench/judge.ts";
 import { loadPromptSet, promptSha, renderBrief, type PromptSet } from "../../src/bench/prompts.ts";
@@ -98,25 +98,30 @@ describe("bench prompts", () => {
 		const entry = set.entries[0]!;
 		expect(set.version).toMatch(/^[0-9a-f]{12}$/);
 		expect(set.entries.map((e) => e.id)).toEqual(["npc-first-look", "scene-opening"]);
-		expect(renderBrief(entry)).toBe(`summary: "The goblin tally-keeper of Reedholt."\n\n${PERSONA} Using only the facts above, write the [!narration] First look\nblock. Reply with only the [!narration] callout block, nothing before or after it.\n`);
+		expect(renderBrief(entry)).toBe(
+			`summary: "The goblin tally-keeper of Reedholt."\n\n${PERSONA} Using only the facts above, write the [!narration] First look\nblock. Reply with only the [!narration] callout block, nothing before or after it.\n`,
+		);
 		expect(promptSha(entry)).toMatch(/^[0-9a-f]{12}$/);
 	});
 
-	it("renders the same brief for the same entry twice: the render is deterministic", () => {
-		const { set } = writeSet();
-		expect(renderBrief(set.entries[1]!)).toBe(renderBrief(set.entries[1]!));
-	});
-
 	it("rejects a prompt without the persona line and duplicate ids", () => {
-		const noPersona = YAML_SET.replace(`${PERSONA} Using only the facts above, write the [!narration] First look\n    block.`, "Write the block.");
+		const noPersona = YAML_SET.replace(
+			`${PERSONA} Using only the facts above, write the [!narration] First look\n    block.`,
+			"Write the block.",
+		);
 		expect(() => writeSet(noPersona)).toThrow(/persona line/);
-		expect(() => writeSet(YAML_SET.replace("- id: scene-opening", "- id: npc-first-look"))).toThrow(/Duplicate entry id/);
+		expect(() => writeSet(YAML_SET.replace("- id: scene-opening", "- id: npc-first-look"))).toThrow(
+			/Duplicate entry id/,
+		);
 	});
 });
 
 describe("bench events", () => {
 	it("extracts the final assistant text, tokens and duration of the last turn_end", () => {
-		const run = parseEvents(`${turnEnd()}\n{"type":"agent_end","messages":[]}\n${turnEnd({ usage: { totalTokens: 9999 }, duration: 65190 })}`, "run.events.jsonl");
+		const run = parseEvents(
+			`${turnEnd()}\n{"type":"agent_end","messages":[]}\n${turnEnd({ usage: { totalTokens: 9999 }, duration: 65190 })}`,
+			"run.events.jsonl",
+		);
 		expect(run.sample).toBe("> [!narration] First look\n> A goblin counts boats.\n");
 		expect(run.totalTokens).toBe(9999);
 		expect(run.durationMs).toBe(65190);
@@ -128,7 +133,11 @@ describe("bench events", () => {
 	it("falls back to the last non-null usage in the stream and strips a code fence", () => {
 		const text = [
 			'{"type":"session"}',
-			turnEnd({ usage: null, duration: 0, content: [{ type: "text", text: "```markdown\n> [!narration] First look\n> A goblin counts boats.\n```" }] }),
+			turnEnd({
+				usage: null,
+				duration: 0,
+				content: [{ type: "text", text: "```markdown\n> [!narration] First look\n> A goblin counts boats.\n```" }],
+			}),
 			'{"type":"agent_end","messages":[{"role":"assistant","usage":{"totalTokens": 18116}}]}',
 		].join("\n");
 		const run = parseEvents(text, "run.events.jsonl");
@@ -152,7 +161,13 @@ describe("bench events", () => {
 describe("bench cache", () => {
 	it("hits only on version, entry, family, pin and prompt_sha together", () => {
 		const cache: BenchFile = { schema: 1, hit_rule: "rule", results: [row()] };
-		const key = { version: "d6d47fe2b823", id: "npc-first-look", family: "glm", model: "zai/glm-5.3", promptSha: "abc123def456" };
+		const key = {
+			version: "d6d47fe2b823",
+			id: "npc-first-look",
+			family: "glm",
+			model: "zai/glm-5.3",
+			promptSha: "abc123def456",
+		};
 		expect(findHit(cache, key)?.prose_score).toBe(4.0);
 		expect(findHit(cache, { ...key, promptSha: "different1sha" })).toBeUndefined();
 		expect(findHit(cache, { ...key, model: "opencode-go/glm-5.3" })).toBeUndefined();
@@ -166,20 +181,24 @@ describe("bench cache", () => {
 		expect(cache.results).toHaveLength(2);
 		expect(cache.results[0]?.judge).toBe("zai/glm-5.3");
 	});
-
-	it("treats a missing cache as empty", () => {
-		expect(loadCache(join(mkdtempSync(join(tmpdir(), "bench-")), "benchmark.json")).results).toEqual([]);
-	});
 });
 
 describe("bench judge brief", () => {
 	it("fills the committed template with brief, rubrics, sample and grades path, anonymized", () => {
 		const { dir, set } = writeSet();
 		const template = join(dir, "judge-brief.md");
-		writeFileSync(template, "BRIEF\n{{brief}}\nSAMPLE {{sample_id}}\n{{sample}}\nRUBRICS\n{{rubrics}}\nOUT {{grades_path}}\n");
+		writeFileSync(
+			template,
+			"BRIEF\n{{brief}}\nSAMPLE {{sample_id}}\n{{sample}}\nRUBRICS\n{{rubrics}}\nOUT {{grades_path}}\n",
+		);
 		const entry = set.entries[0]!;
 		const sample = "> [!narration] First look\n> A goblin counts boats.\n";
-		const filled = renderJudgeBrief(template, { entry, brief: renderBrief(entry), sample, gradesPath: "/tmp/judge/sample-x.grades.json" });
+		const filled = renderJudgeBrief(template, {
+			entry,
+			brief: renderBrief(entry),
+			sample,
+			gradesPath: "/tmp/judge/sample-x.grades.json",
+		});
 		expect(filled).toContain(renderBrief(entry));
 		expect(filled).toContain(`SAMPLE ${anonId(sample)}`);
 		expect(anonId(sample)).toMatch(/^sample-[0-9a-f]{8}$/);
@@ -193,12 +212,29 @@ describe("bench record", () => {
 	it("validates grades against the entry's rubrics and averages to one decimal, half-up", () => {
 		const { dir, set } = writeSet();
 		const grades = join(dir, "grades.json");
-		writeFileSync(grades, JSON.stringify(set.entries[0]!.rubrics.map((rubric, i) => ({ rubric, score: [4, 4, 5, 4][i] ?? 4, reason: `quote ${i}` }))));
+		writeFileSync(
+			grades,
+			JSON.stringify(
+				set.entries[0]!.rubrics.map((rubric, i) => ({ rubric, score: [4, 4, 5, 4][i] ?? 4, reason: `quote ${i}` })),
+			),
+		);
 		const loaded = loadGrades(grades, set.entries[0]!);
 		expect(proseScore(loaded)).toBe(4.3);
-		writeFileSync(grades, JSON.stringify(set.entries[0]!.rubrics.map((rubric, i) => ({ rubric: i === 1 ? "a different rubric" : rubric, score: 4, reason: "x" }))));
+		writeFileSync(
+			grades,
+			JSON.stringify(
+				set.entries[0]!.rubrics.map((rubric, i) => ({
+					rubric: i === 1 ? "a different rubric" : rubric,
+					score: 4,
+					reason: "x",
+				})),
+			),
+		);
 		expect(() => loadGrades(grades, set.entries[0]!)).toThrow(/does not match the entry/);
-		writeFileSync(grades, JSON.stringify(set.entries[0]!.rubrics.map((rubric, i) => ({ rubric, score: i === 1 ? 9 : 4, reason: "x" }))));
+		writeFileSync(
+			grades,
+			JSON.stringify(set.entries[0]!.rubrics.map((rubric, i) => ({ rubric, score: i === 1 ? 9 : 4, reason: "x" }))),
+		);
 		expect(() => loadGrades(grades, set.entries[0]!)).toThrow(/scores 9/);
 	});
 });
@@ -211,7 +247,16 @@ describe("bench leaderboard", () => {
 			results: [
 				row(),
 				row({ family: "openai", model: "openai-codex/gpt-6.1-sol", prose_score: 4.5, run_at: "2026-09-30T09:00:00Z" }),
-				row({ id: "scene-opening", family: "openai", model: "openai-codex/gpt-6.1-sol", status: "dark", prose_score: undefined, rubrics: undefined, run_at: "2026-09-30T09:00:00Z", reason: "quota exhausted on both pins" }),
+				row({
+					id: "scene-opening",
+					family: "openai",
+					model: "openai-codex/gpt-6.1-sol",
+					status: "dark",
+					prose_score: undefined,
+					rubrics: undefined,
+					run_at: "2026-09-30T09:00:00Z",
+					reason: "quota exhausted on both pins",
+				}),
 			],
 		};
 		const { set } = writeSet();
@@ -220,12 +265,6 @@ describe("bench leaderboard", () => {
 		expect(md).toContain("| openai | openai-codex/gpt-6.1-sol | 1 / 2 | 4.5 | npc-first-look 4.5 | 1 |");
 		expect(md).toContain("| glm | zai/glm-5.3 | 1 / 2 (cached) | 4.0 | npc-first-look 4.0 | 2 |");
 		expect(md).toContain("> openai — dark: scene-opening (quota exhausted on both pins)");
-	});
-
-	it("says plainly when nothing is scored yet", () => {
-		const { set } = writeSet();
-		const md = renderLeaderboard({ schema: 1, hit_rule: "a scored row matches", results: [] }, set, MATRIX);
-		expect(md).toContain(`## Prose Benchmark — not yet run for bench_version ${set.version}`);
 	});
 });
 

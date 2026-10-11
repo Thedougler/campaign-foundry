@@ -24,12 +24,25 @@ describe("authoring review inputs", () => {
 		const root = await workspace();
 		const candidate = await run(root, "choice/with_skill/run-1");
 		const baseline = await run(root, "choice/old_skill/run-1");
-		await writeFile(join(root, "choice/eval_metadata.json"), JSON.stringify({ eval_id: 7, prompt: "Expose the choice." }));
+		await writeFile(
+			join(root, "choice/eval_metadata.json"),
+			JSON.stringify({ eval_id: 7, prompt: "Expose the choice." }),
+		);
 		await mkdir(join(candidate, "outputs/scenes"));
 		await writeFile(join(candidate, "outputs/scenes/Hook.md"), "Pay or take the stairs.");
 		await writeFile(join(baseline, "outputs/Hook.md"), "The ferryman waits.");
-		await writeFile(join(candidate, "grading.json"), JSON.stringify({ expectations: [{ text: "Choice is explicit", passed: true, evidence: "Pay or take the stairs." }] }));
-		await writeFile(join(baseline, "grading.json"), JSON.stringify({ expectations: [{ text: "Choice is explicit", passed: false, evidence: "The ferryman waits." }] }));
+		await writeFile(
+			join(candidate, "grading.json"),
+			JSON.stringify({
+				expectations: [{ text: "Choice is explicit", passed: true, evidence: "Pay or take the stairs." }],
+			}),
+		);
+		await writeFile(
+			join(baseline, "grading.json"),
+			JSON.stringify({
+				expectations: [{ text: "Choice is explicit", passed: false, evidence: "The ferryman waits." }],
+			}),
+		);
 		const reviews = await findReviewRuns(root);
 		const current = reviews.find((item) => item.id === "choice-with_skill-run-1")!;
 		const previous = reviews.find((item) => item.id === "choice-old_skill-run-1")!;
@@ -37,8 +50,12 @@ describe("authoring review inputs", () => {
 		expect(current.eval_id).toBe(7);
 		expect(current.outputs[0]?.name).toBe("scenes/Hook.md");
 		expect(current.outputs[0]?.content).toBe("Pay or take the stairs.");
-		expect(current.grading?.expectations).toEqual([{ text: "Choice is explicit", passed: true, evidence: "Pay or take the stairs." }]);
-		expect(previous.grading?.expectations).toEqual([{ text: "Choice is explicit", passed: false, evidence: "The ferryman waits." }]);
+		expect(current.grading?.expectations).toEqual([
+			{ text: "Choice is explicit", passed: true, evidence: "Pay or take the stairs." },
+		]);
+		expect(previous.grading?.expectations).toEqual([
+			{ text: "Choice is explicit", passed: false, evidence: "The ferryman waits." },
+		]);
 	});
 	it("rejects colliding feedback IDs instead of merging unrelated reviews", async () => {
 		const root = await workspace();
@@ -57,6 +74,13 @@ describe("authoring review inputs", () => {
 		const root = await workspace();
 		const queries = join(root, "queries.json");
 		await writeFile(queries, JSON.stringify([{ query: "Describe an NPC", should_trigger: "false" }]));
-		await expect(generateDescriptionReview({ queries, skillName: "npc-design", description: "Design an NPC.", static: join(root, "review.html") })).rejects.toThrow("should_trigger: boolean");
+		await expect(
+			generateDescriptionReview({
+				queries,
+				skillName: "npc-design",
+				description: "Design an NPC.",
+				static: join(root, "review.html"),
+			}),
+		).rejects.toThrow("should_trigger: boolean");
 	});
 });

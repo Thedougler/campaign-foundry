@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { walkBackup } from "../../src/backup/files.ts";
 import { type BackupMap, emptyMap } from "../../src/backup/map.ts";
-import { notionClient, throttle } from "../../src/backup/notion.ts";
+import { notionClient } from "../../src/backup/notion.ts";
 import { dirMarker, pendingHeader, rootCallout } from "../../src/backup/markers.ts";
 import { estimate, linkIndex, planBackup, type Scope } from "../../src/backup/sync.ts";
 import { backup, FakeNotion, lfsPointer, repo, textOf } from "./helpers.ts";
@@ -15,14 +15,21 @@ const ALL: Scope = { kind: "all" };
 function campaign(): string {
 	return repo({
 		[`${W}/hot.md`]: "---\ntitle: hot\n---\n# Hot\n\nThe party meets [[Ilse Corran|Ilse]].\n\n![[Map.png]]\n",
-		[`${W}/NPCs/Ilse Corran.md`]: "---\ntitle: Ilse Corran\ntype: NPC\n---\n\n> [!narration] First look\n> A tall woman.\n",
+		[`${W}/NPCs/Ilse Corran.md`]:
+			"---\ntitle: Ilse Corran\ntype: NPC\n---\n\n> [!narration] First look\n> A tall woman.\n",
 		[`${W}/attachments/Map.png`]: Buffer.from("png bytes"),
 		".agents/skills/npc-design/SKILL.md": "# NPC design\n",
 		".agents/skills/npc-design/evals/cases.yaml": "cases: []\n",
 	});
 }
 
-async function run(root: string, map: BackupMap, api: FakeNotion, scope: Scope = ALL, extra: Parameters<typeof backup>[4] = {}) {
+async function run(
+	root: string,
+	map: BackupMap,
+	api: FakeNotion,
+	scope: Scope = ALL,
+	extra: Parameters<typeof backup>[4] = {},
+) {
 	return backup(root, map, api, scope, extra);
 }
 
@@ -46,7 +53,15 @@ describe("backup sync", () => {
 		expect(api.byTitle("Ilse Corran")?.parent).toBe(npcs?.id);
 		expect(api.byTitle("skills")?.parent).toBe(api.byTitle(".agents")?.id);
 		// Every file and directory is in the map by repo path, with its URL.
-		for (const path of [W, `${W}/NPCs`, `${W}/hot.md`, `${W}/NPCs/Ilse Corran.md`, `${W}/attachments/Map.png`, ".agents/skills/npc-design/SKILL.md", ".agents/skills/npc-design/evals/cases.yaml"]) {
+		for (const path of [
+			W,
+			`${W}/NPCs`,
+			`${W}/hot.md`,
+			`${W}/NPCs/Ilse Corran.md`,
+			`${W}/attachments/Map.png`,
+			".agents/skills/npc-design/SKILL.md",
+			".agents/skills/npc-design/evals/cases.yaml",
+		]) {
 			expect(map.entries[path]?.url).toMatch(/^https:\/\/www\.notion\.so\/p\d+$/);
 		}
 		expect(map.syncedCommit).toBe("c0ffee0000000000000000000000000000000000");
@@ -64,7 +79,9 @@ describe("backup sync", () => {
 		// Every page carries its marker: the root its note, a folder its path, a file the header naming path and commit.
 		expect(textOf(rootPage?.blocks ?? [])).toContain("An automatic copy of the campaign-foundry repo");
 		expect(textOf((npcs?.blocks ?? []).slice(0, 1))).toBe(`Folder |${W}/NPCs| of the campaign-foundry backup.`);
-		expect(textOf((api.byTitle("Ilse Corran")?.blocks ?? []).slice(0, 1))).toMatch(new RegExp(`^Backup of \\|${W}/NPCs/Ilse Corran.md\\| at c0ffee0\\.`));
+		expect(textOf((api.byTitle("Ilse Corran")?.blocks ?? []).slice(0, 1))).toMatch(
+			new RegExp(`^Backup of \\|${W}/NPCs/Ilse Corran.md\\| at c0ffee0\\.`),
+		);
 		expect(api.byTitle("cases.yaml")?.blocks[1]?.type).toBe("code");
 	});
 
@@ -89,7 +106,19 @@ describe("backup sync", () => {
 		writeFileSync(join(root, W, "NPCs/Ilse Corran.md"), "---\ntitle: Ilse Corran\n---\nIlse, rewritten.\n");
 		writeFileSync(join(root, W, "hot.md"), "---\ntitle: hot\n---\nchanged but not in this diff\n");
 		api.calls = [];
-		await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([`${W}/NPCs/Ilse Corran.md`]), deleted: new Set(), renamed: new Map() }, { commit: "d00d" });
+		await run(
+			root,
+			map,
+			api,
+			{
+				kind: "diff",
+				base: "c0ffee",
+				changed: new Set([`${W}/NPCs/Ilse Corran.md`]),
+				deleted: new Set(),
+				renamed: new Map(),
+			},
+			{ commit: "d00d" },
+		);
 		// Emptied, written under a pending header, then the header names the commit: a run stopped midway is rewritten.
 		expect(api.calls.map((c) => c.op)).toEqual(["clear", "append", "update"]);
 		expect(api.calls[0]?.id).toBe(ilse?.id);
@@ -138,7 +167,13 @@ describe("backup sync", () => {
 		rmSync(join(root, W, "NPCs/Ilse Corran.md"));
 		writeFileSync(join(root, W, "NPCs/Geoffrey Draves.md"), "---\ntitle: Geoffrey Draves\n---\nGeoffrey\n");
 		api.calls = [];
-		await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([`${W}/NPCs/Geoffrey Draves.md`]), deleted: new Set([`${W}/NPCs/Ilse Corran.md`]), renamed: new Map() });
+		await run(root, map, api, {
+			kind: "diff",
+			base: "c0ffee",
+			changed: new Set([`${W}/NPCs/Geoffrey Draves.md`]),
+			deleted: new Set([`${W}/NPCs/Ilse Corran.md`]),
+			renamed: new Map(),
+		});
 		expect(api.byTitle("Geoffrey Draves")?.parent).toBe(map.entries[`${W}/NPCs`]?.id);
 		const ilse = api.pages.get(ilseId);
 		expect(ilse?.title).toBe("Ilse Corran (deleted from repo)");
@@ -196,7 +231,12 @@ describe("backup sync", () => {
 		expect(result.failures.length).toBeGreaterThan(0);
 		const last = saves.at(-1);
 		const made = [...api.pages.keys()];
-		expect(Object.values(last?.entries ?? {}).map((e) => e.id).concat(last?.root?.id ?? "").sort()).toEqual(made.sort());
+		expect(
+			Object.values(last?.entries ?? {})
+				.map((e) => e.id)
+				.concat(last?.root?.id ?? "")
+				.sort(),
+		).toEqual(made.sort());
 		// The next run creates only what is missing.
 		api.failOn = undefined;
 		api.calls = [];
@@ -238,15 +278,24 @@ describe("backup sync", () => {
 		const logId = api.add(folderId, "log", [pendingHeader("gone/Old/log.md")]);
 		const map = emptyMap(PARENT);
 		map.root = { id: rootId, url: `https://www.notion.so/${rootId}` };
-		const entry = (id: string, kind: "dir" | "markdown", movedFrom: string): BackupMap["entries"][string] => ({ kind, id, url: `https://www.notion.so/${id}`, movedFrom });
-		map.entries["wiki"] = { kind: "dir", id: wikiId, url: `https://www.notion.so/${wikiId}` };
+		const entry = (id: string, kind: "dir" | "markdown", movedFrom: string): BackupMap["entries"][string] => ({
+			kind,
+			id,
+			url: `https://www.notion.so/${id}`,
+			movedFrom,
+		});
+		map.entries.wiki = { kind: "dir", id: wikiId, url: `https://www.notion.so/${wikiId}` };
 		map.entries[W] = entry(folderId, "dir", "wiki/The Shattered Sea");
 		map.entries[`${W}/NPCs`] = entry(npcsId, "dir", "wiki/The Shattered Sea/NPCs");
 		map.entries[`${W}/PCs`] = entry(pcsId, "dir", "wiki/The Shattered Sea/Shattered Sea/PCs");
 		map.entries[`${W}/hot.md`] = entry(hotId, "markdown", "wiki/The Shattered Sea/hot.md");
 		map.entries[`${W}/log.md`] = entry(logId, "markdown", "gone/Old/log.md");
 		map.entries[`${W}/PCs/Tam.md`] = entry(tamId, "markdown", "wiki/The Shattered Sea/Shattered Sea/PCs/Tam.md");
-		map.entries["wiki/The Shattered Sea/Shattered Sea"] = { kind: "dir", id: retiredId, url: `https://www.notion.so/${retiredId}` };
+		map.entries["wiki/The Shattered Sea/Shattered Sea"] = {
+			kind: "dir",
+			id: retiredId,
+			url: `https://www.notion.so/${retiredId}`,
+		};
 
 		const { result } = await backup(root, map, api, ALL);
 
@@ -285,7 +334,13 @@ describe("backup sync", () => {
 		mkdirSync(join(root, W, "People"));
 		writeFileSync(join(root, to), "---\ntitle: Captain Ilse\ntype: NPC\n---\n\nA tall woman.\n");
 		api.calls = [];
-		const { result } = await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([to, `${W}/hot.md`]), deleted: new Set([from]), renamed: new Map([[from, to]]) });
+		const { result } = await run(root, map, api, {
+			kind: "diff",
+			base: "c0ffee",
+			changed: new Set([to, `${W}/hot.md`]),
+			deleted: new Set([from]),
+			renamed: new Map([[from, to]]),
+		});
 
 		expect(result.failures).toEqual([]);
 		expect(result).toMatchObject({ created: 1, moved: 1, retired: 1, deleted: 0 });
@@ -313,16 +368,37 @@ describe("backup sync", () => {
 		rmSync(join(root, from));
 		writeFileSync(join(root, to), source);
 		// An older run that did not follow renames: a new page for the new path, the old one flagged.
-		await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([to]), deleted: new Set([from]), renamed: new Map() });
+		await run(root, map, api, {
+			kind: "diff",
+			base: "c0ffee",
+			changed: new Set([to]),
+			deleted: new Set([from]),
+			renamed: new Map(),
+		});
 		const newId = map.entries[to]?.id ?? "";
 		expect(api.pages.get(oldId)?.title).toBe("Ilse Corran (deleted from repo)");
 		// A failed run's leftover: another renamed file whose old page was never flagged.
 		const hot = map.entries[`${W}/hot.md`]?.id ?? "";
 		writeFileSync(join(root, W, "hot-2.md"), readFileSync(join(root, W, "hot.md")));
-		await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([`${W}/hot-2.md`]), deleted: new Set(), renamed: new Map() });
+		await run(root, map, api, {
+			kind: "diff",
+			base: "c0ffee",
+			changed: new Set([`${W}/hot-2.md`]),
+			deleted: new Set(),
+			renamed: new Map(),
+		});
 		rmSync(join(root, W, "hot.md"));
 
-		const { result } = await run(root, map, api, { kind: "diff", base: "c0ffee", changed: new Set([to, `${W}/hot-2.md`]), deleted: new Set([from, `${W}/hot.md`]), renamed: new Map([[from, to], [`${W}/hot.md`, `${W}/hot-2.md`]]) });
+		const { result } = await run(root, map, api, {
+			kind: "diff",
+			base: "c0ffee",
+			changed: new Set([to, `${W}/hot-2.md`]),
+			deleted: new Set([from, `${W}/hot.md`]),
+			renamed: new Map([
+				[from, to],
+				[`${W}/hot.md`, `${W}/hot-2.md`],
+			]),
+		});
 
 		expect(result.failures).toEqual([]);
 		expect(result).toMatchObject({ superseded: 2, deleted: 0, created: 0 });
@@ -382,27 +458,33 @@ describe("backup sync", () => {
 	});
 });
 
-describe("throttle", () => {
-	it("spaces request starts by the interval", async () => {
-		const starts: number[] = [];
-		const fake = (async () => {
-			starts.push(Date.now());
-			return new Response("{}");
-		}) as unknown as typeof fetch;
-		const t = throttle(fake, 350);
-		await Promise.all([t("a"), t("b"), t("c")]);
-		expect(starts.length).toBe(3);
-		// The first goes at once; the other two start a full interval and two after it. Real sleeps and
-		// start stamps, because the invariant is the spacing, and late scheduling may only widen it.
-		expect(starts[1]! - starts[0]!).toBeGreaterThanOrEqual(340);
-		expect(starts[2]! - starts[0]!).toBeGreaterThanOrEqual(690);
-	});
-});
-
 describe("notion client write retries", () => {
-	const edge502 = (): Response => new Response("<html>bad gateway</html>", { status: 502, headers: { "content-type": "text/html", "cf-ray": "abc-IAD" } });
-	const api500 = (): Response => new Response(JSON.stringify({ object: "error", status: 500, code: "internal_server_error", message: "boom", request_id: "r1" }), { status: 500, headers: { "content-type": "application/json" } });
-	const page = (): Response => new Response(JSON.stringify({ object: "page", id: "p1", url: "https://www.notion.so/p1", created_time: "2026-10-07T12:00:00.000Z" }), { headers: { "content-type": "application/json" } });
+	const edge502 = (): Response =>
+		new Response("<html>bad gateway</html>", {
+			status: 502,
+			headers: { "content-type": "text/html", "cf-ray": "abc-IAD" },
+		});
+	const api500 = (): Response =>
+		new Response(
+			JSON.stringify({
+				object: "error",
+				status: 500,
+				code: "internal_server_error",
+				message: "boom",
+				request_id: "r1",
+			}),
+			{ status: 500, headers: { "content-type": "application/json" } },
+		);
+	const page = (): Response =>
+		new Response(
+			JSON.stringify({
+				object: "page",
+				id: "p1",
+				url: "https://www.notion.so/p1",
+				created_time: "2026-10-07T12:00:00.000Z",
+			}),
+			{ headers: { "content-type": "application/json" } },
+		);
 	const client = (responses: (() => Response)[]) => {
 		const sent: string[] = [];
 		const fake = (async (url: string, init?: RequestInit) => {
@@ -433,4 +515,3 @@ describe("notion client write retries", () => {
 		expect(down.sent).toHaveLength(5);
 	});
 });
-

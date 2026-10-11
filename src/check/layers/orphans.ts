@@ -1,13 +1,14 @@
 import { buildLinkGraph } from "../../vault/links.ts";
 import type { Page } from "../../vault/types.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
-import { checkedPages, isSpecialPage } from "../util.ts";
+import { isFixedPage } from "../views.ts";
 
 const LAYER = "orphans";
 
 /** Where a link to each page kind normally lives, for the hint. */
 const LINK_FROM: Record<string, string> = {
-	Location: "its parent Location: `### Places` on a Region, `### Districts` or `### Services` on a Settlement, `### Areas` on a Site",
+	Location:
+		"its parent Location: `### Places` on a Region, `### Districts` or `### Services` on a Settlement, `### Areas` on a Site",
 	NPC: "the Location where they are found, or the Faction they belong to",
 	Creature: "an NPC that uses it (`creature: \"[[Name]]\"`) or a Scene's or Site's occupants",
 	Faction: "a Location, NPC or Lore page that mentions it",
@@ -31,7 +32,7 @@ const LINK_FROM: Record<string, string> = {
 
 /** Pages that need no inbound link: the roots of the Wiki (the World and Campaign overviews, DM Settings, indexes, logs) and hot.md. */
 function isRoot(page: Page): boolean {
-	if (isSpecialPage(page)) return true;
+	if (isFixedPage(page)) return true;
 	if (page.slug === "hot" || page.frontmatter?.type === "DM Settings") return true;
 	return page.frontmatter?.type === "World" || page.frontmatter?.type === "Campaign";
 }
@@ -39,9 +40,9 @@ function isRoot(page: Page): boolean {
 export function run(ctx: CheckContext): Finding[] {
 	const graph = buildLinkGraph(ctx.vault);
 	const findings: Finding[] = [];
-	for (const page of checkedPages(ctx)) {
+	for (const page of ctx.pages) {
 		if (isRoot(page)) continue;
-		const sources = [...(graph.inbound.get(page) ?? [])].filter((p) => !isSpecialPage(p));
+		const sources = [...(graph.inbound.get(page) ?? [])].filter((p) => !isFixedPage(p));
 		if (sources.length > 0) continue;
 		const type = typeof page.frontmatter?.type === "string" ? page.frontmatter.type : undefined;
 		const where = type ? LINK_FROM[type] : undefined;
@@ -60,6 +61,7 @@ export function run(ctx: CheckContext): Finding[] {
 
 export const orphansLayer: Layer = {
 	name: LAYER,
+	scope: "page",
 	description: "Every page has an inbound link from another page (index.md and log.md links do not count).",
 	run,
 };

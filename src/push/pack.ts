@@ -18,7 +18,9 @@ export function moduleManifest(plan: Plan, version: string): Doc {
 		version,
 		authors: [{ name: "Campaign Foundry" }],
 		compatibility: { minimum: FOUNDRY_MIN, verified: FOUNDRY_VERIFIED },
-		relationships: { systems: [{ id: "dnd5e", type: "system", compatibility: { minimum: DND5E_VERSION, verified: DND5E_VERSION } }] },
+		relationships: {
+			systems: [{ id: "dnd5e", type: "system", compatibility: { minimum: DND5E_VERSION, verified: DND5E_VERSION } }],
+		},
 		packs: [
 			{
 				name: PACK_NAME,

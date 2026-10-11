@@ -22,27 +22,47 @@ export function loadMatrix(path: string): Matrix {
 	try {
 		parsed = YAML.parse(readFileSync(path, "utf8")) as Record<string, unknown>;
 	} catch {
-		throw new UsageError(`Cannot read the Matrix at \`${path}\`.`, "The Matrix lives in `evals/models.yaml`; run from the repository root.");
+		throw new UsageError(
+			`Cannot read the Matrix at \`${path}\`.`,
+			"The Matrix lives in `evals/models.yaml`; run from the repository root.",
+		);
 	}
 	const rawFamilies = parsed.families;
 	if (rawFamilies === null || typeof rawFamilies !== "object") {
-		throw new UsageError(`\`${path}\` has no families.`, "Each family needs `top: { model, fallback }` pins from `omp models`.");
+		throw new UsageError(
+			`\`${path}\` has no families.`,
+			"Each family needs `top: { model, fallback }` pins from `omp models`.",
+		);
 	}
 	const families: Family[] = Object.entries(rawFamilies as Record<string, Record<string, Pin>>).map(([name, pins]) => {
 		const top = pins?.top;
 		if (!top || typeof top.model !== "string" || typeof top.fallback !== "string") {
-			throw new UsageError(`Family \`${name}\` has no valid top pin.`, "Give it `top: { model, fallback }` as exact `provider/model-id` pins from `omp models`.");
+			throw new UsageError(
+				`Family \`${name}\` has no valid top pin.`,
+				"Give it `top: { model, fallback }` as exact `provider/model-id` pins from `omp models`.",
+			);
 		}
 		return { name, top };
 	});
-	if (families.length === 0) throw new UsageError(`\`${path}\` lists no families.`, "Add at least one family with a `top` pin before benchmarking.");
+	if (families.length === 0)
+		throw new UsageError(
+			`\`${path}\` lists no families.`,
+			"Add at least one family with a `top` pin before benchmarking.",
+		);
 	const pool = parsed.judge_fallback_pool;
-	return { families, judgeFallbackPool: Array.isArray(pool) ? (pool as unknown[]).filter((m): m is string => typeof m === "string") : [] };
+	return {
+		families,
+		judgeFallbackPool: Array.isArray(pool) ? (pool as unknown[]).filter((m): m is string => typeof m === "string") : [],
+	};
 }
 
 export function findFamily(matrix: Matrix, name: string): Family {
 	const family = matrix.families.find((f) => f.name === name);
-	if (!family) throw new UsageError(`No family \`${name}\` in the Matrix.`, `Known families: ${matrix.families.map((f) => f.name).join(", ")}.`);
+	if (!family)
+		throw new UsageError(
+			`No family \`${name}\` in the Matrix.`,
+			`Known families: ${matrix.families.map((f) => f.name).join(", ")}.`,
+		);
 	return family;
 }
 

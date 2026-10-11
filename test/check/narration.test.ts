@@ -2,23 +2,17 @@ import { cp, mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { cf, type CliResult, type JsonReport, realTemplates, repoRoot } from "./helpers.ts";
+import { cf, checkLayer, type CliResult, type JsonReport, repoRoot } from "./helpers.ts";
 
 const fixtureRoot = join(repoRoot, "test/narration/fixtures");
 type Result = CliResult & { report: JsonReport };
 
-async function check(root: string): Promise<Result> {
-	const result = await cf([
-		"check", "--json", "--layer", "narration",
-		"--vault", join(root, "wiki"), "--root", root, "--templates", realTemplates,
-	]);
-	return { ...result, report: JSON.parse(result.stdout) as JsonReport };
-}
-
 function findings(result: Result, page: string, title: string, rule: string) {
-	return result.report.findings.filter((finding) =>
-		finding.path.endsWith(`/Drown/Scenes/${page}.md`) &&
-		finding.message.startsWith(`${title}:`) && finding.rule === rule,
+	return result.report.findings.filter(
+		(finding) =>
+			finding.path.endsWith(`/Drown/Scenes/${page}.md`) &&
+			finding.message.startsWith(`${title}:`) &&
+			finding.rule === rule,
 	);
 }
 
@@ -44,8 +38,14 @@ const structuralTwins = [
 	["Traps dirty", "Six slick silver snakes slide past Eileen Dover, who must ring the wring bell."],
 	["Traps clean", "Snakes glide past the watchman beside a brass bell."],
 	["Dialogue clean", 'The ferryman grips his pole and mutters, "Coins first."'],
-	["Envelope dirty", "Rain hammers the empty pier. Lanterns sway above black water. Something splashes beyond the pilings. Nets twist around a beam. Gulls circle the mast heights. Boots splash along the boards."],
-	["Envelope clean", "The ferry casts off before the rain arrives, and the current takes the hull sideways toward the far pylons where herons stand in rigid rows. Water seeps between the boards. A lantern gutters out, and Tovin hauls the rope tighter without looking up. Downstream someone rings the chapel bell twice, a flat sound that carries over the masts and stops the gulls midair for one held breath. Then the door of the ferryhouse opens. Inside, three strangers wait with their hoods still dripping, and the smallest one sets a coin on the counter without a word."],
+	[
+		"Envelope dirty",
+		"Rain hammers the empty pier. Lanterns sway above black water. Something splashes beyond the pilings. Nets twist around a beam. Gulls circle the mast heights. Boots splash along the boards.",
+	],
+	[
+		"Envelope clean",
+		"The ferry casts off before the rain arrives, and the current takes the hull sideways toward the far pylons where herons stand in rigid rows. Water seeps between the boards. A lantern gutters out, and Tovin hauls the rope tighter without looking up. Downstream someone rings the chapel bell twice, a flat sound that carries over the masts and stops the gulls midair for one held breath. Then the door of the ferryhouse opens. Inside, three strangers wait with their hoods still dripping, and the smallest one sets a coin on the counter without a word.",
+	],
 	["Non narration", "You cross the yard. In the tower, a bell rings. Back in the yard, guards gather."],
 ];
 
@@ -53,14 +53,14 @@ let existing: Result;
 let added: Result;
 let temporaryRoot: string;
 beforeAll(async () => {
-	existing = await check(fixtureRoot);
+	existing = await checkLayer("narration", fixtureRoot);
 	temporaryRoot = await mkdtemp(join(tmpdir(), "cf-narration-"));
 	await cp(join(fixtureRoot, "wiki"), join(temporaryRoot, "wiki"), { recursive: true });
 	for (const [title, body] of structuralTwins) {
 		const type = title === "Non narration" ? "note" : "narration";
 		await writeFile(join(temporaryRoot, `wiki/Drown/Scenes/${title}.md`), `> [!${type}] ${title}\n> ${body}\n`);
 	}
-	added = await check(temporaryRoot);
+	added = await checkLayer("narration", temporaryRoot);
 }, 30_000);
 afterAll(async () => {
 	if (temporaryRoot) await rm(temporaryRoot, { recursive: true, force: true });
@@ -109,24 +109,39 @@ describe("cf check --layer narration", () => {
 
 	it("warns on a run of three fresh starts, not a run broken before three", () => {
 		twin(existing, "fresh-starts", ["List", "List"], ["Short list", "Short list"], "Told");
-		expect(findings(existing, "List", "List", "fresh-starts")[0]?.message)
-			.toContain('Sentences 1 to 3 open like a list: "In the", "Back in", "Under the"');
+		expect(findings(existing, "List", "List", "fresh-starts")[0]?.message).toContain(
+			'Sentences 1 to 3 open like a list: "In the", "Back in", "Under the"',
+		);
 	});
 
 	it("warns on evaluative stacks while exempting quoted speech", () => {
-		twin(existing, "evaluative-stack", ["Judgement", "Judgement"], ["Judgement in speech", "Judgement in speech"], "Evidence");
-		expect(findings(existing, "Judgement", "Judgement", "evaluative-stack")[0]?.message)
-			.toContain("dreadful mysterious barge");
+		twin(
+			existing,
+			"evaluative-stack",
+			["Judgement", "Judgement"],
+			["Judgement in speech", "Judgement in speech"],
+			"Evidence",
+		);
+		expect(findings(existing, "Judgement", "Judgement", "evaluative-stack")[0]?.message).toContain(
+			"dreadful mysterious barge",
+		);
 	});
 
 	it("warns on relative chains, not direct clauses", () => {
-		twin(added, "relative-chain", ["Relative dirty", "Relative dirty"], ["Relative clean", "Relative clean"], "Speakable");
+		twin(
+			added,
+			"relative-chain",
+			["Relative dirty", "Relative dirty"],
+			["Relative clean", "Relative clean"],
+			"Speakable",
+		);
 	});
 
 	it("warns above three proper-name candidates, not at three", () => {
 		twin(added, "invented-names", ["Names dirty", "Names dirty"], ["Names clean", "Names clean"], "Speakable");
-		expect(findings(added, "Names dirty", "Names dirty", "invented-names")[0]?.message)
-			.toContain("Tovin, Mara, Hobb, Ilse");
+		expect(findings(added, "Names dirty", "Names dirty", "invented-names")[0]?.message).toContain(
+			"Tovin, Mara, Hobb, Ilse",
+		);
 	});
 
 	it("warns on spoken traps, not a speakable rewrite", () => {
@@ -156,7 +171,14 @@ describe("cf check --layer narration", () => {
 
 	it("leaves token rules and length bands out of structural analysis", () => {
 		const structuralRules = [
-			"echo", "fresh-starts", "evaluative-stack", "relative-chain", "invented-names", "spoken-word-trap", "dialogue-attribution", "voice-envelope",
+			"echo",
+			"fresh-starts",
+			"evaluative-stack",
+			"relative-chain",
+			"invented-names",
+			"spoken-word-trap",
+			"dialogue-attribution",
+			"voice-envelope",
 		];
 		expect(added.report.findings.every((finding) => structuralRules.includes(finding.rule))).toBe(true);
 	});

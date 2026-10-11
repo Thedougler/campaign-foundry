@@ -98,10 +98,16 @@ export async function createBackup(
 	};
 
 	const mkdir = await runStep(`mkdir -p ${remoteDirname(dest)}`);
-	if (mkdir.code !== 0) throw new HostCommandError(`Could not create the backup directory: ${mkdir.stderr.trim()}`, `mkdir -p ${remoteDirname(dest)}`, mkdir.stderr);
+	if (mkdir.code !== 0)
+		throw new HostCommandError(
+			`Could not create the backup directory: ${mkdir.stderr.trim()}`,
+			`mkdir -p ${remoteDirname(dest)}`,
+			mkdir.stderr,
+		);
 	if (wasRunning) {
 		const stop = await runStep(stopCommand);
-		if (stop.code !== 0) throw new HostCommandError(`Could not stop the world: ${stop.stderr.trim()}`, stopCommand, stop.stderr);
+		if (stop.code !== 0)
+			throw new HostCommandError(`Could not stop the world: ${stop.stderr.trim()}`, stopCommand, stop.stderr);
 	}
 
 	const tar = await runStep(tarCommand);
@@ -146,10 +152,16 @@ export async function restoreBackup(
 	};
 
 	const check = await runStep(`test -f ${opts.archive}`);
-	if (check.code !== 0) throw new HostCommandError(`No archive at ${opts.archive}`, `test -f ${opts.archive}`, check.stderr);
+	if (check.code !== 0)
+		throw new HostCommandError(`No archive at ${opts.archive}`, `test -f ${opts.archive}`, check.stderr);
 
 	const move = await runStep(`mv ${config.dataPath} ${keptAs}`);
-	if (move.code !== 0) throw new HostCommandError(`Could not move the current data directory aside: ${move.stderr.trim()}`, `mv ${config.dataPath} ${keptAs}`, move.stderr);
+	if (move.code !== 0)
+		throw new HostCommandError(
+			`Could not move the current data directory aside: ${move.stderr.trim()}`,
+			`mv ${config.dataPath} ${keptAs}`,
+			move.stderr,
+		);
 
 	const extract = await runStep(`tar -xzf ${opts.archive} -C ${parent}`);
 	if (extract.code !== 0) {

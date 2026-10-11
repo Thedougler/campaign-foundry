@@ -6,7 +6,11 @@ import { parsePage } from "../../src/vault/parse.ts";
 
 const vault = join(import.meta.dirname, "../fixtures/vault/salt-and-lantern");
 
-function actorFor(creature: string, name = creature, extra: Partial<Parameters<typeof buildActor>[1]> = {}): ReturnType<typeof buildActor> {
+function actorFor(
+	creature: string,
+	name = creature,
+	extra: Partial<Parameters<typeof buildActor>[1]> = {},
+): ReturnType<typeof buildActor> {
 	const path = `Creatures/${creature}.md`;
 	const page = parsePage(path, readFileSync(join(vault, path), "utf8"));
 	return buildActor(page, { campaign: "salt-and-lantern", name, biography: "<p>bio</p>", ...extra });
@@ -14,7 +18,8 @@ function actorFor(creature: string, name = creature, extra: Partial<Parameters<t
 
 type Bag = Record<string, any>;
 const sys = (a: ReturnType<typeof buildActor>): Bag => a.data.system as Bag;
-const item = (a: ReturnType<typeof buildActor>, name: string): Bag => (a.data.items as Bag[]).find((i) => i.name === name)!;
+const item = (a: ReturnType<typeof buildActor>, name: string): Bag =>
+	(a.data.items as Bag[]).find((i) => i.name === name)!;
 
 describe("buildActor", () => {
 	it("makes a dnd5e npc Actor from the Creature's statblock: abilities, AC, HP, speed, CR, type and size", () => {
@@ -52,7 +57,11 @@ describe("buildActor", () => {
 		const grasp = item(actorFor("Mire Drowner"), "Drowning Grasp");
 		const activity = Object.values(grasp.system.activities as Record<string, Bag>)[0]!;
 		expect(activity.type).toBe("attack");
-		expect(activity.attack).toMatchObject({ flat: true, bonus: "4", type: { value: "melee", classification: "weapon" } });
+		expect(activity.attack).toMatchObject({
+			flat: true,
+			bonus: "4",
+			type: { value: "melee", classification: "weapon" },
+		});
 		expect(activity.damage.includeBase).toBe(false);
 		expect(activity.damage.parts).toHaveLength(1);
 		expect(activity.damage.parts[0]).toMatchObject({ number: 2, denomination: 8, bonus: "2", types: ["bludgeoning"] });

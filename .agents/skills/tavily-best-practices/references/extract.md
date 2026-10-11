@@ -27,6 +27,7 @@ response = client.search(
 ```
 
 **When to use:**
+
 - Quick prototyping
 - Simple queries where search results are likely relevant
 - Single API call convenience
@@ -61,6 +62,7 @@ for item in extracted["results"]:
 ```
 
 **When to use:**
+
 - You want control over which URLs to extract
 - You need to filter/curate URLs before extraction
 - You want targeted extraction with query and chunks_per_source
@@ -100,11 +102,13 @@ extracted = client.extract(
 ```
 
 **When to use query:**
+
 - To extract only relevant portions of long documents
 - When you need focused content instead of full page extraction
 - For targeted information retrieval from specific URLs
 
 **Key benefits of chunks_per_source:**
+
 - Returns only relevant snippets (max 500 chars each) instead of full page
 - Chunks appear in `raw_content` as: `<chunk 1> [...] <chunk 2> [...] <chunk 3>`
 - Prevents context window from exploding in agentic use cases

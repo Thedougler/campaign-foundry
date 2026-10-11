@@ -65,14 +65,24 @@ export interface JsonReport {
 }
 
 /** `cf check` over a fixture, with the real templates, as JSON. */
-export async function checkFixture(
-	fixture: string,
-	extra: string[] = [],
-): Promise<CliResult & { report: JsonReport }> {
+export async function checkFixture(fixture: string, extra: string[] = []): Promise<CliResult & { report: JsonReport }> {
 	const root = join(fixtures, fixture);
 	const result = await cf(
 		["check", "--json", "--vault", join(root, "wiki"), "--root", root, "--templates", realTemplates, ...extra],
 		root,
+	);
+	return { ...result, report: JSON.parse(result.stdout) as JsonReport };
+}
+
+/** `cf check --layer <layer>` over a directory, with the real templates, as JSON. */
+export async function checkLayer(
+	layer: string,
+	dir: string,
+	extra: string[] = [],
+): Promise<CliResult & { report: JsonReport }> {
+	const result = await cf(
+		["check", "--json", "--layer", layer, ...vaultFlags(dir), "--templates", realTemplates, ...extra],
+		dir,
 	);
 	return { ...result, report: JSON.parse(result.stdout) as JsonReport };
 }
@@ -92,7 +102,8 @@ export function vaultFlags(dir: string): string[] {
 /** The generated root and campaign-folder `index.md` of a fixture, keyed by path relative to `dir`. */
 export async function readIndexes(dir: string): Promise<Map<string, string>> {
 	const out = new Map<string, string>();
-	for (const p of ["wiki/index.md", "wiki/ashes-of-the-crown/index.md"]) out.set(p, await readFile(join(dir, p), "utf8"));
+	for (const p of ["wiki/index.md", "wiki/ashes-of-the-crown/index.md"])
+		out.set(p, await readFile(join(dir, p), "utf8"));
 	return out;
 }
 

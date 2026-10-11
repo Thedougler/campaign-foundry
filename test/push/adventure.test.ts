@@ -7,7 +7,13 @@ type Bag = Record<string, any>;
 let plan: Plan;
 const find = (type: PlanDoc["type"], name: string): Bag => {
 	const doc = plan.docs.find((d) => d.type === type && d.name === name);
-	if (!doc) throw new Error(`no ${type} named ${name}; have ${plan.docs.filter((d) => d.type === type).map((d) => d.name).join(", ")}`);
+	if (!doc)
+		throw new Error(
+			`no ${type} named ${name}; have ${plan.docs
+				.filter((d) => d.type === type)
+				.map((d) => d.name)
+				.join(", ")}`,
+		);
 	return doc.data;
 };
 const names = (type: PlanDoc["type"]): string[] => plan.docs.filter((d) => d.type === type).map((d) => d.name);
@@ -28,9 +34,22 @@ describe("buildPlan for Salt and Lantern, Session 2", () => {
 		const journals = names("JournalEntry");
 		expect(journals).toEqual(
 			expect.arrayContaining([
-				"Session 2 - Prep", "Session 2 - The Bell Rings Early", "Session 2 - Nib's Tally", "Session 2 - Mud Under the Boards",
-				"Session 2 - Low Water at the Chapel", "Session 2 - What the Ledger Says", "Session 2 - Recap", "Hobb's Warning",
-				"Sable", "Nib Ashwater", "Pell Rushlight", "Hobb Tarrow", "Ilse Corran", "Reedholt", "The Drowned Chapel", "Crookback Sluice",
+				"Session 2 - Prep",
+				"Session 2 - The Bell Rings Early",
+				"Session 2 - Nib's Tally",
+				"Session 2 - Mud Under the Boards",
+				"Session 2 - Low Water at the Chapel",
+				"Session 2 - What the Ledger Says",
+				"Session 2 - Recap",
+				"Hobb's Warning",
+				"Sable",
+				"Nib Ashwater",
+				"Pell Rushlight",
+				"Hobb Tarrow",
+				"Ilse Corran",
+				"Reedholt",
+				"The Drowned Chapel",
+				"Crookback Sluice",
 			]),
 		);
 		// Session 1's Previously On is linked from the Prep; the rest of Session 1 is out of scope.
@@ -68,7 +87,7 @@ describe("buildPlan for Salt and Lantern, Session 2", () => {
 		expect(html).toContain(`@UUID[Actor.${drowner.id}]{Mire Drowner}`);
 		const ebb = plan.docs.find((d) => d.name === "Ebb Lantern" && d.type === "Item")!;
 		expect(html).toContain(`@UUID[Item.${ebb.id}]{Ebb Lantern}`);
-				expect(html).not.toContain("[[");
+		expect(html).not.toContain("[[");
 		expect(html).not.toContain("@UUID[undefined");
 		expect(html).toContain('class="cf-callout cf-narration"');
 	});
@@ -93,7 +112,9 @@ describe("buildPlan for Salt and Lantern, Session 2", () => {
 		const scene = find("Scene", "Session 2 - Mud Under the Boards");
 		expect(scene.grid).toMatchObject({ size: 64, distance: 5 });
 		expect([scene.width, scene.height]).toEqual([640, 448]);
-		expect(scene.levels[0].background.src).toBe("modules/cf-salt-and-lantern/assets/session-2-mud-under-the-boards-battle-map.webp");
+		expect(scene.levels[0].background.src).toBe(
+			"modules/cf-salt-and-lantern/assets/session-2-mud-under-the-boards-battle-map.webp",
+		);
 		expect(scene.walls).toHaveLength(6);
 		expect(scene.lights).toHaveLength(1);
 		expect(scene.tokens.map((t: Bag) => t.name)).toEqual(["Mire Drowner"]);
@@ -104,7 +125,11 @@ describe("buildPlan for Salt and Lantern, Session 2", () => {
 	});
 
 	it("ships the images the documents use", () => {
-		expect(plan.assets.map((a) => a.to).sort()).toEqual(["Mire-Drowner-portrait.webp", "hobbs-warning-handout-art.webp", "session-2-mud-under-the-boards-battle-map.webp"]);
+		expect(plan.assets.map((a) => a.to).sort()).toEqual([
+			"Mire-Drowner-portrait.webp",
+			"hobbs-warning-handout-art.webp",
+			"session-2-mud-under-the-boards-battle-map.webp",
+		]);
 	});
 
 	it("gives a Creature's Actor and scene token the portrait named for its page slug", () => {
@@ -132,6 +157,8 @@ describe("buildPlan for Salt and Lantern, Session 2", () => {
 		const ws = await workspace();
 		const again = await buildPlan(await ws.load(), { campaign: CAMPAIGN, session: 2 });
 		expect(again.docs.map((d) => [d.type, d.id, d.hash])).toEqual(plan.docs.map((d) => [d.type, d.id, d.hash]));
-		expect(new Set(plan.docs.filter((d) => d.type !== "Folder").map((d) => `${d.type}:${d.id}`)).size).toBe(plan.docs.filter((d) => d.type !== "Folder").length);
+		expect(new Set(plan.docs.filter((d) => d.type !== "Folder").map((d) => `${d.type}:${d.id}`)).size).toBe(
+			plan.docs.filter((d) => d.type !== "Folder").length,
+		);
 	});
 });

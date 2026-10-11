@@ -33,7 +33,10 @@ export function foundryCore(): Promise<{ documents: Documents; packages: Record<
 			system: { id: "dnd5e", grid: { type: 1, distance: 5, units: "ft" }, documentTypes: {} },
 			release: { generation: 14, build: 367 },
 		};
-		return { documents: foundry.documents as Documents, packages: foundry.packages as Record<string, new (data: Doc) => unknown> };
+		return {
+			documents: foundry.documents as Documents,
+			packages: foundry.packages as Record<string, new (data: Doc) => unknown>,
+		};
 	})();
 	return cached;
 }

@@ -312,6 +312,7 @@ results = hybrid_client.search(
 ```
 
 **Environment Variables:**
+
 - `TAVILY_PROJECT`: Default project ID
 - `TAVILY_HTTP_PROXY` / `TAVILY_HTTPS_PROXY`: Proxy configuration
 - `CO_API_KEY`: Cohere API key for embeddings
@@ -393,5 +394,6 @@ results = hybrid_client.search(
 ---
 
 For full API documentation, see:
+
 - [Python SDK Reference](https://docs.tavily.com/sdk/python/reference)
 - [JavaScript SDK Reference](https://docs.tavily.com/sdk/javascript/reference)

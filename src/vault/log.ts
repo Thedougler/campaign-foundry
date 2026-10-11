@@ -74,7 +74,12 @@ export interface AppendOptions {
  * append-only and in date order, and an entry from a later year first rotates the log to `log-<year>.md`. Creates
  * `log.md` when absent.
  */
-export async function appendLogEntry(vaultDir: string, campaignFolder: string, entry: LogEntry, options: AppendOptions = {}): Promise<AppendResult> {
+export async function appendLogEntry(
+	vaultDir: string,
+	campaignFolder: string,
+	entry: LogEntry,
+	options: AppendOptions = {},
+): Promise<AppendResult> {
 	const show = options.show ?? ((p: string): string => p);
 	const example = options.example ?? `cf log --campaign "<Campaign>" --op ${entry.op} --title "${entry.title}"`;
 	const path = `${campaignFolder}/log.md`;
@@ -82,7 +87,13 @@ export async function appendLogEntry(vaultDir: string, campaignFolder: string, e
 	const source = await readFile(file, "utf8").catch(() => "");
 	const last = parseEntries(source).at(-1);
 
-	if (last && last.date === entry.date && last.op === entry.op && last.title === entry.title && [...last.pages].sort().join("\n") === [...entry.pages].sort().join("\n")) {
+	if (
+		last &&
+		last.date === entry.date &&
+		last.op === entry.op &&
+		last.title === entry.title &&
+		[...last.pages].sort().join("\n") === [...entry.pages].sort().join("\n")
+	) {
 		return { status: "already-logged", path };
 	}
 	if (last && last.date > entry.date) {
@@ -98,7 +109,11 @@ export async function appendLogEntry(vaultDir: string, campaignFolder: string, e
 	if (last && last.date.slice(0, 4) < entry.date.slice(0, 4)) {
 		const to = `${campaignFolder}/log-${last.date.slice(0, 4)}.md`;
 		if (existsSync(join(vaultDir, to))) {
-			return { status: "error", message: `Cannot rotate ${show(path)}: ${show(to)} already exists.`, hint: `Merge or move ${show(to)} yourself, then run the command again.` };
+			return {
+				status: "error",
+				message: `Cannot rotate ${show(path)}: ${show(to)} already exists.`,
+				hint: `Merge or move ${show(to)} yourself, then run the command again.`,
+			};
 		}
 		rotated = { from: path, to };
 		if (!options.dryRun) await rename(file, join(vaultDir, to));

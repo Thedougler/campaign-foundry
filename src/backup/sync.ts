@@ -1,6 +1,14 @@
 import { readFileSync } from "node:fs";
 import { dirname, posix } from "node:path";
-import { type Block, chunkBlocks, type ConvertContext, countBlocks, markdownToBlocks, textFileToBlocks, textItems } from "./blocks.ts";
+import {
+	type Block,
+	chunkBlocks,
+	type ConvertContext,
+	countBlocks,
+	markdownToBlocks,
+	textFileToBlocks,
+	textItems,
+} from "./blocks.ts";
 import { type BackupFile, contentHash, type FileKind, inBackupRoots, titleOf, type WalkResult } from "./files.ts";
 import { type BackupMap, type MapEntry, pageUrl } from "./map.ts";
 import { deletedNote, dirMarker, headerBlock, markerOf, pendingHeader, ROOT_TITLE, rootCallout } from "./markers.ts";
@@ -12,13 +20,22 @@ export { headerBlock } from "./markers.ts";
 /** Single-part uploads carry at most 20 MiB; larger files need multi-part, which the Backup does not do yet. */
 export const SINGLE_PART_LIMIT = 20 * 1024 * 1024;
 
-export const ICONS: Record<FileKind | "dir" | "root" | "deleted", string> = { root: "🗄️", dir: "📁", markdown: "📄", text: "🧾", image: "🖼️", deleted: "🗑️" };
+export const ICONS: Record<FileKind | "dir" | "root" | "deleted", string> = {
+	root: "🗄️",
+	dir: "📁",
+	markdown: "📄",
+	text: "🧾",
+	image: "🖼️",
+	deleted: "🗑️",
+};
 
 /**
  * Which files a run looks at: every file (the first run, `--all`) or the ones a git diff names (a push), with the
  * diff's renames from old path to new.
  */
-export type Scope = { kind: "all" } | { kind: "diff"; base: string; changed: Set<string>; deleted: Set<string>; renamed: Map<string, string> };
+export type Scope =
+	| { kind: "all" }
+	| { kind: "diff"; base: string; changed: Set<string>; deleted: Set<string>; renamed: Map<string, string> };
 
 export interface Plan {
 	createRoot: boolean;
@@ -62,7 +79,9 @@ export function followRenames(walk: WalkResult, map: BackupMap, scope: Scope): n
 		const added = new Map<string, string[]>();
 		for (const f of walk.files) if (!map.entries[f.path]) group(added, f.hash, f.path);
 		const vanished = new Map<string, string[]>();
-		for (const [path, e] of Object.entries(map.entries)) if (e.kind !== "dir" && !e.deletedAt && e.hash && !onDisk.has(path) && inBackupRoots(path)) group(vanished, e.hash, path);
+		for (const [path, e] of Object.entries(map.entries))
+			if (e.kind !== "dir" && !e.deletedAt && e.hash && !onDisk.has(path) && inBackupRoots(path))
+				group(vanished, e.hash, path);
 		pairs = [];
 		for (const [hash, olds] of vanished) {
 			const news = added.get(hash);
@@ -121,7 +140,10 @@ export function planBackup(walk: WalkResult, map: BackupMap, scope: Scope, optio
 		.filter(([path, e]) => e.kind === "dir" && !e.deletedAt && !walkDirs.has(path))
 		.map(([path]) => path)
 		.sort((a, b) => b.split("/").length - a.split("/").length || (a < b ? -1 : 1));
-	const holdsFiles = (dir: string): boolean => Object.entries(map.entries).some(([path, e]) => e.kind !== "dir" && !superseded.has(path) && path.startsWith(`${dir}/`));
+	const holdsFiles = (dir: string): boolean =>
+		Object.entries(map.entries).some(
+			([path, e]) => e.kind !== "dir" && !superseded.has(path) && path.startsWith(`${dir}/`),
+		);
 	return {
 		createRoot: !map.root,
 		createDirs,
@@ -178,7 +200,10 @@ const stripMd = (s: string): string => s.replace(/\.(md|markdown)$/i, "");
  * Indexes backed-up pages by title and aliases, with slug paths as identity targets.
  * Non-Wiki documents retain their filename labels.
  */
-export function linkIndex(files: BackupFile[]): { page(target: string): string | undefined; image(target: string): string | undefined } {
+export function linkIndex(files: BackupFile[]): {
+	page(target: string): string | undefined;
+	image(target: string): string | undefined;
+} {
 	const pagesByName = new Map<string, string[]>();
 	const pagesByAlias = new Map<string, string[]>();
 	const pagesBySlug = new Map<string, string[]>();
@@ -209,11 +234,17 @@ export function linkIndex(files: BackupFile[]): { page(target: string): string |
 		}
 	}
 	// Obsidian picks the shortest path when a name is ambiguous.
-	const shortest = (paths: string[] | undefined): string | undefined => paths?.slice().sort((a, b) => a.length - b.length || a.localeCompare(b))[0];
+	const shortest = (paths: string[] | undefined): string | undefined =>
+		paths?.slice().sort((a, b) => a.length - b.length || a.localeCompare(b))[0];
 	return {
 		page(target) {
 			const t = lower(stripMd(target.trim()));
-			return shortest(pagesByName.get(t)) ?? shortest(pagesByAlias.get(t)) ?? pagesByPath.get(t) ?? shortest(pagesBySlug.get(t));
+			return (
+				shortest(pagesByName.get(t)) ??
+				shortest(pagesByAlias.get(t)) ??
+				pagesByPath.get(t) ??
+				shortest(pagesBySlug.get(t))
+			);
 		},
 		image(target) {
 			const t = lower(target.trim());
@@ -223,7 +254,12 @@ export function linkIndex(files: BackupFile[]): { page(target: string): string |
 }
 
 /** The conversion context for one file: links resolve to Notion pages in the map, embeds to uploaded images. */
-export function contextFor(file: { path: string }, map: BackupMap, index: ReturnType<typeof linkIndex>, sourceUrl: (path: string) => string | undefined): ConvertContext {
+export function contextFor(
+	file: { path: string },
+	map: BackupMap,
+	index: ReturnType<typeof linkIndex>,
+	sourceUrl: (path: string) => string | undefined,
+): ConvertContext {
 	const dir = dirname(file.path);
 	const resolveRelative = (href: string): string | undefined => {
 		let decoded = href;
@@ -279,13 +315,36 @@ async function writePage(api: NotionApi, pageId: string, path: string, body: Blo
  * Flags a page whose file or folder left the repo: retitled, with a red note above its header or folder marker
  * naming the commit and the day, so a lost map adopts it as deleted. The page stays in Notion.
  */
-async function flagDeleted(api: NotionApi, path: string, entry: MapEntry, commit: string | undefined, now: () => Date): Promise<void> {
+async function flagDeleted(
+	api: NotionApi,
+	path: string,
+	entry: MapEntry,
+	commit: string | undefined,
+	now: () => Date,
+): Promise<void> {
 	const when = now().toISOString().slice(0, 10);
-	const kept = entry.kind === "dir" ? "This folder page is kept for the pages flagged under it." : "This page is kept as the last backed-up copy.";
-	await api.retitle(entry.id, `${entry.kind === "dir" ? titleOf(path, "dir") : titleOf(path, entry.kind, entry.title)} (deleted from repo)`, ICONS.deleted);
+	const kept =
+		entry.kind === "dir"
+			? "This folder page is kept for the pages flagged under it."
+			: "This page is kept as the last backed-up copy.";
+	await api.retitle(
+		entry.id,
+		`${entry.kind === "dir" ? titleOf(path, "dir") : titleOf(path, entry.kind, entry.title)} (deleted from repo)`,
+		ICONS.deleted,
+	);
 	await api.append(
 		entry.id,
-		[{ object: "block", type: "callout", callout: { rich_text: textItems(`Deleted from the repo${commit ? ` at ${commit.slice(0, 7)}` : ""} on ${when}. ${kept}`), icon: { type: "emoji", emoji: ICONS.deleted }, color: "red_background" } }],
+		[
+			{
+				object: "block",
+				type: "callout",
+				callout: {
+					rich_text: textItems(`Deleted from the repo${commit ? ` at ${commit.slice(0, 7)}` : ""} on ${when}. ${kept}`),
+					icon: { type: "emoji", emoji: ICONS.deleted },
+					color: "red_background",
+				},
+			},
+		],
 		true,
 	);
 	entry.deletedAt = when;
@@ -297,7 +356,17 @@ const message = (error: unknown): string => (error instanceof Error ? error.mess
 export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 	const { walk, map, plan, api, log } = options;
 	const now = options.now ?? (() => new Date());
-	const result: SyncResult = { created: 0, written: 0, moved: 0, retired: 0, superseded: 0, uploaded: 0, deleted: 0, failures: [], duplicates: [] };
+	const result: SyncResult = {
+		created: 0,
+		written: 0,
+		moved: 0,
+		retired: 0,
+		superseded: 0,
+		uploaded: 0,
+		deleted: 0,
+		failures: [],
+		duplicates: [],
+	};
 	const createdHere = new Map<string, { id: string; parentId: string; createdTime: string }>();
 	const fail = (path: string, error: unknown): void => {
 		result.failures.push({ path, error: message(error) });
@@ -305,7 +374,8 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 	};
 
 	if (!map.root) {
-		if (!options.reconciled.rootAbsent) throw new Error("The map has no Backup root and Notion was not checked for one: refusing to risk a second root.");
+		if (!options.reconciled.rootAbsent)
+			throw new Error("The map has no Backup root and Notion was not checked for one: refusing to risk a second root.");
 		const page = await api.createPage(map.parentPageId, ROOT_TITLE, ICONS.root, [rootCallout()]);
 		map.root = { id: page.id, url: page.url };
 		options.save(map);
@@ -363,7 +433,8 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 			const old = entry.movedFrom!;
 			const slash = old.lastIndexOf("/");
 			const oldParentPath = slash === -1 ? "" : old.slice(0, slash);
-			const oldParent = map.entries[oldParentPath]?.id ?? Object.values(map.entries).find((e) => e.movedFrom === oldParentPath)?.id;
+			const oldParent =
+				map.entries[oldParentPath]?.id ?? Object.values(map.entries).find((e) => e.movedFrom === oldParentPath)?.id;
 			if (oldParent !== parent) {
 				try {
 					await api.move(entry.id, parent);
@@ -431,7 +502,11 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 			if (previous?.deletedAt) {
 				await api.retitle(previous.id, titleOf(file.path, file.kind, file.title, file.aliases), ICONS[file.kind]);
 				const { deletedAt: _, hash: __, ...kept } = previous;
-				map.entries[file.path] = { ...kept, kind: file.kind, title: titleOf(file.path, file.kind, file.title, file.aliases) };
+				map.entries[file.path] = {
+					...kept,
+					kind: file.kind,
+					title: titleOf(file.path, file.kind, file.title, file.aliases),
+				};
 			} else {
 				const title = titleOf(file.path, file.kind, file.title, file.aliases);
 				const page = await api.createPage(parent, title, ICONS[file.kind], [pendingHeader(file.path)]);
@@ -481,12 +556,20 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 				const mb = (n: number): string => `${(n / 1024 / 1024).toFixed(1)} MB`;
 				entry.uploadSkipped = `${mb(bytes.length)} is over the ${mb(ceiling)} upload limit`;
 				delete entry.fileUploadId;
-				blocks.push({ object: "block", type: "paragraph", paragraph: { rich_text: textItems(`Not uploaded: ${entry.uploadSkipped}. The image is in GitHub.`, {}, url) } });
+				blocks.push({
+					object: "block",
+					type: "paragraph",
+					paragraph: { rich_text: textItems(`Not uploaded: ${entry.uploadSkipped}. The image is in GitHub.`, {}, url) },
+				});
 			} else {
 				entry.fileUploadId = await api.upload(name, bytes, contentTypeOf(name));
 				delete entry.uploadSkipped;
 				result.uploaded++;
-				blocks.push({ object: "block", type: "image", image: { type: "file_upload", file_upload: { id: entry.fileUploadId }, caption: textItems(name) } });
+				blocks.push({
+					object: "block",
+					type: "image",
+					image: { type: "file_upload", file_upload: { id: entry.fileUploadId }, caption: textItems(name) },
+				});
 			}
 			await writePage(api, entry.id, file.path, blocks, headerBlock(file.path, options.commit, url));
 			entry.hash = file.hash;
@@ -505,7 +588,13 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 			const title = titleOf(file.path, file.kind, file.title, file.aliases);
 			const source = readFileSync(file.abs, "utf8");
 			const body = pageBody(file, source, contextFor(file, map, index, options.sourceUrl));
-			await writePage(api, entry.id, file.path, body, headerBlock(file.path, options.commit, options.sourceUrl(file.path)));
+			await writePage(
+				api,
+				entry.id,
+				file.path,
+				body,
+				headerBlock(file.path, options.commit, options.sourceUrl(file.path)),
+			);
 			if (entry.title !== title) await api.retitle(entry.id, title, ICONS[file.kind]);
 			entry.title = title;
 			entry.hash = file.hash;
@@ -569,10 +658,19 @@ export interface Estimate {
 	minutes: number;
 }
 
-export function estimate(walk: WalkResult, map: BackupMap, plan: Plan, readSource: (file: BackupFile) => string): Estimate {
+export function estimate(
+	walk: WalkResult,
+	map: BackupMap,
+	plan: Plan,
+	readSource: (file: BackupFile) => string,
+): Estimate {
 	const index = linkIndex(walk.files);
 	// Pretend every link and embed resolves, so the count matches a first run once every page exists.
-	const ctx: ConvertContext = { link: (t) => (index.page(t) ? "https://www.notion.so/x" : undefined), relative: () => undefined, image: (t) => (index.image(t) ? { fileUploadId: "x" } : undefined) };
+	const ctx: ConvertContext = {
+		link: (t) => (index.page(t) ? "https://www.notion.so/x" : undefined),
+		relative: () => undefined,
+		image: (t) => (index.image(t) ? { fileUploadId: "x" } : undefined),
+	};
 	let blocks = 0;
 	let appends = 0;
 	for (const file of plan.writeFiles) {
@@ -594,8 +692,20 @@ export function estimate(walk: WalkResult, map: BackupMap, plan: Plan, readSourc
 	// A moved page costs a re-parent (plus a folder retitle); a retired folder a children read and a trash.
 	const movedCount = Object.values(map.entries).filter((e) => e.movedFrom !== undefined).length;
 	const requests =
-		check + creates + appends + writes * 2 + uploads * 2 + (uploads > 0 ? 1 : 0) + plan.deletePaths.length * 2 + movedCount * 2 + plan.supersededPaths.length + plan.retireDirs.length * 2 + plan.deleteDirs.length * 2;
-	const skills = new Set(walk.files.filter((f) => f.path.startsWith(".agents/skills/")).map((f) => f.path.split("/")[2])).size;
+		check +
+		creates +
+		appends +
+		writes * 2 +
+		uploads * 2 +
+		(uploads > 0 ? 1 : 0) +
+		plan.deletePaths.length * 2 +
+		movedCount * 2 +
+		plan.supersededPaths.length +
+		plan.retireDirs.length * 2 +
+		plan.deleteDirs.length * 2;
+	const skills = new Set(
+		walk.files.filter((f) => f.path.startsWith(".agents/skills/")).map((f) => f.path.split("/")[2]),
+	).size;
 	return {
 		markdown: walk.files.filter((f) => f.kind === "markdown").length,
 		text: walk.files.filter((f) => f.kind === "text").length,
@@ -616,27 +726,46 @@ export function estimate(walk: WalkResult, map: BackupMap, plan: Plan, readSourc
  * (still an empty shell) goes to the trash and the run stops, so the next run adopts the older page. Both runs keep the
  * older page, so exactly one survives.
  */
-async function checkConcurrentCreates(options: SyncOptions, created: Map<string, { id: string; parentId: string; createdTime: string }>, result: SyncResult): Promise<void> {
+async function checkConcurrentCreates(
+	options: SyncOptions,
+	created: Map<string, { id: string; parentId: string; createdTime: string }>,
+	result: SyncResult,
+): Promise<void> {
 	if (created.size === 0) return;
 	const { api, map } = options;
 	const known = new Set(Object.values(map.entries).map((e) => e.id.replace(/-/g, "")));
 	const lost: string[] = [];
 	for (const parentId of new Set([...created.values()].map((c) => c.parentId))) {
-		for (const page of (await api.children(parentId)).filter((b) => b.type === "child_page" && !known.has(b.id.replace(/-/g, "")))) {
+		for (const page of (await api.children(parentId)).filter(
+			(b) => b.type === "child_page" && !known.has(b.id.replace(/-/g, "")),
+		)) {
 			const marker = markerOf(await api.children(page.id, 4));
 			const mine = marker ? created.get(marker.path) : undefined;
 			if (!marker || !mine || sameId(mine.id, page.id)) continue;
-			const theirsOlder = page.createdTime.localeCompare(mine.createdTime) < 0 || (page.createdTime === mine.createdTime && page.id.replace(/-/g, "") < mine.id.replace(/-/g, ""));
+			const theirsOlder =
+				page.createdTime.localeCompare(mine.createdTime) < 0 ||
+				(page.createdTime === mine.createdTime && page.id.replace(/-/g, "") < mine.id.replace(/-/g, ""));
 			if (theirsOlder) {
 				await api.trash(mine.id);
 				delete map.entries[marker.path];
 				lost.push(marker.path);
-				result.duplicates.push({ path: marker.path, kept: page.id, extras: [{ id: mine.id, action: "trashed (empty)" }] });
+				result.duplicates.push({
+					path: marker.path,
+					kept: page.id,
+					extras: [{ id: mine.id, action: "trashed (empty)" }],
+				});
 			} else {
-				result.duplicates.push({ path: marker.path, kept: mine.id, extras: [{ id: page.id, action: "left in place" }] });
+				result.duplicates.push({
+					path: marker.path,
+					kept: mine.id,
+					extras: [{ id: page.id, action: "left in place" }],
+				});
 			}
 		}
 	}
 	options.save(map);
-	if (lost.length > 0) throw new ConcurrentRunError(`another backup run created ${lost.length} of the same pages first (${lost.slice(0, 3).join(", ")}${lost.length > 3 ? ", …" : ""}); this run's copies are in the trash. Rerun to adopt them.`);
+	if (lost.length > 0)
+		throw new ConcurrentRunError(
+			`another backup run created ${lost.length} of the same pages first (${lost.slice(0, 3).join(", ")}${lost.length > 3 ? ", …" : ""}); this run's copies are in the trash. Rerun to adopt them.`,
+		);
 }

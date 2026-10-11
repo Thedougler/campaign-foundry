@@ -1,51 +1,25 @@
 import type { Blockquote, Heading as MdHeading, Root, RootContent } from "mdast";
-import { toString } from "mdast-util-to-string";
+import { toString as mdastToString } from "mdast-util-to-string";
 import remarkFrontmatter from "remark-frontmatter";
+import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
 import { parseDocument } from "yaml";
+import {
+	BLOCK_ID,
+	CALLOUT_TITLE,
+	pageNames,
+	parseWikiLinkText,
+	stringValues,
+	WIKILINK,
+	wikilinkDisplay,
+} from "./dialect.ts";
 import type { Callout, Comment, Cue, Heading, Page, WikiLink } from "./types.ts";
 
-const processor = unified().use(remarkParse).use(remarkFrontmatter, ["yaml"]);
+const processor = unified().use(remarkParse).use(remarkFrontmatter, ["yaml"]).use(remarkGfm);
 
-/** `![[target#heading#^block|alias]]`; the inner text never spans lines or nests brackets. */
-const WIKILINK = /(!?)\[\[([^[\]\n]*)\]\]/g;
-const CALLOUT_TITLE = /^\[!([^\]\s]+)\][+-]?[ \t]*(.*)$/;
-const BLOCK_ID = /(?:^|\s)\^([A-Za-z0-9-]+)\s*$/;
 /** One `==…==` Cue span: non-greedy text between the marks, one line, non-empty. */
 const CUE_SPAN = /==([^=\n]+)==/g;
-
-/** A frontmatter value as a list of trimmed non-empty strings: a scalar becomes one entry, other shapes read as absent. */
-function stringValues(value: unknown): string[] {
-	if (typeof value === "string") return value.trim() === "" ? [] : [value.trim()];
-	return Array.isArray(value) ? value.filter((v): v is string => typeof v === "string" && v.trim() !== "").map((v) => v.trim()) : [];
-}
-
-/**
- * A page's names in resolution order (ADR 0028): the frontmatter `title`, then each `aliases` entry, then the slug.
- * A blank `title` counts as unset. Duplicates are removed case-insensitively, first spelling wins.
- * Display uses the title, then the first alias; the slug is a lookup handle, never a display name.
- */
-export function pageNames(frontmatter: Record<string, unknown> | null, slug: string): string[] {
-	const seen = new Set<string>();
-	const out: string[] = [];
-	for (const name of [...stringValues(frontmatter?.title), ...stringValues(frontmatter?.aliases), slug]) {
-		const key = name.toLowerCase();
-		if (seen.has(key)) continue;
-		seen.add(key);
-		out.push(name);
-	}
-	return out;
-}
-
-/** Lowercase, hyphenated, no spaces: the slug form of a name (ADR 0028). */
-export function slugify(name: string): string {
-	return name
-		.toLowerCase()
-		.replace(/[''’]/g, "")
-		.replace(/[^a-z0-9]+/g, "-")
-		.replace(/^-+|-+$/g, "");
-}
 
 /** Replaces every non-newline character in the ranges with a space, so offsets and lines survive. */
 export function blank(source: string, ranges: [number, number][], keepQuoteMarkers: boolean): string {
@@ -100,38 +74,14 @@ function walk(node: RootContent | Root, visit: (n: RootContent) => void): void {
 	}
 }
 
-/** Splits `target#H1#H2#^block|alias` into its parts. */
-export function parseWikiLinkText(
-	raw: string,
-	embed: boolean,
-	inner: string,
-	line: number,
-	frontmatter: boolean,
-): WikiLink {
-	const bar = inner.indexOf("|");
-	const targetPart = (bar === -1 ? inner : inner.slice(0, bar)).replace(/\\$/, "").trim();
-	const alias = bar === -1 ? undefined : inner.slice(bar + 1).trim();
-	const [target = "", ...fragments] = targetPart.split("#");
-	const headings: string[] = [];
-	let block: string | undefined;
-	for (const fragment of fragments) {
-		const f = fragment.trim();
-		if (f.startsWith("^")) block = f.slice(1);
-		else headings.push(f);
-	}
-	const link: WikiLink = { raw, embed, target: target.trim(), headings, line, frontmatter };
-	if (block !== undefined) link.block = block;
-	if (alias !== undefined) link.alias = alias;
-	return link;
-}
-
 function findLinks(masked: string, starts: number[], frontmatterEnd: number, out: WikiLink[]): void {
 	for (const match of masked.matchAll(WIKILINK)) {
 		const offset = match.index ?? 0;
 		if (offset < frontmatterEnd) continue;
-		out.push(
-			parseWikiLinkText(match[0], match[1] === "!", match[2] ?? "", lineAt(starts, offset), false),
-		);
+		const link = parseWikiLinkText(match[0], match[1] === "!", match[2] ?? "", lineAt(starts, offset), false);
+		link.start = offset;
+		link.end = offset + match[0].length;
+		out.push(link);
 	}
 }
 
@@ -179,7 +129,7 @@ export function parsePage(path: string, source: string): Page {
 		const h = node as MdHeading;
 		headings.push({
 			depth: h.depth,
-			text: toString(h).trim(),
+			text: mdastToString(h).trim(),
 			line: h.position?.start.line ?? 0,
 			index,
 		});
@@ -220,11 +170,7 @@ export function parsePage(path: string, source: string): Page {
 	const triggerOf = (raw: string): string =>
 		raw
 			.replace(CUE_SPAN, " ")
-			.replace(WIKILINK, (_, _embed: string, inner: string) => {
-				const bar = inner.indexOf("|");
-				if (bar !== -1) return inner.slice(bar + 1).trim();
-				return ((inner.split("#")[0] ?? "").split("/").pop() ?? "").trim();
-			})
+			.replace(WIKILINK, (_, _embed: string, inner: string) => wikilinkDisplay(inner).text)
 			.replace(/[*_`]+/g, "")
 			.replace(/^[ \t]*(?:[-*+]|\d+\.)[ \t]+/, "")
 			.trim()
@@ -235,7 +181,11 @@ export function parsePage(path: string, source: string): Page {
 		const line = index + 1;
 		if (line <= (yamlNode?.position?.end.line ?? 0) || narratedLines.has(line)) continue;
 		for (const match of linkLines[index]?.matchAll(CUE_SPAN) ?? []) {
-			cues.push({ line, text: (match[1] ?? "").trim(), trigger: triggerOf(linkLines[index]?.slice(0, match.index ?? 0) ?? "") });
+			cues.push({
+				line,
+				text: (match[1] ?? "").trim(),
+				trigger: triggerOf(linkLines[index]?.slice(0, match.index ?? 0) ?? ""),
+			});
 		}
 	}
 
@@ -263,7 +213,8 @@ export function parsePage(path: string, source: string): Page {
 		links,
 		blocks,
 	};
-	if (yamlNode?.position && yamlNode.type === "yaml") readFrontmatter(page, yamlNode.value, yamlNode.position.start.line);
+	if (yamlNode?.position && yamlNode.type === "yaml")
+		readFrontmatter(page, yamlNode.value, yamlNode.position.start.line);
 	if (yamlNode?.position) page.frontmatterEndLine = yamlNode.position.end.line;
 	page.names = pageNames(page.frontmatter, slug);
 	// Titles own display names; aliases can name older pages without turning their slug into prose.

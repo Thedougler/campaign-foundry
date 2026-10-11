@@ -1,0 +1,108 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	// Issue #66, `bun run lint code`: Biome lint + format for TS/JS/JSON (the `code` scope).
+	// `vcs` makes Biome honour .gitignore, so ignored trees (node_modules, build/, raw/,
+	// archive/, prior/, reference/, .cache/, …) are already out; the negations below cover
+	// the out-of-domain paths that ARE tracked.
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"includes": [
+			"**",
+			// The vault and the ingest trees are the prose scope's territory (ADR 0015);
+			// wiki/ is tracked, so it needs this explicit negation.
+			"!wiki",
+			"!raw",
+			"!archive",
+			"!reference",
+			"!prior",
+			// Generated migration report, frozen as provenance.
+			"!legacy-import-report.json",
+			// Lockfiles are machine-owned.
+			"!bun.lock"
+		]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab",
+		"lineWidth": 120,
+		"includes": [
+			"**",
+			// Fixture bytes are asserted verbatim in tests: lint them, never rewrite them.
+			"!test/fixtures",
+			"!test/check/fixtures",
+			// Tool-owned state, rewritten by `cf backup` (serializeMap), not by hand.
+			"!.notion/backup-map.json"
+		]
+	},
+	"assist": {
+		// Organize-imports churn is style opinion, not a correctness gate (issue #66).
+		"enabled": false
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"style": {
+				// 226 fires across src/ at adoption; removing `!` is a typing change, not
+				// mechanical churn. Everything else stayed ≤17 fires, so it stays on.
+				"noNonNullAssertion": "off"
+			},
+			"suspicious": {
+				// Path safety and prose masking deliberately match ASCII controls (NUL..US, DEL).
+				"noControlCharactersInRegex": "off"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double",
+			"semicolons": "always",
+			"trailingCommas": "all"
+		}
+	},
+	"overrides": [
+		{
+			// npm's own 2-space convention; `npm pkg set` rewrites would undo Biome's tabs.
+			"includes": ["package.json"],
+			"formatter": {
+				"indentStyle": "space",
+				"indentWidth": 2
+			}
+		},
+		{
+			// Static eval report shells: a11y and !important are presentation chrome, not product UI.
+			"includes": ["evals/assets/**"],
+			"linter": {
+				"rules": {
+					"a11y": {
+						"useButtonType": "off",
+						"noNoninteractiveElementToInteractiveRole": "off",
+						"useHeadingContent": "off"
+					},
+					"complexity": {
+						"noImportantStyles": "off"
+					},
+					"style": {
+						// Inline script string-builds in HTML templates; templates stay as authored.
+						"useTemplate": "off"
+					}
+				}
+			}
+		},
+		{
+			// Foundry runtime bags and ambient module types are untyped host objects by design.
+			"includes": ["src/foundry-control/bridge/module/**/*.d.mts", "test/push/**"],
+			"linter": {
+				"rules": {
+					"suspicious": {
+						"noExplicitAny": "off",
+						"noShadowRestrictedNames": "off"
+					}
+				}
+			}
+		}
+	]
+}

@@ -1,12 +1,11 @@
-import { mkdir, rename, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, rename, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import { dirname, join, relative, resolve, sep } from "node:path";
 import { buildVault, loadTemplates, readVaultFiles } from "../vault/vault.ts";
 import type { VaultFiles } from "../vault/vault.ts";
-import type { Vault } from "../vault/types.ts";
+import type { TemplateSet, Vault } from "../vault/types.ts";
 import { layers as allLayers } from "./layers/index.ts";
 import type { CheckContext, FileEdit, Finding, Fix, Layer } from "./types.ts";
-import { checkedPages } from "./util.ts";
-
 import { UsageError } from "./errors.ts";
 
 export { UsageError };
@@ -14,13 +13,13 @@ export { UsageError };
 export interface CheckOptions {
 	/** Absolute vault directory. */
 	vault: string;
-	/** Absolute templates directory. */
-	templates: string;
+	/** Absolute templates directory; omit it when the run's layers read no templates. */
+	templates?: string;
 	/** Absolute repository root. */
 	root: string;
 	/** Working directory that finding paths are relative to. */
 	cwd: string;
-	/** Layer names to run; all when empty or omitted. */
+	/** Layer names to run, in report order; all when empty or omitted. */
 	layers?: string[];
 	/** Check only these files or directories, retaining the whole vault as read-only context. */
 	paths?: string[];
@@ -28,6 +27,12 @@ export interface CheckOptions {
 	dryRun?: boolean;
 	/** Override the layer registry (tests). */
 	registry?: Layer[];
+	/** Vault files, already read; default: read from `vault`. Commands that overlay virtual pages pass their own. */
+	files?: VaultFiles;
+	/** Display form of finding paths; default: the vault path relative to `cwd`. */
+	display?: (vaultPath: string) => string;
+	/** Exact vault-relative targets for virtual documents; unlike display paths these cannot select a context page by accident. */
+	pagePaths?: readonly string[];
 }
 
 export interface CheckResult {
@@ -39,7 +44,22 @@ export interface CheckResult {
 	durationMs: number;
 }
 
+/** One text gated before it is written (a `cf log` entry), over the Wiki as context. */
+export interface GateTextOptions {
+	/** Absolute vault directory: the Wiki read as context and name list. */
+	vault: string;
+	/** Working directory that finding paths are relative to. */
+	cwd: string;
+	/** Vault-relative path the text takes when written, e.g. `ashes-of-the-crown/log.md`. */
+	rel: string;
+	/** The text to gate. */
+	text: string;
+	/** Override the layer registry (tests). */
+	registry?: Layer[];
+}
+
 const MAX_FIX_PASSES = 5;
+const NO_TEMPLATES: TemplateSet = { byName: new Map(), types: new Map() };
 
 function applyToFiles(files: VaultFiles, edit: FileEdit): void {
 	if (edit.type === "write") {
@@ -65,7 +85,7 @@ async function applyToDisk(vaultDir: string, edit: FileEdit): Promise<void> {
 export async function runCheck(options: CheckOptions): Promise<CheckResult> {
 	const started = performance.now();
 	const registry = options.registry ?? allLayers;
-	const selected = options.layers?.length ? options.layers : registry.map((l) => l.name);
+	const selected = options.layers?.length ? [...new Set(options.layers)] : registry.map((l) => l.name);
 	const unknown = selected.filter((name) => !registry.some((l) => l.name === name));
 	if (unknown.length > 0) {
 		throw new UsageError(
@@ -73,19 +93,47 @@ export async function runCheck(options: CheckOptions): Promise<CheckResult> {
 			`Available layers: ${registry.map((l) => l.name).join(", ")}. Example: cf check --layer ${registry[0]?.name ?? "template"}`,
 		);
 	}
-	const active = registry.filter((l) => selected.includes(l.name));
+	const active = selected.flatMap((name) => {
+		const layer = registry.find((l) => l.name === name);
+		return layer ? [layer] : [];
+	});
 	const scope = (options.paths ?? []).map((p) => resolve(options.cwd, p));
+
+	const [files, templates] = await Promise.all([
+		options.files ?? readVaultFiles(options.vault),
+		options.templates ? loadTemplates(options.templates) : Promise.resolve(NO_TEMPLATES),
+	]);
+	let vault: Vault = buildVault(options.vault, files);
+	const display =
+		options.display ??
+		((vaultPath: string): string => relative(options.cwd, join(options.vault, vaultPath)).split(sep).join("/"));
+	const exactTargets = options.pagePaths === undefined ? undefined : new Set(options.pagePaths);
+	const exactDisplays = exactTargets && new Set([...exactTargets].map(display));
 	const inScope = (path: string): boolean => {
+		if (exactDisplays) return exactDisplays.has(path);
 		if (scope.length === 0) return true;
 		const abs = resolve(options.cwd, path);
 		return scope.some((s) => abs === s || abs.startsWith(s + sep));
 	};
-
-	const [files, templates] = await Promise.all([readVaultFiles(options.vault), loadTemplates(options.templates)]);
-	let vault: Vault = buildVault(options.vault, files);
-	const display = (vaultPath: string): string => relative(options.cwd, join(options.vault, vaultPath)).split(sep).join("/");
-	const target = scope.length === 0 ? undefined : (vaultPath: string): boolean => inScope(display(vaultPath));
-	const context = (): CheckContext => ({ vault, templates, root: options.root, display, target });
+	let targets =
+		exactTargets || scope.length
+			? vault.pages.filter((page) => (exactTargets ? exactTargets.has(page.path) : inScope(display(page.path))))
+			: vault.pages;
+	const context = (layer: Layer): CheckContext => ({
+		vault,
+		pages: layer.scope === "vault" ? vault.pages : targets,
+		templates,
+		root: options.root,
+		display,
+	});
+	// Page layers get only targets and cannot leak findings or writes silently. Vault comparisons
+	// legitimately evaluate every page; the runner alone scopes their reports and proposed writes.
+	const scoped = <T extends { path: string }>(layer: Layer, entries: T[]): T[] => {
+		if (layer.scope === "vault") return entries.filter((entry) => inScope(entry.path));
+		const leak = entries.find((entry) => !inScope(entry.path));
+		if (leak) throw new Error(`Layer ${layer.name} emitted an out-of-scope path: ${leak.path}`);
+		return entries;
+	};
 
 	const fixes: Fix[] = [];
 	if (options.fix) {
@@ -93,8 +141,8 @@ export async function runCheck(options: CheckOptions): Promise<CheckResult> {
 			let changed = false;
 			for (const layer of active) {
 				if (!layer.fix) continue;
-				const result = await layer.fix(context());
-				const proposed = result.fixes.filter((f) => inScope(f.path));
+				const result = await layer.fix(context(layer));
+				const proposed = scoped(layer, result.fixes);
 				if (proposed.length === 0) continue;
 				for (const fix of proposed) {
 					applyToFiles(files, fix.edit);
@@ -102,23 +150,53 @@ export async function runCheck(options: CheckOptions): Promise<CheckResult> {
 					fixes.push(fix);
 				}
 				vault = buildVault(options.vault, files, vault);
+				targets =
+					exactTargets || scope.length
+						? vault.pages.filter((page) => (exactTargets ? exactTargets.has(page.path) : inScope(display(page.path))))
+						: vault.pages;
 				changed = true;
 			}
 			if (!changed) break;
 		}
 	}
 
-	const ctx = context();
-	const found = (await Promise.all(active.map(async (layer) => layer.run(ctx)))).flat();
-	const findings = found
-		.filter((f) => inScope(f.path))
-		.sort((a, b) => a.path.localeCompare(b.path) || a.line - b.line || a.layer.localeCompare(b.layer) || a.rule.localeCompare(b.rule));
+	const found = (await Promise.all(active.map(async (layer) => scoped(layer, await layer.run(context(layer)))))).flat();
+	const findings = found.sort(
+		(a, b) =>
+			a.path.localeCompare(b.path) || a.line - b.line || a.layer.localeCompare(b.layer) || a.rule.localeCompare(b.rule),
+	);
 
 	return {
 		findings,
 		fixes,
-		pages: checkedPages(ctx).length,
+		pages: targets.length,
 		layers: active.map((l) => l.name),
 		durationMs: Math.round(performance.now() - started),
 	};
+}
+
+/**
+ * Gates one text (a `cf log` entry) through the style layer, read exactly as the gate reads the page the
+ * text would become: the text is overlaid at `rel` in a virtual vault, the Wiki stays read-only context
+ * and name list, and nothing is written. One-off text earns no cache entry, so the run works from a
+ * scratch root instead of the Repo's `.cache/check`.
+ */
+export async function gateText(options: GateTextOptions): Promise<Finding[]> {
+	const files = await readVaultFiles(options.vault);
+	files.markdown.set(options.rel, options.text);
+	const scratch = await mkdtemp(join(tmpdir(), "cf-gate-"));
+	try {
+		const result = await runCheck({
+			vault: options.vault,
+			root: scratch,
+			cwd: options.cwd,
+			layers: ["style"],
+			pagePaths: [options.rel],
+			files,
+			registry: options.registry,
+		});
+		return result.findings;
+	} finally {
+		await rm(scratch, { recursive: true, force: true });
+	}
 }

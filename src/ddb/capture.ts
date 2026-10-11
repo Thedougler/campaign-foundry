@@ -92,16 +92,34 @@ export async function loadCapture(path: string): Promise<CaptureFile> {
 	try {
 		parsed = JSON.parse(raw);
 	} catch (error) {
-		throw new DdbCaptureError(`The capture file ${path} is not valid JSON: ${(error as Error).message}`, "fix the file, or re-record the capture");
+		throw new DdbCaptureError(
+			`The capture file ${path} is not valid JSON: ${(error as Error).message}`,
+			"fix the file, or re-record the capture",
+		);
 	}
 	const file = parsed as Partial<CaptureFile>;
 	if (file.kind !== "cf-ddb-capture" || file.version !== 1) {
-		throw new DdbCaptureError(`The file ${path} is not a cf-ddb-capture version 1 (kind: ${String(file.kind)}, version: ${String(file.version)}).`, CAPTURE_PROCEDURE);
+		throw new DdbCaptureError(
+			`The file ${path} is not a cf-ddb-capture version 1 (kind: ${String(file.kind)}, version: ${String(file.version)}).`,
+			CAPTURE_PROCEDURE,
+		);
 	}
-	if (!Array.isArray(file.requests) || file.requests.some((r) => typeof r?.method !== "string" || typeof r?.url !== "string")) {
-		throw new DdbCaptureError(`The capture file ${path} holds no usable requests array.`, "each request needs a method and a url; re-record the capture");
+	if (
+		!Array.isArray(file.requests) ||
+		file.requests.some((r) => typeof r?.method !== "string" || typeof r?.url !== "string")
+	) {
+		throw new DdbCaptureError(
+			`The capture file ${path} holds no usable requests array.`,
+			"each request needs a method and a url; re-record the capture",
+		);
 	}
-	return { kind: "cf-ddb-capture", version: 1, capturedAt: file.capturedAt ?? "", notes: file.notes, requests: file.requests };
+	return {
+		kind: "cf-ddb-capture",
+		version: 1,
+		capturedAt: file.capturedAt ?? "",
+		notes: file.notes,
+		requests: file.requests,
+	};
 }
 
 /** Drops redacted header values: the transport's auth layer re-supplies Authorization and Cookie live. */
@@ -186,7 +204,7 @@ export async function loadContractFrom(dir: string, type: string, op: string): P
 			if (isSessionHeader(name) && value !== REDACTED) {
 				throw new DdbCaptureError(
 					`The contract ${path} still holds the unredacted \`${name}\` header for ${captured.url}.`,
-					"redact cookie/authorization/token/csrf header values to \"<session>\" before committing a contract",
+					'redact cookie/authorization/token/csrf header values to "<session>" before committing a contract',
 				);
 			}
 		}

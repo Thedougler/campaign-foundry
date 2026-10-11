@@ -14,6 +14,9 @@ export interface WikiLink {
 	alias?: string;
 	/** 1-based line in the file. */
 	line: number;
+	/** Source offsets of `raw`, set for body links; a frontmatter link sits inside a YAML string and carries only `line`. */
+	start?: number;
+	end?: number;
 	/** True when the link sits in a frontmatter string value. */
 	frontmatter: boolean;
 }

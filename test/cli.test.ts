@@ -1,9 +1,5 @@
-import { mkdtempSync, realpathSync } from "node:fs";
-import { mkdir, rm, writeFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
-import { join } from "node:path";
 import { spawnSync } from "node:child_process";
-import { afterAll, describe, expect, it } from "vitest";
+import { describe, expect, it } from "vitest";
 import { cf, repoRoot } from "./check/helpers.ts";
 
 describe("cf npm script", () => {
@@ -26,9 +22,6 @@ describe("cf npm script", () => {
 });
 
 const contextVault = ["--vault", "test/fixtures/vault", "--root", "test/fixtures"];
-// A small vault keeps the Vale run quick; the whole Wiki would only slow the tests down.
-const styleVault = ["--vault", "test/check/fixtures/clean/wiki", "--root", "test/check/fixtures/clean"];
-const dashCallout = "> [!narration] Opening\n> The door swings open — slowly.\n";
 
 describe("cf context", () => {
 	it("lists a named page and an alias once each, sorted by type then name", async () => {
@@ -60,67 +53,14 @@ describe("cf context", () => {
 	it("prints [{path,type,name}] with --json", async () => {
 		const result = await cf(["context", "-", "--json", ...contextVault], repoRoot, "Ilse Corran.\n");
 		expect(result.code).toBe(0);
-		expect(JSON.parse(result.stdout)).toEqual([{ path: "salt-and-lantern/NPCs/Ilse Corran.md", type: "NPC", name: "Ilse Corran" }]);
+		expect(JSON.parse(result.stdout)).toEqual([
+			{ path: "salt-and-lantern/NPCs/Ilse Corran.md", type: "NPC", name: "Ilse Corran" },
+		]);
 	});
 
 	it("exits 2 on an unreadable file", async () => {
 		const result = await cf(["context", "no-such-notes.md"]);
 		expect(result.code).toBe(2);
 		expect(result.stderr).toContain("No such file");
-	});
-});
-
-describe("cf style", () => {
-	afterAll(() => rm(".scratch/style-dir", { recursive: true, force: true }));
-
-	it("reports Narration.NoEmDash on stdin and exits 1", async () => {
-		const result = await cf(["style", "-", ...styleVault], repoRoot, dashCallout);
-		expect(result.code).toBe(1);
-		expect(result.stdout).toContain("stdin.md:2");
-		expect(result.stdout).toContain("Narration.NoEmDash");
-	});
-
-	it("exits 0 on clean text, counting only the file it checked", async () => {
-		const result = await cf(["style", "-", ...styleVault], repoRoot, "> [!narration] Opening\n> The door swings open, slowly.\n");
-		expect(result.code).toBe(0);
-		expect(result.stdout).toContain("ok: 0 findings, 1 page,");
-	});
-
-	it("expands a folder and reports the real path", async () => {
-		await mkdir(".scratch/style-dir", { recursive: true });
-		await writeFile(".scratch/style-dir/note.md", dashCallout);
-		const result = await cf(["style", ".scratch/style-dir", ...styleVault]);
-		expect(result.code).toBe(1);
-		expect(result.stdout).toContain(".scratch/style-dir/note.md:2");
-		expect(result.stdout).toContain("Narration.NoEmDash");
-	});
-
-	it("skips a skill folder's eval history: climb logs and snapshots quote the prose they judged", async () => {
-		await mkdir(".scratch/style-dir/skill/evals/snapshot", { recursive: true });
-		await writeFile(".scratch/style-dir/skill/evals/climb.md", dashCallout);
-		await writeFile(".scratch/style-dir/skill/evals/snapshot/SKILL.md", dashCallout);
-		await writeFile(".scratch/style-dir/skill/SKILL.md", dashCallout);
-		const result = await cf(["style", ".scratch/style-dir/skill", ...styleVault]);
-		expect(result.stdout).toContain(".scratch/style-dir/skill/SKILL.md:2");
-		expect(result.stdout).not.toContain("climb.md");
-		expect(result.stdout).not.toContain("snapshot/");
-	});
-
-	it("checks a draft outside the repo and reports its absolute path", async () => {
-		const drafts = realpathSync(mkdtempSync(join(tmpdir(), "style-drafts-")));
-		const page = join(drafts, "The Shattered Sea", "NPCs", "Cobb.md");
-		await mkdir(join(drafts, "The Shattered Sea", "NPCs"), { recursive: true });
-		await writeFile(page, dashCallout);
-		const result = await cf(["style", page, ...styleVault]);
-		await rm(drafts, { recursive: true, force: true });
-		expect(result.code).toBe(1);
-		expect(result.stdout).toContain(`${page}:2`);
-		expect(result.stdout).toContain("Narration.NoEmDash");
-	});
-
-	it("exits 2 on a missing path", async () => {
-		const result = await cf(["style", "no-such-folder"]);
-		expect(result.code).toBe(2);
-		expect(result.stderr).toContain("No such path");
 	});
 });

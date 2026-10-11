@@ -25,6 +25,7 @@ The Research API conducts comprehensive research on any topic with automatic sou
 Define a **clear goal** with all **details** and **direction**.
 
 **Guidelines:**
+
 - **Be specific when you can.** Include known details: target market, competitors, geography, constraints
 - **Stay open-ended only for discovery.** Make it explicit: "tell me about the most impactful AI innovations in healthcare in 2025"
 - **Avoid contradictions.** Don't include conflicting constraints or goals
@@ -34,18 +35,21 @@ Define a **clear goal** with all **details** and **direction**.
 ### Example Queries
 
 **Company research:**
+
 ```
 Research the company ____ and its 2026 outlook. Provide a brief overview
 of the company, its products, services, and market position.
 ```
 
 **Competitive analysis:**
+
 ```
 Conduct a competitive analysis of ____ in 2026. Identify their main
 competitors, compare market positioning, and analyze key differentiators.
 ```
 
 **With prior context:**
+
 ```
 We're evaluating Notion as a potential partner. We already know they
 primarily serve SMB and mid-market teams, expanded their AI features

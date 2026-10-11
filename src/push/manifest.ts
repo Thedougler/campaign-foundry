@@ -21,7 +21,8 @@ export interface Manifest {
 }
 
 /** Where the last Push's manifest lives: one file per Campaign folder, outside `wiki/`, gitignored. */
-export const manifestPath = (root: string, campaignFolder: string): string => join(root, ".push", `${campaignFolder}.json`);
+export const manifestPath = (root: string, campaignFolder: string): string =>
+	join(root, ".push", `${campaignFolder}.json`);
 export const docKey = (doc: Pick<PlanDoc, "type" | "id">): string => `${doc.type}:${doc.id}`;
 
 export async function readManifest(path: string): Promise<Manifest | undefined> {
@@ -41,7 +42,11 @@ export async function writeManifest(path: string, manifest: Manifest): Promise<v
 export type Change = "added" | "updated" | "unchanged";
 
 /** How each planned document compares with the last Push. `all` treats every document as changed. */
-export function diff(docs: PlanDoc[], previous: Manifest | undefined, all: boolean): { doc: PlanDoc; change: Change }[] {
+export function diff(
+	docs: PlanDoc[],
+	previous: Manifest | undefined,
+	all: boolean,
+): { doc: PlanDoc; change: Change }[] {
 	return docs.map((doc) => {
 		const before = previous?.docs[docKey(doc)];
 		if (!before) return { doc, change: "added" };

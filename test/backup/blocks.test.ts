@@ -1,5 +1,17 @@
 import { describe, expect, it } from "vitest";
-import { type Block, chunkBlocks, type ConvertContext, countBlocks, LIMITS, limitNesting, markdownToBlocks, notionLanguage, textFileToBlocks, textItems, validUrl } from "../../src/backup/blocks.ts";
+import {
+	type Block,
+	chunkBlocks,
+	type ConvertContext,
+	countBlocks,
+	LIMITS,
+	limitNesting,
+	markdownToBlocks,
+	notionLanguage,
+	textFileToBlocks,
+	textItems,
+	validUrl,
+} from "../../src/backup/blocks.ts";
 import { textOf } from "./helpers.ts";
 
 const ctx: ConvertContext = {
@@ -8,14 +20,29 @@ const ctx: ConvertContext = {
 	image: (t) => (t.endsWith("Map.png") ? { fileUploadId: "up-1" } : t.startsWith("https://") ? { url: t } : undefined),
 };
 const body = (b: Block | undefined): Record<string, unknown> => (b ? (b[b.type] as Record<string, unknown>) : {});
-const rich = (b: Block | undefined) => (body(b).rich_text ?? []) as { text: { content: string; link?: { url: string } }; annotations?: Record<string, unknown> }[];
-const para = (n: number): Block => ({ object: "block", type: "paragraph", paragraph: { rich_text: textItems(`p${n}`) } });
+const rich = (b: Block | undefined) =>
+	(body(b).rich_text ?? []) as {
+		text: { content: string; link?: { url: string } };
+		annotations?: Record<string, unknown>;
+	}[];
+const para = (n: number): Block => ({
+	object: "block",
+	type: "paragraph",
+	paragraph: { rich_text: textItems(`p${n}`) },
+});
 
 describe("markdown to Notion blocks", () => {
 	it("turns an Obsidian callout into a Notion callout, title as its text and body as children", () => {
-		const [callout] = markdownToBlocks("> [!narration] First sight\n> The deep water goes still.\n>\n> A second paragraph.\n", ctx);
+		const [callout] = markdownToBlocks(
+			"> [!narration] First sight\n> The deep water goes still.\n>\n> A second paragraph.\n",
+			ctx,
+		);
 		expect(callout?.type).toBe("callout");
-		expect(rich(callout).map((r) => r.text.content).join("")).toBe("First sight");
+		expect(
+			rich(callout)
+				.map((r) => r.text.content)
+				.join(""),
+		).toBe("First sight");
 		expect(rich(callout)[0]?.annotations).toMatchObject({ bold: true });
 		expect(body(callout).icon).toEqual({ type: "emoji", emoji: "🗣️" });
 		const children = body(callout).children as Block[];
@@ -31,16 +58,27 @@ describe("markdown to Notion blocks", () => {
 	});
 
 	it("links wikilinks to backed-up pages and leaves the rest as text, showing the alias", () => {
-		const [p] = markdownToBlocks("Ask [[Ilse Corran|Ilse]] or [[NPCs/Ilse Corran#Voice]] about [[Nobody Known]].\n", ctx);
+		const [p] = markdownToBlocks(
+			"Ask [[Ilse Corran|Ilse]] or [[NPCs/Ilse Corran#Voice]] about [[Nobody Known]].\n",
+			ctx,
+		);
 		const items = rich(p);
 		expect(items.find((r) => r.text.content === "Ilse")?.text.link?.url).toBe("https://www.notion.so/ilse");
-		expect(items.find((r) => r.text.content === "Ilse Corran > Voice")?.text.link?.url).toBe("https://www.notion.so/ilse");
+		expect(items.find((r) => r.text.content === "Ilse Corran > Voice")?.text.link?.url).toBe(
+			"https://www.notion.so/ilse",
+		);
 		expect(items.find((r) => r.text.content.includes("Nobody Known"))?.text.link).toBeUndefined();
 		expect(items.map((r) => r.text.content).join("")).toBe("Ask Ilse or Ilse Corran > Voice about Nobody Known.");
 	});
 
 	it("resolves relative Markdown links and drops links Notion would reject", () => {
-		const [p] = markdownToBlocks("See [Ilse](../NPCs/Ilse%20Corran.md), [site](https://example.com) and [odd](obsidian://open).\n", { ...ctx, relative: (h) => (decodeURI(h) === "../NPCs/Ilse Corran.md" ? "https://www.notion.so/ilse" : undefined) });
+		const [p] = markdownToBlocks(
+			"See [Ilse](../NPCs/Ilse%20Corran.md), [site](https://example.com) and [odd](obsidian://open).\n",
+			{
+				...ctx,
+				relative: (h) => (decodeURI(h) === "../NPCs/Ilse Corran.md" ? "https://www.notion.so/ilse" : undefined),
+			},
+		);
 		const items = rich(p);
 		expect(items.find((r) => r.text.content === "Ilse")?.text.link?.url).toBe("https://www.notion.so/ilse");
 		expect(items.find((r) => r.text.content === "site")?.text.link?.url).toBe("https://example.com");
@@ -48,17 +86,27 @@ describe("markdown to Notion blocks", () => {
 	});
 
 	it("turns image embeds into image blocks on the uploaded file, and an unknown embed into text", () => {
-		const blocks = markdownToBlocks("![[Map.png]]\n\nText ![[Map.png|The map]] after.\n\n![alt](https://example.com/a.png)\n\n![[Missing.png]]\n", ctx);
+		const blocks = markdownToBlocks(
+			"![[Map.png]]\n\nText ![[Map.png|The map]] after.\n\n![alt](https://example.com/a.png)\n\n![[Missing.png]]\n",
+			ctx,
+		);
 		expect(blocks.map((b) => b.type)).toEqual(["image", "paragraph", "image", "image", "paragraph"]);
 		expect(body(blocks[0])).toMatchObject({ type: "file_upload", file_upload: { id: "up-1" } });
-		expect(rich(blocks[1]).map((r) => r.text.content).join("")).toBe("Text  after.");
+		expect(
+			rich(blocks[1])
+				.map((r) => r.text.content)
+				.join(""),
+		).toBe("Text  after.");
 		expect((body(blocks[2]).caption as { text: { content: string } }[])[0]?.text.content).toBe("The map");
 		expect(body(blocks[3])).toMatchObject({ type: "external", external: { url: "https://example.com/a.png" } });
 		expect(rich(blocks[4])[0]?.text.content).toBe("Missing.png");
 	});
 
 	it("keeps frontmatter, statblocks and Bases as YAML code, captioned as Obsidian-only", () => {
-		const blocks = markdownToBlocks("---\ntype: Creature\n---\n\n```statblock\nname: Serpent\nhp: 6\n```\n\n```base\nviews: []\n```\n\n```ts\nconst x = 1;\n```\n", ctx);
+		const blocks = markdownToBlocks(
+			"---\ntype: Creature\n---\n\n```statblock\nname: Serpent\nhp: 6\n```\n\n```base\nviews: []\n```\n\n```ts\nconst x = 1;\n```\n",
+			ctx,
+		);
 		expect(blocks.map((b) => [b.type, body(b).language])).toEqual([
 			["code", "yaml"],
 			["code", "yaml"],
@@ -71,9 +119,18 @@ describe("markdown to Notion blocks", () => {
 	});
 
 	it("maps headings, lists, to-dos, inline formatting, rules and tables", () => {
-		const md = "# One\n\n#### Four\n\n- **Bold** and *it* and `code` and ~~gone~~\n  - nested\n\n1. first\n\n- [x] done\n\n---\n\n| A | B |\n| - | - |\n| 1 | 2 |\n";
+		const md =
+			"# One\n\n#### Four\n\n- **Bold** and *it* and `code` and ~~gone~~\n  - nested\n\n1. first\n\n- [x] done\n\n---\n\n| A | B |\n| - | - |\n| 1 | 2 |\n";
 		const blocks = markdownToBlocks(md, ctx);
-		expect(blocks.map((b) => b.type)).toEqual(["heading_1", "heading_3", "bulleted_list_item", "numbered_list_item", "to_do", "divider", "table"]);
+		expect(blocks.map((b) => b.type)).toEqual([
+			"heading_1",
+			"heading_3",
+			"bulleted_list_item",
+			"numbered_list_item",
+			"to_do",
+			"divider",
+			"table",
+		]);
 		const ann = rich(blocks[2]).map((r) => [r.text.content, r.annotations ?? {}]);
 		expect(ann).toContainEqual(["Bold", { bold: true }]);
 		expect(ann).toContainEqual(["code", { code: true }]);
@@ -86,7 +143,11 @@ describe("markdown to Notion blocks", () => {
 
 	it("strips a trailing Obsidian block id", () => {
 		const [p] = markdownToBlocks("A fact worth linking. ^fact-1\n", ctx);
-		expect(rich(p).map((r) => r.text.content).join("")).toBe("A fact worth linking.");
+		expect(
+			rich(p)
+				.map((r) => r.text.content)
+				.join(""),
+		).toBe("A fact worth linking.");
 	});
 });
 
@@ -140,10 +201,18 @@ describe("Notion limits", () => {
 
 	it("chunks appends to 100 blocks, 1000 nested blocks and the body size", () => {
 		expect(chunkBlocks(Array.from({ length: 250 }, (_, i) => para(i))).map((c) => c.length)).toEqual([100, 100, 50]);
-		const heavy: Block = { object: "block", type: "toggle", toggle: { rich_text: [], children: Array.from({ length: 99 }, (_, i) => para(i)) } };
+		const heavy: Block = {
+			object: "block",
+			type: "toggle",
+			toggle: { rich_text: [], children: Array.from({ length: 99 }, (_, i) => para(i)) },
+		};
 		expect(countBlocks(heavy)).toBe(100);
 		expect(chunkBlocks(Array.from({ length: 12 }, () => heavy)).map((c) => c.length)).toEqual([10, 2]);
-		const big: Block = { object: "block", type: "code", code: { rich_text: textItems("x".repeat(150_000)), language: "plain text" } };
+		const big: Block = {
+			object: "block",
+			type: "code",
+			code: { rich_text: textItems("x".repeat(150_000)), language: "plain text" },
+		};
 		expect(chunkBlocks([big, big, big, big]).map((c) => c.length)).toEqual([2, 2]);
 	});
 

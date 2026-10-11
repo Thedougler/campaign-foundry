@@ -56,7 +56,12 @@ function fakeScope(docs: FakeDoc[] = []) {
 	const collections = new Map<string, { documentClass: unknown; contents: unknown[]; size: number }>();
 	const packs = new Map<
 		string,
-		{ metadata: { id: string }; documentClass: unknown; index?: unknown[] | Map<string, unknown>; created?: { data: unknown; options: unknown }[] }
+		{
+			metadata: { id: string };
+			documentClass: unknown;
+			index?: unknown[] | Map<string, unknown>;
+			created?: { data: unknown; options: unknown }[];
+		}
 	>();
 	const game = {
 		world: { id: "my-world", title: "My World", name: "My World" },
@@ -100,7 +105,11 @@ function fakeScope(docs: FakeDoc[] = []) {
 			created,
 			create: async (data: Record<string, unknown>, options: Record<string, unknown>) => {
 				created.push({ data, options });
-				return makeDoc(data, `Compendium.${id}.${data._id ?? `new${created.length}`}`, (data.type as string) ?? "Actor");
+				return makeDoc(
+					data,
+					`Compendium.${id}.${data._id ?? `new${created.length}`}`,
+					(data.type as string) ?? "Actor",
+				);
 			},
 		};
 		const pack = { metadata: { id }, documentClass: cls, index, created };
@@ -165,7 +174,10 @@ describe("module handlers", () => {
 
 	it("searches names case-insensitively across collections with a limit", async () => {
 		const scope = fakeScope();
-		scope.addCollection("actors", [makeDoc({ name: "Bazzoth the Steeped" }, "actors.1"), makeDoc({ name: "Moucheron" }, "actors.2")]);
+		scope.addCollection("actors", [
+			makeDoc({ name: "Bazzoth the Steeped" }, "actors.1"),
+			makeDoc({ name: "Moucheron" }, "actors.2"),
+		]);
 		scope.addCollection("journal", [makeDoc({ name: "bazzoth notes" }, "journal.9", "JournalEntry")]);
 		const { handlers } = handlersFor(scope);
 		const hits = (await handlers["world.search"]({ name: "BAZZOTH" })) as { uuid: string; collection: string }[];
@@ -182,8 +194,12 @@ describe("module handlers", () => {
 			{ uuid: "actors.1", name: "Alpha" },
 			{ uuid: "actors.2", name: "Beta" },
 		]);
-		expect(await handlers["document.query"]({ collection: "actors", name: "alp" })).toEqual([{ uuid: "actors.1", name: "Alpha" }]);
-		await expect(handlers["document.query"]({ collection: "nope" })).rejects.toMatchObject({ code: "collection_not_found" });
+		expect(await handlers["document.query"]({ collection: "actors", name: "alp" })).toEqual([
+			{ uuid: "actors.1", name: "Alpha" },
+		]);
+		await expect(handlers["document.query"]({ collection: "nope" })).rejects.toMatchObject({
+			code: "collection_not_found",
+		});
 	});
 
 	it("reads a document through fromUuid and returns its JSON source", async () => {
@@ -205,7 +221,10 @@ describe("module handlers", () => {
 		const scope = fakeScope();
 		const { created } = scope.addCollection("actors", []);
 		const { handlers } = handlersFor(scope);
-		const result = (await handlers["document.create"]({ collection: "actors", data: { name: "Grung Elite", type: "npc" } })) as Record<string, unknown>;
+		const result = (await handlers["document.create"]({
+			collection: "actors",
+			data: { name: "Grung Elite", type: "npc" },
+		})) as Record<string, unknown>;
 		expect(result.uuid).toBe("actors.new1");
 		expect(created[0]?.data).toEqual({ name: "Grung Elite", type: "npc" });
 	});
@@ -214,7 +233,11 @@ describe("module handlers", () => {
 		const scope = fakeScope();
 		const pack = scope.addPack("world.my-campaign");
 		const { handlers } = handlersFor(scope);
-		await handlers["document.create"]({ collection: "actors", data: { name: "With Id", _id: "wiki1" }, pack: "world.my-campaign" });
+		await handlers["document.create"]({
+			collection: "actors",
+			data: { name: "With Id", _id: "wiki1" },
+			pack: "world.my-campaign",
+		});
 		await handlers["document.create"]({ collection: "actors", data: { name: "No Id" }, pack: "world.my-campaign" });
 		expect(pack.created?.[0]?.options).toMatchObject({ pack: "world.my-campaign", keepId: true });
 		expect(pack.created?.[1]?.options).toMatchObject({ pack: "world.my-campaign", keepId: false });
@@ -223,7 +246,10 @@ describe("module handlers", () => {
 	it("patches through doc.update and returns the fresh state", async () => {
 		const doc = makeDoc({ name: "Bazzoth", system: { hp: 10 } }, "actors.7");
 		const { handlers } = handlersFor({ ...fakeScope(), fromUuid: async () => doc });
-		const result = (await handlers["document.patch"]({ uuid: "actors.7", changes: { "system.hp": 20 } })) as Record<string, unknown>;
+		const result = (await handlers["document.patch"]({ uuid: "actors.7", changes: { "system.hp": 20 } })) as Record<
+			string,
+			unknown
+		>;
 		expect(doc.data.system).toEqual({ hp: 20 });
 		expect((result.data as Record<string, unknown>).system).toEqual({ hp: 20 });
 	});
@@ -236,7 +262,10 @@ describe("module handlers", () => {
 			return doc;
 		};
 		const { handlers } = handlersFor({ ...fakeScope(), fromUuid: async () => doc });
-		await expect(handlers["document.delete"]({ uuid: "actors.7" })).resolves.toEqual({ uuid: "actors.7", deleted: true });
+		await expect(handlers["document.delete"]({ uuid: "actors.7" })).resolves.toEqual({
+			uuid: "actors.7",
+			deleted: true,
+		});
 		expect(deleted).toBe(true);
 	});
 
@@ -257,9 +286,9 @@ describe("module handlers", () => {
 
 	it("rejects a batch holding an op it does not serve", async () => {
 		const { handlers } = handlersFor(fakeScope());
-		await expect(
-			handlers["document.batch"]({ ops: [{ tool: "world.inspect", params: {} }] }),
-		).rejects.toMatchObject({ code: "unknown_tool" });
+		await expect(handlers["document.batch"]({ ops: [{ tool: "world.inspect", params: {} }] })).rejects.toMatchObject({
+			code: "unknown_tool",
+		});
 	});
 
 	it("queries a pack index by name and builds compendium uuids", async () => {
@@ -269,8 +298,13 @@ describe("module handlers", () => {
 			{ _id: "bbb", name: "Commoner", type: "npc" },
 		]);
 		const { handlers } = handlersFor(scope);
-		const rows = (await handlers["compendium.query"]({ pack: "world.my-campaign", name: "baz" })) as { uuid: string; name: string }[];
-		expect(rows).toEqual([{ uuid: "Compendium.world.my-campaign.Actor.aaa", name: "Bazzoth the Steeped", type: "npc" }]);
+		const rows = (await handlers["compendium.query"]({ pack: "world.my-campaign", name: "baz" })) as {
+			uuid: string;
+			name: string;
+		}[];
+		expect(rows).toEqual([
+			{ uuid: "Compendium.world.my-campaign.Actor.aaa", name: "Bazzoth the Steeped", type: "npc" },
+		]);
 	});
 
 	it("imports documents into a pack keeping their ids", async () => {
@@ -298,12 +332,19 @@ describe("module handlers", () => {
 
 	it("executes a macro with its v14 scope", async () => {
 		const calls: unknown[][] = [];
-		const macro = { documentName: "Macro", uuid: "macros.3", name: "Roll", execute: async (...args: unknown[]) => {
-			calls.push(args);
-			return "rolled";
-		} };
+		const macro = {
+			documentName: "Macro",
+			uuid: "macros.3",
+			name: "Roll",
+			execute: async (...args: unknown[]) => {
+				calls.push(args);
+				return "rolled";
+			},
+		};
 		const { handlers } = handlersFor({ ...fakeScope(), fromUuid: async () => macro as unknown as FakeDoc });
-		await expect(handlers["macro.run"]({ uuid: "macros.3", scope: { damage: 6, type: "fire" } })).resolves.toMatchObject({ uuid: "macros.3", executed: true, result: "rolled" });
+		await expect(
+			handlers["macro.run"]({ uuid: "macros.3", scope: { damage: 6, type: "fire" } }),
+		).resolves.toMatchObject({ uuid: "macros.3", executed: true, result: "rolled" });
 		expect(calls).toEqual([[{ damage: 6, type: "fire" }]]);
 	});
 
@@ -439,8 +480,8 @@ describe("module connection", () => {
 	it("does not connect while autoconnect is off or the token is empty", () => {
 		FakeWebSocket.instances.length = 0;
 		const scope = fakeScope();
-	scope.settingsStore.set(`${MODULE_ID}.token`, "seekrit");
-	scope.settingsStore.set(`${MODULE_ID}.autoconnect`, false);
+		scope.settingsStore.set(`${MODULE_ID}.token`, "seekrit");
+		scope.settingsStore.set(`${MODULE_ID}.autoconnect`, false);
 		const off = startModule({
 			WebSocketCtor: FakeWebSocket,
 			scope,
@@ -463,7 +504,10 @@ describe("module connection", () => {
 		mod.pushEvent({ kind: "create", documentName: "Actor", uuid: "actors.9", name: "New" });
 		mod.pushEvent({ kind: "update", documentName: "Actor", uuid: "actors.9", name: "New" });
 		await mod.flush();
-		const pushes = ws.sent.slice(1).map((t) => JSON.parse(t)).filter((m) => m.type === "event");
+		const pushes = ws.sent
+			.slice(1)
+			.map((t) => JSON.parse(t))
+			.filter((m) => m.type === "event");
 		expect(pushes).toHaveLength(1);
 		expect(pushes[0]).toMatchObject({ type: "event", event: { kind: "create", uuid: "actors.9" } });
 	});

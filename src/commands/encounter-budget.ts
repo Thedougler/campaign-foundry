@@ -12,6 +12,7 @@ import {
 	type DifficultyLabel,
 	type PartyBudgets,
 } from "../encounter/xp-budget.ts";
+import { CF, collect, readInput } from "./kit.ts";
 
 interface EncounterBudgetFlags {
 	levels?: string;
@@ -24,14 +25,7 @@ interface EncounterBudgetFlags {
 	json?: boolean;
 }
 
-const collect = (value: string, previous: string[]): string[] => [...previous, value];
-const EXAMPLE = "cf encounter-budget --levels 5,5,5,5 --target high --creature \"Orc,1/2,100,3\"";
-
-async function readStdin(): Promise<string> {
-	const chunks: Buffer[] = [];
-	for await (const chunk of process.stdin) chunks.push(chunk as Buffer);
-	return Buffer.concat(chunks).toString("utf8");
-}
+const EXAMPLE = `${CF} encounter-budget --levels 5,5,5,5 --target high --creature "Orc,1/2,100,3"`;
 
 function parseLevels(flags: EncounterBudgetFlags): number[] {
 	if (flags.partyLevel !== undefined) {
@@ -106,10 +100,17 @@ function parseMonstersJson(text: string): CreatureSpend[] {
 				throw new UsageError(`Each --monsters entry needs name, cr, xp, and count; missing '${key}'.`, EXAMPLE);
 			}
 		}
-		if (typeof row.name !== "string" || typeof row.cr !== "string" && typeof row.cr !== "number") {
+		if (typeof row.name !== "string" || (typeof row.cr !== "string" && typeof row.cr !== "number")) {
 			throw new UsageError("Each --monsters name must be a string and cr a string or number.", EXAMPLE);
 		}
-		if (typeof row.xp !== "number" || !Number.isInteger(row.xp) || row.xp < 0 || typeof row.count !== "number" || !Number.isInteger(row.count) || row.count < 1) {
+		if (
+			typeof row.xp !== "number" ||
+			!Number.isInteger(row.xp) ||
+			row.xp < 0 ||
+			typeof row.count !== "number" ||
+			!Number.isInteger(row.count) ||
+			row.count < 1
+		) {
 			throw new UsageError("xp and count must be whole numbers, xp at least 0, count at least 1.", EXAMPLE);
 		}
 		creatures.push({ name: row.name, cr: String(row.cr), xp: row.xp, count: row.count });
@@ -130,10 +131,7 @@ function formatHuman(
 	target: Difficulty | undefined,
 ): string {
 	const party = describeParty(effective);
-	const offsetNote =
-		offset === 0
-			? party
-			: `${party} (recorded ${recorded.join(", ")}; +${offset} combat offset)`;
+	const offsetNote = offset === 0 ? party : `${party} (recorded ${recorded.join(", ")}; +${offset} combat offset)`;
 	const lines = [
 		`Party: ${offsetNote}`,
 		"--- XP Budgets ---",
@@ -165,14 +163,32 @@ function formatHuman(
 
 export function encounterBudgetCommand(): Command {
 	return new Command("encounter-budget")
-		.description("Print 2024 Encounter XP budgets and Creature spend. Diagnostic math only: it does not choose the opposition. Exits 0 printed, 2 usage error.")
+		.description(
+			"Print 2024 Encounter XP budgets and Creature spend. Diagnostic math only: it does not choose the opposition. Exits 0 printed, 2 usage error.",
+		)
 		.option("--levels <levels>", 'comma-separated level of each participating PC, e.g. "5,5,6,4"')
 		.option("--party-level <n>", "level of every PC (use with --party-size)", Number)
 		.option("--party-size <n>", "number of PCs (use with --party-level)", Number)
-		.option("--level-offset <n>", "add this to each recorded level before budget lookup, capped at 20 (default 1)", Number)
-		.addOption(new Option("--creature <name,cr,xp,count>", 'one Creature type; repeat. XP comes from the Wiki or SRD statblock, e.g. "Orc,1/2,100,3"').argParser(collect).default([] as string[], "none"))
+		.option(
+			"--level-offset <n>",
+			"add this to each recorded level before budget lookup, capped at 20 (default 1)",
+			Number,
+		)
+		.addOption(
+			new Option(
+				"--creature <name,cr,xp,count>",
+				'one Creature type; repeat. XP comes from the Wiki or SRD statblock, e.g. "Orc,1/2,100,3"',
+			)
+				.argParser(collect)
+				.default([] as string[], "none"),
+		)
 		.option("--monsters <json>", 'JSON list [{name, cr, xp, count}]; "-" reads stdin')
-		.addOption(new Option("--target <difficulty>", "named Low/Moderate/High band to print XP over or under; does not pass or fail the Encounter").choices([...DIFFICULTIES]))
+		.addOption(
+			new Option(
+				"--target <difficulty>",
+				"named Low/Moderate/High band to print XP over or under; does not pass or fail the Encounter",
+			).choices([...DIFFICULTIES]),
+		)
 		.option("--json", "print machine-readable JSON instead of the copy block")
 		.addHelpText(
 			"after",
@@ -192,11 +208,11 @@ Exit codes:
   0  printed    2  usage error
 
 Examples:
-  cf encounter-budget --levels 5,5,5,5
-  cf encounter-budget --party-level 5 --party-size 4
-  cf encounter-budget --levels 5,5,6,4 --target high --creature "Orc,1/2,100,3"
-  cf encounter-budget --levels 5,5,5,5 --monsters '[{"name":"Orc","cr":"1/2","xp":100,"count":3}]' --json
-  printf '%s' '[{"name":"Orc","cr":"1/2","xp":100,"count":3}]' | cf encounter-budget --levels 5,5,5,5 --monsters -`,
+  ${CF} encounter-budget --levels 5,5,5,5
+  ${CF} encounter-budget --party-level 5 --party-size 4
+  ${CF} encounter-budget --levels 5,5,6,4 --target high --creature "Orc,1/2,100,3"
+  ${CF} encounter-budget --levels 5,5,5,5 --monsters '[{"name":"Orc","cr":"1/2","xp":100,"count":3}]' --json
+  printf '%s' '[{"name":"Orc","cr":"1/2","xp":100,"count":3}]' | ${CF} encounter-budget --levels 5,5,5,5 --monsters -`,
 		)
 		.action(async (flags: EncounterBudgetFlags) => {
 			const recorded = parseLevels(flags);
@@ -208,7 +224,7 @@ Examples:
 			const budgets = partyBudgets(effective);
 			const creatures = flags.creature.map(parseCreatureFlag);
 			if (flags.monsters !== undefined) {
-				const raw = flags.monsters === "-" ? await readStdin() : flags.monsters;
+				const raw = flags.monsters === "-" ? await readInput("-", EXAMPLE) : flags.monsters;
 				creatures.push(...parseMonstersJson(raw));
 			}
 			if (flags.target && creatures.length === 0) {

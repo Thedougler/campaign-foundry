@@ -44,7 +44,9 @@ export async function hostStatus(host: RemoteHost, config: HostConfig): Promise<
 	const stateProbe = jsonProbe<{ Status: string; StartedAt: string; Health?: { Status: string } }>(
 		`docker inspect ${container} --format "{{json .State}}"`,
 	);
-	const labelsProbe = jsonProbe<Record<string, string>>(`docker inspect ${container} --format "{{json .Config.Labels}}"`);
+	const labelsProbe = jsonProbe<Record<string, string>>(
+		`docker inspect ${container} --format "{{json .Config.Labels}}"`,
+	);
 	const portsProbe = jsonProbe<Record<string, { HostPort: string }[]>>(
 		`docker inspect ${container} --format "{{json .NetworkSettings.Ports}}"`,
 	);
@@ -58,7 +60,8 @@ export async function hostStatus(host: RemoteHost, config: HostConfig): Promise<
 		},
 		{
 			command: `docker inspect ${container} --format '{{index .Config.Labels "com.foundryvtt.version"}}'`,
-			read: (r) => (r.code === 0 && r.stdout.trim() !== "" && r.stdout.trim() !== "<no value>" ? r.stdout.trim() : null),
+			read: (r) =>
+				r.code === 0 && r.stdout.trim() !== "" && r.stdout.trim() !== "<no value>" ? r.stdout.trim() : null,
 		},
 		{
 			command: `cat ${config.dataPath}/Config/options.json`,

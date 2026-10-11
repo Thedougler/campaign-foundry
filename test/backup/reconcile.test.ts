@@ -38,7 +38,8 @@ async function synced() {
 }
 
 const live = (api: FakeNotion): number => [...api.pages.values()].filter((p) => !p.inTrash).length;
-const titles = (api: FakeNotion): string[] => [...api.pages.values()].filter((p) => !p.inTrash).map((p) => `${p.parent}/${p.title}`);
+const titles = (api: FakeNotion): string[] =>
+	[...api.pages.values()].filter((p) => !p.inTrash).map((p) => `${p.parent}/${p.title}`);
 const noDuplicates = (api: FakeNotion): void => expect(new Set(titles(api)).size).toBe(titles(api).length);
 
 describe("the map is a cache: Notion is the record", () => {
@@ -141,7 +142,9 @@ describe("the map is a cache: Notion is the record", () => {
 		const { root, map, api, git } = await synced();
 		const extra = api.add(PARENT, ROOT_TITLE, [rootCallout()]);
 		const { result, reconciled } = await backup(root, map, api, { kind: "all" }, { commit: B, git });
-		expect(reconciled.duplicates).toEqual([{ path: "(backup root)", kept: map.root?.id, extras: [{ id: extra, action: "trashed (empty)" }] }]);
+		expect(reconciled.duplicates).toEqual([
+			{ path: "(backup root)", kept: map.root?.id, extras: [{ id: extra, action: "trashed (empty)" }] },
+		]);
 		expect(api.pages.get(extra)?.inTrash).toBe(true);
 		expect(api.ops().filter((op) => op === "create")).toEqual([]);
 		expect(result.created).toBe(0);
@@ -154,7 +157,9 @@ describe("the map is a cache: Notion is the record", () => {
 		const map = emptyMap(PARENT);
 		const { result, reconciled } = await backup(root, map, api, { kind: "all" }, { commit: B, git });
 		expect(map.root?.id).toBe(original.root?.id);
-		expect(reconciled.duplicates).toEqual([{ path: "(backup root)", kept: original.root?.id, extras: [{ id: older, action: "left in place" }] }]);
+		expect(reconciled.duplicates).toEqual([
+			{ path: "(backup root)", kept: original.root?.id, extras: [{ id: older, action: "left in place" }] },
+		]);
 		expect(api.pages.get(older)?.inTrash).toBe(false);
 		expect(result.created).toBe(0);
 	});
@@ -164,7 +169,16 @@ describe("the map is a cache: Notion is the record", () => {
 		const map = emptyMap(PARENT);
 		const api = new FakeNotion();
 		const walk = walkBackup(root);
-		const options = { walk, map, plan: planBackup(walk, map, { kind: "all" }), api, sourceUrl: () => undefined, save: () => {}, lfsPull: async () => {}, log: () => {} };
+		const options = {
+			walk,
+			map,
+			plan: planBackup(walk, map, { kind: "all" }),
+			api,
+			sourceUrl: () => undefined,
+			save: () => {},
+			lfsPull: async () => {},
+			log: () => {},
+		};
 		await expect(runBackup({ ...options, reconciled: { rootAbsent: false } })).rejects.toThrow(/second root/);
 		expect(api.calls).toEqual([]);
 	});
@@ -173,7 +187,10 @@ describe("the map is a cache: Notion is the record", () => {
 		const { root, map, api, git } = await synced();
 		const folder = map.entries[`${W}/NPCs`]?.id ?? "";
 		const shell = api.add(folder, "Ilse Corran", [pendingHeader(ILSE)]);
-		const full = api.add(folder, "Ilse Corran", [headerBlock(ILSE, A, `https://github.com/o/r/blob/${A}/x`), { object: "block", type: "paragraph", paragraph: { rich_text: [] } }]);
+		const full = api.add(folder, "Ilse Corran", [
+			headerBlock(ILSE, A, `https://github.com/o/r/blob/${A}/x`),
+			{ object: "block", type: "paragraph", paragraph: { rich_text: [] } },
+		]);
 		const { result, reconciled } = await backup(root, map, api, { kind: "all" }, { commit: B, git });
 		expect(reconciled.duplicates).toEqual([
 			{
@@ -204,7 +221,9 @@ describe("the map is a cache: Notion is the record", () => {
 			if (title !== "Geoffrey Draves" || theirs) return;
 			theirs = api.add(parent, title, [pendingHeader(path)], { createdTime: api.time(60) });
 		};
-		await expect(backup(root, map, api, { kind: "all" }, { commit: B, git })).rejects.toBeInstanceOf(ConcurrentRunError);
+		await expect(backup(root, map, api, { kind: "all" }, { commit: B, git })).rejects.toBeInstanceOf(
+			ConcurrentRunError,
+		);
 		api.onCreate = undefined;
 		expect(api.all("Geoffrey Draves").map((p) => p.id)).toEqual([theirs]);
 		const { result } = await backup(root, map, api, { kind: "all" }, { commit: B, git });
@@ -255,7 +274,9 @@ describe("the map is a cache: Notion is the record", () => {
 		await backup(root, emptyMap(PARENT), api, { kind: "all" }, { commit: B, git });
 		await backup(root, emptyMap(PARENT), api, { kind: "all" }, { commit: C, git });
 		expect(api.all(ROOT_TITLE)).toHaveLength(1);
-		expect(api.ops().filter((op) => op === "create").length).toBe(Object.keys(walkBackup(root).dirs).length + walkBackup(root).files.length + 1);
+		expect(api.ops().filter((op) => op === "create").length).toBe(
+			Object.keys(walkBackup(root).dirs).length + walkBackup(root).files.length + 1,
+		);
 		noDuplicates(api);
 	});
 });

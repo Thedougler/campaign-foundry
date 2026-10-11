@@ -27,7 +27,7 @@ For a populated Location, read [references/settlement.md](references/settlement.
 
 For a bounded visit or exploration, read [references/site.md](references/site.md) before choosing the useful key and local interactions. It owns ordinary Sites: shops, landmarks, buildings and compact visits.
 
-When the Site needs room-by-room exploration with interconnected areas and expedition pressure, invoke `dungeon-design` **once for stocking**, after this workflow's evidence and situation are established. Supply the Site path or intended page, actual Site template, Canon inventory, containing Location, Party facts relevant to danger, requested exploration scope and caller operation. Receive the keyed stock, supporting owner pages and their paths. Resume here at evidence placement and authoring. The dungeon-design handoff covers stocking only, and this skill runs the rest of the Location workflow. A simple shop or landmark stays a simple Site.
+When the Site needs room-by-room exploration with interconnected areas and expedition pressure, invoke `dungeon-design` **once for stocking**, after this workflow's evidence and situation are established. Supply the Site path or intended page, actual Site template, Canon inventory, containing Location, Party facts relevant to danger, requested exploration scope and caller operation. Receive the keyed stock, supporting owner pages and their paths. Resume here at evidence placement and authoring. The dungeon-design hand-off covers stocking only, and this skill runs the rest of the Location workflow. A simple shop or landmark stays a simple Site.
 
 ## Return
 

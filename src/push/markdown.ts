@@ -5,7 +5,8 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import { unified } from "unified";
-import { parseWikiLinkText, blank } from "../vault/parse.ts";
+import { BLOCK_ID, CALLOUT_TITLE, parseWikiLinkText, WIKILINK } from "../vault/dialect.ts";
+import { blank } from "../vault/parse.ts";
 import type { Page, WikiLink } from "../vault/types.ts";
 
 /** What the renderer needs to know about the Adventure it renders into. */
@@ -23,17 +24,17 @@ export interface RenderOptions {
 	omit?: string[];
 }
 
-const WIKILINK = /(!?)\[\[([^[\]\n]*)\]\]/g;
-const CALLOUT_TITLE = /^\[!([^\]\s]+)\][+-]?[ \t]*([^\n]*)(?:\n|$)/;
-const BLOCK_ID = /\s\^[A-Za-z0-9-]+\s*$/;
-
 const CALLOUT_STYLE: Record<string, string> = {
-	narration: "border-left: 4px solid #8a6d3b; padding: 0.4em 1em; margin: 0.8em 0; background: rgba(138, 109, 59, 0.12); font-style: italic;",
+	narration:
+		"border-left: 4px solid #8a6d3b; padding: 0.4em 1em; margin: 0.8em 0; background: rgba(138, 109, 59, 0.12); font-style: italic;",
 };
-const DEFAULT_CALLOUT_STYLE = "border-left: 4px solid #666; padding: 0.4em 1em; margin: 0.8em 0; background: rgba(102, 102, 102, 0.1);";
+const DEFAULT_CALLOUT_STYLE =
+	"border-left: 4px solid #666; padding: 0.4em 1em; margin: 0.8em 0; background: rgba(102, 102, 102, 0.1);";
 
 const parser = unified().use(remarkParse).use(remarkFrontmatter, ["yaml"]).use(remarkGfm);
-const compiler = unified().use(remarkRehype, { allowDangerousHtml: true }).use(rehypeStringify, { allowDangerousHtml: true });
+const compiler = unified()
+	.use(remarkRehype, { allowDangerousHtml: true })
+	.use(rehypeStringify, { allowDangerousHtml: true });
 
 const esc = (s: string): string => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
@@ -54,7 +55,10 @@ function rewriteText(value: string, ctx: RenderContext): PhrasingContent[] {
 		const link = parseWikiLinkText(match[0], match[1] === "!", match[2] ?? "", 0, false);
 		const image = link.embed ? ctx.image(link) : undefined;
 		if (image) {
-			out.push({ type: "html", value: `<img src="${esc(image)}" alt="${esc(link.alias ?? link.target.replace(/\.[A-Za-z0-9]+$/, ""))}">` } satisfies Html);
+			out.push({
+				type: "html",
+				value: `<img src="${esc(image)}" alt="${esc(link.alias ?? link.target.replace(/\.[A-Za-z0-9]+$/, ""))}">`,
+			} satisfies Html);
 			continue;
 		}
 		const target = ctx.target(link);
@@ -87,12 +91,13 @@ function rewriteChildren(node: { children: RootContent[] }, ctx: RenderContext):
 function styleCallout(quote: Blockquote): string | undefined {
 	const first = quote.children[0];
 	const text = first?.type === "paragraph" ? first.children[0] : undefined;
-	if (!first || first.type !== "paragraph" || text?.type !== "text") return undefined;
+	if (first?.type !== "paragraph" || text?.type !== "text") return undefined;
 	const head = CALLOUT_TITLE.exec(text.value);
 	if (!head) return undefined;
 	const type = (head[1] ?? "").toLowerCase();
 	const title = (head[2] ?? "").trim();
-	text.value = text.value.slice(head[0].length);
+	// The title pattern stops at the line's end, so the soft break after it goes here, keeping the body's own first line.
+	text.value = text.value.slice(head[0].length).replace(/^\n/, "");
 	if (text.value === "") first.children.shift();
 	if (first.children.length === 0) quote.children.shift();
 	if (title) {
@@ -103,13 +108,22 @@ function styleCallout(quote: Blockquote): string | undefined {
 		};
 		quote.children.unshift(titleParagraph);
 	}
-	quote.data = { hProperties: { className: ["cf-callout", `cf-${type}`], style: CALLOUT_STYLE[type] ?? DEFAULT_CALLOUT_STYLE } } as Blockquote["data"];
+	quote.data = {
+		hProperties: { className: ["cf-callout", `cf-${type}`], style: CALLOUT_STYLE[type] ?? DEFAULT_CALLOUT_STYLE },
+	} as Blockquote["data"];
 	return type;
 }
 
 /** True for a paragraph that holds nothing but image embeds. */
 function isImageLine(node: RootContent): boolean {
-	return node.type === "paragraph" && node.children.every((c) => (c.type === "text" && /^(\s*!\[\[[^\]]+\]\]\s*)+$/.test(c.value)) || (c.type === "text" && c.value.trim() === ""));
+	return (
+		node.type === "paragraph" &&
+		node.children.every(
+			(c) =>
+				(c.type === "text" && /^(\s*!\[\[[^\]]+\]\]\s*)+$/.test(c.value)) ||
+				(c.type === "text" && c.value.trim() === ""),
+		)
+	);
 }
 
 function dropSections(children: RootContent[], omit: string[]): RootContent[] {
@@ -117,7 +131,10 @@ function dropSections(children: RootContent[], omit: string[]): RootContent[] {
 	let skipping = false;
 	for (const node of children) {
 		if (node.type === "heading" && node.depth <= 2) {
-			const title = node.children.map((c) => ("value" in c ? c.value : "")).join("").trim();
+			const title = node.children
+				.map((c) => ("value" in c ? c.value : ""))
+				.join("")
+				.trim();
 			skipping = omit.includes(title);
 		}
 		if (!skipping) out.push(node);
@@ -127,9 +144,16 @@ function dropSections(children: RootContent[], omit: string[]): RootContent[] {
 
 /** Renders a Wiki page's body as the HTML of a Foundry journal page. */
 export function renderMarkdown(page: Page, ctx: RenderContext, options: RenderOptions = {}): string {
-	const source = blank(page.source, page.comments.map((c): [number, number] => [c.start, c.end]), true);
+	const source = blank(
+		page.source,
+		page.comments.map((c): [number, number] => [c.start, c.end]),
+		true,
+	);
 	const tree: Root = parser.parse(source);
-	let children = dropSections(tree.children.filter((n) => n.type !== "yaml"), ["Links", ...(options.omit ?? [])]);
+	let children = dropSections(
+		tree.children.filter((n) => n.type !== "yaml"),
+		["Links", ...(options.omit ?? [])],
+	);
 
 	if (options.narrationOnly) {
 		const kept: RootContent[] = [];

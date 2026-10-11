@@ -21,7 +21,8 @@ export interface Uvtt {
 	lights?: { position: Point; range: number; intensity?: number; color?: string; shadows?: boolean }[];
 }
 
-const isPoint = (p: unknown): p is Point => typeof p === "object" && p !== null && typeof (p as Point).x === "number" && typeof (p as Point).y === "number";
+const isPoint = (p: unknown): p is Point =>
+	typeof p === "object" && p !== null && typeof (p as Point).x === "number" && typeof (p as Point).y === "number";
 
 /** Parses and shape-checks a Universal VTT file, throwing an error that names what is missing. */
 export function parseUvtt(text: string): Uvtt {
@@ -117,7 +118,13 @@ function lights(uvtt: Uvtt, campaign: string, path: string): Doc[] {
 			rotation: 0,
 			walls: light.shadows !== false,
 			vision: false,
-			config: { angle: 360, dim, bright: dim / 2, color: lightColor(light.color), alpha: Math.min(1, 0.5 * (light.intensity ?? 1)) },
+			config: {
+				angle: 360,
+				dim,
+				bright: dim / 2,
+				color: lightColor(light.color),
+				alpha: Math.min(1, 0.5 * (light.intensity ?? 1)),
+			},
 		};
 	});
 }
@@ -149,7 +156,14 @@ function tokens(input: SceneInput): Doc[] {
 			displayName: 20,
 			displayBars: 20,
 			bar1: { attribute: "attributes.hp" },
-			texture: { src: token.img ?? "icons/svg/mystery-man.svg", anchorX: 0.5, anchorY: 0.5, fit: "contain", scaleX: 1, scaleY: 1 },
+			texture: {
+				src: token.img ?? "icons/svg/mystery-man.svg",
+				anchorX: 0.5,
+				anchorY: 0.5,
+				fit: "contain",
+				scaleX: 1,
+				scaleY: 1,
+			},
 		});
 		x += size;
 		rowHeight = Math.max(rowHeight, size);
@@ -162,13 +176,20 @@ export function buildScene(input: SceneInput): BuiltScene {
 	const warnings: string[] = [];
 	const { uvtt } = input;
 	if (!uvtt) {
-		warnings.push(`${input.name}: no walls, doors or lights, because no Universal VTT file (<page-slug>-battle-map.uvtt or .dd2vtt) sits beside the Battle Map.`);
+		warnings.push(
+			`${input.name}: no walls, doors or lights, because no Universal VTT file (<page-slug>-battle-map.uvtt or .dd2vtt) sits beside the Battle Map.`,
+		);
 	} else {
 		const { map_size: size, pixels_per_grid: ppg } = uvtt.resolution;
 		if (Math.round(size.x * ppg) !== input.image.width || Math.round(size.y * ppg) !== input.image.height) {
-			warnings.push(`${input.name}: the Universal VTT map (${size.x} by ${size.y} squares at ${ppg} px) does not match the image (${input.image.width} by ${input.image.height} px); wall positions may be off.`);
+			warnings.push(
+				`${input.name}: the Universal VTT map (${size.x} by ${size.y} squares at ${ppg} px) does not match the image (${input.image.width} by ${input.image.height} px); wall positions may be off.`,
+			);
 		}
-		if (ppg !== GRID_SIZE) warnings.push(`${input.name}: the Universal VTT file is ${ppg} px per square, not ${GRID_SIZE}; walls are scaled to ${GRID_SIZE}.`);
+		if (ppg !== GRID_SIZE)
+			warnings.push(
+				`${input.name}: the Universal VTT file is ${ppg} px per square, not ${GRID_SIZE}; walls are scaled to ${GRID_SIZE}.`,
+			);
 	}
 	const data: Doc = {
 		_id: foundryId(input.campaign, input.path, "scene"),

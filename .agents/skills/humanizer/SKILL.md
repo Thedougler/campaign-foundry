@@ -283,6 +283,7 @@ Templates and visual editors also produce clean formatting. The tell is decorati
 **After:**
 > It blends OKRs, KPIs, and visual strategy tools like the Business Model Canvas and Balanced Scorecard.
 **Before (labeled list):**
+>
 > - **User Experience:** The user experience has been significantly improved with a new interface.
 > - **Performance:** Performance has been enhanced through optimized algorithms.
 > - **Security:** Security has been strengthened with end-to-end encryption.
@@ -293,9 +294,13 @@ Templates and visual editors also produce clean formatting. The tell is decorati
 
 **Problem:** Headings capitalize every main word, and headings or list items carry emojis or arrows (→) as decoration. A horizontal rule sits between every section, or the document opens with a top-level heading that repeats its own title. A heading written for effect ("The decision, on one screen") should name what the section holds ("How the six options compare"). Use sentence case, remove the decoration and the rules, and let the title stand once.
 **Before:**
+
 > ## Strategic Negotiations And Global Partnerships
+
 **After:**
+
 > ## Strategic negotiations and global partnerships
+
 **Before (emojis):**
 > 🚀 **Launch Phase:** The product launches in Q3
 > 💡 **Key Insight:** Users prefer simplicity
@@ -340,12 +345,14 @@ Remove these outright. Nothing here needs rewriting.
 
 **Problem:** A heading is followed by a one-line paragraph that restates it before the real content begins. Remove the repeated sentence.
 **Before:**
+
 > ## Performance
 >
 > Speed matters.
 >
 > When users hit a slow page, they leave.
 **After:**
+
 > ## Performance
 >
 > When users hit a slow page, they leave.

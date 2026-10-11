@@ -2,15 +2,15 @@ import { bindingsFromPath, describe, matchDir, PLACEMENTS, resolveDir } from "..
 import type { Location } from "../placement-table.ts";
 import type { Page } from "../../vault/types.ts";
 import type { CheckContext, Finding, Fix, FixResult, Layer } from "../types.ts";
-import { checkedPages, dirOf, isSpecialPage, isTarget } from "../util.ts";
+import { dirOf } from "../util.ts";
+import { isFixedPage, isFixedSlug } from "../views.ts";
 
 const LAYER = "placement";
 /** Fixed and generated filenames repeat across Campaign folders. */
 const FIXED_NAME = new Set(
 	Object.values(PLACEMENTS).flatMap((locs) => locs.flatMap((l) => (typeof l.name === "string" ? [l.name] : []))),
 );
-const REPEATABLE = (slug: string): boolean =>
-	FIXED_NAME.has(slug) || slug === "index" || slug === "log" || /^log-\d{4}$/.test(slug);
+const REPEATABLE = (slug: string): boolean => FIXED_NAME.has(slug) || isFixedSlug(slug);
 
 const segmentsOf = (page: Page): string[] => dirOf(page.path).split("/").filter(Boolean);
 const wikiType = (page: Page): string | undefined => {
@@ -69,9 +69,17 @@ function specialFindings(ctx: CheckContext, page: Page, out: Finding[]): void {
 		out.push({ layer: LAYER, severity: "error", rule, path: ctx.display(page.path), line: 1, message, hint });
 	};
 	if (page.slug === "index" && segments.length > 1) {
-		add("misplaced-special", "`index.md` is not at the Wiki root or a Campaign folder.", "`index.md` is generated: one at the vault root listing the Campaigns, one per Campaign folder at `<Campaign folder>/index.md`. Regenerate it in the right place.");
-	} else if (page.slug !== "index" && isSpecialPage(page) && segments.length !== 1) {
-		add("misplaced-special", `\`${page.slug}.md\` is not directly in a Campaign folder.`, `The append-only log lives at \`<Campaign folder>/${page.slug}.md\`, e.g. wiki/salt-and-lantern/${page.slug}.md.`);
+		add(
+			"misplaced-special",
+			"`index.md` is not at the Wiki root or a Campaign folder.",
+			"`index.md` is generated: one at the vault root listing the Campaigns, one per Campaign folder at `<Campaign folder>/index.md`. Regenerate it in the right place.",
+		);
+	} else if (page.slug !== "index" && isFixedPage(page) && segments.length !== 1) {
+		add(
+			"misplaced-special",
+			`\`${page.slug}.md\` is not directly in a Campaign folder.`,
+			`The append-only log lives at \`<Campaign folder>/${page.slug}.md\`, e.g. wiki/salt-and-lantern/${page.slug}.md.`,
+		);
 	}
 }
 
@@ -97,12 +105,12 @@ function sessionNameProblem(page: Page, type: string): string | undefined {
 export function run(ctx: CheckContext): Finding[] {
 	const findings: Finding[] = [];
 	const exists = (path: string): boolean => ctx.vault.pageByPath.has(path);
-	for (const page of checkedPages(ctx)) {
+	for (const page of ctx.pages) {
 		const path = ctx.display(page.path);
 		const add = (rule: string, message: string, hint: string): void => {
 			findings.push({ layer: LAYER, severity: "error", rule, path, line: 1, message, hint });
 		};
-		if (isSpecialPage(page)) {
+		if (isFixedPage(page)) {
 			specialFindings(ctx, page, findings);
 			continue;
 		}
@@ -113,13 +121,21 @@ export function run(ctx: CheckContext): Finding[] {
 			const want = sessionNameProblem(page, type);
 			if (want) {
 				const example = want.replace("<Scene title>", "The Drowned Bell");
-				add("session-page-name", `A ${type} page in a Session folder must have title \`${want}\`, not \`${page.name}\`.`, `Set \`title: "${example}"\`, with N the folder's number. The filename is its stable slug; use \`cf rename\` to change it.`);
+				add(
+					"session-page-name",
+					`A ${type} page in a Session folder must have title \`${want}\`, not \`${page.name}\`.`,
+					`Set \`title: "${example}"\`, with N the folder's number. The filename is its stable slug; use \`cf rename\` to change it.`,
+				);
 			}
 			continue;
 		}
 		const where = verdict.expected.map((l) => `\`${describe(l)}\``).join(" or ");
 		if (verdict.wrongName) {
-			add("wrong-file-name", `A page of type ${type} in \`${dirOf(page.path)}/\` must be named \`${verdict.wrongName}.md\`, not \`${page.slug}.md\`.`, `Rename the file to \`${verdict.wrongName}.md\`, and update links that spelled the old file name.`);
+			add(
+				"wrong-file-name",
+				`A page of type ${type} in \`${dirOf(page.path)}/\` must be named \`${verdict.wrongName}.md\`, not \`${page.slug}.md\`.`,
+				`Rename the file to \`${verdict.wrongName}.md\`, and update links that spelled the old file name.`,
+			);
 			continue;
 		}
 		const first = verdict.expected[0]!;
@@ -132,6 +148,7 @@ export function run(ctx: CheckContext): Finding[] {
 	}
 
 	const byName = new Map<string, Page[]>();
+	const checked = new Set(ctx.pages);
 	for (const page of ctx.vault.pages) {
 		if (REPEATABLE(page.slug)) continue;
 		const key = page.name.toLowerCase();
@@ -140,7 +157,7 @@ export function run(ctx: CheckContext): Finding[] {
 	for (const pages of byName.values()) {
 		if (pages.length < 2) continue;
 		for (const page of pages) {
-			if (!isTarget(ctx, page.path)) continue;
+			if (!checked.has(page)) continue;
 			const others = pages.filter((p) => p !== page).map((p) => p.path);
 			findings.push({
 				layer: LAYER,
@@ -160,9 +177,9 @@ export function fix(ctx: CheckContext): FixResult {
 	const fixes: Fix[] = [];
 	const claimed = new Set<string>();
 	const taken = (path: string): boolean => ctx.vault.pageByPath.has(path) || claimed.has(path);
-	for (const page of checkedPages(ctx)) {
+	for (const page of ctx.pages) {
 		const type = wikiType(page);
-		if (!type || isSpecialPage(page)) continue;
+		if (!type || isFixedPage(page)) continue;
 		const verdict = judge(page, type, taken);
 		if (verdict.ok || !verdict.target) continue;
 		claimed.add(verdict.target);
@@ -179,6 +196,7 @@ export function fix(ctx: CheckContext): FixResult {
 
 export const placementLayer: Layer = {
 	name: LAYER,
+	scope: "page",
 	description: "Each page sits where docs/wiki-layout.md puts its kind; names are in-world and unique.",
 	run,
 	fix,

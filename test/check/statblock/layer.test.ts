@@ -1,7 +1,7 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
-import { cf, checkFixture, copyFixture, findingsFor, fixtures, type JsonReport, realTemplates } from "../helpers.ts";
+import { checkFixture, checkLayer, copyFixture, findingsFor, fixtures, type JsonReport } from "../helpers.ts";
 
 const LAYERS = ["--layer", "template", "--layer", "statblock"];
 
@@ -22,7 +22,11 @@ describe("statblock layer: real SRD 5.2 stat blocks pass unchanged", () => {
 		const dir = join(fixtures, "statblock-srd/wiki/Aldermoor/Creatures");
 		const files = await readdir(dir);
 		expect(files.length).toBeGreaterThanOrEqual(12);
-		const pages = new Map(await Promise.all(files.map(async (f) => [f.replace(/\.md$/, ""), await readFile(join(dir, f), "utf8")] as const)));
+		const pages = new Map(
+			await Promise.all(
+				files.map(async (f) => [f.replace(/\.md$/, ""), await readFile(join(dir, f), "utf8")] as const),
+			),
+		);
 		expect(pages.get("Rat")).toMatch(/size: Tiny/);
 		expect(pages.get("Ancient Red Dragon")).toMatch(/size: Gargantuan/);
 		expect(pages.get("Rat")).toMatch(/cr: 0$/m);
@@ -40,9 +44,8 @@ describe("statblock layer: real SRD 5.2 stat blocks pass unchanged", () => {
 		const source = await readFile(page, "utf8");
 		expect(source).toContain("hp: 68");
 		await writeFile(page, source.replace("hp: 68", "hp: 70"));
-		const result = await cf(["check", "--json", ...LAYERS, "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates], dir);
-		const changed = JSON.parse(result.stdout) as JsonReport;
-		expect(changed.findings.map((f) => `${f.path.split("/").pop()} ${f.rule}`)).toEqual(["Ogre.md hp-average"]);
+		const changed = await checkLayer("template", dir, ["--layer", "statblock"]);
+		expect(changed.report.findings.map((f) => `${f.path.split("/").pop()} ${f.rule}`)).toEqual(["Ogre.md hp-average"]);
 	});
 });
 
@@ -116,7 +119,7 @@ describe("statblock layer: seeded errors, one page per class", () => {
 	it("has no --fix: the fix depends on which number is wrong, so --fix changes no stat block", async () => {
 		const dir = await copyFixture("statblock-errors");
 		const before = await readFile(join(dir, "wiki/Aldermoor/Creatures/Bad Hp.md"), "utf8");
-		await cf(["check", "--fix", ...LAYERS, "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates], dir);
+		await checkLayer("template", dir, ["--layer", "statblock", "--fix"]);
 		expect(await readFile(join(dir, "wiki/Aldermoor/Creatures/Bad Hp.md"), "utf8")).toBe(before);
 	});
 });

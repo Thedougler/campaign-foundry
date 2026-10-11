@@ -1,4 +1,4 @@
-import type { TemplateSet, Vault } from "../vault/types.ts";
+import type { Page, TemplateSet, Vault } from "../vault/types.ts";
 
 /** One thing wrong with one page. */
 export interface Finding {
@@ -18,9 +18,7 @@ export interface Finding {
 }
 
 /** A change to disk. `path`, `from` and `to` are vault-relative. */
-export type FileEdit =
-	| { type: "write"; path: string; content: string }
-	| { type: "move"; from: string; to: string };
+export type FileEdit = { type: "write"; path: string; content: string } | { type: "move"; from: string; to: string };
 
 /** One mechanical fix a layer proposes. The runner applies (or, under `--dry-run`, only reports) it. */
 export interface Fix {
@@ -39,10 +37,14 @@ export interface FixResult {
 
 export interface CheckContext {
 	vault: Vault;
-	/** Selects vault-relative paths to evaluate; omitted means every page. The Vault remains global read-only context. */
-	target?(vaultPath: string): boolean;
+	/**
+	 * Pages to evaluate: every page, or the scoped targets — the runner applies scope once (issue #62).
+	 * The Vault stays read-only context for link resolution, name dictionaries, narration sources and
+	 * shared-prose comparisons.
+	 */
+	pages: readonly Page[];
 	templates: TemplateSet;
-	/** Repository root: `sources` paths and `archive/` resolve against it. */
+	/** Repository root: `sources` paths and `archive/` resolve against it; the answer cache lives under `.cache/check`. */
 	root: string;
 	/** Turns a vault-relative path into the working-directory-relative path findings carry. */
 	display(vaultPath: string): string;
@@ -57,6 +59,12 @@ export interface Layer {
 	name: string;
 	/** One line for `cf check --help`. */
 	description: string;
+	/**
+	 * `"page"`: the layer evaluates each checked page on its own, so a scoped run skips untouched pages.
+	 * `"vault"`: the layer compares across the whole vault and still reports only the checked pages —
+	 * the runner filters. Both read the full Vault as context.
+	 */
+	scope: "page" | "vault";
 	/** Read-only: returns the findings, never writes. May be async. */
 	run(ctx: CheckContext): Finding[] | Promise<Finding[]>;
 	/** Optional: proposes mechanical fixes for `--fix`. Must be idempotent: a clean page yields no fixes. */

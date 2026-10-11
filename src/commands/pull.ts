@@ -1,23 +1,18 @@
-import { existsSync, realpathSync, statSync } from "node:fs";
-import { join, resolve } from "node:path";
 import { Command, Option } from "commander";
 import { formatHuman, formatJson, gateExitCode } from "../check/output.ts";
-import { UsageError } from "../check/run.ts";
 import { runPull } from "../pull/pull.ts";
 import type { PcOutcome, PullResult } from "../pull/pull.ts";
-import { findRepoRoot } from "./check.ts";
+import { collect, envOptions, CF, requireTemplates, resolveEnv } from "./kit.ts";
 
 interface PullFlags {
-	campaign?: string;
-	pc: string[];
 	vault?: string;
 	templates?: string;
 	root?: string;
+	campaign?: string;
+	pc: string[];
 	dryRun?: boolean;
 	json?: boolean;
 }
-
-const collect = (value: string, previous: string[]): string[] => [...previous, value];
 
 const VERB: Record<PcOutcome["status"], string> = {
 	updated: "pulled",
@@ -60,7 +55,14 @@ export function pullJson(result: PullResult, dryRun: boolean): string {
 			ok: !result.outcomes.some((o) => o.status === "failed") && (result.gate ? gateExitCode(result.gate) === 0 : true),
 			dryRun,
 			pcs: result.outcomes.map(({ pc, path, status, sections, summarySet, added, removed, message }) => ({
-				pc, path, status, sections, summarySet, added, removed, ...(message ? { message } : {}),
+				pc,
+				path,
+				status,
+				sections,
+				summarySet,
+				added,
+				removed,
+				...(message ? { message } : {}),
 			})),
 			logged: result.logged,
 			indexed: result.indexed,
@@ -72,15 +74,18 @@ export function pullJson(result: PullResult, dryRun: boolean): string {
 }
 
 export function pullCommand(): Command {
-	return new Command("pull")
+	const command = new Command("pull")
 		.description(
 			"Pull PCs from D&D Beyond: refresh the sheet side (Sheet, Spells, Inventory) of every PC page that has a dndbeyond_url, then log it and run the gate. The Story, Goals and bonds and Plans sections are never touched. Exits 0 clean, 1 if a PC failed or the gate found problems, 2 usage error.",
 		)
 		.option("--campaign <Campaign>", "only the PCs of this Campaign (default: every Campaign)")
-		.addOption(new Option("--pc <PC name>", "only this PC; repeat for several").argParser(collect).default([] as string[], "every PC with a link"))
-		.option("--vault <dir>", "the Wiki folder (default: <root>/wiki)")
-		.option("--templates <dir>", "folder of page templates for the gate (default: <root>/wiki/templates)")
-		.option("--root <dir>", "repository root (default: nearest git root)")
+		.addOption(
+			new Option("--pc <PC name>", "only this PC; repeat for several")
+				.argParser(collect)
+				.default([] as string[], "every PC with a link"),
+		);
+	envOptions(command, { templates: true });
+	return command
 		.option("--dry-run", "show what would change per PC without writing, logging or gating")
 		.option("--json", "print machine-readable JSON instead of text")
 		.addHelpText(
@@ -90,8 +95,8 @@ What it does:
   For each PC page under <Campaign folder>/PCs/ with a dndbeyond_url, it fetches the public character from
   D&D Beyond and rewrites the Sheet, Spells and Inventory sections whole. The summary is set only when blank.
   Afterwards, when a page changed, it appends "## [date] pull | Pulled PCs from D&D Beyond" to the Campaign
-  folder's log.md (as cf log does) and regenerates its index.md (as cf index does), then runs the gate (cf
-  check) over the pulled pages. A second pull with the same character changes nothing.
+  folder's log.md (as \`log\` does) and regenerates its index.md (as \`index\` does), then runs the gate (\`check\`)
+  over the pulled pages. A second pull with the same character changes nothing.
 
 Private characters:
   D&D Beyond only shares public characters. A private or missing one fails with the PC's name and the fix: set the
@@ -101,26 +106,17 @@ Exit codes:
   0  every PC pulled or unchanged, gate clean    1  a PC failed or the gate found problems    2  usage error
 
 Examples:
-  cf pull
-  cf pull --dry-run
-  cf pull --campaign "Ashes of the Crown"
-  cf pull --pc "Tam Brightwater" --pc "Mara Voss"
-  cf pull --json --dry-run`,
+  ${CF} pull
+  ${CF} pull --dry-run
+  ${CF} pull --campaign "Ashes of the Crown"
+  ${CF} pull --pc "Tam Brightwater" --pc "Mara Voss"
+  ${CF} pull --json --dry-run`,
 		)
 		.action(async (flags: PullFlags) => {
-			const cwd = process.cwd();
-			const real = (p: string): string => (existsSync(p) ? realpathSync(p) : p);
-			const root = real(flags.root ? resolve(cwd, flags.root) : findRepoRoot(cwd));
-			const vault = real(flags.vault ? resolve(cwd, flags.vault) : join(root, "wiki"));
-			const templates = real(flags.templates ? resolve(cwd, flags.templates) : join(root, "wiki/templates"));
-			for (const [label, dir, flag] of [["vault", vault, "--vault"], ["templates", templates, "--templates"]] as const) {
-				if (!existsSync(dir) || !statSync(dir).isDirectory()) throw new UsageError(`The ${label} folder ${dir} does not exist.`, `cf pull ${flag} <folder>`);
-			}
+			const env = resolveEnv(flags, "pull");
+			requireTemplates(env, "pull");
 			const result = await runPull({
-				vault,
-				templates,
-				root,
-				cwd,
+				...env,
 				...(flags.campaign === undefined ? {} : { campaign: flags.campaign }),
 				pcs: flags.pc,
 				dryRun: flags.dryRun ?? false,

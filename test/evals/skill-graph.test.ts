@@ -28,7 +28,10 @@ describe("skill graph", () => {
 			join(root, ".omp/skills/alpha/SKILL.md"),
 			"---\nname: alpha\ndescription: Use for alpha work.\n---\n# Alpha\n\nHand off to `skill://beta`, then follow `beta` again.\nWrite pages from `wiki/templates/NPC.md` and from `templates/NPC.md`.\n",
 		);
-		await writeFile(join(root, ".agents/skills/beta/SKILL.md"), "---\nname: beta\ndescription: Use for beta work.\n---\n# Beta\n");
+		await writeFile(
+			join(root, ".agents/skills/beta/SKILL.md"),
+			"---\nname: beta\ndescription: Use for beta work.\n---\n# Beta\n",
+		);
 		expect(await buildSkillGraph(root)).toEqual([
 			{ skill: "alpha", links: ["beta"], templates: ["wiki/templates/NPC.md"] },
 			{ skill: "beta", links: [], templates: [] },
@@ -40,7 +43,10 @@ describe("skill graph", () => {
 			join(root, ".omp/skills/alpha/SKILL.md"),
 			"---\nname: alpha\ndescription: Use for alpha work.\n---\n# Alpha\n\n`alpha` points at itself, `skill://alpha` too, and `skill://find-skills` is external.\n\n```markdown\n`skill://beta`\n```\n\n`no-such-skill` and `skill://no-such-skill` are unknown.\n",
 		);
-		await writeFile(join(root, ".agents/skills/beta/SKILL.md"), "---\nname: beta\ndescription: Use for beta work.\n---\n# Beta\n");
+		await writeFile(
+			join(root, ".agents/skills/beta/SKILL.md"),
+			"---\nname: beta\ndescription: Use for beta work.\n---\n# Beta\n",
+		);
 		expect(await buildSkillGraph(root)).toEqual([
 			{ skill: "alpha", links: ["find-skills"], templates: [] },
 			{ skill: "beta", links: [], templates: [] },
@@ -49,9 +55,18 @@ describe("skill graph", () => {
 	it("reads bare names and templates from references/** files", async () => {
 		const root = await graphRoot();
 		await mkdir(join(root, ".omp/skills/alpha/references"), { recursive: true });
-		await writeFile(join(root, ".omp/skills/alpha/SKILL.md"), "---\nname: alpha\ndescription: Use for alpha work.\n---\n# Alpha\nSee the [guide](references/guide.md).\n");
-		await writeFile(join(root, ".omp/skills/alpha/references/guide.md"), "# Guide\n\nClose per `beta` in `templates/NPC.md` shape.\n");
-		await writeFile(join(root, ".agents/skills/beta/SKILL.md"), "---\nname: beta\ndescription: Use for beta work.\n---\n# Beta\n");
+		await writeFile(
+			join(root, ".omp/skills/alpha/SKILL.md"),
+			"---\nname: alpha\ndescription: Use for alpha work.\n---\n# Alpha\nSee the [guide](references/guide.md).\n",
+		);
+		await writeFile(
+			join(root, ".omp/skills/alpha/references/guide.md"),
+			"# Guide\n\nClose per `beta` in `templates/NPC.md` shape.\n",
+		);
+		await writeFile(
+			join(root, ".agents/skills/beta/SKILL.md"),
+			"---\nname: beta\ndescription: Use for beta work.\n---\n# Beta\n",
+		);
 		expect(await buildSkillGraph(root)).toEqual([
 			{ skill: "alpha", links: ["beta"], templates: ["wiki/templates/NPC.md"] },
 			{ skill: "beta", links: [], templates: [] },

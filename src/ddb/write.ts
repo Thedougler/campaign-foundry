@@ -90,8 +90,9 @@ export function parseBuilderForm(html: string): FormField[] {
 	if (form === undefined) return [];
 	const fields: FormField[] = [];
 	const control = /<(input|select|textarea)\b/gi;
-	let match: RegExpExecArray | null;
-	while ((match = control.exec(form)) !== null) {
+	for (;;) {
+		const match = control.exec(form);
+		if (match === null) break;
 		const kind = match[1]!.toLowerCase();
 		const tagEnd = form.indexOf(">", match.index);
 		if (tagEnd === -1) break;
@@ -113,12 +114,18 @@ export function parseBuilderForm(html: string): FormField[] {
 			const inner = form.slice(tagEnd + 1, close);
 			const options: { value: string; label: string; selected: boolean }[] = [];
 			const option = /<option\b[^>]*>([\s\S]*?)<\/option>/gi;
-			let chosen: RegExpExecArray | null;
-			while ((chosen = option.exec(inner)) !== null) {
+			for (;;) {
+				const chosen = option.exec(inner);
+				if (chosen === null) break;
 				const optionTag = chosen[0].slice(0, chosen[0].indexOf(">") + 1);
 				options.push({
 					value: attrOf(optionTag, "value") ?? "",
-					label: decodeEntities(chosen[1]!.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim()),
+					label: decodeEntities(
+						chosen[1]!
+							.replace(/<[^>]*>/g, "")
+							.replace(/\s+/g, " ")
+							.trim(),
+					),
 					selected: /\bselected\b/.test(optionTag),
 				});
 			}
@@ -139,7 +146,11 @@ export function parseBuilderForm(html: string): FormField[] {
 		} else {
 			const close = form.toLowerCase().indexOf("</textarea>", tagEnd);
 			if (close === -1) break;
-			fields.push({ name, ...(fieldId === undefined ? {} : { fieldId }), value: decodeEntities(form.slice(tagEnd + 1, close)) });
+			fields.push({
+				name,
+				...(fieldId === undefined ? {} : { fieldId }),
+				value: decodeEntities(form.slice(tagEnd + 1, close)),
+			});
 			control.lastIndex = close;
 		}
 	}
@@ -150,14 +161,21 @@ export function parseBuilderForm(html: string): FormField[] {
 export function parseHitDice(hitDice: string): { count: number; value: number; modifier: number } | undefined {
 	const dice = /(\d+)\s*d\s*(\d+)\s*(?:([+-])\s*(\d+))?/i.exec(hitDice);
 	if (dice === null) return undefined;
-	return { count: Number(dice[1]), value: Number(dice[2]), modifier: dice[3] === undefined ? 0 : Number(`${dice[3]}${dice[4]}`) };
+	return {
+		count: Number(dice[1]),
+		value: Number(dice[2]),
+		modifier: dice[3] === undefined ? 0 : Number(`${dice[3]}${dice[4]}`),
+	};
 }
 
 /** DDB writes armor types capitalized (`Natural Armor`); the wiki statblock writes lowercase. */
 export function armorTypeOf(ac: string): string | undefined {
 	const parenthetical = /\(([^)]*)\)/.exec(ac)?.[1]?.trim();
 	if (parenthetical === undefined || parenthetical === "") return undefined;
-	return parenthetical.split(/\s+/).map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+	return parenthetical
+		.split(/\s+/)
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+		.join(" ");
 }
 
 function selectValueFor(field: FormField, label: string): string {
@@ -165,7 +183,10 @@ function selectValueFor(field: FormField, label: string): string {
 	const option = field.options?.find((o) => o.label.toLowerCase() === wanted);
 	if (option === undefined) {
 		const labels = (field.options ?? []).map((o) => o.label).join(", ");
-		throw new DdbCaptureError(`Cannot map "${label}" onto the builder's ${field.fieldId ?? field.name} options (${labels || "none"}).`, "the canonical value must be one the builder's own page offers");
+		throw new DdbCaptureError(
+			`Cannot map "${label}" onto the builder's ${field.fieldId ?? field.name} options (${labels || "none"}).`,
+			"the canonical value must be one the builder's own page offers",
+		);
 	}
 	return option.value;
 }
@@ -191,23 +212,39 @@ export function applyCanonicalToForm(fields: FormField[], canonical: CanonicalMo
 	if (canonical.hp !== undefined) set("field-average-hit-points", String(canonical.hp));
 	const dice = parseHitDice(canonical.hitDice);
 	if (dice === undefined) {
-		throw new DdbCaptureError(`Cannot parse the canonical hit dice "${canonical.hitDice}".`, 'hit dice look like "6d8 + 12" or "2d6"');
+		throw new DdbCaptureError(
+			`Cannot parse the canonical hit dice "${canonical.hitDice}".`,
+			'hit dice look like "6d8 + 12" or "2d6"',
+		);
 	}
 	set("field-hit-points-die-count", String(dice.count));
 	const dieValue = byId.get("field-hit-points-die-value");
 	if (dieValue !== undefined) dieValue.value = selectValueFor(dieValue, `d${dice.value}`);
 	set("field-hit-points-modifier", String(dice.modifier));
-	const abilities = ["field-strength", "field-dexterity", "field-constitution", "field-intelligence", "field-wisdom", "field-charisma"];
+	const abilities = [
+		"field-strength",
+		"field-dexterity",
+		"field-constitution",
+		"field-intelligence",
+		"field-wisdom",
+		"field-charisma",
+	];
 	if (canonical.stats !== undefined) {
-		if (canonical.stats.length !== 6) throw new DdbCaptureError("The canonical monster does not carry exactly six stats.", "stats is Str Dex Con Int Wis Cha, e.g. [14, 18, 14, 3, 16, 7]");
-		abilities.forEach((fieldId, i) => set(fieldId, String(canonical.stats![i]!)));
+		if (canonical.stats.length !== 6)
+			throw new DdbCaptureError(
+				"The canonical monster does not carry exactly six stats.",
+				"stats is Str Dex Con Int Wis Cha, e.g. [14, 18, 14, 3, 16, 7]",
+			);
+		for (const [i, fieldId] of abilities.entries()) set(fieldId, String(canonical.stats![i]!));
 	}
 	return out;
 }
 
 /** Serializes the field list as a complete multipart/form-data body with the given boundary. */
 export function multipartBody(fields: FormField[], boundary: string): string {
-	const parts = fields.map((field) => `--${boundary}\r\nContent-Disposition: form-data; name="${field.name}"\r\n\r\n${field.value}\r\n`);
+	const parts = fields.map(
+		(field) => `--${boundary}\r\nContent-Disposition: form-data; name="${field.name}"\r\n\r\n${field.value}\r\n`,
+	);
 	return `${parts.join("")}--${boundary}--\r\n`;
 }
 
@@ -215,13 +252,21 @@ export function multipartBody(fields: FormField[], boundary: string): string {
 async function fetchThrough(transport: Transport, url: string, init: FetchInit): Promise<FetchResult> {
 	let response = await transport.fetch(url, init);
 	if ((response.status === 403 || response.status === 429) && transport.browserFetch !== undefined) {
-		response = await transport.browserFetch(url, { method: init.method ?? "GET", headers: init.headers ?? {}, ...(init.body === undefined ? {} : { body: init.body }) });
+		response = await transport.browserFetch(url, {
+			method: init.method ?? "GET",
+			headers: init.headers ?? {},
+			...(init.body === undefined ? {} : { body: init.body }),
+		});
 	}
 	return response;
 }
 
 /** Page-auth headers for one site URL, with per-call overrides applied last. */
-async function authedHeaders(transport: Transport, url: string, overrides: Record<string, string>): Promise<Record<string, string>> {
+async function authedHeaders(
+	transport: Transport,
+	url: string,
+	overrides: Record<string, string>,
+): Promise<Record<string, string>> {
 	return { ...(await transport.auth.headers(url)), Accept: "text/html,application/xhtml+xml", ...overrides };
 }
 
@@ -240,15 +285,29 @@ export async function createMonsterCopy(transport: Transport, baseMonsterId: num
 	await loadContract("monster", "create");
 	const base = await readMonster(transport, baseMonsterId);
 	if (base === undefined) {
-		throw new DdbTransportError(`Base monster ${baseMonsterId} was not found on monster-service.`, "pass the numeric id of the monster to copy, e.g. --from 16810");
+		throw new DdbTransportError(
+			`Base monster ${baseMonsterId} was not found on monster-service.`,
+			"pass the numeric id of the monster to copy, e.g. --from 16810",
+		);
 	}
-	const page = await fetchThrough(transport, CREATE_MONSTER_URL, { method: "GET", headers: await authedHeaders(transport, CREATE_MONSTER_URL, {}) });
-	if (!page.ok) throw new DdbTransportError(`The create page answered HTTP ${page.status}.`, "the stored session may be stale; cf ddb --help has the Authentication steps", page.status);
+	const page = await fetchThrough(transport, CREATE_MONSTER_URL, {
+		method: "GET",
+		headers: await authedHeaders(transport, CREATE_MONSTER_URL, {}),
+	});
+	if (!page.ok)
+		throw new DdbTransportError(
+			`The create page answered HTTP ${page.status}.`,
+			"the stored session may be stale; cf ddb --help has the Authentication steps",
+			page.status,
+		);
 	const html = await page.text();
 	const securityToken = hiddenInputValue(html, "security-token");
 	const authenticityToken = hiddenInputValue(html, "authenticity-token");
 	if (securityToken === undefined || authenticityToken === undefined) {
-		throw new DdbCaptureError("The create page no longer carries its security-token/authenticity-token hidden inputs.", "the create contract is stale; re-capture it (src/ddb/contracts/monster/create.json has the procedure)");
+		throw new DdbCaptureError(
+			"The create page no longer carries its security-token/authenticity-token hidden inputs.",
+			"the create contract is stale; re-capture it (src/ddb/contracts/monster/create.json has the procedure)",
+		);
 	}
 	const body = new URLSearchParams({
 		"security-token": securityToken,
@@ -258,17 +317,26 @@ export async function createMonsterCopy(transport: Transport, baseMonsterId: num
 	}).toString();
 	const response = await fetchThrough(transport, CREATE_MONSTER_URL, {
 		method: "POST",
-		headers: await authedHeaders(transport, CREATE_MONSTER_URL, { "Content-Type": "application/x-www-form-urlencoded" }),
+		headers: await authedHeaders(transport, CREATE_MONSTER_URL, {
+			"Content-Type": "application/x-www-form-urlencoded",
+		}),
 		body,
 		redirect: "manual",
 	});
 	if (response.status !== 302 && response.status !== 303) {
-		throw new DdbTransportError(`The create POST answered HTTP ${response.status}, not the captured 302.`, "the contract may be stale; re-capture it (docs/adr/0022)", response.status);
+		throw new DdbTransportError(
+			`The create POST answered HTTP ${response.status}, not the captured 302.`,
+			"the contract may be stale; re-capture it (docs/adr/0022)",
+			response.status,
+		);
 	}
 	const location = response.headers?.get("location") ?? "";
 	const id = Number(/(?:[?&]id=)(\d+)/.exec(location)?.[1]);
 	if (!Number.isInteger(id) || id <= 0) {
-		throw new DdbCaptureError(`The create redirect carried no monster id (Location: ${location || "(none)"}).`, "the create contract is stale; re-capture it");
+		throw new DdbCaptureError(
+			`The create redirect carried no monster id (Location: ${location || "(none)"}).`,
+			"the create contract is stale; re-capture it",
+		);
 	}
 	return { id, location };
 }
@@ -283,18 +351,41 @@ export function slugOf(record: DdbMonsterRecord): string | undefined {
  * every field, overrides the canonical ones, and posts the complete form as multipart, the way the
  * site's own Save does. Only runs when the committed update contract exists (ADR 0022).
  */
-export async function applyMonsterCanonical(transport: Transport, id: number, canonical: CanonicalMonster): Promise<{ status: number; fields: number }> {
+export async function applyMonsterCanonical(
+	transport: Transport,
+	id: number,
+	canonical: CanonicalMonster,
+): Promise<{ status: number; fields: number }> {
 	await loadContract("monster", "update");
 	const record = await readMonster(transport, id);
-	if (record === undefined) throw new DdbTransportError(`Monster ${id} was not found on monster-service.`, "pass the D&D Beyond id of the homebrew monster");
-	if (!record.isHomebrew) throw new DdbCaptureError(`Monster ${id} is not homebrew; the adapter never writes official content.`, "pass the id of the DM's own homebrew monster");
+	if (record === undefined)
+		throw new DdbTransportError(
+			`Monster ${id} was not found on monster-service.`,
+			"pass the D&D Beyond id of the homebrew monster",
+		);
+	if (!record.isHomebrew)
+		throw new DdbCaptureError(
+			`Monster ${id} is not homebrew; the adapter never writes official content.`,
+			"pass the id of the DM's own homebrew monster",
+		);
 	const editUrl = monsterEditUrl(id, slugOf(record));
-	const page = await fetchThrough(transport, editUrl, { method: "GET", headers: await authedHeaders(transport, editUrl, {}) });
-	if (!page.ok) throw new DdbTransportError(`The edit page for monster ${id} answered HTTP ${page.status}.`, "the monster may be deleted, or the update contract is stale", page.status);
+	const page = await fetchThrough(transport, editUrl, {
+		method: "GET",
+		headers: await authedHeaders(transport, editUrl, {}),
+	});
+	if (!page.ok)
+		throw new DdbTransportError(
+			`The edit page for monster ${id} answered HTTP ${page.status}.`,
+			"the monster may be deleted, or the update contract is stale",
+			page.status,
+		);
 	const html = await page.text();
 	const fields = parseBuilderForm(html);
 	if (fields.length === 0) {
-		throw new DdbCaptureError(`The edit page for monster ${id} did not render the builder form.`, "the update contract is stale; re-capture it (src/ddb/contracts/monster/update.json has the procedure)");
+		throw new DdbCaptureError(
+			`The edit page for monster ${id} did not render the builder form.`,
+			"the update contract is stale; re-capture it (src/ddb/contracts/monster/update.json has the procedure)",
+		);
 	}
 	const posted = applyCanonicalToForm(fields, canonical);
 	const boundary = `----cfddb${Math.random().toString(16).slice(2)}`;
@@ -305,7 +396,11 @@ export async function applyMonsterCanonical(transport: Transport, id: number, ca
 		redirect: "manual",
 	});
 	if (response.status !== 302 && response.status !== 303) {
-		throw new DdbTransportError(`The save POST answered HTTP ${response.status}, not the captured 303.`, "a form field may have failed validation; re-check the canonical monster, or re-capture the contract", response.status);
+		throw new DdbTransportError(
+			`The save POST answered HTTP ${response.status}, not the captured 303.`,
+			"a form field may have failed validation; re-check the canonical monster, or re-capture the contract",
+			response.status,
+		);
 	}
 	return { status: response.status, fields: posted.length };
 }
@@ -314,7 +409,12 @@ export async function applyMonsterCanonical(transport: Transport, id: number, ca
 export async function creationHasDeleteAction(transport: Transport, id: number): Promise<boolean> {
 	const url = creationViewUrl(id);
 	const page = await fetchThrough(transport, url, { method: "GET", headers: await authedHeaders(transport, url, {}) });
-	if (!page.ok) throw new DdbTransportError(`The creation page for monster ${id} answered HTTP ${page.status}.`, "check the id, or the stored session", page.status);
+	if (!page.ok)
+		throw new DdbTransportError(
+			`The creation page for monster ${id} answered HTTP ${page.status}.`,
+			"check the id, or the stored session",
+			page.status,
+		);
 	return (await page.text()).includes("homebrew-creation-actions-item-delete");
 }
 
@@ -326,22 +426,43 @@ export async function creationHasDeleteAction(transport: Transport, id: number):
 export async function deleteMonster(transport: Transport, id: number): Promise<void> {
 	await loadContract("monster", "delete");
 	if (!(await creationHasDeleteAction(transport, id))) {
-		throw new DdbCaptureError(`Monster ${id} has no delete action on its creation page.`, "it is already deleted, not the DM's homebrew, or not a monster id");
+		throw new DdbCaptureError(
+			`Monster ${id} has no delete action on its creation page.`,
+			"it is already deleted, not the DM's homebrew, or not a monster id",
+		);
 	}
 	const url = monsterDeleteUrl(id);
 	const modalHeaders = { Accept: "*/*", "X-Requested-With": "XMLHttpRequest" };
-	const modal = await fetchThrough(transport, url, { method: "GET", headers: await authedHeaders(transport, url, modalHeaders) });
-	if (!modal.ok) throw new DdbTransportError(`The delete modal for monster ${id} answered HTTP ${modal.status}.`, "the delete contract may be stale; re-capture it", modal.status);
+	const modal = await fetchThrough(transport, url, {
+		method: "GET",
+		headers: await authedHeaders(transport, url, modalHeaders),
+	});
+	if (!modal.ok)
+		throw new DdbTransportError(
+			`The delete modal for monster ${id} answered HTTP ${modal.status}.`,
+			"the delete contract may be stale; re-capture it",
+			modal.status,
+		);
 	const token = transport.auth.cookieValue("RequestVerificationToken");
 	if (token === undefined) {
-		throw new DdbAuthError("The stored session has no RequestVerificationToken cookie.", "re-save the session from a logged-in browser tab (cf ddb --help, the Authentication section)");
+		throw new DdbAuthError(
+			"The stored session has no RequestVerificationToken cookie.",
+			"re-save the session from a logged-in browser tab (cf ddb --help, the Authentication section)",
+		);
 	}
 	const response = await fetchThrough(transport, url, {
 		method: "POST",
-		headers: await authedHeaders(transport, url, { ...modalHeaders, "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" }),
+		headers: await authedHeaders(transport, url, {
+			...modalHeaders,
+			"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+		}),
 		body: new URLSearchParams({ "request-verification-token": token }).toString(),
 	});
 	if (response.status !== 200) {
-		throw new DdbTransportError(`The delete POST for monster ${id} answered HTTP ${response.status}.`, "the delete contract may be stale; re-capture it", response.status);
+		throw new DdbTransportError(
+			`The delete POST for monster ${id} answered HTTP ${response.status}.`,
+			"the delete contract may be stale; re-capture it",
+			response.status,
+		);
 	}
 }

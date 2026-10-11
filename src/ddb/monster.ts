@@ -12,7 +12,13 @@ export interface DdbMonsterRecord {
 	armorClass: number;
 	armorClassDescription?: string;
 	averageHitPoints?: number;
-	hitPointDice?: { diceCount: number; diceValue: number; diceMultiplier: number; fixedValue: number; diceString: string };
+	hitPointDice?: {
+		diceCount: number;
+		diceValue: number;
+		diceMultiplier: number;
+		fixedValue: number;
+		diceString: string;
+	};
 	stats?: { statId: number; name: string; value: number }[];
 	challengeRatingId?: number;
 	isHomebrew: boolean;

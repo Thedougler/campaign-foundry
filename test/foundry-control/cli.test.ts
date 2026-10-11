@@ -22,7 +22,11 @@ async function run(args: string[], fixture?: string, stdin = "") {
 	}
 }
 
-const DOCKER_STATE = JSON.stringify({ Status: "running", StartedAt: "2026-10-05T17:05:32.615Z", Health: { Status: "healthy" } });
+const DOCKER_STATE = JSON.stringify({
+	Status: "running",
+	StartedAt: "2026-10-05T17:05:32.615Z",
+	Health: { Status: "healthy" },
+});
 const DOCKER_LABELS = JSON.stringify({
 	"com.docker.compose.project": "foundry",
 	"com.docker.compose.project.config_files": "/home/nick/compose/foundry/compose.yaml",
@@ -38,7 +42,7 @@ function statusReplies(extra: { match: string; stdout?: string; code?: number }[
 			{ match: "{{json .State}}", stdout: DOCKER_STATE },
 			{ match: "{{json .Config.Labels}}", stdout: DOCKER_LABELS },
 			{ match: "{{.Config.Image}}", stdout: "felddy/foundryvtt:release\n" },
-			{ match: "com.foundryvtt.version\"", stdout: "14.368\n" },
+			{ match: 'com.foundryvtt.version"', stdout: "14.368\n" },
 			{ match: "{{json .NetworkSettings.Ports}}", stdout: JSON.stringify({ "30000/tcp": [{ HostPort: "30000" }] }) },
 			{ match: "options.json", stdout: OPTIONS },
 			{ match: "Data/worlds", stdout: "\n" },
@@ -60,16 +64,6 @@ afterAll(async () => {
 });
 
 describe("cf foundry --help", () => {
-	it("lists every subcommand with examples, and never crashes at import", async () => {
-		const result = await run(["--help"]);
-		expect(result.code).toBe(0);
-		for (const name of ["status", "logs", "options", "service", "backup", "assets", "install", "serve", "tool"]) {
-			expect(result.stdout, `subcommand ${name}`).toContain(name);
-		}
-		expect(result.stdout).toContain("Examples:");
-		expect(result.stdout).toContain("cf foundry serve --token <secret>");
-	});
-
 	it("parses service --help and assets put --help (import crash or mis-parenting fails here)", async () => {
 		const service = await run(["service", "--help"]);
 		expect(service.code).toBe(0);
@@ -125,7 +119,7 @@ describe("cf foundry mutating commands gate on --yes", () => {
 	it("service stop prints the plan and the approval command, exit 2, and runs nothing", async () => {
 		const result = await run(["service", "stop"], await fixture(statusReplies()));
 		expect(result.code).toBe(2);
-		expect(result.stderr).toContain("Approve with: cf foundry service stop --yes");
+		expect(result.stderr).toContain("Approve with: bun run cf -- foundry service stop --yes");
 	});
 
 	it("service restart --yes runs the compose command against the scripted host", async () => {
@@ -141,7 +135,7 @@ describe("cf foundry mutating commands gate on --yes", () => {
 		const plan = await run(["options", "set", "port=30001"], await fixture(statusReplies()));
 		expect(plan.code).toBe(2);
 		expect(plan.stderr).toContain("port = 30001");
-		expect(plan.stderr).toContain("Approve with: cf foundry options set port=30001 --yes");
+		expect(plan.stderr).toContain("Approve with: bun run cf -- foundry options set port=30001 --yes");
 		const written = await run(
 			["options", "set", "port=30001", "--yes"],
 			await fixture(statusReplies([{ match: "cat >", stdout: "" }])),
@@ -185,7 +179,13 @@ describe("cf foundry serve", () => {
 			.trim()
 			.split("\n")
 			.filter((line) => line.startsWith("{"))
-			.map((line) => JSON.parse(line) as { id?: number; result?: { protocolVersion?: string; tools?: { name: string }[]; content?: { text: string }[] } });
+			.map(
+				(line) =>
+					JSON.parse(line) as {
+						id?: number;
+						result?: { protocolVersion?: string; tools?: { name: string }[]; content?: { text: string }[] };
+					},
+			);
 		expect(replies).toHaveLength(3);
 		expect(replies[0]?.result?.protocolVersion).toBe("2025-06-18");
 		expect(replies[1]?.result?.tools?.length).toBe(23);

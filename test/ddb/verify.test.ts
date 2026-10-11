@@ -51,16 +51,26 @@ describe("verifyMonster", () => {
 	it("verifies a Small monster against sizeId 3 (live-probed table: Blood Hawk)", () => {
 		const report = verifyMonster(
 			{ ...canonical, name: "Blood Hawk", size: "Small", hitDice: "2d6 + 0" },
-			{ ...readback, name: "Blood Hawk", sizeId: 3, armorClass: 12, averageHitPoints: 7, hitPointDice: { diceCount: 2, diceValue: 6, diceMultiplier: 1, fixedValue: 0, diceString: "2d6" }, stats: readback.stats!.map((s, i) => ({ ...s, value: [6, 14, 10, 3, 14, 5][i]! })) },
+			{
+				...readback,
+				name: "Blood Hawk",
+				sizeId: 3,
+				armorClass: 12,
+				averageHitPoints: 7,
+				hitPointDice: { diceCount: 2, diceValue: 6, diceMultiplier: 1, fixedValue: 0, diceString: "2d6" },
+				stats: readback.stats!.map((s, i) => ({ ...s, value: [6, 14, 10, 3, 14, 5][i]! })),
+			},
 		);
 		expect(report.fields.find((f) => f.field === "size")?.match).toBe(true);
 	});
 
-
 	it("matches hit dice when DDB omits a zero modifier (2d6 vs 2d6 + 0)", () => {
 		const report = verifyMonster(
 			{ ...canonical, hitDice: "2d6 + 0" },
-			{ ...readback, hitPointDice: { diceCount: 2, diceValue: 6, diceMultiplier: 1, fixedValue: 0, diceString: "2d6" } },
+			{
+				...readback,
+				hitPointDice: { diceCount: 2, diceValue: 6, diceMultiplier: 1, fixedValue: 0, diceString: "2d6" },
+			},
 		);
 		expect(report.fields.find((f) => f.field === "hitDice")?.match).toBe(true);
 	});

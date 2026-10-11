@@ -32,7 +32,7 @@ know your Villain well enough."
 
 ```text
 describe the characters in detailed bullet points (more than 5 sentences for each character). The description should answer the following questions:
-⋆ What do the characters sound like? Are they talkative or quiet? What kind of slang do they use? What is their sense of humor like?
+⋆ What do the characters sound like? Are they talkative or quiet? What kind of slang do they use? What is their sense of humour like?
 ⋆ What do they look like? Do they have any defining gestures? What's the first thing people notice about them?
 ⋆ What are their motivations and internal characteristics? What are their flaws? What are their values? What are they afraid of? How will they change and grow over the course of this story?
 ```
@@ -41,7 +41,7 @@ Each NPC card also adds Sudowrite's five card fields ([beats-and-context.md](../
 
 ```text
 - **Voice**: how they speak. Sentence length. Tells. Words they refuse to use.
-- **Personality**: not adjectives. Specific behaviors under specific pressures.
+- **Personality**: not adjectives. Specific behaviours under specific pressures.
 - **Backstory**: what they know and what they remember (these are different).
 - **Want vs. Need**: the gap that drives them.
 - **Arc**: who they are at the start, the midpoint, and the end.

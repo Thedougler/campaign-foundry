@@ -2,13 +2,14 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { runCheck, UsageError } from "../check/run.ts";
 import type { CheckResult } from "../check/run.ts";
+import { DdbTransportError } from "../ddb/transport.ts";
 import { campaignFolders, generateIndexes } from "../vault/indexes.ts";
 import { appendLogEntry, today } from "../vault/log.ts";
 import type { Page } from "../vault/types.ts";
 import { buildVault, readVaultFiles } from "../vault/vault.ts";
-import { fetchCharacter, PullError } from "./ddb.ts";
+import { fetchCharacter } from "./ddb.ts";
 import type { FetchLike } from "./ddb.ts";
-import { rewritePcPage } from "./page.ts";
+import { rewritePcPage, PullError } from "./page.ts";
 import type { PulledSection } from "./page.ts";
 import { computeSheet } from "./sheet.ts";
 
@@ -67,21 +68,29 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 		return match && page.frontmatter?.type === "PC" ? [{ page, folder: match[1]! }] : [];
 	});
 
-	const withPcs = [...new Set(all.map((p) => nameByFolder.get(p.folder)))].filter((n): n is string => n !== undefined).sort();
+	const withPcs = [...new Set(all.map((p) => nameByFolder.get(p.folder)))]
+		.filter((n): n is string => n !== undefined)
+		.sort();
 	if (options.campaign !== undefined && !withPcs.includes(options.campaign)) {
 		throw new UsageError(
 			`No Campaign named "${options.campaign}" with PCs.`,
-			withPcs.length > 0 ? `Campaigns with PCs: ${withPcs.join(", ")}. Example: cf pull --campaign "${withPcs[0]}"` : "Add a PC page under <Campaign folder>/PCs/ first.",
+			withPcs.length > 0
+				? `Campaigns with PCs: ${withPcs.join(", ")}. Example: cf pull --campaign "${withPcs[0]}"`
+				: "Add a PC page under <Campaign folder>/PCs/ first.",
 		);
 	}
-	const inCampaign = all.filter((p) => options.campaign === undefined || nameByFolder.get(p.folder) === options.campaign);
+	const inCampaign = all.filter(
+		(p) => options.campaign === undefined || nameByFolder.get(p.folder) === options.campaign,
+	);
 	const wanted = (options.pcs ?? []).map((n) => n.toLowerCase());
 	for (const name of options.pcs ?? []) {
 		const wantedName = name.toLowerCase();
 		if (!inCampaign.some((p) => p.page.names.some((n) => n.toLowerCase() === wantedName))) {
 			throw new UsageError(
 				`No PC named "${name}".`,
-				inCampaign.length > 0 ? `PCs: ${inCampaign.map((p) => p.page.name).join(", ")}. Example: cf pull --pc "${inCampaign[0]!.page.name}"` : "Add a PC page under <Campaign folder>/PCs/ first.",
+				inCampaign.length > 0
+					? `PCs: ${inCampaign.map((p) => p.page.name).join(", ")}. Example: cf pull --pc "${inCampaign[0]!.page.name}"`
+					: "Add a PC page under <Campaign folder>/PCs/ first.",
 			);
 		}
 	}
@@ -92,7 +101,14 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 	const changed: { folder: string; target: string }[] = [];
 	const pulledPaths: string[] = [];
 	for (const { page, folder } of targets) {
-		const base = { pc: page.name, path: page.path, sections: [] as PulledSection[], summarySet: false, added: 0, removed: 0 };
+		const base = {
+			pc: page.name,
+			path: page.path,
+			sections: [] as PulledSection[],
+			summarySet: false,
+			added: 0,
+			removed: 0,
+		};
 		const url = typeof page.frontmatter?.dndbeyond_url === "string" ? page.frontmatter.dndbeyond_url.trim() : "";
 		if (url === "") {
 			// Skipped when swept up with the Party; a failure when the DM named this PC.
@@ -109,7 +125,13 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 			const rewrite = rewritePcPage(page.source, page.path, computeSheet(character));
 			pulledPaths.push(join(options.vault, page.path));
 			const touched = rewrite.source !== page.source;
-			const detail = { ...base, sections: rewrite.sections, summarySet: rewrite.summarySet, added: rewrite.added, removed: rewrite.removed };
+			const detail = {
+				...base,
+				sections: rewrite.sections,
+				summarySet: rewrite.summarySet,
+				added: rewrite.added,
+				removed: rewrite.removed,
+			};
 			if (!touched) {
 				outcomes.push({ ...detail, status: "unchanged" });
 			} else if (options.dryRun) {
@@ -120,8 +142,11 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 				outcomes.push({ ...detail, status: "updated" });
 			}
 		} catch (error) {
-			if (!(error instanceof PullError)) throw error;
-			outcomes.push({ ...base, status: "failed", message: error.message });
+			// The transport's error vocabulary carries the remedy as its hint; the page's own errors are plain messages.
+			if (error instanceof DdbTransportError)
+				outcomes.push({ ...base, status: "failed", message: `${page.name}: ${error.message} ${error.hint}` });
+			else if (error instanceof PullError) outcomes.push({ ...base, status: "failed", message: error.message });
+			else throw error;
 		}
 	}
 
@@ -132,7 +157,12 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 		const date = today((options.now ?? (() => new Date()))());
 		const touchedFolders = [...new Set(changed.map((c) => c.folder))];
 		for (const folder of touchedFolders) {
-			const entry = { date, op: "pull", title: "Pulled PCs from D&D Beyond", pages: changed.filter((c) => c.folder === folder).map((c) => c.target) };
+			const entry = {
+				date,
+				op: "pull",
+				title: "Pulled PCs from D&D Beyond",
+				pages: changed.filter((c) => c.folder === folder).map((c) => c.target),
+			};
 			const example = `cf log --campaign "${nameByFolder.get(folder) ?? folder}" --op pull --title "Pulled PCs from D&D Beyond"`;
 			const appended = await appendLogEntry(options.vault, folder, entry, { example });
 			if (appended.status === "error") throw new UsageError(appended.message, appended.hint);
@@ -141,7 +171,8 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 		// A pull can fill a blank summary, which the Campaign folder's index lists; regenerate it with `cf index`'s generator.
 		const fresh = buildVault(options.vault, await readVaultFiles(options.vault));
 		for (const [path, content] of generateIndexes(fresh)) {
-			if (!touchedFolders.some((f) => path === `${f}/index.md`) || fresh.pageByPath.get(path)?.source === content) continue;
+			if (!touchedFolders.some((f) => path === `${f}/index.md`) || fresh.pageByPath.get(path)?.source === content)
+				continue;
 			await mkdir(dirname(join(options.vault, path)), { recursive: true });
 			await writeFile(join(options.vault, path), content);
 			result.indexed.push(path);
@@ -149,7 +180,13 @@ export async function runPull(options: PullOptions): Promise<PullResult> {
 	}
 	if (pulledPaths.length > 0) {
 		const touched = [...result.logged, ...result.indexed].map((p) => join(options.vault, p));
-		result.gate = await runCheck({ vault: options.vault, templates: options.templates, root: options.root, cwd: options.cwd, paths: [...pulledPaths, ...touched] });
+		result.gate = await runCheck({
+			vault: options.vault,
+			templates: options.templates,
+			root: options.root,
+			cwd: options.cwd,
+			paths: [...pulledPaths, ...touched],
+		});
 	}
 	return result;
 }

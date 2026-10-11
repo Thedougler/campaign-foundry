@@ -18,6 +18,7 @@
 **Keep queries under 400 characters.** Think search query, not long-form prompt.
 
 **Break complex queries into sub-queries:**
+
 ```python
 # Instead of one massive query, break it down:
 queries = [
@@ -40,14 +41,16 @@ Controls the latency vs. relevance tradeoff:
 | `advanced` | Higher | Highest | Chunks |
 
 **Content types:**
+
 - **Content**: NLP-based summary of the page, providing general context
 - **Chunks**: Short snippets (max 500 chars) reranked by relevance to your query
 
-**When to use each:** 
+**When to use each:**
+
 - `ultra-fast`: Latency-critical (real-time chat, autocomplete)
 - `fast`: Need chunks but latency matters
 - `basic`: General-purpose, balanced relevance and latency
-- `advanced`: Specific information queries, precision matters - default (Still fast and suitable for almost all use cases) 
+- `advanced`: Specific information queries, precision matters - default (Still fast and suitable for almost all use cases)
 
 ## Key Parameters
 
@@ -78,7 +81,6 @@ Controls the latency vs. relevance tradeoff:
 
 - **`auto_parameters`**: May set `search_depth="advanced"` (2 credits). Set `search_depth` manually to control cost.
 
-
 ## Basic Usage
 
 ```python
@@ -97,7 +99,6 @@ for result in response["results"]:
     print(f"{result['title']}: {result['url']}")
     print(f"Score: {result['score']}")
 ```
-
 
 ## Filtering Results
 
@@ -176,7 +177,6 @@ async def fetch_and_gather():
 asyncio.run(fetch_and_gather())
 ```
 
-
 ## Response Fields
 
 **Top-level response:**
@@ -247,6 +247,7 @@ top_relevant = sorted(
 ### Regex Filtering
 
 Fast, deterministic filtering using pattern matching. Use for:
+
 - URL pattern validation
 - Required keywords/phrases
 - Structural requirements
@@ -329,6 +330,7 @@ criteria = {
 ### LLM Verification
 
 Semantic validation using an LLM. Use for:
+
 - Synonym/abbreviation matching ("FDE" = "Forward Deployed Engineer")
 - Context-aware validation
 - Confidence scoring with reasoning

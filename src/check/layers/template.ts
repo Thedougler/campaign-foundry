@@ -4,7 +4,8 @@ import { parseDocument } from "yaml";
 import { findTemplate } from "../../vault/vault.ts";
 import type { Page, Template } from "../../vault/types.ts";
 import type { CheckContext, Finding, Fix, FixResult, Layer } from "../types.ts";
-import { checkedPages, isSpecialPage, quoteList, suggest } from "../util.ts";
+import { quoteList, suggest } from "../util.ts";
+import { isFixedPage } from "../views.ts";
 
 const LAYER = "template";
 
@@ -24,48 +25,84 @@ function validTypes(ctx: CheckContext): string {
 /** Resolves each page to its template, or reports why it has none. */
 function resolvePages(ctx: CheckContext, findings: Finding[]): Resolved[] {
 	const resolved: Resolved[] = [];
-	for (const page of checkedPages(ctx)) {
-		if (isSpecialPage(page)) continue;
+	for (const page of ctx.pages) {
+		if (isFixedPage(page)) continue;
 		const at = (rule: string, line: number, message: string, hint: string): void => {
 			findings.push({ layer: LAYER, severity: "error", rule, path: ctx.display(page.path), line, message, hint });
 		};
 		if (page.frontmatterError) {
-			at("invalid-frontmatter", 1, `Frontmatter does not parse: ${page.frontmatterError}.`, "Fix the YAML between the opening and closing `---`; quote values that contain `:` or start with `[[`, e.g. `parent: \"[[The Shattered Sea]]\"`.");
+			at(
+				"invalid-frontmatter",
+				1,
+				`Frontmatter does not parse: ${page.frontmatterError}.`,
+				'Fix the YAML between the opening and closing `---`; quote values that contain `:` or start with `[[`, e.g. `parent: "[[The Shattered Sea]]"`.',
+			);
 			continue;
 		}
 		const fm = page.frontmatter;
 		if (!fm) {
-			at("missing-frontmatter", 1, "Page has no frontmatter.", `Start the page with a property block naming its page kind, e.g.\n---\ntype: NPC\nsummary: One line.\nsources: []\ncreature: ""\nrevealed: ""\n---\nValid types: ${validTypes(ctx)}.`);
+			at(
+				"missing-frontmatter",
+				1,
+				"Page has no frontmatter.",
+				`Start the page with a property block naming its page kind, e.g.\n---\ntype: NPC\nsummary: One line.\nsources: []\ncreature: ""\nrevealed: ""\n---\nValid types: ${validTypes(ctx)}.`,
+			);
 			continue;
 		}
 		const typeLine = page.frontmatterKeyLines.type ?? 1;
 		const type = fm.type;
 		if (isBlank(type) || typeof type !== "string") {
-			at("missing-type", typeLine, "Property `type` is missing.", `Add \`type: <page kind>\`. Valid types: ${validTypes(ctx)}.`);
+			at(
+				"missing-type",
+				typeLine,
+				"Property `type` is missing.",
+				`Add \`type: <page kind>\`. Valid types: ${validTypes(ctx)}.`,
+			);
 			continue;
 		}
 		const kinds = ctx.templates.types.get(type);
 		if (!kinds) {
 			const near = suggest(type, ctx.templates.types.keys());
-			at("unknown-type", typeLine, `Unknown type \`${type}\`.`, `${near ? `Did you mean \`type: ${near}\`? ` : ""}Valid types: ${validTypes(ctx)}.`);
+			at(
+				"unknown-type",
+				typeLine,
+				`Unknown type \`${type}\`.`,
+				`${near ? `Did you mean \`type: ${near}\`? ` : ""}Valid types: ${validTypes(ctx)}.`,
+			);
 			continue;
 		}
 		const kind = isBlank(fm.kind) ? undefined : fm.kind;
 		const kindLine = page.frontmatterKeyLines.kind ?? typeLine;
 		if (kinds.length === 0) {
-			if (kind !== undefined) at("unexpected-kind", kindLine, `Type \`${type}\` has no kinds, but the page sets \`kind: ${String(kind)}\`.`, `Remove the \`kind\` property; only ${quoteList([...ctx.templates.types].filter(([, k]) => k.length > 0).map(([t]) => t))} take a kind.`);
+			if (kind !== undefined)
+				at(
+					"unexpected-kind",
+					kindLine,
+					`Type \`${type}\` has no kinds, but the page sets \`kind: ${String(kind)}\`.`,
+					`Remove the \`kind\` property; only ${quoteList([...ctx.templates.types].filter(([, k]) => k.length > 0).map(([t]) => t))} take a kind.`,
+				);
 			const template = findTemplate(ctx.templates, type);
 			if (template) resolved.push({ page, template });
 			continue;
 		}
 		if (kind === undefined || typeof kind !== "string") {
-			at("missing-kind", typeLine, `Type \`${type}\` needs a \`kind\`.`, `Add \`kind: <kind>\`. Valid kinds for ${type}: ${quoteList(kinds)}.`);
+			at(
+				"missing-kind",
+				typeLine,
+				`Type \`${type}\` needs a \`kind\`.`,
+				`Add \`kind: <kind>\`. Valid kinds for ${type}: ${quoteList(kinds)}.`,
+			);
 			continue;
 		}
 		const template = findTemplate(ctx.templates, type, kind);
 		if (!template) {
 			const near = suggest(kind, kinds);
-			at("unknown-kind", kindLine, `Unknown kind \`${kind}\` for type \`${type}\`.`, `${near ? `Did you mean \`kind: ${near}\`? ` : ""}Valid kinds for ${type}: ${quoteList(kinds)}.`);
+			at(
+				"unknown-kind",
+				kindLine,
+				`Unknown kind \`${kind}\` for type \`${type}\`.`,
+				`${near ? `Did you mean \`kind: ${near}\`? ` : ""}Valid kinds for ${type}: ${quoteList(kinds)}.`,
+			);
 			continue;
 		}
 		resolved.push({ page, template });
@@ -91,22 +128,38 @@ async function checkSources(ctx: CheckContext, { page }: Resolved, out: Finding[
 	};
 	const sources = fm.sources;
 	if (!Array.isArray(sources)) {
-		at("sources-type", "Property `sources` must be a list.", "Use `sources: []` when nothing was ingested, or list archived Raw as plain strings, e.g.\nsources:\n  - archive/session-11-transcript.md");
+		at(
+			"sources-type",
+			"Property `sources` must be a list.",
+			"Use `sources: []` when nothing was ingested, or list archived Raw as plain strings, e.g.\nsources:\n  - archive/session-11-transcript.md",
+		);
 		return;
 	}
 	await Promise.all(
 		sources.map(async (source) => {
 			if (typeof source !== "string") {
-				at("sources-type", `A \`sources\` entry is not a string: ${JSON.stringify(source)}.`, "Write each source as a plain string path, e.g. `- archive/session-11-transcript.md`, not a wikilink.");
+				at(
+					"sources-type",
+					`A \`sources\` entry is not a string: ${JSON.stringify(source)}.`,
+					"Write each source as a plain string path, e.g. `- archive/session-11-transcript.md`, not a wikilink.",
+				);
 				return;
 			}
 			const clean = normalize(source);
 			if (isAbsolute(source) || !source.startsWith("archive/") || clean.startsWith("..")) {
-				at("sources-path", `Source \`${source}\` is not a repo-relative \`archive/\` path.`, "Sources are the archived Raw a page was built from, written from the repo root, e.g. `archive/session-11-transcript.md`.");
+				at(
+					"sources-path",
+					`Source \`${source}\` is not a repo-relative \`archive/\` path.`,
+					"Sources are the archived Raw a page was built from, written from the repo root, e.g. `archive/session-11-transcript.md`.",
+				);
 				return;
 			}
 			if (!(await pathExists(join(ctx.root, clean)))) {
-				at("sources-path", `Source \`${source}\` does not exist.`, `Ingest moves Raw to \`archive/\`; check the file name (ls archive/) or drop the entry. Looked in ${ctx.root}.`);
+				at(
+					"sources-path",
+					`Source \`${source}\` does not exist.`,
+					`Ingest moves Raw to \`archive/\`; check the file name (ls archive/) or drop the entry. Looked in ${ctx.root}.`,
+				);
 			}
 		}),
 	);
@@ -142,14 +195,29 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 
 	const missing = template.keys.filter((k) => !(k.key in fm)).map((k) => k.key);
 	for (const key of missing) {
-		add("missing-key", 1, `Property \`${key}\` is missing (required by templates/${template.name}.md).`, `Add \`${example(key)}\` to the frontmatter; a blank value is fine unless the key is \`summary\` or \`title\`. \`cf check --fix\` adds it.`);
+		add(
+			"missing-key",
+			1,
+			`Property \`${key}\` is missing (required by templates/${template.name}.md).`,
+			`Add \`${example(key)}\` to the frontmatter; a blank value is fine unless the key is \`summary\` or \`title\`. \`cf check --fix\` adds it.`,
+		);
 	}
 	if ("title" in fm) {
 		const line = page.frontmatterKeyLines.title ?? 1;
 		if (typeof fm.title !== "string" && !isBlank(fm.title)) {
-			add("title-type", line, "Property `title` must be a string.", 'Set the page display name, e.g. `title: "Mara Voss"`.');
+			add(
+				"title-type",
+				line,
+				"Property `title` must be a string.",
+				'Set the page display name, e.g. `title: "Mara Voss"`.',
+			);
 		} else if (isBlank(fm.title)) {
-			add("blank-title", line, "Property `title` is blank.", 'Set the page display name, e.g. `title: "Mara Voss"`; the filename is only its stable slug.');
+			add(
+				"blank-title",
+				line,
+				"Property `title` is blank.",
+				'Set the page display name, e.g. `title: "Mara Voss"`; the filename is only its stable slug.',
+			);
 		} else if (/\r|\n/.test(fm.title as string)) {
 			add("title-multiline", line, "Property `title` spans more than one line.", "Keep the display name on one line.");
 		}
@@ -158,11 +226,26 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 		const line = page.frontmatterKeyLines.summary ?? 1;
 		const summary = fm.summary;
 		if (typeof summary !== "string" && !isBlank(summary)) {
-			add("summary-type", line, "Property `summary` must be a string.", 'Write one line of text, e.g. `summary: "A walled river port that taxes every barge."`.');
+			add(
+				"summary-type",
+				line,
+				"Property `summary` must be a string.",
+				'Write one line of text, e.g. `summary: "A walled river port that taxes every barge."`.',
+			);
 		} else if (isBlank(summary)) {
-			add("blank-summary", line, "Property `summary` is blank.", 'Write the page in one line; index pages are generated from it, e.g. `summary: "A walled river port that taxes every barge."`.');
+			add(
+				"blank-summary",
+				line,
+				"Property `summary` is blank.",
+				'Write the page in one line; index pages are generated from it, e.g. `summary: "A walled river port that taxes every barge."`.',
+			);
 		} else if (/\n/.test((summary as string).trim())) {
-			add("summary-multiline", line, "Property `summary` spans more than one line.", 'Cut it to a single line of plain text; put the rest in the page body.');
+			add(
+				"summary-multiline",
+				line,
+				"Property `summary` spans more than one line.",
+				"Cut it to a single line of plain text; put the rest in the page body.",
+			);
 		}
 	}
 
@@ -175,11 +258,21 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 		if (at === -1) {
 			if (template.optional.has(section)) continue;
 			const previous = template.sections[template.sections.indexOf(section) - 1];
-			add("missing-section", 1, `Missing section \`## ${section}\` (required by templates/${template.name}.md).`, `Add \`## ${section}\` ${previous ? `after \`## ${previous}\`` : "first"}; the template's section order is ${order}.`);
+			add(
+				"missing-section",
+				1,
+				`Missing section \`## ${section}\` (required by templates/${template.name}.md).`,
+				`Add \`## ${section}\` ${previous ? `after \`## ${previous}\`` : "first"}; the template's section order is ${order}.`,
+			);
 			continue;
 		}
 		if (at < lastIndex) {
-			add("section-order", headings2[at]?.line ?? 1, `Section \`## ${section}\` comes before \`## ${lastName}\`, but the template puts it after.`, `Move \`## ${section}\` below \`## ${lastName}\`. Template order: ${order}.`);
+			add(
+				"section-order",
+				headings2[at]?.line ?? 1,
+				`Section \`## ${section}\` comes before \`## ${lastName}\`, but the template puts it after.`,
+				`Move \`## ${section}\` below \`## ${lastName}\`. Template order: ${order}.`,
+			);
 			continue;
 		}
 		lastIndex = at;
@@ -192,25 +285,46 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 			const callout = template.page.callouts.find((c) => c.type === type);
 			const title = callout?.title ?? "Title";
 			const home = template.page.headings.filter((h) => h.depth === 2 && h.line < (callout?.line ?? 0)).at(-1)?.text;
-			add("missing-callout", 1, `Missing \`[!${type}]\` callout (required by templates/${template.name}.md).`, `Add a callout ${home ? `under \`## ${home}\`` : "where templates/" + template.name + ".md puts it"}, e.g.\n> [!${type}] ${title}\n> Spoken text for the table.`);
+			add(
+				"missing-callout",
+				1,
+				`Missing \`[!${type}]\` callout (required by templates/${template.name}.md).`,
+				`Add a callout ${home ? `under \`## ${home}\`` : `where templates/${template.name}.md puts it`}, e.g.\n> [!${type}] ${title}\n> Spoken text for the table.`,
+			);
 		}
 	}
 	for (const callout of page.callouts) {
 		if (callout.body === "" && template.callouts.includes(callout.type)) {
-			add("empty-callout", callout.line, `The \`[!${callout.type}]\` callout has no text.`, `Write the callout body on the lines under it, each starting with \`> \`.`);
+			add(
+				"empty-callout",
+				callout.line,
+				`The \`[!${callout.type}]\` callout has no text.`,
+				`Write the callout body on the lines under it, each starting with \`> \`.`,
+			);
 		}
 	}
 
 	for (const comment of page.comments) {
-		add("leftover-comment", comment.line, "Leftover `%% %%` authoring guidance.", "Delete the comment; a finished page keeps none. `cf check --fix` strips it.");
+		add(
+			"leftover-comment",
+			comment.line,
+			"Leftover `%% %%` authoring guidance.",
+			"Delete the comment; a finished page keeps none. `cf check --fix` strips it.",
+		);
 	}
 	for (const heading of emptyHeadings(page)) {
-		const hint = heading.depth >= 3
-			? "Write content under it or delete the heading; `###` headings are optional structure. `cf check --fix` removes it."
-			: template.optional.has(heading.text)
-				? `Write content under it or delete the heading; templates/${template.name}.md marks \`## ${heading.text}\` optional. \`cf check --fix\` removes it.`
-				: `Write the section's content; a \`##\` section is required by templates/${template.name}.md so it cannot be dropped.`;
-		add("empty-heading", heading.line, `Heading \`${"#".repeat(heading.depth)} ${heading.text}\` has no content.`, hint);
+		const hint =
+			heading.depth >= 3
+				? "Write content under it or delete the heading; `###` headings are optional structure. `cf check --fix` removes it."
+				: template.optional.has(heading.text)
+					? `Write content under it or delete the heading; templates/${template.name}.md marks \`## ${heading.text}\` optional. \`cf check --fix\` removes it.`
+					: `Write the section's content; a \`##\` section is required by templates/${template.name}.md so it cannot be dropped.`;
+		add(
+			"empty-heading",
+			heading.line,
+			`Heading \`${"#".repeat(heading.depth)} ${heading.text}\` has no content.`,
+			hint,
+		);
 	}
 }
 
@@ -243,7 +357,10 @@ function lineRange(lines: string[], offsets: number[], first: number, last: numb
 	let endLine = last;
 	const prevBlank = first === 1 || (lines[first - 2] ?? "").trim() === "";
 	if (prevBlank) while (endLine < lines.length && (lines[endLine] ?? "").trim() === "") endLine++;
-	const end = endLine < lines.length ? (offsets[endLine] ?? 0) : offsets[lines.length - 1]! + (lines[lines.length - 1] ?? "").length;
+	const end =
+		endLine < lines.length
+			? (offsets[endLine] ?? 0)
+			: offsets[lines.length - 1]! + (lines[lines.length - 1] ?? "").length;
 	return [start, end];
 }
 
@@ -290,17 +407,23 @@ export function fix(ctx: CheckContext): FixResult {
 				deletions.push([comment.start - (after.trim() === "" ? lead : 0), comment.end]);
 			}
 		}
-		if (page.comments.length > 0) notes.push(`stripped ${page.comments.length} leftover %% %% comment${page.comments.length === 1 ? "" : "s"}`);
+		if (page.comments.length > 0)
+			notes.push(`stripped ${page.comments.length} leftover %% %% comment${page.comments.length === 1 ? "" : "s"}`);
 		const empties = emptyHeadings(page).filter((h) => h.depth >= 3 || (h.depth === 2 && template.optional.has(h.text)));
 		for (const heading of empties) deletions.push(lineRange(lines, offsets, heading.line, heading.line));
-		if (empties.length > 0) notes.push(`removed ${empties.length} empty heading${empties.length === 1 ? "" : "s"} (${empties.map((h) => h.text).join(", ")})`);
+		if (empties.length > 0)
+			notes.push(
+				`removed ${empties.length} empty heading${empties.length === 1 ? "" : "s"} (${empties.map((h) => h.text).join(", ")})`,
+			);
 
 		for (const [start, end] of mergeRanges(deletions).reverse()) source = source.slice(0, start) + source.slice(end);
 
 		const missing = template.keys.filter((k) => !(k.key in fm));
 		if (missing.length > 0) {
 			source = addKeys(source, missing);
-			notes.push(`added blank ${missing.length === 1 ? "property" : "properties"} ${missing.map((k) => k.key).join(", ")}`);
+			notes.push(
+				`added blank ${missing.length === 1 ? "property" : "properties"} ${missing.map((k) => k.key).join(", ")}`,
+			);
 		}
 		if (notes.length === 0 || source === page.source) continue;
 		fixes.push({
@@ -316,6 +439,7 @@ export function fix(ctx: CheckContext): FixResult {
 
 export const templateLayer: Layer = {
 	name: LAYER,
+	scope: "page",
 	description: "Each page matches its kind's template: properties, sections, callouts, no leftover guidance.",
 	run,
 	fix,

@@ -1,50 +1,28 @@
-import { spawnSync } from "node:child_process";
 import { existsSync, statSync } from "node:fs";
 import { mkdir, rename as moveFile, writeFile } from "node:fs/promises";
-import { dirname, join, relative, resolve, sep } from "node:path";
+import { dirname, join, relative, sep } from "node:path";
 import { Command } from "commander";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkGfm from "remark-gfm";
-import remarkParse from "remark-parse";
-import { unified } from "unified";
 import { UsageError } from "../check/run.ts";
-import { isSpecialPage, suggest } from "../check/util.ts";
+import { isFixedPage } from "../check/views.ts";
+import { gitMove } from "../backup/git.ts";
+import { slugify } from "../vault/dialect.ts";
 import { appendLogEntry, formatEntry, today } from "../vault/log.ts";
 import { campaignFolders, campaignNames, generateIndexes } from "../vault/indexes.ts";
-import { blank, parseWikiLinkText, slugify } from "../vault/parse.ts";
+import { pageKeys } from "../vault/links.ts";
+import { resolvePage } from "../vault/resolve.ts";
+import { applyEdits, type LinkEdit, planLinkEdits, type LinkSpan } from "../vault/rewrite.ts";
 import type { Page, Vault } from "../vault/types.ts";
 import { buildVault, readVaultFiles } from "../vault/vault.ts";
-import { resolveVault } from "./vault-flags.ts";
-
-/** `![[target#heading#^block|alias]]`; the inner text never spans lines or nests brackets. */
-const WIKILINK = /(!?)\[\[([^[\]\n]*)\]\]/g;
-const linkParser = unified().use(remarkParse).use(remarkFrontmatter, ["yaml"]).use(remarkGfm);
-
-interface LinkSpan {
-	start: number;
-	end: number;
-	raw: string;
-	embed: boolean;
-	inner: string;
-	table: boolean;
-}
+import { campaignFolderOf, CF, envOptions, resolveEnv } from "./kit.ts";
 
 interface RenameFlags {
 	title?: string;
 	slug?: string;
 	campaign?: string;
 	dryRun?: boolean;
+	json?: boolean;
 	vault?: string;
 	root?: string;
-}
-
-/** One planned `[[old]]` -> `[[new]]` on one line of one file; `start`/`end` offset the pre-rename source. */
-interface LinkEdit {
-	line: number;
-	from: string;
-	to: string;
-	start: number;
-	end: number;
 }
 
 /** One file the rename touches: the moved page itself, or any page whose links to it are rewritten. */
@@ -56,121 +34,29 @@ interface PlannedFile {
 	movedFrom?: string;
 }
 
-/** Lowercases, drops a leading slash and one trailing `.md`: the form link targets compare in (`links.ts`). */
-const targetKey = (target: string): string => target.replace(/^\/+/, "").replace(/\.md$/i, "").toLowerCase();
-
-/** A page named on the command line: `Mara Voss`, `[[Mara Voss]]`, `ashes-of-the-crown/NPCs/Mara Voss.md` or a path from the working directory. */
-function resolvePage(vault: Vault, input: string): Page {
-	const raw = input.trim().replace(/^\[\[(.*)\]\]$/, "$1");
-	if (raw.includes("/") || raw.endsWith(".md")) {
-		const rel = raw.endsWith(".md") ? raw : `${raw}.md`;
-		for (const candidate of [rel.replace(/^\/+/, ""), relative(vault.dir, resolve(process.cwd(), rel)).split(sep).join("/")]) {
-			const page = vault.pageByPath.get(candidate);
-			if (page) return page;
-		}
-	} else {
-		const wanted = raw.toLowerCase();
-		const named = vault.pages.filter((p) => p.names.some((n) => n.toLowerCase() === wanted));
-		if (named.length === 1) return named[0]!;
-		if (named.length > 1) {
-			throw new UsageError(
-				`More than one page is named \`${raw}\`: ${named.map((p) => p.path).join(", ")}.`,
-				`Pass the vault path of the one you mean, e.g. cf rename "${named[0]!.path}"`,
-			);
-		}
-	}
-	const closest = suggest(raw.replace(/\.md$/, "").split("/").at(-1) ?? raw, vault.pages.flatMap((p) => p.names));
-	throw new UsageError(`No page \`${raw}\` in the Wiki.${closest ? ` Did you mean \`${closest}\`?` : ""}`, `Name a page that exists, by name or vault path. Example: cf rename "Mara Voss"`);
+/** The link renamed to the page's new slug: fragments survive, custom display text survives, a bare link gains the title. */
+function renamedLink(span: LinkSpan, newTitle: string, newSlug: string): string {
+	const link = span.link;
+	const bar = span.inner.indexOf("|");
+	const head = bar === -1 ? span.inner : span.inner.slice(0, bar).replace(/\\$/, "");
+	const aliasPart = bar === -1 ? undefined : span.inner.slice(bar + 1);
+	const segments = head.split("#");
+	const head0 = segments[0] ?? "";
+	const newHead0 = head0.includes(link.target) ? head0.replace(link.target, newSlug) : newSlug;
+	const newHead = [newHead0, ...segments.slice(1)].join("#");
+	// Every rewritten target is the stable slug; existing custom text survives, otherwise show the title.
+	const separator = span.table || (bar !== -1 && span.inner[bar - 1] === "\\") ? "\\|" : "|";
+	return `${link.embed ? "!" : ""}[[${newHead}${separator}${aliasPart ?? newTitle}]]`;
 }
 
-function collectRewriteRanges(node: unknown, code: [number, number][], tables: [number, number][]): void {
-	const n = node as { type?: string; position?: { start?: { offset?: number }; end?: { offset?: number } }; children?: unknown[] };
-	if (n.position) {
-		const start = n.position.start?.offset;
-		const end = n.position.end?.offset;
-		if (start !== undefined && end !== undefined) {
-			if (n.type === "code" || n.type === "inlineCode") code.push([start, end]);
-			if (n.type === "table") tables.push([start, end]);
-		}
-	}
-	for (const child of n.children ?? []) collectRewriteRanges(child, code, tables);
-}
-
-/**
- * Every wikilink on the page at source offsets: code spans, code blocks and `%% %%` comments are masked
- * out first, exactly as `parsePage` masks them. The frontmatter is left in (its fence is not masked), so
- * links in quoted string values rewrite like body links.
- */
-function linkSpans(page: Page): LinkSpan[] {
-	const ranges: [number, number][] = page.comments.map((c) => [c.start, c.end]);
-	const tables: [number, number][] = [];
-	// Parse actual GFM tables, including rows without outer pipes, rather than guessing from prose.
-	const commentless = blank(page.source, ranges, true);
-	collectRewriteRanges(linkParser.parse(commentless), ranges, tables);
-	ranges.sort((a, b) => a[0] - b[0]);
-	const masked = blank(page.source, ranges, false);
-	const spans: LinkSpan[] = [];
-	for (const match of masked.matchAll(WIKILINK)) {
-		const start = match.index ?? 0;
-		spans.push({ start, end: start + match[0].length, raw: match[0], embed: match[1] === "!", inner: match[2] ?? "", table: tables.some(([a, b]) => start >= a && start < b) });
-	}
-	return spans;
-}
-
-/** The targets a link may spell the page by: every pre-rename name (title, aliases, slug) and every suffix of its pre-rename path. */
-function oldTargetKeys(page: Page): Set<string> {
-	const keys = new Set<string>();
-	for (const name of page.names) keys.add(targetKey(name));
-	const withoutMd = page.path.replace(/\.md$/, "");
-	const parts = withoutMd.split("/");
-	parts.forEach((_, i) => keys.add(targetKey(parts.slice(i).join("/"))));
-	return keys;
-}
-
-
-/** Every link edit the rename makes, keyed by the file holding the link; files without edits are absent. */
-function planLinkEdits(vault: Vault, page: Page, newTitle: string, newSlug: string): Map<string, LinkEdit[]> {
-	const keys = oldTargetKeys(page);
-	const edits = new Map<string, LinkEdit[]>();
-	for (const holder of vault.pages) {
-		// index.md is regenerated after the rename; log.md entries are append-only history.
-		if (isSpecialPage(holder)) continue;
-		const spans = linkSpans(holder);
-		if (spans.length === 0) continue;
-		const found: LinkEdit[] = [];
-		let line = 1;
-		let cursor = 0;
-		for (const span of spans) {
-			line += holder.source.slice(cursor, span.start).split("\n").length - 1;
-			cursor = span.start;
-			const link = parseWikiLinkText(span.raw, span.embed, span.inner, line, false);
-			if (link.target === "" || !keys.has(targetKey(link.target))) continue;
-			const bar = span.inner.indexOf("|");
-			const head = bar === -1 ? span.inner : span.inner.slice(0, bar).replace(/\\$/, "");
-			const aliasPart = bar === -1 ? undefined : span.inner.slice(bar + 1);
-			const segments = head.split("#");
-			const head0 = segments[0] ?? "";
-			const newHead0 = head0.includes(link.target) ? head0.replace(link.target, newSlug) : newSlug;
-			const newHead = [newHead0, ...segments.slice(1)].join("#");
-			// Every rewritten target is the stable slug; existing custom text survives, otherwise show the title.
-			const separator = span.table || (bar !== -1 && span.inner[bar - 1] === "\\") ? "\\|" : "|";
-			const newInner = `${newHead}${separator}${aliasPart ?? newTitle}`;
-			const newRaw = `${span.embed ? "!" : ""}[[${newInner}]]`;
-			if (newRaw === span.raw) continue;
-			found.push({ line, from: span.raw, to: newRaw, start: span.start, end: span.end });
-		}
-		if (found.length > 0) edits.set(holder.path, found);
-	}
-	return edits;
-}
-
-/** Applies edits back to front, so the offsets of the pre-rename source stay valid. */
-function applyEdits(source: string, edits: LinkEdit[]): string {
-	let out = source;
-	for (const edit of [...edits].sort((a, b) => b.start - a.start)) {
-		out = out.slice(0, edit.start) + edit.to + out.slice(edit.end);
-	}
-	return out;
+/** Every link edit the rename makes, keyed by the page holding the link; pages without edits are absent. */
+function planPageLinkEdits(vault: Vault, page: Page, newTitle: string, newSlug: string): Map<Page, LinkEdit[]> {
+	// index.md is regenerated after the rename; log.md entries are append-only history.
+	return planLinkEdits(
+		vault.pages.filter((holder) => !isFixedPage(holder)),
+		new Set(pageKeys(page)),
+		(span) => renamedLink(span, newTitle, newSlug),
+	);
 }
 
 /**
@@ -188,7 +74,11 @@ function withTitle(source: string, page: Page, title: string): string {
 	if (keyLine !== undefined) {
 		const current = lines[keyLine - 1] ?? "";
 		const kept = /^([ \t]*(?:["']?)title(?:["']?)[ \t]*:)/.exec(current)?.[1];
-		if (kept === undefined) throw new UsageError(`Cannot set the title on \`${page.path}\`: its \`title\` line reads \`${current.trim()}\`.`, "Fix the frontmatter by hand, then run the rename again.");
+		if (kept === undefined)
+			throw new UsageError(
+				`Cannot set the title on \`${page.path}\`: its \`title\` line reads \`${current.trim()}\`.`,
+				"Fix the frontmatter by hand, then run the rename again.",
+			);
 		lines[keyLine - 1] = `${kept} ${value}`;
 		return lines.join("\n");
 	}
@@ -197,17 +87,24 @@ function withTitle(source: string, page: Page, title: string): string {
 }
 
 export function renameCommand(): Command {
-	return new Command("rename")
+	const command = new Command("rename")
 		.description(
 			"Rename a page to a slug filename (ADR 0028): move <folder>/<Old Name>.md to <folder>/<slug>.md, set its `title`, and rewrite every wikilink and embed across the vault that pointed at any of the page's names, keeping displayed text. Exits 0 done, 2 usage error.",
 		)
 		.argument("<page>", "the page to rename, by name, alias, slug or vault path")
-		.option("--title <Title>", "the page's title after the rename (default: its current title, else first alias; required if neither exists)")
+		.option(
+			"--title <Title>",
+			"the page's title after the rename (default: its current title, else first alias; required if neither exists)",
+		)
 		.option("--slug <slug>", "the new filename slug (default: the title, slugified)")
-		.option("--campaign <Campaign>", "the Campaign whose log.md records the rename (default: the page's Campaign folder, else the only Campaign)")
-		.option("--vault <dir>", "the Wiki folder (default: <root>/wiki)")
-		.option("--root <dir>", "repository root (default: nearest git root)")
+		.option(
+			"--campaign <Campaign>",
+			"the Campaign whose log.md records the rename (default: the page's Campaign folder, else the only Campaign)",
+		);
+	envOptions(command);
+	return command
 		.option("--dry-run", "print every planned move, title and link rewrite without touching anything")
+		.option("--json", "print {status,move,title,rewrites,indexes,log} JSON instead of text")
 		.addHelpText(
 			"after",
 			`
@@ -239,30 +136,41 @@ Exit codes:
   0  done (or nothing to do)    2  usage error
 
 Examples:
-  cf rename "Mara Voss" --title "Mara Voss"   migrate a titleless page using its explicit display title
-  cf rename "Mara Voss" --title "Mara Voss" --dry-run
+  ${CF} rename "Mara Voss" --title "Mara Voss"   migrate a titleless page using its explicit display title
+  ${CF} rename "Mara Voss" --title "Mara Voss" --dry-run
                                               preview the move and every link rewrite
-  cf rename "Otar the Foul (Creature)" --title "Otar the Foul (Creature)"
+  ${CF} rename "Otar the Foul (Creature)" --title "Otar the Foul (Creature)"
                                               keep the distinguishing title, derive the slug
-  cf rename "The Cold Hearth" --title "Cold Hearth Inn"
+  ${CF} rename "The Cold Hearth" --title "Cold Hearth Inn"
                                               retitle and move, rewriting [[The Cold Hearth]] links
-  cf rename "The Cold Hearth" --title "The Cold Hearth" --slug cold-hearth-inn --campaign "Ashes of the Crown"`,
+  ${CF} rename "The Cold Hearth" --title "The Cold Hearth" --slug cold-hearth-inn --campaign "Ashes of the Crown"`,
 		)
 		.action(async (pageName: string, flags: RenameFlags) => {
-			const { root, vault: vaultDir } = resolveVault(flags, "rename");
+			const { root, vault: vaultDir } = resolveEnv(flags, "rename");
 			const vault = buildVault(vaultDir, await readVaultFiles(vaultDir));
-			const page = resolvePage(vault, pageName);
+			const page = resolvePage(vault, pageName, {
+				hint: (candidate) => (candidate ? `${CF} rename "${candidate}"` : `Example: ${CF} rename "Mara Voss"`),
+			});
 			const fail = (message: string, hint: string): never => {
 				throw new UsageError(message, hint);
 			};
-			if (isSpecialPage(page)) fail(`\`${page.path}\` is generated or append-only (index, log) and is not renamed.`, "Name a Wiki page, e.g. cf rename \"Mara Voss\".");
+			if (isFixedPage(page))
+				fail(
+					`\`${page.path}\` is generated or append-only (index, log) and is not renamed.`,
+					`Name a Wiki page, e.g. ${CF} rename "Mara Voss".`,
+				);
 
 			const oldName = page.name || page.path;
 			const newTitle = (flags.title ?? page.name).trim();
-			if (newTitle === "") fail("The page has no title or alias; --title is required.", `cf rename "${page.path}" --title "<Title>"`);
-			if (/[\r\n]/.test(newTitle)) fail("--title must be one line.", `cf rename "${page.path}" --title "<Title>"`);
+			if (newTitle === "")
+				fail("The page has no title or alias; --title is required.", `${CF} rename "${page.path}" --title "<Title>"`);
+			if (/[\r\n]/.test(newTitle)) fail("--title must be one line.", `${CF} rename "${page.path}" --title "<Title>"`);
 			const newSlug = slugify(flags.slug ?? newTitle);
-			if (newSlug === "") fail(`The slug of \`${flags.slug ?? newTitle}\` is empty.`, "Pass --slug <slug>: lowercase letters and hyphens, e.g. --slug cold-hearth-inn");
+			if (newSlug === "")
+				fail(
+					`The slug of \`${flags.slug ?? newTitle}\` is empty.`,
+					"Pass --slug <slug>: lowercase letters and hyphens, e.g. --slug cold-hearth-inn",
+				);
 
 			const folder = page.path.slice(0, page.path.lastIndexOf("/") + 1);
 			const newPath = `${folder}${newSlug}.md`;
@@ -275,12 +183,22 @@ Examples:
 					const b = statSync(candidate);
 					return a.dev === b.dev && a.ino === b.ino;
 				};
-				const taken = vault.pageByPath.has(newPath) || (existsSync(toAbs) && !ownFile(toAbs));
-				if (taken) fail(`A page already exists at \`${newPath}\`.`, `Pick another --slug, e.g. cf rename "${page.name}" --slug ${newSlug}-2`);
+				const taken = existsSync(toAbs) && !ownFile(toAbs);
+				if (taken)
+					fail(
+						`A page already exists at \`${newPath}\`.`,
+						`Pick another --slug, e.g. ${CF} rename "${page.name}" --slug ${newSlug}-2`,
+					);
 				const slugClash = vault.pages.filter((p) => p !== page && p.slug.toLowerCase() === newSlug.toLowerCase());
-				if (slugClash.length > 0) fail(`Another page already uses the slug \`${newSlug}\`: ${slugClash.map((p) => p.path).join(", ")}.`, "Filenames are slugs and slugs are unique (ADR 0028). Pick another --slug.");
+				if (slugClash.length > 0)
+					fail(
+						`Another page already uses the slug \`${newSlug}\`: ${slugClash.map((p) => p.path).join(", ")}.`,
+						"Filenames are slugs and slugs are unique (ADR 0028). Pick another --slug.",
+					);
 			}
-			const titleClash = vault.pages.filter((p) => p !== page && p.names.some((n) => n.toLowerCase() === newTitle.toLowerCase()));
+			const titleClash = vault.pages.filter(
+				(p) => p !== page && p.names.some((n) => n.toLowerCase() === newTitle.toLowerCase()),
+			);
 			if (titleClash.length > 0) {
 				fail(
 					`Another page already answers to the title \`${newTitle}\`: ${titleClash.map((p) => p.path).join(", ")}.`,
@@ -288,20 +206,35 @@ Examples:
 				);
 			}
 
-			const editsByPath = planLinkEdits(vault, page, newTitle, newSlug);
-			const own = editsByPath.get(page.path) ?? [];
+			const edits = planPageLinkEdits(vault, page, newTitle, newSlug);
+			const own = edits.get(page) ?? [];
 			const newSource = withTitle(applyEdits(page.source, own), page, newTitle);
-			const titleWas = typeof page.frontmatter?.title === "string" && page.frontmatter.title.trim() !== "" ? page.frontmatter.title.trim() : undefined;
+			const titleWas =
+				typeof page.frontmatter?.title === "string" && page.frontmatter.title.trim() !== ""
+					? page.frontmatter.title.trim()
+					: undefined;
 			const plan: PlannedFile[] = [];
 			if (newPath !== page.path || newSource !== page.source) {
-				plan.push({ path: newPath, content: newSource, edits: own, ...(newPath !== page.path ? { movedFrom: page.path } : {}) });
+				plan.push({
+					path: newPath,
+					content: newSource,
+					edits: own,
+					...(newPath !== page.path ? { movedFrom: page.path } : {}),
+				});
 			}
-			for (const [path, edits] of editsByPath) {
-				if (path === page.path || edits.length === 0) continue;
-				plan.push({ path, content: applyEdits(vault.pageByPath.get(path)!.source, edits), edits });
+			for (const [holder, holderEdits] of edits) {
+				if (holder === page || holderEdits.length === 0) continue;
+				plan.push({ path: holder.path, content: applyEdits(holder.source, holderEdits), edits: holderEdits });
 			}
 			if (plan.length === 0) {
-				process.stdout.write(`already renamed: \`${page.path}\` is named \`${newSlug}.md\` and titled \`${newTitle}\`\n`);
+				if (flags.json)
+					process.stdout.write(
+						`${JSON.stringify({ status: "already-renamed", page: page.path, slug: newSlug, title: newTitle }, null, 2)}\n`,
+					);
+				else
+					process.stdout.write(
+						`already renamed: \`${page.path}\` is named \`${newSlug}.md\` and titled \`${newTitle}\`\n`,
+					);
 				return;
 			}
 
@@ -326,16 +259,27 @@ Examples:
 
 			const folders = campaignFolders(vault);
 			const names = campaignNames(vault);
-			const containing = [...new Set(folders.values())].filter((f) => page.path.startsWith(`${f}/`)).sort((a, b) => b.length - a.length)[0];
+			const containing = [...new Set(folders.values())]
+				.filter((f) => page.path.startsWith(`${f}/`))
+				.sort((a, b) => b.length - a.length)[0];
 			const sole = names.length === 1 ? folders.get(names[0]!) : undefined;
-			const campaignExample = `Example: cf rename "${page.name}" --campaign "${names[0] ?? "<Campaign>"}"`;
-			const logFolder = flags.campaign !== undefined
-				? (folders.has(flags.campaign) ? folders.get(flags.campaign)! : fail(`No Campaign \`${flags.campaign}\`.`, `Campaigns here: ${names.join(", ") || "none"}. ${campaignExample}`))
-				: (containing ?? sole ?? fail("No --campaign given, and the page sits outside every Campaign folder.", `Campaigns here: ${names.join(", ")}. ${campaignExample}`));
+			const campaignExample = `Example: ${CF} rename "${page.name}" --campaign "${names[0] ?? "<Campaign>"}"`;
+			const logFolder =
+				flags.campaign !== undefined
+					? campaignFolderOf(vault, flags.campaign, campaignExample)
+					: (containing ??
+						sole ??
+						fail(
+							"No --campaign given, and the page sits outside every Campaign folder.",
+							`Campaigns here: ${names.join(", ")}. ${campaignExample}`,
+						));
 			const entry = {
 				date: today(),
 				op: "audit",
-				title: oldName.toLowerCase() === newTitle.toLowerCase() ? `Renamed ${oldName} to ${newSlug}.md` : `Renamed ${oldName} to ${newTitle}`,
+				title:
+					oldName.toLowerCase() === newTitle.toLowerCase()
+						? `Renamed ${oldName} to ${newSlug}.md`
+						: `Renamed ${oldName} to ${newTitle}`,
 				pages: [`${newSlug}|${newTitle}`],
 			};
 
@@ -345,7 +289,7 @@ Examples:
 					const from = join(vaultDir, file.movedFrom);
 					await mkdir(dirname(toAbs), { recursive: true });
 					// git mv keeps the rename tracked; an untracked file (or no repo) falls back to a plain rename.
-					if (spawnSync("git", ["mv", "--", from, toAbs], { cwd: root, stdio: "ignore" }).status !== 0) await moveFile(from, toAbs);
+					if (!gitMove(root, from, toAbs)) await moveFile(from, toAbs);
 				}
 				for (const file of plan) {
 					const original = vault.pageByPath.get(file.movedFrom ?? file.path)!.source;
@@ -365,13 +309,14 @@ Examples:
 				if (file.content !== original) out.push(`${would("rewrite")}  ${show(file.path)}`);
 				for (const edit of file.edits) out.push(`  ${edit.line}: ${edit.from} -> ${edit.to}`);
 			}
-			if (titleWas !== newTitle) out.push(`${would("set")}  title: "${newTitle}"${titleWas === undefined ? "" : ` (was "${titleWas}")`}`);
+			if (titleWas !== newTitle)
+				out.push(`${would("set")}  title: "${newTitle}"${titleWas === undefined ? "" : ` (was "${titleWas}")`}`);
 			for (const write of indexWrites) out.push(`${would("write")}  ${show(write.path)}`);
 
 			const result = await appendLogEntry(vaultDir, logFolder, entry, {
 				dryRun: dry,
 				show,
-				example: `cf log --campaign "${flags.campaign ?? names[0] ?? "<Campaign>"}" --op audit --title "Renamed ${oldName} to ${newSlug}.md" --page "${newTitle}"`,
+				example: `${CF} log --campaign "${flags.campaign ?? names[0] ?? "<Campaign>"}" --op audit --title "Renamed ${oldName} to ${newSlug}.md" --page "${newTitle}"`,
 			});
 			if (result.status === "error") throw new UsageError(result.message, result.hint);
 			if (result.status === "already-logged") out.push(`already logged  ${show(result.path)}`);
@@ -381,7 +326,37 @@ Examples:
 			}
 
 			const links = plan.reduce((n, file) => n + file.edits.length, 0);
-			out.push(`${would("rename")}  ${oldName} -> ${newSlug}.md  (links rewritten: ${links} in ${plan.length} ${plan.length === 1 ? "file" : "files"})`);
+			out.push(
+				`${would("rename")}  ${oldName} -> ${newSlug}.md  (links rewritten: ${links} in ${plan.length} ${plan.length === 1 ? "file" : "files"})`,
+			);
+			if (flags.json) {
+				process.stdout.write(
+					`${JSON.stringify(
+						{
+							status: "renamed",
+							dryRun: dry,
+							move: newPath !== page.path ? { from: page.path, to: newPath } : null,
+							title:
+								titleWas !== newTitle ? { to: newTitle, ...(titleWas === undefined ? {} : { was: titleWas }) } : null,
+							rewrites: plan.map((file) => ({
+								page: file.path,
+								edits: file.edits.map((e) => ({ line: e.line, from: e.from, to: e.to })),
+							})),
+							indexes: indexWrites.map((w) => w.path),
+							log: {
+								status: result.status,
+								path: result.path,
+								rotated: result.status === "already-logged" ? null : (result.rotated ?? null),
+							},
+							links,
+							files: plan.length,
+						},
+						null,
+						2,
+					)}\n`,
+				);
+				return;
+			}
 			process.stdout.write(`${out.join("\n")}\n`);
 		});
 }

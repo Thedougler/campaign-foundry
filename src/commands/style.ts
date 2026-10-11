@@ -1,18 +1,13 @@
 import { existsSync, statSync } from "node:fs";
-import { readFile } from "node:fs/promises";
+import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import { isAbsolute, join, relative, resolve, sep } from "node:path";
 import { glob } from "tinyglobby";
 import { Command } from "commander";
-import { narrationLayer } from "../check/layers/narration.ts";
-import { styleLayer } from "../check/layers/style.ts";
 import { formatHuman, formatJson, gateExitCode } from "../check/output.ts";
-import type { CheckContext, Finding } from "../check/types.ts";
-import type { CheckResult } from "../check/run.ts";
-import { UsageError } from "../check/run.ts";
-import { buildVault, readVaultFiles } from "../vault/vault.ts";
-import type { VaultFiles } from "../vault/vault.ts";
-import { resolveCheckEnv } from "./check.ts";
-import { readStdin } from "./stdin.ts";
+import { runCheck, UsageError, type CheckResult } from "../check/run.ts";
+import { readVaultFiles } from "../vault/vault.ts";
+import { CF, envOptions, readInput, resolveEnv } from "./kit.ts";
 
 interface StyleFlags {
 	vault?: string;
@@ -39,21 +34,21 @@ async function targetFiles(paths: string[]): Promise<Map<string, string>> {
 		} catch {
 			throw new UsageError(
 				`No such file: ${shown}.`,
-				"Pass markdown files or folders, or - for stdin. Example: bun run cf -- style notes/draft.md",
+				`Pass markdown files or folders, or - for stdin. Example: ${CF} style notes/draft.md`,
 			);
 		}
 		targets.set(shown.split(sep).join("/"), source);
 	};
 	for (const input of paths) {
 		if (input === "-") {
-			targets.set("stdin.md", await readStdin());
+			targets.set("stdin.md", await readInput("-", `${CF} style -`));
 			continue;
 		}
 		const abs = resolve(process.cwd(), input);
 		if (!existsSync(abs)) {
 			throw new UsageError(
 				`No such path: ${input}.`,
-				"Pass markdown files or folders, or - for stdin. Example: bun run cf -- style notes/draft.md",
+				`Pass markdown files or folders, or - for stdin. Example: ${CF} style notes/draft.md`,
 			);
 		}
 		if (statSync(abs).isDirectory()) {
@@ -76,69 +71,56 @@ async function targetFiles(paths: string[]): Promise<Map<string, string>> {
 	return targets;
 }
 
-/** Sort order matching `runCheck`, so output reads like `cf check`. */
-const byLocation = (a: Finding, b: Finding): number =>
-	a.path.localeCompare(b.path) || a.line - b.line || a.layer.localeCompare(b.layer) || a.rule.localeCompare(b.rule);
-
 export function styleCommand(): Command {
-	return new Command("style")
-		.description("Lists findings for the style and narration layers over markdown; deciding what to change is the agent's job.")
+	return envOptions(new Command("style"))
+		.description(
+			"Lists findings for the style and narration layers over markdown; deciding what to change is the agent's job.",
+		)
 		.argument("[paths...]", "markdown files or folders to check, or - for stdin (default: stdin)")
-		.option("--vault <dir>", "the Wiki read as context and name list (default: <root>/wiki)")
-		.option("--root <dir>", "repository root (default: nearest git root)")
 		.option("--json", "print machine-readable JSON instead of text")
 		.addHelpText(
 			"after",
 			`
 Runs only the style (Vale) and narration layers, over skills, templates, agent definitions and drafts,
-with the Wiki pages as context and name list. Output and exit codes match \`cf check\`.
+with the Wiki pages as context and name list. Output and exit codes match \`${CF} check\`.
 
 Exit codes:
   0  no errors (warnings may print)    1  errors remain    2  usage error
 
 Examples:
-  printf '> [!narration] Opening\\n> The door swings open, slowly.\\n' | bun run cf -- style -
-  bun run cf -- style .agents/skills/npc-design
-  bun run cf -- style draft.md --json`,
+  printf '> [!narration] Opening\\n> The door swings open, slowly.\\n' | ${CF} style -
+  ${CF} style .agents/skills/npc-design
+  ${CF} style draft.md --json`,
 		)
 		.action(async (paths: string[], flags: StyleFlags) => {
-			const { root, vault: vaultDir } = resolveCheckEnv(flags);
-			if (!existsSync(vaultDir) || !statSync(vaultDir).isDirectory()) {
-				throw new UsageError(`The vault folder ${vaultDir} does not exist.`, "cf style --vault <folder>");
-			}
-			const files: VaultFiles = await readVaultFiles(vaultDir);
+			const { cwd, vault: vaultDir } = resolveEnv(flags, "style");
+			const files = await readVaultFiles(vaultDir);
 			const targets = await targetFiles(paths.length > 0 ? paths : ["-"]);
 			const shownByKey = new Map<string, string>();
 			for (const [shown, source] of targets) {
 				// A target outside the cwd keys under OUTSIDE, so no key climbs out of the Vale scratch folder.
-				const key = isAbsolute(shown) ? OUTSIDE + shown.replace(/^[A-Za-z]:/, "").replace(/^[/\\]+/, "") : PREFIX + shown;
+				const key = isAbsolute(shown)
+					? OUTSIDE + shown.replace(/^[A-Za-z]:/, "").replace(/^[/\\]+/, "")
+					: PREFIX + shown;
 				shownByKey.set(key, shown);
 				files.markdown.set(key, source);
 			}
-			const vault = buildVault(vaultDir, files);
-			// ponytail: the target files join the vault's name mask, so a file stem like `SKILL` masks only that exact word; revisit if a target stem collides with a Wiki name.
-			const ctx: CheckContext = {
-				vault,
-				// Only the target files are evaluated; the Wiki stays read-only context and name list.
-				target: (vaultPath) => shownByKey.has(vaultPath),
-				// The style and narration layers read no templates; an empty set keeps the CheckContext shape.
-				templates: { byName: new Map(), types: new Map() },
-				root,
-				display: (vaultPath) => vaultPath,
-			};
-			const started = performance.now();
-			const found = (await Promise.all([styleLayer.run(ctx), narrationLayer.run(ctx)])).flat();
-			const findings = found
-				.filter((f) => shownByKey.has(f.path))
-				.map((f) => ({ ...f, path: shownByKey.get(f.path) ?? f.path }))
-				.sort(byLocation);
-			const result: CheckResult = {
-				findings,
-				fixes: [],
-				pages: shownByKey.size,
-				layers: [styleLayer.name, narrationLayer.name],
-				durationMs: Math.round(performance.now() - started),
-			};
+			// Virtual target names change the language-tool salt. Isolate their cache from the Wiki's cache.
+			const scratch = await mkdtemp(join(tmpdir(), "cf-style-"));
+			let result: CheckResult;
+			try {
+				result = await runCheck({
+					vault: vaultDir,
+					root: scratch,
+					cwd,
+					layers: ["style", "narration"],
+					pagePaths: [...shownByKey.keys()],
+					files,
+					display: (vaultPath) => shownByKey.get(vaultPath) ?? vaultPath,
+				});
+			} finally {
+				await rm(scratch, { recursive: true, force: true });
+			}
 			process.stdout.write(`${flags.json ? formatJson(result) : formatHuman(result, { fix: false, dryRun: false })}\n`);
 			process.exitCode = gateExitCode(result);
 		});

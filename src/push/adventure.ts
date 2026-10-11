@@ -4,8 +4,8 @@ import { basename, extname, join } from "node:path";
 import sharp from "sharp";
 import { UsageError } from "../check/run.ts";
 import { campaignFolders } from "../vault/indexes.ts";
-import { buildLinkGraph } from "../vault/links.ts";
-import type { LinkGraph, Resolution } from "../vault/links.ts";
+import { slugify } from "../vault/dialect.ts";
+import { buildLinkGraph, type LinkGraph, type Resolution } from "../vault/links.ts";
 import type { Page, Vault, WikiLink } from "../vault/types.ts";
 import { buildActor } from "./actor.ts";
 import { OWNERSHIP, stats } from "./foundry.ts";
@@ -20,7 +20,13 @@ import { statblockOf } from "./statblock.ts";
 
 /** Foundry's four collections Push writes, and the Adventure field each lives in. */
 export type DocType = "JournalEntry" | "Actor" | "Item" | "Scene" | "Folder";
-export const ADVENTURE_FIELD: Record<DocType, string> = { JournalEntry: "journal", Actor: "actors", Item: "items", Scene: "scenes", Folder: "folders" };
+export const ADVENTURE_FIELD: Record<DocType, string> = {
+	JournalEntry: "journal",
+	Actor: "actors",
+	Item: "items",
+	Scene: "scenes",
+	Folder: "folders",
+};
 
 export interface PlanDoc {
 	type: DocType;
@@ -53,10 +59,19 @@ export interface PlanOptions {
 }
 
 /** Page types pulled in one hop from the Session's own pages: what the DM needs in play. PCs are left out. */
-const HOP_TYPES = new Set(["NPC", "Creature", "Location", "Item", "Faction", "House Rule", "Vehicle", "Spell", "Previously On"]);
+const HOP_TYPES = new Set([
+	"NPC",
+	"Creature",
+	"Location",
+	"Item",
+	"Faction",
+	"House Rule",
+	"Vehicle",
+	"Spell",
+	"Previously On",
+]);
 const HANDOUT = "Handout";
 const IMAGE = /\.(webp|png|jpe?g|gif|svg|avif)$/i;
-const slug = (s: string): string => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 /** JSON with sorted keys, so a document's hash does not depend on how it was built. */
 export function stableStringify(value: unknown): string {
@@ -74,10 +89,11 @@ export const hashOf = (data: Doc): string => createHash("sha256").update(stableS
 
 const typeOf = (page: Page): string => (typeof page.frontmatter?.type === "string" ? page.frontmatter.type : "");
 const kindOf = (page: Page): string => (typeof page.frontmatter?.kind === "string" ? page.frontmatter.kind : "");
-const wikiName = (value: unknown): string => (typeof value === "string" ? (/^\[\[([^\]|#]+)/.exec(value)?.[1] ?? "").trim() : "");
+const wikiName = (value: unknown): string =>
+	typeof value === "string" ? (/^\[\[([^\]|#]+)/.exec(value)?.[1] ?? "").trim() : "";
 
 export function moduleIdFor(campaignFolder: string): string {
-	return `cf-${slug(campaignFolder)}`;
+	return `cf-${slugify(campaignFolder)}`;
 }
 
 interface Located {
@@ -94,16 +110,26 @@ function locate(vault: Vault, options: PlanOptions): Located {
 		const names = [...folders.keys()];
 		throw new UsageError(
 			`No Campaign named "${options.campaign}".`,
-			names.length > 0 ? `Campaigns: ${names.join(", ")}. Example: cf push --campaign "${names[0]}" --session 1` : "Add a Campaign overview page (type: Campaign) in its Campaign folder first.",
+			names.length > 0
+				? `Campaigns: ${names.join(", ")}. Example: cf push --campaign "${names[0]}" --session 1`
+				: "Add a Campaign overview page (type: Campaign) in its Campaign folder first.",
 		);
 	}
 	const prefix = `${campaignFolder}/Sessions/Session ${options.session}/`;
 	const sessionPages = vault.pages.filter((p) => p.path.startsWith(prefix));
 	if (sessionPages.length === 0) {
-		const sessions = [...new Set(vault.pages.flatMap((p) => (p.path.startsWith(`${campaignFolder}/Sessions/`) ? [/Session (\d+)\//.exec(p.path)?.[1] ?? ""] : [])))].filter(Boolean);
+		const sessions = [
+			...new Set(
+				vault.pages.flatMap((p) =>
+					p.path.startsWith(`${campaignFolder}/Sessions/`) ? [/Session (\d+)\//.exec(p.path)?.[1] ?? ""] : [],
+				),
+			),
+		].filter(Boolean);
 		throw new UsageError(
 			`No pages for Session ${options.session} of ${options.campaign}.`,
-			sessions.length > 0 ? `Sessions with pages: ${sessions.join(", ")}. Example: cf push --campaign "${options.campaign}" --session ${sessions[0]}` : "Run Prep for the Session first.",
+			sessions.length > 0
+				? `Sessions with pages: ${sessions.join(", ")}. Example: cf push --campaign "${options.campaign}" --session ${sessions[0]}`
+				: "Run Prep for the Session first.",
 		);
 	}
 	return { campaignFolder, sessionPages, campaignPath: `${campaignFolder}/${options.campaign}.md` };
@@ -112,7 +138,8 @@ function locate(vault: Vault, options: PlanOptions): Located {
 /** The pages a link resolves to, by the link's exact text, for one page. */
 function linkIndex(graph: LinkGraph, page: Page): Map<string, Resolution> {
 	const map = new Map<string, Resolution>();
-	for (const { link, resolution } of graph.links.get(page) ?? []) if (!link.frontmatter && !map.has(link.raw)) map.set(link.raw, resolution);
+	for (const { link, resolution } of graph.links.get(page) ?? [])
+		if (!link.frontmatter && !map.has(link.raw)) map.set(link.raw, resolution);
 	return map;
 }
 
@@ -121,9 +148,13 @@ function creatureOf(vault: Vault, graph: LinkGraph, npc: Page): Page | undefined
 	const raw = wikiName(npc.frontmatter?.creature);
 	if (!raw) return undefined;
 	for (const { link, resolution } of graph.links.get(npc) ?? []) {
-		if (link.frontmatter && link.target === raw && resolution.status === "ok") return resolution.pages.find((p) => typeof p.frontmatter?.type === "string" && p.frontmatter.type === "Creature");
+		if (link.frontmatter && link.target === raw && resolution.status === "ok")
+			return resolution.pages.find((p) => typeof p.frontmatter?.type === "string" && p.frontmatter.type === "Creature");
 	}
-	return vault.pages.find((p) => p.names.some((n) => n === raw) && typeof p.frontmatter?.type === "string" && p.frontmatter.type === "Creature");
+	return vault.pages.find(
+		(p) =>
+			p.names.some((n) => n === raw) && typeof p.frontmatter?.type === "string" && p.frontmatter.type === "Creature",
+	);
 }
 
 async function thumbnail(path: string): Promise<string> {
@@ -144,7 +175,8 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 	for (const page of sessionPages) {
 		for (const { link, resolution } of graph.links.get(page) ?? []) {
 			if (link.frontmatter || resolution.status !== "ok") continue;
-			for (const target of resolution.pages) if (HOP_TYPES.has(typeOf(target)) && !scope.has(target.path)) scope.set(target.path, target);
+			for (const target of resolution.pages)
+				if (HOP_TYPES.has(typeOf(target)) && !scope.has(target.path)) scope.set(target.path, target);
 		}
 	}
 	const creatureFor = new Map<string, Page>();
@@ -173,12 +205,17 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 		let name = assets.get(vaultPath);
 		if (!name) {
 			const clean = basename(vaultPath).replace(/[^A-Za-z0-9._]+/g, "-");
-			name = [...assets.values()].includes(clean) ? `${slug(vaultPath.replace(/\.[^.]+$/, ""))}${extname(clean)}` : clean;
+			name = [...assets.values()].includes(clean)
+				? `${slugify(vaultPath.replace(/\.[^.]+$/, ""))}${extname(clean)}`
+				: clean;
 			assets.set(vaultPath, name);
 		}
 		return `modules/${moduleId}/assets/${name}`;
 	};
-	const attachmentByName = (wanted: string): string | undefined => vault.attachments.find((a) => basename(a).toLowerCase() === wanted.toLowerCase() && a.startsWith(`${campaignFolder}/`));
+	const attachmentByName = (wanted: string): string | undefined =>
+		vault.attachments.find(
+			(a) => basename(a).toLowerCase() === wanted.toLowerCase() && a.startsWith(`${campaignFolder}/`),
+		);
 
 	const unlinked = new Map<string, string>();
 	const contextFor = (page: Page): RenderContext => {
@@ -196,7 +233,9 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 			},
 			image(link: WikiLink) {
 				const resolution = index.get(link.raw);
-				return link.embed && resolution?.status === "attachment" && IMAGE.test(resolution.path) ? assetUrl(resolution.path) : undefined;
+				return link.embed && resolution?.status === "attachment" && IMAGE.test(resolution.path)
+					? assetUrl(resolution.path)
+					: undefined;
 			},
 		};
 	};
@@ -220,7 +259,12 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 			const portrait = attachmentByName(`${page.slug}-portrait.webp`);
 			const biography = renderMarkdown(page, ctx, { omit: ["Statblock"] });
 			try {
-				const built = buildActor(page, { campaign: campaignFolder, name: page.name, biography, ...(portrait ? { img: assetUrl(portrait) } : {}) });
+				const built = buildActor(page, {
+					campaign: campaignFolder,
+					name: page.name,
+					biography,
+					...(portrait ? { img: assetUrl(portrait) } : {}),
+				});
 				warnings.push(...built.warnings.map((w) => `${page.name}: ${w}`));
 				actorIdOf.set(page.path, String(built.data._id));
 				add("Actor", inFolder("Actor", built.data), page.path);
@@ -235,7 +279,8 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 		}
 		const handout = type === HANDOUT;
 		const html = renderMarkdown(page, ctx, handout ? { narrationOnly: true } : {});
-		if (handout && html === "") warnings.push(`${page.name}: the Handout has no [!narration] callout, so its journal is empty.`);
+		if (handout && html === "")
+			warnings.push(`${page.name}: the Handout has no [!narration] callout, so its journal is empty.`);
 		const pageId = foundryId(campaignFolder, page.path, "page");
 		add(
 			"JournalEntry",
@@ -272,7 +317,15 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 		const portrait = attachmentByName(`${page.slug}-portrait.webp`);
 		const biography = `<p>@UUID[${uuidOf.get(page.path)}]{${page.name}}</p>${renderMarkdown(creature, contextFor(creature), { omit: ["Statblock"] })}`;
 		try {
-			const built = buildActor(creature, { campaign: campaignFolder, name: page.name, biography, idPath: page.path, role: "actor", disposition: 0, ...(portrait ? { img: assetUrl(portrait) } : {}) });
+			const built = buildActor(creature, {
+				campaign: campaignFolder,
+				name: page.name,
+				biography,
+				idPath: page.path,
+				role: "actor",
+				disposition: 0,
+				...(portrait ? { img: assetUrl(portrait) } : {}),
+			});
 			warnings.push(...built.warnings.map((w) => `${page.name}: ${w}`));
 			add("Actor", inFolder("Actor", built.data), page.path);
 		} catch (error) {
@@ -282,25 +335,48 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 
 	// Foundry scenes: a Scene page whose own text or a linked Site embeds a Battle Map image.
 	const chart = sessionPages.find((p) => typeOf(p) === "Prep");
-	const chartOrder = chart ? (graph.links.get(chart) ?? []).flatMap(({ resolution }) => (resolution.status === "ok" ? resolution.pages.map((p) => p.path) : [])) : [];
-	const scenes = sessionPages.filter((p) => typeOf(p) === "Scene").sort((a, b) => chartOrder.indexOf(a.path) - chartOrder.indexOf(b.path));
+	const chartOrder = chart
+		? (graph.links.get(chart) ?? []).flatMap(({ resolution }) =>
+				resolution.status === "ok" ? resolution.pages.map((p) => p.path) : [],
+			)
+		: [];
+	const scenes = sessionPages
+		.filter((p) => typeOf(p) === "Scene")
+		.sort((a, b) => chartOrder.indexOf(a.path) - chartOrder.indexOf(b.path));
 	let navOrder = 0;
 	for (const scene of scenes) {
 		const embedded = (page: Page): { path: string; link: WikiLink } | undefined => {
 			for (const { link, resolution } of graph.links.get(page) ?? []) {
-				if (link.embed && resolution.status === "attachment" && IMAGE.test(resolution.path) && /battle-map/i.test(basename(resolution.path))) return { path: resolution.path, link };
+				if (
+					link.embed &&
+					resolution.status === "attachment" &&
+					IMAGE.test(resolution.path) &&
+					/battle-map/i.test(basename(resolution.path))
+				)
+					return { path: resolution.path, link };
 			}
 			return undefined;
 		};
-		const sites = (graph.links.get(scene) ?? []).flatMap(({ resolution }) => (resolution.status === "ok" ? resolution.pages.filter((p) => typeOf(p) === "Location" && kindOf(p) === "Site") : []));
+		const sites = (graph.links.get(scene) ?? []).flatMap(({ resolution }) =>
+			resolution.status === "ok"
+				? resolution.pages.filter((p) => typeOf(p) === "Location" && kindOf(p) === "Site")
+				: [],
+		);
 		const map = embedded(scene) ?? sites.map(embedded).find(Boolean);
 		if (!map) {
-			if (["Cliffhanger", "Climax"].includes(kindOf(scene))) warnings.push(`${scene.name}: no Foundry scene, because no Battle Map image is embedded on the page or on a Site it links.`);
+			if (["Cliffhanger", "Climax"].includes(kindOf(scene)))
+				warnings.push(
+					`${scene.name}: no Foundry scene, because no Battle Map image is embedded on the page or on a Site it links.`,
+				);
 			continue;
 		}
 		const file = join(vault.dir, map.path);
 		const meta = await sharp(file).metadata();
-		const uvttPath = vault.attachments.find((a) => a.toLowerCase() === `${map.path.replace(/\.[^.]+$/, "")}.uvtt`.toLowerCase() || a.toLowerCase() === `${map.path.replace(/\.[^.]+$/, "")}.dd2vtt`.toLowerCase());
+		const uvttPath = vault.attachments.find(
+			(a) =>
+				a.toLowerCase() === `${map.path.replace(/\.[^.]+$/, "")}.uvtt`.toLowerCase() ||
+				a.toLowerCase() === `${map.path.replace(/\.[^.]+$/, "")}.dd2vtt`.toLowerCase(),
+		);
 		let uvtt: Uvtt | undefined;
 		if (uvttPath) {
 			try {
@@ -317,7 +393,12 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 			if (!creature || !actorId) continue;
 			const size = statblockOf(creature)?.size.toLowerCase() ?? "medium";
 			const portrait = attachmentByName(`${creature.slug}-portrait.webp`);
-			tokens.push({ name: creature.name, actorId, squares: { large: 2, huge: 3, gargantuan: 4 }[size] ?? 1, img: portrait ? assetUrl(portrait) : null });
+			tokens.push({
+				name: creature.name,
+				actorId,
+				squares: { large: 2, huge: 3, gargantuan: 4 }[size] ?? 1,
+				img: portrait ? assetUrl(portrait) : null,
+			});
 		}
 		const built = buildScene({
 			campaign: campaignFolder,
@@ -338,7 +419,18 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 		if (!usedFolders.has(type)) continue;
 		add(
 			"Folder",
-			{ _id: folderId(type), name: options.campaign, type, folder: null, sorting: "a", color: null, description: "", sort: 0, flags: {}, _stats: stats() },
+			{
+				_id: folderId(type),
+				name: options.campaign,
+				type,
+				folder: null,
+				sorting: "a",
+				color: null,
+				description: "",
+				sort: 0,
+				flags: {},
+				_stats: stats(),
+			},
 			"",
 		);
 	}
@@ -346,7 +438,9 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 	if (unlinked.size > 0) {
 		const names = [...unlinked.entries()].sort(([a], [b]) => a.localeCompare(b));
 		const shown = names.slice(0, 10).map(([name, kind]) => `${name} (${kind || "page"})`);
-		warnings.push(`${names.length} linked page${names.length === 1 ? "" : "s"} left as text, not in this Push: ${shown.join(", ")}${names.length > shown.length ? `, and ${names.length - shown.length} more` : ""}.`);
+		warnings.push(
+			`${names.length} linked page${names.length === 1 ? "" : "s"} left as text, not in this Push: ${shown.join(", ")}${names.length > shown.length ? `, and ${names.length - shown.length} more` : ""}.`,
+		);
 	}
 
 	const adventureName = `${options.campaign}`;

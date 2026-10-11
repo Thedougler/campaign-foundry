@@ -1,6 +1,6 @@
 @AGENTS.md
 
-Utilize sonnet 5.5 (or luna 5.6 via codex cli for tighly scoped tasks) subagents effectively to manage your context. 
+Utilise sonnet 5.5 (or luna 5.6 via codex cli for tightly scoped tasks) subagents effectively to manage your context.
 
 ## Agent skills
 

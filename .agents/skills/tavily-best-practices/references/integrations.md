@@ -40,6 +40,7 @@ if not os.environ.get("TAVILY_API_KEY"):
 ### Tavily Search
 
 **Available parameters**
+
 - `max_results` (default: `5`)
 - `topic` (`"general"`, `"news"`, `"finance"`)
 - `include_answer`
@@ -66,6 +67,7 @@ tavily_search = TavilySearch(
 ```
 
 **Invoke directly with args**
+
 - Required: `query`
 - Can also be overridden at invocation: `include_images`, `search_depth`, `time_range`, `include_domains`, `exclude_domains`, `start_date`, `end_date`
 - `include_answer` and `include_raw_content` should be set at instantiation time for predictable response sizes
@@ -98,6 +100,7 @@ Tip: include today's date in the system prompt for time-aware queries.
 ### Tavily Extract
 
 **Available parameters**
+
 - `extract_depth` (`"basic"` or `"advanced"`)
 - `include_images`
 
@@ -143,6 +146,7 @@ result = tavily_crawl.invoke({
 ### Tavily Research
 
 **Available parameters**
+
 - `input` (required)
 - `model` (`"mini"`, `"pro"`, `"auto"`)
 - `output_schema`
@@ -534,7 +538,7 @@ def chat_with_claude(user_message: str):
 chat_with_claude("What is trending now in the agents space in 2026?")
 ```
 
-Reference: https://docs.tavily.com/documentation/integrations/anthropic
+Reference: <https://docs.tavily.com/documentation/integrations/anthropic>
 
 ---
 
@@ -545,8 +549,8 @@ Google ADK can connect to Tavily through Tavily's remote MCP server, giving your
 ### Prerequisites
 
 - Python 3.9+
-- Tavily API key: https://app.tavily.com/home
-- Gemini API key: https://aistudio.google.com/app/apikey
+- Tavily API key: <https://app.tavily.com/home>
+- Gemini API key: <https://aistudio.google.com/app/apikey>
 
 ### Installation
 
@@ -606,7 +610,7 @@ adk web --port 8000
 - `tavily-map`
 - `tavily-crawl`
 
-Reference: https://docs.tavily.com/documentation/integrations/google-adk
+Reference: <https://docs.tavily.com/documentation/integrations/google-adk>
 
 ---
 
@@ -714,4 +718,5 @@ Tavily integrates with popular no-code automation platforms:
 ---
 
 ## Additional Integrations
+
 See the [full integrations documentation](https://docs.tavily.com/documentation/integrations) for complete guides.

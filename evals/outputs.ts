@@ -9,9 +9,14 @@ export interface RunnerOutput {
 
 /** Canonical Wiki-relative path; case checks may omit the Markdown extension. */
 export function wikiPagePath(path: string): string {
-	if (!path || path.trim() !== path || /[\\:\u0000-\u001f\u007f]/u.test(path)
-		|| path.startsWith("/") || path.startsWith("wiki/")
-		|| path.split("/").some((part) => !part || part === "." || part === "..")) {
+	if (
+		!path ||
+		path.trim() !== path ||
+		/[\\:\u0000-\u001f\u007f]/u.test(path) ||
+		path.startsWith("/") ||
+		path.startsWith("wiki/") ||
+		path.split("/").some((part) => !part || part === "." || part === "..")
+	) {
 		throw new Error(`EXECUTION: unsafe Wiki-relative page path: ${JSON.stringify(path)}`);
 	}
 	return path.endsWith(".md") ? path : `${path}.md`;
@@ -29,7 +34,8 @@ export function outputPagePath(input: unknown, allowReply = false): string {
 
 function deletionPaths(text: string): string[] {
 	const value: unknown = JSON.parse(text);
-	if (!Array.isArray(value) || !value.every((item) => typeof item === "string")) throw new Error("EXECUTION: invalid output deletion manifest");
+	if (!Array.isArray(value) || !value.every((item) => typeof item === "string"))
+		throw new Error("EXECUTION: invalid output deletion manifest");
 	const paths = value.map((item) => outputPagePath(item));
 	if (new Set(paths).size !== paths.length) throw new Error("EXECUTION: duplicate output deletion path");
 	return paths;
@@ -39,7 +45,8 @@ function deletionPaths(text: string): string[] {
 export function readRunnerOutput(outputRoot: string): RunnerOutput {
 	const root = resolve(outputRoot);
 	const rootInfo = lstatSync(root);
-	if (!rootInfo.isDirectory() || rootInfo.isSymbolicLink() || realpathSync(root) !== root) throw new Error("EXECUTION: output root must be a canonical real directory");
+	if (!rootInfo.isDirectory() || rootInfo.isSymbolicLink() || realpathSync(root) !== root)
+		throw new Error("EXECUTION: output root must be a canonical real directory");
 	const pages = new Map<string, string>();
 	let reply: string | undefined;
 	let deleted: string[] = [];
@@ -54,13 +61,15 @@ export function readRunnerOutput(outputRoot: string): RunnerOutput {
 				wikiPagePath(`${name}/page.md`);
 				visit(path, name);
 			} else {
-				if (!info.isFile() || info.nlink !== 1) throw new Error(`EXECUTION: output must be an independent regular file: ${name}`);
+				if (!info.isFile() || info.nlink !== 1)
+					throw new Error(`EXECUTION: output must be an independent regular file: ${name}`);
 				const text = readFileSync(path, "utf8");
 				if (name === ".deleted.json") deleted = deletionPaths(text);
 				else if (name === "reply.md") reply = text;
 				else {
 					const canonical = outputPagePath(name);
-					if (canonical !== name || pages.has(canonical)) throw new Error(`EXECUTION: duplicate or noncanonical output page: ${name}`);
+					if (canonical !== name || pages.has(canonical))
+						throw new Error(`EXECUTION: duplicate or noncanonical output page: ${name}`);
 					pages.set(canonical, text);
 				}
 			}

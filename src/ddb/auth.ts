@@ -14,12 +14,15 @@ export interface FetchResult {
 }
 
 /** A minimal HTTP fetch: the seam tests inject fakes through. */
-export type FetchInit = { method?: string; headers?: Record<string, string>; body?: string; redirect?: "manual" | "follow" | "error" };
+export type FetchInit = {
+	method?: string;
+	headers?: Record<string, string>;
+	body?: string;
+	redirect?: "manual" | "follow" | "error";
+};
 
 /** A minimal HTTP fetch: the seam tests inject fakes through. */
-export interface Fetcher {
-	(url: string, init?: FetchInit): Promise<FetchResult>;
-}
+export type Fetcher = (url: string, init?: FetchInit) => Promise<FetchResult>;
 
 /** Why a DDB request could not be authenticated, in a form the caller can show the DM. */
 export class DdbAuthError extends Error {
@@ -30,7 +33,8 @@ export class DdbAuthError extends Error {
 	}
 }
 
-const LOGIN_HINT = "save the DM's D&D Beyond login to the session file (the cf ddb --help Authentication section has the steps)";
+const LOGIN_HINT =
+	"save the DM's D&D Beyond login to the session file (the cf ddb --help Authentication section has the steps)";
 
 interface CobaltTokenResponse {
 	token?: string;
@@ -70,13 +74,19 @@ export class DdbAuth {
 				body: "{}",
 			});
 		} catch (error) {
-			throw new DdbAuthError(`The cobalt token exchange failed: ${(error as Error).message}`, "check the network, then retry");
+			throw new DdbAuthError(
+				`The cobalt token exchange failed: ${(error as Error).message}`,
+				"check the network, then retry",
+			);
 		}
 		if (response.status === 401 || response.status === 403) {
 			throw new DdbAuthError(`The stored D&D Beyond session was refused (${response.status}).`, LOGIN_HINT);
 		}
 		if (!response.ok) {
-			throw new DdbAuthError(`The cobalt token exchange failed: HTTP ${response.status}`, "check the network, then retry");
+			throw new DdbAuthError(
+				`The cobalt token exchange failed: HTTP ${response.status}`,
+				"check the network, then retry",
+			);
 		}
 		const data = JSON.parse(await response.text()) as CobaltTokenResponse;
 		if (!data.token) {

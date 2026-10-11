@@ -7,7 +7,8 @@
   "scripts": {
     "cfcli": "node src/cli.ts",
     "cf": "node src/cli.ts",
-    "lint:agent-text": "node src/cli.ts style .omp/skills/collab-with-me .omp/skills/lint .omp/agents/creative-writer.md .omp/agents/persona.md .omp/agents/transcript-reader.md docs/agents/scene-pages.md docs/agents/co-writing.md docs/agents/narrative-devices.md wiki/templates .agents/skills/plan-session .agents/skills/prep-session .agents/skills/hook-scene .agents/skills/development-scene .agents/skills/cliffhanger-scene .agents/skills/climax-scene .agents/skills/resolution-scene .agents/skills/theatre-of-the-mind .agents/skills/flesh-out .agents/skills/npc-design .agents/skills/faction-design .agents/skills/location-design .agents/skills/lore-design .agents/skills/creature-design .agents/skills/item-design .agents/skills/dungeon-design .agents/skills/vehicle-design .agents/skills/spell-design .agents/skills/simulate-npcs .agents/skills/new-campaign .agents/skills/ingest .agents/skills/audit .agents/skills/revealed-in-play .agents/skills/story-arc",
+    "lint": "node scripts/lint.ts",
+    "fix": "bun run lint --fix",
     "setup": "vale sync && vale --config .vale-narration.ini sync && node scripts/vale-patch.ts",
     "voice:envelope": "node scripts/voice-envelope.ts",
     "py:install": "uv sync --directory python",
@@ -16,7 +17,7 @@
     "py:fmt:check": "uv run --directory python ruff format --check .",
     "py:test": "uv run --directory python pytest",
     "py:test:slow": "uv run --directory python --extra highlights pytest -m slow",
-    "check:all": "bun run lint:agent-text && bun run typecheck && bun run test && bun run py:lint && bun run py:fmt:check && bun run py:test",
+    "check:all": "bun run lint --all && bun run test && bun run py:test",
     "typecheck": "tsc",
     "test": "vitest run",
     "eval:check": "bun evals/check.ts"
@@ -56,6 +57,7 @@
     "yazl": "^3.3.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
     "@foundryvtt/foundryvtt-cli": "^3.0.4",
     "@oh-my-pi/pi-coding-agent": "18.8.0",
     "@types/jsdom": "^30.0.0",

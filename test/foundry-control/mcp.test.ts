@@ -35,10 +35,17 @@ async function replyOf(registry: McpRegistry, line: string): Promise<Record<stri
 
 describe("handleLine", () => {
 	it("answers initialize by echoing the client protocol version", async () => {
-		const reply = await replyOf(stubRegistry(), request(1, "initialize", { protocolVersion: "2025-03-26", capabilities: {} }));
+		const reply = await replyOf(
+			stubRegistry(),
+			request(1, "initialize", { protocolVersion: "2025-03-26", capabilities: {} }),
+		);
 		expect(reply.id).toBe(1);
 		expect(reply.error).toBeUndefined();
-		const result = reply.result as { protocolVersion: string; serverInfo: { name: string }; capabilities: Record<string, unknown> };
+		const result = reply.result as {
+			protocolVersion: string;
+			serverInfo: { name: string };
+			capabilities: Record<string, unknown>;
+		};
 		expect(result.protocolVersion).toBe("2025-03-26");
 		expect(result.serverInfo.name).toBe(SERVER_INFO.name);
 		expect(result.capabilities.tools).toBeDefined();
@@ -49,14 +56,18 @@ describe("handleLine", () => {
 		const tools = (reply.result as { tools: { name: string; inputSchema: Record<string, unknown> }[] }).tools;
 		expect(tools).toHaveLength(23);
 		const patch = tools.find((t) => t.name === "document.patch");
-		expect(patch?.inputSchema.type).toBe("object");
-		expect((patch?.inputSchema.required as string[]).includes("uuid")).toBe(true);
-		expect((patch?.inputSchema.properties as Record<string, unknown>).dry_run).toBeDefined();
+		expect(patch).toBeDefined();
+		expect(patch!.inputSchema.type).toBe("object");
+		expect((patch!.inputSchema.required as string[]).includes("uuid")).toBe(true);
+		expect((patch!.inputSchema.properties as Record<string, unknown>).dry_run).toBeDefined();
 	});
 
 	it("runs a tool and returns its result as text content", async () => {
 		const registry = stubRegistry({ "document.patch": () => ({ dry_run: true, uuids: [] }) });
-		const reply = await replyOf(registry, request(3, "tools/call", { name: "document.patch", arguments: { uuid: "actors.7", changes: {} } }));
+		const reply = await replyOf(
+			registry,
+			request(3, "tools/call", { name: "document.patch", arguments: { uuid: "actors.7", changes: {} } }),
+		);
 		expect(reply.error).toBeUndefined();
 		expect(registry.calls).toEqual([{ tool: "document.patch", params: { uuid: "actors.7", changes: {} } }]);
 		const result = reply.result as { content: { type: string; text: string }[]; isError?: boolean };

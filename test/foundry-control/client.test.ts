@@ -80,7 +80,7 @@ describe("BridgeClient", () => {
 			const transport = new FakeTransport();
 			const client = new BridgeClient(transport);
 			const pending = client.call("document.get", { uuid: "Actor.abc" }, { timeoutMs: 5_000 });
-		const assertion = expect(pending).rejects.toThrow(/did not answer/i);
+			const assertion = expect(pending).rejects.toThrow(/did not answer/i);
 			await vi.advanceTimersByTimeAsync(5_001);
 			await assertion;
 			// A late reply for the timed-out id is ignored instead of throwing on an unknown id.

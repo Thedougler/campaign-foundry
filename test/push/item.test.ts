@@ -9,7 +9,10 @@ const vault = join(import.meta.dirname, "../fixtures/vault/salt-and-lantern");
 const ctx: RenderContext = { target: () => undefined, image: () => undefined };
 const load = (name: string): ReturnType<typeof buildItem> => {
 	const path = `Items/${name}.md`;
-	return buildItem(parsePage(path, readFileSync(join(vault, path), "utf8")), { campaign: "salt-and-lantern", render: ctx });
+	return buildItem(parsePage(path, readFileSync(join(vault, path), "utf8")), {
+		campaign: "salt-and-lantern",
+		render: ctx,
+	});
 };
 
 describe("buildItem", () => {

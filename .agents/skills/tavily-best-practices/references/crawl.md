@@ -24,12 +24,14 @@
 | **Best for** | RAG, deep analysis, documentation | Site structure discovery, URL collection |
 
 **Use Crawl when:**
+
 - Full content extraction needed
 - Building RAG systems
 - Processing paginated/nested content
 - Integration with knowledge bases
 
 **Use Map when:**
+
 - Quick site structure discovery
 - URL collection without content
 - Planning before crawling
@@ -75,6 +77,7 @@ response = client.crawl(
 ```
 
 **Key benefits:**
+
 - `instructions` guides crawler semantically, focusing on relevant content
 - `chunks_per_source` returns only relevant snippets (max 500 chars each)
 - Prevents context window explosion in agentic use cases
@@ -127,6 +130,7 @@ response = client.crawl(
 ## Use Cases
 
 ### 1. Deep/Unlinked Content
+
 Deeply nested pages, paginated archives, internal search-only content.
 
 ```python
@@ -141,6 +145,7 @@ response = client.crawl(
 ```
 
 ### 2. Documentation/Structured Content
+
 Documentation, changelogs, FAQs with nonstandard markup.
 
 ```python
@@ -153,6 +158,7 @@ response = client.crawl(
 ```
 
 ### 3. Multi-modal/Cross-referencing
+
 Combining information from multiple sections.
 
 ```python
@@ -165,6 +171,7 @@ response = client.crawl(
 ```
 
 ### 4. Rapidly Changing Content
+
 API docs, product announcements, news sections.
 
 ```python
@@ -188,6 +195,7 @@ response = client.crawl(
 ```
 
 ### 6. Compliance/Auditing
+
 Comprehensive content analysis for legal checks.
 
 ```python
@@ -202,6 +210,7 @@ response = client.crawl(
 ```
 
 ### 7. Known URL Patterns
+
 Sitemap-based crawling, section-specific extraction.
 
 ```python
@@ -248,6 +257,7 @@ response = client.extract(
 ```
 
 **Benefits:**
+
 - Discover site structure before committing to full crawl
 - Identify relevant path patterns
 - Avoid unnecessary extraction
@@ -268,6 +278,7 @@ Each depth level increases crawl time exponentially:
 | 3 | 500-5000 | Many minutes |
 
 **Best practices:**
+
 - Start with `max_depth=1` and increase only if needed
 - Use `max_breadth` to control horizontal expansion
 - Set appropriate `limit` to prevent excessive crawling
