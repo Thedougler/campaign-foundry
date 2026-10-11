@@ -1,13 +1,13 @@
 ---
 name: skill-creator
-description: Skill authoring — create or revise a skill, iterate through paired baseline evaluation and human feedback, or evaluate its description's trigger accuracy.
+description: Skill authoring — create a skill and iterate it through paired baseline evaluation and human feedback, run a paired-baseline revision the DM asks for, or evaluate a description's trigger accuracy.
 ---
 
 # Skill creator
 
 Capture intent, author through `skill-writer`, measure paired baselines, and revise from grades and DM feedback. Read `.omp/AGENTS.md` before dispatching for shared native-task policy.
 
-Boundary: `evals/README.md` is the only eval procedure and defines its branches. Eval of committed cases is `run-evals`' surface, the cross-family Narration Benchmark is `dnd-benchmark`'s, and Grades of writing are the `prose-grader` reading the prose. Route each request to the matching skill. After the skill exists and has a Design'd suite, further quality work is the README's Hillclimb.
+Boundary: `evals/README.md` is the only eval procedure and defines its branches. Eval of committed cases is `run-evals`' surface, the cross-family Narration Benchmark is `dnd-benchmark`'s, and Grades of writing are the `prose-grader` reading the prose. Route each request to the matching skill. Every other improvement or change to an existing skill runs through `skill://dogfood`.
 
 ## Shared helpers
 

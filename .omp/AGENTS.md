@@ -17,7 +17,7 @@ Read from the Backup and write to `wiki/`. **Wiki access** in `user-config.md`, 
 The `mnemopi` backend recalls past sessions. It injects a `<memories>` block on a session's first turn and retains completed turns as episodes, so the way a correction is worded is the way it is later recalled. DM decisions from the earlier backend are stored as facts beginning `Campaign Foundry DM decision (<heading>):` and arrive through recall.
 
 - **Follow** the injected `<memories>` block as background. A DM decision in it is standing direction, and the DM's current instruction overrides it. Check it against current repo state before acting on it.
-- **Recall** with one specific query through `xd://recall` when the task turns on a past session or a prior DM decision that neither the repo nor the injected block shows. Take Canon from the Wiki and project rules from the repo.
+- **Recall** through `xd://recall` before starting work on each DM request, with one specific query about its subject, and again when the task turns on a past session or prior DM decision that neither the repo nor the injected block shows. Take Canon from the Wiki and project rules from the repo.
 - **Restate** each DM correction, rejection or decision back in one durable sentence that says what to do and where it applies, leaving out this task's paths, ids and values.
 - **Promote** a decision that is a durable project rule to its repo owner under root `AGENTS.md` **The repo is the memory**, in the same change.
 - **Maintain** recalled memories in the same run. Repair a memory that is out of date or works against the DM's goals, and one that conflicts with the repo, the DM's current instruction or another memory, where the repo and the DM win. To repair it, read `memory://<id>` whole (recall previews are clipped) and `update` it through `xd://memory_edit`, or `invalidate` or `forget` it.
@@ -36,7 +36,7 @@ Subagents share one worktree, so they use read-only git (`status`, `diff`, `log`
 
 Select an agent by its responsibility:
 
-- `skill-writer` (`@SKILL-WRITER`) authors every large or novel change to agent-facing text: skills, `.omp/agents/`, `AGENTS.md`, runbooks and pointers. The orchestrator writes its briefs, owns acceptance criteria, eval fixtures, Wiki and integration, and leaves those files to it. Briefs leave the writer's own verification on, and the orchestrator reruns those checks only as acceptance. When the defect was observed in a run, wait until every ingest subagent in that batch has finished, then pass all of their finished `history://` transcripts together so the writer sees the issues directly.
+- `skill-writer` (`@SKILL-WRITER`) authors every large or novel change to agent-facing text: skills, `.omp/agents/`, `AGENTS.md`, runbooks and pointers, plus a skill's eval cases in `evals/cases.yaml` whenever they are authored or extended. The orchestrator writes its briefs, owns acceptance criteria, Wiki and integration, and leaves those files to it. The writer diagnoses past each brief and fixes the contributing factors it finds in the same patch (`.omp/agents/skill-writer.md` step 1). Briefs leave the writer's own verification on, and the orchestrator reruns those checks only as acceptance. When the defect was observed in a run, wait until every ingest subagent in that batch has finished, then pass all of their finished `history://` transcripts together so the writer sees the issues directly.
 - `test-subject` (`@TEST-SUBJECT`) runs each eval case or baseline and `prose-grader` (`@PROSE-GRADER`) grades rubrics independently; both are native `task` dispatches whose frontmatter `tools:` is read-only except Runner `bash` for diagnostic CLI, batched per `evals/README.md`.
 - `creative-writer` takes Seeds, Story drafts and other explicit creative-writing dispatches outside skill evals.
 - `persona` plays exactly one NPC in a Simulation, dispatched only by `simulate-npcs`.
@@ -57,7 +57,7 @@ Delegation stays native, except description trigger checks and Benchmark runners
 
 ## Tools
 
-- **Internal first.** Use the harness's own command where one exists: `omp commit` for commits, the mounted LSP, judge and QMD devices, and this repo's `cfcli` commands.
+- **Internal first.** Use the harness's own tools where one exists, such as the mounted LSP, judge and QMD devices, and this repo's `cfcli` commands for the rest. Run the `omp` binary only for the isolated `omp -p` processes a skill names.
 - **Read whole files.** Each `read` returns one window: 300 lines with no selector, and at most 3,000 with a range such as `page.md:1-3000`. A bare read of code shows declarations only. A long result from `read` or any other tool keeps its head and tail, and saves the full window to the `artifact://<id>` its footer names, which you read by range like a file. The whole file is read once you have followed every footer (`Use :N to continue`, `Read artifact://<id>`, the ranges it names to re-read) and none remains.
 - **Read `:raw`** (`page.md:raw`, `page.md:40-60:raw`) when exact text matters: frontmatter, a passage you quote or copy elsewhere, and text you compare with a source. Raw output has no line numbers or `#TAG`, so take an edit's tag from a plain `read` or `grep` of the lines you change.
 - **TypeScript diagnostics.** Edits don't report them, so request `lsp` diagnostics on touched TypeScript before reporting code complete.
@@ -72,11 +72,11 @@ Delegation stays native, except description trigger checks and Benchmark runners
 
 ## Skill tooling
 
-Skill measurement and improvement (Design, Eval, Hillclimb, Author, Benchmark and Playtest) follow the procedure in `evals/README.md`. The omp-native skills below are its invocation points:
+Skill improvement and change run through `skill://dogfood` (ADR 0034). Skill measurement (Design, Eval, Author, Benchmark, Playtest and a DM-requested Hillclimb) follows the procedure in `evals/README.md`. The omp-native skills below are its invocation points:
 
 - **Eval a skill.** Read `skill://run-evals` before running a skill's committed `evals/cases.yaml` and reporting.
 - **Benchmark Narration.** Read `skill://dnd-benchmark` before ranking Matrix families or refreshing the leaderboard.
-- **Author a skill.** Read `skill://skill-creator` before creating or revising a skill, planning paired baselines or testing its description.
+- **Author a skill.** Read `skill://skill-creator` before creating a skill, planning paired baselines or testing its description.
 
 Project skills live in `.omp/skills/` and `.agents/skills/`; where both hold a skill, the `.omp/` copy is the source of truth. `manage_skill` holds the DM's cross-project procedures; project skills, rules and decisions live in the repo.
 

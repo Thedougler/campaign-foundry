@@ -1,3 +1,6 @@
+import { mkdtemp, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { loadTemplates } from "../../src/vault/vault.ts";
 import { realTemplates } from "./helpers.ts";
@@ -32,5 +35,42 @@ describe("the real templates", () => {
 		expect(set.byName.get("Scene - Climax")?.sections).toEqual(["At a glance", "Threads", "Play", "Outcomes", "Depth"]);
 		expect(set.byName.get("Location - Site")?.callouts).toEqual(["narration"]);
 		expect(set.byName.get("hot")?.callouts).toEqual([]);
+	});
+});
+
+describe("loadTemplates: one template per (type, kind)", () => {
+	const load = async (files: Record<string, string>): Promise<Error | undefined> => {
+		const dir = await mkdtemp(join(tmpdir(), "cf-templates-"));
+		await Promise.all(Object.entries(files).map(([file, source]) => writeFile(join(dir, file), source)));
+		return loadTemplates(dir).then(
+			() => undefined,
+			(error: unknown) => error as Error,
+		);
+	};
+
+	it("throws naming both files when two kindless templates claim the same type", async () => {
+		const source = "---\ntype: Creature\n---\n";
+		const error = await load({ "creature.md": source, "beast.md": source });
+		expect(error).toBeInstanceOf(Error);
+		expect(error?.message).toContain("creature.md");
+		expect(error?.message).toContain("beast.md");
+	});
+
+	it("throws for a kinded clash too, naming the kind and both files", async () => {
+		const source = "---\ntype: Creature\nkind: Fast\n---\n";
+		const error = await load({ "creature-fast.md": source, "creature-swift.md": source });
+		expect(error).toBeInstanceOf(Error);
+		expect(error?.message).toContain("kind `Fast`");
+		expect(error?.message).toContain("creature-fast.md");
+		expect(error?.message).toContain("creature-swift.md");
+	});
+
+	it("loads a kinded template beside a kindless one of the same type", async () => {
+		const dir = await mkdtemp(join(tmpdir(), "cf-templates-"));
+		await writeFile(join(dir, "creature.md"), "---\ntype: Creature\n---\n");
+		await writeFile(join(dir, "creature-generic.md"), "---\ntype: Creature\nkind: Generic\n---\n");
+		const set = await loadTemplates(dir);
+		expect([...set.byName.keys()].sort()).toEqual(["Creature", "Creature - Generic"]);
+		expect(set.types.get("Creature")).toEqual(["Generic"]);
 	});
 });

@@ -50,7 +50,7 @@ Read one Backup page whole (`write` to `xd://mcp__notion_fetch`):
 QMD is the live local index of `wiki/`, `raw/` and `archive/`, re-indexed by the `qmd-refresh` post hook after each `write` or `edit` under them. Search it through the mounted MCP devices:
 
 - **Query.** Write JSON to `xd://mcp__qmd_query` (`read` the device once for its schema). Give each query an explicit `intent`. Lead with a `lex` sub-query on names and aliases, then add a `vec` or `hyde` sub-query on what the text says of the subject. Write a hyphenated name bare (`Nona Black-Jaw`), because a quoted phrase holding a hyphen skips the document.
-- **Collections.** A query without `collections` searches `wiki`. Put `raw`, `archive` or `agentic-co-dm` in `collections` to search those.
+- **Collections.** A query without `collections` searches `wiki`. Put `raw`, `archive`, `agentic-co-dm` or `inspired-by` in `collections` to search those.
 - **Retrieve.** Read each hit whole by its path or docid through `xd://mcp__qmd_get`, several at once through `xd://mcp__qmd_multi_get`, or with `read`, and answer from the retrieved text. A snippet only says where to read.
 
 A shell reaches `wiki`, `raw` and `archive` through the CLI, run from this project without `--index`:

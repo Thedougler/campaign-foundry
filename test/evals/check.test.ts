@@ -145,6 +145,16 @@ describe("eval:check gate", () => {
 		expect(warned.stdout).toContain("WARN  gate  Narration.StockTells");
 		expect(warned.stdout).toContain("1 gate warnings");
 	});
+
+	it("fails statblock arithmetic errors on output Creature pages through the CLI", async () => {
+		const creature = "salt-and-lantern/Creatures/Bandit Captain.md";
+		const clean = await evalCheck("gate-probe", output({ [creature]: writtenFixture[creature] as string }));
+		expect(clean.code).toBe(0);
+		const wrongHp = (writtenFixture[creature] as string).replace("hp: 52", "hp: 60");
+		const failed = await evalCheck("gate-probe", output({ [creature]: wrongHp }));
+		expect(failed.code).toBe(1);
+		expect(failed.stdout).toContain("FAIL  gate  hp-average");
+	});
 });
 
 it("prints output-directory help", async () => {

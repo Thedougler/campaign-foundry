@@ -70,6 +70,13 @@ export async function loadTemplates(templatesDir: string): Promise<TemplateSet> 
 		const fm = page.frontmatter ?? {};
 		const type = typeof fm.type === "string" && fm.type.trim() !== "" ? fm.type.trim() : name;
 		const kind = typeof fm.kind === "string" && fm.kind.trim() !== "" ? fm.kind.trim() : undefined;
+		const clash = byName.get(templateKey(type, kind));
+		if (clash) {
+			const shapes = kind === undefined ? `type \`${type}\`` : `type \`${type}\` kind \`${kind}\``;
+			throw new Error(
+				`templates/${clash.name}.md and templates/${path} both shape ${shapes}; give each (type, kind) pair one template.`,
+			);
+		}
 		byName.set(templateKey(type, kind), {
 			name,
 			type,

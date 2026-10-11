@@ -112,7 +112,7 @@ The DM's AI Fiction Prompting Guide (Second Brain, [ledger](research/agent-engin
 |Story packet: wants, fears, pressures and secrets|NPC drive fields (`npc-design`), PC Goals and bonds, Faction engines, Lore truths and their tellings|
 |Story packet: unresolved tensions and continuity|Threads, `hot.md` and `story-so-far.md` (`story-arc`), read by Prep and every Scene author|
 |Scene brief: purpose, conflict, subtext, beats and ending state|the Scene page and its Scene Chart row ([`docs/agents/scene-pages.md`](agents/scene-pages.md)), with the recipe's Job, Build and End for each callout; a Story Beat's brief in [`references/story.md`](../.omp/skills/collab-with-me/references/story.md)|
-|Style anchor|repo-root `user-config.md` § Prose voice, three matching passages from `reference/gm-voice/exemplars.md`, and an NPC's `## Quotes`|
+|Style anchor|repo-root `user-config.md` § Prose voice, three matching passages from repo-root `reference/gm-voice/exemplars.md`, and an NPC's `## Quotes`|
 |Editing pass|the Hunt in `theatre-of-the-mind` `references/critique.md`, which rewrites flagged lines in place, and the `prose-grader`'s named diagnoses|
 
 For Shattered Sea Narration and table craft, the DM's Prose voice and the exemplar-DM bar take precedence over the guide's generic style advice: ADR 0029 sets it for Narration, and ADR 0033 with [its analysis](research/creative-writing/expert-dm-actual-play.md) for the whole table.
@@ -138,7 +138,7 @@ For Shattered Sea Narration and table craft, the DM's Prose voice and the exempl
 |Presence facts a page stocks before its Narration|[`flesh-out`](../.agents/skills/flesh-out/SKILL.md)|
 |Narration craft|[`theatre-of-the-mind`](../.agents/skills/theatre-of-the-mind/SKILL.md)|
 |Cue craft|[`theatre-of-the-mind`](../.agents/skills/theatre-of-the-mind/SKILL.md), its recipes' Cues section|
-|Flagged words and phrases|the Vale YAML in [`.vale/styles/ai-tells/`](../.vale/styles/ai-tells/) and [`.vale/styles/Narration/`](../.vale/styles/Narration/); skills cite the rule ID|
+|Flagged words and phrases|the Vale YAML in [`.vale/styles/ai-tells/`](../.vale/styles/ai-tells/) and [`.vale/styles/Narration/`](../.vale/styles/Narration/); each finding gives its rule ID and passing form (ADR 0036)|
 |Gate layers and passing-form hints|[`src/check/layers/`](../src/check/layers/)|
 |Every gate finding binds|[`AGENTS.md`](../AGENTS.md) Working rules, Zero findings|
 |What counts as agent-facing content text|`STYLE_PATHS` in `scripts/lint/agents.ts`|

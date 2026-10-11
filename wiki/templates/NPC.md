@@ -7,16 +7,19 @@ creature: ""
 revealed: ""
 ---
 
+%% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
+
 %% Optional. Include it when this person has a portrait from `skill://visuals`: the bare embed below, named with the page's slug. %%
 
 ![[<slug>-portrait.webp]]
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Wants is an outcome the next Scene or Session can reach. Voice gives diction, rhythm, a habit, and how much they say. Found at links the Location. The `creature` property links the Creature page with their statistics, and the statblock belongs on that page. %%
+%% Give the DM a ten-second read, one line per bullet. Wants is an outcome the next Scene or Session can reach. Torn between opens on the present fear that steers what they do, or what they cannot do without, then the second true pressure it collides with in play. Voice gives diction, rhythm, a habit, and how much they say. Found at links the Location. The `creature` property links the Creature page with their statistics, and the statblock belongs on that page. %%
 
 - **Role.**
 - **Wants.**
+- **Torn between.**
 - **Voice.**
 - **Found at.**
 
@@ -25,9 +28,10 @@ revealed: ""
 
 ## Play
 
-%% Write how a meeting runs, one line per bullet, each from this person's own wants and limits. An incidental NPC keeps only the bullets its Scene uses. Opening move gives where they are and what they are doing, with their starting Attitude. Will share and Will not share set what they know beside what is true. Requests gives each likely ask with its answer as a Cue (`==…==`) in this person's own voice, its price and what it changes. If pressed gives the sourced Influence roll, or why a request is automatic, with the answer as a Cue. Invitations ties a returning NPC to a PC's own Goals, bonds or Plans, one line per PC it touches. %%
+%% Write how a meeting runs, one line per bullet, each from this person's own wants and limits. An incidental NPC keeps only the bullets its Scene uses. Opening move gives where they are and what they are doing, with their starting Attitude. Leverage gives what they can grant, deny, expose or call on, what using it costs them, and the limit that blocks their easy win. Will share and Will not share set what they know beside what is true. Requests gives each likely ask with its answer as a Cue (`==…==`) in this person's own voice, its price and what it changes. If pressed gives the sourced Influence roll, or why a request is automatic, with the answer as a Cue. Invitations ties a returning NPC to a PC's own Goals, bonds or Plans, one line per PC it touches. %%
 
 - **Opening move.**
+- **Leverage.**
 - **Opens them up.**
 - **Shuts them down.**
 - **Will share.**
@@ -51,7 +55,7 @@ revealed: ""
 
 ### Hidden truths
 
-%% Give each secret with who it is kept from and why. Add what exposure costs, its visible tell, and three distinct ways the Party can learn it. %%
+%% Give each secret with who it is kept from and why, and what this person knows of it and will share. Add what exposure costs, its visible tell, and three distinct ways the Party can learn it. %%
 
 ### Plan
 

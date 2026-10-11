@@ -7,6 +7,8 @@ status: ""
 revealed: ""
 ---
 
+%% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
+
 ## At a glance
 
 %% Give the DM a ten-second read, one line per bullet. Set `status` to active, dormant or resolved. Driven by links the Faction or NPC behind it. Stands at is where it is now. If nobody acts is the outcome its driver gets unopposed. %%

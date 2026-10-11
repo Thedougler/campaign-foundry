@@ -6,6 +6,8 @@ sources: []
 revealed: ""
 ---
 
+%% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
+
 ## At a glance
 
 %% Give each casting field in its 2024 value, one line per bullet. Components gives any costly material. Duration marks Concentration. The summary property is the lead line. %%

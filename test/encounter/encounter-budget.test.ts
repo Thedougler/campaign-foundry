@@ -122,3 +122,40 @@ describe("cfcli encounter-budget: usage errors", () => {
 		expect(xp.stderr).toContain("xp at least 0");
 	});
 });
+
+describe("cfcli encounter-budget: XP derived from CR", () => {
+	it("derives XP from the SRD 5.2.1 table when the xp field is empty or absent", async () => {
+		const cr12 = await cf([...levels5x4, "--creature", "Malone,12,,1"]);
+		expect(cr12.code).toBe(0);
+		expect(cr12.stdout).toContain("- 1 × Malone (CR 12, 8400 XP each) = 8400 XP");
+		const fraction = await cf([...levels5x4, "--monsters", JSON.stringify([{ name: "Orc", cr: "1/2", count: 2 }])]);
+		expect(fraction.code).toBe(0);
+		expect(fraction.stdout).toContain("- 2 × Orc (CR 1/2, 100 XP each) = 200 XP");
+		const zero = await cf([...levels5x4, "--monsters", JSON.stringify([{ name: "Awakened Shrub", cr: "0", count: 1 }])]);
+		expect(zero.code).toBe(0);
+		expect(zero.stdout).toContain("- 1 × Awakened Shrub (CR 0, 10 XP each) = 10 XP");
+	});
+
+	it("lets a given XP override the table", async () => {
+		const flag = await cf([...levels5x4, "--creature", "Veteran,3,3000,1"]);
+		expect(flag.code).toBe(0);
+		expect(flag.stdout).toContain("- 1 × Veteran (CR 3, 3000 XP each) = 3000 XP");
+		const json = await cf([
+			...levels5x4,
+			"--monsters",
+			JSON.stringify([{ name: "Veteran", cr: "3", xp: 3000, count: 1 }]),
+			"--json",
+		]);
+		expect(json.code).toBe(0);
+		expect(json.stdout).toContain('"xp": 3000');
+	});
+
+	it("exits 2 naming the CR when no XP is given and the CR is not in the table", async () => {
+		const flag = await cf([...levels5x4, "--creature", "Weird,1/3,,1"]);
+		expect(flag.code).toBe(2);
+		expect(flag.stderr).toContain("`1/3`");
+		const monsters = await cf([...levels5x4, "--monsters", JSON.stringify([{ name: "Weird", cr: "31", count: 1 }])]);
+		expect(monsters.code).toBe(2);
+		expect(monsters.stderr).toContain("`31`");
+	});
+});

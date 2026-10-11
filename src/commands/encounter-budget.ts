@@ -1,8 +1,10 @@
 import { Command, Option } from "commander";
 import { UsageError } from "../check/run.ts";
+import { parseCr } from "../check/statblock/parse.ts";
 import {
 	COMBAT_LEVEL_OFFSET,
 	DIFFICULTIES,
+	MONSTER_XP_BY_CR,
 	budgetLevels,
 	describeParty,
 	difficultyFor,
@@ -67,16 +69,34 @@ function parseCreatureFlag(text: string): CreatureSpend {
 		);
 	}
 	const count = Number(parts[parts.length - 1]);
-	const xp = Number(parts[parts.length - 2]);
+	const xpField = parts[parts.length - 2] ?? "";
 	const cr = parts[parts.length - 3] ?? "";
 	const name = parts.slice(0, -3).join(", ");
-	if (!Number.isInteger(xp) || xp < 0 || !Number.isInteger(count) || count < 1) {
+	if (
+		!Number.isInteger(count) ||
+		count < 1 ||
+		(xpField !== "" && (!Number.isInteger(Number(xpField)) || Number(xpField) < 0))
+	) {
 		throw new UsageError(
 			`xp and count must be whole numbers, xp at least 0, count at least 1, in --creature \`${text}\`.`,
 			`--creature "Orc,1/2,100,3". ${EXAMPLE}`,
 		);
 	}
+	const xp = xpField === "" ? xpFromCr(cr, `--creature \`${text}\``) : Number(xpField);
 	return { name, cr, xp, count };
+}
+
+/** XP for a CR from the SRD 5.2.1 Experience Points by Challenge Rating table. */
+function xpFromCr(cr: string, where: string): number {
+	const parsed = parseCr(cr);
+	const xp = parsed === undefined ? undefined : MONSTER_XP_BY_CR[parsed];
+	if (xp === undefined) {
+		throw new UsageError(
+			`CR \`${cr}\` in ${where} has no XP in the SRD 5.2.1 Experience Points by Challenge Rating table. Give XP, e.g. "Orc,1/2,100,3".`,
+			EXAMPLE,
+		);
+	}
+	return xp;
 }
 
 function parseMonstersJson(text: string): CreatureSpend[] {
@@ -95,7 +115,7 @@ function parseMonstersJson(text: string): CreatureSpend[] {
 			throw new UsageError("Each --monsters entry needs name, cr, xp, and count.", EXAMPLE);
 		}
 		const row = monster as Record<string, unknown>;
-		for (const key of ["name", "cr", "xp", "count"] as const) {
+		for (const key of ["name", "cr", "count"] as const) {
 			if (!(key in row)) {
 				throw new UsageError(`Each --monsters entry needs name, cr, xp, and count; missing '${key}'.`, EXAMPLE);
 			}
@@ -103,17 +123,18 @@ function parseMonstersJson(text: string): CreatureSpend[] {
 		if (typeof row.name !== "string" || (typeof row.cr !== "string" && typeof row.cr !== "number")) {
 			throw new UsageError("Each --monsters name must be a string and cr a string or number.", EXAMPLE);
 		}
+		const xp = row.xp === undefined ? xpFromCr(String(row.cr), "--monsters") : row.xp;
 		if (
-			typeof row.xp !== "number" ||
-			!Number.isInteger(row.xp) ||
-			row.xp < 0 ||
+			typeof xp !== "number" ||
+			!Number.isInteger(xp) ||
+			xp < 0 ||
 			typeof row.count !== "number" ||
 			!Number.isInteger(row.count) ||
 			row.count < 1
 		) {
 			throw new UsageError("xp and count must be whole numbers, xp at least 0, count at least 1.", EXAMPLE);
 		}
-		creatures.push({ name: row.name, cr: String(row.cr), xp: row.xp, count: row.count });
+		creatures.push({ name: row.name, cr: String(row.cr), xp, count: row.count });
 	}
 	return creatures;
 }
@@ -177,12 +198,12 @@ export function encounterBudgetCommand(): Command {
 		.addOption(
 			new Option(
 				"--creature <name,cr,xp,count>",
-				'one Creature type; repeat. XP comes from the Wiki or SRD statblock, e.g. "Orc,1/2,100,3"',
+				'one Creature type; repeat. XP optional: an empty field derives it from the CR, e.g. "Orc,1/2,100,3" or "Malone,12,,1"',
 			)
 				.argParser(collect)
 				.default([] as string[], "none"),
 		)
-		.option("--monsters <json>", 'JSON list [{name, cr, xp, count}]; "-" reads stdin')
+		.option("--monsters <json>", 'JSON list [{name, cr, xp, count}] with xp optional (derived from cr); "-" reads stdin')
 		.addOption(
 			new Option(
 				"--target <difficulty>",
@@ -198,11 +219,12 @@ XP math:
   recorded character level plus --level-offset (default ${COMBAT_LEVEL_OFFSET}):
   this table's Party fights about a level above the calculator. Cap 20.
   Pass sheet levels; do not pre-add the offset. Party budget is the sum.
-  Creature spend is count × XP from the retrieved statblock. No 2014
-  monster-count multiplier. Equal to a band's ceiling is that band; one XP
-  over High is Beyond High. This command classifies Creature XP. It does
-  not choose Creatures, rewrite Canon, or measure terrain, hazards, surprise,
-  depletion or objectives.
+  Creature spend is count × XP: given XP wins, else the SRD 5.2.1 Experience
+  Points by Challenge Rating table derives it from the CR (CR 0 counts as
+  10). No 2014 monster-count multiplier. Equal to a band's ceiling is that
+  band; one XP over High is Beyond High. This command classifies Creature
+  XP. It does not choose Creatures, rewrite Canon, or measure terrain,
+  hazards, surprise, depletion or objectives.
 
 Exit codes:
   0  printed    2  usage error
@@ -211,6 +233,7 @@ Examples:
   ${CF} encounter-budget --levels 5,5,5,5
   ${CF} encounter-budget --party-level 5 --party-size 4
   ${CF} encounter-budget --levels 5,5,6,4 --target high --creature "Orc,1/2,100,3"
+  ${CF} encounter-budget --levels 5,5,5,5 --creature "Malone,12,,1"
   ${CF} encounter-budget --levels 5,5,5,5 --monsters '[{"name":"Orc","cr":"1/2","xp":100,"count":3}]' --json
   printf '%s' '[{"name":"Orc","cr":"1/2","xp":100,"count":3}]' | ${CF} encounter-budget --levels 5,5,5,5 --monsters -`,
 		)

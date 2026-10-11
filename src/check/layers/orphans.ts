@@ -1,6 +1,8 @@
 import { buildLinkGraph } from "../../vault/links.ts";
 import type { Page } from "../../vault/types.ts";
+import { isSharedRootFolder } from "../placement-table.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
+import { dirOf } from "../util.ts";
 import { isFixedPage } from "../views.ts";
 
 const LAYER = "orphans";
@@ -37,11 +39,20 @@ function isRoot(page: Page): boolean {
 	return page.frontmatter?.type === "World" || page.frontmatter?.type === "Campaign";
 }
 
+/**
+ * Pages filed in a shared vault-root kind folder (`Creatures/`, `Items/`, … outside any Campaign folder) are
+ * World-agnostic and reusable, so no single page is their natural inbound linker.
+ */
+function isSharedRootPage(page: Page): boolean {
+	const segments = dirOf(page.path).split("/").filter(Boolean);
+	return segments.length === 1 && segments[0] !== undefined && isSharedRootFolder(segments[0]);
+}
+
 export function run(ctx: CheckContext): Finding[] {
 	const graph = buildLinkGraph(ctx.vault);
 	const findings: Finding[] = [];
 	for (const page of ctx.pages) {
-		if (isRoot(page)) continue;
+		if (isRoot(page) || isSharedRootPage(page)) continue;
 		const sources = [...(graph.inbound.get(page) ?? [])].filter((p) => !isFixedPage(p));
 		if (sources.length > 0) continue;
 		const type = typeof page.frontmatter?.type === "string" ? page.frontmatter.type : undefined;
@@ -62,6 +73,7 @@ export function run(ctx: CheckContext): Finding[] {
 export const orphansLayer: Layer = {
 	name: LAYER,
 	scope: "page",
-	description: "Every page has an inbound link from another page (index.md and log.md links do not count).",
+	description:
+		"Every page has an inbound link from another page (index.md and log.md links do not count; pages in shared vault-root kind folders are World-agnostic and exempt).",
 	run,
 };

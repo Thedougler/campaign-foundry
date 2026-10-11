@@ -66,6 +66,7 @@ Each question is one line: `- <id> · WHO|NAME|WHAT · L<a>–<b> · <question> 
   - what the DM narrates as happening;
   - a declared action once it is resolved;
   - DM rulings;
+  - the DM stating what inspired a subject of the World, such as the anime character behind an NPC, as a RULING;
   - lasting state changes.
 - Never record:
   - plans, suggestions, hypotheticals, "what if", rules debate, jokes, real-life talk, other games' lore, software setup;

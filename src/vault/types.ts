@@ -114,7 +114,7 @@ export interface Template {
 }
 
 export interface TemplateSet {
-	/** Keyed by `type`, or `<type> - <kind>` for a type with kinds, from each template's frontmatter. */
+	/** Keyed by `type` for a kindless template, or `<type> - <kind>` for a kinded one, from each template's frontmatter. */
 	byName: Map<string, Template>;
 	/** Every valid `type`, with its valid `kind` values (empty when the type has none). */
 	types: Map<string, string[]>;

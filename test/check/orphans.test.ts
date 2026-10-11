@@ -35,6 +35,10 @@ describe("orphans layer", () => {
 		expect(findingsFor(report, `${A}/NPCs/Linked From Orphan.md`)).toEqual([]);
 	});
 
+	it("exempts World-agnostic pages filed in a vault-root kind folder", () => {
+		expect(findingsFor(report, "Creatures/Shared Beast.md")).toEqual([]);
+	});
+
 	it("counts a frontmatter link both ways: the parent is linked, and so is the child", () => {
 		// Child Site has `parent: "[[Ravenhold]]"`; no body anywhere links to Child Site.
 		expect(findingsFor(report, `${A}/Locations/Ravenhold.md`)).toEqual([]);

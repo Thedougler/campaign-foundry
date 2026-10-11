@@ -22,6 +22,44 @@ export const XP_BUDGET_PER_CHARACTER: Record<number, readonly [number, number, n
 	20: [6400, 13200, 22000],
 };
 
+/** XP a monster is worth by numeric CR; parse with `parseCr`. CR 0 is "0 or 10" — 10 unless the statblock says 0. SRD 5.2.1, Experience Points by Challenge Rating. */
+export const MONSTER_XP_BY_CR: Record<number, number> = {
+	0: 10,
+	0.125: 25,
+	0.25: 50,
+	0.5: 100,
+	1: 200,
+	2: 450,
+	3: 700,
+	4: 1100,
+	5: 1800,
+	6: 2300,
+	7: 2900,
+	8: 3900,
+	9: 5000,
+	10: 5900,
+	11: 7200,
+	12: 8400,
+	13: 10000,
+	14: 11500,
+	15: 13000,
+	16: 15000,
+	17: 18000,
+	18: 20000,
+	19: 22000,
+	20: 25000,
+	21: 33000,
+	22: 41000,
+	23: 50000,
+	24: 62000,
+	25: 75000,
+	26: 90000,
+	27: 105000,
+	28: 120000,
+	29: 135000,
+	30: 155000,
+};
+
 export const DIFFICULTIES = ["low", "moderate", "high"] as const;
 export type Difficulty = (typeof DIFFICULTIES)[number];
 export type DifficultyLabel = Difficulty | "beyond high";

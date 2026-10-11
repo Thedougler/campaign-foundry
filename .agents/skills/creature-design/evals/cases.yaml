@@ -1,4 +1,4 @@
-# Adapts the recovered production retune ask in issue #34 into a complete Creature request.
+# Default case (creature split 2026-10-11: the in-world Creature page with every section). Adapts the recovered production retune ask in issue #34 into a complete Creature request.
 - id: creature
   source_pages:
     - shattered-sea/NPCs/talon-skarn.md
@@ -35,33 +35,70 @@
         - '!\[\[[^\]|]+#Statblock(\|[^\]]*)?\]\]'
   rubrics:
     - >-
-      Skarn is runnable from the page alone: complete rules, clear timing,
-      targets, limits and condition endings, concise tactics and an ending
-      condition. Theft is an interruptible contest with visible tells,
-      distinct tactical answers and meaningful positioning, control, flight
-      and allied rescue choices, not a required loss or overwhelming damage.
+      The fight is the one the DM asked for: Skarn goes for Crissdalynn's
+      Fate Spinner rather than a long brawl. The theft plays as an
+      interruptible contest with tells the Party can see coming, distinct
+      ways to stop it and real choices about position, flight and rescuing
+      an ally; it stays tense and winnable, never a required loss or a
+      damage race.
     - >-
-      The retune uses legal 2024 rules and this run's actual PC Sheets,
-      equipment and applicable House Rules, with Jean-Claude awake. A legal
-      short combat model and appropriate retrieved peer support likely
-      damage, control, survival and the chosen threat without erasing PC
-      strengths. Estimates are not invented rounds, totals or table feedback.
+      Skarn reads as this falcon-headed thief and nobody else: his look,
+      habits, traces and life outside a fight give the DM a peregrine monk
+      to play in a conversation or a chase, and each hidden truth has a
+      concrete way to come out in play.
     - >-
-      Skarn's appearance, habits, traces, habitat and discoverable background
-      express this peregrine thief rather than a generic flying boss.
-      Signatures have perceivable signs before contact and useful answers;
-      hidden truths have concrete ways to learn them.
+      The statblock is correct, complete and easy to run at the table under
+      the 2024 rules: clear timing, targets, limits and condition endings,
+      short tactics and a clear point where he breaks off, pitched as a
+      powerful antagonist without the DM rebuilding anything.
     - >-
-      Identity, knowledge, withdrawal and spent resources remain consistent
-      with the sources except for explicit DM changes. Present loyalty can
-      coexist with future Rule of Two rivalry. The unresolved Session 11
-      attack is not rewritten as a completed theft or breakoff; shared
-      consumers stay consistent and played records remain unchanged.
+      His established identity, knowledge, withdrawal and spent resources
+      hold except where the DM changed them. Present loyalty to Vantyrus can
+      sit beside a future Rule of Two rivalry, and the unresolved Session 11
+      attack is not rewritten as a completed theft or breakoff, with played
+      records unchanged.
     - >-
-      First sight is speakable after one hearing, putting Skarn in the
-      listeners' sight with concrete form specific to this falcon-headed monk
-      rather than a generic silhouette, size against something familiar on a
-      body scale or in one staged image rather than a than-verdict, a
-      grounded nonvisual detail and visible signature tells. It stops before
-      Players act and contains no PC feelings, mechanics, hidden motives or
-      unearned knowledge; established heard Narration is respected.
+      First sight lands in one hearing and puts Skarn in the listeners'
+      sight as this falcon-headed monk rather than a generic silhouette:
+      size against something familiar on a body scale or in one staged
+      image, a grounded detail beyond sight and the visible tells of his
+      signature. It stops before Players act, tells them no feelings,
+      mechanics, hidden motives or things their characters have not
+      learned, and respects Narration already heard at the table.
+
+# creature split 2026-10-11: generic reusable monster, statblock only, no World. Files a minimal `kind: Generic` page at the vault root's Creatures/ (wiki/templates/creature-generic.md). No source_pages by design (evals/README.md § Grounding); Design verdict pending its first baseline run. Derived-number arithmetic is the Checks' `statblock` gate layer, not a rubric.
+- id: generic-monster
+  prompt: >-
+    I want a monster for my own collection that isn't tied to any campaign
+    or world, so I can drop it into any game. Call it a Mire Lurker: a swamp
+    ambusher around CR 3 that bites, grabs someone and drags them under the
+    water. 2024 rules, and keep it easy to run.
+  checks:
+    pages:
+      - Creatures/mire-lurker.md
+    sections:
+      Creatures/mire-lurker.md:
+        - "## Statblock"
+    canon:
+      Creatures/mire-lurker.md:
+        - '^type:\s*Creature\s*$'
+        - '^kind:\s*Generic\s*$'
+        - '^```statblock\b'
+        - '^layout: Basic 5e Layout\s*$'
+        - '(Melee|Ranged) Attack Roll:'
+    absent:
+      Creatures/mire-lurker.md:
+        - '^##+ (?!Statblock\s*$)'
+        - '\[!narration\]'
+        - 'Weapon Attack:'
+  rubrics:
+    - >-
+      The statblock is correct, complete and easy to run at the table under
+      the 2024 rules at about CR 3: every entry gives its timing, targets,
+      reach or range and results. The grab names its escape, and the drag
+      under has a limit and at least two answers its own text gives.
+    - >-
+      The monster drops into any campaign: a plain kind name with no proper
+      noun, place, faction, deity or World fact, and no lore, tactics or
+      Narration beside the block. Every feature beyond its core attacks and
+      signature fits any setting and earns its place; nothing is padding.

@@ -8,6 +8,8 @@ parent: ""
 revealed: ""
 ---
 
+%% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
+
 %% Optional. Include it when the Settlement has a banner from `skill://visuals`: the bare embed below, named with the page's slug. %%
 
 ![[<slug>-banner.webp]]

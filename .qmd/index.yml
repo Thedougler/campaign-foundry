@@ -20,6 +20,12 @@ collections:
     includeByDefault: false
     context:
       /: "Archive: Raw material already ingested into the Wiki. Search only to trace where a page came from."
+  inspired-by:
+    path: .cache/inspired-by
+    pattern: "**/*.md"
+    includeByDefault: false
+    context:
+      /: "Inspired by: gitignored notes on the outside works a page's `inspired_by` names, cached for later runs. Never Canon."
 models:
   embed: hf:ggml-org/embeddinggemma-300M-GGUF/embeddinggemma-300M-Q8_0.gguf
   generate: hf:tobil/qmd-query-expansion-1.7B-gguf/qmd-query-expansion-1.7B-q4_k_m.gguf

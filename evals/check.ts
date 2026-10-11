@@ -23,9 +23,9 @@ Options:
 
 cases.yaml is a list of { id, prompt, source_pages, raw_sources, checks, rubrics }.
 Checks: pages (written by the run), sections, canon regexes and absent regexes. The .md extension is optional.
-After the case checks, the production gate (style and narration layers) runs read-only
-over the Outcome; findings on output pages become gate results — an error fails, a
-warning is reported (WARN) and passes.
+After the case checks, the production gate (style, narration and statblock layers) runs
+read-only over the Outcome; findings on output pages become gate results — an error fails,
+a warning is reported (WARN) and passes.
 Exit codes: 0 all passed, 1 a quality check failed, 2 usage/cases/output error.
 
 Example:
@@ -142,7 +142,7 @@ export function createOutcome(vault: string, outputRoot: string): Outcome {
 }
 
 /**
- * The production gate (`cfcli check`'s style and narration layers, ADR 0015) over the Outcome: the live
+ * The production gate (`cfcli check`'s style, narration and statblock layers, ADR 0015) over the Outcome: the live
  * Wiki with the run's output pages overlaid and its recorded deletions shadowing live pages. Read-only:
  * no `--fix`, and Vale's scratch lives in a temp directory. Findings are scoped to the run's output
  * pages — the Runner's writing — so live-Wiki noise never lands on a case. Setup failures (no Vale, no
@@ -162,7 +162,7 @@ export async function runGate(vaultDir: string, outputRoot: string): Promise<Fin
 			root: scratch,
 			cwd: vaultDir,
 			pagePaths: [...overlay.pages.keys()],
-			layers: ["style", "narration"],
+			layers: ["style", "narration", "statblock"],
 			display: (vaultPath) => vaultPath,
 		});
 		return result.findings;

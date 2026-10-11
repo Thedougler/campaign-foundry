@@ -1,8 +1,15 @@
 # Merges the recovered Malone scale-up ask with complete person and first-meeting play.
+# Design 2026-10-11: discriminating (baseline failed rubrics 2-4); PC and linked Thread pages added so tuning, invitations and plan ownership can use the actual Party and Threads.
 - id: npc
   source_pages:
     - shattered-sea/NPCs/aleksander-malone.md
     - shattered-sea/Quests/the-hound-of-god.md
+    - shattered-sea/Threads/the-crown-inspection.md
+    - shattered-sea/Threads/drowned-maw-awakening.md
+    - shattered-sea/PCs/crissdalynn-khinriss.md
+    - shattered-sea/PCs/delmar-fisk.md
+    - shattered-sea/PCs/jean-claude-tabarnack.md
+    - shattered-sea/PCs/perrin-black-jaw.md
   prompt: >-
     Scale up the Aleksander Malone statblock. He should be roughly equivalent
     in power to a level 12 player character, an optimized cleric, fighter,
@@ -43,40 +50,166 @@
         - '!\[\[[^\]|]+#Statblock(\|[^\]]*)?\]\]'
   rubrics:
     - >-
-      Malone is a person the DM can play from the page alone, with a distinct
-      repeatable face and voice, present want, leverage, cost, fear, limit and
-      contradiction. The first meeting has an opening move, likely requests,
-      useful answers and a next move if ignored; his exorcist identity shapes
-      behaviour instead of remaining a list of combat features.
+      Malone is a specific, living person a DM could play from this page
+      alone, not a stock zealot: a face and voice the DM can repeat, a want
+      he is acting on now, something he fears, a line he will not cross and
+      a contradiction that makes him more than his office. His exorcist
+      faith shapes how he talks, judges and chooses, not only how he fights.
     - >-
-      Social play respects his goals and refusal to negotiate a confirmed
-      judgement. Willingness and Attitude are distinct; any uncertain Influence
-      uses sourced 2024 rules with clear success and meaningful miss outcomes.
-      Secrets separate truth from what Malone knows or shares, and essential
-      conclusions have independent discovery routes rather than one mandatory
-      roll. Recurring invitations arise from actual PC Goals, bonds or Plans.
+      A meeting with Malone is ready to run: he opens with a move of his
+      own, the Party's likely questions get answers in his voice, a
+      confirmed judgement is plainly beyond bargaining, and the page says
+      what he does if ignored. What he hides can come out through play by
+      more than one route, and reasons to bring him back grow from actual
+      Goals, bonds or Plans of the PCs he would cross.
     - >-
-      His Creature is a runnable 2024 monster around the requested optimized
-      level-12 cleric/fighter/rogue exorcist, not a PC sheet. Clear timing,
-      targets, limits, condition endings and counterplay support play without
-      rebuilding class features. Retrieved peers and the actual Party support
-      power, durability and action economy; design estimates are honest.
+      The statblock is correct, complete and easy to run at the table: a
+      monster around the requested optimised level-12 cleric, fighter and
+      rogue exorcist, whose features a DM runs without rebuilding class
+      features or reading a PC sheet.
     - >-
-      The Crown confirmation leash, hunt for Grigori, knowledge limits and
-      established history survive. Any opposition plan is active and
-      interruptible, owned by an appropriate existing Thread rather than a
-      duplicate. Rules remain with the Creature and person, voice and wants
-      remain with the NPC; the work records no completed judgement, meeting
-      or fight and leaves played Session records intact.
+      Malone's established record stands: the Crown confirmation leash, his
+      hunt for Grigori, the limits of what he knows and his history read as
+      before. His plan moves forward from the existing Threads and can still
+      be interrupted, and nothing unplayed (a judgement, meeting or fight)
+      is written as having happened, with played Session records untouched.
     - >-
-      The NPC First look is built from Malone's established face and activity
-      on the starting page, places him in the Party's sight, and ends on his
-      complete first line with nothing after it. The line gives Players
-      something to answer without dumping his plan. It prescribes no PC
-      action or feeling and holds no mechanics, secrets or unearned
-      knowledge; heard Narration is respected.
+      The NPC First look is a moment the DM can read straight out: built
+      from Malone's established face and what he is doing, it places him in
+      the Party's sight and ends on his first full line with nothing after
+      it. The line gives Players something to answer without unloading his
+      plan, and the callout tells them no feelings, actions, mechanics,
+      secrets or things their characters have not learned; Narration
+      already heard at the table is respected.
     - >-
-      The linked Creature's First sight is speakable after one hearing, with
-      concrete form and size against something familiar, grounded sensory
-      detail and relevant visible tells. It stops before Players act and
-      holds no PC feelings, mechanics, secrets or unearned knowledge.
+      The Creature's First sight lands in one hearing: concrete form, size
+      against something familiar, a grounded sensory detail and the visible
+      tells of how he fights. It stops before Players act and tells them no
+      feelings, mechanics, secrets or things their characters have not
+      learned.
+
+# npc split 2026-10-11: complex recurring NPC, no statistics.
+- id: npc-no-statblock
+  source_pages:
+    - shattered-sea/NPCs/nona-black-jaw.md
+    - shattered-sea/Threads/perrin-and-nona.md
+    - shattered-sea/Threads/what-sunk-the-vestra.md
+    - shattered-sea/PCs/crissdalynn-khinriss.md
+    - shattered-sea/PCs/delmar-fisk.md
+    - shattered-sea/PCs/jean-claude-tabarnack.md
+    - shattered-sea/PCs/perrin-black-jaw.md
+  prompt: >-
+    Nona Black-Jaw has been mostly a voice on the sending stone. Deepen her
+    page so I can run her properly as the recurring social NPC she is: Perrin
+    owes her the report home once the Party is off the island, and when they
+    make it back to her kitchen there will be trade to do. Give me the
+    matriarch under the favours — what she wants now that the rescue work is
+    half done, what she grants and at what price, what she will not trade,
+    and where her family feeling and the network pull against each other.
+    Then make the meeting runnable: how she opens on them, what they are
+    likely to ask, and her answers in her own voice. She is a fixer, not a
+    fighter.
+  checks:
+    pages:
+      - shattered-sea/NPCs/nona-black-jaw.md
+    sections:
+      shattered-sea/NPCs/nona-black-jaw.md:
+        - "## At a glance"
+        - "## Play"
+        - "### History"
+        - "### Hidden truths"
+        - "### Threads"
+        - "## Links"
+    canon:
+      shattered-sea/NPCs/nona-black-jaw.md:
+        - '^type:\s*NPC\s*$'
+        - '\[!narration\] First look'
+    absent:
+      shattered-sea/NPCs/nona-black-jaw.md:
+        - '^```statblock\b'
+        - '!\[\[[^\]|]+#Statblock(\|[^\]]*)?\]\]'
+  rubrics:
+    - >-
+      Nona plays from the page alone as a matriarch who rules from her
+      kitchen, not a quest-giver: a voice the DM can repeat, a want of her
+      own now the rescue work is half done, favours she grants at a real
+      price, the thing she will not trade, and a live pull between family
+      feeling and the network that shows in what she does at the table.
+    - >-
+      The kitchen meeting is ready to run: she opens on the Party with a
+      move of her own, and the asks they are likely to bring (the report
+      home, Passage routes, shelter from the Crown, word of the missing, the
+      truth about the Vestra) each get an answer in her voice with its price
+      or refusal. When the Party pushes and loses, the road complicates
+      rather than closes, and each essential truth has more than one way out
+      of her.
+    - >-
+      Her record survives the deepening: the Calveno Candle history,
+      Vincenzo, the Black-Jaw rule she trained Perrin in, the Mercatura
+      missing, and what she does and does not know about the Vestra's
+      sinking stay as established. The pass records no played report,
+      kitchen meeting or reckoning, leaves played Session pages intact, and
+      her next move extends the record instead of contradicting it.
+    - >-
+      Each invitation grows from an actual Goal, bond or Plan of the PC it
+      touches (Perrin's family obligation, Delmar's kept crew, Crissdalynn's
+      pilgrimage, Jean-Claude's need to stay ahead of hunters) and offers
+      that PC a real choice with a cost. PCs without a live hook get none
+      rather than an invented prior relationship.
+    - >-
+      She stays a person without numbers of her own: the run invents no
+      statistics or bespoke Creature for her, and her creature link points
+      only at a Creature that already exists and fits a matriarch who rules
+      from a kitchen, or at none.
+
+# npc split 2026-10-11: simple incidental NPC, no statistics of its own.
+- id: npc-simple
+  source_pages:
+    - shattered-sea/NPCs/thunk.md
+    - shattered-sea/Vehicles/uncertainty.md
+  prompt: >-
+    Give Thunk a light pass ahead of the Party getting back to the
+    Uncertainty. He stayed aboard through the island, and he will be the
+    first face they meet on the gun deck when they come up the gangway. I
+    want him ready for that one Scene: what he is doing when they find him,
+    what he wants right then, and a line he would actually say. Keep him
+    light — crew colour, not a subplot.
+  checks:
+    pages:
+      - shattered-sea/NPCs/thunk.md
+    sections:
+      shattered-sea/NPCs/thunk.md:
+        - "## At a glance"
+        - "## Play"
+        - "### History"
+        - "### Hidden truths"
+        - "### Threads"
+        - "## Links"
+    canon:
+      shattered-sea/NPCs/thunk.md:
+        - '^type:\s*NPC\s*$'
+        - '\[!narration\] First look'
+    absent:
+      shattered-sea/NPCs/thunk.md:
+        - '^```statblock\b'
+        - '!\[\[[^\]|]+#Statblock(\|[^\]]*)?\]\]'
+        - '\[\[thunk-creature'
+  rubrics:
+    - >-
+      Thunk is ready for the gun-deck moment: what he is doing as the Party
+      comes up the gangway, what he wants right then, a line in his
+      established voice the DM can say straight out, and what he does next.
+      He reads as a particular crewman rather than generic ship colour.
+    - >-
+      He stays light at crew scale: the pass adds no biography, secret web,
+      social procedure or subplot beyond what that one Scene uses.
+    - >-
+      His played record survives: the Tallow Row silver, the break-room claim
+      and Nona's answer over it, the two served guns of the broadside and
+      the reef run stay as played facts, the crew rules stand as his stated
+      combat basis, and the pass records no completed Scene, refit or fight.
+    - >-
+      He gains no numbers of his own: nowhere in the run is a bespoke
+      Creature or unique statistic invented for him, and his creature
+      property points only at a Creature that already exists and fits him,
+      or stays empty as it is.

@@ -8,7 +8,7 @@ Summarise the Party's combined nova, sustained damage, healing, hard control, mo
 
 ## 2024 encounter budget
 
-Run `bun run cfcli -- encounter-budget --help`, then print the actual Party's Low, Moderate and High totals (`--levels` of every participating PC, sheet levels, not pre-offset). The CLI adds +1 combat level by default. Pass `--creature "Name,CR,XP,count"` for the requested count using XP from the retrieved statblock. If the caller says **Hard**, map it to the 2024 **High** budget in the notes. Keep the budget label separate from the Creature's CR estimate. The printout classifies Creature XP. It does not choose the Creature, rewrite Canon, or measure terrain, hazards or objectives, so account for those in the three-round model.
+Run `bun run cfcli -- encounter-budget --help`, then print the actual Party's Low, Moderate and High totals, with `--levels` set to each participating PC's level as its page records it. The CLI adds the Campaign's +1 combat level itself, so a level raised by hand counts the offset twice. Pass `--creature "Name,CR,XP,count"` for the requested count using XP from the retrieved statblock. If the caller says **Hard**, map it to the 2024 **High** budget in the notes. Keep the budget label separate from the Creature's CR estimate. The printout classifies Creature XP. It does not choose the Creature, rewrite Canon, or measure terrain, hazards or objectives, so account for those in the three-round model.
 
 ## Three-round model
 
@@ -32,6 +32,6 @@ Use realistic area targets and list the assumed count. Apply advantage, disadvan
 
 ## CR and trade-offs
 
-Find a close published 2024 peer and cite it in the body or working record. Label defensive CR and offensive CR as **estimates** grounded in that peer and the observed output. Do not invent a 2024 CR formula and do not force the two estimates into an average. The statblock's `cr` is the deliberate label for the chosen peer or design. Explain any divergence from the Party tuning.
+Find a close published 2024 peer by CR (`dnd5e-srd-api` § Filters) and cite it in the body or working record. Label defensive CR and offensive CR as **estimates** grounded in that peer and the observed output. Do not invent a 2024 CR formula and do not force the two estimates into an average. The statblock's `cr` is the deliberate label for the chosen peer or design. Explain any divergence from the Party tuning.
 
 Trade durability, damage, control, mobility and action economy. Do not stack high AC, large HP, broad resistances, immunities, regeneration, escape and control without a fiction-backed reason and a player answer. Every lethal or hard-control signature has a visible tell, at least two mechanically usable answers, and a payoff or opening when answered. Bosses and solo Creatures need a concrete escalation, and each Creature needs a morale or ending condition.

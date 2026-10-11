@@ -73,6 +73,7 @@ function resolvePages(ctx: CheckContext, findings: Finding[]): Resolved[] {
 		}
 		const kind = isBlank(fm.kind) ? undefined : fm.kind;
 		const kindLine = page.frontmatterKeyLines.kind ?? typeLine;
+		const kindless = findTemplate(ctx.templates, type);
 		if (kinds.length === 0) {
 			if (kind !== undefined)
 				at(
@@ -81,11 +82,15 @@ function resolvePages(ctx: CheckContext, findings: Finding[]): Resolved[] {
 					`Type \`${type}\` has no kinds, but the page sets \`kind: ${String(kind)}\`.`,
 					`Remove the \`kind\` property; only ${quoteList([...ctx.templates.types].filter(([, k]) => k.length > 0).map(([t]) => t))} take a kind.`,
 				);
-			const template = findTemplate(ctx.templates, type);
-			if (template) resolved.push({ page, template });
+			if (kindless) resolved.push({ page, template: kindless });
 			continue;
 		}
 		if (kind === undefined || typeof kind !== "string") {
+			// A type can carry a kinded template beside a kindless one: a page with no `kind` keeps the kindless template.
+			if (kindless) {
+				resolved.push({ page, template: kindless });
+				continue;
+			}
 			at(
 				"missing-kind",
 				typeLine,

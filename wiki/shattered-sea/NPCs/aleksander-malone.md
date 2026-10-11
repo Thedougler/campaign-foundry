@@ -6,6 +6,7 @@ sources:
   - "archive/aleksander-malone.md"
   - "archive/collab-2026-10-04-authority-themes.md"
   - "archive/Episode-09-Transcript.md"
+inspired_by: "Aleksander Anderson from the Hellsing anime"
 creature: ""
 revealed: "Session 9"
 title: "Aleksander Malone"

@@ -25,11 +25,15 @@ const NARRATION_HINTS: Record<string, string> = {
 		"Use theatre-of-the-mind, People: give the person a physical cue tied to their want, e.g. 'her jaw clenches' becomes 'she plants a boot against the door and holds out her hand for the key'.",
 };
 
-function hintFor(check: string): string {
+function hintFor(check: string, span: string): string {
 	const narration = NARRATION_HINTS[check];
-	if (narration) return narration;
 	const [style = "", rule = check] = check.split(".");
-	return `Reword the flagged text in plain, concrete words, keeping what it says true. The rule is defined in .vale/styles/${style}/${rule}.yml. The rule stands: rewrite until it clears. Only an obvious misfire on literal campaign meaning (a ship that is a ship) goes to the DM, who alone may switch a rule off in .vale.ini.`;
+	const hint =
+		narration ??
+		`Reword the flagged text in plain, concrete words, keeping what it says true. The rule is defined in .vale/styles/${style}/${rule}.yml. The rule stands: rewrite until it clears. Only an obvious misfire on literal campaign meaning (a ship that is a ship) goes to the DM, who alone may switch a rule off in .vale.ini.`;
+	// The finding quotes the masked view, so a stand-in in the span must be explained there: the skill no longer holds the catalogue.
+	const standIn = STAND_IN_WORD.exec(span)?.[0];
+	return standIn ? `${hint} '${standIn}' in the quoted text is the checker's stand-in for a page's name.` : hint;
 }
 
 /**
@@ -68,7 +72,10 @@ function quoteMask(line: string): boolean[] {
 }
 
 // A masked name's stand-in (see prose.ts): whatever its source, it is a name.
-const MASK_STAND_IN = /^(?:Person|People|Place|Ship|Object|Placename[a-z]*)$/;
+const STAND_INS = "Person|People|Place|Ship|Object|Placename[a-z]*";
+const MASK_STAND_IN = new RegExp(`^(?:${STAND_INS})$`);
+// The same stand-ins as a whole word inside a flagged span: the finding quotes the mask, not the name.
+const STAND_IN_WORD = new RegExp(`\\b(?:${STAND_INS})\\b`);
 
 /** Whether every occurrence of `match` on the line sits inside double quotes: quoted speech is NPC voice, not narration. */
 function allQuoted(line: string, match: string): boolean {
@@ -135,7 +142,7 @@ function findingFor(
 		line: alert.Line,
 		// The upstream ai-tells package ends messages with "Disable this rule for X prose."; only the DM disables a rule (.vale.ini).
 		message: alert.Message.replace(/\s*Disable this rule\b[^.]*\./g, ""),
-		hint: hintFor(alert.Check),
+		hint: hintFor(alert.Check, alert.Match),
 	};
 }
 
@@ -153,7 +160,7 @@ function narrationFinding(alert: ValeAlert, lineText: string): CachedFinding | n
 		line: alert.Line,
 		// The upstream packages end messages with "Disable this rule ..."; only the DM disables a rule (.vale-narration.ini).
 		message: alert.Message.replace(/\s*Disable this rule\b[^.]*\./g, ""),
-		hint: hintFor(alert.Check),
+		hint: hintFor(alert.Check, alert.Match),
 	};
 }
 

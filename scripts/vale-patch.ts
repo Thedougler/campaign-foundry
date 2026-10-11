@@ -132,6 +132,23 @@ const replacements: { file: string; old: string; replacement: string }[] = [
 		old: String.raw`(?<!net )(?<!-)\\bworth\\b(?! of\\b)`,
 		replacement: String.raw`(?<!net )(?<!-)(?<!\\b(?:man|men|woman|women|person|people|players?|PCs?) (?:is|was|are|were) )\\bworth\\b(?! of\\b)`,
 	},
+	// Messages reworded for campaign prose (DM decision 2026-10-11): each states what the rule matches and its
+	// passing form. Only the `message:` line changes; tokens and exceptions stay upstream's.
+	{
+		file: ".vale/styles/ai-tells/VerbTricolon.yml",
+		old: `message: "AI tricolon: '%s'. Exactly three parallel verbs in series. Restructure or vary the count."`,
+		replacement: `message: "AI tricolon: '%s'. Three comma-joined parts in one sentence after a verb, modal, pronoun or colon, adjective runs and appositives included. Give two parts or four, or split the sentence."`,
+	},
+	{
+		file: ".vale/styles/ai-tells/AnthropomorphicCognition.yml",
+		old: `message: "AI anthropomorphism: '%s'. State what the tool checks or produces. Disable this rule for prose about people."`,
+		replacement: `message: "AI anthropomorphism: '%s'. A verb of mind (asks, knows, wants, decides) has a thing or an unnamed role as its subject. Give it a named person or a pronoun ('Malone asks', 'he decides'), or say what the thing checks or contains. Disable this rule for prose about people."`,
+	},
+	{
+		file: ".vale/styles/ai-tells/BareReaches.yml",
+		old: `message: "AI arrival metaphor: '%s'. Say which step handles it, or where it is sent. Disable this rule for transit or physics prose."`,
+		replacement: `message: "AI arrival metaphor: '%s'. A thing, group or unnamed role reaches something. Name the person or vessel that travels or carries it ('a Crown courier finds him'), or say where it is sent. Disable this rule for transit or physics prose."`,
+	},
 ];
 
 for (const { file, exception } of patches) {

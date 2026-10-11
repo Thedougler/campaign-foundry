@@ -6,6 +6,8 @@ sources: []
 revealed: ""
 ---
 
+%% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
+
 ## At a glance
 
 %% Give the DM a ten-second read, one line per bullet. Write the truth as one plain sentence. Who knows it links the NPCs and Factions who act on it. Limits gives what the truth leaves out. Reaches play through links the person, place or prize it touches in the current Campaign. %%

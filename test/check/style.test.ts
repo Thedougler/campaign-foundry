@@ -179,6 +179,36 @@ describe("style adapter contract", () => {
 		expect(found.map((finding) => [finding.rule, finding.line])).toEqual([["ai-tells.FigurativeCarries", 3]]);
 	});
 
+	it("appends the stand-in sentence when the flagged span quotes a masked page name", async () => {
+		const ctx = await context("The Saltwright reaches him before dawn.\n", {
+			"Saltwright.md": "---\ntype: Vehicle\n---\nA ship waits.\n",
+		});
+		const found = await styleLayerWith({
+			async check(pass) {
+				expect(pass.files["Target.md"]).toBe("The Ship reaches him before dawn.\n");
+				return new Map([
+					["Target.md", pass.config === "gate" ? [alert("ai-tells.BareReaches", 1, "The Ship reaches him")] : []],
+				]);
+			},
+		}).run(ctx);
+		expect(found).toHaveLength(1);
+		expect(found[0]?.hint).toContain(".vale/styles/ai-tells/BareReaches.yml");
+		expect(found[0]?.hint).toContain("'Ship' in the quoted text is the checker's stand-in for a page's name.");
+	});
+
+	it("leaves the hint unchanged when the flagged span quotes no stand-in", async () => {
+		const ctx = await context("The keeper waits.\n");
+		const found = await styleLayerWith({
+			async check(pass) {
+				return new Map([
+					["Target.md", pass.config === "gate" ? [alert("ai-tells.Staccato", 1, "keeper waits")] : []],
+				]);
+			},
+		}).run(ctx);
+		expect(found).toHaveLength(1);
+		expect(found[0]?.hint).not.toContain("stand-in");
+	});
+
 	it("drops confirmed quoted counts and proper-noun colons, but preserves literal DM-prose hits", async () => {
 		const ctx = await context(
 			[

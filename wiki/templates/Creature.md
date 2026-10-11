@@ -6,13 +6,15 @@ sources: []
 revealed: ""
 ---
 
+%% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
+
 %% Optional. Include it when this Creature has a portrait from `skill://visuals`: the bare embed below, named with the page's slug. %%
 
 ![[<slug>-portrait.webp]]
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Role at the table is the job it does on its first turn. Threat gives its CR and what it does to this Party. Tell is the wind-up the Players see before its signature strikes. Weak to is an action the Party can take. Used by links every NPC and page that uses these statistics. %%
+%% Give the DM a ten-second read, one line per bullet. Role at the table is the job it does on its first turn. Threat gives its CR and what it does to this Party. Tell is the wind-up the Players see before its signature strikes. Weak to is an action the Party can take. Used by links every NPC and page that uses these statistics. A Creature made for one NPC still fills every section with its body, habits and habitat, and leaves that person's voice, talk, bonds and history to the NPC page. %%
 
 - **Role at the table.**
 - **Threat.**
@@ -25,7 +27,7 @@ revealed: ""
 
 ## Statblock
 
-%% Use Fantasy Statblocks, Basic 5e Layout and the 2024 rules. Write every derived number out. That covers ability modifiers and the proficiency bonus by CR, attack bonuses and save DCs, passive Perception, and HP from Hit Dice and Con (`hit_dice` includes the Con term, as in "8d8 + 16"). Attacks use the 2024 format. Delete the YAML comments once the fields are filled. %%
+%% Write this block per `skill://fantasy-statblock`: the Fantasy Statblocks `Basic 5e Layout` fields, 2024 wording, and every derived number written out. Delete the YAML comments once the fields are filled. %%
 
 ```statblock
 layout: Basic 5e Layout

@@ -2,20 +2,20 @@
 
 ## Creature page
 
-The template is the page schema. Copy `wiki/templates/creature.md` and file the page at `<campaign-folder>/Creatures/<slug>.md`, the slug of its `title` (`docs/wiki-layout.md` **Page names**). A page already filed keeps its folder. Keep its required frontmatter, headings, single `[!narration]` callout, Base block and one `statblock` fence with `layout: Basic 5e Layout`. Do not create a second schema or a separate statblock page.
+The template is the page schema. Copy `wiki/templates/creature.md` and file the page at `<campaign-folder>/Creatures/<slug>.md`, the slug of its `title` (`docs/wiki-layout.md` **Page names**). A page already filed keeps its folder. Keep its required frontmatter, headings, single `[!narration]` callout, Base block and one `statblock` fence. Do not create a second schema or a separate statblock page.
 
 Fill the template in its existing order:
 
 - **At a glance:** role, threat against this Party, visible tell, a weakness the Party can exploit, and every NPC or other page that uses the Creature.
 - **First sight:** theatre-of-the-mind Narration containing body and size, striking feature, surface, one sound or smell, behaviour at rest, and the visible appearance behind each signature. Keep rules, secrets and unearned names out of the Players' description.
-- **Statblock:** complete 2024 rules text and every derived field the template requests.
+- **Statblock:** complete 2024 rules text, written per `skill://fantasy-statblock`.
 - **Play:** the Tactics and Outside a fight subsections. Tactics names the opening, tell, threat, at least two answers, payoff, countered behaviour, shutdown, morale and escalation where relevant.
 - **Depth:** the Ecology and Hidden truths subsections. Include habitat, diet, social life, ecological traces, local use or fear, origin and learnable truths.
 - **Links:** retain the template's generated Base view.
 
 Every signature ability has both an ecological sign before contact and a visible tell in First sight. Use concrete role language. Ordinary reused stats stay concise: do not add bespoke tuning or elaborate fiction when the request only needs an ordinary Creature, but still file complete sourced rules text and the required template sections.
 
-A Creature is rules, never an NPC identity. An NPC page owns history, personality and relationships and points to the shared Creature with `creature: "[[<slug>|<Title>]]"`. Do not make a person-specific Creature when a shared block is requested. Each NPC links one Creature, and many NPCs and Encounters may share one Creature page.
+A Creature is rules, never an NPC identity. An NPC page owns history, personality, voice, wants, spoken lines and relationships, and points to its Creature with `creature: "[[<creature-slug>|<Creature page title>]]"`, such as `"[[otar-the-foul-creature|Otar the Foul (Creature)]]"`. A Creature made for one NPC keeps every template section and fills it with that body's habits. Its Outside a fight gives its silent behaviour at rest, and its Ecology gives habitat, traces and origin. The person's voice, talk, bonds and history stay on the NPC page. Do not make a person-specific Creature when a shared block is requested. Each NPC links one Creature, and many NPCs and Encounters may share one Creature page.
 
 ## Retunes and played records
 

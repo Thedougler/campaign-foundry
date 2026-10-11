@@ -17,10 +17,10 @@ Every figure in the answer is read from a fetched response.
 
 ## Rules text
 
-The 2024 API has no `rules` or glossary endpoint and no vehicles. Rules Glossary entries (Influence and the other actions, Attitude, Short Rest, Long Rest), Playing the Game sections (Social Interaction, Exploration, Travel) and Equipment's Mounts and Vehicles come from the [SRD 5.2.1 PDF](https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf), the official machine-readable copy. D&D Beyond's Free Rules pages return only site chrome to `read`.
+The 2024 API has no `rules` or glossary endpoint and no vehicles, and it lacks some SRD monsters (`monsters/vampire` is a 404). Rules Glossary entries (Influence and the other actions, Attitude, Short Rest, Long Rest), Playing the Game sections (Social Interaction, Exploration, Travel), Equipment's Mounts and Vehicles and every monster statblock come from the [SRD 5.2.1 PDF](https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf), the official machine-readable copy. D&D Beyond's Free Rules pages return only site chrome to `read`.
 
 1. **Convert once.** When `/tmp/srd-5.2.1.txt` is missing: `curl -s -o /tmp/srd-5.2.1.pdf https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf && pdftotext -raw /tmp/srd-5.2.1.pdf /tmp/srd-5.2.1.txt`.
-2. **Find the heading.** Find it with the `grep` tool (pattern `<heading>`, path `/tmp/srd-5.2.1.txt`). Glossary entries read `Name [Tag]` (`Influence [Action]`, `Friendly [Attitude]`, `Blinded [Condition]`) or a bare name (`Long Rest`). Chapter sections are bare headings (`Social Interaction`).
+2. **Find the heading.** Find it with the `grep` tool (pattern `<heading>`, path `/tmp/srd-5.2.1.txt`). Glossary entries read `Name [Tag]` (`Influence [Action]`, `Friendly [Attitude]`, `Blinded [Condition]`) or a bare name (`Long Rest`). Chapter sections are bare headings (`Social Interaction`). A monster statblock opens on its bare name, followed by its size, type and alignment line (`Medium or Small Undead, Lawful Evil`).
 3. **Read the entry.** `read` from the hit to the next heading.
 
 Retell the text in fresh words and cite the PDF with the section or glossary entry.
@@ -49,7 +49,7 @@ List endpoints take query filters. Comma-separated values are OR.
 | any | `name` (case-insensitive substring) |
 | `spells` | `level=1,2` `school=Evocation` |
 
-Filters combine: `spells?level=3&school=Evocation`. Monster lists hold only `index` and `name`, so select by challenge rating by fetching the candidates and filtering `.challenge_rating` with `jq`.
+Filters combine: `spells?level=3&school=Evocation`. Monster lists hold only `index` and `name`. To find monsters by challenge rating, use the PDF ([Rules text](#rules-text)): grep `CR 14 \(XP` to find every CR 14 statblock's CR line, `CR 14 (XP 11,500; PB +5)`. The monster's name heads its block about a dozen lines above that hit.
 
 ## Gotchas
 
@@ -57,7 +57,7 @@ Filters combine: `spells?level=3&school=Evocation`. Monster lists hold only `ind
 - **Bad filters are ignored.** `?bogus=1` or `monsters?challenge_rating=1` returns the whole collection with status 200. A `count` equal to the full collection size is the tell.
 - **List shape varies.** Most collections return `{count, results}`. `classes/{index}/levels` returns a bare array.
 - **Errors are plain text.** A missing index returns the text `Not Found` with status 404. Check the status before piping to `jq`. `classes/{index}/subclasses` is one such 404 in 2024.
-- **SRD content only.** Coverage is the open SRD, with a subset of subclasses and nothing from other books. An empty result means the SRD omits it.
+- **SRD content only.** Coverage is the open SRD, with a subset of subclasses and nothing from other books. An empty result means the SRD omits it, except for monsters: read a missing monster from the PDF.
 - **Rate limit is 100 requests per window.** `x-ratelimit-remaining` in the response headers shows what is left. Fetch the one entity needed and skip a crawl of the collection.
 
 ## 2014 deltas
