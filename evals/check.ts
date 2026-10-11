@@ -21,11 +21,12 @@ Options:
   --cases <file>  cases file (default: .agents/skills/<skill>/evals/cases.yaml)
   -h, --help      show this help
 
-cases.yaml is a list of { id, prompt, source_pages, raw_sources, checks, rubrics }.
+cases.yaml is a list of { id, prompt, subject, source_pages, raw_sources, checks, rubrics }.
 Checks: pages (written by the run), sections, canon regexes and absent regexes. The .md extension is optional.
-After the case checks, the production gate (style, narration and statblock layers) runs
-read-only over the Outcome; findings on output pages become gate results — an error fails,
-a warning is reported (WARN) and passes.
+A case with subject: smart runs on the smart test subject (agent smart-test-subject).
+After the case checks, the statblock layer of the production gate runs read-only over the Outcome;
+findings on output pages become statblock results — an error fails, a warning is reported (WARN)
+and passes. Prose lint (style, narration) is excluded from evals by DM decision (ADR 0037).
 Exit codes: 0 all passed, 1 a quality check failed, 2 usage/cases/output error.
 
 Example:
@@ -42,6 +43,8 @@ export interface Checks {
 export interface Case {
 	id: string;
 	prompt: string;
+	/** Marks a case for the smart test subject (agent smart-test-subject) instead of test-subject. */
+	subject?: "smart";
 	source_pages?: string[];
 	raw_sources?: string[];
 	checks?: Checks;
@@ -51,7 +54,7 @@ export interface Case {
 export interface Result {
 	ok: boolean;
 	skip?: boolean;
-	/** Gate results carry the finding's severity: a warning is reported and passes, an error fails. */
+	/** Statblock results carry the finding's severity: a warning is reported and passes, an error fails. */
 	severity?: Finding["severity"];
 	kind: string;
 	detail: string;
@@ -90,8 +93,10 @@ export function loadCases(file: string): Case[] {
 			fail(`${where} ("${item.id}"): "prompt" must be a non-empty string`);
 		if (item.rubrics !== undefined && !isStringList(item.rubrics))
 			fail(`${where} ("${item.id}"): "rubrics" must be a list of strings`);
+		if (item.subject !== undefined && item.subject !== "smart")
+			fail(`${where} ("${item.id}"): "subject" must be "smart" when set`);
 		for (const key of Object.keys(item)) {
-			if (!["id", "prompt", "source_pages", "raw_sources", "checks", "rubrics"].includes(key))
+			if (!["id", "prompt", "subject", "source_pages", "raw_sources", "checks", "rubrics"].includes(key))
 				fail(`${where}: unknown case field "${key}"`);
 		}
 		for (const key of ["source_pages", "raw_sources"]) {
@@ -142,13 +147,15 @@ export function createOutcome(vault: string, outputRoot: string): Outcome {
 }
 
 /**
- * The production gate (`cfcli check`'s style, narration and statblock layers, ADR 0015) over the Outcome: the live
- * Wiki with the run's output pages overlaid and its recorded deletions shadowing live pages. Read-only:
- * no `--fix`, and Vale's scratch lives in a temp directory. Findings are scoped to the run's output
- * pages — the Runner's writing — so live-Wiki noise never lands on a case. Setup failures (no Vale, no
- * synced ai-tells) throw `UsageError` and exit 2, an execution error rather than a quality failure.
+ * The production gate's `statblock` layer over the Outcome: the live Wiki with the run's output
+ * pages overlaid and its recorded deletions shadowing live pages. Read-only: no `--fix`, and any
+ * scratch lives in a temp directory. Findings are scoped to the run's output pages — the Runner's
+ * writing — so live-Wiki noise never lands on a case. Prose lint (style, narration) is excluded
+ * from evals by DM decision (ADR 0037): it skews and flattens them; lint is observed instead in
+ * production units via `cfcli lint-tally`. Setup failures throw `UsageError` and exit 2, an
+ * execution error rather than a quality failure.
  */
-export async function runGate(vaultDir: string, outputRoot: string): Promise<Finding[]> {
+export async function runStatblock(vaultDir: string, outputRoot: string): Promise<Finding[]> {
 	const overlay = readRunnerOutput(outputRoot);
 	const scratch = realpathSync(mkdtempSync(join(tmpdir(), "eval-gate-")));
 	try {
@@ -162,7 +169,7 @@ export async function runGate(vaultDir: string, outputRoot: string): Promise<Fin
 			root: scratch,
 			cwd: vaultDir,
 			pagePaths: [...overlay.pages.keys()],
-			layers: ["style", "narration", "statblock"],
+			layers: ["statblock"],
 			display: (vaultPath) => vaultPath,
 		});
 		return result.findings;
@@ -229,7 +236,7 @@ export function runChecks(checks: Checks, outcome: Outcome): Result[] {
 	return results;
 }
 
-/** The CLI entry: parse args, run the case's checks and the gate, print PASS/FAIL/WARN lines. Exported for tests. */
+/** The CLI entry: parse args, run the case's checks and the statblock layer, print PASS/FAIL/WARN lines. Exported for tests. */
 export async function main(argv: string[]): Promise<number> {
 	let parsed: ReturnType<typeof parseArgs>;
 	try {
@@ -267,11 +274,11 @@ export async function main(argv: string[]): Promise<number> {
 		if (typeof outputFlag !== "string") fail("--output <dir> is required; see --help for an example");
 		const outputRoot = resolve(outputFlag);
 		const results = runChecks(found.checks ?? {}, createOutcome(vault, outputRoot));
-		for (const finding of await runGate(vault, outputRoot)) {
+		for (const finding of await runStatblock(vault, outputRoot)) {
 			results.push({
 				ok: finding.severity !== "error",
 				severity: finding.severity,
-				kind: "gate",
+				kind: "statblock",
 				detail: `${finding.rule} ${finding.path}:${finding.line} ${finding.message}`,
 			});
 		}
@@ -283,7 +290,7 @@ export async function main(argv: string[]): Promise<number> {
 		const skipped = results.filter((r) => r.skip).length;
 		const warnings = results.filter((r) => r.severity === "warning").length;
 		process.stdout.write(
-			`${failed === 0 ? "ok" : "failed"}: ${results.length - failed - skipped - warnings} passed, ${failed} failed, ${skipped} skipped, ${warnings} gate warnings for ${skill}/${caseId}\n`,
+			`${failed === 0 ? "ok" : "failed"}: ${results.length - failed - skipped - warnings} passed, ${failed} failed, ${skipped} skipped, ${warnings} statblock warnings for ${skill}/${caseId}\n`,
 		);
 		return failed === 0 ? 0 : 1;
 	} catch (error) {

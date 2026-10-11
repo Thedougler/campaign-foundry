@@ -1,11 +1,11 @@
 ---
 name: dnd-benchmark
-description: Prose Benchmark — run or resume requested cross-family Matrix Narration ranking, or refresh its source-grounded prompts and leaderboard on the DM's request. Committed skill Eval uses run-evals; skill authoring uses skill-creator.
+description: Prose Benchmark — run or resume requested cross-family Matrix Narration ranking, or refresh its source-grounded prompts and leaderboard on the DM's request. Skill evals and improvement use dogfood; new skills use skill-creator.
 ---
 
 # D&D Prose Benchmark
 
-This skill is the Benchmark branch of `evals/README.md`, which holds the eval methodology. Every family's `top` pin answers the committed prompts as a plain `omp -p` process. An anonymous Judge (`prose-grader`, also an `omp -p` process, per `docs/adr/0016-evals-run-without-a-custom-harness.md`) scores each sample, and `bun run cfcli -- bench` writes the leaderboard. Everything runs in Bash from the repo root. For a committed skill Eval, read `skill://run-evals` instead.
+This skill is the Benchmark branch of `evals/README.md`, which holds the eval contract. Every family's `top` pin answers the committed prompts as a plain `omp -p` process. An anonymous Judge (`prose-grader`, also an `omp -p` process, per `docs/adr/0016-evals-run-without-a-custom-harness.md`) scores each sample, and `bun run cfcli -- bench` writes the leaderboard. Everything runs in Bash from the repo root. For a committed skill eval, read `skill://dogfood` instead.
 
 ## Preserved, always
 
@@ -17,7 +17,7 @@ This skill is the Benchmark branch of `evals/README.md`, which holds the eval me
 
 ## Refresh source context
 
-Before authoring or refreshing benchmark inputs, read `evals/README.md` for the shared grounding and source-refresh contract. Refresh only on an explicit request. Update the committed fact excerpts and their provenance from the real Wiki sources. Then regenerate the briefs with the deterministic pipeline below. A benchmark run consumes committed bytes and never refreshes them from the live Wiki. Historical sample directories and grades are immutable, and a data migration on its own is no reason to benchmark current skills.
+Benchmarking is a separate, requested measurement, not a prerequisite for each feedback revision. Refresh only on an explicit request, after reading `evals/README.md` § Grounding for the shared source contract. `evals/prose-bench.yaml` holds self-contained fact excerpts from real Wiki pages, identified by its `fixture_page` provenance field. Refresh those excerpts from current sources, exclude existing Narration answers, and preserve uncertain dates and unresolved outcomes. Then commit the changed prompts and regenerate the briefs with `bun run cfcli -- bench briefs` and the deterministic pipeline below. The prompt-set hash identifies the new inputs. A benchmark run consumes committed bytes and never refreshes them from the live Wiki. Historical sample directories and grades remain historical evidence, not results for the new prompt version, and a data migration on its own is no reason to benchmark current skills.
 
 **Done when** every changed prompt is grounded in its recorded source, its regenerated brief belongs to the new prompt version, and historical artifacts are unchanged.
 
@@ -50,7 +50,7 @@ If repository dependencies or script execution are not ready, read `README.md` f
    ```bash
    omp -p --no-session --config evals/subject.config.yml --model @PROSE-GRADER --no-skills --tools read --mode json \
      --append-system-prompt "$(awk 'f>=2; /^---$/{f++}' .omp/agents/prose-grader.md)" \
-     "$(cat <judge-brief-path>)" > <judge-dir>/sample-<h8>.judge.events.jsonl
+     "@<judge-brief-path>" > <judge-dir>/sample-<h8>.judge.events.jsonl
    bun run cfcli -- bench extract <judge-dir>/sample-<h8>.judge.events.jsonl --tag sample-<h8>.grades
    mv <judge-dir>/sample-<h8>.grades.md <grades-path>
    ```

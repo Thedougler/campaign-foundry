@@ -66,6 +66,12 @@ const COMMANDS: CommandCase[] = [
 		example: "bun run cfcli -- encounter-budget",
 	},
 	{
+		listed: "lint-tally",
+		help: ["lint-tally"],
+		usage: ["lint-tally", "/no/such/session.jsonl"],
+		example: "bun run cfcli -- lint-tally",
+	},
+	{
 		listed: "eval",
 		help: ["eval", "extract"],
 		usage: [

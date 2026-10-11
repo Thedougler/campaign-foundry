@@ -33,4 +33,4 @@ When the Site needs room-by-room exploration with interconnected areas and exped
 
 Give a concise reply that states the Location and any dependent pages, the important Canon decisions and their grounding pages, and the observed gate/log result. Before returning, check every fact the reply offers against the pages: a route, cost, DC, keeper or key that lives only in the reply is undelivered. For composition, return those artifacts and touched paths under the caller's operation instead of appending a child log. State any real blocker precisely.
 
-On a DM request for an evaluation, read [the eval workflow](../../../evals/README.md) and run the cases in [evals/cases.yaml](evals/cases.yaml) with `run-evals`.
+On a DM request for an evaluation, run the cases in [evals/cases.yaml](evals/cases.yaml) through `skill://dogfood`.

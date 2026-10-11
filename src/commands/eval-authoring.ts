@@ -1,5 +1,5 @@
 import { Command } from "commander";
-import { SkillReferenceError, packageSkill, validateSkill } from "../../evals/authoring.ts";
+import { SkillReferenceError, validateSkill } from "../../evals/authoring.ts";
 import { buildSkillGraph } from "../../evals/skill-graph.ts";
 import { CF, resolveRoot, rootOption } from "./kit.ts";
 
@@ -60,55 +60,6 @@ Examples:
 				reportBrokenReferences(
 					error,
 					`Repair each listed reference, then run ${CF} eval validate ${JSON.stringify(skillDir)}.`,
-				);
-			}
-		});
-}
-
-interface PackageFlags {
-	output: string;
-	root?: string;
-}
-
-/** Optional user-requested distribution, without a runner or viewer process. */
-export function packageCommand(): Command {
-	const command = new Command("package")
-		.exitOverride()
-		.showHelpAfterError(
-			`Example: ${CF} eval package .omp/skills/skill-creator --output /tmp/skill-creator.skill\nRun ${CF} eval package --help for options.`,
-		)
-		.description("Validate and package a skill as a real ZIP-format .skill bundle.")
-		.argument("<skill-dir>", "directory containing SKILL.md")
-		.requiredOption(
-			"--output <bundle.skill>",
-			"explicit output file ending in .skill (replaced only after successful packaging)",
-		);
-	rootOption(command);
-	return command
-		.addHelpText(
-			"after",
-			`
-Includes one top-level skill folder, excluding root evals/, dependency/cache/VCS directories,
-OS junk, bytecode and existing .skill bundles. Symbolic links and special files are rejected
-rather than following paths outside the skill. Validation runs first, so broken references
-exit 1 before anything is written. Creates the output parent directory if needed. Success
-prints JSON with the output path, archive files and exclusions. No interactive prompts.
-
-Exit codes:
-  0  packaged    1  broken references    2  invalid metadata, unsafe files or usage error
-
-Examples:
-  ${CF} eval package .omp/skills/skill-creator --output dist/skill-creator.skill
-  ${CF} eval package /tmp/my-skill --output /tmp/my-skill.skill`,
-		)
-		.action(async (skillDir: string, flags: PackageFlags) => {
-			try {
-				const result = await packageSkill(skillDir, flags.output, { root: resolveRoot(flags.root) });
-				process.stdout.write(`${JSON.stringify({ packaged: true, ...result }, null, 2)}\n`);
-			} catch (error) {
-				reportBrokenReferences(
-					error,
-					`Repair each listed reference, then run ${CF} eval package ${JSON.stringify(skillDir)} --output ${JSON.stringify(flags.output)}.`,
 				);
 			}
 		});

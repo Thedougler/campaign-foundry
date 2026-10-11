@@ -10,6 +10,7 @@ import { foundryCommand } from "./foundry.ts";
 import { evalCommand } from "./eval.ts";
 import { findCommand } from "./find.ts";
 import { indexCommand } from "./index-cmd.ts";
+import { lintTallyCommand } from "./lint-tally.ts";
 import { logCommand } from "./log.ts";
 import { pullCommand } from "./pull.ts";
 import { pushCommand } from "./push.ts";
@@ -34,6 +35,7 @@ export const commands: (() => Command)[] = [
 	findCommand,
 	foundryCommand,
 	indexCommand,
+	lintTallyCommand,
 	logCommand,
 	pullCommand,
 	pushCommand,

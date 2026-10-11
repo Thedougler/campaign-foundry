@@ -1,62 +1,15 @@
 ---
 name: skill-creator
-description: Skill authoring — create a skill and iterate it through paired baseline evaluation and human feedback, run a paired-baseline revision the DM asks for, or evaluate a description's trigger accuracy.
+description: Skill creation — create a new skill from the DM's intent and hand it to its first dogfood run. For an existing skill, use dogfood.
 ---
 
 # Skill creator
 
-Capture intent, author through `skill-writer`, measure paired baselines, and revise from grades and DM feedback. Read `.omp/AGENTS.md` before dispatching for shared native-task policy.
+Turn the DM's intent into a minimal new skill, then hand it to `skill://dogfood`, which improves it through real work from then on. The run is finished when that DM-started `dogfood` run has started on the new skill.
 
-Boundary: `evals/README.md` is the only eval procedure and defines its branches. Eval of committed cases is `run-evals`' surface, the cross-family Narration Benchmark is `dnd-benchmark`'s, and Grades of writing are the `prose-grader` reading the prose. Route each request to the matching skill. Every other improvement or change to an existing skill runs through `skill://dogfood`.
+## Steps
 
-## Shared helpers
-
-Skill validation, optional `.skill` packaging and static human-review rendering use the repo's TypeScript `bun run cfcli -- eval` commands. From the repo, `bun run cfcli -- <arguments>` invokes `cfcli`. Each subcommand's `--help` supplies examples, and successful commands return JSON. Read [`references/schemas.md`](references/schemas.md) before writing authoring artifacts. Every paired run and Grade is a native `task` dispatch per `evals/README.md` § [Run a case](../../../evals/README.md#run-a-case). Only description trigger checks are `omp -p` processes.
-
-## Process
-
-### 1. Capture intent
-
-Pin down what the skill should do, which user phrases and contexts trigger it (one branch per distinct case), its inputs and outputs, and the acceptance criteria the DM will judge by. When the DM points at a workflow already in the conversation, extract these from the history first (tools used, sequence, corrections, formats) and ask only for the gaps.
-
-Resolve the target from the DM's explicit path or active catalog's actual path. For an unqualified name, follow the catalog rather than directory order. A new skill goes to `.omp/skills/<name>/` unless the DM names another home. This skill's production home is `.omp/skills/skill-creator/` only. Create the workspace with `cd "$(mktemp -d)" && pwd -P` and write `brief.md` there. The printed canonical path is `<workspace>` for snapshots, iterations and description evals, written out literally in every later command.
-
-**Done when** `brief.md` names the target path, the trigger branches, inputs/outputs, and acceptance criteria.
-
-### 2. Snapshot before revision
-
-Before the first edit to an existing skill: `cp -R <skill-path> <workspace>/skill-snapshot/`. Revision baselines read this snapshot in step 4 while with-skill runs read the live candidate. New skills skip.
-
-**Done when** `diff -r <skill-path> <workspace>/skill-snapshot` is empty (new skill: `brief.md` records snapshot skipped).
-
-### 3. Author or revise through `skill-writer`
-
-Dispatch `skill-writer` with `brief.md`'s intent, trigger branches, inputs/outputs and acceptance criteria, plus the target path and the files involved. It follows `writing-for-agents` and its `SKILL-MECHANICS.md`. Include a content skill's assigned case file when its criteria need revision. Non-content skills need cases only when the DM asks. On return, run `bun run cfcli -- eval validate <skill-dir>` and check that the description lists the trigger branches, declared resources exist, every pointer states when to read its target and every step meets `writing-for-agents` § Steps and completion criteria. Return concrete gaps to the writer and integrate only what passes.
-
-**Done when** the candidate matches the brief, its pointers name existing resources, and `bun run cfcli -- eval validate` passes.
-
-### 4. Paired evals
-
-Read `evals/README.md` § Run a case, then [`references/eval-loop.md`](references/eval-loop.md). From the skill's `evals/cases.yaml`, select the default case plus any unique-circumstance case that reported home-Session feedback names, recording the case ids in `brief.md`. Historical intent files are not live eval inputs. Follow the reference through its paired runs, grading, comparison and DM review. If no eligible case or paired run is requested, record that branch as skipped, since instruction revision does not automatically run description evals or benchmarks.
-
-**Done when** the requested pair set meets the reference's evidence, grading, comparison and DM-review criteria and `feedback.json` is imported, or the skipped branch has its reason recorded.
-
-### 5. Revise and rerun
-
-Feed `feedback.json` and the grades, plus comparison and analysis results when run, to `skill-writer` as evidence of general process defects. Validate as in step 3. Run the requested pair set once more into `iteration-<N+1>/`, using the same case ids and revision snapshot, with `bun run cfcli -- eval review --previous-workspace` pointing at `iteration-<N>/`.
-
-**Done when** a fresh iteration meets step 4's criterion, or the DM calls it done. All-empty feedback and flat results both count as done.
-
-### 6. Description testing
-
-Offer once the skill body is stable; run only if the DM accepts, following [`references/description-evals.md`](references/description-evals.md): a DM-reviewed query set, then fresh `omp -p` observations of each candidate description.
-
-**Done when** every reported query result derives from scored events files and the live `SKILL.md` contains only the last kept description.
-
-### 7. Optional bundle and delivery
-
-When the DM requests a portable bundle, run `bun run cfcli -- eval package <skill-dir> --output <bundle.skill>` and return the JSON-reported path. For a read-only installed skill, snapshot first and give `skill-writer` a writable copy outside active skill trees, preserving its name. Deliver the requested changes and observed results. Label skipped measurements and unavailable evidence.
-
-**Done when** every requested deliverable is locatable, including the `.skill` file when requested, and the report distinguishes measured results from unexecuted branches.
-
-The workspace is scratch under OS temp, and briefs, snapshots, iterations and description-eval evidence live only there. Copy out what the DM asks to keep before reporting.
+1. **Intent.** Create the workspace with `cd "$(mktemp -d)" && pwd -P` and write `brief.md` there. It contains two or three concrete use cases (the user's goal, the steps and the tools each takes), the trigger phrases (one per distinct branch), inputs and outputs, and the acceptance criteria the DM will judge by. When the DM points at a workflow already in the conversation, extract these from its history (tools used, sequence, corrections, formats) and ask only for the gaps. The skill's home is `.omp/skills/<name>/` unless the DM chooses another. **Done when** `brief.md` states the target path, use cases, trigger phrases, inputs, outputs and acceptance criteria.
+2. **Author.** Dispatch `skill-writer` with `brief.md` and the target path. It drafts a minimal `SKILL.md` in that home and, for a skill that creates D&D content, one default case in `evals/cases.yaml` per `evals/README.md` § Design. On return, run `bun run cfcli -- eval validate <skill-dir>` and check that the description lists the trigger branches and every pointer resolves to an existing file. Return concrete gaps to the writer. **Done when** the skill matches the brief and validates.
+3. **Trigger check (optional).** Offer it once the body is stable, and run it only when the DM accepts, following [`references/description-evals.md`](references/description-evals.md). **Done when** the DM has declined, or the pass is reported and the kept description validates.
+4. **Hand off.** Start a DM-started `dogfood` run with the new skill as its target. **Done when** that run has started.

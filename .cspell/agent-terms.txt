@@ -5,15 +5,21 @@
 asyncio
 cfcli
 docids
+elif
 findall
+fname
 frontmatter
+fromjson
 haowjy
 mattpocock
+mktemp
 myknowledge
 opencode
 pathlib
 Pydantic
+rtrimstr
 tobilu
+tostring
 
 # Skill and repo vocabulary
 bloodhawk

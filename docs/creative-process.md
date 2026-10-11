@@ -146,6 +146,6 @@ For Shattered Sea Narration and table craft, the DM's Prose voice and the exempl
 ## Iterating on the system
 
 - **Friction.** Run [`dogfood`](../.omp/skills/dogfood/SKILL.md) on collab or on one stage with real ideas, and let `skill-writer` turn verified friction into text changes.
-- **Content skills.** When a content skill's text changes materially, rerun its committed `evals/cases.yaml` through [`run-evals`](../.agents/skills/run-evals/SKILL.md), following [`evals/README.md`](../evals/README.md).
+- **Content skills.** When a content skill's text changes materially, rerun its committed `evals/cases.yaml` through [`dogfood`](../.omp/skills/dogfood/SKILL.md) against the case contract in [`evals/README.md`](../evals/README.md).
 - **Agent text.** After any edit to an agent-facing content path, run `bun run lint agents` until it exits 0, and `bun run cfcli -- eval validate <skill-dir>` for each touched skill.
 - **Research.** The sources behind every stage are in [`docs/research/creative-writing/`](research/creative-writing/README.md). Quoted prompts there are verbatim, so carry them into skills and briefs in fenced blocks with their wording intact.

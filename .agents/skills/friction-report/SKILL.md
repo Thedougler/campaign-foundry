@@ -1,6 +1,6 @@
 ---
 name: friction-report
-description: Friction report — reflect on finished work and close the return with what it cost, one line per item in the repo's standard format. Use when your definition or orchestrator asks for a friction report, or when asked to reflect on completed work.
+description: Friction report — close a run's return with what its friction cost, one line per item in the repo's standard format. Use at the end of every subagent run, and when asked to reflect on completed work.
 ---
 
 # Friction report
@@ -25,7 +25,8 @@ Judge the run by **laziness**, a principle that traces to Clarence Bleicher's 19
 
    An event you recovered from still counts: the report records the cost, and the recovery goes in its fix. **Done when** each event in the run is either marked or plainly the work itself.
 2. **Cheaper path.** For each marked event, state the change that gives the next run the same or better result for less repeated effort. It might reorder a step or give a command verbatim. It might state a missing fact or drop a read. For a trail, the change is the command, script or flag that automates it for the next agent. Trace the event to the file and section that caused it. When no repo file is at fault, as with your own slip, write `own run` there. Drop an event that was the necessary cost of the work. **Done when** each kept hole has the reading you took, and each other kept event has its cost, its place and its cheaper path.
-3. **Report.** Write the report in the format below at the point your caller sets: the definition or brief that sent you here. With no point set, the report is the last lines of your return. Each hole you filled with a reading becomes a `Gap:` line. Every other kept event becomes a `Friction:` line, trails included. **Done when** every kept event is one line in the format and the report ends with a `Friction:` line.
+3. **Report.** Write the report in the format below at the point your caller sets: the definition or brief that sent you here. With no point set, the report is the closing lines of the deliverable you submit in step 4. Each hole you filled with a reading becomes a `Gap:` line. Every other kept event becomes a `Friction:` line, trails included. **Done when** every kept event is one line in the format and the report ends with a `Friction:` line.
+4. **Submit.** Submitting is the last action of the run: call `yield` exactly once, with no `type` (a `type` marks an incremental section and leaves the run open). Where your definition or brief sets the yield format, such as an `outputSchema` or a field like `{"reply": …}`, the report goes where that format says, by default as the closing lines of the text field that holds the deliverable. A format with no room for it, such as a grades JSON or an in-character turn, stays as set and leaves the report out. With no format set, `data` is `{"result": "<Markdown>"}`, one string holding the deliverable, then the report lines, ending on the final `Friction:` line. Only the `yield` payload reaches your caller. The run ends on it. **Done when** the run has ended in one `yield` whose payload holds the deliverable and, wherever its format has room, the complete report.
 
 ## Format
 

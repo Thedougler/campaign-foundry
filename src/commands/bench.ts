@@ -43,7 +43,7 @@ function paths(rootFlag: string | undefined): BenchPaths {
 /** The exact omp invocation a MISS runs, from the repository root. */
 function runCommand(briefRel: string, pin: string, eventsRel: string): string {
 	const errorRel = eventsRel.replace(/\.events\.jsonl$/, ".error.log");
-	return `omp -p --no-tools --no-skills --no-extensions --config evals/subject.config.yml --no-session --max-time 600 --mode json --thinking high \\\n  --model ${pin} "$(cat ${briefRel})" \\\n  > ${eventsRel} 2> ${errorRel}`;
+	return `omp -p --no-tools --no-skills --no-extensions --config evals/subject.config.yml --no-session --max-time 600 --mode json --thinking high \\\n  --model ${pin} "@${briefRel}" \\\n  > ${eventsRel} 2> ${errorRel}`;
 }
 
 function nowIso(): string {
@@ -66,7 +66,7 @@ export function benchCommand(): Command {
 		.addHelpText(
 			"after",
 			`
-One Round at a time, per .agents/skills/run-evals: status → briefs → run the MISS commands →
+One Round at a time, per .omp/skills/dnd-benchmark: status → briefs → run the MISS commands →
 extract → judge-brief → dispatch the Judge → record. Prompts are committed: briefs render from
 evals/prose-bench.yaml, the Judge's from evals/bench/judge-brief.md.
 
@@ -90,7 +90,10 @@ Examples:
 		)
 		.option("--round <id>", "plan only this entry's Round")
 		.option("--json", "print machine-readable JSON instead of text");
-	status.addHelpText("after", `\nExamples:\n  ${CF} bench status\n  ${CF} bench status --round npc-first-look --json`);
+	status.addHelpText(
+		"after",
+		`\nMISS commands pass the committed brief directly to omp as "@<brief-path>".\n\nExamples:\n  ${CF} bench status\n  ${CF} bench status --round npc-first-look --json`,
+	);
 	rootOption(status);
 	status.action((flags: RootFlag & { round?: string; json?: boolean }) => {
 		const p = paths(flags.root);

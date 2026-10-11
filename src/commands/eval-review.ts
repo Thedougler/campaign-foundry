@@ -1,54 +1,12 @@
 import { Command } from "commander";
-import { generateDescriptionReview, generateReview } from "../../evals/review.ts";
+import { generateDescriptionReview } from "../../evals/review.ts";
 import { UsageError } from "../check/run.ts";
 import { CF } from "./kit.ts";
-
-interface ReviewFlags {
-	skillName: string;
-	benchmark: string;
-	static?: string;
-	previousWorkspace?: string;
-}
 
 interface DescriptionReviewFlags {
 	skillName: string;
 	description: string;
 	static: string;
-}
-
-export function reviewCommand(): Command {
-	return new Command("review")
-		.showHelpAfterError(
-			`Example: ${CF} eval review /tmp/iteration-1 --skill-name example --benchmark /tmp/iteration-1/benchmark.json\nRun ${CF} eval review --help for options.`,
-		)
-		.description("Generate an offline HTML review of authoring outputs, grading, benchmark and prior feedback.")
-		.argument("<workspace>", "authoring iteration directory containing nested outputs/ runs")
-		.requiredOption("--skill-name <name>", "skill name shown in the review")
-		.requiredOption("--benchmark <benchmark.json>", "benchmark JSON from this iteration")
-		.option("--static <review.html>", "write a standalone HTML page (default: <workspace>/review.html)")
-		.option("--previous-workspace <path>", "previous iteration containing feedback.json and output runs")
-		.addHelpText(
-			"after",
-			`
-The page embeds all deliverables; no browser launch, server or network connection is needed.
-Text is displayed verbatim, images are shown inline, and binary files can be downloaded.
-Nested deliverable paths are preserved. Review both Outputs and Benchmark tabs, then download
-feedback.json into the workspace. Existing feedback.json is included when regenerating.
-Success prints JSON {workspace,review,runs,outputs}. Usage/setup errors exit 2.
-Examples:
-  ${CF} eval review /tmp/iteration-2 --skill-name npc-design --benchmark /tmp/iteration-2/benchmark.json --static /tmp/iteration-2/review.html --previous-workspace /tmp/iteration-1`,
-		)
-		.action(async (workspace: string, flags: ReviewFlags) => {
-			try {
-				const result = await generateReview({ workspace, ...flags });
-				process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
-			} catch (error) {
-				throw new UsageError(
-					(error as Error).message,
-					`Check the workspace, benchmark JSON and output destination. ${CF} eval review --help`,
-				);
-			}
-		});
 }
 
 export function descriptionReviewCommand(): Command {

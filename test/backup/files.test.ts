@@ -22,8 +22,8 @@ describe("backup tree walk", () => {
 		".agents/skills/npc-design/node_modules/pkg/index.js": "dep",
 		".agents/skills/npc-design/tool.bin": Buffer.from([1, 0, 2, 0]),
 		".agents/skills/alias": { link: "npc-design" },
-		".agents/skills/run-evals": { link: "../../.omp/skills/run-evals" },
-		".omp/skills/run-evals/SKILL.md": "run evals\n",
+		".agents/skills/dnd-benchmark": { link: "../../.omp/skills/dnd-benchmark" },
+		".omp/skills/dnd-benchmark/SKILL.md": "bench marks\n",
 		".claude/skills/npc-design": { link: "../../.agents/skills/npc-design" },
 	});
 	const walk = walkBackup(root);
@@ -54,7 +54,7 @@ describe("backup tree walk", () => {
 		expect(walk.skipped.find((s) => s.path === ".agents/skills/alias")?.reason).toBe(
 			"already backed up through another path",
 		);
-		expect(paths).toContain(".agents/skills/run-evals/SKILL.md");
+		expect(paths).toContain(".agents/skills/dnd-benchmark/SKILL.md");
 	});
 
 	it("classifies files and hashes an LFS pointer by the object it names", () => {

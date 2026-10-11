@@ -533,7 +533,7 @@ Examples:
 		.option("--yes", "the DM approved it: run it")
 		.addHelpText(
 			"after",
-			`\nExamples:\n  ${CF} foundry assets put tokens/hero.png tokens/hero.png\n  ${CF} foundry assets put tokens/hero.png tokens/hero.png --yes\n  cat art/map.png | ${CF} foundry assets put - maps/tiled.png --yes`,
+			`\nExamples:\n  ${CF} foundry assets put tokens/hero.png tokens/hero.png\n  ${CF} foundry assets put tokens/hero.png tokens/hero.png --yes\n  ${CF} foundry assets put - maps/tiled.png --yes < art/map.png`,
 		)
 		.action(async (src: string, dest: string, flags: { yes?: boolean }) =>
 			printCliResult(await runFoundryAssetsPut(src, dest, flags.yes ?? false)),

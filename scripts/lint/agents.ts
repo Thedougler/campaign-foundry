@@ -250,7 +250,7 @@ async function runStyle(files: string[], wholeDomain: boolean): Promise<ToolResu
 						cwd: join(REPO_ROOT, path),
 						onlyFiles: true,
 						dot: false,
-						ignore: ["templates/**", ".obsidian/**", "node_modules/**", "**/evals/climb.md", "**/evals/snapshot/**"],
+						ignore: ["templates/**", ".obsidian/**", "node_modules/**", "**/evals/snapshot/**"],
 					});
 					return found.map((file) => join(path, file));
 				}),

@@ -1,15 +1,12 @@
 // SPDX-License-Identifier: Apache-2.0
-// Adapted from Anthropic's skills/skill-creator validation and packaging
-// helpers: https://github.com/anthropics/skills/tree/main/skills/skill-creator
-// Modified for native omp frontmatter, streaming ZIP packaging and TypeScript.
+// Adapted from Anthropic's skills/skill-creator validation helpers:
+// https://github.com/anthropics/skills/tree/main/skills/skill-creator
+// Modified for native omp frontmatter and TypeScript.
 // License: https://www.apache.org/licenses/LICENSE-2.0
 
-import { createWriteStream, type Stats } from "node:fs";
-import { lstat, mkdir, mkdtemp, readFile, readdir, rename, rm, stat } from "node:fs/promises";
-import { basename, dirname, join, resolve, sep } from "node:path";
-import type { Readable } from "node:stream";
-import { pipeline } from "node:stream/promises";
-import { ZipFile } from "yazl";
+import { type Stats } from "node:fs";
+import { readFile, stat } from "node:fs/promises";
+import { basename, dirname, join, resolve } from "node:path";
 import { parse } from "yaml";
 import { UsageError } from "../src/check/errors.ts";
 import { findRepoRoot } from "../src/commands/kit.ts";
@@ -30,14 +27,6 @@ export interface SkillValidation {
 	name: string;
 	description: string;
 	frontmatter: Record<string, unknown>;
-}
-
-export interface SkillPackage {
-	skillDir: string;
-	name: string;
-	output: string;
-	files: string[];
-	excluded: string[];
 }
 
 function errorMessage(error: unknown): string {
@@ -218,125 +207,3 @@ async function brokenMarkdownReferences(sourceFiles: Map<string, string>): Promi
 	return breaks;
 }
 
-const EXCLUDED_DIRECTORIES: Record<string, true> = {
-	".git": true,
-	".hg": true,
-	".svn": true,
-	node_modules: true,
-	__pycache__: true,
-	".cache": true,
-	".pytest_cache": true,
-	".mypy_cache": true,
-	".ruff_cache": true,
-};
-const EXCLUDED_FILES: Record<string, true> = { ".DS_Store": true, "Thumbs.db": true };
-
-/** Paths are relative to the skill directory; nested resource evals remain usable. */
-export function shouldExcludeSkillPath(relativePath: string): boolean {
-	const parts = relativePath.split(sep);
-	const filename = parts.at(-1)!;
-	return (
-		parts[0] === "evals" ||
-		parts.some((part) => Object.hasOwn(EXCLUDED_DIRECTORIES, part)) ||
-		Object.hasOwn(EXCLUDED_FILES, filename) ||
-		/\.(?:py[co]|skill)$/i.test(filename)
-	);
-}
-
-interface ArchiveFile {
-	path: string;
-	entry: string;
-}
-
-async function collectSkillFiles(
-	skillDir: string,
-	name: string,
-): Promise<{ files: ArchiveFile[]; excluded: string[] }> {
-	const files: ArchiveFile[] = [];
-	const excluded: string[] = [];
-	async function visit(relativeDir: string): Promise<void> {
-		const entries = await readdir(join(skillDir, relativeDir), { withFileTypes: true });
-		entries.sort((a, b) => a.name.localeCompare(b.name));
-		for (const entry of entries) {
-			const relativePath = join(relativeDir, entry.name);
-			if (shouldExcludeSkillPath(relativePath)) {
-				excluded.push(relativePath.split(sep).join("/"));
-				continue;
-			}
-			const path = join(skillDir, relativePath);
-			if (entry.name.includes("\\")) {
-				throw new UsageError(
-					`Cannot safely archive a filename containing a backslash: ${path}`,
-					"Rename the file so ZIP extraction cannot reinterpret its name as a path.",
-				);
-			}
-			if (entry.isSymbolicLink()) {
-				throw new UsageError(
-					`Cannot package symbolic link: ${path}`,
-					"Replace it with an ordinary file or directory inside the skill; bundles must not include files outside their source tree.",
-				);
-			}
-			if (entry.isDirectory()) await visit(relativePath);
-			else if (entry.isFile()) files.push({ path, entry: `${name}/${relativePath.split(sep).join("/")}` });
-			else
-				throw new UsageError(
-					`Cannot package non-regular file: ${path}`,
-					"Remove sockets, devices and other special files from the skill directory.",
-				);
-		}
-	}
-	await visit("");
-	return { files, excluded };
-}
-
-/** Produce a real, deflated ZIP with one top-level skill folder; replace output only after success. */
-export async function packageSkill(
-	skillDirectory: string,
-	outputFile: string,
-	options: { root?: string } = {},
-): Promise<SkillPackage> {
-	const skill = await validateSkill(skillDirectory, options);
-	const output = resolve(outputFile);
-	if (!output.endsWith(".skill")) {
-		throw new UsageError(
-			`Skill bundle output must end in .skill: ${output}`,
-			`Example: cfcli eval package ${JSON.stringify(skill.skillDir)} --output ${JSON.stringify(`${skill.name}.skill`)}`,
-		);
-	}
-	if (skill.name.includes("\\") || /^[A-Za-z]:/.test(skill.name)) {
-		throw new UsageError(
-			`Skill directory name cannot be safely used in a ZIP: ${JSON.stringify(skill.name)}`,
-			"Rename the skill directory and its frontmatter name to avoid backslashes or a drive prefix.",
-		);
-	}
-	const hint = `Check file permissions and fix the reported path, then run cfcli eval package ${JSON.stringify(skill.skillDir)} --output ${JSON.stringify(output)}.`;
-	let temporaryDir: string | undefined;
-	try {
-		const { files, excluded } = await collectSkillFiles(skill.skillDir, skill.name);
-		// A linked SKILL.md would otherwise pass read-time validation but is rejected above.
-		if (!(await lstat(skill.skillFile)).isFile()) {
-			throw new UsageError(`SKILL.md must be an ordinary file: ${skill.skillFile}`, hint);
-		}
-		await mkdir(dirname(output), { recursive: true });
-		temporaryDir = await mkdtemp(join(dirname(output), ".skill-package-"));
-		const temporaryFile = join(temporaryDir, "bundle.skill");
-		const zip = new ZipFile();
-		const stream = zip.outputStream as Readable;
-		zip.on("error", (error: Error) => stream.destroy(error));
-		const writing = pipeline(stream, createWriteStream(temporaryFile, { flags: "wx" }));
-		try {
-			for (const file of files) zip.addFile(file.path, file.entry);
-			zip.end();
-		} catch (error) {
-			stream.destroy(error instanceof Error ? error : new Error(String(error)));
-		}
-		await writing;
-		await rename(temporaryFile, output);
-		return { skillDir: skill.skillDir, name: skill.name, output, files: files.map((file) => file.entry), excluded };
-	} catch (error) {
-		if (error instanceof UsageError) throw error;
-		throw new UsageError(`Cannot package skill ${skill.skillDir}: ${errorMessage(error)}`, hint);
-	} finally {
-		if (temporaryDir !== undefined) await rm(temporaryDir, { recursive: true, force: true });
-	}
-}

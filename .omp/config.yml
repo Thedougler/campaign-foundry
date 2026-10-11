@@ -3,6 +3,12 @@ task:
   maxRecursionDepth: 3
   agentModelOverrides:
     task: zai/glm-5.3
+  # Dogfood units run `isolated: true`: each works in its own copy of the checkout,
+  # and its changes are kept as a patch artifact, never applied to the real Wiki.
+  isolation:
+    enabled: true
+    apply: false
+    merge: patch
 providers:
   maxInFlightRequests:
     anthropic: 4
@@ -23,6 +29,7 @@ skills:
     - memory-bridge
     - obsidian-layout-adjustment
     - omp
+    - prompt-optimizer
     - sentry-cli
     - session-brain
     - session-search
@@ -33,4 +40,3 @@ skills:
     - tavily-*
     - exa-search
     - firecrawl-scrape
-    - "agents/run-evals*"

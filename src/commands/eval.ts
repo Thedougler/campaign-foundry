@@ -4,8 +4,8 @@ import type { Callout, Page } from "../vault/types.ts";
 import { resolvePage } from "../vault/resolve.ts";
 import { buildVault, readVaultFiles } from "../vault/vault.ts";
 import { CF, envOptions, resolveEnv } from "./kit.ts";
-import { graphCommand, packageCommand, validateCommand } from "./eval-authoring.ts";
-import { descriptionReviewCommand, reviewCommand } from "./eval-review.ts";
+import { graphCommand, validateCommand } from "./eval-authoring.ts";
+import { descriptionReviewCommand } from "./eval-review.ts";
 
 const EXAMPLE = `${CF} eval extract "Ilse Corran" --callout "First look" --vault "$W/wiki" --root "$W"`;
 
@@ -83,9 +83,7 @@ Examples:
 
 export function evalCommand(): Command {
 	return new Command("eval")
-		.description(
-			"Eval helpers: extract Narration, validate/package skills, print the skill graph, and render static authoring reviews.",
-		)
+		.description("Eval helpers: extract Narration, validate skills, print the skill graph, and render a static description review.")
 		.addHelpText(
 			"after",
 			`
@@ -93,13 +91,10 @@ Examples:
   ${CF} eval extract "Ilse Corran" --callout "First look"
   ${CF} eval validate .omp/skills/skill-creator
   ${CF} eval graph
-  ${CF} eval review --help
   ${CF} eval description-review --help`,
 		)
 		.addCommand(extractCommand())
 		.addCommand(validateCommand())
 		.addCommand(graphCommand())
-		.addCommand(packageCommand())
-		.addCommand(reviewCommand())
 		.addCommand(descriptionReviewCommand());
 }

@@ -20,7 +20,7 @@ describe("cfcli check: mechanical repair", () => {
 	it("does not expose the removed commands", async () => {
 		const { stdout } = await cf(["--help"]);
 		for (const command of ["lint", "narration"]) {
-			expect(stdout).not.toMatch(new RegExp(`^\\s+${command}\\b`, "m"));
+			expect(stdout).not.toMatch(new RegExp(`^\\s+${command}\\s`, "m"));
 			const { code, stderr } = await cf([command]);
 			expect(code).toBe(2);
 			expect(stderr).toContain(`unknown command '${command}'`);

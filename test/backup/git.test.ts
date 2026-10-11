@@ -17,8 +17,8 @@ describe("backup git diff", () => {
 			[`${W}/c.md`]: "c\n",
 			"src/x.ts": "x\n",
 			".agents/skills/s/SKILL.md": skill,
-			".omp/skills/run-evals/SKILL.md": "r\n",
-			".agents/skills/run-evals": { link: "../../.omp/skills/run-evals" },
+			".omp/skills/dnd-benchmark/SKILL.md": "r\n",
+			".agents/skills/dnd-benchmark": { link: "../../.omp/skills/dnd-benchmark" },
 		});
 		initGitRepo(root, "one");
 		const base = headCommit(root) ?? "";
@@ -30,16 +30,16 @@ describe("backup git diff", () => {
 		writeFileSync(join(root, ".agents/skills/s/guide.md"), `---\ntitle: Guide\n---\n${skill}`);
 		writeFileSync(join(root, ".agents/skills/s/new.yaml"), "n: 1\n");
 		writeFileSync(join(root, "src/x.ts"), "y\n");
-		writeFileSync(join(root, ".omp/skills/run-evals/SKILL.md"), "r2\n");
+		writeFileSync(join(root, ".omp/skills/dnd-benchmark/SKILL.md"), "r2\n");
 		git(root, "add", "-A");
 		git(root, "commit", "-qm", "two");
 		expect(usableBase(root, base)).toBe(true);
 		expect(usableBase(root, "0".repeat(40))).toBe(false);
 		const { links } = walkBackup(root);
-		expect(links).toEqual([{ alias: ".agents/skills/run-evals", target: ".omp/skills/run-evals" }]);
+		expect(links).toEqual([{ alias: ".agents/skills/dnd-benchmark", target: ".omp/skills/dnd-benchmark" }]);
 		const { changed, deleted, renamed } = diffSince(root, base, BACKUP_ROOTS, links);
 		expect([...changed].sort()).toEqual([
-			".agents/skills/run-evals/SKILL.md",
+		".agents/skills/dnd-benchmark/SKILL.md",
 			".agents/skills/s/guide.md",
 			".agents/skills/s/new.yaml",
 			`${W}/a.md`,
@@ -56,19 +56,19 @@ describe("backup git diff", () => {
 		const root = repo({
 			[`${W}/a.md`]: "a\n",
 			[`${W}/Map.png`]: lfsPointer(),
-			".omp/skills/run-evals/SKILL.md": "r\n",
-			".agents/skills/run-evals": { link: "../../.omp/skills/run-evals" },
+			".omp/skills/dnd-benchmark/SKILL.md": "r\n",
+			".agents/skills/dnd-benchmark": { link: "../../.omp/skills/dnd-benchmark" },
 		});
 		initGitRepo(root, "one");
 		const one = headCommit(root) ?? "";
 		writeFileSync(join(root, W, "a.md"), "a2\n");
 		git(root, "commit", "-qam", "two");
-		const links = [{ alias: ".agents/skills/run-evals", target: ".omp/skills/run-evals" }];
+		const links = [{ alias: ".agents/skills/dnd-benchmark", target: ".omp/skills/dnd-benchmark" }];
 		expect(hashAt(root, one, `${W}/a.md`)).toBe(contentHash(Buffer.from("a\n")).hash);
 		expect(hashAt(root, one.slice(0, 7), `${W}/a.md`)).toBe(contentHash(Buffer.from("a\n")).hash);
 		expect(hashAt(root, headCommit(root) ?? "", `${W}/a.md`)).toBe(contentHash(Buffer.from("a2\n")).hash);
 		expect(hashAt(root, one, `${W}/Map.png`)).toBe(OID);
-		expect(hashAt(root, one, ".agents/skills/run-evals/SKILL.md", links)).toBe(contentHash(Buffer.from("r\n")).hash);
+		expect(hashAt(root, one, ".agents/skills/dnd-benchmark/SKILL.md", links)).toBe(contentHash(Buffer.from("r\n")).hash);
 		expect(hashAt(root, one, `${W}/missing.md`)).toBeUndefined();
 		expect(hashAt(root, "0".repeat(40), `${W}/a.md`)).toBeUndefined();
 		expect(hashAt(root, "main; rm -rf /", `${W}/a.md`)).toBeUndefined();

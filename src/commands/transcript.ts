@@ -48,7 +48,7 @@ Exit codes:
 Examples:
   ${CF} transcript chunks archive/session-11.md
   ${CF} transcript chunks raw/session-12.csv --words 4000 --json
-  cat raw/session-12.csv | ${CF} transcript chunks -`,
+  ${CF} transcript chunks - < raw/session-12.csv`,
 		)
 		.action(async (file: string, flags: { words: string; json?: boolean }) => {
 			const chunkWords = Number(flags.words);

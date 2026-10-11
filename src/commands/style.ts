@@ -52,13 +52,13 @@ async function targetFiles(paths: string[]): Promise<Map<string, string>> {
 			);
 		}
 		if (statSync(abs).isDirectory()) {
-			// Same ignores as a vault read: generated and machine folders are not prose to review. A skill's eval
-			// history (climb logs, frozen snapshots) quotes the prose it judged, so it is a record, not agent text.
+			// Same ignores as a vault read: generated and machine folders are not prose to review. A skill's
+			// frozen eval snapshots quote the prose they judged, so they are a record, not agent text.
 			const md = await glob("**/*.md", {
 				cwd: abs,
 				onlyFiles: true,
 				dot: false,
-				ignore: ["templates/**", ".obsidian/**", "node_modules/**", "**/evals/climb.md", "**/evals/snapshot/**"],
+				ignore: ["templates/**", ".obsidian/**", "node_modules/**", "**/evals/snapshot/**"],
 			});
 			for (const p of md.sort()) await add(join(abs, p));
 			continue;

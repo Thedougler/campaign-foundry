@@ -7,6 +7,8 @@ description: Extending omp, least-power first. Use when omp's current tools, ski
 
 Extend omp with the **least-power** mechanism: the first row of the [ladder](#least-power-ladder) that expresses the requirement. Move down a row only when the row above cannot express the requirement, and state what it cannot express. The running session and the installed release are the source of truth. Where research notes or `main`-branch docs disagree with their tool lists, settings and `omp://` docs, follow the installed release. The extension serves the user's objective, so finish by meeting that objective with it.
 
+Agent actions use the running session's tools and installed docs. CLI administration and host launch commands below belong to the human terminal or external host, except the explicitly named isolated `omp -p` checks. Read configuration files for discovery. Ask for human-terminal output only when those files and the installed docs cannot resolve the required state.
+
 ## Steps
 
 ### 1. Inspect live capability
@@ -14,19 +16,10 @@ Extend omp with the **least-power** mechanism: the first row of the [ladder](#le
 Establish what this session and this install already have before designing anything:
 
 - Your system prompt lists the loaded tools, skills, rules, MCP routes and agents. Read those first.
-- From the repo root, run:
-
-  ```bash
-  omp --version
-  omp plugin list
-  omp ttsr list
-  omp config get <key>
-  ```
-
-  Run `omp config get` once for each setting the objective touches.
+- Read `.omp/config.yml`, user `~/.omp/agent/config.yml` and the installed `omp://settings.md` for the settings the objective touches. Establish the installed version from the running session or installed package metadata. Plugin and TTSR discovery starts with their project and user files below. When resolved state is unavailable through those sources, ask the user for the corresponding configuration or listing from their terminal.
 - Glob `.omp/` and `~/.omp/agent/` for agents, skills, rules, prompts, commands, tools, hooks, extensions and `mcp.json`, then read `.omp/config.yml`.
 - Read the `omp://` index, then the doc of every built-in that sounds close to the objective, such as `omp://tools/task.md` or `omp://settings.md`. When a published skill may already cover the gap, read `skill://find-skills`.
-- `/tools`, `/extensions`, `/mcp test <server>` and `/advisor status` are views the user types. Ask the user for their output only when the commands above cannot show the same state.
+- `/tools`, `/extensions`, `/mcp test <server>` and `/advisor status` are views the user types. Ask for their output when the files and installed docs cannot show the same state.
 
 Write three lines in your working notes, labelled **Objective**, **Existing** (each relevant capability found) and **Gap** (one sentence: "omp cannot yet …").
 
@@ -40,7 +33,7 @@ Read the ladder's **Need** column from the top and take the first row that match
 
 ### 3. Read the installed API
 
-Read every doc in the chosen row's **Read** column. For code (tool, hook, extension, MCP server, plugin, SDK, RPC), also read `skill://context7-mcp` and query library `/can1357/oh-my-pi` for worked examples and source. Context7 follows `main`, which can run ahead of `omp --version`, so keep only the names that the installed docs or types confirm. Depend on the most public surface that works, in this order:
+Read every doc in the chosen row's **Read** column. For code (tool, hook, extension, MCP server, plugin, SDK, RPC), also read `skill://context7-mcp` and query library `/can1357/oh-my-pi` for worked examples and source. Context7 follows `main`, which can run ahead of the installed release, so keep only the names that the installed docs or types confirm. Depend on the most public surface that works, in this order:
 
 1. Documented CLI, config and protocol.
 2. SDK root exports.
@@ -54,9 +47,9 @@ Read every doc in the chosen row's **Read** column. For code (tool, hook, extens
 
 Write each file at the row's **Where** location for your scope:
 
-- **Agent-facing text** (context, rule, skill, prompt, agent definition). This project routes skills through `skill://skill-creator` and other agent-facing text to the `skill-writer` agent, per `.omp/AGENTS.md` § Native delegation.
+- **Agent-facing text** (context, rule, skill, prompt, agent definition). This project routes a new skill through `skill://skill-creator`, a change to an existing skill or other agent-facing text through `skill://dogfood`, and the writing itself to the `skill-writer` agent, per `.omp/AGENTS.md` § Native delegation.
 - **Settings**: edit `.omp/config.yml` by hand for project keys, since `omp config set` writes the global file. Keep unrelated overrides as they are (`.omp/AGENTS.md` § Configuration).
-- **Code**: apply [Authority and cost](#authority-and-cost). Pin `@oh-my-pi/pi-coding-agent` as a dev dependency at the version `omp --version` prints. A globally installed copy can lag the binary. A new package declares its entry points under `omp.extensions` in `package.json`. `.omp/hooks/post/qmd-refresh.js` is this project's model of a bounded hook.
+- **Code**: apply [Authority and cost](#authority-and-cost). Pin `@oh-my-pi/pi-coding-agent` as a dev dependency at the installed version established in step 1. A globally installed copy can lag the binary. A new package declares its entry points under `omp.extensions` in `package.json`. `.omp/hooks/post/qmd-refresh.js` is this project's model of a bounded hook.
 - **Embedding**: apply [Host integration](#host-integration).
 
 **Done when** each file is at its discovered location and you have checked it against each Authority and cost rule that applies to it.
@@ -67,9 +60,9 @@ Hooks and extensions load at session start, so prove each change in a fresh proc
 
 | Mechanism | Command |
 |---|---|
-| Setting | `omp config get <key>` from the repo root |
-| TTSR `condition` or `astCondition` rule | `omp ttsr list`, then `omp ttsr test --rule .omp/rules/<name>.md '<violating snippet>'`, adding `--source tool --path <file>` for a tool scope |
-| Plugin | `omp plugin doctor` |
+| Setting | Read the edited configuration and ask the user for resolved state when necessary |
+| TTSR `condition` or `astCondition` rule | Ask the user to run `omp ttsr list`, then `omp ttsr test --rule .omp/rules/<name>.md '<violating snippet>'`, adding `--source tool --path <file>` for a tool scope |
+| Plugin | Ask the user to run `omp plugin doctor` |
 | Everything else, including judged `question` rules | `omp -p --no-session "<prompt that needs the new capability>"`, adding `-e <path>` for an extension or hook still in development |
 
 Report the mechanism, why the rows above it fail, the files written and the verification output. Then return to the user's objective and meet it with the new capability.
@@ -88,7 +81,7 @@ Rows run from least to most power. **Where** gives the project location. The use
 | Reusable procedure | Skill | it needs logic, state or UI | `.omp/skills/<name>/SKILL.md` | `omp://skills.md` |
 | Repeatable prompt | Prompt template or file command | it needs code | Optional prompts directory, created when needed for `.omp/prompts/<name>.md`; `.omp/commands/` for file commands | `omp://slash-command-internals.md` |
 | Rare, recognisable output mistake | TTSR rule (`condition`, `astCondition` or `question`) | it needs state, counters or hard enforcement | `.omp/rules/<name>.md` | `omp://ttsr-injection-lifecycle.md` |
-| Specialist cognition or cost routing | Model role or named agent | it needs continuous review (Advisor), a strong plan before routine coding (Prewalk) or persistent parallel workers (Vibe) | `modelRoles` in `.omp/config.yml`, `.omp/agents/<name>.md` | `omp://task-agent-discovery.md`, `omp://models.md`, `omp://advisor-watchdog.md`, `omp://prewalk.md`, `omp://vibe-mode.md` |
+| Specialist cognition or cost routing | Model role or named agent | it needs continuous review (Advisor), a strong plan before routine coding (Prewalk) or persistent parallel workers (Vibe) | `modelRoles` in user `~/.omp/agent/config.yml` (this repo keeps its roles there), `.omp/agents/<name>.md` | `omp://task-agent-discovery.md`, `omp://models.md`, `omp://advisor-watchdog.md`, `omp://prewalk.md`, `omp://vibe-mode.md` |
 | One new model-callable action | Custom tool; for one session's subagents, an eval `tool()` (`xd://eval/helpers`) | several tools, hooks or commands belong together | Optional tools directory, created when needed for `.omp/tools/<name>.ts` | `omp://custom-tools.md` |
 | Whenever event X happens, inspect or change it, including provider requests | Hook | it needs UI, commands or broader session authority | `.omp/hooks/pre/`, `.omp/hooks/post/` | `omp://hooks.md`, `omp://skills/authoring-hooks.md` |
 | Tools, hooks, commands and UI as one feature | Extension | other installs need it | `.omp/extensions/<name>/` | `omp://extensions.md`, `omp://skills/authoring-extensions.md` |

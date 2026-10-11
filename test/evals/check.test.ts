@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { captureIO } from "../../src/cli.ts";
-import { main as evalCheckCli, createOutcome, loadCases, runChecks, runGate } from "../../evals/check.ts";
+import { main as evalCheckCli, createOutcome, loadCases, runChecks, runStatblock } from "../../evals/check.ts";
 import type { ValeAdapter } from "../../src/check/vale.ts";
 
 vi.mock("../../src/check/vale.ts", () => ({
@@ -74,7 +74,7 @@ describe("eval:check Outcome", () => {
 		expect(live.filter((result) => result.kind !== "pages").every((result) => result.ok)).toBe(true);
 		const written = runChecks(item.checks!, createOutcome(vault, output(writtenFixture)));
 		expect(written.every((result) => result.ok)).toBe(true);
-		expect(written.some((result) => result.kind === "gate")).toBe(false);
+		expect(written.some((result) => result.kind === "statblock")).toBe(false);
 	});
 	it("checks output replacements without changing live bytes", () => {
 		const original = readFileSync(join(vault, page), "utf8");
@@ -118,32 +118,24 @@ describe("eval:check Outcome", () => {
 	});
 });
 
-describe("eval:check gate", () => {
+describe("eval:check statblock", () => {
 	const flagged = "> [!narration] First look\n> Her eyes widen as the ledger opens.\n\n## Play\nIlse takes the ledger.";
 	const telling = "Her hold on the docks is not just power, it is a rich tapestry of debts.";
 
-	it("reports the gate read-only over output pages only", async () => {
+	it("reports the statblock layer read-only over output pages only", async () => {
 		const original = readFileSync(join(vault, page), "utf8");
-		expect(await runGate(vault, output())).toEqual([]);
-		const findings = await runGate(vault, output({ [page]: flagged }));
-		const filter = findings.find((f) => f.rule === "Narration.StockTells");
-		expect(filter?.severity).toBe("warning");
-		expect(filter?.path).toBe(page);
-		expect(findings.some((f) => f.severity === "error")).toBe(false);
-		const errors = await runGate(vault, output({ [page]: telling }));
-		expect(errors.some((f) => f.severity === "error")).toBe(true);
+		expect(await runStatblock(vault, output())).toEqual([]);
+		expect(await runStatblock(vault, output({ [page]: flagged }))).toEqual([]);
+		expect(await runStatblock(vault, output({ [page]: telling }))).toEqual([]);
 		expect(readFileSync(join(vault, page), "utf8")).toBe(original);
 	});
 
-	it("fails gate errors and passes gate warnings through the CLI", async () => {
+	it("excludes prose lint: a Narration.StockTells hit produces no finding and exits 0", async () => {
 		const probe = "salt-and-lantern/NPCs/Gate Probe.md";
-		const error = await evalCheck("gate-probe", output({ [probe]: telling }));
-		expect(error.code).toBe(1);
-		expect(error.stdout).toContain("FAIL  gate");
 		const warned = await evalCheck("gate-probe", output({ [probe]: flagged }));
 		expect(warned.code).toBe(0);
-		expect(warned.stdout).toContain("WARN  gate  Narration.StockTells");
-		expect(warned.stdout).toContain("1 gate warnings");
+		expect(warned.stdout).not.toContain("Narration.StockTells");
+		expect(warned.stdout).toContain("ok: 0 passed, 0 failed, 0 skipped, 0 statblock warnings");
 	});
 
 	it("fails statblock arithmetic errors on output Creature pages through the CLI", async () => {
@@ -153,7 +145,20 @@ describe("eval:check gate", () => {
 		const wrongHp = (writtenFixture[creature] as string).replace("hp: 52", "hp: 60");
 		const failed = await evalCheck("gate-probe", output({ [creature]: wrongHp }));
 		expect(failed.code).toBe(1);
-		expect(failed.stdout).toContain("FAIL  gate  hp-average");
+		expect(failed.stdout).toContain("FAIL  statblock  hp-average");
+	});
+});
+
+describe("eval:check case fields", () => {
+	it("loads subject: smart and rejects any other subject value", () => {
+		const dir = realpathSync(mkdtempSync(join(tmpdir(), "eval-cases-")));
+		roots.push(dir);
+		const smart = join(dir, "smart.yaml");
+		writeFileSync(smart, '- id: s\n  prompt: P\n  subject: smart\n');
+		expect(loadCases(smart)).toEqual([{ id: "s", prompt: "P", subject: "smart" }]);
+		const big = join(dir, "big.yaml");
+		writeFileSync(big, '- id: b\n  prompt: P\n  subject: big\n');
+		expect(() => loadCases(big)).toThrow('"subject" must be "smart" when set');
 	});
 });
 
