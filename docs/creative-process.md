@@ -115,7 +115,7 @@ The DM's AI Fiction Prompting Guide (Second Brain, [ledger](research/agent-engin
 |Style anchor|repo-root `user-config.md` § Prose voice, three matching passages from `reference/gm-voice/exemplars.md`, and an NPC's `## Quotes`|
 |Editing pass|the Hunt in `theatre-of-the-mind` `references/critique.md`, which rewrites flagged lines in place, and the `prose-grader`'s named diagnoses|
 
-For Shattered Sea Narration, the DM's Prose voice and ADR 0029's exemplar bar take precedence over the guide's generic style advice.
+For Shattered Sea Narration and table craft, the DM's Prose voice and the exemplar-DM bar take precedence over the guide's generic style advice: ADR 0029 sets it for Narration, and ADR 0033 with [its analysis](research/creative-writing/expert-dm-actual-play.md) for the whole table.
 
 ## Rule owners
 

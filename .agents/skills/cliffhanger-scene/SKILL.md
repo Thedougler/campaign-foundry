@@ -35,13 +35,13 @@ The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scen
 
 ## Rulings
 
-Keep rules beside the action that uses them. Use Campaign House Rules first, then sourced 2024 rules. Declare a new procedure as a House Rule through its owner. Each check states its Ability (Skill), DC or opposed modifier, action cost, success and failure effects. Each saving throw states the ability, DC, damage and conditions, their duration and how they end.
+Keep rules beside the action that uses them. Use Campaign House Rules first, then sourced 2024 rules. Declare a new procedure as a House Rule through its owner. Each check states its Ability (Skill), DC or opposed modifier, action cost, success and failure effects. Each saving throw states the ability, DC, damage and conditions, their duration and how they end. A timed effect the Party relies on, such as a blessing or invisibility, states its duration and has a Cue for the moment it runs out.
 
 **Reuse audit.** Read the rules-bearing sections of every terrain, hazard, Creature, Item and Vehicle owner used by the contest. Match the Scene's damage, DCs, movement costs, triggers, frequency, duration, escape and recovery procedures to those sections. Preserve their values and conditions when summarising. A new progress track measures that Canon procedure and leaves it in place. Add Scene-specific rulings only where the sources lack one, marking their design status and following the source hierarchy. Before cold read, cross-check every local rules line against its owner so a convenient engine has not silently changed the danger.
 
 ### Fight
 
-- **Position.** State starting distances, cover, elevations, entrances and exits. Give each damaging terrain feature a warning, trigger, target, frequency and resolution. Give each climb, leap, obstruction or interactable feature its relevant ruling.
+- **Position.** State starting distances, cover, elevations, entrances and exits. Give each damaging terrain feature a warning, trigger, target, frequency and resolution. Give each climb, leap, obstruction or interactable feature its relevant ruling. A feature keyed to something the fight already produces, such as missed attacks, fire or falling bodies, can turn a stray result into a new route or win condition.
 - **Opposition.** State Creature counts, starting positions and who pursues which objective. Reinforcements have a trigger, arrival position and limit, and their XP belongs in the shared balance calculation. Preserve the uncertainty of retreat, capture and escape: resolve them through reachable routes, Creature abilities and Party interference.
 - **Risk.** Balance every possible fight with scene-pages **Encounters**. For a champion's duel, the budget counts that champion only. If the command cannot run, report that prerequisite rather than calling the Encounter balanced. A force intended to drive flight has an explicit warning and feasible exits. Give its capture or defeat consequences, and label its actual danger.
 - **Initiative.** Resolve a sprung Ambush through the sourced 2024 detection, Surprise and Initiative rules. Surprise gives Disadvantage on Initiative. The ambushers' opening tactic takes a normal turn in Initiative order.
@@ -55,7 +55,7 @@ Keep rules beside the action that uses them. Use Campaign House Rules first, the
 
 ### Hazard
 
-- **Warning and trigger.** State the visible or otherwise perceivable tell, the hazardous area, what activates it and when its effect repeats. Essential warnings and routes are available before committing to the risk.
+- **Warning and trigger.** State the visible or otherwise perceivable tell, the hazardous area, what activates it and when its effect repeats. Essential warnings and routes are available before committing to the risk. State what each cheap test shows, such as a dropped object, a rope or a hand held close, so the Party can learn the rules before risking a body.
 - **Effect.** Give the affected targets, checks or saves, DCs, damage, conditions, movement or object effects, duration and recovery. Place a fixed hazard's reusable rules on its Site and bring the Scene's usable rulings into Play. A carried hazard belongs to its Item.
 - **Counterplay.** Provide at least two workable approaches, such as disabling, bypassing, sheltering or exploiting it, with action costs and consequences. Include a concrete effect for failure that changes the physical situation while leaving a continuation.
 - **Calibration.** A creature-free contest leaves out the optional `## Encounter`. Under `### Stakes`, state that there is no Creature opposition or combat XP budget, and explain the danger against these PCs through DCs, damage, exposure, resource costs and available countermeasures. Where Creatures and a hazard overlap, calculate Creature XP and separately explain the extra hazard risk. Leave the hazard out of the Creature XP sum.

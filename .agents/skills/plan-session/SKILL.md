@@ -21,9 +21,9 @@ Talk with the DM per `docs/agents/co-writing.md`. Offer Seeds as that file descr
 - **Intent only.** Ask the DM what should happen and how it should feel. Dates, stat blocks, page fixes and which pages to make are Prep's work, done silently later.
 - **Their energy.** Match the DM's tone. Go deep where they light up and move lightly past what they shrug at.
 - **Playable.** Offer these as additions that keep the DM's choices intact:
-  - Situations over outcomes: where the DM plans a sequence, add the triggers and alternatives that let the Party get there their own way.
+  - Situations over outcomes: where the DM plans a sequence, offer triggers and forks that let the Party get there their own way. Give each fork its trade-off, so the Narration can hand it over as the either/or of `theatre-of-the-mind` Hard line 3.
   - A foreshadowed Climax: where the Climax depends on something no earlier Scene plants, pitch where to plant it.
-  - Pacing: after two action pitches or two talk pitches in a row, pitch something of the other kind between them.
+  - Pacing: when two action pitches or two talk pitches come in a row, offer one of the other kind next (`docs/agents/scene-pages.md` § Scripting the Game).
   - PC pull: from each PC's Goals and bonds and its Plans, find two pulls that oppose each other and the one desire the PC can never cleanly satisfy. Favour pitches that strain a pull. Call a pitch that pulls on no PC scenery, or cut it.
   - Spotlights: every PC gets a moment drawn from their Goals and bonds somewhere in the Session.
   - Callbacks: tie what the Players fixated on to live Threads, per `docs/agents/narrative-devices.md` § Planted details and connection, § Callbacks, § Dramatic irony and § Red herrings.
@@ -32,17 +32,17 @@ Talk with the DM per `docs/agents/co-writing.md`. Offer Seeds as that file descr
 ## Session intent
 
 ```markdown
-**Session <N>: <working title>**
+**Session <N>. <working title>**
 
-- **Promise:** the experience in one sentence, and the moment the DM is waiting to deliver.
-- **Tone:**
-- **Fixed points:** the DM's ideas, in the DM's words.
-- **Opening:** the pressure in the Party's faces when play starts.
-- **Threads:** each Thread that moves, and whether it moves by revelation or by contest.
-- **Climax:** the confrontation, and the Threads it brings together.
-- **Resolution:** what the last Scene shows changed, and what it seeds.
-- **Spotlights:** each PC and their moment.
-- **Left to Prep:** what the DM leaves open.
+- **Promise.** The experience in one sentence, and the moment the DM is waiting to deliver.
+- **Tone.**
+- **Fixed points.** The DM's ideas, in the DM's words.
+- **Opening.** The pressure in the Party's faces when play starts.
+- **Threads.** Each Thread that moves, and whether it moves by revelation or by contest.
+- **Climax.** The confrontation, and the Threads it brings together.
+- **Resolution.** What the last Scene shows changed, and what it seeds.
+- **Spotlights.** Each PC and their moment.
+- **Left to Prep.** What the DM leaves open.
 ```
 
 The intent sketches the Session. `prep-session` turns it into Scenes, a Scene Chart and pages. The settling reply is the intent and one line handing it on. Notes about Canon the talk touched go under Left to Prep.

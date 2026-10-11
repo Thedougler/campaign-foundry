@@ -33,8 +33,8 @@ These are the table costs to listen for, each a sentence- or beat-level pattern.
 - **Placeholder prose.** A sentence that would fit any Scene unchanged. Anchor it in this Scene's facts or cut it.
 - **Metaphor cluster.** Several figures crowding one moment where one image would hold.
 - **Metagame spotlight.** A mundane detail given more weight than its neighbours because the writer knows it matters. Emphasis follows what the Party would notice, not what the plot needs.
-- **Bare hand-off.** A closing "What do you do?" with nothing of this situation in it. Put the pressure inside the question, or offer the either/or the place gives.
-- **Blank failure.** A failure Cue where nothing happens. Give it a false belief, a constraint or a consequence with its cause.
+- **Bare hand-off.** A closing "What do you do?" with nothing of this situation in it. The fix is the hand-off Hard line 3 describes.
+- **Blank failure.** A failure Cue where nothing happens. The fix is what [recipes.md, Cues](recipes.md#cues) **Check result** gives a failure.
 - **Unplayable space.** A description the table cannot move through: no door states, heights, distances or counts where the next action needs them.
 - **NPC line.** A line that misses its target voice. The target line keeps a want beneath the words and its feelings unstated, in a diction the table could name blind and a length that matches the speaker's power and comfort. It tells listeners only what they lack, in that NPC's voice rather than the narrator's.
 - **Stock tells.** A borrowed gesture (a jaw tightening, a breath released) where this person's own physical cue belongs.

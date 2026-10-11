@@ -28,12 +28,12 @@ For speaking roles, optionally add a **performance anchor**: an unexpected regis
 
 Build voice from what the NPC cares about, so a listener with eyes shut still knows who is speaking:
 
-- **Diction.** Word choice from trade, status or obsession, in a register that is theirs alone in that place: courtly, outlaw slang, guard protocol, a child naming every cart exactly.
-- **Rhythm and length.** Clipped answers, winding explanations or questions returned with questions. Word count follows power and comfort: the killer gets one courteous line, and the comfortable monster talks at length and shortens as it angers.
+- **Diction.** Word choice from trade, status or obsession, in a register that is theirs alone in that place: courtly, outlaw slang, guard protocol, a child naming every cart exactly. Culture shows in ordinary voices: a vendor's patter or a guard's joke says what people here fear and scorn without a word of lore.
+- **Rhythm and length.** Clipped answers, winding explanations or questions returned with questions. Word count follows power and comfort: the killer gets one courteous line, and the comfortable monster talks at length and shortens as it angers. A minor voice, a passer-by or a questioned witness, gets one short concrete line holding a fact the Party lacks.
 - **Habit.** One repeatable verbal habit, and one subject or name they avoid.
-- **Status move.** A trap question, a parting line paused in the doorway, or menace spoken as courtesy. Subtext sits in a qualifier: "friends of the crown, for the time being".
-- **Bounds.** What they will not do for the Party and why ("to the edge of our duty, and no further"). Their confidence rides on each fact they share: "I believe he's there, unless they moved him by another road."
-- **Pairs.** Two people of one Faction in the same Scene split it into two registers, the warm one beside the one who smells blood.
+- **Status move.** A trap question, a parting line paused in the doorway, or menace spoken as courtesy. Polite procedure makes the threat: praise the listener's work and hand them a heavier duty, then probe something personal. Subtext sits in a qualifier: "friends of the crown, for the time being".
+- **Bounds.** What they will not do for the Party and why ("to the edge of our duty, and no further"). Their confidence rides on each fact they share: "I believe he's there, unless they moved him by another road." A good Influence roll changes what they say and what they give, never what they want.
+- **Pairs.** Two people of one Faction, or two companions on the road, take opposed stances in two registers, the warm one beside the one who smells blood. Their argument keeps the Campaign's question in play between set pieces.
 
 Prove it in Play with three short lines, the **ask** and the **refusal** plus the line **under pressure** when the limit or secret is touched, each a Cue: the NPC's action first, then the line. The Cue is the spoken line itself in their diction, never a report that they answered. Write the lines in the World's own words per root `AGENTS.md` In-world voice. An accent or gag is not a voice.
 

@@ -5,7 +5,7 @@ description: Prep — build the next Session from settled intent into a complete
 
 # Prep a Session
 
-Prep produces everything the DM needs to run the upcoming Session from the Wiki alone. The Scene Chart orders pressure and opportunities. The Party's choices and dice determine outcomes.
+Prep produces everything the DM needs to run the upcoming Session from the Wiki alone. The Scene Chart orders pressure and opportunities, and the Party's choices and dice determine outcomes. The moments only the room can time, such as riffing on a Player's joke, dropping a patrol on a stalled plan or calling a break, rely on material Prep leaves within reach: handles, bench lines, Cues and planted details. Prep supplies that material and leaves its timing to the DM.
 
 [The shared Scene procedure](../../../docs/agents/scene-pages.md) owns Scripting the Game order, Scene page contracts, Encounter balance, Narration and conditional hand-offs. This skill owns Session composition and the final hot/index/gate/log/Push cycle. Every path below is vault-relative (from `wiki/`). The Session folder is `<campaign-folder>/Sessions/Session <N>/`, and each page in it is titled `Session <N> - <Scene title or kind>` and filed as that title's slug, `session-<N>-<scene-slug>.md`.
 
@@ -24,7 +24,14 @@ Prep produces everything the DM needs to run the upcoming Session from the Wiki 
 
    Order the rows by the shared procedure's **Scripting the Game** section, and choose each row's card from its kind's skill. Use `hook-scene` for Hook and `development-scene` for Development. Use `cliffhanger-scene` for Cliffhanger, `climax-scene` for Climax and `resolution-scene` for Resolution. When the Party spends the middle of the Session moving between Locations, compose those rows with [the travel reference](references/journey.md). The Region page supplies the routes and their costs.
 
-   Format: the Prep template's Scene Chart table with its columns `#`, `Scene` (a link to the row's page), `Kind` (the exact kind), `Minutes` and `Threads` (links). Under the table, one numbered planning note per row, giving its situation, its independent trigger, the selected card, the Spotlight, incoming alternatives, the conditional destination and, where relevant, escalation. A situation comes to the Party through an arrival, a clock, an opposition move or a preceding consequence. The Party chooses how to answer. A Player-dependent detour is a labelled optional branch with a trigger and rejoin state. Make the first physical contest forgiving of sound choices and reserve the opposition's strongest established challenge and the highest stakes for the Climax. **Done when** every row has its kind, purpose, trigger, card, allocation and destination, the order satisfies the shared rules, and the complete allocation fits the Session length.
+   Format: the Prep template's Scene Chart table with its columns `#`, `Scene` (a link to the row's page), `Kind` (the exact kind), `Minutes` and `Threads` (links). Under the table, one numbered planning note per row, giving its situation, its independent trigger, the selected card, the Spotlight, incoming alternatives, the conditional destination, the detail it plants for a later callback with where that could return (`docs/agents/narrative-devices.md` § Callbacks) and, where relevant, escalation. A situation comes to the Party through an arrival, a clock, an opposition move or a preceding consequence. The Party chooses how to answer. A Player-dependent detour is a labelled optional branch with a trigger and rejoin state. Make the first physical contest forgiving of sound choices and reserve the opposition's strongest established challenge and the highest stakes for the Climax. Shape the peaks with these notes:
+
+   - **Break hinge.** Mark the row nearest the Session's midpoint whose end changes state, an irreversible turn or a warm close, as the place a break fits. The DM calls the break.
+   - **Planning handle.** Where a row invites the Party to plan, choose one outside stimulus, such as a patrol on its round, and enter it in step 5's Opposition timeline. The DM drops it when the plan stalls.
+   - **One place, rising peaks.** When consecutive rows share a Location, each row's solve opens the next row's harder question.
+   - **Ending.** The Resolution row states the ending the next Session needs, a stinger or a coda (`docs/agents/narrative-devices.md` § Closing stinger), from the swing in `story-so-far.md` § Pacing when it exists.
+
+   **Done when** every row has its kind, purpose, trigger, card, planted detail, allocation and destination, the break hinge and the Resolution's ending are named, the order satisfies the shared rules, and the complete allocation fits the Session length.
 
 5. **Distribute Threads, pressure and Clues.** Each part below is a section of the Prep template.
 

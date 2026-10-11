@@ -20,3 +20,4 @@ Quoted prompts, rubric questions and principles are verbatim from their sources.
 | `repo-pipeline.md` | The skill map before this overhaul, with gaps and duplications |
 | `omp-features.md` | TTSR, rule, agent and hook syntax and pitfalls |
 | `lint-template-audit.md` | Gate layers, template linting, dash-carrying agent files, priming and contradiction lists |
+| `expert-dm-actual-play.md` | Holistic craft analysis of Brennan Lee Mulligan's "To the Hounds!" and Matt Mercer's "The Stowaway": episode shapes, findings by dimension with timestamps, limits of ASR and of written Prep, owner map |

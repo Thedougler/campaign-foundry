@@ -14,7 +14,9 @@ Classify the chosen route by its Region travel time. The class sets the trip's t
 
 The event count comes from the class and ignores the number of days. The chart states elapsed time as the Region's route time in one figure.
 
-Split the route into legs where its terrain, mode or exposure changes. Each leg is a middle row of the Scene Chart and takes its Kind from its strongest event. Every leg counts against step 4's middle-Scene ceiling. A Close route is one leg. **Done when** the trip has a class, an event total within it, and legs that fit the ceiling.
+Split the route into legs where its terrain, mode or exposure changes. Each leg is a middle row of the Scene Chart and takes its Kind from its strongest event. Every leg counts against step 4's middle-Scene ceiling. A Close route is one leg.
+
+When the Party has yet to choose among the Region's routes, the departure offers them as a named fork, each route tagged with its time and its chief cost or exposure. Chart each route's legs as a labelled branch (step 4), and fit the longer branch to the ceiling. **Done when** the trip has a class, an event total within it, legs that fit the ceiling, and every route at an unchosen fork has its tag.
 
 ## Fill each leg
 

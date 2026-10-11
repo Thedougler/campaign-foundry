@@ -86,7 +86,7 @@ Start from the existing page for a redo, or from the template copied to `wiki/<c
 - **Statblocks.** Creature statistics stay on their owner pages. The Scene shows them only as `![[<creature-slug>#Statblock|<Creature title>]]` embeds in its Encounter.
 - **Prep link.** Link the page from Prep's Scene Chart when Prep exists, and update the row's planning notes or Clue routes where this Scene changes them.
 
-Put every table-use fact on the page. State who wants what and by which means, and how each side responds. Give useful spatial relationships, pressure triggers, accessible choices and consequences. Each hidden truth has a concrete way to learn it. Each required conclusion is discoverable through three independent routes across the chart or the standalone Scene. A failed check changes cost or position and leaves a way forward open. Use **Encounters** wherever physical danger is present.
+Put every table-use fact on the page. State who wants what and by which means, and how each side responds. Give useful spatial relationships, pressure triggers, accessible choices and consequences. Each hidden truth has a concrete way to learn it. Each required conclusion is discoverable through three independent routes across the chart or the standalone Scene. A failed check changes cost or position and leaves a way forward open. It can also be what exposes something the Scene hides. Use **Encounters** wherever physical danger is present.
 
 **Done when** the page matches the template's actual spine and the DM can adjudicate each offered action from its sourced rules and rendered owner embeds.
 
@@ -120,6 +120,7 @@ Place callouts and Cues in these formats:
   ```
 
   The narration gate compares variants with each other, so give each its own wording rather than shared runs of four or more words.
+- When the Scene expects the Party to split across places, give each place its own first-look callout under `## Play`, titled with the place's name and built with recipes `## Openings and first looks`, and give the places contrasting tones. Cuts between them follow recipe `### Transition`, and the DM chooses their order.
 - A Cue is written on a DM-side line in `## Play` or the Encounter (a Checks bullet, a Handles line, a Creatures tactic), right after its trigger, between `==` marks: `Failure: ==One stone sits smoother than the rest, and your thumb finds the groove before your eyes do.==` The trigger, rules terms, DCs and damage numbers stay outside the marks. One to three sentences, 60 words at most. The gate reads each Cue as Narration.
 - When an established result settles an unplayed cut of time or space, put a `Transition` callout immediately before the destination's opening or closing slot. Leave unresolved travel choices to the Players.
 
@@ -129,9 +130,9 @@ Check the filed prose against the Final check items that apply, quoting its actu
 
 ## Outcomes
 
-For Hook, Development, Cliffhanger and Climax, fill `## Outcomes`. Each materially different result gives its trigger, the concrete World change and the receiving Scene's link on the chart.
+For Hook, Development, Cliffhanger and Climax, fill `## Outcomes`. Each materially different result gives its trigger, the concrete World change and the receiving Scene's link on the chart. Show the change on something the Party can see, such as a body or a person's manner.
 
-- Cover offered approaches, failure, withdrawal, waiting or refusal where they change the situation.
+- Cover offered approaches, failure, withdrawal, waiting or refusal where they change the situation. When some of the Party can leave while others stay, state what the departure costs those still there.
 - Give the receiving Scene the resulting knowledge, positions, ownership, conditions, resources and clock state it needs. Results share a destination only when its entry works for each of them.
 - A standalone Scene without a chart states its next pressure, trigger and handed-on state in the same rows, ready for charting, and links only pages that exist.
 - Proposed deaths, captures, rewards and Thread changes remain conditional Prep, not updates to current Canon.
@@ -182,6 +183,7 @@ Read the Scene and its rendered embeds as the DM would, with no sourcebooks or c
 - pressure advances on stated triggers;
 - critical information has several routes;
 - the Narration fits each entry;
+- the Scene plants one detail for a later callback and has one contrast beat, both as DM-side material (`docs/agents/narrative-devices.md` § Callbacks and § Contrast);
 - no result depends on the Party accepting a predetermined answer.
 
 Compare the heading spine with the template, each `sources` path with its file, each reused ruling with its owner passage, and Balance numbers with the `bun run cfcli -- encounter-budget` output and Party evidence. Correct mismatches in the Scene and its local Prep material, and return any required chart recomputation to its owner.
