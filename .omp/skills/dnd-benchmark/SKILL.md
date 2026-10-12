@@ -9,7 +9,7 @@ This skill is the Benchmark branch of `evals/README.md`, which holds the eval co
 
 ## Preserved, always
 
-- **Pins.** Families and their `top`/`fallback` pins are exactly as `evals/models.yaml` reads right now.
+- **Pins.** Families and their `top`/`fallback` pins are exactly as `evals/models.yaml` reads right now. Refreshing them is a separate DM request, run through `skill://model-evidence` § Refresh Matrix pins.
 - **Committed bytes.** Runner briefs and the Judge template are byte-exact. Before changing prompt identity or cache handling, read `docs/adr/0012-benchmark-prompts-are-committed-and-deterministic.md`. Prompt-set edits move `bench_version` and clear the cache wholesale.
 - **Rounds.** A Round is one prompt-set entry run on each family's top pin, in yaml order. The next Round begins once the current Round's families are closed and reported. A stop after any Round is clean, and the cache resumes the rest.
 - **Anonymity.** Integer rubric scores from 1 to 5 come from a fresh Judge that sees only the anonymised brief.
@@ -31,7 +31,7 @@ If repository dependencies or script execution are not ready, read `README.md` f
 
 1. **Briefs.** Run `bun run cfcli -- bench briefs --check`; on DRIFT run `bun run cfcli -- bench briefs`, commit the rewritten briefs and re-check. **Done when** the check exits 0.
 
-2. **Plan HIT/MISS.** Run `bun run cfcli -- bench status --round <id>` (omit `--round` for the whole set, and add `--json` for machine-readable output). It prints `omp: found` or the benchmark is skipped, then per family HIT (cached sample path) or MISS with the exact runner command. Only MISSes run, and HITs are left unchanged. **Done when** the Round's MISS list and commands are in hand.
+2. **Plan HIT/MISS.** Run `bun run cfcli -- bench status --round <id>` (omit `--round` for the whole set, and add `--json` for machine-readable output). It prints `omp: found` or the benchmark is skipped, then per family HIT (cached sample path) or MISS with the exact runner command. Only MISSes run, and HITs are left unchanged. Then run `omp usage --json` and read `capacity` for the provider (the pin before `/`) of each MISS family's `top` and `fallback` pins. A provider with any window at `remainingAccounts` 0 is exhausted. When both pins' providers are exhausted, record the family dark now (step 6). Its reason is the exhausted window and that window's `reports[].limits[].window.resetsAt`. When only the top pin's provider is, run that MISS on its fallback pin as step 3 does for a failed pin. A provider absent from `capacity` runs as planned. **Done when** the Round's MISS list and commands are in hand, and each family with both providers exhausted is recorded dark.
 
 3. **Run the MISSes.** Paste every printed MISS command, verbatim, into one `bash` call with `timeout: 900` (each run stops itself at `--max-time 600`). The call moves to a background job, and its result arrives on its own:
 
