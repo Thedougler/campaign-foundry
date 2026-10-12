@@ -45,7 +45,7 @@ If repository dependencies or script execution are not ready, read `README.md` f
 
 4. **Extract.** Run `bun run cfcli -- bench extract <events.jsonl>` per run. It writes `<tag>.md` beside the events and prints JSON with `sample_path`, timing and `model`. Exit 1 means the sample is not a bare `> [!narration]` block: inspect it and judge it only if the breach should be scored. Any other failure is a missed run. **Done when** each run has a sample and its observed `model`.
 
-5. **Judge.** Run `bun run cfcli -- bench judge-brief --id <id> --sample <abs sample.md>`. It prints the brief path (`…/judge/sample-<h8>.brief.md`) and the grades path. Read the brief, then run a fresh Judge per sample (all samples of a Round may run as background jobs):
+5. **Judge.** Run `bun run cfcli -- bench judge-brief --id <id> --sample <abs sample.md>`. It prints the brief path (`…/judge/sample-<h8>.brief.md`) and the grades path. Read the brief, then run a fresh Judge per sample (all samples of a Round may run as background jobs). When `@PROSE-GRADER` resolves into a Matrix family, replace it in the command below with one Judge selector for the whole run, chosen by `.omp/AGENTS.md` **Model choice**.
 
    ```bash
    omp -p --no-session --config evals/subject.config.yml --model @PROSE-GRADER --no-skills --tools read --mode json \

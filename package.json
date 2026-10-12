@@ -60,8 +60,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
     "@foundryvtt/foundryvtt-cli": "^3.0.4",
-    "@oh-my-pi/omptype": "^18.9.2",
-    "@oh-my-pi/pi-coding-agent": "18.8.0",
+    "@oh-my-pi/pi-coding-agent": "18.9.2",
     "@types/jsdom": "^30.0.0",
     "@types/mdast": "^4.0.4",
     "@types/node": "^26.6.3",

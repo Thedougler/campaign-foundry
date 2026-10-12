@@ -44,7 +44,7 @@ Steps 1 and 4 are native `task` dispatches; steps 2, 3 and 5 run in Bash from th
 
    Add `--cases .omp/skills/<skill>/evals/cases.yaml` for a skill under `.omp/skills/`. `checks.txt` holds the case's Checks and its `statblock` lines, the statblock findings on the run's output pages: `FAIL` (error) fails the case and `WARN` (warning) passes. Exit 0 means ok, 1 a Check or statblock failure, 2 a usage or execution error. **Done when** `checks.txt` ends with the exit code.
 
-4. **Grade**, for each case with `rubrics` or `source_pages`. One `task` call contains every such case:
+4. **Grade**, for each case with `rubrics` or `source_pages`. First compare the family of `@PROSE-GRADER` with each Runner's resolved model in step 1's task result; when they match, set another grader for this call by `.omp/AGENTS.md` **Model choice**. One `task` call contains every such case:
 
    - `context`: `Eval grader: follow your agent definition's Grade.`
    - Each item: `agent: "prose-grader"`, `name` the Runner's name plus `Grade` (`GoldCasteHandoutGrade`), `task` the grade brief, and this `outputSchema`:

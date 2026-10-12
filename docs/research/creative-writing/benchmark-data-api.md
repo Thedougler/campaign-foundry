@@ -4,22 +4,21 @@ Research date: 2026-10-11. Target families: Anthropic/Claude, OpenAI/GPT, xAI/Gr
 
 ## Repo helper
 
-`model_evidence` is a native omp custom tool in `.omp/tools/model-evidence.ts`. It reads the calling session's existing model registry and subscription usage, including provider-specific model/tier quota mapping. `bun run benchmarks` exposes the same benchmark lookup through Bash; `--usage` and the `usage` action use omp's read-only administration commands, not a new agent session.
+`model_evidence` is a native omp custom tool in `.omp/tools/model-evidence.ts`, and `bun run benchmarks` is the same lookup through Bash. Both return published EQ-Bench writing scores only. Quota, pricing and thinking levels come from omp itself (`omp usage --json`, `omp models --json`), so the helper doesn't repeat them.
 
 ```sh
-bun run benchmarks --model claude-opus-5-5 gpt-6-sol grok-4.7 glm-5.3 --usage
+bun run benchmarks --model claude-opus-5-5 gpt-6-sol grok-4.7 glm-5.3
 bun run benchmarks --model gpt-5-2025-08-07 --variants --details --sort longform
-bun run benchmarks usage --model claude grok glm --sort cost.output
 bun run benchmarks --help
 ```
 
-The default output retains every numeric field in the official EQ-Bench creative and longform feeds, original run names, reasoning labels and sample links. `--details` adds all published Sophon model scores (general and writing benchmarks), the 15-criterion rubric, style associations and repetition diagnostics. Exact model names win over substrings unless `--variants` is set. Scores, `cost.input/output/cacheRead/cacheWrite`, `remainingPercent`, model names and individual `creative.<metric>` / `longform.<metric>` fields are sortable; `--order asc|desc`, `--limit` (0 for all) and `--offset` control the page. Unknown values sort last. Creative Elo and longform /100 remain separate.
+The default output retains every numeric field in the official EQ-Bench creative and longform feeds, original run names, reasoning labels and sample links. `--details` adds all published Sophon model scores (general and writing benchmarks), the 15-criterion rubric, style associations and repetition diagnostics. Exact model names win over substrings unless `--variants` is set. Scores, model names and individual `creative.<metric>` / `longform.<metric>` fields are sortable; `--order asc|desc`, `--limit` (0 for all) and `--offset` control the page. Unknown values sort last. Creative Elo and longform /100 remain separate.
 
-With runtime data, rows require confirmed positive usage and are deduplicated across provider aliases. The provider with the highest reported remaining fraction is kept, with selector order breaking ties. Account/model/tier/window scopes remain in `quotas`; percentages from different plans are not absolute token capacities. An expired window is unknown until refreshed, not an assumed refill. Catalogue token-rate cards are labelled USD/million reference rates, not charges against the DM's subscriptions. omp's catalogue/quota reports do not expose comparable generation speed, so speed is explicitly unknown.
+Native tool arguments are `models` (an array), `benchmark`, `variants`, `details`, `sort`, `order`, `limit`, `offset` and `excludeModels` (name substrings to drop). There are no role presets, recommendations or combined suitability scores. Selection remains agent judgement.
 
-Native tool arguments use `models` (an array), `benchmark`, `variants`, `details`, `sort`, `order`, `limit` and `offset`. `mode` is `all` (default) or `usage`; both read the session's registry and quota reports. Explicit `excludeModels` substrings filter supplied names; `differentFrom` excludes the vendor lineage of a supplied configured model selector or ID, even when another provider serves that family. There are no role presets, automatic recommendations or combined suitability scores. Selection remains agent judgement.
+Public benchmark reads require no API key and make no inference calls. Source timestamps expose staleness. A query that matches no published model, or a lookup failure, exits 1, and a query dropped only by `--exclude-model` is not missing. Invalid CLI arguments exit 2.
 
-Public benchmark reads require no API key and make no inference calls. Source timestamps expose staleness. Missing queried models or lookup failures exit 1; invalid CLI arguments exit 2. The filesystem tool is discovered when omp initialises its tool registry; writing the module does not hot-mount it into an already running session.
+The compiled omp binary can't resolve npm packages from on-disk custom tool code (`Cannot find package` in `~/.omp/logs`). So the tool imports none: it runs `scripts/benchmarks.ts` under the real Bun runtime. omp discovers the tool when it initialises its tool registry, so a running session doesn't pick up a newly written module.
 
 ## Recommendation: Sophon JSON API over EQ-Bench results
 
@@ -83,4 +82,4 @@ See [benchmark-api-alternatives.md](benchmark-api-alternatives.md) for LLM Stats
 
 ## Verification performed
 
-Live Sophon and official EQ-Bench fetches verified four-family coverage and the eight headline values above. CLI and native-tool smoke runs exercised configured omp subscriptions, catalogue rates, scoped quotas, cross-provider deduplication, positive-usage filtering, published reasoning variants and explicit name/vendor-lineage filters. Detail output exposed 12–15 Sophon scores per sampled model, all 15 rubric criteria, 50 style associations and both repetition profiles. The native module loaded through omp's SDK loader with no errors; no new agent session or inference call was started. Code lint and TypeScript diagnostics passed for the three tool/helper files.
+Live Sophon and official EQ-Bench fetches verified four-family coverage and the eight headline values above. Detail output exposed 12–15 Sophon scores per sampled model, all 15 rubric criteria, 50 style associations and both repetition profiles. On 2026-10-11, a fresh `omp -p` session (omp 18.9.2) loaded `model_evidence` and returned the GLM-5.3, Claude Opus 5.5 and Grok 4.7 scores, with `gpt-6.1-sol` listed under `missing`. TypeScript diagnostics passed for the tool and both scripts.

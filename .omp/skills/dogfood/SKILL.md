@@ -16,12 +16,12 @@ The DM's word mid-run sets the course from your next action. Steer a running wor
 ## Starts
 
 - **DM-started.** The DM asks to improve, change, eval or measure a skill or process, by name or by invoking `dogfood`. It runs for every skill in the target's file set, and step 4 may add eval cases to them.
-- **Friction-started.** During other work you orchestrate, a subagent's return reports friction, or the work shows rework or misdirection. The run fixes the friction, resumes the job on the revised text and leaves every `evals/cases.yaml` as it is.
+- **Friction-started.** During other work you orchestrate, a subagent's return reports friction, you meet friction yourself, or the work shows rework or misdirection. The run fixes the friction, resumes the job on the revised text and leaves every `evals/cases.yaml` as it is.
 
 ## Steps
 
 1. **Scope.** State the **target** and its **file set**. For a skill, that is its `SKILL.md`, the files it points to and the agents it dispatches. For a process, such as ingesting a raw file or prepping a Session, it is the entry point and every skill, `.omp/agents/` definition, `AGENTS.md` rule, template and runbook it routes through. A friction-started run's target is the file the friction traces to, and its job is the work already running. A DM-started run's units are the target's committed eval cases once `evals/README.md` § Design holds for them, small live production units the target governs (for `lint`: pages carrying `bun run cfcli -- check` findings), or both. Each unit is a different case, and no two touch the same files. **Done when** the target, file set and units each take one line and every unit has one subagent.
-2. **Run.** A friction-started run goes to step 3 once the batch that reported the friction has returned. A DM-started run dispatches one `task` batch, naming each subagent after its unit (`S9Merge`) so its transcript is at `history://<name>`:
+2. **Run.** A friction-started run goes to step 3 once the batch that reported the friction has returned, or at once for friction you met yourself. A DM-started run dispatches one `task` batch, naming each subagent after its unit (`S9Merge`) so its transcript is at `history://<name>`:
    - **Eval case:** run it per [`references/evals.md`](references/evals.md) on `test-subject`, or on `smart-test-subject` when the case has `subject: smart`.
    - **Live unit:** brief it exactly as production briefs it, on the cheapest capable model by `.omp/AGENTS.md` **Native delegation**. It writes to the Wiki as production does, and the `wiki-check` hook checks each page it writes.
 

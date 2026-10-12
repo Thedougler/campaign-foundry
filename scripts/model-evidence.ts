@@ -12,7 +12,6 @@ export type Options = {
 	limit?: number;
 	offset?: number;
 	excludeModels?: string[];
-	differentFromFamily?: string;
 	signal?: AbortSignal;
 };
 export type Metrics = Record<string, number | null>;
@@ -24,39 +23,6 @@ export type PublishedModel = {
 	longform: number | null;
 	metrics: Partial<Record<"creative" | "longform", Metrics>>;
 	samples: Partial<Record<"creative" | "longform", string>>;
-};
-export type Cost = { input: number; output: number; cacheRead: number; cacheWrite: number };
-export type AvailableModel = {
-	selector: string;
-	provider: string;
-	id: string;
-	name: string;
-	thinking: readonly string[] | null;
-	cost: Cost;
-	pricingStatus: string;
-	family?: string;
-};
-export type QuotaLimit = {
-	id: string;
-	label?: string;
-	scope: { provider: string; accountId?: string; model?: string; tier?: string; shared?: boolean; windowId?: string };
-	window?: { resetsAt?: number };
-	amount: { remaining?: number; remainingFraction?: number; unit: string };
-	status?: string;
-};
-export type Report = { provider: string; fetchedAt: number; limits: QuotaLimit[] };
-export type Quota = QuotaLimit & { ref: string; account: string; fetchedAt: number; resetPassed: boolean };
-export type Runtime = { models: AvailableModel[]; quotas: Quota[]; modelQuotas: Record<string, string[]> };
-export type EvidenceRow = PublishedModel & {
-	selector: string | null;
-	provider: string | null;
-	supportedThinking: readonly string[] | null;
-	cost: Cost | null;
-	pricingStatus: string | null;
-	quotaRefs: string[];
-	remainingPercent: number | null;
-	family: string | null;
-	speed: null;
 };
 
 export function normalise(value: string): string {
@@ -176,117 +142,16 @@ export async function published(options: Options) {
 	};
 }
 
-export function quotaEvidence(reports: Report[]): Quota[] {
-	const accounts = new Map<string, string>();
-	return reports.flatMap((report, index) =>
-		report.limits.map((limit, limitIndex) => {
-			const identity = limit.scope.accountId
-				? `${report.provider}:${limit.scope.accountId}`
-				: `${report.provider}:report-${index}`;
-			const account = accounts.get(identity) ?? `account-${accounts.size + 1}`;
-			accounts.set(identity, account);
-			return {
-				...limit,
-				scope: { ...limit.scope, ...(limit.scope.accountId ? { accountId: account } : {}) },
-				ref: `${index}:${limitIndex}`,
-				account,
-				fetchedAt: report.fetchedAt,
-				resetPassed: limit.window?.resetsAt !== undefined && limit.window.resetsAt <= Date.now(),
-			};
-		}),
-	);
-}
-
-function remainingPercent(quotas: Quota[]): number | null {
-	const accounts = Map.groupBy(quotas, (quota) => quota.account);
-	const remaining: number[] = [];
-	for (const windows of accounts.values()) {
-		if (
-			windows.some(
-				(quota) => quota.resetPassed || quota.status === "unknown" || quota.amount.remainingFraction === undefined,
-			)
-		)
-			continue;
-		remaining.push(
-			Math.min(...windows.map((quota) => (quota.status === "exhausted" ? 0 : quota.amount.remainingFraction! * 100))),
-		);
-	}
-	return remaining.length ? Math.max(...remaining) : null;
-}
-
-export function join(models: PublishedModel[], runtime?: Runtime): EvidenceRow[] {
-	const rows: EvidenceRow[] = [];
-	for (const model of models) {
-		const base = model.model.replace(/(?:-(?:minimal|low|medium|high|xhigh)-reasoning)+$/i, "");
-		const available =
-			runtime?.models.filter(
-				(candidate) => normalise(candidate.id) === normalise(base) || normalise(candidate.name) === normalise(base),
-			) ?? [];
-		for (const candidate of available.length ? available : [null]) {
-			const refs = candidate ? (runtime?.modelQuotas[candidate.selector] ?? []) : [];
-			const quotas = runtime?.quotas.filter((quota) => refs.includes(quota.ref)) ?? [];
-			rows.push({
-				...model,
-				selector: candidate?.selector ?? null,
-				provider: candidate?.provider ?? null,
-				family: candidate?.family ?? null,
-				speed: null,
-				supportedThinking: candidate?.thinking ?? null,
-				cost: candidate?.cost ?? null,
-				pricingStatus: candidate?.pricingStatus ?? null,
-				quotaRefs: refs,
-				remainingPercent: remainingPercent(quotas),
-			});
-		}
-	}
-	if (runtime) {
-		for (const model of runtime.models) {
-			if (rows.some((row) => row.selector === model.selector)) continue;
-			const refs = runtime.modelQuotas[model.selector] ?? [];
-			const quotas = runtime.quotas.filter((quota) => refs.includes(quota.ref));
-			rows.push({
-				model: model.id,
-				publishedNames: {},
-				publishedReasoning: null,
-				creative: null,
-				longform: null,
-				metrics: {},
-				samples: {},
-				selector: model.selector,
-				provider: model.provider,
-				family: model.family ?? null,
-				speed: null,
-				supportedThinking: model.thinking,
-				cost: model.cost,
-				pricingStatus: model.pricingStatus,
-				quotaRefs: refs,
-				remainingPercent: remainingPercent(quotas),
-			});
-		}
-	}
-	return rows;
-}
-
-export function sortRows(rows: EvidenceRow[], sort = "creative", order?: "asc" | "desc") {
-	if (
-		!/^(creative|longform|model|remainingPercent|speed|cost\.(input|output|cacheRead|cacheWrite)|(creative|longform)\.[a-z0-9_]+)$/.test(
-			sort,
-		)
-	)
+export function sortRows(rows: PublishedModel[], sort = "creative", order?: "asc" | "desc") {
+	if (!/^(creative|longform|model|(creative|longform)\.[a-z0-9_]+)$/.test(sort))
 		throw new Error(`Unknown sort field: ${sort}`);
-	const value = (row: EvidenceRow): number | string | null => {
-		if (sort === "model") return row.selector ?? row.model;
-		if (sort === "speed") return row.speed;
-		if (sort === "creative" || sort === "longform" || sort === "remainingPercent") return row[sort];
-		if (sort.startsWith("cost."))
-			return row.pricingStatus === "unknown" || row.pricingStatus === "variable"
-				? null
-				: (row.cost?.[sort.slice(5) as keyof Cost] ?? null);
-		const [benchmark, field] = sort.split(".");
-		if (benchmark === "creative" || benchmark === "longform") return row.metrics[benchmark]?.[field!] ?? null;
-		throw new Error(`Unknown sort field: ${sort}`);
+	const value = (row: PublishedModel): number | string | null => {
+		if (sort === "model") return row.model;
+		if (sort === "creative" || sort === "longform") return row[sort];
+		const [benchmark, field] = sort.split(".") as ["creative" | "longform", string];
+		return row.metrics[benchmark]?.[field] ?? null;
 	};
-	const direction = (order ?? (sort.startsWith("cost.") || sort === "model" ? "asc" : "desc")) === "asc" ? 1 : -1;
+	const direction = (order ?? (sort === "model" ? "asc" : "desc")) === "asc" ? 1 : -1;
 	return rows.sort((a, b) => {
 		const left = value(a),
 			right = value(b);
@@ -295,44 +160,18 @@ export function sortRows(rows: EvidenceRow[], sort = "creative", order?: "asc" |
 		return (
 			(typeof left === "number" && typeof right === "number"
 				? left - right
-				: String(left).localeCompare(String(right))) * direction ||
-			(a.selector ?? a.model).localeCompare(b.selector ?? b.model)
+				: String(left).localeCompare(String(right))) * direction || a.model.localeCompare(b.model)
 		);
 	});
 }
 
-export async function evidence(options: Options, runtime?: Runtime, usageOnly = false) {
+export async function evidence(options: Options) {
 	if (options.models?.some((query) => !normalise(query)))
 		throw new Error("Model queries must contain letters or numbers");
-	const data = usageOnly ? { models: [] as PublishedModel[], sources: [], texts: {} } : await published(options);
-	const filteredRuntime = runtime
-		? {
-				...runtime,
-				models: matches(runtime.models, options.models, (row) => [row.selector, row.name], options.variants),
-			}
-		: undefined;
-	const sort = options.sort ?? (usageOnly ? "model" : options.benchmark === "longform" ? "longform" : "creative");
-	const candidates = join(data.models, filteredRuntime);
-	const withUsage = runtime
-		? candidates.filter((row) => row.selector !== null && row.remainingPercent !== null && row.remainingPercent > 0)
-		: candidates;
-	const deduplicated = new Map<string, EvidenceRow>();
-	for (const row of withUsage) {
-		const key = normalise(row.model);
-		const prior = deduplicated.get(key);
-		if (
-			!prior ||
-			(row.remainingPercent ?? -1) > (prior.remainingPercent ?? -1) ||
-			(row.remainingPercent === prior.remainingPercent &&
-				(row.selector ?? row.model).localeCompare(prior.selector ?? prior.model) < 0)
-		)
-			deduplicated.set(key, row);
-	}
-	const eligible = [...deduplicated.values()].filter(
-		(row) =>
-			(!options.differentFromFamily ||
-				(row.family !== null && row.family !== "unknown" && row.family !== options.differentFromFamily)) &&
-			!(options.excludeModels ?? []).some((name) => normalise(row.model).includes(normalise(name))),
+	const data = await published(options);
+	const sort = options.sort ?? (options.benchmark === "longform" ? "longform" : "creative");
+	const eligible = data.models.filter(
+		(row) => !(options.excludeModels ?? []).some((name) => normalise(row.model).includes(normalise(name))),
 	);
 	const sorted = sortRows(eligible, sort, options.order);
 	const offset = options.offset ?? 0,
@@ -340,7 +179,7 @@ export async function evidence(options: Options, runtime?: Runtime, usageOnly = 
 	const rows = limit === 0 ? sorted.slice(offset) : sorted.slice(offset, offset + limit);
 	const profileSources: string[] = [];
 	let details: Record<string, unknown> | undefined;
-	if (options.details && !usageOnly) {
+	if (options.details) {
 		const chartFiles =
 			options.benchmark === "longform" ? [] : ["creative_writing_chartdata.js", "creative_writing_chartdata_style.js"];
 		const charts = await Promise.all(
@@ -353,7 +192,7 @@ export async function evidence(options: Options, runtime?: Runtime, usageOnly = 
 		);
 		details = Object.fromEntries(
 			await Promise.all(
-				[...new Set(rows.map((row) => row.model))].map(async (model) => {
+				rows.map(async ({ model }) => {
 					const url = `https://sophon.at/api/v1/models/${encodeURIComponent(
 						model
 							.slice(model.lastIndexOf("/") + 1)
@@ -384,43 +223,24 @@ export async function evidence(options: Options, runtime?: Runtime, usageOnly = 
 			),
 		);
 	}
-	const refs = new Set(rows.flatMap((row) => row.quotaRefs));
-	const providers = new Set(rows.map((row) => row.provider));
 	return {
 		sources: {
 			benchmarks: data.sources,
 			...(profileSources.length ? { profiles: profileSources.sort() } : {}),
-			...(runtime
-				? {
-						runtime: "omp model registry and provider usage reports",
-						costs: "omp configured catalogue; USD per million tokens",
-					}
-				: {}),
 		},
 		sort,
-		order: options.order ?? (sort.startsWith("cost.") || sort === "model" ? "asc" : "desc"),
+		order: options.order ?? (sort === "model" ? "asc" : "desc"),
 		total: sorted.length,
 		offset,
 		nextOffset: offset + rows.length < sorted.length ? offset + rows.length : null,
 		rows,
-		excludedForQuota: runtime ? candidates.length - withUsage.length : 0,
 		...(details ? { details } : {}),
-		...(runtime
-			? { quotas: runtime.quotas.filter((quota) => refs.has(quota.ref) || providers.has(quota.scope.provider)) }
-			: {}),
 		missing: (options.models ?? []).filter(
-			(query) => !matches(sorted, [query], (row) => [row.model, row.selector ?? ""], options.variants).length,
+			(query) => !matches(data.models, [query], (row) => [row.model], options.variants).length,
 		),
 		notes: [
 			"Creative Elo and longform /100 are separate scales. Source ranks and diagnostics are evidence, not task suitability.",
-			"Published run names retain reasoning labels; supported thinking settings have no implied benchmark score.",
-			"Speed is unknown: omp's catalogue/quota reports do not supply a comparable generation-speed measurement. No external routing service is used.",
-			...(runtime
-				? [
-						"Runtime rows exclude unknown/exhausted quota and deduplicate provider aliases, keeping the largest confirmed remaining fraction (selector breaks ties). Percentages from different plans are not absolute token capacity.",
-						"remainingPercent is the best reported account's tightest window; expired or unknown windows are not assumed refilled. Catalogue costs are reference rates, not subscription charges.",
-					]
-				: []),
+			"Published run names retain reasoning labels. Quota, pricing and thinking levels come from `omp usage --json` and `omp models --json`.",
 		],
 	};
 }
