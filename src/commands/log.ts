@@ -44,7 +44,7 @@ export function logCommand(): Command {
 		.addOption(
 			new Option(
 				"--page <page>",
-				"a page touched: name or vault path, or - for page names from stdin, one per line; repeat for several",
+				"a page touched: name, vault-relative path or repo-relative wiki/… path; - reads the same forms from stdin, one per line; repeat for several",
 			)
 				.argParser(collect)
 				.default([] as string[], "none"),

@@ -35,7 +35,9 @@ export interface PageViews {
 	spoken: ReadonlySet<number>;
 	/** Each Cue's spoken texts, by the line the Cue sits on. */
 	cues: ReadonlyMap<number, readonly string[]>;
-	/** Sentences worth comparing across pages, by line: body prose only (the boilerplate policy). */
+	/** Published rules under Item `### Properties`, through the next heading of depth three or less. */
+	itemProperties: ReadonlySet<number>;
+	/** Comparable body prose, excluding published Item Properties (the boilerplate policy). */
 	sentences: ReadonlyMap<number, readonly Sentence[]>;
 }
 
@@ -51,6 +53,22 @@ function pageSource(page: Page): { lines: string[]; starts: number[] } {
 		sourceCache.set(page, source);
 	}
 	return source;
+}
+
+/** The parsed headings own section bounds, so headings inside fences cannot start or end Properties. */
+function itemPropertiesLines(page: Page): ReadonlySet<number> {
+	const lines = new Set<number>();
+	if (page.frontmatter?.type !== "Item") return lines;
+	let end = pageSource(page).lines.length + 1;
+	for (let index = page.headings.length - 1; index >= 0; index--) {
+		const heading = page.headings[index]!;
+		if (heading.depth > 3) continue;
+		if (heading.depth === 3 && heading.text === "Properties") {
+			for (let line = heading.line; line < end; line++) lines.add(line);
+		}
+		end = heading.line;
+	}
+	return lines;
 }
 
 /** The derived views of `page`, computed once: narration and Cue lines, and comparable sentences. */
@@ -74,6 +92,7 @@ export function pageViews(page: Page): PageViews {
 	}
 	const spoken = new Set<number>(narration);
 	for (const line of cues.keys()) spoken.add(line);
+	const itemProperties = itemPropertiesLines(page);
 
 	let comparable: Map<number, Sentence[]> | undefined;
 	const views: PageViews = {
@@ -82,8 +101,9 @@ export function pageViews(page: Page): PageViews {
 		narrationBody,
 		spoken,
 		cues,
+		itemProperties,
 		get sentences() {
-			if (comparable === undefined) comparable = proseSentences(page);
+			if (comparable === undefined) comparable = proseSentences(page, itemProperties);
 			return comparable;
 		},
 	};
@@ -142,8 +162,8 @@ function sentences(line: string): string[] {
 	return out;
 }
 
-/** Sentences worth comparing per line: body prose, not frontmatter, headings, callouts, fences, tables or comments. */
-function proseSentences(page: Page): Map<number, Sentence[]> {
+/** Comparable body prose: syntax exclusions and published Item Properties are not repeated authorial prose. */
+function proseSentences(page: Page, itemProperties: ReadonlySet<number>): Map<number, Sentence[]> {
 	const sentencesByLine = new Map<number, Sentence[]>();
 	const source = bodyLines(page);
 	const proseLines = new Set<number>();
@@ -165,6 +185,7 @@ function proseSentences(page: Page): Map<number, Sentence[]> {
 	};
 	visit(page.tree);
 	for (const line of proseLines) {
+		if (itemProperties.has(line)) continue;
 		const trimmed = (source[line - 1] ?? "").trim();
 		if (!trimmed) continue;
 		const prose = trimmed
@@ -325,6 +346,7 @@ const caches = {
 	show: new WeakMap<Page, ProseView>(),
 	named: new WeakMap<Vault, WeakMap<Page, ProseView>>(),
 	mask: new WeakMap<Vault, WeakMap<Page, ProseView>>(),
+	grammar: new WeakMap<Vault, WeakMap<Page, ProseView>>(),
 };
 
 /**
@@ -511,6 +533,31 @@ export function proseView(page: Page, mask?: Vault, namesFrom?: Vault): ProseVie
 	return view;
 }
 
+/** Harper's prose view: published Item Properties blanked without changing offsets or source lines. */
+export function grammarView(page: Page, vault: Vault): ProseView {
+	const view = proseView(page, undefined, vault);
+	if (page.frontmatter?.type !== "Item") return view;
+	const properties = pageViews(page).itemProperties;
+	if (properties.size === 0) return view;
+	let pages = caches.grammar.get(vault);
+	if (!pages) {
+		pages = new WeakMap();
+		caches.grammar.set(vault, pages);
+	}
+	let result = pages.get(page);
+	if (!result) {
+		result = {
+			...view,
+			text: view.text
+				.split("\n")
+				.map((line, index) => (properties.has(index + 1) ? line.replace(/[^\n]/g, " ") : line))
+				.join("\n"),
+		};
+		pages.set(page, result);
+	}
+	return result;
+}
+
 /** The source offset of a UTF-16 index in the view (the last offset when the index is at the end). */
 export function sourceOffset(view: ProseView, index: number): number {
 	return view.map[Math.min(index, view.map.length - 1)] ?? 0;
@@ -579,11 +626,14 @@ function valeText(text: string, views: PageViews): string {
 	const cueLines = views.cues;
 	// Only narration stays a blockquote: other callouts and ordinary quotes are DM-side prose. A quote line under an
 	// NPC's `## Quotes` is that person's verbatim speech, so it leaves the view (blanked) while its context line stays.
+	// The DM ruled published Item Properties wording the house standard (2026-10-11; raw samples:
+	// "the gold standard for concise direct communication"), the same reason fenced statblock text is exempt.
 	let inQuotes = false;
 	const scoped = text
 		.split("\n")
 		.map((line, index) => {
 			if (/^#{1,6}\s/.test(line)) inQuotes = /^##\s+Quotes\s*$/.test(line);
+			if (views.itemProperties.has(index + 1)) return "";
 			if (inQuotes && /^[ \t]*>/.test(line)) return "";
 			const lineNo = index + 1;
 			// A Cue line keeps its spoken text but loses the `==` marks: ai-tells reads the words, the gate keeps the line.

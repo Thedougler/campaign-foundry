@@ -174,7 +174,7 @@ function styleTool(vale: ValeAdapter): LanguageTool {
 		name: LAYER,
 		config: [".vale.ini", ".vale-narration.ini"],
 		salt: async () =>
-			`${vale.fingerprint ? await vale.fingerprint() : "canned"}|${Object.keys(NARRATION_EXEMPT_AI_TELLS).join(",")}|${MASK_STAND_IN.source}`,
+			`${vale.fingerprint ? await vale.fingerprint() : "canned"}|${Object.keys(NARRATION_EXEMPT_AI_TELLS).join(",")}|${MASK_STAND_IN.source}|item-properties-2026-10-11`,
 		async compute(pages, ctx) {
 			const written: Record<string, string> = {};
 			const narrated: Record<string, string> = {};

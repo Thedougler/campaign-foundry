@@ -1,0 +1,33 @@
+---
+title: Quaal's Feather Token, Swan Boat
+type: Item
+summary: ""
+sources: ["archive/all-magic-items.md"]
+---
+
+## Play
+
+### Properties
+
+*Wondrous Item, Rare.*
+
+This object looks like a feather.
+
+You can take a Magic action to touch the token to a body of water at least 60 feet in diameter. The token disappears, and a 50-foot-long, 20-foot-wide boat shaped like a swan takes its place. The boat is self-propelled and moves across water at a speed of 6 miles per hour. You can take a Magic action while on the boat to command it to move or to turn up to 90 degrees. The boat remains for 24 hours and then disappears. You can dismiss the boat as a Magic action.
+
+## Links
+
+```base
+filters:
+  and:
+    - file.hasLink(this.file)
+views:
+  - type: table
+    name: Linked from
+    groupBy:
+      property: note.type
+      direction: ASC
+    order:
+      - file.name
+      - note.summary
+```

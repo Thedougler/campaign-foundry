@@ -1,0 +1,35 @@
+---
+title: Obviator's Lenses
+type: Item
+summary: ""
+sources: ["archive/all-magic-items.md"]
+---
+
+## Play
+
+### Properties
+
+*Wondrous Item.*
+
+Also at rank 2, you gain the use of an uncommon magic item taking the form of a pair of spectacles, a spyglass, a monocle, or any other device with one or two lenses. When you look through the obviator's lenses, you use a bonus action to make them function as *eyes of minute seeing* or *eyes of the eagle*. Once you make this choice, it cannot be changed until the next dawn.
+
+***Enhanced Lenses.*** At rank 4, your obviator's lenses gain additional power and become a rare magic item. The lenses now function as both *eyes of the eagle* and *eyes of minute seeing*.
+
+Additionally, you can focus the power of the lenses to gain accuracy in combat, gaining advantage on a weapon attack roll (no action required). If that attack hits, roll one additional weapon damage die. This property of the lenses can't be used again until the next dawn.
+
+## Links
+
+```base
+filters:
+  and:
+    - file.hasLink(this.file)
+views:
+  - type: table
+    name: Linked from
+    groupBy:
+      property: note.type
+      direction: ASC
+    order:
+      - file.name
+      - note.summary
+```

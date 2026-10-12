@@ -24,13 +24,32 @@ const RARITIES: Record<string, string> = {
 	artifact: "artifact",
 };
 
-/** The text after `**Label.**` in the page's at-a-glance bullets, or "". */
-function glance(page: Page, label: string): string {
-	const match = new RegExp(`^- \\*\\*${label}\\.\\*\\*\\s*(.*)$`, "im").exec(page.source);
-	return (match?.[1] ?? "").trim();
+const RARITY_PATTERN = new RegExp(
+	`\\b(${Object.keys(RARITIES)
+		.sort((a, b) => b.length - a.length)
+		.join("|")})\\b`,
+	"i",
+);
+
+/** The opening paragraph under Properties, without its emphasis marks or final full stop. */
+function classification(page: Page): string {
+	const properties = page.headings.find((heading) => heading.depth === 3 && heading.text === "Properties");
+	if (!properties) return "";
+	for (let index = properties.index + 1; index < page.tree.children.length; index++) {
+		const node = page.tree.children[index];
+		if (node?.type === "heading") break;
+		if (node?.type === "paragraph") {
+			return page.source
+				.slice(node.position?.start.offset, node.position?.end.offset)
+				.trim()
+				.replace(/^[*_]+|[*_.]+$/g, "")
+				.trim();
+		}
+	}
+	return "";
 }
 
-/** Picks the dnd5e Item type for a page from its `**Kind.**` line: equipment (wondrous items, armor), weapon, consumable, else loot. */
+/** Picks the dnd5e Item type from its classification: equipment (wondrous items, armor), weapon, consumable, else loot. */
 function itemKind(kind: string): { type: string; system: Doc } {
 	const k = kind.toLowerCase();
 	if (/\bweapon\b/.test(k))
@@ -54,14 +73,11 @@ function itemKind(kind: string): { type: string; system: Doc } {
 
 /** A dnd5e Item from an Item page, with the page's rules text (not its hidden truths) as the description. */
 export function buildItem(page: Page, options: ItemOptions): BuiltItem {
-	const { type, system } = itemKind(glance(page, "Kind"));
-	const rarity = RARITIES[glance(page, "Rarity").toLowerCase().replace(/\.$/, "")] ?? "";
-	const attunement =
-		/^(none|no)\b/i.test(glance(page, "Attunement")) || glance(page, "Attunement") === ""
-			? ""
-			: /optional/i.test(glance(page, "Attunement"))
-				? "optional"
-				: "required";
+	const line = classification(page);
+	const rarityMatch = RARITY_PATTERN.exec(line);
+	const { type, system } = itemKind(line.slice(0, rarityMatch?.index));
+	const rarity = RARITIES[rarityMatch?.[0].toLowerCase() ?? ""] ?? "";
+	const attunement = /requires attunement/i.test(line) ? "required" : "";
 	const description = renderMarkdown(page, options.render, { omit: ["Depth"] });
 	const data: Doc = {
 		_id: foundryId(options.campaign, page.path),

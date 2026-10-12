@@ -36,7 +36,7 @@ A classification line (`Wondrous Item, Rare (Requires Attunement by a Spellcaste
 
 ## Branches
 
-- **Cursed:** a curse escapes most identification, including *Identify*. State what reveals it, what it does and how it deepens. State whether attunement ends while cursed and what breaks the curse (*Remove Curse*, a quest or a sacrifice). Record the curse under Hidden truths until the Party reveals it.
+- **Cursed:** a curse escapes most identification, including *Identify*. State what reveals it, what it does and how it deepens. State whether attunement ends while cursed and what breaks the curse (*Remove Curse*, a quest or a sacrifice). Write the curse into the rules text as a named property. When a Campaign hides it from the Party, give under Hidden truths how the Party can learn it.
 - **Sentient:** give it scores for Intelligence, Wisdom and Charisma. It has an alignment and a special purpose, senses with a range, and a way to communicate (emotion, speech or telepathy). When the bearer acts against its purpose it makes a demand, resisted with a Charisma save against a stated DC (12 + its Charisma modifier). Write out each demand, from refusing to work to brief control.
 - **Growing:** give each stage a trigger and a new property with its cost and tell. Recheck rarity at every stage.
 - **Artifact:** give it minor and major properties, both beneficial and harmful. Add a way to destroy it, its place in history and the people who seek it.

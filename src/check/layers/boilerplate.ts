@@ -5,6 +5,7 @@ import { isUnownedProse, pageViews } from "../views.ts";
 /**
  * A good book never prints the same sentence twice. This layer flags sentences of body prose that appear verbatim
  * on more than one page, outside the places the templates hold in common (frontmatter, headings, callouts, fences).
+ * Published Item Properties may repeat the same rules; they are not authorial prose.
  */
 export const boilerplateLayer: Layer = {
 	name: "boilerplate",
@@ -29,7 +30,9 @@ export const boilerplateLayer: Layer = {
 			if (pages.size < 2) continue;
 			const quoted = quote.length > 80 ? `${quote.slice(0, 77)}…` : quote;
 			for (const [page, line] of pages) {
-				if (!reported.add(`${page.path}:${line}`)) continue;
+				const key = `${page.path}:${line}`;
+				if (reported.has(key)) continue;
+				reported.add(key);
 				const others = [...pages]
 					.filter(([other]) => other !== page)
 					.map(([other, at]) => `${ctx.display(other.path)}:${at}`);

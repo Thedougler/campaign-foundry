@@ -46,7 +46,8 @@ Build every prompt in this order, filling the device's fields as shown. Each lay
 
 A character's look is the page's own words, copied whole:
 
-- **NPC** and **Item**: the `[!narration] First look` callout, plus any physical detail in `## At a glance`.
+- **NPC**: the `[!narration] First look` callout, plus any physical detail in `## At a glance`.
+- **Item**: the `[!narration] First look` callout and any physical detail in `## At a glance`. A page without a First look gives the plain description after the classification line in `### Properties`.
 - **PC**: the `[!narration] Portrait` callout. The party table in the art guide's § Looks fills gaps, and where the two differ, the PC page is right.
 - **Creature**: the physical lines of `## At a glance` and `### Ecology`, with size and type from `## Statblock`.
 - **Location**: its `[!narration]` callout and the features its sections name.

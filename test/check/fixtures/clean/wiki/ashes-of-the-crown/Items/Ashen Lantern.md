@@ -6,28 +6,27 @@ revealed: ""
 title: "Ashen Lantern"
 ---
 
-## At a glance
-
-- **Kind.** Text.
-- **Rarity.** Text.
-- **Attunement.** Text.
-- **Changes.** Text.
-- **Held by.** Text.
-
-> [!narration] First look
-> A slow red coal glows behind the glass.
-
 ## Play
 
 Text.
 
 ### Properties
 
+*Wondrous Item, Uncommon.*
+
 Text.
 
 ### In use
 
 Text.
+
+## At a glance
+
+- **Changes.** Text.
+- **Held by.** Text.
+
+> [!narration] First look
+> A slow red coal glows behind the glass.
 
 ## Depth
 

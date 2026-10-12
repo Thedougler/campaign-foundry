@@ -1,0 +1,31 @@
+---
+title: Manual of Quickness of Action
+type: Item
+summary: ""
+sources: ["archive/all-magic-items.md"]
+---
+
+## Play
+
+### Properties
+
+*Wondrous Item, Very Rare, 5 lb.*
+
+This book contains coordination and balance exercises, and its words are charged with magic. If you spend 48 hours over a period of 6 days or fewer studying the book's contents and practising its guidelines, your Dexterity increases by 2, to a maximum of 30. The manual then loses its magic, but regains it in a century.
+
+## Links
+
+```base
+filters:
+  and:
+    - file.hasLink(this.file)
+views:
+  - type: table
+    name: Linked from
+    groupBy:
+      property: note.type
+      direction: ASC
+    order:
+      - file.name
+      - note.summary
+```

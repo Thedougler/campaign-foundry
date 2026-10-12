@@ -241,12 +241,14 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 				'Write one line of text, e.g. `summary: "A walled river port that taxes every barge."`.',
 			);
 		} else if (isBlank(summary)) {
-			add(
-				"blank-summary",
-				line,
-				"Property `summary` is blank.",
-				'Write the page in one line; index pages are generated from it, e.g. `summary: "A walled river port that taxes every barge."`.',
-			);
+			if (!isSharedRootFolder(page.path.split("/")[0] ?? "")) {
+				add(
+					"blank-summary",
+					line,
+					"Property `summary` is blank.",
+					'Write the page in one line; index pages are generated from it, e.g. `summary: "A walled river port that taxes every barge."`.',
+				);
+			}
 		} else if (/\n/.test((summary as string).trim())) {
 			add(
 				"summary-multiline",

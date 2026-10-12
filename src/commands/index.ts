@@ -20,6 +20,7 @@ export const commands: CommandEntry[] = [
 	{ name: "check", load: async () => (await import("./check.ts")).checkCommand() },
 	{ name: "context", load: async () => (await import("./context.ts")).contextCommand() },
 	{ name: "convert", load: async () => (await import("./convert.ts")).convertCommand() },
+	{ name: "convert-items", load: async () => (await import("./convert-items.ts")).convertItemsCommand() },
 	{ name: "ddb", load: async () => (await import("./ddb.ts")).ddbCommand() },
 	{ name: "encounter-budget", load: async () => (await import("./encounter-budget.ts")).encounterBudgetCommand() },
 	{ name: "eval", load: async () => (await import("./eval.ts")).evalCommand() },

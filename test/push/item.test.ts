@@ -16,6 +16,53 @@ const load = (name: string): ReturnType<typeof buildItem> => {
 };
 
 describe("buildItem", () => {
+	it.each([
+		"*Wondrous Item (Tattoo), Very Rare (Requires Attunement)*",
+		"*Wondrous Item (Tattoo), Very Rare (Requires Attunement).*",
+	])("reads a Very Rare attuned tattoo from the Properties classification %s", (line) => {
+		const page = parsePage("Items/tattoo.md", `## Play\n\n### Properties\n\n${line}`);
+		expect(buildItem(page, { campaign: "salt-and-lantern", render: ctx }).data).toMatchObject({
+			type: "equipment",
+			system: { type: { value: "wondrous" }, rarity: "veryRare", attunement: "required" },
+		});
+	});
+
+	it.each(["*Weapon (Longsword), Rare*", "_weapon (Longsword), rArE._", "Weapon (Longsword), Rare."])(
+		"reads weapon rarity without attunement from %s",
+		(line) => {
+			const page = parsePage("Items/sword.md", `## Play\n\n### Properties\n\n${line}`);
+			expect(buildItem(page, { campaign: "salt-and-lantern", render: ctx }).data).toMatchObject({
+				type: "weapon",
+				system: { rarity: "rare", attunement: "" },
+			});
+		},
+	);
+
+	it.each([
+		"## Play\n\n### Properties\n\n### In use\n\n*Weapon (Longsword), Rare (Requires Attunement)*",
+		"## Play\n\n### In use\n\n*Weapon (Longsword), Rare (Requires Attunement)*",
+		"## Play\n\n### Properties\n\nA brass key opens one lock.",
+	])("makes an unclassified page loot without falling back to legacy bullets (%s)", (body) => {
+		const page = parsePage(
+			"Items/key.md",
+			`${body}\n\n## At a glance\n\n- **Kind.** Weapon.\n- **Rarity.** Legendary.\n- **Attunement.** Required.`,
+		);
+		const { data } = buildItem(page, { campaign: "salt-and-lantern", render: ctx });
+		expect(data).toMatchObject({ type: "loot", system: { type: { value: "" }, rarity: "" } });
+		expect(data.system).not.toHaveProperty("attunement");
+	});
+
+	it("reads only the first Properties paragraph, not later rules text", () => {
+		const page = parsePage(
+			"Items/sword.md",
+			"## Play\n\n### Properties\n\n*Weapon (Longsword), Rare*\n\nThis very rare technique requires attunement.",
+		);
+		expect(buildItem(page, { campaign: "salt-and-lantern", render: ctx }).data).toMatchObject({
+			type: "weapon",
+			system: { rarity: "rare", attunement: "" },
+		});
+	});
+
 	it("makes a wondrous magic item an equipment Item with its rarity and no attunement", () => {
 		const lantern = load("Ebb Lantern").data as Record<string, any>;
 		expect(lantern.type).toBe("equipment");

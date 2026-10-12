@@ -1,0 +1,31 @@
+---
+title: Prosthetic Limb
+type: Item
+summary: ""
+sources: ["archive/all-magic-items.md"]
+---
+
+## Play
+
+### Properties
+
+*Wondrous Item, Common, 0 GP.*
+
+This magic item replaces a lost limb—a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to the part it replaces. You can detach or reattach it as a Magic action, and it can't be removed against your will while you are alive.
+
+## Links
+
+```base
+filters:
+  and:
+    - file.hasLink(this.file)
+views:
+  - type: table
+    name: Linked from
+    groupBy:
+      property: note.type
+      direction: ASC
+    order:
+      - file.name
+      - note.summary
+```

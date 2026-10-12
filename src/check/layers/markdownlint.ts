@@ -6,10 +6,12 @@ import { lint } from "markdownlint/promise";
 import { parse } from "yaml";
 import type { Page } from "../../vault/types.ts";
 import { toolRoot } from "../prose.ts";
-import { isProsePage, lintText } from "../views.ts";
+import { isProsePage, lintText, type LintText } from "../views.ts";
 import type { CheckContext, Finding, Fix, FixResult, Layer } from "../types.ts";
 
 const LAYER = "markdownlint";
+// markdownlint recurses synchronously per string; bound each invocation well below the stack limit.
+const BATCH_SIZE = 200;
 
 let configPromise: Promise<Configuration> | undefined;
 
@@ -32,21 +34,26 @@ const HINTS: Record<string, string> = {
 /** markdownlint's errors for each page, with line numbers in the page source and comment noise dropped. */
 async function lintPages(pages: Page[]): Promise<Map<Page, LintError[]>> {
 	const config = await loadConfig();
-	const strings: Record<string, string> = {};
-	const texts = new Map<Page, ReturnType<typeof lintText>>();
-	for (const page of pages) {
-		const lintable = lintText(page);
-		texts.set(page, lintable);
-		strings[page.path] = lintable.text;
-	}
-	const results = await lint({ strings, config, handleRuleFailures: true });
 	const byPage = new Map<Page, LintError[]>();
-	for (const page of pages) {
-		const { lines, skip } = texts.get(page)!;
-		const errors = (results[page.path] ?? [])
-			.map((e) => ({ ...e, lineNumber: lines[e.lineNumber - 1] ?? e.lineNumber }))
-			.filter((e) => !skip.has(e.lineNumber));
-		byPage.set(page, errors);
+	for (let start = 0; start < pages.length; start += BATCH_SIZE) {
+		const end = Math.min(start + BATCH_SIZE, pages.length);
+		const strings: Record<string, string> = {};
+		const texts = new Map<Page, LintText>();
+		for (let i = start; i < end; i++) {
+			const page = pages[i]!;
+			const lintable = lintText(page);
+			texts.set(page, lintable);
+			strings[page.path] = lintable.text;
+		}
+		const results = await lint({ strings, config, handleRuleFailures: true });
+		for (let i = start; i < end; i++) {
+			const page = pages[i]!;
+			const { lines, skip } = texts.get(page)!;
+			const errors = (results[page.path] ?? [])
+				.map((e) => ({ ...e, lineNumber: lines[e.lineNumber - 1] ?? e.lineNumber }))
+				.filter((e) => !skip.has(e.lineNumber));
+			byPage.set(page, errors);
+		}
 	}
 	return byPage;
 }

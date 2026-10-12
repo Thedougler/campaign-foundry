@@ -4,7 +4,7 @@ import { binary } from "harper.js/binary";
 import type { Page, Vault } from "../../vault/types.ts";
 import type { CachedFinding } from "../cache.ts";
 import { runLanguageTool, type LanguageTool } from "../language.ts";
-import { lineAt, lineStarts, proseView, sourceOffset } from "../views.ts";
+import { grammarView, lineAt, lineStarts, sourceOffset } from "../views.ts";
 import type { Layer } from "../types.ts";
 
 const LAYER = "grammar";
@@ -134,7 +134,7 @@ async function lintPages(l: LocalLinter, pages: Page[], vault: Vault): Promise<M
 	for (const page of pages) {
 		const found: CachedFinding[] = [];
 		out.set(page, found);
-		const view = proseView(page, undefined, vault);
+		const view = grammarView(page, vault);
 		if (view.text.trim() === "") continue;
 		const starts = lineStarts(page.source);
 		const utf16 = toUtf16(view.text);
@@ -163,7 +163,8 @@ async function lintPages(l: LocalLinter, pages: Page[], vault: Vault): Promise<M
 const grammarTool: LanguageTool = {
 	name: LAYER,
 	projectDictionary: true,
-	salt: () => JSON.stringify([DISABLED_RULES, Object.keys(MISREAD_PAST), CASTE_COLOUR.source]),
+	salt: () =>
+		JSON.stringify([DISABLED_RULES, Object.keys(MISREAD_PAST), CASTE_COLOUR.source, "item-properties-2026-10-11"]),
 	async compute(misses, ctx, words) {
 		const l = await linter();
 		await l.importWords(words);
@@ -174,6 +175,6 @@ const grammarTool: LanguageTool = {
 export const grammarLayer: Layer = {
 	name: LAYER,
 	scope: "page",
-	description: "Harper: grammar and usage in British English, over the prose text.",
+	description: "Harper: grammar and usage in British English, outside published Item Properties.",
 	run: (ctx) => runLanguageTool(grammarTool, ctx),
 };

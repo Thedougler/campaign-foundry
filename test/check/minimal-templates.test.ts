@@ -10,21 +10,13 @@ summary: "A brass key that opens one lock."
 sources: []
 ---
 
-## At a glance
-
-- **Kind.** Mundane gear.
-- **Rarity.** Common.
-- **Changes.** Opens one matching lock.
-
 ## Play
 
 ### Properties
 
+*Mundane Gear, Common.*
+
 The key opens one matching lock.
-
-### In use
-
-Turn the key to release the lock.
 
 ## Links
 
@@ -75,7 +67,7 @@ filters:
 `;
 
 describe("minimal templates: all-layer acceptance in a temp vault copy", () => {
-	it("passes a World-free Item without revealed or First look", async () => {
+	it("passes a World-free Item with only frontmatter, Play/Properties and Links", async () => {
 		const dir = await copyFixture("clean");
 		const path = join(dir, "wiki/Items/brass-key.md");
 		await mkdir(join(dir, "wiki/Items"), { recursive: true });
