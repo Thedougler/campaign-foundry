@@ -4,9 +4,9 @@
 
 Use the first source with a candidate that fits the request:
 
-1. The target Wiki: an existing Creature that fits the role and fiction.
-2. The 2024 SRD through `dnd5e-srd-api`.
-3. Official material outside the SRD, then suitable homebrew material retrieved from the web.
+1. The Wiki: an existing Creature that fits the role and fiction, in the Campaign folder's `Creatures/` or the vault-root `wiki/Creatures/`.
+2. Official material outside the SRD, from books and the web, then suitable homebrew material retrieved from the web.
+3. The 2024 SRD through `dnd5e-srd-api`, the last fallback for peers, since its content is limited next to the Wiki and the web. It stays the quick source of exact rules text (stat blocks, spell text, rules glossary entries) for a figure already chosen.
 4. A new design, inspired by the closest retrieved peers, only when the earlier sources do not fit.
 
 For each tier you search, record the candidates actually retrieved, the fit test, and the decision. An empty result, rate limit, failed request, or unavailable provider is an incomplete retrieval, not evidence that no candidate exists. Do not silently promote an unresearched candidate to "no fit".

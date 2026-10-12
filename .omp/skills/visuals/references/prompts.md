@@ -24,7 +24,7 @@ Build every prompt in this order, filling the device's fields as shown. Each lay
 
 1. **Style.** From the art guide, word for word: the section for the category's Rendering (§ Archer or § Photorealistic; a Maps image takes the Maps row's Frame instead), then § Era and costume. Field: `style`.
 2. **Framing.** The category's Frame cell, then the kind's framing above. Field: `composition`, plus `aspect_ratio` and `image_size` from Device size.
-3. **Content.** The subject of a depiction itself. For a scene, its place, hour, weather and light and the action of its moment, from the Scene's Play or the Recap's paragraph. Fields: `subject` opens with the main noun, and `scene`, `action` and `lighting` take the rest.
+3. **Content.** The subject of a depiction itself. For a scene, its place, hour, weather and light and the action of its moment, from the Scene's sections or the Recap's paragraph. Fields: `subject` opens with the main noun, and `scene`, `action` and `lighting` take the rest.
 4. **Looks.** Each character shown, by name, with their look copied from their page per [Looks](#looks). Appended to `subject`.
 5. **Exclusions.** From the art guide's § Negatives, the **Every Visual** and **Every era** lines, then the line for the category's Rendering or for Maps. Add anything the pages rule out, then the Campaign's Lines and Veils. Close `subject` with one sentence: `Exclude: …`.
 
@@ -46,10 +46,10 @@ Build every prompt in this order, filling the device's fields as shown. Each lay
 
 A character's look is the page's own words, copied whole:
 
-- **NPC**: the `[!narration] First look` callout, plus any physical detail in `## At a glance`.
-- **Item**: the `[!narration] First look` callout and any physical detail in `## At a glance`. A page without a First look gives the plain description after the classification line in `## Properties`.
+- **NPC**: the `[!narration] First look` callout, plus any physical detail in `## Roleplaying`.
+- **Item**: the `[!narration] First look` callout and any physical detail in `## Properties`. A page without a First look gives the plain description after the classification line in `## Properties`.
 - **PC**: the `[!narration] Portrait` callout. The party table in the art guide's § Looks fills gaps, and where the two differ, the PC page is right.
-- **Creature**: the physical lines of `## At a glance` and `### Ecology`, with size and type from `## Statblock`.
+- **Creature**: the `[!narration] First sight` callout and the physical lines of `## Ecology`, with size and type from `## Statblock`.
 - **Location**: its `[!narration]` callout and the features its sections name.
 
 A person's look is too thin to draw when the page lacks their build, face, colouring or clothing. Ask the DM for exactly the parts it lacks.

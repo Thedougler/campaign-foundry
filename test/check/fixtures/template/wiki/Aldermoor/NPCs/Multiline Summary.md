@@ -9,7 +9,6 @@ revealed: ""
 title: "Multiline Summary"
 ---
 
-## At a glance
 
 - **Role.** Text.
 - **Wants.** Text.
@@ -19,7 +18,7 @@ title: "Multiline Summary"
 > [!narration] First look
 > Spoken text for the table.
 
-## Play
+## Roleplaying
 
 - **Opens them up.** Text.
 - **Shuts them down.** Text.
@@ -27,19 +26,18 @@ title: "Multiline Summary"
 - **Will not share.** Text.
 - **If pressed.** Text.
 
-## Depth
 
 Text.
 
-### History
+## History
 
 Text.
 
-### Hidden truths
+## Hidden truths
 
 Text.
 
-### Threads
+## Threads
 
 Text.
 

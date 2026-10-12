@@ -22,13 +22,13 @@ title: "Bring the Pearl of Souls to Umberlee"
 - **Driven by.** Delmar Fisk's theft, the destruction of the five-ship fleet, and Umberlee's unresolved claim.
 - **Stands at.** Delmar confessed the theft to the Party, and Umberlee named the Pearl as her price. The Pearl and its debt remain unresolved.
 - **If nobody acts.** Umberlee's anger and the Drowned Maw's pressure follow the Party from harbour to harbour.
-- **Levers.** The Pearl, Delmar's old crew and records, [[umberlee|Umberlee]]'s [[waveservants|Waveservants]], and the Drowned Maw charts.
+- **Angles.** The Pearl, Delmar's old crew and records, [[umberlee|Umberlee]]'s [[waveservants|Waveservants]], and the Drowned Maw charts.
 
 ## Play
 
 - **Shows up as.** Wrecks, hostile water, shrine rumours, a Waveservant who waits without sleep for Delmar specifically, and the consequences of a missing sacred object.
 - **Next development.** The Party's next question is how to answer Umberlee's price while the Pearl remains beyond reach in the Drowned Maw.
-- **Levers.** Confession, restitution, investigation of the wreck route, bargaining with [[umberlee|Umberlee]], or the salvage commission racing for the same wreck.
+- **Angles.** Confession, restitution, investigation of the wreck route, bargaining with [[umberlee|Umberlee]], or the salvage commission racing for the same wreck.
 - **Resolves when.** The Pearl is returned, its theft is answered another way, or Umberlee takes payment from the Party.
 
 ## Depth

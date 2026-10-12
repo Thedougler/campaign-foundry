@@ -6,7 +6,6 @@ creature: ""
 title: "Unknown Type"
 ---
 
-## At a glance
 
 - **Role.** Text.
 - **Wants.** Text.
@@ -16,7 +15,7 @@ title: "Unknown Type"
 > [!narration] First look
 > Spoken text for the table.
 
-## Play
+## Roleplaying
 
 - **Opens them up.** Text.
 - **Shuts them down.** Text.
@@ -24,19 +23,18 @@ title: "Unknown Type"
 - **Will not share.** Text.
 - **If pressed.** Text.
 
-## Depth
 
 Text.
 
-### History
+## History
 
 Text.
 
-### Hidden truths
+## Hidden truths
 
 Text.
 
-### Threads
+## Threads
 
 Text.
 

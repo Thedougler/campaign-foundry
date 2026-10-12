@@ -16,22 +16,19 @@
       - shattered-sea/Sessions/Session 12/session-12-dawn-strike.md
     sections:
       shattered-sea/Sessions/Session 12/session-12-dawn-strike.md:
-        - '## At a glance'
-        - '## Play'
-        - '### Situation'
-        - '### Handles'
-        - '### Checks'
+        - '## Situation'
+        - '## Angles'
+        - '## Checks'
         - '## Outcomes'
-        - '## Depth'
-        - '### Hidden truths'
-        - '### Threads'
-        - '### Spotlight'
+        - '## Hidden truths'
+        - '## Threads'
+        - '## Spotlight'
     canon:
       shattered-sea/Sessions/Session 12/session-12-dawn-strike.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Hook\s*$'
         - '^> \[!narration\] Opening\s*$'
-        - '^### Checks\n(?:(?!#{2,3} ).*\n)*?.*==[^=\n]+=='
+        - '^## Checks\n(?:(?!#{2,3} ).*\n)*?.*==[^=\n]+=='
   rubrics:
     - >-
       The DM can run the Hook from this page and its resolving owner embeds:

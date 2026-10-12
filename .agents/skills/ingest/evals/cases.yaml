@@ -33,9 +33,8 @@
       - shattered-sea/Sessions/Session 12/session-12-previously-on.md
     sections:
       shattered-sea/Sessions/Session 11/session-11-recap.md:
-        - '## At a glance'
         - '## What happened'
-        - '## Changes'
+        - '## Changes to the World'
         - '## Threads'
     # leftover-comment is a check finding: written pages that keep template %% guidance skipped the check gate.
     absent:
@@ -118,7 +117,7 @@
       Creation is runnable: the player names the flaw, the DM writes the
       Mark and proposes a Gift, both agree, DM has final say. DM-guide
       calibration (avoidable checks versus forced saves, complex Gifts only
-      for forced Marks with pre-written triggers) stays DM-facing Depth or
+      for forced Marks with pre-written triggers) stays in DM-facing Hidden truths or
       a linked House Rule, not Player-facing dump.
     - >-
       Party examples from the DM guide, if used, remain examples on the

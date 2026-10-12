@@ -7,7 +7,6 @@ revealed: ""
 title: "Sources Ok"
 ---
 
-## At a glance
 
 - **Role.** Text.
 - **Wants.** Text.
@@ -17,7 +16,7 @@ title: "Sources Ok"
 > [!narration] First look
 > Spoken text for the table.
 
-## Play
+## Roleplaying
 
 - **Opens them up.** Text.
 - **Shuts them down.** Text.
@@ -25,19 +24,18 @@ title: "Sources Ok"
 - **Will not share.** Text.
 - **If pressed.** Text.
 
-## Depth
 
 Text.
 
-### History
+## History
 
 Text.
 
-### Hidden truths
+## Hidden truths
 
 Text.
 
-### Threads
+## Threads
 
 Text.
 

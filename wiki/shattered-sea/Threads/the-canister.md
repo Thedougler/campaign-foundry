@@ -15,13 +15,13 @@ title: "The Canister"
 - **Driven by.** Jean-Claude Tabarnack's recognition of [[simone-tabarnack|Simone]]'s Grung toxin preparation in the Dravosi alchemist's canister.
 - **Stands at.** Jean-Claude holds the secret and has told nobody. The [[alchemists-bandolier|alchemist's bandolier]] lies unexamined on the Saltwright's deck, and twenty Surety vials now share the Party's own inventory with six sewer vials, still unexamined for what they are.
 - **If nobody acts.** The Party keeps sailing with the evidence of Simone's Crown supply aboard, and Jean-Claude keeps carrying it alone.
-- **Levers.** The bandolier on the deck, a canister's analysis, and pressing Jean-Claude on what he knew at the gangplank.
+- **Angles.** The bandolier on the deck, a canister's analysis, and pressing Jean-Claude on what he knew at the gangplank.
 
 ## Play
 
 - **Shows up as.** Jean-Claude's silence whenever Crown poison surfaces, and the unexamined loot nobody has claimed.
 - **Next development.** Somebody finally counts the bandolier's canisters or asks Jean-Claude the direct question.
-- **Levers.** Poison analysis, Jean-Claude's tells, and anything that puts a vial and his sister's work in the same room.
+- **Angles.** Poison analysis, Jean-Claude's tells, and anything that puts a vial and his sister's work in the same room.
 - **Resolves when.** The Party learns what Jean-Claude knows, or he chooses to tell them.
 
 ### Triggers

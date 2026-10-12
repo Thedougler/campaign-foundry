@@ -7,15 +7,7 @@ date: ""
 revealed: ""
 ---
 
-## At a glance
-
 %% Rewrite this page whole after every Ingest and Prep, about 500 words in all. It orients an agent, and the linked pages give the evidence. Set `date` to the Party's in-world date. %%
-
-- **In-world date.**
-- **Party at.**
-- **Active Threads.** %% Optional. Add it when a Thread is active. %%
-- **Last Session.** %% Optional. Add it once a Session has been played, or when an earlier Campaign changed the World this one inherits. %%
-- **Next.**
 
 ## Active Threads
 
@@ -25,6 +17,6 @@ revealed: ""
 
 %% Optional. Include it once a Session has been played, or when an earlier Campaign changed the World this one inherits. Give the changes in a few bullets, each with a link to the page it changed. %%
 
-## Next
+## Next Session
 
-%% Link the next Session's Prep and Hook, and give the open questions it is set to run. %%
+%% Open on where the Party stands, with the Location linked. Link the next Session's Prep and Hook, and give the open questions it is set to run. %%

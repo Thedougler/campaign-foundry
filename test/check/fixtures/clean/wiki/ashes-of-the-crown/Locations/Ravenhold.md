@@ -8,8 +8,6 @@ revealed: ""
 title: "Ravenhold"
 ---
 
-## At a glance
-
 - **Size.** Text.
 - **Ruled by.** [[Mara Voss]]
 - **Mood.** Text.
@@ -19,43 +17,39 @@ title: "Ravenhold"
 > [!narration] Arrival
 > Gulls wheel above the inner harbor wall.
 
-## Play
-
 Text.
 
-### Districts
+## Districts
 
 The chapel ruin lies below, at [[The Sunken Chapel]].
 
-### Services
+## Services
 
 Text.
 
-### Factions here
+## Factions here
 
 [[Ember Court]].
 
-### Local rules
+## Local rules
 
 Text.
 
-### Rumors
+## Rumors
 
 Text.
 
-## Depth
+Text.
+
+## History
 
 Text.
 
-### History
+## Hidden truths
 
 Text.
 
-### Hidden truths
-
-Text.
-
-### Threads
+## Threads
 
 Text.
 

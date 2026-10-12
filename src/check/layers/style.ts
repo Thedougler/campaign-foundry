@@ -9,6 +9,20 @@ import { valeSubprocess, type ValeAdapter, type ValeAlert, type ValeConfig } fro
 const LAYER = "style";
 
 const NARRATION_HINTS: Record<string, string> = {
+	"Narration.AtAGlance":
+		"Migrate now to the shape of wiki/templates/<type>.md and follow its skill. Delete the 'At a glance' section; move any fact no other part of the page holds into the section where it belongs.",
+	"Narration.Play":
+		"Migrate now to the shape of wiki/templates/<type>.md and follow its skill. Delete the 'Play' section; move any fact no other part of the page holds into the specific section whose job it is.",
+	"Narration.Depth":
+		"Migrate to the shape of wiki/templates/<type>.md — see the page kind's design skill; move facts into the specific section whose job they are.",
+	"Narration.InUse":
+		"Migrate to the shape of wiki/templates/Item.md — see item-design; move rules into Properties, rulings into Rulings and spoken description into the First look entry.",
+	"Narration.Story":
+		"Migrate to the shape of wiki/templates/PC.md — see pull-pcs; move the character's past into Backstory and their aims and ties into Goals and bonds.",
+	"Narration.Changes":
+		"Migrate to the shape of wiki/templates/Recap.md — see ingest; move state changes into Changes to the World.",
+	"Narration.Next":
+		"Migrate to the shape of wiki/templates/hot.md — see prep-session; move the Party's position, Prep and Hook links and open questions into Next Session.",
 	"Narration.NoEmDash":
 		"Use theatre-of-the-mind, Clean prose: join the clauses with a comma, 'and' or a full stop, e.g. 'A lantern hangs, still lit.'",
 	"Narration.NoSemicolon":
@@ -90,8 +104,25 @@ function allQuoted(line: string, match: string): boolean {
 	return count > 0 && count === quoted;
 }
 
+const ENTRY_FIELD = /^[ \t]*(?:[-*+]\s+)?(?:\*\*[^*\n]+:\*\*|__[^_\n]+:__)[ \t]+\S/u;
+
+/** Only the colon ending a bold entry-field label, never a colon later in its value. */
+function isEntryFieldColon(line: string, alert: ValeAlert): boolean {
+	if (!alert.Span) return false;
+	const field = ENTRY_FIELD.exec(line);
+	if (!field) return false;
+	const colon = Math.max(field[0].lastIndexOf(":**"), field[0].lastIndexOf(":__"));
+	// Vale counts characters, not UTF-16 units; an astral character in a label occupies one column.
+	let column = 1;
+	for (let index = 0; index < colon; index++) {
+		column++;
+		if (line.codePointAt(index)! > 0xffff) index++;
+	}
+	return alert.Span[0] === column;
+}
+
 /**
- * Two DM-confirmed Vale misfires, dropped here because the rules themselves cannot see the distinction.
+ * DM-confirmed Vale misfires, dropped here because the rules themselves cannot see the distinction.
  * - FillerIntensifier reads "a single" as padding, but inside quoted in-world speech it is a count: Hinewai's
  *   vow ("take a single fruit ... fish a single river ...") says exactly one, and the quoting is her voice.
  *   Dropped only when every occurrence of the match on the line sits inside double quotes, so narration keeps
@@ -99,12 +130,15 @@ function allQuoted(line: string, match: string): boolean {
  * - ColonUsage's message promises "unless it is a proper noun", but its token cannot see one. The confirmed
  *   misfire was ": Matteo" on Oren Vask ("Ship versus garden: Matteo calls men like Oren mad."), a given name
  *   the name mask does not cover.
+ *   Published mechanics also use bold entry-field labels ending in a colon. Vale strips that emphasis
+ *   before matching, so only the label's colon is exempted by its source column; value prose stays checked.
  */
 function isConfirmedMisfire(line: string, alert: ValeAlert, names: Set<string>): boolean {
 	if (alert.Check === "ai-tells.FillerIntensifier") {
 		return allQuoted(line, alert.Match);
 	}
 	if (alert.Check === "ai-tells.ColonUsage") {
+		if (isEntryFieldColon(line, alert)) return true;
 		const word = /:\s(\p{L}[\p{L}'’-]*)$/u.exec(alert.Match)?.[1] ?? "";
 		return word.length > 0 && (names.has(word.toLowerCase()) || MASK_STAND_IN.test(word));
 	}
@@ -174,7 +208,7 @@ function styleTool(vale: ValeAdapter): LanguageTool {
 		name: LAYER,
 		config: [".vale.ini", ".vale-narration.ini"],
 		salt: async () =>
-			`${vale.fingerprint ? await vale.fingerprint() : "canned"}|${Object.keys(NARRATION_EXEMPT_AI_TELLS).join(",")}|${MASK_STAND_IN.source}|item-properties-2026-10-11`,
+			`${vale.fingerprint ? await vale.fingerprint() : "canned"}|${Object.keys(NARRATION_EXEMPT_AI_TELLS).join(",")}|${MASK_STAND_IN.source}|item-properties-2026-10-11|entry-fields-2026-10-12`,
 		async compute(pages, ctx) {
 			const written: Record<string, string> = {};
 			const narrated: Record<string, string> = {};

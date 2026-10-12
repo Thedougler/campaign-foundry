@@ -8,37 +8,25 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 %% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
 
-## At a glance
-
-%% Give the DM a ten-second read, one line per bullet. Write the truth as one plain sentence. Limits gives what the truth leaves out. %%
-
-- **The truth.**
-- **Who knows it.** %% Optional. Add it when NPCs or Factions act on the truth, linking each. %%
-- **Limits.**
-- **Reaches play through.** %% Optional. Add it when the truth touches a person, place or prize in the current Campaign, linking it. %%
-
 > [!narration] As it is told
 > %% Optional. Include it when people in the World tell this Lore aloud. Spoken in a teller's voice: the common version people in the World say aloud, which may differ from the truth. %%
 
-## Play
+## Truth, Clues and accounts
 
-%% Give how the Party meets this Lore at the table. Players notice gives the signs they see before anyone explains them. Clues lists each Clue with the page it appears on, three in different places for each conclusion the Party needs. Accounts gives each version people tell, with its teller and whether it is true, distorted or false. Quote any text the Party can read word for word. %%
+%% Give how the Party meets this Lore at the table. The truth is one plain sentence, then what it leaves out. Players notice gives the signs they see before anyone explains them. Clues lists each Clue with the page it appears on, three in different places for each conclusion the Party needs. Accounts gives each version people tell, with its teller and whether it is true, distorted or false, linking each NPC or Faction that acts on the truth. Quote any text the Party can read word for word. %%
 
+- **The truth.**
 - **Players notice.**
 - **Clues.**
 - **Accounts.**
 
-## Depth
+## The full truth
 
-%% Optional. Include it when the truth needs more than its one sentence. DM only. Give the full truth in `###` parts titled for their content, such as Chronology, How it works or Tenets. %%
+%% Optional. Include it when the truth needs more than its one sentence. DM only. Give what happened and who did it and why, and what it left behind. A truth with more parts adds a `##` section per part, titled for its content, such as How it works or Tenets. %%
 
-### The full truth
+## Chronology
 
-%% Give what happened and who did it and why, and what it left behind. %%
-
-### Chronology
-
-%% Give dated events in the World's Calendar, where the truth unfolds over time. %%
+%% Optional. Include it when the truth unfolds over time. DM only. Give dated events in the World's Calendar. %%
 
 ## Links
 

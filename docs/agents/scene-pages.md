@@ -72,9 +72,8 @@ Reuse the first fitting source in `AGENTS.md` **Sourcing** order. Start with the
 Start from the existing page for a redo, or from the template copied to `wiki/<campaign>/Sessions/Session <N>/session-<N>-<scene-slug>.md` for a new Scene.
 
 - **Properties.** `title: "Session <N> - <Scene title>"`, `type: Scene`, `kind: <Kind>`, a one-line `summary` in double quotes, and `sources` as a list of quoted archive paths.
-- **Spine.** Keep every required `##` heading at its depth and in template order, and every required callout type. A `##` whose guidance opens with `Optional.` appears, in template order, only when its guidance condition holds for this Scene (`docs/wiki-layout.md` **Templates define pages**). A `###` is optional structure: keep it where it has content. Add `####` subheadings inside that spine as content needs them.
+- **Spine.** Keep every required `##` heading at its depth and in template order, and every required callout type. A `##` whose guidance opens with `Optional.` appears, in template order, only when its guidance condition holds for this Scene (`docs/wiki-layout.md` **Templates define pages**). A template `###` is optional structure: keep it where it has content. Add subheadings inside a section as its content calls for them, each titled for its content.
 - **Guidance.** Delete every `%% %%` comment after filling its section with the content the comment specifies.
-- **At a glance.** Keep each required template bullet's bold label and write its line after the label. Add a bullet marked `Optional.` only when its condition holds.
 - **Checks.** One bullet per uncertain action, in this format. Give the trigger and action or time cost, the Ability (Skill) and DC, then each result's ruling and its Cue (**Narration** below):
 
   ```markdown
@@ -104,7 +103,7 @@ Its caller-supplied pages are this Scene and the pages you read in **Ground**. G
 Place callouts and Cues in these formats:
 
 - The template's callout keeps the template's title exactly, such as `> [!narration] Opening`.
-- An NPC or Creature entering sits under `## Play` or the Encounter, titled with the subject's name: `> [!narration] Luca Ferrante`. A major Revelation gets its own conditional callout there.
+- An NPC or Creature entering sits in the section where it enters, such as `## Situation` or `## Encounter`, titled with the subject's name: `> [!narration] Luca Ferrante`. A major Revelation gets its own conditional callout there.
 - When entry states change what the Party can perceive, write one variant per entry. Each variant keeps the same title, and a plain DM-side line directly above it specifies the entry that selects it:
 
   ```markdown
@@ -120,8 +119,8 @@ Place callouts and Cues in these formats:
   ```
 
   The narration gate compares variants with each other, so give each its own wording rather than shared runs of four or more words.
-- When the Scene expects the Party to split across places, give each place its own first-look callout under `## Play`, titled with the place's name and built with recipes `## Openings and first looks`, and give the places contrasting tones. Cuts between them follow recipe `### Transition`, and the DM chooses their order.
-- A Cue is written on a DM-side line in `## Play` or the Encounter (a Checks bullet, a Handles line, a Creatures tactic), right after its trigger, between `==` marks: `Failure: ==One stone sits smoother than the rest, and your thumb finds the groove before your eyes do.==` The trigger, rules terms, DCs and damage numbers stay outside the marks. One to three sentences, 60 words at most. The gate reads each Cue as Narration.
+- When the Scene expects the Party to split across places, give each place its own first-look callout in `## Situation`, titled with the place's name and built with recipes `## Openings and first looks`, and give the places contrasting tones. Cuts between them follow recipe `### Transition`, and the DM chooses their order.
+- A Cue is written on a DM-side line, such as a Checks bullet, an Angles line or a Creatures tactic, right after its trigger, between `==` marks: `Failure: ==One stone sits smoother than the rest, and your thumb finds the groove before your eyes do.==` The trigger, rules terms, DCs and damage numbers stay outside the marks. One to three sentences, 60 words at most. The gate reads each Cue as Narration.
 - When an established result settles an unplayed cut of time or space, put a `Transition` callout immediately before the destination's opening or closing slot. Leave unresolved travel choices to the Players.
 
 Check the filed prose against the Final check items that apply, quoting its actual words, then against every entry that can select it. Repair mismatched carriers, companions, possessions or positions.
@@ -137,13 +136,13 @@ For Hook, Development, Cliffhanger and Climax, fill `## Outcomes`. Each material
 - A standalone Scene without a chart states its next pressure, trigger and handed-on state in the same rows, ready for charting, and links only pages that exist.
 - Proposed deaths, captures, rewards and Thread changes remain conditional Prep, not updates to current Canon.
 
-A Resolution instead gives its Climax-conditioned payoffs, reactions, rewards and next-Session carry-forward in `## Play` and `## Threads`, as its template requires.
+A Resolution instead gives its Climax-conditioned payoffs, reactions, rewards and next-Session carry-forward in `## Payoffs`, `## Reactions`, `## Rewards`, `## Stinger` and `## Threads`, as its template requires.
 
 **Done when** each prepared result has a usable successor state or Session-ending carry-forward and every existing receiving page accounts for it. Return pending entry variants to the caller for pages not yet authored.
 
 ## Encounters
 
-Use this section for a Cliffhanger or Climax with Creatures the Party might fight, including a violent fallback to negotiation. Also use it for an action Hook borrowing Cliffhanger craft. `bun run cfcli -- encounter-budget` classifies Creature spend only. Choosing the opposition and judging other dangers remain your job. When a command exits 2, read its `--help` and correct the call.
+Use this section for any Scene with an Encounter, the Creatures the Party may fight and their battlefield. A violent fallback to negotiation counts. Most Encounters belong to Cliffhangers and Climaxes. `bun run cfcli -- encounter-budget` classifies Creature spend only. Choosing the opposition and judging other dangers remain your job. When a command exits 2, read its `--help` and correct the call.
 
 Read `bun run cfcli -- encounter-budget --help` before budgeting. The invocations below show the required syntax. Replace the example levels and force with the Scene's sourced values.
 
@@ -165,7 +164,7 @@ Read `bun run cfcli -- encounter-budget --help` before budgeting. The invocation
 
    **Done when** each comparison is the CLI's printed totals for that force and the page's description of danger matches the planned contest, including what XP does not cover.
 
-3. **Expose the plan.** Copy the CLI's Encounter Balance lines under `### Balance` in a Cliffhanger's `## Encounter`, or under `#### Balance` in `### Encounter` under `## Play` for a fighting Hook or Climax.
+3. **Expose the plan.** Copy the CLI's Encounter Balance lines under `### Balance` in the Scene's `## Encounter`.
    - Identify `bun run cfcli -- encounter-budget` as the source, with the participating PCs and the Creature pages supplying XP.
    - Give quantities, deployment, battlefield features, opposition objectives, opening tactics, adaptations and break or escape conditions.
    - Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]` here and link it elsewhere, with named NPC combatants resolved to their Creature owners.
@@ -173,7 +172,7 @@ Read `bun run cfcli -- encounter-budget --help` before budgeting. The invocation
 
    **Done when** the DM has the entire playable opposition, every XP figure traces to the CLI output and a read statblock, and the page states what the XP comparison does not measure.
 
-A creature-free chase or hazard has no Creature XP to spend. A Cliffhanger of that kind leaves out its optional `## Encounter` and calibrates its danger under `## Play` with sourced DCs, damage or conditions, action costs, duration, escape routes and resource demands. A non-action Development or Resolution stays non-action, without an unplanned fight.
+A creature-free chase or hazard has no Creature XP to spend. A Cliffhanger of that kind leaves out its optional `## Encounter` and calibrates its danger in `## Stakes`, `## Pressure` and `## Terrain` with sourced DCs, damage or conditions, action costs, duration, escape routes and resource demands. A non-action Development or Resolution stays non-action, without an unplanned fight.
 
 ## Cold read
 

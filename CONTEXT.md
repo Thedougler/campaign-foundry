@@ -124,6 +124,10 @@ _Avoid_: plot thread, arc, storyline, plot, hook
 a concrete task the Party has been offered or has taken on, with a clear point where it is done or failed. A Quest often advances a Thread.
 _Avoid_: mission, job, objective
 
+**Arc**:
+a run of Sessions that builds to and settles one central question, tracked in `story-so-far.md`.
+_Avoid_: chapter, season, saga, "arc" for a Thread
+
 ### Session work
 
 **Prep**:
@@ -158,17 +162,29 @@ _Avoid_: finale, boss fight
 the short Scene after the Climax that shows what changed.
 _Avoid_: epilogue, denouement, wrap-up
 
+**Stinger**:
+the Resolution's last moment, a new pressure or arrival that points to a live Thread. It stops before the Party can answer, and the next Session's Hook picks it up.
+_Avoid_: button, tag, post-credits scene, cliffhanger (that's the Scene kind)
+
 **Encounter**:
-the Creatures and battlefield of a Cliffhanger or Climax, balanced against the Party under the 5e rules.
+the Creatures and battlefield of a Scene the Party may fight in, balanced against the Party under the 5e rules.
 _Avoid_: fight, battle, combat (as a noun for the plan)
 
 **Clue**:
 a true, concrete fact the Players can discover, deliberately revealable in more than one Scene.
 _Avoid_: secret, reveal, lore drop
 
+**Hidden truth**:
+a true fact about a subject that the Players don't know yet, kept DM-only until a Clue or play exposes it.
+_Avoid_: secret, twist
+
 **Spotlight**:
-a Scene where one PC's goal, bond or fear drives play.
-_Avoid_: PC hook, character moment
+the moment in a Scene where one PC's goal, bond or fear drives play. It is a section within a Scene, never the Scene itself.
+_Avoid_: PC hook or character moment, Spotlight Scene
+
+**Angle**:
+something the Party can act on to change a Scene or Thread, and what acting on it costs. An Angle is a person or object to use, or a fact or course of action to pursue.
+_Avoid_: lever, handle, purchase, leverage (that's an NPC's own power over others)
 
 **Narration**:
 prose written for the DM to speak or show to the Players. The Previously On, a Handout's text and every Cue are Narration.

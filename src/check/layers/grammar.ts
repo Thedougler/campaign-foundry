@@ -13,8 +13,8 @@ const LAYER = "grammar";
  * Harper rules that are turned off, each with the reason.
  * - `SpellCheck`: the spelling layer (cspell) owns spelling. Harper's checker also flags the possessive of a
  *   name it was given (`Ravenhold's`), which every in-world possessive would trip.
- * - `UseTitleCase`: headings are sentence case by design (`## At a glance`, `### Hidden truths`), and the
- *   templates fix them that way, so the rule contradicts the template layer on every page.
+ * - `UseTitleCase`: a page opens on its template's entry, and its headings are sentence case by design
+ *   (`## Hidden truths`), so title case contradicts the template layer.
  * - `OxfordComma`: British house style leaves the serial comma out, and the templates do (`Class, species and level`).
  * - `PhrasalVerbAsCompoundNoun`: it reads the domain term Handout (CONTEXT.md) as the verb "hand out". It
  *   cannot tell a page kind from a misused word.

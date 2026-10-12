@@ -32,9 +32,6 @@
       - the-shattered-sea.md
     sections:
       next-wake/next-wake.md:
-        - '## At a glance'
-        - '## Play'
-        - '## Depth'
         - '## Links'
     canon:
       next-wake/next-wake.md:
@@ -101,9 +98,7 @@
       - renewal-tides/log.md
     sections:
       renewal-tides/shattered-sea-renewal.md:
-        - '## At a glance'
         - '## Calendar'
-        - '## Depth'
         - '## Links'
     canon:
       renewal-tides/shattered-sea-renewal.md:

@@ -6,7 +6,7 @@ revealed: ""
 title: "Aldermoor"
 ---
 
-## At a glance
+## Player pitch
 
 - **Tone.** Text.
 - **Magic and technology.** Text.
@@ -23,19 +23,18 @@ title: "Aldermoor"
 | ----- | ---- | -------------- |
 |       |      |                |
 
-## Depth
 
 Text.
 
-### Cosmology
+## Cosmology
 
 [[Sources Ok]], [[No Frontmatter]], [[Bad Yaml]], [[Unknown Type]], [[Lowercase Type]], [[Sneaky Kind]], [[Missing Keys]], [[Blank Summary]], [[Multiline Summary]], [[Bad Sources]], [[Sources Scalar]], [[Short Sections]], [[Swapped Sections]], [[No Callout]], [[Empty Callout]], [[Guided]], [[Empty Section]], [[Kindless Location]], [[Bad Kind]]
 
-### History in brief
+## History in brief
 
 Text.
 
-### Hidden truths
+## Hidden truths
 
 Text.
 

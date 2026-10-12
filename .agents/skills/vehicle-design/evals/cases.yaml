@@ -17,13 +17,12 @@
       - shattered-sea/Vehicles/uncertainty.md
     sections:
       shattered-sea/Vehicles/uncertainty.md:
-        - "## At a glance"
-        - "### Statistics"
-        - "### Crew and stations"
-        - "### Components and weapons"
-        - "### Underway"
-        - "### History"
-        - "### Hidden truths"
+        - "## Statistics"
+        - "## Crew and stations"
+        - "## Components and weapons"
+        - "## Errand, chase and boarding"
+        - "## History"
+        - "## Hidden truths"
         - "## Links"
     canon:
       shattered-sea/Vehicles/uncertainty.md:

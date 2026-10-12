@@ -16,7 +16,7 @@ const processor = unified().use(remarkParse).use(remarkGfm);
 let config: Promise<Configuration> | undefined;
 
 /** Nest all subheadings, remove inline export tags and align tables; wording, code and comments stay untouched. */
-function normaliseStructure(text: string): string {
+export function normaliseStructure(text: string, headingOffset = 2): string {
 	let result = text;
 	const nodes: (Heading | Html | Table)[] = [];
 	const collect = (node: Nodes, inline = false): void => {
@@ -33,7 +33,7 @@ function normaliseStructure(text: string): string {
 		if (!node.position) continue;
 		const at = node.position.start.offset ?? 0;
 		if (node.type === "heading" && node.depth >= 5) {
-			result = result.slice(0, at) + result.slice(at + 2);
+			result = result.slice(0, at) + result.slice(at + headingOffset);
 		} else if (node.type === "table") {
 			const end = node.position.end.offset ?? text.length;
 			const rows = node.children.map((row) =>

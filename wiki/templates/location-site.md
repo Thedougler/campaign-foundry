@@ -14,62 +14,44 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ![[<slug>-banner.webp]]
 
-## At a glance
-
-%% Give the DM a ten-second read, one line per bullet. Entrance gives how visitors arrive and what limits access now. Prize is what the Party can gain. %%
-
-- **Draws the Party because.** %% Optional. Add it when the Site sits in a Campaign's play, giving the reason the Party goes. %%
-- **Entrance.**
-- **Occupants.** %% Optional. Add it when someone lives or keeps watch here, linking each. %%
-- **Danger.**
-- **Prize.**
-
 > [!narration] Entering
 > %% Optional. Include it when the Party will enter the Site. Spoken, second person, present tense. Give what the Party perceives at the threshold at body scale, and end on something they can use. %%
 
-## Play
+## Areas
 
-%% Run the visit from here. A one-space Site keeps one compact entry under Areas. %%
+%% Run the visit from here. When the Site sits in a Campaign's play, open on one line giving why the Party goes and what it can gain. Then give one entry per space, a paragraph each or a `###` heading each on a larger Site, in an order the DM can follow from the entrance. A one-space Site keeps one compact entry. The first entry gives how visitors arrive and what limits access now. Each entry opens with a Cue (`==…==`). Then give occupants and activity, usable objects, immediate danger, hidden answers and onward exits. A Site the Party may fight in opens Areas with its battle map, a bare `![[<slug>-battle-map.png]]` made by `skill://visuals`. %%
 
-### Areas
+## Hazards
 
-%% Give one entry per space, a paragraph each or a `####` heading each on a larger Site, in an order the DM can follow from the entrance. Each entry opens with a Cue (`==…==`). Then give occupants and activity, usable objects, immediate danger, hidden answers and onward exits. A Site the Party may fight in opens Areas with its battle map, a bare `![[<slug>-battle-map.png]]` made by `skill://visuals`. %%
+%% Optional. Include it when the Site holds a fixed hazard. Give each with its sign and trigger, its effect, and the ways the Party can answer it: counterplay, a way around or something they can learn or use. Any check or save gives its Cues (`==…==`) for success and for failure. %%
 
-### Hazards
+## Occupants
 
-%% Give each fixed hazard with its sign and trigger, its effect, and the ways the Party can answer it: counterplay, a way around or something they can learn or use. Any check or save gives its Cues (`==…==`) for success and for failure. %%
+%% Optional. Include it when someone keeps or inhabits the Site. Link each. Give where they are and what they seek here. Then give their offer and how they answer the Party. If ignored, give their next act. Stat blocks belong on Creature pages, embedded by a Scene's Encounter. %%
 
-### Occupants
+## Likely actions
 
-%% Link each keeper or inhabitant. Give where they are and what they seek here. Then give their offer and how they answer the Party. If ignored, give their next act. Stat blocks belong on Creature pages, embedded by a Scene's Encounter. %%
+%% Optional. Include it when visitors can buy, learn, repair, cross or bargain over something here. Give each, and what changes when they do. %%
 
-### Likely actions
+## Pressure
 
-%% Give what visitors can buy, learn, repair, cross or bargain over, and what changes when they do. %%
+%% Optional. Include it for a Site explored under time. Give the starting clock and the triggers that advance it, the signs, and the consequence at each threshold. Add how the Party can change its pace. %%
 
-### Pressure
+## Rest
 
-%% Use this for a Site explored under time. Give the starting clock and the triggers that advance it, the signs, and the consequence at each threshold. Add how the Party can change its pace. %%
+%% Optional. Include it for a Site explored under time. Give where the Party can shelter and who can find them there. Add what a rest costs in time and pressure, and what changes while they are away. %%
 
-### Rest
+## History
 
-%% Use this for a Site explored under time. Give where the Party can shelter and who can find them there. Add what a rest costs in time and pressure, and what changes while they are away. %%
+%% Optional. Include it when the Site's past changes what the Party finds. DM only. Give the Site's original use and what disrupted it, and the traces that change what the Party finds. %%
 
-## Depth
+## Hidden truths
 
-%% Optional. Include it when the Site's past or secrets reach play. DM only. Give the Site's past and what it hides. %%
+%% Optional. Include it when the Site hides a truth the Party can learn. DM only. Give each truth with the Clue that reveals it, and the area where the Party finds that Clue. %%
 
-### History
+## Threads
 
-%% Give the Site's original use and what disrupted it, and the traces that change what the Party finds. %%
-
-### Hidden truths
-
-%% Give each truth with the Clue that reveals it, and the area where the Party finds that Clue. %%
-
-### Threads
-
-%% Link each Thread that touches the Site, with its next event and the time it comes. %%
+%% Optional. Include it when a Thread touches the Site. DM only. Link each Thread, with its next event and the time it comes. %%
 
 ## Links
 

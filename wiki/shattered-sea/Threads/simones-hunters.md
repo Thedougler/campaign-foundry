@@ -19,13 +19,13 @@ title: "Simone's Hunters"
 - **Driven by.** Simone's rise among the Grung and Jean-Claude's escape from the clans.
 - **Stands at.** Jean-Claude is awake and fought through Talon Skarn's two attacks on Aruhe, his safety promised by the garden's keeper while he follows her rules. The hunters' last known trail runs through the Grung captive route toward Karath.
 - **If nobody acts.** Jean-Claude remains exposed while the hunters trace the Party's route through the captive pipeline.
-- **Levers.** Grung authority marks, Jean-Claude's family knowledge, false routes, and witnesses who saw him board.
+- **Angles.** Grung authority marks, Jean-Claude's family knowledge, false routes, and witnesses who saw him board.
 
 ## Play
 
 - **Shows up as.** Grung scouts, questions about the red beret, and pressure on harbours that shelter fugitives.
 - **Next development.** The Party must protect Jean-Claude and reach [[uncertainty|Uncertainty]] without exposing its route to the hunters.
-- **Levers.** Darkness and scouting, the Party's ship, and Jean-Claude's inability to hide his intentions under the Mortis curse.
+- **Angles.** Darkness and scouting, the Party's ship, and Jean-Claude's inability to hide his intentions under the Mortis curse.
 - **Resolves when.** Simone gives up the hunt, Jean-Claude confronts her, or the Party breaks the trail and the system that made him a target.
 
 ## Depth

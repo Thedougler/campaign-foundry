@@ -6,8 +6,6 @@ revealed: ""
 title: "Bandit Captain"
 ---
 
-## At a glance
-
 - **Role at the table.** Text.
 - **Threat.** Text.
 - **Tell.** Text.
@@ -68,27 +66,23 @@ legendary_description: ""
 legendary_actions: []
 ```
 
-## Play
+Text.
+
+## Tactics
 
 Text.
 
-### Tactics
+## Outside a fight
 
 Text.
 
-### Outside a fight
+Text.
+
+## Ecology
 
 Text.
 
-## Depth
-
-Text.
-
-### Ecology
-
-Text.
-
-### Hidden truths
+## Hidden truths
 
 Text.
 

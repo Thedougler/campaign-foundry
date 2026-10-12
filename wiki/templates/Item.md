@@ -12,6 +12,9 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ![[<slug>-render.webp]]
 
+> [!narration] First look
+> %% Optional. Include it when the Party will see or use the Item. Spoken, second person, per `skill://theatre-of-the-mind`: how it looks, and how it looks and sounds when used. %%
+
 ## Properties
 
 %% The DM runs the Item from its properties alone (ADR 0005). Write the Item as a published 2024 entry.
@@ -19,31 +22,17 @@ Open with its classification line in italics, ending on a full stop: category an
 Follow it with one plain sentence on what the object is. Then give each mechanic its own paragraph, opening on its name in bold italics (`***Damage Resistance.***`). Give the trigger and action cost, uses and recovery, range and targets, saves and damage, duration and limits.
 A curse, a sentient Item's mind, a growing Item's stages and an artifact's destruction are named properties too. Every Item page holds its Properties. A World-free page holds them, its frontmatter and its Links alone. %%
 
-## In use
+## Rulings
 
-%% Optional. Include it when a Campaign's play raises a question the rules text leaves open, or the DM asks for rulings. Give how it looks and sounds when used, then rule on each question. %%
+%% Optional. Include it when a Campaign's play raises a question the rules text leaves open, or the DM asks for rulings. DM only. Rule on each question play has raised. %%
 
-## At a glance
+## History
 
-%% Optional. Include it when the Item takes part in a Campaign's play. Give the DM a ten-second read, one line per bullet. Changes is the one choice it alters at the table. %%
+%% Optional. Include it when a Campaign gives the Item a past or a holder. DM only. Give its maker, its owners past and present and contested claims, with the marks each left on the object. Link each page involved, the current holder included. %%
 
-- **Changes.**
-- **Held by.** %% Optional. Add it when someone in the World holds the Item, linking the holder. %%
+## Hidden truths
 
-> [!narration] First look
-> %% Optional. Include it when the Party will see the Item. Spoken, second person, per `skill://theatre-of-the-mind`. %%
-
-## Depth
-
-%% Optional. Include it when a Campaign gives the Item a past or keeps a property hidden from the Party. DM only. Give where it came from and what it hides. %%
-
-### History
-
-%% Give its maker, past owners and contested claims, with the marks each left on the object. Link each page involved. %%
-
-### Hidden truths
-
-%% Give each property the Party can't yet see, with its tell and how the Party can learn it. %%
+%% Optional. Include it when the Item keeps a property hidden from the Party. DM only. Give each property the Party can't yet see, with its tell and how the Party can learn it. %%
 
 ## Links
 

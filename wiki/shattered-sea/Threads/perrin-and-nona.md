@@ -19,13 +19,13 @@ title: "Perrin and Nona"
 - **Driven by.** Nona Black-Jaw's family bond, the Passage, and Perrin's survival after the Vestra sank.
 - **Stands at.** Perrin reported the Vestra's loss to Nona, accepted a favour without hearing its terms and holds her sending stone. Nona later called the Party home, opened the Mercatura missing-persons desk and sent two Passage ships after the raiders.
 - **If nobody acts.** Nona's pursuit of the raiders and the Party's rescue obligation continue while the Party remains on Aruhe.
-- **Levers.** The sending stone, Cobb's messages, Passage routes, and knowledge of the Vestra.
+- **Angles.** The sending stone, Cobb's messages, Passage routes, and knowledge of the Vestra.
 
 ## Play
 
 - **Shows up as.** Safe houses, coded messages, people Nona has rescued, and questions about what happened to the Vestra.
 - **Next development.** The Party returns to [[uncertainty|Uncertainty]] with Matteo and can report what Aruhe revealed to Nona.
-- **Levers.** Perrin's family name, the Party's need for a berth, and the Passage's willingness to hide fugitives.
+- **Angles.** Perrin's family name, the Party's need for a berth, and the Passage's willingness to hide fugitives.
 - **Resolves when.** Perrin decides how far to bind the Party to Passage rescue work and what to reveal about the Vestra and Auralis.
 
 ## Depth

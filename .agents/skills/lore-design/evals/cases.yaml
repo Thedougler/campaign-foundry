@@ -24,11 +24,8 @@
       - shattered-sea/Lore/taking-on-aruhe.md
     sections:
       shattered-sea/Lore/taking-on-aruhe.md:
-        - '## At a glance'
-        - '## Play'
-        - '## Depth'
-        - '### The full truth'
-        - '### Chronology'
+        - '## The full truth'
+        - '## Chronology'
         - '## Links'
     canon:
       shattered-sea/Lore/taking-on-aruhe.md:
@@ -54,7 +51,7 @@
     - >-
       The Lore matters now. A named NPC or Faction acts on the truth on its
       own clock with a plausible next move, observable signs and a Party
-      lever, and the page says what the Party gains by acting. New Clues and
+      Angle, and the page says what the Party gains by acting. New Clues and
       pressure are prospective design rather than already-observed discoveries;
       owner identities, Memorial Grove, Hinewai and Session history survive.
       Signs in the World appear before anyone explains the law.

@@ -43,7 +43,7 @@ date: ""
 revealed: ""
 ---
 
-## At a glance
+## Session question
 
 - **Session question.** Will the door open?
 - **Party at.** The door.

@@ -38,7 +38,8 @@ const HINTS: Record<string, string> = {
 	"no-undefined-references": "Write `[text](url)` for a link, or escape the bracket as `\\[` when it is plain text.",
 	"no-duplicate-definitions": "Keep one definition per label; delete the duplicate.",
 	"no-unused-definitions": "Delete the unused `[label]: url` definition or link to it.",
-	"no-heading-content-indent": "Write one space between the `#` marks and the heading text, e.g. `## At a glance`.",
+	"no-heading-content-indent":
+		"Write one space between the `#` marks and the heading text, e.g. `## Roleplaying`. A page opens on its template's entry.",
 	"hard-break-spaces": "End the line with a backslash for a line break instead of trailing spaces.",
 	"list-item-bullet-indent": "Do not indent list bullets; start them at the left margin.",
 	"ordered-list-marker-style": "Use `1.` with a full stop, not `1)`.",

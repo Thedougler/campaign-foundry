@@ -6,25 +6,19 @@ revealed: ""
 title: "Fire Watch"
 ---
 
-## At a glance
-
 - **Changes.** Text.
 - **Applies to.** Text.
 - **In one line.** Text.
 
-## Play
+Text.
 
 Text.
 
-## Depth
+## Problem it solves
 
 Text.
 
-### Why
-
-Text.
-
-### Edge cases
+## Edge cases
 
 Text.
 

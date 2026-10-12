@@ -7,8 +7,6 @@ revealed: ""
 title: "Session 2 - Previously On"
 ---
 
-## At a glance
-
 - **Covers.** [[Session 1 - Recap]]
 - **Ends on.** Text.
 - **Leads into.** Text.

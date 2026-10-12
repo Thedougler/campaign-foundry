@@ -15,13 +15,13 @@ title: "The Rook Resolution"
 - **Driven by.** Barnaby Rook hauling himself back aboard the HCS Surety after Jean-Claude Tabarnack swept him off the gangplank.
 - **Stands at.** Resolved. Rook fired his one loaded shot at [[beaumont-sel|Beaumont Sel]] and the salvaged plate threw it into the water; in Session 2 the Party took the Surety and Rook went overboard under [[delmar-fisk|Delmar Fisk]]'s blows, presumed dead.
 - **If nobody acts.** The question has closed. Rook did not resurface.
-- **Levers.** None remain. The question of his fate closed with the water.
+- **Angles.** None remain. The question of his fate closed with the water.
 
 ## Play
 
 - **Shows up as.** One officer and one spent flintlock across a gangplank from a Party holding a seized ship.
 - **Next development.** None. The Session 2 boarding ended it.
-- **Levers.** The gangplank, the spent shot, and the choice to press or hold.
+- **Angles.** The gangplank, the spent shot, and the choice to press or hold.
 - **Resolves when.** Resolved when Rook fell to the water and did not resurface.
 
 ## Depth

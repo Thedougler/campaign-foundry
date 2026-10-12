@@ -22,18 +22,16 @@
       - shattered-sea/NPCs/aleksander-malone.md
     sections:
       shattered-sea/NPCs/aleksander-malone.md:
-        - "## At a glance"
-        - "## Play"
-        - "### History"
-        - "### Hidden truths"
-        - "### Threads"
+        - "## History"
+        - "## Hidden truths"
+        - "## Threads"
         - "## Links"
       shattered-sea/Creatures/aleksander-malone-creature.md:
         - "## Statblock"
-        - "### Tactics"
-        - "### Outside a fight"
-        - "### Ecology"
-        - "### Hidden truths"
+        - "## Tactics"
+        - "## Outside a fight"
+        - "## Ecology"
+        - "## Hidden truths"
     canon:
       shattered-sea/Creatures/aleksander-malone-creature.md:
         - '^type:\s*Creature\s*$'
@@ -114,11 +112,9 @@
       - shattered-sea/NPCs/nona-black-jaw.md
     sections:
       shattered-sea/NPCs/nona-black-jaw.md:
-        - "## At a glance"
-        - "## Play"
-        - "### History"
-        - "### Hidden truths"
-        - "### Threads"
+        - "## History"
+        - "## Hidden truths"
+        - "## Threads"
         - "## Links"
     canon:
       shattered-sea/NPCs/nona-black-jaw.md:
@@ -178,11 +174,9 @@
       - shattered-sea/NPCs/thunk.md
     sections:
       shattered-sea/NPCs/thunk.md:
-        - "## At a glance"
-        - "## Play"
-        - "### History"
-        - "### Hidden truths"
-        - "### Threads"
+        - "## History"
+        - "## Hidden truths"
+        - "## Threads"
         - "## Links"
     canon:
       shattered-sea/NPCs/thunk.md:

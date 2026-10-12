@@ -5,7 +5,7 @@ Agents had no view of the Campaign above the next Session. `hot.md` gives the pr
 Decision:
 
 - **A new skill, `story-arc`.** It is new because no stage owned this view. `plan-session` settles one Session's intent, `prep-session` builds one Session, and the Story stage of `collab-with-me` drafts a plot the DM brings. `story-arc` looks across Sessions and hands its plotlines and new plots to those stages rather than repeating them.
-- **One page, a fixed name.** `story-so-far.md` sits in the Campaign folder beside `campaign-config.md`, with its own `type`, template and glossary term. It is linked from the Campaign overview. Its sections are At a glance, The story so far, Pressures, Open promises, PC trajectories and Pacing.
+- **One page, a fixed name.** `story-so-far.md` sits in the Campaign folder beside `campaign-config.md`, with its own `type`, template and glossary term. It is linked from the Campaign overview. Its sections are Arc position, The story so far, Pressures, Open promises, PC trajectories and Pacing.
 - **Played story only.** The page retells what the Recaps record and links the Thread, Quest and PC pages instead of copying their state. Unrevealed material appears only as a DM-only promise that links its page (ADR 0026). Forward lines are situations, each marked as an anchor, a possibility or player-owned.
 - **Refreshed by Ingest.** Ingest step 13 runs `story-arc` when it writes a Recap later than the page's **Through.** line. The page is then never more than one Session behind.
 - **Second Brain first.** The skill searches the DM's Notion before it reads the Wiki, since the DM's planning notes and decisions are stored there. The Wiki stands where the two disagree.

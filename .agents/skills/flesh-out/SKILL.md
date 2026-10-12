@@ -108,7 +108,7 @@ When the page means to produce a feeling, read that heading in [references/regis
 
 ### 7. Compress and stock
 
-Write into the page's existing sections, following each section's `%%` guidance in its template, and keep good existing prose. When a fact belongs in an optional section, callout or At a glance bullet the page lacks, add that part in template order, since the fact meets its guidance condition (`docs/wiki-layout.md` **Templates define pages**). Each fact is written once, in one section. The page gains facts and keeps its headings. Prefer short concrete bullets, verbs, distinctive nouns, observable behaviour, interaction cues and consequential details. Write every fact in the World's own terms, per root `AGENTS.md` **In-world voice**.
+Write into the page's existing sections, following each section's `%%` guidance in its template, and keep good existing prose. When a fact belongs in an optional section or callout the page lacks, add that part in template order, since the fact meets its guidance condition (`docs/wiki-layout.md` **Templates define pages**). A section or sub-section goes on only when the DM will use it at the table and the page has content for it, and its title states that content (`docs/wiki-layout.md` **Sections need content**). Each fact is written once, in one section. The page gains facts and keeps its headings, except a retired heading the gate reports, which migrates to the template's current sections. Prefer short concrete bullets, verbs, distinctive nouns, observable behaviour, interaction cues and consequential details. Write every fact in the World's own terms, per root `AGENTS.md` **In-world voice**.
 
 Leave more **prose stock** than the page's Narration slot will speak, so `theatre-of-the-mind` can select. The slot's Build in [recipes.md § First meetings on World pages](../theatre-of-the-mind/references/recipes.md#first-meetings-on-world-pages) names what the stock must cover for this kind. The stock holds:
 
@@ -118,7 +118,7 @@ Leave more **prose stock** than the page's Narration slot will speak, so `theatr
 - one thing the table can touch or use;
 - the Attention, Contact and Disturbance layers.
 
-Sort each added fact by what the characters can sense or know, the split behind [theatre-of-the-mind § Hard lines](../theatre-of-the-mind/SKILL.md#hard-lines) rule 2. A perceivable fact is one they can sense, and a knowable fact is one they already know or can learn by asking. Both go in `At a glance` and `Play`. A hidden fact is neither, and it goes in `Depth` with how the Party can learn it. A requested look or picture goes to `visuals`.
+Sort each added fact by what the characters can sense or know, the split behind [theatre-of-the-mind § Hard lines](../theatre-of-the-mind/SKILL.md#hard-lines) rule 2. A perceivable fact is one they can sense, and a knowable fact is one they already know or can learn by asking. Both go in the sections the DM runs the page from, such as `## Roleplaying` or `## Areas`. A hidden fact is neither, and it goes in `## Hidden truths` with how the Party can learn it. A requested look or picture goes to `visuals`.
 
 **Done when** every added fact is in its page section and `theatre-of-the-mind` could draft the page's slot from the surface layer's facts without inventing World state.
 

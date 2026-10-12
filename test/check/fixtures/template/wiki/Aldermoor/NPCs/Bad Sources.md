@@ -7,7 +7,6 @@ revealed: ""
 title: "Bad Sources"
 ---
 
-## At a glance
 
 - **Role.** Text.
 - **Wants.** Text.
@@ -17,7 +16,7 @@ title: "Bad Sources"
 > [!narration] First look
 > Spoken text for the table.
 
-## Play
+## Roleplaying
 
 - **Opens them up.** Text.
 - **Shuts them down.** Text.
@@ -25,19 +24,18 @@ title: "Bad Sources"
 - **Will not share.** Text.
 - **If pressed.** Text.
 
-## Depth
 
 Text.
 
-### History
+## History
 
 Text.
 
-### Hidden truths
+## Hidden truths
 
 Text.
 
-### Threads
+## Threads
 
 Text.
 

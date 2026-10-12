@@ -17,26 +17,23 @@
       - shattered-sea/Sessions/Session 12/session-12-consume.md
     sections:
       shattered-sea/Sessions/Session 12/session-12-consume.md:
-        - '## At a glance'
         - '## Threads'
-        - '## Play'
-        - '### Situation'
-        - '### Pressure'
-        - '### Checks'
+        - '## Situation'
+        - '## Pressure'
+        - '## Checks'
         - '## Outcomes'
-        - '## Depth'
-        - '### Hidden truths'
-        - '### Spotlight'
+        - '## Hidden truths'
+        - '## Spotlight'
     canon:
       shattered-sea/Sessions/Session 12/session-12-consume.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Climax\s*$'
         - '^> \[!narration\] Opening\s*$'
-        - '^### Checks\n(?:(?!#{2,3} ).*\n)*?.*==[^=\n]+=='
+        - '^## Checks\n(?:(?!#{2,3} ).*\n)*?.*==[^=\n]+=='
   rubrics:
     - >-
       The DM can run the Session's highest-stakes question from this page:
-      earlier choices supply concrete leverage, the brink has starting
+      earlier choices supply concrete Angles, the brink has starting
       positions and interruptible pressure, and opposition can be contested
       rather than succeeding by script. At least three distinct reachable
       endings, including costly success and refusal or withdrawal, state

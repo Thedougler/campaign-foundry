@@ -11,37 +11,24 @@ revealed: ""
 
 ![[<slug>-scene.webp]]
 
-## At a glance
-
-%% Give the DM a ten-second read, one line per bullet. Pressure is the one opening pressure, and Choice is the decision it puts to the Party. Where links the Location. %%
-
-- **Pressure.**
-- **Choice.**
-- **Where.**
-- **Who.** %% Optional. Add it when NPCs take part, linking each. %%
-
 > [!narration] Opening
 > %% Spoken, second person, present tense, under 120 words. Put the disturbance in the first sentence and make the Location felt, then end on the point where the Party reacts, which may be one situation-specific handoff question or either/or. %%
 
-## Play
+## Situation
 
-%% Run the Scene from here. Link the NPCs, Creatures and Location. %%
+%% Run the Scene from here. Link the Location, NPCs and Creatures. Open on the one opening pressure and the decision it puts to the Party. Give the opposition's goal and the next change on its clock. Then give the visible commitment that ends this Hook. %%
 
-### Situation
+## Angles
 
-%% Give the opposition's goal and the next change on its clock. Then give the visible commitment that ends this Hook. %%
+%% Give at least three materially different Angles, each with its upside and cost and the World's answer. Give each PC present a first action. %%
 
-### Handles
-
-%% Give at least three materially different responses, each with its upside and cost and the World's answer. Give each PC present a first action. %%
-
-### Checks
+## Checks
 
 %% Optional. Include it when an outcome is in doubt. Give the trigger and the Ability (Skill) with its DC, then each result the check can produce as a Cue (`==…==`): success, failure, and a critical success where its tier can land, paying world-law. Failure installs a false belief, a constraint or a caused consequence, never a blank. %%
 
-### Encounter
+## Encounter
 
-%% Optional. Include it when the Party may fight. Give forces and deployment, the battlefield, and the break or escape conditions. Open it with the battle map when the fight has one, the bare embed below from `skill://visuals`. Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]`, and add a `#### Balance` with the `bun run cfcli -- encounter-budget` lines. %%
+%% Optional. Include it when the Party may fight. Give forces and deployment, the battlefield, and the break or escape conditions. Open it with the battle map when the fight has one, the bare embed below from `skill://visuals`. Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]`, and add a `### Balance` with the `bun run cfcli -- encounter-budget` lines. %%
 
 ![[<slug>-battle-map.png]]
 
@@ -53,18 +40,14 @@ revealed: ""
 | --- | ---- | -------- |
 |     |      |          |
 
-## Depth
+## Hidden truths
 
-%% Optional. Include it when the opening hides a truth, pulls a Thread or pulls on a PC. DM only. Give what the opening hides and the Threads it pulls. %%
+%% Optional. Include it when the opening hides a truth. DM only. Give each truth with how the Party can learn it. %%
 
-### Hidden truths
+## Threads
 
-%% Give each truth with how the Party can learn it. %%
+%% Optional. Include it when the opening pulls a Thread. DM only. Link each Thread in play, with the pressure this Hook puts on it. %%
 
-### Threads
+## Spotlight
 
-%% Link each Thread in play, with the pressure this Hook puts on it. %%
-
-### Spotlight
-
-%% Give the PC this Scene pulls on through their own goal, bond or fear, and the reason every other PC has to act. %%
+%% Optional. Include it when the Scene pulls on one PC. DM only. Give the PC this Scene pulls on through their own goal, bond or fear, and the reason every other PC has to act. %%

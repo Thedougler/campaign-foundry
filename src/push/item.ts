@@ -78,7 +78,7 @@ export function buildItem(page: Page, options: ItemOptions): BuiltItem {
 	const { type, system } = itemKind(line.slice(0, rarityMatch?.index));
 	const rarity = RARITIES[rarityMatch?.[0].toLowerCase() ?? ""] ?? "";
 	const attunement = /requires attunement/i.test(line) ? "required" : "";
-	const description = renderMarkdown(page, options.render, { omit: ["Depth"] });
+	const description = renderMarkdown(page, options.render, { omit: ["Rulings", "History", "Hidden truths"] });
 	const data: Doc = {
 		_id: foundryId(options.campaign, page.path),
 		name: page.name,

@@ -7,7 +7,6 @@ revealed: "Backstory"
 title: "Tam Brightwater"
 ---
 
-
 ## Sheet
 
 - **Player.** Text.
@@ -32,12 +31,10 @@ Text.
 
 Text.
 
-## Story
+## Backstory
 
 > [!narration] Portrait
 > A salt-cut scar crosses his left brow.
-
-### Backstory
 
 Text.
 

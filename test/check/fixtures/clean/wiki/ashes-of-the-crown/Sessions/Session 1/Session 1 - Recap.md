@@ -7,8 +7,6 @@ revealed: ""
 title: "Session 1 - Recap"
 ---
 
-## At a glance
-
 - **Session.** Text.
 - **Party at.** Text.
 - **Big moments.** Text.
@@ -18,7 +16,7 @@ title: "Session 1 - Recap"
 
 Text.
 
-## Changes
+## Changes to the World
 
 Text.
 

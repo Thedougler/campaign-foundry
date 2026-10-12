@@ -63,7 +63,8 @@ describe("runPull", () => {
 		const wren = await read(`${pcDir}/Wren.md`);
 		expect(wren).toContain("Level 9 Halfling Sorcerer (Wild Magic Sorcery)");
 		expect(wren).toContain('summary: "Halfling Sorcerer 9."');
-		expect(wren.slice(wren.indexOf("## Story"))).toBe(wrenBefore.slice(wrenBefore.indexOf("## Story")));
+		expect(wren).toContain("## Backstory");
+		expect(wren.slice(wren.indexOf("## Backstory"))).toBe(wrenBefore.slice(wrenBefore.indexOf("## Backstory")));
 
 		const vale = await read(`${pcDir}/Vale.md`);
 		expect(vale).toContain("Level 5 Human Rogue (Mastermind)");
@@ -190,7 +191,7 @@ describe("runPull", () => {
 
 	it("keeps going and reports the gate's findings when a pulled page is left failing the gate", async () => {
 		const path = join(vault, pcDir, "Wren.md");
-		await writeFile(path, (await readFile(path, "utf8")).replace("## Story", "## Notes"));
+		await writeFile(path, (await readFile(path, "utf8")).replace("## Backstory", "## Notes"));
 		const result = await pull();
 		expect(result.gate?.findings.length).toBeGreaterThan(0);
 		expect(result.gate?.findings.some((f) => f.path.endsWith("Wren.md") && f.severity === "error")).toBe(true);

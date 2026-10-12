@@ -17,7 +17,7 @@ These branch rules apply together with the skill's shared craft on every Scene `
 
 ## Scene openings
 
-A Scene's `Opening` contains only what the Players need for their first decision. That means immediate danger or any immediately blocking feature, what the decision turns on, the ways out, the people and Creatures who matter, the things most likely to be grabbed, and the anchor. Put an obvious lethal or blocking hazard and the routes in this first look even if the map shows them. What a closer look would show belongs in the Scene's Play section, for the DM to give when asked.
+A Scene's `Opening` contains only what the Players need for their first decision. That means immediate danger or any immediately blocking feature, what the decision turns on, the ways out, the people and Creatures who matter, the things most likely to be grabbed, and the anchor. Put an obvious lethal or blocking hazard and the routes in this first look even if the map shows them. What a closer look would show belongs in the Scene's sections below the callout, for the DM to give when asked.
 
 ### Hook
 

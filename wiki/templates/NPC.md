@@ -13,23 +13,16 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ![[<slug>-portrait.webp]]
 
-## At a glance
+> [!narration] First look
+> %% Optional. Include it when the Party will meet this person. Spoken, second person. Open on a first read and the one feature a Player would use to describe them. Then show what they are doing and give their first line. Keep secrets and their tells for Hidden truths. %%
 
-%% Give the DM a ten-second read, one line per bullet. Wants is an outcome the next Scene or Session can reach. Torn between opens on the present fear that steers what they do, or what they cannot do without, then the second true pressure it collides with in play. Voice gives diction, rhythm, a habit, and how much they say. The `creature` property links the Creature page with their statistics, and the statblock belongs on that page. %%
+## Roleplaying
 
-- **Role.**
+%% Write how a meeting runs, one line per bullet, each from this person's own wants and limits. The `summary` property gives their role, and the `creature` property links the Creature page that holds their statistics. An incidental NPC keeps only the bullets its Scene uses. Wants is an outcome the next Scene or Session can reach. Torn between opens on the present fear that steers what they do, or what they cannot do without, then the second true pressure it collides with in play. Voice gives diction, rhythm, a habit, and how much they say. Opening move gives where they are, linking the Location, and what they are doing, with their starting Attitude. Leverage gives what they can grant, deny, expose or call on, what using it costs them, and the limit that blocks their easy win. Will share and Will not share set what they know beside what is true. Requests gives each likely ask with its answer as a Cue (`==…==`) in this person's own voice, its price and what it changes. If pressed gives the sourced Influence roll, or why a request is automatic, with the answer as a Cue. Invitations ties a returning NPC to a PC's own Goals, bonds or Plans, one line per PC it touches. %%
+
 - **Wants.**
 - **Torn between.**
 - **Voice.**
-- **Found at.** %% Optional. Add it when the person has a place in the World, linking the Location. %%
-
-> [!narration] First look
-> %% Optional. Include it when the Party will meet this person. Spoken, second person. Open on a first read and the one feature a Player would use to describe them. Then show what they are doing and give their first line. Keep secrets and their tells for Depth. %%
-
-## Play
-
-%% Write how a meeting runs, one line per bullet, each from this person's own wants and limits. An incidental NPC keeps only the bullets its Scene uses. Opening move gives where they are and what they are doing, with their starting Attitude. Leverage gives what they can grant, deny, expose or call on, what using it costs them, and the limit that blocks their easy win. Will share and Will not share set what they know beside what is true. Requests gives each likely ask with its answer as a Cue (`==…==`) in this person's own voice, its price and what it changes. If pressed gives the sourced Influence roll, or why a request is automatic, with the answer as a Cue. Invitations ties a returning NPC to a PC's own Goals, bonds or Plans, one line per PC it touches. %%
-
 - **Opening move.**
 - **Leverage.**
 - **Opens them up.**
@@ -45,25 +38,21 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 %% Optional. Include it when the DM, a Transcript or a source gives lines this person said. Give each line word for word as a blockquote, then one short line of context: when, to whom and why. The lines show how this person talks, and agents copy the voice (diction, rhythm, register and habits) in new lines of their own. DM only, so the context may hold secrets. %%
 
-## Depth
+## History
 
-%% Optional. Include it when the person's past or secrets change how they play. DM only. Give the past behind them and the things they hide, at the scale the NPC is used. %%
+%% Optional. Include it when the person's past changes how they play. DM only. Give the events behind their want and their limit, at the scale the NPC is used. Link the Locations, Factions and people involved. %%
 
-### History
+## Hidden truths
 
-%% Give the events behind their want and their limit. Link the Locations, Factions and people involved. %%
+%% Optional. Include it when the person keeps a secret that changes how they play. DM only. Give each secret with who it is kept from and why, and what this person knows of it and will share. Add what exposure costs, its visible tell, and three distinct ways the Party can learn it. %%
 
-### Hidden truths
+## Plan
 
-%% Give each secret with who it is kept from and why, and what this person knows of it and will share. Add what exposure costs, its visible tell, and three distinct ways the Party can learn it. %%
+%% Optional. Include it for a villain with no active Campaign. DM only. Give each step a trigger, a sign, a cost and a fallback. Mark the point where the Party can interrupt it. In a Campaign the plan belongs on a Thread, linked under Threads. %%
 
-### Plan
+## Threads
 
-%% Use this for a villain with no active Campaign. Give each step a trigger, a sign, a cost and a fallback. Mark the point where the Party can interrupt it. In a Campaign the plan belongs on a Thread, linked under Threads. %%
-
-### Threads
-
-%% Link each Thread they drive or sit in, with their part in it. %%
+%% Optional. Include it when they drive or sit in a Thread. DM only. Link each Thread, with their part in it. %%
 
 ## Links
 

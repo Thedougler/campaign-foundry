@@ -73,7 +73,7 @@ describe("published Item Properties", () => {
 		);
 	});
 
-	it.each(["## In use", "## At a glance", "# Other"])(
+	it.each(["## Rulings", "## Notes", "# Other"])(
 		"blanks nested Properties text and resumes style checking at %s without shifting lines",
 		async (heading) => {
 			const lines = [...source("Item").split("\n"), "### Absorption", "", ...rules, "", heading, "", ...rules, ""];

@@ -13,31 +13,30 @@ The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scen
 
 1. **Orient and ground.** Read `docs/agents/scene-pages.md` whole, then apply its **Orient** and **Ground**. The template is `wiki/templates/scene-climax.md`. **Done when** both sections' Done criteria hold.
 2. **Trace the payoff.** Read the Session's earlier Scenes and their conditional outcomes, not just the Scene immediately before this one.
-   - For each Thread converging here, state the question this confrontation decides and the lever the Party gained for it earlier: a Clue, ally, Item, weakness or earlier choice.
+   - For each Thread converging here, state the question this confrontation decides and the Angle the Party gained for it earlier: a Clue, ally, Item, weakness or earlier choice.
    - Carry earlier losses, spent resources and opposition preparation into the relevant entry branches.
    - Resolve an unplanted dependency through the enclosing Prep, or use established material that serves the same purpose. Promised earlier success remains conditional.
-   - A standalone brief without earlier Scene pages grounds leverage in the supplied entry and Canon. Return any proposed earlier setup as a planning requirement rather than a played event.
+   - A standalone brief without earlier Scene pages grounds the Party's Angles in the supplied entry and Canon. Return any proposed earlier setup as a planning requirement rather than a played event.
 
    **Done when** every converging Thread has a traceable setup and usable payoff, and each plausible entry state can reach the confrontation.
 3. **Choose the confrontation.** Use the chart's card when the incoming fiction supports it. Otherwise choose from **Cards** below and reconcile the row with the enclosing Prep, recorded as scene-pages **Card** directs. Follow scene-pages **Scripting the Game** for chart order and table-time allocation. That method governs where Lazy DM differs. Prefer a Development before an action Climax and a Cliffhanger before a cerebral one. If earlier play can settle the central question, that result hands directly to the Resolution rather than staging a second showdown. **Done when** one card fits the possible arrival states, the stakes exceed the earlier Scenes', and the page has a concrete compression option that preserves the decisive choice when time runs short.
 4. **Resolve the cast.** Apply scene-pages **Cast**. **Done when** its Done criterion holds.
 5. **Make the brink playable.** Start the page as scene-pages **Page format** directs, then fill:
-   - `## At a glance`: the decisive question and what can be saved or lost.
-   - `## Threads`: one line per converging Thread, linked, with the question this confrontation decides and the lever from step 2.
-   - `### Situation`: give starting positions and access to the objective. State each lever's concrete effect and what happens if the Party arrives without it.
-   - `### Pressure`: give the opposition's first move and its response to interference. Add its desperate move and its exit or surrender terms. Pressure has a trigger, visible warning, consequence and means of interruption. State the next move that changes the situation when play stalls. Each phase used has a trigger, perceptible signal, changed situation and new opportunity. Write the opposition's turns as enemy-turn Cues and each phase signal as a repaint Cue, and give each NPC or Creature the Party can kill a kill-hand-off Cue (`theatre-of-the-mind` `references/recipes.md` § Cues).
-   - `### Checks`: the Page format Checks bullets. Give every result its Cue, and add a Critical Cue wherever the roll can critically succeed. Rule victory and loss beyond hit points, including withdrawal.
-   - `### Spotlight` under `## Depth`: concrete opportunities for the Spotlight PC and each other PC to use their distinct goals or abilities, without assigning their decisions.
+   - `## Threads`: one line per converging Thread, linked, with the question this confrontation decides and the Angle from step 2.
+   - `## Situation`: open on the decisive question and what can be saved or lost. Give starting positions and access to the objective. State each Angle's concrete effect and what happens if the Party arrives without it.
+   - `## Pressure`: give the opposition's first move and its response to interference. Add its desperate move and its exit or surrender terms. Pressure has a trigger, visible warning, consequence and means of interruption. State the next move that changes the situation when play stalls. Each phase used has a trigger, perceptible signal, changed situation and new opportunity. Write the opposition's turns as enemy-turn Cues and each phase signal as a repaint Cue, and give each NPC or Creature the Party can kill a kill-hand-off Cue (`theatre-of-the-mind` `references/recipes.md` § Cues).
+   - `## Checks`: the Page format Checks bullets. Give every result its Cue, and add a Critical Cue wherever the roll can critically succeed. Rule victory and loss beyond hit points, including withdrawal.
+   - `## Spotlight`: concrete opportunities for the Spotlight PC and each other PC to use their distinct goals or abilities, without assigning their decisions.
 
    **Done when** the page and its embeds let the DM run every offered approach, stage feature, roll and escalation, with essential information reachable beyond one successful check.
-6. **Balance the opposition.** For every Encounter, including violence after failed talks or exposure, apply scene-pages **Encounters** and write `### Encounter` under `## Play` with its `#### Balance`.
+6. **Balance the opposition.** For every Encounter, including violence after failed talks or exposure, apply scene-pages **Encounters** and write `## Encounter` with its `### Balance`.
    - Default to High difficulty unless the chart or DM specifies otherwise.
    - Budget for the PCs able to act in this Scene, each listed with their level. Exclude anyone unconscious, catatonic or absent, recording each exclusion with its reason.
    - A fought Creature appears there only as its `![[Creature#Statblock]]` embed. Replace any statistics retyped into the Scene page with that embed.
-   - Account for phases and reinforcements in the forces actually faced. Use the opposition's strongest established tactics while the levers the Party gained earlier still work.
+   - Account for phases and reinforcements in the forces actually faced. Use the opposition's strongest established tactics while the Angles the Party gained earlier still work.
 
    **Done when** every fight branch has a CLI-sourced 2024 Party-budget comparison naming its contributors, linked combatants embedded rather than copied, and an objective the Party can secure or lose through the stated rulings.
-7. **Opening and phase signals.** Write the `Opening` with scene-pages **Narration**, recipe `### Climax`. Show the opposition mid-act, with the Location's usable features. End on the imminent escalation, before its result. Spoken phase signals and any Revelation get their own callouts under `## Play`. **Done when** the Narration section's Done criterion holds.
+7. **Opening and phase signals.** Write the `Opening` with scene-pages **Narration**, recipe `### Climax`. Show the opposition mid-act, with the Location's usable features. End on the imminent escalation, before its result. Spoken phase signals and any Revelation get their own callouts in `## Pressure`. **Done when** the Narration section's Done criterion holds.
 8. **Hand over consequences.** Fill the template's `## Outcomes` table with scene-pages **Outcomes**. Give at least three distinct, reachable outcomes chosen from the confrontation's real possibilities rather than a stock list. Keep the template's table under `## Outcomes`, since a renamed or re-nested substitute fails the gate.
    - Each row states its triggering choice or contest result, what is saved or lost, costs paid, the opposition's fate and the resulting state of every converging Thread.
    - `Hands to` gives the Resolution its entry state: the Party's Location, conditions, resources and knowledge that matter there. Link its assigned page, or return the intended aftermath for charting when this is a bounded standalone request.

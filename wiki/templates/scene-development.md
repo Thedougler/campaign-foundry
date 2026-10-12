@@ -11,33 +11,20 @@ revealed: ""
 
 ![[<slug>-scene.webp]]
 
-## At a glance
-
-%% Give the DM a ten-second read, one line per bullet. The turn is the new fact, access or choice that changes the Party's next move. Changes gives what the Party will know or reach afterwards, or choose between. Where links the Location. %%
-
-- **The turn.**
-- **Changes.**
-- **Where.**
-- **Who.** %% Optional. Add it when NPCs take part, linking each. %%
-
 > [!narration] Opening
 > %% Spoken, second person, present tense, under 150 words. Give the texture of the Location with the new information source as its anchor, and end on the point where the Party reacts, which may be one situation-specific handoff question or either/or. %%
 
-## Play
+## Situation
 
-%% A non-action Scene. Link the NPCs and the Location. A major reveal gets its own conditional callout here. %%
+%% A non-action Scene, run from here. Link the Location and NPCs. A major reveal the DM speaks gets its own conditional `[!narration]` callout here. Open on the turn: the new fact, access or choice that changes the Party's next move, and what the Party will know, reach or choose between afterwards. Give the physical anchor the Party can examine, handle or witness. Then give the deadline, departure or pressure tick that ends circular talk. Lore arrives only when asked or rolled for, as a Cue (`==…==`). %%
 
-### Situation
+## Angles
 
-%% Give the physical anchor the Party can examine, handle or witness. Then give the deadline, departure or pressure tick that ends circular talk. Lore arrives only when asked or rolled for, as a Cue (`==…==`). %%
+%% Optional. Include it when NPCs take part. Give one Angle per participating NPC, linked. Each gives their current goal and knowledge, their offer and price, what they hold back or lie about with the tell of each lie, and what changes their posture, each posture change ending on a Cue (`==…==`). %%
 
-### Handles
+## Checks
 
-%% Give one handle per participating NPC, linked. Each gives their current goal and knowledge, their offer and price, what they hold back or lie about with the tell of each lie, and what changes their posture, each posture change ending on a Cue (`==…==`). %%
-
-### Checks
-
-%% Sensible actions with no real doubt succeed and yield their Clue. Each uncertain action gives the trigger and the Ability (Skill) with its DC, then each result the check can produce as a Cue (`==…==`): success, failure, and a critical success where its tier can land, paying world-law. Failure installs a false belief, a constraint or a caused consequence, never a blank. %%
+%% Optional. Include it when an action's result is in doubt. Sensible actions with no real doubt succeed and yield their Clue. Each uncertain action gives the trigger and the Ability (Skill) with its DC, then each result the check can produce as a Cue (`==…==`): success, failure, and a critical success where its tier can land, paying world-law. Failure installs a false belief, a constraint or a caused consequence, never a blank. %%
 
 ## Clues
 
@@ -55,18 +42,14 @@ revealed: ""
 | --- | ---- | -------- |
 |     |      |          |
 
-## Depth
+## Hidden truths
 
-%% Optional. Include it when the turn hides a truth, moves a Thread or pulls on a PC. DM only. Give what the turn hides and the Threads it moves. %%
+%% Optional. Include it when the turn hides a truth. DM only. Give each truth with how the Party can learn it. %%
 
-### Hidden truths
+## Threads
 
-%% Give each truth with how the Party can learn it. %%
+%% Optional. Include it when the turn moves a Thread. DM only. Link each Thread in play, with what the turn changes in it. %%
 
-### Threads
+## Spotlight
 
-%% Link each Thread in play, with what the turn changes in it. %%
-
-### Spotlight
-
-%% Give the PC whose goal, bond or fear drives the decision, with their response left to the Player. %%
+%% Optional. Include it when the decision pulls on one PC. DM only. Give the PC whose goal, bond or fear drives the decision, with their response left to the Player. %%

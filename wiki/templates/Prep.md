@@ -7,14 +7,9 @@ date: ""
 revealed: ""
 ---
 
-## At a glance
+## Session question
 
-%% Give the DM a ten-second read, one line per bullet. Set `date` to the in-world date of the Session. Session question is the one question the Climax settles. Length comes from DM Settings or the Campaign. %%
-
-- **Session question.**
-- **Party at.**
-- **Length.**
-- **Threads in play.** %% Optional. Add it when a Thread is in play this Session. %%
+%% Set `date` to the in-world date of the Session. Give the one question the Climax settles, then where the Party starts, with the Location linked. %%
 
 ## Scene Chart
 
@@ -26,7 +21,7 @@ revealed: ""
 
 ## Threads
 
-%% Optional. Include it when a Thread is in play this Session. Give one line per Thread in play, linked. Say where it is planted and tested, where it moves or resolves, and the lever it gives the Party this Session. %%
+%% Optional. Include it when a Thread is in play this Session. Give one line per Thread in play, linked. Say where it is planted and tested, where it moves or resolves, and the Angle it gives the Party this Session. %%
 
 ## Opposition
 

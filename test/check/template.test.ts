@@ -120,7 +120,7 @@ describe("template layer: failure classes", () => {
 		const templates = join(dir, "templates");
 		await cp(realTemplates, templates, { recursive: true });
 		const npc = await readFile(join(templates, "npc.md"), "utf8");
-		expect(npc).toMatch(/## Depth\n\n%% Optional\./);
+		expect(npc).toMatch(/## History\n\n%% Optional\./);
 		const flags = ["--vault", join(dir, "wiki"), "--root", dir, "--templates", templates];
 		const result = await cf(["check", "--json", "--layer", "template", ...flags], dir);
 		const edited = JSON.parse(result.stdout) as JsonReport;
@@ -129,15 +129,15 @@ describe("template layer: failure classes", () => {
 				.map((f) => f.rule)
 				.sort();
 		expect(of("Short Sections")).toEqual(["missing-section"]);
-		expect(findingsFor(edited, "/Short Sections.md")[0]?.hint).toContain("`Depth` (optional)");
+		expect(findingsFor(edited, "/Short Sections.md")[0]?.hint).toContain("`History` (optional)");
 		expect(of("Swapped Sections")).toEqual(["section-order"]);
 		const empty = findingsFor(edited, "/Empty Section.md");
 		expect(empty.map((f) => f.rule)).toEqual(["empty-heading"]);
-		expect(empty[0]?.hint).toContain("marks `## Depth` optional");
+		expect(empty[0]?.hint).toContain("marks `## History` optional");
 
 		await cf(["check", "--json", "--layer", "template", "--fix", ...flags], dir);
 		const fixed = await readFile(join(dir, "wiki/Aldermoor/NPCs/Empty Section.md"), "utf8");
-		expect(fixed).not.toContain("## Depth");
+		expect(fixed).not.toContain("## History");
 		expect(fixed).toContain("## Links");
 	});
 
@@ -155,13 +155,13 @@ sources: []
 revealed: ""
 ---
 
-## At a glance
-
-Pressure.
-
-## Play
+## Situation
 
 Situation.
+
+## Angles
+
+Choices.
 
 ## Outcomes
 
@@ -186,7 +186,7 @@ Consequences.
 		);
 		const findings = findingsFor(JSON.parse(result.stdout) as JsonReport, "/Opening.md");
 		expect(findings.map((f) => f.rule)).toEqual(["missing-callout"]);
-		expect(findings[0]?.hint).toContain("under `## At a glance`");
+		expect(findings[0]?.hint).toContain("where templates/scene-hook.md puts it");
 		expect(findings[0]?.hint).toContain("> [!narration] Opening");
 	});
 
@@ -198,7 +198,10 @@ Consequences.
 		const source = await readFile(path, "utf8");
 		await writeFile(
 			path,
-			source.replace("## Play", "> [!narration] Required introduction\n> %% Give their introduction. %%\n\n## Play"),
+			source.replace(
+				"## Roleplaying",
+				"> [!narration] Required introduction\n> %% Give their introduction. %%\n\n## Roleplaying",
+			),
 		);
 		const result = await cf(
 			["check", "--json", "--layer", "template", "--vault", join(dir, "wiki"), "--root", dir, "--templates", templates],
@@ -279,7 +282,7 @@ Consequences.
 });
 
 describe("template layer: --fix", () => {
-	it("adds blank keys, strips guidance and empty ### headings, then is idempotent", async () => {
+	it("adds blank keys, strips guidance and empty headings, then is idempotent", async () => {
 		const dir = await copyFixture("template");
 		const args = [
 			"check",
@@ -302,8 +305,8 @@ describe("template layer: --fix", () => {
 		const fixed = await readFile(join(dir, "wiki/Aldermoor/NPCs/Guided.md"), "utf8");
 		expect(fixed).not.toContain("%%");
 		expect(fixed).toContain('creature: ""');
-		expect(fixed).not.toContain("### History");
-		expect(fixed).toContain("## At a glance\n\n- **Role.**");
+		expect(fixed).not.toContain("## History");
+		expect(fixed).toContain("- **Role.** Text.");
 
 		const missing = await readFile(join(dir, "wiki/Aldermoor/NPCs/Missing Keys.md"), "utf8");
 		expect(missing).toMatch(
@@ -343,8 +346,8 @@ describe("template layer: --fix", () => {
 	});
 });
 
-describe("template layer: a callout follows its section", () => {
-	// creature.md marks At a glance optional for a World-free page, and First sight sits under it.
+describe("template layer: optional entry callouts", () => {
+	// Creature's First sight entry is optional even when Statblock is present.
 	const worldFree = `---
 title: "Bandit"
 type: Creature
@@ -416,15 +419,15 @@ filters:
 		return JSON.parse(result.stdout) as JsonReport;
 	}
 
-	it("does not require a callout whose optional section the page leaves out", async () => {
+	it("does not require an optional entry callout", async () => {
 		expect(findingsFor(await runCreature(worldFree), "/Bandit.md")).toEqual([]);
 	});
 
-	it("does not require an optional callout even when the page keeps its section", async () => {
-		const withGlance = worldFree.replace(
+	it("accepts an optional entry callout before the required sections", async () => {
+		const withEntry = worldFree.replace(
 			"## Statblock",
-			"## At a glance\n\n- **Role at the table.** Ambusher.\n\n## Statblock",
+			"> [!narration] First sight\n> A bandit waits by the road.\n\n## Statblock",
 		);
-		expect(findingsFor(await runCreature(withGlance), "/Bandit.md")).toEqual([]);
+		expect(findingsFor(await runCreature(withEntry), "/Bandit.md")).toEqual([]);
 	});
 });

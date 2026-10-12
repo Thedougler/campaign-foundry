@@ -16,12 +16,11 @@
       - shattered-sea/Creatures/talon-skarn-creature.md
     sections:
       shattered-sea/Creatures/talon-skarn-creature.md:
-        - "## At a glance"
         - "## Statblock"
-        - "### Tactics"
-        - "### Outside a fight"
-        - "### Ecology"
-        - "### Hidden truths"
+        - "## Tactics"
+        - "## Outside a fight"
+        - "## Ecology"
+        - "## Hidden truths"
         - "## Links"
     canon:
       shattered-sea/Creatures/talon-skarn-creature.md:

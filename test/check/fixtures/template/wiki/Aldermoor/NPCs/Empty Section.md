@@ -7,7 +7,6 @@ revealed: ""
 title: "Empty Section"
 ---
 
-## At a glance
 
 - **Role.** Text.
 - **Wants.** Text.
@@ -17,7 +16,7 @@ title: "Empty Section"
 > [!narration] First look
 > Spoken text for the table.
 
-## Play
+## Roleplaying
 
 - **Opens them up.** Text.
 - **Shuts them down.** Text.
@@ -25,7 +24,7 @@ title: "Empty Section"
 - **Will not share.** Text.
 - **If pressed.** Text.
 
-## Depth
+## History
 
 
 ## Links

@@ -17,6 +17,7 @@ function britishSpellings(): Promise<Record<string, string>> {
 	).then((text) =>
 		Object.assign(JSON.parse(text) as Record<string, string>, {
 			// Published export spellings absent from the translator's data; still gated by cspell.
+			coloration: "colouration",
 			counterclockwise: "anticlockwise",
 			crisscrossed: "criss-crossed",
 			eyelike: "eye-like",

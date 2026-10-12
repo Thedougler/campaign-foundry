@@ -7,7 +7,6 @@ revealed: ""
 title: "Short Sections"
 ---
 
-## At a glance
 
 - **Role.** Text.
 - **Wants.** Text.
@@ -17,7 +16,7 @@ title: "Short Sections"
 > [!narration] First look
 > Spoken text for the table.
 
-## Play
+## Roleplaying
 
 - **Opens them up.** Text.
 - **Shuts them down.** Text.

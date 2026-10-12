@@ -8,18 +8,18 @@ revealed: ""
 
 %% The arc-level view of one Campaign, kept by the story-arc skill and rewritten whole after each Session's Ingest. It retells played Sessions from their Recaps and links each Thread, Quest and PC page rather than copying it. Keep the page to about 1,200 words. %%
 
-## At a glance
+## Arc position
 
-%% Each line carries page links. Through gives the last Session whose Recap this page reads. Arc position says whether the current arc is rising, peaking or falling, and why. Central question is the question play keeps asking, in one sentence. %%
+%% Each line carries page links. Through gives the last Session whose Recap this page reads. Arc says whether the current Arc is rising, peaking or falling, and why. Central question is the question play keeps asking, in one sentence. %%
 
 - **Through.**
-- **Arc position.**
-- **Authority rung.** %% Optional. Add it when campaign-config.md's Themes name rungs of authority: the rung the Party contends with now, and the rung above it. %%
+- **Arc.**
+- **Authority.** %% Optional. Add it when campaign-config.md's Themes rank kinds of authority: the authority the Party contends with now, and the one above it. %%
 - **Central question.**
 
 ## Timeline
 
-%% Optional. Include it once the Campaign has two arcs or more. Give one mermaid `timeline` with a section per arc, titled with its Session range, and a few words per Session from its Recap, per `skill://visuals`. The diagram below is the default shape. %%
+%% Optional. Include it once the Campaign has two Arcs or more. Give one mermaid `timeline` with a section per Arc, titled with its Session range, and a few words per Session from its Recap, per `skill://visuals`. The diagram below is the default shape. %%
 
 ```mermaid
 timeline
@@ -32,7 +32,7 @@ timeline
 
 ## The story so far
 
-%% One `###` heading per arc, a run of Sessions that shared one question, titled with its Session range. Under each, retell what the Party did and what it cost in three to six sentences, past tense, citing each Session's Recap as a link. Tell only what the Recaps record. %%
+%% One `###` heading per Arc, titled with its Session range. Under each, retell what the Party did and what it cost in three to six sentences, past tense, citing each Session's Recap as a link. Tell only what the Recaps record. %%
 
 ## Pressures
 

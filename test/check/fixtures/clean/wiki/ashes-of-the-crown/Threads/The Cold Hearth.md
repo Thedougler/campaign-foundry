@@ -7,33 +7,29 @@ revealed: ""
 title: "The Cold Hearth"
 ---
 
-## At a glance
+## State and angles
 
 - **Driven by.** [[Mara Voss]]
 - **Stands at.** Text.
 - **If nobody acts.** Text.
 - **Levers.** Text.
 
-## Play
-
 - **Shows up as.** [[Lantern for the Chapel]]
 - **Next development.** Text.
 - **Levers.** Text.
 - **Resolves when.** Text.
 
-## Depth
+Text.
+
+## Origin
 
 Text.
 
-### Origin
+## Hidden truths
 
 Text.
 
-### Hidden truths
-
-Text.
-
-### Possible endings
+## Possible endings
 
 Text.
 

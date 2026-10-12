@@ -13,6 +13,8 @@ export interface ValeAlert {
 	Line: number;
 	Match: string;
 	Severity: string;
+	/** One-based inclusive character columns; canned adapters may omit them. */
+	Span?: [number, number];
 }
 
 /** Which rules read a pass: the gate's own `.vale.ini`, or the craft checks' `.vale-narration.ini`. */

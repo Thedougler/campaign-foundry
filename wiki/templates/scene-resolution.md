@@ -11,37 +11,24 @@ revealed: ""
 
 ![[<slug>-scene.webp]]
 
-## At a glance
-
-%% Give the DM a ten-second read, one line per bullet. What is true now and Cost come from the Climax's result. Where links the Location. Reactions gives who responds first. %%
-
-- **What is true now.**
-- **Cost.**
-- **Where.**
-- **Reactions.**
-
 > [!narration] Closing image
 > %% Spoken, second person, present tense, under 120 words. Show the visible change and its cost, and end on a still image. Branches share one image only when it is true for each of them. %%
 
-## Play
+## Payoffs
 
-%% About 10 to 25 minutes, labelled by Climax outcome. %%
+%% About 10 to 25 minutes, run from here and labelled by Climax outcome. Link the Location. Give the answer to the Session's question from the Climax's result, and the concrete change in the World, with the cost still visible. %%
 
-### Payoffs
-
-%% Give the answer to the Session's question and the concrete change in the World, with the cost still visible. %%
-
-### Reactions
+## Reactions
 
 %% Give each relevant NPC or Faction's response as an action or offer with its effect, a spoken offer as a Cue (`==…==`). Give each PC a chance to answer a goal, bond or Spotlight. %%
 
-### Rewards
+## Rewards
 
 %% Optional. Include it when a branch grants something. Give, for each such branch, the amounts and linked Items, who grants them, and what a favour, title or access does. %%
 
-### Stinger
+## Stinger
 
-%% Give one new fact or arrival grown from play that points to the next Session, stopping before a new contest, or close instead on a quiet decompression coda. %%
+%% Give one new fact or arrival grown from play that points to a live Thread, stopping before a new contest, or close instead on a quiet decompression coda. %%
 
 ## Threads
 

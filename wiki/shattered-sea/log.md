@@ -5068,3 +5068,8 @@
 ## [2026-10-11] lint | Item page order migration (a-sliver-of-the-unstable-form)
 
 - [[a-sliver-of-the-unstable-form|A Sliver of the Unstable Form]]
+
+## [2026-10-12] ingest | Generic Spell pages: Alter Self exemplar + Ossketh migration
+
+- [[alter-self|Alter Self]]
+- [[ossketh|Ossketh]]

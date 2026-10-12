@@ -16,58 +16,40 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ![[<slug>-map.webp]]
 
-## At a glance
-
-%% Give the DM a ten-second read, one line per bullet. Character is what sets the land apart. Crossing gives travel time and the route that matters. %%
-
-- **Character.**
-- **Held by.** %% Optional. Add it when powers in the World control the land, linking each. %%
-- **Changing.** %% Optional. Add it when something in the land is moving now. %%
-- **Crossing.**
-- **Danger.**
-
 > [!narration] Arrival
 > %% Optional. Include it when the Party will travel into the Region. Spoken, second person, present tense. Show the country as a traveller first meets it and the one feature that sets it apart. %%
 
-## Play
+## Travel
 
-%% Give what the Party does here, at the scale of the travel asked for. Keep to what changes a travel choice. %%
+%% Give what the Party does here, at the scale of the travel asked for, keeping to what changes a travel choice. The `summary` property gives what sets the land apart. Give at least two routes where the geography allows. Each route gives its endpoints and mode with its time and cost. Add the supplies it needs and its warning signs. Add landmarks with their uses, and named stops for rest and supply. Uncertain navigation gives its 2024 check and DC with the cost of failure. %%
 
-### Travel
+## Places
 
-%% Give at least two routes where the geography allows. Each route gives its endpoints and mode with its time and cost. Add the supplies it needs and its warning signs. Add landmarks with their uses, and named stops for rest and supply. Uncertain navigation gives its 2024 check and DC with the cost of failure. %%
+%% Optional. Include it when the Region has child Locations. Link each, with the reason to go and the route that leads there. %%
 
-### Places
+## Powers
 
-%% Link each child Location, with the reason to go and the route that leads there. %%
+%% Optional. Include it when a power acts here. Link each. Give what it controls and seeks here, its next move with its timing, and the signs of that move along the routes. %%
 
-### Powers
+## Travel events
 
-%% Link each active power. Give what it controls and seeks here, its next move with its timing, and the signs of that move along the routes. %%
+%% Optional. Include it when the Party will travel through the Region. Give a d6 table of travellers, Creatures, Factions and weather or terrain events from this Region, each linked. Each result gives its sign and current activity, a possible interaction, and the outcome if the Party ignores it. %%
 
-### Encounters
+## Rumors
 
-%% Give a d6 table of travellers, Creatures, Factions and weather or terrain events from this Region, each linked. Each result gives its sign and current activity, a possible interaction, and the outcome if the Party ignores it. %%
+%% Optional. Include it when travellers carry claims the Party can test. Give each rumour as spoken, with the DM's truth and a way for the Party to check it. %%
 
-### Rumors
+## History
 
-%% Give each rumour as spoken, with the DM's truth and a way for the Party to check it. %%
+%% Optional. Include it when past events still decide routes, borders or powers. DM only. Give those events. %%
 
-## Depth
+## Hidden truths
 
-%% Optional. Include it when the Region's past or secrets reach play. DM only. Give the Region's past and what it hides. %%
+%% Optional. Include it when the Region hides a truth the Party can learn. DM only. Give each truth with the Clue that reveals it, and the route or Location where the Party finds that Clue. %%
 
-### History
+## Threads
 
-%% Give past events that still decide routes, borders or powers. %%
-
-### Hidden truths
-
-%% Give each truth with the Clue that reveals it, and the route or Location where the Party finds that Clue. %%
-
-### Threads
-
-%% Link each Thread that touches the Region, with what it changes here. %%
+%% Optional. Include it when a Thread touches the Region. DM only. Link each Thread, with what it changes here. %%
 
 ## Links
 

@@ -23,23 +23,17 @@
       - shattered-sea/Locations/le-paludi.md
     sections:
       shattered-sea/Locations/calven-and-calveno.md:
-        - '## At a glance'
-        - '## Play'
-        - '### Districts'
-        - '### Services'
-        - '### Factions here'
-        - '### Local rules'
-        - '### Rumors'
-        - '## Depth'
+        - '## Districts'
+        - '## Services'
+        - '## Factions here'
+        - '## Local rules'
+        - '## Rumors'
         - '## Links'
       shattered-sea/Locations/le-paludi.md:
-        - '## At a glance'
-        - '## Play'
-        - '### Areas'
-        - '### Hazards'
-        - '### Occupants'
-        - '### Likely actions'
-        - '## Depth'
+        - '## Areas'
+        - '## Hazards'
+        - '## Occupants'
+        - '## Likely actions'
         - '## Links'
     canon:
       shattered-sea/Locations/calven-and-calveno.md:
@@ -121,13 +115,10 @@
       - shattered-sea/Locations/aruhe.md
     sections:
       shattered-sea/Locations/aruhe.md:
-        - '## At a glance'
-        - '## Play'
-        - '### Travel'
-        - '### Places'
-        - '### Encounters'
-        - '### Rumors'
-        - '## Depth'
+        - '## Travel'
+        - '## Places'
+        - '## Travel events'
+        - '## Rumors'
         - '## Links'
     canon:
       shattered-sea/Locations/aruhe.md:

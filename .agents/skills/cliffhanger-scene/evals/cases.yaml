@@ -15,27 +15,24 @@
       - shattered-sea/Sessions/Session 12/session-12-terror-birds.md
     sections:
       shattered-sea/Sessions/Session 12/session-12-terror-birds.md:
-        - '## At a glance'
-        - '## Play'
-        - '### Stakes'
-        - '### Pressure'
-        - '### Terrain'
-        - '### Checks'
+        - '## Stakes'
+        - '## Pressure'
+        - '## Terrain'
+        - '## Checks'
         - '## Encounter'
         - '### Battlefield'
         - '### Creatures'
         - '### Balance'
         - '## Outcomes'
-        - '## Depth'
-        - '### Hidden truths'
-        - '### Threads'
-        - '### Spotlight'
+        - '## Hidden truths'
+        - '## Threads'
+        - '## Spotlight'
     canon:
       shattered-sea/Sessions/Session 12/session-12-terror-birds.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Cliffhanger\s*$'
         - '^> \[!narration\] Opening\s*$'
-        - '^### Checks\n(?:(?!#{2,3} ).*\n)*?.*==[^=\n]+=='
+        - '^## Checks\n(?:(?!#{2,3} ).*\n)*?.*==[^=\n]+=='
   rubrics:
     - >-
       The DM can run the crossing from starting positions, usable terrain,

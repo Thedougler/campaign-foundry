@@ -20,7 +20,7 @@ On each cross-Site route, state the destination Site and entry key, travel cost,
 
 ## Keep a return ledger
 
-Put a concise `Return state` subsection in the relevant Site's Play. Separate the current facts from conditional future responses:
+Put a concise `### Return state` sub-section at the end of the relevant Site's `## Areas`. Separate the current facts from conditional future responses:
 
 - Known entrances, opened routes and usable retreat/shelter, including any new exposure.
 - What the Party learned, took, damaged, depleted or promised, with the relevant area or owner link.

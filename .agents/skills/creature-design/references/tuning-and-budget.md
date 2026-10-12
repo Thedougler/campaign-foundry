@@ -32,6 +32,6 @@ Use realistic area targets and list the assumed count. Apply advantage, disadvan
 
 ## CR and trade-offs
 
-Find a close published 2024 peer by CR (`dnd5e-srd-api` § Filters) and cite it in the body or working record. Label defensive CR and offensive CR as **estimates** grounded in that peer and the observed output. Do not invent a 2024 CR formula and do not force the two estimates into an average. The statblock's `cr` is the deliberate label for the chosen peer or design. Explain any divergence from the Party tuning.
+Find a close published 2024 peer by CR, first among the matching blocks of `raw/bestiary-cr1-cr30.md` and the Wiki's Creatures, with `dnd5e-srd-api` § Filters as the fallback, and cite it in the body or working record. Label defensive CR and offensive CR as **estimates** grounded in that peer and the observed output. Do not invent a 2024 CR formula and do not force the two estimates into an average. The statblock's `cr` is the deliberate label for the chosen peer or design. Explain any divergence from the Party tuning.
 
 Trade durability, damage, control, mobility and action economy. Do not stack high AC, large HP, broad resistances, immunities, regeneration, escape and control without a fiction-backed reason and a player answer. Every lethal or hard-control signature has a visible tell, at least two mechanically usable answers, and a payoff or opening when answered. Bosses and solo Creatures need a concrete escalation, and each Creature needs a morale or ending condition.

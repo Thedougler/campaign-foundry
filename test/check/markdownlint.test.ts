@@ -40,3 +40,21 @@ it("checks and fixes directory-scale Markdown without changing per-page findings
 		await rm(root, { recursive: true, force: true });
 	}
 });
+
+it("allows a frontmatter title with a body H1 but still rejects duplicate body H1s", async () => {
+	const root = await mkdtemp(join(tmpdir(), "cf-markdownlint-title-"));
+	try {
+		const vault = join(root, "wiki");
+		await mkdir(vault);
+		const path = join(vault, "spell.md");
+		const entry = "---\ntitle: Alter Self\ntype: Spell\n---\n\n# Alter Self\n\n*Level 2 Transmutation.*\n";
+		await writeFile(path, entry);
+		const options = { root, vault, cwd: root, layers: ["markdownlint"] };
+		expect((await runCheck(options)).findings).toEqual([]);
+		await writeFile(path, `${entry}\n# Another title\n\nA spell changes the caster's shape.\n`);
+		const duplicate = await runCheck(options);
+		expect(duplicate.findings.map(({ rule }) => rule)).toEqual(["MD025"]);
+	} finally {
+		await rm(root, { recursive: true, force: true });
+	}
+});

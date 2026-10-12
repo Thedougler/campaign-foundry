@@ -7,7 +7,6 @@ revealed: ""
 title: "Empty Callout"
 ---
 
-## At a glance
 
 - **Role.** Text.
 - **Wants.** Text.
@@ -16,7 +15,7 @@ title: "Empty Callout"
 
 > [!narration] First look
 
-## Play
+## Roleplaying
 
 - **Opens them up.** Text.
 - **Shuts them down.** Text.
@@ -24,19 +23,18 @@ title: "Empty Callout"
 - **Will not share.** Text.
 - **If pressed.** Text.
 
-## Depth
 
 Text.
 
-### History
+## History
 
 Text.
 
-### Hidden truths
+## Hidden truths
 
 Text.
 
-### Threads
+## Threads
 
 Text.
 

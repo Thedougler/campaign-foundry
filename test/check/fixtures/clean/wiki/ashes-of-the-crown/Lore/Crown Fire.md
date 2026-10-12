@@ -6,7 +6,7 @@ revealed: ""
 title: "Crown Fire"
 ---
 
-## At a glance
+## Truth, Clues and accounts
 
 - **The truth.** Text.
 - **Who knows it.** Text.
@@ -16,21 +16,17 @@ title: "Crown Fire"
 > [!narration] As it is told
 > The first spark jumped a king's pyre.
 
-## Play
-
 - **Players notice.** Text.
 - **Clues.** Text.
 - **Accounts.** Text.
 
-## Depth
+Text.
+
+## The full truth
 
 Text.
 
-### The full truth
-
-Text.
-
-### Chronology
+## Chronology
 
 Text.
 

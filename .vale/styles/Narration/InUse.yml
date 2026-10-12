@@ -1,0 +1,7 @@
+extends: existence
+message: "Deprecated: In use. Migrate to the shape of wiki/templates/Item.md — see item-design; move rules into Properties, rulings into Rulings and spoken description into the First look entry."
+level: error
+scope: heading.h2
+nonword: true
+tokens:
+  - '^In use\s*$'

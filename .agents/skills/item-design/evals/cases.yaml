@@ -15,10 +15,8 @@
     sections:
       shattered-sea/Items/rescue-line-charm.md:
         - "## Properties"
-        - "## In use"
-        - "## At a glance"
-        - "### History"
-        - "### Hidden truths"
+        - "## History"
+        - "## Hidden truths"
         - "## Links"
     canon:
       shattered-sea/Items/rescue-line-charm.md:
@@ -84,7 +82,7 @@
       Items/*.md:
         - '/shattered[- ]sea/i'
         - '/^(?!inspired_by:).*\b(Playful Cloud|Jujutsu|Toji|Maki|Geto|Zen''?in|Fushiguro|Megumi|Yuta|Okkotsu|Aoi|Hanami|Dagon|cursed energy|cursed technique|cursed tool|Heavenly Restriction|special[- ]grade)\b/im'
-        - '/^(revealed:|## Play|### Properties|## In use|## At a glance|## Depth|### History|### Hidden truths|>\s*\[!narration\])/m'
+        - '/^(revealed:|## Play|### Properties|## In use|## At a glance|## Depth|## (?:Rulings|History|Hidden truths)|### History|### Hidden truths|>\s*\[!narration\])/m'
       shattered-sea/Items/**:
         - '[\s\S]'
   rubrics:
@@ -143,7 +141,7 @@
     absent:
       Items/*.md:
         - '/shattered[- ]sea/i'
-        - '/^(revealed:|## Play|### Properties|## In use|## At a glance|## Depth|### History|### Hidden truths|>\s*\[!narration\])/m'
+        - '/^(revealed:|## Play|### Properties|## In use|## At a glance|## Depth|## (?:Rulings|History|Hidden truths)|### History|### Hidden truths|>\s*\[!narration\])/m'
       shattered-sea/Items/**:
         - '[\s\S]'
   rubrics:
@@ -183,8 +181,6 @@
     sections:
       shattered-sea/Items/redheart-draught.md:
         - "## Properties"
-        - "## In use"
-        - "## At a glance"
         - "## Links"
     canon:
       shattered-sea/Items/redheart-draught.md:
@@ -246,7 +242,7 @@
     absent:
       Items/*.md:
         - '/shattered[- ]sea/i'
-        - '/^(revealed:|## Play|### Properties|## In use|## At a glance|## Depth|### History|### Hidden truths|>\s*\[!narration\])/m'
+        - '/^(revealed:|## Play|### Properties|## In use|## At a glance|## Depth|## (?:Rulings|History|Hidden truths)|### History|### Hidden truths|>\s*\[!narration\])/m'
       shattered-sea/Items/**:
         - '[\s\S]'
   rubrics:

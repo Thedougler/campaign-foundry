@@ -6,8 +6,6 @@ revealed: ""
 title: "Gull's Errand"
 ---
 
-## At a glance
-
 - **Kind.** Text.
 - **Size.** Text.
 - **Speed.** Text.
@@ -18,35 +16,31 @@ title: "Gull's Errand"
 > [!narration] First sight
 > Pitch weeps from the hull.
 
-## Play
-
-### Statistics
+## Statistics
 
 | Armor Class | Hit Points | Speed | Damage Threshold |
 | ----------- | ---------- | ----- | ---------------- |
 |             |            |       |                  |
 
-### Crew and stations
+## Crew and stations
 
 Text.
 
-### Components and weapons
+## Components and weapons
 
 Text.
 
-### Underway
+## Errand, chase and boarding
 
 Text.
 
-## Depth
+Text.
+
+## History
 
 Text.
 
-### History
-
-Text.
-
-### Hidden truths
+## Hidden truths
 
 Text.
 

@@ -15,15 +15,16 @@
       - shattered-sea/Spells/tribute-wake.md
     sections:
       shattered-sea/Spells/tribute-wake.md:
-        - "## At a glance"
-        - "### Effect"
-        - "### Rulings"
-        - "### Tradition"
-        - "### Who knows it"
+        - "## Rulings"
+        - "## Tradition"
+        - "## Who knows it"
         - "## Links"
     canon:
       shattered-sea/Spells/tribute-wake.md:
         - '^type:\s*Spell\s*$'
+        - '^level: \d+'
+        - '^school: \S'
+        - '^classes:'
         - '\[!narration\] Casting'
   rubrics:
     - >-

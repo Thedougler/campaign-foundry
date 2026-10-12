@@ -6,7 +6,7 @@ A structure diagram is a Visual written as text: one mermaid block in the page's
 
 Draw a diagram only when the pattern of relations is what the DM needs to see, such as who answers to whom or whose loyalties cross. Each idea takes one form on a page. Where a table or list on the page already lays out the same structure, that table is the form, and the slot is left empty. A diagram belongs where the page's prose scatters a pattern across several paragraphs.
 
-Every node and edge is a fact the page or a page it links states. A Faction's `### Structure` is under `## Depth`, which is DM-only, so it may show hidden ranks and secret loyalties.
+Every node and edge is a fact the page or a page it links states. A Faction's `## Structure` is DM-only, so it may show hidden ranks and secret loyalties.
 
 ## Forms
 

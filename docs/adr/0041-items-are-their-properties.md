@@ -8,6 +8,6 @@ Decision:
 
 - **`## Properties` is the section.** An Item page opens on `## Properties`, a level-two heading holding its full rules text: the italic classification line ending on a full stop, then the published mechanics verbatim. Property subheadings nest at level three beneath it.
 - **No wrapper.** `## Play` is gone from the template, the converter, the gate's layers and every page. A World-free Item page holds its frontmatter, `## Properties` and `## Links` alone, and that is a complete page.
-- **Optional sections sit at level two.** `## In use`, `## At a glance` with its First look callout, and `## Depth` are each an optional level-two section in template order, none nested under another.
+- **Optional sections sit at level two.** Each optional section follows `## Properties` at level two in template order, none nested under another, and its First look callout sits in the lede.
 
 Consequences: `wiki/templates/item.md` states this section order, and `cfcli convert-items` emits it. The gate reads the order from the template as before. Existing pages migrate to it when encountered, per ADR 0040's lazy migration, and old-order pages stay flagged by the gate until they do.

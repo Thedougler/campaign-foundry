@@ -43,7 +43,7 @@ A flagged in-world name that a template fits (a person, place, group, creature, 
 Session N's Transcript feeds the Previously On read aloud at the start of Session N+1, kept in Session N+1's folder.
 
 1. **Orient.** Do SKILL.md step 2, then read `wiki/templates/previously-on.md`. Done when step 2's criterion holds and you have read the template.
-2. **Page.** Rewrite `Sessions/Session <N+1>/session-<N+1>-previously-on.md` (a stub or an earlier page) in its template's shape. Fill its frontmatter, with the Transcript in `sources`, then its `## At a glance` bullets. The **Covers** bullet cites `[[session-<N>-recap|Session <N> - Recap]]`. The **Ends on** bullet gives the Ledger's `## Ends`. **Leads into** gives Session N+1's Prep when it exists, else the action the Ledger's `## Ends` leaves open. Done when the frontmatter and every At a glance bullet are filled.
+2. **Page.** Rewrite `Sessions/Session <N+1>/session-<N+1>-previously-on.md` (a stub or an earlier page) in its template's shape. Fill its frontmatter, with the Transcript in `sources` and `date` copied from Session N's Recap. Done when every frontmatter key is filled.
 3. **Callout.** Write the `Previously on` callout by `skill://theatre-of-the-mind`, handing it the Ledger and the Transcript's path. Done when theatre-of-the-mind's File step has filed the callout and the page's last check came back clean.
 4. **Return** the page's path and each Ledger moment you left out, with the reason. Done when every item has its line.
 

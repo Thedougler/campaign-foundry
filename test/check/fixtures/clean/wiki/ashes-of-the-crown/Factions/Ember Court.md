@@ -6,7 +6,7 @@ revealed: ""
 title: "Ember Court"
 ---
 
-## At a glance
+## Dealings
 
 - **Goal.** Text.
 - **Next move.** Text.
@@ -17,27 +17,23 @@ title: "Ember Court"
 > [!narration] Public face
 > Gold masks turn toward every new tale.
 
-## Play
-
 - **When met.** Text.
 - **When opposed.** Text.
 - **Offers.** Text.
 - **Costs.** Text.
 - **How to notice or interfere.** Text.
 
-## Depth
+Text.
+
+## History
 
 Text.
 
-### History
+## Hidden truths
 
 Text.
 
-### Hidden truths
-
-Text.
-
-### Threads
+## Threads
 
 Text.
 

@@ -7,7 +7,6 @@ revealed: ""
 title: "Swapped Sections"
 ---
 
-## At a glance
 
 - **Role.** Text.
 - **Wants.** Text.
@@ -17,29 +16,28 @@ title: "Swapped Sections"
 > [!narration] First look
 > Spoken text for the table.
 
-## Depth
 
 Text.
 
-### History
+## History
 
 Text.
 
-### Hidden truths
-
-Text.
-
-### Threads
-
-Text.
-
-## Play
+## Roleplaying
 
 - **Opens them up.** Text.
 - **Shuts them down.** Text.
 - **Will share.** Text.
 - **Will not share.** Text.
 - **If pressed.** Text.
+
+## Hidden truths
+
+Text.
+
+## Threads
+
+Text.
 
 ## Links
 

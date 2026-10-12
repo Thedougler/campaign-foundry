@@ -16,23 +16,20 @@
       - shattered-sea/Sessions/Session 12/session-12-the-smoking-skylight.md
     sections:
       shattered-sea/Sessions/Session 12/session-12-the-smoking-skylight.md:
-        - '## At a glance'
-        - '## Play'
-        - '### Situation'
-        - '### Handles'
-        - '### Checks'
+        - '## Situation'
+        - '## Angles'
+        - '## Checks'
         - '## Clues'
         - '## Outcomes'
-        - '## Depth'
-        - '### Hidden truths'
-        - '### Threads'
-        - '### Spotlight'
+        - '## Hidden truths'
+        - '## Threads'
+        - '## Spotlight'
     canon:
       shattered-sea/Sessions/Session 12/session-12-the-smoking-skylight.md:
         - '^type:\s*Scene\s*$'
         - '^kind:\s*Development\s*$'
         - '^> \[!narration\] Opening\s*$'
-        - '^### Checks\n(?:(?!#{2,3} ).*\n)*?.*==[^=\n]+=='
+        - '^## Checks\n(?:(?!#{2,3} ).*\n)*?.*==[^=\n]+=='
     absent:
       shattered-sea/Sessions/Session 12/session-12-the-smoking-skylight.md:
         - '^```statblock\b'

@@ -31,12 +31,10 @@ Text.
 
 Text.
 
-## Story
+## Backstory
 
 > [!narration] Portrait
 > Vale keeps her shoulders low and her coat buttoned to the throat, and a silver thread is braided into her hair.
-
-### Backstory
 
 Raised on the ferry lines of Old Crossing. Café-born, storm-marked. The Story side is never pulled.
 

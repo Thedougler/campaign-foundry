@@ -7,7 +7,7 @@ revealed: ""
 title: "Session 1 - Prep"
 ---
 
-## At a glance
+## Session question
 
 - **Session question.** Text.
 - **Party at.** Text.

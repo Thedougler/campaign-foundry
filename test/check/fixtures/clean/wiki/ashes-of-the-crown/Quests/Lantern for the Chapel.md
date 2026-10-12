@@ -7,7 +7,7 @@ revealed: ""
 title: "Lantern for the Chapel"
 ---
 
-## At a glance
+## Terms and leads
 
 - **Offered by.** [[Mara Voss]]
 - **Reward.** Text.
@@ -19,18 +19,14 @@ title: "Lantern for the Chapel"
 > [!narration] The offer
 > A lantern waits on the pew.
 
-## Play
-
 - **Leads.** Text.
 - **Opposition.** Text.
 - **Complications.** Text.
 - **Payoff.** Text.
 
-## Depth
-
 Text.
 
-### Hidden truths
+## Hidden truths
 
 Text.
 

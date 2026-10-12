@@ -6,18 +6,18 @@ sources: []
 revealed: ""
 ---
 
-## At a glance
+> [!narration] The World
+> %% Optional. Include it when the DM pitches the World to the Players. Spoken pitch, second person, about 100 words. Give what this World feels like, and end on the promise of what they will do. %%
 
-%% Give what a Player could be told in ten seconds, one line per bullet. Tone comes first. Powers links the Factions and Deities that rule the World. Table promise is what the Players will get to do. %%
+## Player pitch
+
+%% Give what a Player could be told in a minute, one line per bullet. Tone comes first. Powers links the Factions and Deities that rule the World. Table promise is what the Players will get to do. %%
 
 - **Tone.**
 - **Magic and technology.**
 - **Era.**
 - **Powers.**
 - **Table promise.**
-
-> [!narration] The World
-> %% Optional. Include it when the DM pitches the World to the Players. Spoken pitch, second person, about 100 words. Give what this World feels like, and end on the promise of what they will do. %%
 
 ## Calendar
 
@@ -27,21 +27,17 @@ revealed: ""
 | ----- | ---- | -------------- |
 |       |      |                |
 
-## Depth
+## Cosmology
 
-%% Optional. Include it when the World's cosmology, history or secrets reach play. DM only. Give the World's large structure. Link Lore pages for each story and keep the full account there. %%
+%% Optional. Include it when the World's planes, gods and forces reach play. DM only. Give them as the World arranges them. Link Lore pages for each story and keep the full account there. %%
 
-### Cosmology
+## History in brief
 
-%% Give the planes, gods and forces as the World arranges them. %%
+%% Optional. Include it when past eras still shape the present. DM only. Give the eras the present still feels, each linked to its Lore. %%
 
-### History in brief
+## Hidden truths
 
-%% Give the eras the present still feels, each linked to its Lore. %%
-
-### Hidden truths
-
-%% Give each truth with how the Party can learn it. %%
+%% Optional. Include it when the World hides a truth the Party can learn. DM only. Give each truth with how the Party can learn it. %%
 
 ## Links
 

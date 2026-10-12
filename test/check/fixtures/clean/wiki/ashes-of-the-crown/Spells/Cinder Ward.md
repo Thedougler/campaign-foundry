@@ -3,10 +3,11 @@ type: Spell
 summary: "A ward of drifting embers."
 sources: []
 revealed: ""
+level: 1
+school: Abjuration
+classes: [Wizard]
 title: "Cinder Ward"
 ---
-
-## At a glance
 
 - **Level and school.** Text.
 - **Casting time.** Text.
@@ -18,27 +19,21 @@ title: "Cinder Ward"
 > [!narration] Casting
 > Heat beads along the drawn chalk ring.
 
-## Play
+Text.
 
 Text.
 
-### Effect
+## Rulings
 
 Text.
 
-### Rulings
+Text.
+
+## Tradition
 
 Text.
 
-## Depth
-
-Text.
-
-### Tradition
-
-Text.
-
-### Who knows it
+## Who knows it
 
 Text.
 

@@ -5,9 +5,13 @@ default: true
 # MD013 line length: prose paragraphs are one long line each; Obsidian soft-wraps them.
 MD013: false
 
-# MD041 first line is a top-level heading: a page has no H1 by design, because Obsidian shows the
-# file name as the title. Pages open with frontmatter and then `## At a glance`.
+# MD041 first line is a top-level heading: a page opens on its template's entry.
+# An H1 is optional; Obsidian shows the file name as the title.
 MD041: false
+
+# MD025: the frontmatter title and a template-prescribed body H1 coexist; duplicate body H1s still fail.
+MD025:
+  front_matter_title: ""
 
 # MD028 blank line inside a blockquote: two callouts in a row (`> [!narration]` then another callout)
 # are separated by a blank line in Obsidian, and markdownlint reads that as one broken quote.

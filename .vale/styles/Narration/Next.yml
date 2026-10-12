@@ -1,0 +1,7 @@
+extends: existence
+message: "Deprecated: Next. Migrate to the shape of wiki/templates/hot.md — see prep-session; move the Party's position, Prep and Hook links and open questions into Next Session."
+level: error
+scope: heading.h2
+nonword: true
+tokens:
+  - '^Next\s*$'

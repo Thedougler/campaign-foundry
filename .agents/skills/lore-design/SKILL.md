@@ -16,9 +16,9 @@ Lore is knowledge that belongs to no one Location, NPC, Faction, Deity, Creature
 5. **Accounts and Clues.** Write the accounts people hold, each with its holder, the common telling a tavern would give among them. Quote verbatim any text the Party can read, such as an inscription, letter or song. For each conclusion the Party needs, place three independent Clues in different places (a person, an object, a place). Add the signs Players notice in the World before anyone explains them.
 6. **Narration.** Hand `theatre-of-the-mind` the As it is told slot: the common telling, in a teller's voice.
 7. **File** to `wiki/templates/lore.md` in `<campaign-folder>/Lore/` (a page already filed keeps its folder, and a World-free page and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**). A part below that the template marks `Optional.` goes on the page when its guidance condition holds:
-   - **At a glance:** the truth in one sentence and who knows it. Add its limits and how it reaches play.
-   - **Play:** what Players notice and the accounts with their holders. List each Clue with the page it appears on.
-   - **Depth:** the full truth in `###` parts titled for their content, such as `Chronology`, `How it works` or `Tenets`.
+   - `## Truth, Clues and accounts` gives the truth in one sentence and what Players notice. Then it lists each Clue with the page it appears on, and the accounts with their holders.
+   - `## The full truth` tells what happened and who did it, and why. It ends on what the event left behind. A truth with more parts adds a `##` section per part, titled for its content, such as `How it works` or `Tenets`.
+   - `## Chronology` lists dated events in the World's Calendar.
 
    Link each page where a Clue appears, and add the Clue's line to that page. New facts decided as Canon are listed in your reply. Hand the filed page to `visuals`, then close per `skill://lint` § Commands with every touched page.
 

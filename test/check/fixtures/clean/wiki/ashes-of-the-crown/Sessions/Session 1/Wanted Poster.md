@@ -6,8 +6,6 @@ revealed: ""
 title: "Wanted Poster"
 ---
 
-## At a glance
-
 - **Kind.** Text.
 - **Presented as.** Text.
 - **Handed over in.** [[Session 1 - Storm at the Crossing]]
@@ -18,7 +16,7 @@ title: "Wanted Poster"
 
 ![[wanted-poster.png]]
 
-## Play
+## Hand-over
 
 Text.
 

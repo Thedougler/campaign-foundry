@@ -7,7 +7,7 @@ revealed: ""
 title: "Ashes of the Crown"
 ---
 
-## At a glance
+## Players and table
 
 - **Players.** Text.
 - **Premise.** Text.
@@ -18,25 +18,21 @@ title: "Ashes of the Crown"
 > [!narration] The Campaign
 > Crown ash still stains the chapel steps.
 
-## Play
-
 - **Session length.** Inherits DM Settings unless session_length_hours is set.
 - **Table agreements.** Text.
 - **House Rules.** [[Fire Watch]]
 
-## Depth
+Text.
+
+## Premise
 
 Text.
 
-### Premise
+## Themes
 
 Text.
 
-### Themes
-
-Text.
-
-### Direction
+## Direction
 
 Text.
 

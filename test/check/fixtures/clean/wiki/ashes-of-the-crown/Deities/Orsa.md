@@ -6,7 +6,7 @@ revealed: ""
 title: "Orsa"
 ---
 
-## At a glance
+## Worship
 
 - **Domains.** Text.
 - **Symbol.** Text.
@@ -17,26 +17,22 @@ title: "Orsa"
 > [!narration] Invocation
 > Ember smoke curls from her open palms.
 
-## Play
-
 - **Boons.** Text.
 - **Costs.** Text.
 - **Clergy and shrines.** Text.
 - **How it intervenes.** Text.
 
-## Depth
+Text.
+
+## Myth
 
 Text.
 
-### Myth
+## Rivals and allies
 
 Text.
 
-### Rivals and allies
-
-Text.
-
-### Hidden truths
+## Hidden truths
 
 Text.
 

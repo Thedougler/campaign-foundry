@@ -7,7 +7,6 @@ revealed: ""
 title: "Misplaced Statblock"
 ---
 
-## At a glance
 
 - **Role.** Text.
 - **Wants.** Text.
@@ -17,7 +16,7 @@ title: "Misplaced Statblock"
 > [!narration] First look
 > Spoken text for the table.
 
-## Play
+## Roleplaying
 
 ```statblock
 layout: Basic 5e Layout
@@ -54,7 +53,7 @@ legendary_description: ""
 legendary_actions: []
 ```
 
-## Depth
+## History
 
 Text.
 

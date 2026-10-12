@@ -8,8 +8,6 @@ revealed: ""
 title: "Ashen Reach"
 ---
 
-## At a glance
-
 - **Character.** Text.
 - **Held by.** Text.
 - **Changing.** Text.
@@ -19,39 +17,35 @@ title: "Ashen Reach"
 > [!narration] Arrival
 > Cinder dunes shift under a grey wind.
 
-## Play
+Text.
+
+## Travel
 
 Text.
 
-### Travel
-
-Text.
-
-### Places
+## Places
 
 [[Ravenhold]] holds the only bridge.
 
-### Encounters
+## Travel events
 
 Text.
 
-### Rumors
+## Rumors
 
 Text.
 
-## Depth
+Text.
+
+## History
 
 Text.
 
-### History
+## Hidden truths
 
 Text.
 
-### Hidden truths
-
-Text.
-
-### Threads
+## Threads
 
 Text.
 

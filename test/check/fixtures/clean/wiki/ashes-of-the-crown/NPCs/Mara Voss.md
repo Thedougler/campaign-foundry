@@ -7,7 +7,7 @@ revealed: ""
 title: "Mara Voss"
 ---
 
-## At a glance
+## Roleplaying
 
 - **Role.** Text.
 - **Wants.** Text.
@@ -17,27 +17,23 @@ title: "Mara Voss"
 > [!narration] First look
 > She smells of tar and wet rope.
 
-## Play
-
 - **Opens them up.** Text.
 - **Shuts them down.** Text.
 - **Will share.** Text.
 - **Will not share.** Text.
 - **If pressed.** Text.
 
-## Depth
+Text.
+
+## History
 
 Text.
 
-### History
+## Hidden truths
 
 Text.
 
-### Hidden truths
-
-Text.
-
-### Threads
+## Threads
 
 Keeps [[The Cold Hearth]] burning.
 

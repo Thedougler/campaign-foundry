@@ -1,5 +1,7 @@
 # The `dogfood` skill is the default skill improvement
 
+Status: amended by [ADR 0042](0042-friction-reports-record-the-skill-writer-fixes.md). Every triaged issue goes to `skill-writer`, which returns code fixes as `coder` dispatch requests.
+
 ADR 0017 made the Simple Hill Climb the way a content skill improves. Each round snapshots the skill and applies one patch, then reruns the suite to keep or revert the patch and logs the round in a climb log. A round pays for a full suite run and its grading, and a revert throws away the writer's whole patch along with its regression. The `dogfood` skill reaches the same fixes through real work. Subagents use the skill and report friction, and after the orchestrator triages it, one `skill-writer` fixes the round's issues. On 2026-10-11 the DM decided to make the efficient `dogfood` method the default rather than the hill climb, "for all skill improvements and changes going forward".
 
 Later on 2026-10-11 the DM consolidated every skill improvement into one token-cheap loop. An Opus orchestrator dispatches the cheapest capable test subjects, reads their session histories, and independent specialist subagents repair every issue found. This follows Anthropic's own practice of watching real use and feeding successes and errors back into the skill and its code. Structured hill climbing comes from Cline and academic work, not from Anthropic.

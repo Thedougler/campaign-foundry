@@ -8,8 +8,6 @@ revealed: ""
 title: "The Sunken Chapel"
 ---
 
-## At a glance
-
 - **Draws the Party because.** Text.
 - **Entrance.** Text.
 - **Occupants.** Text.
@@ -19,39 +17,35 @@ title: "The Sunken Chapel"
 > [!narration] Entering
 > Cold water licks the drowned altar stones.
 
-## Play
+Text.
+
+## Areas
 
 Text.
 
-### Areas
+## Hazards
 
 Text.
 
-### Hazards
+## Occupants
 
 Text.
 
-### Occupants
+## Likely actions
 
 Text.
 
-### Likely actions
+Text.
+
+## History
 
 Text.
 
-## Depth
+## Hidden truths
 
 Text.
 
-### History
-
-Text.
-
-### Hidden truths
-
-Text.
-
-### Threads
+## Threads
 
 Text.
 

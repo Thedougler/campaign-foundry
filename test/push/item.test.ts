@@ -81,6 +81,57 @@ describe("buildItem", () => {
 		expect(html).not.toContain("made with water taken from the Long Ebb");
 	});
 
+	it("keeps each DM-only section out while retaining property subheadings and the entry", () => {
+		const page = parsePage(
+			"Items/key.md",
+			`> [!narration] First look
+> The key shines.
+
+## Properties
+
+*Mundane Gear.*
+
+### Turning the key
+
+The door opens.
+
+## Rulings
+
+Only the DM knows this ruling.
+
+## History
+
+### Previous owner
+
+Only the DM knows this history.
+
+## Hidden truths
+
+Only the DM knows this secret.
+
+## Links
+
+Linked from elsewhere.
+`,
+		);
+		const { data } = buildItem(page, { campaign: "salt-and-lantern", render: ctx });
+		expect(data.system).toMatchObject({
+			description: { value: expect.stringContaining("The key shines.") },
+		});
+		expect(data.system).toMatchObject({
+			description: { value: expect.stringContaining("Turning the key") },
+		});
+		expect(data.system).toMatchObject({
+			description: { value: expect.stringContaining("The door opens.") },
+		});
+		expect(data.system).toMatchObject({
+			description: { value: expect.not.stringContaining("Only the DM knows") },
+		});
+		expect(data.system).toMatchObject({
+			description: { value: expect.not.stringContaining("Previous owner") },
+		});
+	});
+
 	it("makes a notable mundane object loot", () => {
 		const ledger = load("Harbormaster's Ledger of Vessen").data as Record<string, any>;
 		expect(ledger.type).toBe("loot");

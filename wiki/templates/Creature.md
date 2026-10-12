@@ -12,22 +12,12 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ![[<slug>-portrait.webp]]
 
-## At a glance
-
-%% Optional. Include it when the Creature takes part in a Campaign's play. A World-free page (`CONTEXT.md` **World-free page**) holds its `## Statblock` and `## Links` alone. Give the DM a ten-second read, one line per bullet. Role at the table is the job it does on its first turn. Threat gives its CR and what it does to this Party. Tell is the wind-up the Players see before its signature strikes. Weak to is an action the Party can take. A Creature made for one NPC keeps its body, habits and habitat here, and leaves that person's voice, talk, bonds and history to the NPC page. %%
-
-- **Role at the table.**
-- **Threat.**
-- **Tell.**
-- **Weak to.**
-- **Used by.** %% Optional. Add it when an NPC or page uses these statistics, linking each. %%
-
 > [!narration] First sight
 > %% Optional. Include it when the Party will see this Creature. Spoken, second person, per `skill://theatre-of-the-mind`. %%
 
 ## Statblock
 
-%% Write this block per `skill://fantasy-statblock`: the Fantasy Statblocks `Basic 5e Layout` fields, 2024 wording, and every derived number written out. Delete the YAML comments once the fields are filled. %%
+%% Write this block per `skill://fantasy-statblock`: the Fantasy Statblocks `Basic 5e Layout` fields, 2024 wording, and every derived number written out. Delete the YAML comments once the fields are filled. A World-free page (`CONTEXT.md` **World-free page**) holds its `## Statblock` and `## Links` alone. %%
 
 ```statblock
 layout: Basic 5e Layout
@@ -63,29 +53,21 @@ legendary_description: ""
 legendary_actions: []
 ```
 
-## Play
+## Tactics
 
-%% Optional. Include it when the Party may fight or meet this Creature. Give how it fights, and what it does when nobody is fighting it. %%
+%% Optional. Include it when the Party may fight this Creature. Build its own fight from its statblock and habitat. Open on its role at the table, the job it does on its first turn, and what it threatens against this Party. Give where it opens and the tell before its signature as a Cue (`==…==`). Give at least two answers the Party has to that signature, each with the opening it creates. Then give the morale or wound that ends its fight. Tie each line to this Creature's own body or terrain. A solo or boss adds its escalation. A Creature made for one NPC keeps its body, habits and habitat on this page, and leaves that person's voice, talk, bonds and history to the NPC page. %%
 
-### Tactics
+## Outside a fight
 
-%% Build this Creature's own fight from its statblock and habitat. Give where it opens and the tell before its signature as a Cue (`==…==`). Give at least two answers the Party has to that signature, each with the opening it creates. Then give the morale or wound that ends its fight. Tie each line to this Creature's own body or terrain. A solo or boss adds its escalation. %%
+%% Optional. Include it when the Party may meet this Creature without fighting it. Give what it is doing when the Party finds it at rest, and how it answers talk, trade, hiding or retreat. %%
 
-### Outside a fight
+## Ecology
 
-%% Give what it is doing when the Party finds it at rest, and how it answers talk, trade, hiding or retreat. %%
+%% Optional. Include it when the Creature's habitat gives the Party something to find. DM only. Give where it lives and how it fits there, such as what it eats, lives beside or is used for, and say where it came from. For each signature ability, give a trace the Party can find before contact. %%
 
-## Depth
+## Hidden truths
 
-%% Optional. Include it when the Creature's habitat or secrets give the Party something to find. DM only. Give where it lives and what the Party can learn about it. %%
-
-### Ecology
-
-%% Give where it lives and how it fits there, such as what it eats, lives beside or is used for, and say where it came from. For each signature ability, give a trace the Party can find before contact. %%
-
-### Hidden truths
-
-%% Give each truth with how the Party can learn it. %%
+%% Optional. Include it when the Creature hides a truth the Party can learn. DM only. Give each truth with how the Party can learn it. %%
 
 ## Links
 

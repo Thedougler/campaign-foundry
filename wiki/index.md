@@ -1164,3 +1164,7 @@
 - [[wreath-of-the-prism-exalted|Wreath of the Prism (Exalted)]]
 - [[wyrmreaver-gauntlets|Wyrmreaver Gauntlets]]
 - [[zephyr-armor|Zephyr Armor]]
+
+## Spells
+
+- [[alter-self|Alter Self]] — A transmutation that remakes the caster's body for up to an hour: aquatic adaptation, a chosen appearance or natural weapons, switchable while it lasts.

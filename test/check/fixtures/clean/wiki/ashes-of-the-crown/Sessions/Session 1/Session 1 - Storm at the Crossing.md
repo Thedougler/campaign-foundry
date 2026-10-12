@@ -7,8 +7,6 @@ revealed: ""
 title: "Session 1 - Storm at the Crossing"
 ---
 
-## At a glance
-
 - **Pressure.** Text.
 - **Choice.** Text.
 - **Where.** [[Ravenhold]]
@@ -17,19 +15,17 @@ title: "Session 1 - Storm at the Crossing"
 > [!narration] Opening
 > Thunder splits the crossing's black water.
 
-## Play
-
 Text.
 
-### Situation
+## Situation
 
 Hand over [[Wanted Poster]] here.
 
-### Handles
+## Angles
 
 Text.
 
-### Checks
+## Checks
 
 Text.
 
@@ -39,18 +35,16 @@ Text.
 | --- | ---- | -------- |
 |     |      |          |
 
-## Depth
+Text.
+
+## Hidden truths
 
 Text.
 
-### Hidden truths
+## Threads
 
 Text.
 
-### Threads
-
-Text.
-
-### Spotlight
+## Spotlight
 
 Text.

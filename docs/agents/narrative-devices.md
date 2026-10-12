@@ -26,7 +26,7 @@ A lead the Party passed over returns as a World event: the plan behind it went a
 
 ## Contrast
 
-Each Scene has one contrast beat: a light moment that does work, or a turn from one register to its opposite. Prep supplies it on a DM-side line where the Scene keeps such material, such as a Handles bullet, a bench line, a Cue or a Reaction, and the DM chooses whether and when to spend it. Pitch it to the Campaign's `campaign-config.md` § Tone.
+Each Scene has one contrast beat: a light moment that does work, or a turn from one register to its opposite. Prep supplies it on a DM-side line where the Scene keeps such material, such as an Angles bullet, a bench line, a Cue or a Reaction, and the DM chooses whether and when to spend it. Pitch it to the Campaign's `campaign-config.md` § Tone.
 
 - **Humour with information in it.** A comic speaker or situation holds a Clue or a fact about how the World works, such as a ferryman's grumbling about tolls that shows who controls the river. The Party learns while it laughs. The laugh then costs no table time.
 - **The tonal pivot.** Keep a serious image ready to follow a light beat, such as an arrival or a threat, written as its callout or Cue. After a laugh clears the palate, the next image gets the table's full attention. The pivot also runs the other way, when a hidden favour or an unexpected mercy turns panic into awe.

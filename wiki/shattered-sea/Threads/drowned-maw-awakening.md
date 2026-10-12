@@ -21,13 +21,13 @@ title: "Drowned Maw Awakening"
 - **Driven by.** The Antheri breach, the lost Pearl, and the power beneath the Drowned Maw.
 - **Stands at.** Perrin's patron has moved from fragments to demand. On Aruhe, Auralis pressed him twice to consume the living fruit, and both times Perrin refused. Rook's charts show forbidden crossings without explaining what they met.
 - **If nobody acts.** Currents, wrecks, and the Maw's pressure worsen while the people who know the old boundary keep their reasons hidden.
-- **Levers.** Rook's charts, Antheri salvage, the Vestra, Auralis's messages, and Sentinel knowledge.
+- **Angles.** Rook's charts, Antheri salvage, the Vestra, Auralis's messages, and Sentinel knowledge.
 
 ## Play
 
 - **Shows up as.** A living current, a pale light holding the ship's course, impossible sounds beneath the hull, a bioluminescent whale holding a parallel heading, and words such as “Grow”.
 - **Next development.** The choice of what to do with the Maw evidence is open: hide it, or ask who benefits from keeping the fissure closed.
-- **Levers.** Perrin's bond, Crissdalynn's maps, Delmar's wreck evidence, and the Sentinels' pilgrimage.
+- **Angles.** Perrin's bond, Crissdalynn's maps, Delmar's wreck evidence, and the Sentinels' pilgrimage.
 - **Resolves when.** Auralis's purpose is understood, the Vestra is found or lost beyond recovery, and the Maw's boundary is opened, repaired, or accepted.
 
 ## Depth

@@ -11,41 +11,28 @@ revealed: ""
 
 ![[<slug>-scene.webp]]
 
-## At a glance
-
-%% Give the DM a ten-second read, one line per bullet. Contest is the test whose outcome stays in doubt. At risk is the body, Vehicle, Location or Item the Party can lose. Where links the Location. %%
-
-- **Contest.**
-- **At risk.**
-- **Where.**
-- **Opposition.** %% Optional. Add it when someone or something opposes the Party, linking it. %%
-
 > [!narration] Opening
 > %% Spoken, second person, present tense, under 120 words. Put the threat in the first sentence and end on the point where the Party reacts, which may be one situation-specific handoff question or either/or. %%
 
-## Play
+## Stakes
 
-%% Physical risk to bodies, a Vehicle or a place, run from here. %%
+%% Physical risk to bodies, a Vehicle or a place, run from here. Link the Location and whoever or whatever opposes the Party. Open on the contest whose outcome stays in doubt. Give each side's objective and the body, Vehicle, Location or Item the Party can lose. Then give what winning, losing or abandoning the contest changes. %%
 
-### Stakes
-
-%% Give each side's objective and what is at risk. Then give what winning, losing or abandoning the contest changes. %%
-
-### Pressure
+## Pressure
 
 %% Give the tick each round or turn, with its timing and effect. Add how the Party counters it and the end state it drives toward. When the board changes, open the round with a repaint Cue (`==…==`), the changed field in two spoken sentences. %%
 
-### Terrain
+## Terrain
 
-%% Give two or three usable features with numbers, and one triggered change. %%
+%% Optional. Include it when the ground shapes the contest. Give two or three usable features with numbers, and one triggered change. %%
 
-### Checks
+## Checks
 
 %% Give each check or save with its Ability (Skill) and DC and the action it costs. Then give each result the check can produce as a Cue (`==…==`): success, failure, and a critical success where its tier can land, paying world-law. Failure installs a false belief, a constraint or a caused consequence, never a blank. Match any reused rule to its owner page. %%
 
 ## Encounter
 
-%% Optional. Include it whenever a Creature can be fought, a fight after failed talks included. A creature-free chase or hazard sets its danger under Play instead. %%
+%% Optional. Include it whenever a Creature can be fought, a fight after failed talks included. A creature-free chase or hazard sets its danger under Stakes, Pressure and Terrain instead. %%
 
 ### Battlefield
 
@@ -69,18 +56,14 @@ revealed: ""
 | --- | ---- | -------- |
 |     |      |          |
 
-## Depth
+## Hidden truths
 
-%% Optional. Include it when the contest hides a truth, tests a Thread or pulls on a PC. DM only. Give what the contest hides and the Thread it tests. %%
+%% Optional. Include it when the contest hides a truth. DM only. Give each truth with how the Party can learn it. %%
 
-### Hidden truths
+## Threads
 
-%% Give each truth with how the Party can learn it. %%
+%% Optional. Include it when the contest tests a Thread. DM only. Link the Thread, with what each result does to it. %%
 
-### Threads
+## Spotlight
 
-%% Link the Thread this contest tests, with what each result does to it. %%
-
-### Spotlight
-
-%% Give the PC this contest pulls on, through their own goal, bond or fear. %%
+%% Optional. Include it when the contest pulls on one PC. DM only. Give the PC, through their own goal, bond or fear. %%

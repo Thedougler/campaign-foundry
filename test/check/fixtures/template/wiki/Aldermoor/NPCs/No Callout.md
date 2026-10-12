@@ -7,14 +7,13 @@ revealed: ""
 title: "No Callout"
 ---
 
-## At a glance
 
 - **Role.** Text.
 - **Wants.** Text.
 - **Voice.** Text.
 - **Found at.** Text.
 
-## Play
+## Roleplaying
 
 - **Opens them up.** Text.
 - **Shuts them down.** Text.
@@ -22,19 +21,18 @@ title: "No Callout"
 - **Will not share.** Text.
 - **If pressed.** Text.
 
-## Depth
 
 Text.
 
-### History
+## History
 
 Text.
 
-### Hidden truths
+## Hidden truths
 
 Text.
 
-### Threads
+## Threads
 
 Text.
 

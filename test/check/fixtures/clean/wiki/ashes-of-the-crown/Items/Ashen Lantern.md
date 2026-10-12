@@ -12,11 +12,7 @@ title: "Ashen Lantern"
 
 Text.
 
-## In use
-
 Text.
-
-## At a glance
 
 - **Changes.** Text.
 - **Held by.** Text.
@@ -24,15 +20,13 @@ Text.
 > [!narration] First look
 > A slow red coal glows behind the glass.
 
-## Depth
+Text.
+
+## History
 
 Text.
 
-### History
-
-Text.
-
-### Hidden truths
+## Hidden truths
 
 Text.
 

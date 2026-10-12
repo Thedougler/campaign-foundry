@@ -7,42 +7,31 @@ session_length_hours:
 revealed: ""
 ---
 
-## At a glance
-
-%% Give the DM a ten-second read, one line per bullet. Players pairs each Player with their PC, since the pull replaces the sheet side of PC pages. Party links the PCs. Now gives where the Party stands today. %%
-
-- **Players.**
-- **Premise.**
-- **Party.**
-- **Cadence.** %% Optional. Add it when the table keeps a set schedule. %%
-- **Now.**
-
 > [!narration] The Campaign
 > %% Optional. Include it before the first Session, as the opening the DM speaks. Spoken, second person, about 100 words. Give the Party's situation, and end on the promise of what they will do. %%
 
-## Play
+## Players and table
 
-%% Optional. Include it when the Campaign sets its own Session length, table agreements or House Rules. Give each one line per bullet. Session length inherits DM Settings unless `session_length_hours` is set. House Rules links each House Rule in force. %%
+%% One line per bullet. Players pairs each Player with their PC, since the pull replaces the sheet side of PC pages. Party links the PCs. Session length inherits DM Settings unless `session_length_hours` is set. House Rules links each House Rule in force. %%
 
-- **Session length.**
-- **Table agreements.**
-- **House Rules.**
+- **Players.**
+- **Party.**
+- **Cadence.** %% Optional. Add it when the table keeps a set schedule. %%
+- **Session length.** %% Optional. Add it when the Campaign sets its own. %%
+- **Table agreements.** %% Optional. Add it when the table has agreed any. %%
+- **House Rules.** %% Optional. Add it when a House Rule is in force. %%
 
-## Depth
+## Premise
 
-%% Optional. Include it when the DM gives the Campaign's premise, themes or direction. DM only. Tone and Lines and Veils belong in `campaign-config.md`. %%
+%% Optional. Include it when the DM gives the Campaign's premise. DM only. Give the central tension the Party walks into. Tone and Lines and Veils belong in `campaign-config.md`. %%
 
-### Premise
+## Themes
 
-%% Give the central tension the Party walks into. %%
+%% Optional. Include it when the DM names the Campaign's themes. DM only. Give the pressures the Campaign keeps returning to, as the DM names them. %%
 
-### Themes
+## Direction
 
-%% Give the pressures the Campaign keeps returning to, as the DM names them. %%
-
-### Direction
-
-%% Give the DM's anchors that later planning keeps, then other futures written as possibilities. %%
+%% Optional. Include it when the DM gives the Campaign's direction. DM only. Give the DM's anchors that later planning keeps, then other futures written as possibilities. %%
 
 ## Links
 

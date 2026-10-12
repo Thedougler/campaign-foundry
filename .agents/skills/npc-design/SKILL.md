@@ -38,14 +38,14 @@ Resolve the target before searching. Read the target files named above, then ret
 
 Use this order:
 
-1. Reuse a fitting Wiki NPC, Creature, role, or existing Thread. State why each plausible role candidate does not fit before creating a new person.
-2. For rules, statistics, and archetypes, load `dnd5e-srd-api` and source the 2024 SRD figure that fits.
-3. Search official material outside the SRD, then existing published or homebrew material, when identity or a fitting baseline is still missing.
+1. Reuse a fitting Wiki NPC, Creature, role, or existing Thread, from the Campaign folder or the vault-root kind folders. State why each plausible role candidate does not fit before creating a new person.
+2. Search official material outside the SRD, then existing published or homebrew material, when identity or a fitting baseline is still missing.
+3. Fall back on the 2024 SRD through `dnd5e-srd-api` for an archetype the earlier sources lack. It stays the quick source of exact statistics and rules text for the figure chosen.
 4. Invent only what remains, inspired by the closest material found.
 
 Record where each fact came from. NPC frontmatter `sources` contains only repo-relative paths under `archive/` for archived Raw used by the page. Put external provenance in the page body where relevant. If a required source cannot be retrieved, say exactly what was unavailable and do not present an unverified rule, statistic, or attribution as sourced.
 
-**Gate:** the working notes state the reuse, SRD, web, or invention path, its reason, the role candidates considered, and any missing retrieval. The page's `sources` contains no URL or unarchived path.
+**Gate:** the working notes state the reuse, web, SRD, or invention path, its reason, the role candidates considered, and any missing retrieval. The page's `sources` contains no URL or unarchived path.
 
 ### 3. Build the person
 
@@ -90,7 +90,7 @@ When the NPC is a unique fighter, invoke `creature-design` with the person's con
 
 ### 6. Branch: recurring NPC
 
-Tie the NPC to each relevant PC only through an existing Goal, bond, or Plan. Each connection is optional and offers that PC a choice built from their own Goals, bonds or Plans. Link existing Threads rather than duplicating future plans. Give the NPC a next move and a cost if ignored. Write their opposition, escalation included, on the owning Thread's page (`CONTEXT.md` **Thread**) in this run, with its trigger and the Party's interruption point. A Quest is a task the Party took on and never owns opposition. Hand the escalation off in the reply only when that Thread's page is outside both the run's sources and the caller's target.
+Tie the NPC to each relevant PC only through an existing Goal, bond, or Plan. Each connection is optional and offers that PC a choice built from their own Goals, bonds or Plans. Link existing Threads rather than duplicating future plans. Give the NPC a next move and a cost if ignored. Write their opposition, escalation included, on the page of the Thread that tracks it (`CONTEXT.md` **Thread**) in this run, with its trigger and the Party's interruption point. A Quest is a task the Party took on and never owns opposition. Hand the escalation off in the reply only when that Thread's page is outside both the run's sources and the caller's target.
 
 **Gate:** every relevant PC has a distinct invitation or an explicit `none`, and each invitation has a choice and a cost. The NPC's next move differs from every existing Thread's. The escalation is written on its Thread's page, or, for a Thread page outside the run's sources and target, named in the reply as a handoff.
 
@@ -106,7 +106,7 @@ With no active Campaign, retain the plan on the NPC in the World, do not invent 
 
 When the Party will meet this person, load `theatre-of-the-mind` for the NPC template's optional `[!narration] First look` and write it to the recipe in [references/craft.md](references/craft.md#first-look). Write the `Requests` and `If pressed` answers as Cues (`==…==` after their trigger) to its `references/recipes.md` § Cues. Preserve Narration already heard at the table unless the DM explicitly requests a rewrite.
 
-Copy `wiki/templates/npc.md` exactly in `<campaign-folder>/NPCs/`. A page already filed keeps its folder, and a World-free page and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**, so a Campaign NPC's `creature` names a Campaign Creature. Fill its required `At a glance`, `Play` and `Links` sections with only the facts the selected scale needs. Add `Depth`, the First look and each optional At a glance bullet when its guidance condition holds (`docs/wiki-layout.md` **Templates define pages**). Fill the optional `Quotes` only with lines the DM, a Transcript or a source gives this person, word for word, and leave it out when there are none. Link the Creature, Location, Faction, PCs, Threads, supporters, and other owners. If a Creature or Thread was created, file it with its own template and link it from the owner page. Hand the filed pages to `visuals`.
+Copy `wiki/templates/npc.md` exactly in `<campaign-folder>/NPCs/`. A page already filed keeps its folder, and a World-free page and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**, so a Campaign NPC's `creature` names a Campaign Creature. Fill its required `Roleplaying` and `Links` sections with only the facts and bullets the selected scale needs. Add the First look and each optional section when its guidance condition holds (`docs/wiki-layout.md` **Templates define pages**). Fill the optional `Quotes` only with lines the DM, a Transcript or a source gives this person, word for word, and leave it out when there are none. Link the Creature, Location, Faction, PCs, Threads, supporters, and other owners. If a Creature or Thread was created, file it with its own template and link it from the owner page. Hand the filed pages to `visuals`.
 
 **Gate:** the page has the template's required properties and sections, and each optional part present has the content its condition calls for. Each new page has an inbound link. A First look and every Cue are speakable and Player-safe, and each First look detail is one the Party can sense from where it stands. Every count in a Narration block matches the things it describes and Canon. No page contains agent process notes, inline rules, or empty filler.
 

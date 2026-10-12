@@ -12,7 +12,7 @@ title: "Story so far"
 
 - **Through.** [[session-12-recap|Session 12 - Recap]], with the Party at level 6 and still fighting [[talon-skarn|Talon Skarn]] on [[aruhe|Aruhe]].
 - **Arc position.** Rising. The Aruhe arc of Sessions 10 to 12 climbs towards [[memorial-grove|Memorial Grove]], where [[jean-claude-tabarnack|Jean-Claude]] is owed to the island's keeper. The sea-wide pressures wait offshore with [[uncertainty|Uncertainty]].
-- **Authority rung.** Lords. The Party overcame the authorities of the Surety's boarding crew and now contends with lords: [[aleksander-malone|Aleksander Malone]], [[corbin-knighton|Corbin Knighton]] with [[rupert-knighton|Rupert Knighton]]'s private fleet, and [[talon-vantyrus|Talon Vantyrus]], whose hunter is Skarn. The false gods of the [[gold-caste|Gold Caste]] showed their hand for the first time on [[the-burnt-road|The Burnt Road]]. [[umberlee|Umberlee]] waits above every rung.
+- **Authority.** Lords. The Party overcame the authorities of the Surety's boarding crew and now contends with lords: [[aleksander-malone|Aleksander Malone]], [[corbin-knighton|Corbin Knighton]] with [[rupert-knighton|Rupert Knighton]]'s private fleet, and [[talon-vantyrus|Talon Vantyrus]], whose hunter is Skarn. The false gods of the [[gold-caste|Gold Caste]] showed their hand for the first time on [[the-burnt-road|The Burnt Road]]. [[umberlee|Umberlee]] waits above every rung.
 - **Central question.** Which crew do these four become where every sea route has an owner, and whose authority will they accept?
 
 ## The story so far

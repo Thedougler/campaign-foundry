@@ -6,7 +6,7 @@ revealed: ""
 title: "Aldermoor"
 ---
 
-## At a glance
+## Player pitch
 
 - **Tone.** Grim and warm.
 - **Magic and technology.** Text.
@@ -23,19 +23,17 @@ title: "Aldermoor"
 | ----- | ---- | -------------- |
 |       |      |                |
 
-## Depth
-
 Text.
 
-### Cosmology
+## Cosmology
 
 See [[Crown Fire]], [[Old Crossing Rules]], [[Ashen Reach]] and [[Ashes of the Crown]].
 
-### History in brief
+## History in brief
 
 The Crown burned in a night.
 
-### Hidden truths
+## Hidden truths
 
 The Lantern remembers [[Ashen Lantern]], [[Cinder Ward]] and [[Gull's Errand]].
 

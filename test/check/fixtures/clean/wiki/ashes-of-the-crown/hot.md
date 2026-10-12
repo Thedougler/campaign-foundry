@@ -7,8 +7,6 @@ revealed: ""
 title: "Hot"
 ---
 
-## At a glance
-
 - **In-world date.** Text.
 - **Party at.** Text.
 - **Active Threads.** [[The Cold Hearth]]
@@ -23,6 +21,6 @@ title: "Hot"
 
 The Party crossed the bridge.
 
-## Next
+## Next Session
 
 [[Session 1 - Prep]] is ready.

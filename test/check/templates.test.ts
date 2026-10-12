@@ -31,8 +31,24 @@ describe("the real templates", () => {
 
 	it("read required sections in template order, ignoring ### and code-fenced # lines", async () => {
 		const set = await loadTemplates(realTemplates);
-		expect(set.byName.get("Creature")?.sections).toEqual(["At a glance", "Statblock", "Play", "Depth", "Links"]);
-		expect(set.byName.get("Scene - Climax")?.sections).toEqual(["At a glance", "Threads", "Play", "Outcomes", "Depth"]);
+		expect(set.byName.get("Creature")?.sections).toEqual([
+			"Statblock",
+			"Tactics",
+			"Outside a fight",
+			"Ecology",
+			"Hidden truths",
+			"Links",
+		]);
+		expect(set.byName.get("Scene - Climax")?.sections).toEqual([
+			"Threads",
+			"Situation",
+			"Pressure",
+			"Checks",
+			"Encounter",
+			"Outcomes",
+			"Hidden truths",
+			"Spotlight",
+		]);
 		expect(set.byName.get("Location - Site")?.callouts).toEqual(["narration"]);
 		expect(set.byName.get("hot")?.callouts).toEqual([]);
 	});

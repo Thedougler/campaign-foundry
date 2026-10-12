@@ -30,7 +30,7 @@ Read the existing Site and actual Site template. Inventory every established ent
 
 ### 3. Explain the present situation
 
-Decide the Site's original function, what disrupted it, what is happening now, the opportunity that draws the Party, and the deeper truth they can uncover. Give past occupants or events surviving traces that change a route, Clue, claim, hazard or reward. Write these facts as plain statements in the key or Depth section where the DM will use them.
+Decide the Site's original function, what disrupted it, what is happening now, the opportunity that draws the Party, and the deeper truth they can uncover. Give past occupants or events surviving traces that change a route, Clue, claim, hazard or reward. Write these facts as plain statements in the area entry or `## History` where the DM will use them.
 
 Group areas into zones only when that helps run the Site: distinguish their activity, sensory cue, obstacle, occupants, access and what changes there over time. For a complex needing child Sites, or one intended for repeated expeditions, read [expedition scope](references/expeditions.md) now to bound the playable frontier before detailing it.
 
@@ -68,7 +68,7 @@ Distribute social choices, hazards, discoveries, resources, rewards and quiet la
 
 ### 6. Make time, rest and return playable
 
-Write `Pressure` in Play as a Site-specific procedure with these parts.
+Write `## Pressure` as a Site-specific procedure with these parts.
 
 - The starting clock or state.
 - Explicit elapsed-time or action triggers, and how far each advances it.
@@ -94,7 +94,7 @@ State what survives departure and what changes during absence. Opened access, da
 
 ### 7. File or return the stock
 
-Place routes, keys, pressure and rest in Play. Put history and cross-area hidden truths with their revealing Clues in Depth. Keep the template's required properties, `##` sections, order and callout types. Use `theatre-of-the-mind` when writing Narration. Open each keyed area with a Cue (`==…==`) and keep hidden truths, DCs and procedures outside its marks. Remove template comments and authoring instructions from finished pages.
+Place routes and the area key in `## Areas`, the clock in `## Pressure` and shelter in `## Rest`. Put history in `## History` and cross-area hidden truths with their revealing Clues in `## Hidden truths`. Keep the template's required properties, `##` sections, order and callout types. Use `theatre-of-the-mind` when writing Narration. Open each keyed area with a Cue (`==…==`) and keep hidden truths, DCs and procedures outside its marks. Remove template comments and authoring instructions from finished pages.
 
 Walk an entrance-to-objective route and retreat using the keys alone, then a delay/rest scenario. Resolve conflicting exits, timings, counts or shared mechanisms against one authoritative procedure. Account for every fact in the step-2 inventory in its final home and ensure each new owner page and link resolves.
 

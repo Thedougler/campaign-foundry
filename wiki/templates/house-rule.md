@@ -6,29 +6,15 @@ sources: []
 revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
-## At a glance
+%% The rule text below is the whole default page. Open on the 2024 rule it replaces or extends, linked or cited, and who or what it covers. A House Rule takes precedence over every other rules source. Then write the full runnable text in 2024 language. Give who rolls what and against which DC, and what each result does. %%
 
-%% Give the table a ten-second read, one line per bullet. Changes links or cites the 2024 rule it replaces or extends. Applies to gives who or what it covers. A House Rule takes precedence over every other rules source. %%
+## Problem it solves
 
-- **Changes.**
-- **Applies to.**
-- **In one line.**
+%% Optional. Include it when the DM gives a reason for the rule. DM only. Give the table problem it solves. %%
 
-## Play
+## Edge cases
 
-%% Write the full runnable text in 2024 language. Give who rolls what and against which DC, and what each result does. %%
-
-## Depth
-
-%% Optional. Include it when the reason or an edge case needs recording. DM only. Give the DM's reason for it and how it meets other rules. %%
-
-### Why
-
-%% Give the table problem it solves. %%
-
-### Edge cases
-
-%% Give each interaction with another rule or feature, with its ruling. %%
+%% Optional. Include it when the rule meets another rule or feature in play. DM only. Give each interaction, with its ruling. %%
 
 ## Links
 

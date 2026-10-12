@@ -19,9 +19,9 @@ Edit through live `vault://` paths in omp.
 
 For each needed element, use the first fitting source in this order:
 
-1. **Wiki:** the Wiki's Canon, House Rules and reusable pages.
-2. **2024 SRD:** use `dnd5e-srd-api` when travel, hazards, prices, Creatures, Items or other rules content needs a rules source.
-3. **Official/web/homebrew:** use the harness's web search and fetch tools for official material beyond the SRD, then existing homebrew or published designs suited to the DM's purpose.
+1. **Wiki:** the Wiki's Canon, House Rules and reusable pages in the Campaign folder or the vault-root kind folders.
+2. **Official/web/homebrew:** use the harness's web search and fetch tools for official material beyond the SRD, then existing homebrew or published designs suited to the DM's purpose.
+3. **2024 SRD:** `dnd5e-srd-api` is the last fallback, since its content is limited next to the Wiki and the web. It stays the quick source of exact rules text when travel, hazards, prices, Creatures, Items or other rules content needs one.
 4. **Novel:** only after the search turns up nothing that fits. Build from the closest useful material and the World's Canon.
 
 Stop when a source fits the need. Skip a source only when nothing in it applies, and when its relevant material does not fit, record why before moving on. Foundry is never a source. Record the selected source and any adaptation in working evidence or a body attribution. The `sources` property lists only repo-relative paths to archived Raw. Preserve valid existing provenance.
@@ -32,7 +32,7 @@ Reuse linked owner pages before creating new ones. Use `npc-design` when a new r
 
 ## 3. Write and link pages
 
-Use the current template as the only authority for properties, required `##` headings in order, callout types and the condition on each optional part. Fill its properties, use `type: Location` and the chosen Kind, and give the page a useful one-line summary. Add each optional section, callout and At a glance bullet whose guidance condition the Location meets, keep a `###` heading only where it has content, and remove all `%%` guidance. Keep the template's Links view rather than rebuilding its Base.
+Use the current template as the only authority for properties, required `##` headings in order, callout types and the condition on each optional part. Fill its properties, use `type: Location` and the chosen Kind, and give the page a useful one-line summary. Add each optional section and callout whose guidance condition the Location meets, add a `###` heading only for a place the DM runs on its own, and remove all `%%` guidance. Keep the template's Links view rather than rebuilding its Base.
 
 File in the flat `<campaign-folder>/Locations/` directory, its `title` the Location's name and its filename that title's slug (`docs/wiki-layout.md` **Page names**). A page already filed keeps its folder, and a World-free Location and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**. A nonempty `parent` holds a quoted wikilink that resolves. A top-level Region keeps the empty value. Only `parent` records containment, so folder placement never implies it. Resolve name collisions across the vault before choosing the title.
 

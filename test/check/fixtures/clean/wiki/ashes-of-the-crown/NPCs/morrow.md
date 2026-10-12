@@ -9,7 +9,7 @@ revealed: ""
 aliases: ["Black-Jaw"]
 ---
 
-## At a glance
+## Roleplaying
 
 - **Role.** Text.
 - **Wants.** Text.
@@ -19,15 +19,11 @@ aliases: ["Black-Jaw"]
 > [!narration] First look
 > Spoken text for the table.
 
-## Play
-
 - **Opens them up.** Text.
 - **Shuts them down.** Text.
 - **Will share.** Text.
 - **Will not share.** Text.
 - **If pressed.** Text.
-
-## Depth
 
 Text.
 

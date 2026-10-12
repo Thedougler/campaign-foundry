@@ -12,23 +12,14 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ![[<slug>-sigil.webp]]
 
-## At a glance
-
-%% Give the DM a ten-second read, one line per bullet. Goal is the change they seek and for whom. Next move is their action if nobody stops them. Strength gives their numbers and the force they can bring. %%
-
-- **Goal.**
-- **Next move.**
-- **Led by.** %% Optional. Add it when the leader has a page, linking it. %%
-- **Base.** %% Optional. Add it when they hold a place in the World, linking the Location. %%
-- **Strength.**
-
 > [!narration] Public face
 > %% Optional. Include it when the Party will meet them. Spoken, second person, per `skill://theatre-of-the-mind`. %%
 
-## Play
+## Dealings
 
-%% Give the World's response each time the Party meets them, one line per bullet. Faces links the members the Party deals with, each with a goal of their own the Faction lacks. Offers gives the offerer and the pay, then the catch. Rank and file the Party could fight get a count and a linked Creature. %%
+%% Give the World's response each time the Party meets them, one line per bullet. Goal is the change they seek and for whom. Faces links the leader and the members the Party deals with, each with a goal of their own the Faction lacks and the Location where the Party finds them. When opposed gives their numbers and the force they can bring. When ignored is their next move if nobody stops them. Offers gives the offerer and the pay, then the catch. Rank and file the Party could fight get a count and a linked Creature. %%
 
+- **Goal.**
 - **Faces.**
 - **When met.**
 - **When opposed.**
@@ -37,17 +28,13 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 - **Costs.**
 - **How to notice or interfere.**
 
-## Depth
+## History
 
-%% Optional. Include it when their past, rifts or secrets change a deal. DM only. Give their past and their rifts, and the secrets that change a deal. %%
+%% Optional. Include it when their past changes a deal. DM only. Give their origin and the events that made them what they are now. Link the Locations and people involved. %%
 
-### History
+## Structure
 
-%% Give their origin and the events that made them what they are now. Link the Locations and people involved. %%
-
-### Structure
-
-%% Use this when ranks or ties between members shape play. Give one mermaid diagram of who answers to whom, with a dotted line for each tie or rivalry, per `skill://visuals`. The diagram below is the default shape: swap its labels for the linked members. %%
+%% Optional. Include it when ranks or ties between members shape play. DM only. Give one mermaid diagram of who answers to whom, with a dotted line for each tie or rivalry, per `skill://visuals`. The diagram below is the default shape: swap its labels for the linked members. %%
 
 ```mermaid
 flowchart TD
@@ -57,21 +44,21 @@ flowchart TD
   face2 -. rivals .- face1
 ```
 
-### Fracture
+## Fracture
 
-%% Give the rift inside the Faction that the Party could widen or heal, and who stands on each side. %%
+%% Optional. Include it when a rift inside the Faction could change a deal. DM only. Give the rift the Party could widen or heal, and who stands on each side. %%
 
-### Hidden truths
+## Hidden truths
 
-%% Give each truth that changes a deal once learned, with three Clues of different kinds. A person who talks, a thing to see or take, and a place to visit make one such set. %%
+%% Optional. Include it when a secret changes a deal once learned. DM only. Give each truth with three Clues of different kinds. A person who talks, a thing to see or take, and a place to visit make one such set. %%
 
-### Agenda
+## Agenda
 
-%% Use this with no active Campaign. Give the milestones they reach if nobody stops them. Each has a time and a sign the Party could notice first, and changes one fact. In a Campaign the agenda belongs on a Thread, linked under Threads. %%
+%% Optional. Include it when the Faction has no active Campaign. DM only. Give the milestones they reach if nobody stops them. Each has a time and a sign the Party could notice first, and changes one fact. In a Campaign the agenda belongs on a Thread, linked under Threads. %%
 
-### Threads
+## Threads
 
-%% Link each Thread they drive, with the lever it gives the Party. %%
+%% Optional. Include it when they drive a Thread. DM only. Link each Thread, with the Angle it gives the Party. %%
 
 ## Links
 

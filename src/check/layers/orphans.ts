@@ -10,7 +10,7 @@ const LAYER = "orphans";
 /** Where a link to each page kind normally lives, for the hint. */
 const LINK_FROM: Record<string, string> = {
 	Location:
-		"its parent Location: `### Places` on a Region, `### Districts` or `### Services` on a Settlement, `### Areas` on a Site",
+		"its parent Location: `## Places` on a Region, `## Districts` or `## Services` on a Settlement, `## Areas` on a Site",
 	NPC: "the Location where they are found, or the Faction they belong to",
 	Creature: "an NPC that uses it (`creature: \"[[Name]]\"`) or a Scene's or Site's occupants",
 	Faction: "a Location, NPC or Lore page that mentions it",
@@ -25,9 +25,9 @@ const LINK_FROM: Record<string, string> = {
 	"story-so-far": "the Campaign overview, beside its `[[campaign-config]]` link",
 	Thread: "`hot.md` under `## Active Threads`",
 	Quest: "the Thread it advances, or `hot.md`",
-	Prep: "`hot.md` under `## Next`",
+	Prep: "`hot.md` under `## Next Session`",
 	Scene: "its Prep's Scene Chart",
-	Recap: "the next Session's Previously On, on its `- **Covers.**` line",
+	Recap: "`story-so-far.md` under `## The story so far`",
 	"Previously On": "the Session's Prep",
 	Handout: "the Scene that hands it over",
 };

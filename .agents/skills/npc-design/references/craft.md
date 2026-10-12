@@ -18,11 +18,11 @@ Weak: `a grizzled sailor`.
 
 Strong: `a woman with rope burns across both palms who counts under her breath while she coils line`.
 
-## Play openers
+## Roleplaying openers
 
-For Scene scale and larger, open Play with a one-line **premise** that states the NPC's ironic truth: their Contradiction phrased so the DM knows what to play after one read, such as `a debt collector who has never once been paid on time`.
+For Scene scale and larger, open `## Roleplaying` with a one-line **premise** above its bullets that states the NPC's ironic truth: their Contradiction phrased so the DM knows what to play after one read, such as `a debt collector who has never once been paid on time`.
 
-For speaking roles, optionally add a **performance anchor**: an unexpected register paired with a familiar delivery persona, such as `a harbourmaster who speaks like a weary kindergarten teacher`. It lives only in DM-facing Play, never in Narration or player-facing text.
+For speaking roles, optionally add a **performance anchor**: an unexpected register paired with a familiar delivery persona, such as `a harbourmaster who speaks like a weary kindergarten teacher`. It lives only in the DM-facing Voice bullet, never in Narration or player-facing text.
 
 ## Voice
 
@@ -35,7 +35,7 @@ Build voice from what the NPC cares about, so a listener with eyes shut still kn
 - **Bounds.** What they will not do for the Party and why ("to the edge of our duty, and no further"). Their confidence rides on each fact they share: "I believe he's there, unless they moved him by another road." A good Influence roll changes what they say and what they give, never what they want.
 - **Pairs.** Two people of one Faction, or two companions on the road, take opposed stances in two registers, the warm one beside the one who smells blood. Their argument keeps the Campaign's question in play between set pieces.
 
-Prove it in Play with three short lines, the **ask** and the **refusal** plus the line **under pressure** when the limit or secret is touched, each a Cue: the NPC's action first, then the line. The Cue is the spoken line itself in their diction, never a report that they answered. Write the lines in the World's own words per root `AGENTS.md` In-world voice. An accent or gag is not a voice.
+Prove it in the Roleplaying bullets with three short lines, the **ask** and the **refusal** plus the line **under pressure** when the limit or secret is touched, each a Cue: the NPC's action first, then the line. The Cue is the spoken line itself in their diction, never a report that they answered. Write the lines in the World's own words per root `AGENTS.md` In-world voice. An accent or gag is not a voice.
 
 ## Tells
 

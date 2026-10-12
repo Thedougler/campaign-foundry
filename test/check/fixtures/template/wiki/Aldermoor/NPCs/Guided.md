@@ -6,7 +6,6 @@ revealed: ""
 title: "Guided"
 ---
 
-## At a glance
 
 %% 3-5 facts. %%
 
@@ -18,7 +17,7 @@ title: "Guided"
 > [!narration] First look
 > Spoken text for the table.
 
-## Play
+## Roleplaying
 
 - **Opens them up.** Text.
 - **Shuts them down.** Text.
@@ -26,17 +25,16 @@ title: "Guided"
 - **Will not share.** Text.
 - **If pressed.** Text.
 
-## Depth
 
 Text.
 
-### History
+## History
 
-### Hidden truths
+## Hidden truths
 
 %% each with how the Party can learn it %%
 
-### Threads
+## Threads
 
 Text.
 

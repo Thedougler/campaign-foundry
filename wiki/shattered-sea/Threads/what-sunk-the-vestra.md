@@ -14,13 +14,13 @@ title: "What Sunk the Vestra"
 - **Driven by.** The [[leviathan|Leviathan]] took the [[vestra|Vestra]] on an ordinary fishing day, and [[umberlee|Umberlee]]'s storm took all five of [[delmar-fisk|Delmar Fisk]]'s ships at once. Both disasters share the Maw's water.
 - **Stands at.** The theft behind the fleet was arranged through the [[chain-council|Chain Council]]. Whether that arrangement also placed the fleet over the fissure, or drew the Vestra into the Leviathan's path, is unproven.
 - **If nobody acts.** The cipher name in the [[red-lady|Red Lady]]'s records is still unread, and the two disasters have separate explanations.
-- **Levers.** The [[red-lady|Red Lady]]'s Fleet Intelligence Room, the Council's sealed mail, the [[vestra|Vestra]]'s wreck, and Auralis's account of the rescue.
+- **Angles.** The [[red-lady|Red Lady]]'s Fleet Intelligence Room, the Council's sealed mail, the [[vestra|Vestra]]'s wreck, and Auralis's account of the rescue.
 
 ## Play
 
 - **Shows up as.** Wreck charts of both sites laid side by side, questions Delmar answers around, warm water over the Vestra's rim stretch, and the Leviathan's travelling ring holding to a wreck it has never robbed.
 - **Next development.** The Party dives for the Fleet Intelligence Room records, or works out why the Vestra was near the Maw on her last day. Putting the rescue question to Auralis is another way in.
-- **Levers.** Deciphering the commission records, the sealed mail between the [[chain-council|Chain Council]] and the [[tessarine-concordat|Tessarine Concordat]], [[perrin-black-jaw|Perrin Black-Jaw]]'s standing with his patron, and Delmar's unread answer.
+- **Angles.** Deciphering the commission records, the sealed mail between the [[chain-council|Chain Council]] and the [[tessarine-concordat|Tessarine Concordat]], [[perrin-black-jaw|Perrin Black-Jaw]]'s standing with his patron, and Delmar's unread answer.
 - **Resolves when.** The design behind both disasters is named at the table, or the evidence settles into separate causes.
 
 ## Depth

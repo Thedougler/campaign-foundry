@@ -6,11 +6,7 @@ sources: []
 session_length_hours: 4
 ---
 
-## At a glance
-
 %% The DM's defaults for every World and Campaign. Each property sets one value, and a Campaign may override it. %%
-
-- **Session length.**
 
 ## Session length
 

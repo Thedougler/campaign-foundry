@@ -69,12 +69,16 @@ encounter count and relevant House Rules are written before numbers are chosen.
 
 ### 3. Retrieve candidates and choose the path
 
-Search in this order: an existing fitting Creature in the target Wiki; the
-2024 SRD through `dnd5e-srd-api`; official material outside the SRD; suitable
-homebrew retrieved from the web; then a new design inspired by the closest
-retrieved peers. Search by rules function and fantasy, not only by name. A
-World-free Creature in the vault-root `Creatures/` folder is a candidate the
-Campaign copies into its own version (`docs/wiki-layout.md` **Campaign versions**).
+Search in this order. First look for an existing fitting Creature in both of
+the Wiki's homes, the Campaign folder's `Creatures/` and the vault-root
+`wiki/Creatures/`. Next search official material outside the SRD, from books
+and the web, then suitable homebrew retrieved from the web. The 2024 SRD
+through `dnd5e-srd-api` is the last fallback for peers, and it stays the quick
+source of exact rules text for a figure already chosen. A new design inspired
+by the closest retrieved peers comes last. Search by rules function and
+fantasy, not only by name. A World-free Creature in the vault-root folder is a
+candidate the Campaign copies into its own version (`docs/wiki-layout.md`
+**Campaign versions**).
 
 Record candidates actually retrieved, their source tier, what fits, what fails,
 and the decision. An unavailable provider or incomplete retrieval remains an
@@ -195,9 +199,9 @@ Its counts match the things it describes and Canon.
 Follow [references/filing-and-operations.md](references/filing-and-operations.md)
 and copy `wiki/templates/creature.md` exactly to `<campaign-folder>/Creatures/<slug>.md`, the slug of its `title`.
 Write its required `##` sections in the template's order, following each
-section's `%%` guidance. Add each optional section, callout and At a glance
-bullet whose guidance condition this Creature meets, per `docs/wiki-layout.md`
-**Templates define pages**, and leave out the `###` parts it has nothing for.
+section's `%%` guidance. Add each optional section and callout whose guidance
+condition this Creature meets, per `docs/wiki-layout.md` **Templates define
+pages**, and leave out the parts it has nothing for.
 Write its one `statblock` fence per `skill://fantasy-statblock` and keep the
 template's Base view. Add at least one real incoming wikilink besides the generated index;
 an NPC's `creature` property counts. Hand the filed page to `visuals`.
@@ -214,7 +218,7 @@ required template facts, and concise fiction; reserve detailed tuning notes
 for a design or retune.
 
 Once the page is drafted, **compare** its prose with its sources. List each
-claim in At a glance, Tactics, Outside a fight and Depth: every ability,
+claim in First sight, Tactics, Outside a fight, Ecology and Hidden truths: every ability,
 resource, trigger, condition, exit, counter and answer it names, every PC
 capability it cites, and every Canon fact or played event it retells. Beside
 each, quote the line it rests on: the statblock entry with its trigger, the
@@ -259,12 +263,12 @@ steps 5 to 8. The vault root has no `log.md`, so the run doesn't log.
 1. **Scope.** Record the concept, role, CR or tier and signature the DM gives.
    **Done when** the notes state each, with a detail the ask leaves open
    written as your stated choice.
-2. **Source.** Search step 3's ladder from the SRD tier on, and find published
-   peers by CR and kind in `raw/bestiary-cr1-cr30.md`, reading only the
-   matching blocks. Choose the path. A converted or new monster still files
-   as its own page at `wiki/Creatures/<slug>.md`. **Done when** the notes list
-   the retrieved candidates, their retrieval status, the path and why each
-   earlier path does not fit.
+2. **Source.** Search step 3's ladder from the vault-root `wiki/Creatures/` on,
+   and find published peers by CR and kind in `raw/bestiary-cr1-cr30.md`,
+   reading only the matching blocks. Choose the path. A converted or new
+   monster still files as its own page at `wiki/Creatures/<slug>.md`.
+   **Done when** the notes list the retrieved candidates, their retrieval
+   status, the path and why each earlier path does not fit.
 3. **Design.** Apply step 4, taking the twist from the concept and running
    the swap test against the closest retrieved peer. The signature's tell,
    answers and limit sit in its own entries (a recharge or wind-up, an escape

@@ -103,6 +103,25 @@ describe("style adapter contract", () => {
 		expect(found[0]?.hint).toContain(section);
 	});
 
+	it.each([
+		["Depth", "the specific section"],
+		["InUse", "Properties"],
+		["Story", "Backstory"],
+		["Changes", "Changes to the World"],
+		["Next", "Next Session"],
+	])("maps Narration.%s to its template migration hint", async (rule, destination) => {
+		const ctx = await context("## Heading\n");
+		const found = await styleLayerWith({
+			async check() {
+				return new Map([["Target.md", [alert(`Narration.${rule}`)]]]);
+			},
+		}).run(ctx);
+		expect(found).toHaveLength(1);
+		expect(found[0]?.severity).toBe("error");
+		expect(found[0]?.hint).toContain("wiki/templates/");
+		expect(found[0]?.hint).toContain(destination);
+	});
+
 	it("passes line-preserving gate, craft and Cue views and accepts only Narration rules from the Cue pass", async () => {
 		const source = [
 			"## At a glance",
@@ -200,9 +219,7 @@ describe("style adapter contract", () => {
 		const ctx = await context("The keeper waits.\n");
 		const found = await styleLayerWith({
 			async check(pass) {
-				return new Map([
-					["Target.md", pass.config === "gate" ? [alert("ai-tells.Staccato", 1, "keeper waits")] : []],
-				]);
+				return new Map([["Target.md", pass.config === "gate" ? [alert("ai-tells.Staccato", 1, "keeper waits")] : []]]);
 			},
 		}).run(ctx);
 		expect(found).toHaveLength(1);
@@ -240,6 +257,29 @@ describe("style adapter contract", () => {
 			["ai-tells.FillerIntensifier", 2],
 			["ai-tells.ColonUsage", 5],
 		]);
+	});
+
+	it.each([
+		["- **Casting Time:** Action", ": Action", 17, false],
+		["**Classes:** Artificer, Sorcerer, Wizard", ": Artificer", 10, false],
+		["__Casting Time:__ Action", ": Action", 15, false],
+		["**Casting Time:** Action. Then: Action.", ": Action", 15, false],
+		["**Casting Time:** Action. Then: Action.", ": Action", 31, true],
+		["**Casting Time:** Action. Notes: Rain falls.", ": Rain", 32, true],
+		["Casting Time: Action", ": Action", 13, true],
+		["**Casting Time**: Action", ": Action", 17, true],
+		["The keeper waits: Rain falls.", ": Rain", 17, true],
+		["**𐐀:** Action", ": Action", 4, false],
+	] as const)("checks entry-field precision in %s (%s at column %i)", async (line, match, column, flagged) => {
+		const ctx = await context(`${line}\n`);
+		const found = await styleLayerWith({
+			async check() {
+				return new Map([
+					["Target.md", [{ ...alert("ai-tells.ColonUsage", 1, match), Span: [column, column + match.length - 1] }]],
+				]);
+			},
+		}).run(ctx);
+		expect(found).toHaveLength(flagged ? 1 : 0);
 	});
 
 	it("exempts spoken-line colon labels without exempting ordinary notes or Narration punctuation", async () => {

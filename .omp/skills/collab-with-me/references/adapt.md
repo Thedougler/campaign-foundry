@@ -15,7 +15,7 @@ Convert every bible section through the row that names it. Each owner defines th
 |---|---|---|
 |Antagonist goal and plot (`[Premise]`, `[Central Conflict]`, `[Ending]`)|a Thread with interruptible villain plan steps and at least three live endings|`npc-design` step 7 (Branch: villain), `faction-design` step 5 (Agenda)|
 |Key plot points and Beats (`[Key Plot Points]`, `[Story Outline]`)|situations with triggers; Scenes come only through the Session stage|`plan-session` (Playable), then `prep-session`|
-|`Party choice:` marks|open choices with materially different responses|`hook-scene` step 2, its `### Handles` rule|
+|`Party choice:` marks|open choices with materially different responses|`hook-scene` step 4, its `## Angles` rule|
 |Reveals and foreshadowing|Clues with three routes|`prep-session` step 5 (Clues)|
 |PC arcs (PC cards)|invitations from the PC's Goals and bonds|`npc-design` step 6 (Branch: recurring NPC), `plan-session` PC pull|
 |NPC cards (`[Character Descriptions]`)|NPC pages|`npc-design`|
