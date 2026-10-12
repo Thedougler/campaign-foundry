@@ -13,12 +13,12 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Pressure is the one opening pressure, and Choice is the decision it puts to the Party. Where links the Location, and Who links the NPCs. %%
+%% Give the DM a ten-second read, one line per bullet. Pressure is the one opening pressure, and Choice is the decision it puts to the Party. Where links the Location. %%
 
 - **Pressure.**
 - **Choice.**
 - **Where.**
-- **Who.**
+- **Who.** %% Optional. Add it when NPCs take part, linking each. %%
 
 > [!narration] Opening
 > %% Spoken, second person, present tense, under 120 words. Put the disturbance in the first sentence and make the Location felt, then end on the point where the Party reacts, which may be one situation-specific handoff question or either/or. %%
@@ -37,11 +37,11 @@ revealed: ""
 
 ### Checks
 
-%% Use only where the outcome is in doubt. Give the trigger and the Ability (Skill) with its DC, then each result the check can produce as a Cue (`==…==`): success, failure, and a critical success where its tier can land, paying world-law. Failure installs a false belief, a constraint or a caused consequence, never a blank. %%
+%% Optional. Include it when an outcome is in doubt. Give the trigger and the Ability (Skill) with its DC, then each result the check can produce as a Cue (`==…==`): success, failure, and a critical success where its tier can land, paying world-law. Failure installs a false belief, a constraint or a caused consequence, never a blank. %%
 
 ### Encounter
 
-%% Use this only for a Hook the Party may fight. Give forces and deployment, the battlefield, and the break or escape conditions. Open it with the battle map when the fight has one, the bare embed below from `skill://visuals`. Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]`, and add a `#### Balance` with the `bun run cfcli -- encounter-budget` lines. %%
+%% Optional. Include it when the Party may fight. Give forces and deployment, the battlefield, and the break or escape conditions. Open it with the battle map when the fight has one, the bare embed below from `skill://visuals`. Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]`, and add a `#### Balance` with the `bun run cfcli -- encounter-budget` lines. %%
 
 ![[<slug>-battle-map.png]]
 
@@ -55,7 +55,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give what the opening hides and the Threads it pulls. %%
+%% Optional. Include it when the opening hides a truth, pulls a Thread or pulls on a PC. DM only. Give what the opening hides and the Threads it pulls. %%
 
 ### Hidden truths
 

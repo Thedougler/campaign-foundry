@@ -3,7 +3,8 @@ import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { captureIO } from "../../src/cli.ts";
-import { main as evalCheckCli, createOutcome, loadCases, runChecks, runStatblock } from "../../evals/check.ts";
+import { main as evalCheckCli, createOutcome, runChecks, runStatblock } from "../../evals/check.ts";
+import { loadCases } from "../../evals/cases.ts";
 import type { ValeAdapter } from "../../src/check/vale.ts";
 
 vi.mock("../../src/check/vale.ts", () => ({
@@ -180,10 +181,10 @@ describe("eval:check case fields", () => {
 		const dir = realpathSync(mkdtempSync(join(tmpdir(), "eval-cases-")));
 		roots.push(dir);
 		const smart = join(dir, "smart.yaml");
-		writeFileSync(smart, '- id: s\n  prompt: P\n  subject: smart\n');
+		writeFileSync(smart, "- id: s\n  prompt: P\n  subject: smart\n");
 		expect(loadCases(smart)).toEqual([{ id: "s", prompt: "P", subject: "smart" }]);
 		const big = join(dir, "big.yaml");
-		writeFileSync(big, '- id: b\n  prompt: P\n  subject: big\n');
+		writeFileSync(big, "- id: b\n  prompt: P\n  subject: big\n");
 		expect(() => loadCases(big)).toThrow('"subject" must be "smart" when set');
 	});
 

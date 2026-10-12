@@ -8,12 +8,12 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Kind is a letter, poster, player map, portrait and so on. Presented as gives the form the Players receive. Handed over in links the Scene. From links its author or source. %%
+%% Give the DM a ten-second read, one line per bullet. Kind is a letter, poster, player map, portrait and so on. Presented as gives the form the Players receive. Handed over in links the Scene. %%
 
 - **Kind.**
 - **Presented as.**
 - **Handed over in.**
-- **From.**
+- **From.** %% Optional. Add it when the Handout has a known author or source, linking it. %%
 
 > [!narration] Handout text
 > %% The words as the Players see them, word for word, in the document's own voice. For an image, the caption. Push sends Players only this callout and the image. %%
@@ -22,7 +22,7 @@ revealed: ""
 
 ## Play
 
-%% DM only. Give when and how it is handed over and what the Players are likely to do with it. Mark which of its claims are true. %%
+%% Optional. Include it when the hand-over needs staging or the Handout holds a false claim. DM only. Give when and how it is handed over and what the Players are likely to do with it. Mark which of its claims are true. %%
 
 ## Links
 

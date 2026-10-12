@@ -190,7 +190,7 @@ describe("runPull", () => {
 
 	it("keeps going and reports the gate's findings when a pulled page is left failing the gate", async () => {
 		const path = join(vault, pcDir, "Wren.md");
-		await writeFile(path, (await readFile(path, "utf8")).replace("## Plans", "## Notes"));
+		await writeFile(path, (await readFile(path, "utf8")).replace("## Story", "## Notes"));
 		const result = await pull();
 		expect(result.gate?.findings.length).toBeGreaterThan(0);
 		expect(result.gate?.findings.some((f) => f.path.endsWith("Wren.md") && f.severity === "error")).toBe(true);

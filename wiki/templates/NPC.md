@@ -4,7 +4,7 @@ type: NPC
 summary: ""
 sources: []
 creature: ""
-revealed: ""
+revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
 %% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
@@ -15,16 +15,16 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Wants is an outcome the next Scene or Session can reach. Torn between opens on the present fear that steers what they do, or what they cannot do without, then the second true pressure it collides with in play. Voice gives diction, rhythm, a habit, and how much they say. Found at links the Location. The `creature` property links the Creature page with their statistics, and the statblock belongs on that page. %%
+%% Give the DM a ten-second read, one line per bullet. Wants is an outcome the next Scene or Session can reach. Torn between opens on the present fear that steers what they do, or what they cannot do without, then the second true pressure it collides with in play. Voice gives diction, rhythm, a habit, and how much they say. The `creature` property links the Creature page with their statistics, and the statblock belongs on that page. %%
 
 - **Role.**
 - **Wants.**
 - **Torn between.**
 - **Voice.**
-- **Found at.**
+- **Found at.** %% Optional. Add it when the person has a place in the World, linking the Location. %%
 
 > [!narration] First look
-> %% Spoken, second person. Open on a first read and the one feature a Player would use to describe them. Then show what they are doing and give their first line. Keep secrets and their tells for Depth. %%
+> %% Optional. Include it when the Party will meet this person. Spoken, second person. Open on a first read and the one feature a Player would use to describe them. Then show what they are doing and give their first line. Keep secrets and their tells for Depth. %%
 
 ## Play
 
@@ -47,7 +47,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give the past behind them and the things they hide, at the scale the NPC is used. %%
+%% Optional. Include it when the person's past or secrets change how they play. DM only. Give the past behind them and the things they hide, at the scale the NPC is used. %%
 
 ### History
 

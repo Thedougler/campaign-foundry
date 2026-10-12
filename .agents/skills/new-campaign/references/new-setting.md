@@ -12,7 +12,7 @@ Write a working inventory, one line per planned page. Record the page kind and f
 
 ## 2. Build at skeleton scale
 
-Before writing each page kind, read its template in `wiki/templates/`. Fill every property and every `##` section and callout the template has, in template order; drop a `##` section whose guidance opens with `Optional.` when it has no content, and keep a `###` heading only where it has content. Remove every `%% %%` guidance comment. Set each page's `type` to its template's value and write a one-line `summary`. In `sources`, list only repo-relative archived Raw paths (`archive/<file>.md`), or `[]` when none was used. Put external attribution in the page body. Use flat folders by kind inside the Campaign folder, and create a page-kind folder only when its first page is written.
+Before writing each page kind, read its template in `wiki/templates/`. Fill every required property, `##` section and callout in template order, and add each optional part whose guidance condition the page meets (`docs/wiki-layout.md` **Templates define pages**). Keep a `###` heading only where it has content. Remove every `%% %%` guidance comment and each `# Campaign-bound.` property comment. Set each page's `type` to its template's value and write a one-line `summary`. In `sources`, list only repo-relative archived Raw paths (`archive/<file>.md`), or `[]` when none was used. Put external attribution in the page body. Use flat folders by kind inside the Campaign folder, and create a page-kind folder only when its first page is written.
 
 | Pages | Count | Path | Template | Follow |
 | --- | --- | --- | --- | --- |

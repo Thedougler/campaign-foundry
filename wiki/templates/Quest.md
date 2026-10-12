@@ -9,17 +9,17 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Set `status` to offered, active, done or failed. Offered by links the giver. Done when and Failed when are events the table can see. Advances links the Thread. %%
+%% Give the DM a ten-second read, one line per bullet. Set `status` to offered, active, done or failed. Done when is an event the table can see. %%
 
-- **Offered by.**
-- **Reward.**
-- **Deadline.**
+- **Offered by.** %% Optional. Add it when someone offers the Quest, linking the giver. %%
+- **Reward.** %% Optional. Add it when a reward is promised or known. %%
+- **Deadline.** %% Optional. Add it when the Quest has a deadline. %%
 - **Done when.**
-- **Failed when.**
-- **Advances.**
+- **Failed when.** %% Optional. Add it when a visible event ends the Quest in failure. %%
+- **Advances.** %% Optional. Add it when the Quest moves a Thread, linking it. %%
 
 > [!narration] The offer
-> %% Spoken, second person: the request, rumour or posted notice as the Party meets it. %%
+> %% Optional. Include it when the Party hears or reads the Quest before taking it. Spoken, second person: the request, rumour or posted notice as the Party meets it. %%
 
 ## Play
 

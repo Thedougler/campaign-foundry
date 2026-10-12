@@ -37,7 +37,7 @@ revealed: ""
 
 ### Rewards
 
-%% Give, for each branch that grants something, the amounts and linked Items, who grants them, and what a favour, title or access does. %%
+%% Optional. Include it when a branch grants something. Give, for each such branch, the amounts and linked Items, who grants them, and what a favour, title or access does. %%
 
 ### Stinger
 
@@ -45,4 +45,4 @@ revealed: ""
 
 ## Threads
 
-%% Link every Thread the Session touched, with its state by outcome. Say whether it resolves, remains open or changes purpose, with the reason and the pressure left. Then give the next Session's starting Location and knowledge, ownership, conditions and clocks wherever a branch changes them. %%
+%% Optional. Include it when the Session touched a Thread. Link every Thread the Session touched, with its state by outcome. Say whether it resolves, remains open or changes purpose, with the reason and the pressure left. Then give the next Session's starting Location and knowledge, ownership, conditions and clocks wherever a branch changes them. %%

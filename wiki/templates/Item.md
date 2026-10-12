@@ -3,7 +3,7 @@ title: ""
 type: Item
 summary: ""
 sources: []
-revealed: ""
+revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
 %% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
@@ -14,16 +14,16 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Kind is consumable, magic item, artifact, plot object or mundane gear. Changes is the one choice it alters at the table. Held by links the current holder; a World-free page leaves it out. %%
+%% Give the DM a ten-second read, one line per bullet. Kind is consumable, magic item, artifact, plot object or mundane gear. Changes is the one choice it alters at the table. %%
 
 - **Kind.**
 - **Rarity.**
-- **Attunement.**
+- **Attunement.** %% Optional. Add it when the Item requires attunement, with any limit on who can attune. %%
 - **Changes.**
-- **Held by.**
+- **Held by.** %% Optional. Add it when someone in the World holds the Item, linking the holder. %%
 
 > [!narration] First look
-> %% Spoken, second person. Give the plain noun and its size against a hand, then material, wear and marks. Add one sense beyond sight and a visible sign of each hidden property. %%
+> %% Optional. Include it when the Party will see the Item. Spoken, second person. Give the plain noun and its size against a hand, then material, wear and marks. Add one sense beyond sight and a visible sign of each hidden property. %%
 
 ## Play
 
@@ -39,7 +39,7 @@ revealed: ""
 
 ## Depth
 
-%% Optional. Include it when the Item belongs to a World or hides a property. DM only. Give where it came from and what it hides. %%
+%% Optional. Include it when the Item has a past in a World or hides a property. DM only. Give where it came from and what it hides. %%
 
 ### History
 

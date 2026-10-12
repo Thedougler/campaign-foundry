@@ -9,10 +9,10 @@
  * Folders are flat by kind, so a page must sit directly in the directory, never below it.
  *
  * One folder per Campaign (`docs/adr/0024-campaign-folder-holds-its-world.md`): each Campaign folder
- * holds its World's pages next to its Campaign pages, and World-content kinds are also valid at a
- * top-level `<Kind>/` folder for pages that belong to no single Campaign: World-free pages and pages
- * several Campaigns reuse (`docs/adr/0039-world-free-pages-live-at-the-vault-root.md`). Where a kind
- * lists several locations, the Campaign one comes first, so fixes and hints prefer it.
+ * holds its World's pages next to its Campaign pages. Reusable kinds also accept a top-level `<Kind>/`
+ * folder for World-free pages and pages several Campaigns reuse; strictly Campaign kinds live only
+ * in their Campaign folder (ADR 0040). A World overview may sit at the root, but is never World-free.
+ * Where a kind lists several locations, the Campaign one comes first, so fixes and hints prefer it.
  */
 
 export type Bind = "campaign" | "session";

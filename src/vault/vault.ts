@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { glob } from "tinyglobby";
+import { isMap, isNode, isScalar, parseDocument } from "yaml";
 import { parsePage } from "./parse.ts";
 import type { Page, Template, TemplateSet, Vault } from "./types.ts";
 
@@ -58,6 +59,40 @@ function optionalSections(page: Page): Set<string> {
 	return optional;
 }
 
+function campaignBoundKeys(page: Page): Set<string> {
+	const yaml = page.tree.children.find((node) => node.type === "yaml");
+	const doc = parseDocument(yaml?.type === "yaml" ? yaml.value : "");
+	const keys = new Set<string>();
+	if (isMap(doc.contents)) {
+		for (const pair of doc.contents.items) {
+			if (
+				isScalar(pair.key) &&
+				typeof pair.key.value === "string" &&
+				isNode(pair.value) &&
+				/^\s*Campaign-bound\b/.test(pair.value.comment ?? "")
+			) {
+				keys.add(pair.key.value);
+			}
+		}
+	}
+	return keys;
+}
+
+function optionalCallouts(page: Page): Set<string> {
+	const lines = page.source.split("\n");
+	const optional = new Set<string>();
+	const required = new Set<string>();
+	for (const callout of page.callouts) {
+		let end = callout.line;
+		while (/^[ \t]*>/.test(lines[end] ?? "")) end++;
+		const guidance = page.comments.find((comment) => comment.line >= callout.line && comment.line <= end);
+		if (guidance && /^Optional\b/.test(guidance.text)) optional.add(callout.type);
+		else required.add(callout.type);
+	}
+	for (const type of required) optional.delete(type);
+	return optional;
+}
+
 export async function loadTemplates(templatesDir: string): Promise<TemplateSet> {
 	const paths = (await glob("*.md", { cwd: templatesDir, onlyFiles: true })).sort();
 	const sources = await Promise.all(paths.map((p) => readFile(join(templatesDir, p), "utf8")));
@@ -82,9 +117,11 @@ export async function loadTemplates(templatesDir: string): Promise<TemplateSet> 
 			type,
 			...(kind === undefined ? {} : { kind }),
 			keys: Object.entries(fm).map(([key, value]) => ({ key, value })),
+			campaignBound: campaignBoundKeys(page),
 			sections: page.headings.filter((h) => h.depth === 2).map((h) => h.text),
 			optional: optionalSections(page),
 			callouts: [...new Set(page.callouts.map((c) => c.type))],
+			optionalCallouts: optionalCallouts(page),
 			page,
 		});
 		const kinds = types.get(type) ?? [];

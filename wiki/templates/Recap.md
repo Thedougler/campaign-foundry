@@ -26,8 +26,8 @@ revealed: ""
 
 ## Changes
 
-%% Give each new state of the World as one bullet, with a link to the page it changes. Ingest applies these to the Wiki (ADR 0011). Keep to state changes. %%
+%% Optional. Include it when the Session changed the World. Give each new state of the World as one bullet, with a link to the page it changes. Ingest applies these to the Wiki (ADR 0011). Keep to state changes. %%
 
 ## Threads
 
-%% Give every Thread of the Campaign one line, linked, as moved, opened, resolved or still. %%
+%% Optional. Include it when the Campaign has Threads. Give every Thread of the Campaign one line, linked, as moved, opened, resolved or still. %%

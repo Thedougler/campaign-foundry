@@ -5,20 +5,12 @@
  */
 
 import { spawn } from "node:child_process";
-import { existsSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { join, resolve } from "node:path";
 import { glob } from "tinyglobby";
 import type { LintFinding, ScopeResult } from "./types.ts";
 
-/** Nearest ancestor of `from` holding `.git`, else `from`. Mirrors `findRepoRoot` in `src/commands/check.ts`. */
-export function findRepoRoot(from: string): string {
-	for (let dir = from; ; dir = dirname(dir)) {
-		if (existsSync(join(dir, ".git"))) return dir;
-		if (dirname(dir) === dir) return dir;
-	}
-}
-
-export const REPO_ROOT = findRepoRoot(import.meta.dirname ?? process.cwd());
+/** The repository root: two levels above this file (`scripts/lint/`), so a copy without `.git` resolves it too. */
+export const REPO_ROOT = resolve(import.meta.dirname, "../..");
 
 /** Runs `bin` with `args`, capturing stdout/stderr; `status` is the exit code, `-1` on failure to spawn. */
 export function capture(

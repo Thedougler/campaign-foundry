@@ -14,7 +14,7 @@ revealed: ""
 - **Session question.**
 - **Party at.**
 - **Length.**
-- **Threads in play.**
+- **Threads in play.** %% Optional. Add it when a Thread is in play this Session. %%
 
 ## Scene Chart
 
@@ -26,15 +26,15 @@ revealed: ""
 
 ## Threads
 
-%% Give one line per Thread in play, linked. Say where it is planted and tested, where it moves or resolves, and the lever it gives the Party this Session. %%
+%% Optional. Include it when a Thread is in play this Session. Give one line per Thread in play, linked. Say where it is planted and tested, where it moves or resolves, and the lever it gives the Party this Session. %%
 
 ## Opposition
 
-%% Link each opposing NPC, Creature and Faction, with its Session goal and means and why that goal crosses the Party's path. Then give its unopposed timeline. Each entry pairs a trigger with an action and its sign, and states the consequence and what interference changes. Each speaking cast member gets a bench line with the moment they grab the Scene and how to play them at once, ending on the Cue (`==…==`) they open with. Statblocks are embedded only on the Scene where they are fought. %%
+%% Optional. Include it when someone works against the Party this Session. Link each opposing NPC, Creature and Faction, with its Session goal and means and why that goal crosses the Party's path. Then give its unopposed timeline. Each entry pairs a trigger with an action and its sign, and states the consequence and what interference changes. Each speaking cast member gets a bench line with the moment they grab the Scene and how to play them at once, ending on the Cue (`==…==`) they open with. Statblocks are embedded only on the Scene where they are fought. %%
 
 ## Clues
 
-%% Give about ten true, concrete facts, each findable in at least two linked Scenes, with the source or interaction that reveals it in each. A conclusion essential to progress gets three independent routes. %%
+%% Optional. Include it when the Session has facts to discover. Give about ten true, concrete facts, each findable in at least two linked Scenes, with the source or interaction that reveals it in each. A conclusion essential to progress gets three independent routes. %%
 
 | Clue | Found in |
 | ---- | -------- |

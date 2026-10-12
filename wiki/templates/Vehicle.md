@@ -3,7 +3,7 @@ title: ""
 type: Vehicle
 summary: ""
 sources: []
-revealed: ""
+revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
 %% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
@@ -14,17 +14,17 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Speed gives each mode. Crew gives the minimum crew beside the crew aboard now. Captain and Berth link their pages. %%
+%% Give the DM a ten-second read, one line per bullet. Speed gives each mode. Crew gives the minimum crew beside the crew aboard now. %%
 
 - **Kind.**
 - **Size.**
 - **Speed.**
 - **Crew.**
-- **Captain.**
-- **Berth.**
+- **Captain.** %% Optional. Add it when someone in the World commands the craft, linking their page. %%
+- **Berth.** %% Optional. Add it when the craft has a home port or yard in the World, linking it. %%
 
 > [!narration] First sight
-> %% Spoken, second person. Give size and silhouette and how the craft rides in the water or on the road. Show where a boat comes alongside or a climber gets up. Add one sense beyond sight, and the visible signs of the hold and the quirk. %%
+> %% Optional. Include it when the Party will see the craft. Spoken, second person. Give size and silhouette and how the craft rides in the water or on the road. Show where a boat comes alongside or a climber gets up. Add one sense beyond sight, and the visible signs of the hold and the quirk. %%
 
 ## Play
 
@@ -52,7 +52,7 @@ revealed: ""
 
 ## Depth
 
-%% Optional. Include it on every Vehicle that belongs to a World. DM only. Give the craft's past and what it hides. %%
+%% Optional. Include it when the craft has a past in a World or hides something. DM only. Give the craft's past and what it hides. %%
 
 ### History
 

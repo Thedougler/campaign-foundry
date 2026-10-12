@@ -1,9 +1,10 @@
 import { access } from "node:fs/promises";
 import { isAbsolute, join, normalize } from "node:path";
-import { parseDocument } from "yaml";
+import { parseDocument, visit } from "yaml";
 import { findTemplate } from "../../vault/vault.ts";
 import type { Page, Template } from "../../vault/types.ts";
 import type { CheckContext, Finding, Fix, FixResult, Layer } from "../types.ts";
+import { isSharedRootFolder } from "../placement-table.ts";
 import { quoteList, suggest } from "../util.ts";
 import { isFixedPage } from "../views.ts";
 
@@ -182,6 +183,13 @@ function emptyHeadings(page: Page): typeof page.headings {
 	});
 }
 
+function missingKeys(page: Page, template: Template): Template["keys"] {
+	const shared = isSharedRootFolder(page.path.split("/")[0] ?? "");
+	return template.keys.filter(
+		({ key }) => !(key in (page.frontmatter ?? {})) && !(shared && template.campaignBound.has(key)),
+	);
+}
+
 function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding[]): void {
 	const fm = page.frontmatter ?? {};
 	const path = ctx.display(page.path);
@@ -193,7 +201,7 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 		return Array.isArray(value) ? `${key}: []` : `${key}: ""`;
 	};
 
-	const missing = template.keys.filter((k) => !(k.key in fm)).map((k) => k.key);
+	const missing = missingKeys(page, template).map((k) => k.key);
 	for (const key of missing) {
 		add(
 			"missing-key",
@@ -281,11 +289,9 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 
 	const present = new Map(page.callouts.map((c) => [c.type, c]));
 	for (const type of template.callouts) {
-		if (present.has(type)) continue;
+		if (present.has(type) || template.optionalCallouts.has(type)) continue;
 		const callout = template.page.callouts.find((c) => c.type === type);
 		const home = template.page.headings.filter((h) => h.depth === 2 && h.line < (callout?.line ?? 0)).at(-1)?.text;
-		// A callout belongs to its section: under an optional section the page left out, it is not required.
-		if (home !== undefined && template.optional.has(home) && !headings2.some((h) => h.text === home)) continue;
 		const title = callout?.title ?? "Title";
 		add(
 			"missing-callout",
@@ -311,6 +317,14 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 			comment.line,
 			"Leftover `%% %%` authoring guidance.",
 			"Delete the comment; a finished page keeps none. `cfcli check --fix` strips it.",
+		);
+	}
+	for (const line of page.frontmatterCommentLines) {
+		add(
+			"leftover-comment",
+			line,
+			"Leftover `#` template guidance; a page's frontmatter keeps none.",
+			"Delete the YAML comment, keeping the property value. `cfcli check --fix` strips it.",
 		);
 	}
 	for (const heading of emptyHeadings(page)) {
@@ -371,11 +385,21 @@ function blankValue(value: unknown): unknown {
 	return null;
 }
 
-function addKeys(source: string, keys: { key: string; value: unknown }[]): string {
+function fixFrontmatter(source: string, keys: Template["keys"], stripComments: boolean): string {
 	const match = /^---\r?\n([\s\S]*?)\r?\n---/.exec(source);
 	if (!match) return source;
 	const doc = parseDocument(match[1] ?? "");
 	for (const { key, value } of keys) doc.set(key, blankValue(value));
+	if (stripComments) {
+		doc.comment = null;
+		doc.commentBefore = null;
+		visit(doc, {
+			Node(_key, node) {
+				delete node.comment;
+				delete node.commentBefore;
+			},
+		});
+	}
 	const yaml = doc.toString({ nullStr: "" }).trimEnd();
 	return `---\n${yaml}\n---${source.slice(match[0].length)}`;
 }
@@ -385,7 +409,6 @@ export function fix(ctx: CheckContext): FixResult {
 	const fixes: Fix[] = [];
 	for (const resolved of resolvePages(ctx, findings)) {
 		const { page, template } = resolved;
-		const fm = page.frontmatter ?? {};
 		const notes: string[] = [];
 		let source = page.source;
 
@@ -419,9 +442,14 @@ export function fix(ctx: CheckContext): FixResult {
 
 		for (const [start, end] of mergeRanges(deletions).reverse()) source = source.slice(0, start) + source.slice(end);
 
-		const missing = template.keys.filter((k) => !(k.key in fm));
+		const missing = missingKeys(page, template);
+		const stripComments = page.frontmatterCommentLines.length > 0;
+		if (missing.length > 0 || stripComments) source = fixFrontmatter(source, missing, stripComments);
+		if (stripComments)
+			notes.push(
+				`stripped ${page.frontmatterCommentLines.length} leftover YAML comment${page.frontmatterCommentLines.length === 1 ? "" : "s"}`,
+			);
 		if (missing.length > 0) {
-			source = addKeys(source, missing);
 			notes.push(
 				`added blank ${missing.length === 1 ? "property" : "properties"} ${missing.map((k) => k.key).join(", ")}`,
 			);

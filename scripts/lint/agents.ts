@@ -5,6 +5,7 @@ import { basename, isAbsolute, join, relative, resolve } from "node:path";
 import { glob } from "tinyglobby";
 import { SkillReferenceError, validateSkill } from "../../evals/authoring.ts";
 import { UsageError } from "../../src/check/errors.ts";
+import { loadCases } from "../../evals/cases.ts";
 import { binPath, capture, markdownUnder, REPO_ROOT, sortByLocation, underDir } from "./core.ts";
 import { CHAIN_START, chainFiles, countWords } from "./instruction-budget.ts";
 import { hookText } from "./hook-text.ts";
@@ -96,6 +97,7 @@ function inDomain(path: string): boolean {
 		return false;
 	return (
 		(underDir(path, ".omp/hooks") && /\.(?:[cm]?[jt]s)$/.test(path)) ||
+		(SKILL_ROOTS.some((root) => underDir(path, root)) && path.endsWith("/evals/cases.yaml")) ||
 		(path.endsWith(".md") && (Object.hasOwn(ROOT_FILES, path) || DOMAIN_DIRS.some((dir) => underDir(path, dir))))
 	);
 }
@@ -103,6 +105,12 @@ function inDomain(path: string): boolean {
 async function all(): Promise<string[]> {
 	const files = Object.keys(ROOT_FILES).filter((path) => existsSync(join(REPO_ROOT, path)));
 	files.push(...(await Promise.all(DOMAIN_DIRS.map((dir) => markdownUnder(dir)))).flat());
+	files.push(
+		...(await glob(
+			SKILL_ROOTS.map((root) => `${root}/*/evals/cases.yaml`),
+			{ cwd: REPO_ROOT, dot: true },
+		)),
+	);
 	files.push(
 		...(await glob(".omp/hooks/**/*.{ts,js,mts,mjs,cts,cjs}", {
 			cwd: REPO_ROOT,
@@ -121,6 +129,11 @@ async function select(paths: string[]): Promise<string[]> {
 		if (!existsSync(join(REPO_ROOT, path))) throw new Error(`no such path: ${input}`);
 		if (statSync(join(REPO_ROOT, path)).isDirectory()) {
 			selected.push(...(await markdownUnder(path)));
+			selected.push(
+				...(await glob("**/evals/cases.yaml", { cwd: join(REPO_ROOT, path), dot: true })).map((file) =>
+					join(path, file),
+				),
+			);
 			const hooks = underDir(path, ".omp/hooks") ? path : ".omp/hooks";
 			if (underDir(path, ".omp/hooks") || underDir(".omp/hooks", path) || path === ".") {
 				selected.push(
@@ -439,11 +452,27 @@ async function runLinks(files: string[]): Promise<ToolResult> {
 	};
 }
 
+function runCases(path: string): ToolResult {
+	try {
+		loadCases(join(REPO_ROOT, path));
+		return { findings: [], failures: [] };
+	} catch (error) {
+		if (error instanceof UsageError) {
+			return {
+				findings: [{ path, line: 1, tool: "skill", rule: "cases", message: errorLine(error) }],
+				failures: [],
+			};
+		}
+		return { findings: [], failures: [`cases ${path}: ${errorLine(error)}`] };
+	}
+}
+
 async function run(opts: ScopeRun): Promise<ScopeResult> {
 	const files = (opts.files ?? (await all())).filter(inDomain);
 	if (files.length === 0) return { files, findings: [], fixes: [], failures: [] };
 	const markdown = files.filter((path) => path.endsWith(".md"));
 	const hooks = files.filter((path) => underDir(path, ".omp/hooks") && !path.endsWith(".md"));
+	const cases = files.filter((path) => path.endsWith("/evals/cases.yaml")).map(runCases);
 	const dirs = await skillDirectories(markdown);
 	const [markdownlint, cspell, style, links, skills, hookFindings] = await Promise.all([
 		markdown.length === 0 ? { findings: [], fixes: [], failures: [] } : runMarkdownlint(markdown, opts.fix),
@@ -462,6 +491,7 @@ async function run(opts: ScopeRun): Promise<ScopeResult> {
 		...skills.flatMap((skill) => skill.findings),
 		...instruction.findings,
 		...hookFindings.findings,
+		...cases.flatMap((result) => result.findings),
 	];
 	const refs = new Set(
 		findings
@@ -481,6 +511,7 @@ async function run(opts: ScopeRun): Promise<ScopeResult> {
 			...links.failures,
 			...skills.flatMap((skill) => skill.failures),
 			...hookFindings.failures,
+			...cases.flatMap((result) => result.failures),
 		],
 		notes: instruction.notes,
 	};

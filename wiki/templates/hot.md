@@ -13,17 +13,17 @@ revealed: ""
 
 - **In-world date.**
 - **Party at.**
-- **Active Threads.**
-- **Last Session.**
+- **Active Threads.** %% Optional. Add it when a Thread is active. %%
+- **Last Session.** %% Optional. Add it once a Session has been played, or when an earlier Campaign changed the World this one inherits. %%
 - **Next.**
 
 ## Active Threads
 
-%% Give one line per active Thread with its name linked and where it stands, then its next move. Write the lines out rather than using a Base, so an agent can read them. %%
+%% Optional. Include it when a Thread is active. Give one line per active Thread with its name linked and where it stands, then its next move. Write the lines out rather than using a Base, so an agent can read them. %%
 
 ## Last Session
 
-%% Give the changes in a few bullets, each with a link to the page it changed. %%
+%% Optional. Include it once a Session has been played, or when an earlier Campaign changed the World this one inherits. Give the changes in a few bullets, each with a link to the page it changed. %%
 
 ## Next
 

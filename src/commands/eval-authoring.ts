@@ -25,7 +25,7 @@ export function validateCommand(): Command {
 			`Example: ${CF} eval validate .omp/skills/skill-creator\nRun ${CF} eval validate --help for options.`,
 		)
 		.description(
-			"Validate a skill's native omp frontmatter, directory name, relative Markdown references and skill:// references.",
+			"Validate a skill's native omp frontmatter, directory name, eval cases and Markdown/skill:// references.",
 		)
 		.argument("<skill-dir>", "directory containing SKILL.md");
 	rootOption(command);
@@ -39,6 +39,8 @@ further) plus every file under references/: each relative path must resolve and 
 anchor must match a heading, and each skill://<name>[/<path>] must name a skill under the root's
 .omp/skills or .agents/skills, with <path> a file there (an allowlisted external skill passes
 without a path check).
+If evals/cases.yaml exists, validates it with the eval runner's case schema: ids, prompts,
+subject, source paths, fixtures, checks and rubrics. Invalid case metadata exits 2.
 Does not apply Anthropic-specific key, name-length or description-character restrictions.
 Success prints JSON; failures identify the offending file, line and how to fix it.
 

@@ -30,6 +30,19 @@ async function linkedSkill(files: Record<string, string>) {
 }
 
 describe("native authoring helpers", () => {
+	it.each([
+		["- id: valid\n  prompt: P\n  subject: smart\n", 0, ""],
+		["- id: invalid\n  prompt: P\n  subject: big\n", 2, '"subject" must be "smart" when set'],
+		["- id: [\n", 2, "invalid cases YAML"],
+	])("validates optional eval cases through the public CLI", async (cases, code, message) => {
+		const { directory } = await skill();
+		await mkdir(join(directory, "evals"));
+		await writeFile(join(directory, "evals/cases.yaml"), cases);
+		const result = await cf(["eval", "validate", directory]);
+		expect(result.code).toBe(code);
+		if (message) expect(result.stderr).toContain(message);
+		else expect(JSON.parse(result.stdout).valid).toBe(true);
+	});
 	it.each([["validate"], ["description-review", "/tmp/queries.json"]])(
 		"returns the documented usage status for missing %s inputs",
 		async (...args) => {

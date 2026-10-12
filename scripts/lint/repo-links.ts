@@ -28,6 +28,7 @@ import { headingAnchors } from "../../evals/authoring.ts";
 import { EXTERNAL_SKILL_NAMES } from "../../evals/skill-graph.ts";
 import { capture, REPO_ROOT } from "./core.ts";
 import type { LintFinding } from "./types.ts";
+import { repoIgnore } from "./repo-files.ts";
 
 /** Extensions a backtick span may end with to count as a file path (a trailing `/` marks a directory). */
 const PATH_EXTENSIONS: Record<string, true> = {
@@ -91,6 +92,7 @@ async function repoPathExists(fromFile: string, ref: string): Promise<boolean> {
 	const candidates = [join(REPO_ROOT, dirname(fromFile)), REPO_ROOT, join(REPO_ROOT, "wiki")]
 		.map((base) => relative(REPO_ROOT, resolve(base, ref)))
 		.filter((path) => path !== ".." && !path.startsWith("../"));
+	if (!existsSync(join(REPO_ROOT, ".git"))) return candidates.some(repoIgnore(REPO_ROOT));
 	const ignored = await capture("git", ["check-ignore", "--no-index", "--", ...candidates]);
 	if (ignored.status !== 0 && ignored.status !== 1) {
 		throw new Error(`git check-ignore failed: ${ignored.stderr || ignored.stdout}`);

@@ -1,5 +1,6 @@
 import { join } from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+import { commands } from "../src/commands/index.ts";
 import { cf, repoRoot } from "./check/helpers.ts";
 
 /**
@@ -108,6 +109,46 @@ describe("CLI help and usage contracts", () => {
 		for (const { listed } of COMMANDS) {
 			expect(stdout, listed).toMatch(new RegExp(`^\\s+${listed}\\b`, "m"));
 		}
+	});
+
+	it.each(commands)("dispatches `$name` to the command its module builds", async ({ name, load }) => {
+		expect((await load()).name()).toBe(name);
+	});
+
+	it("isolates a failed command loader and retains it in top-level help", async () => {
+		const bench = commands.find((entry) => entry.name === "bench")!;
+		const loader = vi.spyOn(bench, "load").mockRejectedValue(new SyntaxError("broken module"));
+		try {
+			for (const args of [
+				["check", "--help"],
+				["help", "check"],
+			]) {
+				const result = await cf(args);
+				expect(result.code).toBe(0);
+				expect(result.stdout).toContain("Usage: cfcli check");
+			}
+			expect(loader).not.toHaveBeenCalled();
+			const listing = await cf(["--help"]);
+			expect(listing.code).toBe(0);
+			expect(listing.stdout).toMatch(/bench\s+\(failed to load: broken module\)/);
+			const unknown = await cf(["benc"]);
+			expect(unknown.code).toBe(2);
+			expect(unknown.stderr).toContain("Did you mean bench?");
+			await expect(cf(["bench", "status"])).rejects.toThrow("broken module");
+		} finally {
+			loader.mockRestore();
+		}
+	});
+
+	it("prints a subcommand's help through `help <name>`", async () => {
+		const { code, stdout } = await cf(["help", "check"]);
+		expect(code).toBe(0);
+		expect(stdout).toContain("Usage: cfcli check");
+	});
+	it("suggests registered commands for an unknown name", async () => {
+		const { code, stderr } = await cf(["chekc"]);
+		expect(code).toBe(2);
+		expect(stderr).toContain("Did you mean check?");
 	});
 
 	it.each(COMMANDS)("$listed --help includes Examples", async ({ help }) => {

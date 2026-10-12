@@ -3,7 +3,7 @@ title: ""
 type: House Rule
 summary: ""
 sources: []
-revealed: ""
+revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
 ## At a glance
@@ -20,7 +20,7 @@ revealed: ""
 
 ## Depth
 
-%% Give the DM's reason for it and how it meets other rules. %%
+%% Optional. Include it when the reason or an edge case needs recording. DM only. Give the DM's reason for it and how it meets other rules. %%
 
 ### Why
 

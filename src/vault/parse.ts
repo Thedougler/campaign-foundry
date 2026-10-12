@@ -4,7 +4,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
-import { parseDocument } from "yaml";
+import { Lexer, parseDocument } from "yaml";
 import {
 	BLOCK_ID,
 	CALLOUT_TITLE,
@@ -204,6 +204,7 @@ export function parsePage(path: string, source: string): Page {
 		frontmatter: null,
 		frontmatterEndLine: 0,
 		frontmatterKeyLines: {},
+		frontmatterCommentLines: [],
 		unquotedFrontmatterLinks: [],
 		tree,
 		headings,
@@ -234,6 +235,18 @@ function readFrontmatter(page: Page, yamlText: string, fenceLine: number): void 
 		return;
 	}
 	page.frontmatter = data as Record<string, unknown>;
+	let line = fenceLine + 1;
+	let scalar = false;
+	for (const token of new Lexer().lex(yamlText)) {
+		if (!scalar && token === "\x1f") {
+			scalar = true;
+			continue;
+		}
+		if (!scalar && (token === "\x02" || token === "\x18")) continue;
+		if (!scalar && token.startsWith("#")) page.frontmatterCommentLines.push(line);
+		for (const char of token) if (char === "\n") line++;
+		scalar = false;
+	}
 	const lines = yamlText.split("\n");
 	const lineOf = (needle: string | RegExp): number => {
 		const i = lines.findIndex((l) => (typeof needle === "string" ? l.includes(needle) : needle.test(l)));

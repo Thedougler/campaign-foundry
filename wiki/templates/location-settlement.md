@@ -4,8 +4,8 @@ type: Location
 kind: Settlement
 summary: ""
 sources: []
-parent: ""
-revealed: ""
+parent: "" # Campaign-bound. Link the containing Location; a World-free page leaves it out.
+revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
 %% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
@@ -16,16 +16,16 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Size is village, town or city with its rough count. Ruled by links who controls the work or trade. Unsettled by is what is going wrong right now. Known for is its trade or industry. %%
+%% Give the DM a ten-second read, one line per bullet. Size is village, town or city with its rough count. Known for is its trade or industry. %%
 
 - **Size.**
-- **Ruled by.**
+- **Ruled by.** %% Optional. Add it when someone in the World controls the work or trade, linking them. %%
 - **Mood.**
-- **Unsettled by.**
+- **Unsettled by.** %% Optional. Add it when something is going wrong here right now. %%
 - **Known for.**
 
 > [!narration] Arrival
-> %% Spoken, second person, present tense. Give the approach or overlook, then the landmark a newcomer steers by. %%
+> %% Optional. Include it when the Party will arrive here. Spoken, second person, present tense. Give the approach or overlook, then the landmark a newcomer steers by. %%
 
 ## Play
 
@@ -57,7 +57,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give the Settlement's past and what it hides. %%
+%% Optional. Include it when the Settlement's past or secrets reach play. DM only. Give the Settlement's past and what it hides. %%
 
 ### History
 

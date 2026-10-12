@@ -72,9 +72,9 @@ Reuse the first fitting source in `AGENTS.md` **Sourcing** order. Start with the
 Start from the existing page for a redo, or from the template copied to `wiki/<campaign>/Sessions/Session <N>/session-<N>-<scene-slug>.md` for a new Scene.
 
 - **Properties.** `title: "Session <N> - <Scene title>"`, `type: Scene`, `kind: <Kind>`, a one-line `summary` in double quotes, and `sources` as a list of quoted archive paths.
-- **Spine.** Keep every `##` heading at its depth and in template order, and every required callout type. A `##` whose guidance opens with `Optional.` appears, in template order, only when the Scene uses it. A `###` is optional structure: keep it where it has content. Add `####` subheadings inside that spine as content needs them.
+- **Spine.** Keep every required `##` heading at its depth and in template order, and every required callout type. A `##` whose guidance opens with `Optional.` appears, in template order, only when its guidance condition holds for this Scene (`docs/wiki-layout.md` **Templates define pages**). A `###` is optional structure: keep it where it has content. Add `####` subheadings inside that spine as content needs them.
 - **Guidance.** Delete every `%% %%` comment after filling its section with the content the comment specifies.
-- **At a glance.** Keep each template bullet's bold label and write its line after the label.
+- **At a glance.** Keep each required template bullet's bold label and write its line after the label. Add a bullet marked `Optional.` only when its condition holds.
 - **Checks.** One bullet per uncertain action, in this format. Give the trigger and action or time cost, the Ability (Skill) and DC, then each result's ruling and its Cue (**Narration** below):
 
   ```markdown

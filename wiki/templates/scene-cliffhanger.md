@@ -13,12 +13,12 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Contest is the test whose outcome stays in doubt. At risk is the body, Vehicle, Location or Item the Party can lose. Where links the Location, and Opposition links who the Party faces. %%
+%% Give the DM a ten-second read, one line per bullet. Contest is the test whose outcome stays in doubt. At risk is the body, Vehicle, Location or Item the Party can lose. Where links the Location. %%
 
 - **Contest.**
 - **At risk.**
 - **Where.**
-- **Opposition.**
+- **Opposition.** %% Optional. Add it when someone or something opposes the Party, linking it. %%
 
 > [!narration] Opening
 > %% Spoken, second person, present tense, under 120 words. Put the threat in the first sentence and end on the point where the Party reacts, which may be one situation-specific handoff question or either/or. %%
@@ -71,7 +71,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give what the contest hides and the Thread it tests. %%
+%% Optional. Include it when the contest hides a truth, tests a Thread or pulls on a PC. DM only. Give what the contest hides and the Thread it tests. %%
 
 ### Hidden truths
 

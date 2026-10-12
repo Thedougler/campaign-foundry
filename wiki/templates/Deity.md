@@ -3,7 +3,7 @@ title: ""
 type: Deity
 summary: ""
 sources: []
-revealed: ""
+revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
 %% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
@@ -14,16 +14,16 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Domains are the 2024 rules' domains. Worshipped by links the Factions, peoples and Locations. Asks of followers is the conduct the Deity rewards. %%
+%% Give the DM a ten-second read, one line per bullet. Domains are the 2024 rules' domains. Asks of followers is the conduct the Deity rewards. %%
 
 - **Domains.**
 - **Symbol.**
 - **Alignment.**
-- **Worshipped by.**
+- **Worshipped by.** %% Optional. Add it when Factions, peoples or Locations in the World worship the Deity, linking each. %%
 - **Asks of followers.**
 
 > [!narration] Invocation
-> %% Spoken in second person or a devotee's voice: how a devotee speaks of the Deity, or the sign of its presence. %%
+> %% Optional. Include it when the Party will hear of the Deity or see its sign. Spoken in second person or a devotee's voice: how a devotee speaks of the Deity, or the sign of its presence. %%
 
 ## Play
 
@@ -36,7 +36,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give the Deity's story and what its worshippers misread. %%
+%% Optional. Include it when the Deity has a myth, rivals or secrets that reach play. DM only. Give the Deity's story and what its worshippers misread. %%
 
 ### Myth
 

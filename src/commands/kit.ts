@@ -9,7 +9,7 @@ import { existsSync, realpathSync, statSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import type { Command } from "commander";
-import { UsageError } from "../check/run.ts";
+import { UsageError } from "../check/errors.ts";
 import { suggest } from "../check/util.ts";
 import { campaignFolders, campaignNames } from "../vault/indexes.ts";
 import type { Vault } from "../vault/types.ts";

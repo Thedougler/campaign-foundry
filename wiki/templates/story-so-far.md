@@ -10,11 +10,11 @@ revealed: ""
 
 ## At a glance
 
-%% Four lines, each with page links. Through gives the last Session whose Recap this page reads. Arc position says whether the current arc is rising, peaking or falling, and why. Authority rung names the rung from the Themes in campaign-config.md that the Party contends with now, and the rung above it. Central question is the question play keeps asking, in one sentence. %%
+%% Each line carries page links. Through gives the last Session whose Recap this page reads. Arc position says whether the current arc is rising, peaking or falling, and why. Central question is the question play keeps asking, in one sentence. %%
 
 - **Through.**
 - **Arc position.**
-- **Authority rung.**
+- **Authority rung.** %% Optional. Add it when campaign-config.md's Themes name rungs of authority: the rung the Party contends with now, and the rung above it. %%
 - **Central question.**
 
 ## Timeline
@@ -36,16 +36,16 @@ timeline
 
 ## Pressures
 
-%% One bullet per force that moves without the Party, linking its Thread, Quest or Faction. Say what it does in the arc and which other pressures it feeds or collides with, and leave its present state to its own page. End with the collision the pressures point towards, marked as a possibility. %%
+%% Optional. Include it when a force moves without the Party. One bullet per such force, linking its Thread, Quest or Faction. Say what it does in the arc and which other pressures it feeds or collides with, and leave its present state to its own page. End with the collision the pressures point towards, marked as a possibility. %%
 
 ## Open promises
 
-%% One bullet per loaded gun: a planted detail, an unanswered question or an unpaid cost the Players can still pick up. Give the Session that planted it, then who holds it: the Players, one PC alone, or the DM alone for a secret on a page not yet revealed. Drop a promise once a Recap pays it off. %%
+%% Optional. Include it when play has left a promise open. One bullet per loaded gun: a planted detail, an unanswered question or an unpaid cost the Players can still pick up. Give the Session that planted it, then who holds it: the Players, one PC alone, or the DM alone for a secret on a page not yet revealed. Drop a promise once a Recap pays it off. %%
 
 ## PC trajectories
 
-%% One bullet per PC, linking the PC page: what their choices in play have chased, the pull that opposes it, and where the trajectory points. Draw the choices from Recaps and Ledgers, and the pulls from Goals and bonds. %%
+%% Optional. Include it when a PC's choices in play point somewhere. One bullet per such PC, linking the PC page: what their choices in play have chased, the pull that opposes it, and where the trajectory points. Draw the choices from Recaps and Ledgers, and the pulls from Goals and bonds. %%
 
 ## Pacing
 
-%% A few bullets on the last three Sessions: the swing between upward and downward beats, the mix of fights, talk and exploration, which PCs held the spotlight, and each Thread that has not moved in three Sessions or more. %%
+%% Optional. Include it once two Sessions or more are played. A few bullets on the last three Sessions: the swing between upward and downward beats, the mix of fights, talk and exploration, which PCs held the spotlight, and each Thread that has not moved in three Sessions or more. %%

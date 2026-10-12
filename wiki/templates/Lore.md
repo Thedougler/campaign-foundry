@@ -3,22 +3,22 @@ title: ""
 type: Lore
 summary: ""
 sources: []
-revealed: ""
+revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
 %% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Write the truth as one plain sentence. Who knows it links the NPCs and Factions who act on it. Limits gives what the truth leaves out. Reaches play through links the person, place or prize it touches in the current Campaign. %%
+%% Give the DM a ten-second read, one line per bullet. Write the truth as one plain sentence. Limits gives what the truth leaves out. %%
 
 - **The truth.**
-- **Who knows it.**
+- **Who knows it.** %% Optional. Add it when NPCs or Factions act on the truth, linking each. %%
 - **Limits.**
-- **Reaches play through.**
+- **Reaches play through.** %% Optional. Add it when the truth touches a person, place or prize in the current Campaign, linking it. %%
 
 > [!narration] As it is told
-> %% Spoken in a teller's voice: the common version people in the World say aloud, which may differ from the truth. %%
+> %% Optional. Include it when people in the World tell this Lore aloud. Spoken in a teller's voice: the common version people in the World say aloud, which may differ from the truth. %%
 
 ## Play
 
@@ -30,7 +30,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give the full truth in `###` parts titled for their content, such as Chronology, How it works or Tenets. %%
+%% Optional. Include it when the truth needs more than its one sentence. DM only. Give the full truth in `###` parts titled for their content, such as Chronology, How it works or Tenets. %%
 
 ### The full truth
 

@@ -14,7 +14,7 @@ revealed: ""
 
 ## Themes
 
-%% Give the pressures that keep showing up. %%
+%% Optional. Include it when the DM names the pressures that keep showing up. Give each one. %%
 
 ## Lines and Veils
 

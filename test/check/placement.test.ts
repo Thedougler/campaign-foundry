@@ -1,4 +1,4 @@
-import { access, readFile } from "node:fs/promises";
+import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
 import { cf, checkFixture, copyFixture, findingsFor, fixtures, type JsonReport, realTemplates } from "./helpers.ts";
@@ -77,6 +77,38 @@ describe("placement layer: failure classes", () => {
 		expect(recap?.hint).toContain('title: "Session 1 - Recap"');
 		const scene = findingsFor(report, `${A}/Sessions/Session 1/Wrong Prefix.md`)[0];
 		expect(scene?.hint).toContain('title: "Session 1 - The Drowned Bell"');
+	});
+
+	it("rejects strictly Campaign kinds in root-kind folders or at the root, while accepting a root World", async () => {
+		const dir = await copyFixture("placement");
+		for (const [path, type, title] of [
+			["PCs/root-pc.md", "PC", "Root PC"],
+			["Threads/root-thread.md", "Thread", "Root Thread"],
+			["root-prep.md", "Prep", "Session 99 - Prep"],
+			["root-world.md", "World", "Root World"],
+		]) {
+			await mkdir(join(dir, "wiki", path!.split("/").slice(0, -1).join("/")), { recursive: true });
+			await writeFile(join(dir, "wiki", path!), `---\ntitle: "${title}"\ntype: ${type}\n---\n`);
+		}
+		const result = await cf(
+			[
+				"check",
+				"--json",
+				"--layer",
+				"placement",
+				"--vault",
+				join(dir, "wiki"),
+				"--root",
+				dir,
+				"--templates",
+				realTemplates,
+			],
+			dir,
+		);
+		const edited = JSON.parse(result.stdout) as JsonReport;
+		for (const path of ["PCs/root-pc.md", "Threads/root-thread.md", "root-prep.md"])
+			expect(findingsFor(edited, path).map((f) => f.rule)).toEqual(["misplaced"]);
+		expect(findingsFor(edited, "root-world.md")).toEqual([]);
 	});
 
 	it("names the destination in the hint, and says when --fix can move it", () => {

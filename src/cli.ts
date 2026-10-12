@@ -3,8 +3,8 @@ import "./env.ts";
 import { Command, CommanderError } from "commander";
 import { Readable } from "node:stream";
 import { AsyncLocalStorage } from "node:async_hooks";
-import { UsageError } from "./check/run.ts";
-import { commands } from "./commands/index.ts";
+import { UsageError } from "./check/errors.ts";
+import { type CommandEntry, commands } from "./commands/index.ts";
 import { CF } from "./commands/kit.ts";
 
 /** `.exitOverride()` on a command and every subcommand registered so far, so help and usage errors come back as CommanderError instead of ending the process. */
@@ -14,7 +14,34 @@ function overrideExits(command: Command): Command {
 	return command;
 }
 
-function buildProgram(): Command {
+/**
+ * The subcommands one invocation needs: the named one alone (for `<name> …` and `help <name>`), or
+ * every one when no argument names a subcommand: top-level help lists them all, and an unknown name
+ * needs them all to suggest the closest.
+ */
+function entriesFor(args: string[]): CommandEntry[] {
+	const target = args[0] === "help" ? args[1] : args[0];
+	const named = commands.find((entry) => entry.name === target);
+	return named ? [named] : commands;
+}
+
+/**
+ * Loads the subcommands `args` needs. A named subcommand whose module fails to load throws its own
+ * error. In a listing, a module that fails to load stays listed with the failure as its description,
+ * so one half-edited command cannot hide the others.
+ */
+async function loadCommands(args: string[]): Promise<Command[]> {
+	const entries = entriesFor(args);
+	if (entries.length === 1) return [await entries[0]!.load()];
+	const settled = await Promise.allSettled(entries.map((entry) => entry.load()));
+	return settled.map((result, i) => {
+		if (result.status === "fulfilled") return result.value;
+		const reason = result.reason instanceof Error ? result.reason.message : String(result.reason);
+		return new Command(entries[i]!.name).description(`(failed to load: ${reason.split("\n")[0]})`);
+	});
+}
+
+async function buildProgram(args: string[]): Promise<Command> {
 	const program = new Command("cfcli")
 		.description(
 			`Campaign Foundry: tools that keep the Wiki in shape. Run it as \`${CF} <command>\`. Run a subcommand with --help for its options and examples.`,
@@ -39,9 +66,8 @@ Examples:
 		)
 		.exitOverride();
 
-	for (const make of commands) {
-		const command = overrideExits(make().showHelpAfterError("(run with --help for options and examples)"));
-		program.addCommand(command);
+	for (const command of await loadCommands(args)) {
+		program.addCommand(overrideExits(command.showHelpAfterError("(run with --help for options and examples)")));
 	}
 	return program;
 }
@@ -141,7 +167,7 @@ function exclusive<T>(fn: () => Promise<T>): Promise<T> {
  */
 export function runCli(argv: string[], options: { cwd?: string; stdin?: string } = {}): Promise<CliRun> {
 	return exclusive(async () => {
-		const program = buildProgram();
+		const program = await buildProgram(argv);
 		const savedCwd = process.cwd();
 		const savedArgv = process.argv;
 		const savedExit = process.exitCode;
@@ -178,12 +204,14 @@ export function runCli(argv: string[], options: { cwd?: string; stdin?: string }
 
 /** The spawned CLI: one invocation, live output, exit code on the process. */
 async function main(): Promise<void> {
-	if (process.argv.length <= 2) {
-		buildProgram().outputHelp();
+	const args = process.argv.slice(2);
+	const program = await buildProgram(args);
+	if (args.length === 0) {
+		program.outputHelp();
 		return;
 	}
 	try {
-		await buildProgram().parseAsync(process.argv);
+		await program.parseAsync(process.argv);
 	} catch (error) {
 		const mapped = exitCodeOf(error);
 		if (mapped === undefined) throw error;

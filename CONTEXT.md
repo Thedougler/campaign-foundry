@@ -41,7 +41,7 @@ the Wiki folder of one Campaign, named for it as a lowercase-hyphenated slug (`w
 _Avoid_: campaign directory, World folder
 
 **World-free page**:
-a page tied to no World, holding the minimum that is playable and placeable in any World: a Creature's statblock and essentials, an Item's rules and a bare description. It lives in its kind folder at the vault root, and its kind's template serves it with every World-bound section optional. The content skill decides from the DM's ask whether a page is World-free. A Campaign that needs its content copies it into a self-contained Campaign version in the Campaign folder, and the World-free page stays as it is.
+a page tied to no World, holding the minimum that is playable and placeable in any World: a Creature's statblock and essentials, an Item's rules and a bare description. Only a reusable kind can be one (Creature, Item, Spell, Vehicle, NPC, Faction, Deity, Lore, Location, House Rule); Session pages, PCs, Threads, Quests and each Campaign's fixed pages belong to their Campaign. It lives in its kind folder at the vault root, where its kind's template serves it with the template's Campaign-bound properties and its optional sections left out. The content skill decides from the DM's ask whether a page is World-free. A Campaign that needs its content copies it into a self-contained Campaign version in the Campaign folder, and the World-free page stays as it is.
 _Avoid_: generic page, World-agnostic page, shared page
 
 **Session**:

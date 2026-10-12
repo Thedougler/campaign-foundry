@@ -4,8 +4,8 @@ type: Location
 kind: Region
 summary: ""
 sources: []
-parent: ""
-revealed: ""
+parent: "" # Campaign-bound. Link the containing Location, or leave it blank on a top-level Region; a World-free page leaves it out.
+revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
 %% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
@@ -18,16 +18,16 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Character is what sets the land apart. Held by links the powers in control. Changing is what is moving now. Crossing gives travel time and the route that matters. %%
+%% Give the DM a ten-second read, one line per bullet. Character is what sets the land apart. Crossing gives travel time and the route that matters. %%
 
 - **Character.**
-- **Held by.**
-- **Changing.**
+- **Held by.** %% Optional. Add it when powers in the World control the land, linking each. %%
+- **Changing.** %% Optional. Add it when something in the land is moving now. %%
 - **Crossing.**
 - **Danger.**
 
 > [!narration] Arrival
-> %% Spoken, second person, present tense. Show the country as a traveller first meets it and the one feature that sets it apart. %%
+> %% Optional. Include it when the Party will travel into the Region. Spoken, second person, present tense. Show the country as a traveller first meets it and the one feature that sets it apart. %%
 
 ## Play
 
@@ -55,7 +55,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give the Region's past and what it hides. %%
+%% Optional. Include it when the Region's past or secrets reach play. DM only. Give the Region's past and what it hides. %%
 
 ### History
 

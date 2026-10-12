@@ -3,7 +3,7 @@ title: ""
 type: Faction
 summary: ""
 sources: []
-revealed: ""
+revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
 %% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
@@ -14,16 +14,16 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Goal is the change they seek and for whom. Next move is their action if nobody stops them. Led by links the leader's NPC page. Strength gives their numbers and the force they can bring. %%
+%% Give the DM a ten-second read, one line per bullet. Goal is the change they seek and for whom. Next move is their action if nobody stops them. Strength gives their numbers and the force they can bring. %%
 
 - **Goal.**
 - **Next move.**
-- **Led by.**
-- **Base.**
+- **Led by.** %% Optional. Add it when the leader has a page, linking it. %%
+- **Base.** %% Optional. Add it when they hold a place in the World, linking the Location. %%
 - **Strength.**
 
 > [!narration] Public face
-> %% Spoken, second person. Show how the Party first meets them at work and how members look and carry themselves. Add their custom and a sign a bystander could spot, and end on the name people use for them. %%
+> %% Optional. Include it when the Party will meet them. Spoken, second person. Show how the Party first meets them at work and how members look and carry themselves. Add their custom and a sign a bystander could spot, and end on the name people use for them. %%
 
 ## Play
 
@@ -39,7 +39,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give their past and their rifts, and the secrets that change a deal. %%
+%% Optional. Include it when their past, rifts or secrets change a deal. DM only. Give their past and their rifts, and the secrets that change a deal. %%
 
 ### History
 

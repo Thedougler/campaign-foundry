@@ -1,46 +1,37 @@
 import type { Command } from "commander";
-import { backupCommand } from "./backup.ts";
-import { benchCommand } from "./bench.ts";
-import { checkCommand } from "./check.ts";
-import { contextCommand } from "./context.ts";
-import { convertCommand } from "./convert.ts";
-import { ddbCommand } from "./ddb.ts";
-import { encounterBudgetCommand } from "./encounter-budget.ts";
-import { foundryCommand } from "./foundry.ts";
-import { evalCommand } from "./eval.ts";
-import { findCommand } from "./find.ts";
-import { indexCommand } from "./index-cmd.ts";
-import { lintTallyCommand } from "./lint-tally.ts";
-import { logCommand } from "./log.ts";
-import { pullCommand } from "./pull.ts";
-import { pushCommand } from "./push.ts";
-import { renameCommand } from "./rename.ts";
-import { revealedCommand } from "./revealed.ts";
-import { styleCommand } from "./style.ts";
-import { transcriptCommand } from "./transcript.ts";
+
+/** One `cfcli` subcommand: its name, and the loader that imports its module and builds it. */
+export interface CommandEntry {
+	/** The name `cfcli <name>` dispatches on; equal to the loaded command's `name()`. */
+	name: string;
+	load: () => Promise<Command>;
+}
 
 /**
- * Every `cfcli` subcommand. To add one (`index`, `log`, `pull`, `push`): create `src/commands/<name>.ts`
- * exporting a function that returns a commander `Command`, then add one import and one entry here.
+ * Every `cfcli` subcommand. Each module loads only when its subcommand runs (or top-level help
+ * lists them all), so a half-edited command module breaks that command alone. Dynamic `import()`
+ * is the point here: a static import would load every module on every invocation.
+ * To add one: create `src/commands/<name>.ts` exporting a function that returns a commander
+ * `Command`, then add one entry here.
  */
-export const commands: (() => Command)[] = [
-	backupCommand,
-	benchCommand,
-	checkCommand,
-	contextCommand,
-	convertCommand,
-	ddbCommand,
-	encounterBudgetCommand,
-	evalCommand,
-	findCommand,
-	foundryCommand,
-	indexCommand,
-	lintTallyCommand,
-	logCommand,
-	pullCommand,
-	pushCommand,
-	renameCommand,
-	revealedCommand,
-	styleCommand,
-	transcriptCommand,
+export const commands: CommandEntry[] = [
+	{ name: "backup", load: async () => (await import("./backup.ts")).backupCommand() },
+	{ name: "bench", load: async () => (await import("./bench.ts")).benchCommand() },
+	{ name: "check", load: async () => (await import("./check.ts")).checkCommand() },
+	{ name: "context", load: async () => (await import("./context.ts")).contextCommand() },
+	{ name: "convert", load: async () => (await import("./convert.ts")).convertCommand() },
+	{ name: "ddb", load: async () => (await import("./ddb.ts")).ddbCommand() },
+	{ name: "encounter-budget", load: async () => (await import("./encounter-budget.ts")).encounterBudgetCommand() },
+	{ name: "eval", load: async () => (await import("./eval.ts")).evalCommand() },
+	{ name: "find", load: async () => (await import("./find.ts")).findCommand() },
+	{ name: "foundry", load: async () => (await import("./foundry.ts")).foundryCommand() },
+	{ name: "index", load: async () => (await import("./index-cmd.ts")).indexCommand() },
+	{ name: "lint-tally", load: async () => (await import("./lint-tally.ts")).lintTallyCommand() },
+	{ name: "log", load: async () => (await import("./log.ts")).logCommand() },
+	{ name: "pull", load: async () => (await import("./pull.ts")).pullCommand() },
+	{ name: "push", load: async () => (await import("./push.ts")).pushCommand() },
+	{ name: "rename", load: async () => (await import("./rename.ts")).renameCommand() },
+	{ name: "revealed", load: async () => (await import("./revealed.ts")).revealedCommand() },
+	{ name: "style", load: async () => (await import("./style.ts")).styleCommand() },
+	{ name: "transcript", load: async () => (await import("./transcript.ts")).transcriptCommand() },
 ];

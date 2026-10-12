@@ -4,10 +4,11 @@
  * the fix in its message. Frozen provenance and append-only history keep the old name.
  */
 
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { capture, REPO_ROOT, underDir } from "./core.ts";
 import type { LintFinding, ScopeResult } from "./types.ts";
+import { visibleRepoFiles } from "./repo-files.ts";
 
 /** `bun run cf …`, a code-spanned `cf` command, or an argv spelling the old script. */
 const RETIRED_CF = /\bbun run cf\b(?!cli)|`cf[` ]|"run", "cf"/g;
@@ -27,12 +28,16 @@ function inDomain(path: string): boolean {
 
 /** Scans `paths` (files or directories, repo-relative), or every visible file when `null`. */
 export async function retiredNames(paths: string[] | null): Promise<ScopeResult> {
-	const out = await capture("git", ["ls-files", "--cached", "--others", "--exclude-standard", "-z"], {
-		cwd: REPO_ROOT,
-	});
-	if (out.status !== 0) return { files: [], findings: [], fixes: [], failures: [`git ls-files: ${out.stderr.trim()}`] };
-	const files = out.stdout
-		.split("\0")
+	let visible: string[];
+	if (existsSync(join(REPO_ROOT, ".git"))) {
+		const out = await capture("git", ["ls-files", "--cached", "--others", "--exclude-standard", "-z"]);
+		if (out.status !== 0)
+			return { files: [], findings: [], fixes: [], failures: [`git ls-files: ${out.stderr.trim()}`] };
+		visible = out.stdout.split("\0");
+	} else {
+		visible = visibleRepoFiles(REPO_ROOT);
+	}
+	const files = visible
 		.filter((path) => path !== "" && inDomain(path))
 		.filter((path) => paths === null || paths.some((p) => p === "." || underDir(path, p)));
 	const findings: LintFinding[] = [];

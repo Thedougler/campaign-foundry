@@ -4,8 +4,8 @@ type: Location
 kind: Site
 summary: ""
 sources: []
-parent: ""
-revealed: ""
+parent: "" # Campaign-bound. Link the containing Location; a World-free page leaves it out.
+revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
 %% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
@@ -16,16 +16,16 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Entrance gives how visitors arrive and what limits access now. Occupants links who is here. Prize is what the Party can gain. %%
+%% Give the DM a ten-second read, one line per bullet. Entrance gives how visitors arrive and what limits access now. Prize is what the Party can gain. %%
 
-- **Draws the Party because.**
+- **Draws the Party because.** %% Optional. Add it when the Site sits in a Campaign's play, giving the reason the Party goes. %%
 - **Entrance.**
-- **Occupants.**
+- **Occupants.** %% Optional. Add it when someone lives or keeps watch here, linking each. %%
 - **Danger.**
 - **Prize.**
 
 > [!narration] Entering
-> %% Spoken, second person, present tense. Give what the Party perceives at the threshold at body scale, and end on something they can use. %%
+> %% Optional. Include it when the Party will enter the Site. Spoken, second person, present tense. Give what the Party perceives at the threshold at body scale, and end on something they can use. %%
 
 ## Play
 
@@ -57,7 +57,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give the Site's past and what it hides. %%
+%% Optional. Include it when the Site's past or secrets reach play. DM only. Give the Site's past and what it hides. %%
 
 ### History
 

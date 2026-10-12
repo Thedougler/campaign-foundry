@@ -41,12 +41,13 @@ function deletionPaths(text: string): string[] {
 	return paths;
 }
 
-/** Read only independent regular files beneath one canonical output directory. */
+/** Read independent regular files beneath a real directory; symlinked ancestors (macOS /var) are safe. */
 export function readRunnerOutput(outputRoot: string): RunnerOutput {
-	const root = resolve(outputRoot);
-	const rootInfo = lstatSync(root);
-	if (!rootInfo.isDirectory() || rootInfo.isSymbolicLink() || realpathSync(root) !== root)
-		throw new Error("EXECUTION: output root must be a canonical real directory");
+	const requested = resolve(outputRoot);
+	const rootInfo = lstatSync(requested);
+	if (!rootInfo.isDirectory() || rootInfo.isSymbolicLink())
+		throw new Error("EXECUTION: output root must be a real directory, not a symlink");
+	const root = realpathSync(requested);
 	const pages = new Map<string, string>();
 	let reply: string | undefined;
 	let deleted: string[] = [];

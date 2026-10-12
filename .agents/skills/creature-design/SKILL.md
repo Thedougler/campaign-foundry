@@ -196,10 +196,11 @@ Its counts match the things it describes and Canon.
 
 Follow [references/filing-and-operations.md](references/filing-and-operations.md)
 and copy `wiki/templates/creature.md` exactly to `<campaign-folder>/Creatures/<slug>.md`, the slug of its `title`.
-Fill every `##` section in the template's order, the ones it marks optional
-for World-free pages included, following each section's `%%`
-guidance and leaving out the `###` parts this Creature has nothing for. Write
-its one `statblock` fence per `skill://fantasy-statblock` and keep the
+Write its required `##` sections in the template's order, following each
+section's `%%` guidance. Add each optional section, callout and At a glance
+bullet whose guidance condition this Creature meets, per `docs/wiki-layout.md`
+**Templates define pages**, and leave out the `###` parts it has nothing for.
+Write its one `statblock` fence per `skill://fantasy-statblock` and keep the
 template's Base view. Add at least one real incoming wikilink besides the generated index;
 an NPC's `creature` property counts. Hand the filed page to `visuals`.
 
@@ -250,7 +251,8 @@ this skill resolves to an existing file or installed skill.
 A reusable monster tied to no World or Campaign is a World-free page
 (`docs/wiki-layout.md` **World-free pages**): a copy of
 `wiki/templates/creature.md` that keeps its frontmatter, `## Statblock` and
-`## Links` and leaves out every optional section, filed at the vault root's
+`## Links`, leaves out its Campaign-bound `revealed` and every optional
+section, and is filed at the vault root's
 `wiki/Creatures/<slug>.md`. When the DM asks for the block in chat, the reply
 contains it and the run files no page. The page has no Narration, Party tuning
 or setting lore, so this branch skips the Campaign reads, the Party dossier and
@@ -283,7 +285,8 @@ steps 5 to 8. The vault root has no `log.md`, so the run doesn't log.
 5. **File** the page from the template: `title` the kind's plain name,
    `summary` one line on its role and CR, `sources` any archived Raw it came
    from or `[]`, the block under `## Statblock` and the template's `## Links`
-   Base, with every optional section deleted. The page doesn't need an inbound link.
+   Base. Delete the `revealed` line with its `# Campaign-bound.` comment and
+   every optional section. The page doesn't need an inbound link.
    Close per step 8's gate commands over every page this run touched.
    **Done when** the page gate prints `ok: 0 findings`.
 6. **Reply** with the page path, or the ` ```statblock ` fence for a

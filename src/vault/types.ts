@@ -74,6 +74,8 @@ export interface Page {
 	frontmatterEndLine: number;
 	/** 1-based line of each frontmatter key. */
 	frontmatterKeyLines: Record<string, number>;
+	/** 1-based lines of YAML comments, excluding `#` inside scalar values. */
+	frontmatterCommentLines: number[];
 	/** Frontmatter values that are unquoted wikilinks (YAML read them as nested lists). */
 	unquotedFrontmatterLinks: { key: string; line: number }[];
 	/** mdast of the body with `%% %%` comments blanked out. */
@@ -104,12 +106,16 @@ export interface Template {
 	kind?: string;
 	/** Frontmatter keys in template order, with the template's own values. */
 	keys: { key: string; value: unknown }[];
+	/** Keys marked `# Campaign-bound.`: required in a Campaign folder, optional in a shared root-kind folder. */
+	campaignBound: Set<string>;
 	/** `##` headings in template order, optional ones included. */
 	sections: string[];
 	/** The `##` headings whose guidance comment opens with `Optional`: a page may leave them out, and keeps them in template order when it has them. */
 	optional: Set<string>;
 	/** Callout types in the template. */
 	callouts: string[];
+	/** Types for which every template callout's own guidance opens with `Optional`. */
+	optionalCallouts: Set<string>;
 	page: Page;
 }
 

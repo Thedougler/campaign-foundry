@@ -3,7 +3,7 @@ title: ""
 type: Creature
 summary: ""
 sources: []
-revealed: ""
+revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
 %% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
@@ -14,16 +14,16 @@ revealed: ""
 
 ## At a glance
 
-%% Optional. Include it on every Creature that belongs to a World. A World-free page (`CONTEXT.md` **World-free page**) holds only its `## Statblock` and `## Links`, so it leaves out this section and its First sight. Give the DM a ten-second read, one line per bullet. Role at the table is the job it does on its first turn. Threat gives its CR and what it does to this Party. Tell is the wind-up the Players see before its signature strikes. Weak to is an action the Party can take. Used by links every NPC and page that uses these statistics. A Creature made for one NPC still fills every section with its body, habits and habitat, and leaves that person's voice, talk, bonds and history to the NPC page. %%
+%% Optional. Include it when the Creature takes part in a Campaign's play. A World-free page (`CONTEXT.md` **World-free page**) holds its `## Statblock` and `## Links` alone. Give the DM a ten-second read, one line per bullet. Role at the table is the job it does on its first turn. Threat gives its CR and what it does to this Party. Tell is the wind-up the Players see before its signature strikes. Weak to is an action the Party can take. A Creature made for one NPC keeps its body, habits and habitat here, and leaves that person's voice, talk, bonds and history to the NPC page. %%
 
 - **Role at the table.**
 - **Threat.**
 - **Tell.**
 - **Weak to.**
-- **Used by.**
+- **Used by.** %% Optional. Add it when an NPC or page uses these statistics, linking each. %%
 
 > [!narration] First sight
-> %% Spoken, second person. Give its size against something familiar and its strangest feature. Add its skin, scales or hide, one sound or smell, what it does at rest, and the visible sign of each signature ability. Leave out rules, secrets and any name the Party has not learned. %%
+> %% Optional. Include it when the Party will see this Creature. Spoken, second person. Give its size against something familiar and its strangest feature. Add its skin, scales or hide, one sound or smell, what it does at rest, and the visible sign of each signature ability. Leave out rules, secrets and any name the Party has not learned. %%
 
 ## Statblock
 
@@ -65,7 +65,7 @@ legendary_actions: []
 
 ## Play
 
-%% Optional. Include it on every Creature that belongs to a World. Give how this Creature fights, and what it does when nobody is fighting it. %%
+%% Optional. Include it when the Party may fight or meet this Creature. Give how it fights, and what it does when nobody is fighting it. %%
 
 ### Tactics
 
@@ -77,7 +77,7 @@ legendary_actions: []
 
 ## Depth
 
-%% Optional. Include it on every Creature that belongs to a World. DM only. Give where it lives and what the Party can learn about it. %%
+%% Optional. Include it when the Creature's habitat or secrets give the Party something to find. DM only. Give where it lives and what the Party can learn about it. %%
 
 ### Ecology
 

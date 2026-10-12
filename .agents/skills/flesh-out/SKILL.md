@@ -108,7 +108,7 @@ When the page means to produce a feeling, read that heading in [references/regis
 
 ### 7. Compress and stock
 
-Write into the page's existing sections, following each section's `%%` guidance in its template, and keep good existing prose. Each fact is written once, in one section. The page gains facts and keeps its headings. Prefer short concrete bullets, verbs, distinctive nouns, observable behaviour, interaction cues and consequential details. Write every fact in the World's own terms, per root `AGENTS.md` **In-world voice**.
+Write into the page's existing sections, following each section's `%%` guidance in its template, and keep good existing prose. When a fact belongs in an optional section, callout or At a glance bullet the page lacks, add that part in template order, since the fact meets its guidance condition (`docs/wiki-layout.md` **Templates define pages**). Each fact is written once, in one section. The page gains facts and keeps its headings. Prefer short concrete bullets, verbs, distinctive nouns, observable behaviour, interaction cues and consequential details. Write every fact in the World's own terms, per root `AGENTS.md` **In-world voice**.
 
 Leave more **prose stock** than the page's Narration slot will speak, so `theatre-of-the-mind` can select. The slot's Build in [recipes.md § First meetings on World pages](../theatre-of-the-mind/references/recipes.md#first-meetings-on-world-pages) names what the stock must cover for this kind. The stock holds:
 

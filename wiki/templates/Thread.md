@@ -29,7 +29,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give where it began and where it can go. %%
+%% Optional. Include it when the Thread's origin, hidden truths or endings need recording. DM only. Give where it began and where it can go. %%
 
 ### Origin
 

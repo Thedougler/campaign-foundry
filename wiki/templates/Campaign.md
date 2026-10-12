@@ -14,15 +14,15 @@ revealed: ""
 - **Players.**
 - **Premise.**
 - **Party.**
-- **Cadence.**
+- **Cadence.** %% Optional. Add it when the table keeps a set schedule. %%
 - **Now.**
 
 > [!narration] The Campaign
-> %% Spoken opening for the first Session, second person, about 100 words. Give the Party's situation, and end on the promise of what they will do. %%
+> %% Optional. Include it before the first Session, as the opening the DM speaks. Spoken, second person, about 100 words. Give the Party's situation, and end on the promise of what they will do. %%
 
 ## Play
 
-%% Give this Campaign's table agreements, one line per bullet. Session length inherits DM Settings unless `session_length_hours` is set. House Rules links each House Rule in force. %%
+%% Optional. Include it when the Campaign sets its own Session length, table agreements or House Rules. Give each one line per bullet. Session length inherits DM Settings unless `session_length_hours` is set. House Rules links each House Rule in force. %%
 
 - **Session length.**
 - **Table agreements.**
@@ -30,7 +30,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give the purpose of the Campaign. Tone and Lines and Veils belong in `campaign-config.md`. %%
+%% Optional. Include it when the DM gives the Campaign's premise, themes or direction. DM only. Tone and Lines and Veils belong in `campaign-config.md`. %%
 
 ### Premise
 

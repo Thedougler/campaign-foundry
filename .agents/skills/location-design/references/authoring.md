@@ -32,7 +32,7 @@ Reuse linked owner pages before creating new ones. Use `npc-design` when a new r
 
 ## 3. Write and link pages
 
-Use the current template as the only authority for properties, required `##` headings in order and callout types. Fill its properties, use `type: Location` and the chosen Kind, and give the page a useful one-line summary. Retain optional structure only where it has content and remove all `%%` guidance. Keep the template's Links view rather than rebuilding its Base.
+Use the current template as the only authority for properties, required `##` headings in order, callout types and the condition on each optional part. Fill its properties, use `type: Location` and the chosen Kind, and give the page a useful one-line summary. Add each optional section, callout and At a glance bullet whose guidance condition the Location meets, keep a `###` heading only where it has content, and remove all `%%` guidance. Keep the template's Links view rather than rebuilding its Base.
 
 File in the flat `<campaign-folder>/Locations/` directory, its `title` the Location's name and its filename that title's slug (`docs/wiki-layout.md` **Page names**). A page already filed keeps its folder, and a World-free Location and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**. A nonempty `parent` holds a quoted wikilink that resolves. A top-level Region keeps the empty value. Only `parent` records containment, so folder placement never implies it. Resolve name collisions across the vault before choosing the title.
 

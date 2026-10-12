@@ -13,12 +13,12 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. The turn is the new fact, access or choice that changes the Party's next move. Changes gives what the Party will know or reach afterwards, or choose between. Where links the Location, and Who links the NPCs. %%
+%% Give the DM a ten-second read, one line per bullet. The turn is the new fact, access or choice that changes the Party's next move. Changes gives what the Party will know or reach afterwards, or choose between. Where links the Location. %%
 
 - **The turn.**
 - **Changes.**
 - **Where.**
-- **Who.**
+- **Who.** %% Optional. Add it when NPCs take part, linking each. %%
 
 > [!narration] Opening
 > %% Spoken, second person, present tense, under 150 words. Give the texture of the Location with the new information source as its anchor, and end on the point where the Party reacts, which may be one situation-specific handoff question or either/or. %%
@@ -41,7 +41,7 @@ revealed: ""
 
 ## Clues
 
-%% Give each true, concrete fact with where it is found and the action that reveals it. Each conclusion the Session needs gets three independent routes, so link the Prep's Clues for the routes in other Scenes. %%
+%% Optional. Include it when the turn is a fact the Party discovers. Give each true, concrete fact with where it is found and the action that reveals it. Each conclusion the Session needs gets three independent routes, so link the Prep's Clues for the routes in other Scenes. %%
 
 | Clue | Found through |
 | ---- | ------------- |
@@ -57,7 +57,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give what the turn hides and the Threads it moves. %%
+%% Optional. Include it when the turn hides a truth, moves a Thread or pulls on a PC. DM only. Give what the turn hides and the Threads it moves. %%
 
 ### Hidden truths
 

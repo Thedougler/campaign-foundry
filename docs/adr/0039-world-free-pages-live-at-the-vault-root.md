@@ -1,6 +1,6 @@
 # World-free pages live at the vault root
 
-Amends [ADR 0024](0024-campaign-folder-holds-its-world.md).
+Amends [ADR 0024](0024-campaign-folder-holds-its-world.md). Status: amended by [ADR 0040](0040-templates-are-minimal-by-default.md). Only the reusable kinds can be World-free, and every template part not needed every time is optional. The design skills no longer fill every section.
 
 ADR 0024 opened a vault-root kind folder (`wiki/Creatures/`, `wiki/Items/`) only when a second Campaign reused a page. The DM also wants content tied to no World, such as a monster for their own collection or a generic magic item. `creature-design` already filed such a monster at `wiki/Creatures/<slug>.md` from a separate `creature-generic.md` template with `kind: Generic`, while `docs/wiki-layout.md`, `CONTEXT.md` and ADR 0024 still said the root folders were for reused pages only. A second template per kind would double every template the gate and the skills read.
 

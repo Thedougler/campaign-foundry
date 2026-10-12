@@ -16,6 +16,14 @@ function output() {
 }
 
 describe("Runner disk deliverables", () => {
+	it("accepts a real directory beneath a symlinked ancestor like macOS /var", () => {
+		const parent = output();
+		const real = join(parent, "private", "var");
+		mkdirSync(join(real, "outputs"), { recursive: true });
+		writeFileSync(join(real, "outputs", "reply.md"), "Alias reply.");
+		symlinkSync(real, join(parent, "var"));
+		expect(readRunnerOutput(join(parent, "var", "outputs")).reply).toBe("Alias reply.");
+	});
 	it("requires reply.md even if pages are delivered", () => {
 		const root = output();
 		rmSync(join(root, "reply.md"));
@@ -45,6 +53,6 @@ describe("Runner disk deliverables", () => {
 		expect(() => readRunnerOutput(root)).toThrow(/independent regular/);
 		mkdirSync(join(root, "links"));
 		symlinkSync(external, join(root, "links/root"));
-		expect(() => readRunnerOutput(join(root, "links/root"))).toThrow(/canonical real directory/);
+		expect(() => readRunnerOutput(join(root, "links/root"))).toThrow(/real directory, not a symlink/);
 	});
 });

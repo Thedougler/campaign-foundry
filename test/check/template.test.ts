@@ -39,9 +39,9 @@ describe("template layer: failure classes", () => {
 		["Multiline Summary", ["summary-multiline"]],
 		["Sources Scalar", ["sources-type"]],
 		["Bad Sources", ["sources-path", "sources-path", "sources-type"]],
-		["Short Sections", ["missing-section", "missing-section"]],
+		["Short Sections", ["missing-section"]],
 		["Swapped Sections", ["section-order"]],
-		["No Callout", ["missing-callout"]],
+		["No Callout", []],
 		["Empty Callout", ["empty-callout"]],
 		["Empty Section", ["empty-heading"]],
 		["Guided", ["empty-heading", "empty-heading", "leftover-comment", "leftover-comment", "missing-key"]],
@@ -64,8 +64,6 @@ describe("template layer: failure classes", () => {
 			expect(f.line).toBeGreaterThan(0);
 			expect(f.hint.length).toBeGreaterThan(20);
 		}
-		const callout = findingsFor(report, "/No Callout.md")[0];
-		expect(callout?.hint).toContain("> [!narration] First look");
 	});
 
 	it("derives requirements from the template: an edited template changes the check", async () => {
@@ -93,13 +91,36 @@ describe("template layer: failure classes", () => {
 		expect(findingsFor(edited, "/Sources Ok.md").map((f) => f.rule)).toEqual(["missing-key"]);
 	});
 
+	it("requires Campaign-bound keys only inside a Campaign and never fixes them into a root-kind page", async () => {
+		const dir = await copyFixture("template");
+		const campaignPath = join(dir, "wiki/Aldermoor/NPCs/Sources Ok.md");
+		const source = (await readFile(campaignPath, "utf8")).replace('revealed: ""\n', "");
+		await writeFile(campaignPath, source);
+		await mkdir(join(dir, "wiki/NPCs"), { recursive: true });
+		const sharedPath = join(dir, "wiki/NPCs/Shared.md");
+		await writeFile(sharedPath, source.replace('title: "Sources Ok"', 'title: "Shared"'));
+		const worldPath = join(dir, "wiki/root-world.md");
+		const world = await readFile(join(dir, "wiki/Aldermoor/Aldermoor.md"), "utf8");
+		await writeFile(worldPath, world.replace('revealed: ""\n', ""));
+		const flags = ["--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates];
+		const before = JSON.parse(
+			(await cf(["check", "--json", "--layer", "template", ...flags], dir)).stdout,
+		) as JsonReport;
+		expect(findingsFor(before, "/Shared.md")).toEqual([]);
+		expect(findingsFor(before, "/Sources Ok.md").map((f) => f.rule)).toEqual(["missing-key"]);
+		expect(findingsFor(before, "/root-world.md").map((f) => f.rule)).toEqual(["missing-key"]);
+		await cf(["check", "--json", "--layer", "template", "--fix", ...flags], dir);
+		expect(await readFile(sharedPath, "utf8")).not.toContain("revealed:");
+		expect(await readFile(campaignPath, "utf8")).toContain('revealed: ""');
+		expect(await readFile(worldPath, "utf8")).toContain('revealed: ""');
+	});
+
 	it("reads `Optional` guidance as an optional section: absent passes, present keeps order, empty is droppable", async () => {
 		const dir = await copyFixture("template");
 		const templates = join(dir, "templates");
 		await cp(realTemplates, templates, { recursive: true });
 		const npc = await readFile(join(templates, "npc.md"), "utf8");
-		expect(npc).toMatch(/## Depth\n\n%% /);
-		await writeFile(join(templates, "npc.md"), npc.replace(/## Depth\n\n%% /, "## Depth\n\n%% Optional. "));
+		expect(npc).toMatch(/## Depth\n\n%% Optional\./);
 		const flags = ["--vault", join(dir, "wiki"), "--root", dir, "--templates", templates];
 		const result = await cf(["check", "--json", "--layer", "template", ...flags], dir);
 		const edited = JSON.parse(result.stdout) as JsonReport;
@@ -120,8 +141,111 @@ describe("template layer: failure classes", () => {
 		expect(fixed).toContain("## Links");
 	});
 
-	it("points a missing callout at the section the template puts it in", () => {
-		expect(findingsFor(report, "/No Callout.md")[0]?.hint).toContain("under `## At a glance`");
+	it("requires a Scene's Opening callout and gives its section and example in the finding", async () => {
+		const dir = await copyFixture("template");
+		const path = join(dir, "wiki/Aldermoor/Opening.md");
+		await writeFile(
+			path,
+			`---
+title: "Session 1 - Opening"
+type: Scene
+kind: Hook
+summary: "An opening."
+sources: []
+revealed: ""
+---
+
+## At a glance
+
+Pressure.
+
+## Play
+
+Situation.
+
+## Outcomes
+
+Consequences.
+`,
+		);
+		const result = await cf(
+			[
+				"check",
+				path,
+				"--json",
+				"--layer",
+				"template",
+				"--vault",
+				join(dir, "wiki"),
+				"--root",
+				dir,
+				"--templates",
+				realTemplates,
+			],
+			dir,
+		);
+		const findings = findingsFor(JSON.parse(result.stdout) as JsonReport, "/Opening.md");
+		expect(findings.map((f) => f.rule)).toEqual(["missing-callout"]);
+		expect(findings[0]?.hint).toContain("under `## At a glance`");
+		expect(findings[0]?.hint).toContain("> [!narration] Opening");
+	});
+
+	it("keeps a callout type required when only some of its template callouts are Optional", async () => {
+		const dir = await copyFixture("template");
+		const templates = join(dir, "templates");
+		await cp(realTemplates, templates, { recursive: true });
+		const path = join(templates, "npc.md");
+		const source = await readFile(path, "utf8");
+		await writeFile(
+			path,
+			source.replace("## Play", "> [!narration] Required introduction\n> %% Give their introduction. %%\n\n## Play"),
+		);
+		const result = await cf(
+			["check", "--json", "--layer", "template", "--vault", join(dir, "wiki"), "--root", dir, "--templates", templates],
+			dir,
+		);
+		expect(findingsFor(JSON.parse(result.stdout) as JsonReport, "/No Callout.md").map((f) => f.rule)).toEqual([
+			"missing-callout",
+		]);
+	});
+
+	it("reports and fixes YAML comments without changing literal hashes, values or the body", async () => {
+		const dir = await copyFixture("template");
+		const path = join(dir, "wiki/Aldermoor/NPCs/Sources Ok.md");
+		const original = await readFile(path, "utf8");
+		const source = original
+			.replace("type: NPC", "# leading guidance\ntype: NPC # x")
+			.replace(
+				'creature: ""',
+				'creature: ""\nextra:\n  - "literal # value" # nested guidance\nnotes: |\n  # literal block text\n# before revealed',
+			)
+			.replace('title: "Sources Ok"', 'title: "Sources Ok"\n# trailing guidance');
+		await writeFile(path, source);
+		const args = [
+			"check",
+			path,
+			"--json",
+			"--layer",
+			"template",
+			"--vault",
+			join(dir, "wiki"),
+			"--root",
+			dir,
+			"--templates",
+			realTemplates,
+		];
+		const before = JSON.parse((await cf(args, dir)).stdout) as JsonReport;
+		expect(before.findings.map((f) => f.rule)).toEqual(Array(5).fill("leftover-comment"));
+		expect(before.findings.map((f) => f.line)).toEqual([2, 3, 8, 11, 14]);
+		const fixed = JSON.parse((await cf([...args, "--fix"], dir)).stdout) as JsonReport;
+		expect(fixed.findings).toEqual([]);
+		expect(fixed.fixes).toHaveLength(1);
+		const text = await readFile(path, "utf8");
+		expect(text).not.toMatch(/guidance|# x/);
+		expect(text).toContain("literal # value");
+		expect(text).toContain("# literal block text");
+		expect(text.slice(text.indexOf("\n---\n") + 5)).toBe(original.slice(original.indexOf("\n---\n") + 5));
+		expect((JSON.parse((await cf([...args, "--fix"], dir)).stdout) as JsonReport).fixes).toEqual([]);
 	});
 
 	it.each([
@@ -275,7 +399,18 @@ filters:
 		await mkdir(creatures, { recursive: true });
 		await writeFile(join(creatures, "Bandit.md"), source);
 		const result = await cf(
-			["check", "--json", "--layer", "template", "--vault", join(dir, "wiki"), "--root", dir, "--templates", realTemplates],
+			[
+				"check",
+				"--json",
+				"--layer",
+				"template",
+				"--vault",
+				join(dir, "wiki"),
+				"--root",
+				dir,
+				"--templates",
+				realTemplates,
+			],
 			dir,
 		);
 		return JSON.parse(result.stdout) as JsonReport;
@@ -285,8 +420,11 @@ filters:
 		expect(findingsFor(await runCreature(worldFree), "/Bandit.md")).toEqual([]);
 	});
 
-	it("requires the callout once the page keeps its section", async () => {
-		const withGlance = worldFree.replace("## Statblock", "## At a glance\n\n- **Role at the table.** Ambusher.\n\n## Statblock");
-		expect(findingsFor(await runCreature(withGlance), "/Bandit.md").map((f) => f.rule)).toEqual(["missing-callout"]);
+	it("does not require an optional callout even when the page keeps its section", async () => {
+		const withGlance = worldFree.replace(
+			"## Statblock",
+			"## At a glance\n\n- **Role at the table.** Ambusher.\n\n## Statblock",
+		);
+		expect(findingsFor(await runCreature(withGlance), "/Bandit.md")).toEqual([]);
 	});
 });

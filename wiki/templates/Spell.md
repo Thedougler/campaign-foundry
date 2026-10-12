@@ -3,7 +3,7 @@ title: ""
 type: Spell
 summary: ""
 sources: []
-revealed: ""
+revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
 %% Optional. Add `inspired_by: "<work>"` to the frontmatter only when the DM names what inspired this page. Root `AGENTS.md` **Sourcing** sets its use. %%
@@ -20,7 +20,7 @@ revealed: ""
 - **Classes.**
 
 > [!narration] Casting
-> %% Spoken. Give what a bystander sees and hears as it takes hold, and what they feel, in the manner of the tradition that casts it. Describe the caster, the target and the Party without naming them. %%
+> %% Optional. Include it when the Party will see the Spell cast. Spoken. Give what a bystander sees and hears as it takes hold, and what they feel, in the manner of the tradition that casts it. Describe the caster, the target and the Party without naming them. %%
 
 ## Play
 
@@ -36,7 +36,7 @@ revealed: ""
 
 ## Depth
 
-%% Optional. Include it on every Spell that belongs to a World. DM only. Give where it comes from and how the Party can learn it. %%
+%% Optional. Include it when the Spell has a tradition or teacher in a World. DM only. Give where it comes from and how the Party can learn it. %%
 
 ### Tradition
 

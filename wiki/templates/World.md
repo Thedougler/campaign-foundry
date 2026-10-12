@@ -17,11 +17,11 @@ revealed: ""
 - **Table promise.**
 
 > [!narration] The World
-> %% Spoken pitch to the Players, second person, about 100 words. Give what this World feels like, and end on the promise of what they will do. %%
+> %% Optional. Include it when the DM pitches the World to the Players. Spoken pitch, second person, about 100 words. Give what this World feels like, and end on the promise of what they will do. %%
 
 ## Calendar
 
-%% Give the months with their lengths and the weekdays. Add year numbering with its epoch, and the holidays people keep. Use a table for the months. %%
+%% Optional. Include it when the World keeps its own calendar. Give the months with their lengths and the weekdays. Add year numbering with its epoch, and the holidays people keep. Use a table for the months. %%
 
 | Month | Days | Season or note |
 | ----- | ---- | -------------- |
@@ -29,7 +29,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give the World's large structure. Link Lore pages for each story and keep the full account there. %%
+%% Optional. Include it when the World's cosmology, history or secrets reach play. DM only. Give the World's large structure. Link Lore pages for each story and keep the full account there. %%
 
 ### Cosmology
 

@@ -46,7 +46,7 @@ revealed: "Backstory"
 %% Story side, left alone by the pull. %%
 
 > [!narration] Portrait
-> %% Spoken, third person. Give how the other characters see this PC, with face and build, clothing and posture, and one detail beyond sight. %%
+> %% Optional. Include it when the Player or DM describes how the PC looks. Spoken, third person. Give how the other characters see this PC, with face and build, clothing and posture, and one detail beyond sight. %%
 
 ### Backstory
 
@@ -62,7 +62,7 @@ revealed: "Backstory"
 
 ## Plans
 
-%% Story side, DM only. Give the DM's plans for this PC, with the Threads that touch them and Spotlight ideas. %%
+%% Optional. Include it when the DM has plans for this PC. Story side, DM only. Give the DM's plans for this PC, with the Threads that touch them and Spotlight ideas. %%
 
 ## Links
 

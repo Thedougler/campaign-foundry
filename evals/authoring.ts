@@ -4,7 +4,7 @@
 // Modified for native omp frontmatter and TypeScript.
 // License: https://www.apache.org/licenses/LICENSE-2.0
 
-import { type Stats } from "node:fs";
+import { existsSync, type Stats } from "node:fs";
 import { readFile, stat } from "node:fs/promises";
 import { basename, dirname, join, resolve } from "node:path";
 import { parse } from "yaml";
@@ -20,6 +20,7 @@ import {
 	skillSourceFiles,
 } from "./skill-graph.ts";
 import type { MarkdownLink } from "./skill-graph.ts";
+import { loadCases } from "./cases.ts";
 
 export interface SkillValidation {
 	skillDir: string;
@@ -110,6 +111,8 @@ export async function validateSkill(skillDirectory: string, options: { root?: st
 	) {
 		throw new UsageError(`Frontmatter globs in ${skillFile} must be an array of strings.`, hint);
 	}
+	const casesFile = join(skillDir, "evals", "cases.yaml");
+	if (existsSync(casesFile)) loadCases(casesFile);
 	const scope = await loadSkillScope(options.root ?? findRepoRoot(process.cwd()));
 	const sourceFiles = await skillSourceFiles(skillDir, content);
 	const breaks = [
@@ -206,4 +209,3 @@ async function brokenMarkdownReferences(sourceFiles: Map<string, string>): Promi
 	}
 	return breaks;
 }
-
