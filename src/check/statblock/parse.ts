@@ -1,4 +1,4 @@
-import { parse } from "yaml";
+import { isAlias, isMap, isNode, isScalar, isSeq, LineCounter, parseDocument } from "yaml";
 import { ABILITIES } from "./tables.ts";
 
 /** One arithmetic problem in a stat block, independent of where the block lives. */
@@ -6,8 +6,12 @@ export interface Issue {
 	rule: string;
 	message: string;
 	hint: string;
+	/** A comparison of computed numbers, not schema, missing-field or formatting validation. */
+	arithmetic?: true;
 	/** Top-level YAML key the issue is about, used to find its line. */
 	key?: string;
+	/** The offending one-key map within `saves` or `skillsaves`. */
+	entry?: string;
 	/** For a trait or action: its section and name, used to find its line. */
 	feature?: { section: string; name: string };
 }
@@ -46,8 +50,8 @@ export interface Statblock {
 	features: Feature[];
 	/** Every top-level key of the block as written, for consumers (Push) that read more than the arithmetic fields. */
 	raw: Record<string, unknown>;
-	/** 1-based line within the block for a key or feature; 1 when it cannot be found. */
-	lines: { key(key: string): number; feature(section: string, name: string): number };
+	/** Actual value lines, 1-based within the block; [] when unavailable. Block-scalar headers are excluded. */
+	lines(issue: Pick<Issue, "key" | "entry" | "feature">): readonly number[];
 }
 
 export interface Parsed {
@@ -153,8 +157,13 @@ function features(data: Record<string, unknown>, issues: Issue[]): Feature[] {
 export function parseStatblock(source: string): Parsed {
 	const issues: Issue[] = [];
 	let data: unknown;
+	const counter = new LineCounter();
+	let document: ReturnType<typeof parseDocument>;
 	try {
-		data = parse(source);
+		document = parseDocument(source, { lineCounter: counter });
+		for (const warning of document.warnings) process.emitWarning(warning);
+		if (document.errors[0]) throw document.errors[0];
+		data = document.toJS();
 	} catch (error) {
 		const reason = error instanceof Error ? error.message.split("\n")[0] : String(error);
 		return {
@@ -201,9 +210,16 @@ export function parseStatblock(source: string): Parsed {
 		});
 
 	const lines = source.split("\n");
-	const find = (test: (line: string) => boolean, from = 0): number => {
-		const i = lines.findIndex((l, n) => n >= from && test(l));
-		return i === -1 ? -1 : i;
+	const resolveNode = (node: unknown): unknown => (isAlias(node) ? node.resolve(document) : node);
+	const valueLines = (node: unknown): number[] => {
+		node = resolveNode(node);
+		if (!isNode(node) || !node.range) return [];
+		let first = counter.linePos(node.range[0]).line;
+		const last = counter.linePos(Math.max(node.range[0], node.range[1] - 1)).line;
+		if (isScalar(node) && (node.type === "BLOCK_LITERAL" || node.type === "BLOCK_FOLDED")) first++;
+		const found: number[] = [];
+		for (let line = first; line <= last; line++) if (lines[line - 1]?.trim()) found.push(line);
+		return found;
 	};
 	const statblock: Statblock = {
 		name: text(map.name),
@@ -219,14 +235,33 @@ export function parseStatblock(source: string): Parsed {
 		proficiencyBonus: number(map.proficiency_bonus),
 		features: features(map, issues),
 		raw: map,
-		lines: {
-			key: (key) => find((l) => new RegExp(`^${key}\\s*:`).test(l)) + 1 || 1,
-			feature: (section, name) => {
-				const start = find((l) => new RegExp(`^${section}\\s*:`).test(l));
-				if (start === -1) return 1;
-				const at = find((l) => l.includes(name) && /^\s*-?\s*name\s*:/.test(l), start);
-				return (at === -1 ? start : at) + 1;
-			},
+		lines: (issue) => {
+			if (issue.feature) {
+				const section = resolveNode(document.getIn([issue.feature.section], true));
+				if (!isSeq(section)) return [];
+				for (const item of section.items) {
+					const feature = resolveNode(item);
+					if (!isMap(feature)) continue;
+					const name = resolveNode(feature.get("name", true));
+					if (isScalar(name) && text(name.value) === issue.feature.name) return valueLines(feature.get("desc", true));
+				}
+				return [];
+			}
+			if (!issue.key) return [];
+			const value = resolveNode(document.getIn([issue.key], true));
+			if (issue.entry) {
+				if (!isSeq(value)) return [];
+				for (const item of value.items) {
+					const entry = resolveNode(item);
+					if (!isMap(entry)) continue;
+					for (const pair of entry.items) {
+						const key = resolveNode(pair.key);
+						if (isScalar(key) && String(key.value).toLowerCase() === issue.entry) return valueLines(pair.value);
+					}
+				}
+				return [];
+			}
+			return valueLines(value);
 		},
 	};
 	return { statblock, issues };

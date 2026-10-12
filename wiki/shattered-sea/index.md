@@ -196,6 +196,7 @@
 - [[giant-shark|Giant Shark]] — A huge shark that follows damaged hulls near the Ashwall lee, where wreckage feeds the food chain.
 - [[giant-squid|Giant Squid]] — A huge deep-water beast of the Drowned Maw that takes divers from the Shelfworks drop-off after dark.
 - [[giant-vulture|Giant Vulture]] — A cliff scavenger of the Ashwalls whose numbers spike after a wreck, a rough tally of what the storm took.
+- [[gold-caste-serene|Gold Caste Serene]] — A CR 30 gold-caste Grung whose unlookable radiance, absolute wards and sovereign spellcasting embody Golden Presence at its ceiling.
 - [[grinning-ape|Grinning Ape]] — A watching face of the Old Gardens canopy, almost human and not quite, split by an unnaturally wide grin.
 - [[grung-creature|Grung (Creature)]] — A Grung creature (CR 1/4) used as a scout in The Shattered Sea.
 - [[grung-elite-warrior|Grung Elite Warrior]] — A Grung Elite Warrior creature (CR 2) used as a warrior in The Shattered Sea.
@@ -288,6 +289,7 @@
 
 ## Spells
 
+- [[golden-presence|Golden Presence]] — A Grung circle rite that harvests the magic worshippers are taught they lack, banking it for mortal gold rulers to spend as gods.
 - [[ossketh|Ossketh]] — A suppressed grung transmutation that sets the caster's caste colour permanently; cast before the diet finishes its work, it lodges and keeps running.
 
 ## Vehicles

@@ -114,7 +114,7 @@ describe("canonicalFromStatblock", () => {
 			proficiencyBonus: undefined,
 			features: [],
 			raw: { ac: "14 (natural armor)" },
-			lines: { key: () => 1, feature: () => 1 },
+			lines: () => [1],
 		});
 		expect(canonical).toEqual(canonical);
 		expect(canonical.ac).toBe("14 (natural armor)");
@@ -136,7 +136,7 @@ describe("canonicalFromStatblock", () => {
 			proficiencyBonus: undefined,
 			features: [],
 			raw: {},
-			lines: { key: () => 1, feature: () => 1 },
+			lines: () => [1],
 		});
 		expect(canonical.hp).toBeUndefined();
 		expect(canonical.stats).toBeUndefined();

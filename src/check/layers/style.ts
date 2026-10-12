@@ -2,6 +2,7 @@ import type { Page, Vault } from "../../vault/types.ts";
 import type { CachedFinding } from "../cache.ts";
 import { runLanguageTool, type LanguageTool } from "../language.ts";
 import { nameWords } from "../prose.ts";
+import { blankProvenance, corpusProvenance } from "../provenance.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
 import { pageViews, valeViews } from "../views.ts";
 import { valeSubprocess, type ValeAdapter, type ValeAlert, type ValeConfig } from "../vale.ts";
@@ -207,17 +208,19 @@ function styleTool(vale: ValeAdapter): LanguageTool {
 	return {
 		name: LAYER,
 		config: [".vale.ini", ".vale-narration.ini"],
-		salt: async () =>
-			`${vale.fingerprint ? await vale.fingerprint() : "canned"}|${Object.keys(NARRATION_EXEMPT_AI_TELLS).join(",")}|${MASK_STAND_IN.source}|item-properties-2026-10-11|entry-fields-2026-10-12`,
+		salt: async (ctx) =>
+			`${vale.fingerprint ? await vale.fingerprint() : "canned"}|${Object.keys(NARRATION_EXEMPT_AI_TELLS).join(",")}|${MASK_STAND_IN.source}|item-properties-2026-10-11|entry-fields-2026-10-12|${(await corpusProvenance(ctx)).salt}`,
 		async compute(pages, ctx) {
+			const provenance = await corpusProvenance(ctx);
 			const written: Record<string, string> = {};
 			const narrated: Record<string, string> = {};
 			const cued: Record<string, string> = {};
 			for (const page of pages) {
 				const views = valeViews(page, ctx.vault);
-				written[page.path] = views.written;
-				if (views.narrated !== null) narrated[page.path] = views.narrated;
-				if (views.cued !== null) cued[page.path] = views.cued;
+				const lines = provenance.lines.get(page)!;
+				written[page.path] = blankProvenance(views.written, lines);
+				if (views.narrated !== null) narrated[page.path] = blankProvenance(views.narrated, lines);
+				if (views.cued !== null) cued[page.path] = blankProvenance(views.cued, lines);
 			}
 			const run = async (config: ValeConfig, files: Record<string, string>): Promise<Map<string, ValeAlert[]>> =>
 				Object.keys(files).length === 0 ? new Map() : vale.check({ config, files }, ctx.root);
@@ -260,8 +263,7 @@ export function styleLayerWith(vale: ValeAdapter): Layer {
 	return {
 		name: LAYER,
 		scope: "page",
-		description:
-			"Vale: ai-tells on all prose, and Narration hard lines and craft warnings inside [!narration] callouts.",
+		description: "Vale: authored prose, and Narration hard lines and craft warnings inside [!narration] callouts.",
 		run: (ctx: CheckContext): Promise<Finding[]> => runLanguageTool(tool, ctx),
 	};
 }

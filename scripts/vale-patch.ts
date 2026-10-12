@@ -18,6 +18,12 @@ const patches: { file: string; exception: string }[] = [
 	// (DM-confirmed 2026-10-11). Upstream already excepts ships, vessels, sailors' kin such as soldiers and porters;
 	// the figurative tokens ("carries weight", "carries risk") keep firing.
 	{ file: ".vale/styles/ai-tells/FigurativeCarries.yml", exception: String.raw`  - "(?i)\\bcrews?\\b"` },
+	// Rules targets and creatures literally die; restrict the exception to the death predicate, so a
+	// cache that dies or survives still fires. This also covers a modifier ("the original creature dies").
+	{
+		file: ".vale/styles/ai-tells/MortalityMetaphors.yml",
+		exception: String.raw`  - "(?i)\\b(?:creatures?|targets?) (?:that |which |then |never |still |also |just |simply )?(?:(?:dies|died|dying)|(?:can|could|may|might|will|would|should|must|to|cannot|can't) (?:not |never |also |still )?die)\\b"`,
+	},
 ];
 
 // A replacement narrows a token the DM confirmed misfiring on a literal campaign meaning; the figurative
@@ -136,6 +142,76 @@ const replacements: { file: string; old: string; replacement: string }[] = [
 		file: ".vale/styles/ai-tells/FigurativeWorth.yml",
 		old: String.raw`(?<!net )(?<!-)\\bworth\\b(?! of\\b)`,
 		replacement: String.raw`(?<!net )(?<!-)(?<!\\b(?:man|men|woman|women|person|people|players?|PCs?) (?:is|was|are|were) )\\bworth\\b(?! of\\b)`,
+	},
+	// A material component has a literal price ("worth 25+ GP"), not an attention verdict.
+	// Append the price guard after the earlier appraisal narrowing, preserving its idempotent migration.
+	// Requiring a currency leaves figurative verdicts ("worth the effort", "worth knowing") caught.
+	{
+		file: ".vale/styles/ai-tells/FigurativeWorth.yml",
+		old: String.raw`\\bworth\\b(?! of\\b)`,
+		replacement: String.raw`\\bworth\\b(?! of\\b)(?! (?:[0-9][0-9,.]*\\+? (?:[ecsgp]p|gold pieces?|silver pieces?|copper pieces?|platinum pieces?|electrum pieces?|dollars?|pounds?|euros?)\\b|[$${"£€"}][0-9]))`,
+	},
+	// A summoned creature's "it dies if you die" is literal rules text. The conditional outside the
+	// matched span must be refused by the token, not an exception; "it dies during the restart" still fires.
+	{
+		file: ".vale/styles/ai-tells/MortalityMetaphors.yml",
+		old: String.raw`(?:dies|died)\\b(?! (?:down|off|out|hard|young|old|of|peacefully)\\b)`,
+		replacement: String.raw`(?:dies|died)\\b(?! if you die\\b)(?! (?:down|off|out|hard|young|old|of|peacefully)\\b)`,
+	},
+	// Taking a creature's shape is a physical transformation. Both overlapping noun tokens must refuse
+	// that verb frame, while "the shape of the API" and "the wrong shape" keep the figurative reading.
+	{
+		file: ".vale/styles/ai-tells/FigurativeShape.yml",
+		old: String.raw`\\b(?:the|a|an|its|their|this|that|each|every|one|any|some|no|another|same|wrong|right|expected|correct`,
+		replacement: String.raw`(?<!\\btakes? )\\b(?:the|a|an|its|their|this|that|each|every|one|any|some|no|another|same|wrong|right|expected|correct`,
+	},
+	{
+		file: ".vale/styles/ai-tells/FigurativeShape.yml",
+		old: String.raw`\\bshape of `,
+		replacement: String.raw`(?<!\\btakes? the )\\bshape of `,
+	},
+	// The published rules' area names are geometry, like the Cube and Sphere already refused upstream.
+	// Both the determined and bare "shape of" tokens share this geometric-head list.
+	{
+		file: ".vale/styles/ai-tells/FigurativeShape.yml",
+		old: `|solid|cube|sphere|circle|ellipse|box|`,
+		replacement: `|solid|cube|sphere|circle|ellipse|box|cone|cylinder|emanation|line|`,
+	},
+	// The same area names also modify "shape" directly ("the Cylinder shape").
+	{
+		file: ".vale/styles/ai-tells/FigurativeShape.yml",
+		old: `|physical|circular|`,
+		replacement: `|physical|cube|sphere|cone|cylinder|emanation|line|circular|`,
+	},
+	// Pinches and handfuls of physical spell materials are literal component quantities. Keep the
+	// abstract dodges ("a handful of tests", "a pinch of optimism") flagged by refusing only material heads.
+	{
+		file: ".vale/styles/ai-tells/FigurativeQuantities.yml",
+		old: `  - a handful`,
+		replacement: String.raw`  - a handful\b(?! of (?:oak bark|sand|thorns|(?:grave(?:yard)? )?dirt)\b)`,
+	},
+	// The rule's definite and plural handful frames name the same literal materials.
+	{
+		file: ".vale/styles/ai-tells/FigurativeQuantities.yml",
+		old: `  - the handful of`,
+		replacement: String.raw`  - the handful of\b(?! (?:oak bark|sand|thorns|(?:grave(?:yard)? )?dirt)\b)`,
+	},
+	{
+		file: ".vale/styles/ai-tells/FigurativeQuantities.yml",
+		old: `  - handfuls of`,
+		replacement: String.raw`  - handfuls of\b(?! (?:oak bark|sand|thorns|(?:grave(?:yard)? )?dirt)\b)`,
+	},
+	{
+		file: ".vale/styles/ai-tells/FigurativeQuantities.yml",
+		old: `  - a pinch of`,
+		replacement: String.raw`  - a pinch of\b(?! (?:(?:bone|diamond) dust|(?:powdered )?iron|colou?rful sand|sand|(?:graveyard )?dirt|soot|salt|sulfur|sulphur|phosphorus|sesame seeds|talc|confetti|dust)\b)`,
+	},
+	// House style uses en dashes between digits for numeric ranges, even on hand-written pages.
+	// The two branches still flag an en dash lacking either neighbour; the separate em-dash token stays on.
+	{
+		file: ".vale/styles/ai-tells/EmDashUsage.yml",
+		old: `  - '–'`,
+		replacement: `  - '(?<![0-9])–|–(?![0-9])'`,
 	},
 	// Messages reworded for campaign prose (DM decision 2026-10-11): each states what the rule matches and its
 	// passing form. Only the `message:` line changes; tokens and exceptions stay upstream's.

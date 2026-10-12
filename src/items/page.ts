@@ -16,7 +16,7 @@ const processor = unified().use(remarkParse).use(remarkGfm);
 let config: Promise<Configuration> | undefined;
 
 /** Nest all subheadings, remove inline export tags and align tables; wording, code and comments stay untouched. */
-export function normaliseStructure(text: string, headingOffset = 2): string {
+export function normaliseStructure(text: string, headingOffset = 2, compactTables = false): string {
 	let result = text;
 	const nodes: (Heading | Html | Table)[] = [];
 	const collect = (node: Nodes, inline = false): void => {
@@ -37,9 +37,22 @@ export function normaliseStructure(text: string, headingOffset = 2): string {
 		} else if (node.type === "table") {
 			const end = node.position.end.offset ?? text.length;
 			const rows = node.children.map((row) =>
-				row.children.map((cell) => text.slice(cell.position?.start.offset, cell.position?.end.offset).trim()),
+				row.children.map((cell) =>
+					cell.children.length
+						? text.slice(cell.children[0]?.position?.start.offset, cell.children.at(-1)?.position?.end.offset).trim()
+						: "",
+				),
 			);
-			result = result.slice(0, at) + markdownTable(rows, { align: node.align }) + result.slice(end);
+			const table = markdownTable(rows, { align: node.align, alignDelimiters: !compactTables }).split("\n");
+			if (compactTables) {
+				table[1] = `| ${rows[0]!
+					.map((_, index) => {
+						const align = node.align?.[index];
+						return align === "left" ? ":---" : align === "right" ? "---:" : align === "center" ? ":---:" : "---";
+					})
+					.join(" | ")} |`;
+			}
+			result = result.slice(0, at) + table.join("\n") + result.slice(end);
 		} else if (node.type === "html") {
 			result = result.slice(0, at) + result.slice(node.position.end.offset ?? at);
 		}

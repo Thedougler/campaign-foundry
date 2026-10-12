@@ -1,3 +1,4 @@
+import { existsSync } from "node:fs";
 import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -71,7 +72,9 @@ describe("5e tool spell export parser", () => {
 	});
 
 	it("parses the whole real batch, including Air Bubble's duplicate classes", async () => {
-		const spells = parseSpells(await readFile(join(repoRoot, "raw/all-spells.md"), "utf8"));
+		const archived = join(repoRoot, "archive/all-spells.md");
+		const corpus = existsSync(archived) ? archived : join(repoRoot, "raw/all-spells.md");
+		const spells = parseSpells(await readFile(corpus, "utf8"));
 		expect(spells.length).toBeGreaterThan(400);
 		expect(spells.find((spell) => spell.title === "Air Bubble")?.classes).toEqual([
 			"Artificer",
@@ -227,6 +230,7 @@ describe("convert-spells CLI", () => {
 		expect(page).toContain("A colour ward.");
 		expect(page).toContain("## Rolls\n\n");
 		expect(page).toContain("*A\\|B*");
+		expect(page).toContain("| Roll | Effect |\n| :---: | ---: |\n| 1 | *A\\|B* |");
 		expect(page).toContain("***Using a Higher-Level Spell Slot.*** A stronger ward.");
 		expect(page).toContain(literal);
 		const checked = await cf(
@@ -244,6 +248,59 @@ describe("convert-spells CLI", () => {
 			root,
 		);
 		expect(checked.stdout).toContain("ok: 0 findings");
+	});
+
+	it("emits compact real tables without empty border columns, padding runs or changes to cell wording", async () => {
+		const template = await readFile(join(realTemplates, "spell.md"), "utf8");
+		const body =
+			"An omen.\n\n##### Omens\n| Omen         | Result |\n|--------------|--------|\n| Weal         | Good   |\n| Woe          | Bad    |";
+		const page = await spellPage(parseSpells(entry("Omen", body))[0]!, "archive/omen.md", template);
+		expect(page).toContain("| Omen | Result |\n| --- | --- |\n| Weal | Good |\n| Woe | Bad |");
+		expect(page).not.toContain("| |");
+	});
+
+	it("normalises plain and non-breaking spaces in text, leaving list indentation and code intact", async () => {
+		const template = await readFile(join(realTemplates, "spell.md"), "utf8");
+		const body =
+			"A  ward\u00a0\u00a0holds.\n\n- A   choice.\n  - A\u202f\u202fsecond choice.\n\n`A  literal\u00a0space`\n\n```text\nA  literal\u202fspace\n```";
+		const page = await spellPage(parseSpells(entry("Ward", body))[0]!, "archive/ward.md", template);
+		expect(page).toContain("A ward holds.");
+		expect(page).toContain("- A choice.\n  - A second choice.");
+		expect(page).toContain("`A  literal\u00a0space`");
+		expect(page).toContain("```text\nA  literal\u202fspace\n```");
+	});
+
+	it("substitutes double hyphens and em-dash clause punctuation without rewriting words or code", async () => {
+		const template = await readFile(join(realTemplates, "spell.md"), "utf8");
+		const body =
+			"A ward -- called the ward -- holds. A ward--called the ward--holds.\n\nA ward — called the ward — holds. A ward—called the ward—holds.\n\n`a -- b — c`\n\n```text\na -- b — c\n```";
+		const spell = parseSpells(entry("Ward", body))[0]!;
+		spell.casting = spell.casting.replace("V, S", "V, S, M (tools—such as cards—worth 100 GP)");
+		const page = await spellPage(spell, "archive/ward.md", template);
+		expect(page).toContain("A ward, called the ward, holds. A ward, called the ward, holds.");
+		expect(page).toContain("M (tools, such as cards, worth 100 GP)");
+		expect(page).toContain("`a -- b — c`");
+		expect(page).toContain("```text\na -- b — c\n```");
+	});
+
+	it("uses en dashes for digit ranges and em dashes for in-prose triple hyphens, preserving Markdown syntax and code", async () => {
+		const template = await readFile(join(realTemplates, "spell.md"), "utf8");
+		const body =
+			"Roll 4-6 or 10-20. A ward --- called the ward --- holds.\n\n| Roll | Result |\n| --- | --- |\n| 1-3 | A ward. |\n\n`4-6 --- code`\n\n```text\n4-6 --- code\n```";
+		const page = await spellPage(parseSpells(entry("Ward", body))[0]!, "archive/ward.md", template);
+		expect(page).toContain("Roll 4–6 or 10–20. A ward — called the ward — holds.");
+		expect(page).toContain("| Roll | Result |\n| --- | --- |\n| 1–3 | A ward. |");
+		expect(page).toContain("`4-6 --- code`");
+		expect(page).toContain("```text\n4-6 --- code\n```");
+	});
+
+	it("leaves numeric ranges, quoted attributions and unavailable table-result dashes intact", async () => {
+		const template = await readFile(join(realTemplates, "spell.md"), "utf8");
+		const body = "Roll 1—6 or 1--6.\n\n*A quotation.*— Name\n\n| Roll | Result |\n| --- | --- |\n| 1 | — |";
+		const page = await spellPage(parseSpells(entry("Ward", body))[0]!, "archive/ward.md", template);
+		expect(page).toContain("Roll 1—6 or 1--6.");
+		expect(page).toContain("*A quotation.*— Name");
+		expect(page).toContain("| 1 | — |");
 	});
 
 	it("emits cantrips without inventing Classes and preserves Cantrip Upgrade", async () => {

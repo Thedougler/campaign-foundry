@@ -73,9 +73,10 @@ describe("parseStatblock", () => {
 		expect(issues.map((i) => i.rule).sort()).toEqual(["cr-invalid", "stats-invalid"]);
 	});
 
-	it("locates keys by line, one-based within the block", () => {
+	it("locates actual values by line, one-based within the block", () => {
 		const { statblock } = parseStatblock(GOBLIN);
-		expect(statblock?.lines.key("hp")).toBe(6);
-		expect(statblock?.lines.feature("actions", "Scimitar")).toBe(16);
+		expect(statblock?.lines({ key: "hp" })).toEqual([6]);
+		expect(statblock?.lines({ key: "skillsaves", entry: "stealth" })).toEqual([11]);
+		expect(statblock?.lines({ feature: { section: "actions", name: "Scimitar" } })).toEqual([17]);
 	});
 });

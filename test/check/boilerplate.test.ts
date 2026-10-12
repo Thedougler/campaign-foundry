@@ -164,4 +164,86 @@ describe("cfcli check --layer boilerplate", () => {
 			await rm(linked, { recursive: true, force: true });
 		}
 	});
+
+	it("does not compare required Spell labels or their structured class lists as authored sentences", async () => {
+		const labelled = await mkdtemp(join(tmpdir(), "cf-boilerplate-spell-label-"));
+		try {
+			await mkdir(join(labelled, "wiki/S"), { recursive: true });
+			for (const name of ["One", "Two"]) {
+				await writeFile(
+					join(labelled, `wiki/S/${name}.md`),
+					"---\ntype: Spell\n---\n\n***Using a Higher-Level Spell Slot.***\n\n**Classes:** Sorcerer, Warlock, Wizard\n",
+				);
+			}
+			expect((await runCheck(labelled)).report.findings).toEqual([]);
+		} finally {
+			await rm(labelled, { recursive: true, force: true });
+		}
+	});
+
+	it.each([
+		["***Using a Higher-Level Spell Slot.***", "The harbour bell rings twice before the tide turns."],
+		["**Classes:**", "The harbour bell rings twice before the tide turns."],
+		["**Classes:**", "The harbour bell rings twice before the tide turns"],
+	])("still compares authored prose after the template label %s", async (label, prose) => {
+		const labelled = await mkdtemp(join(tmpdir(), "cf-boilerplate-label-prose-"));
+		try {
+			await mkdir(join(labelled, "wiki/S"), { recursive: true });
+			for (const name of ["One", "Two"]) {
+				await writeFile(join(labelled, `wiki/S/${name}.md`), `---\ntype: Spell\n---\n\n${label} ${prose}\n`);
+			}
+			const shared = (await runCheck(labelled)).report.findings;
+			expect(shared).toHaveLength(2);
+			for (const finding of shared) {
+				expect(finding.rule).toBe("shared-line");
+				expect(finding.line).toBe(5);
+				expect(finding.message).toContain(`"${prose}"`);
+			}
+		} finally {
+			await rm(labelled, { recursive: true, force: true });
+		}
+	});
+
+	it.each([
+		["Cold, Lightning, Necrotic, Poison", 0],
+		["The harbour bell rings twice before the tide turns.", 2],
+	])("applies the same label-scoped boundary to Item fields: %s", async (value, findings) => {
+		const labelled = await mkdtemp(join(tmpdir(), "cf-boilerplate-item-label-"));
+		try {
+			await mkdir(join(labelled, "wiki/I"), { recursive: true });
+			for (const name of ["One", "Two"]) {
+				await writeFile(
+					join(labelled, `wiki/I/${name}.md`),
+					`---\ntype: Item\n---\n\n## Rulings\n\n***Damage Resistance.*** ${value}\n`,
+				);
+			}
+			const shared = (await runCheck(labelled)).report.findings;
+			expect(shared).toHaveLength(findings);
+			for (const finding of shared) {
+				expect(finding.rule).toBe("shared-line");
+				expect(finding.line).toBe(7);
+				expect(finding.message).toContain(`"${value}"`);
+			}
+		} finally {
+			await rm(labelled, { recursive: true, force: true });
+		}
+	});
+
+	it("does not borrow another page kind's template labels to excuse a structured list", async () => {
+		const labelled = await mkdtemp(join(tmpdir(), "cf-boilerplate-wrong-label-"));
+		try {
+			await mkdir(join(labelled, "wiki/C"), { recursive: true });
+			for (const name of ["One", "Two"]) {
+				await writeFile(
+					join(labelled, `wiki/C/${name}.md`),
+					"---\ntype: Creature\n---\n\n**Classes:** Sorcerer, Warlock, Wizard\n",
+				);
+			}
+			const shared = (await runCheck(labelled)).report.findings;
+			expect(shared).toHaveLength(2);
+			expect(shared.every((finding) => finding.message.includes('"Sorcerer, Warlock, Wizard"'))).toBe(true);
+		} finally {
+			await rm(labelled, { recursive: true, force: true });
+		}
+	});
 });

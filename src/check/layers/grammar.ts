@@ -4,6 +4,7 @@ import { binary } from "harper.js/binary";
 import type { Page, Vault } from "../../vault/types.ts";
 import type { CachedFinding } from "../cache.ts";
 import { runLanguageTool, type LanguageTool } from "../language.ts";
+import { blankProvenance, corpusProvenance, type CorpusProvenance } from "../provenance.ts";
 import { grammarView, lineAt, lineStarts, sourceOffset } from "../views.ts";
 import type { Layer } from "../types.ts";
 
@@ -103,15 +104,18 @@ function toUtf16(text: string): (index: number) => number {
 	return (i) => offsets[Math.min(i, offsets.length - 1)] ?? unit;
 }
 
-/** The style layer fails every em or en dash (`ai-tells.EmDashUsage`), so a Harper suggestion that inserts one is never offered. */
+/** House style accepts en dashes in numeric ranges, but other Harper dash suggestions still fail style. */
 const DASH = /[\u2013\u2014]/u;
 
-function hintFor(lint: Lint): string {
+function hintFor(lint: Lint, rule: string): string {
 	const problem = lint.get_problem_text();
 	const shown = problem.length > 60 ? `${problem.slice(0, 57)}...` : problem;
 	const suggestions = lint.suggestions();
 	const options = suggestions
-		.filter((s) => !DASH.test(s.get_replacement_text()))
+		.filter((s) => {
+			const text = s.get_replacement_text();
+			return !DASH.test(text) || (rule === "NumericRangeEnDash" && text === "\u2013");
+		})
 		.slice(0, 3)
 		.map((s) => {
 			const text = s.get_replacement_text();
@@ -124,17 +128,24 @@ function hintFor(lint: Lint): string {
 		options.length > 0
 			? `Harper suggests: ${options.join("; or ")}.`
 			: dashed
-				? `Rewrite \`${shown}\` without a dash: the style layer fails en and em dashes, so write a range as \`3 to 5\` and join clauses with a comma or a full stop.`
+				? `Rewrite \`${shown}\` without a dash: join clauses with a comma or a full stop. En dashes are reserved for numeric ranges, e.g. \`3–5\`.`
 				: `Rewrite \`${shown}\` so the sentence reads correctly.`;
 	return `${advice} Change the wording only; keep what the text says.`;
 }
 
-async function lintPages(l: LocalLinter, pages: Page[], vault: Vault): Promise<Map<Page, CachedFinding[]>> {
+async function lintPages(
+	l: LocalLinter,
+	pages: Page[],
+	vault: Vault,
+	provenance: CorpusProvenance,
+): Promise<Map<Page, CachedFinding[]>> {
 	const out = new Map<Page, CachedFinding[]>();
 	for (const page of pages) {
 		const found: CachedFinding[] = [];
 		out.set(page, found);
-		const view = grammarView(page, vault);
+		const original = grammarView(page, vault);
+		const published = provenance.lines.get(page)!;
+		const view = { ...original, text: blankProvenance(original.text, published) };
 		if (view.text.trim() === "") continue;
 		const starts = lineStarts(page.source);
 		const utf16 = toUtf16(view.text);
@@ -143,6 +154,9 @@ async function lintPages(l: LocalLinter, pages: Page[], vault: Vault): Promise<M
 			for (const lint of lints) {
 				const span = lint.span();
 				const [start, end] = [utf16(span.start), utf16(span.end)];
+				const line = lineAt(starts, sourceOffset(view, start));
+				// Blank table cells retain Markdown layout, but Harper still checks their whitespace.
+				if (published.has(line)) continue;
 				// A page name is not the DM's wording: a lint inside one (`config` in `[[campaign-config]]`) is dropped.
 				if (view.names.some(([s, e]) => start >= s && end <= e)) continue;
 				if (isConfirmedMisfire(rule, view.text, start, end)) continue;
@@ -150,9 +164,9 @@ async function lintPages(l: LocalLinter, pages: Page[], vault: Vault): Promise<M
 					layer: LAYER,
 					severity: "error",
 					rule,
-					line: lineAt(starts, sourceOffset(view, start)),
+					line,
 					message: lint.message(),
-					hint: hintFor(lint),
+					hint: hintFor(lint, rule),
 				});
 			}
 		}
@@ -163,18 +177,26 @@ async function lintPages(l: LocalLinter, pages: Page[], vault: Vault): Promise<M
 const grammarTool: LanguageTool = {
 	name: LAYER,
 	projectDictionary: true,
-	salt: () =>
-		JSON.stringify([DISABLED_RULES, Object.keys(MISREAD_PAST), CASTE_COLOUR.source, "item-properties-2026-10-11"]),
+	salt: async (ctx) =>
+		JSON.stringify([
+			DISABLED_RULES,
+			Object.keys(MISREAD_PAST),
+			CASTE_COLOUR.source,
+			"item-properties-2026-10-11",
+			"numeric-range-hints-2026-10-12",
+			"provenance-table-spacing-2026-10-12",
+			(await corpusProvenance(ctx)).salt,
+		]),
 	async compute(misses, ctx, words) {
 		const l = await linter();
 		await l.importWords(words);
-		return lintPages(l, misses, ctx.vault);
+		return lintPages(l, misses, ctx.vault, await corpusProvenance(ctx));
 	},
 };
 
 export const grammarLayer: Layer = {
 	name: LAYER,
 	scope: "page",
-	description: "Harper: grammar and usage in British English, outside published Item Properties.",
+	description: "Harper: British English grammar outside published Item Properties and corpus-provenance lines.",
 	run: (ctx) => runLanguageTool(grammarTool, ctx),
 };

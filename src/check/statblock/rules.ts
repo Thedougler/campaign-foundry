@@ -69,6 +69,7 @@ export function checkStatblock(sb: Statblock): Issue[] {
 	if (sb.proficiencyBonus !== undefined && sb.proficiencyBonus !== pb) {
 		issues.push({
 			rule: "proficiency-bonus",
+			arithmetic: true,
 			key: "proficiency_bonus",
 			message: `\`proficiency_bonus\` is ${signed(sb.proficiencyBonus)}, but CR ${sb.crText} has ${signed(pb)}.`,
 			hint: `Write \`proficiency_bonus: ${pb}\`, or delete the key. Proficiency bonus by CR: 0-4 is +2, 5-8 +3, 9-12 +4, 13-16 +5, 17-20 +6, 21-24 +7, 25-28 +8, 29-30 +9.`,
@@ -105,6 +106,8 @@ function checkSaves(sheet: Sheet, issues: Issue[]): void {
 			issues.push({
 				rule: "save-bonus",
 				key: "saves",
+				entry: key,
+				arithmetic: true,
 				message: `${ABILITY_NAMES[ability]} save is ${signed(value)}, expected ${signed(expected)}.`,
 				hint: `A saving throw is the ability modifier plus the proficiency bonus: ${modOf(sheet, ability)} + ${pbText(sheet)} = ${signed(expected)}. Write \`- ${ability}: ${expected}\`, or delete the entry if the Creature is not proficient.`,
 			});
@@ -132,6 +135,8 @@ function checkSkills(sheet: Sheet, issues: Issue[]): void {
 			issues.push({
 				rule: "skill-bonus",
 				key: "skillsaves",
+				entry: key,
+				arithmetic: true,
 				message: `${key} is ${signed(value)}, expected ${signed(proficient)} or ${signed(expertise)}.`,
 				hint: `A skill is the ${ABILITY_NAMES[ability]} modifier plus the proficiency bonus, or twice that bonus with expertise: ${modOf(sheet, ability)} + ${pbText(sheet)} = ${signed(proficient)}, or ${signed(expertise)} with expertise. Write \`- ${key}: ${proficient}\`.`,
 			});
@@ -154,6 +159,7 @@ function checkPassivePerception(sheet: Sheet, issues: Issue[]): void {
 	} else if (Number(match[1]) !== expected) {
 		issues.push({
 			rule: "passive-perception",
+			arithmetic: true,
 			key: "senses",
 			message: `Passive Perception is ${match[1]}, expected ${expected}.`,
 			hint: `Passive Perception is ${basis} = ${expected}. Write \`passive Perception ${expected}\`.`,
@@ -190,6 +196,7 @@ function checkHitPoints(sheet: Sheet, issues: Issue[]): void {
 		const uses = sizes.map((s, i) => `d${dice[i]} (${s[0]?.toUpperCase()}${s.slice(1)})`).join(" or ");
 		issues.push({
 			rule: "hit-die-size",
+			arithmetic: true,
 			key: "hit_dice",
 			message: `Hit Die is d${sides}, but a ${sb.size} Creature uses ${uses}.`,
 			hint: `Hit Die by size: Tiny d4, Small d6, Medium d8, Large d10, Huge d12, Gargantuan d20. Write e.g. \`hit_dice: "${count}d${dice[0]}"\` (keep the Constitution term) and recompute \`hp\`.`,
@@ -200,6 +207,7 @@ function checkHitPoints(sheet: Sheet, issues: Issue[]): void {
 	if (flat !== count * con) {
 		issues.push({
 			rule: "hp-constitution",
+			arithmetic: true,
 			key: "hit_dice",
 			message: `Hit Dice flat modifier is ${signed(flat)}, expected ${signed(count * con)}.`,
 			hint: `The flat modifier is the number of Hit Dice times the Constitution modifier: ${count} x ${modOf(sheet, "con")} = ${signed(count * con)}. Write \`hit_dice: "${count}d${sides} ${con * count < 0 ? "-" : "+"} ${Math.abs(count * con)}"\`.`,
@@ -218,6 +226,7 @@ function checkHitPoints(sheet: Sheet, issues: Issue[]): void {
 	if (sb.hp !== average) {
 		issues.push({
 			rule: "hp-average",
+			arithmetic: true,
 			key: "hp",
 			message: `\`hp\` is ${sb.hp}, expected ${average}.`,
 			hint: `Hit Points are the average of the Hit Dice, rounded down, plus the flat modifier: ${count}d${sides} averages ${Math.floor((count * (sides + 1)) / 2)}, ${signed(flat)} gives ${average}. Write \`hp: ${average}\`.`,
@@ -267,6 +276,7 @@ function checkAttacks(
 		const shown = abilities.map((a) => `${modOf(sheet, a)} gives ${signed(sheet.mods[a] + sheet.pb)}`).join("; ");
 		issues.push({
 			rule: "attack-bonus",
+			arithmetic: true,
 			feature: { section: feature.section, name: feature.name },
 			message: `${feature.name}: ${spellAttack ? "spell attack" : "attack roll"} is ${signed(found)}, expected ${[...new Set(options)].map(signed).join(" or ")}.`,
 			hint: `An attack bonus is the proficiency bonus plus the attack's ability modifier (${basis}): ${pbText(sheet)} plus ${shown}. Write the bonus that matches the ability the attack uses.`,
@@ -284,6 +294,7 @@ function checkDamage(feature: Feature, issues: Issue[]): void {
 		if (Number(m[1]) !== average) {
 			issues.push({
 				rule: "damage-average",
+				arithmetic: true,
 				feature: { section: feature.section, name: feature.name },
 				message: `${feature.name}: \`${m[0]}\` prints an average of ${m[1]}, but ${m[2]} averages ${average}.`,
 				hint: `Write the average rounded down: \`${average} (${m[2]})\`.`,
@@ -301,6 +312,7 @@ function checkDcs(sheet: Sheet, feature: Feature, spell: { casts: boolean; abili
 		if (abilities.some((a) => 8 + sheet.pb + sheet.mods[a] === dc)) continue;
 		issues.push({
 			rule: "save-dc",
+			arithmetic: true,
 			feature: at,
 			message: `${feature.name}: spell save DC ${dc} does not match the spellcasting ability.`,
 			hint: `A spell save DC is 8 + proficiency bonus + the spellcasting ability modifier: 8 + ${pbText(sheet)} + ${spell.ability ? modOf(sheet, spell.ability) : "the spellcasting ability modifier"} = ${spell.ability ? 8 + sheet.pb + sheet.mods[spell.ability] : abilities.map((a) => 8 + sheet.pb + sheet.mods[a]).join(", ")}. Write \`spell save DC ${spell.ability ? 8 + sheet.pb + sheet.mods[spell.ability] : "<that number>"}\`.`,
@@ -315,6 +327,7 @@ function checkDcs(sheet: Sheet, feature: Feature, spell: { casts: boolean; abili
 		if (options.some((o) => o.dc === dc)) continue;
 		issues.push({
 			rule: "save-dc",
+			arithmetic: true,
 			feature: at,
 			message: `${feature.name}: DC ${dc} is not 8 + proficiency bonus + any ability modifier.`,
 			hint: `A save DC is 8 + ${pbText(sheet)} + an ability modifier: ${options.map((o) => `${ABILITY_NAMES[o.a]} ${o.dc}`).join(", ")}. Pick the ability the effect uses and write its number.`,
@@ -330,6 +343,7 @@ function checkEscapeDcs(sheet: Sheet, feature: Feature, issues: Issue[]): void {
 		if (options.includes(dc)) continue;
 		issues.push({
 			rule: "escape-dc",
+			arithmetic: true,
 			feature: { section: feature.section, name: feature.name },
 			message: `${feature.name}: escape DC ${dc} does not follow from an ability modifier.`,
 			hint: `An escape DC is 10 + the Strength or Dexterity modifier (${10 + sheet.mods.str} or ${10 + sheet.mods.dex}), or 8 + ${pbText(sheet)} + an ability modifier (${ABILITIES.map((a) => `${ABILITY_NAMES[a]} ${8 + sheet.pb + sheet.mods[a]}`).join(", ")}). Write \`escape DC ${10 + sheet.mods.str}\`.`,

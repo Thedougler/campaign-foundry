@@ -45,6 +45,10 @@ Morality stays grey. The people at the bottom of society remain relatively innoc
 
 After each Session, update the crew line and crew section of [[uncertainty|Uncertainty]] with hires, departures, role changes and wages.
 
+## Language
+
+- **Dashes:** an en dash marks a numeric range. An em dash stands only where prose punctuation needs one, as in place of a 5e.tools export's triple hyphen. Every other dash becomes a full stop, a comma or "and".
+
 ## Lines and Veils
 
 A line never appears in any form: not shown, referenced, implied or carried as backstory or consequence. A veil may happen in the fiction, but the telling cuts away before the act. One sentence acknowledges it.

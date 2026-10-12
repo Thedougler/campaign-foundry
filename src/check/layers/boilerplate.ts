@@ -1,23 +1,56 @@
 import type { Finding, Layer } from "../types.ts";
-import type { Page } from "../../vault/types.ts";
+import { findTemplate } from "../../vault/vault.ts";
+import type { Page, Template } from "../../vault/types.ts";
 import { isUnownedProse, pageViews } from "../views.ts";
+import { corpusProvenance } from "../provenance.ts";
+
+const LABEL = /(\*{2,3}|_{2,3})([^*_\n]+?[.:])\1/g;
+const FIELD = /^(?:[-*+]\s+|\d+[.)]\s+)?(\*{2,3}|_{2,3})([^*_\n]+?[.:])\1(?:\s+|$)/;
+const TOKEN_LIST = /^[A-Z][A-Za-z]*(?:,\s*[A-Z][A-Za-z]*)+$/;
+const labelKey = (label: string): string => label.replace(/\s+/g, " ").trim().toLowerCase();
 
 /**
- * A good book never prints the same sentence twice. This layer flags sentences of body prose that appear verbatim
- * on more than one page, outside the places the templates hold in common (frontmatter, headings, callouts, fences).
- * Published Item Properties may repeat the same rules; they are not authorial prose.
+ * Repeated authorial sentences are boilerplate, outside the places templates hold in common
+ * (frontmatter, headings, callouts, fences and fixed field labels). Published Item Properties and lines
+ * proved against a page's named source corpus are intentional shared rules, not repeated authorial prose.
  */
 export const boilerplateLayer: Layer = {
 	name: "boilerplate",
 	scope: "vault",
-	description: "Verbatim prose shared across pages (every page is its own page).",
+	description: "Repeated authorial prose, excluding published Item Properties and proved corpus lines.",
 	async run(ctx) {
 		const findings: Finding[] = [];
+		const provenance = await corpusProvenance(ctx);
 		const shared = new Map<string, { pages: Map<Page, number>; quote: string }>();
+		const labels = new Map<Template, ReadonlySet<string>>();
 		for (const page of ctx.vault.pages) {
 			if (isUnownedProse(page)) continue;
-			for (const [line, sentences] of pageViews(page).sentences) {
+			const type = page.frontmatter?.type;
+			const kind = page.frontmatter?.kind;
+			const template =
+				typeof type === "string"
+					? findTemplate(ctx.templates, type, typeof kind === "string" ? kind : undefined)
+					: undefined;
+			let required: ReadonlySet<string> | undefined;
+			if (template) {
+				required = labels.get(template);
+				if (!required) {
+					// Guidance comments also name fixed run-ins, such as Spell scaling and Item properties.
+					required = new Set([...template.page.source.matchAll(LABEL)].map((match) => labelKey(match[2]!)));
+					labels.set(template, required);
+				}
+			}
+			const views = pageViews(page);
+			for (const [line, sentences] of views.sentences) {
+				if (provenance.lines.get(page)!.has(line)) continue;
+				const source = views.lines[line - 1]!.trim();
+				const field = FIELD.exec(source);
+				const label = field && labelKey(field[2]!);
+				const ownedLabel = label !== null && required?.has(label);
+				// Only a structured token list is a template value, not an authored sentence or free-text fragment.
+				if (ownedLabel && TOKEN_LIST.test(source.slice(field![0].length).trim())) continue;
 				for (const { key, quote } of sentences) {
+					if (ownedLabel && key === label) continue;
 					const entry = shared.get(key) ?? { pages: new Map<Page, number>(), quote };
 					entry.pages.set(page, line);
 					shared.set(key, entry);

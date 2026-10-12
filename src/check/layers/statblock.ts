@@ -1,7 +1,7 @@
 import type { Code, Nodes } from "mdast";
 import type { Page } from "../../vault/types.ts";
 import { parseStatblock } from "../statblock/parse.ts";
-import type { Issue } from "../statblock/parse.ts";
+import { corpusProvenance } from "../provenance.ts";
 import { checkStatblock } from "../statblock/rules.ts";
 import type { CheckContext, Finding, Layer } from "../types.ts";
 import { isFixedPage } from "../views.ts";
@@ -19,8 +19,9 @@ function fences(page: Page): Code[] {
 	return found;
 }
 
-export function run(ctx: CheckContext): Finding[] {
+export async function run(ctx: CheckContext): Promise<Finding[]> {
 	const findings: Finding[] = [];
+	const provenance = await corpusProvenance(ctx);
 	for (const page of ctx.pages) {
 		if (isFixedPage(page)) continue;
 		const path = ctx.display(page.path);
@@ -61,14 +62,13 @@ export function run(ctx: CheckContext): Finding[] {
 		const block = blocks[0] as Code;
 		const fenceLine = block.position?.start.line ?? 1;
 		const parsed = parseStatblock(block.value);
-		const lineOf = (issue: Issue): number => {
-			const lines = parsed.statblock?.lines;
-			if (!lines) return fenceLine + 1;
-			if (issue.feature) return fenceLine + lines.feature(issue.feature.section, issue.feature.name);
-			return fenceLine + (issue.key ? lines.key(issue.key) : 1);
-		};
 		const issues = [...parsed.issues, ...(parsed.statblock ? checkStatblock(parsed.statblock) : [])];
-		for (const issue of issues) add(issue.rule, lineOf(issue), issue.message, issue.hint);
+		for (const issue of issues) {
+			const lines = parsed.statblock?.lines(issue) ?? [];
+			const published = provenance.lines.get(page)!;
+			if (issue.arithmetic && lines.length > 0 && lines.every((line) => published.has(fenceLine + line))) continue;
+			add(issue.rule, fenceLine + (lines[0] ?? 1), issue.message, issue.hint);
+		}
 	}
 	return findings;
 }

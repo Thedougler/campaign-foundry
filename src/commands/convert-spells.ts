@@ -31,6 +31,8 @@ export function convertSpellsCommand(): Command {
 			`
 Archive the input before writing pages. Missing archive twins are refused; dry-run needs no twin.
 British spelling changes only where the spelling gate requires it; official D&D spellings stay.
+Only spelling, spacing, table layout, scaling labels and punctuation are normalised: digit ranges use en dashes,
+prose triple hyphens use em dashes, and source clause em dashes or double hyphens use commas. Code stays untouched.
 Output: created/would-create/skip rows, then created/skipped counts. A collision anywhere in the
 vault or destination is skipped, as is a duplicate slug in the same input. No file is overwritten.
 With --paths, stdout holds only created repo-relative paths (wiki/Spells/…), suitable for log --page -.

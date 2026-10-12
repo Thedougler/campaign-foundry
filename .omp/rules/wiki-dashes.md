@@ -1,8 +1,8 @@
 ---
-description: Wiki prose carries no em or en dashes.
+description: Wiki dashes follow the campaign-config Dashes ruling.
 condition: "[—–]"
 scope: "tool:write(wiki/**/*.md), tool:edit(wiki/**/*.md)"
 ---
 
-The gate fails every em or en dash in Wiki prose (`ai-tells.EmDashUsage`, and `Narration.NoEmDash` inside narration callouts).
-Rewrite the clause with a full stop, a comma or "and"; write ranges as `3 to 5`.
+Numeric ranges take an en dash (`3–5`). Em dashes stand only where prose punctuation needs one, per the campaign-config `**Dashes:**` bullet, which in practice means a converted page's replacements for triple hyphens.
+Every other dash becomes a full stop, a comma or "and". The gate (`ai-tells.EmDashUsage`, and `Narration.NoEmDash` inside narration callouts) still fails both dashes in a page the agent writes itself.
