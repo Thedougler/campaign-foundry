@@ -21,3 +21,5 @@ Quoted prompts, rubric questions and principles are verbatim from their sources.
 | `omp-features.md` | TTSR, rule, agent and hook syntax and pitfalls |
 | `lint-template-audit.md` | Gate layers, template linting, dash-carrying agent files, priming and contradiction lists |
 | `expert-dm-actual-play.md` | Holistic craft analysis of Brennan Lee Mulligan's "To the Hounds!" and Matt Mercer's "The Stowaway": episode shapes, findings by dimension with timestamps, limits of ASR and of written Prep, owner map |
+| `benchmark-data-api.md` | Verified no-key Sophon JSON endpoints for EQ-Bench creative and longform scores, target-family coverage, upstream feeds and limitations |
+| `benchmark-api-alternatives.md` | Other benchmark results APIs and datasets: Arena, LLM Stats, Artificial Analysis and WritingBench |

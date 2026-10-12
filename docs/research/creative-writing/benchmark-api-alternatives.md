@@ -1,0 +1,75 @@
+# Writing benchmark data: alternatives to EQ-Bench
+
+Research checked 2026-10-11. Ranked for **usable scored writing results**, not general intelligence or inference access. No current model-score ranking is reproduced here. Authenticated Artificial Analysis and LLM Stats payloads were not obtained; their API claims below are documented contracts, with coverage checked against public result tables. Context7 was consulted for Artificial Analysis and Hugging Face Dataset Viewer docs; live first-party docs take precedence where they disagree.
+
+## Recommendation
+
+1. **Arena's official leaderboard dataset**: strongest verified creative-writing feed, with scored rows for **Claude, GPT, Grok and GLM**, confidence bounds, vote counts, dates and history. Public Parquet plus a documented Hugging Face JSON API; no scraping/internal endpoint needed. Not a controlled long-form test.
+2. **WritingBench's official workbook**: best specialised general-writing result download, with domain/subdomain/length breakdowns. Claude, GPT and Grok confirmed; **no GLM row in the inspected workbook**. XLSX, not a dedicated results API. Not a multi-chapter benchmark.
+3. **LLM Stats**: real documented benchmark-results REST API, but the inspected writing tables are much narrower than its overall catalog and its access/rollout docs conflict. A conditional convenience aggregator, not a verified four-family or long-form solution.
+4. **Artificial Analysis**: mature documented data API and all four families in professional-work results, but no creative-prose metric in its inspected OpenAPI evaluation schema. Useful for professional deliverables, not a replacement creative/long-form writing score.
+
+**Long-form gap:** LongBench-Write and Arena-Write genuinely evaluate long outputs, but the inspected official releases are prompts/evaluation material, not attributed machine-readable scored-results feeds covering all four families. None of these alternatives establishes the eight-chapter continuity evaluation sought from EQ-Bench Longform.
+
+## 1. Arena / LMArena: official scored dataset + documented JSON access
+
+**Source and format.** Arena publishes [the official leaderboard dataset](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset), [announced by Arena](https://arena.ai/blog/arena-leaderboard-dataset). Its [dataset card](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/raw/main/README.md) documents `text` and `text_style_control`, each with `latest` and `full` splits. Columns include `model_name`, `organization`, `rating`, `rating_lower`, `rating_upper`, `variance`, `vote_count`, `rank`, `category`, and `leaderboard_publish_date`. These are actual aggregate results, not prompts or conversations. The card records Bradley–Terry ranking and methodology changes; style control became the default in May 2025.
+
+**Exact public data URLs:**
+
+- [Latest style-controlled text Parquet](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/text_style_control/latest-00000-of-00001.parquet).
+- [Historical style-controlled text Parquet](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/text_style_control/full-00000-of-00001.parquet).
+- [Latest non-style-controlled text Parquet](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/text/latest-00000-of-00001.parquet).
+- [Live JSON creative-writing query](https://datasets-server.huggingface.co/filter?dataset=lmarena-ai%2Fleaderboard-dataset&config=text_style_control&split=latest&where=%22category%22%3D%27creative_writing%27&offset=0&length=100).
+
+The last URL **returned data without a key**: 412 matching rows, `partial: false`, with inspected rows dated **2026-10-08**. Examples include `claude-opus-4-6`, `gpt-5.4`, `grok-4.1`, and `glm-5.1`, with their organizations and score/confidence/vote fields. All four family claims therefore come from the **creative-writing subset itself**, not overall model listings. The response is paginated: advance `offset`; this first page is not the full 412 rows.
+
+**Contract/access.** This is Hugging Face's [documented Dataset Viewer `/filter` API](https://huggingface.co/docs/dataset-viewer/filter), not an undocumented Arena endpoint. Required dataset/config/split plus `where`, `offset`, and `length`; max page length **100**. Filter syntax uses double-quoted column names, single-quoted string values and comparison predicates, e.g. `"category"='creative_writing'`. Dataset license is **CC BY 4.0**. Anonymous access worked for the inspected public JSON data; no guaranteed service quota/SLA is claimed here.
+
+**Caveat.** Arena's [creative-writing page](https://arena.ai/leaderboard/chat/text/creative-writing) describes fiction, poetry, scripts and worldbuilding judged by head-to-head human votes. The exported score schema does not specify required output length, chapter continuity or controlled long-form prompts. Treat it as human creative-writing preference, not novel-length performance. The separately advertised [Arena API gateway](https://portal.api.preview.arena.ai/docs) is inference access; it is not the results feed above.
+
+## 2. WritingBench: official specialised results workbook
+
+**Exact results URL:** [WritingBench `score.xlsx`](https://huggingface.co/spaces/WritingBench/WritingBench/resolve/main/score.xlsx). The live [Space source](https://huggingface.co/spaces/WritingBench/WritingBench/raw/main/app.py) reads this workbook with pandas and renders its values; the [file listing](https://huggingface.co/api/spaces/WritingBench/WritingBench/tree/main) confirms the file. It is a public download, not an inference API or merely the prompt dataset. The Space declares [Apache-2.0](https://huggingface.co/spaces/WritingBench/WritingBench/raw/main/README.md).
+
+**Verified coverage/data.** Workbook rows include `claude-sonnet-4-5-20250929`, `gpt-5-2025-08-07`, `grok-3`, and `grok-4-0709`; no GLM/Zhipu/Z.ai row was found in the inspected complete workbook. Fields include `Overall`, `Count`, `Organization`, six `Domain1_*` results, 100 `Domain2_*` results, and `style_R/C`, `format_R/C`, `length_R/C`. Creative subsets include Novel Manuscript, Character Design, Prose, Fan Fiction, Plot Development and Screenplay.
+
+**Method/limits.** The [official repository](https://github.com/X-PLUG/WritingBench) currently describes **1,000 queries**, six domains, 100 subdomains, five instance-specific criteria and LLM/critic scoring. Its change log reports switching judges to Claude Sonnet 4.5 in November 2025. There is no documented dedicated results REST endpoint in the inspected README/Space source; prefer downloading the backing workbook over Gradio internals. No key or purchase was required to fetch it; paid model calls are needed only if running one's own evaluations.
+
+**Long-form caveat.** Length is a requirement dimension, and generation is capped at `max_length: 16000` or the model's smaller maximum. That cap and the “Novel Manuscript” label do **not** establish a sustained multi-chapter protocol or the actual achieved length of every result. The README's “1,500+ average tokens per query” concerns inputs, not output length. The [benchmark JSONL](https://raw.githubusercontent.com/X-PLUG/WritingBench/main/benchmark_query/benchmark_all.jsonl) supplies prompts/criteria, not model scores.
+
+## 3. LLM Stats / ZeroEval: documented API, incomplete writing coverage and conflicting access docs
+
+**Documented results endpoints.** [API introduction](https://docs.llm-stats.com/api-reference/introduction) gives base `https://api.llm-stats.com/stats/v1`, with `Authorization: Bearer YOUR_API_KEY`. [Live OpenAPI](https://api.llm-stats.com/stats/openapi.json) and [List Scores](https://docs.llm-stats.com/api-reference/list-scores) document:
+
+- `GET https://api.llm-stats.com/stats/v1/benchmarks` — optional `category`, `verified`; returns benchmark IDs, categories, model counts and provenance.
+- `GET https://api.llm-stats.com/stats/v1/scores` — optional **`model`, `benchmark`, `category`, `min_score`, `max_score`, `scored_after`, `scored_before`, `verified_only`, `sort`, `cursor`, `limit`**; `limit` defaults to 100, maximum **500**. Response includes raw/normalized score, model/benchmark IDs, `is_self_reported`, `verified`, `scored_at`, `source`, `url`, `next_cursor`, `total`.
+
+Use benchmark IDs returned by the catalog; do not assume a web slug is an API ID. A keyless request to the documented `/benchmarks?category=writing` route returned **401**, so authenticated writing-score payloads/catalog completeness were not verified.
+
+**Actual public writing coverage.** The complete [Creative Writing v3 table](https://llm-stats.com/benchmarks/creative-writing-v3) has **14 results, all self-reported and zero verified**; Grok-4.1 and Grok-4.1 Thinking appear, but no Claude/GPT/GLM rows. The complete [WritingBench table](https://llm-stats.com/benchmarks/writingbench) has **16 results, also zero verified**, and none of the four target families. These findings are scoped to those tables, not a claim that the entire catalog excludes those families. The Creative Writing v3 page describes 32 prompts × three iterations, not a long-form benchmark. Searches for Longform, LongWriter and LongBench-Write plus the available benchmark index did not establish a long-form writing feed; the authenticated catalog remains the missing evidence. Long-context or LongFact factuality scores would not substitute for long-form narrative craft.
+
+**Pricing/limits: unresolved first-party contradiction.** The [developer landing page](https://llm-stats.com/developer?upgrade=builder) advertises Community **250 responses/day, 50 requests/min**, Builder **$99/month, 5,000/day, 300/min**, and uses `https://api.zeroeval.com/stats/v1` in its example. Meanwhile the [plans docs](https://docs.llm-stats.com/api-reference/plans-and-quotas) specify Community **500/day, 60/min** and explicitly call plan enforcement planned; the [changelog](https://docs.llm-stats.com/api-reference/changelog) also marks billing, quotas, historical data, snapshots and changes as planned. [Rate-limit docs](https://docs.llm-stats.com/api-reference/rate-limits-and-headers) say the existing live per-client/per-route limits are models/rankings **60/min**, scores **120/min**, updates **30/min**. Do not present the paid history/snapshot/change features or either free quota as proven live entitlements without account-level confirmation. Both sources reserve dataset redistribution for Commercial agreements; Builder does not buy redistribution rights.
+
+## 4. Artificial Analysis: documented API, professional writing rather than prose craft
+
+**Exact documented endpoints:** [OpenAPI](https://artificialanalysis.ai/api/v2/openapi), [current data docs](https://artificialanalysis.ai/data-api/docs):
+
+- `GET https://artificialanalysis.ai/api/v2/language/models/free` — headline/capability indices, median performance and input/output pricing.
+- `GET https://artificialanalysis.ai/api/v2/language/models` — **Pro+**, including per-benchmark results.
+- `GET https://artificialanalysis.ai/api/v2/language/models/{slug}` — **Pro+** detail; provider data is Commercial-only.
+
+All require organization-scoped `x-api-key`. Current docs/OpenAPI agree on **Free 100**, **Pro 500**, Commercial custom requests per fixed 24-hour shared quota window; pagination applies. [Pricing](https://artificialanalysis.ai/pricing) displayed **$417/month per seat** with yearly-billing savings; Commercial redistribution/access is quote-based. Attribution is required, with use governed by linked data-platform terms.
+
+**Important version trap.** The still-live [older API reference](https://artificialanalysis.ai/api-reference), also retrieved through Context7, documents `https://artificialanalysis.ai/api/v2/data/llms/models` and **1,000/day**. Do not mix those older claims with the new `/language/models[/free]` contract. The new OpenAPI is explicit that Free keys need the `/free` sibling even though its quick-start example uses the Pro route.
+
+**Writing coverage.** The inspected evaluation schema includes professional-work results `aa_briefcase_elo`, `gdpval_aa_elo` and `gdpval_aa_normalized`, but no named creative-writing/longform-prose score. The official [GDPval-AA result table](https://artificialanalysis.ai/evaluations/gdpval-aa) contains Claude, GPT, Grok and GLM rows; this establishes all-four professional-work coverage, not authenticated API payload completeness. [AA-Briefcase](https://artificialanalysis.ai/evaluations/aa-briefcase) evaluates memos, presentations, spreadsheets and other deliverables; [GDPval-AA](https://artificialanalysis.ai/evaluations/gdpval-aa) covers 44 occupations. “Long-horizon knowledge work” and [AA-LCR's long-input reasoning](https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning) are not long-form fiction. Recommend this only if professional-document production counts as the desired writing measure.
+
+## Genuine long-output benchmarks that do not supply the requested results feed
+
+- **LongBench-Write / LongWriter:** [paper §3.3 and Table 3](https://arxiv.org/html/2408.07055v1) evaluates 120 bilingual prompts across required output bands up to **[4,000, 20,000) words**, with output-length adherence plus GPT-4o-judged quality. The scored table includes Claude 3.5 Sonnet, GPT-4o/Turbo/mini and GLM-4-9B-chat, but no Grok row. The [official evaluation directory](https://github.com/THUDM/LongWriter/tree/main/evaluation) contains prompt JSONL and evaluation code, not downloadable scored-result files. [Exact JSONL](https://raw.githubusercontent.com/THUDM/LongWriter/main/evaluation/longbench_write.jsonl) is therefore a **prompt dataset**, not a scores feed; [repository license](https://raw.githubusercontent.com/THUDM/LongWriter/main/LICENSE.txt) is Apache-2.0. Useful methodology, static 2024 paper results, not an all-four current leaderboard API.
+- **Arena-Write / LongWriter-Zero:** [official dataset card](https://huggingface.co/datasets/THU-KEG/Arena-Write/raw/main/README.md), [exact JSONL](https://huggingface.co/datasets/THU-KEG/Arena-Write/resolve/main/Arena-Write-Data.jsonl), [paper](https://arxiv.org/html/2506.18841v2). Public Apache-2.0 release: 100 writing tasks, many demanding >2,000 words, plus baseline responses. Inspected rows have `question`, `type`, `length`, `baseline_response`, `idx`, but **no model identifier or score**. The paper reports Claude/OpenAI results; GLM is a baseline rather than a scored result row, and no Grok row appears. Do not confuse this academic benchmark with Arena.ai, or unlabeled baseline prose with an attributed results feed.
+
+## Evidence boundary
+
+Live unauthenticated result access was exercised for Arena JSON and the official WritingBench XLSX. Official schemas/docs/public result tables were read for the keyed services; no accounts, keys, payments, inference evaluations, integration, Notion changes or git operations were performed. No build/lint/test run was applicable to this research-only note.

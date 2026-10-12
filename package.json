@@ -10,6 +10,7 @@
     "fix": "bun run lint --fix",
     "setup": "vale sync && vale --config .vale-narration.ini sync && node scripts/vale-patch.ts",
     "voice:envelope": "node scripts/voice-envelope.ts",
+    "benchmarks": "node scripts/benchmarks.ts",
     "py:install": "uv sync --directory python",
     "py:lint": "uv run --directory python ruff check .",
     "py:fmt": "uv run --directory python ruff format .",
@@ -28,6 +29,7 @@
     "ajv-formats": "^3.0.1",
     "commander": "^15.0.0",
     "cspell-lib": "^10.3.5",
+    "csv-parse": "^7.0.3",
     "dotenv": "^18.0.5",
     "exa-js": "^2.23.0",
     "fastest-levenshtein": "^1.0.16",
@@ -58,6 +60,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
     "@foundryvtt/foundryvtt-cli": "^3.0.4",
+    "@oh-my-pi/omptype": "^18.9.2",
     "@oh-my-pi/pi-coding-agent": "18.8.0",
     "@types/jsdom": "^30.0.0",
     "@types/mdast": "^4.0.4",

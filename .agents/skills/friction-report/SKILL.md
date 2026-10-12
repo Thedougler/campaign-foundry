@@ -1,11 +1,11 @@
 ---
 name: friction-report
-description: Friction report — close a run's return with what its friction cost, one line per item in the repo's standard format. Use at the end of every subagent run, and when asked to reflect on completed work.
+description: Friction report — subagents close every completed run's return with what its friction cost, one line per item in the repo's standard format.
 ---
 
 # Friction report
 
-Look back over a finished run and report each event that cost it correctness, time or tokens, in lines an orchestrator can triage without opening your transcript. The work is final before this skill starts, and the report describes the run as it happened. Your own run is the whole evidence: the files you read and the results your tools returned. The report needs no further reads or commands.
+As a subagent, look back over your finished run and report each event that cost it correctness, time or tokens, in lines your orchestrator can triage without opening your transcript. Orchestrators act on returned report lines rather than use this skill for their own end-of-run review. The work is final before this skill starts, and the report describes the run as it happened. Your own run is the whole evidence: the files you read and the results your tools returned. The report needs no further reads or commands.
 
 Judge the run by **laziness**, a principle that traces to Clarence Bleicher's 1947 Senate testimony on Frank Gilbreth Sr.'s motion study: "put a lazy man on it, and after 10 days he will have an easy way to do it". Be lazy about everything outside the objective so the objective gets your full effort, and clear the trail so the next agent repeats none of your toil. Quality holds or rises while repeated effort falls. Ask these questions of the run:
 
