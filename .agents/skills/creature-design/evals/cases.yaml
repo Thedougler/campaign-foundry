@@ -66,7 +66,7 @@
       mechanics, hidden motives or things their characters have not
       learned, and respects Narration already heard at the table.
 
-# creature split 2026-10-11: generic reusable monster, statblock only, no World. Files a minimal `kind: Generic` page at the vault root's Creatures/ (wiki/templates/creature-generic.md). No source_pages by design (evals/README.md § Grounding); Design verdict pending its first baseline run. Derived-number arithmetic is the Checks' `statblock` gate layer, not a rubric.
+# creature split 2026-10-11: generic reusable monster, statblock only, no World. Files a World-free page at the vault root's Creatures/ from wiki/templates/creature.md, keeping only its Statblock and Links Base (docs/wiki-layout.md **World-free pages**, ADR 0039). No source_pages by design (evals/README.md § Grounding); Design verdict pending its first baseline run. Derived-number arithmetic is the Checks' `statblock` gate layer, not a rubric.
 - id: generic-monster
   prompt: >-
     I want a monster for my own collection that isn't tied to any campaign
@@ -79,16 +79,18 @@
     sections:
       Creatures/mire-lurker.md:
         - "## Statblock"
+        - "## Links"
     canon:
       Creatures/mire-lurker.md:
         - '^type:\s*Creature\s*$'
-        - '^kind:\s*Generic\s*$'
+        - '^```base\b'
         - '^```statblock\b'
         - '^layout: Basic 5e Layout\s*$'
         - '(Melee|Ranged) Attack Roll:'
     absent:
       Creatures/mire-lurker.md:
-        - '^##+ (?!Statblock\s*$)'
+        - '^##+ (?!(Statblock|Links)\s*$)'
+        - '^kind:'
         - '\[!narration\]'
         - 'Weapon Attack:'
   rubrics:

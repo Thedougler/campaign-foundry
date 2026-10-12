@@ -1,31 +1,20 @@
-# Cross-family model matrix for other-harness committed evals and explicitly
-# model-pinned Narration Benchmark runs. Values are exact `provider/model-id`
-# pins from `omp models` (join each provider header and bare model id).
-# Outside oh-my-pi, `cheap` on `openai` and `glm` supplies ordinary skill-eval
-# runners (one family per run, rotating openai → glm). Native committed evals
-# and skill authoring use configured TEST-SUBJECT and PROSE-GRADER roles;
-# authoring edits use SKILL-WRITER. top = Prose Benchmark runners (rare,
-# leaderboard). Matrix CLI runs pass `--thinking high` (the DM requires luna
-# at thinking >= high); a pin whose `omp models` tiers lack `high` is invalid:
-# re-pin or record SKIPPED. On a dead matrix pin try `fallback` once; if that
-# also fails record SKIPPED with a reason and continue. Native role dispatch
-# preserves harness thinking/fallback settings. No copilot or openrouter-backed providers.
+# Cheap model pins for other-harness committed evals (CONTEXT.md § Matrix). Values are
+# exact `provider/model-id` pins from `omp models` (join each provider header and bare
+# model id). Outside oh-my-pi, `cheap` on `openai` and `glm` supplies ordinary skill-eval
+# runners (one family per run, rotating openai → glm). Native committed evals and skill
+# authoring use configured TEST-SUBJECT and PROSE-GRADER roles; authoring edits use
+# SKILL-WRITER. Matrix CLI runs pass `--thinking high` (the DM requires luna at thinking
+# >= high); a pin whose `omp models` tiers lack `high` is invalid: re-pin or record
+# SKIPPED. On a dead cheap pin try `fallback` once; if that also fails record SKIPPED
+# with a reason and continue. Native role dispatch preserves harness thinking/fallback
+# settings. Every pin resolves in `omp models` and its provider reports quota in
+# `omp usage`, so a runner can gate a run on it. No openrouter-backed providers.
+# The Prose Benchmark seats no pins here: its four families sit in the frontmatter of
+# .omp/agents/bench-{runner,grader}-<family>.md (ADR 0038).
 families:
   openai:
-    top:    {model: openai-codex/gpt-6.1-sol, fallback: opencode-zen/gpt-6.1-sol}
     cheap:  {model: openai-codex/gpt-5.6-luna, fallback: opencode-go/gpt-5.6-luna}
   grok:
-    top:    {model: xai-oauth/grok-4.7, fallback: opencode-go/grok-4.7}
     cheap:  {model: xai-oauth/grok-4.5, fallback: opencode-go/grok-4.5}
   glm:
-    top:    {model: zai/glm-5.3, fallback: opencode-go/glm-5.3}
     cheap:  {model: zai/glm-5.3-flash, fallback: opencode-go/glm-5.3-flash}
-
-# Judge substitutes: used ONLY when the native Claude Opus 5.5 Judge cannot
-# answer (no claude CLI). One random pick per benchmark run (never per sample),
-# recorded as `judge` in evals/benchmark.json. The pool is the benchmark's own
-# `top` pins; samples reach the Judge anonymized either way.
-judge_fallback_pool:
-  - zai/glm-5.3
-  - openai-codex/gpt-6.1-sol
-  - xai-oauth/grok-4.7

@@ -5,7 +5,7 @@ description: Site stocking — use for direct dungeon, ruin, cave, wreck or keep
 
 # Dungeon design
 
-Stock a Site that the Party moves through, investigates and changes under pressure. The output remains `type: Location`, `kind: Site`, in the flat `<campaign-folder>/Locations/` folder with a quoted `parent` wikilink. Rooms and areas are keys on that page. A large complex can contain child Sites. Each child Site is filed in the same flat folder, with the containing Site as its `parent`.
+Stock a Site that the Party moves through, investigates and changes under pressure. The output remains `type: Location`, `kind: Site`, in the flat `<campaign-folder>/Locations/` folder with a quoted `parent` wikilink, or per `docs/wiki-layout.md` **One vault, many Campaigns** for a World-free Site and its Campaign versions. Rooms and areas are keys on that page. A large complex can contain child Sites. Each child Site is filed in the same flat folder, with the containing Site as its `parent`.
 
 ## Procedure
 

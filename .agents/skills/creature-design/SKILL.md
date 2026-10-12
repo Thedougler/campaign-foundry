@@ -29,7 +29,7 @@ statblock's format.
 Capture the caller's Creature name, purpose, existing page, requested role and
 difficulty, number of Creatures, terrain, encounter objective, and whether this
 is reuse, creation, or retune. When the DM asks for a reusable monster tied to
-no World or Campaign, follow [World-agnostic statblock](#world-agnostic-statblock)
+no World or Campaign, follow [World-free Creature](#world-free-creature)
 in place of these steps. Otherwise resolve the caller's root, vault and
 Campaign explicitly, and run all retrieval and writes inside them.
 
@@ -72,7 +72,9 @@ encounter count and relevant House Rules are written before numbers are chosen.
 Search in this order: an existing fitting Creature in the target Wiki; the
 2024 SRD through `dnd5e-srd-api`; official material outside the SRD; suitable
 homebrew retrieved from the web; then a new design inspired by the closest
-retrieved peers. Search by rules function and fantasy, not only by name.
+retrieved peers. Search by rules function and fantasy, not only by name. A
+World-free Creature in the vault-root `Creatures/` folder is a candidate the
+Campaign copies into its own version (`docs/wiki-layout.md` **Campaign versions**).
 
 Record candidates actually retrieved, their source tier, what fits, what fails,
 and the decision. An unavailable provider or incomplete retrieval remains an
@@ -194,7 +196,8 @@ Its counts match the things it describes and Canon.
 
 Follow [references/filing-and-operations.md](references/filing-and-operations.md)
 and copy `wiki/templates/creature.md` exactly to `<campaign-folder>/Creatures/<slug>.md`, the slug of its `title`.
-Fill its sections in the template's order, following each section's `%%`
+Fill every `##` section in the template's order, the ones it marks optional
+for World-free pages included, following each section's `%%`
 guidance and leaving out the `###` parts this Creature has nothing for. Write
 its one `statblock` fence per `skill://fantasy-statblock` and keep the
 template's Base view. Add at least one real incoming wikilink besides the generated index;
@@ -220,7 +223,7 @@ PC's page or SRD entry, or the record line with its actor and outcome. Rewrite
 the claim or the statblock until the two agree. A claim with no line behind it
 goes.
 
-**Gate:** the page has every template property and required heading. It has one
+**Gate:** the page has every template property and `##` heading. It has one
 valid statblock and one incoming link, complete source attribution, and no
 changed played record or NPC identity. The compare list pairs every claim with
 a quoted line that says the same.
@@ -242,16 +245,16 @@ compare list, affected consumers, new canon and verification result.
 three-round model and consumer audit are all complete, and every pointer in
 this skill resolves to an existing file or installed skill.
 
-## World-agnostic statblock
+## World-free Creature
 
-A reusable monster tied to no World or Campaign gets a page whose only
-section is its statblock, copied from `wiki/templates/creature-generic.md`
-(`kind: Generic`) and filed at the vault root's `wiki/Creatures/<slug>.md`,
-the shared kind folder (`CONTEXT.md` **Campaign folder**). When the DM asks
-for the block in chat, the reply contains it and the run files no page. The
-page has no Narration, Party tuning or setting lore, so this branch skips the
-Campaign reads, the Party dossier and steps 5 to 8. The vault root has no
-`log.md`, so the run doesn't log.
+A reusable monster tied to no World or Campaign is a World-free page
+(`docs/wiki-layout.md` **World-free pages**): a copy of
+`wiki/templates/creature.md` that keeps its frontmatter, `## Statblock` and
+`## Links` and leaves out every optional section, filed at the vault root's
+`wiki/Creatures/<slug>.md`. When the DM asks for the block in chat, the reply
+contains it and the run files no page. The page has no Narration, Party tuning
+or setting lore, so this branch skips the Campaign reads, the Party dossier and
+steps 5 to 8. The vault root has no `log.md`, so the run doesn't log.
 
 1. **Scope.** Record the concept, role, CR or tier and signature the DM gives.
    **Done when** the notes state each, with a detail the ask leaves open
@@ -279,11 +282,10 @@ Campaign reads, the Party dossier and steps 5 to 8. The vault root has no
    for a chat-only block.
 5. **File** the page from the template: `title` the kind's plain name,
    `summary` one line on its role and CR, `sources` any archived Raw it came
-   from or `[]`, and the block under `## Statblock` with nothing else on the
-   page. Link it from the page the ask concerns when one exists; a
-   World-agnostic page with no asking page files at the vault root and needs
-   no inbound link. Close per step 8's gate commands over every page this
-   run touched. **Done when** the page gate prints `ok: 0 findings`.
+   from or `[]`, the block under `## Statblock` and the template's `## Links`
+   Base, with every optional section deleted. The page doesn't need an inbound link.
+   Close per step 8's gate commands over every page this run touched.
+   **Done when** the page gate prints `ok: 0 findings`.
 6. **Reply** with the page path, or the ` ```statblock ` fence for a
    chat-only ask, then one line that states the path, the peer the CR rests on and
    the attribution for any published material. **Done when** the reply

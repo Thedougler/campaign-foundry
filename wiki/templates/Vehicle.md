@@ -52,7 +52,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give the craft's past and what it hides. %%
+%% Optional. Include it on every Vehicle that belongs to a World. DM only. Give the craft's past and what it hides. %%
 
 ### History
 

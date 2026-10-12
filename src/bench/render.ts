@@ -1,76 +1,143 @@
-import type { BenchFile, BenchRow } from "./cache.ts";
-import type { Matrix } from "./matrix.ts";
-import type { PromptSet } from "./prompts.ts";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import { rubricNames, type CouncilResult } from "./council.ts";
+import { listPromptVersions } from "./prompts.ts";
+import { listRunEntries, type Mapping, type RunEntry } from "./runs.ts";
 
-/** Renders `evals/benchmark.md` from the cache: deterministic, so the view never drifts from the data. */
-export function renderLeaderboard(cache: BenchFile, set: PromptSet, matrix: Matrix): string {
-	const version = latestVersion(cache) ?? set.version;
+/** One entry's revealed pieces, read beside its `run.json`. */
+interface Revealed {
+	council: CouncilResult;
+	mapping: Mapping;
+}
+
+/**
+ * Renders `evals/bench/leaderboard.md` from the committed log: deterministic, so the view never
+ * drifts from the data. Each prompt version shows its latest entry — revealed or awaiting reveal —
+ * and keeps the older ones as history (ADR 0038).
+ */
+export function renderLeaderboard(runsDir: string, promptsDir: string, promptsRel: string, rubricPath: string): string {
+	const entries = listRunEntries(runsDir);
+	const prompts = listPromptVersions(promptsDir, promptsRel);
+	const rubric = existsSync(rubricPath) ? readFileSync(rubricPath, "utf8") : "";
+	const labels = rubricNames(rubric);
 	const header = [
-		"# Cross-family prose leaderboard",
+		"# Prose Benchmark leaderboard",
 		"",
-		"Ranked Narration quality across model families, rendered from",
-		`\`evals/benchmark.json\` (the cache; a row is a HIT only when ${cache.hit_rule}).`,
-		`Prompt set: \`evals/prose-bench.yaml\` (bench_version ${version}). Matrix pins:`,
-		"`evals/models.yaml`. Claude runs its own native skill-evals and is not ranked",
-		"here. Rows marked (cached) were not re-executed this run.",
+		"Each prompt version's latest council entry, with older entries as history, rendered from the",
+		"committed log in `evals/bench/runs/`. `bun run cfcli -- bench render` rebuilds it (ADR 0038).",
 		"",
 	].join("\n");
-	if (cache.results.length === 0) {
-		return `${header}## Prose Benchmark — not yet run for bench_version ${version}\n\nNo scored samples. Plan the first Round with \`cfcli bench status\`.\n`;
+	if (entries.length === 0)
+		return `${header}\nNo runs yet. \`bun run cfcli -- bench status\` selects the families for the first one.\n`;
+	const sections: string[] = [];
+	const byPrompt = new Map<string, RunEntry[]>();
+	for (const entry of entries) {
+		const list = byPrompt.get(entry.run.prompt) ?? [];
+		list.push(entry);
+		byPrompt.set(entry.run.prompt, list);
 	}
-	const rows = cache.results.filter((row) => row.bench_version === version);
-	const runAt = maxRunAt(rows);
-	const perFamily = matrix.families
-		.map((family) => ({ family, rows: rows.filter((row) => row.family === family.name) }))
-		.filter(({ rows }) => rows.length > 0)
-		.map((entry) => {
-			const hits = entry.rows.filter((row) => row.status === "scored");
-			const mean = hits.length === 0 ? 0 : hits.reduce((sum, row) => sum + (row.prose_score ?? 0), 0) / hits.length;
-			return { ...entry, hits, mean };
-		});
-	const order = [...perFamily].sort(
-		(a, b) => b.mean - a.mean || matrix.families.indexOf(a.family) - matrix.families.indexOf(b.family),
+	for (const prompt of prompts) if (!byPrompt.has(prompt.name)) byPrompt.set(prompt.name, []);
+	for (const [prompt, promptEntries] of byPrompt) {
+		sections.push(`## ${prompt}\n`);
+		if (promptEntries.length === 0) {
+			sections.push("No runs yet.\n");
+			continue;
+		}
+		const latest = promptEntries.at(-1)!;
+		const older = promptEntries.slice(0, -1);
+		const revealed = revealedOf(latest);
+		if (revealed === undefined) sections.push(awaitingReveal(latest));
+		else sections.push(latestSection(latest, revealed, labels));
+		if (older.length > 0) {
+			sections.push(
+				"### History\n",
+				...older.map((entry) => {
+					const past = revealedOf(entry);
+					return past === undefined ? `- ${entry.name} — never revealed` : historyLine(entry, past);
+				}),
+				"",
+			);
+		}
+	}
+	return `${header}\n${sections.join("\n")}`;
+}
+
+function revealedOf(entry: RunEntry): Revealed | undefined {
+	if (!entry.revealed) return undefined;
+	const councilPath = join(entry.dir, "council.json");
+	const mappingPath = join(entry.dir, "mapping.json");
+	if (!existsSync(mappingPath)) return undefined;
+	try {
+		return {
+			council: JSON.parse(readFileSync(councilPath, "utf8")) as CouncilResult,
+			mapping: JSON.parse(readFileSync(mappingPath, "utf8")) as Mapping,
+		};
+	} catch {
+		return undefined;
+	}
+}
+
+function awaitingReveal(entry: RunEntry): string {
+	const pending = entry.run.pending
+		.map((pendingFamily) => `${pendingFamily.family} (${pendingFamily.reason})`)
+		.join(", ");
+	return [
+		`### ${entry.name} — awaiting reveal\n`,
+		`Council seats: ${Object.keys(entry.run.seats).join(", ") || "(none)"}.`,
+		pending === "" ? undefined : `Pending: ${pending}.`,
+		`Reveal with \`bun run cfcli -- bench reveal --run ${entry.name}\`.`,
+		"",
+	]
+		.filter((line): line is string => line !== undefined)
+		.join("\n");
+}
+
+function latestSection(entry: RunEntry, revealed: Revealed, labels: string[]): string {
+	const { council } = revealed;
+	const lines: string[] = [];
+	lines.push(
+		`### ${entry.name}${entry.run.amends === undefined ? "" : ` — amends ${entry.run.amends}`}\n`,
+		`Council: ${council.council.join(", ") || "(none)"}. Empty seats: ${council.empty_seats.join(", ") || "none"}.\n`,
 	);
-	const table = [
-		"| family | model | samples | mean prose | per-type scores | rank |",
-		"| ------ | ----- | ------- | ---------- | --------------- | ---- |",
-	];
-	for (let i = 0; i < order.length; i++) {
-		const { family, rows, hits, mean } = order[i]!;
-		const cached = maxRunAt(rows) < runAt ? " (cached)" : "";
-		const perType = set.entries
-			.map((bench) => hits.find((row) => row.id === bench.id))
-			.filter((row): row is BenchRow => row !== undefined)
-			.map((row) => `${row.id} ${(row.prose_score ?? 0).toFixed(1)}`)
-			.join(", ");
-		table.push(
-			`| ${family.name} | ${rows.at(-1)?.model ?? ""} | ${hits.length} / ${set.entries.length}${cached} | ${mean.toFixed(1)} | ${perType} | ${i + 1} |`,
+	lines.push(
+		`| rank | alias | family | seat | ${labels.join(" | ")} | mean | mean rank |`,
+		`| ---- | ----- | ------ | ----${labels.map(() => " | ---").join("")} | ---- | --------- |`,
+	);
+	council.order.forEach((alias, index) => {
+		const sample = council.samples[alias]!;
+		const seat = entry.run.seats[sample.family ?? ""];
+		lines.push(
+			`| ${index + 1} | ${alias} | ${sample.family ?? "?"} | ${seat === undefined ? "?" : `${seat.model} · ${seat.thinking}`} | ${sample.scores.map((score) => score.toFixed(2)).join(" | ")} | ${sample.overall.toFixed(2)} | ${sample.mean_rank.toFixed(2)} |`,
 		);
-	}
-	const notes = order.flatMap(({ family, rows }) => {
-		const unfinished = rows.filter((row) => row.status !== "scored");
-		if (unfinished.length === 0) return [];
-		const ids = unfinished
-			.map((row) => row.id)
-			.sort()
-			.join(", ");
-		return [`> ${family.name} — ${unfinished[0]!.status}: ${ids} (${unfinished[0]!.reason ?? "no reason recorded"})`];
 	});
-	return `${header}## Prose Benchmark — ${runAt}\n\n${table.join("\n")}\n${notes.length > 0 ? `\n${notes.join("\n")}\n` : ""}`;
+	const pending = entry.run.pending
+		.map(
+			(pendingFamily) =>
+				`- **${pendingFamily.family}** — ${pendingFamily.reason}${pendingFamily.resetsAt === null ? "" : ` (resets ${pendingFamily.resetsAt})`}`,
+		)
+		.join("\n");
+	if (pending !== "") lines.push("", "Pending:", "", pending);
+	const dropped = entry.run.dropped
+		.map((droppedFamily) => `- **${droppedFamily.family}** — ${droppedFamily.reason}`)
+		.join("\n");
+	if (dropped !== "") lines.push("", "Dropped:", "", dropped);
+	return `${lines.join("\n")}\n`;
 }
 
-/** The bench_version of the most recently recorded row, so the leaderboard always shows the newest run. */
-function latestVersion(cache: BenchFile): string | undefined {
-	const maxAt = new Map<string, string>();
-	for (const row of cache.results)
-		maxAt.set(row.bench_version, maxRunAt(cache.results.filter((r) => r.bench_version === row.bench_version)));
-	let best: { version: string; runAt: string } | undefined;
-	for (const [version, runAt] of maxAt) {
-		if (best === undefined || runAt > best.runAt) best = { version, runAt };
-	}
-	return best?.version;
-}
-
-function maxRunAt(rows: BenchRow[]): string {
-	return rows.reduce((latest, row) => (row.run_at > latest ? row.run_at : latest), "");
+function historyLine(entry: RunEntry, revealed: Revealed): string {
+	const order = revealed.council.order
+		.map((alias, index) => {
+			const sample = revealed.council.samples[alias]!;
+			return `${index + 1}. ${sample.family ?? alias} ${sample.overall.toFixed(2)}`;
+		})
+		.join(" · ");
+	const pending =
+		entry.run.pending.length === 0
+			? ""
+			: `; pending: ${entry.run.pending.map((pendingFamily) => pendingFamily.family).join(", ")}`;
+	const dropped =
+		entry.run.dropped.length === 0
+			? ""
+			: `; dropped: ${entry.run.dropped.map((droppedFamily) => droppedFamily.family).join(", ")}`;
+	return `- **${entry.name}**${entry.run.amends === undefined ? "" : ` (amends ${entry.run.amends})`} — ${order}${pending}${dropped}`;
 }

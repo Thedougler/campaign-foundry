@@ -73,7 +73,6 @@ function resolvePages(ctx: CheckContext, findings: Finding[]): Resolved[] {
 		}
 		const kind = isBlank(fm.kind) ? undefined : fm.kind;
 		const kindLine = page.frontmatterKeyLines.kind ?? typeLine;
-		const kindless = findTemplate(ctx.templates, type);
 		if (kinds.length === 0) {
 			if (kind !== undefined)
 				at(
@@ -82,15 +81,11 @@ function resolvePages(ctx: CheckContext, findings: Finding[]): Resolved[] {
 					`Type \`${type}\` has no kinds, but the page sets \`kind: ${String(kind)}\`.`,
 					`Remove the \`kind\` property; only ${quoteList([...ctx.templates.types].filter(([, k]) => k.length > 0).map(([t]) => t))} take a kind.`,
 				);
-			if (kindless) resolved.push({ page, template: kindless });
+			const template = findTemplate(ctx.templates, type);
+			if (template) resolved.push({ page, template });
 			continue;
 		}
 		if (kind === undefined || typeof kind !== "string") {
-			// A type can carry a kinded template beside a kindless one: a page with no `kind` keeps the kindless template.
-			if (kindless) {
-				resolved.push({ page, template: kindless });
-				continue;
-			}
 			at(
 				"missing-kind",
 				typeLine,
@@ -286,17 +281,18 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 
 	const present = new Map(page.callouts.map((c) => [c.type, c]));
 	for (const type of template.callouts) {
-		if (!present.has(type)) {
-			const callout = template.page.callouts.find((c) => c.type === type);
-			const title = callout?.title ?? "Title";
-			const home = template.page.headings.filter((h) => h.depth === 2 && h.line < (callout?.line ?? 0)).at(-1)?.text;
-			add(
-				"missing-callout",
-				1,
-				`Missing \`[!${type}]\` callout (required by templates/${template.name}.md).`,
-				`Add a callout ${home ? `under \`## ${home}\`` : `where templates/${template.name}.md puts it`}, e.g.\n> [!${type}] ${title}\n> Spoken text for the table.`,
-			);
-		}
+		if (present.has(type)) continue;
+		const callout = template.page.callouts.find((c) => c.type === type);
+		const home = template.page.headings.filter((h) => h.depth === 2 && h.line < (callout?.line ?? 0)).at(-1)?.text;
+		// A callout belongs to its section: under an optional section the page left out, it is not required.
+		if (home !== undefined && template.optional.has(home) && !headings2.some((h) => h.text === home)) continue;
+		const title = callout?.title ?? "Title";
+		add(
+			"missing-callout",
+			1,
+			`Missing \`[!${type}]\` callout (required by templates/${template.name}.md).`,
+			`Add a callout ${home ? `under \`## ${home}\`` : `where templates/${template.name}.md puts it`}, e.g.\n> [!${type}] ${title}\n> Spoken text for the table.`,
+		);
 	}
 	for (const callout of page.callouts) {
 		if (callout.body === "" && template.callouts.includes(callout.type)) {

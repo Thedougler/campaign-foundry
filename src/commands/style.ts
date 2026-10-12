@@ -20,14 +20,26 @@ const PREFIX = "_style/";
 const OUTSIDE = "_style-outside/";
 
 /**
- * The `cfcli style` targets by reported path — cwd-relative inside the cwd, absolute outside it: `-` becomes
- * `stdin.md`, a directory expands to its `*.md` files, a missing path is a usage error.
+ * ADR 0038: Benchmark prompts are the DM's verbatim text, and the run log keeps samples as the
+ * agents returned them. Neither is agent prose to style-gate, so both stay outside `cfcli style`
+ * however they are selected — explicit file, or a folder expanded over them.
  */
+function isBenchRecord(shown: string): boolean {
+	const posix = shown.split(sep).join("/");
+	return (
+		posix === "evals/bench/prompts" ||
+		posix.startsWith("evals/bench/prompts/") ||
+		posix.startsWith("/evals/bench/prompts/") ||
+		posix.startsWith("evals/bench/runs/") ||
+		posix.startsWith("/evals/bench/runs/")
+	);
+}
 async function targetFiles(paths: string[]): Promise<Map<string, string>> {
 	const targets = new Map<string, string>();
 	const add = async (abs: string): Promise<void> => {
 		const rel = relative(process.cwd(), abs);
 		const shown = rel === ".." || rel.startsWith(`..${sep}`) || isAbsolute(rel) ? abs : rel;
+		if (isBenchRecord(shown)) return;
 		let source: string;
 		try {
 			source = await readFile(abs, "utf8");
@@ -53,12 +65,13 @@ async function targetFiles(paths: string[]): Promise<Map<string, string>> {
 		}
 		if (statSync(abs).isDirectory()) {
 			// Same ignores as a vault read: generated and machine folders are not prose to review. A skill's
-			// frozen eval snapshots quote the prose they judged, so they are a record, not agent text.
+			// frozen eval snapshots quote the prose they judged, and its eval fixtures keep researched
+			// source notes as fetched, so both are records, not agent text.
 			const md = await glob("**/*.md", {
 				cwd: abs,
 				onlyFiles: true,
 				dot: false,
-				ignore: ["templates/**", ".obsidian/**", "node_modules/**", "**/evals/snapshot/**"],
+				ignore: ["templates/**", ".obsidian/**", "node_modules/**", "**/evals/snapshot/**", "**/evals/fixtures/**"],
 			});
 			for (const p of md.sort()) await add(join(abs, p));
 			continue;

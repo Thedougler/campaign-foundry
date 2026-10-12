@@ -1,0 +1,14 @@
+# World-free pages live at the vault root
+
+Amends [ADR 0024](0024-campaign-folder-holds-its-world.md).
+
+ADR 0024 opened a vault-root kind folder (`wiki/Creatures/`, `wiki/Items/`) only when a second Campaign reused a page. The DM also wants content tied to no World, such as a monster for their own collection or a generic magic item. `creature-design` already filed such a monster at `wiki/Creatures/<slug>.md` from a separate `creature-generic.md` template with `kind: Generic`, while `docs/wiki-layout.md`, `CONTEXT.md` and ADR 0024 still said the root folders were for reused pages only. A second template per kind would double every template the gate and the skills read.
+
+Decision:
+
+- **One home rule.** A page that belongs to no one Campaign is filed in the vault-root kind folder `wiki/<Kind>/`, created when its first page needs it. That covers a World-free page (`CONTEXT.md` **World-free page**) and a page a second Campaign reuses. Any other page is filed in its Campaign folder.
+- **Any kind can be World-free.** The content skill decides from the DM's ask whether a page is.
+- **The minimum is the template's required part.** A World-free page contains the minimum that is playable and placeable in any World: a Creature's statblock and essentials, an Item's rules and a bare description. Each kind keeps one template. Its required sections are that minimum, and each World-bound section (Narration, setting lore, ties, Party tuning) is `Optional.`, its guidance saying when to include it. `creature-generic.md` and `kind: Generic` are gone, and no `kind` or property marks a page World-free.
+- **Campaign versions are lazy and self-contained.** When the DM's goal needs a World-free page's content in a Campaign, the agent copies the page into the Campaign folder and adapts its statblock or rules there. It then fleshes the copy out. The version never links, embeds or cites the World-free page, which stays as it is and is only a starting point. Slugs are unique across the vault. The version takes the World's own name for its subject, else the World-free title with its Campaign's name in parentheses (`Mire Lurker (Shattered Sea)`), per `docs/wiki-layout.md` **Page names**.
+
+Consequences: `docs/wiki-layout.md` **One vault, many Campaigns** states the operative rule, and the content design skills, `ingest` and `flesh-out` point to it. The Creature, Item, Spell and Vehicle templates mark their World-bound sections optional. The gate requires a template callout only when the page has the section the template puts it in, which lets a World-free Creature pass without its First sight. The orphans layer already exempts pages in vault-root kind folders, and `cfcli index` lists them by kind in the root `index.md`. A Campaign page now meets fewer required sections in the gate. The design skills fill every section on a Campaign page to make up for it.

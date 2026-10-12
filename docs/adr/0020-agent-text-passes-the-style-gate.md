@@ -6,8 +6,8 @@ The page gate fails every em dash on a Wiki page under `ai-tells.EmDashUsage`, y
 Decision:
 
 - **Same gate.** Content-facing agent text passes `bun run cfcli -- style` at `ok: 0 findings`, under the same Zero findings rule in `AGENTS.md` as Wiki pages.
-- **One list.** The `STYLE_PATHS` list in `scripts/lint/agents.ts` defines content-facing agent text: the creative and content skills, `collab-with-me`, `lint`, the `creative-writer` and `persona` agents, the co-writing and Scene docs, and `wiki/templates`. Research copies in `docs/research/`, the vendored `humanizer` and the measurement skills stay outside it.
+- **One gate.** `bun run lint agents` runs `cfcli style` on every file it checks: each explicit path and each changed agent-facing file, unfiltered. The `STYLE_PATHS` list in `scripts/lint/agents.ts` selects only the whole-domain `--all` pass, and the short list makes that run fast: the creative and content skills, `collab-with-me`, `lint`, the `creative-writer` and `persona` agents, the co-writing and Scene docs, and `wiki/templates`. Research copies in `docs/research/`, the vendored `humanizer` and the measurement skills stay outside that list.
 - **Rule IDs over token lists.** Flagged words and phrases live only in the Vale YAML under `.vale/styles/`. Skills cite the rule ID (`Narration.NoEmDash`) and describe the passing form.
 - **Quoted sources in fences.** A source prompt or rubric that must keep its wording goes in a fenced code block. The gate's prose view drops fenced blocks, and the quote keeps its exact words with no finding on it.
 
-Run `bun run lint agents` after any edit to those paths: its style check runs `cfcli style` over the files on that list.
+Run `bun run lint agents <files>` after editing agent-facing text: its style check runs `cfcli style` over those files.

@@ -1,5 +1,7 @@
 # The Campaign folder contains its World
 
+Status: amended by [ADR 0039](0039-world-free-pages-live-at-the-vault-root.md). Vault-root kind folders also hold World-free pages, created with their first page.
+
 The Wiki kept each World in a folder of its own and nested each Campaign folder inside it (`wiki/The Shattered Sea/Shattered Sea/`). That nesting repeated a distinction the page types already record, and every path had to state it. The old path also contained spaces, and a path with spaces cannot appear in an `@` import, so `user-config.md` could not load a Campaign's `campaign-config.md` directly.
 
 Decision:

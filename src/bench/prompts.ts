@@ -1,119 +1,75 @@
 import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
-import YAML from "yaml";
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { UsageError } from "../check/errors.ts";
 
-/** The line every prompt in the set opens with: a runner brief must stand alone. */
-export const PERSONA_LINE = "You are writing for a home D&D 5e campaign wiki.";
-
-export interface BenchEntry {
+/** One DM-written Benchmark prompt version: the committed file `evals/bench/prompts/<id>/v<N>.md` (ADR 0038). */
+export interface PromptVersion {
+	/** The prompt slot id: its directory name. */
 	id: string;
-	/** Wiki-relative source page the committed `context` was excerpted from; provenance only. */
-	fixture_page?: string;
-	context: string;
-	prompt: string;
-	rubrics: string[];
+	/** The version number N. */
+	version: number;
+	/** The version's name: `<id>/v<N>`. */
+	name: string;
+	/** Path relative to the repository root. */
+	path: string;
 }
 
-export interface PromptSet {
-	/** First 12 hex of the prompt set file's sha256: the cache key for the whole set. */
-	version: string;
-	entries: BenchEntry[];
+/** The sha256 of a committed file's bytes: the identity `run.json` records for the prompt and the rubric. */
+export function sha256File(path: string): string {
+	return createHash("sha256").update(readFileSync(path)).digest("hex");
 }
 
-/** First 12 hex of the sha256 of `input`. */
-export function sha12(input: string | Uint8Array): string {
-	return createHash("sha256").update(input).digest("hex").slice(0, 12);
-}
-
-export function loadPromptSet(path: string): PromptSet {
-	let bytes: Buffer;
+/**
+ * Every prompt version under `promptsDir`, reported under `promptsRel` (its repository-relative path),
+ * sorted by id then version. An empty or missing directory is no prompts.
+ */
+export function listPromptVersions(promptsDir: string, promptsRel: string): PromptVersion[] {
+	let slots: string[];
 	try {
-		bytes = readFileSync(path);
+		slots = readdirSync(promptsDir);
 	} catch {
-		throw new UsageError(
-			`No prompt set at \`${path}\`.`,
-			"Prose Benchmark prompts live in `evals/prose-bench.yaml`; run from the repository root.",
-		);
+		return [];
 	}
-	let parsed: unknown;
-	try {
-		parsed = YAML.parse(bytes.toString("utf8"));
-	} catch (error) {
-		throw new UsageError(
-			`\`${path}\` is not valid YAML: ${(error as Error).message}`,
-			"Fix the YAML; bench_version moves with any edit, so the cache clears itself.",
-		);
-	}
-	const entries = Array.isArray(parsed) ? (parsed as unknown[]) : [];
-	if (entries.length === 0)
-		throw new UsageError(`\`${path}\` holds no entries.`, "Add at least one { id, context, prompt, rubrics } entry.");
-	const seen = new Set<string>();
-	for (const raw of entries) {
-		const entry = raw as Partial<BenchEntry>;
-		const id = typeof entry.id === "string" ? entry.id : "<unset id>";
-		if (typeof entry.id !== "string" || entry.id === "") {
-			throw new UsageError(
-				`Entry \`${id}\` in \`${path}\` has no id.`,
-				"Every entry needs a unique id; it names the sample files and the leaderboard rows.",
-			);
+	const versions: PromptVersion[] = [];
+	for (const slot of slots.sort()) {
+		let files: string[];
+		try {
+			files = readdirSync(join(promptsDir, slot));
+		} catch {
+			continue;
 		}
-		if (seen.has(entry.id)) {
-			throw new UsageError(
-				`Duplicate entry id \`${entry.id}\` in \`${path}\`.`,
-				"Entry ids must be unique; they key the benchmark cache.",
-			);
-		}
-		seen.add(entry.id);
-		for (const field of ["context", "prompt"] as const) {
-			if (typeof entry[field] !== "string" || entry[field]!.trim() === "") {
-				throw new UsageError(
-					`Entry \`${entry.id}\` has an empty \`${field}\`.`,
-					"Each entry is self-contained: excerpt the real Wiki facts into `context`, the whole task into `prompt`.",
-				);
-			}
-		}
-		if (
-			!Array.isArray(entry.rubrics) ||
-			entry.rubrics.length === 0 ||
-			entry.rubrics.some((r) => typeof r !== "string" || r.trim() === "")
-		) {
-			throw new UsageError(
-				`Entry \`${entry.id}\` has no rubrics.`,
-				"List the rubrics the Judge scores; they must be identical across entries so scores compare.",
-			);
-		}
-		if (!entry.prompt!.trimStart().startsWith(PERSONA_LINE)) {
-			throw new UsageError(
-				`Entry \`${entry.id}\`'s prompt does not open with the persona line.`,
-				`Every prompt opens with "${PERSONA_LINE}" so the rendered brief needs no glue.`,
-			);
+		for (const file of files) {
+			const match = /^v(\d+)\.md$/.exec(file);
+			if (match !== null)
+				versions.push({
+					id: slot,
+					version: Number(match[1]),
+					name: `${slot}/v${match[1]}`,
+					path: `${promptsRel}/${slot}/${file}`,
+				});
 		}
 	}
-	return { version: sha12(bytes), entries: entries as BenchEntry[] };
+	return versions.sort((a, b) => a.id.localeCompare(b.id) || a.version - b.version);
 }
 
-export function findEntry(set: PromptSet, id: string): BenchEntry {
-	const entry = set.entries.find((e) => e.id === id);
-	if (!entry)
-		throw new UsageError(
-			`No entry \`${id}\` in the prompt set.`,
-			`Known entries: ${set.entries.map((e) => e.id).join(", ")}.`,
+/**
+ * The prompt version a run uses: its exact name `<id>/v<N>`, or a bare `<id>` for the highest version
+ * the DM has written. A name nothing matches is the empty prompt slot: the DM writes prompts, so the
+ * run stops and says so.
+ */
+export function findPromptVersion(versions: PromptVersion[], name: string): PromptVersion {
+	const exact = versions.find((version) => version.name === name);
+	if (exact !== undefined) return exact;
+	const highest = versions
+		.filter((version) => version.id === name)
+		.reduce<PromptVersion | undefined>(
+			(top, version) => (top === undefined || version.version > top.version ? version : top),
+			undefined,
 		);
-	return entry;
-}
-
-/** The byte-exact runner brief: the entry's facts, then its whole prompt. Deterministic: same YAML in, same bytes out. */
-export function renderBrief(entry: BenchEntry): string {
-	return `${entry.context.trim()}\n\n${entry.prompt.trim()}\n`;
-}
-
-/** The brief's sha256 prefix: the byte identity a cached row must match to be a HIT. */
-export function promptSha(entry: BenchEntry): string {
-	return sha12(renderBrief(entry));
-}
-
-/** Where a bench_version's artifacts live, relative to the repository root. */
-export function benchDir(version: string): string {
-	return `evals/benchmark-samples/${version}`;
+	if (highest !== undefined) return highest;
+	throw new UsageError(
+		`No Benchmark prompt \`${name}\` under \`evals/bench/prompts/\`.`,
+		"The DM writes prompts at `evals/bench/prompts/<id>/v<N>.md`; when `bun run cfcli -- bench status` lists none, the prompt slot is empty — tell the DM.",
+	);
 }

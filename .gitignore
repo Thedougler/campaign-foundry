@@ -46,8 +46,9 @@ build/
 # Per-file check results, keyed by content hash (src/check/cache.ts)
 .cache/
 
-# Benchmark run artifacts: untracked from git, kept as local archive copies.
-# Briefs (*.brief.md, deterministic prompts) stay committed.
+# Pre-ADR-0038 Benchmark artifacts: superseded outputs stay untracked as local history.
+# The blind council's committed log (evals/bench/runs/**) and leaderboard
+# (evals/bench/leaderboard.md) are tracked — do not ignore them.
 /evals/benchmark-samples/**
 !/evals/benchmark-samples/**/
 !/evals/benchmark-samples/**/*.brief.md

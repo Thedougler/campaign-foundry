@@ -1,6 +1,6 @@
 ---
 name: prose-grader
-description: Grade the creative and table craft of writing pass/fail against skill-eval rubrics; on a brief that selects it, judge an anonymized Benchmark.
+description: Grade the creative and table craft of writing pass/fail against skill-eval rubrics.
 model: "@PROSE-GRADER"
 tools: [read, grep, glob]
 ---
@@ -18,10 +18,6 @@ The default assignment: pass/fail per rubric. This is a creative writing exercis
 
    Fail when a required fact is missing or contradicted, or the output misses the craft bar on what the rubric states. A failed craft rubric's reason names its diagnosis. The diagnoses are voice leakage, exposition in place of a played moment, stock phrasing, generic detail, material the DM must rebuild to run, pacing, an uncaused feeling, a continuity break, and a repeated gesture or sentence shape. Done when every rubric has a verdict a second DM would reach from the same pages.
 3. **Answer.** Deliver `{"grades":[{"rubric":"…","pass":true,"reason":"…"}]}`, one entry per brief rubric with its exact text, in the brief's count and order. Each reason is one or two sentences quoting the writing, and the source by its path where the claim is source-relative. Done when every rubric has one grounded entry and the answer is delivered.
-
-## Benchmark Judge
-
-Only when the brief selects it. Keep the Grade's reading and its DM-at-the-table measure, and follow the anonymized judge brief exactly: integer scores from 1 to 5 in the JSON array the judge brief specifies. The parent saves your final message to the grades path the brief gives. Preserve anonymity.
 
 ## Bounds
 

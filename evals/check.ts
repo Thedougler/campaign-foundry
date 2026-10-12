@@ -21,16 +21,20 @@ Options:
   --cases <file>  cases file (default: .agents/skills/<skill>/evals/cases.yaml)
   -h, --help      show this help
 
-cases.yaml is a list of { id, prompt, subject, source_pages, raw_sources, checks, rubrics }.
+cases.yaml is a list of { id, prompt, subject, source_pages, raw_sources, fixtures, checks, rubrics }.
+fixtures are repo-relative files under <skill-dir>/evals/fixtures/, read by the Runner and grader as sources.
 Checks: pages (written by the run), sections, canon regexes and absent regexes. The .md extension is optional.
+A page key with * names every page the run wrote that matches it: * within one folder, ** across folders.
+pages passes on one match; sections and canon fail with no match; absent passes with no match.
 A case with subject: smart runs on the smart test subject (agent smart-test-subject).
 After the case checks, the statblock layer of the production gate runs read-only over the Outcome;
 findings on output pages become statblock results — an error fails, a warning is reported (WARN)
 and passes. Prose lint (style, narration) is excluded from evals by DM decision (ADR 0037).
 Exit codes: 0 all passed, 1 a quality check failed, 2 usage/cases/output error.
 
-Example:
+Examples:
   bun run eval:check theatre-of-the-mind fatespinner-chat wiki --output /tmp/runner-output
+  bun run eval:check item-design playful-cloud wiki --output /tmp/runner-output   # checks keyed on Items/*.md
 `;
 
 export interface Checks {
@@ -47,6 +51,8 @@ export interface Case {
 	subject?: "smart";
 	source_pages?: string[];
 	raw_sources?: string[];
+	/** Repo-relative files under the skill's `evals/fixtures/`, listed on the Runner's and grader's `Sources:` lines. */
+	fixtures?: string[];
 	checks?: Checks;
 	rubrics?: string[];
 }
@@ -96,15 +102,23 @@ export function loadCases(file: string): Case[] {
 		if (item.subject !== undefined && item.subject !== "smart")
 			fail(`${where} ("${item.id}"): "subject" must be "smart" when set`);
 		for (const key of Object.keys(item)) {
-			if (!["id", "prompt", "subject", "source_pages", "raw_sources", "checks", "rubrics"].includes(key))
+			if (!["id", "prompt", "subject", "source_pages", "raw_sources", "fixtures", "checks", "rubrics"].includes(key))
 				fail(`${where}: unknown case field "${key}"`);
 		}
-		for (const key of ["source_pages", "raw_sources"]) {
+		for (const key of ["source_pages", "raw_sources", "fixtures"]) {
 			if (item[key] !== undefined && !isStringList(item[key])) fail(`${where}: ${key} must be a list of paths`);
 		}
 		for (const path of (item.source_pages as string[] | undefined) ?? []) wikiPagePath(path);
 		for (const path of (item.raw_sources as string[] | undefined) ?? []) {
 			if (!/^(raw|archive)\/.+/u.test(path)) fail(`${where}: raw_sources must identify raw/ or archive/ inputs`);
+			wikiPagePath(path);
+		}
+		for (const path of (item.fixtures as string[] | undefined) ?? []) {
+			if (!/^\.(agents|omp)\/skills\/[^/]+\/evals\/fixtures\/.+/u.test(path))
+				fail(
+					`${where}: fixtures must sit under a skill's evals/fixtures/`,
+					"Example: .agents/skills/item-design/evals/fixtures/playful-cloud.md",
+				);
 			wikiPagePath(path);
 		}
 		const checks = item.checks as Record<string, unknown> | undefined;
@@ -128,6 +142,8 @@ export interface Outcome {
 	readPage: (path: string) => string | undefined;
 	/** True when the run itself returned this page, so a live page left untouched does not count as a deliverable. */
 	wrote: (path: string) => boolean;
+	/** Every page the run returned, Wiki-relative. */
+	written: () => string[];
 }
 
 /** Omitted pages remain live; output pages and recorded deletions shadow live files. */
@@ -143,6 +159,7 @@ export function createOutcome(vault: string, outputRoot: string): Outcome {
 			return existsSync(file) && statSync(file).isFile() ? readFileSync(file, "utf8") : undefined;
 		},
 		wrote: (path) => overlay.pages.has(wikiPagePath(path)),
+		written: () => [...overlay.pages.keys()],
 	};
 }
 
@@ -205,10 +222,37 @@ function hasHeading(text: string, spec: string): boolean {
 	return headings(text).some((h) => h.title.toLowerCase() === title && (level === undefined || h.level === level));
 }
 
+/** A page key holding `*` matches pages the run wrote: `*` within one folder, `**` across folders. */
+function patternRegExp(pattern: string): RegExp {
+	const source = wikiPagePath(pattern)
+		.split("**")
+		.map((part) =>
+			part
+				.split("*")
+				.map((text) => text.replace(/[.+?^${}()|[\]\\]/gu, "\\$&"))
+				.join("[^/]*"),
+		)
+		.join(".*");
+	return new RegExp(`^${source}$`, "u");
+}
+
 /** Failed quality checks are results, not execution errors. */
 export function runChecks(checks: Checks, outcome: Outcome): Result[] {
 	const results: Result[] = [];
+	// A literal key names its one page; a pattern key names every page the run wrote that matches it.
+	const pagesFor = (key: string): string[] =>
+		key.includes("*") ? outcome.written().filter((page) => patternRegExp(key).test(page)).sort() : [key];
 	for (const page of checks.pages ?? []) {
+		if (page.includes("*")) {
+			const matches = pagesFor(page);
+			const ok = matches.length > 0;
+			results.push({
+				ok,
+				kind: "pages",
+				detail: `${page} ${ok ? `matched by ${matches.join(", ")}` : "matches no page the run wrote"}`,
+			});
+			continue;
+		}
 		const ok = outcome.wrote(page);
 		results.push({ ok, kind: "pages", detail: `${page} ${ok ? "written by the run" : "not written by the run"}` });
 	}
@@ -218,15 +262,24 @@ export function runChecks(checks: Checks, outcome: Outcome): Result[] {
 		pass: string,
 		miss: string,
 	) => {
-		for (const [page, items] of Object.entries(checks[kind] ?? {})) {
-			const text = outcome.readPage(page);
-			for (const item of items) {
-				if (text === undefined) {
-					results.push({ ok: false, kind, detail: `${page}: page is missing (${item})` });
-					continue;
+		for (const [key, items] of Object.entries(checks[kind] ?? {})) {
+			const pages = pagesFor(key);
+			if (pages.length === 0) {
+				// Absence holds over no pages; a required section or regex has nothing to hold on.
+				for (const item of items)
+					results.push({ ok: kind === "absent", kind, detail: `${key}: no page the run wrote matches (${item})` });
+				continue;
+			}
+			for (const page of pages) {
+				const text = outcome.readPage(page);
+				for (const item of items) {
+					if (text === undefined) {
+						results.push({ ok: false, kind, detail: `${page}: page is missing (${item})` });
+						continue;
+					}
+					const ok = test(text, item);
+					results.push({ ok, kind, detail: `${page}: ${item} ${ok ? pass : miss}` });
 				}
-				const ok = test(text, item);
-				results.push({ ok, kind, detail: `${page}: ${item} ${ok ? pass : miss}` });
 			}
 		}
 	};

@@ -17,7 +17,7 @@ The Wiki stores a Spell page only for a spell the rules sources lack. A spell fr
 6. **Rulings.** Answer the 3 to 5 tricks Players will try with it. State how a target or rival caster counters it and which named NPC or Creature casts it against the Party.
 7. **Discovery.** One named source (an NPC, Item, Site or Faction page) with a reason to hold it, the price of learning it (coin, a favour, a task, a risk), the Clue that tells the Party the source exists, and who notices when a PC first casts it.
 8. **Narration.** Hand `theatre-of-the-mind` the Casting slot with the signature.
-9. **File** to `wiki/templates/spell.md` in `<campaign-folder>/Spells/` (a page already filed keeps its folder). The casting fields go under At a glance, Effect (the full rules text) and Rulings under Play, and Tradition and Who knows it (the source and its price) under Depth. Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Close per `skill://lint` § Commands with the page path.
+9. **File** to `wiki/templates/spell.md` in `<campaign-folder>/Spells/` (a page already filed keeps its folder, and a World-free page and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**). The casting fields go under At a glance, Effect (the full rules text) and Rulings under Play, and Tradition and Who knows it (the source and its price) under Depth. Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Close per `skill://lint` § Commands with the page path.
 
 ## Damage by level
 

@@ -37,8 +37,12 @@ one group of Players moving through a World over a series of Sessions, with its 
 _Avoid_: game, adventure, run
 
 **Campaign folder**:
-the Wiki folder of one Campaign, named for it as a lowercase-hyphenated slug (`wiki/shattered-sea/`). It keeps the Campaign's pages and its World's pages together: both overviews, `campaign-config.md`, `story-so-far.md`, `hot.md`, `index.md`, `log.md` and the page folders. Kind folders at the vault root (`NPCs`, `Items`) exist only for pages a second Campaign reuses.
+the Wiki folder of one Campaign, named for it as a lowercase-hyphenated slug (`wiki/shattered-sea/`). It keeps the Campaign's pages and its World's pages together: both overviews, `campaign-config.md`, `story-so-far.md`, `hot.md`, `index.md`, `log.md` and the page folders. A page that belongs to no one Campaign, a World-free page or one a second Campaign reuses, is filed in a kind folder at the vault root (`wiki/Creatures/`) instead (`docs/wiki-layout.md` **One vault, many Campaigns**).
 _Avoid_: campaign directory, World folder
+
+**World-free page**:
+a page tied to no World, holding the minimum that is playable and placeable in any World: a Creature's statblock and essentials, an Item's rules and a bare description. It lives in its kind folder at the vault root, and its kind's template serves it with every World-bound section optional. The content skill decides from the DM's ask whether a page is World-free. A Campaign that needs its content copies it into a self-contained Campaign version in the Campaign folder, and the World-free page stays as it is.
+_Avoid_: generic page, World-agnostic page, shared page
 
 **Session**:
 one real-world meeting where the DM runs play for the Players, in person.
@@ -325,32 +329,31 @@ a deterministic assertion `eval:check` runs on the Outcome (live pages with the 
 _Avoid_: scoring speakability with a Check
 
 **Grade**:
-independent reading of authored prose. Fixture-eval Grades are pass/fail. Benchmark Grades are the Judge's scores from 1 to 5.
+independent reading of authored prose. Fixture-eval Grades are pass/fail. Benchmark Grades are each Council grader's scores from 1 to 5 per rubric and its ranking of every sample.
 _Avoid_: keyword search as a substitute for reading
 
 **Runner**:
-the model that executes an eval or benchmark entry. A cheap Codex or GLM model runs ordinary skill evals, and the top tier runs the Prose Benchmark. A Runner is never the Judge.
+the model that executes an eval case or a Benchmark prompt. A cheap Codex or GLM model runs ordinary skill evals. A Benchmark Runner is one family's `bench-runner-<family>` seat, which takes Campaign content only from the Backup.
 
-**Judge**:
-the grader that scores every Prose Benchmark sample, blind and independent, on anonymised samples. It is Opus 5.5 when the claude CLI answers, otherwise one seated substitute from the Matrix.
+**Council**:
+the graders of one Prose Benchmark run, one `bench-grader-<family>` per selected family on the same model as that family's Runner. Each grader scores and ranks every anonymised sample, and the run's result is the Council's average. Each model's bias toward its own writing then counts once among several.
+_Avoid_: the old Benchmark Judge, judge panel
 
 **Matrix**:
-the families under test and their pinned cheap and top models, kept in `evals/models.yaml`.
+the four provider families the Prose Benchmark draws from (Anthropic, OpenAI, Z.ai and xAI), each seated by one model and thinking level in the frontmatter of its `bench-runner-<family>` and `bench-grader-<family>` definitions. `evals/models.yaml` lists the cheap pins that other-harness evals use.
 
 **Prose Benchmark**:
-the rarely-run, cached ranking of Matrix families by Narration quality, one sample per content type. Its prompts are all committed and rendered deterministically (Runner brief, Judge brief); its run outputs (`evals/benchmark.json`, `evals/benchmark.md`, and everything under `evals/benchmark-samples/` except the briefs) are untracked, gitignored and archived locally under `archive/evals-benchmark/`.
+the requested blind Council ranking of Matrix families on one Benchmark prompt (ADR 0038). A sample is the Wiki page the DM requests in the prompt, and its Narration callout is the craft graded first. Each run commits its log to `evals/bench/runs/<date>-<id>-v<N>/`, with the samples under their Aliases and each grader's grades. The log adds the Council result and the revealed mapping, with a report. A family skipped for low usage is pending, and a later run of the same version amends the entry with a new dated one that the Council grades afresh.
 
-**Runner brief**:
-the byte-exact prompt a benchmark entry runs from: the entry's `context`, then its `prompt` verbatim, rendered by `cfcli bench briefs` into `evals/benchmark-samples/<bench_version>/<id>/<id>.brief.md`, committed.
+**Benchmark prompt**:
+a test prompt the DM writes, committed at `evals/bench/prompts/<id>/v<N>.md` and named by its version `<id>/v<N>`. Every Runner in a run receives the same file. Agents never write or edit one, and a changed prompt is a new version.
+_Avoid_: brief, Runner brief
 
-**Judge brief**:
-the committed scoring prompt `evals/bench/judge-brief.md`, filled per anonymised sample by `cfcli bench judge-brief`. The Judge sees the writer's brief, the sample and the rubrics, but never a family or model name.
-
-**prompt_sha**:
-the first 12 hex digits of a runner brief's sha256: the byte identity a cached row must match to count. Distinct from `bench_version`, which hashes the whole prompt set.
+**Alias**:
+the random animal name `cfcli bench alias` gives a Prose Benchmark sample. It is the sample's only name until `cfcli bench reveal` maps it back to its family.
 
 **Leaderboard**:
-the standing ranked record of Prose Benchmark runs: `evals/benchmark.json`, with `evals/benchmark.md` as its rendered view, regenerated only by `cfcli bench record` and `cfcli bench render`.
+the file `leaderboard.md` in `evals/bench/`, listing each Prose Benchmark run in Council order. `cfcli bench reveal` and `cfcli bench render` rebuild it from the committed run logs.
 
 **dark**:
-a Matrix family over its usage limit for the rest of a session. It is skipped without retry and never cached, and it returns next session.
+a Matrix family whose seat has no available quota when a run selects its families. The run leaves it out and records the meter and reset time as its reason.

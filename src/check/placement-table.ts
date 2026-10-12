@@ -10,8 +10,9 @@
  *
  * One folder per Campaign (`docs/adr/0024-campaign-folder-holds-its-world.md`): each Campaign folder
  * holds its World's pages next to its Campaign pages, and World-content kinds are also valid at a
- * shared top-level `<Kind>/` folder for pages several Campaigns reuse. Where a kind lists several
- * locations, the Campaign one comes first, so fixes and hints prefer it.
+ * top-level `<Kind>/` folder for pages that belong to no single Campaign: World-free pages and pages
+ * several Campaigns reuse (`docs/adr/0039-world-free-pages-live-at-the-vault-root.md`). Where a kind
+ * lists several locations, the Campaign one comes first, so fixes and hints prefer it.
  */
 
 export type Bind = "campaign" | "session";
@@ -83,8 +84,8 @@ export function matchDir(location: Location, segments: string[]): Bindings | nul
 
 /**
  * Folders that sit directly under the vault root and are not a Campaign folder: the vault's own
- * folders (`templates`, `attachments`, `.obsidian`) and the shared kind folders a page may sit in
- * when several Campaigns reuse it.
+ * folders (`templates`, `attachments`, `.obsidian`) and the kind folders for pages that belong to no
+ * single Campaign.
  */
 export const SHARED_ROOT_FOLDERS: ReadonlySet<string> = (() => {
 	const folders = new Set<string>(["attachments", "templates", ".obsidian"]);

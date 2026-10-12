@@ -40,8 +40,8 @@ function isRoot(page: Page): boolean {
 }
 
 /**
- * Pages filed in a shared vault-root kind folder (`Creatures/`, `Items/`, … outside any Campaign folder) are
- * World-agnostic and reusable, so no single page is their natural inbound linker.
+ * Pages filed in a vault-root kind folder (`Creatures/`, `Items/`, … outside any Campaign folder) belong
+ * to no single Campaign, so no single page is their natural inbound linker. A World-free page has none.
  */
 function isSharedRootPage(page: Page): boolean {
 	const segments = dirOf(page.path).split("/").filter(Boolean);
@@ -74,6 +74,6 @@ export const orphansLayer: Layer = {
 	name: LAYER,
 	scope: "page",
 	description:
-		"Every page has an inbound link from another page (index.md and log.md links do not count; pages in shared vault-root kind folders are World-agnostic and exempt).",
+		"Every page has an inbound link from another page (index.md and log.md links do not count; pages in vault-root kind folders belong to no single Campaign and are exempt).",
 	run,
 };

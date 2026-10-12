@@ -54,3 +54,79 @@
       marks, a grounded nonvisual detail and visible property tells. It
       stops before Players act, without PC feelings, mechanics, hidden
       provenance or unearned knowledge.
+
+# DM-requested 2026-10-11: the DM's Benchmark prompt playful-cloud/v1 (evals/bench/prompts/playful-cloud/v1.md), byte for byte. Circumstance: a World-free Item from a work the DM names, filed at the vault root's Items/ with no Campaign version (docs/wiki-layout.md **One vault, many Campaigns**, ADR 0039). The DM ruled it World-free because the ask names no World or Campaign. Its shape is the 5etools entry in raw/acid-absorbing-tattoo.md (name, classification line, description, bold-italic named properties) plus what wiki/templates/item.md requires, and a section joins it only when it applies in any Campaign. No source_pages by design (evals/README.md § Grounding). The prompt names no page, so Checks key on Items/*.md. The fixture is the DM's researched inspired-by note, a byte copy of .cache/inspired-by/playful-cloud.md (fetched 2026-10-11), which stands in for the cache lookup and web research. Design verdict pending its first baseline run.
+- id: playful-cloud
+  fixtures:
+    - .agents/skills/item-design/evals/fixtures/playful-cloud.md
+  prompt: |-
+    I want a magical item inspired by Playful Cloud from jujutsu kaisen, deep dive into the lore and power of the weapon so it feels right in dnd 5.5e and the mechanics carries the narration, I'd like it to be a +3 magical weapon
+  checks:
+    pages:
+      - Items/*.md
+    sections:
+      Items/*.md:
+        - "## At a glance"
+        - "## Play"
+        - "### Properties"
+        - "### In use"
+        - "## Links"
+    canon:
+      Items/*.md:
+        - '^type:\s*Item\s*$'
+        - '/^inspired_by:\s*["'']?Playful Cloud\b.*Jujutsu Kaisen/im'
+        - '\[!narration\] First look'
+        - '/^- \*\*Rarity\.\*\*\s*(Very Rare|Legendary)\b/im'
+        - '^- \*\*Attunement\.\*\*\s*\S'
+        - '/^[*_]*(Magic )?Weapon \([^)\n]+\),? (Very Rare|Legendary)\b/im'
+        - '/\+3 bonus to attack (rolls )?and damage rolls/i'
+        - '^\*\*\*[^*\n]+\.\*\*\*'
+    absent:
+      Items/*.md:
+        - '/shattered[- ]sea/i'
+        - '/^(?!inspired_by:).*\b(Playful Cloud|Jujutsu|Toji|Maki|Geto|Zen''?in|Fushiguro|Megumi|Yuta|Okkotsu|Aoi|Hanami|Dagon|cursed energy|cursed technique|cursed tool|Heavenly Restriction|special[- ]grade)\b/im'
+      shattered-sea/Items/**:
+        - '[\s\S]'
+  rubrics:
+    - >-
+      The Item is the fixture's concept retold for D&D: a three-section
+      staff, three short rods joined end to end and fought as both staff and
+      flail, whose only power is force that rises with its wielder's own
+      Strength. It has no spell, charge, element or trick of its own, gives
+      little in weak hands and a great deal in strong ones, and asks no
+      magic of the wielder.
+    - >-
+      The mechanics act out the Narration. The Strength scaling shows in how
+      a swing looks, sounds or lands in First look or In use, and each detail
+      First look gives points at something the Item does, so describing a
+      hit and resolving it tell the same story.
+    - >-
+      The Item is correct, complete and easy to run under the 2024 rules,
+      shaped as a published entry: after its classification line, a plain
+      description of the object, then each mechanic as its own named
+      property. Its text gives the base weapon's statistics (damage die and
+      type, properties and mastery) and the exact numbers, timing
+      and limits of its Strength scaling. Rarity is Very Rare, the 2024
+      rarity of a +3 weapon, unless added power is priced up to Legendary.
+      It requires attunement when its scaling applies on every hit or
+      broadly, and At a glance and the classification line agree. A rider
+      on hit is limited to once per turn or priced for Extra Attack.
+    - >-
+      The page retells the concept in its own words under a name of its
+      own. A theme such as the staff passing to whoever is strong enough
+      may carry over into how it plays, while a scene from the source (a
+      fighter wrenching the staff from another, a warrior without magic
+      beating a creature of pure power to death) stays off the page, and no
+      sentence follows the fixture's wording.
+    - >-
+      The Item drops into any World and carries only what holds in every
+      Campaign. It names no place, people, faction, deity, maker, past holder
+      or history of a particular setting, has no tie to a Campaign or PC,
+      and Held by names no holder. A hidden property, if it has one, works
+      the same in any setting.
+    - >-
+      First look is speakable after one hearing: a plain recognisable
+      object, size against a hand or body, concrete material, wear and
+      marks, a grounded nonvisual detail and a visible tell of each hidden
+      property. It stops before Players act, without PC feelings, mechanics
+      or unearned knowledge.

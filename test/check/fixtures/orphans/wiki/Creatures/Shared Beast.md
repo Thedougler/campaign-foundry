@@ -1,7 +1,6 @@
 ---
 title: "Shared Beast"
 type: Creature
-kind: Generic
 summary: "A reusable beast tied to no World."
 sources: []
 revealed: ""

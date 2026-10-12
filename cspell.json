@@ -15,5 +15,6 @@
 			"description": "Agent tooling, omp, skill and repo terms used in agent-facing markdown and hooks."
 		}
 	],
-	"ignoreRegExpList": ["/`[^`\\n]*`/", "/\\b\\d+d\\d+(?:[+-]\\d+)?\\b/", "/\\b\\d+(?:st|nd|rd|th)\\b/"]
+	"ignoreRegExpList": ["/`[^`\\n]*`/", "/\\b\\d+d\\d+(?:[+-]\\d+)?\\b/", "/\\b\\d+(?:st|nd|rd|th)\\b/"],
+	"ignorePaths": ["evals/bench/prompts/**", "**/evals/fixtures/**"]
 }

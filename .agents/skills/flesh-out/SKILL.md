@@ -25,6 +25,8 @@ The caller is the DM, or any task that met the page thin or generic. Reuse a cal
 
 Canon precedence follows `CONTEXT.md` **Canon**, with the DM first and the Wiki before Raw. Narration heard at the table and played Session records stay as written. **Weave** first, building new detail from the tied pages. Invent only in the space they and the rest of Canon leave open, reusing material in the order root `AGENTS.md` **Sourcing** sets. Each new fact that conflicts with no Canon goes straight onto the page, decided as Canon (ADR 0003), and the reply lists it. Read the page's `revealed` property (`CONTEXT.md` **Revealed**). A revealed page takes additive detail only. On an unrevealed page, a draft fact that is itself what reads generic may be replaced outright, and the reply lists each replacement beside the fact it replaced.
 
+A World-free page (`CONTEXT.md` **World-free page**) stays as it is. Campaign work fleshes out its Campaign version, made per `docs/wiki-layout.md` **Campaign versions**.
+
 When the page is missing, or its structure fails its owner skill's Done criteria, run the owner first and return here for presence:
 
 | Need | Owner |

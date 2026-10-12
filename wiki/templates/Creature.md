@@ -14,7 +14,7 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Role at the table is the job it does on its first turn. Threat gives its CR and what it does to this Party. Tell is the wind-up the Players see before its signature strikes. Weak to is an action the Party can take. Used by links every NPC and page that uses these statistics. A Creature made for one NPC still fills every section with its body, habits and habitat, and leaves that person's voice, talk, bonds and history to the NPC page. %%
+%% Optional. Include it on every Creature that belongs to a World. A World-free page (`CONTEXT.md` **World-free page**) holds only its `## Statblock` and `## Links`, so it leaves out this section and its First sight. Give the DM a ten-second read, one line per bullet. Role at the table is the job it does on its first turn. Threat gives its CR and what it does to this Party. Tell is the wind-up the Players see before its signature strikes. Weak to is an action the Party can take. Used by links every NPC and page that uses these statistics. A Creature made for one NPC still fills every section with its body, habits and habitat, and leaves that person's voice, talk, bonds and history to the NPC page. %%
 
 - **Role at the table.**
 - **Threat.**
@@ -65,7 +65,7 @@ legendary_actions: []
 
 ## Play
 
-%% Give how this Creature fights, and what it does when nobody is fighting it. %%
+%% Optional. Include it on every Creature that belongs to a World. Give how this Creature fights, and what it does when nobody is fighting it. %%
 
 ### Tactics
 
@@ -77,7 +77,7 @@ legendary_actions: []
 
 ## Depth
 
-%% DM only. Give where it lives and what the Party can learn about it. %%
+%% Optional. Include it on every Creature that belongs to a World. DM only. Give where it lives and what the Party can learn about it. %%
 
 ### Ecology
 

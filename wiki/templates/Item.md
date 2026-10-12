@@ -14,7 +14,7 @@ revealed: ""
 
 ## At a glance
 
-%% Give the DM a ten-second read, one line per bullet. Kind is consumable, magic item, artifact, plot object or mundane gear. Changes is the one choice it alters at the table. Held by links the current holder. %%
+%% Give the DM a ten-second read, one line per bullet. Kind is consumable, magic item, artifact, plot object or mundane gear. Changes is the one choice it alters at the table. Held by links the current holder; a World-free page leaves it out. %%
 
 - **Kind.**
 - **Rarity.**
@@ -39,7 +39,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give where it came from and what it hides. %%
+%% Optional. Include it when the Item belongs to a World or hides a property. DM only. Give where it came from and what it hides. %%
 
 ### History
 

@@ -1,277 +1,403 @@
-import { mkdtempSync, writeFileSync } from "node:fs";
+import { mkdtempSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
+import { drawAliases, renderSample } from "../../src/bench/alias.ts";
+import { councilOf, validateGrades, type GradesFile } from "../../src/bench/council.ts";
+import { findPromptVersion, listPromptVersions } from "../../src/bench/prompts.ts";
+import { runDirName, type Mapping } from "../../src/bench/runs.ts";
 import { UsageError } from "../../src/check/errors.ts";
-import { findHit, upsertRow, type BenchFile, type BenchRow } from "../../src/bench/cache.ts";
-import { modelTagOf, parseEvents } from "../../src/bench/events.ts";
-import { anonId, renderJudgeBrief } from "../../src/bench/judge.ts";
-import { loadPromptSet, promptSha, renderBrief, type PromptSet } from "../../src/bench/prompts.ts";
-import { loadGrades, proseScore } from "../../src/bench/record.ts";
-import { renderLeaderboard } from "../../src/bench/render.ts";
-import type { Matrix } from "../../src/bench/matrix.ts";
-import { cf } from "../check/helpers.ts";
+import { cf, cfWithEnv } from "../check/helpers.ts";
 
-const PERSONA = "You are writing for a home D&D 5e campaign wiki.";
+/** The committed rubric's bullet shape, six rubrics deep: what the council scores 1–5. */
+const RUBRIC = `# Benchmark rubric
 
-const YAML_SET = `- id: npc-first-look
-  fixture_page: NPCs/Nib Ashwater.md
-  context: |
-    summary: "The goblin tally-keeper of Reedholt."
-  prompt: |
-    ${PERSONA} Using only the facts above, write the [!narration] First look
-    block. Reply with only the [!narration] callout block, nothing before or after it.
-  rubrics:
-    - "True to every fact"
-    - "Second person, present tense"
-    - "No game mechanics, stats, or meta-commentary in the prose"
-    - "Economical: every sentence earns its place"
-- id: scene-opening
-  context: |
-    type: Scene, kind: Hook
-  prompt: |
-    ${PERSONA} Using only the facts above, write this Scene's opening
-    Narration. Reply with only the [!narration] callout block, nothing before or after it.
-  rubrics:
-    - "True to every fact"
-    - "Second person, present tense"
-    - "No game mechanics, stats, or meta-commentary in the prose"
-    - "Economical: every sentence earns its place"
+- **Request.** The page is the one the DM requests.
+- **Mechanics.** Rules text reads as valid 2024 rules wording.
+- **Callout fit.** The callout fits its slot.
+- **Evidence.** Concrete evidence the table can perceive.
+- **Spoken clarity.** The callout is clear on one hearing.
+- **Voice.** The callout sounds like the DM at the table.
 `;
 
-const MATRIX: Matrix = {
-	families: [
-		{ name: "openai", top: { model: "openai-codex/gpt-6.1-sol", fallback: "opencode-zen/gpt-6.1-sol" } },
-		{ name: "glm", top: { model: "zai/glm-5.3", fallback: "opencode-go/glm-5.3" } },
-	],
-	judgeFallbackPool: ["zai/glm-5.3"],
+const SEATS: Record<string, { model: string; thinking: string }> = {
+	anthropic: { model: "anthropic/claude-opus-5-5", thinking: "high" },
+	openai: { model: "openai-codex/gpt-6.1-sol", thinking: "high" },
+	zai: { model: "zai/glm-5.3", thinking: "high" },
+	xai: { model: "xai-oauth/grok-4.7", thinking: "high" },
 };
 
-function writeSet(yaml = YAML_SET): { dir: string; path: string; set: PromptSet } {
-	const dir = mkdtempSync(join(tmpdir(), "bench-"));
-	const path = join(dir, "prose-bench.yaml");
-	writeFileSync(path, yaml);
-	return { dir, path, set: loadPromptSet(path) };
+const PAGE = (name: string) =>
+	`---\ntype: Item\n---\n\n> [!narration] First look\n> The ${name} staff hums.\n\n## Mechanics\n\n+3 weapon.\n`;
+
+/** A fixture repository root: agent pairs, one prompt version and the rubric. */
+function fixtureRoot(): string {
+	const root = mkdtempSync(join(tmpdir(), "bench-root-"));
+	mkdirSync(join(root, ".omp", "agents"), { recursive: true });
+	for (const [family, seat] of Object.entries(SEATS))
+		for (const role of ["runner", "grader"] as const)
+			writeFileSync(
+				join(root, ".omp", "agents", `bench-${role}-${family}.md`),
+				`---\nname: bench-${role}-${family}\nmodel: ${seat.model}\nthinking-level: ${seat.thinking}\ntools: [read]\n---\n\nBody.\n`,
+			);
+	mkdirSync(join(root, "evals", "bench", "prompts", "playful-cloud"), { recursive: true });
+	writeFileSync(join(root, "evals", "bench", "prompts", "playful-cloud", "v1.md"), "Write the Playful Cloud item.\n");
+	writeFileSync(join(root, "evals", "bench", "rubric.md"), RUBRIC);
+	return root;
 }
 
-function turnEnd(overrides: Record<string, unknown> = {}): string {
-	return `${JSON.stringify({
-		type: "turn_end",
-		message: {
-			role: "assistant",
-			content: [
-				{ type: "thinking", thinking: "muse" },
-				{ type: "text", text: "> [!narration] First look\n> A goblin counts boats." },
-			],
-			model: "glm-5.3",
-			usage: { totalTokens: 1234 },
-			duration: 4200,
-			...overrides,
-		},
-	})}\n`;
+function resultFile(root: string, family: string, name: string): string {
+	const path = join(root, `${family}.json`);
+	writeFileSync(path, JSON.stringify({ page: PAGE(name), sources: ["Items/Playful Cloud.md"] }));
+	return path;
 }
 
-function row(overrides: Partial<BenchRow> = {}): BenchRow {
-	return {
-		bench_version: "d6d47fe2b823",
-		id: "npc-first-look",
-		prompt_sha: "abc123def456",
-		family: "glm",
-		model: "zai/glm-5.3",
-		status: "scored",
-		prose_score: 4.0,
-		rubrics: [
-			{ rubric: "True to every fact", score: 4, reason: "Keeps the goblin and the tally." },
-			{ rubric: "Second person, present tense", score: 4, reason: "'A goblin counts boats' addresses you." },
-		],
-		sample_path: "evals/benchmark-samples/d6d47fe2b823/npc-first-look/glm-5.3.md",
-		timing: { total_tokens: 1234, duration_ms: 4200 },
-		run_at: "2026-09-30T08:44:54Z",
-		judge: "claude-opus-5.5",
-		...overrides,
-	};
+function gradesFile(runDir: string, family: string, grades: GradesFile): void {
+	mkdirSync(join(runDir, "grades"), { recursive: true });
+	writeFileSync(join(runDir, "grades", `${family}.json`), JSON.stringify(grades));
 }
+
+/** Parses the `run <path>` line `bench alias` prints. */
+function runNameOf(stdout: string): string {
+	const line = stdout.split(/\r?\n/).find((candidate) => candidate.startsWith("run "));
+	if (line === undefined) throw new Error(`no run line in ${JSON.stringify(stdout)}`);
+	return line.split(/\s+/).at(-1)!.split("/").at(-1)!;
+}
+
+const roots: string[] = [];
+
+afterEach(() => {
+	for (const root of roots.splice(0)) rmSync(root, { recursive: true, force: true });
+	rmSync(join(tmpdir(), "cf-bench"), { recursive: true, force: true });
+});
 
 describe("bench prompts", () => {
-	it("hashes the yaml into bench_version and renders byte-exact briefs", () => {
-		const { set } = writeSet();
-		const entry = set.entries[0]!;
-		expect(set.version).toMatch(/^[0-9a-f]{12}$/);
-		expect(set.entries.map((e) => e.id)).toEqual(["npc-first-look", "scene-opening"]);
-		expect(renderBrief(entry)).toBe(
-			`summary: "The goblin tally-keeper of Reedholt."\n\n${PERSONA} Using only the facts above, write the [!narration] First look\nblock. Reply with only the [!narration] callout block, nothing before or after it.\n`,
-		);
-		expect(promptSha(entry)).toMatch(/^[0-9a-f]{12}$/);
+	it("lists version files and resolves a bare id to its highest version", () => {
+		const root = fixtureRoot();
+		roots.push(root);
+		writeFileSync(join(root, "evals", "bench", "prompts", "playful-cloud", "v2.md"), "Rewritten.\n");
+		const versions = listPromptVersions(join(root, "evals", "bench", "prompts"), "evals/bench/prompts");
+		expect(versions.map((version) => version.name)).toEqual(["playful-cloud/v1", "playful-cloud/v2"]);
+		expect(findPromptVersion(versions, "playful-cloud")).toBe(versions[1]);
+		expect(findPromptVersion(versions, "playful-cloud/v1")).toBe(versions[0]);
+		expect(() => findPromptVersion(versions, "empty-slot")).toThrow(UsageError);
 	});
 
-	it("rejects a prompt without the persona line and duplicate ids", () => {
-		const noPersona = YAML_SET.replace(
-			`${PERSONA} Using only the facts above, write the [!narration] First look\n    block.`,
-			"Write the block.",
+	it("suffixed run dir names for a date that already holds an entry", () => {
+		expect(runDirName("2026-10-11", "playful-cloud", 1, [])).toBe("2026-10-11-playful-cloud-v1");
+		expect(runDirName("2026-10-11", "playful-cloud", 1, ["2026-10-11-playful-cloud-v1"])).toBe(
+			"2026-10-11-playful-cloud-v1-2",
 		);
-		expect(() => writeSet(noPersona)).toThrow(/persona line/);
-		expect(() => writeSet(YAML_SET.replace("- id: scene-opening", "- id: npc-first-look"))).toThrow(
-			/Duplicate entry id/,
-		);
+		expect(
+			runDirName("2026-10-11", "playful-cloud", 1, ["2026-10-11-playful-cloud-v1", "2026-10-11-playful-cloud-v1-2"]),
+		).toBe("2026-10-11-playful-cloud-v1-3");
 	});
 });
 
-describe("bench events", () => {
-	it("extracts the final assistant text, tokens and duration of the last turn_end", () => {
-		const run = parseEvents(
-			`${turnEnd()}\n{"type":"agent_end","messages":[]}\n${turnEnd({ usage: { totalTokens: 9999 }, duration: 65190 })}`,
-			"run.events.jsonl",
-		);
-		expect(run.sample).toBe("> [!narration] First look\n> A goblin counts boats.\n");
-		expect(run.totalTokens).toBe(9999);
-		expect(run.durationMs).toBe(65190);
-		expect(run.model).toBe("glm-5.3");
-		expect(run.narrated).toBe(true);
-		expect(run.fenced).toBe(false);
+describe("bench anonymisation", () => {
+	it("draws fresh, distinct animal aliases", () => {
+		const first = drawAliases(3);
+		const second = drawAliases(3);
+		expect(new Set(first).size).toBe(3);
+		expect(first).not.toEqual(second);
 	});
 
-	it("falls back to the last non-null usage in the stream and strips a code fence", () => {
-		const text = [
-			'{"type":"session"}',
-			turnEnd({
-				usage: null,
-				duration: 0,
-				content: [{ type: "text", text: "```markdown\n> [!narration] First look\n> A goblin counts boats.\n```" }],
-			}),
-			'{"type":"agent_end","messages":[{"role":"assistant","usage":{"totalTokens": 18116}}]}',
-		].join("\n");
-		const run = parseEvents(text, "run.events.jsonl");
-		expect(run.totalTokens).toBe(18116);
-		expect(run.durationMs).toBe(0);
-		expect(run.fenced).toBe(true);
-		expect(run.sample).toBe("> [!narration] First look\n> A goblin counts boats.\n");
-	});
-
-	it("fails actionably on a dead run and a broken stream", () => {
-		expect(() => parseEvents('{"type":"session"}\n', "r.jsonl")).toThrow(UsageError);
-		expect(() => parseEvents("not json\n", "r.jsonl")).toThrow(/r\.jsonl:1 is not JSON/);
-	});
-
-	it("derives the model tag from the events filename", () => {
-		expect(modelTagOf("evals/benchmark-samples/v/npc-first-look/npc-first-look.glm-5.3.events.jsonl")).toBe("glm-5.3");
-		expect(modelTagOf("x/npc-first-look.grok-4.7.rerun.events.jsonl")).toBe("grok-4.7");
+	it("renders a sample as the page plus its Sources list, with no family or model", () => {
+		const sample = renderSample(PAGE("willow"), ["Items/Playful Cloud.md"]);
+		expect(sample).toContain("> [!narration] First look");
+		expect(sample.endsWith("\n## Sources\n\n- Items/Playful Cloud.md\n")).toBe(true);
+		expect(sample).not.toContain("zai");
 	});
 });
 
-describe("bench cache", () => {
-	it("hits only on version, entry, family, pin and prompt_sha together", () => {
-		const cache: BenchFile = { schema: 1, hit_rule: "rule", results: [row()] };
-		const key = {
-			version: "d6d47fe2b823",
-			id: "npc-first-look",
-			family: "glm",
-			model: "zai/glm-5.3",
-			promptSha: "abc123def456",
-		};
-		expect(findHit(cache, key)?.prose_score).toBe(4.0);
-		expect(findHit(cache, { ...key, promptSha: "different1sha" })).toBeUndefined();
-		expect(findHit(cache, { ...key, model: "opencode-go/glm-5.3" })).toBeUndefined();
-		expect(findHit(cache, { ...key, id: "scene-opening" })).toBeUndefined();
-	});
-
-	it("replaces the row for the same version, entry, family and pin", () => {
-		const cache: BenchFile = { schema: 1, hit_rule: "rule", results: [row()] };
-		upsertRow(cache, row({ prose_score: 2.5, judge: "zai/glm-5.3" }));
-		upsertRow(cache, row({ id: "scene-opening" }));
-		expect(cache.results).toHaveLength(2);
-		expect(cache.results[0]?.judge).toBe("zai/glm-5.3");
-	});
-});
-
-describe("bench judge brief", () => {
-	it("fills the committed template with brief, rubrics, sample and grades path, anonymized", () => {
-		const { dir, set } = writeSet();
-		const template = join(dir, "judge-brief.md");
-		writeFileSync(
-			template,
-			"BRIEF\n{{brief}}\nSAMPLE {{sample_id}}\n{{sample}}\nRUBRICS\n{{rubrics}}\nOUT {{grades_path}}\n",
-		);
-		const entry = set.entries[0]!;
-		const sample = "> [!narration] First look\n> A goblin counts boats.\n";
-		const filled = renderJudgeBrief(template, {
-			entry,
-			brief: renderBrief(entry),
-			sample,
-			gradesPath: "/tmp/judge/sample-x.grades.json",
-		});
-		expect(filled).toContain(renderBrief(entry));
-		expect(filled).toContain(`SAMPLE ${anonId(sample)}`);
-		expect(anonId(sample)).toMatch(/^sample-[0-9a-f]{8}$/);
-		expect(filled).toContain("- True to every fact\n- Second person, present tense");
-		expect(filled).toContain("OUT /tmp/judge/sample-x.grades.json");
-		expect(filled).not.toContain("{{");
-	});
-});
-
-describe("bench record", () => {
-	it("validates grades against the entry's rubrics and averages to one decimal, half-up", () => {
-		const { dir, set } = writeSet();
-		const grades = join(dir, "grades.json");
-		writeFileSync(
-			grades,
-			JSON.stringify(
-				set.entries[0]!.rubrics.map((rubric, i) => ({ rubric, score: [4, 4, 5, 4][i] ?? 4, reason: `quote ${i}` })),
-			),
-		);
-		const loaded = loadGrades(grades, set.entries[0]!);
-		expect(proseScore(loaded)).toBe(4.3);
-		writeFileSync(
-			grades,
-			JSON.stringify(
-				set.entries[0]!.rubrics.map((rubric, i) => ({
-					rubric: i === 1 ? "a different rubric" : rubric,
-					score: 4,
-					reason: "x",
-				})),
-			),
-		);
-		expect(() => loadGrades(grades, set.entries[0]!)).toThrow(/does not match the entry/);
-		writeFileSync(
-			grades,
-			JSON.stringify(set.entries[0]!.rubrics.map((rubric, i) => ({ rubric, score: i === 1 ? 9 : 4, reason: "x" }))),
-		);
-		expect(() => loadGrades(grades, set.entries[0]!)).toThrow(/scores 9/);
-	});
-});
-
-describe("bench leaderboard", () => {
-	it("renders the newest run's version, ranks by mean, marks cached rows and notes dark families", () => {
-		const cache: BenchFile = {
-			schema: 1,
-			hit_rule: "a scored row matches",
-			results: [
-				row(),
-				row({ family: "openai", model: "openai-codex/gpt-6.1-sol", prose_score: 4.5, run_at: "2026-09-30T09:00:00Z" }),
-				row({
-					id: "scene-opening",
-					family: "openai",
-					model: "openai-codex/gpt-6.1-sol",
-					status: "dark",
-					prose_score: undefined,
-					rubrics: undefined,
-					run_at: "2026-09-30T09:00:00Z",
-					reason: "quota exhausted on both pins",
-				}),
-			],
-		};
-		const { set } = writeSet();
-		const md = renderLeaderboard(cache, set, MATRIX);
-		expect(md).toContain("## Prose Benchmark — 2026-09-30T09:00:00Z");
-		expect(md).toContain("| openai | openai-codex/gpt-6.1-sol | 1 / 2 | 4.5 | npc-first-look 4.5 | 1 |");
-		expect(md).toContain("| glm | zai/glm-5.3 | 1 / 2 (cached) | 4.0 | npc-first-look 4.0 | 2 |");
-		expect(md).toContain("> openai — dark: scene-opening (quota exhausted on both pins)");
-	});
-});
-
-describe("cfcli bench (committed repo state)", () => {
-	it("committed briefs match evals/prose-bench.yaml: no drift", async () => {
-		const run = await cf(["bench", "briefs", "--check"]);
+describe("cfcli bench status", () => {
+	it("lists each family's seat, its quota and the prompt version", async () => {
+		const root = fixtureRoot();
+		roots.push(root);
+		const run = await cfWithEnv(["bench", "status", "--json", "--root", root], { PATH: "" });
 		expect(run.code).toBe(0);
-		expect(run.stdout.trim()).not.toMatch(/^DRIFT/m);
+		const status = JSON.parse(run.stdout) as {
+			quota_error: string;
+			families: {
+				family: string;
+				model?: string;
+				thinking?: string;
+				error?: string;
+				quota?: { status: string; meter: string; remaining: number | null; resetsAt: string | null };
+			}[];
+			prompts: { prompt: string; latest: unknown }[];
+		};
+		expect(status.quota_error).toBeTruthy();
+		expect(status.families.map((family) => family.family)).toEqual(["anthropic", "openai", "zai", "xai"]);
+		for (const family of status.families) {
+			expect(family.error).toBeUndefined();
+			expect(family.model).toBe(SEATS[family.family]!.model);
+			expect(family.quota!.status).toBe("unknown");
+			expect(family.quota!.remaining).toBeNull();
+			expect(family.quota!.resetsAt).toBeNull();
+		}
+		expect(status.prompts).toEqual([
+			{ prompt: "playful-cloud/v1", path: "evals/bench/prompts/playful-cloud/v1.md", latest: null },
+		]);
+	});
+
+	it("exits 1 when a runner and grader pair seat different models", async () => {
+		const root = fixtureRoot();
+		roots.push(root);
+		writeFileSync(
+			join(root, ".omp", "agents", "bench-grader-xai.md"),
+			"---\nname: bench-grader-xai\nmodel: xai-oauth/grok-4.5\nthinking-level: high\n---\n\nBody.\n",
+		);
+		const run = await cfWithEnv(["bench", "status", "--json", "--root", root], { PATH: "" });
+		expect(run.code).toBe(1);
+		expect(run.stderr).toContain("xai");
+		const status = JSON.parse(run.stdout) as { families: { family: string; error?: string }[] };
+		expect(status.families.find((family) => family.family === "xai")!.error).toContain("grok-4.5");
+	});
+});
+
+describe("cfcli bench alias → reveal → render", () => {
+	it("runs a two-family council end to end, then an amendment that carries a sample", async () => {
+		const root = fixtureRoot();
+		roots.push(root);
+		const zaiResult = resultFile(root, "zai", "willow");
+		const xaiResult = resultFile(root, "xai", "ironbell");
+		const aliased = await cfWithEnv(
+			[
+				"bench",
+				"alias",
+				"--prompt",
+				"playful-cloud/v1",
+				`zai=${zaiResult}`,
+				`xai=${xaiResult}`,
+				"--pending",
+				'anthropic="quota exhausted"',
+				"--pending",
+				'openai="quota exhausted"',
+				"--root",
+				root,
+			],
+			{ PATH: "" },
+		);
+		expect(aliased.code).toBe(0);
+		const firstName = runNameOf(aliased.stdout);
+		const firstDir = join(root, "evals", "bench", "runs", firstName);
+		const firstRun = JSON.parse(readFileSync(join(firstDir, "run.json"), "utf8")) as {
+			prompt: string;
+			seats: Record<string, { model: string; thinking: string }>;
+			pending: { family: string; reason: string; resetsAt: string | null }[];
+		};
+		expect(firstRun.prompt).toBe("playful-cloud/v1");
+		expect(Object.keys(firstRun.seats)).toEqual(["zai", "xai"]);
+		expect(firstRun.seats.zai).toEqual(SEATS.zai);
+		expect(firstRun.pending.map((entry) => entry.family)).toEqual(["anthropic", "openai"]);
+		const firstAliases = readdirSync(join(firstDir, "samples"))
+			.map((file) => file.replace(/\.md$/, ""))
+			.sort();
+		expect(firstAliases).toHaveLength(2);
+		for (const alias of firstAliases)
+			expect(readFileSync(join(firstDir, "samples", `${alias}.md`), "utf8")).toContain("## Sources");
+		const firstMapping = JSON.parse(
+			readFileSync(join(tmpdir(), "cf-bench", firstName, "mapping.json"), "utf8"),
+		) as Mapping;
+		expect(
+			Object.values(firstMapping)
+				.map((entry) => entry.family)
+				.sort(),
+		).toEqual(["xai", "zai"]);
+		for (const family of ["zai", "xai"]) {
+			const brief = readFileSync(join(tmpdir(), "cf-bench", firstName, `brief-${family}.md`), "utf8");
+			expect(brief).toContain("Write the Playful Cloud item.");
+			expect(brief).toContain("- **Request.**");
+			for (const alias of firstAliases) expect(brief).toContain(`## Sample ${alias}`);
+		}
+
+		const zaiAlias = Object.keys(firstMapping).find((alias) => firstMapping[alias]!.family === "zai")!;
+		const xaiAlias = Object.keys(firstMapping).find((alias) => firstMapping[alias]!.family === "xai")!;
+		gradesFile(firstDir, "zai", {
+			grades: [
+				{ alias: zaiAlias, scores: [5, 5, 5, 5, 5, 5], reasons: Array(6).fill("vivid") },
+				{ alias: xaiAlias, scores: [3, 3, 3, 3, 3, 3], reasons: Array(6).fill("adequate") },
+			],
+			ranking: [zaiAlias, xaiAlias],
+		});
+		gradesFile(firstDir, "xai", {
+			grades: [
+				{ alias: zaiAlias, scores: [4, 4, 4, 4, 4, 4], reasons: Array(6).fill("vivid") },
+				{ alias: xaiAlias, scores: [2, 2, 2, 2, 2, 2], reasons: Array(6).fill("thin") },
+			],
+			ranking: [zaiAlias, xaiAlias],
+		});
+		const revealed = await cf(["bench", "reveal", "--run", firstName, "--root", root]);
+		expect(revealed.code).toBe(0);
+		expect(revealed.stdout).toContain(`1. ${zaiAlias} (zai) mean 4.50`);
+		const council = JSON.parse(readFileSync(join(firstDir, "council.json"), "utf8")) as {
+			council: string[];
+			empty_seats: string[];
+			order: string[];
+			samples: Record<string, { family: string; scores: number[]; overall: number; mean_rank: number }>;
+		};
+		expect(council.council).toEqual(["xai", "zai"]);
+		expect(council.empty_seats).toEqual([]);
+		expect(council.order).toEqual([zaiAlias, xaiAlias]);
+		expect(council.samples[zaiAlias]).toMatchObject({ family: "zai", overall: 4.5, mean_rank: 1 });
+		expect(council.samples[xaiAlias]!.scores).toEqual([2.5, 2.5, 2.5, 2.5, 2.5, 2.5]);
+		expect(existsSync(join(firstDir, "mapping.json"))).toBe(true);
+		expect(existsSync(join(tmpdir(), "cf-bench", firstName, "mapping.json"))).toBe(false);
+		const report = readFileSync(join(firstDir, "report.md"), "utf8");
+		expect(report).toContain("Council: xai, zai");
+		expect(report).toContain("**anthropic** — quota exhausted");
+		const leaderboard = readFileSync(join(root, "evals", "bench", "leaderboard.md"), "utf8");
+		expect(leaderboard).toContain(`### ${firstName}`);
+
+		// The amendment: one pending family recovered, the other carries forward; both samples carry byte for byte.
+		const anthropicResult = resultFile(root, "anthropic", "stormglass");
+		const amended = await cfWithEnv(
+			[
+				"bench",
+				"alias",
+				"--prompt",
+				"playful-cloud/v1",
+				`anthropic=${anthropicResult}`,
+				"--amend",
+				firstName,
+				"--root",
+				root,
+			],
+			{ PATH: "" },
+		);
+		expect(amended.code).toBe(0);
+		const secondName = runNameOf(amended.stdout);
+		expect(secondName).toMatch(/-2$/);
+		expect(amended.stdout).toContain(`carried xai        from ${firstName}`);
+		const secondDir = join(root, "evals", "bench", "runs", secondName);
+		const secondRun = JSON.parse(readFileSync(join(secondDir, "run.json"), "utf8")) as {
+			seats: Record<string, { model: string }>;
+			pending: { family: string; reason: string; resetsAt: string | null }[];
+			amends: string;
+			carried: Record<string, string>;
+		};
+		expect(secondRun.amends).toBe(firstName);
+		expect(secondRun.carried).toEqual({ xai: firstName, zai: firstName });
+		expect(Object.keys(secondRun.seats).sort()).toEqual(["anthropic", "xai", "zai"]);
+		expect(secondRun.pending).toEqual([{ family: "openai", reason: "quota exhausted", resetsAt: null }]);
+		const secondMapping = JSON.parse(
+			readFileSync(join(tmpdir(), "cf-bench", secondName, "mapping.json"), "utf8"),
+		) as Mapping;
+		const carriedZai = Object.keys(secondMapping).find((alias) => secondMapping[alias]!.family === "zai")!;
+		expect(secondMapping[carriedZai]!.source_run).toBe(firstName);
+		expect(readFileSync(join(secondDir, "samples", `${carriedZai}.md`), "utf8")).toBe(
+			readFileSync(join(firstDir, "samples", `${zaiAlias}.md`), "utf8"),
+		);
+		const carriedXai = Object.keys(secondMapping).find((alias) => secondMapping[alias]!.family === "xai")!;
+		const thirdAlias = Object.keys(secondMapping).find((alias) => secondMapping[alias]!.family === "anthropic")!;
+		const allAliases = [carriedZai, carriedXai, thirdAlias].sort();
+		expect(thirdAlias).not.toBe(zaiAlias);
+
+		// Grades that miss a sample: reveal exits 1 naming the grades file.
+		for (const family of ["anthropic", "xai", "zai"])
+			gradesFile(secondDir, family, {
+				grades: [carriedZai, thirdAlias].map((alias) => ({
+					alias,
+					scores: [4, 4, 4, 4, 4, 4],
+					reasons: Array(6).fill("solid"),
+				})),
+				ranking: [carriedZai, thirdAlias],
+			});
+		const rejected = await cf(["bench", "reveal", "--run", secondName, "--root", root]);
+		expect(rejected.code).toBe(1);
+		expect(rejected.stderr).toContain(join("grades", "anthropic.json"));
+		expect(rejected.stderr).toContain("the run holds");
+
+		for (const family of ["anthropic", "xai", "zai"])
+			gradesFile(secondDir, family, {
+				grades: allAliases.map((alias) => ({
+					alias,
+					scores: [4, 4, 4, 4, 4, 4],
+					reasons: Array(6).fill("solid"),
+				})),
+				ranking: allAliases,
+			});
+		const secondReveal = await cf(["bench", "reveal", "--run", secondName, "--root", root]);
+		expect(secondReveal.code).toBe(0);
+		const secondCouncil = JSON.parse(readFileSync(join(secondDir, "council.json"), "utf8")) as {
+			order: string[];
+			samples: Record<string, { family: string; overall: number }>;
+		};
+		expect([...Object.keys(secondCouncil.samples)].sort()).toEqual(allAliases);
+		expect(secondCouncil.samples[carriedZai]!.family).toBe("zai");
+		const leaderboard2 = readFileSync(join(root, "evals", "bench", "leaderboard.md"), "utf8");
+		expect(leaderboard2).toContain(`### ${secondName} — amends ${firstName}`);
+		expect(leaderboard2).toContain(`- **${firstName}** — 1. zai 4.50`);
+
+		const rendered = await cf(["bench", "render", "--root", root]);
+		expect(rendered.code).toBe(0);
+		expect(rendered.stdout).toContain("(2 entries)");
+	});
+
+	it("rejects a result without a narration callout and an unknown prompt", async () => {
+		const root = fixtureRoot();
+		roots.push(root);
+		const broken = join(root, "broken.json");
+		writeFileSync(broken, JSON.stringify({ page: "No callout.", sources: [] }));
+		const noCallout = await cf(["bench", "alias", "--prompt", "playful-cloud/v1", `zai=${broken}`, "--root", root]);
+		expect(noCallout.code).toBe(2);
+		expect(noCallout.stderr).toContain("narration");
+		const empty = await cf(["bench", "alias", "--prompt", "empty-slot/v1", `zai=${broken}`, "--root", root]);
+		expect(empty.code).toBe(2);
+		expect(empty.stderr).toContain("No Benchmark prompt");
+	});
+});
+
+describe("council validation", () => {
+	const grades = (alias: string, scores: number[]): GradesFile => ({
+		grades: [{ alias, scores, reasons: Array(scores.length).fill("why") }],
+		ranking: [alias],
+	});
+
+	it("rejects wrong alias sets, out-of-range scores and rankings that are not permutations", () => {
+		const aliases = ["otter", "zoril"];
+		expect(() => validateGrades(grades("otter", [1, 2, 3, 4, 5, 5]), aliases, "g.json")).toThrow(
+			/grades cover \[otter\]/,
+		);
+		expect(() => validateGrades({ ...grades("otter", [3, 3, 3, 3, 3, 3]), ranking: ["otter"] }, aliases, "g.json")).not
+			.toThrow;
+		expect(() =>
+			validateGrades({ ...grades("otter", [0, 3, 3, 3, 3, 3]), ranking: ["otter"] }, ["otter"], "g.json"),
+		).toThrow(/scores 0/);
+		expect(() =>
+			validateGrades(
+				{ grades: [{ alias: "otter", scores: [3, 3, 3, 3, 3, 3], reasons: ["a"] }], ranking: ["otter"] },
+				["otter"],
+				"g.json",
+			),
+		).toThrow(/reasons, not 6/);
+		expect(() =>
+			validateGrades({ ...grades("otter", [3, 3, 3, 3, 3, 3]), ranking: ["otter", "otter"] }, ["otter"], "g.json"),
+		).toThrow(/not a ranking/);
+	});
+
+	it("averages scores and ranks across the graders who sat", () => {
+		const otter: GradesFile = {
+			grades: [
+				{ alias: "otter", scores: [5, 5, 5, 5, 5, 5], reasons: [] },
+				{ alias: "zoril", scores: [1, 1, 1, 1, 1, 1], reasons: [] },
+			],
+			ranking: ["otter", "zoril"],
+		};
+		const zoril: GradesFile = {
+			grades: [
+				{ alias: "otter", scores: [3, 3, 3, 3, 3, 3], reasons: [] },
+				{ alias: "zoril", scores: [5, 5, 5, 5, 5, 5], reasons: [] },
+			],
+			ranking: ["zoril", "otter"],
+		};
+		const council = councilOf(["zai", "xai"], { xai: zoril, zai: otter }, ["otter", "zoril"], {
+			otter: { family: "zai", model: "zai/glm-5.3", thinking: "high" },
+			zoril: { family: "xai", model: "xai-oauth/grok-4.7", thinking: "high" },
+		});
+		expect(council.council).toEqual(["xai", "zai"]);
+		expect(council.samples.otter).toMatchObject({ overall: 4, mean_rank: 1.5 });
+		expect(council.samples.zoril!.scores).toEqual([3, 3, 3, 3, 3, 3]);
 	});
 });

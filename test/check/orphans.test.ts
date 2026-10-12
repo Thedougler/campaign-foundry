@@ -35,7 +35,7 @@ describe("orphans layer", () => {
 		expect(findingsFor(report, `${A}/NPCs/Linked From Orphan.md`)).toEqual([]);
 	});
 
-	it("exempts World-agnostic pages filed in a vault-root kind folder", () => {
+	it("exempts pages filed in a vault-root kind folder", () => {
 		expect(findingsFor(report, "Creatures/Shared Beast.md")).toEqual([]);
 	});
 

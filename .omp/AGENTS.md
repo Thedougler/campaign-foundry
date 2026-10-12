@@ -52,12 +52,12 @@ Select an agent by its responsibility:
 Choose the models for the roles below from evidence, gathered through `skill://model-evidence`. It gives the source for each question and the rule for when a provider counts as available.
 
 - **Test subjects** in `dogfood` runs and evals: the cheapest and fastest model realistically capable of the task with the most confirmed usage. That is usually `zai/glm-5.3-flash` (`@TEST-SUBJECT`). A weak model exposes unclear instructions that a strong one silently compensates for.
-- **Graders** (`prose-grader`, the Benchmark Judge): a model from a vendor outside every subject they grade. When `@PROSE-GRADER` shares a subject's vendor, choose another grader and set it for that batch.
-- **Benchmark Matrix pins** (`evals/models.yaml`): the best reasonable model and reasoning effort per family with confirmed usage. Fable is never pinned.
+- **Graders** (`prose-grader`): a model from a vendor outside every subject they grade. When `@PROSE-GRADER` shares a subject's vendor, choose another grader and set it for that batch. The Benchmark Council is the exception by design: it grades on the models under test (ADR 0038).
+- **Benchmark seats** (`model` and `thinking-level` in each `bench-runner-<family>` and `bench-grader-<family>` definition, identical in the pair): the best reasonable model and reasoning effort per family with confirmed usage. Fable is never seated.
 
 Preserve each completion's model selector, identity and thinking level where observed, and pair only matching identities and thinking levels.
 
-Delegation stays native, except description trigger checks and Benchmark runners and Judge: those are read-only `omp -p` processes whose commands `skill-creator` `references/description-evals.md` and `dnd-benchmark` document.
+Delegation stays native, except description trigger checks: those are read-only `omp -p` processes whose commands `skill-creator` `references/description-evals.md` documents.
 
 ## Tools
 
@@ -80,7 +80,7 @@ Skill improvement, change and eval runs go through `skill://dogfood` (ADR 0034),
 
 - **Improve, change or eval a skill.** Read `skill://dogfood` before changing an existing skill, agent definition or process, or running its committed `evals/cases.yaml`.
 - **Create a skill.** Read `skill://skill-creator` before creating a new skill.
-- **Benchmark Narration.** Read `skill://dnd-benchmark` before ranking Matrix families or refreshing the leaderboard.
+- **Benchmark Narration.** Read `skill://dnd-benchmark` before ranking Matrix families or presenting the leaderboard.
 
 Project skills live in `.omp/skills/` and `.agents/skills/`; where both hold a skill, the `.omp/` copy is the source of truth. `manage_skill` holds the DM's cross-project procedures; project skills, rules and decisions live in the repo.
 

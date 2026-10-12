@@ -1,4 +1,4 @@
-/** Objective checks for agent-facing markdown (issue #66). Only markdownlint applies fixes. */
+/** Objective checks for agent-facing markdown (issue #66): markdownlint, cspell, repo links and the `cfcli style` layer over the same selection. Only markdownlint applies fixes. */
 import { existsSync, mkdtempSync, readFileSync, rmSync, statSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { basename, isAbsolute, join, relative, resolve } from "node:path";
@@ -33,7 +33,14 @@ function isVendored(path: string): boolean {
 	);
 }
 
-/** ADR 0020: the content-facing targets checked through the one cfcli style gate. */
+/** ADR 0038: Benchmark prompts are the DM's verbatim text — outside markdownlint, cspell and the style gate, explicit selection included. */
+const BENCH_PROMPTS = "evals/bench/prompts";
+
+function isBenchPrompt(path: string): boolean {
+	return underDir(path, BENCH_PROMPTS);
+}
+
+/** ADR 0020: the content-facing targets the whole-domain (`--all`) style pass checks, keeping that run fast. */
 const STYLE_PATHS = [
 	".omp/skills/collab-with-me",
 	".omp/skills/lint",
@@ -82,6 +89,11 @@ function errorLine(error: unknown): string {
 
 function inDomain(path: string): boolean {
 	if (isVendored(path)) return false;
+	if (isBenchPrompt(path)) return false;
+	// A skill's eval fixtures keep researched source notes byte for byte as fetched (`evals/README.md`
+	// § Grounding), so they stay outside markdownlint, cspell and the style gate, explicit selection included.
+	if (SKILL_ROOTS.some((root) => underDir(path, root) && /^[^/]+\/evals\/fixtures\//.test(path.slice(root.length + 1))))
+		return false;
 	return (
 		(underDir(path, ".omp/hooks") && /\.(?:[cm]?[jt]s)$/.test(path)) ||
 		(path.endsWith(".md") && (Object.hasOwn(ROOT_FILES, path) || DOMAIN_DIRS.some((dir) => underDir(path, dir))))
@@ -236,9 +248,10 @@ interface CfStyleJson {
 }
 
 async function runStyle(files: string[], wholeDomain: boolean): Promise<ToolResult & { files: string[] }> {
-	const selected = wholeDomain
-		? STYLE_PATHS.filter((path) => !isVendored(path))
-		: files.filter((file) => STYLE_PATHS.some((path) => (path.endsWith(".md") ? file === path : underDir(file, path))));
+	// Explicit paths and changed files are agent-facing by selection, so every one of them goes
+	// through the style gate: one command gates agent-facing text. The whole-domain run keeps
+	// ADR 0020's curated list to stay fast.
+	const selected = wholeDomain ? STYLE_PATHS.filter((path) => !isVendored(path)) : files;
 	if (selected.length === 0) return { files: [], findings: [], failures: [] };
 	try {
 		// Mirrors cfcli style's directory expansion for the reported file union, not its lint rules.
@@ -250,7 +263,7 @@ async function runStyle(files: string[], wholeDomain: boolean): Promise<ToolResu
 						cwd: join(REPO_ROOT, path),
 						onlyFiles: true,
 						dot: false,
-						ignore: ["templates/**", ".obsidian/**", "node_modules/**", "**/evals/snapshot/**"],
+						ignore: ["templates/**", ".obsidian/**", "node_modules/**", "**/evals/snapshot/**", "**/evals/fixtures/**"],
 					});
 					return found.map((file) => join(path, file));
 				}),

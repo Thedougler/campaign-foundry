@@ -36,7 +36,7 @@ revealed: ""
 
 ## Depth
 
-%% DM only. Give where it comes from and how the Party can learn it. %%
+%% Optional. Include it on every Spell that belongs to a World. DM only. Give where it comes from and how the Party can learn it. %%
 
 ### Tradition
 

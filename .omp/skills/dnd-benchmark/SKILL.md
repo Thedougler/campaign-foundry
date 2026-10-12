@@ -1,68 +1,35 @@
 ---
 name: dnd-benchmark
-description: Prose Benchmark — run or resume requested cross-family Matrix Narration ranking, or refresh its source-grounded prompts and leaderboard on the DM's request. Skill evals and improvement use dogfood; new skills use skill-creator.
+description: Prose Benchmark — run a requested blind council benchmark of the Matrix families on a DM-written Benchmark prompt, or present its leaderboard. Skill evals and improvement use dogfood; new skills use skill-creator.
 ---
 
 # D&D Prose Benchmark
 
-This skill is the Benchmark branch of `evals/README.md`, which holds the eval contract. Every family's `top` pin answers the committed prompts as a plain `omp -p` process. An anonymous Judge (`prose-grader`, also an `omp -p` process, per `docs/adr/0016-evals-run-without-a-custom-harness.md`) scores each sample, and `bun run cfcli -- bench` writes the leaderboard. Everything runs in Bash from the repo root. For a committed skill eval, read `skill://dogfood` instead.
+This skill is the Benchmark branch of `evals/README.md`, and ADR 0038 sets out its design. Each selected family's Runner answers one DM-written Benchmark prompt with the Wiki page it asks for, built around a `> [!narration]` callout. `bun run cfcli -- bench alias` anonymises the samples, a council of the same families grades and ranks them, and `bun run cfcli -- bench reveal` writes the committed log. The run is finished when its directory `evals/bench/runs/<date>-<id>-v<N>/` contains each sample and grade with the council result, the Leaderboard (`leaderboard.md` in `evals/bench/`) is rebuilt and the DM has the report. For a committed skill eval, read `skill://dogfood` instead.
 
-## Preserved, always
+## Always
 
-- **Pins.** Families and their `top`/`fallback` pins are exactly as `evals/models.yaml` reads right now. Refreshing them is a separate DM request, run through `skill://model-evidence` § Refresh Matrix pins.
-- **Committed bytes.** Runner briefs and the Judge template are byte-exact. Before changing prompt identity or cache handling, read `docs/adr/0012-benchmark-prompts-are-committed-and-deterministic.md`. Prompt-set edits move `bench_version` and clear the cache wholesale.
-- **Rounds.** A Round is one prompt-set entry run on each family's top pin, in yaml order. The next Round begins once the current Round's families are closed and reported. A stop after any Round is clean, and the cache resumes the rest.
-- **Anonymity.** Integer rubric scores from 1 to 5 come from a fresh Judge that sees only the anonymised brief.
-- **One ledger.** `evals/benchmark.json` and `evals/benchmark.md`, written only by `bun run cfcli -- bench record` / `render`, are the recorded results. Read these paths when checking recorded rows or presenting the leaderboard.
-
-## Refresh source context
-
-Benchmarking is a separate, requested measurement, not a prerequisite for each feedback revision. Refresh only on an explicit request, after reading `evals/README.md` § Grounding for the shared source contract. `evals/prose-bench.yaml` holds self-contained fact excerpts from real Wiki pages, identified by its `fixture_page` provenance field. Refresh those excerpts from current sources, exclude existing Narration answers, and preserve uncertain dates and unresolved outcomes. Then commit the changed prompts and regenerate the briefs with `bun run cfcli -- bench briefs` and the deterministic pipeline below. The prompt-set hash identifies the new inputs. A benchmark run consumes committed bytes and never refreshes them from the live Wiki. Historical sample directories and grades remain historical evidence, not results for the new prompt version, and a data migration on its own is no reason to benchmark current skills.
-
-**Done when** every changed prompt is grounded in its recorded source, its regenerated brief belongs to the new prompt version, and historical artifacts are unchanged.
-
-## Before benchmarking
-
-If repository dependencies or script execution are not ready, read `README.md` for the supported Bun setup before starting.
-
-**Choose the data root.** Live runs use the repository. For dry runs, pass `--root <absolute-temp-root>` to every `bun run cfcli -- bench` subcommand. **Done when** one root is selected for the whole run, and a dry run leaves the live cache unchanged.
+- **The DM writes the prompts.** A Benchmark prompt is `evals/bench/prompts/<id>/v<N>.md`, named by its version `<id>/v<N>`. Agents never write, edit, generate or add a file there. A changed prompt is a new version the DM writes. Run the version the DM names, or the highest version of the prompt he names. When `bench status` doesn't list a prompt, stop and tell the DM the prompt slot is empty.
+- **Models.** A family's seat is the `model` and `thinking-level` in the frontmatter of `.omp/agents/bench-runner-<family>.md` and `.omp/agents/bench-grader-<family>.md`, identical in both. A seat changes only on the DM's request, through `skill://model-evidence` § Refresh Benchmark seats.
+- **Blind.** Runners and graders receive exactly the task text below. The mapping stays in the directory `bench alias` prints until `bench reveal` moves it into the log, so leave it unread and out of every dispatch.
+- **The commands write the log.** Samples, grades and results stay as their agents returned them. Commands leave earlier log entries unchanged, and an amendment is a new dated entry that records the entry it amends.
 
 ## Steps
 
-1. **Briefs.** Run `bun run cfcli -- bench briefs --check`; on DRIFT run `bun run cfcli -- bench briefs`, commit the rewritten briefs and re-check. **Done when** the check exits 0.
+1. **Select families.** Run `bun run cfcli -- bench status`. Per family it prints the seat's model and thinking level and its quota: `available`, `exhausted` or `unknown`, with the meter it read (xAI reads the Grok Build limit), its `remaining` fraction and `resetsAt`. Per prompt version it lists the latest log entry and its pending families. Select each `available` family whose remaining usage can finish a Runner and a grader on this prompt, judged from `remaining` and how soon `resetsAt` comes. Skip a family whose usage might run out before then, along with `exhausted` and `unknown` seats (`skill://model-evidence` § Sources). Each skipped family is pending, with its reason.
 
-2. **Plan HIT/MISS.** Run `bun run cfcli -- bench status --round <id>` (omit `--round` for the whole set, and add `--json` for machine-readable output). It prints `omp: found` or the benchmark is skipped, then per family HIT (cached sample path) or MISS with the exact runner command. Only MISSes run, and HITs are left unchanged. Then run `omp usage --json` and read `capacity` for the provider (the pin before `/`) of each MISS family's `top` and `fallback` pins. A provider with any window at `remainingAccounts` 0 is exhausted. When both pins' providers are exhausted, record the family dark now (step 6). Its reason is the exhausted window and that window's `reports[].limits[].window.resetsAt`. When only the top pin's provider is, run that MISS on its fallback pin as step 3 does for a failed pin. A provider absent from `capacity` runs as planned. **Done when** the Round's MISS list and commands are in hand, and each family with both providers exhausted is recorded dark.
+   When the version's latest log entry lists pending families, this run is an amendment to it. Run only those pending families that now pass the check. Families with a sample in that entry join the council when their usage can finish a grader.
 
-3. **Run the MISSes.** Paste every printed MISS command, verbatim, into one `bash` call with `timeout: 900` (each run stops itself at `--max-time 600`). The call moves to a background job, and its result arrives on its own:
+   **Done when** each family is selected or pending with a reason, with two council seats or more. A new entry needs at least two selected families and an amendment at least one. Short of that, report the quota to the DM and stop.
 
-   ```bash
-   ( <MISS command 1> ) &
-   ( <MISS command 2> ) &
-   wait
-   ```
+2. **Run.** Dispatch one `task` batch with one item per selected family, on agent `bench-runner-<family>`. Each item gets the same `context` and the task text `Benchmark prompt: evals/bench/prompts/<id>/v<N>.md`. As each returns, copy its result into one temporary directory: `results=$(mktemp -d)` once, then `cp agent://<id> "$results/<family>.json"`. Rerun a Runner once when it fails or its `page` lacks a `> [!narration]` callout. A second failure drops its family, with the error as the reason. **Done when** each selected family has a result file or a reason, and a new entry has at least two results or an amendment has at least one.
 
-   Each writes `<id>.<tag>.events.jsonl` and `<id>.<tag>.error.log` beside the brief. A missing `turn_end`, non-JSON stream or non-empty error log is a failed pin: rerun that family on its `fallback` pin by swapping the `--model` value and naming the outputs `<id>.<fallback-tag>.events.jsonl`. **Done when** every MISS has an events file or a preserved failure reason.
+3. **Anonymise.** Run `bun run cfcli -- bench alias --prompt <id>/v<N> <family>=$results/<family>.json …`. Add `--pending <family>="<reason>"` for each family skipped in step 1 and `--dropped <family>="<reason>"` for each family dropped in step 2. For an amendment, add `--amend <earlier run dir>`. The command copies that entry's samples into the new entry byte for byte and gives each sample in the entry a fresh animal name. It writes the run directory and prints that directory, the aliases and one council brief path per grader. **Done when** the command exits 0 and every sample is in `<run dir>/samples/`.
 
-4. **Extract.** Run `bun run cfcli -- bench extract <events.jsonl>` per run. It writes `<tag>.md` beside the events and prints JSON with `sample_path`, timing and `model`. Exit 1 means the sample is not a bare `> [!narration]` block: inspect it and judge it only if the breach should be scored. Any other failure is a missed run. **Done when** each run has a sample and its observed `model`.
+4. **Council.** Dispatch one `task` batch with one item per council seat, on agent `bench-grader-<family>`. The council is each selected family with a sample, plus in an amendment each family from step 1 that joins it. Each item gets the same `context` and the task text `Council brief: <that grader's brief path>`. Save each result with `cp agent://<id> <run dir>/grades/<family>.json`. Rerun a grader that fails once. A second failure leaves its seat empty, which `bench reveal` records. **Done when** at least two grades files are saved.
 
-5. **Judge.** Run `bun run cfcli -- bench judge-brief --id <id> --sample <abs sample.md>`. It prints the brief path (`…/judge/sample-<h8>.brief.md`) and the grades path. Read the brief, then run a fresh Judge per sample (all samples of a Round may run as background jobs). When `@PROSE-GRADER` resolves into a Matrix family, replace it in the command below with one Judge selector for the whole run, chosen by `.omp/AGENTS.md` **Model choice**.
+5. **Reveal.** Run `bun run cfcli -- bench reveal --run <run dir>`. It checks each grades file and averages the council's scores and ranks. Then it moves the mapping into the log and writes `report.md`, and it rebuilds the Leaderboard. Exit 1 names an invalid grades file: rerun that grader (step 4), then reveal again. **Done when** the command exits 0.
 
-   ```bash
-   omp -p --no-session --config evals/subject.config.yml --model @PROSE-GRADER --no-skills --tools read --mode json \
-     --append-system-prompt "$(awk 'f>=2; /^---$/{f++}' .omp/agents/prose-grader.md)" \
-     "@<judge-brief-path>" > <judge-dir>/sample-<h8>.judge.events.jsonl
-   bun run cfcli -- bench extract <judge-dir>/sample-<h8>.judge.events.jsonl --tag sample-<h8>.grades
-   mv <judge-dir>/sample-<h8>.grades.md <grades-path>
-   ```
+6. **Report.** Give the DM the council's order from `report.md`, with each family's seat and its mean rank and mean score. Add the top sample's narration callout and each pending or dropped family with its reason and `resetsAt`, then the Runners' and graders' friction. **Done when** the DM has the run's complete picture.
 
-   The Judge cannot write files. Its final message is the grades array, which `extract` pulls from the events (exit 1 there is expected, since grades are not Narration). The printed `model` is the Judge's observed identity. **Done when** the grades file has one entry from 1 to 5 per rubric, rubric text verbatim.
-
-6. **Record top-only.** `bun run cfcli -- bench record` attributes scored rows to the family's top pin. A scored row requires the runner's observed `model` (step 4) to equal that pin. Pass the Judge's observed `model` (step 5) as `--judge`:
-
-   ```bash
-   bun run cfcli -- bench record --id <id> --family <family> --grades <abs grades.json> --judge <observed judge model> --events <abs events.jsonl>
-   ```
-
-   A fallback run is extracted and judged like any other, then reported to the DM under its real identity and left without a scored cache row. Mark the top-pin gap with `bun run cfcli -- bench record --id <id> --family <family> --status skipped --reason "<top-pin failure; fallback <model> judged, uncached>"`. A quota or auth failure on both pins puts the family dark for the session. Record it with `--status dark --reason "<why>"`, and later Rounds skip it without retry. Any other dead pin (an invalid pin, unsupported thinking, unexpected routing or unrecordable events) records `--status skipped` with its reason. Recording rebuilds `evals/benchmark.md`, and `bun run cfcli -- bench render` rebuilds it without touching rows. **Done when** every family in the Round has a scored, dark or skipped row and `git status --porcelain wiki raw archive` is empty.
-
-7. **Close the Round.** Report the side-by-side to the DM. For each family, give its actual model with its prose and rubric scores and sample paths. The actual model is the top pin, the fallback under its real identity, or the miss reason. State the judge identity and each dark or skipped reason too. Begin the next Round only after this report. **Done when** the DM has the Round's complete picture.
+To present the standing results, read `leaderboard.md` in `evals/bench/`. `bun run cfcli -- bench render` rebuilds it from the committed runs.

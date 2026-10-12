@@ -4,7 +4,7 @@ Read this when a `dogfood` round's units include committed eval cases. `evals/RE
 
 ## Select
 
-Read the skill's case file: `.omp/skills/<skill>/evals/cases.yaml` when the skill is stored under `.omp/skills/`, otherwise `.agents/skills/<skill>/evals/cases.yaml`. Select the case ids the round's units list, or every case in the file when they list none. Each case gets one with-skill run, or one baseline run when `references/optimise.md` asks for it. **Done when** every selected id exists in the file and you have each one's `prompt`, `source_pages`, `raw_sources`, `rubrics` and `subject`.
+Read the skill's case file: `.omp/skills/<skill>/evals/cases.yaml` when the skill is stored under `.omp/skills/`, otherwise `.agents/skills/<skill>/evals/cases.yaml`. Select the case ids the round's units list, or every case in the file when they list none. Each case gets one with-skill run, or one baseline run when `references/optimise.md` asks for it. **Done when** every selected id exists in the file and you have each one's `prompt`, `source_pages`, `raw_sources`, `fixtures`, `rubrics` and `subject`.
 
 ## Run a case
 
@@ -13,7 +13,7 @@ Steps 1 and 4 are native `task` dispatches; steps 2, 3 and 5 run in Bash from th
 1. **Runner.** One `task` call contains every selected case:
 
    - `context`: `Eval Runner: follow your agent definition.` Criteria, rubrics and case files stay out of `context` and every `task`.
-   - Each item: `agent: "test-subject"`, or `agent: "smart-test-subject"` when the case has `subject: smart`; `effort: "med"`; `name` the case id in CamelCase (`gold-caste-handout` → `GoldCasteHandout`); and `task` the line `Read <skill-dir>/SKILL.md and follow it.`, a blank line, the case `prompt` verbatim as the DM request, a blank line, then `Sources:` followed by one line per `source_pages` entry as `wiki/<path>` and one per `raw_sources` path.
+   - Each item: `agent: "test-subject"`, or `agent: "smart-test-subject"` when the case has `subject: smart`; `effort: "med"`; `name` the case id in CamelCase (`gold-caste-handout` → `GoldCasteHandout`); and `task` the line `Read <skill-dir>/SKILL.md and follow it.`, a blank line, the case `prompt` verbatim as the DM request, a blank line, then `Sources:` followed by one line per `source_pages` entry as `wiki/<path>`, one per `raw_sources` path and one per `fixtures` path.
 
    `<skill-dir>` is the skill's real directory: `.omp/skills/<skill>` when it lives there, otherwise `.agents/skills/<skill>`. A baseline omits the skill line and its blank line. `.omp/agents/test-subject.md` defines the read recipe and the reply format. The `Sources:` lines are the Runner's whole research, and its reply closes on its friction report, whose `Gap:` and `Friction:` lines feed Design and `dogfood` triage. **Done when** every Runner has finished or failed and you have each one's agent id from the task result: its `name`, or the suffixed id the result reports when that name was taken.
 
@@ -53,7 +53,7 @@ Steps 1 and 4 are native `task` dispatches; steps 2, 3 and 5 run in Bash from th
      {"type":"object","required":["grades"],"properties":{"grades":{"type":"array","items":{"type":"object","required":["rubric","pass","reason"],"properties":{"rubric":{"type":"string"},"pass":{"type":"boolean"},"reason":{"type":"string"}}}}}}
      ```
 
-   The grade brief lists the case `rubrics` verbatim and numbered, then, for a case with `source_pages`, the `evals/README.md` § Wiki agreement criterion verbatim as the last numbered item; `Outputs: <run>/<case-id>/outputs (pages, reply.md, .deleted.json)` with the literal path; and `Sources:` each `source_pages` entry as `wiki/<path>`, plus each `raw_sources` path. Grading is blind: no brief says baseline or with-skill, and a baseline gets its own run root so no path names it either. Once the batch settles, save each result in one Bash call with its grader's agent id: `cp agent://<id> <run>/<case-id>/grades.json`. **Done when** every graded case's `grades.json` holds its grades JSON, or the grading error is named.
+   The grade brief lists the case `rubrics` verbatim and numbered, then, for a case with `source_pages`, the `evals/README.md` § Wiki agreement criterion verbatim as the last numbered item; `Outputs: <run>/<case-id>/outputs (pages, reply.md, .deleted.json)` with the literal path; and `Sources:` each `source_pages` entry as `wiki/<path>`, plus each `raw_sources` and `fixtures` path. Grading is blind: no brief says baseline or with-skill, and a baseline gets its own run root so no path names it either. Once the batch settles, save each result in one Bash call with its grader's agent id: `cp agent://<id> <run>/<case-id>/grades.json`. **Done when** every graded case's `grades.json` holds its grades JSON, or the grading error is named.
 
 5. **Human-audit page**, one per case, for the DM's review. Create the audit root once per session with `cd "$(mktemp -d)" && pwd -P` beneath OS `$TMPDIR` and reuse it for every later run. Write `<audit>/<skill>/<case-id>.md` holding the case's current sample: the Runner task, `reply.md`, each output page, `friction.txt`, `checks.txt`, then each criterion beside its grade and reason. Each run overwrites the case's page. **Done when** every selected case has its page from this run.
 

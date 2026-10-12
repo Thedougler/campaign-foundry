@@ -64,13 +64,4 @@ describe("loadTemplates: one template per (type, kind)", () => {
 		expect(error?.message).toContain("creature-fast.md");
 		expect(error?.message).toContain("creature-swift.md");
 	});
-
-	it("loads a kinded template beside a kindless one of the same type", async () => {
-		const dir = await mkdtemp(join(tmpdir(), "cf-templates-"));
-		await writeFile(join(dir, "creature.md"), "---\ntype: Creature\n---\n");
-		await writeFile(join(dir, "creature-generic.md"), "---\ntype: Creature\nkind: Generic\n---\n");
-		const set = await loadTemplates(dir);
-		expect([...set.byName.keys()].sort()).toEqual(["Creature", "Creature - Generic"]);
-		expect(set.types.get("Creature")).toEqual(["Generic"]);
-	});
 });

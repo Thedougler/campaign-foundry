@@ -100,6 +100,32 @@ describe("eval:check Outcome", () => {
 		expect(results.map((result) => result.ok)).toEqual([true, false, true, true, true]);
 		expect(outcome.readPage(page)).toBeUndefined();
 	});
+
+	it("matches pattern page keys against the pages the run wrote", () => {
+		const outcome = createOutcome(
+			vault,
+			output({ "Items/cloud-staff.md": "## Play\ntype: Item", "World/Items/other.md": "## Play\nShattered Sea" }),
+		);
+		const results = runChecks(
+			{
+				pages: ["Items/*.md", "Spells/*"],
+				sections: { "Items/*.md": ["## Play"], "Spells/*.md": ["## Play"] },
+				canon: { "Items/*": ["type: Item"] },
+				absent: { "**/Items/*.md": ["Shattered Sea"], "salt-and-lantern/**": ["[\\s\\S]"] },
+			},
+			outcome,
+		);
+		expect(results.map((result) => [result.kind, result.ok, result.detail])).toEqual([
+			["pages", true, "Items/*.md matched by Items/cloud-staff.md"],
+			["pages", false, "Spells/* matches no page the run wrote"],
+			["sections", true, "Items/cloud-staff.md: ## Play found"],
+			["sections", false, "Spells/*.md: no page the run wrote matches (## Play)"],
+			["canon", true, "Items/cloud-staff.md: type: Item still holds"],
+			["absent", false, "World/Items/other.md: Shattered Sea matches but must not"],
+			["absent", true, "salt-and-lantern/**: no page the run wrote matches ([\\s\\S])"],
+		]);
+	});
+
 	it("reports CLI pass/fail and malformed outputs as execution errors", async () => {
 		const passed = await evalCheck("fixture-holds", output(writtenFixture));
 		expect(passed.code).toBe(0);
@@ -159,6 +185,18 @@ describe("eval:check case fields", () => {
 		const big = join(dir, "big.yaml");
 		writeFileSync(big, '- id: b\n  prompt: P\n  subject: big\n');
 		expect(() => loadCases(big)).toThrow('"subject" must be "smart" when set');
+	});
+
+	it("loads fixtures under a skill's evals/fixtures/ and rejects any other path", () => {
+		const dir = realpathSync(mkdtempSync(join(tmpdir(), "eval-cases-")));
+		roots.push(dir);
+		const fixture = ".agents/skills/item-design/evals/fixtures/note.md";
+		const good = join(dir, "good.yaml");
+		writeFileSync(good, `- id: f\n  prompt: P\n  fixtures:\n    - ${fixture}\n`);
+		expect(loadCases(good)).toEqual([{ id: "f", prompt: "P", fixtures: [fixture] }]);
+		const bad = join(dir, "bad.yaml");
+		writeFileSync(bad, "- id: f\n  prompt: P\n  fixtures:\n    - .cache/inspired-by/note.md\n");
+		expect(() => loadCases(bad)).toThrow("fixtures must sit under a skill's evals/fixtures/");
 	});
 });
 
