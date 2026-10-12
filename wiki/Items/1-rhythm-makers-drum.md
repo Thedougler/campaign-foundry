@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Instrument (*Drum*), Uncommon (Requires Attunement By a Bard), 3 lb.*
 
@@ -28,7 +26,7 @@ Proficiency with a musical instrument indicates you are familiar with the techni
 
 ***Compose a Tune.*** As part of a long rest, you can compose a new tune and lyrics for your instrument. You might use this ability to impress a noble or spread scandalous rumours with a catchy tune.
 
-#### Musical Instrument
+### Musical Instrument
 
 | | Activity         | |  DC | |
 | ------------------ | :-----: |

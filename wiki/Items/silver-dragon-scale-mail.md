@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Medium Armour (*Scale Mail*), Very Rare (Requires Attunement), 45 lb.*
 

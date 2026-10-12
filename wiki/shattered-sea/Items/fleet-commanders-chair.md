@@ -12,26 +12,20 @@ revealed: "Session 7"
 title: "Fleet Commanders Chair"
 ---
 
-## At a glance
+## Properties
+
+While seated, a creature has Advantage on Charisma checks and saving throws. The benefit ends on standing or leaving. The chair cannot be broken, scratched or dented.
+
+## In use
+
+The chair stands aft in the former captain's cabin. The seat is a little too upright for comfort, and anyone who sits in it straightens without meaning to. A hollow in the base stores whatever the last occupant left there. The armrest's wrong give is the tell before the mimic acts.
 
 - **Kind.** Wondrous item, rarity not established.
-- **Rarity.**
-- **Attunement.**
 - **Changes.** Grants Advantage on Charisma checks and saving throws while seated.
 - **Held by.** [[delmar-fisk|Delmar Fisk]], aboard [[uncertainty|Uncertainty]].
 
 > [!narration] First look
 > A broad, high-backed armchair of deep red leather smells of pipe smoke and old oil. Privateer hands have worn the armrests where they gripped through weather. The joinery still sits tight at every corner. Its dark wooden legs are too heavy for its size, and the armrest gives a fraction more than good leather should. When the ship rolls, the deck boards give under it before its legs do. It doesn't creak. Dust coats every plank and fitting around it. The seat alone is bare.
-
-## Play
-
-### Properties
-
-While seated, a creature has Advantage on Charisma checks and saving throws. The benefit ends on standing or leaving. The chair cannot be broken, scratched or dented.
-
-### In use
-
-The chair stands aft in the former captain's cabin. The seat is a little too upright for comfort, and anyone who sits in it straightens without meaning to. A hollow in the base stores whatever the last occupant left there. The armrest's wrong give is the tell before the mimic acts.
 
 ## Depth
 

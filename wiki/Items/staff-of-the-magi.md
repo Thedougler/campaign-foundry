@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Staff, Weapon, Legendary (Requires Attunement By a Sorcerer, Warlock, or Wizard), Simple Weapon, Melee Weapon, 4 lb.*
 

@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Uncommon.*
 
@@ -15,7 +13,7 @@ Also at rank 1, you are given use of an Acquisitions Incorporated sending stone,
 
 Making contact with another secretarian assumes that they are in possession of their own sending stone.
 
-#### Quirks of Your Sending Stone
+### Quirks of Your Sending Stone
 
 | |  d8 | | quirk                                                                                                     | |
 | :---: | ------------------------------------------------------------------------------------------------------------- |

@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Warhammer*), Artifact (Requires Attunement), Martial Weapon, Melee Weapon, 2 lb.*
 
@@ -29,7 +27,7 @@ The weapon communicates telepathically with its wielder and can speak, read, and
 - You gain a +1 bonus to attack and damage rolls made with this magic weapon. When you hit with an attack using this warhammer, you can deal an extra 2d6 bludgeoning damage to the target. If you do, you take 1d6 psychic damage. The warhammer deals double damage to objects and structures.
 - While holding this weapon, you have advantage on Wisdom (Insight) checks made to discern a lie spoken in a language you understand.
 
-> #### Betrayer Artifact Properties
+> ### Betrayer Artifact Properties
 >
 >The Arms of the Betrayers advance in power in the same manner as the Vestiges of Divergence. In its dormant state, each of these artifacts has one minor beneficial property and one minor detrimental property. When the artifact attains an awakened state, it gains an additional minor beneficial property and an additional minor detrimental property. When the item reaches its exalted state, it gains a major beneficial property. See "Artifact Properties" in chapter 7 of the Dungeon Master's Guide for more information.
 >

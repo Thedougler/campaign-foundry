@@ -23,7 +23,7 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 - **Used by.** %% Optional. Add it when an NPC or page uses these statistics, linking each. %%
 
 > [!narration] First sight
-> %% Optional. Include it when the Party will see this Creature. Spoken, second person. Give its size against something familiar and its strangest feature. Add its skin, scales or hide, one sound or smell, what it does at rest, and the visible sign of each signature ability. Leave out rules, secrets and any name the Party has not learned. %%
+> %% Optional. Include it when the Party will see this Creature. Spoken, second person, per `skill://theatre-of-the-mind`. %%
 
 ## Statblock
 
@@ -81,7 +81,7 @@ legendary_actions: []
 
 ### Ecology
 
-%% Give its habitat and diet and its social life. Add its predators or prey and its local use, and say where it came from. For each signature ability, give a trace the Party can find before contact. %%
+%% Give where it lives and how it fits there, such as what it eats, lives beside or is used for, and say where it came from. For each signature ability, give a trace the Party can find before contact. %%
 
 ### Hidden truths
 

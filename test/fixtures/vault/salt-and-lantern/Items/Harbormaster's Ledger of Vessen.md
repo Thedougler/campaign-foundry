@@ -6,15 +6,13 @@ revealed: ""
 title: "Harbormaster's Ledger of Vessen"
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Notable Mundane Object (Ledger).*
 
 The ledger has 210 pages of harbor records in the old Vessen script. Reading it takes 1 hour, and a creature that reads Common can follow the script with a successful DC 12 Intelligence (History) check.
 
-### In use
+## In use
 
 The last marked entry, dated 3 Blackwater 271 CY, records a sealed notice from the Compact telling the harbormaster to hold every Vessen boat at anchor on 6 Blackwater and to tell no one why. A copy of the Compact's order to open the gates of [[Crookback Sluice]] on that day was sent in the same packet by mistake, and the harbormaster copied it in. A creature that reads both learns that the Compact ordered the flood. The book can be destroyed by fire or long soaking, and it can be shown to witnesses as proof.
 

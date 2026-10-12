@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Greatclub*), Very Rare (Requires Attunement), Simple Weapon, Melee Weapon, 10 lb.*
 

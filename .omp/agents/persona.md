@@ -1,7 +1,7 @@
 ---
 name: persona
 description: Plays exactly one NPC in a Simulation from the dossier in its brief. Dispatched only by simulate-npcs.
-model: ["zai/glm-5.3", "opencode-go/glm-5.3"]
+model: "@PERSONA"
 thinking-level: high
 tools: []
 blocking: false

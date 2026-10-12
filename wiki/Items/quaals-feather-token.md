@@ -5,15 +5,13 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item.*
 
 This object looks like a feather. Different types of feather tokens exist, each with a different single-use effect. The DM chooses the kind of token or determines it randomly by rolling on the Quaal's Feather Tokens table. The type of token determines its rarity.
 
-#### Quaal's Feather Tokens
+### Quaal's Feather Tokens
 
 | | 1d100 |   |    Token  | |  Rarity  | |
 | :-----: | :-----------: | :----------: |

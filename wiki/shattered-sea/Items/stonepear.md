@@ -12,7 +12,13 @@ title: "Stonepear"
 
 ![[stonepear-handout-art.webp]]
 
-## At a glance
+## Properties
+
+As a Bonus Action, eat the fruit to gain Resistance to all damage for 1 minute. The DM counted it among the fruits that take a Bonus Action to eat, with the [[rotheart|Rotheart]] and the [[redheart-berry|Redheart Berry]].
+
+## In use
+
+Under [[taking-on-aruhe|Aruhe's law]], fallen fruit is safe to take, but fruit picked from its stem is a claim and the fallen fruit keeps until eaten. Delmar ate his as a Bonus Action in the last fight against [[talon-skarn|Talon Skarn]], and the fight's damage halved against him for its minute. He rose out of the blood-spray that had marked his position as he went.
 
 - **Kind.** Consumable.
 - **Rarity.** Rare.
@@ -21,16 +27,6 @@ title: "Stonepear"
 
 > [!narration] First look
 > A stonepear hangs like a heavy pear with fitted grey and moss-green stone scales. Its chipped plates scrape like pumice against your palm, and it weighs twice what its size promises.
-
-## Play
-
-### Properties
-
-As a Bonus Action, eat the fruit to gain Resistance to all damage for 1 minute. The DM counted it among the fruits that take a Bonus Action to eat, with the [[rotheart|Rotheart]] and the [[redheart-berry|Redheart Berry]].
-
-### In use
-
-Under [[taking-on-aruhe|Aruhe's law]], fallen fruit is safe to take, but fruit picked from its stem is a claim and the fallen fruit keeps until eaten. Delmar ate his as a Bonus Action in the last fight against [[talon-skarn|Talon Skarn]], and the fight's damage halved against him for its minute. He rose out of the blood-spray that had marked his position as he went.
 
 ## Depth
 

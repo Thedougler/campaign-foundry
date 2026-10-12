@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Greataxe*), Artifact (Requires Attunement), Martial Weapon, Melee Weapon, 7 lb.*
 

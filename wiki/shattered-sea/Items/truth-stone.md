@@ -12,7 +12,17 @@ revealed: "Session 2"
 title: "Truth Stone"
 ---
 
-## At a glance
+## Properties
+
+When a creature holding the Truth Stone makes a Deception check, whether the check succeeds or fails, the stone deals 1d6 fire damage to that creature at the start of each of its turns for 1 minute. Dropping the stone (no action required) ends this ongoing damage immediately. Each additional Deception check the holder makes while holding the stone adds another 1d6 fire damage to the ongoing damage.
+
+The stone compels nothing. A holder who does not know a statement is false feels nothing. A holder willing to endure the burning can attempt deception all the same, and a creature immune to fire damage can lie while holding it without harm.
+
+## In use
+
+After the crew took the Surety, [[beaumont-sel|Beaumont Sel]] slid the stone across the decking to [[jean-claude-tabarnack|Jean-Claude Tabarnack]] in the settling of accounts. Jean-Claude answered that his former kinsmen were after him, he had stowed away, and nobody had sent him. The stone stayed cool for every truth. He still carries it ([[session-2-recap|Session 2 - Recap]]).
+
+On the Midchain the stone is a common tool of captains, merchants, and anyone who has been burned by a false manifest.
 
 - **Kind.** Wondrous item.
 - **Rarity.** Common.
@@ -22,20 +32,6 @@ title: "Truth Stone"
 
 > [!narration] First look
 > Beaumont Sel weighs a smooth grey stone in his palm, then rolls it over the planks to you. The stone is river-worn and unmarked, no bigger than the last joint of a thumb, and warm, as if fresh from a hand.
-
-## Play
-
-### Properties
-
-When a creature holding the Truth Stone makes a Deception check, whether the check succeeds or fails, the stone deals 1d6 fire damage to that creature at the start of each of its turns for 1 minute. Dropping the stone (no action required) ends this ongoing damage immediately. Each additional Deception check the holder makes while holding the stone adds another 1d6 fire damage to the ongoing damage.
-
-The stone compels nothing. A holder who does not know a statement is false feels nothing. A holder willing to endure the burning can attempt deception all the same, and a creature immune to fire damage can lie while holding it without harm.
-
-### In use
-
-After the crew took the Surety, [[beaumont-sel|Beaumont Sel]] slid the stone across the decking to [[jean-claude-tabarnack|Jean-Claude Tabarnack]] in the settling of accounts. Jean-Claude answered that his former kinsmen were after him, he had stowed away, and nobody had sent him. The stone stayed cool for every truth. He still carries it ([[session-2-recap|Session 2 - Recap]]).
-
-On the Midchain the stone is a common tool of captains, merchants, and anyone who has been burned by a false manifest.
 
 ## Depth
 

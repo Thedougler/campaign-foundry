@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Staff, Weapon (*Quarterstaff*), Uncommon (Requires Attunement By a Spellcaster), Simple Weapon, Melee Weapon, 4 lb.*
 

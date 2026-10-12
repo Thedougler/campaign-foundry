@@ -11,7 +11,15 @@ title: "Giant's Guava"
 
 ![[giants-guava-handout-art.webp]]
 
-## At a glance
+## Properties
+
+Eating it takes a Bonus Action, as the DM confirmed for every fruit the Party ate that night, the [[rotheart|Rotheart]] and the [[redheart-berry|Redheart Berry]] included. Choose one ability score, and for 1 hour it rises by 2 if it is below 20 or by 1 if it already reaches 20, never past 25. Rolls, save DCs and attack bonuses using that score change with it. One bite spends the magic. The rest of a bitten gourd keeps its taste and does nothing.
+
+A Survival check over the fire turns one gourd into five fruit kebabs. Each kebab raises a chosen ability score to 22 for 1 hour, and one gourd splits five ways.
+
+## In use
+
+Under [[taking-on-aruhe|Aruhe's law]], fallen fruit is safe and a pick from the stem is a claim. Crissdalynn bit the first gourd raw at the river camp, and her Wisdom sat at 25 for the hour. The leftover went round the camp as plain food, then over the fire with the fish, where Jean-Claude's Survival 22 cooked it into the five kebabs. Perrin ate his as the big steps shook the tunnels above. Crissdalynn ate hers on her feet in the last fight against [[talon-skarn|Talon Skarn]], Dexterity at 22 and her Armour Class at 21 with the staff in hand. Jean-Claude ate a raw gourd in that same fight and took the Dexterity raise with it.
 
 - **Kind.** Consumable.
 - **Rarity.** Rare.
@@ -20,18 +28,6 @@ title: "Giant's Guava"
 
 > [!narration] First look
 > A giant's guava is a ribbed fruit the size of a man's head, gold deepening to pink along each rib. Its thick stem bows the branch, and the scent is sweet with a musky edge.
-
-## Play
-
-### Properties
-
-Eating it takes a Bonus Action, as the DM confirmed for every fruit the Party ate that night, the [[rotheart|Rotheart]] and the [[redheart-berry|Redheart Berry]] included. Choose one ability score, and for 1 hour it rises by 2 if it is below 20 or by 1 if it already reaches 20, never past 25. Rolls, save DCs and attack bonuses using that score change with it. One bite spends the magic. The rest of a bitten gourd keeps its taste and does nothing.
-
-A Survival check over the fire turns one gourd into five fruit kebabs. Each kebab raises a chosen ability score to 22 for 1 hour, and one gourd splits five ways.
-
-### In use
-
-Under [[taking-on-aruhe|Aruhe's law]], fallen fruit is safe and a pick from the stem is a claim. Crissdalynn bit the first gourd raw at the river camp, and her Wisdom sat at 25 for the hour. The leftover went round the camp as plain food, then over the fire with the fish, where Jean-Claude's Survival 22 cooked it into the five kebabs. Perrin ate his as the big steps shook the tunnels above. Crissdalynn ate hers on her feet in the last fight against [[talon-skarn|Talon Skarn]], Dexterity at 22 and her Armour Class at 21 with the staff in hand. Jean-Claude ate a raw gourd in that same fight and took the Dexterity raise with it.
 
 ## Depth
 

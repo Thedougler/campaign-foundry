@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Very Rare (Requires Attunement By a Creature Missing a Hand or an Arm).*
 

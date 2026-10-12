@@ -24,7 +24,7 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 - **Berth.** %% Optional. Add it when the craft has a home port or yard in the World, linking it. %%
 
 > [!narration] First sight
-> %% Optional. Include it when the Party will see the craft. Spoken, second person. Give size and silhouette and how the craft rides in the water or on the road. Show where a boat comes alongside or a climber gets up. Add one sense beyond sight, and the visible signs of the hold and the quirk. %%
+> %% Optional. Include it when the Party will see the craft. Spoken, second person, per `skill://theatre-of-the-mind`. %%
 
 ## Play
 
@@ -48,7 +48,7 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ### Underway
 
-%% Give its current errand (route, cargo or orders) and what it does on meeting the Party. Give two to four manoeuvres or conditions that change a choice. Then give how a chase and a boarding run, and three to five decks or areas at body scale. %%
+%% Give its current errand (route, cargo or orders) and what it does on meeting the Party. Give the manoeuvres or conditions that change a choice. Then give how a chase and a boarding run, and the decks or areas they move through at body scale. %%
 
 ## Depth
 

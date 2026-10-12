@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Common.*
 
@@ -15,7 +13,7 @@ sources: ["archive/all-magic-items.md"]
 
 ***Map of the Moment.*** Starting at rank 3, you can use an action to make a DC 15 Wisdom (Perception) check and search your cartographer's map case to find a map either related to your current mission or inspiring a new one. On a success, you find a map with a prominent landmark. The map has information on the natural terrain within one mile of the landmark. Once you use this feature, you cannot use it again until dawn seven days later.
 
-#### Possible Map Mission Landmarks
+### Possible Map Mission Landmarks
 
 | |  d8 | | Landmark                                                                         |  |
 | :---: | ------------------------------------------------------------------------------------- |

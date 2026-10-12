@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Artifact (Requires Attunement).*
 
@@ -19,7 +17,7 @@ If you don't sow or implant the tooth, roll a die at the end of your turn. On an
 
 Each tooth can only be used once. Track which teeth have been used. If a tooth's result is rolled after it's been used, you draw the next lowest unused tooth on the table.
 
-#### Teeth of Dahlver-Nar
+### Teeth of Dahlver-Nar
 
 | | d20 | | Tale and Tooth                                                     | | Creatures Summoned                                                                   | | Implanted Effect                                                                                                                                                                                                                                                                                                                                                                                                                                             |  |
 | :---: | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

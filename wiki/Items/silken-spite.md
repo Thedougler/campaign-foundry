@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Rapier*), Artifact (Requires Attunement), Martial Weapon, Melee Weapon, 2 lb.*
 

@@ -1,7 +1,7 @@
 ---
-description: Load friction-report before writing, reading or routing friction report lines.
-condition: '(?i)\bfriction\b'
-scope: "text, thinking"
+description: Load friction-report when writing or routing `Gap:` and `Friction:` report lines.
+condition: '(?m)^\s*(?:[-*]\s+)?(?:\*\*)?(?:Gap|Friction):'
+scope: "text"
 interruptMode: never
 ---
 

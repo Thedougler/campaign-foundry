@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Spellcasting Focus, Rare (Requires Attunement By a Sorcerer), 1 lb.*
 
@@ -15,7 +13,7 @@ This flickering crystal holds the essence of an Outer Plane. As an action, you c
 
 Roll a d4 and consult the Outer Essence Shards table to determine the shard's essence and property. When you use a Metamagic option on a spell while you are holding or wearing the shard, you can use that property.
 
-#### Outer Essence Shards
+### Outer Essence Shards
 
 | |  d4 | | Property | | Shard                           | |
 | :---: | :--------: | ----------------------------------- |

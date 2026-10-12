@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (Requires Attunement By a Creature That Has Psionic Ability), Martial Weapon, Melee Weapon, Major Tier, 6 lb.*
 

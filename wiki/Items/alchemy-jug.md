@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Uncommon, 12 lb.*
 
@@ -17,7 +15,7 @@ You can take a Magic action and name one liquid from the Alchemy Jug Liquids tab
 
 Once the jug starts producing a liquid, it can't produce a different one, or more of one that has reached its maximum, until the next dawn.
 
-#### Alchemy Jug Liquids
+### Alchemy Jug Liquids
 
 | | Liquid       | | Max. Amount | |
 | -------------- | --------------- |

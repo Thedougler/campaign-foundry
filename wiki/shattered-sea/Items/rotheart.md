@@ -8,7 +8,13 @@ revealed: "Session 12"
 title: "Rotheart"
 ---
 
-## At a glance
+## Properties
+
+As a Bonus Action, eat one. For the next 24 hours, rolled healing takes its maximum, so Hit Dice pay their full value and a healing spell rolls no dice. Eating one also strips any Exhaustion and ends a poison or a disease. Aches and old tension loosen as it goes down, and one fruit is one use. A second bite only tastes good.
+
+## In use
+
+The Party gathered three fallen fruits at the road camp, and [[crissdalynn-khinriss|Crissdalynn Khinriss]] ate the first at that camp. The other two ride in her bag. Crissdalynn was still under it in the last fight against [[talon-skarn|Talon Skarn]], and one [[redheart-berry|Redheart Berry]] paid a flat 40 Hit Points instead of rolling. She rose fully healed, the arm Skarn broke knitting straight.
 
 - **Kind.** Consumable.
 - **Rarity.** Very rare.
@@ -17,16 +23,6 @@ title: "Rotheart"
 
 > [!narration] First look
 > A rotheart is a black, glossy fruit that sits dense in the hand. Where the skin has split, the flesh is dark as old blood, wet at every break. Warmth reaches your palm before your fingers close, and the fruit keeps that heat long after it leaves the tree.
-
-## Play
-
-### Properties
-
-As a Bonus Action, eat one. For the next 24 hours, rolled healing takes its maximum, so Hit Dice pay their full value and a healing spell rolls no dice. Eating one also strips any Exhaustion and ends a poison or a disease. Aches and old tension loosen as it goes down, and one fruit is one use. A second bite only tastes good.
-
-### In use
-
-The Party gathered three fallen fruits at the road camp, and [[crissdalynn-khinriss|Crissdalynn Khinriss]] ate the first at that camp. The other two ride in her bag. Crissdalynn was still under it in the last fight against [[talon-skarn|Talon Skarn]], and one [[redheart-berry|Redheart Berry]] paid a flat 40 Hit Points instead of rolling. She rose fully healed, the arm Skarn broke knitting straight.
 
 ## Depth
 

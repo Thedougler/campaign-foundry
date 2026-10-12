@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Rare.*
 
@@ -15,7 +13,7 @@ The chariot's riders and creatures pulling the chariot gain a +1 bonus to their 
 
 If this magic chariot is pulled by one or more flying creatures, it too can fly.
 
-> #### Chariots
+> ### Chariots
 >
 >Chariots and the creatures pulling them work like controlled mounts, as described in the mounted combat rules in the *Player's Handbook*, but with the following differences:
 >

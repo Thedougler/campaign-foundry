@@ -98,10 +98,10 @@ insufficient. A reskin has no silent numerical changes.
 
 ### 4. Make the Creature specific and playable
 
-For a variant or new design, write a stock version in one line, then define the
-World-grown twist, ecological niche, role, goal, fear or limit, and the body
-part or habit that exposes each signature. Run a swap test against a regional
-neighbour: rewrite every line that remains true under the neighbour's name.
+For a variant or new design, define the World-grown twist, ecological niche,
+role, goal, fear or limit, and the body part or habit that exposes each
+signature. Run a swap test against a regional neighbour: rewrite every line
+that remains true under the neighbour's name.
 
 Give the Creature one concrete primary role and a morale or ending condition.
 Build the signature as **Tell → Threat → Answers → Payoff**. Players see the
@@ -169,22 +169,20 @@ cites its PC page.
 
 ### 6. Put the Creature in the World and hand off Narration
 
-Give it a habitat, diet, social life, local name or use, predators or prey,
-ecology, and a niche that differs from neighbours. For every signature ability,
+Place it in the World: where it lives, how it fits there (what it eats, lives
+beside or is used for, as its kind allows) and a niche that differs from
+neighbours. For every signature ability,
 write a trace players can find before contact: tracks, kills, shed material,
 damaged terrain, smell, sound, or a changed pattern of prey. State origin and
 hidden truths with concrete ways the Party can learn them. A filed Creature
 whose statistics are sound but whose presence reads generic gets a
 `flesh-out` pass in place of a retune.
 
-Prepare a First sight packet for `theatre-of-the-mind`: body and size against a
-familiar object, striking feature, surface, one sound or smell, behaviour at
-rest, and the visible appearance behind every signature. Write the tell
+When the Party will see it, hand `theatre-of-the-mind` the First sight slot
+with the visible appearance behind every signature. Write the tell
 before its signature in Tactics as a Cue (`==…==`, `theatre-of-the-mind`
-`references/recipes.md` § Cues). The player-facing
-packet contains appearance and what the Players can sense from where they
-stand. Keep rules, numbers, secrets and any name the Party has not learned out
-of it.
+`references/recipes.md` § Cues). Keep rules, numbers, secrets and any name the
+Party has not learned out of First sight.
 
 **Gate:** every signature has an ecological sign and a visible Narration tell;
 habitat, niche, ecology, origin, learnable truths and morale agree with the

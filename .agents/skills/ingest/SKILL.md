@@ -117,7 +117,7 @@ Every fact on a page traces to its rung. Even a unit the rungs say little about 
 
 ## Item exports
 
-`convert-items` turns a file of complete generic magic items into World-free Item pages at `wiki/Items/<slug>.md`, each holding its published rules verbatim under `## Play` › `### Properties`, with `summary` left blank. Run these from the repo root:
+`convert-items` turns a file of complete generic magic items into World-free Item pages at `wiki/Items/<slug>.md`, each holding its published rules verbatim under `## Properties`, with `summary` left blank. Run these from the repo root:
 
 ```bash
 mv raw/<file> archive/<file>

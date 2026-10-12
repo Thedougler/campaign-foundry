@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Spear*), Artifact (Requires Attunement), Simple Weapon, Melee Weapon, 3 lb.*
 
@@ -29,7 +27,7 @@ The weapon communicates telepathically with its wielder and can speak, read, and
 - You gain a +1 bonus to attack and damage rolls made with this magic weapon, and it deals an extra 1d8 piercing damage to any target it hits. Immediately after you make a ranged attack with this weapon, it flies back to your hand.
 - As a reaction when you are hit by a melee attack, you can make a melee attack with Ruin's Wake with advantage against the attacker. You can't use this property again until you finish a short or long rest.
 
-> #### Betrayer Artifact Properties
+> ### Betrayer Artifact Properties
 >
 >The Arms of the Betrayers advance in power in the same manner as the Vestiges of Divergence. In its dormant state, each of these artifacts has one minor beneficial property and one minor detrimental property. When the artifact attains an awakened state, it gains an additional minor beneficial property and an additional minor detrimental property. When the item reaches its exalted state, it gains a major beneficial property. See "Artifact Properties" in chapter 7 of the Dungeon Master's Guide for more information.
 >

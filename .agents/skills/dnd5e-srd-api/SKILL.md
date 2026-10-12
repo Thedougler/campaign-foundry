@@ -36,6 +36,7 @@ curl -s "$B/classes/wizard/levels/3" | jq .spellcasting   # slots, cantrips, pre
 curl -s "$B/classes/wizard/spells" | jq -c '.results[]'   # the class spell list
 curl -s "$B/classes/wizard" | jq -c .subclasses            # a class's subclasses
 curl -s "$B/equipment-categories/simple-weapons" | jq -c '.equipment[]'
+curl -s "$B/equipment/flail" | jq '{damage, properties, mastery}'   # mastery is top-level, not in properties
 ```
 
 Monster records are large, so project the fields you need: `curl -s "$B/monsters/goblin-warrior" | jq '{armor_class, hit_points, challenge_rating, actions}'`.

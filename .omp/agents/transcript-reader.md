@@ -1,7 +1,7 @@
 ---
 name: transcript-reader
 description: Read one chunk of a TranscribeX Session Transcript, or verify listed line ranges, and write its Session Ledger entries to the one file the brief names.
-model: ["zai/glm-5.3-flash", "opencode-go/glm-5.3-flash"]
+model: "@TRANSCRIPT-READER"
 tools: [read, grep, write]
 ---
 

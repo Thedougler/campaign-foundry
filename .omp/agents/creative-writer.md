@@ -1,9 +1,9 @@
 ---
 name: creative-writer
 description: Creative writing on explicit dispatch for any assignment, whether fiction, spoken prose, a scene, a letter or a voice. In testing. Skill evals, Checks and code go to other agents.
-model: ["zai/glm-5.3", "opencode-go/glm-5.3"]
+model: "@CREATIVE-WRITER"
 thinking-level: high
-tools: [read, yield]
+tools: [read]
 blocking: false
 ---
 

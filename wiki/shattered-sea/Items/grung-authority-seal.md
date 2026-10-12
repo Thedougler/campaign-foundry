@@ -12,30 +12,24 @@ title: "Grung Authority Seal"
 
 ![[grung-authority-seal-handout-art.webp]]
 
-## At a glance
-
-- **Kind.** Wondrous plot item, single use.
-- **Rarity.** Spent examples are inert.
-- **Attunement.** -
-- **Changes.** A whole seal can replace one Grung's will with a lifelong order.
-- **Held by.** The Party's gear includes one spent seal, and Jean-Claude carries samples taken from the burnt road. Other spent seals lie beside Grung remains on Aruhe.
-
-> [!narration] First look
-> You lift a spent seal out of the dirt. Gold disc, the width of your palm, cracked clean through into curved plates. Curling script runs ring behind ring across its face, raised dots set among it, and dirt has packed every groove of it. You turn it over and the torn edges clink, ragged where the metal pulled free. Each one sits where the disc fused to skin.
-
-## Play
-
-### Properties
+## Properties
 
 A whole seal is pressed to a Grung within 5 feet who is Grappled, Restrained, Incapacitated or willing, while the holder speaks an order of up to 25 words. There is no save. The seal fuses to skin and replaces the target's will like permanent *modify memory*: the Grung believes the order is its own conviction and pursues it for life. Only death ends it. The seal then goes inert.
 
-### In use
+## In use
 
 Spent seals do nothing. Their Gold-caste script records the bearer’s order chain, oldest first. Jean-Claude reads it without a check. Others need Investigation DC 13. No seal names Hinewai, the Death Bloom or its officer.
 
 Investigation DC 13, read a spent seal: ==The rings give up their sequence, oldest order first. You can read the whole of the chain, down to the last thing it ordered its bearer to do.==
 
 Failure: ==You read it twice and it all makes sense. Report the land, keep the road open, that's what you do with a road, and you can't see why anyone made so much of it.==
+
+- **Kind.** Wondrous plot item, single use.
+- **Changes.** A whole seal can replace one Grung's will with a lifelong order.
+- **Held by.** The Party's gear includes one spent seal, and Jean-Claude carries samples taken from the burnt road. Other spent seals lie beside Grung remains on Aruhe.
+
+> [!narration] First look
+> You lift a spent seal out of the dirt. Gold disc, the width of your palm, cracked clean through into curved plates. Curling script runs ring behind ring across its face, raised dots set among it, and dirt has packed every groove of it. You turn it over and the torn edges clink, ragged where the metal pulled free. Each one sits where the disc fused to skin.
 
 ## Depth
 

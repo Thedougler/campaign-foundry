@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Legendary.*
 
@@ -23,7 +21,7 @@ Unless it is the Fool or the Jester card, a drawn card immediately takes effect,
 
 The DM can use the physical cards provided in The Deck of Many Things card set to build a combined Deck of Many Things and Deck of Many More Things, including whichever cards they desire. Alternatively, roll on the Deck of Many More Things table below to randomly determine what cards are drawn.
 
-#### Deck of Many More Things
+### Deck of Many More Things
 
 | |  d100 | | Card        | |
 | :-----: | --------------- |

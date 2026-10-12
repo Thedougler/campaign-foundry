@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Artifact (Requires Attunement).*
 
@@ -30,7 +28,7 @@ The Eye of Vecna and the *Hand of Vecna* are separate Artifacts that might be fo
 - **Truesight.** You have Truesight out to 240 feet.
 - **Spellcasting.** The eye has 8 charges and regains 1d4 + 4 expended charges daily at dawn. You can cast a spell on the Eye of Vecna Spells table from the eye (save DC 18). The table indicates how many charges you must expend to cast the spell. Each time you cast a spell from the eye, there is a 5 percent chance that Vecna tears your soul from your body, devours it, and then takes control of the body like a puppet. If that happens, you become an NPC under the DM's control.
 
-#### Eye of Vecna Spells
+### Eye of Vecna Spells
 
 | | Spell              | | Charge Cost | |
 | -------------------- | :-------------: |

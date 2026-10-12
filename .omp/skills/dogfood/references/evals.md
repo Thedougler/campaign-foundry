@@ -27,7 +27,7 @@ Steps 1 and 4 are native `task` dispatches; steps 2, 3 and 5 run in Bash from th
    !f && /^````+markdown file=".+"$/ { fence = $0; sub(/markdown.*/, "", fence); f = d "/" fname($0); system("mkdir -p \"$(dirname \"" f "\")\""); printf "" > f; next }
    !f && /^````+delete file=".+"$/ { fence = $0; sub(/delete.*/, "", fence); del = del sep "\"" fname($0) "\""; sep = ","; f = "/dev/null"; next }
    f && $0 == fence { f = ""; next }
-   !f && /^(Gap|Friction): / { print > fr; next }
+   !f && /^(Orchestrator|Model|Gap|Friction): / { print > fr; next }
    { print > (f ? f : r) }
    END { if (del) print "[" del "]" > (d "/.deleted.json") }' "$out/reply.txt"
    ```
@@ -44,7 +44,7 @@ Steps 1 and 4 are native `task` dispatches; steps 2, 3 and 5 run in Bash from th
 
    Add `--cases .omp/skills/<skill>/evals/cases.yaml` for a skill under `.omp/skills/`. `checks.txt` holds the case's Checks and its `statblock` lines, the statblock findings on the run's output pages: `FAIL` (error) fails the case and `WARN` (warning) passes. Exit 0 means ok, 1 a Check or statblock failure, 2 a usage or execution error. **Done when** `checks.txt` ends with the exit code.
 
-4. **Grade**, for each case with `rubrics` or `source_pages`. First compare the family of `@PROSE-GRADER` with each Runner's resolved model in step 1's task result; when they match, set another grader for this call by `.omp/AGENTS.md` **Model choice**. One `task` call contains every such case:
+4. **Grade**, for each case with `rubrics` or `source_pages`. First compare the family of `@PROSE-GRADER` with the model on each Runner's `Model:` line in `$out/friction.txt`; when they match, set another grader for this call by `.omp/AGENTS.md` **Model choice**. One `task` call contains every such case:
 
    - `context`: `Eval grader: follow your agent definition's Grade.`
    - Each item: `agent: "prose-grader"`, `name` the Runner's name plus `Grade` (`GoldCasteHandoutGrade`), `task` the grade brief, and this `outputSchema`:
@@ -53,7 +53,9 @@ Steps 1 and 4 are native `task` dispatches; steps 2, 3 and 5 run in Bash from th
      {"type":"object","required":["grades"],"properties":{"grades":{"type":"array","items":{"type":"object","required":["rubric","pass","reason"],"properties":{"rubric":{"type":"string"},"pass":{"type":"boolean"},"reason":{"type":"string"}}}}}}
      ```
 
-   The grade brief lists the case `rubrics` verbatim and numbered, then, for a case with `source_pages`, the `evals/README.md` § Wiki agreement criterion verbatim as the last numbered item; `Outputs: <run>/<case-id>/outputs (pages, reply.md, .deleted.json)` with the literal path; and `Sources:` each `source_pages` entry as `wiki/<path>`, plus each `raw_sources` and `fixtures` path. Grading is blind: no brief says baseline or with-skill, and a baseline gets its own run root so no path names it either. Once the batch settles, save each result in one Bash call with its grader's agent id: `cp agent://<id> <run>/<case-id>/grades.json`. **Done when** every graded case's `grades.json` holds its grades JSON, or the grading error is named.
+   The grade brief lists the case `rubrics` verbatim and numbered, then, for a case with `source_pages`, the `evals/README.md` § Wiki agreement criterion verbatim as the last numbered item; `Outputs: <run>/<case-id>/outputs (pages, reply.md, .deleted.json)` with the literal path; and `Sources:` each `source_pages` entry as `wiki/<path>`, plus each `raw_sources` and `fixtures` path. Grading is blind: no brief says baseline or with-skill, and a baseline gets its own run root so no path names it either.
+
+   Save each grader's output to its case directory as it returns, in Bash with the grader's agent id: `cp agent://<id> <run>/<case-id>/grades.json`. Steps 5 and 6 read grades from that file. **Done when** every graded case's `grades.json` holds its grades JSON, or the grading error is named.
 
 5. **Human-audit page**, one per case, for the DM's review. Create the audit root once per session with `cd "$(mktemp -d)" && pwd -P` beneath OS `$TMPDIR` and reuse it for every later run. Write `<audit>/<skill>/<case-id>.md` holding the case's current sample: the Runner task, `reply.md`, each output page, `friction.txt`, `checks.txt`, then each criterion beside its grade and reason. Each run overwrites the case's page. **Done when** every selected case has its page from this run.
 

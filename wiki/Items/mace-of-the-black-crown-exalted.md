@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Mace*), Artifact (Requires Attunement), Simple Weapon, Melee Weapon, 4 lb.*
 
@@ -30,7 +28,7 @@ The weapon communicates telepathically with its wielder and can speak, read, and
 - While holding the mace, you can use a bonus action to speak its Infernal command word, causing flames to erupt from the head. These flames shed bright light in a 40-foot radius and dim light for an additional 40 feet. While the mace is ablaze, it deals an extra 1d6 fire damage to any target it hits. The flames last until you use a bonus action to speak the command word again or until you are no longer holding the mace.
 - While holding the mace, you can use an action to summon an **imp**. Any devil you summon with this mace is friendly to you and your companions for the duration. The imp obeys any verbal commands that you issue to it and returns to the Nine Hells 10 minutes after you summoned it. This property can't be used again until the next dawn.
 
-> #### Betrayer Artifact Properties
+> ### Betrayer Artifact Properties
 >
 >The Arms of the Betrayers advance in power in the same manner as the Vestiges of Divergence. In its dormant state, each of these artifacts has one minor beneficial property and one minor detrimental property. When the artifact attains an awakened state, it gains an additional minor beneficial property and an additional minor detrimental property. When the item reaches its exalted state, it gains a major beneficial property. See "Artifact Properties" in chapter 7 of the Dungeon Master's Guide for more information.
 >

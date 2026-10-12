@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Longbow*), Legendary (Requires Attunement), Martial Weapon, Ranged Weapon, 2 lb.*
 

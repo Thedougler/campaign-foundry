@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Shield (*Shield*), Very Rare (Requires Attunement), 6 lb.*
 

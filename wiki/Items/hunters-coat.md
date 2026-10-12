@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Light Armour (*Leather Armour*), Very Rare (Requires Attunement), 10 lb.*
 

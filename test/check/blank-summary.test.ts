@@ -12,9 +12,7 @@ sources: []
 revealed: ""
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Mundane Gear*
 

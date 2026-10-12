@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Morningstar*), Legendary (Requires Attunement), Martial Weapon, Melee Weapon, 4 lb.*
 

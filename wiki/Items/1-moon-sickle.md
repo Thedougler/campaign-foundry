@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Sickle*), Uncommon (Requires Attunement By a Druid or Ranger), Simple Weapon, Melee Weapon, 2 lb.*
 

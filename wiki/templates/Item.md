@@ -12,15 +12,14 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ![[<slug>-render.webp]]
 
-## Play
+## Properties
 
-%% The DM runs the Item from this section alone (ADR 0005). Every Item page holds its Properties. A World-free page holds them, its frontmatter and its Links alone. %%
+%% The DM runs the Item from its properties alone (ADR 0005). Write the Item as a published 2024 entry.
+Open with its classification line in italics, ending on a full stop: category and any subtype, rarity, and attunement with any limit, as `*Wondrous Item (Tattoo), Very Rare (Requires Attunement).*`. Mundane gear and a plot object give their category alone.
+Follow it with one plain sentence on what the object is. Then give each mechanic its own paragraph, opening on its name in bold italics (`***Damage Resistance.***`). Give the trigger and action cost, uses and recovery, range and targets, saves and damage, duration and limits.
+A curse, a sentient Item's mind, a growing Item's stages and an artifact's destruction are named properties too. Every Item page holds its Properties. A World-free page holds them, its frontmatter and its Links alone. %%
 
-### Properties
-
-%% Write the Item as a published 2024 entry. Open with its classification line in italics, ending on a full stop: category and any subtype, rarity, and attunement with any limit, as `*Wondrous Item (Tattoo), Very Rare (Requires Attunement).*`. Mundane gear and a plot object give their category alone. Follow it with one plain sentence on what the object is. Then give each mechanic its own paragraph, opening on its name in bold italics (`***Damage Resistance.***`). Give the trigger and action cost, uses and recovery, range and targets, saves and damage, duration and limits. A curse, a sentient Item's mind, a growing Item's stages and an artifact's destruction are named properties too. %%
-
-### In use
+## In use
 
 %% Optional. Include it when a Campaign's play raises a question the rules text leaves open, or the DM asks for rulings. Give how it looks and sounds when used, then rule on each question. %%
 
@@ -32,7 +31,7 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 - **Held by.** %% Optional. Add it when someone in the World holds the Item, linking the holder. %%
 
 > [!narration] First look
-> %% Optional. Include it when the Party will see the Item. Spoken, second person. Give the plain noun and its size against a hand, then material, wear and marks. Add one sense beyond sight and a visible sign of each hidden property. %%
+> %% Optional. Include it when the Party will see the Item. Spoken, second person, per `skill://theatre-of-the-mind`. %%
 
 ## Depth
 

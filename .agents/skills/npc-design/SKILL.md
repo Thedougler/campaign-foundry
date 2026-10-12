@@ -60,7 +60,7 @@ Write facts that change play, each in the NPC template's field named after it:
 - **Knowledge** (`Will share`, `Will not share`, each hidden truth): for every question the page raises, state the truth separately from what the NPC knows, shares, sells, or lies about.
 - **If ignored** (`If ignored`): the next action the NPC takes without the Party, triggered only as their Limit and the step 1 canon allow.
 
-Make the person distinctive. Give them a repeatable face with two or three specific visible details, a sourced sound or smell and an activity. Build their voice per [references/craft.md, Voice](references/craft.md#voice). Apply the swap test against a plausible NPC from the same place or Faction. Put every hidden truth's tell in the DM-facing material, not in Player-facing Narration. A filed NPC whose drives are sound but whose presence reads generic gets a `flesh-out` pass in place of a rebuild.
+Make the person distinctive. Build their face and voice per [references/craft.md](references/craft.md), and apply the swap test against a plausible NPC from the same place or Faction. Put every hidden truth's tell in the DM-facing material, not in Player-facing Narration. A filed NPC whose drives are sound but whose presence reads generic gets a `flesh-out` pass in place of a rebuild.
 
 **Gate:** every required drive field is concrete and filled in its template field. The secret has stakes and three non-duplicate routes. Truth and NPC knowledge are separate, the face and voice fail the swap test, and every hidden truth has a testable tell.
 
@@ -108,7 +108,7 @@ When the Party will meet this person, load `theatre-of-the-mind` for the NPC tem
 
 Copy `wiki/templates/npc.md` exactly in `<campaign-folder>/NPCs/`. A page already filed keeps its folder, and a World-free page and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**, so a Campaign NPC's `creature` names a Campaign Creature. Fill its required `At a glance`, `Play` and `Links` sections with only the facts the selected scale needs. Add `Depth`, the First look and each optional At a glance bullet when its guidance condition holds (`docs/wiki-layout.md` **Templates define pages**). Fill the optional `Quotes` only with lines the DM, a Transcript or a source gives this person, word for word, and leave it out when there are none. Link the Creature, Location, Faction, PCs, Threads, supporters, and other owners. If a Creature or Thread was created, file it with its own template and link it from the owner page. Hand the filed pages to `visuals`.
 
-**Gate:** the page has the template's required properties and sections, and each optional part present has the content its condition calls for. Each new page has an inbound link. A First look and every Cue are speakable and Player-safe. A First look gives size against a familiar thing, and each of its details is one the Party can sense from where it stands. Every count in a Narration block matches the things it describes and Canon. No page contains agent process notes, inline rules, or empty filler.
+**Gate:** the page has the template's required properties and sections, and each optional part present has the content its condition calls for. Each new page has an inbound link. A First look and every Cue are speakable and Player-safe, and each First look detail is one the Party can sense from where it stands. Every count in a Narration block matches the things it describes and Canon. No page contains agent process notes, inline rules, or empty filler.
 
 ### 9. Close against the caller's target
 

@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Mace*), Rare, Simple Weapon, Melee Weapon, 4 lb.*
 

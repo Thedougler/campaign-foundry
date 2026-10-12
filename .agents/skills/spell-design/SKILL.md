@@ -5,19 +5,19 @@ description: Makes or rebalances a Spell page for a spell that exists nowhere ou
 
 # Spell design
 
-The Wiki stores a Spell page only for a spell the rules sources lack. A spell from the SRD or from one of the DM's books is used as published. A good Spell has one clear effect and leaves its caster a choice about where, whom or when. It belongs to a tradition in the World, and the Party can learn it from a named source at a price.
+The Wiki stores a Spell page only for a spell the rules sources lack. A spell from the SRD or from one of the DM's books is used as published. A good Spell does something no published spell does, clearly enough to run at the table. It belongs to a tradition in the World, and the Party can learn it from a named source at a price.
 
 ## Steps
 
 1. **Read the Canon.** With qmd, find the Spell's page if it exists, every page that links to it, and the traditions, casters, Factions and places it touches. Change each page as its `revealed` property allows (`CONTEXT.md` **Revealed**).
 2. **Source it** in the order `AGENTS.md` sets. Search the SRD (`dnd5e-srd-api`) and published and homebrew spells on the web for one that already does it. A published spell that fits is used as it is, without a page of its own. Otherwise take the two or three closest as peers.
-3. **The lever.** One sentence stating what the Spell does that no peer does, and the choice it gives its caster (where to put the wall, whom to spare, when to end it).
-4. **Tie it to the World.** Link the **tradition** that casts it (a Faction, NPC or Creature page). State where its casters learned it and why it exists. Describe the **signature**, the sight, sound or smell of casting it, rooted in that tradition. When it has a **price** beyond the slot, make it a material the World makes rare, a mark the spell leaves or a debt. Run the swap test with a generic spell's name.
+3. **The lever.** One sentence stating what the Spell does that no peer does, and any choice it leaves its caster (where to put the wall, whom to spare, when to end it).
+4. **Tie it to the World.** Link the **tradition** that casts it (a Faction, NPC or Creature page). State where its casters learned it and why it exists. Describe the **signature**, the sight, sound or smell of casting it, rooted in that tradition. When it has a **price** beyond the slot, draw it from the World (a material it makes rare, a mark the spell leaves, a debt). Run the swap test with a generic spell's name.
 5. **Numbers.** Set the casting fields in 2024 values (level and school, casting time, range, components with any costly material, duration with concentration, classes), and size the effect against its peers and the damage table below. Damage at higher levels scales like its peers'.
-6. **Rulings.** Answer the 3 to 5 tricks Players will try with it. State how a target or rival caster counters it and which named NPC or Creature casts it against the Party.
-7. **Discovery.** One named source (an NPC, Item, Site or Faction page) with a reason to hold it, the price of learning it (coin, a favour, a task, a risk), the Clue that tells the Party the source exists, and who notices when a PC first casts it.
+6. **Rulings.** Answer the tricks Players are likely to try with it, and state how a target or rival caster counters it. When someone in the World would turn it on the Party, name that NPC or Creature.
+7. **Discovery.** A named source (an NPC, Item, Site or Faction page) with a reason to hold it, the price of learning it (coin, a favour, a task, a risk), the Clue that tells the Party the source exists, and who notices when a PC first casts it.
 8. **Narration.** Hand `theatre-of-the-mind` the Casting slot with the signature.
-9. **File** to `wiki/templates/spell.md` in `<campaign-folder>/Spells/` (a page already filed keeps its folder, and a World-free page and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**). The casting fields go under At a glance, Effect (the full rules text) and Rulings under Play, and Tradition and Who knows it (the source and its price) under Depth. A part the template marks `Optional.`, the Casting callout and Depth included, goes on the page when its guidance condition holds. Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Close per `skill://lint` § Commands with the page path.
+9. **File** to `wiki/templates/spell.md` in `<campaign-folder>/Spells/` (a page already filed keeps its folder, and a World-free page and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**). A part the template marks `Optional.`, the Casting callout and Depth included, goes on the page when its guidance condition holds. Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Close per `skill://lint` § Commands with the page path.
 
 ## Damage by level
 
@@ -40,8 +40,8 @@ A cantrip with high damage and long range that also skips the saving throw moves
 
 ## Done
 
-- No published spell does its job, and the lever states its choice.
-- The tradition links a page, and the signature and price pass the swap test.
+- No published spell does its job, and the lever states what it does.
+- The tradition links a page, and the signature and any price pass the swap test.
 - Each casting field has a 2024 value, and the effect's numbers fall within its peers' range.
 - Rulings answer each likely trick, and a named source offers the Spell at a price.
 - The page gate over the Spell's page reports `ok: 0 findings`, and the reply lists every new fact decided as Canon.

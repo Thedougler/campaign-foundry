@@ -11,7 +11,13 @@ revealed: "Session 2"
 title: "Grung Toxin Vials"
 ---
 
-## At a glance
+## Properties
+
+Grung-made poison in tincture form, carried as cargo rather than ordnance. The preparation matches the canisters of the [[alchemists-bandolier|alchemist's bandolier]], and [[ruk|Ruk]] sorted the sewer six as ordinary Grung poison by sight and smell.
+
+## In use
+
+The vials are still packed as they were on the day they were taken. Jean-Claude keeps what he recognised in them to himself, and the Party treats them as one more prize amongst many.
 
 - **Kind.** Stoppered vials of Grung tincture, Simone Tabarnack's preparation, made by Grung hands.
 - **Rarity.** Mundane.
@@ -22,17 +28,7 @@ title: "Grung Toxin Vials"
 > [!narration] First look
 > Flintlocks fill the loot crate to the middle, and glass vials short as a thumb lie beneath them, each stoppered tight against spilling. Inside the glass a measure of Grung tincture rests still. Twenty came out of the Surety's crate, and six more came up from the Calveno sewers, and they all ride with the Party now. Lift one and its neighbours shift with a small glass click.
 
-## Play
-
 Each vial contains a dose of the same Grung-made tincture the [[dravosi-alchemist|Crown alchemist]] threw across the Saltwright's gangplank. A dose's delivery, potency and save stay unrecorded until someone puts one to work. The Surety lot and the sewer lot have waited unexamined since the day they came aboard.
-
-### Properties
-
-Grung-made poison in tincture form, carried as cargo rather than ordnance. The preparation matches the canisters of the [[alchemists-bandolier|alchemist's bandolier]], and [[ruk|Ruk]] sorted the sewer six as ordinary Grung poison by sight and smell.
-
-### In use
-
-The vials are still packed as they were on the day they were taken. Jean-Claude keeps what he recognised in them to himself, and the Party treats them as one more prize amongst many.
 
 ## Depth
 

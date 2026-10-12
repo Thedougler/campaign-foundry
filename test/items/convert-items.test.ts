@@ -128,7 +128,7 @@ describe("convert-items CLI", () => {
 		);
 		expect(converted.code, converted.stderr).toBe(0);
 		const page = await readFile(join(root, "wiki/Items/brass-key.md"), "utf8");
-		expect(page).toContain("#### Rolls\n\n");
+		expect(page).toContain("### Rolls\n\n");
 		expect(page).toContain("*A\\|B*");
 		expect(page).toContain("Multiple variations of this item exist:\n\n- *Brass*\n- *Copper*");
 		const checked = await cf(
@@ -160,7 +160,7 @@ describe("convert-items CLI", () => {
 		);
 		expect(converted.code, converted.stderr).toBe(0);
 		const page = await readFile(join(root, "wiki/Items/blade-of-broken-mirrors-dormant.md"), "utf8");
-		expect(page).toContain("> #### Betrayer Artifact Properties\n");
+		expect(page).toContain("> ### Betrayer Artifact Properties\n");
 		expect(page).toContain(raw.split("\n").find((line) => line.startsWith(">The Arms"))!);
 		const checked = await cf(
 			[
@@ -270,7 +270,7 @@ describe("convert-items CLI", () => {
 		const original = await readFile(join(root, "wiki/Items/brass-key.md"), "utf8");
 		const page = parsePage("Items/brass-key.md", original);
 		expect(page.frontmatter).toEqual({ title: "Brass Key", type: "Item", summary: "", sources: ["archive/keys.md"] });
-		expect(page.headings.map(({ text }) => text)).toEqual(["Play", "Properties", "Links"]);
+		expect(page.headings.map(({ text }) => text)).toEqual(["Properties", "Links"]);
 		const repeated = await cf(args, root);
 		expect(repeated.stdout).toContain("skip\twiki/Items/brass-key.md");
 		expect(repeated.stdout).toContain("created: 0, skipped: 1");

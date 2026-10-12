@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Staff, Weapon, Rare (Requires Attunement By a Cleric, Druid, or Warlock), Simple Weapon, Melee Weapon, 4 lb.*
 

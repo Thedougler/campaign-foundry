@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*War Pick*), Artifact (Requires Attunement), Martial Weapon, Melee Weapon, 2 lb.*
 
@@ -32,7 +30,7 @@ The weapon communicates telepathically with its wielder and can speak, read, and
 
 When you use the war pick to unleash a breath weapon of a specific damage type, you can't choose that same damage type again until the next dawn.
 
-#### Will of the Talon Breath Weapons
+### Will of the Talon Breath Weapons
 
 | | Damage Type | | Area                         | | Saving Throw | |
 | ------------- | ------------------------------ | :--------------: |
@@ -42,7 +40,7 @@ When you use the war pick to unleash a breath weapon of a specific damage type, 
 | | Lightning   | | 5 ft. wide, 30 ft. long line | |   Dexterity  | |
 | | Poison      | | 15 ft. cone                  | | Constitution | |
 
-> #### Betrayer Artifact Properties
+> ### Betrayer Artifact Properties
 >
 >The Arms of the Betrayers advance in power in the same manner as the Vestiges of Divergence. In its dormant state, each of these artifacts has one minor beneficial property and one minor detrimental property. When the artifact attains an awakened state, it gains an additional minor beneficial property and an additional minor detrimental property. When the item reaches its exalted state, it gains a major beneficial property. See "Artifact Properties" in chapter 7 of the Dungeon Master's Guide for more information.
 >

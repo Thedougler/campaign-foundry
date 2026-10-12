@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*War Pick*), Very Rare (Requires Attunement), Martial Weapon, Melee Weapon, 2 lb.*
 

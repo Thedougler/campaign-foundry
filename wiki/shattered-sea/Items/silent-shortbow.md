@@ -9,9 +9,14 @@ revealed: "Session 4"
 title: "Silent Shortbow"
 ---
 
-## At a glance
+## Properties
 
-- **Kind.** Weapon (shortbow).
+This magic weapon adds a +1 bonus to attack and damage rolls and doesn't produce a sound on the draw or the release. When you fire from hiding, the target learns where the arrow came from only by seeing it in flight.
+
+## In use
+
+The release gives a listener only the arrow's flight to follow, and the shooter's position comes out only when the target sees the arrow in flight. The hinge breaks it down to a stowed length that slips under a coat or along a pack. That same quiet release lets the bearer loose a second arrow while listeners still search the last shot's origin.
+
 - **Rarity.** Uncommon.
 - **Attunement.** None.
 - **Changes.** A hidden archer can shoot without giving away the spot.
@@ -19,16 +24,6 @@ title: "Silent Shortbow"
 
 > [!narration] First look
 > A recurved shortbow of yew lies before you. Earlier hands have worn its grip pale. Hinged at the grip, it folds down to half its length, small enough to slip beneath a coat. The string rests in lined channels. Draw it back an inch, and the string slides through cloth and wax with barely a whisper.
-
-## Play
-
-### Properties
-
-This magic weapon adds a +1 bonus to attack and damage rolls and doesn't produce a sound on the draw or the release. When you fire from hiding, the target learns where the arrow came from only by seeing it in flight.
-
-### In use
-
-The release gives a listener only the arrow's flight to follow, and the shooter's position comes out only when the target sees the arrow in flight. The hinge breaks it down to a stowed length that slips under a coat or along a pack. That same quiet release lets the bearer loose a second arrow while listeners still search the last shot's origin.
 
 ## Depth
 

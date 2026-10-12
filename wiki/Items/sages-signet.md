@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Ring (Requires Attunement By a Spellcaster).*
 
@@ -15,7 +13,7 @@ This gilded ring bears a beautiful engraving and is imbued with powers of keen w
 
 Six varieties of Sage's Signet rings exist, each with a different signet (see the table below). A ring's signet determines its rarity as well as the additional spells it can cast. While wearing a Sage's Signet, you can cast each of its additional spells once from the ring using your Intelligence as the spellcasting ability. Once you cast each of the additional spells from the ring, it can't cast the spell again until the next dawn.
 
-#### Sage's Signet
+### Sage's Signet
 
 | | Signet     | | Rarity    | | Spells                                      | |
 | ------------ | ----------- | ----------------------------------------------- |

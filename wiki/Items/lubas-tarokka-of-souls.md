@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Artifact (Requires Attunement).*
 
@@ -35,7 +33,7 @@ The deck can be used in this way twice, and you regain all expended uses at the 
 
 ***Prisoners of Fate.*** Whenever you use the Twist of Fate property, there is a chance that one of the souls trapped in the deck escapes. Roll d100 and consult the Souls of the Tarokka table. If you roll one of the high cards, the soul associated with it escapes. You can find its statistics in the *Monster Manual*. If you roll a soul that has already escaped, roll again.
 
-#### Souls of the Tarokka
+### Souls of the Tarokka
 
 |  |  d100 |   |     Card  | |        Soul       | |
 | :------: | :-----------: | :-------------------: |

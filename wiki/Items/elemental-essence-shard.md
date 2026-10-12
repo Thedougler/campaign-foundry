@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Rare (Requires Attunement By a Sorcerer), 1 lb.*
 
@@ -15,7 +13,7 @@ This crackling crystal contains the essence of an elemental plane. As an action,
 
 Roll a d4 and consult the Elemental Essence Shards table to determine the shard's essence and property. When you use a Metamagic option on a spell while you are holding or wearing the shard, you can use that property.
 
-#### Elemental Essence Shards
+### Elemental Essence Shards
 
 | |  d4 | | Element | | Shard                             | |
 | :---: | :-------: | ------------------------------------- |

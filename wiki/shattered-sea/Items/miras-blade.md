@@ -10,22 +10,16 @@ revealed: "Session 2"
 title: "Mira's Blade"
 ---
 
-## At a glance
+## Properties
 
-- **Kind.** Shortsword.
+An attuned bearer gains a +1 bonus to attack and damage rolls made with the shortsword.
+
 - **Rarity.** Uncommon.
-- **Attunement.** Yes.
 - **Changes.** +1 to attack and damage rolls while attuned.
 - **Held by.** [[perrin-black-jaw|Perrin Black-Jaw]], who took it from [[barnaby-rook|Barnaby Rook]]'s cabin.
 
 > [!narration] First look
 > A plain blade slides from a scabbard gone stiff with salt. It sits light in the hand. Fingers have worn the grip's cord shiny, and sea air has pitted the fittings grey. Years of riding have worn a notch for a thumb into the pommel, its hollow rubbed smooth. The scabbard knocks against a palm like any other prize, and the name does the rest of the work.
-
-## Play
-
-### Properties
-
-An attuned bearer gains a +1 bonus to attack and damage rolls made with the shortsword.
 
 ## Depth
 

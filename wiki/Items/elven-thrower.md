@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Spear*), Very Rare (Requires Attunement By a Elf), Simple Weapon, Melee Weapon, 3 lb.*
 

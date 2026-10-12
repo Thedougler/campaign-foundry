@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Spellcasting Focus, Rare (Requires Attunement By a Druid or Warlock).*
 

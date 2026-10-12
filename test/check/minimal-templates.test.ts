@@ -10,9 +10,7 @@ summary: "A brass key that opens one lock."
 sources: []
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Mundane Gear, Common.*
 
@@ -67,7 +65,7 @@ filters:
 `;
 
 describe("minimal templates: all-layer acceptance in a temp vault copy", () => {
-	it("passes a World-free Item with only frontmatter, Play/Properties and Links", async () => {
+	it("passes a World-free Item with only frontmatter, Properties and Links", async () => {
 		const dir = await copyFixture("clean");
 		const path = join(dir, "wiki/Items/brass-key.md");
 		await mkdir(join(dir, "wiki/Items"), { recursive: true });

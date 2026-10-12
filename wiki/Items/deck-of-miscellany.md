@@ -5,15 +5,13 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Uncommon.*
 
 This wooden box contains a set of thirty-two parchment cards.
 
-#### Deck of Miscellany
+### Deck of Miscellany
 
 | | Card | | Item                                                                                                                                                      | |
 | :----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -8,7 +8,13 @@ revealed: ""
 title: "Solange's Authority Seal"
 ---
 
-## At a glance
+## Properties
+
+As an action, press it to a willing, Grappled, Restrained or Incapacitated Grung within 5 feet and speak an order of up to 25 words. There is no save. Pressing it bonds the seal to the skin and replaces the target's will as permanent *modify memory* does. The seal is spent. It does nothing to another creature. Death ends the compulsion and leaves a spent seal.
+
+## In use
+
+- The authority mark matches spent seals on [[the-burnt-road|The Burnt Road]], linking it to the Gold caste and [[two-grave-orders|Two-Grave Orders]].
 
 - **Kind.** Wondrous item, single use.
 - **Rarity.** Rare.
@@ -17,16 +23,6 @@ title: "Solange's Authority Seal"
 
 > [!narration] First look
 > A gold disc the size of your palm is heavier than gold should be. Whole curling script covers its face. The smooth back is faintly warm, as though lifted from skin.
-
-## Play
-
-### Properties
-
-As an action, press it to a willing, Grappled, Restrained or Incapacitated Grung within 5 feet and speak an order of up to 25 words. There is no save. Pressing it bonds the seal to the skin and replaces the target's will as permanent *modify memory* does. The seal is spent. It does nothing to another creature. Death ends the compulsion and leaves a spent seal.
-
-### In use
-
-- The authority mark matches spent seals on [[the-burnt-road|The Burnt Road]], linking it to the Gold caste and [[two-grave-orders|Two-Grave Orders]].
 
 ## Depth
 

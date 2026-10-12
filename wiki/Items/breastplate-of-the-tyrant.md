@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Medium Armour (*Breastplate*) (Requires Attunement), 20 lb.*
 

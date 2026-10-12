@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wand, Rare (Requires Attunement), 1 lb.*
 
@@ -15,7 +13,7 @@ This wand has 7 charges. While holding it, you can take a Magic action to expend
 
 ***Regaining Charges.*** The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, the wand crumbles into dust and is destroyed.
 
-#### Wand of Wonder Effects
+### Wand of Wonder Effects
 
 | | 1d100 | | Effect                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |  |
 | :-----: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

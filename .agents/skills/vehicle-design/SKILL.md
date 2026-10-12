@@ -12,21 +12,16 @@ A Vehicle is a place and a moving thing at once. The Party boards it, stows away
 1. **Read the Canon.** With qmd, find the Vehicle's page if it exists, every page that links to it, its owner, captain, crew, home berth, routes, cargo and rivals, and the Recaps that mention it. Change each page as its `revealed` property allows (`CONTEXT.md` **Revealed**).
 2. **Source it** in the order `AGENTS.md` sets. Start with the Wiki's own craft. Next take the 2024 rules' vehicle statistics for the closest class of craft, from the `dnd5e-srd-api` skill first and then from official and homebrew sources on the web. Last comes a new design built on that class.
 3. **Its errand.** State its owner and its captain (an NPC page), what it is doing now (its route, cargo or orders), and what it does when it meets the Party.
-4. **Make it this craft and no other.** Write the stock version ("a fishing smack"). Give it a **signature** recognisable at a distance (a patched sail, a figurehead with one arm), a **quirk** in how it handles against its class (and why), and a **hold**: one thing aboard someone would pay, fight or lie for. Run the swap test with a sister craft's name. A filed Vehicle whose statistics and decks are sound but whose presence reads generic gets a `flesh-out` pass in place of a redesign.
+4. **Make it this craft.** Find what sets it apart in its build and handling or its crew and past. Let the Party see it from a distance and feel it in play (a patched sail, a figurehead with one arm, a draught too shallow for her class). Where the craft should be its own, run the swap test with a sister craft's name. A filed Vehicle whose statistics and decks are sound but whose presence reads generic gets a `flesh-out` pass in place of a redesign.
 5. **Numbers.** From its class: size, speed by mode, minimum crew, passengers, cargo, AC, HP and damage threshold per component (hull, control, movement, weapons), and each weapon's attack and damage. Check each canon comparison against these numbers ("faster than the Compact's cutters"). Crew who fight link their Creature, sized to the craft's job and the Party's strength.
-6. **Decks and play.** Lay out three to five areas at body scale for boarding and stowaways. For each station, give who mans it now against the minimum and what happens when it goes unmanned. Add two to four manoeuvres or conditions that change a choice (a shallow draught that crosses the flats, a mast that fouls when she turns hard). Then say how a chase and a boarding run with this craft.
-7. **Narration.** Hand `theatre-of-the-mind` the First sight slot with its size and silhouette, how it rides in the water or on the road, where a boat comes alongside or a climber gets up, a sense beyond sight, and the visible sign of its hold and quirk.
-8. **File** to `wiki/templates/vehicle.md` in `<campaign-folder>/Vehicles/` (a page already filed keeps its folder, and a World-free page and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**). A part below that the template marks `Optional.` goes on the page when its guidance condition holds:
-   - **At a glance:** kind, size, speed, crew, captain and berth.
-   - **Play:** the `Statistics`, `Crew and stations`, `Components and weapons` and `Underway` subsections, with manoeuvres, chase, boarding and decks under Underway.
-   - **Depth:** history and hidden truths, each with how the Party can learn it.
-
-   Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Hand the filed page to `visuals`, then close per `skill://lint` § Commands with the page path.
+6. **Decks and play.** Lay out at body scale the areas a boarding or a stowaway moves through. For each station, give who mans it now against the minimum and what happens when it goes unmanned. Add the manoeuvres or conditions that change a choice (a shallow draught that crosses the flats, a mast that fouls when she turns hard). Then say how a chase and a boarding run with this craft.
+7. **Narration.** When the Party will see the craft, hand `theatre-of-the-mind` the First sight slot.
+8. **File** to `wiki/templates/vehicle.md` in `<campaign-folder>/Vehicles/` (a page already filed keeps its folder, and a World-free page and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**). A part the template marks `Optional.` goes on the page when its guidance condition holds. Wikilink every page involved. New facts the Canon lacked are decided as Canon (ADR 0003) and listed in your reply. Hand the filed page to `visuals`, then close per `skill://lint` § Commands with the page path.
 
 ## Done
 
 - The captain is an NPC page, and the errand says what the craft does on meeting the Party.
-- The signature, quirk and hold pass the swap test.
+- What sets the craft apart shows at a distance and in play.
 - Each statistic has a number, and each fighting crew member links a Creature.
 - A DM could run a chase, a boarding and a stowaway's sneak from the page.
 - The page gate over the Vehicle's page reports `ok: 0 findings`, and the reply lists every new fact decided as Canon.

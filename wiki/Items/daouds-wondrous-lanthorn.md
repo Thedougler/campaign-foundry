@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Artifact (Requires Attunement).*
 
@@ -33,7 +31,7 @@ While attuned to the lantern, you can use a bonus action to dim the lantern, red
 
 As an action while holding the lantern, you can burn some of the lantern's fuel to cast a spell (save DC 20) through one or more of its current gem lenses, as noted in the Lenses table. The spell's target or point of origin must be in the lantern's area of bright light. If there isn't enough fuel left to cast the spell, the last of the remaining fuel is expended, and the flame goes out.
 
-#### Lenses
+### Lenses
 
 | | Lens Colour      | | Spell             | | Fuel Cost | |
 | ------------------ | ------------------- | ------------- |

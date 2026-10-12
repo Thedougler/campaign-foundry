@@ -1,0 +1,5 @@
+# Match vitest.config.ts include: only this repo's suite under test/.
+# Without root, bare `bun test` follows prior/ai-co-dm/foundry-data → FoundryVTT Data
+# and runs foreign modules outside the project.
+[test]
+root = "./test"

@@ -37,7 +37,7 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ### Hazards
 
-%% Give each fixed hazard with its sign and trigger, its effect, how the Party can counter or bypass it, and the leverage that helps. Any check or save gives its Cues (`==…==`) for success and for failure. %%
+%% Give each fixed hazard with its sign and trigger, its effect, and the ways the Party can answer it: counterplay, a way around or something they can learn or use. Any check or save gives its Cues (`==…==`) for success and for failure. %%
 
 ### Occupants
 

@@ -1,16 +1,7 @@
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { describe, expect, it, vi } from "vitest";
-import type { ValeAdapter } from "../../src/check/vale.ts";
+import { describe, expect, it } from "vitest";
 import { cf, copyFixture, type JsonReport, realTemplates, vaultFlags } from "./helpers.ts";
-
-vi.mock("../../src/check/vale.ts", () => ({
-	valeSubprocess: (): ValeAdapter => ({
-		async check(pass) {
-			return new Map(Object.entries(pass.files).map(([path]) => [path, []]));
-		},
-	}),
-}));
 
 /** Today as `cfcli log` sees it: the same clock and process, now that the command runs in-process. */
 const nodeToday = (): string => {

@@ -8,11 +8,11 @@ Choose what the NPC does in play: informant, gatekeeper, patron, rival, ally, wi
 
 ## Distinction
 
-Compare the NPC with people already in the same Location or Faction. Vary at least two of age or body, status, temperament, competence, relationship to power, speech, and what they carry. Ancestry can shape circumstance, never personality. A trait of this person is what the Players remember.
+Compare the NPC with people already in the same Location or Faction, and make them differ where the Players will notice: age or body, status, temperament, competence, relationship to power, speech or what they carry. Ancestry can shape circumstance, never personality. A trait of this person is what the Players remember.
 
 ## Face
 
-Write two or three specific details visible across a room, one sound or smell with its source, and what the NPC's hands do at rest. Tie each detail to work, want, fear, or history. Reuse the details each time the NPC appears.
+Write the details visible across a room that a Player would use to describe them. Add a sound or smell with its source or a habit of the hands where it helps the DM play them. Tie each detail to work, want, fear, or history. Reuse the details each time the NPC appears.
 
 Weak: `a grizzled sailor`.
 
@@ -30,7 +30,7 @@ Build voice from what the NPC cares about, so a listener with eyes shut still kn
 
 - **Diction.** Word choice from trade, status or obsession, in a register that is theirs alone in that place: courtly, outlaw slang, guard protocol, a child naming every cart exactly. Culture shows in ordinary voices: a vendor's patter or a guard's joke says what people here fear and scorn without a word of lore.
 - **Rhythm and length.** Clipped answers, winding explanations or questions returned with questions. Word count follows power and comfort: the killer gets one courteous line, and the comfortable monster talks at length and shortens as it angers. A minor voice, a passer-by or a questioned witness, gets one short concrete line holding a fact the Party lacks.
-- **Habit.** One repeatable verbal habit, and one subject or name they avoid.
+- **Habit.** A verbal habit the DM can repeat, or a subject or name they avoid.
 - **Status move.** A trap question, a parting line paused in the doorway, or menace spoken as courtesy. Polite procedure makes the threat: praise the listener's work and hand them a heavier duty, then probe something personal. Subtext sits in a qualifier: "friends of the crown, for the time being".
 - **Bounds.** What they will not do for the Party and why ("to the edge of our duty, and no further"). Their confidence rides on each fact they share: "I believe he's there, unless they moved him by another road." A good Influence roll changes what they say and what they give, never what they want.
 - **Pairs.** Two people of one Faction, or two companions on the road, take opposed stances in two registers, the warm one beside the one who smells blood. Their argument keeps the Campaign's question in play between set pieces.

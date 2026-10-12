@@ -48,7 +48,7 @@ archive/                       Archive: already ingested; flat, no folders (outs
   - **Embeds.** Each embed is bare, `![[nona-black-jaw-portrait.webp]]`, alone on its line. A depiction goes in the page's lede above its first `##` section, where its template's optional slot puts it. A battle map opens its Scene's `### Battlefield` or `### Encounter`, or its Site's `### Areas`. A Handout's image goes under its callout.
   - **Diagrams.** Structure on a page is a mermaid block, a Markdown table or a callout, in the section whose structure it shows: a Faction's `### Structure`, the `## Timeline` of `story-so-far.md`.
   - **Battle maps.** A battle map is 64 px per 5-foot square, so its size in pixels gives its Foundry grid. Its walls, doors and lights come from a Universal VTT file beside it with the same name (`<subject-slug>-battle-map.uvtt` or `.dd2vtt`). Push builds a Foundry scene for each Scene whose page, or a Site it links, embeds a battle map.
-- **Anatomy, in table-pressure order.** The sections run in this order. An Item moves Play to the front, since its rules are what the table needs first.
+- **Anatomy, in table-pressure order.** The sections run in this order. An Item opens on `## Properties`, its full rules text, in place of Play, since its rules are what the table needs first. Its optional sections follow it in template order.
   1. At a glance: the summary plus the three to five facts needed in ten seconds, under the lede's Visuals.
   2. Narration in a `[!narration]` callout.
   3. Play: what it does at the table.

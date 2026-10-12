@@ -11,7 +11,13 @@ title: "Redheart Berry"
 
 ![[redheart-berry-handout-art.webp]]
 
-## At a glance
+## Properties
+
+As a Bonus Action, eat the berry to regain 8d4 + 8 Hit Points. It is consumed. Under a [[rotheart|Rotheart]]'s 24 hours, rolled healing takes its maximum and the berry pays a flat 40.
+
+## In use
+
+A fallen berry is safe under [[taking-on-aruhe|Aruhe's law]]. Crissdalynn ate one in Session 11 and regained 30 Hit Points. In Session 12 she gave one to [[ettore-ferrante|Ettore Ferrante]], heavy-set and stuck in the smoking sinkhole with a slanted left shin, and the berry paid 28 Hit Points and snapped the shin straight. The leg kept its splint, not yet fully working. Her own berry in the last fight paid a flat 40 under the [[rotheart|Rotheart]] she had eaten at the road camp, and she rose fully healed with her broken arm mended.
 
 - **Kind.** Consumable.
 - **Rarity.** Rare.
@@ -20,16 +26,6 @@ title: "Redheart Berry"
 
 > [!narration] First look
 > A glossy red berry hangs from a short thick stem, ridged beneath curled leaves. Clear water beads on its tight skin, and dark juice bursts when the fruit splits.
-
-## Play
-
-### Properties
-
-As a Bonus Action, eat the berry to regain 8d4 + 8 Hit Points. It is consumed. Under a [[rotheart|Rotheart]]'s 24 hours, rolled healing takes its maximum and the berry pays a flat 40.
-
-### In use
-
-A fallen berry is safe under [[taking-on-aruhe|Aruhe's law]]. Crissdalynn ate one in Session 11 and regained 30 Hit Points. In Session 12 she gave one to [[ettore-ferrante|Ettore Ferrante]], heavy-set and stuck in the smoking sinkhole with a slanted left shin, and the berry paid 28 Hit Points and snapped the shin straight. The leg kept its splint, not yet fully working. Her own berry in the last fight paid a flat 40 under the [[rotheart|Rotheart]] she had eaten at the road camp, and she rose fully healed with her broken arm mended.
 
 ## Depth
 

@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Rare.*
 
@@ -17,7 +15,7 @@ Roll on the *Cube of Summoning* table to determine which spell the cube casts to
 
 Once the cube summons a creature, the cube can't do so again until the next dawn.
 
-#### Cube of Summoning
+### Cube of Summoning
 
 | | 1d6 | | Spell               | |
 | :---: | ----------------------- |

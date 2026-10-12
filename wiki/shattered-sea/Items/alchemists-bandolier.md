@@ -9,9 +9,14 @@ revealed: "Session 1"
 title: "Alchemist's Bandolier"
 ---
 
-## At a glance
+## Properties
 
-- **Kind.** Bandolier of poison gas canisters, standard Dravosi Crown ordnance.
+Standard-issue Dravosi Crown ordnance, manufactured from Grung hunting toxin concentrate. The canisters match the one the Dravosi alchemist deployed on the gangplank.
+
+## In use
+
+The alchemist unhooked one canister and threw it across the gangplank to blanket the Saltwright's deck. The Party has not examined the bandolier or counted what remains.
+
 - **Rarity.** Mundane.
 - **Attunement.** None.
 - **Changes.** Whoever claims it holds live Grung toxin weapons and the first proof of the Crown's toxin supply trail.
@@ -20,17 +25,7 @@ title: "Alchemist's Bandolier"
 > [!narration] First look
 > A canvas bandolier the length of a forearm, stiff where spilled paste has dried into the stitching. Iron canisters the size of a flask fill every loop, stencilled with a Crown mark and a grung handprint. Each pin comes free with a one-handed pull.
 
-## Play
-
 Each canister makes one cloud of the Grung toxin the Party saw cross the Saltwright's gangplank. Pull the pin and throw, and the cloud hangs where it breaks. How many canisters remain is not established. At least one is spent.
-
-### Properties
-
-Standard-issue Dravosi Crown ordnance, manufactured from Grung hunting toxin concentrate. The canisters match the one the Dravosi alchemist deployed on the gangplank.
-
-### In use
-
-The alchemist unhooked one canister and threw it across the gangplank to blanket the Saltwright's deck. The Party has not examined the bandolier or counted what remains.
 
 ## Depth
 

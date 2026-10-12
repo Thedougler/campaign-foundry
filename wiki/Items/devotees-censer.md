@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Flail*), Rare (Requires Attunement By a Cleric or Paladin), Martial Weapon, Melee Weapon, 2 lb.*
 

@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Legendary.*
 
@@ -17,7 +15,7 @@ Before you draw a card, you must declare how many cards you intend to draw and t
 
 Once a card is drawn, it disappears. Unless the card is the Fool or Jester, the card reappears in the deck, making it possible to draw the same card twice. (Once the Fool or Jester has left the deck, reroll on the table if that card comes up again.)
 
-#### Deck of Many Things
+### Deck of Many Things
 
 | | 1d100 (13-Card Deck) | | 1d100 (22-Card Deck) | | Card    | |
 | :--------------------: | :--------------------: | ----------- |
@@ -58,7 +56,7 @@ Each card's effect is described below.
 
 ***Flames.*** A powerful devil becomes your enemy. The devil seeks your ruin and torments you, savouring your suffering before attempting to slay you. This enmity lasts until either you or the devil dies.
 
-> #### A Question of Enmity
+> ### A Question of Enmity
 >
 >Two of the cards in the Deck of Many Things can earn a character the enmity of another being. With the Flames card, the enmity is overt. The character should experience the devil's malevolent efforts on multiple occasions. Seeking out the fiend shouldn't be a simple task, and the adventurer should clash with the devil's allies and followers a few times before being able to confront the devil.
 >

@@ -33,7 +33,7 @@ function normaliseStructure(text: string): string {
 		if (!node.position) continue;
 		const at = node.position.start.offset ?? 0;
 		if (node.type === "heading" && node.depth >= 5) {
-			result = result.slice(0, at) + result.slice(at + 1);
+			result = result.slice(0, at) + result.slice(at + 2);
 		} else if (node.type === "table") {
 			const end = node.position.end.offset ?? text.length;
 			const rows = node.children.map((row) =>
@@ -62,7 +62,7 @@ export async function itemPage(item: ExportedItem, source: string, template: str
 		item.classification.includes("<") ? normaliseStructure(item.classification) : item.classification,
 	);
 	const properties = normaliseStructure(await normaliseItemSpelling(item.properties));
-	let page = `---\n${stringify({ title: item.title, type: "Item" }).trimEnd()}\nsummary: ""\nsources: ${JSON.stringify([source])}\n---\n\n## Play\n\n### Properties\n\n*${classification.replace(/\.$/, "")}.*\n\n${properties}\n\n${template.slice(links.position?.start.offset).trimEnd()}\n`;
+	let page = `---\n${stringify({ title: item.title, type: "Item" }).trimEnd()}\nsummary: ""\nsources: ${JSON.stringify([source])}\n---\n\n## Properties\n\n*${classification.replace(/\.$/, "")}.*\n\n${properties}\n\n${template.slice(links.position?.start.offset).trimEnd()}\n`;
 	config ??= readFile(join(toolRoot, ".markdownlint.yaml"), "utf8").then((text) => parse(text) as Configuration);
 	// The gate's own fixer changes whitespace and table layout, never mechanical wording.
 	for (;;) {

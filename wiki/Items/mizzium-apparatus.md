@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Spellcasting Focus, Uncommon (Requires Attunement By a Sorcerer, Warlock, or Wizard), 8 lb.*
 
@@ -21,7 +19,7 @@ On a successful check, you cast the spell as normal, using your spell save DC an
 
 If you try to cast a cantrip you don't know, the DC for the Intelligence (Arcana) check is 10, and on a failed check, there is no effect.
 
-#### 1st-Level Spells
+### 1st-Level Spells
 
 | |  d6 | | spell           |  |
 | :---: | -------------------- |
@@ -32,7 +30,7 @@ If you try to cast a cantrip you don't know, the DC for the Intelligence (Arcana
 |  |  5 | | *fog cloud*     |  |
 |  |  6 | | *thunderwave*   |  |
 
-#### 2nd-Level Spells
+### 2nd-Level Spells
 
 | |  d6 | | spell               | |
 | :---: | ----------------------- |
@@ -43,7 +41,7 @@ If you try to cast a cantrip you don't know, the DC for the Intelligence (Arcana
 |  |  5 | | *scorching ray*     | |
 |  |  6 | | *shatter*           | |
 
-#### 3rd-Level Spells
+### 3rd-Level Spells
 
 | |  d6 | | spell            | |
 | :---: | -------------------- |
@@ -54,7 +52,7 @@ If you try to cast a cantrip you don't know, the DC for the Intelligence (Arcana
 |  |  5 | | *sleet storm*    | |
 |  |  6 | | *stinking cloud* | |
 
-#### 4th-Level Spells
+### 4th-Level Spells
 
 | |  d4 | | spell                      | |
 | :---: | ------------------------------ |
@@ -63,7 +61,7 @@ If you try to cast a cantrip you don't know, the DC for the Intelligence (Arcana
 |  |  3 | | *Evard's black tentacles*  | |
 |  |  4 | | *ice storm*                | |
 
-#### 5th-Level Spells
+### 5th-Level Spells
 
 | |  d4 | | spell             | |
 | :---: | --------------------- |

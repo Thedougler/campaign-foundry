@@ -13,7 +13,15 @@ title: "Flying Boots"
 
 ![[flying-boots-handout-art.webp]]
 
-## At a glance
+## Properties
+
+As a Magic action, expend 1 of 4 charges to gain a Fly Speed of 30 feet for 1 hour. The boots regain 1d4 expended charges daily at dawn. If flying when the duration expires, descend 30 feet per round until landing. At the table the DM gave them four hours of flight in all, regaining two hours for every twelve hours they hung unworn.
+
+## In use
+
+Spend a charge for boarding, escape or a theatrical entrance and track the hour and charges. The boots are attuned to Delmar.
+
+The boots' wings spread when Delmar took off to rescue castaways from [[aruhe|Aruhe]] in [[session-10-recap|Session 10]].
 
 - **Kind.** Wondrous item.
 - **Rarity.** Uncommon.
@@ -23,18 +31,6 @@ title: "Flying Boots"
 
 > [!narration] First look
 > Ordinary boots on a theatrical mover's feet read as common footwear. Once you rise, the air holds you.
-
-## Play
-
-### Properties
-
-As a Magic action, expend 1 of 4 charges to gain a Fly Speed of 30 feet for 1 hour. The boots regain 1d4 expended charges daily at dawn. If flying when the duration expires, descend 30 feet per round until landing. At the table the DM gave them four hours of flight in all, regaining two hours for every twelve hours they hung unworn.
-
-### In use
-
-Spend a charge for boarding, escape or a theatrical entrance and track the hour and charges. The boots are attuned to Delmar.
-
-The boots' wings spread when Delmar took off to rescue castaways from [[aruhe|Aruhe]] in [[session-10-recap|Session 10]].
 
 ## Depth
 

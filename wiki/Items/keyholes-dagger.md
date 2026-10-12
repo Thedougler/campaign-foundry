@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Dagger*) (Requires Attunement), Simple Weapon, Melee Weapon, 1 lb.*
 

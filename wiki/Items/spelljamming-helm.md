@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Rare (Requires Attunement By a Spellcaster).*
 
@@ -23,7 +21,7 @@ While attuned to a spelljamming helm and sitting in it, you gain the following a
 
 ***Transfer Attunement.*** You can use an action to touch a willing spellcaster. That creature attunes to the spelljamming helm immediately, and your attunement to it ends.
 
-> #### Cost of a Spelljamming Helm
+> ### Cost of a Spelljamming Helm
 >
 >A spelljamming helm propels and steers a ship much as sails, oars, and rudders work on a seafaring vessel, and a spelljamming helm is easy to create if one has the proper spell. *Create spelljamming helm* has a material component cost of 5,000 gp, so that's the least one can pay to acquire a spelljamming helm.
 >

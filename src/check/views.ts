@@ -35,7 +35,7 @@ export interface PageViews {
 	spoken: ReadonlySet<number>;
 	/** Each Cue's spoken texts, by the line the Cue sits on. */
 	cues: ReadonlyMap<number, readonly string[]>;
-	/** Published rules under Item `### Properties`, through the next heading of depth three or less. */
+	/** Published rules under Item `## Properties`, through the next heading of depth two or less. */
 	itemProperties: ReadonlySet<number>;
 	/** Comparable body prose, excluding published Item Properties (the boilerplate policy). */
 	sentences: ReadonlyMap<number, readonly Sentence[]>;
@@ -62,8 +62,8 @@ function itemPropertiesLines(page: Page): ReadonlySet<number> {
 	let end = pageSource(page).lines.length + 1;
 	for (let index = page.headings.length - 1; index >= 0; index--) {
 		const heading = page.headings[index]!;
-		if (heading.depth > 3) continue;
-		if (heading.depth === 3 && heading.text === "Properties") {
+		if (heading.depth > 2) continue;
+		if (heading.depth === 2 && heading.text === "Properties") {
 			for (let line = heading.line; line < end; line++) lines.add(line);
 		}
 		end = heading.line;

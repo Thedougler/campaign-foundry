@@ -12,7 +12,13 @@ revealed: "Session 3"
 title: "Sending Stone (Nona's)"
 ---
 
-## At a glance
+## Properties
+
+Speaking to this stone reaches only Nona's twin. No charges, range limits or other activation rules are established. The pair is the whole item, and the type itself doesn't tell a sender when a message has been read (the DM's ruling, [[session-9-recap|Session 9 - Recap]]).
+
+## In use
+
+Until Nona calls, the stone is silent. Her call is a job, warning or both. It cannot be retuned, and losing it does not erase the favour, Nona finds another way to collect.
 
 - **Kind.** Wondrous item.
 - **Rarity.** Common.
@@ -22,16 +28,6 @@ title: "Sending Stone (Nona's)"
 
 > [!narration] First look
 > The grey river stone lies warm, heavier than it looks, with one face polished flat by a thumb. Its twin waits somewhere across the water.
-
-## Play
-
-### Properties
-
-Speaking to this stone reaches only Nona's twin. No charges, range limits or other activation rules are established. The pair is the whole item, and the type itself doesn't tell a sender when a message has been read (the DM's ruling, [[session-9-recap|Session 9 - Recap]]).
-
-### In use
-
-Until Nona calls, the stone is silent. Her call is a job, warning or both. It cannot be retuned, and losing it does not erase the favour, Nona finds another way to collect.
 
 ## Depth
 

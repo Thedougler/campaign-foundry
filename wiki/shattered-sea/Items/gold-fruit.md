@@ -10,20 +10,7 @@ revealed: ""
 title: "Gold Fruit"
 ---
 
-## At a glance
-
-- **Kind.** A golden peach from [[karath|Karath]]'s secret gold farms and from the tree at [[memorial-grove|Memorial Grove]], and the base of the [[gold-caste|Gold caste]]'s diet.
-- **Rarity.** Mundane as fruit and rare as trade. The farms bar even the lower castes.
-- **Attunement.** None.
-- **Changes.** A grung's caste colour. Enough fruit shifts the pigmentation to gold by plain biology, and a casting of [[ossketh|Ossketh]] then holds the colour for life.
-- **Held by.** The Gold caste, on the farms at [[karath|Karath]]. Small quantities reach outside buyers.
-
-> [!narration] First look
-> The fruit feels heavy in the hand for its size, gold-green skin pulled taut over the dense flesh within. The smell is thick and sweet, closer to a distillery than an orchard. Bite it and your lips stain saffron for a day. The stain is the tell. A grung fed on these wears the same colour on the skin, and it holds.
-
-## Play
-
-### Properties
+## Properties
 
 On [[aruhe|Aruhe]] a golden peach is a relatively ordinary fruit. It is delicious, and its distinct metallic shine is the only thing that sets it apart from a normal peach. Eating one works a minor magic that turns a portion of the eater's skin gold for a time.
 
@@ -33,9 +20,18 @@ The gold is colour and shine, a passing disguise. Armour, saves and senses stay 
 
 Any species gilds for the eight hours the magic lasts. A grung's gold is plain biology. A grung who eats enough of the fruit takes the gold pigmentation into the skin, and a casting of [[ossketh|Ossketh]] then fixes the colour for life. Cast before the diet has done its work, the rite runs incomplete.
 
-### In use
+## In use
 
 [[simone-tabarnack|Simone Tabarnack]] came to [[aruhe|Aruhe]] herself and stole several golden peaches from the tree at [[memorial-grove|Memorial Grove]]. That stolen gold fruit took her partway to gold, and she cast the rite before the colour had finished. The Gold caste could not deny her gold without exposing what the fruit does, so they acknowledge her as showing signs of divinity.
+
+- **Kind.** A golden peach from [[karath|Karath]]'s secret gold farms and from the tree at [[memorial-grove|Memorial Grove]], and the base of the [[gold-caste|Gold caste]]'s diet.
+- **Rarity.** Mundane as fruit and rare as trade. The farms bar even the lower castes.
+- **Attunement.** None.
+- **Changes.** A grung's caste colour. Enough fruit shifts the pigmentation to gold by plain biology, and a casting of [[ossketh|Ossketh]] then holds the colour for life.
+- **Held by.** The Gold caste, on the farms at [[karath|Karath]]. Small quantities reach outside buyers.
+
+> [!narration] First look
+> The fruit feels heavy in the hand for its size, gold-green skin pulled taut over the dense flesh within. The smell is thick and sweet, closer to a distillery than an orchard. Bite it and your lips stain saffron for a day. The stain is the tell. A grung fed on these wears the same colour on the skin, and it holds.
 
 ## Depth
 

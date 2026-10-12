@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Very Rare.*
 
@@ -15,7 +13,7 @@ You can make this carpet hover and fly by taking a Magic action and using the ca
 
 Four sizes of Carpet of Flying exist. The DM chooses the size of a given carpet or determines it randomly by rolling on the following table. A carpet can carry up to twice the weight shown on the table, but its Fly Speed is halved if it carries more than its normal capacity.
 
-#### Applicable Carpet Sizes
+### Applicable Carpet Sizes
 
 | | 1d100 | | Size                              | | Capacity | | Fly Speed | |
 | :-----: | ----------------------------------- | :--------: | :-----------: |

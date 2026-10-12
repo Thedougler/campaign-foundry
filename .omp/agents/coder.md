@@ -1,7 +1,7 @@
 ---
 name: coder
 description: Makes one narrow, fully briefed code change (a fix, command, script, test or the config it needs) and verifies it before return. Agent-facing text goes to skill-writer.
-model: openai-codex/gpt-6.1-sol
+model: "@CODER"
 thinking-level: medium
 tools: [read, grep, glob, edit, write, bash, lsp, ast_grep, ast_edit, web_search, mcp__context7_resolve_library_id, mcp__context7_query_docs]
 ---

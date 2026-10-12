@@ -121,7 +121,9 @@ export function parseOmpUsage(text: string, source: string): OmpUsage {
  * report degrades every pin to `unknown` with the error instead of failing the command.
  */
 export function readOmpUsage(): QuotaSource {
-	const run = spawnSync("omp", ["usage", "--json"], { encoding: "utf8" });
+	// Bun's spawnSync ignores a mutated process.env.PATH unless env is passed explicitly
+	// (Node inherits process.env either way). Tests clear PATH to force the unknown path.
+	const run = spawnSync("omp", ["usage", "--json"], { encoding: "utf8", env: process.env });
 	if (run.error) return { usage: null, error: `omp usage could not run (${run.error.message})` };
 	if (run.status !== 0) {
 		const first = run.stderr.trim().split(/\r?\n/)[0] ?? "";

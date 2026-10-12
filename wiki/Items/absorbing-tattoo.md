@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item (Tattoo), Very Rare (Requires Attunement).*
 
@@ -19,7 +17,7 @@ If your attunement to the tattoo ends, the tattoo vanishes, and the needle reapp
 
 ***Damage Resistance.*** While the tattoo is on your skin, you have resistance to a type of damage associated with that colour, as shown on the table below. The DM chooses the colour or determines it randomly.
 
-#### Absorbing Tattoo
+### Absorbing Tattoo
 
 | | d10 | |  Colour | |            Tattoo            | |
 | :---: | :-------: | :------------------------------: |

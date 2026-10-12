@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Generic Variant, Legendary (Requires Attunement By a Creature of the Weapon's Choice).*
 
@@ -25,7 +23,7 @@ The weapon communicates by transmitting emotions, sending a tingling sensation t
 
 ***Personality.*** A Moonblade has a personality similar to that of its creator. Once a Moonblade has decided on an owner, it believes that only that person should wield it, even if the bearer's alignment differs from that of the weapon's or the bearer's goals later clash with the weapon's goals.
 
-#### Moonblade Properties
+### Moonblade Properties
 
 | | 1d100 | | Property                                                                                                                                                                                                                                                                                                                                                                                                                                                               | |
 | :-----: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

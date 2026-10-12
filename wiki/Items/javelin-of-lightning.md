@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Javelin*), Uncommon, Simple Weapon, Melee Weapon, 2 lb.*
 

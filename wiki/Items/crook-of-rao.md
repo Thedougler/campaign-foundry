@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Artifact (Requires Attunement).*
 
@@ -27,7 +25,7 @@ Ages ago, the serene god Rao created a tool to shield his fledgling faithful aga
 
 ***Iggwilv's Curse.*** When the Crook was last used against Iggwilv, the Witch Queen lashed out at the artifact, infecting its magical matrix. Over the years, this curse has spread within the crook, threatening to violently pervert its ancient magic. If this occurs, the Crook of Rao, as it is currently known, is destroyed, its magical matrix inverting and exploding into a 50-foot-diameter portal. This portal functions as a permanent *gate* spell cast by Iggwilv. The gate then, once per round on initiative count 20, audibly speaks a fiend's name in Iggwilv's voice, doing so until the gate calls on every fiend ever banished by the Crook of Rao. If the fiend still exists, it is drawn through the gate. This process takes eighteen years to complete, at the end of which the gate becomes a permanent portal to Pazunia, the first layer of the Abyss.
 
-#### Extraplanar Reversal
+### Extraplanar Reversal
 
 | |  d100 | | Effect                                                                                                                                                               | |
 | :-----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

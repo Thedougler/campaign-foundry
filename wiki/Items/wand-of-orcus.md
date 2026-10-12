@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Mace*), Wand, Artifact (Requires Attunement), Simple Weapon, Melee Weapon, 4 lb.*
 

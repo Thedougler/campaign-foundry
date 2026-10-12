@@ -23,11 +23,11 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 - **Strength.**
 
 > [!narration] Public face
-> %% Optional. Include it when the Party will meet them. Spoken, second person. Show how the Party first meets them at work and how members look and carry themselves. Add their custom and a sign a bystander could spot, and end on the name people use for them. %%
+> %% Optional. Include it when the Party will meet them. Spoken, second person, per `skill://theatre-of-the-mind`. %%
 
 ## Play
 
-%% Give the World's response each time the Party meets them, one line per bullet. Faces links the two or three members the Party deals with, each with a goal of their own the Faction lacks. Offers gives the offerer and the pay, then the catch. Rank and file the Party could fight get a count and a linked Creature. %%
+%% Give the World's response each time the Party meets them, one line per bullet. Faces links the members the Party deals with, each with a goal of their own the Faction lacks. Offers gives the offerer and the pay, then the catch. Rank and file the Party could fight get a count and a linked Creature. %%
 
 - **Faces.**
 - **When met.**
@@ -67,7 +67,7 @@ flowchart TD
 
 ### Agenda
 
-%% Use this with no active Campaign. Give three to five milestones. Each has a time and a sign the Party could notice first, and changes one fact. In a Campaign the agenda belongs on a Thread, linked under Threads. %%
+%% Use this with no active Campaign. Give the milestones they reach if nobody stops them. Each has a time and a sign the Party could notice first, and changes one fact. In a Campaign the agenda belongs on a Thread, linked under Threads. %%
 
 ### Threads
 

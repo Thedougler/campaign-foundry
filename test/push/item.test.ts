@@ -20,7 +20,7 @@ describe("buildItem", () => {
 		"*Wondrous Item (Tattoo), Very Rare (Requires Attunement)*",
 		"*Wondrous Item (Tattoo), Very Rare (Requires Attunement).*",
 	])("reads a Very Rare attuned tattoo from the Properties classification %s", (line) => {
-		const page = parsePage("Items/tattoo.md", `## Play\n\n### Properties\n\n${line}`);
+		const page = parsePage("Items/tattoo.md", `## Properties\n\n${line}`);
 		expect(buildItem(page, { campaign: "salt-and-lantern", render: ctx }).data).toMatchObject({
 			type: "equipment",
 			system: { type: { value: "wondrous" }, rarity: "veryRare", attunement: "required" },
@@ -30,7 +30,7 @@ describe("buildItem", () => {
 	it.each(["*Weapon (Longsword), Rare*", "_weapon (Longsword), rArE._", "Weapon (Longsword), Rare."])(
 		"reads weapon rarity without attunement from %s",
 		(line) => {
-			const page = parsePage("Items/sword.md", `## Play\n\n### Properties\n\n${line}`);
+			const page = parsePage("Items/sword.md", `## Properties\n\n${line}`);
 			expect(buildItem(page, { campaign: "salt-and-lantern", render: ctx }).data).toMatchObject({
 				type: "weapon",
 				system: { rarity: "rare", attunement: "" },
@@ -39,9 +39,9 @@ describe("buildItem", () => {
 	);
 
 	it.each([
-		"## Play\n\n### Properties\n\n### In use\n\n*Weapon (Longsword), Rare (Requires Attunement)*",
-		"## Play\n\n### In use\n\n*Weapon (Longsword), Rare (Requires Attunement)*",
-		"## Play\n\n### Properties\n\nA brass key opens one lock.",
+		"## Properties\n\n## In use\n\n*Weapon (Longsword), Rare (Requires Attunement)*",
+		"## In use\n\n*Weapon (Longsword), Rare (Requires Attunement)*",
+		"## Properties\n\nA brass key opens one lock.",
 	])("makes an unclassified page loot without falling back to legacy bullets (%s)", (body) => {
 		const page = parsePage(
 			"Items/key.md",
@@ -55,7 +55,7 @@ describe("buildItem", () => {
 	it("reads only the first Properties paragraph, not later rules text", () => {
 		const page = parsePage(
 			"Items/sword.md",
-			"## Play\n\n### Properties\n\n*Weapon (Longsword), Rare*\n\nThis very rare technique requires attunement.",
+			"## Properties\n\n*Weapon (Longsword), Rare*\n\nThis very rare technique requires attunement.",
 		);
 		expect(buildItem(page, { campaign: "salt-and-lantern", render: ctx }).data).toMatchObject({
 			type: "weapon",

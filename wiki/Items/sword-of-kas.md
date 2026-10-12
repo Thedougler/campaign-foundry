@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Longsword*), Artifact (Requires Attunement), Martial Weapon, Melee Weapon, 3 lb.*
 

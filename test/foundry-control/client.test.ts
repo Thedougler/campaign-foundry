@@ -75,14 +75,14 @@ describe("BridgeClient", () => {
 	});
 
 	it("times out a call the module never answers", async () => {
+		// Sync advanceTimersByTime: Bun has no advanceTimersByTimeAsync; awaiting it hung the suite.
 		vi.useFakeTimers();
 		try {
 			const transport = new FakeTransport();
 			const client = new BridgeClient(transport);
 			const pending = client.call("document.get", { uuid: "Actor.abc" }, { timeoutMs: 5_000 });
-			const assertion = expect(pending).rejects.toThrow(/did not answer/i);
-			await vi.advanceTimersByTimeAsync(5_001);
-			await assertion;
+			vi.advanceTimersByTime(5_001);
+			await expect(pending).rejects.toThrow(/did not answer/i);
 			// A late reply for the timed-out id is ignored instead of throwing on an unknown id.
 			transport.deliver(JSON.stringify({ type: "reply", id: 1, ok: true, result: {} }));
 		} finally {

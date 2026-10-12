@@ -22,7 +22,7 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ## Play
 
-%% Give how the Party meets this Lore at the table. Players notice gives the signs they see before anyone explains them. Clues lists each Clue with the page it appears on, three in different places for each conclusion the Party needs. Accounts gives two to four versions, each with its teller and whether it is true, distorted or false. Quote any text the Party can read word for word. %%
+%% Give how the Party meets this Lore at the table. Players notice gives the signs they see before anyone explains them. Clues lists each Clue with the page it appears on, three in different places for each conclusion the Party needs. Accounts gives each version people tell, with its teller and whether it is true, distorted or false. Quote any text the Party can read word for word. %%
 
 - **Players notice.**
 - **Clues.**

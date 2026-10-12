@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Shortbow*), Artifact (Requires Attunement), Simple Weapon, Ranged Weapon, 2 lb.*
 

@@ -12,14 +12,12 @@ For a hidden truth needed to make an important choice, provide three independent
 
 ## Hazards
 
-Give the DM all six answers for each hazard:
+Each hazard warns before it bites and leaves the Party a way through. Give the DM:
 
 - **Sign:** what warns the Party before commitment.
 - **Trigger:** the action, event or threshold that activates it.
 - **Effect:** affected space or targets, duration, movement, damage, condition or other consequence, with sourced rules where needed.
-- **Counterplay:** what preparation, tools, timing, abilities or intervention can do.
-- **Bypass:** an alternate route or method and its cost.
-- **Leverage:** a discoverable fact, resource or relationship that improves the Party's options.
+- **Answers:** those the hazard allows, from counterplay (preparation, tools, timing, abilities or intervention), a way around and its cost, or a discoverable fact, resource or relationship that improves the Party's options.
 
 State any check/save and what follows on success or failure. Honour actual capabilities such as flight or social authority. Give any limit a reason in the fiction and a way to learn it. A fixed environmental hazard belongs to its Site, and a portable hazard uses an Item owner. Regions and Settlements explain exposure on their routes and link the detailed owner when one exists.
 

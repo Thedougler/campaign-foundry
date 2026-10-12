@@ -6,17 +6,13 @@ revealed: ""
 title: "Ashen Lantern"
 ---
 
-## Play
-
-Text.
-
-### Properties
+## Properties
 
 *Wondrous Item, Uncommon.*
 
 Text.
 
-### In use
+## In use
 
 Text.
 

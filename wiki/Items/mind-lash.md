@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Melee Weapon, Rare (Requires Attunement By a Mind Flayer), 3 lb.*
 

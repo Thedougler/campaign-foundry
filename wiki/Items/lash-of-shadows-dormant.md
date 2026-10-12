@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Whip*), Artifact (Requires Attunement), Martial Weapon, Melee Weapon, 3 lb.*
 
@@ -31,7 +29,7 @@ The weapon communicates telepathically with its wielder and can speak, read, and
   - **Dead Eyes.** A creature that fails the saving throw against this poison is poisoned for 1 hour. While poisoned in this way, the creature is blinded.
   - **Serpent Venom.** A creature that fails the saving throw against this poison takes 3d6 poison damage, or half as much damage on a successful save.
 
-> #### Betrayer Artifact Properties
+> ### Betrayer Artifact Properties
 >
 >The Arms of the Betrayers advance in power in the same manner as the Vestiges of Divergence. In its dormant state, each of these artifacts has one minor beneficial property and one minor detrimental property. When the artifact attains an awakened state, it gains an additional minor beneficial property and an additional minor detrimental property. When the item reaches its exalted state, it gains a major beneficial property. See "Artifact Properties" in chapter 7 of the Dungeon Master's Guide for more information.
 >

@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Uncommon.*
 
@@ -19,7 +17,7 @@ Unless it is the Mystery card, a drawn card immediately takes effect, fades from
 
 You can use an altered deck of playing cards to simulate the deck, as shown in the Deck of Wonder table.
 
-#### Deck of Wonder
+### Deck of Wonder
 
 | | Card | | Card Title  | |
 | :----: | --------------- |

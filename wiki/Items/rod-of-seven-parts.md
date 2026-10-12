@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Quarterstaff*), Rod, Artifact (Requires Attunement), Simple Weapon, 4 lb.*
 
@@ -23,7 +21,7 @@ Desperate to save themselves and their allies, powerful elemental beings called 
 
 Additionally, while holding one piece of the broken rod, you can use an action to cast the spell associated with that piece, as listed on the Rod Pieces table. Once that piece of the rod has been used to cast a spell, it can't be used that way again until the next dawn.
 
-#### Rod Pieces
+### Rod Pieces
 
 | | Piece   | | Spell                                | |
 | --------- | ---------------------------------------- |

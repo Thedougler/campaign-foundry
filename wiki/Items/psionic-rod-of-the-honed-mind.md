@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Rod, Very Rare (Requires Attunement By a Warlock), 2 lb.*
 

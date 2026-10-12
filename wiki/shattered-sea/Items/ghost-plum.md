@@ -12,7 +12,13 @@ title: "Ghost Plum"
 
 ![[ghost-plum-handout-art.webp]]
 
-## At a glance
+## Properties
+
+Eating a ghost plum takes a Bonus Action and grants the Invisible condition for 1 hour. Attacking, casting a spell or taking damage does not end it. The invisibility covers its eater and the gear they carry, and a creature they hold is there for all to see. In a pollen drift, an Invisible creature shows as a pale shimmer and can be seen and targeted normally.
+
+## In use
+
+Under [[taking-on-aruhe|Aruhe's law]], fallen fruit is safe to take, but fruit picked from a living stem is a claim. Pollen makes the fruit both an escape tool and a way to reveal an invisible pursuer. In Session 12 Crissdalynn handed Jean-Claude a plum for the chase, and the pair flew an hour unseen while his Survival called the heading. Delmar ate one above the last fight against [[talon-skarn|Talon Skarn]] and flew straight up invisible, then dropped his own [[fleet-commanders-chair|Fleet Commanders Chair]] from thirty feet.
 
 - **Kind.** Consumable.
 - **Rarity.** Rare.
@@ -21,16 +27,6 @@ title: "Ghost Plum"
 
 > [!narration] First look
 > A ghost plum is as big as two fists, with clear purple-grey skin showing leaves through it like a picture in soap. Pale pollen dusts the skin. Once fallen, that skin clouds over into dull purple.
-
-## Play
-
-### Properties
-
-Eating a ghost plum takes a Bonus Action and grants the Invisible condition for 1 hour. Attacking, casting a spell or taking damage does not end it. The invisibility covers its eater and the gear they carry, and a creature they hold is there for all to see. In a pollen drift, an Invisible creature shows as a pale shimmer and can be seen and targeted normally.
-
-### In use
-
-Under [[taking-on-aruhe|Aruhe's law]], fallen fruit is safe to take, but fruit picked from a living stem is a claim. Pollen makes the fruit both an escape tool and a way to reveal an invisible pursuer. In Session 12 Crissdalynn handed Jean-Claude a plum for the chase, and the pair flew an hour unseen while his Survival called the heading. Delmar ate one above the last fight against [[talon-skarn|Talon Skarn]] and flew straight up invisible, then dropped his own [[fleet-commanders-chair|Fleet Commanders Chair]] from thirty feet.
 
 ## Depth
 

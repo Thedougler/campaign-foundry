@@ -1,8 +1,6 @@
 task:
   enableLsp: true
   maxRecursionDepth: 3
-  agentModelOverrides:
-    task: zai/glm-5.3
   # Dogfood units run `isolated: true`: each works in its own copy of the checkout,
   # and its changes are kept as a patch artifact, never applied to the real Wiki.
   isolation:

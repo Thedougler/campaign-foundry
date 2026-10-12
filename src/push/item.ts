@@ -33,7 +33,7 @@ const RARITY_PATTERN = new RegExp(
 
 /** The opening paragraph under Properties, without its emphasis marks or final full stop. */
 function classification(page: Page): string {
-	const properties = page.headings.find((heading) => heading.depth === 3 && heading.text === "Properties");
+	const properties = page.headings.find((heading) => heading.depth === 2 && heading.text === "Properties");
 	if (!properties) return "";
 	for (let index = properties.index + 1; index < page.tree.children.length; index++) {
 		const node = page.tree.children[index];

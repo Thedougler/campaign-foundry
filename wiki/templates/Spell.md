@@ -44,7 +44,7 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ### Who knows it
 
-%% Link the source the Party can learn it from, with the price of learning and the Clue that leads to that source. Add who casts it against the Party, and who notices when a PC first casts it. %%
+%% Link the source the Party can learn it from, with the price of learning and the Clue that leads to that source. Add anyone who casts it against the Party, and who notices when a PC first casts it. %%
 
 ## Links
 

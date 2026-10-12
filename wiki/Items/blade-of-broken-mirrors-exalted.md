@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Weapon (*Dagger*), Artifact (Requires Attunement By a Humanoid), Simple Weapon, Melee Weapon, 1 lb.*
 
@@ -29,7 +27,7 @@ The weapon communicates telepathically with its wielder and can speak, read, and
 - You gain a +1 bonus to attack and damage rolls made with this magic weapon. Immediately after you make a ranged attack with this weapon, it returns to your hand.
 - Whenever you kill a humanoid with an attack using the Blade of Broken Mirrors, the blade remembers the creature's appearance. While holding the dagger, you can use an action to change your form to match any humanoid the blade remembers. Your statistics, other than your size, don't change. Any equipment you are wearing or carrying isn't transformed. You can revert to your true appearance as an action. You revert to your true appearance automatically when you die. When the Blade of Broken Mirrors attunes to a new wielder, the appearances of humanoids it has killed are wiped from its memory.
 
-> #### Betrayer Artifact Properties
+> ### Betrayer Artifact Properties
 >
 >The Arms of the Betrayers advance in power in the same manner as the Vestiges of Divergence. In its dormant state, each of these artifacts has one minor beneficial property and one minor detrimental property. When the artifact attains an awakened state, it gains an additional minor beneficial property and an additional minor detrimental property. When the item reaches its exalted state, it gains a major beneficial property. See "Artifact Properties" in chapter 7 of the Dungeon Master's Guide for more information.
 >

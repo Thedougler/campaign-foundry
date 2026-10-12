@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wand, Uncommon (Requires Attunement By a Spellcaster), 1 lb.*
 

@@ -75,14 +75,14 @@ Everything under `local://` stays outside the Wiki. Ingest files a Story into th
 |Agent|Definition|Dispatched by|Tools|Job|
 |---|---|---|---|---|
 |collab (the main agent)|`collab-with-me`|the DM|full|holds the conversation, does cheap reads and dispatches everything heavier|
-|`creative-writer`|[`.omp/agents/creative-writer.md`](../.omp/agents/creative-writer.md)|co-writing Seeds, Story prose drafts and "show me versions"|`read`, `yield`|writes prose to a brief, optimising for any Stance the brief names|
+|`creative-writer`|[`.omp/agents/creative-writer.md`](../.omp/agents/creative-writer.md)|co-writing Seeds, Story prose drafts and "show me versions"|`read`|writes prose to a brief, optimising for any Stance the brief names|
 |`persona`|[`.omp/agents/persona.md`](../.omp/agents/persona.md)|`simulate-npcs` step 3 only|none|plays one NPC from its dossier, one turn per Director command|
 |Director|whichever agent runs `simulate-npcs`: collab itself, or a Prep runner|collab's Simulate stage, or Prep step 5 (Opposition)|full|frames scenes, commands each Persona and keeps the ledger|
 |Critic|a fresh native `task` subagent with `story-critique.md`|collab's Critique stage|full, leaves the bible and drafts as they are|answers the TTCW tests and returns findings|
 |`scout`|bundled|collab step 3|read-only|widens the Wiki search and returns relevant paths|
 |Ingest, Lint and Prep runners|fresh native `task` subagents|collab steps 5 and 6|full|file, check and build one chain at a time|
 
-Both `creative-writer` and `persona` default to `zai/glm-5.3`, pinned in their frontmatter, with `blocking: false`, so collab can keep talking while they work. [`.omp/AGENTS.md`](../.omp/AGENTS.md#native-delegation) sets when a dispatch passes another model. A Persona has `tools: []` on purpose. Without reads, it knows only its dossier and the events the Director sends it, so no Persona can learn another NPC's secrets.
+Both `creative-writer` and `persona` run on `zai/glm-5.3` through their frontmatter roles, `@CREATIVE-WRITER` and `@PERSONA`, with `blocking: false`, so collab can keep talking while they work. [`.omp/AGENTS.md`](../.omp/AGENTS.md#native-delegation) sets when a dispatch passes another model. A Persona has `tools: []` on purpose. Without reads, it knows only its dossier and the events the Director sends it, so no Persona can learn another NPC's secrets.
 
 The Director sends each Persona its turns with `write agent://<id>`. Personas are named `Persona<NpcNameCamelCase>`, and `read history://<id>` shows a Persona's whole transcript for an isolation check. Delegation rules for every agent are in [`.omp/AGENTS.md`](../.omp/AGENTS.md#native-delegation).
 

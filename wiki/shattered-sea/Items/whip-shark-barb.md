@@ -9,7 +9,13 @@ revealed: "Session 3"
 title: "Whip-Shark Barb"
 ---
 
-## At a glance
+## Properties
+
+None are recorded. [[catalina-curio|Catalina Curio]] has the barb under appraisal at [[kats-curios|Kat's Curios]] and has yet to name a price or a use for the bone and cartilage.
+
+## In use
+
+Until the appraisal returns, it is cargo: four feet of curved spike whose every serrated edge objects to being lashed flat. Anyone carrying it wraps the base and lets the point ride clear.
 
 - **Kind.** Notable mundane object, a monster part.
 - **Rarity.** Not yet valued.
@@ -19,16 +25,6 @@ title: "Whip-Shark Barb"
 
 > [!narration] First look
 > The barb comes across the counter butt first, a curved length of yellowed bone that smells of dried brine and something faintly sweet under the lamp oil. Held upright, it reaches a sailor from heel to crown, and rows of small hooked serrations line every edge but the pale bare base. Whatever angle the light finds, the point shows dark and slick.
-
-## Play
-
-### Properties
-
-None are recorded. [[catalina-curio|Catalina Curio]] has the barb under appraisal at [[kats-curios|Kat's Curios]] and has yet to name a price or a use for the bone and cartilage.
-
-### In use
-
-Until the appraisal returns, it is cargo: four feet of curved spike whose every serrated edge objects to being lashed flat. Anyone carrying it wraps the base and lets the point ride clear.
 
 ## Depth
 

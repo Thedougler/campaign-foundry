@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Uncommon (Requires Attunement).*
 
@@ -15,7 +13,7 @@ This magical tattoo contains the essence of a level 1-3 spell chosen by the tatt
 
 You can also cast the spell once without a spell slot and spell components. Once the spell is cast in this way, the tattoo vanishes.
 
-> #### Inking Thayan Spell Tattoos
+> ### Inking Thayan Spell Tattoos
 >
 >The Thayan art of magical tattooing is highly guarded by its practitioners, and thus, Thayan Spell Tattoos can't be crafted like other magic items. To learn how to ink Thayan Spell Tattoos, you must have a Renown Score of 50+ with the Red Wizards.
 >

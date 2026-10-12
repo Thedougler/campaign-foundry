@@ -1,46 +1,10 @@
 import { mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import { captureIO } from "../../src/cli.ts";
 import { main as evalCheckCli, createOutcome, runChecks, runStatblock } from "../../evals/check.ts";
 import { loadCases } from "../../evals/cases.ts";
-import type { ValeAdapter } from "../../src/check/vale.ts";
-
-vi.mock("../../src/check/vale.ts", () => ({
-	valeSubprocess: (): ValeAdapter => ({
-		async check(pass) {
-			return new Map(
-				Object.entries(pass.files).map(([path, text]) => [
-					path,
-					pass.config !== "gate"
-						? []
-						: text.includes("rich tapestry")
-							? [
-									{
-										Check: "ai-tells.Fixture",
-										Severity: "error",
-										Line: 1,
-										Match: "rich tapestry",
-										Message: "Canned gate error.",
-									},
-								]
-							: text.includes("Her eyes widen")
-								? [
-										{
-											Check: "Narration.StockTells",
-											Severity: "warning",
-											Line: 2,
-											Match: "Her eyes widen",
-											Message: "Canned gate warning.",
-										},
-									]
-								: [],
-				]),
-			);
-		},
-	}),
-}));
 
 const vault = resolve("test/fixtures/vault");
 const cases = resolve("test/evals/cases.yaml");

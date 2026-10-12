@@ -12,26 +12,21 @@ title: "Grubnade"
 
 ![[grubnade-handout-art.webp]]
 
-## At a glance
+## Properties
+
+Touching, picking up or damaging a mature Grubnade or its supporting plant detonates it at the end of the current turn. Fire, thunder or bludgeoning damage in its space also triggers it. Creatures within 5 feet make a DC 12 Dexterity save, taking 2d6 fire damage on a failure or half on a success. Unattended flammable objects catch fire.
+
+## In use
+
+The blast scatters 1d4 + 1 juvenile Grubnades 10 to 30 feet. Juveniles are Tiny, harmless and become mature after seven days of feeding. A DC 12 Perception check spots a mature grub. Nature DC 13 identifies the trap. Three or more on one flower can chain disturbance.
 
 - **Kind.** Living flora hazard.
-- **Rarity.** None, being a living hazard.
 - **Attunement.** Never, being living flora.
 - **Changes.** Disturbance detonates it for fire damage and starts a brood.
 - **Held by.** Mature Grubnades rest on Aruhe flowers until disturbed.
 
 > [!narration] First look
 > A fat cream-green caterpillar longer than your thumb lies heavy across a yellow flower. Its glossy rings bunch as it chews, and each bite makes the whole body gather and ease over the leaf.
-
-## Play
-
-### Properties
-
-Touching, picking up or damaging a mature Grubnade or its supporting plant detonates it at the end of the current turn. Fire, thunder or bludgeoning damage in its space also triggers it. Creatures within 5 feet make a DC 12 Dexterity save, taking 2d6 fire damage on a failure or half on a success. Unattended flammable objects catch fire.
-
-### In use
-
-The blast scatters 1d4 + 1 juvenile Grubnades 10 to 30 feet. Juveniles are Tiny, harmless and become mature after seven days of feeding. A DC 12 Perception check spots a mature grub. Nature DC 13 identifies the trap. Three or more on one flower can chain disturbance.
 
 ## Depth
 

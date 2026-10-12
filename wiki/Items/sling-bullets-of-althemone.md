@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Ammunition, Very Rare.*
 
@@ -15,7 +13,7 @@ The sling bullets come in a pouch, which contains 1d4 + 4 bullets. Roll on the M
 
 You have a +2 bonus to attack and damage rolls made with each of these bullets. If a bullet misses its target, the bullet teleports back into the pouch. Once a bullet hits a target, the bullet loses its magic.
 
-#### Magic Sling Bullets
+### Magic Sling Bullets
 
 | |  d4 | | Bullet                                                                                                                                                                                                                        | |
 | :---: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

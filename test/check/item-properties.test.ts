@@ -44,8 +44,8 @@ const toolRules = [
 	"As an action, you can focus on the tool to channel your creative forces. Choose a cantrip that you don't know from any class list. For 8 hours, you can cast that cantrip, and it counts as an artificer cantrip for you. Once this property is used, it can't be used again until the next dawn.",
 ];
 
-function source(type: string, heading = "### Properties", body: readonly string[] = rules): string {
-	return ["---", `type: ${type}`, "---", "", "## Play", "", heading, "", ...body, ""].join("\n");
+function source(type: string, heading = "## Properties", body: readonly string[] = rules): string {
+	return ["---", `type: ${type}`, "---", "", heading, "", ...body, ""].join("\n");
 }
 
 describe("published Item Properties", () => {
@@ -55,28 +55,28 @@ describe("published Item Properties", () => {
 	});
 
 	it.each([
-		{ type: "Item", heading: "### In use" },
-		{ type: "Spell", heading: "### Properties" },
+		{ type: "Item", heading: "## In use" },
+		{ type: "Spell", heading: "## Properties" },
 		{ type: "Spell", heading: "### Effect" },
-		{ type: "NPC", heading: "### Properties" },
-		{ type: "House Rule", heading: "### Properties" },
-		{ type: "Item", heading: "## Properties" },
+		{ type: "NPC", heading: "## Properties" },
+		{ type: "House Rule", heading: "## Properties" },
+		{ type: "Item", heading: "### Properties" },
 		{ type: "Item", heading: "#### Properties" },
 	])("keeps both style rules on $type $heading", async ({ type, heading }) => {
 		const ctx = await context(source(type, heading));
 		const findings = await styleLayerWith(valeSubprocess()).run(ctx);
 		expect(findings.map(({ rule, line }) => [rule, line])).toEqual(
 			expect.arrayContaining([
-				["ai-tells.VerbTricolon", 9],
-				["ai-tells.DefensiveHedges", 10],
+				["ai-tells.VerbTricolon", 7],
+				["ai-tells.DefensiveHedges", 8],
 			]),
 		);
 	});
 
-	it.each(["### In use", "## At a glance", "# Other"])(
+	it.each(["## In use", "## At a glance", "# Other"])(
 		"blanks nested Properties text and resumes style checking at %s without shifting lines",
 		async (heading) => {
-			const lines = [...source("Item").split("\n"), "#### Absorption", "", ...rules, "", heading, "", ...rules, ""];
+			const lines = [...source("Item").split("\n"), "### Absorption", "", ...rules, "", heading, "", ...rules, ""];
 			const ctx = await context(lines.join("\n"));
 			const firstRuleLine = lines.indexOf(heading) + 3;
 			const findings = await styleLayerWith(valeSubprocess()).run(ctx);
@@ -113,19 +113,19 @@ describe("published Item Properties", () => {
 	});
 
 	it("exempts the published tool's LongSentences and cantrip wording from grammar and repetition checks", async () => {
-		const text = source("Item", "### Properties", toolRules);
+		const text = source("Item", "## Properties", toolRules);
 		const ctx = await context(text, { "Twin.md": text });
 		expect(await grammarLayer.run(ctx)).toEqual([]);
 		expect(await boilerplateLayer.run(ctx)).toEqual([]);
 	});
 
 	it.each([
-		{ type: "Item", heading: "### In use" },
-		{ type: "Spell", heading: "### Properties" },
+		{ type: "Item", heading: "## In use" },
+		{ type: "Spell", heading: "## Properties" },
 		{ type: "Spell", heading: "### Effect" },
-		{ type: "NPC", heading: "### Properties" },
-		{ type: "House Rule", heading: "### Properties" },
-		{ type: "Item", heading: "## Properties" },
+		{ type: "NPC", heading: "## Properties" },
+		{ type: "House Rule", heading: "## Properties" },
+		{ type: "Item", heading: "### Properties" },
 		{ type: "Item", heading: "#### Properties" },
 	])("keeps grammar and shared-line checks on $type $heading", async ({ type, heading }) => {
 		const text = source(type, heading, toolRules);
@@ -133,27 +133,27 @@ describe("published Item Properties", () => {
 		const grammar = await grammarLayer.run(ctx);
 		expect(grammar.map(({ rule, line }) => [rule, line])).toEqual(
 			expect.arrayContaining([
-				["LongSentences", 9],
-				["SplitWords", 10],
+				["LongSentences", 7],
+				["SplitWords", 8],
 			]),
 		);
 		const shared = await boilerplateLayer.run(ctx);
 		expect(shared.map(({ path, line }) => [path, line])).toEqual([
-			["wiki/Target.md", 9],
-			["wiki/Target.md", 10],
-			["wiki/Twin.md", 9],
-			["wiki/Twin.md", 10],
+			["wiki/Target.md", 7],
+			["wiki/Target.md", 8],
+			["wiki/Twin.md", 7],
+			["wiki/Twin.md", 8],
 		]);
 		expect(shared.every(({ rule }) => rule === "shared-line")).toBe(true);
 	});
 
-	it.each(["### In use", "## At a glance", "# Other"])(
+	it.each(["## In use", "## At a glance", "# Other"])(
 		"resumes grammar and repetition checks at %s with source positions intact",
 		async (heading) => {
 			const lines = [
-				...source("Item", "### Properties", toolRules).split("\n"),
-				"#### More rules",
-				"🪡",
+				...source("Item", "## Properties", toolRules).split("\n"),
+				"### More rules",
+				"",
 				...toolRules,
 				"",
 				heading,
@@ -188,12 +188,12 @@ describe("published Item Properties", () => {
 	});
 
 	it("reports exactly one shared-line finding per page for a line containing several shared sentences", async () => {
-		const text = source("NPC", "### In use", [toolRules[0]!]);
+		const text = source("NPC", "## In use", [toolRules[0]!]);
 		const ctx = await context(text, { "Twin.md": text });
 		const shared = await boilerplateLayer.run(ctx);
 		expect(shared.map(({ path, rule, line }) => [path, rule, line])).toEqual([
-			["wiki/Target.md", "shared-line", 9],
-			["wiki/Twin.md", "shared-line", 9],
+			["wiki/Target.md", "shared-line", 7],
+			["wiki/Twin.md", "shared-line", 7],
 		]);
 	});
 });

@@ -17,26 +17,21 @@ title: "Pearl of Souls"
 
 ![[pearl-of-souls-render.webp]]
 
-## At a glance
+## Properties
+
+The Pearl works continuously and collects souls from anyone who drowns near it. A soul inside cannot escape by normal means. It is one of seven instruments of Umberlee. The others are missing. No charges, saves or attunement rules are established.
+
+## In use
+
+The Pearl's signal crosses the planar boundary to the Elemental Plane of Water, drawing the [[leviathan|Leviathan]] and waking [[auralis|Auralis]]. Recovering it stops the signal. Leaving it in place draws something larger to the fissure. Who accesses its souls remains an unresolved choice.
 
 - **Kind.** Plot item, instrument of Umberlee.
 - **Rarity.** Artifact.
-- **Attunement.** Its attunement rules remain unknown.
 - **Changes.** Collects souls from anyone who drowns near it without activation.
 - **Held by.** [[umberlee|Umberlee]], though it lies in the [[drowned-maw|Drowned Maw]].
 
 > [!narration] First look
 > A fist-sized black pearl shifts with an iridescent sheen and never stays still. Anyone who senses death feels it before seeing it.
-
-## Play
-
-### Properties
-
-The Pearl works continuously and collects souls from anyone who drowns near it. A soul inside cannot escape by normal means. It is one of seven instruments of Umberlee. The others are missing. No charges, saves or attunement rules are established.
-
-### In use
-
-The Pearl's signal crosses the planar boundary to the Elemental Plane of Water, drawing the [[leviathan|Leviathan]] and waking [[auralis|Auralis]]. Recovering it stops the signal. Leaving it in place draws something larger to the fissure. Who accesses its souls remains an unresolved choice.
 
 ## Depth
 

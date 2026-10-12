@@ -8,26 +8,21 @@ revealed: "Session 8"
 title: "The Snap"
 ---
 
-## At a glance
+## Properties
+
+As a Bonus Action, unfurl the bracer into a shield granting the standard +2 AC without occupying the wearer's hand. That hand can hold an instrument, spellcasting focus, components, or a tool, but not a second weapon or two-handed weapon. Fold it back as a Bonus Action. While unfurled, shield-keyed rules treat the wearer as holding a shield. It does not stack with another shield.
+
+## In use
+
+The Snap doesn't grant a bonus beyond a mundane shield and never unfurls as a reaction. Folded, it works as a hand drum only as flavour.
 
 - **Kind.** Armour (shield), uncommon.
-- **Rarity.** Uncommon.
 - **Attunement.** Required.
 - **Changes.** Unfurls as a +2 AC shield without occupying a hand.
 - **Held by.** [[perrin-black-jaw|Perrin Black-Jaw]], who bought it from Prospero Morsani in Session 8.
 
 > [!narration] First look
 > Folded flat, bronze veins bloom across pleats no needle made. It wraps your wrist as a bracer. A flick of the wrist snaps it into a hard circle, then a closed hand folds it soft again.
-
-## Play
-
-### Properties
-
-As a Bonus Action, unfurl the bracer into a shield granting the standard +2 AC without occupying the wearer's hand. That hand can hold an instrument, spellcasting focus, components, or a tool, but not a second weapon or two-handed weapon. Fold it back as a Bonus Action. While unfurled, shield-keyed rules treat the wearer as holding a shield. It does not stack with another shield.
-
-### In use
-
-The Snap doesn't grant a bonus beyond a mundane shield and never unfurls as a reaction. Folded, it works as a hand drum only as flavour.
 
 ## Depth
 

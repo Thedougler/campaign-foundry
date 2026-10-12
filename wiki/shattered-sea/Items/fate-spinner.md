@@ -16,24 +16,11 @@ title: "Fate Spinner"
 
 ![[fate-spinner-handout-art.webp]]
 
-## At a glance
-
-- **Kind.** Wondrous item, artifact.
-- **Rarity.** Artifact.
-- **Attunement.** Required by a creature that knowingly risked its life to save another.
-- **Changes.** Lets the holder watch one known creature and lend it Advantage.
-- **Held by.** [[delmar-fisk|Delmar Fisk]], in his Bag of Holding since Session 12. [[crissdalynn-khinriss|Crissdalynn Khinriss]] wore it hidden before him, given by [[master-kyzil|Master Kyzil]] before her pilgrimage.
-
-> [!narration] First look
-> You turn a quartz top over in your palm. Four faces, no bigger than the last joint of your thumb, and the stone sits cool against your skin, cool while your hand warms around it. You hold it up to the sunlight and it throws little pools of amber, blue and violet across your knuckles. You flick it into a spin and it ticks, glass on glass. One small hard click for every face, and it should slow, and it doesn't. The ticking goes on. Still it turns.
-
-## Play
-
-### Properties
+## Properties
 
 Once per day, a Magic action spins the top and chooses one personally known creature on the same plane. For 30 minutes the attuned holder sees and hears through that creature without Concentration. While the vision lasts, the holder rolls a d20 whenever the target makes an ability check or saving throw. The target uses it as a second die and has Advantage.
 
-### In use
+## In use
 
 The Spinner cannot speak through the vision, aid a fight the holder is in or affect the holder's own rolls. One vision only. Another cannot open until dawn. A target leaving the plane ends it. Hiding it from a search is Sleight of Hand DC 15. Spinners shatter when two of them spin face to face. Ordinary force cannot damage one.
 
@@ -44,6 +31,14 @@ Asked if a Spinner can watch its holder: ==It watches someone else, and it will 
 Natural 16, survivors on the island: ==The Spinner turns, and a few fates on the island are still unsettled. You can't count them and you can't find them, but they are not gone.==
 
 Natural 20, a question through the vision: ==Here's what you would know. While the vision holds, you do not watch the creature from outside. You stand where it stands and hear what it hears, at the height of its eyes.==
+
+- **Kind.** Wondrous item, artifact.
+- **Attunement.** Required by a creature that knowingly risked its life to save another.
+- **Changes.** Lets the holder watch one known creature and lend it Advantage.
+- **Held by.** [[delmar-fisk|Delmar Fisk]], in his Bag of Holding since Session 12. [[crissdalynn-khinriss|Crissdalynn Khinriss]] wore it hidden before him, given by [[master-kyzil|Master Kyzil]] before her pilgrimage.
+
+> [!narration] First look
+> You turn a quartz top over in your palm. Four faces, no bigger than the last joint of your thumb, and the stone sits cool against your skin, cool while your hand warms around it. You hold it up to the sunlight and it throws little pools of amber, blue and violet across your knuckles. You flick it into a spin and it ticks, glass on glass. One small hard click for every face, and it should slow, and it doesn't. The ticking goes on. Still it turns.
 
 ## Depth
 

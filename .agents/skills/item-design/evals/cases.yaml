@@ -14,9 +14,9 @@
       - shattered-sea/Items/rescue-line-charm.md
     sections:
       shattered-sea/Items/rescue-line-charm.md:
+        - "## Properties"
+        - "## In use"
         - "## At a glance"
-        - "### Properties"
-        - "### In use"
         - "### History"
         - "### Hidden truths"
         - "## Links"
@@ -30,7 +30,9 @@
       usable action costs, targets, reach, anchoring, load, duration, uses,
       recovery and failure consequences wherever its chosen effect needs
       them. In-use guidance settles likely rescue edge cases without
-      guaranteeing extraction or waiving Aruhe's established taking law.
+      guaranteeing extraction or waiving Aruhe's established taking law,
+      and names how this Party works the charm from Perrin's recorded
+      abilities and situation rather than for any holder.
     - >-
       Actual retrieved candidates inform reuse, reskin, adaptation or new
       design; suitable peers justify uncommon power. The bearer and Party's
@@ -48,14 +50,16 @@
       discoverability fit the World, but designing it for Perrin does not
       mean he already holds it. PC Inventories, played rescues and Session
       outcomes stay unchanged, and resolving links make the Item reachable.
+      The page links the live Wiki pages its own facts draw on, while
+      published-neighbour candidates and the chosen path stay in the reply.
     - >-
       First look is speakable after one hearing: a plain recognisable object,
-      size against a hand or familiar object, concrete material, wear and
+      size at a scale the table can use, concrete material, wear and
       marks, a grounded nonvisual detail and visible property tells. It
       stops before Players act, without PC feelings, mechanics, hidden
       provenance or unearned knowledge.
 
-# DM-requested 2026-10-11: the DM's Benchmark prompt playful-cloud/v1 (evals/bench/prompts/playful-cloud/v1.md), byte for byte. Circumstance: a World-free Item from a work the DM names, filed at the vault root's Items/ with no Campaign version (docs/wiki-layout.md **One vault, many Campaigns**, ADR 0039). The DM ruled it World-free because the ask names no World or Campaign. Its shape is the 5etools entry in raw/acid-absorbing-tattoo.md (name, classification line, description, bold-italic named properties) plus what wiki/templates/item.md requires, and a section joins it only when it applies in any Campaign. No source_pages by design (evals/README.md § Grounding). The prompt names no page, so Checks key on Items/*.md. The fixture is the DM's researched inspired-by note, a byte copy of .cache/inspired-by/playful-cloud.md (fetched 2026-10-11), which stands in for the cache lookup and web research. Design verdict pending its first baseline run.
+# DM-requested 2026-10-11: the DM's Benchmark prompt playful-cloud/v1 (evals/bench/prompts/playful-cloud/v1.md), byte for byte. Circumstance: a World-free Item from a work the DM names, filed at the vault root's Items/ with no Campaign version (docs/wiki-layout.md **One vault, many Campaigns**, ADR 0039). The DM ruled it World-free because the ask names no World or Campaign. Its shape is the World-free minimum of wiki/templates/item.md (ADR 0041): frontmatter without revealed, then ## Properties, then ## Links, with no ## Play wrapper and every optional section left out. Properties takes the published-entry shape of wiki/Items/acid-absorbing-tattoo.md: italic classification line ending in a full stop, a plain description, then bold-italic named properties. No source_pages by design (evals/README.md § Grounding). The prompt names no page, so Checks key on Items/*.md. The fixture is the DM's researched inspired-by note, a byte copy of .cache/inspired-by/playful-cloud.md (fetched 2026-10-11), which stands in for the cache lookup and web research. The DM ruled 2026-10-11 (round 4) that ignoring Resistance to Bludgeoning damage is concept. Rubric 1 (2026-10-12) admits it among any powers grown from the fixture's concept and themes, in place of a fixed set of powers. Design verdict pending its first baseline run.
 - id: playful-cloud
   fixtures:
     - .agents/skills/item-design/evals/fixtures/playful-cloud.md
@@ -66,51 +70,45 @@
       - Items/*.md
     sections:
       Items/*.md:
-        - "## At a glance"
-        - "## Play"
-        - "### Properties"
-        - "### In use"
+        - "## Properties"
         - "## Links"
     canon:
       Items/*.md:
         - '^type:\s*Item\s*$'
         - '/^inspired_by:\s*["'']?Playful Cloud\b.*Jujutsu Kaisen/im'
-        - '\[!narration\] First look'
-        - '/^- \*\*Rarity\.\*\*\s*(Very Rare|Legendary)\b/im'
-        - '^- \*\*Attunement\.\*\*\s*\S'
-        - '/^[*_]*(Magic )?Weapon \([^)\n]+\),? (Very Rare|Legendary)\b/im'
+        - '/^## Properties[ \t]*\n(?:[ \t]*\n)*([*_])(?![*_])(Magic )?Weapon \([^)\n]+\),? (Very Rare|Legendary)\b[^\n]*\.\1[ \t]*$/im'
+        - '/^([*_])(?![*_])(Magic )?Weapon \([^)\n]+\)[^\n]*\.\1[ \t]*\n(?:[ \t]*\n)*[A-Z]/m'
         - '/\+3 bonus to attack (rolls )?and damage rolls/i'
         - '^\*\*\*[^*\n]+\.\*\*\*'
     absent:
       Items/*.md:
         - '/shattered[- ]sea/i'
         - '/^(?!inspired_by:).*\b(Playful Cloud|Jujutsu|Toji|Maki|Geto|Zen''?in|Fushiguro|Megumi|Yuta|Okkotsu|Aoi|Hanami|Dagon|cursed energy|cursed technique|cursed tool|Heavenly Restriction|special[- ]grade)\b/im'
+        - '/^(revealed:|## Play|### Properties|## In use|## At a glance|## Depth|### History|### Hidden truths|>\s*\[!narration\])/m'
       shattered-sea/Items/**:
         - '[\s\S]'
   rubrics:
     - >-
-      The Item is the fixture's concept retold for D&D: a three-section
-      staff, three short rods joined end to end and fought as both staff and
-      flail, whose only power is force that rises with its wielder's own
-      Strength. It has no spell, charge, element or trick of its own, gives
-      little in weak hands and a great deal in strong ones, and asks no
-      magic of the wielder.
+      The Item is the fixture's concept retold for D&D: a jointed staff with
+      no trick of its own that hits as hard as the arm swinging it, built on
+      the ask's flat +3. Each further power grows from that concept or a
+      theme the fixture names, such as the wielder's Strength as the key or
+      the non-magical humbling the magical, and none brings in what the
+      concept refuses, such as a spell, charges or an element.
     - >-
-      The mechanics act out the Narration. The Strength scaling shows in how
-      a swing looks, sounds or lands in First look or In use, and each detail
-      First look gives points at something the Item does, so describing a
-      hit and resolving it tell the same story.
+      The mechanics act out the Narration. How a swing looks, sounds or
+      lands shows what the rules do, each physical detail points at
+      something the Item does, and nothing the description claims about the
+      weapon contradicts its numbers.
     - >-
       The Item is correct, complete and easy to run under the 2024 rules,
-      shaped as a published entry: after its classification line, a plain
-      description of the object, then each mechanic as its own named
-      property. Its text gives the base weapon's statistics (damage die and
-      type, properties and mastery) and the exact numbers, timing
-      and limits of its Strength scaling. Rarity is Very Rare, the 2024
-      rarity of a +3 weapon, unless added power is priced up to Legendary.
-      It requires attunement when its scaling applies on every hit or
-      broadly, and At a glance and the classification line agree. A rider
-      on hit is limited to once per turn or priced for Extra Attack.
+      with each mechanic as its own named property. Its text gives the base
+      weapon's statistics (damage die and type, properties and mastery) and
+      the exact numbers, timing and limits of every power. Rarity is Very
+      Rare, the 2024 rarity of a +3 weapon, unless added power is priced up
+      to Legendary. A benefit that applies on every hit or grows with its
+      wielder is priced by attunement, a once-per-turn limit or rarity, and
+      the text and classification line agree on attunement.
     - >-
       The page retells the concept in its own words under a name of its
       own. A theme such as the staff passing to whoever is strong enough
@@ -122,11 +120,158 @@
       The Item drops into any World and carries only what holds in every
       Campaign. It names no place, people, faction, deity, maker, past holder
       or history of a particular setting, has no tie to a Campaign or PC,
-      and Held by names no holder. A hidden property, if it has one, works
-      the same in any setting.
+      and each property works the same in any setting.
+
+# Grounded adaptation; no original armour ask was recovered. Circumstance: armour, a World-free Item for the DM's collection (ADR 0039, ADR 0041), so it lists no source_pages (evals/README.md § Grounding). Its Checks follow the ingested armour entries in wiki/Items/ (stonebreakers-breastplate.md, black-dragon-scale-mail.md, glamoured-studded-leather.md): the classification line names the armour category and its base armour, and the line after it gives the base AC. The prompt names no page, so Checks key on Items/*.md. Design verdict pending its first baseline run.
+- id: breastplate
+  prompt: >-
+    I want a rare breastplate for my collection, built for a frontliner
+    around level 8 who holds the line while the rest of the party falls
+    back.
+  checks:
+    pages:
+      - Items/*.md
+    sections:
+      Items/*.md:
+        - "## Properties"
+        - "## Links"
+    canon:
+      Items/*.md:
+        - '^type:\s*Item\s*$'
+        - '/^([*_])(?![*_])Medium Armou?r \([*_]?Breastplate[*_]?\), Rare\b[^\n]*\.\1[ \t]*$/m'
+        - '/^AC 14 \+ Dex \(max 2\)[ \t]*$/m'
+    absent:
+      Items/*.md:
+        - '/shattered[- ]sea/i'
+        - '/^(revealed:|## Play|### Properties|## In use|## At a glance|## Depth|### History|### Hidden truths|>\s*\[!narration\])/m'
+      shattered-sea/Items/**:
+        - '[\s\S]'
+  rubrics:
     - >-
-      First look is speakable after one hearing: a plain recognisable
-      object, size against a hand or body, concrete material, wear and
-      marks, a grounded nonvisual detail and a visible tell of each hidden
-      property. It stops before Players act, without PC feelings, mechanics
-      or unearned knowledge.
+      The wearer's total AC is correct under the 2024 rules, and any bonus
+      to AC stays within the Rare ceiling of +2. Its attunement fits how
+      broad its benefit is, and its classification line agrees.
+    - >-
+      The armour serves the ask's frontliner: its power makes holding the
+      line while the Party falls back a strong play, with each use's
+      trigger, cost and limits stated and priced for a Rare.
+    - >-
+      The armour imposes Disadvantage on Stealth or a Strength requirement
+      only when its own property gives the reason, since a breastplate
+      carries neither. The page settles each edge case its properties
+      raise.
+    - >-
+      The armour drops into any World. It names no place, people, faction,
+      deity, maker, past holder or history of a particular setting, and
+      every property works the same in any setting.
+
+# Grounded adaptation; no original consumable ask was recovered. Circumstance: a consumable woven into the Campaign, built on Canon the Party already uses; the DM named shattered-sea/Items/redheart-berry.md as the model Campaign Item (2026-10-11). Its Checks follow the ingested potions in wiki/Items/ (potion-of-healing.md, potion-of-superior-healing.md, potion-of-heroism.md): a Potion classification line and a stated Hit Point figure. The ask names the Item, so Checks key on its slug, and no page is filed at the vault root. Design verdict pending its first baseline run.
+- id: redheart-draught
+  source_pages:
+    - shattered-sea/Items/redheart-berry.md
+    - shattered-sea/Items/rotheart.md
+    - shattered-sea/Lore/taking-on-aruhe.md
+    - shattered-sea/Locations/old-gardens.md
+    - shattered-sea/PCs/crissdalynn-khinriss.md
+  prompt: >-
+    Crissdalynn wants to press fallen redheart berries into a Redheart
+    Draught the crew can carry in flasks and pass around mid-fight. Put it
+    in the Wiki as an Item.
+  checks:
+    pages:
+      - shattered-sea/Items/redheart-draught.md
+    sections:
+      shattered-sea/Items/redheart-draught.md:
+        - "## Properties"
+        - "## In use"
+        - "## At a glance"
+        - "## Links"
+    canon:
+      shattered-sea/Items/redheart-draught.md:
+        - '^type:\s*Item\s*$'
+        - '^revealed:'
+        - '/^([*_])(?![*_])Potion, (Common|Uncommon|Rare|Very Rare)\b[^\n]*\.\1[ \t]*$/m'
+        - '/\b\d+(d\d+)?(\s*\+\s*\d+)?\s+(Temporary\s+)?Hit Points\b/i'
+        - '\[\[redheart-berry'
+        - '\[!narration\] First look'
+    absent:
+      Items/*.md:
+        - '[\s\S]'
+  rubrics:
+    - >-
+      The page states how many berries make a dose and how many doses one
+      pressing yields, and prices each dose against the berry's own
+      8d4 + 8, so pressing trades something real (fewer Hit Points per
+      berry, a dose to share, a slower action) rather than multiplying the
+      berries. Its rarity sits at or below the berry's Rare unless the page
+      prices added power.
+    - >-
+      Drinking a dose or giving it to a creature within reach costs a
+      stated action, a Bonus Action as for a 2024 potion unless the page
+      gives the reason, and the page rules how a flask passes between PCs
+      mid-fight and how its healing meets the Rotheart's maximum-healing
+      rule.
+    - >-
+      Supply runs on Aruhe's law: fallen berries are safe to take, while
+      picking one marks the taker until dawn and draws the island's
+      responders. The page prices holding stock wherever doses could pile
+      up for free.
+    - >-
+      The draught belongs to this Campaign: Crissdalynn presses it from
+      berries the Party carries or gathers in the Old Gardens, the berry
+      shows in its colour, taste or tells, and the page links the berry,
+      the law and its maker. Designing it adds no played history: recorded
+      berry holdings and Session events stay as the Wiki has them, and new
+      stock is stated as a way to make it.
+
+# Grounded adaptation; no original spellcasting-Item ask was recovered. Circumstance: an Item that gives spells, World-free for the DM's collection (ADR 0039, ADR 0041), so it lists no source_pages. Its Checks follow the ingested staves and wands in wiki/Items/ (staff-of-fire.md, staff-of-the-woodlands.md, wand-of-fireballs.md): a Staff classification line with attunement, a charge count, a dawn recharge, and the DC or ability its spells use. What happens when the charges run out is a design choice, graded as craft in rubric 1 (DM ruling 2026-10-12, which dropped the last-charge Check). The prompt names no page, so Checks key on Items/*.md. Design verdict pending its first baseline run.
+- id: storm-staff
+  prompt: >-
+    Make me a staff full of storm spells for my collection, something a
+    caster around level 10 would be thrilled to find.
+  checks:
+    pages:
+      - Items/*.md
+    sections:
+      Items/*.md:
+        - "## Properties"
+        - "## Links"
+    canon:
+      Items/*.md:
+        - '^type:\s*Item\s*$'
+        - '/^([*_])(?![*_])Staff\b[^\n]*\b(Uncommon|Rare|Very Rare|Legendary)\b[^\n]*Requires Attunement[^\n]*\.\1[ \t]*$/m'
+        - '/\bhas \d+ charges\b/i'
+        - '/\bregains [^.\n]*\bcharges?\b[^.\n]*\bdawn\b/i'
+        - '/\b(spell save DC|spell attack modifier|spellcasting ability|save DC \d+)/i'
+    absent:
+      Items/*.md:
+        - '/shattered[- ]sea/i'
+        - '/^(revealed:|## Play|### Properties|## In use|## At a glance|## Depth|### History|### Hidden truths|>\s*\[!narration\])/m'
+      shattered-sea/Items/**:
+        - '[\s\S]'
+  rubrics:
+    - >-
+      The charge count, each spell's charge cost and the dawn recharge are
+      priced against the spell list: cost rises with spell level, the
+      highest spell is no higher than a Spell Scroll of the same rarity holds
+      (level 5 at Rare, level 8 at Very Rare), and a day's charges never
+      become a free pool of spell slots. Upcasting and Concentration are
+      settled wherever a spell needs them, and the page settles what happens
+      when its charges run out.
+    - >-
+      Every spell and property belongs to the storm (wind, lightning,
+      thunder, rain or sky), and together they give a caster more than one
+      way to use it.
+    - >-
+      The staff's magic is felt in play: casting from it looks and sounds
+      like its storm. Its attunement limit fits the casters whose spells it
+      holds.
+    - >-
+      The staff is complete under the 2024 rules: when it can be fought
+      with, it gives its Quarterstaff damage and properties, and each spell
+      it holds is a published 2024 spell named in italics, with the level
+      it is cast at whenever that is above the spell's lowest.
+    - >-
+      The staff drops into any World. It names no place, people, faction,
+      deity, maker, past holder or history of a particular setting, and
+      every property works the same in any setting.

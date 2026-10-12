@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Spellcasting Focus, Uncommon (Requires Attunement By a Spellcaster).*
 

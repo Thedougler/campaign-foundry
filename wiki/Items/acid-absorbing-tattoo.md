@@ -6,9 +6,7 @@ sources:
   - "archive/acid-absorbing-tattoo.md"
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item (Tattoo), Very Rare (Requires Attunement).*
 

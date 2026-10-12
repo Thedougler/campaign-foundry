@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Wondrous Item, Artifact (Requires Attunement).*
 
@@ -31,7 +29,7 @@ The *Eye of Vecna* and the Hand of Vecna are separate Artifacts that might be fo
 - **Icy Touch.** Any melee spell attack you make with the hand and any melee attack made with a weapon held by it deals an extra 2d8 Cold damage on a hit.
 - **Spellcasting.** The hand has 8 charges and regains 1d4 + 4 expended charges daily at dawn. You can cast a spell on the *Hand of Vecna* Spells table from the hand (save DC 18). The table indicates how many charges you must expend to cast the spell. Each time you cast a spell from it, the hand casts *Suggestion* on you (save DC 18; no Concentration required), demanding that you commit an evil act. The hand might have a specific act in mind or leave it up to you.
 
-#### Hand of Vecna Spells
+### Hand of Vecna Spells
 
 | | Spell             | | Charge Cost | |
 | ------------------- | :-------------: |

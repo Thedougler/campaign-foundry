@@ -5,9 +5,7 @@ summary: ""
 sources: ["archive/all-magic-items.md"]
 ---
 
-## Play
-
-### Properties
+## Properties
 
 *Heavy Armour (*Plate Armour*), Uncommon (Requires Attunement), 65 lb.*
 
