@@ -6,8 +6,9 @@ const FETCH_TIMEOUT_MS = 15_000;
 const GIT_TIMEOUT_MS = 10_000;
 
 // At main-session start, fetch the current branch's upstream and fast-forward when the
-// checkout is only behind it. A branch with local commits, or a fast-forward git refuses
-// (uncommitted edits to incoming files, a merge or rebase in progress), is reported, never forced.
+// checkout is only behind it. A divergent branch (local commits plus upstream ones) is
+// not forced: the agent is told to `git pull --rebase`. A fast-forward git refuses
+// (uncommitted edits to incoming files, a merge or rebase in progress) is reported.
 export default function gitSync(pi) {
 	pi.on("session_start", async (_event, ctx) => {
 		if (ctx?.agent?.kind === "sub") return;
@@ -32,7 +33,10 @@ export default function gitSync(pi) {
 		const [ahead, behind] = counts.stdout.trim().split(/\s+/).map(Number);
 		if (!behind) return;
 		if (ahead) {
-			note(`${ref} has ${behind} new commit(s) and this branch has ${ahead} unpushed; not pulled`, "warning");
+			note(
+				`${ref} has ${behind} new commit(s) and this branch has ${ahead} unpushed; rebase first: run "git pull --rebase" now, before any work, and resolve conflicts if it stops`,
+				"warning",
+			);
 			return;
 		}
 
