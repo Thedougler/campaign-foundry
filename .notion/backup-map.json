@@ -21,7 +21,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-817a-bce4-e2ed0b196103",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec817abce4e2ed0b196103",
-			"hash": "c23a6e08473aa4d5aba13e0410d0a758cf2fa6cacd3a7c28cd359d67e928b2d9",
+			"hash": "bc88697e3e1e2d7fbcb73ed31d438fc423c433b7a2c5d239ae7552f29ea76eb1",
 			"title": "SKILL"
 		},
 		".agents/skills/audit/evals": {
@@ -77,7 +77,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8143-83cc-dd4789a93130",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec814383ccdd4789a93130",
-			"hash": "5e4c672c9f82f357336740e54054754f3c14070f938cc0b0b90c99bc31df17f1",
+			"hash": "88ebf12dc1b66d34a66d54fd8abd96407d3e6f4c86082735a0fc01e71470ad3b",
 			"title": "SKILL"
 		},
 		".agents/skills/climax-scene/evals": {
@@ -109,7 +109,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-817a-a0ca-ec876e712b30",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec817aa0caec876e712b30",
-			"hash": "0efd26293658aca18b7bef211d19c832d83af2748b5a41b4ed97784724acee61",
+			"hash": "08f1aaeda527ca20e6d7d7b9652445dcf728ef1cc964a443c7812953cf600504",
 			"title": "SKILL"
 		},
 		".agents/skills/creature-design/evals": {
@@ -121,7 +121,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-8122-9c8c-f61f16e5e158",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81229c8cf61f16e5e158",
-			"hash": "3a5ec4a4f2ea1143253d0f60013df855a7c4eb49ee99884d236f127d1abe74fa",
+			"hash": "5dbc7b20eac3cbd85eee8f18181f8268391b02b176d4f42180b9c8b1c8a72bac",
 			"title": "cases.yaml"
 		},
 		".agents/skills/creature-design/references": {
@@ -133,22 +133,8 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8113-8c57-d251f03d50e9",
 			"url": "https://app.notion.com/p/filing-and-operations-3f20216635ec81138c57d251f03d50e9",
-			"hash": "6cbb0f9a2b2c43852be8768ddade802553c5eba65265d292797be3cf5d20f304",
+			"hash": "efe07d7b7b53722b1bed30705c4ae3738d6ba32455b2128ffa36559c0073bb09",
 			"title": "filing-and-operations"
-		},
-		".agents/skills/creature-design/references/sourcing-and-rules.md": {
-			"kind": "markdown",
-			"id": "3f202166-35ec-8194-8af0-c66ac36067c3",
-			"url": "https://app.notion.com/p/sourcing-and-rules-3f20216635ec81948af0c66ac36067c3",
-			"hash": "eab245266c17a84315f9a7d278639628535015885cf0f34229b7e8afbb278a34",
-			"title": "sourcing-and-rules"
-		},
-		".agents/skills/creature-design/references/tuning-and-budget.md": {
-			"kind": "markdown",
-			"id": "3f202166-35ec-8111-bc23-ee0817ba1303",
-			"url": "https://app.notion.com/p/tuning-and-budget-3f20216635ec8111bc23ee0817ba1303",
-			"hash": "58098fae211c254905e09f22b666c0af7d0e47a127e6c555f90fbd9a85edbd09",
-			"title": "tuning-and-budget"
 		},
 		".agents/skills/development-scene": {
 			"kind": "dir",
@@ -203,7 +189,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-81e5-9f24-e58a368a3249",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec81e59f24e58a368a3249",
-			"hash": "2879157be21efa6f1daea529d29d20dd6f495b7a5954ceae25789b22a0d1f9ff",
+			"hash": "0fa595ecfcce55dd49dae119ef7c74ba4d0043b688ca0e15ccd45eadef152e8c",
 			"title": "SKILL"
 		},
 		".agents/skills/dungeon-design/evals": {
@@ -215,7 +201,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-8130-99d2-f4388eaa7364",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec813099d2f4388eaa7364",
-			"hash": "c2d41517bd152117c703ce8d05eb45ca28954a7510cf63396ce672f2c53ab3a9",
+			"hash": "520671751ee223ded6fea08fb3c0f0bd23710214696e23192ad11c5727a675fa",
 			"title": "cases.yaml"
 		},
 		".agents/skills/dungeon-design/references": {
@@ -263,20 +249,8 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81d9-9f08-f92f1aa1e694",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81d99f08f92f1aa1e694",
-			"hash": "1d11dbf229d68de36efd244ddf045b7a29d787c95980c45034d6c07f6d4fb278",
+			"hash": "7612a76b8136bda82880891b1a73853dec513bdd0f25cb256ae2069640b91b65",
 			"title": "cases.yaml"
-		},
-		".agents/skills/fantasy-statblock": {
-			"kind": "dir",
-			"id": "3f602166-35ec-8187-9946-e980abfb7e26",
-			"url": "https://app.notion.com/p/fantasy-statblock-3f60216635ec81879946e980abfb7e26"
-		},
-		".agents/skills/fantasy-statblock/SKILL.md": {
-			"kind": "markdown",
-			"id": "3f602166-35ec-814c-8d9a-f4588c8de1c0",
-			"url": "https://app.notion.com/p/SKILL-3f60216635ec814c8d9af4588c8de1c0",
-			"hash": "98c5793639cebbb0ec6964dad945f61ca65fa209baaae696a5b978eb0079d319",
-			"title": "SKILL"
 		},
 		".agents/skills/firecrawl-scrape": {
 			"kind": "dir",
@@ -311,7 +285,7 @@
 			"kind": "markdown",
 			"id": "3f402166-35ec-81ef-9ebd-db7d5250cbb7",
 			"url": "https://app.notion.com/p/SKILL-3f40216635ec81ef9ebddb7d5250cbb7",
-			"hash": "7d2d6b66a1231d83f26c91960e27bea127780e82eb4217ff61c96347b18b2688",
+			"hash": "a4bdb73de180ae66a8d997152d9c34e8045de8ccfe780129e693b2ae5a516c39",
 			"title": "SKILL"
 		},
 		".agents/skills/flesh-out/references": {
@@ -531,7 +505,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8160-926c-f5342ab8e726",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec8160926cf5342ab8e726",
-			"hash": "623d59de0ec22d2813672b4f89812aa395e5473c67b93715b2525ab75b0ba72f",
+			"hash": "2d1b031c2763e0b7a863bd251ce8418bdb1f2c8a0a754a7e78d3e620b154ced3",
 			"title": "SKILL"
 		},
 		".agents/skills/ingest/evals": {
@@ -562,7 +536,7 @@
 			"kind": "markdown",
 			"id": "3f302166-35ec-81f5-b2d2-c5345ffb5f41",
 			"url": "https://app.notion.com/p/transcript-3f30216635ec81f5b2d2c5345ffb5f41",
-			"hash": "a85cdb08691ddd0036f63dd2cb227620d68b5ac53ae9b437e2bf3caa0679f5ed",
+			"hash": "0ffcbceb93874d61473c8099dd5dc97dd631e666fce93e1dfafed64f8d58cc09",
 			"title": "transcript"
 		},
 		".agents/skills/ingest/references/units.md": {
@@ -576,7 +550,7 @@
 			"kind": "markdown",
 			"id": "3f302166-35ec-8173-8afd-fbcfc02ca8ce",
 			"url": "https://app.notion.com/p/writer-3f30216635ec81738afdfbcfc02ca8ce",
-			"hash": "dbc1e81ca10c5ed53eaa18a01d279c4caaa9b5822f14e206be2588df36c54a80",
+			"hash": "82c9579586b156502281667a471cfc10d2c015e690fd271bae540aa0474d116f",
 			"title": "writer"
 		},
 		".agents/skills/item-design": {
@@ -588,7 +562,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8134-afe5-c823342ed803",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec8134afe5c823342ed803",
-			"hash": "c2f5a65d5473f9460b7131d52e7164097790df3f646ebf529a51936c7820960f",
+			"hash": "c3591c3a29a2200ad401a8540b7fd7fbcdc400a720041c60ee11664967db81e0",
 			"title": "SKILL"
 		},
 		".agents/skills/item-design/evals": {
@@ -600,7 +574,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81f1-a496-fc45edb6dba6",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81f1a496fc45edb6dba6",
-			"hash": "ce0188de599ee5994d4e5ec476222078134aeb244ac1531ce6403e695e1b76a9",
+			"hash": "a0d2b3dfe83b42ba3b8d19fdf22e70e1552e060a9a210eff64f68a793448297e",
 			"title": "cases.yaml"
 		},
 		".agents/skills/item-design/evals/fixtures": {
@@ -648,7 +622,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-814d-bd05-fe3a3da65e0d",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec814dbd05fe3a3da65e0d",
-			"hash": "1c0063eb511aaa454d53fc1125fd1ad7fa51eabd25cb9bab0933841ebf02fe9b",
+			"hash": "98629c9bf1fce67ec543ce97826819f4960164e052606302ce4e1fa52c9df5f2",
 			"title": "cases.yaml"
 		},
 		".agents/skills/location-design/references": {
@@ -660,7 +634,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8140-89bd-c610175dab02",
 			"url": "https://app.notion.com/p/authoring-3f20216635ec814089bdc610175dab02",
-			"hash": "d3b5f7db14142faec3ec59cbb2fa65322dcd4e855c6882544b4f738909021ac4",
+			"hash": "531198ddc6ad986d7d7dd775ecc1e9934a524422058080b8e9e7ce96e4413841",
 			"title": "authoring"
 		},
 		".agents/skills/location-design/references/region.md": {
@@ -712,7 +686,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81e4-9474-ccdb14d8e62d",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81e49474ccdb14d8e62d",
-			"hash": "e6ac99fdf790a5506dc2ac4f5c372ecfeac2e875d0fa92fe9da61bc5491b42fc",
+			"hash": "a58beb6e3810e2a4cd0b30bc3fc792a5386e45b6239a9f84f96ede38f538940b",
 			"title": "cases.yaml"
 		},
 		".agents/skills/new-campaign": {
@@ -724,7 +698,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-81ec-be26-dde7d6f4666a",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec81ecbe26dde7d6f4666a",
-			"hash": "04b6aec1d278143d05a9f0a10a1e61229d85c70bf4d1713eb1f2672aec0f1f4f",
+			"hash": "0109b168609b4565336a2d62544829c0402bc56a6858be9dd4a3a78679ae3e1d",
 			"title": "SKILL"
 		},
 		".agents/skills/new-campaign/evals": {
@@ -736,7 +710,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-81f6-a40b-f9a5cf3c93a2",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec81f6a40bf9a5cf3c93a2",
-			"hash": "ecf786f02312c61310a9422532803dfa40214642d223e3c873a24e3503b99901",
+			"hash": "508b6785993b4fea0cb557795e85687635340c5318debcd12aff0bbf250158b0",
 			"title": "cases.yaml"
 		},
 		".agents/skills/new-campaign/references": {
@@ -748,7 +722,7 @@
 			"kind": "markdown",
 			"id": "3f302166-35ec-81f4-9c2d-e320b6d5fa6b",
 			"url": "https://app.notion.com/p/new-setting-3f30216635ec81f49c2de320b6d5fa6b",
-			"hash": "100293bc514e4e26b32c3ef75c8ff45a9457e16d713eb44e25d60aa2ba8b8dae",
+			"hash": "df1a606bb94f52f9fa46141a17a5ee5f42c67b1e656252050b4f17b10e7e7519",
 			"title": "new-setting"
 		},
 		".agents/skills/new-world": {
@@ -788,7 +762,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-815a-bd9d-e0bfea4edad9",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec815abd9de0bfea4edad9",
-			"hash": "db9b0a1278df3670eb41f19f7531711829142315e01cb3afeb7a3a14d7ff29e7",
+			"hash": "e291c0d7183251dc7928191de932948ad812f60584d6118863f98e06e70e985b",
 			"title": "SKILL"
 		},
 		".agents/skills/npc-design/evals": {
@@ -800,7 +774,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-815f-a7c1-c9bfc4560fcc",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec815fa7c1c9bfc4560fcc",
-			"hash": "671873bf9bf49e38d03424cd01a1ee4ad92b3580e4141b46618af5744b7800c7",
+			"hash": "cafbd5d27c1f2c540fe218ee3a36be93406e3944c28309eff1fbbef429646d3f",
 			"title": "cases.yaml"
 		},
 		".agents/skills/npc-design/references": {
@@ -812,7 +786,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8194-b561-d982d54ccb28",
 			"url": "https://app.notion.com/p/craft-3f20216635ec8194b561d982d54ccb28",
-			"hash": "f1df669c869a8745974c4dbbe1f04954eec5c1efaa17b95155e4aa35c4948af0",
+			"hash": "1372e52ec8df58b7d06e925bc49fea5a28f2453b1e77dd6592e4d5cc445be44f",
 			"title": "craft"
 		},
 		".agents/skills/npc-design/references/influence.md": {
@@ -862,7 +836,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-816e-9f3c-db017d0e82f5",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec816e9f3cdb017d0e82f5",
-			"hash": "46e60e8a53fc831d15a41ce806874fdd22b0764b829a04e6b097c1d5596be295",
+			"hash": "277bfa429458ec9bf4902605415890d4a18e8720ebe8cb8688d4435c8d074982",
 			"title": "SKILL"
 		},
 		".agents/skills/prep-session/evals": {
@@ -874,7 +848,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-8111-a22d-cf552f7df04e",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec8111a22dcf552f7df04e",
-			"hash": "f60d75d2367c185d8966368d89f92788eb2d4ce008348ff3bbcf96e886f028bf",
+			"hash": "09ed153539d41ab52bccf027315b03fdf763542d3147a3ecca9e746ae607cdb9",
 			"title": "cases.yaml"
 		},
 		".agents/skills/prep-session/references": {
@@ -1014,7 +988,7 @@
 			"kind": "markdown",
 			"id": "3f402166-35ec-81e1-8fb2-fd2d7450f255",
 			"url": "https://app.notion.com/p/SKILL-3f40216635ec81e18fb2fd2d7450f255",
-			"hash": "2448260fbcb43d96653cb1d4235a05e91dec9440426fbd99a8fff4701f1a8dc6",
+			"hash": "bdc6765e1e6733ab276ad0b6c2b62c2047625b8b23ff5707928399d072242891",
 			"title": "SKILL"
 		},
 		".agents/skills/run-evals": {
@@ -1075,8 +1049,58 @@
 			"kind": "text",
 			"id": "3f202166-35ec-8195-ac62-e1bd9ce26946",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec8195ac62e1bd9ce26946",
-			"hash": "fb4375a2643223c1cfe58290ac302df63a1ff8f5ab6b54993665c6ef1ff00afd",
+			"hash": "701ac4187f530384020e74c500d82a768f2f1cf081cfc41a44e294829a179a74",
 			"title": "cases.yaml"
+		},
+		".agents/skills/statblock-design": {
+			"kind": "dir",
+			"id": "3f802166-35ec-8193-b51c-ce52b56c3303",
+			"url": "https://app.notion.com/p/statblock-design-3f80216635ec8193b51cce52b56c3303"
+		},
+		".agents/skills/statblock-design/SKILL.md": {
+			"kind": "markdown",
+			"id": "3f802166-35ec-81c0-8de0-cbdbb7011d01",
+			"url": "https://app.notion.com/p/SKILL-3f80216635ec81c08de0cbdbb7011d01",
+			"hash": "ae5748c431483796a2459681838d14d3abb6af2de639cf6fcea7276f16d7866d",
+			"title": "SKILL"
+		},
+		".agents/skills/statblock-design/evals": {
+			"kind": "dir",
+			"id": "3f802166-35ec-81f0-b62f-f52d8a8b4702",
+			"url": "https://app.notion.com/p/evals-3f80216635ec81f0b62ff52d8a8b4702"
+		},
+		".agents/skills/statblock-design/evals/cases.yaml": {
+			"kind": "text",
+			"id": "3f802166-35ec-8153-8bba-e75189e3e843",
+			"url": "https://app.notion.com/p/cases-yaml-3f80216635ec81538bbae75189e3e843",
+			"hash": "cd0bbcdf7dd84bb77ac637e0563bab3f07fc3f46035d8804823264a53bbef162",
+			"title": "cases.yaml"
+		},
+		".agents/skills/statblock-design/references": {
+			"kind": "dir",
+			"id": "3f802166-35ec-818f-898f-d74412a4f678",
+			"url": "https://app.notion.com/p/references-3f80216635ec818f898fd74412a4f678"
+		},
+		".agents/skills/statblock-design/references/fence.md": {
+			"kind": "markdown",
+			"id": "3f602166-35ec-814c-8d9a-f4588c8de1c0",
+			"url": "https://app.notion.com/p/SKILL-3f60216635ec814c8d9af4588c8de1c0",
+			"hash": "717b4b16cecbab4d2f63c8045e349806c385f644f4e8be020dab5a70d8870c1d",
+			"title": "fence"
+		},
+		".agents/skills/statblock-design/references/sourcing.md": {
+			"kind": "markdown",
+			"id": "3f202166-35ec-8194-8af0-c66ac36067c3",
+			"url": "https://app.notion.com/p/sourcing-and-rules-3f20216635ec81948af0c66ac36067c3",
+			"hash": "ab5af7dcb4152a66d5474d042bc47407c785c16fd53d8b7beee32ef32f0adcde",
+			"title": "sourcing"
+		},
+		".agents/skills/statblock-design/references/tuning.md": {
+			"kind": "markdown",
+			"id": "3f202166-35ec-8111-bc23-ee0817ba1303",
+			"url": "https://app.notion.com/p/tuning-and-budget-3f20216635ec8111bc23ee0817ba1303",
+			"hash": "65047cdfa5b09d063ad320775aabaae09426392e13328dfd958a85b837877e8a",
+			"title": "tuning"
 		},
 		".agents/skills/story-arc": {
 			"kind": "dir",
@@ -1254,7 +1278,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-8148-81a2-d4925437ff04",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec814881a2d4925437ff04",
-			"hash": "dc7ea604d5d9a53ef6d0bcfac01f6b25b9ec7f648b23ad1ccef32fe8275a51ad",
+			"hash": "8ef79bf6d4bf41410ee030cecb53c9ca1f8d5216a0cc42f39cd7a375d84fcfff",
 			"title": "SKILL"
 		},
 		".agents/skills/theatre-of-the-mind/evals": {
@@ -1364,7 +1388,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-817c-8b24-f0b4216b57ab",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec817c8b24f0b4216b57ab",
-			"hash": "cd9aae43c2b3a125d7f5ec807edbf6d0dd1f367d4c82720d8b343db7ead0fbc5",
+			"hash": "46b130aeacc5a822cde237ee6664c3d09bcc598664f101f36b70a5ecb4afa2e0",
 			"title": "SKILL"
 		},
 		".agents/skills/vehicle-design/evals": {
@@ -1376,7 +1400,7 @@
 			"kind": "text",
 			"id": "3f202166-35ec-817c-933a-ddcbe609f779",
 			"url": "https://app.notion.com/p/cases-yaml-3f20216635ec817c933addcbe609f779",
-			"hash": "34d89ed95d825070dd2f80dff3b72fbb17359ab040b2af47109dba3499c64f88",
+			"hash": "2adc8779cd4a08e38028e56638da5921a47e256f056f47bd9b5b2d1aafc066a8",
 			"title": "cases.yaml"
 		},
 		"wiki": {
