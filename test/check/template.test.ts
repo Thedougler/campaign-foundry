@@ -93,6 +93,72 @@ describe("template layer: failure classes", () => {
 		expect(finding?.hint).toContain("## Statblock");
 	});
 
+	it("retires PC sheet bullets and accepts the template's statblock sheet shape", async () => {
+		const dir = await copyFixture("template");
+		const path = join(dir, "wiki/Aldermoor/PC.md");
+		const source = `---
+title: "Test PC"
+type: PC
+summary: "A test adventurer."
+sources: []
+dndbeyond_url: ""
+revealed: "Backstory"
+---
+
+## Sheet
+
+- **Player.** A player.
+- **Class, species and level.** Fighter, human, 1.
+- **AC.** 16
+- **HP.** 12
+
+## Spells
+
+None.
+
+## Inventory
+
+A sword.
+
+## Backstory
+
+A traveller.
+
+## Goals and bonds
+
+Protect the village.
+`;
+		const flags = [
+			"--json",
+			"--layer",
+			"template",
+			"--vault",
+			join(dir, "wiki"),
+			"--root",
+			dir,
+			"--templates",
+			realTemplates,
+		];
+		await writeFile(path, source);
+		const old = await cf(["check", path, ...flags], dir);
+		const message =
+			"Deprecated: PC sheet bullets. Migrate to the shape of wiki/templates/PC.md — run pull-pcs for a public character, or statblock-design (references/fence.md § PC sheet) for a private one; move AC, HP, speed, saves, passive Perception and the ability scores into the fence.";
+		expect(old.code).toBe(1);
+		expect(findingsFor(JSON.parse(old.stdout) as JsonReport, "/PC.md")).toMatchObject([
+			{ layer: "template", rule: "retired-shape", message, hint: message.slice(message.indexOf("Migrate")) },
+		]);
+		await writeFile(
+			path,
+			source.replace(
+				"- **AC.** 16\n- **HP.** 12",
+				"```statblock\nname: Test PC\nac: 16\nhp: 12\nstats: [10, 10, 10, 10, 10, 10]\n```",
+			),
+		);
+		const current = await cf(["check", path, ...flags], dir);
+		expect(current.code).toBe(0);
+		expect(findingsFor(JSON.parse(current.stdout) as JsonReport, "/PC.md")).toEqual([]);
+	});
+
 	it("derives requirements from the template: an edited template changes the check", async () => {
 		const dir = await copyFixture("template");
 		const { cp, readFile: read, writeFile } = await import("node:fs/promises");

@@ -109,6 +109,25 @@ describe("statblock layer: seeded errors, one page per class", () => {
 		expect(finding?.hint).not.toContain("creature:");
 	});
 
+	it("checks a PC's Sheet fence without CR and rejects malformed or misplaced PC fences", async () => {
+		const dir = await copyFixture("statblock-errors");
+		const path = join(dir, "wiki/Aldermoor/NPCs/Misplaced Statblock.md");
+		const source = (await readFile(path, "utf8"))
+			.replace("type: NPC", "type: PC")
+			.replace("## Statblock", "## Sheet")
+			.replace(/^cr:.*\n/m, "");
+		await writeFile(path, source);
+		expect(findingsFor((await checkLayer("statblock", dir)).report, "/Misplaced Statblock.md")).toEqual([]);
+		await writeFile(path, source.replace(/^stats:.*$/m, "stats: [10]"));
+		expect(
+			findingsFor((await checkLayer("statblock", dir)).report, "/Misplaced Statblock.md").map((f) => f.rule),
+		).toEqual(["stats-invalid"]);
+		await writeFile(path, source.replace("## Sheet", "## Backstory"));
+		expect(
+			findingsFor((await checkLayer("statblock", dir)).report, "/Misplaced Statblock.md").map((f) => f.rule),
+		).toEqual(["statblock-misplaced"]);
+	});
+
 	it("names the expected number and how it derives, on the line of the wrong figure", () => {
 		const [hp] = findingsFor(report, "/Bad Hp.md");
 		expect(hp?.message).toContain("`hp` is 50, expected 49");

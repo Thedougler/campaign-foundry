@@ -3,11 +3,18 @@ import type { Ability, Sheet } from "./sheet.ts";
 
 /**
  * The three pulled sections of a PC page as markdown, each starting at its `##` heading and ending with a blank
- * line. The bullet labels and the ability table follow wiki/templates/pc.md. Output is a pure function of the
- * Sheet, so a second pull with the same payload writes the same bytes.
+ * line. Sheet uses the shared Fantasy Statblocks fence; output is a pure function of the Sheet,
+ * so a second pull with the same payload writes the same bytes.
  */
 
-const LABEL: Record<Ability, string> = { str: "Str", dex: "Dex", con: "Con", int: "Int", wis: "Wis", cha: "Cha" };
+const LABEL: Record<Ability, string> = {
+	str: "strength",
+	dex: "dexterity",
+	con: "constitution",
+	int: "intelligence",
+	wis: "wisdom",
+	cha: "charisma",
+};
 const ORDINAL = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th"];
 
 const signed = (n: number): string => (n >= 0 ? `+${n}` : `${n}`);
@@ -15,9 +22,9 @@ const signed = (n: number): string => (n >= 0 ? `+${n}` : `${n}`);
 export function classLine(sheet: Sheet): string {
 	const parts = sheet.classes.map((k) => {
 		const sub = k.subclass ? ` (${k.subclass})` : "";
-		return sheet.classes.length === 1 ? `${k.name}${sub}` : `${k.name}${sub} ${k.level}`;
+		return `${k.name} ${k.level}${sub}`;
 	});
-	return `Level ${sheet.level} ${sheet.species} ${parts.join(" / ")}`.replace(/ {2,}/g, " ");
+	return `${parts.join(" / ")}, ${sheet.species}`;
 }
 
 /** A one-line summary for a blank `summary` property. */
@@ -34,27 +41,70 @@ function speedText(speeds: Sheet["speeds"]): string {
 		.join(", ");
 }
 
-export function renderSheet(sheet: Sheet, player: string): string {
-	const dc =
-		sheet.spellcasting.length === 0
-			? "No spell save DC."
-			: `Spell save DC ${sheet.spellcasting.map((s) => `${s.saveDc} (${s.class}, ${s.ability})`).join(" and ")}.`;
-	const saves = ABILITIES.map(
-		(a) => `${LABEL[a]} ${signed(sheet.saves[a].bonus)}${sheet.saves[a].proficient ? " (proficient)" : ""}`,
-	).join(", ");
-	const table = ABILITIES.map((a) => `${sheet.abilities[a].score} (${signed(sheet.abilities[a].mod)})`);
+function attackDescription(attack: Sheet["attacks"][number]): string {
+	const damage = (dice: string): string => {
+		const [count, sides] = dice.split("d").map(Number);
+		const average = Math.max(0, Math.floor(((count ?? 0) * ((sides ?? 0) + 1)) / 2 + attack.damageBonus));
+		const flat =
+			attack.damageBonus === 0 ? "" : ` ${attack.damageBonus < 0 ? "-" : "+"} ${Math.abs(attack.damageBonus)}`;
+		return `${average} (${dice}${flat}) ${attack.damageType} damage`;
+	};
+	const range = attack.range ? `range ${attack.range.normal}/${attack.range.long} ft.` : "";
+	const distance = attack.ranged ? range : `reach ${attack.reach} ft.${attack.range ? ` or ${range}` : ""}`;
+	const kind = attack.ranged ? "Ranged" : attack.range ? "Melee or Ranged" : "Melee";
+	return `*${kind} Attack Roll:* ${signed(attack.toHit)}, ${distance} *Hit:* ${damage(attack.damageDice)}${attack.versatile ? `, or ${damage(attack.versatile)} if used with two hands` : ""}.`;
+}
+
+export function renderSheet(sheet: Sheet, player: string, name = sheet.name): string {
+	const saves = ABILITIES.filter((a) => sheet.saves[a].proficient || sheet.saves[a].bonus !== sheet.abilities[a].mod);
 	const lines = [
 		"## Sheet",
 		"",
 		`- **Player.**${player ? ` ${player}` : ""}`,
-		`- **Class, species and level.** ${classLine(sheet)}. Proficiency bonus ${signed(sheet.proficiencyBonus)}.`,
-		`- **Armor Class, Hit Points and Speed.** AC ${sheet.armorClass.value} (${sheet.armorClass.source}). ${sheet.hitPoints} HP. Speed ${speedText(sheet.speeds)}`,
-		`- **Passive Perception and save DC.** Passive Perception ${sheet.passivePerception}. ${dc}`,
-		`- **Saving throws.** ${saves}.`,
+		`- **Class, species and level.** ${classLine(sheet)}`,
 		"",
-		`| ${ABILITIES.map((a) => LABEL[a]).join(" | ")} |`,
-		`| ${ABILITIES.map(() => "---").join(" | ")} |`,
-		`| ${table.join(" | ")} |`,
+		"```statblock",
+		"layout: Basic 5e Layout",
+		`name: ${JSON.stringify(name)}`,
+		`size: ${sheet.size}`,
+		"type: humanoid",
+		`subtype: ${JSON.stringify(sheet.species)}`,
+		`ac: ${sheet.armorClass.value}`,
+		`hp: ${sheet.hitPoints}`,
+		`hit_dice: ${JSON.stringify(sheet.hitDice)}`,
+		`speed: ${JSON.stringify(speedText(sheet.speeds))}`,
+		`stats: [${ABILITIES.map((a) => sheet.abilities[a].score).join(", ")}]`,
+		`modifier: ${sheet.initiativeBonus}`,
+		...(saves.length ? ["saves:", ...saves.map((a) => `  - ${LABEL[a]}: ${sheet.saves[a].bonus}`)] : ["saves: []"]),
+		"skillsaves:",
+		`  - perception: ${sheet.perceptionBonus}`,
+		`senses: ${JSON.stringify([...sheet.senses, `passive Perception ${sheet.passivePerception}`].join(", "))}`,
+		`languages: ${JSON.stringify(sheet.languages.join(", "))}`,
+	];
+	for (const section of ["traits", "actions", "bonus_actions", "reactions"] as const) {
+		const entries = sheet.statblockFeatures.filter(
+			(f) => f.section === section && !(f.name === "Spellcasting" && sheet.spellcasting.length),
+		);
+		const rendered = entries.flatMap((f) => [
+			`  - name: ${JSON.stringify(f.name + (f.limitedUse ? ` (${f.limitedUse.maxUses}/${f.limitedUse.reset})` : ""))}`,
+			`    desc: ${JSON.stringify(f.description)}`,
+		]);
+		if (section === "actions") {
+			for (const attack of sheet.attacks)
+				rendered.push(
+					`  - name: ${JSON.stringify(attack.name)}`,
+					`    desc: ${JSON.stringify(attackDescription(attack))}`,
+				);
+			if (sheet.spellcasting.length)
+				rendered.push(
+					'  - name: "Spellcasting"',
+					`    desc: ${JSON.stringify(sheet.spellcasting.map((s) => `${s.class}: ${s.ability} spellcasting (spell save DC ${s.saveDc}, ${signed(s.attackBonus)} to hit with spell attacks).`).join(" "))}`,
+				);
+		}
+		lines.push(...(rendered.length ? [`${section}:`, ...rendered] : [`${section}: []`]));
+	}
+	lines.push(
+		"```",
 		"",
 		"### Features",
 		"",
@@ -62,7 +112,7 @@ export function renderSheet(sheet: Sheet, player: string): string {
 			? ["None recorded."]
 			: sheet.features.map((f) => `- **${f.source}.** ${f.names.join(", ")}`)),
 		"",
-	];
+	);
 	return lines.join("\n");
 }
 

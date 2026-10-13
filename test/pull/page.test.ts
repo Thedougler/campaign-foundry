@@ -21,16 +21,19 @@ describe("rewritePcPage", () => {
 	it("replaces the Sheet, Spells and Inventory sections with the pulled sheet", () => {
 		expect(result.sections).toEqual(["Sheet", "Spells", "Inventory"]);
 		const updated = result.source;
+		expect(updated).toContain("- **Class, species and level.** Sorcerer 9 (Wild Magic Sorcery), Halfling");
 		expect(updated).toContain(
-			"- **Class, species and level.** Level 9 Halfling Sorcerer (Wild Magic Sorcery). Proficiency bonus +4.",
+			'```statblock\nlayout: Basic 5e Layout\nname: "Wren"\nsize: Small\ntype: humanoid\nsubtype: "Halfling"\nac: 13\nhp: 65\nhit_dice: "9d6 + 27"\nspeed: "30 ft., fly 30 ft."\nstats: [8, 14, 16, 8, 10, 19]\nmodifier: 2\n',
 		);
+		expect(updated).toContain('skillsaves:\n  - perception: 4\nsenses: "passive Perception 14"');
 		expect(updated).toContain(
-			"- **Armor Class, Hit Points and Speed.** AC 13 (unarmored). 65 HP. Speed 30 ft., fly 30 ft.\n",
+			'  - name: "Spellcasting"\n    desc: "Sorcerer: Cha spellcasting (spell save DC 18, +9 to hit with spell attacks)."',
 		);
-		expect(updated).toContain(
-			"- **Passive Perception and save DC.** Passive Perception 14. Spell save DC 18 (Sorcerer, Cha).",
-		);
-		expect(updated).toContain("| 8 (-1) | 14 (+2) | 16 (+3) | 8 (-1) | 10 (+0) | 19 (+4) |");
+		expect(updated).not.toContain("**Armor Class, Hit Points and Speed.**");
+		expect(updated).not.toContain("**Passive Perception and save DC.**");
+		expect(updated).not.toContain("**Saving throws.**");
+		expect(updated).not.toContain("| Str |");
+		expect(updated).not.toMatch(/^cr:/m);
 		expect(updated).toContain("- **Spell slots.** 1st 4, 2nd 3, 3rd 3, 4th 3, 5th 1.");
 		expect(updated).toContain("### Cantrips");
 		expect(updated).toContain("- **Coin.** 9896 gp, 9 sp, 4 cp.");
@@ -58,6 +61,13 @@ describe("rewritePcPage", () => {
 		const out = rewritePcPage(vale, "ashes-of-the-crown/PCs/Vale.md", computeSheet(character("character-rogue.json")));
 		expect(out.summarySet).toBe(false);
 		expect(out.source).toContain('summary: "The crew\'s quiet knife."');
+		expect(out.source).toContain('name: "Vale"');
+		expect(out.source).toContain('name: "Sneak Attack (3d6)"');
+		expect(out.source).toContain("*Melee Attack Roll:* +8, reach 5 ft. *Hit:* 8 (1d6 + 5) Piercing damage.");
+		expect(out.source).toContain(
+			"*Melee or Ranged Attack Roll:* +7, reach 5 ft. or range 20/60 ft. *Hit:* 6 (1d4 + 4) Piercing damage.",
+		);
+		expect(out.source).toContain("*Ranged Attack Roll:* +7, range 80/320 ft. *Hit:* 7 (1d6 + 4) Piercing damage.");
 	});
 
 	it("is idempotent: pulling the same payload again changes nothing", () => {

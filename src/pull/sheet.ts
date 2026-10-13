@@ -1,10 +1,10 @@
+import { JSDOM } from "jsdom";
 import { slugify } from "../vault/dialect.ts";
-import type { DdbCharacter, DdbClass, DdbClassDefinition, DdbItem, DdbModifier, DdbSpell } from "./ddb.ts";
+import type { DdbCharacter, DdbClass, DdbClassDefinition, DdbFeature, DdbItem, DdbModifier, DdbSpell } from "./ddb.ts";
 
 /**
  * The narrow parser: D&D Beyond's payload holds raw ingredients (base scores, modifiers, items), never the
- * computed sheet, so this derives what a DM needs mid-round. It covers Armor Class, Hit Points, speeds, saves,
- * Passive Perception and spellcasting. Rare rules it does not model are listed in the research note.
+ * computed sheet, so this derives the numbers, weapon attacks and feature text for the PC's statblock fence.
  */
 
 export const ABILITIES = ["str", "dex", "con", "int", "wis", "cha"] as const;
@@ -34,6 +34,30 @@ export interface SpellEntry {
 }
 
 export interface Sheet {
+	name: string;
+	size: string;
+	initiativeBonus: number;
+	hitDice: string;
+	perceptionBonus: number;
+	senses: string[];
+	languages: string[];
+	attacks: {
+		name: string;
+		ranged: boolean;
+		toHit: number;
+		damageDice: string;
+		damageBonus: number;
+		damageType: string;
+		reach: number;
+		range?: { normal: number; long: number };
+		versatile?: string;
+	}[];
+	statblockFeatures: {
+		name: string;
+		description: string;
+		section: "traits" | "actions" | "bonus_actions" | "reactions";
+		limitedUse?: { maxUses: number; reset: string };
+	}[];
 	classes: { name: string; subclass?: string; level: number }[];
 	species: string;
 	level: number;
@@ -168,7 +192,11 @@ export function computeSheet(c: DdbCharacter): Sheet {
 			bonus("hit-points-per-level") * level +
 			bonus("hit-points");
 
-	const armorClass = computeArmorClass(abilities, ctx, bonus);
+	const acOverride = c.characterValues?.find((v) => v.typeId === 1)?.value;
+	const armorClass =
+		typeof acOverride === "number"
+			? { value: acOverride, source: "D&D Beyond override" }
+			: computeArmorClass(abilities, ctx, bonus);
 
 	const speeds: Sheet["speeds"] = { walk: c.race?.weightSpeeds?.normal?.walk ?? 30 };
 	for (const kind of ["fly", "swim", "climb", "burrow"] as const) {
@@ -209,7 +237,25 @@ export function computeSheet(c: DdbCharacter): Sheet {
 			: has("half-proficiency", "perception") || has("half-proficiency", "ability-checks")
 				? Math.floor(proficiencyBonus / 2)
 				: 0;
-	const passivePerception = 10 + abilities.wis.mod + perception + bonus("passive-perception", "perception");
+	const perceptionBonus = abilities.wis.mod + perception + bonus("perception");
+	const passivePerception = 10 + perceptionBonus + bonus("passive-perception");
+	const initiativeBonus =
+		abilities.dex.mod +
+		of("bonus", "initiative").reduce((sum, m) => {
+			const ability = ABILITIES[(m.statId ?? 0) - 1];
+			return (
+				sum + amount(m) + (ability ? abilities[ability].mod : 0) + (m.bonusTypes?.includes(1) ? proficiencyBonus : 0)
+			);
+		}, 0);
+	const dice = new Map<number, number>();
+	for (const k of c.classes) {
+		const sides = k.definition.hitDice ?? 8;
+		dice.set(sides, (dice.get(sides) ?? 0) + k.level);
+	}
+	const con = abilities.con.mod * level;
+	const hitDice =
+		[...dice].map(([sides, count]) => `${count}d${sides}`).join(" + ") +
+		(con === 0 ? "" : ` ${con < 0 ? "-" : "+"} ${Math.abs(con)}`);
 
 	const spellcasting: Sheet["spellcasting"] = [];
 	for (const k of c.classes) {
@@ -229,6 +275,15 @@ export function computeSheet(c: DdbCharacter): Sheet {
 
 	const { slots, pact } = computeSlots(c.classes);
 	const sheet: Sheet = {
+		name: c.name,
+		size: ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"][(c.race?.sizeId ?? 4) - 2] ?? "Medium",
+		initiativeBonus,
+		hitDice,
+		perceptionBonus,
+		senses: computeSenses(c, ctx.mods),
+		languages: collectLanguages(c, ctx.mods),
+		attacks: computeAttacks(c, ctx.mods, abilities, proficiencyBonus),
+		statblockFeatures: collectStatblockFeatures(c, abilities, proficiencyBonus),
 		classes: c.classes.map((k) => ({
 			name: k.definition.name,
 			...(k.subclassDefinition
@@ -266,16 +321,198 @@ export function computeSheet(c: DdbCharacter): Sheet {
 	return sheet;
 }
 
+/** Item magic is local to that item, not a bonus to every attack or piece of armor. */
+function itemMagic(item: DdbItem): number {
+	return (item.definition.grantedModifiers ?? [])
+		.filter((m) => m.type === "bonus" && m.subType === "magic")
+		.reduce((sum, m) => sum + amount(m), 0);
+}
+
+function computeSenses(c: DdbCharacter, mods: DdbModifier[]): string[] {
+	const names = ["blindsight", "darkvision", "tremorsense", "truesight"];
+	return names.flatMap((name, index) => {
+		const custom = c.customSenses?.find((s) => s.senseId === index + 1)?.distance;
+		let distance = typeof custom === "number" ? custom : 0;
+		for (const m of mods)
+			if ((m.type === "set-base" || m.type === "set") && m.subType === name) distance = Math.max(distance, amount(m));
+		for (const m of mods) if (m.type === "sense" && m.subType === name) distance += amount(m);
+		return distance > 0 ? [`${name} ${distance} ft.`] : [];
+	});
+}
+
+function collectLanguages(c: DdbCharacter, mods: DdbModifier[]): string[] {
+	const languages = new Set(
+		mods
+			.filter((m) => m.type === "language" && !m.subType.startsWith("select-"))
+			.map((m) => m.friendlySubtypeName ?? m.subType),
+	);
+	// Homebrew grants can be tagged only in the opening Languages paragraph, not in modifiers.
+	// The later reference table lists choices, not languages the character knows.
+	for (const { definition: f } of c.race?.racialTraits ?? []) {
+		if (f.name !== "Languages") continue;
+		const paragraph = (f.description ?? "").split(/<\/p>/i)[0] ?? "";
+		for (const match of paragraph.matchAll(/\[language\]([^[]+)\[\/language\]/g)) languages.add(match[1]!.trim());
+	}
+	return [...languages];
+}
+
+function computeAttacks(
+	c: DdbCharacter,
+	mods: DdbModifier[],
+	abilities: Sheet["abilities"],
+	pb: number,
+): Sheet["attacks"] {
+	const attacks: Sheet["attacks"] = [];
+	const seen = new Set<string>();
+	const pactEnabled = mods.some((m) => m.type === "enable-feature" && m.subType === "enable-pact-weapon");
+	for (const item of c.inventory) {
+		const d = item.definition;
+		if (!item.equipped || d.filterType !== "Weapon" || !d.damage || !d.damageType || seen.has(d.name)) continue;
+		const damageDice = d.damage.diceString ?? `${d.damage.diceCount}d${d.damage.diceValue}`;
+		const has = (name: string): boolean => d.properties?.some((p) => p.name === name) ?? false;
+		const ranged = d.attackType === 2;
+		let ability = ranged
+			? abilities.dex.mod
+			: has("Finesse")
+				? Math.max(abilities.str.mod, abilities.dex.mod)
+				: abilities.str.mod;
+		const pactWeapon =
+			pactEnabled &&
+			item.id !== undefined &&
+			(c.characterValues?.some((v) => v.typeId === 28 && v.value === true && String(v.valueId) === String(item.id)) ??
+				false);
+		if (pactWeapon) ability = Math.max(ability, abilities.cha.mod);
+		const proficient =
+			pactWeapon ||
+			mods.some(
+				(m) =>
+					m.type === "proficiency" &&
+					(m.subType === slugify(d.type ?? d.name) ||
+						m.subType === (d.categoryId === 1 ? "simple-weapons" : "martial-weapons") ||
+						m.subType === "weapons"),
+			);
+		const magic = itemActive(item, false) ? itemMagic(item) : 0;
+		const thrown = has("Thrown");
+		const versatile = d.properties?.find((p) => p.name === "Versatile")?.notes?.match(/\d+d\d+/)?.[0];
+		attacks.push({
+			name: d.name,
+			ranged,
+			toHit: ability + (proficient ? pb : 0) + magic,
+			damageDice,
+			damageBonus: ability + magic,
+			damageType: d.damageType,
+			reach: has("Reach") ? 10 : ranged || thrown ? 5 : (d.range ?? 5),
+			...((ranged || thrown) && d.range != null ? { range: { normal: d.range, long: d.longRange ?? d.range } } : {}),
+			...(versatile ? { versatile } : {}),
+		});
+		seen.add(d.name);
+	}
+	return attacks;
+}
+
+/** The scalar, division, rounding and minimum tokens used in D&D Beyond's feature snippets. */
+function resolveSnippet(text: string, values: Record<string, string | number | undefined>): string {
+	return text.replace(/\{\{([^{}]+)\}\}/g, (match, token: string) => {
+		const [expression, ...operations] = token.replace(/#unsigned$/, "").split("@");
+		const parsed = /^\(?([\w:]+)(?:\/(\d+))?\)?$/.exec(expression ?? "");
+		if (!parsed) return match;
+		let value = values[parsed[1]!];
+		if (value === undefined) return match;
+		if (parsed[2]) {
+			if (!Number.isFinite(Number(value))) return match;
+			value = Number(value) / Number(parsed[2]);
+		}
+		for (const operation of operations) {
+			if (!Number.isFinite(Number(value))) return match;
+			if (operation === "rounddown") value = Math.floor(Number(value));
+			else if (operation === "roundup") value = Math.ceil(Number(value));
+			else if (/^min:\d+$/.test(operation)) value = Math.max(Number(value), Number(operation.slice(4)));
+			else return match;
+		}
+		return String(value);
+	});
+}
+
+function collectStatblockFeatures(
+	c: DdbCharacter,
+	abilities: Sheet["abilities"],
+	pb: number,
+): Sheet["statblockFeatures"] {
+	const features = new Map<string, Sheet["statblockFeatures"][number]>();
+	const contexts = new Map<string, { level: number; scale: string | undefined }>();
+	const values: Record<string, string | number | undefined> = { proficiency: pb };
+	for (const a of ABILITIES) {
+		values[`modifier:${a}`] = abilities[a].mod;
+		values[`savedc:${a}`] = 8 + pb + abilities[a].mod;
+	}
+	const add = (f: DdbFeature, classLevel?: number, scale?: string): void => {
+		if (f.hideInSheet || BORING_FEATURE.test(f.name) || BORING_TRAIT.has(f.name)) return;
+		const previous = features.get(f.name);
+		const context = contexts.get(f.name);
+		const resolvedScale = scale ?? context?.scale;
+		if (classLevel !== undefined) contexts.set(f.name, { level: classLevel, scale: resolvedScale });
+		values.classlevel = classLevel ?? context?.level;
+		values.scalevalue = resolvedScale;
+		const use = !Array.isArray(f.limitedUse) ? f.limitedUse : undefined;
+		let maxUses = Math.max(0, use?.maxUses ?? 0);
+		const ability = ABILITIES[(use?.statModifierUsesId ?? 0) - 1];
+		if (ability) maxUses = use?.operator === 2 ? maxUses * abilities[ability].mod : maxUses + abilities[ability].mod;
+		if (use?.useProficiencyBonus) maxUses = use.proficiencyBonusOperator === 2 ? maxUses * pb : maxUses + pb;
+		const reset = ({ 1: "Short Rest", 2: "Long Rest", 3: "Day" } as Record<number, string>)[use?.resetType ?? 0];
+		const html = f.snippet || f.description || "";
+		values.limiteduse = maxUses;
+		const description = html
+			? resolveSnippet(JSDOM.fragment(html.replace(/<\/(?:p|div|li)>|<br\s*\/?>/gi, " ")).textContent ?? "", values)
+					.replace(/\s+/g, " ")
+					.trim()
+			: (previous?.description ?? "");
+		const activation = f.activation?.activationType;
+		const section =
+			activation === 3
+				? "bonus_actions"
+				: activation === 4
+					? "reactions"
+					: activation === 1
+						? "actions"
+						: (previous?.section ?? "traits");
+		features.set(f.name, {
+			name:
+				resolvedScale && /^\d+d\d+$/.test(resolvedScale) ? `${f.name} (${resolvedScale})` : (previous?.name ?? f.name),
+			description,
+			section,
+			...(use && reset
+				? { limitedUse: { maxUses, reset } }
+				: previous?.limitedUse
+					? { limitedUse: previous.limitedUse }
+					: {}),
+		});
+	};
+	for (const k of c.classes) {
+		for (const d of [k.definition, k.subclassDefinition]) {
+			for (const f of d?.classFeatures ?? []) if ((f.requiredLevel ?? 1) <= k.level) add(f, k.level);
+		}
+		for (const f of k.classFeatures ?? []) {
+			if ((f.definition.requiredLevel ?? 1) <= k.level) {
+				const scale =
+					f.levelScale?.dice?.diceString ??
+					(f.levelScale?.fixedValue != null ? String(f.levelScale.fixedValue) : undefined);
+				add(f.definition, k.level, scale);
+			}
+		}
+	}
+	for (const t of c.race?.racialTraits ?? []) add(t.definition);
+	for (const f of c.feats ?? []) add(f.definition);
+	for (const list of Object.values(c.actions ?? {})) for (const f of list ?? []) add(f);
+	return [...features.values()];
+}
+
 function computeArmorClass(
 	abilities: Sheet["abilities"],
 	ctx: Context,
 	bonus: (...subTypes: string[]) => number,
 ): Sheet["armorClass"] {
 	const dex = abilities.dex.mod;
-	const magic = (item: DdbItem): number =>
-		(item.definition.grantedModifiers ?? [])
-			.filter((m) => m.type === "bonus" && m.subType === "magic")
-			.reduce((sum, m) => sum + amount(m), 0);
+	const magic = itemMagic;
 	const shieldBonus = ctx.shield ? (ctx.shield.definition.armorClass ?? 2) + magic(ctx.shield) : 0;
 	const extra = bonus("armor-class") + shieldBonus;
 	const shieldName = ctx.shield ? " + shield" : "";
@@ -359,7 +596,7 @@ function collectFeatures(c: DdbCharacter): Sheet["features"] {
 		const names = new Set<string>();
 		for (const def of [k.definition, k.subclassDefinition]) {
 			for (const f of def?.classFeatures ?? [])
-				if (f.requiredLevel <= k.level && !BORING_FEATURE.test(f.name)) names.add(f.name);
+				if ((f.requiredLevel ?? 1) <= k.level && !BORING_FEATURE.test(f.name)) names.add(f.name);
 		}
 		if (names.size > 0) out.push({ source: k.definition.name, names: [...names].sort((a, b) => a.localeCompare(b)) });
 	}

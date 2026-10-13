@@ -23,13 +23,82 @@ title: "Jean-Claude Tabarnack"
 
 - **Player.** Chad
 - **Class, species and level.** Ranger 5 (Gloom Stalker), Grung
-- **Armor Class, Hit Points and Speed.** AC 16. 51 HP. 25 ft. Walk and climb
-- **Passive Perception and save DC.** Passive Perception 16. Spell save DC 14
-- **Saving throws.** Strength +4, Dexterity +7
 
-| Str | Dex | Con | Int | Wis | Cha |
-| --- | --- | --- | --- | --- | --- |
-| 12 (+1) | 19 (+4) | 14 (+2) | 11 (+0) | 16 (+3) | 8 (-1) |
+```statblock
+layout: Basic 5e Layout
+name: "Jean-Claude Tabarnack"
+size: Small
+type: humanoid
+subtype: Grung
+ac: 16
+hp: 51
+hit_dice: "5d10 + 10"
+speed: "25 ft., climb 25 ft."
+stats: [12, 19, 14, 11, 16, 8]
+modifier: 7
+saves:
+  - strength: 4
+  - dexterity: 7
+skillsaves:
+  - animal handling: 6
+  - athletics: 4
+  - insight: 6
+  - perception: 6
+  - stealth: 10
+  - survival: 6
+damage_immunities: "Poison"
+condition_immunities: "Poisoned"
+senses: "darkvision 60 ft., passive Perception 16"
+languages: ""
+traits:
+  - name: "Archery"
+    desc: "Jean-Claude gains a +2 bonus to attack rolls with Ranged weapons, included in his Shortbow attack."
+  - name: "Dread Ambusher"
+    desc: "Jean-Claude adds his Wisdom modifier to Initiative, included above. His Speed increases by 10 feet on his first turn of combat."
+  - name: "Dreadful Strike (3/Long Rest)"
+    desc: "Once per turn, when Jean-Claude hits a creature with a weapon, he can deal an extra 7 (2d6) Psychic damage to it."
+  - name: "Umbral Sight"
+    desc: "While entirely in Darkness, Jean-Claude is Invisible to any creature relying on Darkvision to see him."
+  - name: "Standing Leap"
+    desc: "Jean-Claude's long jump is up to 25 feet and his high jump is up to 15 feet, with or without a running start."
+  - name: "Aquatic Nature"
+    desc: "Jean-Claude breathes air and water. He must submerge for at least 1 hour every 24 hours or gain Exhaustion that only immersion removes."
+  - name: "Vex"
+    desc: "When Jean-Claude hits a creature with his shortbow or shortsword and deals damage, he has Advantage on his next attack roll against that creature before the end of his next turn."
+  - name: "Nick"
+    desc: "Jean-Claude can make the extra attack granted by the Light property as part of his Attack action instead of as a Bonus Action when using his scimitar. He can make this extra attack only once per turn."
+  - name: "Bracers of Archery"
+    desc: "Jean-Claude gains a +2 bonus to damage rolls with his shortbow, included below. A natural 1 turns his whole body a random neon colour for 1 hour and leaves one permanent patch of that colour. Only Remove Curse or similar magic removes the patches."
+  - name: "Cloak of Elvenkind"
+    desc: "Jean-Claude has Advantage on Dexterity (Stealth) checks. Wisdom (Perception) checks made to notice him have Disadvantage."
+  - name: "Eyes of the Eagle"
+    desc: "Jean-Claude has Advantage on Wisdom (Perception) checks that rely on sight."
+actions:
+  - name: "Extra Attack"
+    desc: "When Jean-Claude takes the Attack action, he can attack twice instead of once."
+  - name: "Shortbow"
+    desc: "*Ranged Attack Roll:* +9, range 80/320 ft. *Hit:* 9 (1d6 + 6) Piercing damage."
+  - name: "Shortsword"
+    desc: "*Melee Attack Roll:* +7, reach 5 ft. *Hit:* 7 (1d6 + 4) Piercing damage."
+  - name: "Scimitar"
+    desc: "*Melee Attack Roll:* +7, reach 5 ft. *Hit:* 7 (1d6 + 4) Slashing damage, or 3 (1d6) Slashing damage when made as the extra attack of the Light property."
+  - name: "Sticky Tongue"
+    desc: "Jean-Claude can replace one attack with a tongue grapple against a creature within 10 feet."
+  - name: "Spellcasting"
+    desc: "Jean-Claude casts spells using Wisdom as his spellcasting ability (spell save DC 14, +6 to hit with spell attacks), requiring their normal components. Cantrips: Druidcraft, Mending. 1st level (4 slots): Cure Wounds, Disguise Self. 2nd level (2 slots): Cordon of Arrows, Pass without Trace, Rope Trick, Spike Growth. His Bonus Action spells use these same slots unless Favoured Enemy supplies a free casting."
+bonus_actions:
+  - name: "Poisonous Skin (3/Long Rest)"
+    desc: "Jean-Claude coats one melee weapon or up to five pieces of ammunition with venom. When a coated attack hits, the target makes a *Constitution Saving Throw:* DC 13. *Failure:* The target has the Poisoned condition until the end of Jean-Claude's next turn. *Success:* No effect."
+  - name: "Sticky Tongue Snatch"
+    desc: "Jean-Claude grabs an unattended object his size or smaller within 10 feet with his tongue."
+  - name: "Hunter's Mark (2/Long Rest without a Spell Slot)"
+    desc: "Jean-Claude casts Hunter's Mark, using Favoured Enemy for a free casting or expending a spell slot. He marks a creature he can see within 90 feet for up to 1 hour (Concentration). Each attack roll that hits the marked target deals an extra 3 (1d6) Force damage. He has Advantage on Wisdom (Perception or Survival) checks to find it. If it drops to 0 Hit Points, he can use a Bonus Action to move the mark to another creature he can see within 90 feet."
+  - name: "Ensnaring Strike"
+    desc: "Immediately after hitting a creature with a weapon, Jean-Claude expends a spell slot to cast Ensnaring Strike, lasting up to 1 minute (Concentration). *Strength Saving Throw:* DC 14, the creature hit; Large or larger creatures have Advantage. *Failure:* The target has the Restrained condition until the spell ends and takes 3 (1d6) Piercing damage at the start of each of its turns, or 7 (2d6) with a 2nd-level slot. The target or a creature within reach can take an action to make a DC 14 Strength (Athletics) check, ending the spell on a success. *Success:* The spell ends."
+  - name: "Jump"
+    desc: "Jean-Claude expends a spell slot to cast Jump on a willing creature he touches. For 1 minute, once on each of its turns, the creature can jump up to 30 feet by spending 10 feet of movement. A 2nd-level slot allows one additional target."
+reactions: []
+```
 
 ### Features
 

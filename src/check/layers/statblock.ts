@@ -31,19 +31,23 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 		const blocks = fences(page);
 		const type = page.frontmatter?.type;
 
-		if (type !== "Creature" && type !== "NPC") {
-			for (const block of blocks) {
+		const validBlocks: Code[] = [];
+		for (const block of blocks) {
+			const line = block.position?.start.line ?? 1;
+			const section = page.headings.filter((h) => h.depth === 2 && h.line < line).at(-1)?.text;
+			if (type === "Creature" || type === "NPC" || (type === "PC" && section === "Sheet")) {
+				validBlocks.push(block);
+			} else {
 				add(
 					"statblock-misplaced",
-					block.position?.start.line ?? 1,
-					`A \`statblock\` block sits on a ${typeof type === "string" && type !== "" ? type : "non-Creature/NPC"} page; stat blocks live on Creature or NPC pages.`,
-					"Move the stat block to a Creature or NPC page under `## Statblock`, or embed that section on a Scene, Prep or Location page with `![[Name#Statblock]]`.",
+					line,
+					`A \`statblock\` block sits outside a Creature or NPC page or a PC's \`## Sheet\`.`,
+					"Move the stat block to a Creature or NPC page under `## Statblock`, or a PC page under `## Sheet`; embed it elsewhere with `![[Name#Statblock]]`.",
 				);
 			}
-			continue;
 		}
-		if (blocks.length === 0) continue;
-		for (const extra of blocks.slice(1)) {
+		if (validBlocks.length === 0) continue;
+		for (const extra of validBlocks.slice(1)) {
 			add(
 				"multiple-statblocks",
 				extra.position?.start.line ?? 1,
@@ -51,7 +55,7 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 				"Keep exactly one stat block per page. A variant with different statistics is its own page.",
 			);
 		}
-		const block = blocks[0] as Code;
+		const block = validBlocks[0] as Code;
 		const fenceLine = block.position?.start.line ?? 1;
 		const parsed = parseStatblock(block.value);
 		const issues = [...parsed.issues, ...(parsed.statblock ? checkStatblock(parsed.statblock) : [])];
@@ -68,6 +72,6 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 export const statblockLayer: Layer = {
 	name: LAYER,
 	scope: "page",
-	description: "Optional stat blocks on Creature and NPC pages have derived numbers that add up under the 2024 rules.",
+	description: "Optional stat blocks on Creature, NPC and PC Sheet pages have valid 2024 rules figures.",
 	run,
 };

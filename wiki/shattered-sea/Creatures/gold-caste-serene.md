@@ -4,6 +4,11 @@ type: Creature
 summary: "A CR 30 gold-caste Grung whose unlookable radiance, absolute wards and sovereign spellcasting embody Golden Presence at its ceiling."
 sources:
   - "archive/the-gold-caste-serene.md"
+cr: 30
+creature_type: "Humanoid"
+size: "Small"
+habitat: []
+sourcebooks: []
 revealed: ""
 ---
 
@@ -38,7 +43,7 @@ skillsaves:
   - insight: 19
   - perception: 19
   - persuasion: 19
-- religion: 19
+  - religion: 18
 damage_vulnerabilities: ""
 damage_resistances: ""
 damage_immunities: "Poison, Psychic, Radiant"

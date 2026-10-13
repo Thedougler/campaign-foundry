@@ -61,7 +61,7 @@ export function rewritePcPage(source: string, path: string, sheet: Sheet): Rewri
 	const oldSheet = lines.slice(ranges[0]!.start, ranges[0]!.end).join("\n");
 	const keptPlayer = /^- \*\*Player\.\*\*[ \t]*(.*)$/m.exec(oldSheet)?.[1]?.trim() ?? "";
 	const rendered: Record<PulledSection, string> = {
-		Sheet: renderSheet(sheet, keptPlayer || sheet.account || ""),
+		Sheet: renderSheet(sheet, keptPlayer || sheet.account || "", page.name),
 		Spells: renderSpells(sheet),
 		Inventory: renderInventory(sheet),
 	};

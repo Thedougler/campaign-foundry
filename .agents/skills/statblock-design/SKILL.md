@@ -3,14 +3,17 @@ name: statblock-design
 description: >-
   Statblock design — the D&D 2024 combat statistics of a Creature or NPC: its
   source peers, role, signature, CR, Party tuning and the Fantasy Statblocks
-  `statblock` fence with every derived number written out. Use when a page or
-  reply needs combat statistics, when writing, converting or checking a
-  statblock, or when the DM reports a fight was too soft or too hard.
+  `statblock` fence with every derived number written out, plus a PC's Sheet
+  fence the D&D Beyond pull can't fill. Use when a page or reply needs combat
+  statistics, when writing, converting or checking a statblock or a PC's
+  Sheet fence, or when the DM reports a fight was too soft or too hard.
 ---
 
 # Statblock design
 
 A statblock is a being's D&D 2024 combat statistics: one Fantasy Statblocks fence under the `## Statblock` heading of its Creature or NPC page, or alone in a reply. The section is optional on both kinds, and a page has one when the being fights or its rules matter at the table. This skill decides every number and entry in the block. The being's identity, how it lives and how it behaves outside its entries belong to `creature-design` and `npc-design`, which invoke this skill when their subject needs combat statistics.
+
+A PC's Sheet carries the same fence, which `pull-pcs` writes from a public D&D Beyond character. When the pull can't, because the character is private or the page has no `dndbeyond_url`, this skill writes or repairs that fence from what the PC page and the Player's words establish, migrating a `## Sheet` still in the retired bullet shape. That run follows [references/fence.md](references/fence.md) § PC sheet in place of steps 1 to 7. It closes by step 8's page gate and log, and its reply gives the page path, each computed number with its formula and the check result.
 
 The run is finished when the block passes its check and is on its page or in the reply. The reply reports its sources, path, tuning and consumers.
 

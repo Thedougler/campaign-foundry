@@ -61,13 +61,13 @@ describe("runPull", () => {
 		expect(byPc).toEqual({ Hollow: "failed", Tam: "skipped", Vale: "updated", Wren: "updated" });
 
 		const wren = await read(`${pcDir}/Wren.md`);
-		expect(wren).toContain("Level 9 Halfling Sorcerer (Wild Magic Sorcery)");
+		expect(wren).toContain("Sorcerer 9 (Wild Magic Sorcery), Halfling");
 		expect(wren).toContain('summary: "Halfling Sorcerer 9."');
 		expect(wren).toContain("## Backstory");
 		expect(wren.slice(wren.indexOf("## Backstory"))).toBe(wrenBefore.slice(wrenBefore.indexOf("## Backstory")));
 
 		const vale = await read(`${pcDir}/Vale.md`);
-		expect(vale).toContain("Level 5 Human Rogue (Mastermind)");
+		expect(vale).toContain("Rogue 5 (Mastermind), Human");
 		expect(vale).toContain('summary: "The crew\'s quiet knife."');
 
 		// Not on D&D Beyond, or private: untouched.

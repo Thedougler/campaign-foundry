@@ -118,6 +118,7 @@ nonmagical
 nondetection
 nyxborn
 passwall
+Runestones
 scrying
 shortbow
 shortspear

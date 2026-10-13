@@ -22,32 +22,156 @@ title: "Perrin Black-Jaw"
 ## Sheet
 
 - **Player.** Kaden
-- **Class, species and level.** Warlock 2 / Bard 3 (College of Lore), rattkin
-- **Armor Class, Hit Points and Speed.** AC 19. 49 HP. 30 ft. Walk and swim
-- **Passive Perception and save DC.** Passive Perception 13. Bard and Warlock save DC 16
-- **Saving throws.** Dexterity +7, Charisma +8, plus 1 to all saves from the Cloak of Protection
+- **Class, species and level.** Warlock 2 / Bard 3 (College of Lore), Shattered Sea Rattkin
 
-| Str | Dex | Con | Int | Wis | Cha |
-| --- | --- | --- | --- | --- | --- |
-| 6 (-2) | 18 (+4) | 15 (+2) | 11 (+0) | 11 (+0) | 20 (+5) |
+```statblock
+layout: Basic 5e Layout
+name: "Perrin Black-Jaw"
+size: Small
+type: humanoid
+subtype: "Shattered Sea Rattkin"
+ac: 19
+hp: 49
+hit_dice: "5d8 + 10"
+speed: "30 ft., swim 30 ft."
+stats: [6, 18, 15, 11, 11, 20]
+modifier: 4
+saves:
+  - strength: -1
+  - dexterity: 8
+  - constitution: 3
+  - intelligence: 1
+  - wisdom: 4
+  - charisma: 9
+skillsaves:
+  - perception: 3
+senses: "blindsight 5 ft., passive Perception 13"
+languages: "Common, Dwarvish, Gnomish, Skittercant, Aquan"
+traits:
+  - name: "Eldritch Invocations"
+    desc: "You have unearthed Eldritch Invocations, pieces of forbidden knowledge that imbue you with an abiding magical ability or other lessons. If an invocation has a prerequisite, you must meet it to learn that invocation."
+  - name: "Pact Magic"
+    desc: "Through occult ceremony, you have formed a pact with a mysterious entity to gain magical powers. The entity is a voice in the shadows—its identity unclear—but its boon to you is concrete: the ability to cast spells. Cantrips. You know two Warlock cantrips of your choice. Whenever you gain a Warlock level, you can replace one of your cantrips from this feature with another Warlock cantrip of your choice. When you reach Warlock levels 4 and 10, you learn another Warlock cantrip of your choice, as shown in the Cantrips column of the Warlock Features table. Spell Slots. The Warlock Features table shows how many spell slots you have to cast your Warlock spells of levels 1–5. The table also shows the level of those slots, all of which are the same level. You regain all expended Pact Magic spell slots when you finish a Short or Long Rest. For example, when you’re a level 5 Warlock, you have two level 3 spell slots. To cast the level 1 spell Witch Bolt, you must spend one of those slots, and you cast it as a level 3 spell. Prepared Spells of Level 1+. You prepare the list of level 1+ spells that are available for you to cast with this feature. To start, choose two level 1 Warlock spells. The number of spells on your list increases as you gain Warlock levels, as shown in the Prepared Spells column of the Warlock Features table. Whenever that number increases, choose additional Warlock spells until the number of spells on your list matches the number in the table. The chosen spells must be of a level no higher than what’s shown in the table’s Slot Level column for your level. When you reach level 6, for example, you learn a new Warlock spell, which can be of levels 1–3. If another Warlock feature gives you spells that you always have prepared, those spells don’t count against the number of spells you can prepare with this feature, but those spells otherwise count as Warlock spells for you. Changing Your Prepared Spells. Whenever you gain a Warlock level, you can replace one spell on your list with another Warlock spell of an eligible level. Spellcasting Ability. Charisma is the spellcasting ability for your Warlock spells. Spellcasting Focus. You can use an Arcane Focus as a Spellcasting Focus for your Warlock spells."
+  - name: "Magical Cunning (1/Long Rest)"
+    desc: "Once per Long Rest, you can perform an esoteric rite for 1 minute, regaining up to 1 expended Pact Magic spell slots."
+  - name: "Expertise"
+    desc: "You gain Expertise in two skill proficiencies of your choice."
+  - name: "Jack of All Trades"
+    desc: "You can add half your Proficiency Bonus (1) to ability checks you make that uses a skill proficiency you lack and that doesn’t otherwise use your Proficiency Bonus."
+  - name: "Bonus Proficiencies"
+    desc: "You gain proficiency with three skills of your choice."
+  - name: "Keen Senses"
+    desc: "You have Advantage on Perception checks that rely on hearing or smell."
+  - name: "Scurry"
+    desc: "When you Disengage, you can move through spaces of Large or smaller creatures without provoking Opportunity Attacks."
+  - name: "Rattkin Variety"
+    desc: "Choose one variety: Black Rat (Climber, Roof Runner), Brown Rat (Darkvision, Burrower), or Fancy Rat (Adaptable, Silver Tongue)."
+  - name: "Swimmer"
+    desc: "You have a swimming speed equal to your walking speed."
+  - name: "Survivor"
+    desc: "You have Advantage on saving throws against the Poisoned condition and disease, and you have Resistance to Poison damage."
+  - name: "Pack Tactics"
+    desc: "When a creature you see within 5 ft. is hit by another creature, use your Reaction to make one weapon attack against them (3 uses per Short or Long Rest)."
+  - name: "Boneless"
+    desc: "Move through spaces as though Tiny; Advantage on checks to escape Grapple or Restrained."
+  - name: "Dark Bargain"
+    desc: "At your GM's discretion, you have taken a Dark Bargain."
+  - name: "Character Threads"
+    desc: "Threads are aspects added to characters at any time during their career that have a specific short or long-term goal."
+  - name: "Runestones"
+    desc: "At the beginning of the Northlands Sagas adventure path, each player should draw one Runestone randomly."
+  - name: "Circle Spell: Augment"
+    desc: "When you cast a spell with a range of at least 5 ft., you can increase the range of the spell by 1,000 ft. per secondary caster contributing to the spell, up to a max of a 1-mile increase."
+  - name: "Circle Spell: Distribute"
+    desc: "When you cast a spell that requires Concentration, you can distribute the mental load of the spell among you and the secondary casters. Once the casting is complete, you and all secondary casters can maintain Concentration on this spell. As long as at least one caster who contributed to the spell maintains this Concentration, the spell’s effects remain active."
+  - name: "Circle Spell: Expand"
+    desc: "When you cast a spell that creates an area of effect, you can increase one dimension of the spell’s area of effect for this casting by 10 ft. per secondary caster contributing to the spell. Each secondary caster contributing to the spell must expend a spell slot (no action required). If the spell fails, these spell slots aren’t expended."
+  - name: "Circle Spell: Prolong"
+    desc: "When you cast a spell that has a duration of 1 min or longer, you can increase the duration of the spell depending on the number of secondary casters contributing to the spell. Each secondary caster contributing to the spell must expend a spell slot (no action required). If the spell fails, these spell slots aren’t expended."
+  - name: "Circle Spell: Safeguard"
+    desc: "When you cast a spell that creates an area of effect, you can carve out a safe zone within that area of effect that is unaffected by the spell for its duration. This safe zone consists of a number of 5-ft. Cubes equal to 5 + the number of secondary casters contributing to the spell (min of 1 Cube). You can arrange the Cubes as you like, but each Cube must be contiguous with at least one other Cube. If the spell’s area of effect can be moved, the safe zone moves with it."
+  - name: "Circle Spell: Supplant"
+    desc: "When you cast a spell that requires at least one Material component with a specified cost that is consumed by the spell, you can reduce the min cost of one such Material component by 50 GP per each secondary caster contributing to the spell. Each secondary caster contributing to the spell must expend a spell slot of a level greater than or equal to the spell’s level (no action required). If the spell fails, these spell slots aren’t expended."
+actions:
+  - name: "Initiate a Circle Spell"
+    desc: "You take a Magic action to initiate casting a Circle spell. When you do so, choose which Circle casting option you’re using for this casting; you must also meet any of the other requirements described in that option’s text. Until the Circle spell’s casting is complete, you must maintain Concentration on the spell."
+  - name: "Longsword"
+    desc: "*Melee Attack Roll:* +8, reach 5 ft. *Hit:* 9 (1d8 + 5) Slashing damage, or 10 (1d10 + 5) Slashing damage if used with two hands."
+  - name: "Spellcasting"
+    desc: "Warlock: Cha spellcasting (spell save DC 16, +8 to hit with spell attacks). Bard: Cha spellcasting (spell save DC 16, +8 to hit with spell attacks)."
+bonus_actions:
+  - name: "Bardic Inspiration (1d8) (5/Long Rest)"
+    desc: "As a Bonus Action, you can inspire another creature within 60 ft. that can see or hear you. That creature gains one of your Bardic Inspiration dice (1d8). Once within the next hour, when the creature fails a D20 Test, the creature can roll the Bardic Inspiration die and add the number rolled to the total, potentially turning the failure into a success. You can confer your Bardic Inspiration die 5 times per Long Rest."
+  - name: "Pact of the Blade: Conjure"
+    desc: "As a Bonus Action, you can conjure a pact weapon in your hand."
+  - name: "Pact of the Blade: Bond"
+    desc: "You can create a bond with a magic weapon you touch. You can’t bond with a magic weapon if someone else attuned to it or another Warlock is bonded with it. Until the bond ends, you’re proficient with it and can use it as a Spellcasting Focus. Your bond with the weapons ends if you use this feature’s Bonus Action again, if the weapon is more than 5 ft. away from you for more than 1 minute, or if you die. A conjured weapon disappears when the bond ends."
+reactions:
+  - name: "Cutting Words"
+    desc: "When a creature that you can see within 60 ft. of you makes a damage roll or succeeds on an ability check or attack roll, you can expend one use of Bardic Inspiration; roll the Bardic Inspiration die and subtract the number rolled from the creature’s roll, reducing the damage or potentially turning the success into a failure."
+```
 
 ### Features
 
-- Longsword pact weapon (Sap), *Eldritch Blast* +8, Bardic Inspiration d8 (5 per Long Rest), Cutting Words, Cunning Pact, Pack Tactics, Scurry, Boneless, Survivor, and Magical Cunning.
-- Blindsight 5 ft. Small size, with whiskers. Swim speed equals walking speed. Languages include Skittercant and Aquan.
+- **Warlock.** Eldritch Invocations, Magical Cunning, Pact Magic
+- **Bard.** Bardic Inspiration, Bonus Proficiencies, Cutting Words, Expertise, Jack of All Trades, Spellcasting
+- **Species.** Keen Senses, Scurry, Rattkin Variety, Swimmer, Survivor, Pack Tactics, Boneless
+- **Feats.** Character Threads, Dark Bargain, Runestones
 
 ## Spells
 
-- **Spellcasting.** Charisma. Save DC 16. Attack +8. Bard slots: four 1st-level and two 2nd-level. Pact slots: two 1st-level, recovered on a Short Rest.
-- **Cantrips.** *Eldritch Blast*, *Green-Flame Blade*, *Mage Hand*, *Minor Illusion*.
-- **1st level.** *Armour of Agathys*, *Cure Wounds*, *Healing Word*, *Hex*, *Protection from Evil and Good*, *Silent Image*, *Tasha's Hideous Laughter*.
-- **2nd level.** *Invisibility*, *Mirror Image*.
+- **Warlock.** Cha spellcasting: save DC 16, spell attack +8.
+- **Bard.** Cha spellcasting: save DC 16, spell attack +8.
+- **Spell slots.** 1st 4, 2nd 2.
+- **Pact magic.** 2 slots of 1st level.
+
+### Cantrips
+
+- Eldritch Blast
+- Green-Flame Blade
+- Mage Hand
+- Minor Illusion
+
+### 1st level
+
+- Armor of Agathys
+- Cure Wounds
+- Healing Word
+- Hex
+- Protection from Evil and Good
+- Silent Image
+- Tasha's Hideous Laughter
+
+### 2nd level
+
+- Invisibility
+- Mirror Image
 
 ## Inventory
 
-- **Attuned.** Cloak of Protection.
-- **Carried.** Studded leather, longsword (Sap), shield (unequipped), 2 daggers (Nick), backpack.
-- **Stowed.** A book, a drum, an orb, 10 flasks of oil, 10 sheets of parchment, a tinderbox, a lamp, an ink pen, and ink.
+- **Coin.** 15 gp.
+
+### Equipped
+
+- Cloak of Protection (uncommon, attuned)
+- Studded Leather
+- Longsword
+- Backpack
+
+### Carried
+
+- Shield
+- Dagger
+- Dagger
+- Book
+- Drum
+- Orb
+- Oil x10
+- Parchment x10
+- Tinderbox
+- Lamp
+- Ink Pen
+- Ink
 
 ## Backstory
 

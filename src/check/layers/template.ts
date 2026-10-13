@@ -289,6 +289,24 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 	}
 
 	const headings2 = page.headings.filter((h) => h.depth === 2);
+	if (fm.type === "PC") {
+		const sheet = headings2.find((h) => h.text === "Sheet");
+		if (sheet) {
+			const end = page.headings.find((h) => h.line > sheet.line && h.depth <= 2)?.line ?? Infinity;
+			const hasStatblock = page.tree.children.some(
+				(node) =>
+					node.type === "code" &&
+					node.lang === "statblock" &&
+					(node.position?.start.line ?? 0) > sheet.line &&
+					(node.position?.start.line ?? Infinity) < end,
+			);
+			if (!hasStatblock) {
+				const message =
+					"Deprecated: PC sheet bullets. Migrate to the shape of wiki/templates/PC.md — run pull-pcs for a public character, or statblock-design (references/fence.md § PC sheet) for a private one; move AC, HP, speed, saves, passive Perception and the ability scores into the fence.";
+				add("retired-shape", sheet.line, message, message.slice(message.indexOf("Migrate")));
+			}
+		}
+	}
 	const order = template.sections.map((s) => `\`${s}\`${template.optional.has(s) ? " (optional)" : ""}`).join(", ");
 	let lastIndex = -1;
 	let lastName = "";

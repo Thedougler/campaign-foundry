@@ -27,13 +27,73 @@ title: "Delmar Fisk"
 
 - **Player.** Frederick
 - **Class, species and level.** Rogue 5 (Swashbuckler), human
-- **Armor Class, Hit Points and Speed.** AC 16. 38 HP. 30 ft.
-- **Passive Perception and save DC.** Passive Perception 14. Cunning Strike save DC 16
-- **Saving throws.** Dexterity +8, Intelligence +3
 
-| Str | Dex | Con | Int | Wis | Cha |
-| --- | --- | --- | --- | --- | --- |
-| 10 (+0) | 20 (+5) | 14 (+2) | 11 (+0) | 12 (+1) | 15 (+2) |
+```statblock
+layout: Basic 5e Layout
+name: "Delmar Fisk"
+size: Medium
+type: humanoid
+subtype: human
+ac: 16
+hp: 38
+hit_dice: "5d8 + 10"
+speed: "30 ft."
+stats: [10, 20, 14, 11, 12, 15]
+modifier: 7
+saves:
+  - dexterity: 8
+  - intelligence: 3
+skillsaves:
+  - acrobatics: 8
+  - insight: 4
+  - investigation: 6
+  - perception: 4
+  - persuasion: 8
+  - sleight of hand: 8
+  - stealth: 8
+senses: "passive Perception 14"
+languages: "Thieves' Cant"
+traits:
+  - name: Sneak Attack
+    desc: "Once per turn, Delmar deals an extra 10 (3d6) damage of the weapon's damage type when he hits with a Finesse or Ranged weapon and has Advantage on the attack roll. He doesn't need Advantage if an ally without the Incapacitated condition is within 5 feet of the target and he doesn't have Disadvantage on the roll."
+  - name: Cunning Strike
+    desc: "When Delmar deals Sneak Attack damage, he can forgo 1d6 before rolling to apply one effect immediately after the attack's damage. Poison requires a Poisoner's Kit on his person: *Constitution Saving Throw:* DC 16, the target. *Failure:* The target has the Poisoned condition for 1 minute, repeating the save at the end of each of its turns and ending the effect on a success. *Success:* No effect. Trip: *Dexterity Saving Throw:* DC 16, a Large or smaller target. *Failure:* The target has the Prone condition. *Success:* No effect. Withdraw: Delmar moves up to half his Speed without provoking Opportunity Attacks."
+  - name: Fancy Footwork
+    desc: "A creature Delmar attacks in melee on his turn can't make Opportunity Attacks against him for the rest of the turn."
+  - name: Rakish Audacity
+    desc: "Delmar adds his Charisma modifier (+2) to initiative rolls, included in his initiative bonus. He doesn't need Advantage to use Sneak Attack against a creature within 5 feet of him if no other creature is within 5 feet of him and he doesn't have Disadvantage on the attack roll."
+  - name: Lucky (3/Long Rest)
+    desc: "Delmar can spend a Luck Point to give himself Advantage when he rolls a d20 for a D20 Test, or to impose Disadvantage on an attack roll against him. He regains all expended Luck Points when he finishes a Long Rest."
+  - name: Tavern Brawler
+    desc: "Delmar's damaging Unarmed Strike uses 1d4 plus his Strength modifier. When he rolls a 1 on its damage die, he can reroll it and must use the new roll."
+  - name: Cloak of the Manta Ray
+    desc: "While wearing the cloak, Delmar has a swimming Speed of 60 feet and can breathe underwater."
+  - name: Explosive Round
+    desc: "When Delmar hits with an explosive rifle round: *Dexterity Saving Throw:* DC 16, the target and each creature within 5 feet of it. *Failure:* 4 (1d8) Fire damage. *Success:* No damage."
+actions:
+  - name: Blunderbuss (+1)
+    desc: "*Ranged Attack Roll:* +9. The blunderbuss is self-loading."
+  - name: Rifle
+    desc: "*Ranged Attack Roll:* +8. *Hit:* 14 (2d8 + 5) Piercing damage. The rifle automatically loads the next round after a shot."
+  - name: Pistol
+    desc: "*Ranged Attack Roll:* +8, range 30/90 ft. *Hit:* 10 (1d10 + 5) Piercing damage."
+  - name: Rapier (Vex)
+    desc: "*Melee Attack Roll:* +8, reach 5 ft. *Hit:* 9 (1d8 + 5) Piercing damage. After Delmar hits and deals damage, he has Advantage on his next attack roll against that creature before the end of his next turn."
+  - name: Dagger (Nick)
+    desc: "*Melee or Ranged Attack Roll:* +8, reach 5 ft. or range 20/60 ft. *Hit:* 7 (1d4 + 5) Piercing damage. Once per turn, Delmar can make the Light property's extra attack as part of the Attack action instead of as a Bonus Action. That extra attack deals 2 (1d4) Piercing damage, without his ability modifier."
+  - name: Unarmed Strike
+    desc: "*Melee Attack Roll:* +3, reach 5 ft. *Hit:* 2 (1d4) Bludgeoning damage."
+bonus_actions:
+  - name: Cunning Action
+    desc: "Delmar takes the Dash, Disengage or Hide action."
+  - name: Steady Aim
+    desc: "If Delmar hasn't moved this turn, he gives himself Advantage on his next attack roll this turn. His Speed becomes 0 until the end of the turn."
+reactions:
+  - name: Uncanny Dodge
+    desc: "When an attacker Delmar can see hits him with an attack roll, he halves the attack's damage against him, rounding down."
+  - name: Firearm Specialist
+    desc: "When Delmar's firearm would misfire, he rolls a d20. A roll above the firearm's misfire score prevents the misfire."
+```
 
 ### Features
 

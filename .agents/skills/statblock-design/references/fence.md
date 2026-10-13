@@ -1,6 +1,6 @@
 # The statblock fence
 
-A statblock is one fence opened with ` ```statblock `, holding YAML that the Obsidian Fantasy Statblocks plugin renders through its `Basic 5e Layout`. It sits under the `## Statblock` heading of a Creature or NPC page (`docs/wiki-layout.md` **Stat blocks**), or alone in a reply.
+A statblock is one fence opened with ` ```statblock `, holding YAML that the Obsidian Fantasy Statblocks plugin renders through its `Basic 5e Layout`. It sits under the `## Statblock` heading of a Creature or NPC page (`docs/wiki-layout.md` **Stat blocks**), under a PC page's `## Sheet` ([PC sheet](#pc-sheet)), or alone in a reply.
 
 The field set follows the plugin's own layout definition, `src/layouts/basic 5e/basic5e.ts` in the [Fantasy Statblocks repository](https://github.com/javalent/fantasy-statblocks), which matches the copy installed at `wiki/.obsidian/plugins/obsidian-5e-statblocks/` (version 4.10.3). The plugin's sample blocks use 2014 wording. This Wiki writes 2024 wording, and the `statblock` check layer (`src/check/statblock/`) recomputes the numbers. Push reads the same fields into Foundry Actors.
 
@@ -15,7 +15,7 @@ The field set follows the plugin's own layout definition, `src/layouts/basic 5e/
    bun run cfcli -- check "<sb>/check.md" --vault "<sb>" --layer statblock
    ```
 
-   Each finding names the field, the expected value and the arithmetic behind it. Correct the block and rerun. **Done when** the check prints `ok: 0 findings`.
+   Each finding gives the field and its expected value, with the arithmetic behind it. Correct the block and rerun. **Done when** the check prints `ok: 0 findings`.
 
 ## Fields
 
@@ -84,3 +84,13 @@ The `statblock` layer recomputes each of these from `stats` and `cr`.
 - **Save DC:** 8 + the proficiency bonus + the modifier of the ability the effect uses. A spell save DC uses the spellcasting ability.
 - **Escape DC:** 10 + the Strength or Dexterity modifier, or 8 + the proficiency bonus + an ability modifier.
 - **Damage:** `13 (2d8 + 4)` puts the average before the dice. The average is the dice's mean plus the flat bonus, rounded down.
+
+## PC sheet
+
+A PC page carries its numbers in the same fence under `## Sheet`, after its Player and class bullets and with no `cr` (`wiki/templates/PC.md` § Sheet). `pull-pcs` writes it from D&D Beyond when the character is public. This run writes or repairs it when the pull can't, because the character is private or the page has no `dndbeyond_url`, and it migrates a sheet still in the retired bullet shape. The page is canon. The fence restates what the page and the Player's words establish.
+
+1. **Gather.** Read the whole PC page, its retired sheet bullets and ability table included, then each archived file its `sources` lists. A Player's own words there, such as a reported level-up, feat or item, are part of the PC's record, and a later record replaces an earlier one. **Done when** each field and each feature that acts in a fight has its source on the page or in an archived file.
+2. **Fields.** Copy the fence from `wiki/templates/PC.md` § Sheet, keep its key order and fill each key per [Fields](#fields). `name` is the page title and `subtype` the species. `ac`, `hp` and `speed` are the values the sheet records. `hit_dice` is the PC's Hit Dice by class with the Constitution term, such as `"5d8 + 10"`, and `modifier` is the initiative bonus. Move each retired bullet's fact into its field (passive Perception into `senses`, saving throws into `saves`, the ability table into `stats`), then delete the bullets and the table. **Done when** every template key has a value and no retired bullet or table remains.
+3. **Entries.** Write each feature that acts in a fight as an entry in its [Entries](#entries) form: each weapon as an attack action, a damage rider such as Sneak Attack as a trait, a reaction feature under `reactions`. A limited use goes in the name, as `(3/Long Rest)`, `(2/Short Rest)`, `(1/Day)` or `(Recharge 5–6)`. A caster gets one `Spellcasting` action naming its ability, spell save DC and spell attack bonus, with the spells it casts in a fight, and `## Spells` keeps the full list. A feature that never acts in a fight stays in `### Features` alone. **Done when** each feature on the page that acts in a fight has its entry.
+4. **Numbers.** Keep each number the page records. Compute each one it leaves out from the recorded class, level and scores by the 2024 rules. The proficiency bonus follows level: +2 at levels 1 to 4, +3 at 5 to 8, +4 at 9 to 12, +5 at 13 to 16 and +6 at 17 to 20. Apply it in the formulas of [Derived numbers](#derived-numbers) in place of the CR's bonus, and add each item bonus the Inventory lists, such as a +1 weapon's. A figure the page neither records nor lets you compute stays out of the fence and goes to the DM as a question. **Done when** each number in the fence is recorded or computed, and the reply lists each computed one with its formula.
+5. **Verify.** Run the page gate (`skill://lint` § Commands). Its `statblock` layer reads the fence's YAML and shape, and with no `cr` it skips the arithmetic, so step 4's formulas are the arithmetic check. **Done when** the page gate prints `ok: 0 findings`.

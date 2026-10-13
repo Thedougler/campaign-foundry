@@ -7334,3 +7334,7 @@
 
 - [[malone-kindled|Malone, Kindled]]
 - [[shattered-sea/index|]]
+
+## [2026-10-13] pull | Pulled PCs from D&D Beyond
+
+- [[perrin-black-jaw|Perrin Black-Jaw]]

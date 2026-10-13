@@ -21,13 +21,86 @@ title: "Crissdalynn Khinriss"
 
 - **Player.** Courtney
 - **Class, species and level.** Monk 5 (Way of the Kensei), aarakocra
-- **Armor Class, Hit Points and Speed.** AC 17. 33 HP. 40 ft. Walk and fly
-- **Passive Perception and save DC.** Passive Perception 16. Monk save DC 14
-- **Saving throws.** Strength +4, Dexterity +7, Constitution +1, Intelligence +0, Wisdom +3, Charisma +0
 
-| Str | Dex | Con | Int | Wis | Cha |
-| --- | --- | --- | --- | --- | --- |
-| 12 (+1) | 19 (+4) | 12 (+1) | 11 (+0) | 16 (+3) | 10 (+0) |
+```statblock
+layout: Basic 5e Layout
+name: Crissdalynn Khinriss
+size: Medium
+type: humanoid
+subtype: aarakocra
+ac: 17
+hp: 33
+hit_dice: "5d8 + 5"
+speed: "40 ft., fly 40 ft."
+stats: [12, 19, 12, 11, 16, 10]
+modifier: 4
+saves:
+  - strength: 4
+  - dexterity: 7
+skillsaves:
+  - acrobatics: 7
+  - athletics: 4
+  - investigation: 3
+  - perception: 6
+senses: "passive Perception 16"
+languages: ""
+traits:
+  - name: Untrained Saving Throws
+    desc: "Constitution +1, Intelligence +0, Wisdom +3, Charisma +0."
+  - name: Martial Arts
+    desc: "While unarmoured and not wielding a Shield, Crissdalynn uses a d8 Martial Arts die and can use Dexterity instead of Strength for her Unarmed Strikes and Monk weapons, including her quarterstaff and shortbow. Her Unarmed Strike Grapple and Shove options use Dexterity for their save DC."
+  - name: Unarmoured Defence and Movement
+    desc: "While not wearing armour or wielding a Shield, Crissdalynn's AC is 17 and her walking speed includes a 10-foot bonus. She cannot fly while wearing Medium or Heavy armour."
+  - name: "Monk's Focus (5/Short or Long Rest)"
+    desc: "Crissdalynn has 5 Focus Points. Her base Monk save DC is 14. While wearing and attuned to her +1 Dragonhide Belt, her Monk save DC is 15."
+  - name: Uncanny Metabolism (1/Long Rest)
+    desc: "When she rolls Initiative, Crissdalynn can regain all expended Focus Points and regain 5 + 1d8 Hit Points."
+  - name: Agile Parry
+    desc: "After making an Unarmed Strike as part of the Attack action while holding her quarterstaff, Crissdalynn gains +2 AC, for AC 19, until the start of her next turn while the staff remains in her hand and she is not Incapacitated."
+  - name: Tavern Brawler
+    desc: "Crissdalynn is proficient with improvised weapons. She can reroll any Unarmed Strike damage die that rolls a 1, using the new roll. Once per turn when she hits with an Unarmed Strike as part of the Attack action, she can also push the target 5 feet away. Her Martial Arts die replaces the feat's smaller d4 damage option."
+  - name: Grappler
+    desc: "Once per turn, an Unarmed Strike hit made as part of the Attack action can both deal damage and attempt a grapple. *Strength or Dexterity Saving Throw:* DC 15, the target chooses the ability; the target must be within reach and no more than one size larger than Crissdalynn. *Failure:* The target has the Grappled condition (escape DC 15). *Success:* The target is not Grappled. Crissdalynn has Advantage on attacks against creatures she grapples and spends no extra movement to move a Grappled creature of her size or smaller."
+  - name: Stunning Strike
+    desc: "Once per turn after hitting a creature with an Unarmed Strike or Monk weapon, Crissdalynn can spend 1 Focus Point. *Constitution Saving Throw:* DC 14, or DC 15 while wearing and attuned to her Dragonhide Belt, the creature hit. *Failure:* The target has the Stunned condition until the start of Crissdalynn's next turn. *Success:* Its Speed is halved until the start of her next turn, and the next attack against it before then has Advantage."
+  - name: Magical Strikes
+    desc: "Her attuned Eldritch Claw Tattoo gives +1 to Unarmed Strike attack and damage rolls, included below. Those strikes count as magical for overcoming resistance and immunity to nonmagical attacks."
+actions:
+  - name: Extra Attack
+    desc: "When Crissdalynn takes the Attack action, she makes two attacks, choosing her Unarmed Strike, Talons, Quarterstaff or Shortbow for each attack."
+  - name: Unarmed Strike
+    desc: "*Melee Attack Roll:* +8, reach 5 ft. *Hit:* 9 (1d8 + 5) Bludgeoning damage."
+  - name: Talons
+    desc: "*Melee Attack Roll:* +8, reach 5 ft. *Hit:* 9 (1d8 + 5) Slashing damage, using Martial Arts and the Eldritch Claw Tattoo."
+  - name: Quarterstaff
+    desc: "*Melee Attack Roll:* +7, reach 5 ft. *Hit:* 8 (1d8 + 4) Bludgeoning damage. *Constitution Saving Throw:* DC 15, the target hit, if Crissdalynn uses Topple. *Failure:* The target has the Prone condition. *Success:* The target is not knocked Prone."
+  - name: Shortbow
+    desc: "*Ranged Attack Roll:* +7, range 80/320 ft. *Hit:* 8 (1d8 + 4) Piercing damage, using her Martial Arts die. Vex gives Crissdalynn Advantage on her next attack against the target before the end of her next turn."
+  - name: Spellcasting (1/Long Rest)
+    desc: "Crissdalynn casts Gust of Wind through Wind Caller without a Material component, requiring Concentration for up to 1 minute. Her chosen Wind Caller spellcasting ability is not recorded."
+  - name: Dragonhide Belt (1/Dawn)
+    desc: "While wearing and attuned to her +1 Dragonhide Belt, Crissdalynn can take an action to regain 1d8 Focus Points, up to her maximum of 5."
+bonus_actions:
+  - name: Martial Arts
+    desc: "While unarmoured, not wielding a Shield and wielding only Monk weapons or no weapons, Crissdalynn makes one Unarmed Strike."
+  - name: Flurry of Blows
+    desc: "Crissdalynn spends 1 Focus Point and makes two Unarmed Strikes."
+  - name: Patient Defence
+    desc: "Crissdalynn takes the Disengage action, or spends 1 Focus Point to take both the Disengage and Dodge actions."
+  - name: Step of the Wind
+    desc: "Crissdalynn takes the Dash action, or spends 1 Focus Point to take both the Disengage and Dash actions and double her jump distance for the turn."
+  - name: "Kensei's Shot"
+    desc: "For the rest of this turn, Crissdalynn's shortbow hits deal an extra 1d4 Piercing damage."
+  - name: Eldritch Maul (1/Dawn)
+    desc: "Crissdalynn empowers her Eldritch Claw Tattoo for 1 minute. Her melee weapon attacks and Unarmed Strikes can reach targets up to 15 feet away and deal an extra 1d6 Force damage on a hit."
+  - name: Redirect Gust of Wind
+    desc: "On turns after casting Gust of Wind, Crissdalynn can change the direction of its Line while maintaining Concentration."
+reactions:
+  - name: Deflect Attacks
+    desc: "When an attack hits Crissdalynn and includes Bludgeoning, Piercing or Slashing damage, she reduces its total damage by 1d10 + 9. If reduced to 0, she can spend 1 Focus Point to redirect its force. *Dexterity Saving Throw:* DC 14, or DC 15 while wearing and attuned to her Dragonhide Belt, one creature she can see within 5 feet for a melee attack, or within 60 feet and not behind Total Cover for a ranged attack. *Failure:* 13 (2d8 + 4) damage of the same type as the original attack. *Success:* No damage."
+  - name: Slow Fall
+    desc: "When she falls, Crissdalynn reduces the falling damage she takes by 25."
+```
 
 ### Features
 

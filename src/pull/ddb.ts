@@ -19,6 +19,8 @@ export interface DdbModifier {
 	dice: unknown;
 	componentId: number;
 	requiresAttunement?: boolean;
+	friendlySubtypeName?: string;
+	bonusTypes?: number[];
 }
 
 export interface DdbSpell {
@@ -28,11 +30,32 @@ export interface DdbSpell {
 	definition: { name: string; level: number };
 }
 
+export interface DdbLimitedUse {
+	maxUses?: number;
+	resetType?: number;
+	statModifierUsesId?: number | null;
+	operator?: number;
+	useProficiencyBonus?: boolean;
+	proficiencyBonusOperator?: number;
+}
+
+export interface DdbFeature {
+	id?: number;
+	name: string;
+	requiredLevel?: number;
+	hideInSheet?: boolean;
+	description?: string | null;
+	snippet?: string | null;
+	activation?: { activationType?: number | null } | null;
+	limitedUse?: DdbLimitedUse | { level: number | null; uses: number }[] | null;
+}
+
 export interface DdbClassDefinition {
 	name: string;
+	hitDice?: number;
 	canCastSpells: boolean;
 	spellCastingAbilityId: number | null;
-	classFeatures?: { name: string; requiredLevel: number }[];
+	classFeatures?: DdbFeature[];
 	spellRules?: { multiClassSpellSlotDivisor?: number; levelSpellSlots?: number[][] };
 }
 
@@ -40,9 +63,14 @@ export interface DdbClass {
 	level: number;
 	definition: DdbClassDefinition;
 	subclassDefinition: (DdbClassDefinition & { name: string }) | null;
+	classFeatures?: {
+		definition: DdbFeature;
+		levelScale?: { dice?: { diceString?: string | null } | null; fixedValue?: number | null } | null;
+	}[];
 }
 
 export interface DdbItem {
+	id?: number;
 	quantity: number;
 	equipped: boolean;
 	isAttuned: boolean;
@@ -56,6 +84,14 @@ export interface DdbItem {
 		filterType?: string | null;
 		armorClass?: number | null;
 		armorTypeId?: number | null;
+		type?: string | null;
+		categoryId?: number | null;
+		attackType?: number | null;
+		damage?: { diceString?: string | null; diceCount?: number; diceValue?: number } | null;
+		damageType?: string | null;
+		range?: number | null;
+		longRange?: number | null;
+		properties?: { name: string; notes?: string | null }[] | null;
 		grantedModifiers?: DdbModifier[];
 	};
 }
@@ -70,18 +106,23 @@ export interface DdbCharacter {
 	baseHitPoints: number | null;
 	bonusHitPoints: number | null;
 	overrideHitPoints: number | null;
+	/** DDB customization ids: 1 = AC override; 28 = selected Pact of the Blade weapon (inventory id). */
+	characterValues?: { typeId: number; value: number | boolean | string | null; valueId?: number | string | null }[];
+	customSenses?: { senseId: number; distance: number | string | null }[];
 	classes: DdbClass[];
 	race: {
 		fullName?: string | null;
 		baseRaceName?: string | null;
+		sizeId?: number;
 		weightSpeeds?: { normal?: Partial<Record<"walk" | "fly" | "swim" | "climb" | "burrow", number>> | null } | null;
-		racialTraits?: { definition: { name: string; hideInSheet?: boolean } }[];
+		racialTraits?: { definition: DdbFeature }[];
 	};
 	modifiers: Partial<Record<"race" | "class" | "background" | "item" | "feat" | "condition", DdbModifier[] | null>>;
 	inventory: DdbItem[];
 	classSpells: { spells: DdbSpell[] | null }[];
 	spells: Partial<Record<"race" | "class" | "background" | "item" | "feat", DdbSpell[] | null>>;
-	feats: { definition: { name: string } }[];
+	feats: { definition: DdbFeature }[];
+	actions?: Partial<Record<"race" | "class" | "feat" | "item" | "background", DdbFeature[] | null>> | null;
 	currencies?: Partial<Record<"pp" | "gp" | "ep" | "sp" | "cp", number>> | null;
 }
 

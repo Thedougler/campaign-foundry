@@ -83,8 +83,8 @@ a creature, monster or other sentient thing other than an NPC: a kind of being (
 _Avoid_: monster (as a page kind), enemy, actor, stat block (as a page kind)
 
 **Statblock**:
-a being's D&D 2024 game statistics: one Fantasy Statblocks `statblock` fence under the `## Statblock` heading of the Creature or NPC page it belongs to. A page has at most one, and other pages link that page or, in an Encounter where the being is fought, embed the section.
-_Avoid_: stat sheet or stats page; character sheet (that's a PC's Sheet)
+a being's D&D 2024 game statistics: one Fantasy Statblocks `statblock` fence on the page it belongs to. A Creature or NPC page has it under `## Statblock`, and a PC page has it under `## Sheet` without a CR. A page has at most one, and other pages link that page or, in an Encounter where the being is fought, embed the section.
+_Avoid_: stat sheet or stats page; character sheet (a PC's Sheet is the section that contains its Statblock)
 
 **Faction**:
 an organised group with shared goals in a World, such as a guild, cult, noble house or army.
@@ -117,7 +117,7 @@ _Avoid_: history, background, notes, setting info
 ### Campaign pages
 
 **PC**:
-a Player's character in a Campaign, sheet and story together. Its page is canon for both: the sheet side holds the PC's numbers as a Statblock-style fence, which `pull-pcs` refreshes from D&D Beyond when the character is public and agents keep by hand when it isn't.
+a Player's character in a Campaign, sheet and story together. Its page is canon for both: the sheet side holds the PC's numbers as its Statblock, which `pull-pcs` refreshes from D&D Beyond when the character is public and agents keep by hand through `statblock-design` when it isn't.
 _Avoid_: player (the human), hero, character
 
 **Thread**:
