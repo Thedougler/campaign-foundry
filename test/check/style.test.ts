@@ -103,25 +103,6 @@ describe("style adapter contract", () => {
 		expect(found[0]?.hint).toContain(section);
 	});
 
-	it.each([
-		["Depth", "the specific section"],
-		["InUse", "Properties"],
-		["Story", "Backstory"],
-		["Changes", "Changes to the World"],
-		["Next", "Next Session"],
-	])("maps Narration.%s to its template migration hint", async (rule, destination) => {
-		const ctx = await context("## Heading\n");
-		const found = await styleLayerWith({
-			async check() {
-				return new Map([["Target.md", [alert(`Narration.${rule}`)]]]);
-			},
-		}).run(ctx);
-		expect(found).toHaveLength(1);
-		expect(found[0]?.severity).toBe("error");
-		expect(found[0]?.hint).toContain("wiki/templates/");
-		expect(found[0]?.hint).toContain(destination);
-	});
-
 	it("passes line-preserving gate, craft and Cue views and accepts only Narration rules from the Cue pass", async () => {
 		const source = [
 			"## At a glance",

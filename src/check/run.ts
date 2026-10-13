@@ -25,6 +25,8 @@ export interface CheckOptions {
 	paths?: string[];
 	fix?: boolean;
 	dryRun?: boolean;
+	/** Page-check hooks omit the whole-vault repeated-prose scan; explicit checks retain it. */
+	skipBoilerplate?: boolean;
 	/** Override the layer registry (tests). */
 	registry?: Layer[];
 	/** Vault files, already read; default: read from `vault`. Commands that overlay virtual pages pass their own. */
@@ -95,17 +97,13 @@ export async function runCheck(options: CheckOptions): Promise<CheckResult> {
 			`Available layers: ${registry.map((l) => l.name).join(", ")}. Example: cfcli check --layer ${registry[0]?.name ?? "template"}`,
 		);
 	}
-	const active = selected.flatMap((name) => {
+	let active = selected.flatMap((name) => {
 		const layer = registry.find((l) => l.name === name);
 		return layer ? [layer] : [];
 	});
 	const scope = (options.paths ?? []).map((p) => resolve(options.cwd, p));
 
-	const [files, templates] = await Promise.all([
-		options.files ?? readVaultFiles(options.vault),
-		options.templates ? loadTemplates(options.templates) : Promise.resolve(NO_TEMPLATES),
-	]);
-	let vault: Vault = buildVault(options.vault, files);
+	const files = options.files ?? (await readVaultFiles(options.vault));
 	const display =
 		options.display ??
 		((vaultPath: string): string => relative(options.cwd, join(options.vault, vaultPath)).split(sep).join("/"));
@@ -117,10 +115,34 @@ export async function runCheck(options: CheckOptions): Promise<CheckResult> {
 		const abs = resolve(options.cwd, path);
 		return scope.some((s) => abs === s || abs.startsWith(s + sep));
 	};
-	let targets =
-		exactTargets || scope.length
-			? vault.pages.filter((page) => (exactTargets ? exactTargets.has(page.path) : inScope(display(page.path))))
-			: vault.pages;
+	const scopedRun = exactTargets !== undefined || scope.length > 0;
+	const targetFiles = [...files.markdown].filter(([path]) =>
+		exactTargets ? exactTargets.has(path) : inScope(display(path)),
+	);
+	active = active.filter((layer) => {
+		if (layer.name === "boilerplate" && options.skipBoilerplate) return false;
+		if (layer.name === "index" && scopedRun) return false;
+		if (layer.name === "hot") return targetFiles.some(([path]) => /(?:^|\/)hot\.md$/i.test(path));
+		if (layer.name === "log") return targetFiles.some(([path]) => /(?:^|\/)log(?:-\d{4})?\.md$/i.test(path));
+		if (layer.name === "mermaid")
+			return targetFiles.some(([, source]) =>
+				/^[ \t>]*(?:(?:[-+*]|\d+[.)])[ \t]+)?(?:`{3,}|~{3,})mermaid(?:[ \t].*)?$/m.test(source),
+			);
+		return true;
+	});
+	if (active.length === 0)
+		return {
+			findings: [],
+			fixes: [],
+			pages: targetFiles.length,
+			layers: [],
+			durationMs: Math.round(performance.now() - started),
+		};
+	let vault: Vault = buildVault(options.vault, files);
+	let targets = scopedRun
+		? vault.pages.filter((page) => (exactTargets ? exactTargets.has(page.path) : inScope(display(page.path))))
+		: vault.pages;
+	const templates = options.templates ? await loadTemplates(options.templates) : NO_TEMPLATES;
 	const context = (layer: Layer): CheckContext => ({
 		vault: options.contextVault ?? vault,
 		pages: layer.scope === "vault" ? (options.contextVault ?? vault).pages : targets,

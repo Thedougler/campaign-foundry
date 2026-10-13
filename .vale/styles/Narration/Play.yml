@@ -1,7 +1,0 @@
-extends: existence
-message: "Deprecated section: 'Play'. Migrate now to the shape of wiki/templates/<type>.md and follow its skill. Delete this section; move any fact no other part of the page holds into the specific section whose job it is."
-level: error
-scope: heading.h2
-nonword: true
-tokens:
-  - '^Play\s*$'

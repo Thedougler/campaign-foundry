@@ -26,13 +26,13 @@ For each needed element, use the first fitting source in this order:
 
 Stop when a source fits the need. Skip a source only when nothing in it applies, and when its relevant material does not fit, record why before moving on. Foundry is never a source. Record the selected source and any adaptation in working evidence or a body attribution. The `sources` property lists only repo-relative paths to archived Raw. Preserve valid existing provenance.
 
-Reuse linked owner pages before creating new ones. Use `npc-design` when a new recurring person or someone the Party will directly deal with needs an NPC page, `faction-design` for a new organised actor, and `creature-design`, `item-design` or `spell-design` when their rules are needed. Send each skill only its missing element, Canon, local purpose and caller operation. Receive the real owner pages and their paths. Full owned rules belong on those pages per ADR 0005, while a Location links them and keeps only the local circumstances needed to run it. Creature stat blocks stay off Location pages.
+Reuse linked owner pages before creating new ones. Use `npc-design` when a new recurring person or someone the Party will directly deal with needs an NPC page, `faction-design` for a new organised actor, `creature-design` for a new kind of being, `statblock-design` when a Creature or NPC needs its combat statistics, and `item-design` or `spell-design` when their rules are needed. Send each skill only its missing element, Canon, local purpose and caller operation. Receive the real owner pages and their paths. Full owned rules belong on those pages per ADR 0005, while a Location links them and keeps only the local circumstances needed to run it. Statblocks stay off Location pages.
 
 **Complete when** each reused, adapted or invented element has sourcing evidence, and every required owner page exists or has an identified authoring hand-off.
 
 ## 3. Write and link pages
 
-Use the current template as the only authority for properties, required `##` headings in order, callout types and the condition on each optional part. Fill its properties, use `type: Location` and the chosen Kind, and give the page a useful one-line summary. Add each optional section and callout whose guidance condition the Location meets, add a `###` heading only for a place the DM runs on its own, and remove all `%%` guidance. Keep the template's Links view rather than rebuilding its Base.
+Use the current template as the only authority for properties, required `##` headings in order, callout types and the condition on each optional part. Fill its properties, use `type: Location` and the chosen Kind, and give the page a useful one-line summary. Add each optional section and callout whose guidance condition the Location meets, add a `###` heading only for a place the DM runs on its own, and remove all `%%` guidance. When the page has `## Links`, copy the template's Base rather than rebuilding it.
 
 File in the flat `<campaign-folder>/Locations/` directory, its `title` the Location's name and its filename that title's slug (`docs/wiki-layout.md` **Page names**). A page already filed keeps its folder, and a World-free Location and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**. A nonempty `parent` holds a quoted wikilink that resolves. A top-level Region keeps the empty value. Only `parent` records containment, so folder placement never implies it. Resolve name collisions across the vault before choosing the title.
 
@@ -46,7 +46,7 @@ Write British English. Add an in-world word without its own page to `.cspell-wor
 
 ## 4. Gate and record the operation
 
-Close per `skill://lint` § Commands over every page this run touched, repairing each finding without changing Canon and reading `bun run cfcli -- check --help` first so paths and flags match the installed CLI. Never edit generated indexes by hand. When the caller assigns an explicit filesystem target, give every command its `--vault` and `--root`, and each check `--templates` (**Another root** there).
+Close per `skill://lint` § Commands over every page this run touched, sending each page with findings to a `linter` (root `AGENTS.md` **Gate scope**) and reading `bun run cfcli -- check --help` first so paths and flags match the installed CLI. Never edit generated indexes by hand. When the caller assigns an explicit filesystem target, give every command its `--vault` and `--root`, and each check `--templates` (**Another root** there).
 
 After a successful standalone operation, append exactly one entry listing each touched content page, using its vault-relative path. Replace the placeholders and repeat `--page` as needed:
 
@@ -56,4 +56,4 @@ bun run cfcli -- log --op create --title "Design <Location>" --page "<campaign-f
 
 `create` includes deepening a Location outside Ingest or Prep. A composed request returns touched paths, Canon decisions and unresolved findings to its caller. The caller runs the final gate and writes one entry under its existing operation. A child hand-off leaves logging to the caller.
 
-**Complete when** the page gate has printed `ok: 0 findings` and the standalone operation has one log entry, or the composed return supplies every artifact and touched path needed for its caller's gate and log. Findings are repair work. Report only missing tooling as an observed blocker, never claiming an unrun or failing gate passed.
+**Complete when** the page gate has printed `ok: 0 findings` and the standalone operation has one log entry, or the composed return supplies every artifact and touched path needed for its caller's gate and log. Findings are `linter` work. Report only missing tooling as an observed blocker, never claiming an unrun or failing gate passed.

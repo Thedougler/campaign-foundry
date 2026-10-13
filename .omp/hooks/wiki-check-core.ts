@@ -110,9 +110,9 @@ function isFinding(value: unknown): value is Finding {
 }
 
 const repairGuidance =
-	"wiki-check is read-only page-check feedback, not repair authority. Load skill://lint and repair the reported findings; clean means zero findings, including warnings, regardless of ok or exit code. The hook doesn't apply fixes. The final combined slice gate still applies.";
+	"wiki-check is read-only page-check feedback. Load skill://lint and dispatch the linter for each affected file, one file per dispatch (ADR 0045); clean means zero findings, including warnings, regardless of ok or exit code. The hook doesn't apply fixes. The final combined slice gate still applies.";
 const manualGuidance =
-	"wiki-check did not provide a complete page check. Do not treat any unchecked page or capped list as clean. Run `bun run cfcli -- check` for all affected pages yourself, then use skill://lint as the repair authority. The hook doesn't apply fixes. The final combined slice gate still applies.";
+	"wiki-check did not provide a complete page check. Do not treat any unchecked page or capped list as clean. Run `bun run cfcli -- check` for all affected pages yourself, then load skill://lint and dispatch the linter for each affected file, one file per dispatch (ADR 0045). The hook doesn't apply fixes. The final combined slice gate still applies.";
 
 /** Raw findings stay in tool data. Only fixed, hook-authored guidance enters trusted context. */
 export function feedback(
@@ -121,7 +121,13 @@ export function feedback(
 	incomplete: { omitted: number; inputCapped: boolean } = { omitted: 0, inputCapped: false },
 ): { text: string; additionalContext?: string } {
 	const manualCheck = `bun run cfcli -- check ${pages.map((path) => `'${path.replaceAll("'", "'\\''")}'`).join(" ")}`;
-	const base = { hook: "wiki-check", pages, readOnly: true, command: "cfcli check --json (all layers)", ...incomplete };
+	const base = {
+		hook: "wiki-check",
+		pages,
+		readOnly: true,
+		command: "cfcli check --json --skip-boilerplate (applicable page layers)",
+		...incomplete,
+	};
 	const failed = (failure: string, detail?: string) => ({
 		text: JSON.stringify({
 			...base,

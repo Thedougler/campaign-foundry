@@ -2,7 +2,6 @@
 type: NPC
 summary: "Toll keeper's widow who wants the whole ledger read."
 sources: []
-creature: ""
 parent: "[[Stonewatch Tollhouse]]"
 revealed: ""
 title: "Sela Marren"

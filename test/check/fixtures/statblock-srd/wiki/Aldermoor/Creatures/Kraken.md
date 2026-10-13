@@ -2,11 +2,16 @@
 type: Creature
 summary: "Kraken, from the SRD 5.2 monsters."
 sources: []
+cr: ""
+creature_type: ""
+size: ""
+habitat: []
+sourcebooks: []
 revealed: ""
 title: "Kraken"
 ---
 
-## At a glance
+## Overview
 
 - **Role at the table.** Text.
 - **Threat.** Text.
@@ -81,11 +86,11 @@ legendary_actions:
     desc: "*Constitution Saving Throw:* DC 23, each creature in a 15-foot Emanation originating from the kraken while it is underwater. *Failure:* The target has the Blinded and Poisoned conditions until the end of the kraken’s next turn. The kraken then moves up to its Speed. *Failure or Success:* The kraken can’t take this action again until the start of its next turn."
 ```
 
-## Play
+## Tactics
 
 Text.
 
-## Depth
+## History
 
 Text.
 

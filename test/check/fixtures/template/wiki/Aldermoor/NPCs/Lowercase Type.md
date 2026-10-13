@@ -2,7 +2,6 @@
 type: npc
 summary: "A ferrywoman."
 sources: []
-creature: ""
 title: "Lowercase Type"
 ---
 

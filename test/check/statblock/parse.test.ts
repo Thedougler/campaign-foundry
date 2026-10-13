@@ -73,6 +73,12 @@ describe("parseStatblock", () => {
 		expect(issues.map((i) => i.rule).sort()).toEqual(["cr-invalid", "stats-invalid"]);
 	});
 
+	it("accepts a missing cr", () => {
+		const { issues, statblock } = parseStatblock("stats: [10, 10, 10, 10, 10, 10]\n");
+		expect(issues).toEqual([]);
+		expect(statblock?.cr).toBeUndefined();
+	});
+
 	it("locates actual values by line, one-based within the block", () => {
 		const { statblock } = parseStatblock(GOBLIN);
 		expect(statblock?.lines({ key: "hp" })).toEqual([6]);

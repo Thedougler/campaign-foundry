@@ -1,7 +1,0 @@
-extends: existence
-message: "Deprecated: Changes. Migrate to the shape of wiki/templates/Recap.md — see ingest; move state changes into Changes to the World."
-level: error
-scope: heading.h2
-nonword: true
-tokens:
-  - '^Changes\s*$'

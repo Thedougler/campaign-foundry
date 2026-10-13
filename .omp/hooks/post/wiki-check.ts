@@ -135,7 +135,7 @@ export function createWikiCheckHandler(
 				try {
 					return await run({
 						command: "bun",
-						args: ["run", "cfcli", "--", "check", "--json", "--root", repoRoot, ...pages],
+						args: ["run", "cfcli", "--", "check", "--json", "--skip-boilerplate", "--root", repoRoot, ...pages],
 						cwd: repoRoot,
 						timeoutMs: LIMITS.timeoutMs,
 						maxOutputBytes: LIMITS.outputBytes,

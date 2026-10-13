@@ -1,7 +1,0 @@
-extends: existence
-message: "Deprecated: Depth. Migrate to the shape of wiki/templates/<type>.md — see the page kind's design skill; facts move to the specific section whose job they are."
-level: error
-scope: heading.h2
-nonword: true
-tokens:
-  - '^Depth\s*$'

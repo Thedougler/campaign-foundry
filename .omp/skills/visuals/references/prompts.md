@@ -49,7 +49,7 @@ A character's look is the page's own words, copied whole:
 - **NPC**: the `[!narration] First look` callout, plus any physical detail in `## Roleplaying`.
 - **Item**: the `[!narration] First look` callout and any physical detail in `## Properties`. A page without a First look gives the plain description after the classification line in `## Properties`.
 - **PC**: the `[!narration] Portrait` callout. The party table in the art guide's § Looks fills gaps, and where the two differ, the PC page is right.
-- **Creature**: the `[!narration] First sight` callout and the physical lines of `## Ecology`, with size and type from `## Statblock`.
+- **Creature**: the `[!narration] First sight` callout and the physical lines of `## Ecology`, with size and type from `## Statblock` when the page has one.
 - **Location**: its `[!narration]` callout and the features its sections name.
 
 A person's look is too thin to draw when the page lacks their build, face, colouring or clothing. Ask the DM for exactly the parts it lacks.

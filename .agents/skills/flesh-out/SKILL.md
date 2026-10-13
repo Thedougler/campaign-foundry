@@ -34,7 +34,8 @@ When the page is missing, or its structure fails its owner skill's Done criteria
 | Region, Settlement or ordinary Site | `location-design` |
 | Site explored area by area | `dungeon-design` |
 | NPC drives, secret, voice and first meeting | `npc-design` |
-| Creature statistics, signature and ecology | `creature-design` |
+| Creature signature, behaviour and ecology | `creature-design` |
+| Creature or NPC combat statistics | `statblock-design` |
 | Item rules and identity | `item-design` |
 | Vehicle statistics, crew and decks | `vehicle-design` |
 | Faction engine, faces and agenda | `faction-design` |
@@ -144,6 +145,6 @@ Test every page this pass changed, and stop adding once every applicable test pa
 
 ### 9. Check and log
 
-Check each changed page per root `AGENTS.md` **Gate scope** and rewrite the text behind every finding. Then close per `skill://lint` § Commands with every changed page, `--op create` and `--title "Flesh out <Page>"`: run standalone, this pass logs once. Run inside another skill, this pass leaves the log entry to the enclosing operation. When spoken Narration is also part of the work, this pass ends here and `theatre-of-the-mind` continues from the stocked page.
+Check each changed page per root `AGENTS.md` **Gate scope** and send each page with findings to a `linter`. Then close per `skill://lint` § Commands with every changed page, `--op create` and `--title "Flesh out <Page>"`: run standalone, this pass logs once. Run inside another skill, this pass leaves the log entry to the enclosing operation. When spoken Narration is also part of the work, this pass ends here and `theatre-of-the-mind` continues from the stocked page.
 
 **Done when** the page gate reports `ok: 0 findings` on every changed page, and the reply lists the touched paths, each fact decided as Canon and the gate result.

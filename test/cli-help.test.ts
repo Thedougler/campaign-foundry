@@ -1,7 +1,7 @@
 import { join } from "node:path";
 import { describe, expect, it, vi } from "vitest";
 import { commands } from "../src/commands/index.ts";
-import { cf, repoRoot } from "./check/helpers.ts";
+import { cf, repoRoot, vaultFlags } from "./check/helpers.ts";
 
 /**
  * One place for the agent-facing CLI discoverability contract: every covered
@@ -21,7 +21,8 @@ type CommandCase = {
 
 const narrationVault = join(repoRoot, "test/narration/fixtures/wiki");
 const narrationRoot = join(repoRoot, "test/narration/fixtures");
-const wikiVault = join(repoRoot, "wiki");
+const cleanRoot = join(repoRoot, "test/check/fixtures/clean");
+const cleanVault = join(cleanRoot, "wiki");
 
 const COMMANDS: CommandCase[] = [
 	{
@@ -51,13 +52,13 @@ const COMMANDS: CommandCase[] = [
 	{
 		listed: "revealed",
 		help: ["revealed"],
-		usage: ["revealed", "--campaign", "Nope", "--vault", wikiVault, "--root", repoRoot],
-		example: 'bun run cfcli -- revealed --campaign "Shattered Sea"',
+		usage: ["revealed", "--campaign", "Nope", "--vault", cleanVault, "--root", cleanRoot],
+		example: /revealed --campaign/,
 	},
 	{
 		listed: "log",
 		help: ["log"],
-		usage: ["log"],
+		usage: ["log", ...vaultFlags(cleanRoot)],
 		example: "bun run cfcli -- log --campaign",
 	},
 	{

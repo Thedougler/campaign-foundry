@@ -2,7 +2,6 @@
 type: NPC
 summary: "A ferrywoman."
 sources: ["archive/real-transcript.md"]
-creature: ""
 revealed: ""
 title: "Sources Ok"
 ---

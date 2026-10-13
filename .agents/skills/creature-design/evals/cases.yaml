@@ -1,71 +1,49 @@
-# Default case (creature split 2026-10-11: the in-world Creature page with every section). Adapts the recovered production retune ask in issue #34 into a complete Creature request.
+# Default case (statblock split 2026-10-12): a filed Campaign Creature deepened as a being. Its statblock stays as published, since the ask names no retune, and the page migrates its retired At a glance, Play and Depth layout to the template's sections (docs/wiki-layout.md **Retired shapes**). Statistics belong to statblock-design, whose cases cover a retune.
 - id: creature
   source_pages:
-    - shattered-sea/NPCs/talon-skarn.md
-    - shattered-sea/Creatures/talon-skarn-creature.md
-    - shattered-sea/Sessions/Session 11/session-11-recap.md
+    - shattered-sea/Creatures/terror-bird.md
+    - shattered-sea/Sessions/Session 12/session-12-the-smoking-skylight.md
+    - shattered-sea/Sessions/Session 12/session-12-terror-birds.md
   prompt: >-
-    Redo Talon Skarn's statblock so he's a powerful, engaging antagonist
-    and fun for the Party to fight. He wants Crissdalynn's Fate Spinner
-    for Vantyrus, not a prolonged fight, and he's loyal to Vantyrus for now.
-    Jean-Claude will be awake next Session. Keep Skarn easy for me to run.
-    Make the whole Creature page usable, not just the numbers, with a
-    proper first sight I can read out and what he's like outside a fight.
+    The Terror-Bird page needs work before the Party heads back to Aruhe.
+    I want to know how they actually live there, what the Party can find
+    before one finds them, and how they could drive one off or slip past it
+    without a fight. Leave its numbers alone.
   checks:
     pages:
-      - shattered-sea/Creatures/talon-skarn-creature.md
+      - shattered-sea/Creatures/terror-bird.md
     sections:
-      shattered-sea/Creatures/talon-skarn-creature.md:
+      shattered-sea/Creatures/terror-bird.md:
         - "## Statblock"
         - "## Tactics"
         - "## Outside a fight"
         - "## Ecology"
         - "## Hidden truths"
-        - "## Links"
     canon:
-      shattered-sea/Creatures/talon-skarn-creature.md:
+      shattered-sea/Creatures/terror-bird.md:
         - '^type:\s*Creature\s*$'
-        - 'layout: Basic 5e Layout'
         - '^```statblock\b'
+        - '^hp: 200\s*$'
         - '\[!narration\] First sight'
     absent:
-      shattered-sea/NPCs/talon-skarn.md:
-        - '^```statblock\b'
-        - '!\[\[[^\]|]+#Statblock(\|[^\]]*)?\]\]'
+      shattered-sea/Creatures/terror-bird.md:
+        - '^## (At a glance|Play|Depth)\s*$'
   rubrics:
     - >-
-      The fight is the one the DM asked for: Skarn goes for Crissdalynn's
-      Fate Spinner rather than a long brawl. The theft plays as an
-      interruptible contest with tells the Party can see coming, distinct
-      ways to stop it and real choices about position, flight and rescuing
-      an ally; it stays tense and winnable, never a required loss or a
-      damage race.
+      The Terror-Birds read as this Aruhe predator and no other: where they
+      range on the lava-tube ground, what they eat, and a trace the Party can
+      find before contact for each signature, such as the straight beaten
+      line and the thrum of the stride.
     - >-
-      Skarn reads as this falcon-headed thief and nobody else: his look,
-      habits, traces and life outside a fight give the DM a peregrine monk
-      to play in a conversation or a chase, and each hidden truth has a
-      concrete way to come out in play.
+      The page gives the Party real ways to avoid a fight: what drives one
+      off or turns it aside (the ground it refuses, the gag), and how it
+      answers hiding or retreat, each consistent with its statblock entries.
     - >-
-      The statblock is correct, complete and easy to run at the table under
-      the 2024 rules: clear timing, targets, limits and condition endings,
-      short tactics and a clear point where he breaks off, pitched as a
-      powerful antagonist without the DM rebuilding anything.
-    - >-
-      His established identity, knowledge, withdrawal and spent resources
-      hold except where the DM changed them. Present loyalty to Vantyrus can
-      sit beside a future Rule of Two rivalry, and the unresolved Session 11
-      attack is not rewritten as a completed theft or breakoff, with played
-      records unchanged.
-    - >-
-      First sight lands in one hearing and puts Skarn in the listeners'
-      sight as this falcon-headed monk rather than a generic silhouette:
-      size at a scale the table can use, a grounded detail beyond sight
-      and the visible tells of his
-      signature. It stops before Players act, tells them no feelings,
-      mechanics, hidden motives or things their characters have not
-      learned, and respects Narration already heard at the table.
+      Every fact from the old At a glance, Play and Depth sections survives
+      in the section whose guidance asks for it, the statblock's numbers are
+      unchanged, and played records and heard Narration stay as they were.
 
-# creature split 2026-10-11: generic reusable monster, statblock only, no World. Files a World-free page at the vault root's Creatures/ from wiki/templates/creature.md, keeping only its Statblock and Links Base and leaving out the Campaign-bound `revealed` (docs/wiki-layout.md **World-free pages**, ADR 0039, ADR 0040). No source_pages by design (evals/README.md § Grounding); Design verdict pending its first baseline run. Derived-number arithmetic is the Checks' `statblock` gate layer, not a rubric.
+# creature split 2026-10-11: generic reusable monster, statblock only, no World. Files a World-free page at the vault root's Creatures/ from wiki/templates/creature.md, keeping only its frontmatter and Statblock and leaving out the Campaign-bound `revealed` (docs/wiki-layout.md **World-free pages**, ADR 0039, ADR 0040, ADR 0044). creature-design routes the statistics to statblock-design. `## Links` is optional, so the absent check tolerates it. No source_pages by design (evals/README.md § Grounding); Design verdict pending its first baseline run. Derived-number arithmetic is the Checks' `statblock` gate layer, not a rubric.
 - id: generic-monster
   prompt: >-
     I want a monster for my own collection that isn't tied to any campaign
@@ -78,11 +56,10 @@
     sections:
       Creatures/mire-lurker.md:
         - "## Statblock"
-        - "## Links"
     canon:
       Creatures/mire-lurker.md:
         - '^type:\s*Creature\s*$'
-        - '^```base\b'
+        - '^cr: [0-9.]+\s*$'
         - '^```statblock\b'
         - '^layout: Basic 5e Layout\s*$'
         - '(Melee|Ranged) Attack Roll:'

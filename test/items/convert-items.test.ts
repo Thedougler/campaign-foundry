@@ -65,6 +65,16 @@ afterEach(async () => {
 	await Promise.all(roots.splice(0).map((root) => rm(root, { recursive: true, force: true })));
 });
 
+/** One Item heading and its body from a 5etools export, without parsing the rest of the file. */
+function itemBlock(corpus: string, title: string): string {
+	const heading = `#### ${title}\n`;
+	const from = corpus.startsWith(heading) ? 0 : corpus.indexOf(`\n${heading}`);
+	const at = from === 0 ? 0 : from + 1;
+	if (from < 0) throw new Error(`Corpus is missing ${heading.trim()}`);
+	const next = corpus.indexOf("\n#### ", at + heading.length);
+	return corpus.slice(at, next < 0 ? undefined : next).trim();
+}
+
 async function fixture(): Promise<string> {
 	const root = await mkdtemp(join(tmpdir(), "cf-items-"));
 	roots.push(root);
@@ -270,7 +280,7 @@ describe("convert-items CLI", () => {
 		const original = await readFile(join(root, "wiki/Items/brass-key.md"), "utf8");
 		const page = parsePage("Items/brass-key.md", original);
 		expect(page.frontmatter).toEqual({ title: "Brass Key", type: "Item", summary: "", sources: ["archive/keys.md"] });
-		expect(page.headings.map(({ text }) => text)).toEqual(["Properties", "Links"]);
+		expect(page.headings.map(({ text }) => text)).toEqual(["Properties"]);
 		const repeated = await cf(args, root);
 		expect(repeated.stdout).toContain("skip\twiki/Items/brass-key.md");
 		expect(repeated.stdout).toContain("created: 0, skipped: 1");
@@ -295,14 +305,14 @@ describe("convert-items CLI", () => {
 		const root = await fixture();
 		const slice = await readFile(join(repoRoot, "test/items/fixtures/all-magic-items.md"), "utf8");
 		const archived = join(repoRoot, "archive/all-magic-items.md");
-		const corpus = existsSync(archived) ? archived : join(repoRoot, "raw/all-magic-items.md");
-		const originals = new Map(parseItems(await readFile(corpus, "utf8")).map((item) => [item.title, item]));
+		const corpusPath = existsSync(archived) ? archived : join(repoRoot, "raw/all-magic-items.md");
+		const corpus = await readFile(corpusPath, "utf8");
 		const items = parseItems(slice);
 		expect(items).toHaveLength(20);
-		for (const item of items) expect(item).toEqual(originals.get(item.title));
+		for (const item of items) expect(parseItems(itemBlock(corpus, item.title))[0]).toEqual(item);
 		for (const name of ["blade-of-broken-mirrors-dormant.md", "dwarven-thrower.md"]) {
 			const [item] = parseItems(await readFile(join(repoRoot, "test/items/fixtures", name), "utf8"));
-			expect(item).toEqual(originals.get(item!.title));
+			expect(parseItems(itemBlock(corpus, item!.title))[0]).toEqual(item);
 		}
 		await mkdir(join(root, "archive"));
 		await writeFile(join(root, "archive/all-magic-items.md"), slice);
@@ -331,7 +341,10 @@ describe("convert-items CLI", () => {
 		const generated = await readFile(join(root, "wiki/Items/acid-absorbing-tattoo.md"), "utf8");
 		const reference = await readFile(join(repoRoot, "wiki/Items/acid-absorbing-tattoo.md"), "utf8");
 		const withoutProvenance = (text: string): string =>
-			text.replace(/^summary:.*\n/m, "").replace(/^sources:.*\n(?:[ \\t]+-.*\n)*/m, "");
+			text
+				.replace(/^summary:.*\n/m, "")
+				.replace(/^sources:.*\n(?:[ \\t]+-.*\n)*/m, "")
+				.replace(/\n+## Links\n[\s\S]*$/, "\n");
 		expect(withoutProvenance(generated)).toBe(withoutProvenance(reference));
 	});
 

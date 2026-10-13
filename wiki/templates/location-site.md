@@ -27,7 +27,7 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ## Occupants
 
-%% Optional. Include it when someone keeps or inhabits the Site. Link each. Give where they are and what they seek here. Then give their offer and how they answer the Party. If ignored, give their next act. Stat blocks belong on Creature pages, embedded by a Scene's Encounter. %%
+%% Optional. Include it when someone keeps or inhabits the Site. Link each. Give where they are and what they seek here. Then give their offer and how they answer the Party. If ignored, give their next act. Statblocks stay on the Creature and NPC pages, embedded by a Scene's Encounter. %%
 
 ## Likely actions
 
@@ -54,6 +54,8 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 %% Optional. Include it when a Thread touches the Site. DM only. Link each Thread, with its next event and the time it comes. %%
 
 ## Links
+
+%% Optional. Include it when the DM wants this page's backlinks listed here. %%
 
 ```base
 filters:

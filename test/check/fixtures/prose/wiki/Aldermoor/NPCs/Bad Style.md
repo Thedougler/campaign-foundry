@@ -2,7 +2,6 @@
 type: NPC
 summary: "A page with style problems."
 sources: []
-creature: ""
 title: "Bad Style"
 ---
 

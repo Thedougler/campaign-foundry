@@ -2,11 +2,16 @@
 type: Creature
 summary: "Sphinx of Lore, from the SRD 5.2 monsters."
 sources: []
+cr: ""
+creature_type: ""
+size: ""
+habitat: []
+sourcebooks: []
 revealed: ""
 title: "Sphinx of Lore"
 ---
 
-## At a glance
+## Overview
 
 - **Role at the table.** Text.
 - **Threat.** Text.
@@ -75,11 +80,11 @@ legendary_actions:
     desc: "*Constitution Saving Throw:* DC 16, one creature the sphinx can see within 120 feet. *Failure:* The target gains 1 Exhaustion level. While the target has any Exhaustion levels, it appears 3d10 years older. *Failure or Success:* The sphinx can’t take this action again until the start of its next turn."
 ```
 
-## Play
+## Tactics
 
 Text.
 
-## Depth
+## History
 
 Text.
 

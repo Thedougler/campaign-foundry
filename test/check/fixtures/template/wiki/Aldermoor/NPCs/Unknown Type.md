@@ -2,7 +2,6 @@
 type: Monster
 summary: "A ferrywoman."
 sources: []
-creature: ""
 title: "Unknown Type"
 ---
 

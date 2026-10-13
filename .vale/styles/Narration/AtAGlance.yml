@@ -1,7 +1,0 @@
-extends: existence
-message: "Deprecated section: 'At a glance'. Migrate now to the shape of wiki/templates/<type>.md and follow its skill. Delete this section; move any fact no other part of the page holds into the section where it belongs."
-level: error
-scope: heading.h2
-nonword: true
-tokens:
-  - '^At a glance\s*$'

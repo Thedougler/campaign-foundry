@@ -114,7 +114,7 @@ async function unindexed(): Promise<string> {
 }
 
 const npcPage = (title: string, summary: string) =>
-	`---\ntype: NPC\ntitle: "${title}"\nsummary: "${summary}"\nsources: []\ncreature: ""\n---\n\n## At a glance\n\nSee [[Mara Voss|Mara Voss]].\n`;
+	`---\ntype: NPC\ntitle: "${title}"\nsummary: "${summary}"\nsources: []\n---\n\n## Roleplaying\n\nSee [[Mara Voss|Mara Voss]].\n`;
 
 describe("cfcli index", () => {
 	it("generates the root and Campaign-folder indexes from every summary, grouped by page kind", async () => {

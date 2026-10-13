@@ -3,7 +3,6 @@ title: ""
 type: NPC
 summary: ""
 sources: []
-creature: ""
 revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free page leaves it out.
 ---
 
@@ -18,7 +17,7 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ## Roleplaying
 
-%% Write how a meeting runs, one line per bullet, each from this person's own wants and limits. The `summary` property gives their role, and the `creature` property links the Creature page that holds their statistics. An incidental NPC keeps only the bullets its Scene uses. Wants is an outcome the next Scene or Session can reach. Torn between opens on the present fear that steers what they do, or what they cannot do without, then the second true pressure it collides with in play. Voice gives diction, rhythm, a habit, and how much they say. Opening move gives where they are, linking the Location, and what they are doing, with their starting Attitude. Leverage gives what they can grant, deny, expose or call on, what using it costs them, and the limit that blocks their easy win. Will share and Will not share set what they know beside what is true. Requests gives each likely ask with its answer as a Cue (`==…==`) in this person's own voice, its price and what it changes. If pressed gives the sourced Influence roll, or why a request is automatic, with the answer as a Cue. Invitations ties a returning NPC to a PC's own Goals, bonds or Plans, one line per PC it touches. %%
+%% Write how a meeting runs, one line per bullet, each from this person's own wants and limits. The `summary` property gives their role. An incidental NPC keeps only the bullets its Scene uses. Wants is an outcome the next Scene or Session can reach. Torn between opens on the present fear that steers what they do, or what they cannot do without, then the second true pressure it collides with in play. Voice gives diction, rhythm, a habit, and how much they say. Opening move gives where they are, linking the Location, and what they are doing, with their starting Attitude. Leverage gives what they can grant, deny, expose or call on, what using it costs them, and the limit that blocks their easy win. Will share and Will not share set what they know beside what is true. Requests gives each likely ask with its answer as a Cue (`==…==`) in this person's own voice, its price and what it changes. If pressed gives the sourced Influence roll, or why a request is automatic, with the answer as a Cue. Invitations ties a returning NPC to a PC's own Goals, bonds or Plans, one line per PC it touches. %%
 
 - **Wants.**
 - **Torn between.**
@@ -33,6 +32,10 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 - **If pressed.**
 - **If ignored.**
 - **Invitations.**
+
+## Statblock
+
+%% Optional. Include it when this person fights or their rules matter at the table. Write one `statblock` fence per `skill://statblock-design`, with the fields the `## Statblock` fence in `templates/creature.md` shows. %%
 
 ## Quotes
 
@@ -55,6 +58,8 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 %% Optional. Include it when they drive or sit in a Thread. DM only. Link each Thread, with their part in it. %%
 
 ## Links
+
+%% Optional. Include it when the DM wants this page's backlinks listed here. %%
 
 ```base
 filters:

@@ -31,7 +31,6 @@
         - '## History'
         - '## Hidden truths'
         - '## Threads'
-        - '## Links'
       shattered-sea/Locations/lava-tube-refuge.md:
         - '## Areas'
         - '## Hazards'
@@ -40,7 +39,6 @@
         - '## History'
         - '## Hidden truths'
         - '## Threads'
-        - '## Links'
     canon:
       shattered-sea/Locations/lava-tubes.md:
         - '^type:\s*Location\s*$'
@@ -72,7 +70,7 @@
       and mechanics. Warnings, triggers, effects and the answers each
       hazard allows make danger answerable. The actual Party's
       movement, flight, ropes, healing and current participation inform
-      difficulty; fights have counts, linked Creature rules, sourced
+      difficulty; fights have counts, linked Creature or NPC statblocks, sourced
       calibration where added, purposes, terrain, consequences, nonviolent
       resolutions and retreat rather than compulsory attrition.
     - >-

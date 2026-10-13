@@ -12,7 +12,7 @@ const LINK_FROM: Record<string, string> = {
 	Location:
 		"its parent Location: `## Places` on a Region, `## Districts` or `## Services` on a Settlement, `## Areas` on a Site",
 	NPC: "the Location where they are found, or the Faction they belong to",
-	Creature: "an NPC that uses it (`creature: \"[[Name]]\"`) or a Scene's or Site's occupants",
+	Creature: "a Scene's or Site's occupants, or another page that mentions it",
 	Faction: "a Location, NPC or Lore page that mentions it",
 	Deity: "a Location, NPC or Lore page that mentions it",
 	Item: "the NPC or Location that holds it",

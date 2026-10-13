@@ -9,7 +9,7 @@ Run every command from the repo root. A page path in a `cfcli` command starts wi
 - **Content pages.** `wiki/<campaign>/<Folder>/<slug>.md`, in the folders `Locations`, `NPCs`, `Creatures`, `Factions`, `Deities`, `Items`, `Spells`, `Vehicles`, `Lore`, `House Rules`, `PCs`, `Threads` and `Quests`. `<slug>` is the slug of the page's `title` (`docs/wiki-layout.md` **Page names**). `<campaign>` is the Campaign folder (`shattered-sea`), which `user-config.md` names.
 - **Session pages.** `wiki/<campaign>/Sessions/Session <N>/session-<N>-<slug>.md`, titled `Session <N> - <Title>`. The titles are `Prep`, `Recap`, `Previously On` (recounting Session N−1) and one per Scene, named for the Scene.
 - **Template.** `wiki/templates/Scene - <Kind>.md`.
-- **Links.** A `[[<slug>|<Title>]]` link targets a page in its kind's folder above and shows its title. An NPC's fighting statistics sit on the Creature page its `creature` property links.
+- **Links.** A `[[<slug>|<Title>]]` link targets a page in its kind's folder above and shows its title. A Creature's or NPC's fighting statistics sit under its own page's `## Statblock`.
 - **Archived sources.** Repo-relative paths under `archive/`, listed in each page's `sources` property.
 - **PC level.** The `**Class, species and level.**` line in the PC page's `## Sheet`. A multiclass character's level is the sum of its class levels.
 
@@ -40,7 +40,7 @@ Find the pages that bear on this Scene by searching the Wiki (`.omp/AGENTS.md` �
 - **The Session around it.** The Prep's Scene Chart row, Clues, Party and Opposition, the Scene's own page when it exists, and the archived files its `sources` list. For a Scene after the Hook, find the prepared outcomes that hand into it. A Resolution needs the Climax's, and a Hook needs the last played Recap and final Scene.
 - **What play has settled.** For a played Session, its Recap and the next Session's Previously On, which record what happened.
 - **The Party.** Read the Sheet, goals and current conditions of each PC who can take part.
-- **What the Scene puts on stage.** The NPCs and their Creature pages, the Threads, Locations, Factions, Items, Vehicles and House Rules the Scene uses, including subjects the request names.
+- **What the Scene puts on stage.** The NPCs and Creatures with their statblocks, the Threads, Locations, Factions, Items, Vehicles and House Rules the Scene uses, including subjects the request names.
 
 Apply what you read:
 
@@ -61,8 +61,8 @@ Select the kind's card against the entry state, Thread and requested purpose. Wh
 
 Reuse the first fitting source in `AGENTS.md` **Sourcing** order. Start with the Wiki, then the 2024 SRD through `dnd5e-srd-api`. Next come official or existing published or homebrew material through the harness's web search and fetch tools, then novel design. Read the full facts on the page itself before using them.
 
-- Create only missing owners, through the matching skill: `npc-design`, `creature-design`, `location-design`, `item-design`, `faction-design`, `vehicle-design`, `spell-design` or `lore-design`. Supply Canon, local purpose, Party facts, intended paths and the enclosing operation. Wait for complete pages and touched paths before relying on them.
-- Take an NPC's fighting statistics from its linked Creature page, separate from its identity page.
+- Create only missing owners, through the matching skill: `npc-design`, `creature-design`, `location-design`, `item-design`, `faction-design`, `vehicle-design`, `spell-design` or `lore-design`, and `statblock-design` for a fought Creature or NPC with no statblock. Supply Canon, local purpose, Party facts, intended paths and the enclosing operation. Wait for complete pages and touched paths before relying on them.
+- Take each fighter's statistics from the `## Statblock` on its own Creature or NPC page.
 - Copy each `sources` path exactly from a page or file you read, and confirm the file opens. List only archived-Raw paths there, and use `sources: []` when none applies. External rule sources go in a body attribution.
 
 **Done when** every needed named entity and rules owner exists, its links and provenance paths resolve, and each new page has a content link in from the Scene or another relevant page.
@@ -82,7 +82,7 @@ Start from the existing page for a redo, or from the template copied to `wiki/<c
 
   A failure Cue installs a false belief, a constraint or a consequence with its cause, never a blank. A check that can critically succeed adds `Critical:` with its own Cue paying out world-law (`theatre-of-the-mind` `references/recipes.md` § Cues). For a save, specify the ability, DC and effects. For a contest, specify both sides and the tie. A sensible action without real doubt simply works, without a bullet.
 - **Outcomes.** Keep the template's `| If | Then | Hands to |` table, one row per result. `Hands to` holds the receiving Scene's link, such as `[[session-12-terror-birds\|Session 12 - Terror-Birds]]` (a pipe inside a table cell is escaped).
-- **Statblocks.** Creature statistics stay on their owner pages. The Scene shows them only as `![[<creature-slug>#Statblock|<Creature title>]]` embeds in its Encounter.
+- **Statblocks.** Statistics stay on the Creature or NPC page that holds them. The Scene shows them only as `![[<page-slug>#Statblock|<page title>]]` embeds in its Encounter.
 - **Prep link.** Link the page from Prep's Scene Chart when Prep exists, and update the row's planning notes or Clue routes where this Scene changes them.
 
 Put every table-use fact on the page. State who wants what and by which means, and how each side responds. Give useful spatial relationships, pressure triggers, accessible choices and consequences. Each hidden truth has a concrete way to learn it. Each required conclusion is discoverable through three independent routes across the chart or the standalone Scene. A failed check changes cost or position and leaves a way forward open. It can also be what exposes something the Scene hides. Use **Encounters** wherever physical danger is present.
@@ -165,9 +165,9 @@ Read `bun run cfcli -- encounter-budget --help` before budgeting. The invocation
    **Done when** each comparison is the CLI's printed totals for that force and the page's description of danger matches the planned contest, including what XP does not cover.
 
 3. **Expose the plan.** Copy the CLI's Encounter Balance lines under `### Balance` in the Scene's `## Encounter`.
-   - Identify `bun run cfcli -- encounter-budget` as the source, with the participating PCs and the Creature pages supplying XP.
+   - Identify `bun run cfcli -- encounter-budget` as the source, with the participating PCs and the Creature and NPC pages supplying XP.
    - Give quantities, deployment, battlefield features, opposition objectives, opening tactics, adaptations and break or escape conditions.
-   - Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]` here and link it elsewhere, with named NPC combatants resolved to their Creature owners.
+   - Embed each fought Creature or NPC as `![[<page-slug>#Statblock|<page title>]]` here and link it elsewhere.
    - State how terrain, surprise, allies, depleted resources, hazards and objectives change the actual danger.
 
    **Done when** the DM has the entire playable opposition, every XP figure traces to the CLI output and a read statblock, and the page states what the XP comparison does not measure.
@@ -203,7 +203,7 @@ bun run cfcli -- log --op create --title "Author Session <N> <Scene title>" --pa
 
 **Done when** the page and all dependencies are runnable, the index is current, the page gate reported `ok: 0 findings`, and the log entry exists.
 
-When an explicit caller runs the final operation, check each page you write by its **Page check** (`skill://lint` § Commands) and repair its findings. Return the authored Scene, owner pages, changed Prep material, every touched path, design decisions, conditional incoming and outgoing states, and any tooling findings. Give the caller the actual pending destination paths and entry variants, not name-only promises.
+When an explicit caller runs the final operation, check each page you write by its **Page check** (`skill://lint` § Commands) and send each page with findings to a `linter` (root `AGENTS.md` **Gate scope**). Return the authored Scene, owner pages, changed Prep material, every touched path, design decisions, conditional incoming and outgoing states, and any tooling findings. Give the caller the actual pending destination paths and entry variants, not name-only promises.
 
 The caller closes per `skill://lint` § Commands over every touched path. Once the gate prints `ok: 0 findings`, the caller records one log entry for all touched pages, then performs its remaining hot and Push steps. Leave those duties with that caller. A child return is not a claim that Prep or Push has completed.
 

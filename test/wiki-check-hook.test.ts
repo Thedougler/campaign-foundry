@@ -143,6 +143,8 @@ describe("Consumer-visible feedback", () => {
 		expect(JSON.parse(report.text)).toMatchObject({ status: "findings", totalFindings: 1, findings: [raw] });
 		expect(report.additionalContext).toContain("skill://lint");
 		expect(report.additionalContext).toContain("including warnings");
+		expect(report.additionalContext).toContain("dispatch the linter");
+		expect(report.additionalContext).toContain("one file per dispatch");
 		expect(report.additionalContext).not.toContain(raw.message);
 	});
 
@@ -177,6 +179,8 @@ describe("Consumer-visible feedback", () => {
 			manualCheck: "bun run cfcli -- check 'wiki/A.md'",
 		});
 		expect(report.additionalContext).toContain("Do not treat");
+		expect(report.additionalContext).toContain("dispatch the linter");
+		expect(report.additionalContext).toContain("one file per dispatch");
 	});
 
 	it("retains raw finding records, caps count/bytes, and gives exact omitted count/manual command", () => {
@@ -217,14 +221,14 @@ describe("Post-write adapter", () => {
 		expect(result?.additionalContext).toContain("skill://lint");
 		expect(run).toHaveBeenCalledWith({
 			command: "bun",
-			args: ["run", "cfcli", "--", "check", "--json", "--root", root, "wiki/A.md"],
+			args: ["run", "cfcli", "--", "check", "--json", "--skip-boilerplate", "--root", root, "wiki/A.md"],
 			cwd: root,
 			timeoutMs: LIMITS.timeoutMs,
 			maxOutputBytes: LIMITS.outputBytes,
 		});
 	});
 
-	it("handles clean templates and multiple paths in one read-only all-layer invocation", async () => {
+	it("handles clean templates and multiple paths in one read-only page-layer invocation", async () => {
 		const run = vi.fn(async (_request: CheckRequest) => success());
 		const handler = createWikiCheckHandler({ repoRoot: root, run });
 		const result = await handler(

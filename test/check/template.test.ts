@@ -34,17 +34,17 @@ describe("template layer: failure classes", () => {
 		["Sneaky Kind", ["unexpected-kind"]],
 		["Kindless Location", ["missing-kind"]],
 		["Bad Kind", ["unknown-kind"]],
-		["Missing Keys", ["missing-key", "missing-key"]],
+		["Missing Keys", ["missing-key"]],
 		["Blank Summary", ["blank-summary"]],
 		["Multiline Summary", ["summary-multiline"]],
 		["Sources Scalar", ["sources-type"]],
 		["Bad Sources", ["sources-path", "sources-path", "sources-type"]],
-		["Short Sections", ["missing-section"]],
+		["Short Sections", []],
 		["Swapped Sections", ["section-order"]],
 		["No Callout", []],
 		["Empty Callout", ["empty-callout"]],
 		["Empty Section", ["empty-heading"]],
-		["Guided", ["empty-heading", "empty-heading", "leftover-comment", "leftover-comment", "missing-key"]],
+		["Guided", ["empty-heading", "empty-heading", "leftover-comment", "leftover-comment"]],
 	])("%s yields %j", (page, expected) => {
 		expect(rules(page)).toEqual(expected);
 	});
@@ -64,6 +64,33 @@ describe("template layer: failure classes", () => {
 			expect(f.line).toBeGreaterThan(0);
 			expect(f.hint.length).toBeGreaterThan(20);
 		}
+	});
+
+	it.each(['""', '"[[Bandit Captain]]"'])("retires the NPC creature property with value %s", async (value) => {
+		const dir = await copyFixture("template");
+		const path = join(dir, "wiki/Aldermoor/NPCs/Sources Ok.md");
+		const source = await readFile(path, "utf8");
+		await writeFile(path, source.replace("type: NPC", `type: NPC\ncreature: ${value}`));
+		const result = await cf(
+			[
+				"check",
+				path,
+				"--json",
+				"--layer",
+				"template",
+				"--vault",
+				join(dir, "wiki"),
+				"--root",
+				dir,
+				"--templates",
+				realTemplates,
+			],
+			dir,
+		);
+		const [finding] = findingsFor(JSON.parse(result.stdout) as JsonReport, "/Sources Ok.md");
+		expect(finding).toMatchObject({ rule: "retired-property", line: 3 });
+		expect(finding?.hint).toContain("skill://npc-design");
+		expect(finding?.hint).toContain("## Statblock");
 	});
 
 	it("derives requirements from the template: an edited template changes the check", async () => {
@@ -128,8 +155,7 @@ describe("template layer: failure classes", () => {
 			findingsFor(edited, `/${page}.md`)
 				.map((f) => f.rule)
 				.sort();
-		expect(of("Short Sections")).toEqual(["missing-section"]);
-		expect(findingsFor(edited, "/Short Sections.md")[0]?.hint).toContain("`History` (optional)");
+		expect(of("Short Sections")).toEqual([]);
 		expect(of("Swapped Sections")).toEqual(["section-order"]);
 		const empty = findingsFor(edited, "/Empty Section.md");
 		expect(empty.map((f) => f.rule)).toEqual(["empty-heading"]);
@@ -219,8 +245,8 @@ Consequences.
 		const source = original
 			.replace("type: NPC", "# leading guidance\ntype: NPC # x")
 			.replace(
-				'creature: ""',
-				'creature: ""\nextra:\n  - "literal # value" # nested guidance\nnotes: |\n  # literal block text\n# before revealed',
+				'revealed: ""',
+				'extra:\n  - "literal # value" # nested guidance\nnotes: |\n  # literal block text\n# before revealed\nrevealed: ""',
 			)
 			.replace('title: "Sources Ok"', 'title: "Sources Ok"\n# trailing guidance');
 		await writeFile(path, source);
@@ -239,7 +265,7 @@ Consequences.
 		];
 		const before = JSON.parse((await cf(args, dir)).stdout) as JsonReport;
 		expect(before.findings.map((f) => f.rule)).toEqual(Array(5).fill("leftover-comment"));
-		expect(before.findings.map((f) => f.line)).toEqual([2, 3, 8, 11, 14]);
+		expect(before.findings.map((f) => f.line)).toEqual([2, 3, 7, 10, 13]);
 		const fixed = JSON.parse((await cf([...args, "--fix"], dir)).stdout) as JsonReport;
 		expect(fixed.findings).toEqual([]);
 		expect(fixed.fixes).toHaveLength(1);
@@ -304,13 +330,13 @@ describe("template layer: --fix", () => {
 
 		const fixed = await readFile(join(dir, "wiki/Aldermoor/NPCs/Guided.md"), "utf8");
 		expect(fixed).not.toContain("%%");
-		expect(fixed).toContain('creature: ""');
+		expect(fixed).not.toContain("creature:");
 		expect(fixed).not.toContain("## History");
 		expect(fixed).toContain("- **Role.** Text.");
 
 		const missing = await readFile(join(dir, "wiki/Aldermoor/NPCs/Missing Keys.md"), "utf8");
 		expect(missing).toMatch(
-			/^---\ntype: NPC\nsummary: "A ferrywoman."\nrevealed: ""\ntitle: "Missing Keys"\nsources: \[\]\ncreature: ""\n---\n/,
+			/^---\ntype: NPC\nsummary: "A ferrywoman."\nrevealed: ""\ntitle: "Missing Keys"\nsources: \[\]\n---\n/,
 		);
 
 		const second = JSON.parse((await cf(args, dir)).stdout) as JsonReport;
@@ -353,6 +379,11 @@ title: "Bandit"
 type: Creature
 summary: "A reusable road agent for any World."
 sources: []
+cr: 0.125
+creature_type: Humanoid
+size: Medium
+habitat: []
+sourcebooks: []
 revealed: ""
 ---
 

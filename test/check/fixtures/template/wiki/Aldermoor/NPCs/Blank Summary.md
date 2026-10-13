@@ -2,7 +2,6 @@
 type: NPC
 summary: ""
 sources: []
-creature: ""
 revealed: ""
 title: "Blank Summary"
 ---

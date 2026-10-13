@@ -2,7 +2,6 @@
 type: NPC
 summary: "A page with markdown problems."
 sources: []
-creature: ""
 title: "Bad Markdown"
 ---
 

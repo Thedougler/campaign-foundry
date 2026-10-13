@@ -25,7 +25,7 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 ## Crew and stations
 
-%% Optional. Include it when the craft carries a crew. Give the minimum crew beside the crew aboard now, and link the captain. Give each station with who works it now, and what happens when it goes unattended. Link a Creature for each fighting crew member. %%
+%% Optional. Include it when the craft carries a crew. Give the minimum crew beside the crew aboard now, and link the captain. Give each station with who works it now, and what happens when it goes unattended. Link the Creature or NPC page holding each fighting crew member's statblock. %%
 
 ## Components and weapons
 
@@ -44,6 +44,8 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 %% Optional. Include it when the craft hides something the Party can learn. DM only. Give each truth with how the Party can learn it. %%
 
 ## Links
+
+%% Optional. Include it when the DM wants this page's backlinks listed here. %%
 
 ```base
 filters:

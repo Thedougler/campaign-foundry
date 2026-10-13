@@ -1,6 +1,6 @@
 # Prose fixes
 
-Read by whoever fixes `narration`, `style` and `boilerplate` findings once the checker has reported them. That is the lint run or one of its subagents, or any writer repairing its own page (root `AGENTS.md` **Write, then repair**). The page check is the **checker**. It reports each rule a draft matches, with each echo's source and line. Check each draft at once and fix what the checker reports. A callout written fresh for a new stub page is judged the same way, pairing against the Canon facts it is drawn from.
+Read by the `linter` agent, which fixes `narration`, `style` and `boilerplate` findings once the checker has reported them (root `AGENTS.md` **Gate scope**), and by the agent that reviews its pairs. The page check is the **checker**. It reports each rule a draft matches, with each echo's source and line. Check each draft at once and fix what the checker reports. A callout written fresh for a new stub page is judged the same way, pairing against the Canon facts it is drawn from.
 
 Each rewrite is judged as a **pair**: the block as it stood when you started, and your rewrite. A pair passes when all of these hold:
 

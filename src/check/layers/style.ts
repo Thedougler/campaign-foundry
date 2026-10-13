@@ -11,20 +11,6 @@ import { valeSubprocess, type ValeAdapter, type ValeAlert, type ValeConfig } fro
 const LAYER = "style";
 
 const NARRATION_HINTS: Record<string, string> = {
-	"Narration.AtAGlance":
-		"Migrate now to the shape of wiki/templates/<type>.md and follow its skill. Delete the 'At a glance' section; move any fact no other part of the page holds into the section where it belongs.",
-	"Narration.Play":
-		"Migrate now to the shape of wiki/templates/<type>.md and follow its skill. Delete the 'Play' section; move any fact no other part of the page holds into the specific section whose job it is.",
-	"Narration.Depth":
-		"Migrate to the shape of wiki/templates/<type>.md — see the page kind's design skill; move facts into the specific section whose job they are.",
-	"Narration.InUse":
-		"Migrate to the shape of wiki/templates/Item.md — see item-design; move rules into Properties, rulings into Rulings and spoken description into the First look entry.",
-	"Narration.Story":
-		"Migrate to the shape of wiki/templates/PC.md — see pull-pcs; move the character's past into Backstory and their aims and ties into Goals and bonds.",
-	"Narration.Changes":
-		"Migrate to the shape of wiki/templates/Recap.md — see ingest; move state changes into Changes to the World.",
-	"Narration.Next":
-		"Migrate to the shape of wiki/templates/hot.md — see prep-session; move the Party's position, Prep and Hook links and open questions into Next Session.",
 	"Narration.NoEmDash":
 		"Use theatre-of-the-mind, Clean prose: join the clauses with a comma, 'and' or a full stop, e.g. 'A lantern hangs, still lit.'",
 	"Narration.NoSemicolon":

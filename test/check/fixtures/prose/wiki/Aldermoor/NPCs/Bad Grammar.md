@@ -2,7 +2,6 @@
 type: NPC
 summary: "A page with grammar problems."
 sources: []
-creature: ""
 title: "Bad Grammar"
 ---
 

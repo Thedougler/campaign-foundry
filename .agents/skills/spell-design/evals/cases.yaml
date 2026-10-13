@@ -18,7 +18,6 @@
         - "## Rulings"
         - "## Tradition"
         - "## Who knows it"
-        - "## Links"
     canon:
       shattered-sea/Spells/tribute-wake.md:
         - '^type:\s*Spell\s*$'

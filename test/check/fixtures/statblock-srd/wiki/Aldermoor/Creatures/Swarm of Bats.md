@@ -2,11 +2,16 @@
 type: Creature
 summary: "Swarm of Bats, from the SRD 5.2 monsters."
 sources: []
+cr: ""
+creature_type: ""
+size: ""
+habitat: []
+sourcebooks: []
 revealed: ""
 title: "Swarm of Bats"
 ---
 
-## At a glance
+## Overview
 
 - **Role at the table.** Text.
 - **Threat.** Text.
@@ -59,11 +64,11 @@ legendary_description: ""
 legendary_actions: []
 ```
 
-## Play
+## Tactics
 
 Text.
 
-## Depth
+## History
 
 Text.
 

@@ -1,6 +1,6 @@
 # Face, voice, tells and first look
 
-Use this reference for the person branch, not for Creature rules.
+Use this reference for the person branch, not for statblocks.
 
 ## Function
 

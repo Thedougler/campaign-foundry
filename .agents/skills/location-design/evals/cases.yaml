@@ -28,13 +28,11 @@
         - '## Factions here'
         - '## Local rules'
         - '## Rumors'
-        - '## Links'
       shattered-sea/Locations/le-paludi.md:
         - '## Areas'
         - '## Hazards'
         - '## Occupants'
         - '## Likely actions'
-        - '## Links'
     canon:
       shattered-sea/Locations/calven-and-calveno.md:
         - '^type:\s*Location\s*$'
@@ -119,7 +117,6 @@
         - '## Places'
         - '## Travel events'
         - '## Rumors'
-        - '## Links'
     canon:
       shattered-sea/Locations/aruhe.md:
         - '^type:\s*Location\s*$'
@@ -146,7 +143,7 @@
     - >-
       Beaches, intermediate Regions and the innermost Regions form a legible
       escalation in violent fauna and carnivorous flora. Concrete hazards,
-      counts, terrain and linked Creature owners support the requested danger
+      counts, terrain and linked Creature or NPC statblocks support the requested danger
       to five adventurers below level 10 while also accounting for the actual
       Party and its current participation. Added mechanics follow 2024 5e
       and applicable House Rules without overwriting established rules;

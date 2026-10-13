@@ -3,7 +3,6 @@ type: NPC
 title: Captain Morrow
 summary: "One line."
 sources: []
-creature: ""
 parent: "[[Ravenhold]]"
 revealed: ""
 aliases: ["Black-Jaw"]

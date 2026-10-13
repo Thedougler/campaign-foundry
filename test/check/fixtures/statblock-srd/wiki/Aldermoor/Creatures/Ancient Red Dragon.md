@@ -2,11 +2,16 @@
 type: Creature
 summary: "Ancient Red Dragon, from the SRD 5.2 monsters."
 sources: []
+cr: ""
+creature_type: ""
+size: ""
+habitat: []
+sourcebooks: []
 revealed: ""
 title: "Ancient Red Dragon"
 ---
 
-## At a glance
+## Overview
 
 - **Role at the table.** Text.
 - **Threat.** Text.
@@ -75,11 +80,11 @@ legendary_actions:
     desc: The dragon moves up to half its Speed, and it makes one Rend attack.
 ```
 
-## Play
+## Tactics
 
 Text.
 
-## Depth
+## History
 
 Text.
 

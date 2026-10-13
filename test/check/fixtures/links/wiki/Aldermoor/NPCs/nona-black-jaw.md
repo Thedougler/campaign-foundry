@@ -3,7 +3,6 @@ type: NPC
 title: Nona Black-Jaw
 summary: "One line."
 sources: []
-creature: ""
 parent: "[[Ravenhold]]"
 revealed: ""
 aliases: ["Black-Jaw"]

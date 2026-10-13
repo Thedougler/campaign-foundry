@@ -2,7 +2,6 @@
 type: NPC
 summary: "One line."
 sources: []
-creature: ""
 parent: "[[Ghost Parent]]"
 revealed: ""
 title: "Broken Links"

@@ -18,7 +18,7 @@ export interface ActorOptions {
 	biography: string;
 	/** Module path of the portrait; the prototype token wears it too. */
 	img?: string;
-	/** Vault path the ID derives from (default: the Creature page). An NPC's Actor passes the NPC page. */
+	/** Vault path the ID derives from (default: the page supplying the statblock). */
 	idPath?: string;
 	/** ID role suffix; none for a Creature's own Actor, `actor` for an NPC's. */
 	role?: string;
@@ -28,7 +28,7 @@ export interface ActorOptions {
 
 export interface BuiltActor {
 	data: Doc;
-	/** Statblock numbers that disagree with the Creature's own arithmetic; the gate reports them, Push carries them as written. */
+	/** Statblock numbers that disagree with their own arithmetic; the gate reports them, Push carries them as written. */
 	warnings: string[];
 }
 
@@ -262,6 +262,8 @@ const ACTIVATION: Partial<Record<FeatureSection, string>> = {
 	bonus_actions: "bonus",
 	reactions: "reaction",
 	legendary_actions: "legendary",
+	mythic_actions: "mythic",
+	lair_actions: "lair",
 };
 
 const RECHARGE = /\(Recharge (\d)(?:\s*[–-]\s*\d)?\)/i;
@@ -428,7 +430,7 @@ function skillBlock(sb: Statblock, pb: number, warnings: string[]): Record<strin
 	return out;
 }
 
-/** A dnd5e 5.3.3 `npc` Actor from a Creature page's statblock, with each trait and action as an embedded Item. */
+/** A dnd5e 5.3.3 `npc` Actor from a Creature or NPC page's statblock, with each trait and action as an embedded Item. */
 export function buildActor(page: Page, options: ActorOptions): BuiltActor {
 	const sb = statblockOf(page);
 	if (!sb) throw new Error(`${page.path} has no readable statblock.`);
@@ -444,9 +446,13 @@ export function buildActor(page: Page, options: ActorOptions): BuiltActor {
 		/(\d+)\s+Legendary Action/i.exec(text("legendary_description"))?.[1] ?? (legendary ? 3 : 0),
 	);
 
-	const items = sb.features.map((f, i) =>
-		featureItem(options.campaign, options.idPath ?? page.path, f, i + 1, warnings),
-	);
+	const items = sb.features.flatMap((f, i) => {
+		if (f.section === "regional_effects") {
+			warnings.push(`${f.name}: regional_effects has no Foundry activity type; omitted from the actor.`);
+			return [];
+		}
+		return [featureItem(options.campaign, options.idPath ?? page.path, f, i + 1, warnings)];
+	});
 	const idPath = options.idPath ?? page.path;
 	const id = foundryId(options.campaign, idPath, options.role ?? "");
 	const img = options.img ?? "icons/svg/mystery-man.svg";

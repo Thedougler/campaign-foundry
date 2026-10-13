@@ -7,7 +7,7 @@ revealed: ""
 title: "DM Settings"
 ---
 
-## At a glance
+## Preferences
 
 - **Session length.** 4 hours.
 

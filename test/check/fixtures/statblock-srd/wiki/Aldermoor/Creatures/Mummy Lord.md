@@ -2,11 +2,16 @@
 type: Creature
 summary: "Mummy Lord, from the SRD 5.2 monsters."
 sources: []
+cr: ""
+creature_type: ""
+size: ""
+habitat: []
+sourcebooks: []
 revealed: ""
 title: "Mummy Lord"
 ---
 
-## At a glance
+## Overview
 
 - **Role at the table.** Text.
 - **Threat.** Text.
@@ -84,11 +89,11 @@ legendary_actions:
     desc: The mummy makes one Rotting Fist or Channel Negative Energy attack.
 ```
 
-## Play
+## Tactics
 
 Text.
 
-## Depth
+## History
 
 Text.
 

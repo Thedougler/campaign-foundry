@@ -2,10 +2,11 @@
 type: NPC
 summary: "A villager who carries a stat block."
 sources: []
-creature: ""
 revealed: ""
 title: "Misplaced Statblock"
 ---
+
+## Roleplaying
 
 
 - **Role.** Text.
@@ -16,7 +17,7 @@ title: "Misplaced Statblock"
 > [!narration] First look
 > Spoken text for the table.
 
-## Roleplaying
+## Statblock
 
 ```statblock
 layout: Basic 5e Layout

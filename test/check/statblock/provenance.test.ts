@@ -26,8 +26,8 @@ async function fixture(body: string, corpus?: string, sources = ["archive/legacy
 }
 
 describe("statblock corpus provenance", () => {
-	it("exempts a proved legacy HP value after whitespace normalisation", async () => {
-		const check = await fixture(valid.replace("hp: 10", "hp: 11"), "hp:   11");
+	it("exempts a proved legacy HP value only on an exact source line", async () => {
+		const check = await fixture(valid.replace("hp: 10", "hp: 11"), "hp: 11");
 		expect((await check()).report.findings).toEqual([]);
 	});
 
@@ -71,7 +71,7 @@ describe("statblock corpus provenance", () => {
 	});
 
 	it.each([
-		['desc: "Melee Attack Roll: +9, reach 5 ft."', 0],
+		['    desc: "Melee Attack Roll: +9, reach 5 ft."', 0],
 		["- name: Bite", 1],
 	])("feature arithmetic binds to its description, not its name: %s", async (corpus, findings) => {
 		const body = valid.replace(
@@ -89,9 +89,9 @@ describe("statblock corpus provenance", () => {
 			"actions: []",
 			`actions:\n  - name: Bite\n    desc: ${header}\n      Melee Attack Roll: +9, reach 5 ft.\n\n      Hit: 4 Piercing damage.`,
 		);
-		const complete = await fixture(body, "Melee Attack Roll: +9, reach 5 ft.\nHit: 4 Piercing damage.");
+		const complete = await fixture(body, "      Melee Attack Roll: +9, reach 5 ft.\n      Hit: 4 Piercing damage.");
 		expect((await complete()).report.findings).toEqual([]);
-		const edited = await fixture(body, "Melee Attack Roll: +9, reach 5 ft.");
+		const edited = await fixture(body, "      Melee Attack Roll: +9, reach 5 ft.");
 		expect((await edited()).report.findings).toEqual([expect.objectContaining({ rule: "attack-bonus", line: 19 })]);
 		const headerOnly = await fixture(body, `desc: ${header}`);
 		expect((await headerOnly()).report.findings).toEqual([expect.objectContaining({ rule: "attack-bonus", line: 19 })]);
@@ -113,7 +113,7 @@ describe("statblock corpus provenance", () => {
 
 	it.each([
 		["skillsaves: *entries", 1],
-		["- Religion: 3", 0],
+		["  - Religion: 3", 0],
 	])("resolves an aliased bonus list before proving the actual entry: %s", async (corpus, findings) => {
 		const body = `religion_entries: &entries\n  - Religion: 3\n${valid.replace("skillsaves: []", "skillsaves: *entries")}`;
 		const check = await fixture(body, corpus);

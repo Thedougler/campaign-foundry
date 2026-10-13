@@ -6,6 +6,7 @@ asyncio
 cfcli
 docids
 elif
+etools
 findall
 fname
 frontmatter
@@ -42,6 +43,7 @@ interiority
 Kusarigama
 lede
 linted
+linters
 mans
 mishearings
 multiclass

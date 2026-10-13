@@ -8,7 +8,7 @@ revealed: ""
 title: "Bad Kind"
 ---
 
-## At a glance
+## Overview
 
 - **Draws the Party because.** Text.
 - **Entrance.** Text.
@@ -19,7 +19,7 @@ title: "Bad Kind"
 > [!narration] Entering
 > Spoken text for the table.
 
-## Play
+## Areas
 
 Text.
 
@@ -39,7 +39,7 @@ Text.
 
 Text.
 
-## Depth
+## History
 
 Text.
 

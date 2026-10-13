@@ -16,7 +16,16 @@ export interface Issue {
 	feature?: { section: string; name: string };
 }
 
-export const FEATURE_SECTIONS = ["traits", "actions", "bonus_actions", "reactions", "legendary_actions"] as const;
+export const FEATURE_SECTIONS = [
+	"traits",
+	"actions",
+	"bonus_actions",
+	"reactions",
+	"legendary_actions",
+	"mythic_actions",
+	"lair_actions",
+	"regional_effects",
+] as const;
 export type FeatureSection = (typeof FEATURE_SECTIONS)[number];
 
 export interface Feature {
@@ -201,11 +210,13 @@ export function parseStatblock(source: string): Parsed {
 		});
 
 	const cr = parseCr(map.cr);
-	if (cr === undefined)
+	const crText = text(map.cr).trim();
+	const crAbsent = map.cr === undefined || map.cr === null || crText === "" || crText === "—";
+	if (!crAbsent && cr === undefined)
 		issues.push({
 			rule: "cr-invalid",
 			key: "cr",
-			message: `\`cr\` is ${map.cr === undefined ? "missing" : `\`${text(map.cr)}\``}, not a challenge rating from 0 to 30.`,
+			message: `\`cr\` is \`${text(map.cr)}\`, not a challenge rating from 0 to 30.`,
 			hint: 'Write the rating as a number or fraction, e.g. `cr: 1/4`, `cr: "1/8"` or `cr: 5`; the proficiency bonus is derived from it.',
 		});
 

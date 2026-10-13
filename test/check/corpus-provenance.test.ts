@@ -87,7 +87,7 @@ describe("corpus-provenance exemption", () => {
 		expect(result.findings.every(({ line }) => line === 6)).toBe(true);
 	});
 
-	it("normalises whitespace and dash variants while leaving other word edits gated", async () => {
+	it("keeps whitespace and dash variants gated instead of treating them as exact source lines", async () => {
 		const original = `${register} The range is 3-5 feet.`;
 		const unchanged = original.replaceAll(" ", "\t  ").replace("3-5", "3–5");
 		const edited = original.replace("17 (4d6)", "18 (4d6)").replace("3-5", "3—5");
@@ -99,7 +99,7 @@ describe("corpus-provenance exemption", () => {
 			original,
 		);
 		const result = await check();
-		expect(result.findings.filter(({ path }) => path === "wiki/Spells/published.md")).toEqual([]);
+		expect(result.findings.some(({ path }) => path === "wiki/Spells/published.md")).toBe(true);
 		expect(result.findings).toEqual(
 			expect.arrayContaining([
 				expect.objectContaining({ path: "wiki/campaign/Spells/copy.md", rule: "ai-tells.VerbTricolon", line: 6 }),
@@ -115,7 +115,7 @@ describe("corpus-provenance exemption", () => {
 				"Spells/published.md": page(body),
 				"hand-written.md": page(body, []),
 			},
-			body.join("\n").replaceAll("—", "-"),
+			body.join("\n"),
 		);
 		const result = await check();
 		expect(result.findings.filter(({ path }) => path === "wiki/Spells/published.md")).toEqual([]);
@@ -166,7 +166,7 @@ describe("corpus-provenance exemption", () => {
 	});
 
 	it("keeps table syntax when corpus rows are exempt but a converter has reformatted the separator", async () => {
-		const corpus = ["| Hit Points | Effect |", "|:----------:|--------|", "| 0-20 | The target dies. |"].join("\n");
+		const corpus = ["| Hit Points | Effect |", "|:----------:|--------|", "| 0–20 | The target dies. |"].join("\n");
 		const table = ["| Hit Points | Effect |", "| --- | --- |", "| 0–20 | The target dies. |"];
 		const { check } = await fixture(
 			{
@@ -188,148 +188,6 @@ describe("corpus-provenance exemption", () => {
 		expect(result.findings).toEqual(
 			expect.arrayContaining([
 				expect.objectContaining({ rule: "NumericRangeEnDash", hint: expect.stringContaining("change `-` to `–`") }),
-			]),
-		);
-	});
-
-	it("matches script-Britishised corpus lines but gates a word edit outside the spelling map", async () => {
-		const original = `${register} The bubble is centered on the target.`;
-		const british = `${register} The bubble is centred on the target.`;
-		const { check } = await fixture(
-			{
-				"Spells/published.md": page([british]),
-				"campaign/Spells/copy.md": page([british.replace("bubble", "sphere")]),
-			},
-			original,
-		);
-		const result = await check();
-		expect(result.findings.filter(({ path }) => path === "wiki/Spells/published.md")).toEqual([]);
-		expect(result.findings).toEqual(
-			expect.arrayContaining([
-				expect.objectContaining({ path: "wiki/campaign/Spells/copy.md", rule: "ai-tells.VerbTricolon", line: 6 }),
-			]),
-		);
-	});
-
-	it.each([" -- ", " — "])(
-		"matches the converter's %s clause repair while keeping other punctuation edits gated",
-		async (dash) => {
-			const original = `${register} You touch the creature${dash}the spell ends.`;
-			const converted = `${register} You touch the creature, the spell ends.`;
-			const { check } = await fixture(
-				{
-					"Spells/published.md": page([converted]),
-					"campaign/Spells/copy.md": page([converted.replace("creature,", "creature;")]),
-				},
-				original,
-			);
-			const result = await check();
-			expect(result.findings.filter(({ path }) => path === "wiki/Spells/published.md")).toEqual([]);
-			expect(result.findings).toEqual(
-				expect.arrayContaining([
-					expect.objectContaining({ path: "wiki/campaign/Spells/copy.md", rule: "ai-tells.VerbTricolon", line: 6 }),
-				]),
-			);
-		},
-	);
-
-	it("does not treat edits inside literal code as converter clause repairs", async () => {
-		const original = `${register} The literal is \`red -- blue\`.`;
-		const { check } = await fixture(
-			{
-				"campaign/Spells/copy.md": page([original.replace("red -- blue", "red, blue")]),
-			},
-			original,
-		);
-		expect((await check()).findings).toEqual(
-			expect.arrayContaining([expect.objectContaining({ rule: "ai-tells.VerbTricolon", line: 6 })]),
-		);
-	});
-
-	it("recognises Britishised lines late in a corpus with repeated US spellings", async () => {
-		const corpus = Array.from({ length: 120 }, (_, index) => `${register} Bubble ${index} is centered here.`);
-		const { check } = await fixture(
-			{
-				"Spells/published.md": page([`${register} Bubble 119 is centred here.`]),
-			},
-			corpus.join("\n\n"),
-		);
-		expect((await check()).findings).toEqual([]);
-	});
-
-	it("matches the converter's scaling-label swap but gates an unrelated label edit", async () => {
-		const original = register.replace("***Cantrip Upgrade.***", "***At Higher Levels.***");
-		const converted = register.replace("***Cantrip Upgrade.***", "***Using a Higher-Level Spell Slot.***");
-		const { check } = await fixture(
-			{
-				"Spells/published.md": page([converted]),
-				"campaign/Spells/copy.md": page([converted.replace("Higher-Level", "Stronger")]),
-			},
-			original,
-		);
-		const result = await check();
-		expect(result.findings.filter(({ path }) => path === "wiki/Spells/published.md")).toEqual([]);
-		expect(result.findings).toEqual(
-			expect.arrayContaining([
-				expect.objectContaining({ path: "wiki/campaign/Spells/copy.md", rule: "ai-tells.VerbTricolon", line: 6 }),
-			]),
-		);
-	});
-
-	it("matches compacted corpus tables while keeping edited cell wording gated", async () => {
-		const corpus = `Effect            | Result\n-------------------|--------\n${register} | She have a sword.`;
-		const table = ["| Effect | Result |", "| --- | --- |", `| ${register} | She have a sword. |`];
-		const { check } = await fixture(
-			{
-				"Spells/published.md": page(table),
-				"campaign/Spells/copy.md": page(table.map((line) => line.replace("She have a sword.", "She have an axe."))),
-			},
-			corpus,
-		);
-		const result = await check();
-		expect(result.findings.filter(({ path }) => path === "wiki/Spells/published.md")).toEqual([]);
-		expect(result.findings).toEqual(
-			expect.arrayContaining([
-				expect.objectContaining({ path: "wiki/campaign/Spells/copy.md", rule: "PronounVerbAgreement", line: 8 }),
-			]),
-		);
-	});
-
-	it("matches removal of inline export tags without allowing other text edits", async () => {
-		const original = `${register} You use an <a href="rules.html">Unarmed Strike</a>.`;
-		const converted = `${register} You use an Unarmed Strike.`;
-		const { check } = await fixture(
-			{
-				"Spells/published.md": page([converted]),
-				"campaign/Spells/copy.md": page([converted.replace("Unarmed", "Armed")]),
-			},
-			original,
-		);
-		const result = await check();
-		expect(result.findings.filter(({ path }) => path === "wiki/Spells/published.md")).toEqual([]);
-		expect(result.findings).toEqual(
-			expect.arrayContaining([
-				expect.objectContaining({ path: "wiki/campaign/Spells/copy.md", rule: "ai-tells.VerbTricolon", line: 6 }),
-			]),
-		);
-	});
-
-	it("matches a script-produced line that is only partly Britishised by a field-wide spelling cap", async () => {
-		const original = `${register} A centered bubble encloses a centered ring, a centered glyph, and a centered rune.`;
-		let count = 0;
-		const partial = original.replaceAll("centered", () => (++count <= 3 ? "centred" : "centered"));
-		const { check } = await fixture(
-			{
-				"Spells/published.md": page([partial]),
-				"campaign/Spells/copy.md": page([partial.replace("bubble", "sphere")]),
-			},
-			`Both centered stones guard a centered gate.\n\n${original}`,
-		);
-		const result = await check();
-		expect(result.findings.filter(({ path }) => path === "wiki/Spells/published.md")).toEqual([]);
-		expect(result.findings).toEqual(
-			expect.arrayContaining([
-				expect.objectContaining({ path: "wiki/campaign/Spells/copy.md", rule: "ai-tells.VerbTricolon", line: 6 }),
 			]),
 		);
 	});

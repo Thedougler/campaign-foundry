@@ -2,6 +2,11 @@
 type: Creature
 summary: "A veteran raider who leads from the front."
 sources: []
+cr: 2
+creature_type: Humanoid
+size: Medium or Small
+habitat: []
+sourcebooks: []
 revealed: ""
 title: "Bandit Captain"
 ---

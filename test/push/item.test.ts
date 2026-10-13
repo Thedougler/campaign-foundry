@@ -115,21 +115,12 @@ Linked from elsewhere.
 `,
 		);
 		const { data } = buildItem(page, { campaign: "salt-and-lantern", render: ctx });
-		expect(data.system).toMatchObject({
-			description: { value: expect.stringContaining("The key shines.") },
-		});
-		expect(data.system).toMatchObject({
-			description: { value: expect.stringContaining("Turning the key") },
-		});
-		expect(data.system).toMatchObject({
-			description: { value: expect.stringContaining("The door opens.") },
-		});
-		expect(data.system).toMatchObject({
-			description: { value: expect.not.stringContaining("Only the DM knows") },
-		});
-		expect(data.system).toMatchObject({
-			description: { value: expect.not.stringContaining("Previous owner") },
-		});
+		const html = (data.system as { description: { value: string } }).description.value;
+		expect(html).toContain("The key shines.");
+		expect(html).toContain("Turning the key");
+		expect(html).toContain("The door opens.");
+		expect(html).not.toContain("Only the DM knows");
+		expect(html).not.toContain("Previous owner");
 	});
 
 	it("makes a notable mundane object loot", () => {

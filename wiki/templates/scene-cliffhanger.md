@@ -42,11 +42,11 @@ revealed: ""
 
 ### Creatures
 
-%% Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]`. Give its count and starting position. Add its opening tactic as a Cue (`==…==`) and its enemy-turn answer to interference as a Cue, then the loss that breaks it and its route out. A Creature the Party can kill gets a kill-handoff Cue, the question that hands the finish to a Player. %%
+%% Embed each fought Creature or NPC as `![[<page-slug>#Statblock|<page title>]]`. Give its count and starting position. Add its opening tactic as a Cue (`==…==`) and its enemy-turn answer to interference as a Cue, then the loss that breaks it and its route out. A foe the Party can kill gets a kill-handoff Cue, the question that hands the finish to a Player. %%
 
 ### Balance
 
-%% Copy the `bun run cfcli -- encounter-budget` lines. List the PCs taking part with their levels, and link the Creature pages supplying XP. %%
+%% Copy the `bun run cfcli -- encounter-budget` lines. List the PCs taking part with their levels, and link the Creature and NPC pages supplying XP. %%
 
 ## Outcomes
 

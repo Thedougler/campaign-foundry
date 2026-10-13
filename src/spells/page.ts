@@ -1,19 +1,13 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 import type { Nodes } from "mdast";
-import { applyFixes, type Configuration } from "markdownlint";
-import { lint } from "markdownlint/promise";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
-import { parse, stringify } from "yaml";
-import { toolRoot } from "../check/prose.ts";
-import { normaliseStructure } from "../items/page.ts";
+import { stringify } from "yaml";
+import { lintFixLoop, normaliseStructure } from "../items/page.ts";
 import { normaliseItemSpelling } from "../items/spelling.ts";
 import type { ExportedSpell } from "./convert.ts";
 
 const processor = unified().use(remarkParse).use(remarkGfm);
-let config: Promise<Configuration> | undefined;
 
 /** Rename only the exported scaling run-in, never its wording or literal code. */
 function normaliseScaling(text: string): string {
@@ -38,7 +32,7 @@ function normaliseScaling(text: string): string {
 }
 
 /** Repair only literal text punctuation and spacing; Markdown syntax, code and dash placeholders stay intact. */
-function normalisePunctuation(text: string): string {
+export function normalisePunctuation(text: string): string {
 	const edits: [number, number, string][] = [];
 	const collect = (node: Nodes, previous?: Nodes): void => {
 		if (node.type === "text" && node.position) {
@@ -91,16 +85,6 @@ export async function spellPage(spell: ExportedSpell, source: string, template: 
 	);
 	const classes = spell.classes.map((name) => stringify(name).trimEnd()).join(", ");
 	const levelLine = spell.level === 0 ? `${spell.school} Cantrip` : `Level ${spell.level} ${spell.school}`;
-	let page = `---\n${stringify({ title: spell.title, type: "Spell" }).trimEnd()}\nsummary: ""\nsources:\n  - ${JSON.stringify(source)}\nlevel: ${spell.level}\nschool: ${spell.school}\nclasses: [${classes}]\n---\n\n# ${spell.title}\n\n*${levelLine}.*\n\n___\n\n${casting}\n\n___\n\n${description}${spell.classes.length ? `\n\n**Classes:** ${spell.classes.join(", ")}` : ""}\n`;
-	config ??= readFile(join(toolRoot, ".markdownlint.yaml"), "utf8").then((text) => parse(text) as Configuration);
-	// Apply the same whitespace/table-only fixes as the Item converter and page gate.
-	for (;;) {
-		const findings = (await lint({ strings: { spell: page }, config: await config })).spell ?? [];
-		const fixed = applyFixes(
-			page,
-			findings.filter((finding) => finding.fixInfo),
-		);
-		if (fixed === page) return page;
-		page = fixed;
-	}
+	const page = `---\n${stringify({ title: spell.title, type: "Spell" }).trimEnd()}\nsummary: ""\nsources:\n  - ${JSON.stringify(source)}\nlevel: ${spell.level}\nschool: ${spell.school}\nclasses: [${classes}]\n---\n\n# ${spell.title}\n\n*${levelLine}.*\n\n___\n\n${casting}\n\n___\n\n${description}${spell.classes.length ? `\n\n**Classes:** ${spell.classes.join(", ")}` : ""}\n`;
+	return lintFixLoop(page);
 }

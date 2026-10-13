@@ -109,11 +109,16 @@ describe("cfcli rename", () => {
 
 	it("rewrites links held in quoted frontmatter values", async () => {
 		const dir = await copyFixture("clean");
+		const npcPath = "wiki/ashes-of-the-crown/NPCs/Mara Voss.md";
+		await writeFile(
+			join(dir, npcPath),
+			(await read(dir, npcPath)).replace("type: NPC", 'type: NPC\nmentor: "[[Bandit Captain]]"'),
+		);
 		const { code } = await rename(dir, ["Bandit Captain", "--title", "Bandit Leader"]);
 		expect(code).toBe(0);
 		expect(await read(dir, "wiki/ashes-of-the-crown/Creatures/bandit-leader.md")).toContain('title: "Bandit Leader"');
 		expect(await read(dir, "wiki/ashes-of-the-crown/NPCs/Mara Voss.md")).toContain(
-			'creature: "[[bandit-leader|Bandit Leader]]"',
+			'mentor: "[[bandit-leader|Bandit Leader]]"',
 		);
 	});
 

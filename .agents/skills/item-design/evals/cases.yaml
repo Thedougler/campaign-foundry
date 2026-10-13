@@ -17,7 +17,6 @@
         - "## Properties"
         - "## History"
         - "## Hidden truths"
-        - "## Links"
     canon:
       shattered-sea/Items/rescue-line-charm.md:
         - '^type:\s*Item\s*$'
@@ -57,7 +56,7 @@
       stops before Players act, without PC feelings, mechanics, hidden
       provenance or unearned knowledge.
 
-# DM-requested 2026-10-11: the DM's Benchmark prompt playful-cloud/v1 (evals/bench/prompts/playful-cloud/v1.md), byte for byte. Circumstance: a World-free Item from a work the DM names, filed at the vault root's Items/ with no Campaign version (docs/wiki-layout.md **One vault, many Campaigns**, ADR 0039). The DM ruled it World-free because the ask names no World or Campaign. Its shape is the World-free minimum of wiki/templates/item.md (ADR 0041): frontmatter without revealed, then ## Properties, then ## Links, with no ## Play wrapper and every optional section left out. Properties takes the published-entry shape of wiki/Items/acid-absorbing-tattoo.md: italic classification line ending in a full stop, a plain description, then bold-italic named properties. No source_pages by design (evals/README.md § Grounding). The prompt names no page, so Checks key on Items/*.md. The fixture is the DM's researched inspired-by note, a byte copy of .cache/inspired-by/playful-cloud.md (fetched 2026-10-11), which stands in for the cache lookup and web research. The DM ruled 2026-10-11 (round 4) that ignoring Resistance to Bludgeoning damage is concept. Rubric 1 (2026-10-12) admits it among any powers grown from the fixture's concept and themes, in place of a fixed set of powers. Design verdict pending its first baseline run.
+# DM-requested 2026-10-11: the DM's Benchmark prompt playful-cloud/v1 (evals/bench/prompts/playful-cloud/v1.md), byte for byte. Circumstance: a World-free Item from a work the DM names, filed at the vault root's Items/ with no Campaign version (docs/wiki-layout.md **One vault, many Campaigns**, ADR 0039). The DM ruled it World-free because the ask names no World or Campaign. Its shape is the World-free minimum of wiki/templates/item.md (ADR 0041, ADR 0044): frontmatter without revealed, then ## Properties, with `## Links` optional, no ## Play wrapper and every other optional section left out. Properties takes the published-entry shape of wiki/Items/acid-absorbing-tattoo.md: italic classification line ending in a full stop, a plain description, then bold-italic named properties. No source_pages by design (evals/README.md § Grounding). The prompt names no page, so Checks key on Items/*.md. The fixture is the DM's researched inspired-by note, a byte copy of .cache/inspired-by/playful-cloud.md (fetched 2026-10-11), which stands in for the cache lookup and web research. The DM ruled 2026-10-11 (round 4) that ignoring Resistance to Bludgeoning damage is concept. Rubric 1 (2026-10-12) admits it among any powers grown from the fixture's concept and themes, in place of a fixed set of powers. Design verdict pending its first baseline run.
 - id: playful-cloud
   fixtures:
     - .agents/skills/item-design/evals/fixtures/playful-cloud.md
@@ -69,7 +68,6 @@
     sections:
       Items/*.md:
         - "## Properties"
-        - "## Links"
     canon:
       Items/*.md:
         - '^type:\s*Item\s*$'
@@ -132,7 +130,6 @@
     sections:
       Items/*.md:
         - "## Properties"
-        - "## Links"
     canon:
       Items/*.md:
         - '^type:\s*Item\s*$'
@@ -181,7 +178,6 @@
     sections:
       shattered-sea/Items/redheart-draught.md:
         - "## Properties"
-        - "## Links"
     canon:
       shattered-sea/Items/redheart-draught.md:
         - '^type:\s*Item\s*$'
@@ -231,7 +227,6 @@
     sections:
       Items/*.md:
         - "## Properties"
-        - "## Links"
     canon:
       Items/*.md:
         - '^type:\s*Item\s*$'

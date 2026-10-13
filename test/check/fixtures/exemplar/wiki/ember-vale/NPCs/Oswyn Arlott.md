@@ -2,7 +2,6 @@
 type: NPC
 summary: "Gate sergeant who is owed his winter pay."
 sources: []
-creature: ""
 parent: "[[Stonewatch Tollhouse]]"
 revealed: ""
 title: "Oswyn Arlott"

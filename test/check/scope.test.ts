@@ -24,9 +24,42 @@ async function workspace(pages: Record<string, string>): Promise<CheckOptions> {
 }
 
 const npc = (title: string, body: string): string =>
-	`---\ntype: NPC\ntitle: "${title}"\nsummary: A sailor.\nsources: []\ncreature: ""\n---\n\n## At a glance\n\n${body}\n`;
+	`---\ntype: NPC\ntitle: "${title}"\nsummary: A sailor.\nsources: []\n---\n\n## Roleplaying\n\n${body}\n`;
 
 describe("runCheck execution scope", () => {
+	it("omits boilerplate only for hook checks, leaving explicit scoped and full checks intact", async () => {
+		const options = await workspace({ "One.md": "One.\n", "Two.md": "Two.\n" });
+		let calls = 0;
+		const registry: Layer[] = [
+			{
+				name: "boilerplate",
+				scope: "vault",
+				description: "Repeated prose.",
+				run: () => {
+					calls++;
+					return [];
+				},
+			},
+		];
+		await runCheck({ ...options, registry, paths: ["wiki/One.md"], skipBoilerplate: true });
+		expect(calls).toBe(0);
+		await runCheck({ ...options, registry, paths: ["wiki/One.md"] });
+		await runCheck({ ...options, registry });
+		expect(calls).toBe(2);
+	});
+
+	it("skips irrelevant hot, log and mermaid layers before loading templates", async () => {
+		const options = await workspace({ "One.md": "A sailor waits.\n" });
+		const result = await runCheck({
+			...options,
+			templates: "/missing-templates",
+			paths: ["wiki/One.md"],
+			layers: ["hot", "log", "mermaid"],
+		});
+		expect(result.layers).toEqual([]);
+		expect(result.pages).toBe(1);
+	});
+
 	it("retains foreign link targets, inbound links, duplicate owners and shared prose for file and folder checks", async () => {
 		const target = "Aldermoor/NPCs/Twin.md";
 		const shared = "The swing comes wide and slow, telegraphed long before it lands.";
@@ -269,7 +302,7 @@ describe("runCheck execution scope", () => {
 		expect(await readFile(join(options.vault, "Aldermoor/NPCs/Target.md"), "utf8")).toBe(occupied);
 	});
 
-	it("checks generated index targets against every page and fixes only the targeted index", async () => {
+	it("checks indexes in the full gate but skips them for page-list checks, including fixes", async () => {
 		const options = await workspace({
 			"Aldermoor/Aldermoor.md": "---\ntype: World\ntitle: Aldermoor\nsummary: A river country.\n---\n",
 			"Aldermoor/Ashes of the Crown.md": "---\ntype: Campaign\ntitle: Ashes of the Crown\nsummary: One line.\n---\n",
@@ -278,11 +311,11 @@ describe("runCheck execution scope", () => {
 		});
 		const full = await runCheck({ ...options, layers: ["index"] });
 		const scoped = await runCheck({ ...options, layers: ["index"], paths: ["wiki/Aldermoor"] });
-		expect(scoped.findings).toEqual(full.findings.filter((finding) => finding.path === "wiki/Aldermoor/index.md"));
-		expect(scoped.findings.map((finding) => finding.rule)).toEqual(["missing"]);
+		expect(full.findings.length).toBeGreaterThan(0);
+		expect(scoped.findings).toEqual([]);
+		expect(scoped.layers).toEqual([]);
 		const fixed = await runCheck({ ...options, layers: ["index"], paths: ["wiki/Aldermoor"], fix: true });
-		expect(fixed.fixes.map((fix) => fix.path)).toEqual(["wiki/Aldermoor/index.md"]);
-		expect(await readFile(join(options.vault, "Aldermoor/index.md"), "utf8")).toContain("[[Zorvath|Zorvath]]");
+		expect(fixed.fixes).toEqual([]);
 		expect(await readFile(join(options.vault, "index.md"), "utf8")).toBe("Unrelated stale index.\n");
 	});
 });

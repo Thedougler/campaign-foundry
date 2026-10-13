@@ -62,6 +62,8 @@ revealed: "Backstory"
 
 ## Links
 
+%% Optional. Include it when the DM wants this page's backlinks listed here. %%
+
 ```base
 filters:
   and:

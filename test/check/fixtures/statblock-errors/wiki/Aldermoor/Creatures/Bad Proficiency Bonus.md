@@ -2,11 +2,16 @@
 type: Creature
 summary: "Seeded stat block: Bad Proficiency Bonus."
 sources: []
+cr: ""
+creature_type: ""
+size: ""
+habitat: []
+sourcebooks: []
 revealed: ""
 title: "Bad Proficiency Bonus"
 ---
 
-## At a glance
+## Overview
 
 - **Role at the table.** Text.
 - **Threat.** Text.
@@ -55,11 +60,11 @@ legendary_actions: []
 proficiency_bonus: 3
 ```
 
-## Play
+## Tactics
 
 Text.
 
-## Depth
+## History
 
 Text.
 

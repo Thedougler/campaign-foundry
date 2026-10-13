@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { buildPlan } from "../../src/push/adventure.ts";
 import type { Plan, PlanDoc } from "../../src/push/adventure.ts";
-import { CAMPAIGN, workspace } from "./helpers.ts";
+import { CAMPAIGN, FOLDER, MUD, workspace } from "./helpers.ts";
 
 type Bag = Record<string, any>;
 let plan: Plan;
@@ -101,6 +101,28 @@ describe("buildPlan for Salt and Lantern, Session 2", () => {
 		expect(find("Actor", "Nib Ashwater").system.attributes.ac.flat).toBe(15);
 		expect(find("Actor", "Sable")._id).not.toBe(find("Actor", "Mire Drowner")._id);
 		expect(find("Actor", "Sable").ownership.default).toBe(0);
+	});
+
+	it.each([true, false])("uses an NPC's own statblock with legacy property present: %s", async (legacy) => {
+		const ws = await workspace();
+		const npcPath = `${FOLDER}/NPCs/Sable.md`;
+		const goblin = await ws.read(`${FOLDER}/Creatures/Goblin Warrior.md`);
+		const fence = goblin.match(/```statblock\n[\s\S]*?\n```/)![0];
+		let source = await ws.read(npcPath);
+		if (!legacy) source = source.replace(/^creature:.*\n/m, "");
+		await ws.write(npcPath, `${source}\n## Statblock\n\n${fence}\n`);
+		await ws.write(MUD, `${await ws.read(MUD)}\n![[Sable#Statblock]]\n`);
+		const own = await buildPlan(await ws.load(), { campaign: CAMPAIGN, session: 2 });
+		const actors = own.docs.filter((doc) => doc.type === "Actor" && doc.name === "Sable");
+		expect(actors).toHaveLength(1);
+		const actor = actors[0]!.data as Bag;
+		expect(actor.system.attributes.hp.max).toBe(10);
+		expect(actor.system.abilities.str.value).toBe(8);
+		expect(actor.prototypeToken.disposition).toBe(0);
+		const scene = own.docs.find((doc) => doc.type === "Scene")!.data as Bag;
+		expect(scene.tokens).toEqual(
+			expect.arrayContaining([expect.objectContaining({ actorId: actors[0]!.id, name: "Sable" })]),
+		);
 	});
 
 	it("makes an Item of each Item page", () => {

@@ -2,7 +2,6 @@
 type: NPC
 summary: "A guard with advisory narration problems."
 sources: []
-creature: ""
 title: "Dirty Narration"
 ---
 

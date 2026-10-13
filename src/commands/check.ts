@@ -14,6 +14,7 @@ interface CheckFlags {
 	fix?: boolean;
 	dryRun?: boolean;
 	json?: boolean;
+	skipBoilerplate?: boolean;
 }
 
 export function checkCommand(): Command {
@@ -32,6 +33,7 @@ export function checkCommand(): Command {
 		.option("--fix", "apply mechanical fixes, report them, then re-check")
 		.option("--dry-run", "with --fix: show the fixes without writing anything")
 		.option("--json", "print machine-readable JSON instead of text")
+		.option("--skip-boilerplate", "omit the whole-vault repeated-prose scan (page-check hooks)")
 		.addHelpText(
 			"after",
 			`
@@ -76,6 +78,7 @@ Examples:
 				paths: paths.map((p) => realPath(resolve(env.cwd, p))),
 				fix: flags.fix ?? false,
 				dryRun: flags.dryRun ?? false,
+				skipBoilerplate: flags.skipBoilerplate ?? false,
 			});
 			const text = flags.json
 				? formatJson(result)

@@ -1,5 +1,6 @@
 # Merges the recovered Malone scale-up ask with complete person and first-meeting play.
 # Design 2026-10-11: discriminating (baseline failed rubrics 2-4); PC and linked Thread pages added so tuning, invitations and plan ownership can use the actual Party and Threads.
+# Statblock split 2026-10-12: the statblock now sits under the NPC page's own `## Statblock`, written through statblock-design, and the retired `creature` property goes (ADR 0044, docs/wiki-layout.md **Retired shapes**).
 - id: npc
   source_pages:
     - shattered-sea/NPCs/aleksander-malone.md
@@ -18,33 +19,22 @@
     person too, so I can run a meeting with him or bring him back later.
   checks:
     pages:
-      - shattered-sea/Creatures/aleksander-malone-creature.md
       - shattered-sea/NPCs/aleksander-malone.md
     sections:
       shattered-sea/NPCs/aleksander-malone.md:
         - "## History"
         - "## Hidden truths"
         - "## Threads"
-        - "## Links"
-      shattered-sea/Creatures/aleksander-malone-creature.md:
         - "## Statblock"
-        - "## Tactics"
-        - "## Outside a fight"
-        - "## Ecology"
-        - "## Hidden truths"
     canon:
-      shattered-sea/Creatures/aleksander-malone-creature.md:
-        - '^type:\s*Creature\s*$'
-        - 'layout: Basic 5e Layout'
-        - '^```statblock\b'
-        - '\[!narration\] First sight'
       shattered-sea/NPCs/aleksander-malone.md:
         - '^type:\s*NPC\s*$'
-        - 'creature: "\[\[aleksander-malone-creature\|Aleksander Malone \(Creature\)\]\]"'
+        - '^```statblock\b'
+        - '^layout: Basic 5e Layout\s*$'
         - '\[!narration\] First look'
     absent:
       shattered-sea/NPCs/aleksander-malone.md:
-        - '^```statblock\b'
+        - '^creature:'
         - '!\[\[[^\]|]+#Statblock(\|[^\]]*)?\]\]'
   rubrics:
     - >-
@@ -80,11 +70,9 @@
       secrets or things their characters have not learned; Narration
       already heard at the table is respected.
     - >-
-      The Creature's First sight lands in one hearing: concrete form, size
-      against something familiar, a grounded sensory detail and the visible
-      tells of how he fights. It stops before Players act and tells them no
-      feelings, mechanics, secrets or things their characters have not
-      learned.
+      The page tells the DM how Malone fights in words a Player could see
+      coming: the visible tells of his exorcist style sit in the page's
+      prose sections, and his statblock entries match them.
 
 # npc split 2026-10-11: complex recurring NPC, no statistics.
 - id: npc-no-statblock
@@ -115,7 +103,6 @@
         - "## History"
         - "## Hidden truths"
         - "## Threads"
-        - "## Links"
     canon:
       shattered-sea/NPCs/nona-black-jaw.md:
         - '^type:\s*NPC\s*$'
@@ -124,6 +111,7 @@
       shattered-sea/NPCs/nona-black-jaw.md:
         - '^```statblock\b'
         - '!\[\[[^\]|]+#Statblock(\|[^\]]*)?\]\]'
+        - '^creature:'
   rubrics:
     - >-
       Nona plays from the page alone as a matriarch who rules from her
@@ -153,9 +141,8 @@
       rather than an invented prior relationship.
     - >-
       She stays a person without numbers of her own: the run invents no
-      statistics or bespoke Creature for her, and her creature link points
-      only at a Creature that already exists and fits a matriarch who rules
-      from a kitchen, or at none.
+      statistics for her and adds no `## Statblock`, since the ask never
+      puts her in a fight.
 
 # npc split 2026-10-11: simple incidental NPC, no statistics of its own.
 - id: npc-simple
@@ -177,7 +164,6 @@
         - "## History"
         - "## Hidden truths"
         - "## Threads"
-        - "## Links"
     canon:
       shattered-sea/NPCs/thunk.md:
         - '^type:\s*NPC\s*$'
@@ -186,7 +172,7 @@
       shattered-sea/NPCs/thunk.md:
         - '^```statblock\b'
         - '!\[\[[^\]|]+#Statblock(\|[^\]]*)?\]\]'
-        - '\[\[thunk-creature'
+        - '^creature:'
   rubrics:
     - >-
       Thunk is ready for the gun-deck moment: what he is doing as the Party
@@ -202,7 +188,6 @@
       the reef run stay as played facts, the crew rules stand as his stated
       combat basis, and the pass records no completed Scene, refit or fight.
     - >-
-      He gains no numbers of his own: nowhere in the run is a bespoke
-      Creature or unique statistic invented for him, and his creature
-      property points only at a Creature that already exists and fits him,
-      or stays empty as it is.
+      He gains no numbers of his own: nowhere in the run is a statblock or
+      unique statistic invented for him, and his combat basis stays the
+      crew rules on the Uncertainty's page.

@@ -60,8 +60,8 @@ describe("markdownlint layer", () => {
 		const found = on("markdownlint", "NPCs/Bad Markdown");
 		expect(found.map((f) => [f.rule, f.line])).toEqual(
 			expect.arrayContaining([
-				["MD009", 11],
-				["MD012", 14],
+				["MD009", 10],
+				["MD012", 13],
 			]),
 		);
 		expect(found[0]?.hint).toMatch(/--fix/);
@@ -99,9 +99,9 @@ describe("markdownlint layer", () => {
 });
 
 describe("remark-lint layer", () => {
-	it("flags a lazy blockquote line and a bare URL", () => {
+	it("flags a lazy blockquote line, leaving bare URLs to markdownlint", () => {
 		const rules = on("remark-lint", "NPCs/Bad Remark").map((f) => f.rule);
-		expect(rules).toEqual(expect.arrayContaining(["no-blockquote-without-marker", "no-literal-urls"]));
+		expect(rules).toEqual(["no-blockquote-without-marker"]);
 	});
 
 	it("reads wikilinks, callouts, embeds and block ids as ordinary text", () => {

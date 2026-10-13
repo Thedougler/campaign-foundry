@@ -1,0 +1,48 @@
+# Default case (statblock split 2026-10-12, moved from creature-design's `creature` case): the production retune ask in issue #34. Talon Skarn is an NPC, so his statblock now sits under his own NPC page's `## Statblock`, and the retired `creature` property goes (ADR 0044, docs/wiki-layout.md **Retired shapes**). The Talon Skarn (Creature) page stays, since played records embed it.
+- id: statblock
+  source_pages:
+    - shattered-sea/NPCs/talon-skarn.md
+    - shattered-sea/Creatures/talon-skarn-creature.md
+    - shattered-sea/Sessions/Session 11/session-11-recap.md
+  prompt: >-
+    Redo Talon Skarn's statblock so he's a powerful, engaging antagonist
+    and fun for the Party to fight. He wants Crissdalynn's Fate Spinner
+    for Vantyrus, not a prolonged fight, and he's loyal to Vantyrus for now.
+    Jean-Claude will be awake next Session. Keep Skarn easy for me to run.
+  checks:
+    pages:
+      - shattered-sea/NPCs/talon-skarn.md
+    sections:
+      shattered-sea/NPCs/talon-skarn.md:
+        - "## Roleplaying"
+        - "## Statblock"
+    canon:
+      shattered-sea/NPCs/talon-skarn.md:
+        - '^type:\s*NPC\s*$'
+        - '^```statblock\b'
+        - '^layout: Basic 5e Layout\s*$'
+    absent:
+      shattered-sea/NPCs/talon-skarn.md:
+        - '^creature:'
+        - '!\[\[[^\]|]+#Statblock(\|[^\]]*)?\]\]'
+  rubrics:
+    - >-
+      The fight is the one the DM asked for: Skarn goes for Crissdalynn's
+      Fate Spinner rather than a long brawl. The theft plays as an
+      interruptible contest with tells the Party can see coming, distinct
+      ways to stop it and real choices about position, flight and rescuing
+      an ally; it stays tense and winnable, never a required loss or a
+      damage race.
+    - >-
+      The statblock is correct, complete and easy to run at the table under
+      the 2024 rules: clear timing, targets, limits and condition endings,
+      and a clear point where he breaks off, pitched as a powerful
+      antagonist for the actual Party with Jean-Claude awake, without the DM
+      rebuilding anything.
+    - >-
+      His established identity, knowledge, withdrawal and spent resources
+      hold except where the DM changed them. Present loyalty to Vantyrus can
+      sit beside a future Rule of Two rivalry, and the unresolved Session 11
+      attack is not rewritten as a completed theft or breakoff. Played
+      records are unchanged, and so are their embeds of the Talon Skarn
+      (Creature) page.

@@ -2,7 +2,6 @@
 type: NPC
 summary: "A probe whose Cue runs past the table beat it owes."
 sources: []
-creature: ""
 parent: "[[Stonewatch Tollhouse]]"
 revealed: ""
 title: "Probe Length"

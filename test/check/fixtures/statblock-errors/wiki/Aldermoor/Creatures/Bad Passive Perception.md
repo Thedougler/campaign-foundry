@@ -2,11 +2,16 @@
 type: Creature
 summary: "Seeded stat block: Bad Passive Perception."
 sources: []
+cr: ""
+creature_type: ""
+size: ""
+habitat: []
+sourcebooks: []
 revealed: ""
 title: "Bad Passive Perception"
 ---
 
-## At a glance
+## Overview
 
 - **Role at the table.** Text.
 - **Threat.** Text.
@@ -54,11 +59,11 @@ legendary_description: ""
 legendary_actions: []
 ```
 
-## Play
+## Tactics
 
 Text.
 
-## Depth
+## History
 
 Text.
 

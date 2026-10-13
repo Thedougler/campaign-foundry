@@ -2,7 +2,6 @@
 type: NPC
 summary: "A ferrywoman."
 sources: []
-creature: ""
 kind: Hero
 revealed: ""
 title: "Sneaky Kind"

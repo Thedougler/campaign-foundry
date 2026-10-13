@@ -88,18 +88,25 @@ describe("statblock layer: seeded errors, one page per class", () => {
 		["Bad Save Dc", "save-dc"],
 		["Bad Spell Save Dc", "save-dc"],
 		["Bad Escape Dc", "escape-dc"],
-		["No Statblock", "missing-statblock"],
 		["Two Statblocks", "multiple-statblocks"],
 	])("%s fails only with statblock/%s", (page, rule) => {
 		expect(rules(page)).toEqual([`statblock/${rule}`]);
 	});
 
-	it("flags a stat block on an NPC page and says where it belongs", () => {
-		const [finding] = findingsFor(report, "/Misplaced Statblock.md");
-		expect(findingsFor(report, "/Misplaced Statblock.md")).toHaveLength(1);
-		expect(finding).toMatchObject({ layer: "statblock", rule: "statblock-misplaced", line: 21 });
-		expect(finding?.hint).toContain("`creature:");
-		expect(finding?.hint).toContain("![[Name#Statblock]]");
+	it("accepts an NPC's own optional statblock and pages without one", () => {
+		expect(findingsFor(report, "/Misplaced Statblock.md")).toEqual([]);
+		expect(findingsFor(report, "/No Statblock.md").filter((f) => f.layer === "statblock")).toEqual([]);
+	});
+
+	it("still rejects a statblock on other page kinds", async () => {
+		const dir = await copyFixture("statblock-errors");
+		const path = join(dir, "wiki/Aldermoor/NPCs/Misplaced Statblock.md");
+		await writeFile(path, (await readFile(path, "utf8")).replace("type: NPC", "type: Lore"));
+		const result = await checkLayer("statblock", dir);
+		const [finding] = findingsFor(result.report, "/Misplaced Statblock.md");
+		expect(finding).toMatchObject({ rule: "statblock-misplaced" });
+		expect(finding?.hint).toContain("Creature or NPC");
+		expect(finding?.hint).not.toContain("creature:");
 	});
 
 	it("names the expected number and how it derives, on the line of the wrong figure", () => {

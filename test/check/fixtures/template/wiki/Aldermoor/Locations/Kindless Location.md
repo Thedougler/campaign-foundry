@@ -7,7 +7,7 @@ revealed: ""
 title: "Kindless Location"
 ---
 
-## At a glance
+## Overview
 
 - **Draws the Party because.** Text.
 - **Entrance.** Text.
@@ -18,7 +18,7 @@ title: "Kindless Location"
 > [!narration] Entering
 > Spoken text for the table.
 
-## Play
+## Areas
 
 Text.
 
@@ -38,7 +38,7 @@ Text.
 
 Text.
 
-## Depth
+## History
 
 Text.
 

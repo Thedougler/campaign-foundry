@@ -143,7 +143,7 @@ function linkIndex(graph: LinkGraph, page: Page): Map<string, Resolution> {
 	return map;
 }
 
-/** The Creature page a NPC's `creature` property links, if any. */
+/** Legacy Creature link, used only until an NPC migrates to its own statblock. */
 function creatureOf(vault: Vault, graph: LinkGraph, npc: Page): Page | undefined {
 	const raw = wikiName(npc.frontmatter?.creature);
 	if (!raw) return undefined;
@@ -182,7 +182,8 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 	const creatureFor = new Map<string, Page>();
 	for (const page of [...scope.values()]) {
 		if (typeOf(page) !== "NPC") continue;
-		const creature = creatureOf(vault, graph, page);
+		const own = page.tree.children.some((node) => node.type === "code" && node.lang === "statblock");
+		const creature = own ? page : "creature" in (page.frontmatter ?? {}) ? creatureOf(vault, graph, page) : undefined;
 		if (!creature) continue;
 		creatureFor.set(page.path, creature);
 		if (!scope.has(creature.path)) scope.set(creature.path, creature);
@@ -310,7 +311,7 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 		);
 	}
 
-	// An NPC with a Creature becomes its own Actor: the Creature's statistics under the NPC's name and portrait.
+	// NPCs use their own statistics, with a legacy Creature link only while awaiting migration.
 	for (const page of pages) {
 		const creature = creatureFor.get(page.path);
 		if (!creature || typeOf(page) !== "NPC") continue;
@@ -327,6 +328,7 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 				...(portrait ? { img: assetUrl(portrait) } : {}),
 			});
 			warnings.push(...built.warnings.map((w) => `${page.name}: ${w}`));
+			actorIdOf.set(page.path, String(built.data._id));
 			add("Actor", inFolder("Actor", built.data), page.path);
 		} catch (error) {
 			warnings.push(`${page.name}: no Actor, ${(error as Error).message}`);
@@ -388,10 +390,10 @@ export async function buildPlan(vault: Vault, options: PlanOptions): Promise<Pla
 		const tokens: SceneToken[] = [];
 		for (const { link, resolution } of graph.links.get(scene) ?? []) {
 			if (!link.embed || link.headings.length === 0 || resolution.status !== "ok") continue;
-			const creature = resolution.pages.find((p) => typeOf(p) === "Creature");
+			const creature = resolution.pages.find((p) => typeOf(p) === "Creature" || typeOf(p) === "NPC");
 			const actorId = creature ? actorIdOf.get(creature.path) : undefined;
 			if (!creature || !actorId) continue;
-			const size = statblockOf(creature)?.size.toLowerCase() ?? "medium";
+			const size = statblockOf(creatureFor.get(creature.path) ?? creature)?.size.toLowerCase() ?? "medium";
 			const portrait = attachmentByName(`${creature.slug}-portrait.webp`);
 			tokens.push({
 				name: creature.name,

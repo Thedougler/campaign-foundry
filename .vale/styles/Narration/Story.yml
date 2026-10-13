@@ -1,7 +1,0 @@
-extends: existence
-message: "Deprecated: Story. Migrate to the shape of wiki/templates/PC.md — see pull-pcs; move the character's past into Backstory and their aims and ties into Goals and bonds."
-level: error
-scope: heading.h2
-nonword: true
-tokens:
-  - '^Story\s*$'

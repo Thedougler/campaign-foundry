@@ -75,12 +75,16 @@ a Location the Party explores or visits within a Region or Settlement, such as a
 _Avoid_: place, dungeon (as a kind), point of interest
 
 **NPC**:
-a specific, named person in a World whom the DM plays, with an identity and a story. An NPC's game statistics come from a Creature; many NPCs can share one Creature, and a unique NPC can have a Creature of its own.
+a specific, named person in a World whom the DM plays, with an identity and a story. An NPC's game statistics are optional: when the NPC fights or their rules matter at the table, the NPC page contains that NPC's Statblock.
 _Avoid_: character (ambiguous with PC), monster, mob
 
 **Creature**:
-the game statistics, or stat block, for a kind of being (Bandit Captain, Adult Red Dragon) or for one unique being. A Creature is rules, never a person. The person is the NPC.
-_Avoid_: monster, enemy, actor, stat block (as a page kind)
+a creature, monster or other sentient thing other than an NPC: a kind of being (Bandit Captain, Adult Red Dragon) or one unique being. Its game statistics are optional: a Creature that fights or whose rules matter at the table has its Statblock on its page, and a Creature published as a monster (a 5etools monster) is its Statblock alone.
+_Avoid_: monster (as a page kind), enemy, actor, stat block (as a page kind)
+
+**Statblock**:
+a being's D&D 2024 game statistics: one Fantasy Statblocks `statblock` fence under the `## Statblock` heading of the Creature or NPC page it belongs to. A page has at most one, and other pages link that page or, in an Encounter where the being is fought, embed the section.
+_Avoid_: stat sheet or stats page; character sheet (that's a PC's Sheet)
 
 **Faction**:
 an organised group with shared goals in a World, such as a guild, cult, noble house or army.

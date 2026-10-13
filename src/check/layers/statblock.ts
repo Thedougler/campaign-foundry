@@ -31,32 +31,24 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 		const blocks = fences(page);
 		const type = page.frontmatter?.type;
 
-		if (type !== "Creature") {
+		if (type !== "Creature" && type !== "NPC") {
 			for (const block of blocks) {
 				add(
 					"statblock-misplaced",
 					block.position?.start.line ?? 1,
-					`A \`statblock\` block sits on a ${typeof type === "string" && type !== "" ? type : "non-Creature"} page; stat blocks live only on Creature pages.`,
-					'Move the stat block to a Creature page (`## Statblock` in Creatures/<Name>.md). Link it from an NPC with `creature: "[[Name]]"`, or embed it on a Scene, Prep or Location page with `![[Name#Statblock]]`.',
+					`A \`statblock\` block sits on a ${typeof type === "string" && type !== "" ? type : "non-Creature/NPC"} page; stat blocks live on Creature or NPC pages.`,
+					"Move the stat block to a Creature or NPC page under `## Statblock`, or embed that section on a Scene, Prep or Location page with `![[Name#Statblock]]`.",
 				);
 			}
 			continue;
 		}
-		if (blocks.length === 0) {
-			add(
-				"missing-statblock",
-				1,
-				"Creature page has no `statblock` block.",
-				"Add a ```statblock fence under `## Statblock` with the Fantasy Statblocks `Basic 5e Layout` fields; copy it from templates/creature.md.",
-			);
-			continue;
-		}
+		if (blocks.length === 0) continue;
 		for (const extra of blocks.slice(1)) {
 			add(
 				"multiple-statblocks",
 				extra.position?.start.line ?? 1,
-				"Creature page has more than one `statblock` block.",
-				"Keep exactly one per Creature. A variant (a Creature with a different stat block) is its own Creature page.",
+				`${type} page has more than one \`statblock\` block.`,
+				"Keep exactly one stat block per page. A variant with different statistics is its own page.",
 			);
 		}
 		const block = blocks[0] as Code;
@@ -76,6 +68,6 @@ export async function run(ctx: CheckContext): Promise<Finding[]> {
 export const statblockLayer: Layer = {
 	name: LAYER,
 	scope: "page",
-	description: "Stat blocks sit only on Creature pages, and their derived numbers add up under the 2024 rules.",
+	description: "Optional stat blocks on Creature and NPC pages have derived numbers that add up under the 2024 rules.",
 	run,
 };

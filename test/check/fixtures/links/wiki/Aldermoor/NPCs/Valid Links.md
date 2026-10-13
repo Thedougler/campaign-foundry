@@ -2,7 +2,6 @@
 type: NPC
 summary: "One line."
 sources: []
-creature: ""
 parent: "[[Ravenhold]]"
 revealed: ""
 title: "Valid Links"

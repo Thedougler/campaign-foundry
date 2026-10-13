@@ -23,7 +23,6 @@
         - "## Errand, chase and boarding"
         - "## History"
         - "## Hidden truths"
-        - "## Links"
     canon:
       shattered-sea/Vehicles/uncertainty.md:
         - '^type:\s*Vehicle\s*$'
@@ -41,8 +40,8 @@
       hull and component defences, weapon attacks and damage, and clear
       disabled or sinking consequences. Adaptations are attributed honestly;
       older nautical rules are not called published 2024 rules or borrowed
-      indiscriminately from a larger warship. Fighting crew link complete
-      Creature owners and participation respects the actual Party's strength
+      indiscriminately from a larger warship. Fighting crew link Creature or
+      NPC pages with complete statblocks, and participation respects the actual Party's strength
       and mobility.
     - >-
       This captured, refitted cutter reads as itself rather than a generic

@@ -2,11 +2,16 @@
 type: Creature
 summary: "A Creature with no stat block."
 sources: []
+cr: ""
+creature_type: ""
+size: ""
+habitat: []
+sourcebooks: []
 revealed: ""
 title: "No Statblock"
 ---
 
-## At a glance
+## Overview
 
 - **Role at the table.** Text.
 - **Threat.** Text.
@@ -21,11 +26,11 @@ title: "No Statblock"
 
 Text.
 
-## Play
+## Tactics
 
 Text.
 
-## Depth
+## History
 
 Text.
 

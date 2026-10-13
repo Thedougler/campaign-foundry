@@ -32,7 +32,7 @@ The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scen
 6. **Balance the opposition.** For every Encounter, including violence after failed talks or exposure, apply scene-pages **Encounters** and write `## Encounter` with its `### Balance`.
    - Default to High difficulty unless the chart or DM specifies otherwise.
    - Budget for the PCs able to act in this Scene, each listed with their level. Exclude anyone unconscious, catatonic or absent, recording each exclusion with its reason.
-   - A fought Creature appears there only as its `![[Creature#Statblock]]` embed. Replace any statistics retyped into the Scene page with that embed.
+   - A fought Creature or NPC appears there only as its `![[<page-slug>#Statblock|<page title>]]` embed. Replace any statistics retyped into the Scene page with that embed.
    - Account for phases and reinforcements in the forces actually faced. Use the opposition's strongest established tactics while the Angles the Party gained earlier still work.
 
    **Done when** every fight branch has a CLI-sourced 2024 Party-budget comparison naming its contributors, linked combatants embedded rather than copied, and an objective the Party can secure or lose through the stated rulings.

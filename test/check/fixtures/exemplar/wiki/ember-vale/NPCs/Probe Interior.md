@@ -2,7 +2,6 @@
 type: NPC
 summary: "A probe whose Cue hands the decision to the player's character."
 sources: []
-creature: ""
 parent: "[[Stonewatch Tollhouse]]"
 revealed: ""
 title: "Probe Interior"

@@ -32,7 +32,7 @@ revealed: ""
 
 ## Encounter
 
-%% Optional. Include it when the Party may fight. Give forces and deployment, the battlefield, and the break or escape conditions, with each Creature's opening tactic and enemy-turn answers as Cues (`==…==`), and a kill-handoff Cue for each the Party can fell. Open it with the battle map when the fight has one, the bare embed below from `skill://visuals`. Embed each fought Creature as `![[<creature-slug>#Statblock|<Creature title>]]`, and add a `### Balance` with the `bun run cfcli -- encounter-budget` lines and the PCs able to act. %%
+%% Optional. Include it when the Party may fight. Give forces and deployment, the battlefield, and the break or escape conditions, with each Creature's opening tactic and enemy-turn answers as Cues (`==…==`), and a kill-handoff Cue for each the Party can fell. Open it with the battle map when the fight has one, the bare embed below from `skill://visuals`. Embed each fought Creature or NPC as `![[<page-slug>#Statblock|<page title>]]`, and add a `### Balance` with the `bun run cfcli -- encounter-budget` lines and the PCs able to act. %%
 
 ![[<slug>-battle-map.png]]
 

@@ -10,6 +10,21 @@ import { isFixedPage } from "../views.ts";
 
 const LAYER = "template";
 
+const RETIRED_HEADINGS: Record<string, string> = {
+	"At a glance":
+		"Deprecated section: 'At a glance'. Migrate now to the shape of wiki/templates/<type>.md and follow its skill. Delete this section; move any fact no other part of the page holds into the section where it belongs.",
+	Play: "Deprecated section: 'Play'. Migrate now to the shape of wiki/templates/<type>.md and follow its skill. Delete this section; move any fact no other part of the page holds into the specific section whose job it is.",
+	Depth:
+		"Deprecated: Depth. Migrate to the shape of wiki/templates/<type>.md — see the page kind's design skill; facts move to the specific section whose job they are.",
+	"In use":
+		"Deprecated: In use. Migrate to the shape of wiki/templates/Item.md — see item-design; move rules into Properties, rulings into Rulings and spoken description into the First look entry.",
+	Story:
+		"Deprecated: Story. Migrate to the shape of wiki/templates/PC.md — see pull-pcs; move the character's past into Backstory and their aims and ties into Goals and bonds.",
+	Changes:
+		"Deprecated: Changes. Migrate to the shape of wiki/templates/Recap.md — see ingest; move state changes into Changes to the World.",
+	Next: "Deprecated: Next. Migrate to the shape of wiki/templates/hot.md — see prep-session; move the Party's position, Prep and Hook links and open questions into Next Session.",
+};
+
 interface Resolved {
 	page: Page;
 	template: Template;
@@ -31,6 +46,11 @@ function resolvePages(ctx: CheckContext, findings: Finding[]): Resolved[] {
 		const at = (rule: string, line: number, message: string, hint: string): void => {
 			findings.push({ layer: LAYER, severity: "error", rule, path: ctx.display(page.path), line, message, hint });
 		};
+		for (const heading of page.headings) {
+			if (heading.depth !== 2) continue;
+			const message = RETIRED_HEADINGS[heading.text.trim()];
+			if (message) at("retired-heading", heading.line, message, message.slice(message.indexOf("Migrate")));
+		}
 		if (page.frontmatterError) {
 			at(
 				"invalid-frontmatter",
@@ -46,7 +66,7 @@ function resolvePages(ctx: CheckContext, findings: Finding[]): Resolved[] {
 				"missing-frontmatter",
 				1,
 				"Page has no frontmatter.",
-				`Start the page with a property block naming its page kind, e.g.\n---\ntype: NPC\nsummary: One line.\nsources: []\ncreature: ""\nrevealed: ""\n---\nValid types: ${validTypes(ctx)}.`,
+				`Start the page with a property block naming its page kind, e.g.\n---\ntype: NPC\nsummary: One line.\nsources: []\nrevealed: ""\n---\nValid types: ${validTypes(ctx)}.`,
 			);
 			continue;
 		}
@@ -200,6 +220,15 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 		const value = template.keys.find((k) => k.key === key)?.value;
 		return Array.isArray(value) ? `${key}: []` : `${key}: ""`;
 	};
+
+	if (fm.type === "NPC" && "creature" in fm) {
+		add(
+			"retired-property",
+			page.frontmatterKeyLines.creature ?? 1,
+			"NPC property `creature` is retired.",
+			"Remove `creature` and follow templates/NPC.md and skill://npc-design. If this NPC needs statistics, put its own Fantasy Statblocks fence under the optional `## Statblock` section.",
+		);
+	}
 
 	const missing = missingKeys(page, template).map((k) => k.key);
 	for (const key of missing) {

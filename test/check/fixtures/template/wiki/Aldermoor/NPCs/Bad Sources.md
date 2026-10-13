@@ -2,7 +2,6 @@
 type: NPC
 summary: "A ferrywoman."
 sources: ["archive/nope.md", "wiki/Aldermoor/x.md", 42]
-creature: ""
 revealed: ""
 title: "Bad Sources"
 ---

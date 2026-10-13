@@ -60,26 +60,11 @@ export function normaliseStructure(text: string, headingOffset = 2, compactTable
 	return result;
 }
 
-/** Minimal World-free Item page, with the template's Links copied and only mechanical gate normalisation. */
-export async function itemPage(item: ExportedItem, source: string, template: string): Promise<string> {
-	const links = processor
-		.parse(template)
-		.children.find(
-			(node) =>
-				node.type === "heading" &&
-				node.depth === 2 &&
-				template.slice(node.position?.start.offset, node.position?.end.offset) === "## Links",
-		);
-	if (!links) throw new Error("Item template has no ## Links block.");
-	const classification = await normaliseItemSpelling(
-		item.classification.includes("<") ? normaliseStructure(item.classification) : item.classification,
-	);
-	const properties = normaliseStructure(await normaliseItemSpelling(item.properties));
-	let page = `---\n${stringify({ title: item.title, type: "Item" }).trimEnd()}\nsummary: ""\nsources: ${JSON.stringify([source])}\n---\n\n## Properties\n\n*${classification.replace(/\.$/, "")}.*\n\n${properties}\n\n${template.slice(links.position?.start.offset).trimEnd()}\n`;
+/** Apply the gate's own fixer: whitespace and table layout, never mechanical wording. */
+export async function lintFixLoop(page: string): Promise<string> {
 	config ??= readFile(join(toolRoot, ".markdownlint.yaml"), "utf8").then((text) => parse(text) as Configuration);
-	// The gate's own fixer changes whitespace and table layout, never mechanical wording.
 	for (;;) {
-		const findings = (await lint({ strings: { item: page }, config: await config })).item ?? [];
+		const findings = (await lint({ strings: { page }, config: await config })).page ?? [];
 		const fixed = applyFixes(
 			page,
 			findings.filter((finding) => finding.fixInfo),
@@ -87,4 +72,14 @@ export async function itemPage(item: ExportedItem, source: string, template: str
 		if (fixed === page) return page;
 		page = fixed;
 	}
+}
+
+/** Minimal World-free Item page, with only mechanical gate normalisation. */
+export async function itemPage(item: ExportedItem, source: string, _template: string): Promise<string> {
+	const classification = await normaliseItemSpelling(
+		item.classification.includes("<") ? normaliseStructure(item.classification) : item.classification,
+	);
+	const properties = normaliseStructure(await normaliseItemSpelling(item.properties));
+	const page = `---\n${stringify({ title: item.title, type: "Item" }).trimEnd()}\nsummary: ""\nsources: ${JSON.stringify([source])}\n---\n\n## Properties\n\n*${classification.replace(/\.$/, "")}.*\n\n${properties}\n`;
+	return lintFixLoop(page);
 }

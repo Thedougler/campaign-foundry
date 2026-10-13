@@ -2,7 +2,6 @@
 type: NPC
 summary: "Harbormaster with a bandit's past."
 sources: []
-creature: "[[Bandit Captain]]"
 revealed: ""
 title: "Mara Voss"
 ---
@@ -23,7 +22,7 @@ title: "Mara Voss"
 - **Will not share.** Text.
 - **If pressed.** Text.
 
-Text.
+She once led a [[Bandit Captain]].
 
 ## History
 

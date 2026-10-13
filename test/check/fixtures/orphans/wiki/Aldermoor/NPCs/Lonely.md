@@ -2,7 +2,6 @@
 type: NPC
 summary: "One line."
 sources: []
-creature: ""
 revealed: ""
 title: "Lonely"
 ---

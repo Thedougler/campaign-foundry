@@ -4,7 +4,6 @@ summary: |
   Line one.
   Line two.
 sources: []
-creature: ""
 revealed: ""
 title: "Multiline Summary"
 ---

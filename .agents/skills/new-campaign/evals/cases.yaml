@@ -30,9 +30,6 @@
       - next-wake/campaign-config.md
       - next-wake/hot.md
       - the-shattered-sea.md
-    sections:
-      next-wake/next-wake.md:
-        - '## Links'
     canon:
       next-wake/next-wake.md:
         - '^type:\s*Campaign\s*$'
@@ -99,7 +96,6 @@
     sections:
       renewal-tides/shattered-sea-renewal.md:
         - '## Calendar'
-        - '## Links'
     canon:
       renewal-tides/shattered-sea-renewal.md:
         - '^type:\s*World\s*$'
