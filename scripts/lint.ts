@@ -6,12 +6,14 @@
  * With no paths, each scope checks the files changed against HEAD plus untracked files, filtered
  * to its domain; `--all` checks the whole domain. Output is one line per finding
  * (`path:line[:col] tool/rule message`) and one summary line per scope, quiet on success.
+ * The agents scope also checks Claude's skill links repo-wide, even with no selected files.
  * Explicit agents paths outside its domain are reported as notes with a style/check command,
  * in text and JSON alike; those notes do not affect the exit status.
  * Exit 0 clean, 1 findings, 2 usage or tool error. The wrapper reports; it never decides.
  */
 
-import { relative, resolve, sep } from "node:path";
+import { existsSync } from "node:fs";
+import { join, relative, resolve, sep } from "node:path";
 import { changedFiles, formatFinding, REPO_ROOT, scopeSummary, sortByLocation } from "./lint/core.ts";
 import { agentsScope } from "./lint/agents.ts";
 import { codeScope } from "./lint/code.ts";
@@ -30,6 +32,7 @@ Scopes (no scope given runs all three; each takes only paths in its domain):
           relative links, anchors, \`skill://\` and backtick file references, skill frontmatter
           schema (name/description, limits), the always-loaded chain's \`@\` imports with its
           word count reported (ADR 0030), and the style gate over content-facing agent text (ADR 0020)
+          plus missing/dead \`.claude/skills\` links (always repo-wide; \`--fix\` creates/removes links)
   prose   the Wiki gate: \`cfcli check\` over wiki/ paths (ADR 0015), \`--fix\` runs its mechanical fixes
   code    Biome (lint + format) and tsc for TypeScript, ruff (check + format) for Python
 
@@ -88,9 +91,9 @@ function parseArgs(argv: string[]): Args {
 function emptyResult(files: string[]): ScopeResult {
 	return { files, findings: [], fixes: [], failures: [] };
 }
-/** Runs one scope over its file set; an empty selection skips its tools with an empty result. */
+/** Empty selections skip file tools, but agents still checks repo-wide skill links. */
 async function runScope(scope: ScopeModule, opts: ScopeRun, selected: string[]): Promise<ScopeResult> {
-	if (selected.length === 0 && opts.files !== null) return emptyResult([]);
+	if (selected.length === 0 && opts.files !== null && scope !== agentsScope) return emptyResult([]);
 	return scope.run({ ...opts, files: opts.files === null ? null : selected });
 }
 
@@ -117,12 +120,14 @@ const main = async (): Promise<void> => {
 	for (const name of names) {
 		const scope = SCOPES[name]!;
 		try {
-			const selected = args.all ? await scope.all() : await scope.select(args.paths.length > 0 ? args.paths : changed);
+			// Default selections omit vanished paths, including dead links removed by the agents fix.
+			const paths = args.paths.length > 0 ? args.paths : changed.filter((path) => existsSync(join(REPO_ROOT, path)));
+			const selected = args.all ? await scope.all() : await scope.select(paths);
 			const result = await runScope(scope, { fix: args.fix, files: args.all ? null : selected }, selected);
 			if (args.paths.length > 0 && scope.selectionNotes) {
 				result.notes = [...(result.notes ?? []), ...scope.selectionNotes(args.paths, selected)];
 			}
-			results.push({ scope: name, result, ran: selected.length > 0 || args.all });
+			results.push({ scope: name, result, ran: name === "agents" || selected.length > 0 || args.all });
 		} catch (error) {
 			results.push({
 				scope: name,

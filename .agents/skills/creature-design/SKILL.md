@@ -39,7 +39,7 @@ Define the World-grown twist, ecological niche, role, goal, fear or limit, and t
 
 ### 4. Hand off the statistics
 
-When the Creature will fight or its rules matter at the table, invoke `statblock-design` with the page path, concept, role, each signature with its visible tell, terrain, number fighting and requested difficulty. It returns the page with its `## Statblock` and sort keys filled, or a retuned block. A Creature that never fights has no `## Statblock`, and its five sort keys stay blank (`""` or `[]`).
+When the Creature will fight or its rules matter at the table, invoke `skill://statblock-design` with the page path, concept, role, each signature with its visible tell, terrain, number fighting and requested difficulty. It returns the page with its `## Statblock` and sort keys filled, or a retuned block. A Creature that never fights has no `## Statblock`, and its five sort keys stay blank (`""` or `[]`).
 
 **Gate:** a fighting Creature's page has a statblock that passed `statblock-design`'s check, and every signature from step 3 has an entry whose tell matches it.
 
@@ -70,4 +70,4 @@ Close per `skill://lint` § Commands over the Creature page and every page this 
 A reusable monster tied to no World or Campaign is a World-free page (`docs/wiki-layout.md` **World-free pages**). It has its frontmatter and `## Statblock` as a published 5etools monster is. Optional sections are left out. It has no Narration, Party tuning or setting lore, so this branch skips the Campaign reads and steps 2 to 7.
 
 1. **Scope.** Record the concept, role, CR or tier and signature the DM gives, each detail the ask leaves open written as your stated choice. **Done when** the notes state each.
-2. **Statistics.** Run `statblock-design` as a World-free block with them. It files `wiki/Creatures/<slug>.md`, or returns the fence for a chat-only ask, and replies with the path, the peer its CR rests on and the attribution for any published material. **Done when** its page gate, or the scratch-vault check for a chat-only block, prints `ok: 0 findings`.
+2. **Statistics.** Run `skill://statblock-design` as a World-free block with them. It files `wiki/Creatures/<slug>.md`, or returns the fence for a chat-only ask, and replies with the path, the peer its CR rests on and the attribution for any published material. **Done when** its page gate, or the scratch-vault check for a chat-only block, prints `ok: 0 findings`.

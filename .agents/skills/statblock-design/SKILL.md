@@ -42,11 +42,13 @@ Follow [references/sourcing.md](references/sourcing.md). Search the ladder by ru
 
 Give the being one concrete primary role that shows on its first turn. Build its signature as **Tell → Threat → Answers → Payoff** in its own entries, with a wind-up or recharge the Party sees before the danger, at least two answers the entries themselves give (an escape DC or a save that ends the effect or a range or position that avoids it), and an opening or changed choice when it is answered. Give a solo or boss an escalation. Cut each feature with no tie to the concept and no player response.
 
+A signature the caller gives without numbers takes them from two sources. Its save DC and attack bonus come from [references/fence.md](references/fence.md) § Derived numbers. Its damage, area, range and aura radius start from the comparable entry of the CR peer ([references/tuning.md](references/tuning.md) § CR and trade-offs), and step 5's round ledger keeps or adjusts them.
+
 Write each feature as the entry that produces the effect. A class burst such as Action Surge becomes a `Multiattack` option or a limited-use action (Recharge or X/Day) that makes its attacks itself, since an action that grants another action spends the action it gives. Concentration limits a creature to one spell at a time (SRD 5.2.1, Concentration), so two Concentration effects take turns, or one becomes an entry without Concentration.
 
 A World-free block uses the kind's plain name, with no proper noun, place, faction, deity or World event. It adds a feature beyond the core block (a lore trait, lair actions, regional effects) only when that feature fits any setting and belongs to the monster, and leaves it out when in doubt.
 
-**Done when** the role shows on the first turn, the signature has its tell, two answers and payoff in its entries, every burst action makes its own attacks, and one Concentration effect runs at a time.
+**Done when** the role shows on the first turn, the signature has its tell, two answers and payoff in its entries, each number the caller left open names its peer entry or formula, every burst action makes its own attacks, and one Concentration effect runs at a time.
 
 ### 5. Tune
 
@@ -76,6 +78,6 @@ A retune changes the block once on its page and lists every consumer in the repl
 
 Close per `skill://lint` § Commands over every page this run touched. When another skill invoked this one, that caller closes and logs. A standalone Campaign run logs `create` once the page gate prints `ok: 0 findings`. The vault root has no `log.md`, so a World-free run doesn't log.
 
-Reply with the page path or the fence, the path chosen and its peers, the attribution for any published material, the tuning assumptions with the round ledger, the consumers and the check result.
+Reply with the page path or the fence, the path chosen and its peers, the attribution for any published material, the tuning assumptions with the round ledger and the source of each number the caller left open, the consumers and the check result.
 
 **Done when** the page gate prints `ok: 0 findings` and the reply contains each of those.

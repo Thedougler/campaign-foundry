@@ -1,5 +1,17 @@
-/** Objective checks for agent-facing markdown (issue #66): markdownlint, cspell, repo links and the `cfcli style` layer over the same selection. Only markdownlint applies fixes. */
-import { existsSync, mkdtempSync, readFileSync, rmSync, statSync, symlinkSync, writeFileSync } from "node:fs";
+/** Objective checks for agent-facing markdown (issue #66), plus Claude's skill links. Markdownlint and skill links apply safe fixes. */
+import {
+	existsSync,
+	lstatSync,
+	mkdirSync,
+	mkdtempSync,
+	readFileSync,
+	readdirSync,
+	rmSync,
+	statSync,
+	symlinkSync,
+	unlinkSync,
+	writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { basename, isAbsolute, join, relative, resolve } from "node:path";
 import { glob } from "tinyglobby";
@@ -21,6 +33,7 @@ const ROOT_FILES: Record<string, true> = {
 };
 const DOMAIN_DIRS = [".agents/skills", ".omp/skills", ".omp/agents", ".omp/rules", "docs/agents", ".omp/hooks"];
 const SKILL_ROOTS = [".omp/skills", ".agents/skills"];
+const CLAUDE_SKILLS = ".claude/skills";
 const installed = JSON.parse(readFileSync(join(REPO_ROOT, "skills-lock.json"), "utf8")) as {
 	skills: Record<string, unknown>;
 };
@@ -125,6 +138,7 @@ async function select(paths: string[]): Promise<string[]> {
 	const selected: string[] = [];
 	for (const input of paths) {
 		const path = relative(REPO_ROOT, resolve(REPO_ROOT, input)) || ".";
+		if (underDir(path, CLAUDE_SKILLS)) continue; // Checked globally, not as duplicate skill text.
 		if (isVendored(path)) continue;
 		if (!existsSync(join(REPO_ROOT, path))) throw new Error(`no such path: ${input}`);
 		if (statSync(join(REPO_ROOT, path)).isDirectory()) {
@@ -154,6 +168,7 @@ async function select(paths: string[]): Promise<string[]> {
 function selectionNotes(paths: string[], selected: string[]): string[] {
 	return paths.flatMap((input) => {
 		const path = relative(REPO_ROOT, resolve(REPO_ROOT, input)) || ".";
+		if (underDir(path, CLAUDE_SKILLS)) return [];
 		if (selected.some((file) => path === "." || underDir(file, path))) return [];
 		const command = underDir(path, "wiki") ? "check" : "style";
 		return [`skipped ${input} (outside agents scope); run bun run cfcli -- ${command} ${JSON.stringify(input)}`];
@@ -476,9 +491,61 @@ function runCases(path: string): ToolResult {
 	}
 }
 
+/** Link integrity is repo-wide: deleted links are absent from the changed-file selection. */
+function runSkillLinks(fix: boolean): { findings: LintFinding[]; fixes: string[] } {
+	const findings: LintFinding[] = [];
+	const fixes: string[] = [];
+	const links = join(REPO_ROOT, CLAUDE_SKILLS);
+	if (existsSync(links)) {
+		for (const entry of readdirSync(links, { withFileTypes: true })) {
+			if (!entry.isSymbolicLink() || existsSync(join(links, entry.name, "SKILL.md"))) continue;
+			const path = join(CLAUDE_SKILLS, entry.name);
+			if (fix) {
+				unlinkSync(join(REPO_ROOT, path));
+				fixes.push(`${path} skill-links/dead removed`);
+			} else {
+				findings.push({
+					path,
+					line: 1,
+					tool: "skill-links",
+					rule: "dead",
+					message: "link resolves to no SKILL.md; run bun run fix to remove it",
+				});
+			}
+		}
+	}
+	const source = join(REPO_ROOT, ".agents/skills");
+	if (existsSync(source)) {
+		for (const entry of readdirSync(source, { withFileTypes: true })) {
+			if (!entry.isDirectory() || !existsSync(join(source, entry.name, "SKILL.md"))) continue;
+			const path = join(CLAUDE_SKILLS, entry.name);
+			const current = lstatSync(join(REPO_ROOT, path), { throwIfNoEntry: false });
+			if (current?.isSymbolicLink()) continue;
+			const target = `../../.agents/skills/${entry.name}`;
+			if (fix && current === undefined) {
+				mkdirSync(links, { recursive: true });
+				symlinkSync(target, join(REPO_ROOT, path));
+				fixes.push(`${path} skill-links/missing created ${target}`);
+			} else {
+				findings.push({
+					path,
+					line: 1,
+					tool: "skill-links",
+					rule: "missing",
+					message: current
+						? `expected a symlink to ${target}; existing non-link must be moved before running bun run fix`
+						: `missing symlink to ${target}; run bun run fix to create it`,
+				});
+			}
+		}
+	}
+	return { findings: sortByLocation(findings), fixes };
+}
+
 async function run(opts: ScopeRun): Promise<ScopeResult> {
 	const files = (opts.files ?? (await all())).filter(inDomain);
-	if (files.length === 0) return { files, findings: [], fixes: [], failures: [] };
+	const skillLinks = runSkillLinks(opts.fix);
+	if (files.length === 0) return { files, ...skillLinks, failures: [] };
 	const markdown = files.filter((path) => path.endsWith(".md"));
 	const hooks = files.filter((path) => underDir(path, ".omp/hooks") && !path.endsWith(".md"));
 	const cases = files.filter((path) => path.endsWith("/evals/cases.yaml")).map(runCases);
@@ -493,6 +560,7 @@ async function run(opts: ScopeRun): Promise<ScopeResult> {
 	]);
 	const instruction = instructionReport(opts.files);
 	const findings = [
+		...skillLinks.findings,
 		...markdownlint.findings,
 		...cspell.findings,
 		...style.findings,
@@ -512,7 +580,7 @@ async function run(opts: ScopeRun): Promise<ScopeResult> {
 		findings: sortByLocation(
 			findings.filter((finding) => finding.tool !== "links" || !refs.has(`${finding.path}\0${finding.line}`)),
 		),
-		fixes: markdownlint.fixes,
+		fixes: [...markdownlint.fixes, ...skillLinks.fixes],
 		failures: [
 			...markdownlint.failures,
 			...cspell.failures,

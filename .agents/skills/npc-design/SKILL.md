@@ -82,7 +82,7 @@ Do not put an essential clue behind one roll. Give each essential conclusion abo
 
 ### 5. Hand off the statistics
 
-When the NPC fights or their rules matter at the table, invoke `statblock-design` with the NPC page path, the person's concept, visible tells, terrain, number of fighters and requested difficulty. It writes the statblock under the NPC page's `## Statblock`, the first section after `## Roleplaying`, and its source ladder reuses a fitting published block for an ordinary fighter. A name alone doesn't get unique statistics. NPCs who do not fight have no `## Statblock`. An enemy NPC gets a statblock, never a full PC sheet.
+When the NPC fights or their rules matter at the table, invoke `skill://statblock-design` with the NPC page path, the person's concept, visible tells, terrain, number of fighters and requested difficulty. It writes the statblock under the NPC page's `## Statblock`, the first section after `## Roleplaying`, and its source ladder reuses a fitting published block for an ordinary fighter. A name alone doesn't get unique statistics. NPCs who do not fight have no `## Statblock`. An enemy NPC gets a statblock, never a full PC sheet.
 
 Supporters, guards, beasts, crews and other fighters the NPC can call on are linked by their own Creature or NPC pages, each with its own statblock. A missing kind of fighter goes to `creature-design`.
 
