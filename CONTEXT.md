@@ -117,7 +117,7 @@ _Avoid_: history, background, notes, setting info
 ### Campaign pages
 
 **PC**:
-a Player's character in a Campaign, sheet and story together. Its sheet is kept current by Ingest from D&D Beyond.
+a Player's character in a Campaign, sheet and story together. Its page is canon for both: the sheet side holds the PC's numbers as a Statblock-style fence, which `pull-pcs` refreshes from D&D Beyond when the character is public and agents keep by hand when it isn't.
 _Avoid_: player (the human), hero, character
 
 **Thread**:
@@ -321,6 +321,40 @@ _Avoid_: audit (as routine health), a DM-facing lint report or a blocking review
 **Archive**:
 raw material that has already been ingested, kept in `archive/` at the repo root so it is always clear what has been ingested and what hasn't.
 _Avoid_: trash, done
+
+### Combat sim
+
+**Combat sim**:
+the Monte Carlo fight simulator behind `cfcli combat`, which plays a Scenario many times from Wiki pages and reports the spread of outcomes ([ADR 0048](docs/adr/0048-combat-sim-engine.md)). Its numbers are evidence for the DM's Encounter. They are not Canon, and they don't forecast what the Players will do.
+_Avoid_: combat-sim or dndsim (the legacy tools), battle AI, or Simulation (NPC Personas)
+
+**Combatant**:
+one PC, NPC or Creature compiled from its page for the Combat sim: its numbers, its Actions and its Unmodelled features. Ten copies of a Creature are ten Combatants.
+_Avoid_: actor (a Foundry term), token, unit
+
+**Scenario**:
+the setup the Combat sim plays: the sides and their Combatants, Policies, loadouts, resources, formation and the assumptions behind them. It lives on its Scene page or in a file for exploratory runs.
+_Avoid_: encounter (that's the Scene's plan, which a Scenario models), setup, config
+
+**Trial**:
+one simulated fight played from first initiative to its end. A run plays many Trials of one Scenario from one seed.
+_Avoid_: iteration, universe, round (that's six seconds of a fight)
+
+**Primitive**:
+one member of the closed vocabulary of effects the Combat sim can resolve, such as an attack, a save, damage or a condition. Importers compile authored features down to Primitives, and each Primitive has exactly one Mechanic.
+_Avoid_: ability or feature (those name authored content)
+
+**Mechanic**:
+the one module that resolves a Primitive during a Trial and states its expected value for Policies, held to agreement by a test.
+_Avoid_: rule (that's the 2024 rules text or a House Rule), executor
+
+**Policy**:
+the swappable decision-maker that picks a Combatant's action, movement and targets each turn, such as greedy expected value or focus fire. Each side of a Scenario has its own.
+_Avoid_: AI, tactics (the Creature page's prose section)
+
+**Unmodelled feature**:
+a feature, action or spell named on a page that the Combat sim cannot resolve. Each report lists the Unmodelled features of its Combatants. A result never hides what it left out.
+_Avoid_: unsupported, ignored, skipped
 
 ### Foundry
 
