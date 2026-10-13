@@ -6,7 +6,7 @@ import { glob } from "tinyglobby";
 import { Command } from "commander";
 import { formatHuman, formatJson, gateExitCode } from "../check/output.ts";
 import { runCheck, UsageError, type CheckResult } from "../check/run.ts";
-import { readVaultFiles } from "../vault/vault.ts";
+import { buildVault, readVaultFiles, type VaultFiles } from "../vault/vault.ts";
 import { CF, envOptions, readInput, resolveEnv } from "./kit.ts";
 
 interface StyleFlags {
@@ -96,6 +96,7 @@ export function styleCommand(): Command {
 			`
 Runs only the style (Vale) and narration layers, over skills, templates, agent definitions and drafts,
 with the Wiki pages as context and name list. Output and exit codes match \`${CF} check\`.
+Argument files are checked as text only; they add no names or stand-ins to the Wiki context.
 
 Exit codes:
   0  no errors (warnings may print)    1  errors remain    2  usage error
@@ -107,7 +108,8 @@ Examples:
 		)
 		.action(async (paths: string[], flags: StyleFlags) => {
 			const { cwd, vault: vaultDir } = resolveEnv(flags, "style");
-			const files = await readVaultFiles(vaultDir);
+			const contextVault = buildVault(vaultDir, await readVaultFiles(vaultDir));
+			const files: VaultFiles = { markdown: new Map(), attachments: [] };
 			const targets = await targetFiles(paths.length > 0 ? paths : ["-"]);
 			const shownByKey = new Map<string, string>();
 			for (const [shown, source] of targets) {
@@ -118,7 +120,7 @@ Examples:
 				shownByKey.set(key, shown);
 				files.markdown.set(key, source);
 			}
-			// Virtual target names change the language-tool salt. Isolate their cache from the Wiki's cache.
+			// One-off text earns no cache entry in the Wiki's persistent cache.
 			const scratch = await mkdtemp(join(tmpdir(), "cf-style-"));
 			let result: CheckResult;
 			try {
@@ -129,6 +131,7 @@ Examples:
 					layers: ["style", "narration"],
 					pagePaths: [...shownByKey.keys()],
 					files,
+					contextVault,
 					display: (vaultPath) => shownByKey.get(vaultPath) ?? vaultPath,
 				});
 			} finally {

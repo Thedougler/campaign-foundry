@@ -58,7 +58,7 @@ revealed: "Backstory"
 
 ## Plans
 
-%% Optional. Include it when the DM has plans for this PC. Story side, DM only. Give the DM's plans for this PC, with the Threads that touch them and Spotlight ideas. %%
+%% Optional. Include it when the DM has plans for this PC or the PC has a journey Thread. Story side, DM only. Its first bullet, `- **Hero's journey.**`, links the PC's journey Thread. Then give the DM's plans for this PC, with the Threads that touch them and Spotlight ideas. %%
 
 ## Links
 

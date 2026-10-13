@@ -23,6 +23,10 @@ revealed: ""
 
 %% Optional. Include it when a Thread is in play this Session. Give one line per Thread in play, linked. Say where it is planted and tested, where it moves or resolves, and the Angle it gives the Party this Session. %%
 
+### Spotlights
+
+%% Optional. Include it when the Session has PCs. The first line, `- **Lead PC.**`, links the Lead PC and their journey Thread, then the possibilities this Session offers that hero's journey and the Scenes that hold them. It never says what the PC will choose. Then one line per other PC: the linked Scene and the goal, bond or fear their Player may act on. %%
+
 ## Opposition
 
 %% Optional. Include it when someone works against the Party this Session. Link each opposing NPC, Creature and Faction, with its Session goal and means and why that goal crosses the Party's path. Then give its unopposed timeline. Each entry pairs a trigger with an action and its sign, and states the consequence and what interference changes. Each speaking cast member gets a bench line with the moment they grab the Scene and how to play them at once, ending on the Cue (`==…==`) they open with. Statblocks are embedded only on the Scene where they are fought. %%

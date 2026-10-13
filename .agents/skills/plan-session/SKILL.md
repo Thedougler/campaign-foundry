@@ -9,7 +9,7 @@ You are a co-writer at the whiteboard: the DM brings the vision, and you build o
 
 ## Steps
 
-1. **Gather.** Following the read order in `AGENTS.md`, read `hot.md`, the last Session's Recap, the Campaign's active Threads and open Quests, and each PC's Goals and bonds. Open the pages the DM names as they come up, and search the Wiki (`.omp/AGENTS.md` § Wiki access) for other pages whenever the talk turns to their subject.
+1. **Gather.** Following the read order in `AGENTS.md`, read `hot.md`, the last Session's Recap, the Campaign's active Threads and open Quests, each PC's Goals and bonds and each PC's journey Thread. Open the pages the DM names as they come up, and search the Wiki (`.omp/AGENTS.md` § Wiki access) for other pages whenever the talk turns to their subject.
 2. **Open** with where the Campaign stands, in five to ten lines with page links.
 3. **Riff**, turn by turn, under the rules below. When the talk has filled in each field of the Session intent, offer to wrap up, and keep building while the DM keeps going.
 4. **Settle.** When the DM says it's done, write the Session intent into `local://collab/notes.md` when `collab-with-me` is running, and in chat otherwise, then hand it to `prep-session`.
@@ -25,7 +25,7 @@ Talk with the DM per `docs/agents/co-writing.md`. Offer Seeds as that file descr
   - A foreshadowed Climax: where the Climax depends on something no earlier Scene plants, pitch where to plant it.
   - Pacing: when two action pitches or two talk pitches come in a row, offer one of the other kind next (`docs/agents/scene-pages.md` § Scripting the Game).
   - PC pull: from each PC's Goals and bonds and its Plans, find two pulls that oppose each other and the one desire the PC can never cleanly satisfy. Favour pitches that strain a pull. Call a pitch that pulls on no PC scenery, or cut it.
-  - Spotlights: every PC gets a moment drawn from their Goals and bonds somewhere in the Session.
+  - Spotlights: the Lead PC is the one `story-so-far.md` § Pacing names next, or, before Pacing names one, the PC chosen per `.agents/skills/story-arc/references/heros-journeys.md` § Lead PC rotation. Build the Session's strongest situations from their journey Thread's Possibilities, leaving what the Player does with them open, and give every other PC a moment drawn from their Goals and bonds.
   - Callbacks: tie what the Players fixated on to live Threads, per `docs/agents/narrative-devices.md` § Planted details and connection, § Callbacks, § Dramatic irony and § Red herrings.
   - Canon as written: every pitch is marked per `docs/agents/co-writing.md` Canon and pitches.
 
@@ -41,7 +41,7 @@ Talk with the DM per `docs/agents/co-writing.md`. Offer Seeds as that file descr
 - **Threads.** Each Thread that moves, and whether it moves by revelation or by contest.
 - **Climax.** The confrontation, and the Threads it brings together.
 - **Resolution.** What the last Scene shows changed, and what it seeds.
-- **Spotlights.** Each PC and their moment.
+- **Spotlights.** The Lead PC, their journey Thread and the possibilities offered to it, then each other PC and their moment.
 - **Left to Prep.** What the DM leaves open.
 ```
 

@@ -6,6 +6,8 @@
  * With no paths, each scope checks the files changed against HEAD plus untracked files, filtered
  * to its domain; `--all` checks the whole domain. Output is one line per finding
  * (`path:line[:col] tool/rule message`) and one summary line per scope, quiet on success.
+ * Explicit agents paths outside its domain are reported as notes with a style/check command,
+ * in text and JSON alike; those notes do not affect the exit status.
  * Exit 0 clean, 1 findings, 2 usage or tool error. The wrapper reports; it never decides.
  */
 
@@ -117,6 +119,9 @@ const main = async (): Promise<void> => {
 		try {
 			const selected = args.all ? await scope.all() : await scope.select(args.paths.length > 0 ? args.paths : changed);
 			const result = await runScope(scope, { fix: args.fix, files: args.all ? null : selected }, selected);
+			if (args.paths.length > 0 && scope.selectionNotes) {
+				result.notes = [...(result.notes ?? []), ...scope.selectionNotes(args.paths, selected)];
+			}
 			results.push({ scope: name, result, ran: selected.length > 0 || args.all });
 		} catch (error) {
 			results.push({

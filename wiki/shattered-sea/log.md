@@ -5659,3 +5659,15 @@
 
 - [[golden-presence|Golden Presence]]
 - [[gold-caste-serene|Gold Caste Serene]]
+
+## [2026-10-12] create | Hero's journeys
+
+- [[journey-of-perrin-black-jaw|Journey of Perrin Black-Jaw]]
+- [[journey-of-delmar-fisk|Journey of Delmar Fisk]]
+- [[journey-of-crissdalynn-khinriss|Journey of Crissdalynn Khinriss]]
+- [[journey-of-jean-claude-tabarnack|Journey of Jean-Claude Tabarnack]]
+- [[delmar-fisk|Delmar Fisk]]
+- [[perrin-black-jaw|Perrin Black-Jaw]]
+- [[crissdalynn-khinriss|Crissdalynn Khinriss]]
+- [[jean-claude-tabarnack|Jean-Claude Tabarnack]]
+- [[story-so-far|Story so far]]

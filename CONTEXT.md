@@ -128,6 +128,10 @@ _Avoid_: mission, job, objective
 a run of Sessions that builds to and settles one central question, tracked in `story-so-far.md`.
 _Avoid_: chapter, season, saga, "arc" for a Thread
 
+**Hero's journey**:
+the passage through Vogler's twelve stages, from Ordinary World to Return with the Elixir, that the Party or one PC walks across the whole Campaign. Its stages are read from Session history after play and never planned, and its forward material is possibilities for the next Session. A PC's lives on their journey Thread, the Party's on `story-so-far.md`.
+_Avoid_: character arc or personal quest, bare "journey" (that's travel)
+
 ### Session work
 
 **Prep**:
@@ -181,6 +185,10 @@ _Avoid_: secret, twist
 **Spotlight**:
 the moment in a Scene where one PC's goal, bond or fear drives play. It is a section within a Scene, never the Scene itself.
 _Avoid_: PC hook or character moment, Spotlight Scene
+
+**Lead PC**:
+the one PC whose hero's journey a Session's strongest possibilities are built around, chosen by readiness from observed play. No PC leads again until every PC has led.
+_Avoid_: bare "lead" (that's a lead the Party follows), main character
 
 **Angle**:
 something the Party can act on to change a Scene or Thread, and what acting on it costs. An Angle is a person or object to use, or a fact or course of action to pursue.
@@ -279,7 +287,7 @@ the DM's instructions to agents for one Campaign, kept as `campaign-config.md` i
 _Avoid_: DM Settings, user-config
 
 **story-so-far**:
-the arc-level view of one Campaign, kept as `story-so-far.md` in the Campaign folder by the `story-arc` skill and rewritten after each Session's Ingest. It retells the played story from the Recaps, and it says where the arc stands, which pressures move, what promises the Players can still pick up and where each PC's choices point. It links the Thread, Quest and PC pages and leaves their state on them.
+the arc-level view of one Campaign, kept as `story-so-far.md` in the Campaign folder by the `story-arc` skill and rewritten after each Session's Ingest. It retells the played story from the Recaps, and it says where the arc and the Party's hero's journey stand, which pressures move, what promises the Players can still pick up, where each PC's choices point and who is the next Lead PC. It links the Thread, Quest and PC pages and leaves their state on them.
 _Avoid_: campaign summary, timeline, hot.md
 
 **Repo**:

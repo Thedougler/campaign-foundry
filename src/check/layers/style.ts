@@ -1,3 +1,4 @@
+import { stringValues } from "../../vault/dialect.ts";
 import type { Page, Vault } from "../../vault/types.ts";
 import type { CachedFinding } from "../cache.ts";
 import { runLanguageTool, type LanguageTool } from "../language.ts";
@@ -52,9 +53,9 @@ function hintFor(check: string, span: string): string {
 }
 
 /**
- * Words that are proper nouns in this vault: words that only ever appear capitalized across page names and
- * aliases. A word that also appears lowercased in a name ("the" in "Bring the Pearl of Souls to Umberlee") and
- * words under three letters ("A", "On") stay out, so ordinary sentence words are never excepted.
+ * Words that are proper nouns in this vault: words that only ever appear capitalized across page titles and
+ * aliases, never slugs. A word that also appears lowercased in a title or alias ("the" in "Bring the Pearl of Souls
+ * to Umberlee") and words under three letters ("A", "On") stay out, so ordinary sentence words are never excepted.
  */
 function properNouns(vault: Vault): Set<string> {
 	const capitalized = new Set<string>();
@@ -66,7 +67,8 @@ function properNouns(vault: Vault): Set<string> {
 		}
 	};
 	for (const page of vault.pages) {
-		for (const name of page.names) add(name);
+		for (const title of stringValues(page.frontmatter?.title)) add(title);
+		for (const alias of stringValues(page.frontmatter?.aliases)) add(alias);
 	}
 	for (const word of lowercased) capitalized.delete(word);
 	return capitalized;
@@ -209,7 +211,7 @@ function styleTool(vale: ValeAdapter): LanguageTool {
 		name: LAYER,
 		config: [".vale.ini", ".vale-narration.ini"],
 		salt: async (ctx) =>
-			`${vale.fingerprint ? await vale.fingerprint() : "canned"}|${Object.keys(NARRATION_EXEMPT_AI_TELLS).join(",")}|${MASK_STAND_IN.source}|item-properties-2026-10-11|entry-fields-2026-10-12|${(await corpusProvenance(ctx)).salt}`,
+			`${vale.fingerprint ? await vale.fingerprint() : "canned"}|${Object.keys(NARRATION_EXEMPT_AI_TELLS).join(",")}|${MASK_STAND_IN.source}|item-properties-2026-10-11|entry-fields-2026-10-12|title-alias-proper-nouns-2026-10-12|${(await corpusProvenance(ctx)).salt}`,
 		async compute(pages, ctx) {
 			const provenance = await corpusProvenance(ctx);
 			const written: Record<string, string> = {};

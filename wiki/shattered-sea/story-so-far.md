@@ -1,19 +1,44 @@
 ---
+title: "Story so far"
 type: story-so-far
 summary: "After Session 12 the Aruhe arc rises towards the grove, while the
   Pearl debt, the Crown hunt and the captive route wait offshore."
 sources:
   - "archive/session-12-full.md"
 revealed: ""
-title: "Story so far"
 ---
 
-## At a glance
+## Arc position
 
 - **Through.** [[session-12-recap|Session 12 - Recap]], with the Party at level 6 and still fighting [[talon-skarn|Talon Skarn]] on [[aruhe|Aruhe]].
-- **Arc position.** Rising. The Aruhe arc of Sessions 10 to 12 climbs towards [[memorial-grove|Memorial Grove]], where [[jean-claude-tabarnack|Jean-Claude]] is owed to the island's keeper. The sea-wide pressures wait offshore with [[uncertainty|Uncertainty]].
+- **Arc.** Rising. The Aruhe arc of Sessions 10 to 12 climbs towards [[memorial-grove|Memorial Grove]], where [[jean-claude-tabarnack|Jean-Claude]] is owed to the island's keeper. The sea-wide pressures wait offshore with [[uncertainty|Uncertainty]].
+- **Hero's journey.** Tests, Allies, Enemies. The Party crossed its first threshold when it chose the hold over surrender ([[session-1-recap|Session 1 - Recap]]) and brought the Crown cutter into Calveno as Uncertainty ([[session-3-recap|Session 3 - Recap]]). From Session 3 to Session 12 its shared choices picked its allies and its enemies, from Nona and Fieschi to Malone, Grigori and Skarn. The Aruhe arc stayed at this stage, and the walk along the burnt road towards the grove in Session 12 came nearest the Approach.
 - **Authority.** Lords. The Party overcame the authorities of the Surety's boarding crew and now contends with lords: [[aleksander-malone|Aleksander Malone]], [[corbin-knighton|Corbin Knighton]] with [[rupert-knighton|Rupert Knighton]]'s private fleet, and [[talon-vantyrus|Talon Vantyrus]], whose hunter is Skarn. The false gods of the [[gold-caste|Gold Caste]] showed their hand for the first time on [[the-burnt-road|The Burnt Road]]. [[umberlee|Umberlee]] waits above every rung.
 - **Central question.** Which crew do these four become where every sea route has an owner, and whose authority will they accept?
+
+## Timeline
+
+```mermaid
+timeline
+    title Shattered Sea
+    section Sessions 0 to 2, the hold and the prize
+        Session 0 : Four strangers meet aboard the Saltwright
+        Session 1 : The Party ambushes the Crown boarders
+        Session 2 : The crew takes the Surety as a prize
+    section Sessions 3 to 8, Calveno
+        Session 3 : The prize becomes Uncertainty in Calveno
+        Session 4 : Delmar confesses and Umberlee names her price
+        Session 5 : The Party raids the sewer magazines
+        Session 6 : Solange completes her ritual
+        Session 7 : Delmar kills Otar in the Mercatura crater
+        Session 8 : The list of the taken passes 314
+    section Session 9, after the missing
+        Session 9 : The Ordinance turns for Calveno on a lie
+    section Sessions 10 to 12, Aruhe
+        Session 10 : The follower ship burns and the Party lands on Aruhe
+        Session 11 : The Party buys Matteo Scola out of the otters game
+        Session 12 : Skarn is driven off and the keeper binds Jean-Claude
+```
 
 ## The story so far
 
@@ -61,14 +86,15 @@ Grigori appeared in the galley and named Vantyrus as the hunter behind them. He 
 
 ## PC trajectories
 
-- [[perrin-black-jaw|Perrin Black-Jaw]] chases the Vestra and the crew's survival. Auralis's demands and his Passage obligations pull against both. Twice he chose the crew over consuming, which points at a confrontation with his patron.
-- [[delmar-fisk|Delmar Fisk]] keeps the crew together and free. The Pearl debt and Umberlee's judgement pull against him, and the admiral persona under Malone's spell showed a self he keeps buried. His path points at the Pearl choice.
-- [[crissdalynn-khinriss|Crissdalynn Khinriss]] maps the sea and keeps pulling Delmar out of danger. The Fate Spinner made her a target, and Kyzil's message ties her to the schism. Her path points at Vantyrus.
-- [[jean-claude-tabarnack|Jean-Claude Tabarnack]] protects fugitives and works to expose the captive route. His silence about the canister pulls against the crew's trust, and he now answers to the grove's keeper. His path points at the Gold caste behind his sister.
+- **Approach to the Inmost Cave**, [[journey-of-perrin-black-jaw|Journey of Perrin Black-Jaw]]. [[perrin-black-jaw|Perrin Black-Jaw]] chases the Vestra and the crew's survival. Auralis's demands and his Passage obligations pull against both. Twice he chose the crew over consuming, and his patron's "or die" stands unanswered.
+- **Tests, Allies, Enemies**, [[journey-of-delmar-fisk|Journey of Delmar Fisk]]. [[delmar-fisk|Delmar Fisk]] keeps the crew together and free. The Pearl debt and Umberlee's judgement pull against him, and the admiral persona under Malone's spell showed a self he keeps buried. Every route home from Aruhe leads back past the Pearl and Umberlee's price.
+- **Tests, Allies, Enemies**, [[journey-of-crissdalynn-khinriss|Journey of Crissdalynn Khinriss]]. [[crissdalynn-khinriss|Crissdalynn Khinriss]] maps the sea and keeps pulling Delmar out of danger. The Fate Spinner made her a target, and Kyzil's message ties her to the schism. The hunt for the Spinner runs through Vantyrus and the Sentinels' schism.
+- **Tests, Allies, Enemies**, [[journey-of-jean-claude-tabarnack|Journey of Jean-Claude Tabarnack]]. [[jean-claude-tabarnack|Jean-Claude Tabarnack]] protects fugitives and works to expose the captive route. His silence about the canister pulls against the crew's trust, and he now answers to the grove's keeper. The captive route and his seal evidence both lead back to the Gold Caste behind his sister.
 
 ## Pacing
 
-- Downward beats led Sessions 10 to 12. The Party fought Skarn twice and fought a Spiguar and a crown squid besides, while Jean-Claude went catatonic and then fell under the keeper's binding. The upward beats came from the island's gifts and the rescued survivors.
+- Downswings led Sessions 10 to 12. The Party fought Skarn twice and fought a Spiguar and a crown squid besides, while Jean-Claude went catatonic and then fell under the keeper's binding. The upswings came from the island's gifts and the rescued survivors.
 - Three Sessions on one island ran heavy on exploration and fights. The few talk scenes involved Grigori, Matteo and the keeper.
-- Crissdalynn and Perrin held the spotlight. Delmar's own story and Jean-Claude's secret stayed still.
+- No Session through Session 12 had a Lead PC, since no Prep's Spotlights gave one. Crissdalynn and Perrin held the spotlight. Delmar's own story and Jean-Claude's secret stayed still, and Jean-Claude's Player missed Session 11.
+- **Next Lead PC.** Jean-Claude leads Session 13 by readiness, since in Session 12 the keeper bound him and summoned him to Memorial Grove while Take on Aruhe, The Canister and Simone's Hunters all converge on that summons.
 - [[the-canister|The Canister]] has not moved since Session 1. The Pearl, the Crown Inspection, Simone's Hunters and the Vestra Thread have each sat still for three Sessions or more.

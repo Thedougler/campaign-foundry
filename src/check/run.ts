@@ -29,6 +29,8 @@ export interface CheckOptions {
 	registry?: Layer[];
 	/** Vault files, already read; default: read from `vault`. Commands that overlay virtual pages pass their own. */
 	files?: VaultFiles;
+	/** Read-only Wiki context, separate from virtual text targets; defaults to the vault built from `files`. */
+	contextVault?: Vault;
 	/** Display form of finding paths; default: the vault path relative to `cwd`. */
 	display?: (vaultPath: string) => string;
 	/** Exact vault-relative targets for virtual documents; unlike display paths these cannot select a context page by accident. */
@@ -120,8 +122,8 @@ export async function runCheck(options: CheckOptions): Promise<CheckResult> {
 			? vault.pages.filter((page) => (exactTargets ? exactTargets.has(page.path) : inScope(display(page.path))))
 			: vault.pages;
 	const context = (layer: Layer): CheckContext => ({
-		vault,
-		pages: layer.scope === "vault" ? vault.pages : targets,
+		vault: options.contextVault ?? vault,
+		pages: layer.scope === "vault" ? (options.contextVault ?? vault).pages : targets,
 		templates,
 		root: options.root,
 		display,

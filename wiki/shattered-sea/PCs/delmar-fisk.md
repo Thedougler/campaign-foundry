@@ -50,12 +50,7 @@ None recorded.
 - **Carried.** Leather armour, +1 blunderbuss with 5 bullets, 4 pistols with 40 musket bullets, rapier, 2 daggers, Bag of Holding, one Potion of Greater Healing, and the [[fleet-commanders-chair|Fleet Commander's Chair]].
 - **Stowed.** Common clothes, iron pot, shovel, Tinker's Tools, Thieves' Tools, 7 flasks of oil, 1,000 ball bearings, 5 rations, rope, bell, tinderbox, hooded lantern, 10 candles, crowbar.
 
-## Story
-
-> [!narration] Portrait
-> Delmar is a broad, athletic man with sandy-red hair in a messy topknot, a thick beard, and a curled moustache greying at the edges. He wears an open off-white shirt, navy sash, charcoal trousers, and tall boots. His scarlet admiral's coat stays folded away until the night needs Admiral Fisk.
-
-### Backstory
+## Backstory
 
 Delmar assembled a five-ship fleet to steal the Pearl of Souls from Umberlee's [[umberlees-shrine|shrine]] on [[vel-orn|Vel-Orn]]. The fleet sank over the Drowned Maw, leaving him among the survivors. Crissdalynn pulled him from the [[red-lady|Red Lady]]'s crow's nest, and he now sails with a new crew under the name Uncertainty. In the fight for the Surety his musket ball through a gun port killed [[ensign-wouters|Ensign Wouters]], and when the prize parted from the Saltwright he named Admiral Fisk to Beaumont Sel as a friend. Off Calveno he held the Admiral Fisk form too long, until his hair sat wrong, his cadence shifted, and he called Crissdalynn "Crystalline". A pull from her flask brought him back. At the [[la-vasca|La Vasca]] gangplank the water reached up toward him and he thought he heard his name, and then it was gone. He locked the admiral's coat in the captain's chest rather than wear Dravosi red ashore, and an older servant of the Bitch Queen left him her message only when his lie about Umberlee's own errand satisfied her.
 
@@ -71,6 +66,9 @@ The day ran to his rhythms. He fished the river for an hour and cooked the trout
 
 At the road camp he built the fire ringed with stones and put the evening's respect into words: "I'm not here to destroy the land." When Skarn returned invisible, the Fate Spinner already rode in his Bag of Holding, Crissdalynn having handed it over that morning before the pursuit. A luck point went into a lie that Jean-Claude held the Spinner, and the falcon's insight 25 made nothing of it. "Mr. Tabarnack, run!" followed before Delmar ate a [[ghost-plum|Ghost Plum]] and turned invisible high above the fight. From thirty feet up he dropped the invisible [[fleet-commanders-chair|Fleet Commander's Chair]] onto the shimmer, 100 pounds for 4d6 plus 5. The chair dealt 26 damage, and Skarn's reaction kept all but 8 of it away. A second luck point held the answer at disadvantage. Later, with blood spray marking his position, he ate the [[stonepear|Stonepear]] and rose out of his own tell, every kind of damage against him halved for a minute. His explosive rounds stayed careless to the end, singeing Crissdalynn and Perrin for 5 fire each on the way to another 29 into Skarn.
 
+> [!narration] Portrait
+> Delmar is a broad, athletic man with sandy-red hair in a messy topknot, a thick beard, and a curled moustache greying at the edges. He wears an open off-white shirt, navy sash, charcoal trousers, and tall boots. His scarlet admiral's coat stays folded away until the night needs Admiral Fisk.
+
 ## Goals and bonds
 
 - **Goal.** Keep the crew alive and free while deciding whether he can give Umberlee what she asks for the Pearl.
@@ -79,6 +77,7 @@ At the road camp he built the fire ringed with stones and put the evening's resp
 
 ## Plans
 
+- **Hero's journey.** [[journey-of-delmar-fisk|Journey of Delmar Fisk]], at Tests, Allies, Enemies after Session 12.
 - [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]] is the unresolved debt behind his hidden past.
 - Follow Crown law, Passage obligations, and the Drowned Maw while keeping the Party together.
 

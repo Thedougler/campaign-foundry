@@ -88,6 +88,19 @@ not a sandbox."
 "Every prep element must pull on at least one PC's internal tensions."
 ```
 
+**Second Brain page "Hero's Journey (Monomyth narrative structure)"** (Notion `3f70216635ec8131a607dc5dbc145dfe`), with its Raw Source "Deep Research (The Hero's Journey / Monomyth)" (Notion `3f70216635ec8121bccdf9acc3997e65`). Joseph Campbell, *The Hero with a Thousand Faces* (1949), and Christopher Vogler, *The Writer's Journey* (1992), as that research reports them, with its critique:
+
+```
+"Campbell described the hero's adventure in three phases (Departure,
+Initiation, Return), comprising ~17 sub-steps (often summarized as 12)"
+"Screenwriter Christopher Vogler distilled Campbell into a 12-stage
+"Writer's Journey" (first circulated as a 1985 memo)"
+"Writers are advised to use the hero's journey as a flexible template rather
+than a rigid formula."
+"the hero must fail and persevere to earn their transformation"
+"Stage mappings are interpretive and sometimes incomplete."
+```
+
 **Second Brain: Shattered Sea (campaign)** (Notion `3f10216635ec8117af9cd05f042eea59`) names the Campaign a sandbox and keeps the repos authoritative. The Notion page is short and links to the Wiki rather than copying its content.
 
 ## Principles
@@ -99,4 +112,5 @@ not a sandbox."
 5. **Anchor, possibility, player-owned.** Every future-facing line is one of the three. Only the DM makes an anchor (campaign-planning and Dungeon World stakes).
 6. **PC gravity.** Every pressure and new plot pulls on a PC's Goals and bonds. A plot that would run the same without the Party is cut or reworked (sandbox-narrative and Sly, "Player Driven Stories").
 7. **Loaded guns, fired by Players.** Open promises are tracked, and the Players choose when each one pays out in play (sandbox-narrative and `docs/agents/narrative-devices.md`).
-8. **Detail by distance, with swinging beats.** Write the next Session in full and the horizon after it as hooks. The ending gets only a silhouette. Pacing swings between upward and downward beats across Sessions as well as Scenes (Sly Flourish and campaign-planning).
+8. **Detail by distance, with swinging turns.** Write the next Session in full and the horizon after it as hooks. The ending gets only a silhouette. Pacing alternates upswings and downswings across Sessions as well as Scenes, Sly Flourish's upward and downward beats renamed because `CONTEXT.md` **Beat** belongs to a Story's outline (Sly Flourish and campaign-planning).
+9. **Hero's journeys, observed.** The Party and every PC walk a hero's journey across the whole Campaign on Vogler's twelve stages. The stages are read from Session history after play, and only possibilities are prepped for the next Session. The stages describe play after it happens, and a PC's change comes from failure as well as success, so a refusal, a fall or a reversal is recorded like any other stage (Campbell and Vogler via the Hero's Journey research, and its critique).

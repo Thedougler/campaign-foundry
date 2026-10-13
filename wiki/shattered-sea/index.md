@@ -360,6 +360,10 @@
 
 - [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]] — Delmar's theft of the Pearl of Souls destroyed his fleet and left Umberlee with a price that the new crew may inherit.
 - [[drowned-maw-awakening|Drowned Maw Awakening]] — The Drowned Maw's fissure and Auralis's awakening are changing the sea, while Perrin hears a patron he does not understand.
+- [[journey-of-crissdalynn-khinriss|Journey of Crissdalynn Khinriss]] — Crissdalynn Khinriss's hero's journey as play shows it through Session 12: Tests, Allies, Enemies, with the Fate Spinner's hunters twice beaten off.
+- [[journey-of-delmar-fisk|Journey of Delmar Fisk]] — Delmar Fisk's hero's journey as play shows it through Session 12: Tests, Allies, Enemies, with the Pearl debt unanswered since Session 4.
+- [[journey-of-jean-claude-tabarnack|Journey of Jean-Claude Tabarnack]] — Jean-Claude Tabarnack's hero's journey as play shows it through Session 12: Tests, Allies, Enemies, his sister's toxin still unspoken and the island's keeper owed his presence at the grove.
+- [[journey-of-perrin-black-jaw|Journey of Perrin Black-Jaw]] — Perrin Black-Jaw's hero's journey as play shows it through Session 12: Approach to the Inmost Cave, after he twice refused Auralis's command to consume.
 - [[perrin-and-nona|Perrin and Nona]] — Perrin's return to Nona Black-Jaw reconnects the Party to the Passage rescue network and an obligation to report on the lost Vestra.
 - [[simones-hunters|Simone's Hunters]] — Simone's elite Grung unit is hunting Jean-Claude across the Midchain after his escape and the death of Pell.
 - [[the-canister|The Canister]] — Jean-Claude recognised his sister's toxin in a Crown canister at the Saltwright gangplank and told nobody. The Party does not know.

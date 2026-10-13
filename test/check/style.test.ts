@@ -235,7 +235,7 @@ describe("style adapter contract", () => {
 				"A masked name: Person calls the keeper mad.",
 				"The quay: sailor waits.",
 			].join("\n"),
-			{ "Matteo.md": "A gardener waits.\n" },
+			{ "matteo.md": "---\ntitle: Gardener\naliases: [Matteo]\n---\nA gardener waits.\n" },
 		);
 		const found = await styleLayerWith({
 			async check() {
@@ -257,6 +257,30 @@ describe("style adapter contract", () => {
 			["ai-tells.FillerIntensifier", 2],
 			["ai-tells.ColonUsage", 5],
 		]);
+	});
+
+	it("does not report ColonUsage for a title's proper noun despite its lowercase slug", async () => {
+		const root = await mkdtemp(join(tmpdir(), "cf-style-"));
+		roots.push(root);
+		const path = "shepherd-grigori.md";
+		const vault = buildVault(join(root, "wiki"), {
+			markdown: new Map([[path, "---\ntitle: Shepherd Grigori\n---\nThe name on the note: Grigori.\n"]]),
+			attachments: [],
+		});
+		const ctx: CheckContext = {
+			root,
+			vault,
+			pages: vault.pages,
+			templates: { byName: new Map(), types: new Map() },
+			display: (path) => `wiki/${path}`,
+		};
+		const found = await styleLayerWith({
+			async check(pass) {
+				expect(pass.files[path]?.split("\n")[3]).toBe("The name on the note: Grigori.");
+				return new Map([[path, [alert("ai-tells.ColonUsage", 4, ": Grigori")]]]);
+			},
+		}).run(ctx);
+		expect(found.filter((finding) => finding.rule === "ai-tells.ColonUsage")).toEqual([]);
 	});
 
 	it.each([

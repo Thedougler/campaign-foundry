@@ -4,6 +4,27 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
 const patches: { file: string; exception: string }[] = [
+	// P2: the pupil in "teaching Geoffrey" is a named person. As in MortalityMetaphors,
+	// a local case-sensitive initial distinguishes names from lowercase artifact pupils.
+	{
+		file: ".vale/styles/ai-tells/AnthropomorphicCognition.yml",
+		exception: String.raw`  - "(?i)\\bt(?:each(?:es|ing)?|aught) (?:(?:the|a|an|its|this|that|every|each) )?(?-i:[A-Z])[a-z'-]*\\b"`,
+	},
+	// P4: Party/parties are people who literally arrive, just as in AnthropomorphicCognition.
+	{ file: ".vale/styles/ai-tells/BareReaches.yml", exception: String.raw`  - "(?i)\\bpart(?:y|ies)\\b"` },
+	// P5: PCs and NPCs are people, including plural roles. Extend the existing people exceptions,
+	// not the figurative-only rules; word boundaries keep "RPC" and "NPCache" from hiding artifacts.
+	{ file: ".vale/styles/ai-tells/BareHolds.yml", exception: String.raw`  - "(?i)\\b(?:PCs?|NPCs?)\\b"` },
+	{ file: ".vale/styles/ai-tells/AnthropomorphicCognition.yml", exception: String.raw`  - "(?i)\\b(?:PCs?|NPCs?)\\b"` },
+	{ file: ".vale/styles/ai-tells/BareNames.yml", exception: String.raw`  - "(?i)\\b(?:PCs?|NPCs?)\\b"` },
+	{ file: ".vale/styles/ai-tells/BareReaches.yml", exception: String.raw`  - "(?i)\\b(?:PCs?|NPCs?)\\b"` },
+	{ file: ".vale/styles/ai-tells/FigurativeCarries.yml", exception: String.raw`  - "(?i)\\b(?:PCs?|NPCs?)\\b"` },
+	{ file: ".vale/styles/ai-tells/FigurativeLives.yml", exception: String.raw`  - "(?i)\\b(?:PCs?|NPCs?)\\b"` },
+	{ file: ".vale/styles/ai-tells/FigurativeReaches.yml", exception: String.raw`  - "(?i)\\b(?:PCs?|NPCs?)\\b"` },
+	{ file: ".vale/styles/ai-tells/FigurativeWins.yml", exception: String.raw`  - "(?i)\\b(?:PCs?|NPCs?)\\b"` },
+	{ file: ".vale/styles/ai-tells/MortalityMetaphors.yml", exception: String.raw`  - "(?i)\\b(?:PCs?|NPCs?)\\b"` },
+	{ file: ".vale/styles/ai-tells/MotionMetaphors.yml", exception: String.raw`  - "(?i)\\b(?:PCs?|NPCs?)\\b"` },
+	{ file: ".vale/styles/ai-tells/NamedAdjective.yml", exception: String.raw`  - "(?i)\\b(?:PCs?|NPCs?)\\b"` },
 	// The DM is a person: "the DM asks for", "the DM decides".
 	{ file: ".vale/styles/ai-tells/AnthropomorphicCognition.yml", exception: String.raw`  - "(?i)\\bDMs?\\b"` },
 	// "them" is the person pronoun the teaching span keeps ("the sages teach them"): the DM-confirmed misfire,
@@ -31,6 +52,27 @@ const patches: { file: string; exception: string }[] = [
 // text: a no-op once `replacement` is present, an error when neither is, so an upstream reword surfaces here
 // instead of silently dropping the narrowing.
 const replacements: { file: string; old: string; replacement: string }[] = [
+	// P1: literal hunters may be named people or pronouns ("Malone hunts Grigori", "she was hunted").
+	// Like the other cognition subjects, pursuit needs a determiner-led subject to flag an artifact.
+	{
+		file: ".vale/styles/ai-tells/AnthropomorphicCognition.yml",
+		old: String.raw`\\bhunt(?:s|ed)\\b`,
+		replacement: String.raw`\\b(?:a|an|the|this|that|these|those|each|every|its|their|both|all|one|any|some|no) (?:[a-z'-]+ )?[a-z]+ (?:then |also |never |still |only |always |simply |just )?hunt(?:s|ed)\\b`,
+	},
+	// P3: open-subject carrying is literal when its object is a named person, with an optional
+	// determiner and modifier ("carried the catatonic Jean-Claude"). The object is outside the
+	// alert span, so a token guard, not an exception, preserves the lowercase artifact figures.
+	{
+		file: ".vale/styles/ai-tells/FigurativeCarries.yml",
+		old: String.raw`carr(?:ies|ied|ying)(?!\\s+(?:out|over|on)\\b)\\b`,
+		replacement: String.raw`carr(?:ies|ied|ying)(?!\\s+(?:out|over|on)\\b)\\b(?! (?:(?:a|an|the|this|that|its|their) )?(?:[a-z][-a-z']* )?(?-i:[A-Z])[a-z'-]*\\b)`,
+	},
+	// The same object guard covers plural subjects and auxiliary-led "carry".
+	{
+		file: ".vale/styles/ai-tells/FigurativeCarries.yml",
+		old: String.raw`carry\\b`,
+		replacement: String.raw`carry\\b(?! (?:(?:a|an|the|this|that|its|their) )?(?:[a-z][-a-z']* )?(?-i:[A-Z])[a-z'-]*\\b)`,
+	},
 	// BareReaches, the object-fronted token: the D&D attack-range noun ("beyond its fifteen-foot tendril reach").
 	// The modifier slot refusing a measurement compound ("fifteen-foot", number words) is the range-noun reading;
 	// the arrival metaphors the rule comments name ("the items a query reaches") carry no measurement modifier.

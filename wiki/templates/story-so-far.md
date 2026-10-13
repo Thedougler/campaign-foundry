@@ -14,6 +14,7 @@ revealed: ""
 
 - **Through.**
 - **Arc.**
+- **Hero's journey.** %% Optional. Add it once the Session history shows the Party's hero's journey has a stage: the stage the Party's shared choices show now, citing the Sessions, per story-arc references/heros-journeys.md. %%
 - **Authority.** %% Optional. Add it when campaign-config.md's Themes rank kinds of authority: the authority the Party contends with now, and the one above it. %%
 - **Central question.**
 
@@ -44,8 +45,8 @@ timeline
 
 ## PC trajectories
 
-%% Optional. Include it when a PC's choices in play point somewhere. One bullet per such PC, linking the PC page: what their choices in play have chased, the pull that opposes it, and where the trajectory points. Draw the choices from Recaps and Ledgers, and the pulls from Goals and bonds. %%
+%% Optional. Include it when a PC's choices in play point somewhere. One bullet per such PC, linking the PC page: what their choices in play have chased, the pull that opposes it, and where the trajectory points. Lead each bullet with the PC's hero's journey stage, linking their journey Thread. Draw the choices from Recaps and Ledgers, and the pulls from Goals and bonds. %%
 
 ## Pacing
 
-%% Optional. Include it once two Sessions or more are played. A few bullets on the last three Sessions: the swing between upward and downward beats, the mix of fights, talk and exploration, which PCs held the spotlight, and each Thread that has not moved in three Sessions or more. %%
+%% Optional. Include it once two Sessions or more are played. A few bullets on the last three Sessions: the swing between upswings and downswings, the mix of fights, talk and exploration, which PC was Lead PC each Session and which PCs held the spotlight, then the next Lead PC by readiness with its reason, and each Thread that has not moved in three Sessions or more. %%

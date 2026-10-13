@@ -151,6 +151,15 @@ async function select(paths: string[]): Promise<string[]> {
 	return [...new Set(selected)].filter(inDomain).sort();
 }
 
+function selectionNotes(paths: string[], selected: string[]): string[] {
+	return paths.flatMap((input) => {
+		const path = relative(REPO_ROOT, resolve(REPO_ROOT, input)) || ".";
+		if (selected.some((file) => path === "." || underDir(file, path))) return [];
+		const command = underDir(path, "wiki") ? "check" : "style";
+		return [`skipped ${input} (outside agents scope); run bun run cfcli -- ${command} ${JSON.stringify(input)}`];
+	});
+}
+
 async function markdownlintPass(stage: string, files: string[], fix: boolean): Promise<LintFinding[]> {
 	const out = await capture(
 		binPath("markdownlint-cli2"),
@@ -517,4 +526,4 @@ async function run(opts: ScopeRun): Promise<ScopeResult> {
 	};
 }
 
-export const agentsScope: ScopeModule = { select, all, run };
+export const agentsScope: ScopeModule = { select, all, run, selectionNotes };

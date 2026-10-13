@@ -49,12 +49,7 @@ title: "Perrin Black-Jaw"
 - **Carried.** Studded leather, longsword (Sap), shield (unequipped), 2 daggers (Nick), backpack.
 - **Stowed.** A book, a drum, an orb, 10 flasks of oil, 10 sheets of parchment, a tinderbox, a lamp, an ink pen, and ink.
 
-## Story
-
-> [!narration] Portrait
-> Perrin is a small rattkin with a blackhead, white body, warm brown ears, large dark eyes, and a long pink tail. He wears an olive-green hooded cloak over an off-white tunic and dark trousers, with a sword, harness, and round shield. His whiskers never stop moving. The shortest member of the crew still fills a room with volume and nerve.
-
-### Backstory
+## Backstory
 
 Perrin washed up on Keth-Naar after the Vestra went down and reached the Saltwright's hold. Auralis found him dying in the water and chose to hold him alive, and why he chose Perrin is a question his patron keeps. His grandmother Nona Black-Jaw runs a Passage network, and he has not told the whole crew that he is still chasing the lost family ship. His unknown patron is Auralis, a power tied to the Drowned Maw. After the capture of the Surety he named himself a Black-Jaw before the assembled crew, and Beaumont Sel delivered Nona's message and named him a Friend of the [[passage|Passage]]. During the whip-shark strikes his watch carried him into an abyss vision. He stood on a stone floor scored with channels under drifting light, then wore a sixty-foot barbed-tailed body whose hunting instincts rose in him. Something far larger below turned a curious attention his way, and one word, "Grow", burned into his mind. He met his grandmother in [[le-paludi|Le Paludi]], promised her an unstated favour, and carries her sending stone. His childhood contact [[cobb|Cobb]] runs the [[la-vasca|La Vasca]] dock, and a bioluminescent whale matched the ship's heading for a long while, a thing he had already seen in the vision.
 
@@ -74,6 +69,9 @@ His work in the dawn fight was sabotage and triage. A *Hex* opened on Skarn's De
 
 On the road he worked the Party's kindnesses. His Medicine, a natural 20 with Delmar's help, pulled Matteo Scola back from the brink with "Snap out of it," and he spent the walk reassuring the rescued Calveno survivors, taking charge so the chaos stayed calm. Under the smoking skylight he stacked *Armour of Agathys* under *Mirror Image* and stood with the civilians while the Terror-Bird's steps shook the ceiling. At the dusk camp he ate his spare rations against the stress, tried a mouthful of grass, and called it terrible. In the night fight his *Tasha's Hideous Laughter* with a Cutting Words −6 behind it brought the falcon to the edge of its save and no further. His *Healing Word* put 13 into Crissdalynn. Skarn's unarmed strike ended his night at DC 18 Constitution, stunned while the patron's demand arrived.
 
+> [!narration] Portrait
+> Perrin is a small rattkin with a blackhead, white body, warm brown ears, large dark eyes, and a long pink tail. He wears an olive-green hooded cloak over an off-white tunic and dark trousers, with a sword, harness, and round shield. His whiskers never stop moving. The shortest member of the crew still fills a room with volume and nerve.
+
 ## Goals and bonds
 
 - **Goal.** Survey the sea and find the Vestra while keeping the new crew alive.
@@ -84,6 +82,7 @@ Auralis's demands on Perrin now run to "Consume or die," and twice on Aruhe he h
 
 ## Plans
 
+- **Hero's journey.** [[journey-of-perrin-black-jaw|Journey of Perrin Black-Jaw]], at Approach to the Inmost Cave after Session 12.
 - [[perrin-and-nona|Perrin and Nona]] begins with a reunion and Nona's request for news and a survey.
 - [[drowned-maw-awakening|Drowned Maw Awakening]] follows the words and signs of Auralis and the lost Vestra.
 - [[what-sunk-the-vestra|What Sunk the Vestra]] asks why his family's ship met the Leviathan and why his patron chose him.

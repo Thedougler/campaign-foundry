@@ -45,12 +45,7 @@ title: "Crissdalynn Khinriss"
 - **Carried.** Cloak of Displacement (not attuned), Dragonhide Belt +1, quarterstaff (Topple), shortbow (Vex), 20 arrows, backpack, quiver.
 - **Stowed.** Rope, 10 torches, 2 flasks of oil, waterskin, Calligrapher's Supplies, 10 rations, bedroll, tinderbox.
 
-## Story
-
-> [!narration] Portrait
-> Crissdalynn is a tall aarakocra with layered cobalt-blue feathers, a black hooked beak, and bright blue eyes. She wears geometric leather armour over a light shirt. Rolled charts fill her satchel. Her dark talons catch the light, and she moves loosely until a fight starts.
-
-### Backstory
+## Backstory
 
 Banished from High Eyrie at fourteen, Crissdalynn joined Delmar Fisk's crew aboard the [[red-lady|Red Lady]]. When the fleet sank, she pulled Delmar from the crow's nest. That act bound the Fate Spinner to her. Master Kyzil is her mentor, and she remains a pilgrim of the Sentinels of the Eyrie. In the fight for the Surety she turned Rook's first shot aside with wind and caught the second on her bracers, and later stood between Ket and Perrin's blade and let the Moucheron feed from her arm. When the whip-shark struck, she caught Perrin and Jean-Claude both as they fell, then flew out and lifted the sixty-foot shark clear of the sea. Rook's chart archive showed her he had broken Imperial rules about the Drowned Maw twice and did not record what he found. In [[le-paludi|Le Paludi]] her master [[master-kyzil|Master Kyzil]] found her, and she broke down in the street.
 
@@ -66,6 +61,9 @@ The flight home from the pursuit grew her Schism knowledge a little. Her order h
 
 The return came invisible out of the night, a diving strike that broke her arm at the elbow, dropped her prone and stunned beside the fire, Deflect Attacks taking 12 of the 24 slashing damage. The stun lasted only to the end of Skarn's next turn. She stood on half her movement, ate a cooked guava kebab for Dexterity 22 and AC 21 with her staff in hand, and put a [[redheart-berry|Redheart Berry]] under the [[rotheart|Rotheart]]'s maximum-healing rule for a full 40, the arm mending whole. "Buddy, you've made a terrible mistake," she told the falcon, and the intimidation roll came back a 10. She shifted five feet inside his grasp so the [[nightmantle|Nightmantle]]'s displacement stayed on him, and the DM ruled the half-step cost her nothing. At the last she had the Eldritch Claw Tattoo alight again, a natural 20 for 19 damage, and her Stunning Strike failed to stun at DC 15 but halved his speed and hung advantage on the next attack against him.
 
+> [!narration] Portrait
+> Crissdalynn is a tall aarakocra with layered cobalt-blue feathers, a black hooked beak, and bright blue eyes. She wears geometric leather armour over a light shirt. Rolled charts fill her satchel. Her dark talons catch the light, and she moves loosely until a fight starts.
+
 ## Goals and bonds
 
 - **Goal.** Complete her pilgrimage and map the sea beyond the established charts.
@@ -74,6 +72,7 @@ The return came invisible out of the night, a diving strike that broke her arm a
 
 ## Plans
 
+- **Hero's journey.** [[journey-of-crissdalynn-khinriss|Journey of Crissdalynn Khinriss]], where Skarn's two attacks keep her at Tests, Allies, Enemies.
 - The Fate Spinner and its connection to Talon Vantyrus draw the Party towards the Sentinel schism.
 - Use aerial movement and cartographic knowledge to make the Drowned Maw and its routes legible.
 

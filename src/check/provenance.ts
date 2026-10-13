@@ -92,14 +92,18 @@ function converterText(text: string): string {
 async function load(ctx: CheckContext): Promise<CorpusProvenance> {
 	const sources = new Map<Page, string[]>();
 	const paths = new Set<string>();
-	for (const page of ctx.vault.pages) {
-		const named = page.frontmatter?.sources;
-		const local = Array.isArray(named)
-			? named.filter((source): source is string => typeof source === "string" && !/^\w+:\/\//.test(source))
-			: [];
-		const resolved = local.map((source) => resolve(ctx.root, source));
-		sources.set(page, resolved);
-		for (const path of resolved) paths.add(path);
+	// Text targets can sit outside the Wiki context, but still need their own provenance view.
+	for (const pages of [ctx.vault.pages, ctx.pages]) {
+		for (const page of pages) {
+			if (sources.has(page)) continue;
+			const named = page.frontmatter?.sources;
+			const local = Array.isArray(named)
+				? named.filter((source): source is string => typeof source === "string" && !/^\w+:\/\//.test(source))
+				: [];
+			const resolved = local.map((source) => resolve(ctx.root, source));
+			sources.set(page, resolved);
+			for (const path of resolved) paths.add(path);
+		}
 	}
 	const corpora = await Promise.all(
 		[...paths].sort().map(async (path) => {

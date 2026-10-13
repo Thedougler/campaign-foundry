@@ -50,12 +50,7 @@ title: "Jean-Claude Tabarnack"
 - **In his pack.** Solange's Authority Seal.
 - **Stowed.** Cartographer's Tools, 2 bedrolls, tent, sprig of mistletoe, traveler's clothes, 2 flasks of oil, 10 rations, rope, tinderbox, 10 torches, waterskin.
 
-## Story
-
-> [!narration] Portrait
-> Jean-Claude is a small Grung with electric-blue skin marked by black patches and old scars, large gold eyes, and a long dark moustache called Corto di Velo. He wears a red beret over a dark hood and scarf, a ragged cloak, and a harness of pouches, with a bow always close.
-
-### Backstory
+## Backstory
 
 Born blue caste among the [[grung|Grung]] of [[botukuri|Botukuri]], Jean-Claude fled after freeing slaves. Pell died in the reprisal that followed. His red beret marks him as censured, and his family still sends Simone's elite unit after him. He stowed aboard the Saltwright one island ahead of them. Under Beaumont Sel's [[truth-stone|Truth Stone]] he confirmed that his former kinsmen were after him, that he had stowed away, and that nobody had sent him. He recognised Simone's toxin in the canister the Crown alchemist threw across the Saltwright's gangplank and kept quiet through the fight. The same preparation filled the twenty vials of Grung tincture from Rook's cargo, and he has told no one of either. The whip-shark's tail opened his chest, and he stayed in the rigging anyway. He recovered three fertilised eggs from the body and went into [[calven-and-calveno|Calveno]] green instead of blue during the festival preparations. On the [[casa-lupo|Casa Lupo]] shopkeeper's word he took them to [[studio-orsini|Studio Orsini]], where he told [[marta-orsini|Marta Orsini]] he had fertilised the egg himself.
 
@@ -73,6 +68,9 @@ Underground his scores did the route-finding. An Investigation 28 read the patte
 
 At the road camp he placed a hand on the decanter of endless water and spoke the command word "Lepetitobon", watering the burnt ground as Delmar asked. Then he lay back under the spray and let it rain on him for over an hour. The water found a second use that night. When the invisible falcon dove on Crissdalynn, the spray beside the campfire traced his outline for the Party to target. The DM also ruled on his Bracers of Archery curse in the open. A natural 1 turns his whole body a random neon colour for an hour, and each natural 1 leaves one permanent patch of that colour. Only *remove curse* or its like removes them. He rolled purple. The errant arrow left his bow and hit Crissdalynn for 10 piercing, and his Giant's Guava went to Dexterity before he re-marked Skarn and put 20 more damage into him.
 
+> [!narration] Portrait
+> Jean-Claude is a small Grung with electric-blue skin marked by black patches and old scars, large gold eyes, and a long dark moustache called Corto di Velo. He wears a red beret over a dark hood and scarf, a ragged cloak, and a harness of pouches, with a bow always close.
+
 ## Goals and bonds
 
 - **Goal.** Stay ahead of Simone's hunters and keep other people from being chained or abused.
@@ -81,6 +79,7 @@ At the road camp he placed a hand on the decanter of endless water and spoke the
 
 ## Plans
 
+- **Hero's journey.** [[journey-of-jean-claude-tabarnack|Journey of Jean-Claude Tabarnack]], at Tests, Allies, Enemies with the keeper's summons over him.
 - [[simones-hunters|Simone's Hunters]] advances whenever Simone gains his trail or a safe port becomes compromised.
 - Use darkness, scouting, and his knowledge of Grung authority marks to protect fugitives and expose the captive pipeline.
 

@@ -7,6 +7,7 @@ sources:
   - "archive/Episode-09-Transcript.md"
 revealed: "Session 9"
 title: "HCS Ordinance"
+aliases: ["Ordinance"]
 ---
 
 ![[hcs-ordinance-banner.webp]]
