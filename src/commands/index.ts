@@ -18,6 +18,7 @@ export const commands: CommandEntry[] = [
 	{ name: "backup", load: async () => (await import("./backup.ts")).backupCommand() },
 	{ name: "bench", load: async () => (await import("./bench.ts")).benchCommand() },
 	{ name: "check", load: async () => (await import("./check.ts")).checkCommand() },
+	{ name: "combat", load: async () => (await import("./combat.ts")).combatCommand() },
 	{ name: "context", load: async () => (await import("./context.ts")).contextCommand() },
 	{ name: "convert", load: async () => (await import("./convert.ts")).convertCommand() },
 	{ name: "convert-creatures", load: async () => (await import("./convert-creatures.ts")).convertCreaturesCommand() },
