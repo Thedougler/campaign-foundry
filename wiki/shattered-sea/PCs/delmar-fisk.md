@@ -13,6 +13,7 @@ sources:
   - "archive/ssw-umberlee-shrine.md"
   - "archive/session-10.md"
   - "archive/session-12-full.md"
+  - "archive/collab-2026-10-12-the-dead-lady-and-the-fist-debt.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/Tabalicious/characters/164202916"
 revealed: "Backstory"
 title: "Delmar Fisk"
@@ -79,6 +80,7 @@ At the road camp he built the fire ringed with stones and put the evening's resp
 
 - **Hero's journey.** [[journey-of-delmar-fisk|Journey of Delmar Fisk]], at Tests, Allies, Enemies after Session 12.
 - [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]] is the unresolved debt behind his hidden past.
+- [[the-dead-lady|The Dead Lady]] is Umberlee's ghost-ship copy of the Red Lady, sent to taunt Delmar until he repays his debt.
 - Follow Crown law, Passage obligations, and the Drowned Maw while keeping the Party together.
 
 ## Links

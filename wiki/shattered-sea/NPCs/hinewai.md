@@ -1,6 +1,6 @@
 ---
 type: NPC
-summary: "Undead elf archdruid bound to Aruhe, whose grief became the island's law."
+summary: "Undead elf archdruid bound to Aruhe, whose grief became the island's law and whose army grows around it."
 sources:
   - "archive/hinewai.md"
   - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
@@ -8,36 +8,33 @@ sources:
   - "archive/agentic-co-dm-grung-and-the-making-of-aruhe.md"
   - "archive/session-12-full.md"
   - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
-creature: "[[hinewai-the-blight|Hinewai the Blight]]"
+  - "archive/collab-2026-10-12-hinewai-army.md"
+  - "archive/collab-2026-10-12-midchain-arc-plan.md"
+  - "archive/collab-2026-10-12-hinewai-reads-jean-claude.md"
 revealed: "Session 11"
 title: "Hinewai"
 ---
 
-![[hinewai-token.webp]]
-
-![[hinewai-reference-sheet.jpg]]
-
 ![[hinewai-portrait.webp]]
 
-![[hinewai-handout-art.webp]]
+## Roleplaying
 
-## At a glance
-
-- **Role.** Undead guardian bound to [[aruhe|Aruhe]] and the Death Bloom.
-- **Wants.** Aruhe untaken, her graves unharmed, and the [[calven-and-calveno|Calveno]] survivors to remain in her garden.
-- **Voice.** Calm, loving and regal, with two conversations at once. Each line speaks to the listener and to someone only she hears, and both halves are about the listener. At rest she drifts. Grung trigger her fury most of all, and so do harm to the land and anything taken without leave.
-- **Found at.** [[memorial-grove|Memorial Grove]]. Elsewhere she appears only as the woman in the woods.
+- **Wants.** Keep invaders off Aruhe and protect its living things. Her army is meant to destroy any force that comes for the island.
+- **Torn between.** Grief has cost her humanity, while her love of nature remains. She is mad, but intelligent enough to be somewhat predictable in conversation.
+- **Voice.** Calm, loving and regal, with two conversations at once. Each line addresses the listener and someone only she hears, and both halves concern the listener. She drifts at rest. The Grung, harm to the land and taking without leave provoke her.
+- **Opening move.** Hinewai appears at [[memorial-grove|Memorial Grove]] as the island's keeper. If she recognises [[simone-tabarnack|Simone Tabarnack]]'s scent on [[jean-claude-tabarnack|Jean-Claude]], she may ask whether Simone sent him for more peaches or the Gold caste sent him to destroy her tree.
+- **Leverage.** Hinewai commands Aruhe's animals and plants when she exerts her will, and can control them passively at a high level. She could draw most of the island's life to her. Her [[hinewai-the-blight|Blight]] form is the island's guardian. The Bloodhawks give her army the air.
+- **Opens them up.** Jean-Claude may draw her army's story out if she believes he is a Gold-caste messenger or otherwise non-hostile.
+- **Shuts them down.** The Grung's assault, harm to Aruhe, taking from the island and the prospect of leaving it.
+- **Will share.** She may tell a non-hostile visitor about the army she is building and breeding against the Grung.
+- **Will not share.** She does not readily trust the Grung, whose hatred she carries into Aruhe's land.
+- **Requests.** She expects visitors to respect Aruhe and leave its living things untouched.
+- **If pressed.** She gestures to the fauna bowing at the Grove and says, \"They'll have bigger problems soon.\"
+- **If ignored.** She continues building her army on Aruhe and breeding the creatures it needs to cross the channel.
+- **Invitations.** The Party can ally with her against the Gold caste. She can turn her army on their shared enemy, though once the beasts cross the channel they will kill every Grung on Karath without distinction.
 
 > [!narration] First look
 > Between a pair of trunks the dark is deeper than it should be, and two orange eyes open at the height of a tall woman's face. Silence stretches until a low voice says, "You ate what my island gave you. You are already mine."
-
-## Play
-
-- **Opens them up.** A Grung without a gold seal who stands before her without the pull toward the graves.
-- **Shuts them down.** A grung in sight or named, fire or felling on the island, and anything picked, trapped or pocketed without leave. Each trigger drops her drifting at once. Grung take her furthest, to the point of screaming.
-- **Will share.** The Grung send expeditions against her graves. She explains her garden's rules and permits anyone who wishes to leave to do so.
-- **Will not share.** Her history or any reason to trust the Grung.
-- **If pressed.** She claims fruit-eaters as hers and binds an intruder with roots. Her magic is the land's own: roots, opening earth, beasts, swarms and weather, never fire. She released Jean-Claude when the Party agreed to bring him before her and obey her garden's rules. Damage to the Death Bloom brings her Blight form.
 
 ## Quotes
 
@@ -83,54 +80,38 @@ The DM's voice sample, her fury at its height.
 
 > "There is no gold on you. *Is it a trick?* Tell me truly who speaks in your head, and I may love you as I love the rest."
 
-The DM's voice sample, to [[jean-claude-tabarnack|Jean-Claude]], a grung with no seal.
+The DM's voice sample, to Jean-Claude, a grung with no seal.
 
-## Depth
+> "You still feed them. *They're drinking from him, love, the way they drank from me.*"
 
-### History
+The DM's voice sample, when she reads the Golden Presence tether on Jean-Claude with *Detect Magic*.
 
-Hundreds of years ago, Karath captured Hinewai, an elf arch druid of a [[midchain|Midchain]] island, and worked her in its hatcheries. The raid that took her struck a beach four islands east of Karath at night, a coast meeting grung for the first time. A toxin went in at the base of her skull at the same hour each morning, and the antidote that followed was small enough to keep her hands at the bench and her mind too dulled for plans. She tore the magic loose to raise the pens' hound-sized vermin. On the days the toxin ran weak, she and [[the-unnamed-companion|a companion]] taken there before her whispered of fire and open water. One night they fired the long hut with a lantern and took the eastern path for the ridge and the cliffs. An arrow found him above the channel; she reached the sand first, and he lay face down in the surf twenty feet behind her. The wound closed under three castings, and his chest stayed still through all of them. She cursed [[mystra|Mystra]] by name over his body. At first light she carried him inland, and her bare hands opened his grave beneath a fruit tree grown from golden-peach seed she had stolen off the Karath gold farms on the way out. It bore, a month early, the fruit he used to eat green off the ground. The dawn after she finished it, black flowers stood open along the treeline, and the wolf and deer she passed kept their heads lowered. Fruit came down within reach on her weak days, leaves held rain through the nights, and she lived against the tree's north side until a grung sail traced the treeline without landing in the third summer. She fused her soul and body to the land, and the land kept both. Her grief became the island's law.
+## History
 
-#### The spring expeditions
+Two hundred years ago, Hinewai was an elf archdruid captured by Karath and forced to work in its hatcheries. The raid that took her struck a beach four islands east of Karath at night, a coast meeting grung for the first time. A toxin went in at the base of her skull at the same hour each morning, and the antidote kept her hands at the bench and her mind too dulled for plans. She tore the magic loose to raise the pens' hound-sized vermin. On days when the toxin ran weak, she and [[the-unnamed-companion|a companion]] taken before her whispered of fire and open water. They fired the long hut with a lantern and took the eastern path for the ridge and cliffs. An arrow found him above the channel. She reached the sand first, and he lay face down in the surf twenty feet behind her. Three castings closed the wound, but his chest stayed still. She cursed [[mystra|Mystra]] by name over his body.
 
-Grung compelled by [[grung-authority-seal|authority seals]] burned a straight firebreak about twenty feet wide through Hinewai's garden in spring. Their orders led them toward the grove and its graves. The road was lined with the clean white skeletons of more than a hundred grung and their spent seals.
+At first light she carried him inland and opened his grave beneath a fruit tree grown from golden-peach seed she had stolen from Karath's gold farms. A month early, it bore the fruit he used to eat green off the ground. The dawn after she finished the grave, black flowers stood open along the treeline, and the wolf and deer she passed kept their heads lowered. Fruit fell within reach on her weak days, leaves held rain through the nights, and she lived against the tree's north side until a Grung sail traced the treeline without landing in the third summer. She devoted her afterlife to protecting Aruhe, working her will into the island's life for two hundred years. Her grief became its law.
 
-#### Session 12: the summons
+In spring, Grung compelled by [[grung-authority-seal|authority seals]] burned a straight firebreak about twenty feet wide through her garden toward the grove and its graves. The road was lined with the clean white skeletons of more than a hundred Grung and their spent seals.
 
-Hinewai's beasts killed the grung who had accompanied the shipwrecked Calveno, and she began protecting the survivors. About two dozen remained further inland. The Party's four rescued survivors trusted her, while [[matteo-scola|Matteo Scola]] had left them because he distrusted her. One survivor told the Party that she hated the Grung.
+During Session 12, Hinewai's beasts killed the Grung who had accompanied the shipwrecked Calveno, and she began protecting the survivors. About two dozen remained further inland. The Party's four rescued survivors trusted her, while [[matteo-scola|Matteo Scola]] had left them because he distrusted her. One survivor told the Party she hated the Grung. At the Burnt Road, Hinewai appeared as deep shadow between trees, with burning orange eyes. Her telepathic voice reached only [[jean-claude-tabarnack|Jean-Claude]]. She called him an invader and a kidnapper for taking people she considered hers. She said, "Mine do not need rescuing." She insisted they were already home. When Jean-Claude challenged her claim over sentient beings, she accused him of murder and manipulation.
 
-At the burnt road, Hinewai appeared as deep shadow between trees, with burning orange eyes. Her telepathic voice reached only [[jean-claude-tabarnack|Jean-Claude]]. She called him an invader and a kidnapper for taking people she considered hers. Hinewai said, “Mine do not need rescuing.” She insisted that they were already home. When Jean-Claude challenged her claim over sentient beings, she accused him of murder and manipulation.
+[[delmar-fisk|Delmar]] honoured the garden and its dead with a toast, then explained that Jean-Claude had escaped the Grung's chains. Roots bound Jean-Claude as Hinewai demanded that the Party bring him before her. Delmar asked for a guarantee of his safety, and she promised he could leave if he followed her rules. [[crissdalynn-khinriss|Crissdalynn]] asked whether anyone could willingly leave the garden, and the answer was yes. Hinewai released Jean-Claude on condition that the Party bring him before her and obey her garden's rules. She told them, "Meet me in the grove." The eyes vanished and the surrounding shadows looked ordinary again. The Party followed the Burnt Road toward her.
 
-[[delmar-fisk|Delmar]] honoured the garden and its dead with a toast, then explained that Jean-Claude had escaped the Grung's chains. Roots bound Jean-Claude as Hinewai demanded that the Party bring him before her. Delmar asked for a guarantee of his safety, and she promised he could leave if he followed her rules. [[crissdalynn-khinriss|Crissdalynn]] asked whether anyone could willingly leave the garden, and the answer was yes. Hinewai released Jean-Claude on condition that the Party bring him before her and obey the garden's rules. She told them, “Meet me in the grove.” The eyes vanished and the surrounding shadows looked ordinary again. The Party followed the burnt road toward her.
+## Hidden truths
 
-### Hidden truths
+- Hinewai's army consists of Aruhe's fauna and flora. Its fauna are warriors and its flora are guards. Her hatred of the Grung is leaching into the land itself.
+- Hinewai is building and breeding that army on Aruhe. The Gold caste's scorched-earth attacks have killed roots connecting her to the island's flora and have wounded her. Her phylactery reaches as far as the pale glowing roots do. In Session 12, the Party saw those roots pulse in the [[lava-tubes|Lava Tubes]] but have not learned what the movement means.
+- Her grief has cost her humanity, but her love of nature remains. Removing her presence realistically means burning most of Aruhe. The Death Bloom began as the two graves, and centuries of death, growth and decay have spread her pale roots beneath the island.
+- The tree over her graves is her revenge on the Grung. In captivity she watched gold and felt its power pull at every living thing around it like a void.
+- At [[memorial-grove|Memorial Grove]], the tree, sapling ring and figure at the grove's edge are one disjointed consciousness speaking to itself and visitors from different perspectives.
+- Hinewai can smell Jean-Claude's family resemblance to Simone Tabarnack.
+- When [[talon-skarn|Talon Skarn]] tries to defy her, she asserts her will and overpowers the fate [[talon-vantyrus|Vantyrus]] manipulates for him from afar. A perceptive observer may see nearly invisible lines snap as she does.
+- Every Calveno who ate fallen fruit belongs to her garden, and Aruhe's responders spare them. The Grung curse comes from her capture and torture.
+- Hinewai is currently suspicious of Jean-Claude. Every Grung she has met came under Gold-caste compulsion and attacked Aruhe. Those assaults made the Burnt Road. Jean-Claude is the only Grung currently alive on Aruhe.
+- If she casts *Detect Magic* on Jean-Claude, Hinewai can see that the Golden Presence tether remains: wisps of magic continually leave him despite his lack of a seal, and drift east towards [[karath|Karath]]. She may share that reading with the Party, but it is not a required reveal.
+- If the Party brings the canister up in front of her, Hinewai may cast Legend Lore on it and relay what she learns to them.
 
-- She is a tragic villain. Her love for Aruhe is real, and she is unhealthy for the island's flora and fauna all the same.
-- Removing her presence realistically means burning down most of Aruhe, an obviously horrible solution.
-- The Death Bloom was once only the two graves. Centuries of death and growth, life, decay and growth again have spread her pale, pulsing roots beneath the whole island, and she reaches across [[aruhe|Aruhe]] through them today.
-- The tree over her graves is her ultimate revenge on the Grung. In captivity she watched the gold and felt its power rip and pull at every living thing around it like a void.
-- When she speaks to visitors at [[memorial-grove|Memorial Grove]], the tree, the ring of saplings and the figure at the grove's edge are one disjointed consciousness, talking to itself and to those before it from different perspectives.
-- She can tell [[jean-claude-tabarnack|Jean-Claude]]'s family resemblance to [[simone-tabarnack|Simone Tabarnack]] by scent.
-- When [[talon-skarn|Talon Skarn]] tries to defy her, she asserts her will and overpowers the fate [[talon-vantyrus|Vantyrus]] manipulates to his advantage from afar. A perceptive observer may see nearly invisible lines snap as she does.
-- Every Calveno who ate fallen fruit belongs to her garden, and Aruhe's responders spare them. The Grung curse comes from the old capture and torture.
+## Threads
 
-### Threads
-
-She drives **Taking on Aruhe** and the island's conflict with the Grung.
-
-## Links
-
-```base
-filters:
- and:
-  - file.hasLink(this.file)
-views:
- - type: table
-  name: Linked from
-  groupBy:
-   property: note.type
-   direction: ASC
-  order:
-   - file.name
-   - note.summary
-```
+Hinewai drives [[take-on-aruhe|Take on Aruhe]] and the island's conflict with the Grung.

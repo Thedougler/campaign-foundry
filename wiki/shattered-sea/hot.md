@@ -1,33 +1,27 @@
 ---
 type: hot
-summary: "Post-Session 12, Session 13 prepared: the Party finishes Skarn's ambush
-  at level 6, walks the island's lane to Memorial Grove, and stands in a court
-  that cannot be lied to."
+summary: "After Session 12, the Party's next anchor is Memorial Grove; Jean-Claude
+  leads Session 13, then the arc turns to Karath under two live pressures."
 sources:
   - "archive/session-12-full.md"
   - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
+  - "archive/collab-2026-10-12-malone-the-hound-loose.md"
+  - "archive/collab-2026-10-12-the-dead-lady-and-the-fist-debt.md"
+  - "archive/collab-2026-10-12-skarn-dies-swinging.md"
+  - "archive/collab-2026-10-12-hinewai-reads-jean-claude.md"
 date: "1495 DR, date not established"
 revealed: ""
 title: "Hot"
 ---
 
-## At a glance
-
-- **In-world date.** 1495 DR. No month or weekday is established in the sources.
-- **Party at.** A clearing beside [[the-burnt-road|The Burnt Road]] several miles inland on [[aruhe|Aruhe]], the long rest broken by an invisible [[talon-skarn|Talon Skarn]], the fight still joined.
-- **Active Threads.** [[take-on-aruhe|Taking on Aruhe]], [[rule-of-two|Rule of Two]], [[the-canister|The Canister]], [[simones-hunters|Simone's Hunters]], [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]], [[drowned-maw-awakening|Drowned Maw Awakening]], [[perrin-and-nona|Perrin and Nona]].
-- **Last Session.** Session 12: two fights with Talon Skarn and the burnt road of compelled grung.
-- **Next.** [[session-13-prep|Session 13 - Prep]] is ready, and the Session opens mid-combat with the Party at level 6.
-
 ## Active Threads
 
-- [[take-on-aruhe|Taking on Aruhe]]. The keeper's summons stands over Jean-Claude, and the grove waits at the lane's end. Next: the hearing, and whose authority the survivors choose.
-- [[rule-of-two|Rule of Two]]. Skarn fights under a far watcher's help, and the Spinner rides in Delmar's bag. Next: what snaps when the keeper's will meets the manipulated fate.
-- [[the-canister|The Canister]]. Jean-Claude's silence about his sister's toxin has held since the gangplank. Next: the grove's truth, where his silence breaks.
-- [[simones-hunters|Simone's Hunters]]. Jean-Claude is awake and bound to be brought before the garden's keeper. The hunters' last known trail runs the captive route toward Karath. Next: protect Jean-Claude and reach Uncertainty.
-- [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]]. Delmar confessed, and Umberlee named the Pearl as her price. Next: the debt gains a name in front of the fleet's survivors.
+- [[take-on-aruhe|Take on Aruhe]]. The keeper's summons stands over Jean-Claude, and the grove waits at the lane's end. Next: the hearing, and whose authority the survivors choose.
+- [[rule-of-two|Rule of Two]]. Skarn's second attempt decides his fate. Next: the gambit and the Party's response.
+- [[the-canister|The Canister]]. Jean-Claude's silence about his sister's toxin has held since the gangplank. If the Party brings the canister up in front of Hinewai, she may cast Legend Lore and relay the lore.
+- [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]]. Delmar confessed, and Umberlee named the Pearl as her price. The Dead Lady, Umberlee's ghost-ship copy of the [[red-lady|Red Lady]], taunts Delmar until his debt is repaid. Calveno survivors heard “Fisk's debt” in the storm as “fist debt”, but do not connect it to Delmar. The Pearl is fist-sized. Next: the Party can assemble the survivors' accounts.
 - [[drowned-maw-awakening|Drowned Maw Awakening]]. Auralis pressed Perrin twice to consume the living fruit and Perrin refused. Next: what the Maw is after, and what the island itself flinches from.
-- [[perrin-and-nona|Perrin and Nona]]. Perrin holds Nona's sending stone and owes her the Aruhe rescue. Next: report home once the stone delivers to her.
+- [[perrin-and-nona|Perrin and Nona]]. The Party paid Nona's favour by rescuing Calveno survivors. Others remain on Aruhe and Karath. Nona sent a Passage ship, with Ruk as messenger.
 
 ## Last Session
 
@@ -37,8 +31,11 @@ title: "Hot"
 - The [[the-burnt-road|burnt road]] runs lined with white grung skeletons bearing spent [[grung-authority-seal|seals]], whose orders climbed to "Destroy the grave".
 - [[perrin-black-jaw|Perrin]] refused [[auralis|Auralis]] twice, choosing his new crew over his old vengeance. The [[fate-spinner|Fate Spinner]] rides in Delmar's bag of holding.
 
-## Next
+## Next Session
 
-Session 13 is built end to end, ambush to stinger. The whole chain is [[session-13-prep|Session 13 - Prep]], and it opens with [[session-13-previously-on|Session 13 - Previously On]] before initiative resumes the ambush, the Party at level 6 on the players' own clock. The hearing's court runs one consciousness at three tempos, and the verdict follows whichever tempo the Party speaks to last.
+- **In-world date.** 1495 DR. No month or weekday is established in the sources.
+- **Party at.** A clearing beside [[the-burnt-road|The Burnt Road]] several miles inland on [[aruhe|Aruhe]], the long rest broken by an invisible [[talon-skarn|Talon Skarn]], the fight still joined.
+Rebuild Session 13 from scratch as a hero's journey with Jean-Claude as Lead PC: his reckoning with Hinewai at Memorial Grove closes the Aruhe arc and reveals her army. An alliance against the Gold Caste remains possible. The Party stays in the Midchain. Ruk brings Calveno news on Nona's Passage ship and warns them to avoid Malone and the HCS Ordinance, leaving Dravosi problems to the Dravosi. Karath follows under Hinewai's army clock; Malone trails the Party by sail, a couple of days behind.
+Hinewai may cast *Detect Magic* on Jean-Claude at the grove: it shows wisps slipping away from him east towards Karath, and she may share what she reads.
 
 - [[sandro|Sandro]] and [[nino|Nino]] sail aboard the [[uncertainty|Uncertainty]] since the Session 10 lift-off, and the broken [[vethka|Vethka]]'s shade on the landing beach stands empty. The Death Bloom's destroy-or-preserve choice waits inland.

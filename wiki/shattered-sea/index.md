@@ -20,6 +20,7 @@
 - [[outer-reach|Outer Reach]] — The under-governed water east of the Drowned Maw, where governance stops at the chart edge and pilots sell the easting for as much as cargo.
 - [[redwind-isles|Redwind Isles]] — An under-charted island chain in the Outer Reach, likely held under an ancient blue dragon's sphere of control even when no sighting occurs.
 - [[the-doldrums|The Doldrums]] — A windless band of mirror-flat water below the Midchain's southern edge, where sound carries too far and a black dragon hunts becalmed ships.
+- [[the-mangroves|The Mangroves]] — Aruhe's tidal mangrove wall, where the root maze leaves no route from sea to shore.
 - [[the-quiet|The Quiet]] — Aruhe's silent inland rainforest, where silence moths ate small singers and the Calveno trail runs to the Pantry.
 - [[the-river|The River]] — Clear Lake's braided rivers are Aruhe's best road, but River Otter families own the fast clear water.
 - [[the-tail|The Tail]] — The eastern convergence of the island arcs, recorded as aarakocra ground and the water that crosses under the Maw's influence.
@@ -59,7 +60,7 @@
 - [[le-paludi|Le Paludi]] — Calveno's canal district of taverns, goods, alchemy and discreet routes below the city toward Warren.
 - [[lesser-black-lotus|Lesser Black Lotus]] — A scorched terrace flower that answers violent disturbance by casting a nearby spell back at its attacker.
 - [[line-bank|Line Bank]] — A used fruiting margin on the Aruhe River where a fishing line, fresh prints and three fruit piles mark the route upriver.
-- [[memorial-grove|Memorial Grove]] — Aruhe's heart: one golden-peach tree over two unmarked graves in a ring of black flowers, where the Death Bloom began.
+- [[memorial-grove|Memorial Grove]] — Aruhe's heart: a golden-peach tree over two unmarked graves, where a changing procession of island fauna bows in silence.
 - [[old-gardens|Old Gardens]] — Ancient stone terraces rising from Western Landing, crowded with fruit, water channels and things that hunt among them.
 - [[print-braid|Print Braid]] — A braid of packed paths along the Quiet's edge where only one strand carries the Calveno trail north.
 - [[razer-grass|Razer-Grass]] — A pale glass-edged stand that cuts movement and bursts into slashing shards and choking dust when shattered.
@@ -92,7 +93,7 @@
 ## NPCs
 
 - [[aldous-draves|Aldous Draves]] — Crown-licensed import factor at Port Tidefall who placed his son Geoffrey aboard the HCS Surety through connections he has never written down.
-- [[aleksander-malone|Aleksander Malone]] — A reserved Hound of Tyr whom the Dravosi Crown releases only for confirmed Flock infiltration and righteous judgement.
+- [[aleksander-malone|Aleksander Malone]] — A loose Hound of Tyr following the Party through the Midchain after escaping Calveno.
 - [[alys-kuiper|Alys Kuiper]] — Surgeon of the Uncertainty's crew since the Surety, named to the prize crew and the one who saw to the Murrat four.
 - [[anzolo|Anzolo]] — Nona Black-Jaw's tortle enforcer and trusted fixer, sent hunting for Perrin and recalled when the attacks stopped.
 - [[auralis-patron|Auralis (Patron)]] — Perrin's unwitting warlock patron, an Antheri machine bound to the Drowned Maw's fissure, reaching the surface as whale-light and single words.
@@ -123,7 +124,7 @@
 - [[geoffrey-draves|Geoffrey Draves]] — Dravosi carpenter aboard the Uncertainty, working under Sem Holst, dancing toward the means to claim Verity Hollowell's hand.
 - [[giacomo-moretti|Giacomo Moretti]] — A Calveno name at the Beffa who welcomes attempts after twenty clean years, and this year's registered mark.
 - [[gianni-moro|Gianni Moro]] — Calveno cooper, lifted from the skylight pit by the Party, who nearly followed Hinewai's voice.
-- [[hinewai|Hinewai]] — Undead elf archdruid bound to Aruhe, whose grief became the island's law.
+- [[hinewai|Hinewai]] — Undead elf archdruid bound to Aruhe, whose grief became the island's law and whose army grows around it.
 - [[iacopo-fieschi|Iacopo Fieschi]] — Tessarine factor who turned Calveno's victory into Concordat credit.
 - [[ilario-pozzo|Ilario Pozzo]] — A Pantry survivor who joins the column when it sets out.
 - [[impuni|Impuni]] — A name Shepherd Grigori said he needed to reach in Calveno, in time; nothing else on record.
@@ -204,6 +205,7 @@
 - [[hinewai-the-blight|Hinewai the Blight]] — Hinewai the Blight, a unique Creature stat block from the archived NPC record.
 - [[killer-whale|Killer Whale]] — A pack hunter of the eastern water that tests wounded hulls, and of the Galewall's cold water, where pods follow lifeboats for hours.
 - [[leviathan|Leviathan]] — A named elemental horror that hunts the open water around the Drowned Maw.
+- [[malone-kindled|Malone, Kindled]] — Malone's CR 21 hellfire form when his god returns him from death.
 - [[master-kyzil-creature|Master Kyzil (Creature)]] — Master Kyzil, a unique Creature stat block from the archived NPC record.
 - [[minor-slaad|Minor Slaad]] — A Minor Slaad creature (CR 1/2) used as a bruiser in The Shattered Sea.
 - [[moucheron|Moucheron]] — A Moucheron Creature (CR 1/8) adapted from the 2024 SRD Stirge.
@@ -215,6 +217,7 @@
 - [[sawek|Sawek]] — The strait's rumoured apex, a blue-hole predator associated with the darkest sections of the southern Midchain approaches, whose range in the open strait no pilot will state.
 - [[shepherd-grigori-creature|Shepherd Grigori (Creature)]] — Shepherd Grigori as a CR 19 undead: a sorcerer-lich whose blood phylactery is the Family of cured heirs.
 - [[snakewood|Snakewood]] — A carnivorous canopy vine colony that grips travellers and feeds with acid.
+- [[snapping-turtle-whale|Snapping Turtle Whale]] — A snapping turtle whale bred by Hinewai in the Mangroves for the Karath channel.
 - [[solange-barret-creature|Solange Barret (Creature)]] — Solange Barret, a unique Creature stat block from the archived NPC record.
 - [[spiguar|Spiguar]] — A Spiguar creature (CR 11) used as a ambusher in The Shattered Sea.
 - [[strix|Strix]] — Catarina Da'Virelli's clockwork owl scout, run on the 2024 SRD Owl stat block.
@@ -279,6 +282,7 @@
 - [[pearl-of-souls|Pearl of Souls]] — A shrine relic that collects drowned souls, signals across the Drowned Maw and remains beyond Umberlee's reach.
 - [[redheart-berry|Redheart Berry]] — A rare Aruhe berry that restores 8d4 + 8 hit points as a Bonus Action.
 - [[rotheart|Rotheart]] — A black Aruhe fruit that strips sickness and makes rolled healing take its maximum for 24 hours.
+- [[ruks-baseball-bat|Ruk's Baseball Bat]] — A hollow-ringing greatclub that braces allies and briefly pins foes.
 - [[sending-stone-nonas|Sending Stone (Nona's)]] — A paired sending stone that gives Perrin a private line to Nona Black-Jaw in exchange for an unrevealed favour.
 - [[silent-shortbow|Silent Shortbow]] — A yew shortbow whose draw and release make no sound, bought by Jean-Claude Tabarnack from Casa Lupo in Le Paludi.
 - [[solanges-authority-seal|Solange's Authority Seal]] — An unused Grung authority seal that can replace one Grung's will with a lifelong order.
@@ -302,7 +306,7 @@
 - [[loud-argument|Loud Argument]] — Bastian Crev's ship in Fisk's Fleet, lost with the whole fleet over the Drowned Maw.
 - [[red-lady|Red Lady]] — Fisk's fleet ship sunk by Umberlee's storm over the Drowned Maw, her wreck holding the Pearl of Souls and the fleet's commission records.
 - [[saltwright|Saltwright]] — Beaumont Sel's battered brig and the Party's first berth, carrying four strangers toward Calveno when the Crown inspection began.
-- [[the-dead-lady|The Dead Lady]] — The collection hull Umberlee sends when her Waveservants are not enough, known by the red wake she leaves.
+- [[the-dead-lady|The Dead Lady]] — The ghost-ship copy Umberlee sends when her Waveservants are not enough, known by the red wake she leaves.
 - [[uncertainty|Uncertainty]] — A Crown cutter taken as HCS Surety, renamed Uncertainty and kept moving as the Party's mobile base.
 - [[velvet-noose|Velvet Noose]] — A deep-water flagship of the water east of the Drowned Maw and the Galewall's recovery lanes; its crew is not established.
 - [[vestra|Vestra]] — The Black-Jaw family ship: built and captained by Vincenzo Black-Jaw for decades, lost at sea since the Drowned Maw woke.
@@ -347,7 +351,7 @@
 
 ## Story so far
 
-- [[story-so-far|Story so far]] — After Session 12 the Aruhe arc rises towards the grove, while the Pearl debt, the Crown hunt and the captive route wait offshore.
+- [[story-so-far|Story so far]] — Jean-Claude leads the rebuilt Session 13 plan at Memorial Grove; the next arc turns to Karath, with Hinewai's army and Malone loose in the Midchain.
 
 ## PCs
 

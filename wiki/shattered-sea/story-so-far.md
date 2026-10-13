@@ -1,10 +1,11 @@
 ---
 title: "Story so far"
 type: story-so-far
-summary: "After Session 12 the Aruhe arc rises towards the grove, while the
-  Pearl debt, the Crown hunt and the captive route wait offshore."
+summary: "Jean-Claude leads the rebuilt Session 13 plan at Memorial Grove; the
+  next arc turns to Karath, with Hinewai's army and Malone loose in the Midchain."
 sources:
   - "archive/session-12-full.md"
+  - "archive/collab-2026-10-12-midchain-arc-plan.md"
 revealed: ""
 ---
 
@@ -62,16 +63,17 @@ Grigori appeared in the galley and named Vantyrus as the hunter behind them. He 
 
 - [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]] is the debt at the top of the ladder. It feeds [[what-sunk-the-vestra|What Sunk the Vestra]], since the [[chain-council|Chain Council]] arranged the theft and the same water took both ships.
 - [[drowned-maw-awakening|Drowned Maw Awakening]] presses Perrin harder each Session through Auralis, and [[take-on-aruhe|Take on Aruhe]] makes the island evidence of the sea's changing frontier. It meets the Pearl debt in the Maw's water.
-- [[the-crown-inspection|The Crown Inspection]] and [[the-hound-of-god|The Hound of God]] carry Crown pursuit of the renamed prize. Delmar's lie sent Malone to Calveno after Grigori, which ties them to [[grigori-and-the-crown-hunt|Grigori and the Crown hunt]] and to Grigori's errand against Knighton.
+- [[the-crown-inspection|The Crown Inspection]] and [[the-hound-of-god|The Hound of God]] carry Crown pursuit of the renamed prize. Delmar's lie sent Malone to Calveno after Grigori, which ties the hunt to [[grigori-and-the-crown-hunt|Grigori and the Crown hunt]] and Grigori's errand against Knighton.
 - [[simones-hunters|Simone's Hunters]] run along the same Grung captive route that took Calveno's missing. The compelled bombers on the burnt road put the Gold caste behind that route.
 - [[rule-of-two|Rule of Two]] carries the hunt for the Fate Spinner through the Sentinel schism, with Vantyrus and Skarn closing on Crissdalynn.
-- [[perrin-and-nona|Perrin and Nona]] carries the Passage's rescue work, and the Aruhe survivors are the first living witnesses Nona can use.
+- [[perrin-and-nona|Perrin and Nona]] carries the Passage's rescue work. Nona's favour is paid by rescuing the Calveno survivors. Remaining survivors are still on Aruhe and Karath. Nona has sent a Passage ship to support the Party, with Ruk as messenger.
+- **A possibility.** The next arc turns to Karath, where Hinewai's army is a clock across the channel: if her beasts cross, they will kill every Grung there without distinction. Malone's hunt is the other pressure.
 - **Collision, a possibility.** The captive route, the Crown hunt for Grigori and Umberlee's price all lead back to Calveno and the Maw's water. Returning to Uncertainty with survivors aboard puts the Party where Nona, Malone and the debt can all reach it.
 
 ## Open promises
 
 - **The canister**, Session 1, Jean-Claude alone. His sister's toxin rode in Crown supply, and the bandolier and vials lie unexamined ([[the-canister|The Canister]]).
-- **Nona's favour**, Session 3, the Players. Perrin accepted it without hearing its terms.
+- **Nona's favour, paid.** Session 3, the Players. The Party paid it by rescuing the Calveno survivors. The remaining survivors on Aruhe and Karath are still to find.
 - **The scrap in Otar's rot**, Session 7, the Players. Nobody has read it.
 - **Rupert Knighton's order**, Session 7, the Players. [[rupert-knighton|Rupert Knighton]] ordered an evacuation before the collapse, and nobody has asked who warned her.
 - **Osset**, Session 8, the Players. The name came up twice, and the table has not followed it up.
@@ -83,18 +85,20 @@ Grigori appeared in the galley and named Vantyrus as the hunter behind them. He 
 - **The graves at the grove**, Session 12, the Players. The seals' orders and Jean-Claude's summons both lead to Memorial Grove.
 - **The chair**, Session 7, the DM alone. Its secret is written on [[fleet-commanders-chair|Fleet Commanders Chair]].
 - **Auralis**, Backstory, the DM alone. What it is and what it seals are written on [[auralis|Auralis]].
+- **Malone, DM-only.** He left Calveno almost immediately, commandeered his Dravosi ship and broke the arms of guards who stopped him. He is now off his leash in the Midchain ([[aleksander-malone|Aleksander Malone]]). Ruk carries the news to the Party.
 
 ## PC trajectories
 
 - **Approach to the Inmost Cave**, [[journey-of-perrin-black-jaw|Journey of Perrin Black-Jaw]]. [[perrin-black-jaw|Perrin Black-Jaw]] chases the Vestra and the crew's survival. Auralis's demands and his Passage obligations pull against both. Twice he chose the crew over consuming, and his patron's "or die" stands unanswered.
 - **Tests, Allies, Enemies**, [[journey-of-delmar-fisk|Journey of Delmar Fisk]]. [[delmar-fisk|Delmar Fisk]] keeps the crew together and free. The Pearl debt and Umberlee's judgement pull against him, and the admiral persona under Malone's spell showed a self he keeps buried. Every route home from Aruhe leads back past the Pearl and Umberlee's price.
 - **Tests, Allies, Enemies**, [[journey-of-crissdalynn-khinriss|Journey of Crissdalynn Khinriss]]. [[crissdalynn-khinriss|Crissdalynn Khinriss]] maps the sea and keeps pulling Delmar out of danger. The Fate Spinner made her a target, and Kyzil's message ties her to the schism. The hunt for the Spinner runs through Vantyrus and the Sentinels' schism.
-- **Tests, Allies, Enemies**, [[journey-of-jean-claude-tabarnack|Journey of Jean-Claude Tabarnack]]. [[jean-claude-tabarnack|Jean-Claude Tabarnack]] protects fugitives and works to expose the captive route. His silence about the canister pulls against the crew's trust, and he now answers to the grove's keeper. The captive route and his seal evidence both lead back to the Gold Caste behind his sister.
+- **Tests, Allies, Enemies**, [[journey-of-jean-claude-tabarnack|Journey of Jean-Claude Tabarnack]]. [[jean-claude-tabarnack|Jean-Claude Tabarnack]] protects fugitives and works to expose the captive route. His silence about the canister pulls against the crew's trust, and he now answers to the grove's keeper. Hinewai is suspicious of him. The canister may offer a route to Legend Lore in front of her.
 
 ## Pacing
 
 - Downswings led Sessions 10 to 12. The Party fought Skarn twice and fought a Spiguar and a crown squid besides, while Jean-Claude went catatonic and then fell under the keeper's binding. The upswings came from the island's gifts and the rescued survivors.
 - Three Sessions on one island ran heavy on exploration and fights. The few talk scenes involved Grigori, Matteo and the keeper.
 - No Session through Session 12 had a Lead PC, since no Prep's Spotlights gave one. Crissdalynn and Perrin held the spotlight. Delmar's own story and Jean-Claude's secret stayed still, and Jean-Claude's Player missed Session 11.
-- **Next Lead PC.** Jean-Claude leads Session 13 by readiness, since in Session 12 the keeper bound him and summoned him to Memorial Grove while Take on Aruhe, The Canister and Simone's Hunters all converge on that summons.
+- **Next Lead PC.** Jean-Claude leads Session 13 by readiness, since in Session 12 the keeper bound him and summoned him to Memorial Grove while Take on Aruhe, The Canister and Simone's Hunters all converge on that summons. The Session 13 plan is being rebuilt from scratch around the hero's journey.
+- **Session 13 anchor.** The plan closes the Aruhe arc at Memorial Grove through Jean-Claude's reckoning with Hinewai and the reveal of her army. An alliance against the Gold Caste remains a live Angle. The Party stays in the Midchain, where Nona's Passage ship brings Calveno's news.
 - [[the-canister|The Canister]] has not moved since Session 1. The Pearl, the Crown Inspection, Simone's Hunters and the Vestra Thread have each sat still for three Sessions or more.

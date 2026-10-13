@@ -6,6 +6,7 @@ sources:
   - "archive/collab-2026-10-04-authority-themes.md"
   - "archive/collab-2026-10-04-grung-gold-caste-gods.md"
   - "archive/the-gold-caste-serene.md"
+  - "archive/collab-2026-10-12-hinewai-reads-jean-claude.md"
 level: 9
 school: Transmutation
 classes: [Sorcerer, Warlock, Wizard]
@@ -71,6 +72,7 @@ Only at the ceiling does a second failed gaze save against the same gold cause p
 ## Rulings
 
 - **Belief outlasts allegiance.** [[jean-claude-tabarnack|Jean-Claude Tabarnack]] rejects the rulers and has fled their rule, but still believes in the caste structure and the golds' power. That remaining conviction partly forfeits his magic, and flight or censure alone does not break the tether. Once belief in the structure itself ends, the drain stops and the surrendered gift returns over 30 days.
+- *Detect Magic* on Jean-Claude reveals Golden Presence still draining him despite having no seal: faint wisps of magic leave him and drift east towards [[karath|Karath]].
 - **The whole con must become visible.** Meaningfully weakening the current caste requires public understanding at the scale of the clans, with proof of claimed divinity failing. The fruit, Ossketh and the stolen gift explain why the failure matters. Opposition to an individual ruler leaves the engine intact.
 - **The heart is separate.** [[dispel-magic|Dispel Magic]] at the heart ends the shared rite, its reserve and every endowment. It is a level 9 effect, with the normal DC 19 check for a lower slot. The body's ward does not protect that place. Ending this rite does not undo an [[grung-authority-seal|Authority Seal]]'s lifelong conviction.
 

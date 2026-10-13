@@ -7,6 +7,8 @@ sources:
   - "archive/collab-2026-10-04-authority-themes.md"
   - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
   - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
+  - "archive/collab-2026-10-12-hinewai-army.md"
+  - "archive/collab-2026-10-12-hinewai-reads-jean-claude.md"
 aliases:
   - "Gold caste"
   - "gold presence"
@@ -46,10 +48,12 @@ flowchart TD
 
 - The gold presence the sages preserve and preach is the caste itself, mortal grung who have named themselves gods. The religion of the Grung is the worship of the Gold caste. The script on a spent [[grung-authority-seal|Authority Seal]] and the sages' decrees share one author.
 - The caste maintains a species-wide spell, [[golden-presence|Golden Presence]]. Grung who believe in the caste system all fall under it. Power a grung gives up willingly crosses to the caste, and so does magic a grung believes it lacks. The caste spends both freely as its own, and that constant drain lifts the gold toward something like demigods.
+- The Gold Caste's tether still takes magic from Jean-Claude, even though he has broken his chains and wears no seal. Without a seal, the escaping wisps drift east towards [[karath|Karath]].
 - The enslavement runs in both directions. The clans enslave other peoples and take their agency, while the same belief figuratively enslaves the grung to the gold.
 - A seal's compulsion holds for life, and the bearer believes the order was always a conviction of their own. Reading a spent seal shows the whole chain of orders it held.
 - Any grung can eat its way to gold. The colour comes from diet, the [[gold-fruit|gold fruit]] grows on the farms at [[karath|Karath]] and on the [[memorial-grove|Memorial Grove]] tree, and a casting of [[ossketh|Ossketh]] locks the change in for life. [[simone-tabarnack|Simone Tabarnack]] proved it with golden peaches stolen from that tree, and the caste could not deny her gold without exposing the biology, so it treats her as showing signs of divinity.
 - The expeditions against the two graves protect the caste's hold. [[aruhe|Aruhe]] is valuable territory, and the grove's [[gold-fruit|gold fruit]] tree stands outside the farms' control. In the caste's belief, breaking the graves would destroy [[hinewai|Hinewai]], the island's protector. Her roots have spread far wider since the graves were dug, and that belief is wrong.
+- Its scorched-earth campaign cuts the pale roots that connect [[hinewai|Hinewai]] to Aruhe's flora. The attacks have wounded her.
 - Breaking the caste means convincing clan after clan across five separate islands that their entire belief system and religion is wrong and a lie. The caste's power weakens once the grung public can hear those facts with proof behind them.
 - The authority mark on [[solanges-authority-seal|Solange's Authority Seal]] matches the spent seals on Aruhe, so the same caste's command reached her too.
 

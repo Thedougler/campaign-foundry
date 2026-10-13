@@ -7225,3 +7225,112 @@
 - [[zombie-clot|Zombie Clot]]
 - [[zombie-plague-spreader|Zombie Plague Spreader]]
 - [[zuggtmoy|Zuggtmoy]]
+
+## [2026-10-12] ingest | collab-2026-10-12-hinewai-army.md
+
+- [[snapping-turtle-whale|Snapping Turtle Whale]]
+- [[aruhe|Aruhe]]
+- [[memorial-grove|Memorial Grove]]
+- [[the-mangroves|The Mangroves]]
+- [[hinewai|Hinewai]]
+- [[gold-caste|Gold Caste]]
+- [[take-on-aruhe|Take on Aruhe]]
+
+## [2026-10-12] audit | Burnt Road evidence narrows Aruhe shore claim (only compelled expeditions are recorded)
+
+- [[aruhe|Aruhe]]
+
+## [2026-10-12] audit | Aruhe landing danger remains unresolved (evidence does not establish the concealed danger)
+
+- [[aruhe|Aruhe]]
+
+## [2026-10-12] ingest | ingest the midchain arc plan
+
+- [[hinewai|Hinewai]]
+- [[aleksander-malone|Aleksander Malone]]
+- [[corbin-knighton|Corbin Knighton]]
+- [[ruk|Ruk]]
+- [[nona-black-jaw|Nona Black-Jaw]]
+- [[the-hound-of-god|The Hound of God]]
+- [[the-canister|The Canister]]
+- [[journey-of-jean-claude-tabarnack|Journey of Jean-Claude Tabarnack]]
+- [[perrin-and-nona|Perrin and Nona]]
+- [[karath|Karath]]
+- [[story-so-far|Story so far]]
+- [[hot|Hot]]
+- [[ruks-baseball-bat|Ruk's Baseball Bat]]
+
+## [2026-10-12] ingest | Malone as Tyr's avatar
+
+- [[aleksander-malone|Aleksander Malone]]
+- [[tyr|Tyr]]
+
+## [2026-10-12] ingest | Malone follows the Party and Tyr is an avatar
+
+- [[aleksander-malone|Aleksander Malone]]
+- [[tyr|Tyr]]
+- [[the-hound-of-god|The Hound of God]]
+- [[hot|Hot]]
+
+## [2026-10-12] ingest | collab-2026-10-12-skarn-dies-swinging.md
+
+- [[talon-skarn|Talon Skarn]]
+- [[talon-vantyrus|Talon Vantyrus]]
+- [[fate-spinner|Fate Spinner]]
+- [[rule-of-two|Rule of Two]]
+- [[hot|Hot]]
+
+## [2026-10-12] ingest | Malone's escape and Ruk's warning
+
+- [[aleksander-malone|Aleksander Malone]]
+- [[hcs-ordinance|HCS Ordinance]]
+- [[ruk|Ruk]]
+- [[the-hound-of-god|The Hound of God]]
+- [[hot|Hot]]
+
+## [2026-10-12] ingest | The Dead Lady and the fist debt
+
+- [[the-dead-lady|The Dead Lady]]
+- [[red-lady|Red Lady]]
+- [[pearl-of-souls|Pearl of Souls]]
+- [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]]
+- [[umberlee|Umberlee]]
+- [[delmar-fisk|Delmar Fisk]]
+- [[shelfworks|Shelfworks]]
+- [[hot|Hot]]
+
+## [2026-10-12] audit | Malone's current pursuit replaces his Crown deployment summary (stale after Calveno escape)
+
+- [[aleksander-malone|Aleksander Malone]]
+- [[shattered-sea/index|]]
+
+## [2026-10-12] audit | Session 9 interrogation restored to Malone's history (contradicted by the boarding record)
+
+- [[the-hound-of-god|The Hound of God]]
+
+## [2026-10-12] ingest | Hinewai reads Jean-Claude with Detect Magic
+
+- [[hinewai|Hinewai]]
+- [[jean-claude-tabarnack|Jean-Claude Tabarnack]]
+- [[gold-caste|Gold Caste]]
+- [[golden-presence|Golden Presence]]
+- [[journey-of-jean-claude-tabarnack|Journey of Jean-Claude Tabarnack]]
+- [[hot|Hot]]
+
+## [2026-10-12] audit | Skarn's offer changes to rebellion (the new plan supersedes the meeting offer)
+
+- [[talon-skarn|Talon Skarn]]
+
+## [2026-10-13] ingest | collab-2026-10-12-malone-massacres-and-kindled.md
+
+- [[aleksander-malone|Aleksander Malone]]
+- [[tyr|Tyr]]
+- [[harwick|Harwick]]
+- [[aldenmere|Aldenmere]]
+- [[stenmark|Stenmark]]
+- [[malone-kindled|Malone, Kindled]]
+
+## [2026-10-13] audit | Kindled return framed as future (it has not happened)
+
+- [[malone-kindled|Malone, Kindled]]
+- [[shattered-sea/index|]]

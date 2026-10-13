@@ -10,6 +10,7 @@ sources:
   - "archive/ssw-umberlee-shrine.md"
   - "archive/ssw-session-04-ingest-recap.md"
   - "archive/session-10.md"
+  - "archive/collab-2026-10-12-the-dead-lady-and-the-fist-debt.md"
 
 revealed: "Backstory"
 title: "Pearl of Souls"
@@ -19,23 +20,22 @@ title: "Pearl of Souls"
 
 ## Properties
 
-The Pearl works continuously and collects souls from anyone who drowns near it. A soul inside cannot escape by normal means. It is one of seven instruments of Umberlee. The others are missing. No charges, saves or attunement rules are established.
+*Plot Item.*
 
-## In use
+The Pearl of Souls is an artifact and one of seven instruments of Umberlee. The others are missing. It continuously collects souls from any creature that drowns near it, without activation. A soul inside cannot escape by normal means.
 
-The Pearl's signal crosses the planar boundary to the Elemental Plane of Water, drawing the [[leviathan|Leviathan]] and waking [[auralis|Auralis]]. Recovering it stops the signal. Leaving it in place draws something larger to the fissure. Who accesses its souls remains an unresolved choice.
+Its signal crosses the planar boundary to the Elemental Plane of Water, drawing the [[leviathan|Leviathan]] and waking [[auralis|Auralis]]. Recovering the Pearl stops the signal. Leaving it in place draws something larger to the fissure. No charges, saves or attunement rules are established.
 
-- **Kind.** Plot item, instrument of Umberlee.
-- **Rarity.** Artifact.
-- **Changes.** Collects souls from anyone who drowns near it without activation.
-- **Held by.** [[umberlee|Umberlee]], though it lies in the [[drowned-maw|Drowned Maw]].
+The Pearl lies inside the [[red-lady|Red Lady]] at the eastern [[shelfworks|Shelfworks]] site in the [[drowned-maw|Drowned Maw]], beyond Umberlee's reach.
 
 > [!narration] First look
 > A fist-sized black pearl shifts with an iridescent sheen and never stays still. Anyone who senses death feels it before seeing it.
 
-## Depth
+## Rulings
 
-### History
+- Who accesses the Pearl's souls remains an unresolved choice.
+
+## History
 
 [[delmar-fisk|Delmar Fisk]] stole it from the deepest chamber of the [[umberlees-shrine|hidden Waveservant shrine]] on [[vel-orn|Vel-Orn]], over a tidal pool built to its requirements, under Chain Council direction. The commissioner had lied about the object, and the crew got in through a cave past traps and defences that six other crews had failed. Umberlee met the theft with wrath and sent Delmar's five ships to the bottom. Delmar fell unconscious as the hulls went down, and the Pearl went into the [[drowned-maw|Drowned Maw]] with the wreckage. The wreck and Pearl lie at the Red Lady site in the eastern [[shelfworks|Shelfworks]]. Delmar's five captains remain bound to him while their crews are trapped inside.
 
@@ -43,7 +43,7 @@ In [[session-10-recap|Session 10]], the DM clarified that the island chain counc
 
 During the same night's visit aboard [[uncertainty|Uncertainty]], [[shepherd-grigori|Shepherd Grigori]] described the job as a curse and said he might be able to help in future. [[perrin-black-jaw|Perrin Black-Jaw]] froze when Grigori mentioned the curse, then relaxed after Delmar checked the porthole. Perrin said, "I'm paying his toll on the ship." He left the recipient unnamed.
 
-### Hidden truths
+## Hidden truths
 
 The [[tessarine-concordat|Tessarine Concordat]] claimed it wanted to protect the Pearl but sought control and to keep it from Aldric Drave. Khlysty / the Flock sees it as a route to transcendence. These motives emerge from mail trails and faction records.
 

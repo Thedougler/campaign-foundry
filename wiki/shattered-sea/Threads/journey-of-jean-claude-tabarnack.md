@@ -17,6 +17,8 @@ sources:
   - "archive/session-11-transcript-archived-version.ledger.md"
   - "archive/session-12-full.md"
   - "archive/session-12-full.ledger.md"
+  - "archive/collab-2026-10-12-midchain-arc-plan.md"
+  - "archive/collab-2026-10-12-hinewai-reads-jean-claude.md"
 status: active
 revealed: "Backstory"
 ---
@@ -41,8 +43,8 @@ revealed: "Backstory"
 
 - **Now.** Tests, Allies, Enemies. His Player was absent from Session 11, and Jean-Claude travelled catatonic, so that Session doesn't show a stage for him (Session 11 Ledger, attendance line). It tests whether a fugitive who keeps one secret from his chosen family can expose the system that made him one. The Approach would show once his own choices act on the seal evidence or the canister, or move towards the [[gold-caste|Gold Caste]].
 - **Possibilities.** What the world might put before Jean-Claude next, his Player free to take it up or leave it.
-  - **A possibility from [[take-on-aruhe|Take on Aruhe]].** The keeper's summons to Memorial Grove stands, with her charge of kidnapper and murderer. Delmar won her word that Jean-Claude lives if he follows her rules, and that anyone may leave her garden willingly. Whatever he says there, or keeps back, her judgement goes ahead.
-  - **A possibility from [[the-canister|The Canister]].** Twenty Surety vials and six sewer vials ride unexamined in the Party's inventory, and nobody searched the alchemist's bandolier. Any vial opened, counted or questioned puts his sister's work in front of the crew. Left alone, the secret is his alone.
+  - **A possibility from [[take-on-aruhe|Take on Aruhe]].** The keeper's summons to Memorial Grove stands, with her charge of kidnapper and murderer. Delmar won her word that Jean-Claude lives if he follows her rules, and that anyone may leave her garden willingly. If the Party reaches friendly terms with Hinewai, the Aruhe survivors could leave aboard Nona's ship. Hinewai may cast *Detect Magic* on Jean-Claude. It shows the wisps drifting east. She may share her reading or keep it to herself. Whatever he says there, or keeps back, her judgement goes ahead.
+  - **A possibility from [[the-canister|The Canister]].** Twenty Surety vials and six sewer vials ride unexamined in the Party's inventory, and nobody searched the alchemist's bandolier. Any vial opened, counted or questioned puts his sister's work in front of the crew. If the Party brings up the canister in front of Hinewai, she may cast Legend Lore and share what she learns. Left alone, the secret is his alone.
   - **A possibility from [[simones-hunters|Simone's Hunters]].** His seal samples set down the Gold Caste's orders in writing. Grung witnesses rarely give that record, since Gold-caste grung blaze with a radiant light as painful to look at as the sun, and grung avert their eyes for protection as much as respect. Nona, Fieschi and anyone fighting the captive route would want those seals. Ignored, the hunters keep tracing the route toward Karath, half a mile across the channel from Aruhe.
 - **Crosses.** [[take-on-aruhe|Take on Aruhe]], [[the-canister|The Canister]], [[simones-hunters|Simone's Hunters]] and the Gold Caste. [[journey-of-delmar-fisk|Journey of Delmar Fisk]] meets it in Delmar's word to the keeper. [[journey-of-crissdalynn-khinriss|Journey of Crissdalynn Khinriss]] meets it in the hunt for Skarn on her back. [[journey-of-perrin-black-jaw|Journey of Perrin Black-Jaw]] meets it in the captive route Nona's network chases.
 

@@ -9,6 +9,7 @@ sources:
   - "archive/ssw-the-canister.md"
   - "archive/session-10.md"
   - "archive/session-12-full.md"
+  - "archive/collab-2026-10-12-hinewai-reads-jean-claude.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/nickdavenock/characters/171013670"
 revealed: "Backstory"
 title: "Jean-Claude Tabarnack"
@@ -67,6 +68,8 @@ His return to work was immediate. He lit a cigarette as a free action, screamed 
 Underground his scores did the route-finding. An Investigation 28 read the pattern in the pulsing roots, and a Survival 28 judged the lava tubes safer travel than the open ground above. A stealth 27 at the crevice mouth, the Elvenkind cloak's advantage at work, showed him the burnt road whole, a straight fired line running back toward the beach. Later looks put parchment scraps and clean white bones every twenty or thirty feet along it. He read the dead grung as unwilling, marched and burned by compulsion, and said what he thought of that: such power could only come from the [[gold-caste|Gold Caste]]. He took the older spent seals as evidence, enough to tell the story. The woman in the woods met him as a kidnapper and a murderer, "Murderer, manipulator," her voice said, and he answered with a thrown cigarette, a curse, and "Sentient beings are your playthings." Her roots bound him where he stood, and her word for his release came through Delmar: he would follow the garden's rules and be brought before her at the grove.
 
 At the road camp he placed a hand on the decanter of endless water and spoke the command word "Lepetitobon", watering the burnt ground as Delmar asked. Then he lay back under the spray and let it rain on him for over an hour. The water found a second use that night. When the invisible falcon dove on Crissdalynn, the spray beside the campfire traced his outline for the Party to target. The DM also ruled on his Bracers of Archery curse in the open. A natural 1 turns his whole body a random neon colour for an hour, and each natural 1 leaves one permanent patch of that colour. Only *remove curse* or its like removes them. He rolled purple. The errant arrow left his bow and hit Crissdalynn for 10 piercing, and his Giant's Guava went to Dexterity before he re-marked Skarn and put 20 more damage into him.
+
+Though he broke his chains, Jean-Claude remains connected to the Gold caste through [[golden-presence|Golden Presence]]. Small wisps of magic continually slip away from him without a seal, each drifting east towards [[karath|Karath]].
 
 > [!narration] Portrait
 > Jean-Claude is a small Grung with electric-blue skin marked by black patches and old scars, large gold eyes, and a long dark moustache called Corto di Velo. He wears a red beret over a dark hood and scarf, a ragged cloak, and a harness of pouches, with a bow always close.

@@ -12,7 +12,7 @@ sources:
   - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
   - "archive/agentic-co-dm-nona-black-jaw-narration.md"
   - "archive/Episode-09-Transcript.md"
-creature: "[[commoner|Commoner]]"
+  - "archive/collab-2026-10-12-midchain-arc-plan.md"
 aliases:
   - "Nona"
   - "The Calveno Candle"
@@ -22,20 +22,19 @@ title: "Nona Black-Jaw"
 
 ![[nona-black-jaw-portrait.webp]]
 
-## At a glance
-
-- **Role.** Matriarch of the [[black-jaw-run|Black-Jaw Run]], senior elder of the [[tangle|Tangle]], and [[perrin-black-jaw|Perrin Black-Jaw]]'s grandmother.
-- **Standing.** The heart of the [[warren|Warren]] and of [[le-paludi|Le Paludi]]. She has been around nearly as long as the Warren has, and she knows everyone's names and birthdays: authority given from below, good, and unrecognised by any Crown.
-- **Wants.** To keep the Passage alive and recover the people taken in the Calveno raid.
-- **Voice.** Low kitchen register. Every favour sounds like a route with a cost, and urgency stopped impressing her decades ago.
-- **Found at.** Her guarded kitchen safe house in the Warren, Calveno.
-
 > [!narration] First look
 > By the kitchen fire a small Rattkin woman sits perfectly straight, calloused paws moving a pen across one receipt after another without a pause. Silver-white fur stands out against the dark jaw mask her family takes its name from, and a flour-dusted floral apron covers dark, well-made cloth. Garlic and fresh bread hang in the air, and under it the kitchen runs like a courtroom, knives and names and the scrape of a stool someone claims. She hears the case and issues the ruling. She never raises her voice, and the queue thins when she looks up. Sharp pink-rimmed eyes find you last, on purpose. "Sit. You eat first."
 
-## Play
+## Roleplaying
 
-- **With the Party.** Benevolent, never antagonistic, and helpful wherever she can reach. She runs her rebellion from kitchens and over whispers.
+- **Leverage.** The heart of the [[warren|Warren]] and of [[le-paludi|Le Paludi]]. She has been around nearly as long as the Warren has, and knows everyone's names and birthdays: authority given from below, good, and unrecognised by any Crown.
+- **Wants.** To keep the Passage alive and recover the people taken in the Calveno raid.
+- **Voice.** Low kitchen register. Every favour sounds like a route with a cost, and urgency stopped impressing her decades ago.
+- **Opening move.** At her guarded kitchen safe house in the Warren, Calveno. She has sent a Passage ship to support the Party, with Ruk aboard as her messenger.
+
+- **Torn between.** Her devotion to the Passage and her refusal to put the whole network at risk for one request.
+
+- **Invitations.** Benevolent, never antagonistic, and helpful wherever she can reach. She runs her rebellion from kitchens and over whispers.
 - **Opens them up.** A workable route, recovered people, and evidence she can use. She feeds you first, because people deserve to eat, not as a tactic.
 - **Shuts them down.** Threats to the network or open-ended promises.
 - **Will share.** Safe houses, couriers, ships, bodyguards, and a [[sending-stone-nonas|sending stone]], at a price.
@@ -48,9 +47,7 @@ title: "Nona Black-Jaw"
 
 Remembering her late husband, [[vincenzo-black-jaw|Vincenzo Black-Jaw]].
 
-## Depth
-
-### History
+## History
 
 For nearly forty years Nona has fought the [[dravosi-crown|Dravosi Crown]] without speeches, feeding anyone who came hungry and building homes for people in hiding while the quiet war ran on. In her youth the Crown caught her running ambushes on Dravosi ships, usually with improvised fire, and named her the Calveno Candle for it. The Kin of the [[warren|Warren]] call her the reason there is a Warren to come home to.
 
@@ -68,12 +65,13 @@ When her grandson's name surfaced with the capture of the Surety, her search for
 
 Perrin reported Thunk's refit spending on the [[uncertainty|Uncertainty]] to her by sending stone the day the Party left Calveno, and she answered: "I know about the money. I figured guns were useful for protecting yourself, but the break room is unnecessary." The next day Delmar warned her that the Dravosi were coming to Calveno. She asked which ship, and whether they meant to occupy the harbour or just park in it. The Party gave her the name, the [[hcs-ordinance|HCS Ordinance]], and Perrin added that the Hound of Tyr was named [[aleksander-malone|Aleksander]] and that he was hunting [[shepherd-grigori|Shepherd Grigori]]. The Hound she already knew by reputation. Of Grigori she knew little.
 
-### Hidden truths
+## Hidden truths
 
 - The Crown called her the Calveno Candle for the ambushes she ran on Dravosi ships in her youth, usually with improvised fire. She has never told them why.
 - She grieves [[vincenzo-black-jaw|Vincenzo Black-Jaw]], the [[vestra|Vestra]]'s captain, more than the ship, and still does not know the whole truth of its sinking.
+- Nona considers the favour owed to Perrin complete: the Party paid it by rescuing the Calveno survivors. They must find the remaining survivors on Aruhe and Karath.
 
-### Threads
+## Threads
 
 She drives **Perrin and Nona** and the recovery work around **Taking on Aruhe**.
 
