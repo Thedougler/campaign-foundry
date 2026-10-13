@@ -1,4 +1,5 @@
 # Linters make every lint repair
+Partly superseded by [0047](0047-agents-lint-their-own-work.md) (the editing agent lints its own files, the `linter` is a convenience, and its dispatcher aligns rules and templates first).
 
 Amends [ADR 0036](0036-skills-prompt-positively-the-linter-repairs.md), whose writer repaired its own findings, and [ADR 0040](0040-templates-are-minimal-by-default.md).
 

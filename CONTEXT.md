@@ -256,13 +256,9 @@ _Avoid_: series bible, campaign bible, notes
 one moment of a Story's outline, with its place, the characters present and what changes. A Beat belongs to a Story and never to Prep; Adaptation turns Beats into situations, and Scenes come later through Prep.
 _Avoid_: scene beat, plot point or Scene
 
-**Seed**:
-a short optional pitch, three sentences long, generated under one Stance by its own writer. The DM takes, merges or drops each one.
-_Avoid_: option, suggestion, draft
-
-**Stance**:
-the priority a writer optimises for while drafting, such as Character-first or Hook-seeder, listed in `docs/agents/co-writing.md`. Any Stance fits any idea.
-_Avoid_: style, voice, genre
+**Pitch**:
+a concrete idea the Agent offers the DM in a creative conversation, built from Canon but not yet on any page. It becomes Canon only when the DM keeps it.
+_Avoid_: option, suggestion, proposal
 
 **Simulation**:
 NPCs played by Personas under a Director through `simulate-npcs`, to find what they would do or say. Its results are possibilities until the DM accepts them.

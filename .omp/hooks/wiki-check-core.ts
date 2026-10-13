@@ -110,9 +110,9 @@ function isFinding(value: unknown): value is Finding {
 }
 
 const repairGuidance =
-	"wiki-check is read-only page-check feedback. Load skill://lint and dispatch the linter for each affected file, one file per dispatch (ADR 0045); clean means zero findings, including warnings, regardless of ok or exit code. The hook doesn't apply fixes. The final combined slice gate still applies.";
+	"wiki-check is read-only page-check feedback. Load skill://lint and repair findings yourself under root AGENTS.md Gate scope (ADR 0047); a linter dispatch is optional. Clean means zero findings, including warnings, regardless of ok or exit code. The final combined slice gate still applies.";
 const manualGuidance =
-	"wiki-check did not provide a complete page check. Do not treat any unchecked page or capped list as clean. Run `bun run cfcli -- check` for all affected pages yourself, then load skill://lint and dispatch the linter for each affected file, one file per dispatch (ADR 0045). The hook doesn't apply fixes. The final combined slice gate still applies.";
+	"wiki-check did not provide a complete page check. Do not treat any unchecked page or capped list as clean. Run `bun run cfcli -- check` for all affected pages yourself, then load skill://lint and repair findings yourself under root AGENTS.md Gate scope (ADR 0047); a linter dispatch is optional. The final combined slice gate still applies.";
 
 /** Raw findings stay in tool data. Only fixed, hook-authored guidance enters trusted context. */
 export function feedback(

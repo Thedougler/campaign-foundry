@@ -1,16 +1,16 @@
-# Story stage
+# Story
 
-The Story stage turns an idea into a Story the DM believes in. Build the Story Bible at `local://collab/bible.md` section by section from the DM's words plus the Canon pages you have read, and end it in an outline of Beats. Prose drafts come only when the DM asks. The DM edits at the bible and outline level: in DOC's study, writers preferred editing a layered outline to editing prose-level plans 75 to 80% of the time on intent, control, intuition and quality ([planning-architectures.md](../../../../docs/research/creative-writing/planning-architectures.md) §3).
+The Story handoff turns an idea into a Story the DM believes in. Build the Story Bible at `local://collab/bible.md` section by section from the DM's words plus the Canon pages you have read, and end it in an outline of Beats. Write the bible silently, and keep the talk on the Story itself. Prose drafts come only when the DM asks. The DM edits at the bible and outline level: in DOC's study, writers preferred editing a layered outline to editing prose-level plans 75 to 80% of the time on intent, control, intuition and quality ([planning-architectures.md](../../../../docs/research/creative-writing/planning-architectures.md) §3).
 
 ## Bible sections
 
-Head each section with its label, exactly as written here. The first five are the Agents' Room scratchpad labels. The Story stage adds the last two. At Open, collab creates the skeleton from these seven labels and copies the tone, themes and Lines and Veils from `campaign-config.md` into `[Premise]`. The Story stage fills every section.
+Head each section with its label, exactly as written here. The first five are the Agents' Room scratchpad labels. The Story handoff adds the last two. The first time it runs for an idea, create the skeleton from these seven labels and copy the tone, themes and Lines and Veils from `campaign-config.md` into `[Premise]`. Then fill every section.
 
 `[Premise]`, `[Central Conflict]`, `[Character Descriptions]`, `[Setting]`, `[Key Plot Points]`, `[Story Outline]`, `[Ending]`
 
 Each section's contract is the Agents' Room planning prompt for it (Huot et al., quoted from [planning-architectures.md](../../../../docs/research/creative-writing/planning-architectures.md) §1). A section is done when it answers every question in its prompt.
 
-**`[Premise]`** adds the idea in the DM's words, one to three sentences, above the tone, themes and Lines and Veils copied there at Open.
+**`[Premise]`** adds the idea in the DM's words, one to three sentences, above the tone, themes and Lines and Veils copied there with the skeleton.
 
 **`[Central Conflict]`.** The protagonists are the Party. Their goal comes from the PC pages.
 
@@ -87,7 +87,7 @@ When the decision belongs to a PC, mark it `Party choice:`.
 Draft prose only when the DM asks, one Beat at a time, so the DM can edit between Beats. For each Beat:
 
 1. Find the Beat's pages. `bun run cfcli -- context -` on the Beat's text gives the pages it names literally. Search the Wiki (`.omp/AGENTS.md` § Wiki access) for each subject the Beat describes without its page's name. Read the candidates and keep each page the Beat is about.
-2. Dispatch one `creative-writer` with the brief below. Its first six lines are Re3's and DOC's drafting labels ([planning-architectures.md](../../../../docs/research/creative-writing/planning-architectures.md) §2 and §3), and its closing instructions are the Agents' Room continuation instructions (§1), each carried exactly as written. Its last seven labels are the scene brief and style anchor of the AI Fiction Prompting Guide in the DM's Second Brain ([ledger](../../../../docs/research/agent-engineering.md), Adopt). Fill each of those seven as what the scene does: what each person wants, hides, senses and ends on. Fill `Target length:` with the count the DM asked for, or else 800 words. A leaf Beat runs roughly 500 words of prose, and models write short of the count they are given ([beats-and-context.md](../../../../docs/research/creative-writing/beats-and-context.md) §1.5 and §1.7). Add the pointer to the [Content stance](../../../../AGENTS.md#content-stance).
+2. Dispatch one `creative-writer` in the background with the brief below, and keep talking while it writes. Its first six lines are Re3's and DOC's drafting labels ([planning-architectures.md](../../../../docs/research/creative-writing/planning-architectures.md) §2 and §3), and its closing instructions are the Agents' Room continuation instructions (§1), each carried exactly as written. Its last seven labels are the scene brief and style anchor of the AI Fiction Prompting Guide in the DM's Second Brain ([ledger](../../../../docs/research/agent-engineering.md), Adopt). Fill each of those seven as what the scene does: what each person wants, hides, senses and ends on. Fill `Target length:` with the count the DM asked for, or else 800 words. A leaf Beat runs roughly 500 words of prose, and models write short of the count they are given ([beats-and-context.md](../../../../docs/research/creative-writing/beats-and-context.md) §1.5 and §1.7). Add the pointer to the [Content stance](../../../../AGENTS.md#content-stance).
 
    ```text
    Premise: <the bible's [Premise]>
@@ -119,7 +119,7 @@ Draft prose only when the DM asks, one Beat at a time, so the DM can edit betwee
 
 3. Save the returned prose under the Beat's heading in `local://collab/drafts/<slug>.md`.
 
-When the DM asks to see versions, dispatch 3 `creative-writer` agents in one `task` batch with the same brief, each naming a different Stance from [`docs/agents/co-writing.md`](../../../../docs/agents/co-writing.md#seeds). Present all three. The DM picks or merges them.
+When the DM asks to see versions, draft each in its own `creative-writer`, all in one background batch, with the same brief except one field you change so the versions differ in kind: `Subtext:`, `Sensory anchors:` or `Ending state:`. Present the versions as they arrive, with a line on what each one bets on. The DM picks or merges them.
 
 ## Done
 

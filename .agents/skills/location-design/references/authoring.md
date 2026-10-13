@@ -46,7 +46,7 @@ Write British English. Add an in-world word without its own page to `.cspell-wor
 
 ## 4. Gate and record the operation
 
-Close per `skill://lint` § Commands over every page this run touched, sending each page with findings to a `linter` (root `AGENTS.md` **Gate scope**) and reading `bun run cfcli -- check --help` first so paths and flags match the installed CLI. Never edit generated indexes by hand. When the caller assigns an explicit filesystem target, give every command its `--vault` and `--root`, and each check `--templates` (**Another root** there).
+Close per `skill://lint` § Commands over every page this run touched, repairing each page's findings (root `AGENTS.md` **Gate scope**) and reading `bun run cfcli -- check --help` first so paths and flags match the installed CLI. Never edit generated indexes by hand. When the caller assigns an explicit filesystem target, give every command its `--vault` and `--root`, and each check `--templates` (**Another root** there).
 
 After a successful standalone operation, append exactly one entry listing each touched content page, using its vault-relative path. Replace the placeholders and repeat `--page` as needed:
 
@@ -56,4 +56,4 @@ bun run cfcli -- log --op create --title "Design <Location>" --page "<campaign-f
 
 `create` includes deepening a Location outside Ingest or Prep. A composed request returns touched paths, Canon decisions and unresolved findings to its caller. The caller runs the final gate and writes one entry under its existing operation. A child hand-off leaves logging to the caller.
 
-**Complete when** the page gate has printed `ok: 0 findings` and the standalone operation has one log entry, or the composed return supplies every artifact and touched path needed for its caller's gate and log. Findings are `linter` work. Report only missing tooling as an observed blocker, never claiming an unrun or failing gate passed.
+**Complete when** the page gate has printed `ok: 0 findings` and the standalone operation has one log entry, or the composed return supplies every artifact and touched path needed for its caller's gate and log. Report only missing tooling as an observed blocker, never claiming an unrun or failing gate passed.

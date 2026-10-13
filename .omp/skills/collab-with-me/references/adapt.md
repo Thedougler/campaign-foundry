@@ -26,5 +26,5 @@ Convert every bible section through the row that names it. Each owner defines th
 
 ## Steps
 
-1. **Convert.** For each table row that matches a bible section, write the adapted form under the idea in the notes, as a pitch the DM keeps or drops, and set the idea's `Stage` to `adapt`. Done when every bible section has an adapted form in the notes.
+1. **Convert.** For each table row that matches a bible section, write the adapted form under the idea in the notes, as a pitch the DM keeps or drops, and tell him in talk what changed from the Story. Done when every bible section has an adapted form in the notes.
 2. **Test for the railroad.** Read each adapted item as the Party would meet it. Ask what happens when the Party chooses differently from the Story, whether it refuses or arrives late, sides with the antagonist or never shows up. Rework each item that works for one choice alone until every choice leaves it playable. Done when no adapted item requires a specific PC choice.

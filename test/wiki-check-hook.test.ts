@@ -143,8 +143,6 @@ describe("Consumer-visible feedback", () => {
 		expect(JSON.parse(report.text)).toMatchObject({ status: "findings", totalFindings: 1, findings: [raw] });
 		expect(report.additionalContext).toContain("skill://lint");
 		expect(report.additionalContext).toContain("including warnings");
-		expect(report.additionalContext).toContain("dispatch the linter");
-		expect(report.additionalContext).toContain("one file per dispatch");
 		expect(report.additionalContext).not.toContain(raw.message);
 	});
 
@@ -179,8 +177,6 @@ describe("Consumer-visible feedback", () => {
 			manualCheck: "bun run cfcli -- check 'wiki/A.md'",
 		});
 		expect(report.additionalContext).toContain("Do not treat");
-		expect(report.additionalContext).toContain("dispatch the linter");
-		expect(report.additionalContext).toContain("one file per dispatch");
 	});
 
 	it("retains raw finding records, caps count/bytes, and gives exact omitted count/manual command", () => {

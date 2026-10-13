@@ -203,7 +203,7 @@ bun run cfcli -- log --op create --title "Author Session <N> <Scene title>" --pa
 
 **Done when** the page and all dependencies are runnable, the index is current, the page gate reported `ok: 0 findings`, and the log entry exists.
 
-When an explicit caller runs the final operation, check each page you write by its **Page check** (`skill://lint` § Commands) and send each page with findings to a `linter` (root `AGENTS.md` **Gate scope**). Return the authored Scene, owner pages, changed Prep material, every touched path, design decisions, conditional incoming and outgoing states, and any tooling findings. Give the caller the actual pending destination paths and entry variants, not name-only promises.
+When an explicit caller runs the final operation, check each page you write by its **Page check** (`skill://lint` § Commands) and repair its findings (root `AGENTS.md` **Gate scope**). Return the authored Scene, owner pages, changed Prep material, every touched path, design decisions, conditional incoming and outgoing states, and any tooling findings. Give the caller the actual pending destination paths and entry variants, not name-only promises.
 
 The caller closes per `skill://lint` § Commands over every touched path. Once the gate prints `ok: 0 findings`, the caller records one log entry for all touched pages, then performs its remaining hot and Push steps. Leave those duties with that caller. A child return is not a claim that Prep or Push has completed.
 

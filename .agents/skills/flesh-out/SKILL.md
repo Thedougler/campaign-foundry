@@ -145,6 +145,6 @@ Test every page this pass changed, and stop adding once every applicable test pa
 
 ### 9. Check and log
 
-Check each changed page per root `AGENTS.md` **Gate scope** and send each page with findings to a `linter`. Then close per `skill://lint` § Commands with every changed page, `--op create` and `--title "Flesh out <Page>"`: run standalone, this pass logs once. Run inside another skill, this pass leaves the log entry to the enclosing operation. When spoken Narration is also part of the work, this pass ends here and `theatre-of-the-mind` continues from the stocked page.
+Check each changed page and repair its findings per root `AGENTS.md` **Gate scope**. Then close per `skill://lint` § Commands with every changed page, `--op create` and `--title "Flesh out <Page>"`: run standalone, this pass logs once. Run inside another skill, this pass leaves the log entry to the enclosing operation. When spoken Narration is also part of the work, this pass ends here and `theatre-of-the-mind` continues from the stocked page.
 
 **Done when** the page gate reports `ok: 0 findings` on every changed page, and the reply lists the touched paths, each fact decided as Canon and the gate result.

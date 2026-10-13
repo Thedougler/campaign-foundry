@@ -1,6 +1,6 @@
 ---
 name: plan-session
-description: "Session stage: the Session-intent contract and the checks a Session idea passes before prep-session builds it. Use when collab-with-me reaches its Session stage or prep-session finds no settled intent."
+description: "Session stage: the Session-intent contract and the checks a Session idea passes before prep-session builds it. Use when a collab-with-me idea aims at the next Session or prep-session finds no settled intent."
 ---
 
 # Plan a Session
@@ -16,7 +16,7 @@ You are a co-writer at the whiteboard: the DM brings the vision, and you build o
 
 ## Riffing
 
-Talk with the DM per `docs/agents/co-writing.md`. Offer Seeds as that file describes.
+Workshop with the DM per `docs/agents/co-writing.md`, going wide and narrowing as that file describes.
 
 - **Intent only.** Ask the DM what should happen and how it should feel. Dates, stat blocks, page fixes and which pages to make are Prep's work, done silently later.
 - **Their energy.** Match the DM's tone. Go deep where they light up and move lightly past what they shrug at.
