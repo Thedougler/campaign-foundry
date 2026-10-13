@@ -109,7 +109,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-817a-a0ca-ec876e712b30",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec817aa0caec876e712b30",
-			"hash": "08f1aaeda527ca20e6d7d7b9652445dcf728ef1cc964a443c7812953cf600504",
+			"hash": "b5aaabf1da4c2abe8cffc1b32b7b1f6b94e8d8a50c95c8100f534b8ae4eca117",
 			"title": "SKILL"
 		},
 		".agents/skills/creature-design/evals": {
@@ -762,7 +762,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-815a-bd9d-e0bfea4edad9",
 			"url": "https://app.notion.com/p/SKILL-3f20216635ec815abd9de0bfea4edad9",
-			"hash": "e291c0d7183251dc7928191de932948ad812f60584d6118863f98e06e70e985b",
+			"hash": "1bb9b28e384c9d96705539e071a3ace3d2faee3c020e592e0f7030a3dfebc60c",
 			"title": "SKILL"
 		},
 		".agents/skills/npc-design/evals": {
@@ -1061,7 +1061,7 @@
 			"kind": "markdown",
 			"id": "3f802166-35ec-81c0-8de0-cbdbb7011d01",
 			"url": "https://app.notion.com/p/SKILL-3f80216635ec81c08de0cbdbb7011d01",
-			"hash": "ae5748c431483796a2459681838d14d3abb6af2de639cf6fcea7276f16d7866d",
+			"hash": "46f5a7d5be8d06ad75e6eda6872156405b6e1e5d4f0ee01a5a9f292c6993c1a7",
 			"title": "SKILL"
 		},
 		".agents/skills/statblock-design/evals": {
@@ -6110,7 +6110,7 @@
 			"kind": "markdown",
 			"id": "3f202166-35ec-816e-95c2-c82140d38f24",
 			"url": "https://app.notion.com/p/log-3f20216635ec816e95c2c82140d38f24",
-			"hash": "4eba496a1979cf57d57632b29edd68cc2d1593a1f812c7b358d93a4fc4683b5c",
+			"hash": "68a2d6a38463ae8f52ab4f30e0ab929ad68a4eae4d8bad36d0928d079233fc77",
 			"title": "log"
 		},
 		"wiki/shattered-sea/shattered-sea.md": {
@@ -6139,6 +6139,6 @@
 		"id": "3f202166-35ec-815c-9ba6-dacbda0f6f1b",
 		"url": "https://app.notion.com/p/campaign-foundry-backup-3f20216635ec815c9ba6dacbda0f6f1b"
 	},
-	"syncedCommit": "c2538ed97b2c7732c167f2431f307f012e4ac88f",
-	"syncedAt": "2026-10-13T02:07:13.111Z"
+	"syncedCommit": "3a60729bd372586ca97b0d5c37af1eb8fe087a14",
+	"syncedAt": "2026-10-13T07:32:08.821Z"
 }
