@@ -5,9 +5,9 @@ import { UsageError } from "../check/errors.ts";
 export interface PinQuota {
 	provider: string;
 	status: "available" | "exhausted" | "unknown";
-	/** The smallest remaining fraction among the provider's report limits — the Grok Build meter for xAI; null when no limit reports one. */
+	/** The best account's tightest remaining fraction — the Grok Build meter for xAI; null when no limit reports one. */
 	remaining: number | null;
-	/** The tightest report limit's reset time, known even while the meter is available; null when no limit reports one. */
+	/** The selected account's tightest report limit's reset time; null when no limit reports one. */
 	resetsAt: string | null;
 	/** The meter the status was read from: the Grok Build limit id for `xai-oauth`, `capacity` for every other provider. */
 	meter: string;
@@ -139,9 +139,9 @@ export function readOmpUsage(): QuotaSource {
 /**
  * Maps one `provider/model-id` seat to its provider's quota. `xai-oauth` reads the Grok Build meter;
  * every other provider reads pooled capacity, where any window at 0 is exhausted until the provider's
- * own report says it resets. `remaining` and `resetsAt` come from the provider's report limits — the
- * tightest one — so a seat still usable now can already name when its window refills. A provider with
- * no quota data — or a failed usage report — is unknown.
+ * own report says it resets. `remaining` and `resetsAt` come from the best account's tightest report
+ * limit, not an exhausted sibling account. A provider with no quota data — or a failed usage report —
+ * is unknown.
  */
 export function quotaOf(pin: string, usage: OmpUsage | null): PinQuota {
 	const provider = pin.slice(0, pin.indexOf("/")) || pin;
@@ -163,10 +163,15 @@ export function quotaOf(pin: string, usage: OmpUsage | null): PinQuota {
 		.map((window) => window.remainingAccounts)
 		.filter((value): value is number => value !== undefined);
 	if (meters.length === 0) return { provider, status: "unknown", remaining: null, resetsAt: null, meter: "capacity" };
-	const limits = (usage?.reports.filter((report) => report.provider === provider) ?? []).flatMap(
-		(report) => report.limits,
-	);
-	const { remaining, resetsAt } = tightestLimit(limits);
+	const reports = usage?.reports.filter((report) => report.provider === provider) ?? [];
+	let best = tightestLimit(reports[0]?.limits ?? []);
+	for (let index = 1; index < reports.length; index++) {
+		const candidate = tightestLimit(reports[index]!.limits);
+		if ((candidate.remaining ?? -1) > (best.remaining ?? -1)) best = candidate;
+	}
+	// Without fractions, retain the earliest reset reported by any account.
+	if (best.remaining === null) best = tightestLimit(reports.flatMap((report) => report.limits));
+	const { remaining, resetsAt } = best;
 	const status = meters.some((value) => value <= 0) ? "exhausted" : "available";
 	return { provider, status, remaining, resetsAt, meter: "capacity" };
 }

@@ -47,18 +47,21 @@ describe("quota mapping", () => {
 		});
 	});
 
-	it("marks xai-oauth exhausted when the Grok Build meter runs dry, with its reset", () => {
+	it.each([
+		{ remainingFraction: 0, status: "exhausted" },
+		{ remainingFraction: 0.010000000000000009, status: "available" },
+	])("maps Grok Build remaining $remainingFraction to $status, with its reset", ({ remainingFraction, status }) => {
 		const report = usage();
 		report.reports[0]!.limits[1] = {
 			id: "xai-oauth:product:grokbuild:1w",
 			status: "ok",
 			resetsAt: GROK_BUILD_RESET,
-			remainingFraction: 0,
+			remainingFraction,
 		};
 		expect(quotaOf("xai-oauth/grok-4.7", report)).toEqual({
 			provider: "xai-oauth",
-			status: "exhausted",
-			remaining: 0,
+			status,
+			remaining: remainingFraction === 0 ? 0 : 0.01,
 			resetsAt: new Date(GROK_BUILD_RESET).toISOString(),
 			meter: "xai-oauth:product:grokbuild:1w",
 		});
@@ -106,6 +109,35 @@ describe("quota mapping", () => {
 			provider: "zai",
 			status: "available",
 			remaining: 0.1,
+			resetsAt: new Date(OPENCODE_MONTHLY_RESET).toISOString(),
+			meter: "capacity",
+		});
+	});
+
+	it("reports the best account's tightest quota instead of an exhausted sibling's zero", () => {
+		const report = usage({
+			reports: [
+				{
+					provider: "anthropic",
+					limits: [
+						{ id: "5h", status: "ok", resetsAt: undefined, remainingFraction: 1 },
+						{ id: "7d", status: "exhausted", resetsAt: GROK_BUILD_RESET, remainingFraction: 0 },
+					],
+				},
+				{
+					provider: "anthropic",
+					limits: [
+						{ id: "5h", status: "ok", resetsAt: GROK_BUILD_RESET, remainingFraction: 0.9 },
+						{ id: "7d", status: "warning", resetsAt: OPENCODE_MONTHLY_RESET, remainingFraction: 0.04 },
+					],
+				},
+			],
+			capacity: { anthropic: [{ remainingAccounts: 1.9 }, { remainingAccounts: 0.04 }] },
+		});
+		expect(quotaOf("anthropic/claude-opus-5-5", report)).toEqual({
+			provider: "anthropic",
+			status: "available",
+			remaining: 0.04,
 			resetsAt: new Date(OPENCODE_MONTHLY_RESET).toISOString(),
 			meter: "capacity",
 		});

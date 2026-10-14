@@ -22,7 +22,7 @@ function isInside(parent, candidate) {
 }
 
 function protectedRunner(ctx) {
-	return ctx?.agent?.kind === "sub" && ["test-subject", "prose-grader"].includes(String(ctx.agent.name).toLowerCase());
+	return ctx?.agent?.kind === "sub" && ["test-subject", "smart-test-subject", "prose-grader"].includes(String(ctx.agent.name).toLowerCase());
 }
 
 function fileInputPath(value, cwd) {

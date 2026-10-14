@@ -13,6 +13,7 @@ import { dirname, join, relative, resolve, sep } from "node:path";
  * directory, and `cfcli eval graph` lists them as links. The DM confirms this list (issue #52).
  */
 export const EXTERNAL_SKILL_NAMES: Record<string, true> = {
+	"agent-design": true,
 	"cli-for-agents": true,
 	"context7-mcp": true,
 	"domain-modeling": true,

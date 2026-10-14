@@ -37,7 +37,7 @@ export function shouldCheck(toolName: string, isError: boolean, agent?: { kind: 
 	return (
 		!isError &&
 		mutations[toolName] === true &&
-		!(agent?.kind === "sub" && ["test-subject", "prose-grader"].includes((agent.name ?? "").toLowerCase()))
+		!(agent?.kind === "sub" && ["test-subject", "smart-test-subject", "prose-grader"].includes((agent.name ?? "").toLowerCase()))
 	);
 }
 

@@ -90,7 +90,7 @@ Everything under `local://` stays outside the Wiki. Ingest files a Story into th
 |`scout`|bundled|collab step 2|read-only|widens the Wiki search and returns relevant paths|
 |Ingest, Lint and Prep runners|fresh background `task` subagents|collab steps 5 and 6|full|file, check and build one chain at a time|
 
-Both `creative-writer` and `persona` run on `zai/glm-5.3` through their frontmatter roles, `@CREATIVE-WRITER` and `@PERSONA`, with `blocking: false`, so collab can keep talking while they work. [`.omp/AGENTS.md`](../.omp/AGENTS.md#native-delegation) sets when a dispatch passes another model. A Persona has `tools: []` on purpose. Without reads, it knows only its dossier and the events the Director sends it, so no Persona can learn another NPC's secrets.
+Both `creative-writer` and `persona` resolve their models through their frontmatter roles, `@CREATIVE-WRITER` and `@PERSONA`, and run with `blocking: false`, so collab can keep talking while they work. [`.omp/AGENTS.md`](../.omp/AGENTS.md#native-delegation) sets when a dispatch passes another model. A Persona has `tools: []` on purpose. Without reads, it knows only its dossier and the events the Director sends it, so no Persona can learn another NPC's secrets.
 
 The Director sends each Persona its turns with `write agent://<id>`. Personas are named `Persona<NpcNameCamelCase>`, and `read history://<id>` shows a Persona's whole transcript for an isolation check. Delegation rules for every agent are in [`.omp/AGENTS.md`](../.omp/AGENTS.md#native-delegation).
 
