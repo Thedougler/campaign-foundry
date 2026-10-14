@@ -38,3 +38,8 @@ skills:
     - tavily-*
     - exa-search
     - firecrawl-scrape
+    - ha-mcp-history-backfill
+    - omp-skills-sh-install
+# Wiki work never drives the host desktop; drops the Computer Use prompt block.
+computer:
+  enabled: false
