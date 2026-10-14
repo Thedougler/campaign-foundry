@@ -3,7 +3,7 @@ import { join } from "node:path";
 import YAML from "yaml";
 import { UsageError } from "../check/errors.ts";
 
-/** The Matrix families (CONTEXT.md): Anthropic, OpenAI, Z.ai and xAI, each seated by a runner/grader definition pair. */
+/** The Matrix families (evals/README.md § Terms): Anthropic, OpenAI, Z.ai and xAI, each seated by a runner/grader definition pair. */
 export const FAMILIES = ["anthropic", "openai", "zai", "xai"] as const;
 
 export type FamilyName = (typeof FAMILIES)[number];
@@ -73,7 +73,7 @@ export function seatFor(seats: FamilySeats[], family: string): Seat {
 	if (entry === undefined)
 		throw new UsageError(
 			`No Benchmark family \`${family}\`.`,
-			`The Matrix families are ${FAMILIES.join(", ")} (CONTEXT.md).`,
+			`The Matrix families are ${FAMILIES.join(", ")} (evals/README.md § Terms).`,
 		);
 	if (entry.error !== null || entry.seat === null)
 		throw new UsageError(

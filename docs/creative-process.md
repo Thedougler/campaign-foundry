@@ -10,7 +10,18 @@ The DM starts every creative exercise with `/skill:collab-with-me`, a 1:1 worksh
 - [0027 One story-so-far page per Campaign](adr/0027-story-so-far-page.md)
 - [0046 Collab is a 1:1 workshop](adr/0046-collab-is-a-one-to-one-workshop.md)
 
-The terms (Story, Story Bible, Beat, Pitch, Simulation, Persona, Director, Adaptation) are defined in [`CONTEXT.md`](../CONTEXT.md#creative-work).
+## Terms
+
+The creative-work terms, kept here beside the stages that use them. `CONTEXT.md` holds the rest of the glossary.
+
+- **Story**: the DM's narrative for an idea, written with fiction craft before Adaptation: its premise, conflict, cast, setting, plot points and ending. It stays session-local until Adaptation turns it into material for the table. _Avoid_: plot, script, campaign (for the Story).
+- **Story Bible**: the session-local working file for a Story, `local://collab/bible.md`, holding its sections, cast cards and Story Outline. It never becomes a Wiki page. _Avoid_: series bible, campaign bible, notes.
+- **Beat**: one moment of a Story's outline. It states its place and the characters present, and says what changes. A Beat belongs to a Story and never to Prep. Adaptation turns Beats into situations, and Scenes come later through Prep. _Avoid_: scene beat, plot point, Scene.
+- **Pitch**: a concrete idea the Agent offers the DM in a creative conversation, built from Canon but on no page yet. It becomes Canon only when the DM keeps it. _Avoid_: option, suggestion, proposal.
+- **Simulation**: NPCs played by Personas under a Director through `simulate-npcs`, to find what they would do or say. Its results are possibilities until the DM accepts them. _Avoid_: roleplay, sandbox, playtest.
+- **Persona**: the subagent that plays exactly one NPC in a Simulation, knowing only its dossier and the events it witnesses. _Avoid_: actor, character agent, NPC (for the agent).
+- **Director**: the agent that runs a Simulation. It frames the scenes, commands each Persona one at a time and keeps the ledger, and it plays no NPC. _Avoid_: narrator, GM, DM (the human).
+- **Adaptation**: turning a Story into situations, Threads, Clues and Scenes that the Party meets through its own choices. _Avoid_: conversion, port, rewrite.
 
 ## Handoffs
 

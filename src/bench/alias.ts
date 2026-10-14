@@ -2,7 +2,7 @@ import { randomInt } from "node:crypto";
 import { UsageError } from "../check/errors.ts";
 
 /**
- * Animal names for sample aliases (CONTEXT.md § Alias): one word each, so a sample's file name and
+ * Animal names for sample aliases (evals/README.md § Terms): one word each, so a sample's file name and
  * heading carry no family, model or quality hint. Enough for a full Matrix run and its amendments.
  */
 const ANIMALS = [
