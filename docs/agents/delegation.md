@@ -10,11 +10,14 @@ On-demand detail behind `.omp/AGENTS.md` § Native delegation. Read it before yo
 - `creative-writer` (`@CREATIVE-WRITER`) takes Story prose drafts and other explicit creative-writing dispatches outside skill evals.
 - `persona` (`@PERSONA`) plays exactly one NPC in a Simulation, dispatched only by `simulate-npcs`.
 - `transcript-reader` (`@TRANSCRIPT-READER`) reads Transcript chunks and verify ranges into Session Ledger files, dispatched by the top-level session per `ingest` `references/transcript.md`.
+- `lookup` (`anthropic/claude-haiku-5-5`) takes every read-only lookup or sweep, such as a Wiki lore sweep, a legacy-repo search with full git history or a web search, and returns its full findings in its reply.
 - `linter` (`@LINTER`) is described in [Linter](#linter).
 
 ## Models
 
 A dispatch runs on its agent's model: `task.agentModelOverrides.<agent>`, else the agent's frontmatter `model`, whose `@ROLE` resolves through `modelRoles` in user `~/.omp/agent/config.yml`. Roles hotlink to a small concrete base through `@` aliases: `slow`, `advisor` and `SKILL-WRITER` → `@plan`, `vision` → `@commit`, `memory` → `@TEST-SUBJECT`, `PERSONA` → `@default`, `SMART-TEST-SUBJECT` → `@task`. Changing a base changes each alias of it.
+
+Write each definition and brief for the model family its role resolves to, per `skill://agent-design` § Consumer model.
 
 Each role has a `retry.fallbackChains.<ROLE>` chain that moves a rate-limited or quota-dead primary across providers, stepping down the DM's tiers (`usageAwareFallback`). OpenAI selectors never appear in a decision-class chain (`plan`, `slow`, `advisor`, `skill-author`, `SKILL-WRITER`). GitHub Copilot selectors, whose quota is scarce, sit mid-chain only, never as a chain's last stop or sole entry. That fallback is the DM's policy, so keep dispatching as normal.
 

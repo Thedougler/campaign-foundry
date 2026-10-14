@@ -1,6 +1,6 @@
 ---
 name: audit
-description: Fixes the rot between pages that the per-page gate cannot see — each fix decided by Canon precedence, logged, never put to the DM. Runs in a fresh subagent, dispatched after every Ingest over the pages it touched and their linked neighbours, when the DM asks to audit or tidy — named pages, a named claim, or the whole Wiki only on that ask — and whenever one page is found saying what another contradicts.
+description: Fixes the rot between pages that the per-page gate cannot see — each fix decided by Canon precedence, logged, never put to the DM. Runs in a fresh subagent only when the DM asks to audit or tidy — an Ingest's pages, named pages, a named claim, or the whole Wiki.
 ---
 
 # Audit
@@ -10,7 +10,7 @@ The gate checks each page alone. Audit checks that the pages agree with each oth
 ## Steps
 
 1. **Scope.** One of four runs:
-   - **An Ingest's pages.** The dispatch an Ingest requests, or a DM request for one ("audit the pages the last Ingest touched"). The active Campaign folder's `log.md` lists them as the `- [[slug|Title]]` bullets under that Ingest's `## [date] ingest | <file>` entry.
+   - **An Ingest's pages.** The DM asks for them ("audit the pages the last Ingest touched"). The active Campaign folder's `log.md` lists them as the `- [[slug|Title]]` bullets under that Ingest's `## [date] ingest | <file>` entry.
    - **The DM's pages.** The pages the DM lists.
    - **The DM's claim.** The DM states one claim or question ("the claim about who holds this office"). The run compares that question's answers only, never every claim on the pages it reads.
    - **The whole Wiki.** Every page in the active Campaign folder and the shared top-level kind folders, run only on the DM's request for the whole Wiki.

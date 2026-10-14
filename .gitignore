@@ -60,9 +60,6 @@ build/
 **/*-workspace/
 /evals/audit/
 
-# Local clones of prior Shattered Sea / co-DM iterations; never commit
-prior/
-
 # Local GM-voice example library built by scripts/voice-envelope.ts; never commit
 reference/
 

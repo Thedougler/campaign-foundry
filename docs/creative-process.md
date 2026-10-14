@@ -41,7 +41,7 @@ flowchart TD
     Simulate -->|"report read back"| Story
     Story -->|"the DM says it is right"| Adapt["Adapt"]
     Adapt --> Session["Session"]
-    Adapt --> Lock["Lock it in: raw, Ingest, audit, Lint"]
+    Adapt --> Lock["Lock it in: raw, Ingest"]
     Workshop -->|"lock it in"| Lock
     Lock -->|"a new Recap"| Arc
     Session --> Prep["prep-session"]
@@ -60,7 +60,7 @@ flowchart TD
 |Simulate|[`simulate-npcs`](../.agents/skills/simulate-npcs/SKILL.md)|dossiers, a ledger and a report of possibilities|
 |Adapt|[`references/adapt.md`](../.omp/skills/collab-with-me/references/adapt.md)|the adapted form of every bible section in the notes|
 |Session|[`plan-session`](../.agents/skills/plan-session/SKILL.md)|a settled Session intent, handed to [`prep-session`](../.agents/skills/prep-session/SKILL.md)|
-|Lock it in|`collab-with-me` step 5, then [`ingest`](../.agents/skills/ingest/SKILL.md), [`audit`](../.agents/skills/audit/SKILL.md) and [`lint`](../.omp/skills/lint/SKILL.md)|a `raw/` file of settled facts, then Wiki pages at `ok: 0 findings`|
+|Lock it in|`collab-with-me` step 5, then [`ingest`](../.agents/skills/ingest/SKILL.md)|a `raw/` file of settled facts, then Wiki pages at `ok: 0 findings` on Ingest's page gate|
 |Relay and Close|`collab-with-me` steps 6 and 7|the DM told what was filed, what remains open, what is running and which Personas are idle|
 
 Prep reaches Simulate on its own: [`prep-session`](../.agents/skills/prep-session/SKILL.md) step 4 derives the opposition's unopposed timeline by running `simulate-npcs` for offscreen moves.
@@ -88,7 +88,7 @@ Everything under `local://` stays outside the Wiki. Ingest files a Story into th
 |Director|whichever agent runs `simulate-npcs`: collab itself, or a Prep runner|collab's Simulate handoff, or Prep step 5 (Opposition)|full|frames scenes, commands each Persona and keeps the ledger|
 |Critic|a fresh background `task` subagent with `critique.md`|the DM's ask for a critique or a harder read, or collab before lock-in|full, leaves the material as it is|stress-tests the idea cold, answers the TTCW tests for a Story and returns findings|
 |`scout`|bundled|collab step 2|read-only|widens the Wiki search and returns relevant paths|
-|Ingest, audit, Lint and Prep runners|fresh background `task` subagents|collab steps 5 and 6|full|file, check and build one chain at a time|
+|Ingest, Lint and Prep runners|fresh background `task` subagents|collab steps 5 and 6|full|file, check and build one chain at a time|
 
 Both `creative-writer` and `persona` run on `zai/glm-5.3` through their frontmatter roles, `@CREATIVE-WRITER` and `@PERSONA`, with `blocking: false`, so collab can keep talking while they work. [`.omp/AGENTS.md`](../.omp/AGENTS.md#native-delegation) sets when a dispatch passes another model. A Persona has `tools: []` on purpose. Without reads, it knows only its dossier and the events the Director sends it, so no Persona can learn another NPC's secrets.
 

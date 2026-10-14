@@ -1,4 +1,5 @@
 # Collab is a 1:1 workshop
+Partly superseded by [0050](0050-audits-run-on-the-dms-ask.md) (lock-in files through Ingest alone, so the "(raw, Ingest, audit, Lint)" chain is now raw and Ingest).
 
 Amends [ADR 0018](0018-story-first-then-adapt.md), whose closing line made `collab-with-me` load a stage owner for each idea.
 

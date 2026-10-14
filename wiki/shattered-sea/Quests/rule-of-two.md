@@ -5,6 +5,7 @@ summary: "Keep Crissdalynn out of the contest between Skarn and Vantyrus for
 sources:
   - "archive/collab-2026-10-12-skarn-dies-swinging.md"
   - "archive/rule-of-two.md"
+  - "archive/collab-2026-10-13-skarn-cause-and-shard.md"
 status: active
 revealed: ""
 title: "Rule of Two"
@@ -31,7 +32,7 @@ title: "Rule of Two"
 
 Vantyrus leads the faction. He wants the Fate Spinner's gift tied to Soul Incarnate transformation. Skarn is his hunter for now but will try to kill him once trained enough. Both know this. Whoever wins controls the surviving routes, while one-job contacts continue only assignments they already know.
 
-Skarn's second attempt for the Fate Spinner settles the hunt either way. If he loses, he dies fighting and the hunt ends. If he wins, he keeps the Spinner for himself and means to use it against Vantyrus; the master comes after it in person, and the Party must win Kyzil's lesson back. Before a fight to the death, Skarn tries a Kyzil half-truth, then offers the Party an equal alliance against Vantyrus. He means the offer, keeps the Spinner as his weapon and does not lower his raised katana. If refused, he fights to the death.
+Skarn's second attempt for the Fate Spinner is his last. If he loses, he dies fighting and his pursuit ends, but the [[vantyruss-shard|shard on his harness]] survives. Looting it carries Vantyrus's gaze into the Party, though the Players are not meant to realise it. If Skarn wins, he keeps the Spinner for himself and means to use it against Vantyrus. The master comes after it in person, and the Party must win Kyzil's lesson back. Before a fight to the death, Skarn tries a Kyzil half-truth, then offers the Party an equal alliance against Vantyrus. He means the offer, keeps the Spinner as his weapon and does not lower his raised katana. If refused, he fights to the death.
 
 ## Links
 

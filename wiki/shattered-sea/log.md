@@ -7345,3 +7345,95 @@
 - [[session-12-recap|Session 12 - Recap]]
 - [[hot|Hot]]
 - [[shattered-sea/index|]]
+
+## [2026-10-13] ingest | collab-2026-10-13-skarn-cause-and-shard.md
+
+- [[talon-skarn|Talon Skarn]]
+- [[talon-skarn-creature|Talon Skarn (Creature)]]
+- [[talon-vantyrus|Talon Vantyrus]]
+- [[vantyruss-shard|Vantyrus's Shard]]
+- [[rule-of-two|Rule of Two]]
+- [[journey-of-crissdalynn-khinriss|Journey of Crissdalynn Khinriss]]
+- [[hot|Hot]]
+- [[shattered-sea/index|]]
+
+## [2026-10-13] audit | Skarn holds the road camp to the end (the DM ruled out retreat)
+
+- [[talon-skarn-creature|Talon Skarn (Creature)]]
+
+## [2026-10-13] audit | Skarn fought twice and the road camp remains unresolved (Session 11 continued into Session 12)
+
+- [[talon-skarn-creature|Talon Skarn (Creature)]]
+- [[fate-spinner|Fate Spinner]]
+- [[journey-of-crissdalynn-khinriss|Journey of Crissdalynn Khinriss]]
+- [[shattered-sea/index|]]
+
+## [2026-10-13] audit | Merged Osset into Talon Vantyrus (two pages named the same person)
+
+- [[talon-vantyrus|Talon Vantyrus]]
+- [[aarakocra|Aarakocra]]
+- [[nightmantle|Nightmantle]]
+- [[sentinels-of-the-eyrie|Sentinels of the Eyrie]]
+- [[crissdalynn-khinriss|Crissdalynn Khinriss]]
+- [[story-so-far|Story so far]]
+- [[journey-of-crissdalynn-khinriss|Journey of Crissdalynn Khinriss]]
+- [[session-8-recap|Session 8 - Recap]]
+- [[shattered-sea/index|]]
+
+## [2026-10-13] audit | Osset was named but not identified as Vantyrus (Session 8 revealed the name)
+
+- [[talon-vantyrus|Talon Vantyrus]]
+
+## [2026-10-13] ingest | collab-2026-10-13-flat-water-restore.md
+
+- [[the-flat-water|The Flat Water]]
+- [[reweti-kahurangi|Reweti Kahurangi]]
+
+## [2026-10-13] audit | Removed the species-wide lying claim (the DM left Moucheron honesty unrestricted)
+
+- [[moucheron|Moucheron]]
+
+## [2026-10-13] ingest | Restored CR 8 Moucherons, Five Blades and Ket's played voice
+
+- [[moucheron|Moucheron]]
+- [[ket|Ket]]
+- [[varet|Varet]]
+- [[toa|Toa]]
+- [[suke|Suke]]
+- [[wirra|Wirra]]
+- [[toa-kailani|Toa Kailani]]
+- [[five-blades|Five Blades]]
+- [[chain-council|Chain Council]]
+- [[dravosi-crown|Dravosi Crown]]
+- [[murrat|Murrat]]
+- [[kalowe|Kalowe]]
+- [[hot|Hot]]
+- [[shattered-sea/index|]]
+
+## [2026-10-13] audit | Reweti passes enquiries on to the Five Blades rather than brokering work (Reweti's own page sets the limit)
+
+- [[kalowe|Kalowe]]
+
+## [2026-10-13] audit | Ket's size restated as ordinary Moucheron size (the DM ruled he is no runt)
+
+- [[ket|Ket]]
+- [[shattered-sea/index|]]
+
+## [2026-10-13] audit | Chilled blood for twice the voyage restated as prudent captains' practice (the DM's account and the Five Blades page)
+
+- [[hot|Hot]]
+
+## [2026-10-14] ingest | collab-2026-10-13-sir-quackers.md
+
+- [[sir-quackers-the-fowl|Sir Quackers the Fowl]]
+- [[yssenmoor|Yssenmoor]]
+- [[countless|Countless]]
+
+## [2026-10-14] ingest | collab-2026-10-14-glutehorn-and-huahei.md
+
+- [[glutehorn|Glutehorn]]
+- [[clydes-bestiary-of-oceanic-creatures|Clyde's Bestiary of Oceanic Creatures]]
+- [[algernon-reginald-clyde|Algernon Reginald Clyde]]
+- [[huahei|Huahei]]
+- [[huahei-crossing|Huahei Crossing]]
+- [[huahei-coven|Huahei Coven]]

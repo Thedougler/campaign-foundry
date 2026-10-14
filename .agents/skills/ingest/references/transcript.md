@@ -14,7 +14,7 @@ The **Session Ledger** is the contract between stages: the Ledger stages build i
 | C5 Ledger | the Merge agent, resumed | nothing | the Ledger, dictionary rows |
 | C6 Units | Units | nothing | pages files, stubs |
 | C7 Write | page writers, Recap, Previously On | each other | Wiki pages, each checked |
-| C8 Gate | you, with Close, then Audit | each other, then nothing | a clean touched-list check, then the audit's return |
+| C8 Gate | you, with Close | each other | a clean touched-list check |
 
 ## Dispatch
 
@@ -148,10 +148,4 @@ Read skill://ingest/references/writer.md, then close Session <N> from the Sessio
 
 While it runs, run SKILL.md step 10 over the touched list. Repair each finding it reports, or send it back to the writer whose page it is (root `AGENTS.md` **Message with work**). A finding still flagged after two repairs has its cause fixed by `skill://lint` step 7. Add each stub a writer made for an unowned name to the touched list. When the Close returns, add the paths it changed to the touched list and check those pages the same way. Done when step 10's criterion holds over the whole touched list.
 
-Then do SKILL.md steps 11 and 12 over the whole touched list, and step 13's index: its Threads, `hot.md` and `story-so-far.md` are done. Dispatch the audit, which reads its pages from that log entry, and once it returns, run step 13's full gate and its `lint` slices:
-
-```text
-Read skill://audit, then audit the Ingest entry for <file>.
-```
-
-The step 14 report gathers every stage's return and the audit's. Done when step 14's criterion holds.
+Then do SKILL.md steps 11 and 12 over the whole touched list, and step 13's index: its Threads, `hot.md` and `story-so-far.md` are done. The step 14 report gathers every stage's return. Done when step 14's criterion holds.

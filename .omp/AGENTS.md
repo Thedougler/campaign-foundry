@@ -24,7 +24,7 @@ The `mnemopi` backend injects a `<memories>` block on a session's first turn and
 
 ## Native delegation
 
-Delegate through native `task` or eval `agent()`/`workpool()`, and give each item the `effort` its work needs. Agent roster, model mechanics, revive-or-fresh, nested dispatch and the `linter` protocol: `docs/agents/delegation.md`.
+Delegate through native `task` or eval `agent()`/`workpool()`, and give each item the `effort` its work needs. Agent roster, model mechanics, revive-or-fresh, nested dispatch and the `linter` protocol: `docs/agents/delegation.md`. Read `skill://agent-design` before you define or revise an agent or split a job across several.
 
 **Split by domain.** Code goes to `coder` and agent-facing text to `skill-writer`, **Fix on sight** errors included, each with a brief complete enough to finish it. The top-level session dispatches that work, a subagent returns it as a dispatch request (root `AGENTS.md` **Nested dispatch**), and each run carries on with its own task meanwhile.
 

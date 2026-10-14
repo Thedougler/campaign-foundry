@@ -1,11 +1,11 @@
 ---
 type: Location
 kind: Region
-summary: "A limestone reef in the Northern Midchain where Moucheron kin-villages
-  hide above the tide and blood is currency."
+summary: "A lethal Midchain reef whose billions of Moucherons swarm ships within half a mile of shore."
 sources:
   - "archive/murrat.md"
   - "archive/ssw-midchain.md"
+  - "archive/collab-2026-10-13-moucheron-original.md"
 parent: "[[midchain|Midchain]]"
 revealed: "Session 2"
 title: "Murrat"
@@ -13,48 +13,38 @@ title: "Murrat"
 
 ![[murrat-banner.webp]]
 
-## At a glance
-
-- **Character.** A mile-and-a-half limestone reef between [[kalowe|Kalowe]] and the [[verdant-teeth|Verdant Teeth]], whose villages hide in cliff hollows.
-- **Held by.** Dozens of Moucheron kin-villages and their scouts.
-- **Changing.** A dark cloud resolves into wings as an approach closes.
-- **Crossing.** Chart the eastern reef and its wrecks before seeking a rope bridge.
-- **Danger.** The reef ring, tide and an unaccepted reason for approach.
-
 > [!narration] Arrival
-> Murrat looks empty until the canopy closes a short distance inland. Then cliff hollows and rope bridges appear above the tide, with wet limestone and leaf mould marking the reef beyond.
+> You see a black cloud wrapped around the island's treetops, hanging above the limestone reef while the wind moves past it. It doesn't break or drift away. Below it, the canopy hides the hollows in the cliffs and the rope bridges. You know the pilots' warning. That cloud is wings, and it can reach a ship half a mile from shore. To the east, the current draws water between two wrecks. Ahead, the cloud hangs over the trees.
 
-## Play
+## Travel
 
-### Travel
+Murrat is a mile-and-a-half limestone reef between [[kalowe|Kalowe]] and the [[verdant-teeth|Verdant Teeth]]. Open water surrounds its reef ring, and the tide pulls east towards two wrecks. The reef extends farther than its visible edge. Ships must remain more than half a mile offshore: the permanent black cloud above the treetops consists of billions of [[moucheron|Moucherons]] and reaches out to vessels inside that line.
 
-Open water surrounds the reef ring. The tide pulls east toward two wrecks. No marked safe passage crosses the ring.
+A course that skirts the island outside the swarm's reach keeps the crew offshore. Even a clear route through the reef exposes anyone who closes for the cliff hollows or rope bridges. Landing unnoticed or buying passage with blood isn't viable.
 
-### Places
+Murrat's only inhabitants are its native Moucherons and local wildlife. The Moucherons are sentient and nearly feral towards anyone else. Their numbers can drain an adult human dry in seconds. Neither law nor government protects an outsider, and nobody can sell a safe landing.
 
-The cliff hollows, rope bridges and eastern reef.
+The Midchain considers shipwrecked crews lost. Nobody mounts a rescue for those who go willingly, either. People who tried to persuade the Moucherons died there. Their bodies were never confirmed, but the wider Sea counted them dead when they chose to go.
 
-### Encounters
+## Powers
 
-Moucheron scouts watch arrivals. Kin-villages demand a reason. A cloud of millions circles without moving with the weather. Wrecks catch boats pulled east.
+Kin-groups occupy cliff hollows and canopy, feeding on the island's wildlife. Their consensual blood economy governs exchanges between Moucherons, not a foreigner's approach. It doesn't amount to a government or justice system.
 
-### Rumors
+Murrat holds a seat on the [[chain-council|Chain Council]], like the other Midchain islands, but rarely sends a delegate. That outside seat gives the Council no authority within Murrat.
 
-The island is watched before the first rope bridge. Blood custom determines whether an approach passes scrutiny.
+The [[five-blades|Five Blades]] are an off-island company hired from Kalowe. Their fame leads sailors to imagine a Moucheron army that no power in the Sea could beat. Such an army is impractical. Billions of feral, disorganised fighters cannot realistically be rallied, and nobody could supply their blood on days without a battle.
 
-## Depth
+## Rumors
 
-### History
+Kalowe's pilots warn that outsiders cannot bargain for passage ashore. Blood agreements settle dealings between Moucherons and with their employers elsewhere, beyond Murrat's swarm.
 
-The kin-villages built their connected life above the tide. The reef settlement remains concealed from open water.
+## History
 
-### Hidden truths
+The kin-villages built their cliff hollows and rope bridges above the tide, concealed from ships by the canopy. [[ket|Ket]] flew home here after the Party freed him from [[barnaby-rook|Barnaby Rook]]'s cage in Session 2.
 
-The cloud consists of the Moucheron. The reef extends beyond the first approach visible from shore.
+## Threads
 
-### Threads
-
-[[perrin-and-nona|Perrin and Nona]].
+[[perrin-and-nona|Perrin and Nona]] crosses the Midchain, where Murrat's lost crews remain beyond rescue.
 
 ## Links
 

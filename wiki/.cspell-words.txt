@@ -45,7 +45,11 @@ stormfronts
 Ragnito
 shinies
 Magritt
-Yssenmoor
+RTLB
+Toppington
+Leeroy
+Bottomus
+duomancy
 defanging
 Gizanmor
 Lepetitobon
@@ -113,3 +117,4 @@ scry
 semisolid
 shapechanger
 sizable
+walkin

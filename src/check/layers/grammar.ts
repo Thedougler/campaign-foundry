@@ -47,11 +47,12 @@ const DISABLED_RULES = [
 ] as const;
 
 /**
- * Two DM-confirmed Harper misfires on literal campaign meaning, dropped per lint so each rule keeps catching real
+ * Three DM-confirmed Harper misfires on literal campaign meaning, dropped per lint so each rule keeps catching real
  * cases. MassNouns reads "a gold grung" as the metal used like a mass noun; "gold" is a caste colour there.
  * Harper's word data misses some past-tense verbs, so PronounVerbAgreement reads them as agreement errors and
  * offers no fix ("she tore the magic loose", "she dug a second grave"; probing found the rest of the set, which
- * includes "cast"). Real agreement errors ("she have", "he don't") still come through.
+ * includes "cast"). It also suggests "guy" for "guys" in "you guys", the DM's own wording for Ket.
+ * Real agreement errors ("she have", "he don't") still come through.
  */
 const CASTE_COLOUR = /^(?:a|an) (?:gold|red|blue|green|purple|orange)$/i;
 const MISREAD_PAST: Record<string, true> = {
@@ -74,7 +75,10 @@ const MISREAD_PAST: Record<string, true> = {
 
 function isConfirmedMisfire(rule: string, text: string, start: number, end: number): boolean {
 	if (rule === "MassNouns") return CASTE_COLOUR.test(text.slice(start, end)) && /^\s+grungs?\b/i.test(text.slice(end));
-	if (rule === "PronounVerbAgreement") return text.slice(start, end).toLowerCase() in MISREAD_PAST;
+	if (rule === "PronounVerbAgreement") {
+		const flagged = text.slice(start, end).toLowerCase();
+		return flagged in MISREAD_PAST || (flagged === "guys" && /\byou\s+$/i.test(text.slice(0, start)));
+	}
 	return false;
 }
 
@@ -185,6 +189,7 @@ const grammarTool: LanguageTool = {
 			"item-properties-2026-10-11",
 			"numeric-range-hints-2026-10-12",
 			"provenance-table-spacing-2026-10-12",
+			"you-guys-2026-10-13",
 			(await corpusProvenance(ctx)).salt,
 		]),
 	async compute(misses, ctx, words) {

@@ -1,6 +1,6 @@
 # Prior iterations: findings
 
-One file per earlier iteration of this project (GitHub search for `Shattered Sea`, newest first), listed under [Files](#files) with its repo, mined on 2026-10-02 for what would make Campaign Foundry's content, or its agents' writing, better. Each file ranks what to salvage, lists lore to retell and records what to skip. Findings are leads, and adopting one is its own later change. Mined lore is retold before it enters the Wiki. To go past a findings file, read a few files through GitHub, or clone the repo to repo-root `prior/<repo-name>/` (gitignored, local only) when searching or running across it.
+One file per earlier iteration of this project (GitHub search for `Shattered Sea`, newest first), listed under [Files](#files) with its repo, mined on 2026-10-02 for what would make Campaign Foundry's content, or its agents' writing, better. Each file ranks what to salvage, lists lore to retell and records what to skip. Findings are leads, and adopting one is its own later change. Mined lore is retold before it enters the Wiki. To go past a findings file, read a few files through GitHub, or search the local clones at `~/campaign-foundry-prior/<repo-name>/`, outside the repo. QMD indexes `shattered-sea-wiki` and `agentic-co-dm` there as collections of the same names.
 
 ## Ideas several iterations converged on
 

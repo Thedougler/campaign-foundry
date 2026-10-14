@@ -5,14 +5,23 @@ summary: "The Dravosi Crown's inquisitorial god, whose Hound Aleksander Malone
 sources:
   - "archive/Episode-09-Transcript.md"
   - "archive/collab-2026-10-12-malone-massacres-and-kindled.md"
+  - "archive/collab-2026-10-14-sin-and-sanctuary.md"
 revealed: "Session 9"
 title: "Tyr"
 ---
+
+> [!visual-aid] Symbol: Tyr
+> The god's holy symbol is not established. The Crown's picture of gold scales does not settle it. Target `tyr-symbol.webp`.
+>
+> ```text
+> {"subject":"Tyr","kind":"symbol","target":"tyr-symbol.webp","missing":"Established holy-symbol design; distinguish the god from the Crown's portrayal."}
+> ```
 
 ## Worship
 
 - **Worshipped by.** The Dravosi Crown's inquisition. The Crown's inquisitor is its Hound of Tyr, and [[aleksander-malone|Aleksander Malone]] is that Hound now.
 - **Clergy and shrines.** His Hound works from his own temple as his own contractor. The Crown dispatches him, and the hunt still runs on the Hound's own authority.
+- [[sorrowbell|Sorrowbell]] is his shrine on [[penance-bar|Penance Bar]], served by Bishop [[corvin-ashe|Corvin Ashe]]. Tyr warned Ashe before withdrawing protection. Ashe became unable to hear him, and the shrine is now unhallowed.
 
 > [!narration] Invocation
 > The Hound's creed, spoken at the rail over the coin he returned. The sea is a heathen to him, and his worship belongs to Tyr.
@@ -20,6 +29,8 @@ title: "Tyr"
 ## Myth
 
 The Crown pictures Tyr as a tame civil-service god of oaths, courts martial and warrants, blindfolded with gold scales. That remains the Crown's picture; the god himself is strongly wrathful, jealous, fond of hellfire, and demands confession, penance and fear. The Crown's Hound, [[aleksander-malone|Aleksander Malone]], is the one man in its service who carries Tyr as he truly is. The power inside Malone is older than the Crown's tidy god, and Tyr is the newer name the Crown hung on it.
+
+Under [[sin-and-sanctuary|Sin and Sanctuary]], Tyr judges every soul and place by his own dogma. His justice permits, and can bless, brutal violence against the guilty, even when another god would recoil. He reads a mortal soul's true condition at a glance. Ashe's unopposed kiss will be Tyr's confirmation that the bishop's soul is beyond his intervention.
 
 ## Rivals and allies
 

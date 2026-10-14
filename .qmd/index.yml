@@ -26,6 +26,18 @@ collections:
     includeByDefault: false
     context:
       /: "Inspired by: gitignored notes on the outside works a page's `inspired_by` names, cached for later runs. Never Canon."
+  shattered-sea-wiki:
+    path: /Users/nick/campaign-foundry-prior/shattered-sea-wiki
+    pattern: "**/*.md"
+    includeByDefault: false
+    context:
+      /: "Prior iteration: the DM's earlier Shattered Sea wiki repo. Never Canon; mine for ideas and lore to retell."
+  agentic-co-dm:
+    path: /Users/nick/campaign-foundry-prior/agentic-co-dm
+    pattern: "**/*.md"
+    includeByDefault: false
+    context:
+      /: "Prior iteration: the DM's earlier agentic co-DM repo. Never Canon; mine for ideas and lore to retell."
 models:
   embed: hf:ggml-org/embeddinggemma-300M-GGUF/embeddinggemma-300M-Q8_0.gguf
   generate: hf:tobil/qmd-query-expansion-1.7B-gguf/qmd-query-expansion-1.7B-q4_k_m.gguf

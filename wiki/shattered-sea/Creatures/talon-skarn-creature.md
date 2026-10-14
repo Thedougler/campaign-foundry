@@ -1,11 +1,12 @@
 ---
 type: Creature
-summary: "Talon Skarn's Creature stat block, as played: a CR 13 falcon monk who
-  hunts the Fate Spinner, flees beaten, and comes back invisible."
+summary: "Talon Skarn's CR 13 falcon monk statblock, with the road-camp fight his
+  last attempt to take the Fate Spinner."
 sources:
   - "archive/talon-skarn.md"
   - "archive/session-12-full.md"
   - "archive/collab-2026-10-12-skarn-dies-swinging.md"
+  - "archive/collab-2026-10-13-skarn-cause-and-shard.md"
 revealed: "Session 11"
 title: "Talon Skarn (Creature)"
 cr: 13
@@ -16,6 +17,8 @@ habitat:
   - Sky
 sourcebooks: []
 ---
+
+![[talon-skarn-portrait.webp]]
 
 > [!narration] First sight
 > You wake to steel sliding along a quarterstaff, and the steel belongs to a falcon-headed figure in a black robe. He has Crissdalynn chest to chest at the dead fire, katana driving against her weapon while chains click over his forearm. His stare is already past her face and on the necklace at her throat, and his wings stay half spread for the lift the moment he has what he came for.
@@ -96,7 +99,7 @@ legendary_actions:
 
 He opens on the job, not on a duel. He was inside Crissdalynn's guard before the Party woke at the river camp, and his dive drops him from about fifty feet, adding 3d8 and calling for a DC 18 Strength save. Stunning Strike rides a clean hit at DC 18 Constitution, and it landed twice this Session, stunning Crissdalynn through an inspiration reroll and Perrin on a rolled 3. The chained sickle drags its catch ten feet out of position. The sai leaves its target's next attack at disadvantage and reels back to his hand on its chain. The Tempest sweeps twenty feet at DC 19 Dexterity, pulling or flooring everyone it catches, 26 to Perrin and 13 to the rest. His reaction blunts the first solid hit, and legendary actions buy him distance or one more strike. Invisible, he is harder still. Attacks roll at disadvantage against him, but a spell that needs sight can take his visible outline. Shots at the outline count as half cover for +4 AC, and his eyes give him only the direction a thrown thing came from.
 
-Both fights this Session, he came for the Spinner and left without it. At the river camp he pinned Matteo under one talon and took the fruit pack, then lost 292 hit points to blades, bolts and a 39-damage bomb. Delmar's trip-and-explosive saves cost him his last Legendary Resistance, and he flew inland at 12 of 314, unseen after eating the stolen fruit. At the night camp he came back the same way. His dive broke Crissdalynn's arm at the elbow and stunned her through two tied saves, and he throttled her while demanding the Spinner's location. Delmar's falling chair came down on his shimmer for 26, of which he deflected 18. He stunned Perrin with an unarmed strike, and the save he passed confirmed his Legendary Resistances were gone. The fight was still live when the recording stopped.
+In Session 12, he left the river-camp fight without the Spinner, but the road-camp fight remained unresolved. At the river camp he pinned Matteo under one talon and took the fruit pack, then lost 292 hit points to blades, bolts and a 39-damage bomb. Delmar's trip-and-explosive saves cost him his last Legendary Resistance, and he flew inland at 12 of 314, unseen after eating the stolen fruit. At the night camp he came back the same way. His dive broke Crissdalynn's arm at the elbow and stunned her through two tied saves, and he throttled her while demanding the Spinner's location. Delmar's falling chair came down on his shimmer for 26, of which he deflected 18. He stunned Perrin with an unarmed strike, and the save he passed confirmed his Legendary Resistances were gone. The fight was still live when the recording stopped.
 
 This fight is his last. He holds his ground to the end and never flies off beaten again. If he loses, he dies swinging, without flight or surrender. If the dice give him the Spinner, he keeps it and turns it on Vantyrus.
 
@@ -106,11 +109,11 @@ He roosts before he commits, hanging thirty feet up a branch to study a camp, an
 
 ## Ecology
 
-A peregrine aarakocra flown across the sea after the Fate Spinner and its carrier. He shadows a mark from high in the sun's glare before he cuts. He watched Matteo Scola eat a [[ghost-plum|ghost plum]] and vanish, then reached for the stolen fruit pack the first chance his talons found. Beaten, he breaks off toward open ground and flies inland until pursuit fails.
+A peregrine aarakocra flown across the sea after the Fate Spinner and its carrier. He shadows a mark from high in the sun's glare before he cuts. He watched Matteo Scola eat a [[ghost-plum|ghost plum]] and vanish, then reached for the stolen fruit pack the first chance his talons found. Beaten at the river camp, he broke off toward open ground and flew inland until pursuit failed. At the road camp, he will not retreat again.
 
 ## Hidden truths
 
-- Somebody unseen tips his fights. The DM ruled his river-camp advantage came from a watcher feeding him through a device, telling the table "You don't have the only one." The watcher is [[talon-vantyrus|Talon Vantyrus]], working fate from afar through a shard on Skarn's harness.
+- The [[vantyruss-shard|shard on Skarn's harness]] lets [[talon-vantyrus|Talon Vantyrus]] watch his fights and work fate from afar. It survives Skarn's death, ready to be looted, and Vantyrus keeps watching whoever carries it. The DM ruled his river-camp advantage came from a watcher feeding him through a device, telling the table "You don't have the only one."
 - His deflection is the open-wing parry [[master-kyzil|Master Kyzil]] teaches at the [[high-eyrie|High Eyrie]], and Crissdalynn, Kyzil's student, knows it on sight.
 
 ## Links

@@ -7,6 +7,7 @@ sources:
   - "archive/session-11-transcript-archived-version.md"
   - "archive/session-12-full.md"
   - "archive/collab-2026-10-12-skarn-dies-swinging.md"
+  - "archive/collab-2026-10-13-skarn-cause-and-shard.md"
 revealed: "Session 11"
 title: "Talon Skarn"
 ---
@@ -21,6 +22,7 @@ title: "Talon Skarn"
 
 - **Wants.** First take Crissdalynn's Fate Spinner for Vantyrus; when the chance comes, kill his master. If he wins the second attempt, keep the Spinner and use it against Vantyrus.
 - **Torn between.** He is Vantyrus's apprentice and intends to kill him. The Rule of Two ends only when one kills the other.
+- **Conviction.** He believes wholly in his cause and his right to choose his own fate. That includes refusing the future Vantyrus has chosen for him. His belief is sincere, with no hidden hurt, humiliation or hunger for recognition beneath it.
 - **Voice.** Level, clipped and patient. He names people by what they carry.
 - **Opening move.** He is fighting the Party at their inland camp on [[aruhe|Aruhe]], invisible but outlined by falling water.
 - **Leverage.** He can call on Vantyrus, who has helped him from afar. His orders forbid killing Crissdalynn, but leave her companions unprotected.
@@ -54,6 +56,7 @@ Skarn returned invisible during the Party's rest at their next camp. His dive br
 
 - The Rule of Two makes Skarn Vantyrus's eventual executioner. The contest ends only when one kills the other.
 - Skarn does not know the Spinner's purpose. If he learns it reaches the Soul Incarnate technique, he will keep it from Vantyrus and come for it himself.
+- The [[vantyruss-shard|shard on his harness]] survives his death. The Party can take it from his body, carrying Vantyrus's unseen gaze with them.
 
 Skarn knowingly wraps a false conclusion around true facts about Kyzil. He was present at the Sentinel Schism and saw Kyzil refuse to leave. He does not know Kyzil believes Vantyrus died decades ago. Every sentence in his half-truth is true. A read on him finds the sentences true, while seeing through him means recognising that he does not believe the conclusion they imply.
 

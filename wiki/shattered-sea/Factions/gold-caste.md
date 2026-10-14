@@ -9,12 +9,20 @@ sources:
   - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
   - "archive/collab-2026-10-12-hinewai-army.md"
   - "archive/collab-2026-10-12-hinewai-reads-jean-claude.md"
+  - "archive/collab-2026-10-14-sin-and-sanctuary.md"
 aliases:
   - "Gold caste"
   - "gold presence"
 revealed: "Session 12"
 title: "Gold Caste"
 ---
+
+> [!visual-aid] Sigil: Gold Caste
+> The caste's sigil design is not established. Target `gold-caste-sigil.webp`.
+>
+> ```text
+> {"subject":"Gold Caste","kind":"sigil","target":"gold-caste-sigil.webp","missing":"Established sigil design."}
+> ```
 
 > [!narration] Public face
 > A gold grung walks the line of pens, two red sages a step behind him, and every head at the work goes down before his shadow crosses it. Where the river mud has taken a row of hatchery stakes, he stops and says one word. The haulers repeat it like a breath. One glances at your boat, then back to the mud, and keeps hauling. Still every head stays down. On the beach the blue ones use the sages' name for them, the gold presence, gods walking the earth.
@@ -56,6 +64,7 @@ flowchart TD
 - Its scorched-earth campaign cuts the pale roots that connect [[hinewai|Hinewai]] to Aruhe's flora. The attacks have wounded her.
 - Breaking the caste means convincing clan after clan across five separate islands that their entire belief system and religion is wrong and a lie. The caste's power weakens once the grung public can hear those facts with proof behind them.
 - The authority mark on [[solanges-authority-seal|Solange's Authority Seal]] matches the spent seals on Aruhe, so the same caste's command reached her too.
+- The caste has no hallowed ground and does not understand why fiends come. Its power and skilled warriors are enough to deal with fiends and defend its territory. The divine claims described in [[sin-and-sanctuary|Sin and Sanctuary]] are absent from that defence.
 
 ## Threads
 

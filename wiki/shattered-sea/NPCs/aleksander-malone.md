@@ -7,6 +7,7 @@ sources:
   - "archive/collab-2026-10-04-authority-themes.md"
   - "archive/Episode-09-Transcript.md"
   - "archive/collab-2026-10-12-malone-massacres-and-kindled.md"
+  - "archive/collab-2026-10-14-sin-and-sanctuary.md"
 inspired_by: "Aleksander Anderson from the Hellsing anime"
 revealed: "Session 9"
 title: "Aleksander Malone"
@@ -135,6 +136,7 @@ At that time, Malone was one of the Crown's top hunters, a self-directed zealot 
 - Malone is a zealot and maniacal hunter of heretics, fiends and the undead. His grim joy appears only when someone gives him a true heretic to judge. With the faithful and the young he is patient and almost fatherly; otherwise he remains still.
 - The Party may be his next prey as "lying heathens": they lied to send him to Calveno. Several of his other targets are the Party's enemies, including the Gold Caste and the fiends crewing the [[the-dead-lady|Dead Lady]]. He could stand beside the Party against them, while meaning to judge the Party afterwards.
 - On Aruhe, his divine sense reads the island as one enormous demon because [[hinewai|Hinewai]]'s phylactery reaches as far as her pale roots. He also follows the trail towards Karath, where the Gold Caste claims to be gods.
+- He feels the mass and gravity of a place's sins and senses when a place is steeped in evil, which he calls "heresy". This perception follows Tyr's dogma. He has an inherent feel for [[sin-and-sanctuary|Sin and Sanctuary]], without a formal or complete understanding of its laws.
 - A possible end, not settled: Malone may give up his humanity to kill Shepherd Grigori. He may burn away and let the god come through him in full.
 - A possibility the DM floated, not yet settled: Malone may see the Dead Lady on the Party's wake and survive. The fiends would set his divine sense screaming.
 

@@ -1,8 +1,8 @@
 ---
 title: "Journey of Crissdalynn Khinriss"
 type: Thread
-summary: "Crissdalynn Khinriss's hero's journey as play shows it through Session
-  12: Tests, Allies, Enemies, with the Fate Spinner's hunters twice beaten off."
+summary: "Crissdalynn Khinriss's hero's journey through Session 12: Tests, Allies,
+  Enemies, with the Fate Spinner hidden and Skarn's road-camp fight unresolved."
 sources:
   - "archive/Session-00-Prologue.md"
   - "archive/session-01-recap.md"
@@ -17,6 +17,7 @@ sources:
   - "archive/session-11-transcript-archived-version.ledger.md"
   - "archive/session-12-full.md"
   - "archive/session-12-full.ledger.md"
+  - "archive/collab-2026-10-13-skarn-cause-and-shard.md"
 status: active
 revealed: "Backstory"
 ---
@@ -26,8 +27,8 @@ revealed: "Backstory"
 - **Driven by.** [[crissdalynn-khinriss|Crissdalynn Khinriss]], through her own choices between the Sentinels' pilgrimage, the [[fate-spinner|Fate Spinner]] and Delmar.
 - **Stands at.** Tests, Allies, Enemies, after her two fights with Skarn in Sessions 11 and 12.
 - **Shows up as.** [[talon-skarn|Talon Skarn]]'s attacks and [[master-kyzil|Master Kyzil]]'s withheld message. Her maps of each route, and Delmar pulled out of danger again.
-- **Next development.** If nobody acts, [[talon-vantyrus|Talon Vantyrus]] keeps hunting the Spinner through Skarn and the watcher whose device fed Skarn advantage in Session 12.
-- **Angles.** Kyzil's message, [[osset|Osset]]'s name, the Spinner in Delmar's bag, and the schism of the [[sentinels-of-the-eyrie|Sentinels of the Eyrie]].
+- **Next development.** Skarn fights for the Spinner at the road camp and will not retreat again. Vantyrus watches through the [[vantyruss-shard|shard on his harness]]. If Skarn dies and the Party takes the shard, that unseen gaze follows its new carrier.
+- **Angles.** Kyzil's message, [[talon-vantyrus|Osset]]'s name, the Spinner in Delmar's bag, and the schism of the [[sentinels-of-the-eyrie|Sentinels of the Eyrie]].
 - **Resolves when.** The Campaign ends, or Crissdalynn leaves play.
 
 ## Hero's journey
@@ -41,7 +42,7 @@ revealed: "Backstory"
 
 - **Now.** Tests, Allies, Enemies. Her choices keep the Spinner from Skarn and keep the crew close, and Delmar now holds it. It tests the Spinner's hold on her against the order's way, in which the Sentinels obey fate and never command it. Her pull home showed in Session 12, when she touched the basalt and said she missed the Eyrie (Ledger L8373). The Approach would show once her own choices move towards Vantyrus, the schism or Kyzil's message.
 - **Possibilities.** Situations the DM can set before Crissdalynn, with every answer left to her Player.
-  - **A possibility from [[rule-of-two|Rule of Two]].** Skarn was fought down to 12 hit points once and slowed in the second ambush, and that fight can leave him captured, fled or dead. He knows his order not to kill her and the watcher's device. Whatever the fight leaves, Vantyrus keeps hunting the Spinner.
+  - **A possibility from [[rule-of-two|Rule of Two]].** Skarn stakes his life on the road-camp fight. If he wins the Spinner, he turns against Vantyrus. Defeat means death in battle, and the Party can take the shard from his body without realising that Vantyrus still watches through it.
   - **A possibility from [[sentinels-of-the-eyrie|Sentinels of the Eyrie]].** Osset's name came up twice in Session 8, and a man who left the order could put the schism in front of her. Kyzil could also return for an answer. Ignored, the order's silence stands and the hunters keep the initiative.
   - **A possibility from [[drowned-maw-awakening|Drowned Maw Awakening]].** Her chart archive holds Rook's two forbidden crossings of the Maw. A voyage to the Pearl or the Vestra's water would run on her maps and nobody else's. Left alone, the Maw's routes are as unknown as they were in Session 3.
 - **Crosses.** [[rule-of-two|Rule of Two]], [[drowned-maw-awakening|Drowned Maw Awakening]] and [[take-on-aruhe|Take on Aruhe]], whose survivors the Spinner first showed her. [[journey-of-delmar-fisk|Journey of Delmar Fisk]] meets it in her bond to him and the Spinner in his bag. [[journey-of-perrin-black-jaw|Journey of Perrin Black-Jaw]] meets it in the Maw she charts. [[journey-of-jean-claude-tabarnack|Journey of Jean-Claude Tabarnack]] meets it on her back in the hunt for Skarn, where his fear of birds rode with him.
