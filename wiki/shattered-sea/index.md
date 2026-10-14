@@ -386,7 +386,6 @@
 
 - [[session-11-prep|Session 11 - Prep]] — Aruhe crossing from the Crown Squid's flight to a night watch ambush.
 - [[session-12-prep|Session 12 - Prep]] — Four-hour inland rescue through Hinewai's garden, ending with Skarn's last attempt at the Fate Spinner and Perrin's choice to consume.
-- [[session-13-prep|Session 13 - Prep]] — Finish Skarn, walk the island's lane to Memorial Grove, and stand in a court that cannot be lied to, one woman arguing with herself over Jean-Claude and her own name.
 
 ## Scenes
 
@@ -407,11 +406,6 @@
 - [[session-12-terror-birds|Session 12 - Terror-Birds]] — Two Terror-Birds charge the rescued column across the Long Meadow, forcing the Party to protect civilians and a carried man.
 - [[session-12-the-smoking-skylight|Session 12 - The Smoking Skylight]] — Four Calveno trapped in a lava tube reveal that the rest of their camp followed Hinewai's voice north-east, while a terror-bird waits above.
 - [[session-12-the-way-out|Session 12 - The Way Out]] — At first light nine Calveno leave the Pantry with the Party, while three choose to stay beneath Hinewai's vine.
-- [[session-13-release|Session 13 - Release]] — The survivors choose aloud at the treeline, the peaches become lawful to carry, and a grey hull off the reef at dusk widens the hunt.
-- [[session-13-the-bending-grass|Session 13 - The Bending Grass]] — The island opens a bent lane of grass toward the grove, walks her people in along it, and shows each PC one true flash through the roots.
-- [[session-13-the-hearing|Session 13 - The Hearing]] — The trial inside the flower ring: Jean-Claude and then Hinewai herself examined under the grove's truth, counsel arguing to steer one mind's three tempos, and the verdict falling to whichever part of her has the floor.
-- [[session-13-the-next-blow|Session 13 - The Next Blow]] — The recorded ambush resumes at the road camp, with the falcon outlined by falling water, half-speed and one advantage blow from falling.
-- [[session-13-the-silent-court|Session 13 - The Silent Court]] — The grove convenes its court around two graves, one consciousness in three bodies, and demands Jean-Claude enter the ring with counsel beside him.
 
 ## Recaps
 
@@ -444,4 +438,3 @@
 - [[session-10-previously-on|Session 10 - Previously On]] — The Party turned the HCS Ordinance inspection towards Calveno, rescued three driftwood captives, and closed on the Midchain east-bound.
 - [[session-11-previously-on|Session 11 - Previously On]] — Grigori's warning, a burning pursuer and the escape from Aruhe's Crown Squid.
 - [[session-12-previously-on|Session 12 - Previously On]] — The Party crossed Aruhe's living hazards, rescued Matteo Scola, and finished inside a falcon Talon's ambush on Crissdalynn's watch.
-- [[session-13-previously-on|Session 13 - Previously On]] — Talon Skarn attacked the Party twice for the Fate Spinner on Aruhe, and the second fight was still joined when play stopped.

@@ -7338,3 +7338,10 @@
 ## [2026-10-13] pull | Pulled PCs from D&D Beyond
 
 - [[perrin-black-jaw|Perrin Black-Jaw]]
+
+## [2026-10-13] prep | Session 13 Prep deleted for a rebuild from scratch
+
+- [[talon-skarn-creature|Talon Skarn (Creature)]]
+- [[session-12-recap|Session 12 - Recap]]
+- [[hot|Hot]]
+- [[shattered-sea/index|]]

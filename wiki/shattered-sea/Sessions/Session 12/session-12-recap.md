@@ -10,16 +10,9 @@ revealed: "Session 12"
 title: "Session 12 - Recap"
 ---
 
-## At a glance
-
-- **Session.** 12, with all four PCs present.
-- **Party at.** A clearing beside [[the-burnt-road|The Burnt Road]] several miles inland on [[aruhe|Aruhe]], with [[matteo-scola|Matteo Scola]] and four rescued [[calven-and-calveno|Calveno]] survivors.
-- **Big moments.** [[talon-skarn|Talon Skarn]] escaped the dawn fight with stolen fruit. The Party rescued the skylight survivors and found [[grung-authority-seal|spent seals]] ordering expeditions into the island. [[perrin-black-jaw|Perrin]] refused [[auralis|Auralis]]'s demand to pick living fruit.
-- **Left open.** Skarn's second ambush was still in progress. [[crissdalynn-khinriss|Crissdalynn]] had recovered from a broken arm and slowed him, while [[delmar-fisk|Delmar]] kept the [[fate-spinner|Fate Spinner]] hidden in his Bag of Holding. [[session-13-previously-on|Session 13 - Previously On]] resumes the fight.
-
 ## What happened
 
-At the dead fire in the river camp, a falcon monk pressed a katana against [[crissdalynn-khinriss|Crissdalynn]] and demanded the [[fate-spinner|Fate Spinner]]. She owned to keeping it under her feathers, and the monk, [[talon-skarn|Talon Skarn]], said he was only there for the toy. [[jean-claude-tabarnack|Jean-Claude]] woke from his catatonia swaddled in a coat Delmar had soaked in rum, and the fight began.
+With all four PCs present for Session 12, a falcon monk pressed a katana against [[crissdalynn-khinriss|Crissdalynn]] at the dead fire in the river camp and demanded the [[fate-spinner|Fate Spinner]]. She owned to keeping it under her feathers, and the monk, [[talon-skarn|Talon Skarn]], said he was only there for the toy. [[jean-claude-tabarnack|Jean-Claude]] woke from his catatonia swaddled in a coat Delmar had soaked in rum, and the fight began.
 
 [[delmar-fisk|Delmar]] opened with a critical sneak attack through [[lamaraes-fang|Lamarae's Fang]] and shot Skarn out of a burning tree with an explosive rifle round. Skarn shrugged off poison, hexes and [[perrin-black-jaw|Perrin]]'s Tasha's Hideous Laughter, and a watcher with a device like the Party's own fed him advantage. Perrin's Cutting Words taunt about his tail feathers spoiled a dive at Crissdalynn. Skarn seized [[matteo-scola|Matteo]]'s pack of fruit and called on [[talon-vantyrus|Vantyrus]] for help. The Party had dealt 292 of his 314 hit points when he fled inland. Crissdalynn and Jean-Claude chased him through the dark, and one blind arrow from Jean-Claude drew blood from the unseen flyer after a gifted inspiration. Both turned back rather than leave the camp and civilians exposed.
 
@@ -33,13 +26,15 @@ The Party camped at dusk where the corpses stopped. [[auralis|Auralis]] pressed 
 
 During that rest, Skarn came back invisible. His dive broke Crissdalynn's arm at the elbow and stunned her. The decanter's falling spray gave the Party his outline. Delmar ate a [[ghost-plum|Ghost Plum]], rose into the dark, and dropped his hundred-pound invisible [[fleet-commanders-chair|command chair]] on the shimmer. A natural-1 arrow from Jean-Claude's cursed bracers turned him neon purple and pinned Crissdalynn's leg. Crissdalynn ate her kebab, then a Rotheart that healed her whole and mended the arm. Perrin refused Auralis again under stun, Skarn was slowed, and the fight was still joined when the recording stopped.
 
-## Changes
+The Party ended in a clearing beside [[the-burnt-road|The Burnt Road]], several miles inland on [[aruhe|Aruhe]], with [[matteo-scola|Matteo Scola]] and four rescued [[calven-and-calveno|Calveno]] survivors. Crissdalynn had recovered from her broken arm and slowed Skarn, while Delmar kept the Fate Spinner hidden in his Bag of Holding. Session 13 resumes the fight.
+
+## Changes to the World
 
 - [[talon-skarn|Talon Skarn]] escaped the dawn fight at 12 of 314 hit points, ate stolen fruit and returned invisible. The Party later slowed him and held advantage on the next attack against him.
 - The [[fate-spinner|Fate Spinner]] rides in [[delmar-fisk|Delmar]]'s bag of holding rather than on [[crissdalynn-khinriss|Crissdalynn]].
 - [[ettore-ferrante|Ettore Ferrante]] with a mended but splinted leg, [[gianni-moro|Gianni Moro]], Luca Ferrante and Piero Sorrentino left the [[lava-tubes|Lava Tubes]] and stay with the Party.
-- The pale roots of the [[lava-tubes|Lava Tubes]] pulse with pressure and movement, and the Party know the island reads intent.
-- The [[the-burnt-road|burnt road]]'s spent [[grung-authority-seal|seals]] order exploration and tell of the graves at the grove. Jean-Claude carries seal samples as evidence.
+- The Party know [[aruhe|Aruhe]] reads intent.
+- [[jean-claude-tabarnack|Jean-Claude]] carries [[grung-authority-seal|seal]] samples from [[the-burnt-road|The Burnt Road]] as evidence.
 - [[jean-claude-tabarnack|Jean-Claude]] is bound to follow the woman's garden rules and to be brought before her at the grove.
 - [[perrin-black-jaw|Perrin]] has twice refused [[auralis|Auralis]]'s command to consume the living fruit.
 - [[jean-claude-tabarnack|Jean-Claude]] wears one permanent neon-purple patch from his bracers' curse.
