@@ -1,7 +1,10 @@
-import { mkdtemp, mkdir, writeFile, rm } from "node:fs/promises";
+import { mkdtemp, mkdir, readFile, writeFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import type { DdbCharacter } from "../../src/pull/ddb.ts";
+import { rewritePcPage } from "../../src/pull/page.ts";
+import { computeSheet } from "../../src/pull/sheet.ts";
 import { cf, type CliResult, type JsonReport, realTemplates } from "./helpers.ts";
 
 let root: string;
@@ -54,6 +57,106 @@ describe("cfcli check --layer boilerplate", () => {
 			expect(finding.severity).toBe("warning");
 		}
 		expect(report.findings.filter((finding) => finding.path.endsWith("Three.md"))).toEqual([]);
+	});
+
+	it("reports 0 findings for identical pulled sheets of one PC in two Campaigns", async () => {
+		const pulled = await mkdtemp(join(tmpdir(), "cf-boilerplate-pulled-pc-"));
+		try {
+			const fixture = join(import.meta.dirname, "../pull/fixtures/character-sorcerer.json");
+			const { data } = JSON.parse(await readFile(fixture, "utf8")) as { data: DdbCharacter };
+			const sheet = computeSheet(data);
+			for (const [campaign, url] of [
+				["first", "https://www.dndbeyond.com/characters/1000001"],
+				["second", "https://www.dndbeyond.com/profile/somebody/characters/1000001"],
+			]) {
+				const path = `${campaign}/PCs/wren-${campaign}.md`;
+				const source = `---\ntype: PC\ntitle: Wren (${campaign})\ndndbeyond_url: "${url}"\n---\n\n## Sheet\n\n## Spells\n\n## Inventory\n`;
+				await mkdir(join(pulled, `wiki/${campaign}/PCs`), { recursive: true });
+				await writeFile(join(pulled, "wiki", path), rewritePcPage(source, path, sheet).source);
+			}
+			const { code, report } = await runCheck(pulled);
+			expect(code).toBe(0);
+			expect(report.counts.pages).toBe(2);
+			expect(report.counts.findings).toBe(0);
+			expect(report.findings).toEqual([]);
+		} finally {
+			await rm(pulled, { recursive: true, force: true });
+		}
+	});
+
+	it.each([
+		["different character ids", "PC", "https://www.dndbeyond.com/characters/1000002", "Spells", "second"],
+		["missing character link", "PC", "", "Spells", "second"],
+		["invalid character link", "PC", "https://example.com/characters/1000001", "Spells", "second"],
+		["other page kinds", "NPC", "https://www.dndbeyond.com/characters/1000001", "Spells", "second"],
+		["the story side", "PC", "https://www.dndbeyond.com/characters/1000001", "Backstory", "second"],
+		["one Campaign", "PC", "https://www.dndbeyond.com/characters/1000001", "Spells", "first"],
+	])("still flags shared text with %s", async (_case, type, url, section, campaign) => {
+		const copied = await mkdtemp(join(tmpdir(), "cf-boilerplate-pc-boundary-"));
+		try {
+			const shared = "This character does not cast spells.";
+			for (const [folder, name, link] of [
+				["first", "one", "https://www.dndbeyond.com/characters/1000001"],
+				[campaign, "two", url],
+			]) {
+				await mkdir(join(copied, `wiki/${folder}/PCs`), { recursive: true });
+				await writeFile(
+					join(copied, `wiki/${folder}/PCs/${name}.md`),
+					`---\ntype: ${type}\ndndbeyond_url: "${link}"\n---\n\n## ${section}\n\n${shared}\n`,
+				);
+			}
+			const findings = (await runCheck(copied)).report.findings;
+			expect(findings).toHaveLength(2);
+			expect(findings.every((finding) => finding.message.includes(`"${shared}"`))).toBe(true);
+		} finally {
+			await rm(copied, { recursive: true, force: true });
+		}
+	});
+
+	it("still flags an unrelated sharer without naming the same-PC sheet twin", async () => {
+		const copied = await mkdtemp(join(tmpdir(), "cf-boilerplate-pc-third-"));
+		try {
+			for (const [campaign, id] of [
+				["first", "1000001"],
+				["second", "1000001"],
+				["third", "1000002"],
+			]) {
+				await mkdir(join(copied, `wiki/${campaign}/PCs`), { recursive: true });
+				await writeFile(
+					join(copied, `wiki/${campaign}/PCs/${campaign}.md`),
+					`---\ntype: PC\ndndbeyond_url: "https://www.dndbeyond.com/characters/${id}"\n---\n\n## Spells\n\nThis character does not cast spells.\n`,
+				);
+			}
+			const findings = (await runCheck(copied)).report.findings;
+			expect(findings).toHaveLength(3);
+			for (const campaign of ["first", "second"]) {
+				const finding = findings.find((entry) => entry.path.endsWith(`/${campaign}.md`))!;
+				expect(finding.message).toContain("/third/PCs/third.md:8");
+				expect(finding.message).not.toContain(campaign === "first" ? "/second/PCs/second.md" : "/first/PCs/first.md");
+			}
+		} finally {
+			await rm(copied, { recursive: true, force: true });
+		}
+	});
+
+	it("does not let a later pulled occurrence hide the same sentence on the story side", async () => {
+		const copied = await mkdtemp(join(tmpdir(), "cf-boilerplate-pc-story-"));
+		try {
+			const shared = "This character does not cast spells.";
+			for (const campaign of ["first", "second"]) {
+				await mkdir(join(copied, `wiki/${campaign}/PCs`), { recursive: true });
+				const story = campaign === "first" ? `## Backstory\n\n${shared}\n\n` : "";
+				await writeFile(
+					join(copied, `wiki/${campaign}/PCs/${campaign}.md`),
+					`---\ntype: PC\ndndbeyond_url: "https://www.dndbeyond.com/characters/1000001"\n---\n\n${story}## Spells\n\n${shared}\n`,
+				);
+			}
+			const findings = (await runCheck(copied)).report.findings;
+			expect(findings).toHaveLength(2);
+			expect(findings.every((finding) => finding.line === 8)).toBe(true);
+		} finally {
+			await rm(copied, { recursive: true, force: true });
+		}
 	});
 
 	it("flags one sentence shared inside different paragraphs, on each page holding it", async () => {

@@ -90,9 +90,9 @@ Supporters, guards, beasts, crews and other fighters the NPC can call on are lin
 
 ### 6. Branch: recurring NPC
 
-Tie the NPC to each relevant PC only through an existing Goal, bond, or Plan. Each connection is optional and offers that PC a choice built from their own Goals, bonds or Plans. Link existing Threads rather than duplicating future plans. Give the NPC a next move and a cost if ignored. Write their opposition, escalation included, on the page of the Thread that tracks it (`CONTEXT.md` **Thread**) in this run, with its trigger and the Party's interruption point. A Quest is a task the Party took on and never owns opposition. Hand the escalation off in the reply only when that Thread's page is outside both the run's sources and the caller's target.
+Tie the NPC to each relevant PC only through an existing Goal, bond, or Plan. Each connection is optional and offers that PC a choice built from their own Goals, bonds or Plans. Link existing Threads rather than duplicating future plans. Give the NPC a next move and a cost if ignored. Write their opposition, escalation included, on the page of the Thread that tracks it (`CONTEXT.md` **Thread**) in this run, with its trigger and the Party's interruption point, re-reading that page just before the edit. A Quest is a task the Party took on and never owns opposition.
 
-**Gate:** every relevant PC has a distinct invitation or an explicit `none`, and each invitation has a choice and a cost. The NPC's next move differs from every existing Thread's. The escalation is written on its Thread's page, or, for a Thread page outside the run's sources and target, named in the reply as a handoff.
+**Gate:** every relevant PC has a distinct invitation or an explicit `none`, and each invitation has a choice and a cost. The NPC's next move differs from every existing Thread's. The escalation is written on its Thread's page, whichever run owns that page.
 
 ### 7. Branch: villain
 

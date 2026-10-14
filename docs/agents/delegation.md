@@ -44,7 +44,7 @@ Within `task.maxRecursionDepth: 3` in `.omp/config.yml`, a subagent dispatches i
 
 `linter` (`@LINTER`) repairs every lint finding on one file per dispatch, a Wiki page or an agent-facing file, and returns its final check output. It is an optional convenience for a run left to lint several files unrelated to its task, since each agent lints the files it edits (root `AGENTS.md` **Gate scope**, ADR 0047). Brief it with one file path, plus the check command when the path leaves it unclear.
 
-It applies each rule and template exactly as written, including one a migration left behind the DM's intent. Before the first dispatch, bring the rules and templates its files are checked against in line with the DM's current intent. Dispatch one `linter` and read how its return treats the file before you send more. When a return shows a rule or template out of line with that intent, fix it or the instruction behind it at the source, or return a `coder` request or a DM question. The dispatcher carries out the linter's handoffs to other files.
+It applies each rule and template exactly as written, including one a migration left behind the DM's intent. Before the first dispatch, bring the rules and templates its files are checked against in line with the DM's current intent. Dispatch one `linter` and read how its return treats the file before you send more. When a return shows a rule or template out of line with that intent, fix it or the instruction behind it at the source, or return a `coder` request or a DM question.
 
 ## Gate detail
 

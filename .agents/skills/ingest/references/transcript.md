@@ -136,7 +136,7 @@ Read skill://ingest/references/writer.md, then write the Session <N> Recap from 
 Read skill://ingest/references/writer.md, then write the Session <N+1> Previously On from the Session Ledger archive/<stem>.ledger.md. Transcript: <transcript>.
 ```
 
-For a one-shot, dispatch only the page writers. Keep each writer's id for C8. Units gives each page to one pages file, so each page has one writer. A writer whose work needs a change on another writer's page returns the collision, and you pass it by message to that page's writer. Done when every writer has returned its pages, each checked clean, with its kept-out claims and its notes for the report.
+For a one-shot, dispatch only the page writers. Keep each writer's id for C8. Units gives each page to one pages file, so each page has one writer. A writer whose work needs a change on another writer's page makes it on a fresh read ([writer.md](writer.md) § Drafting), and its return lists the change. Done when every writer has returned its pages, each checked clean, with its kept-out claims and its notes for the report.
 
 ### C8 Gate
 
@@ -146,7 +146,7 @@ The touched list is every path the writers returned. Dispatch the Close:
 Read skill://ingest/references/writer.md, then close Session <N> from the Session Ledger archive/<stem>.ledger.md. Transcript: <transcript>. Touched: <touched-list paths>.
 ```
 
-While it runs, run SKILL.md step 10 over the touched list. Repair each finding it reports, or send it back to the writer whose page it is (root `AGENTS.md` **Message with work**). A finding still on its page after its second repair and check has failed twice: it leaves the loop unrepaired, and the step 14 report quotes it with its page. Every page request a stage returned for an unowned name goes to one `lint` dispatch, briefed as `skill://lint` sets out, which gives each unowned name its rung 3 stub. When the Close returns, add the paths it changed to the touched list and check those pages the same way. Done when step 10's criterion holds over the whole touched list.
+While it runs, run SKILL.md step 10 over the touched list. Repair each finding it reports, or send it back to the writer whose page it is (root `AGENTS.md` **Message with work**). A finding still flagged after two repairs has its cause fixed by `skill://lint` step 7. Add each stub a writer made for an unowned name to the touched list. When the Close returns, add the paths it changed to the touched list and check those pages the same way. Done when step 10's criterion holds over the whole touched list.
 
 Then do SKILL.md steps 11 and 12 over the whole touched list, and step 13's index: its Threads, `hot.md` and `story-so-far.md` are done. Dispatch the audit, which reads its pages from that log entry, and once it returns, run step 13's full gate and its `lint` slices:
 

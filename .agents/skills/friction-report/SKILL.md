@@ -10,7 +10,7 @@ Report the friction you met: each event that impeded your work at a cost in corr
 - **Subagent.** Once your work is final, report the friction the run met and close your return with it (steps 1 to 4).
 - **Orchestrator.** Report each friction event you meet yourself the moment it happens (steps 1 to 3), such as a failed tool call or a confusing step. Then route the lines by `.omp/AGENTS.md` **Route friction** and carry on with your task.
 
-The report records each event with its cost and its place, and leaves its fix out. The agent that met the friction has too much context on the issue to judge the fix, and the orchestrator too little to judge its effect. The skill-writer alone determines how an issue is fixed: it diagnoses the root issue and fixes it at the source rather than the symptom. A friction line is often the symptom of a deeper problem, and surfacing it to the orchestrator and the skill-writer is the report's job.
+You fix each problem you identify in the same run (root `AGENTS.md` **Fix on sight**). The report still records every event with its cost and its place, fixed or not. A friction line is often the symptom of a deeper problem. The `skill-writer` that `.omp/AGENTS.md` **Route friction** dispatches diagnoses the root issue behind the lines and fixes it at the source, and the report's job is to put each event in front of it.
 
 ## Steps
 

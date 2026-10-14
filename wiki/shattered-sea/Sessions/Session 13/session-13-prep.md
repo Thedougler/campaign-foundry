@@ -9,16 +9,17 @@ date: "1495 DR, date not established"
 revealed: "Session 13"
 ---
 
-## At a glance
+## Session question
 
-- **Session question.** Whose authority over the survivors is legitimate, the Party's rescue or Hinewai's garden, and can the answer spare Jean-Claude without a lie spoken?
-- **Party at.** The night camp on [[aruhe|Aruhe]], mid-ambush, with Talon Skarn outlined in decanter spray as the lights come up.
-- **Length.** 4 hours.
-- **Threads in play.** [[take-on-aruhe|Taking on Aruhe]], [[rule-of-two|Rule of Two]], [[the-canister|The Canister]], [[simones-hunters|Simone's Hunters]], [[drowned-maw-awakening|Drowned Maw Awakening]], [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]], [[perrin-and-nona|Perrin and Nona]] and [[two-grave-orders|Two-Grave Orders]].
+Whose authority over the survivors is legitimate, the Party's rescue or Hinewai's garden, and can the answer spare Jean-Claude without a lie spoken?
+
+The Party starts at the night camp on [[aruhe|Aruhe]], mid-ambush, with Talon Skarn outlined in decanter spray as the lights come up.
 
 The next Session begins with [[session-13-previously-on|Session 13 - Previously On]].
 
 ## Scene Chart
+
+**Length.** Four hours.
 
 | # | Scene | Kind | Minutes | Threads |
 | --- | ----- | ---- | ------- | ------- |
@@ -28,7 +29,7 @@ The next Session begins with [[session-13-previously-on|Session 13 - Previously 
 | 4 | [[session-13-the-hearing\|Session 13 - The Hearing]] | Climax | 80 | [[the-canister\|The Canister]], [[simones-hunters\|Simone's Hunters]], [[drowned-maw-awakening\|Drowned Maw Awakening]], [[bring-the-pearl-of-souls-to-umberlee\|Bring the Pearl of Souls to Umberlee]] |
 | 5 | [[session-13-release\|Session 13 - Release]] | Resolution | 20 | [[take-on-aruhe\|Taking on Aruhe]], [[perrin-and-nona\|Perrin and Nona]] |
 
-1. **The Next Blow**, Hook, the resumed ambush at night. Trigger with the Previously On's last line and go straight to initiative. Card is a skirmish with a hostage turn, the level-up surge at the lowest moment and the watcher's device crackling. The whole Party shares the Spotlight. Killed, captured or escaped, Skarn hands the Scene to the lane, which opens at predawn whatever he did.
+1. **The Next Blow**, Hook, the resumed ambush at night. Trigger with the Previously On's last line and go straight to initiative. Card is a skirmish with a hostage turn, the level-up surge at the lowest moment and the watcher's device crackling. The whole Party shares the Spotlight. Killed, captured or paid off with the Spinner, Skarn hands the Scene to the lane, which opens at predawn whatever he did.
 2. **The Bending Grass**, Development, the walk from predawn to midday. Trigger on the lane's appearance and let the gallery gather as it walks. Card is foreshadowing, one root-flash per PC, with Perrin and Delmar deepest in it. The Scene hands to the grove's rim at midday.
 3. **The Silent Court**, Cliffhanger, the summons at the flowers. Trigger on the ground barring Jean-Claude's way. Card is a confrontation, entered, bargained or defied, with Jean-Claude in the Spotlight. Defiance routes through the Blight fight and walks into the hearing late and cold. Every other route walks in whole.
 4. **The Hearing**, Climax, midday to dusk. Trigger on the court convening. Card is a trial with the Final Revelation, the floor-steering mechanic and the empty chair, with every PC working and Hinewai in the Spotlight. The verdict, law, grief or rage, routes to the release. A broken peace routes through one exchange of stalled scream first.

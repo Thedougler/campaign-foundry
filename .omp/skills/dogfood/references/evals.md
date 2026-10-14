@@ -75,7 +75,7 @@ After step 4, compare:
 git status --porcelain wiki raw archive | cmp -s <run>/wiki-before.txt - && echo clean || echo "WIKI CHANGED"
 ```
 
-`WIKI CHANGED` is an isolation failure: report it in the round and leave the files for the DM. The run root is temporary, and reports go in chat or on the tracking issue. Export a file from it only when the DM asks. Every skill file is byte-identical at Classify to its state at Select.
+`WIKI CHANGED` is an isolation failure, fixed in the same round (root `AGENTS.md` **Fix on sight**). Each new `git status` line is a file the round changed or the DM edited meanwhile, and a Runner's `history://` transcript shows each write it made. Restore each file a Runner wrote with `git restore`, leave the DM's edits as they are, and fix the cause of the leak at its source. The run root is temporary, and reports go in chat or on the tracking issue. Export a file from it only when the DM asks. Every skill file is byte-identical at Classify to its state at Select.
 
 ## Weekly feedback
 

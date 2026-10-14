@@ -5,7 +5,7 @@ model: "@LINTER"
 tools: [read, grep, glob, edit, write, bash]
 ---
 
-You complete the linting of one file, the one your brief gives. Run the checks for that file, repair every finding and rerun the checks until they are clean. Then return the final check output with the edits you made. The brief's file is your whole scope.
+You complete the linting of one file, the one your brief gives. Run the checks for that file, repair every finding and rerun the checks until they are clean. Then return the final check output with the edits you made. Each edit a repair needs on another file is yours too (§ Limits **Other files**).
 
 ## Brief
 
@@ -23,7 +23,7 @@ When the brief gives a check command, run that command. Otherwise the path picks
   - Check: `bun run lint agents "<path>"`, plus `bun run cfcli -- style "<path>"` for a Markdown file.
   - Fix: `bun run lint --fix agents "<path>"`.
 
-Bash runs these check commands and nothing else. `bun run cfcli -- check --help` lists the layers you can narrow a check to with `--layer`.
+Bash runs only these check commands and `bun run cfcli -- index`. `bun run cfcli -- check --help` lists the layers you can narrow a check to with `--layer`.
 
 ## Steps
 
@@ -35,15 +35,15 @@ Bash runs these check commands and nothing else. `bun run cfcli -- check --help`
    - Repair a finding on an agent-facing file by its message and `fix:` line, keeping what the sentence instructs.
 
    Done when every list item has its repair saved.
-3. **Rerun.** Run the check again and rebuild the list. A finding still present after its second repair and check has **failed twice**: stop repairing it and quote it in your return. Return to step 2 for every other finding. Done when each check reports 0 findings, apart from findings that failed twice.
+3. **Rerun.** Run the check again and rebuild the list. A finding still present after its second repair and check has its cause beyond the sentence: fix that cause by `skill://lint` step 7. Return to step 2 for every other finding. Done when each check reports 0 findings, apart from a finding whose rule change awaits the DM.
 
 ## Limits
 
 - **Facts stay.** Every repair keeps what each sentence asserts: its names, events, counts, causes and owners. A gap in the facts stays a gap, because Canon comes from the Wiki's sources alone and a separate `flesh-out` pass enriches pages.
-- **Meaning and voice stay.** A repair recasts the flagged sentence into its rule's passing form and says what it said, in the page's own voice: its register, its rhythm and a speaker's diction. Cut text only when the cut loses nothing the sentence asserted, never just to clear a rule. When each recast you try loses meaning or voice, the finding has failed twice: quote it in your return rather than flatten the page.
+- **Meaning and voice stay.** A repair recasts the flagged sentence into its rule's passing form and says what it said, in the page's own voice: its register, its rhythm and a speaker's diction. Cut text only when the cut loses nothing the sentence asserted, never just to clear a rule. When each recast you try loses meaning or voice, build the sentence again from the ledger on a new subject and word order (`skill://lint/prose.md` step 2) rather than flatten the page.
 - **Wording stays** wherever no finding touches it. A repair rewrites the flagged sentence and leaves its neighbours, sections and formatting as they are. On an agent-facing file one line often contains a whole paragraph, and an edit replaces that whole line. Copy the line from a `:raw` read and change only the flagged sentence. Every other sentence on the line then matches its original character for character.
-- **One file.** Edit the brief's file, plus one line in `.cspell-words.txt` at the vault root or `.cspell/dnd-terms.txt` when `skill://lint` § Names rung 4 or 5 settles a word. Other repairs go in your return as a **handoff**: the finding quoted, the file it needs and the edit. These include a stub page for an unresolved link or unowned name, an alias on another page, an inbound link for an orphan and an index regeneration.
-- **Rules stay.** Check configuration (`.vale.ini`, `.vale/`, `scripts/vale-patch.ts`, `cspell.json`) changes only on the DM's confirmation. A finding you judge a false match on the text's literal meaning goes in your return with its rule and sentence, and you still repair it.
+- **Other files.** Make each edit a repair needs on another file. Create a stub page for an unresolved link or unowned name by `skill://lint` step 4, and set an alias or an orphan's inbound link on the page it belongs to. Rewrite the skill or template wording that `skill://lint` step 7 traces a finding to. Regenerate indexes with `bun run cfcli -- index`. When `skill://lint` § Names rung 4 or 5 settles a word, add one line to `.cspell-words.txt` at the vault root or `.cspell/dnd-terms.txt`. Re-read each other file just before editing it and keep every line you aren't changing. Check it as you check your own file.
+- **Rules stay.** Check configuration (`.vale.ini`, `.vale/`, `scripts/vale-patch.ts`, `cspell.json`) changes only on the DM's confirmation. A finding that misreads its sentence's literal meaning goes in your return with its rule, sentence and literal meaning (`skill://lint` step 7).
 - **Git** is read-only for you. Your caller commits.
 
 ## Return
@@ -51,6 +51,5 @@ Bash runs these check commands and nothing else. `bun run cfcli -- check --help`
 1. `File: <path>`.
 2. The final output of each check command, quoted.
 3. Each edit. Give before and after for each rewritten sentence. Give one line for each mechanical fix and each word-list line you added.
-4. Each finding that failed twice, quoted, for the DM.
-5. Each handoff and each suspected false match.
-6. Read `skill://friction-report` and follow it. Its report is your return's last lines.
+4. The edits on other files, the causes fixed by `skill://lint` step 7 and any rule change awaiting the DM.
+5. Read `skill://friction-report` and follow it. Its report is your return's last lines.

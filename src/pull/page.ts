@@ -11,7 +11,7 @@ export class PullError extends Error {
 }
 
 export type PulledSection = "Sheet" | "Spells" | "Inventory";
-const SECTIONS: PulledSection[] = ["Sheet", "Spells", "Inventory"];
+export const PULLED_SECTIONS: readonly PulledSection[] = ["Sheet", "Spells", "Inventory"];
 
 export interface Rewrite {
 	source: string;
@@ -46,7 +46,7 @@ export function rewritePcPage(source: string, path: string, sheet: Sheet): Rewri
 	const h2 = page.headings.filter((h) => h.depth === 2);
 	const lines = source.split("\n");
 
-	const ranges = SECTIONS.map((name) => {
+	const ranges = PULLED_SECTIONS.map((name) => {
 		const at = h2.findIndex((h) => h.text === name);
 		if (at === -1) {
 			throw new PullError(
@@ -98,7 +98,7 @@ export function rewritePcPage(source: string, path: string, sheet: Sheet): Rewri
 
 	return {
 		source: lines.join("\n"),
-		sections: SECTIONS.filter((s) => changed.includes(s)),
+		sections: PULLED_SECTIONS.filter((s) => changed.includes(s)),
 		summarySet,
 		added,
 		removed,

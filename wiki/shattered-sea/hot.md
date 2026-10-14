@@ -33,6 +33,7 @@ title: "Hot"
 
 ## Next Session
 
+- [[session-13-prep|Session 13 - Prep]]
 - **In-world date.** 1495 DR. No month or weekday is established in the sources.
 - **Party at.** A clearing beside [[the-burnt-road|The Burnt Road]] several miles inland on [[aruhe|Aruhe]], the long rest broken by an invisible [[talon-skarn|Talon Skarn]], the fight still joined.
 Rebuild Session 13 from scratch as a hero's journey with Jean-Claude as Lead PC: his reckoning with Hinewai at Memorial Grove closes the Aruhe arc and reveals her army. An alliance against the Gold Caste remains possible. The Party stays in the Midchain. Ruk brings Calveno news on Nona's Passage ship and warns them to avoid Malone and the HCS Ordinance, leaving Dravosi problems to the Dravosi. Karath follows under Hinewai's army clock; Malone trails the Party by sail, a couple of days behind.

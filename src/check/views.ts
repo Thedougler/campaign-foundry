@@ -1,4 +1,6 @@
 import type { Root, RootContent } from "mdast";
+import { characterIdFromUrl } from "../pull/ddb.ts";
+import { PULLED_SECTIONS } from "../pull/page.ts";
 import { BLOCK_ID, wikilinkDisplay, WIKILINK } from "../vault/dialect.ts";
 import type { Callout, Page, Vault } from "../vault/types.ts";
 
@@ -37,6 +39,8 @@ export interface PageViews {
 	cues: ReadonlyMap<number, readonly string[]>;
 	/** Published rules under Item `## Properties`, through the next heading of depth two or less. */
 	itemProperties: ReadonlySet<number>;
+	/** D&D Beyond identity and sheet-side lines for a linked PC's Campaign version. */
+	pulledPc: { id: string; campaign: string; lines: ReadonlySet<number> } | undefined;
 	/** Comparable body prose, excluding published Item Properties (the boilerplate policy). */
 	sentences: ReadonlyMap<number, readonly Sentence[]>;
 }
@@ -71,6 +75,26 @@ function itemPropertiesLines(page: Page): ReadonlySet<number> {
 	return lines;
 }
 
+/** Pull-owned sections include subheadings, but stop at the next parsed level-two heading. */
+function pulledPcView(page: Page): PageViews["pulledPc"] {
+	const url = page.frontmatter?.dndbeyond_url;
+	if (page.frontmatter?.type !== "PC" || typeof url !== "string") return undefined;
+	const id = characterIdFromUrl(url);
+	if (id === undefined) return undefined;
+	const campaign = page.path.split("/")[0]!;
+	const lines = new Set<number>();
+	let end = pageSource(page).lines.length + 1;
+	for (let index = page.headings.length - 1; index >= 0; index--) {
+		const heading = page.headings[index]!;
+		if (heading.depth !== 2) continue;
+		if (PULLED_SECTIONS.some((section) => section === heading.text)) {
+			for (let line = heading.line; line < end; line++) lines.add(line);
+		}
+		end = heading.line;
+	}
+	return { id, campaign, lines };
+}
+
 /** The derived views of `page`, computed once: narration and Cue lines, and comparable sentences. */
 export function pageViews(page: Page): PageViews {
 	const cached = viewsCache.get(page);
@@ -102,6 +126,7 @@ export function pageViews(page: Page): PageViews {
 		spoken,
 		cues,
 		itemProperties,
+		pulledPc: pulledPcView(page),
 		get sentences() {
 			if (comparable === undefined) comparable = proseSentences(page, itemProperties);
 			return comparable;

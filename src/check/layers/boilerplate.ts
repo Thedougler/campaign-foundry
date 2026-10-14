@@ -11,13 +11,13 @@ const labelKey = (label: string): string => label.replace(/\s+/g, " ").trim().to
 
 /**
  * Repeated authorial sentences are boilerplate, outside the places templates hold in common
- * (frontmatter, headings, callouts, fences and fixed field labels). Published Item Properties and lines
- * proved against a page's named source corpus are intentional shared rules, not repeated authorial prose.
+ * (frontmatter, headings, callouts, fences and fixed field labels). Published Item Properties, proved corpus
+ * lines and pulled sheet text shared by Campaign versions of the same D&D Beyond PC are not authorial repeats.
  */
 export const boilerplateLayer: Layer = {
 	name: "boilerplate",
 	scope: "vault",
-	description: "Repeated authorial prose, excluding published Item Properties and proved corpus lines.",
+	description: "Repeated authorial prose, excluding published rules and same-PC pulled sheet text.",
 	async run(ctx) {
 		const findings: Finding[] = [];
 		const provenance = await corpusProvenance(ctx);
@@ -52,7 +52,10 @@ export const boilerplateLayer: Layer = {
 				for (const { key, quote } of sentences) {
 					if (ownedLabel && key === label) continue;
 					const entry = shared.get(key) ?? { pages: new Map<Page, number>(), quote };
-					entry.pages.set(page, line);
+					const previous = entry.pages.get(page);
+					// A sheet occurrence must not hide an authored occurrence of the same sentence.
+					if (previous === undefined || !views.pulledPc?.lines.has(line) || views.pulledPc.lines.has(previous))
+						entry.pages.set(page, line);
 					shared.set(key, entry);
 				}
 			}
@@ -65,10 +68,24 @@ export const boilerplateLayer: Layer = {
 			for (const [page, line] of pages) {
 				const key = `${page.path}:${line}`;
 				if (reported.has(key)) continue;
+				const pulled = pageViews(page).pulledPc;
+				const others: string[] = [];
+				for (const [other, at] of pages) {
+					if (other === page) continue;
+					const twin = pageViews(other).pulledPc;
+					if (
+						pulled &&
+						twin &&
+						pulled.id === twin.id &&
+						pulled.campaign !== twin.campaign &&
+						pulled.lines.has(line) &&
+						twin.lines.has(at)
+					)
+						continue;
+					others.push(`${ctx.display(other.path)}:${at}`);
+				}
+				if (others.length === 0) continue;
 				reported.add(key);
-				const others = [...pages]
-					.filter(([other]) => other !== page)
-					.map(([other, at]) => `${ctx.display(other.path)}:${at}`);
 				findings.push({
 					layer: "boilerplate",
 					rule: "shared-line",

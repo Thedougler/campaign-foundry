@@ -26,7 +26,7 @@ The `mnemopi` backend injects a `<memories>` block on a session's first turn and
 
 Delegate through native `task` or eval `agent()`/`workpool()`, and give each item the `effort` its work needs. Agent roster, model mechanics, revive-or-fresh, nested dispatch and the `linter` protocol: `docs/agents/delegation.md`.
 
-**Split by domain.** Code goes to `coder`, agent-facing text to `skill-writer`, each with a brief complete enough to finish it. The run stays on its own task. The top-level session dispatches that work, **Fix on sight** errors included.
+**Split by domain.** Code goes to `coder` and agent-facing text to `skill-writer`, **Fix on sight** errors included, each with a brief complete enough to finish it. The top-level session dispatches that work, a subagent returns it as a dispatch request (root `AGENTS.md` **Nested dispatch**), and each run carries on with its own task meanwhile.
 
 **Route friction.** A `task`, `wait` or `proc` result ends on `Model: <model>`, the authority for which model ran. When any closing line is a `Gap:` line or a `Friction:` line other than `Friction: none`, start a friction-started `skill://dogfood` run (at once for your own lines, after the batch returns for reported ones). It dispatches your `skill-writer` with every issue and the finished `history://` transcripts, then each `coder` request the writer returns, while you keep to your task. A subagent with its own workers passes their lines up in its return.
 
