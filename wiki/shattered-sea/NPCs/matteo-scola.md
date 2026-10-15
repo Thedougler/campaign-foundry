@@ -6,33 +6,29 @@ sources:
   - "archive/matteo-scola.md"
   - "archive/session-11-transcript-archived-version.md"
   - "archive/session-12-full.md"
-creature: "[[commoner|Commoner]]"
 revealed: "Session 11"
 title: "Matteo Scola"
 ---
 
 ![[matteo-scola-portrait.webp]]
 
-## At a glance
+> [!narration] First look
+> A thin man in a torn, salt-stiff shirt watches the treeline more than faces. One hand rests on a knotted sling of fallen ghost-plums at his hip.
+
+## Roleplaying
 
 - **Role.** Calveno wreck survivor and guide to Aruhe's survival rule.
 - **Wants.** To get off Aruhe and aboard the Uncertainty.
 - **Voice.** Short, wet bursts repeated when frightened, and a gloating grin once he feels safe.
 - **Found at.** With the Party in Aruhe's interior, riding on Crissdalynn's back when the Party flies.
-
-> [!narration] First look
-> A thin man in a torn, salt-stiff shirt watches the treeline more than faces. One hand rests on a knotted sling of fallen ghost-plums at his hip.
-
-## Play
+- **The stolen hat.** Skarn took his hat while escaping the river camp. Matteo wants it back, but he stays clear while the falcon can still fight.
 
 - **Opens them up.** Food, questions about fruit, and a promise of the ship.
 - **Will share.** Fallen fruit is yours, and living trees are untouched.
 - **Will not share.** The woman's name or why he thinks the other survivors are mad.
 - **If pressed.** He clutches his sling and asks for the ship. He stays out of fights.
 
-## Depth
-
-### History
+## History
 
 The party pulled Matteo from three river otters' game at the Slack Basin. He taught them Aruhe's rule, ate a ghost plum, vanished, and returned. He had travelled inland with [[renzo-canale|Renzo]] and the Ferrante family before, and left Renzo's camp when Renzo began listening to Hinewai's voice. He offered his camp as the island's safest rest if the Party walked him to the ship, and drank Delmar's whiskey while he talked. He admitted the voice speaks to him as well, though he refuses to listen to it any longer.
 
@@ -40,11 +36,11 @@ When [[talon-skarn|Talon Skarn]] struck the river camp at first light, one talon
 
 He rode on [[crissdalynn-khinriss|Crissdalynn]]'s back to the smoking skylight, where he knew the arguing voices below at once: "I know, I know them. I know them." He shouted down, "You said I'd die if I didn't listen to your loony woman in the woods", and moved to pee into the pit before Crissdalynn pulled him back. He stands apart from the four the Party lifted out, [[gianni-moro|Gianni Moro]] among them: he does not trust the woman in the woods they credit with saving them.
 
-### Hidden truths
+## Hidden truths
 
 - Talon Skarn watched Matteo vanish and learned what the ghost plum does, but Matteo does not know he was seen.
 
-### Threads
+## Threads
 
 He is a witness in [[take-on-aruhe|Take on Aruhe]] and the first sign of Skarn's surveillance. The falcon's raid on the river camp took his fruit and his hat.
 

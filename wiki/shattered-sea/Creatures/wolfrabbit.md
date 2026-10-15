@@ -6,6 +6,11 @@ sources:
   - "archive/wolfrabbit.md"
   - "archive/Episode-09-Transcript.md"
   - "archive/session-10.md"
+cr: 4
+creature_type: Monstrosity
+size: Medium
+habitat: []
+sourcebooks: []
 revealed: "Session 9"
 title: "Wolfrabbit"
 ---
@@ -17,14 +22,6 @@ title: "Wolfrabbit"
 ![[wolfrabbit-portrait.webp]]
 
 ![[wolfrabbit-portrait-2.webp]]
-
-## At a glance
-
-- **Role at the table.** A hit-and-run hunter that bounds in, rakes, and is gone before the Party turns.
-- **Threat.** CR 4 apiece, and a pack of them rends any target one of them knocks down.
-- **Tell.** Each spring gathers from a low crouch, and a Party that watches the crouch reads every leap.
-- **Weak to.** Terrain that denies it a thirty-foot run, and spacing that keeps a fallen Party member beyond five feet of another wolfrabbit.
-- **Used by.** [[young-bloodhawk|Young Bloodhawk]] patrols the same territory.
 
 > [!narration] First sight
 > The wolfrabbit crosses open ground in two bounds, and each landing swings the raking claws almost before its feet touch down. It gathers low before every spring, so you can read each leap before it comes. When one of them falls bleeding, the pack closes on the scent and the frenzy starts there.
@@ -72,23 +69,23 @@ reactions:
     desc: "Trigger: Another wolfrabbit the wolfrabbit can see within 30 feet drops to 0 Hit Points. Response: The wolfrabbit moves up to 15 feet toward that creature's space without provoking Opportunity Attacks."
 ```
 
-## Play
+## Tactics
 
-### Tactics
+A hit-and-run skirmisher, a wolfrabbit opens from beyond thirty feet and uses Pouncing Bound to rake its target on landing. ==It crouches low, with its rear legs tucked beneath it and its claws clear of the ground.== A straight approach of at least 20 feet lets it knock the target Prone for the pack to rend. Cover that blocks its view denies a landing place, and a cramped approach prevents the knockdown. Keep a fallen ally more than 5 feet from the next wolfrabbit to deny Pack Rend.
 
-Each one opens from beyond thirty feet, springs, and rakes as it comes down, putting its target on the ground for the pack to rend. The low crouch is the telegraph, and terrain, cover, and focused fire answer it before the pack closes a ring. When one falls the rest converge on the body, and the fight breaks off only when the pack is bled thin.
+When a pack mate falls, the others converge on the corpse. Devour the Pack gives the eater a brief frenzy. Killing one away from its fellows keeps them from feeding on it immediately. A hunting pack breaks when only two remain. It stops at the lip of a Lava Tubes entrance rather than following prey underground.
 
-### Outside a fight
+On [[aruhe|Aruhe]], a pack hunting a grung pursues that grung past softer or bleeding prey. A creature blocking its path may draw an attack, but blood or thrown bait alone cannot distract it. If someone splashes the grung with rum, the scent is masked for a round. Each wolfrabbit yet to attack the grung chooses the nearest creature until the start of its next turn.
+
+## Outside a fight
 
 A pack's torn carcasses, eaten where they fell, tell sharp travellers this ground is theirs, and any bleeding wound draws their noses. It works its own beat and does not trail prey beyond it. The pack that burst on the Party's picked fruit ignored standing prey for the illusory food beside it, and turned on the young Bloodhawks that came for the same bait.
 
-## Depth
+## Ecology
 
-### Ecology
+A pack hunter of the World's open ground, it eats what its teeth take, and a tracker following its prints rolls Wisdom (Survival). On Aruhe, young Bloodhawks hunt in the same territory.
 
-A pack hunter of the World's open ground, it eats what its teeth take, and a tracker following its prints rolls Wisdom (Survival).
-
-### History
+### Recorded encounters
 
 In Session 9's cold open, wolfrabbits attacked three shipwrecked purple Grung on [[aruhe|Aruhe]] before the Party's landing. The DM described the creatures as looking like rabbits, with the threat of a tiger or wolf. About twenty charged the three guards along the beach. One ran beside a fleeing Grung for three strides, close enough for him to see its muscles roll.
 
@@ -98,9 +95,11 @@ The escape established that deep saltwater defeats them: they swim and breathe w
 
 In Session 10 the Party went ashore on [[aruhe|Aruhe]] and found the species on its home ground. Wolfrabbits nested in the terrace caves of the [[old-gardens|Old Gardens]], their red eyes marking the dens, and piles of bones filled every hiding spot with the fruit gone, so the DM ruled them carnivorous. Crissdalynn asked why they frenzy "with, like, a squishy or a bird", and the DM offered blood fruit as a theory. A black lotus snapped shut around one that walked past, a small squeal and a crunch, and the flower sat still. After an arrow killed a dart-throwing bulb plant, about a dozen converged on the spot where Jean-Claude had been; the first to arrive found nothing, and the rest jumped on it and killed it. Perrin noted from the castaway parley that an injured rabbit had triggered the island's creatures as well. When the [[crown-squid|Crown Squid]] broke off its chase at the treeline, it snatched two wolfrabbits and pulled them under its mantle.
 
-### Hidden truths
+## Hidden truths
 
 Bones at a kill site tell its habits, and an Intelligence check of the right sort confirms what becomes of a wolfrabbit its own pack brings down: it is eaten where it lies.
+
+On [[aruhe|Aruhe]], [[hinewai|Hinewai]]'s hatred of the Grung has seeped into the land and its animals. A pack's hatred-driven hunt is separate from Aruhe's taking law. Hinewai leaves the beasts to hunt rather than sending them herself. Flat flowers and still roots distinguish this hunt from the island's response to taking. The pack's refusal to turn towards easier prey is another sign. Hinewai can explain the hatred, and she permits those hunted to fight for their lives.
 
 ## Links
 

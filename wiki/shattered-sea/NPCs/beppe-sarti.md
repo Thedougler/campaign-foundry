@@ -11,14 +11,15 @@ title: "Beppe Sarti"
 ---
 
 > [!narration] First look
-> A Calveno man keeps to the shade beneath the great vine, sure its bounds are his.
+> Under the vine beside you, a man hauls on a length of cord until the knot creaks. You catch the white cloud across his left eye when he looks up, and the other eye follows you as he shifts the cord across his lap. He points at the loose end. "Mind your feet. I'm working here."
 
 ## Roleplaying
 
 - **Wants.** To stay beneath the vine with [[renzo-canale|Renzo Canale]].
 - **Torn between.** Fear that Hinewai's protection ends at the clearing's edge, and the offer of a way off Aruhe, which would take him past it.
 - **Opening move.** Under the great vine in [[the-pantry|The Pantry]], a rope-maker with a clouded white left eye, knotting cord. One of the three who would stay. Indifferent.
-- **Will share.** His belief that Hinewai's protection ends at the clearing, offered as warning.
+- **Voice.** A rope-maker's practical warnings. His cord draws tighter as he speaks, and he turns his head to watch a listener with his good eye.
+- **Will share.** He warns that Hinewai counts the people under the vine and stops at the clearing's edge. He believes it completely. He will not vouch for a Grung, whose kind took the camp captive.
 - **If pressed.** Offered a way off Aruhe, he refuses it and warns the others against leaving. His belief is his own, so no check can turn it. ==His fingers keep knotting. “Go if you like. Beyond the vine, she stops counting you.”==
 
 ## Hidden truths

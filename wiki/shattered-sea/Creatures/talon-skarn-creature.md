@@ -103,6 +103,8 @@ In Session 12, he left the river-camp fight without the Spinner, but the road-ca
 
 This fight is his last. He holds his ground to the end and never flies off beaten again. If he loses, he dies swinging, without flight or surrender. If the dice give him the Spinner, he keeps it and turns it on Vantyrus.
 
+At the road camp, Vantyrus uses the [[vantyruss-shard|harness shard]] to remove Disadvantage from one of Skarn's attacks per round. That attack uses a straight roll. Hinewai watches through her roots. If Skarn seizes or strikes a survivor she counts as hers, she overpowers Vantyrus and snaps his thread. Skarn releases any hostage unharmed, loses his reaction for that round and fights without Vantyrus's help for the rest of the encounter. A perceptive observer can see the nearly invisible threads part above his harness.
+
 ## Outside a fight
 
 He roosts before he commits, hanging thirty feet up a branch to study a camp, and told Crissdalynn "I don't need to hide" while he did it. When his wounds opened, blood sprayed down from above and showed the pursuit he still flew. He keeps what he takes, too. Matteo's fruit pack and Matteo's hat went inland with him, the fruit eaten on the wing, and an arrow loosed blind into the dark still found blood.

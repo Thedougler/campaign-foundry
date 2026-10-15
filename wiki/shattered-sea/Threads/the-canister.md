@@ -15,7 +15,7 @@ title: "The Canister"
 
 - **Driven by.** Jean-Claude Tabarnack's recognition of [[simone-tabarnack|Simone]]'s Grung toxin preparation in the Dravosi alchemist's canister.
 - **Stands at.** Jean-Claude holds the secret and has told nobody. The [[alchemists-bandolier|alchemist's bandolier]] lies unexamined on the Saltwright's deck, and twenty Surety vials now share the Party's own inventory with six sewer vials, still unexamined for what they are.
-- **Next development.** If the Party brings the canister up in front of Hinewai, she may cast Legend Lore on it and relay the lore to them.
+- **Next development.** If the Party shows [[hinewai|Hinewai]] a vial or tells her about the gangplank canister, she may cast *Legend Lore*. She can identify Simone's preparation and the Crown's supply line. She also knows that it is related to the hatchery dose used on her.
 - **Shows up as.** Jean-Claude's silence whenever Crown poison surfaces, and the unexamined loot nobody has claimed.
 - **Angles.** The bandolier on the deck, poison analysis, Jean-Claude's tells, and putting a vial and his sister's work in the same room.
 - **Resolves when.** The Party learns what Jean-Claude knows, or he chooses to tell them.
@@ -35,6 +35,7 @@ At the Saltwright's gangplank the deployed canister showed Jean-Claude his siste
 
 - The same preparation later surfaced in the Surety's cargo. Every confirmation widens the gap between what Jean-Claude knows and what he has told the Party. They can learn it by pressing him or tracing the supply line themselves.
 - [[grung-toxin-vials|Twenty vials]] of that preparation ride in Party hands beside six more from the Calveno sewer loot, and the two lots have yet to meet a comparison. Twenty is a supply contract, so the line from Simone to the Crown is real and running at scale. Nona's people catalogued the sewer loot, [[ruk|Ruk]] sorted its vials as ordinary Grung poison, and the pattern of canister, crate and sewer has surfaced for Jean-Claude alone.
+- Hinewai suffered a related poison in the hatchery each dawn. Her lore can expose that connection along with Simone's name. [[grung-toxin-vials|Grung Toxin Vials]] records the preparation's properties and its kinship to that dose.
 
 ## Possible endings
 

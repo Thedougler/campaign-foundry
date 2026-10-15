@@ -491,6 +491,12 @@
 - [[session-12-terror-birds|Session 12 - Terror-Birds]] — Two Terror-Birds charge the rescued column across the Long Meadow, forcing the Party to protect civilians and a carried man.
 - [[session-12-the-smoking-skylight|Session 12 - The Smoking Skylight]] — Four Calveno trapped in a lava tube reveal that the rest of their camp followed Hinewai's voice north-east, while a terror-bird waits above.
 - [[session-12-the-way-out|Session 12 - The Way Out]] — At first light nine Calveno leave the Pantry with the Party, while three choose to stay beneath Hinewai's vine.
+- [[session-13-skarns-last-stand|Session 13 - Skarn's Last Stand]] — The road-camp fight resumes with Talon Skarn slowed, outlined in decanter spray and cornered. He tries a half-truth, then an equal alliance, and dies fighting.
+- [[session-13-the-army|Session 13 - The Army]] — The island's animals bow around the Party, and Hinewai shows them the army that will kill every grung on Karath, then reads what they are to her by their answer.
+- [[session-13-the-grove|Session 13 - The Grove]] — At Memorial Grove each thing the Party touches draws one broken piece of Hinewai's past from her, the Golden Presence tether comes last, and her verdict on Jean-Claude sends the Party to the army or to the break-out.
+- [[session-13-the-pantry|Session 13 - The Pantry]] — Jean-Claude faces seven Calveno survivors whose captors were Grung, Carlo finds his brother alive, and four choose to leave while three stay.
+- [[session-13-the-walk|Session 13 - The Walk]] — The Party walks alone towards Memorial Grove, and the island's old hatred sends a wolfrabbit pack and two young Bloodhawks after Jean-Claude, with the Lava Tubes as the way out.
+- [[session-13-the-way-out|Session 13 - The Way Out]] — Hinewai lets nine Calveno walk out along the Burnt Road to a second sail off Western Landing, or the grove's bowed heads rise and the Party must run.
 
 ## Recaps
 

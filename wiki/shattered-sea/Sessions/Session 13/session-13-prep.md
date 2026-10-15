@@ -17,14 +17,14 @@ What is the Party to [[hinewai|Hinewai]], and what will they do about the army s
 
 ## Scene Chart
 
-| #   | Scene              | Kind        | Minutes | Threads                                                                |
-| --- | ------------------ | ----------- | ------- | ---------------------------------------------------------------------- |
-| 1   | Skarn's last stand | Hook        | 30      | [[rule-of-two\|Rule of Two]]                                           |
-| 2   | The Pantry         | Development | 45      | [[take-on-aruhe\|Take on Aruhe]], [[perrin-and-nona\|Perrin and Nona]] |
-| 3   | The walk           | Cliffhanger | 45      | [[journey-of-jean-claude-tabarnack\|Jean-Claude's journey]]            |
-| 4   | The grove          | Development | 45      | [[take-on-aruhe\|Take on Aruhe]], [[the-canister\|The Canister]]       |
-| 5   | The army           | Climax      | 45      | [[take-on-aruhe\|Take on Aruhe]]                                       |
-| 6   | The way out        | Resolution  | 15      | [[perrin-and-nona\|Perrin and Nona]]                                   |
+| #   | Scene                                                         | Kind        | Minutes | Threads                                                                |
+| --- | ------------------------------------------------------------- | ----------- | ------- | ---------------------------------------------------------------------- |
+| 1   | [[session-13-skarns-last-stand\|Skarn's Last Stand]]          | Hook        | 30      | [[rule-of-two\|Rule of Two]]                                           |
+| 2   | [[session-13-the-pantry\|The Pantry]]                         | Development | 45      | [[take-on-aruhe\|Take on Aruhe]], [[perrin-and-nona\|Perrin and Nona]] |
+| 3   | [[session-13-the-walk\|The Walk]]                             | Cliffhanger | 45      | [[journey-of-jean-claude-tabarnack\|Jean-Claude's journey]]            |
+| 4   | [[session-13-the-grove\|The Grove]]                           | Development | 45      | [[take-on-aruhe\|Take on Aruhe]], [[the-canister\|The Canister]]       |
+| 5   | [[session-13-the-army\|The Army]]                             | Climax      | 45      | [[take-on-aruhe\|Take on Aruhe]]                                       |
+| 6   | [[session-13-the-way-out\|The Way Out]]                       | Resolution  | 15      | [[perrin-and-nona\|Perrin and Nona]]                                   |
 
 A break of about fifteen minutes falls after row 3, close to the two-hour mark.
 

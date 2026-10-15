@@ -11,6 +11,7 @@ sources:
   - "archive/collab-2026-10-12-hinewai-army.md"
   - "archive/collab-2026-10-12-midchain-arc-plan.md"
   - "archive/collab-2026-10-12-hinewai-reads-jean-claude.md"
+  - "archive/collab-2026-10-14-session-13-plan.md"
 revealed: "Session 11"
 title: "Hinewai"
 ---
@@ -23,7 +24,7 @@ title: "Hinewai"
 - **Torn between.** Grief has cost her humanity, while her love of nature remains. She is mad, but intelligent enough to be somewhat predictable in conversation.
 - **Voice.** Calm, loving and regal, with two conversations at once. Each line addresses the listener and someone only she hears, and both halves concern the listener. She drifts at rest. The Grung, harm to the land and taking without leave provoke her.
 - **Opening move.** Hinewai appears at [[memorial-grove|Memorial Grove]] as the island's keeper. If she recognises [[simone-tabarnack|Simone Tabarnack]]'s scent on [[jean-claude-tabarnack|Jean-Claude]], she may ask whether Simone sent him for more peaches or the Gold caste sent him to destroy her tree.
-- **Leverage.** Hinewai commands Aruhe's animals and plants when she exerts her will, and can control them passively at a high level. She could draw most of the island's life to her. Her [[hinewai-the-blight|Blight]] form is the island's guardian. The Bloodhawks give her army the air.
+- **Leverage.** Hinewai commands Aruhe's animals and plants when she exerts her will, and can control them passively at a high level. She could draw most of the island's life to her. As an archdruid lich she casts far more than her Statblock lists, and any druid's or necromancer's working that fits the moment is hers. Her [[hinewai-the-blight|Blight]] form is the island's guardian. The Bloodhawks give her army the air.
 - **Her garden.** The island's creatures are her garden and her pets. They are never her slaves, and they don't share one mind. Left alone, they live as wild things. She respects the law of nature: things hunt and eat each other, and that's all right with her. When an animal attacks someone, she doesn't punish the victim for defending themselves.
 - **Opens them up.** Jean-Claude may draw her army's story out if she believes he is a Gold-caste messenger or otherwise non-hostile.
 - **Shuts them down.** The Grung's assault, harm to Aruhe, taking from the island and the prospect of leaving it.
@@ -35,7 +36,7 @@ title: "Hinewai"
 - **Invitations.** The Party can ally with her against the Gold caste. She can turn her army on their shared enemy, though once the beasts cross the channel they will kill every Grung on Karath without distinction.
 
 > [!narration] First look
-> Between a pair of trunks the dark is deeper than it should be, and two orange eyes open at the height of a tall woman's face. Silence stretches until a low voice says, "You ate what my island gave you. You are already mine."
+> Between a pair of trunks the dark is deeper than it should be, and two orange eyes open about where a tall woman's eyes would be. They hold on you for a long moment before a low voice says, "You ate what my island gave you. You are already mine."
 
 ## Quotes
 

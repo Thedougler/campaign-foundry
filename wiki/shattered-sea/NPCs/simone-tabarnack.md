@@ -10,24 +10,22 @@ sources:
   - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
   - "archive/agentic-co-dm-simone-tabarnack-narration.md"
   - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
-creature: "[[commoner|Commoner]]"
 revealed: "Backstory"
 title: "Simone Tabarnack"
 ---
 
 ![[simone-tabarnack-portrait.webp]]
 
-## At a glance
+> [!narration] First look
+> A compact grung officer of the purple caste steps in, spear easy in one hand, her fitted armour worn smooth and unadorned. Her eyes go first. They take doors and corners, and she is moving again before they finish. A chemical sharpness comes off the oil on her armour as she passes, and bands and dots of gold show in her black skin at the gaps. She speaks before any greeting and gives an order once. The spear stays in her hand when she sits.
+
+## Roleplaying
 
 - **Role.** Jean-Claude Tabarnack's younger sister, Sorn garrison officer and Grung toxin supplier to the Dravosi Crown.
 - **Wants.** To become true Gold, capture Jean-Claude, and eventually rule the Grung with him.
 - **Voice.** Disciplined, certain, and caste-bound: “The caste order is not a choice.”
 - **Found at.** Sorn and the Grung scouting network around the Midchain.
-
-> [!narration] First look
-> A compact grung officer of the purple caste steps in, spear easy in one hand, her fitted armour worn smooth and unadorned. Her eyes go first. They take doors and corners, and she is moving again before they finish. A chemical sharpness comes off the oil on her armour as she passes, and bands and dots of gold show in her black skin at the gaps. She speaks before any greeting and gives an order once. The spear stays in her hand when she sits.
-
-## Play
+- **Torn between.** Her unfinished gold threatens the rank she claims, but admitting how she gained it would expose the caste's diet.
 
 - **Opens them up.** Duty, proof that her people can out-plan Gold, and a useful path to Jean-Claude.
 - **Shuts them down.** Questions about her partial gold colour, Ozzeth, or her betrayal of Jean-Claude and [[pell|Pell]].
@@ -35,20 +33,19 @@ title: "Simone Tabarnack"
 - **Will not share.** The colour-sealing rite or the Crown's toxin bargain.
 - **If pressed.** She uses scouts and official authority. If Jean-Claude refuses, she captures rather than kills him.
 
-## Depth
-
-### History
+## History
 
 She stayed in Sorn when Jean-Claude fled and reported him and [[pell|Pell]], believing the caste order made the choice right. She became a garrison folk hero by refusing to spend her soldiers carelessly. She independently found the suppressed colour-sealing rite and cast it on herself, too early: the [[gold-fruit|gold fruit]] she needed grew on [[karath|Karath]]'s secret farms. She came to [[aruhe|Aruhe]] herself and stole several golden peaches from the tree at [[memorial-grove|Memorial Grove]], and that small haul left the colour unfinished. Ozzeth maintained her rite until his death.
 
-### Hidden truths
+## Hidden truths
 
 - Her incomplete Ossketh is still running as arcane transmutation. It is unmaintained, and Detect Magic reveals a spell caught mid-execution.
 - She sealed it too early because she lacked access to the gold fruit, and the peaches she stole from the [[memorial-grove|Memorial Grove]] tree were not enough to finish the colour.
+- Hinewai remembers the peach thief's scent and recognises the family resemblance in Jean-Claude. Asking Hinewai about Simone can expose the theft and explain her unfinished gold.
 - The Gold caste could not deny her gold without exposing what the diet does, so they go along with her and treat her as showing signs of divinity.
 - She supplied the Crown with Grung poison and built the Calveno raid as a public demonstration. Ozzeth's death now drives her against Karath's toxin monopoly.
 
-### Threads
+## Threads
 
 She drives **Simone's Hunters** and supplies the hidden poison trail in **The Crown Inspection**.
 

@@ -7,13 +7,16 @@ sources:
 revealed: ""
 ---
 
+> [!narration] First look
+> A grey shard lies flat against the harness before you, pierced by a rivet through one strap. You can trace the strap past the sliver and round the body, between the hanging weapons and the chain. The fastening goes through both. The shard comes away with that piece of harness.
+
 ## Properties
 
 *Plot Object.*
 
-A shard fixed to [[talon-skarn|Talon Skarn]]'s harness carries [[talon-vantyrus|Talon Vantyrus]]'s gaze.
+A flat grey sliver riveted through [[talon-skarn|Talon Skarn]]'s harness strap carries [[talon-vantyrus|Talon Vantyrus]]'s gaze.
 
-***Surviving the Hunter.*** Skarn's death does not destroy the shard. The Party can remove it from his body and carry it away.
+***Surviving the Hunter.*** If Skarn dies, the sliver remains riveted through the strap on his corpse. The Party can strip the harness or remove the shard and carry it away.
 
 The shard's hidden connection is for the DM to run as described below. No power usable by its carrier has been established.
 

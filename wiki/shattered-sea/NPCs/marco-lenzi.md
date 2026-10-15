@@ -11,15 +11,17 @@ title: "Marco Lenzi"
 ---
 
 > [!narration] First look
-> A Calveno man works through many fallen branches beside the mats, in no hurry to go anywhere.
+> Beside the sleeping mats in front of you, a young man sorts fallen branches and strips loose fibre into a pile by his knee. He measures a length against his forearm, then starts again when he hears your steps. His lips keep moving. He lays the fibre down. "Fallen is food. Standing is hers. Walk by day."
 
 ## Roleplaying
 
 - **Wants.** To stay beneath the vine.
 - **Torn between.** Fear that Hinewai will stop counting him as hers if he leaves, and the offer of a way off Aruhe.
 - **Voice.** A mutter. He recites the island's rules under his breath as he works.
+- **Hands.** He measures cord against his forearm as he sorts fallen branches beside the mats. An interruption makes him measure it again before he resumes.
 - **Opening move.** At work near the sleeping ground in [[the-pantry|The Pantry]], a young rigger's apprentice and one of the three who would stay, with [[renzo-canale|Renzo Canale]] and [[beppe-sarti|Beppe Sarti]]. Indifferent.
 - **Will not share.** Much beyond his work at [[renzo-canale|Renzo Canale]]'s side.
+- **Will share.** As he works he repeats that fallen fruit is food and living growth belongs to Hinewai. He mutters the ban on walking the Quiet at night too. He turns to Renzo for anything beyond those rules.
 - **If pressed.** Offered a way off Aruhe, he stays. ==He does not look up from the branches. “The ground gives. I'll be here when it does.”==
 
 ## Threads
