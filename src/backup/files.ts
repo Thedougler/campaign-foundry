@@ -18,10 +18,8 @@ export interface BackupFile {
 	kind: FileKind;
 	/** Absolute path to read the bytes from (the symlink's target for a linked skill). */
 	abs: string;
-	/** sha256 of the content; for a Git LFS pointer, the object id it points at (the same sha256 once smudged). */
+	/** sha256 of the working file's bytes. */
 	hash: string;
-	/** True when the working file is an LFS pointer, so the bytes must be pulled before an upload. */
-	lfsPointer: boolean;
 	size: number;
 	/** The markdown frontmatter `title` (ADR 0028: the title names the page), unset when absent or blank. */
 	title?: string;
@@ -53,7 +51,6 @@ const LOCKFILES = new Set([
 	"Gemfile.lock",
 	"composer.lock",
 ]);
-const LFS_POINTER = /^version https:\/\/git-lfs\.github\.com\/spec\/v1\noid sha256:([0-9a-f]{64})\nsize (\d+)\n?$/;
 
 const posix = (p: string): string => p.split(sep).join("/");
 
@@ -73,15 +70,12 @@ export function kindOf(path: string, bytes: Buffer): FileKind | undefined {
 	const ext = extname(path).toLowerCase();
 	if (ext === ".md" || ext === ".markdown") return "markdown";
 	if (IMAGE_EXTENSIONS.has(ext)) return "image";
-	if (LFS_POINTER.test(bytes.toString("latin1"))) return undefined; // an LFS object that is not an image (a PDF)
 	return bytes.subarray(0, 8000).includes(0) ? undefined : "text";
 }
 
-/** The content hash the map compares; an LFS pointer hashes to the object it names, so smudged and unsmudged checkouts agree. */
-export function contentHash(bytes: Buffer): { hash: string; lfsPointer: boolean; size: number } {
-	const pointer = LFS_POINTER.exec(bytes.toString("latin1"));
-	if (pointer) return { hash: pointer[1] ?? "", lfsPointer: true, size: Number(pointer[2]) };
-	return { hash: createHash("sha256").update(bytes).digest("hex"), lfsPointer: false, size: bytes.length };
+/** The content hash and byte count the map compares. */
+export function contentHash(bytes: Buffer): { hash: string; size: number } {
+	return { hash: createHash("sha256").update(bytes).digest("hex"), size: bytes.length };
 }
 
 /** Every ancestor directory of a repo-relative path, shallowest first (`a/b/c.md` gives `a`, `a/b`). */

@@ -23,5 +23,5 @@ Decision:
 ## Consequences
 
 - Old embeds and filenames go stale at cutover. `cfcli convert --dry-run` previews and the full run migrates them. No page loses its image to the rename.
-- `.uvtt`/`dd2vtt` battle-map files travel with companions under the same slug, and binaries ride LFS (`.gitattributes`). Git clones without the media.
+- `.uvtt`/`.dd2vtt` battle-map files stay beside their companions under the same slug. Media is gitignored, local-only and not committed, so Git clones omit it. The CI Backup uploads only images present in its checkout.
 - A template change can add or move a slot without code. The template is the source of truth, and the gate's checks read it from there.

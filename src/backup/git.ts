@@ -72,21 +72,6 @@ export function diffSince(
 	return { changed, deleted, renamed };
 }
 
-/**
- * Pulls the LFS objects for `paths` only, so a run downloads just the images it uploads rather than every attachment.
- * `--include` splits on commas, so a comma in a name is matched with `?`.
- */
-export function lfsPull(root: string, paths: string[]): void {
-	for (let i = 0; i < paths.length; i += 50) {
-		const include = paths
-			.slice(i, i + 50)
-			.map((p) => p.replace(/[,[\]*?]/g, "?"))
-			.join(",");
-		const r = git(root, ["lfs", "pull", "--include", include, "--exclude", ""]);
-		if (!r.ok) throw new Error(`git lfs pull failed: ${r.stderr.trim()}`);
-	}
-}
-
 /** `https://github.com/<owner>/<repo>` for the origin remote (or GITHUB_SERVER_URL/GITHUB_REPOSITORY in Actions). */
 export function repoWebUrl(root: string): string | undefined {
 	if (process.env.GITHUB_SERVER_URL && process.env.GITHUB_REPOSITORY)
@@ -98,8 +83,8 @@ export function repoWebUrl(root: string): string | undefined {
 }
 
 /**
- * The content hash a file had at `commit` (the LFS object id for a pointer), or undefined when the commit or file is not
- * in this clone. A page header names the commit it was written at, so a lost map gets its hashes back from git.
+ * The content hash a file had at `commit`, or undefined when the commit or file is not in this clone.
+ * A page header names the commit it was written at, so a lost map gets its hashes back from git.
  */
 export function hashAt(
 	root: string,
@@ -122,14 +107,5 @@ export function backupGit(root: string, walk: Pick<WalkResult, "links">): Backup
 		diffSince: (base) => diffSince(root, base, BACKUP_ROOTS, walk.links),
 		headCommit: () => headCommit(root),
 		repoWebUrl: () => repoWebUrl(root),
-		lfsPull: (paths) =>
-			lfsPull(
-				root,
-				// git knows a file under a followed symlink by its target path.
-				paths.map((p) => {
-					const link = walk.links.find((l) => p.startsWith(`${l.alias}/`));
-					return link ? link.target + p.slice(link.alias.length) : p;
-				}),
-			),
 	};
 }

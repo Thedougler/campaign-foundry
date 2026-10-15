@@ -39,8 +39,6 @@ jobs:
         with:
           # Full history so the map's synced commit can be diffed against HEAD.
           fetch-depth: 0
-          # LFS images are pulled per file by `cfcli backup`, only when they are uploaded, to spare LFS bandwidth.
-          lfs: false
 
       - uses: oven-sh/setup-bun@v2
         with:
@@ -51,8 +49,6 @@ jobs:
           node-version: 24
 
       - run: bun install --frozen-lockfile
-
-      - run: git lfs install --local
 
       - name: Back up to Notion
         env:

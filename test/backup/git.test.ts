@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { BACKUP_ROOTS, walkBackup } from "../../src/backup/files.ts";
 import { diffSince, hashAt, headCommit, usableBase } from "../../src/backup/git.ts";
 import { contentHash } from "../../src/backup/files.ts";
-import { git, initGitRepo, lfsPointer, OID, repo } from "./helpers.ts";
+import { git, initGitRepo, repo } from "./helpers.ts";
 
 const W = "wiki/shattered-sea";
 
@@ -39,7 +39,7 @@ describe("backup git diff", () => {
 		expect(links).toEqual([{ alias: ".agents/skills/dnd-benchmark", target: ".omp/skills/dnd-benchmark" }]);
 		const { changed, deleted, renamed } = diffSince(root, base, BACKUP_ROOTS, links);
 		expect([...changed].sort()).toEqual([
-		".agents/skills/dnd-benchmark/SKILL.md",
+			".agents/skills/dnd-benchmark/SKILL.md",
 			".agents/skills/s/guide.md",
 			".agents/skills/s/new.yaml",
 			`${W}/a.md`,
@@ -52,10 +52,10 @@ describe("backup git diff", () => {
 		});
 	});
 
-	it("gives a file's content hash at a commit, as an LFS object id for a pointer and through a followed symlink", () => {
+	it("gives a file's content hash at a commit, including image bytes and a followed symlink", () => {
 		const root = repo({
 			[`${W}/a.md`]: "a\n",
-			[`${W}/Map.png`]: lfsPointer(),
+			[`${W}/Map.png`]: Buffer.from("abc"),
 			".omp/skills/dnd-benchmark/SKILL.md": "r\n",
 			".agents/skills/dnd-benchmark": { link: "../../.omp/skills/dnd-benchmark" },
 		});
@@ -67,8 +67,10 @@ describe("backup git diff", () => {
 		expect(hashAt(root, one, `${W}/a.md`)).toBe(contentHash(Buffer.from("a\n")).hash);
 		expect(hashAt(root, one.slice(0, 7), `${W}/a.md`)).toBe(contentHash(Buffer.from("a\n")).hash);
 		expect(hashAt(root, headCommit(root) ?? "", `${W}/a.md`)).toBe(contentHash(Buffer.from("a2\n")).hash);
-		expect(hashAt(root, one, `${W}/Map.png`)).toBe(OID);
-		expect(hashAt(root, one, ".agents/skills/dnd-benchmark/SKILL.md", links)).toBe(contentHash(Buffer.from("r\n")).hash);
+		expect(hashAt(root, one, `${W}/Map.png`)).toBe("ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad");
+		expect(hashAt(root, one, ".agents/skills/dnd-benchmark/SKILL.md", links)).toBe(
+			contentHash(Buffer.from("r\n")).hash,
+		);
 		expect(hashAt(root, one, `${W}/missing.md`)).toBeUndefined();
 		expect(hashAt(root, "0".repeat(40), `${W}/a.md`)).toBeUndefined();
 		expect(hashAt(root, "main; rm -rf /", `${W}/a.md`)).toBeUndefined();

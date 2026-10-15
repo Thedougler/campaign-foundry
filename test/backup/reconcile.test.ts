@@ -176,7 +176,6 @@ describe("the map is a cache: Notion is the record", () => {
 			api,
 			sourceUrl: () => undefined,
 			save: () => {},
-			lfsPull: async () => {},
 			log: () => {},
 		};
 		await expect(runBackup({ ...options, reconciled: { rootAbsent: false } })).rejects.toThrow(/second root/);

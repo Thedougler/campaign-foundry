@@ -1,7 +1,6 @@
-import { createHash } from "node:crypto";
 import { describe, expect, it } from "vitest";
 import { ancestors, contentHash, excludedBy, kindOf, titleOf, walkBackup } from "../../src/backup/files.ts";
-import { lfsPointer, OID, repo } from "./helpers.ts";
+import { repo } from "./helpers.ts";
 
 const W = "wiki/shattered-sea";
 
@@ -9,9 +8,9 @@ describe("backup tree walk", () => {
 	const root = repo({
 		[`${W}/hot.md`]: "---\ntitle: The next session\n---\n# Hot\n",
 		[`${W}/NPCs/Ilse Corran.md`]: "---\ntitle: Ilse Corran\n---\nIlse\n",
-		[`${W}/attachments/Map.png`]: lfsPointer(),
+		[`${W}/attachments/Map.png`]: Buffer.from("abc"),
 		[`${W}/attachments/Sketch.svg`]: "<svg/>",
-		[`${W}/attachments/Rules.pdf`]: lfsPointer("b".repeat(64)),
+		[`${W}/attachments/Rules.pdf`]: Buffer.from([0x25, 0x50, 0x44, 0x46, 0]),
 		[`${W}/.obsidian/plugins/x/main.js`]: "js",
 		"wiki/index.md": "outside the World folder",
 		".agents/skills/npc-design/SKILL.md": "---\nname: npc-design\n---\n",
@@ -57,22 +56,19 @@ describe("backup tree walk", () => {
 		expect(paths).toContain(".agents/skills/dnd-benchmark/SKILL.md");
 	});
 
-	it("classifies files and hashes an LFS pointer by the object it names", () => {
+	it("classifies files and hashes their working bytes", () => {
 		const byPath = Object.fromEntries(walk.files.map((f) => [f.path, f]));
 		expect(byPath[`${W}/hot.md`]?.kind).toBe("markdown");
 		expect(byPath[".agents/skills/npc-design/evals/cases.yaml"]?.kind).toBe("text");
 		expect(byPath[".agents/skills/npc-design/assets/portrait.webp"]?.kind).toBe("image");
 		expect(byPath[`${W}/attachments/Map.png`]).toMatchObject({
 			kind: "image",
-			hash: OID,
-			lfsPointer: true,
-			size: 1234,
+			hash: "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+			size: 3,
 		});
-		const real = Buffer.from("real image bytes");
-		expect(contentHash(real)).toEqual({
-			hash: createHash("sha256").update(real).digest("hex"),
-			lfsPointer: false,
-			size: real.length,
+		expect(contentHash(Buffer.from("abc"))).toEqual({
+			hash: "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+			size: 3,
 		});
 	});
 

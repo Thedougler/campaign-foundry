@@ -2,6 +2,8 @@
 
 `bun run cfcli -- backup` writes the Shattered Sea Wiki (`wiki/shattered-sea/`), the agent skills (`.agents/skills/`) and every image in those trees to Notion. `.github/workflows/notion-backup.yml` runs it on each push to `main` that touches those paths. GitHub stays the working copy: an edit made in Notion is overwritten the next time its file changes. The decision record is [ADR 0023](adr/0023-notion-backs-up-main.md). Agents read from the Backup first, because one search there covers a question spanning many pages faster and for fewer tokens than local search. They write to the Wiki, as `.omp/AGENTS.md` § Wiki access sets out.
 
+Media is gitignored, local-only and not committed. The Backup reads images from the working file's bytes, so CI uploads only images present in its checkout. Run the Backup locally with `--all` to include local media.
+
 ## Set up (once)
 
 1. In Notion, open **Settings → Connections → Develop or manage integrations** and create an **internal** integration for the Second Brain workspace. Give it Read, Update and Insert content. Copy its token.
@@ -37,4 +39,4 @@ To preview a run without Notion, use `bun run cfcli -- backup --dry-run`, which 
 | Lists nested three or more deep | Lifted to the second level, in order. One append request sends a block and its children only. |
 | `%% comments %%`, `==highlights==`, footnotes | Kept as literal text. |
 
-Images over the workspace's per-file upload limit (5 MiB on a free Notion plan) or over 20 MiB get a note linking to the file in GitHub instead. The next `--all` run retries them. Multi-part upload is not implemented.
+Images over the workspace's per-file upload limit (5 MiB on a free Notion plan) or over 20 MiB get a note instead. A GitHub source link cannot provide local-only media. The next `--all` run retries them. Multi-part upload is not implemented.

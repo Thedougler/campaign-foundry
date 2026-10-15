@@ -1,12 +1,12 @@
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { walkBackup } from "../../src/backup/files.ts";
 import { type BackupMap, emptyMap } from "../../src/backup/map.ts";
 import { notionClient } from "../../src/backup/notion.ts";
 import { dirMarker, pendingHeader, rootCallout } from "../../src/backup/markers.ts";
 import { estimate, linkIndex, planBackup, type Scope } from "../../src/backup/sync.ts";
-import { backup, FakeNotion, lfsPointer, repo, textOf } from "./helpers.ts";
+import { backup, FakeNotion, repo, textOf } from "./helpers.ts";
 
 const W = "wiki/shattered-sea";
 const PARENT = "3f102166-35ec-8117-af9c-d05f042eea59";
@@ -38,6 +38,7 @@ describe("backup sync", () => {
 		const root = campaign();
 		const map = emptyMap(PARENT);
 		const api = new FakeNotion();
+		vi.spyOn(api, "upload");
 		const { result } = await run(root, map, api);
 		expect(result.failures).toEqual([]);
 		const rootPage = api.byTitle("campaign-foundry backup");
@@ -76,6 +77,7 @@ describe("backup sync", () => {
 		expect(hot.find((b) => b.type === "image")?.image).toMatchObject({ file_upload: { id: upload } });
 		expect(api.byTitle("Map.png")?.blocks.map((b) => b.type)).toEqual(["paragraph", "image"]);
 		expect(api.calls.filter((c) => c.op === "upload")).toHaveLength(1);
+		expect(api.upload).toHaveBeenCalledWith("Map.png", Buffer.from("png bytes"), "image/png");
 		// Every page carries its marker: the root its note, a folder its path, a file the header naming path and commit.
 		expect(textOf(rootPage?.blocks ?? [])).toContain("An automatic copy of the campaign-foundry repo");
 		expect(textOf((npcs?.blocks ?? []).slice(0, 1))).toBe(`Folder |${W}/NPCs| of the campaign-foundry backup.`);
@@ -190,34 +192,19 @@ describe("backup sync", () => {
 		expect(map.entries[`${W}/NPCs/Ilse Corran.md`]?.deletedAt).toBeUndefined();
 	});
 
-	it("pulls only the LFS images it uploads, and notes an image over the workspace limit instead of failing", async () => {
+	it("notes an image over the workspace limit instead of failing, and uploads the other working files", async () => {
 		const root = campaign();
 		writeFileSync(join(root, W, "attachments/Big.png"), Buffer.alloc(2048, 1));
-		writeFileSync(join(root, W, "attachments/Pointer.png"), lfsPointer());
 		const map = emptyMap(PARENT);
 		const api = new FakeNotion();
 		api.limit = 1024;
-		const pulled: string[][] = [];
-		const { result } = await run(root, map, api, ALL, { pulled });
-		expect(pulled).toEqual([[`${W}/attachments/Pointer.png`]]);
+		const { result } = await run(root, map, api);
 		expect(map.entries[`${W}/attachments/Big.png`]?.uploadSkipped).toMatch(/over the 0\.0 MB upload limit/);
 		expect(textOf(api.byTitle("Big.png")?.blocks ?? [])).toContain("Not uploaded");
-		// The pointer was not smudged by the fake pull, so that one image fails and the synced commit holds back.
-		expect(result.failures.map((f) => f.path)).toEqual([`${W}/attachments/Pointer.png`]);
-		expect(map.syncedCommit).toBeUndefined();
-		expect(map.entries[`${W}/attachments/Pointer.png`]?.hash).toBeUndefined();
-	});
-
-	it("a failed git lfs pull fails only the pointer images, and the rest of the run still lands", async () => {
-		const root = campaign();
-		writeFileSync(join(root, W, "attachments/Pointer.png"), lfsPointer());
-		const map = emptyMap(PARENT);
-		const api = new FakeNotion();
-		const { result } = await run(root, map, api, ALL, { pullFails: true });
-		expect(result.failures.map((f) => f.path)).toEqual([`${W}/attachments/Pointer.png`]);
+		expect(result.failures).toEqual([]);
+		expect(result.uploaded).toBe(1);
 		expect(map.entries[`${W}/attachments/Map.png`]?.fileUploadId).toBeDefined();
-		expect(map.entries[`${W}/hot.md`]?.hash).toBeDefined();
-		expect(map.syncedCommit).toBeUndefined();
+		expect(map.syncedCommit).toBe("c0ffee0000000000000000000000000000000000");
 	});
 
 	it("saves the map after every page it creates, so a run cancelled midway never duplicates a page", async () => {

@@ -18,8 +18,6 @@ export interface BackupGit {
 	diffSince(base: string): { changed: Set<string>; deleted: Set<string>; renamed: Map<string, string> };
 	headCommit(): string | undefined;
 	repoWebUrl(): string | undefined;
-	/** Pulls the real bytes of LFS pointer files before their upload. */
-	lfsPull(paths: string[]): void;
 }
 
 export interface PipelineOptions {
@@ -126,7 +124,6 @@ export async function runBackupPipeline(options: PipelineOptions): Promise<Pipel
 		...(commit ? { commit } : {}),
 		sourceUrl,
 		save: options.save,
-		lfsPull: async (paths) => git.lfsPull(paths),
 		log,
 		...(options.now ? { now: options.now } : {}),
 	});

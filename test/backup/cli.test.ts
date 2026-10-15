@@ -1,7 +1,7 @@
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { cf } from "../check/helpers.ts";
-import { lfsPointer, repo } from "./helpers.ts";
+import { repo } from "./helpers.ts";
 
 const W = "wiki/shattered-sea";
 
@@ -9,15 +9,14 @@ describe("cfcli backup", () => {
 	it("dry-runs without a token, printing counts, the estimate and the planned tree", async () => {
 		const root = repo({
 			[`${W}/hot.md`]: "---\ntitle: The next session\n---\n# Hot\n",
-			[`${W}/attachments/Map.png`]: lfsPointer(),
+			[`${W}/attachments/Map.png`]: Buffer.from("png bytes"),
 			".agents/skills/npc-design/SKILL.md": "# NPC design\n",
 			".claude/skills/npc-design": { link: "../../.agents/skills/npc-design" },
 		});
 		const text = await cf(["backup", "--dry-run", "--tree", "--root", root], root);
 		expect(text.code).toBe(0);
 		expect(text.stdout).toContain("would back up (all: first run: the map has no synced commit)");
-		expect(text.stdout).toContain("2 Markdown, 0 other text, 1 images");
-		expect(text.stdout).toContain("1 as LFS pointers here");
+		expect(text.stdout).toContain("2 Markdown, 0 other text, 1 images (0.0 MB)");
 		expect(text.stdout).toContain("+     The next session");
 		expect(text.stdout).toContain("(dry run: nothing sent to Notion, and only the map read");
 		const json = await cf(["backup", "--dry-run", "--json", "--root", root], root);

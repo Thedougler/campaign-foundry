@@ -9,7 +9,7 @@ import {
 	textFileToBlocks,
 	textItems,
 } from "./blocks.ts";
-import { type BackupFile, contentHash, type FileKind, inBackupRoots, titleOf, type WalkResult } from "./files.ts";
+import { type BackupFile, type FileKind, inBackupRoots, titleOf, type WalkResult } from "./files.ts";
 import { type BackupMap, type MapEntry, pageUrl } from "./map.ts";
 import { deletedNote, dirMarker, headerBlock, markerOf, pendingHeader, ROOT_TITLE, rootCallout } from "./markers.ts";
 import { contentTypeOf, type NotionApi } from "./notion.ts";
@@ -169,8 +169,6 @@ export interface SyncOptions {
 	save(map: BackupMap): void;
 	/** What `reconcile` found in Notion just before this run; the root is created only when it saw none. */
 	reconciled: Pick<Reconciliation, "rootAbsent">;
-	/** Pulls the real bytes of LFS pointer files before their upload (`git lfs pull --include`). */
-	lfsPull(paths: string[]): Promise<void>;
 	log(line: string): void;
 	now?: () => Date;
 }
@@ -522,16 +520,6 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 	await checkConcurrentCreates(options, filesCreated, result);
 
 	const images = plan.writeFiles.filter((f) => f.kind === "image" && map.entries[f.path]);
-	const pointers = images.filter((f) => f.lfsPointer).map((f) => f.path);
-	if (pointers.length > 0) {
-		log(`pulling ${pointers.length} LFS image${pointers.length === 1 ? "" : "s"}`);
-		try {
-			await options.lfsPull(pointers);
-		} catch (error) {
-			// Carry on: each image still a pointer fails on its own below, and the rest of the run is not lost.
-			log(`  ! git lfs pull: ${message(error)}`);
-		}
-	}
 	let limit: number | undefined;
 	if (images.length > 0) {
 		try {
@@ -547,8 +535,6 @@ export async function runBackup(options: SyncOptions): Promise<SyncResult> {
 		if (!entry) continue;
 		try {
 			const bytes = readFileSync(file.abs);
-			const actual = contentHash(bytes);
-			if (actual.lfsPointer) throw new Error("still a Git LFS pointer after `git lfs pull`; the LFS object is missing");
 			const url = options.sourceUrl(file.path);
 			const blocks: Block[] = [];
 			const name = titleOf(file.path, "image");
@@ -650,7 +636,6 @@ export interface Estimate {
 	text: number;
 	images: number;
 	imageBytes: number;
-	lfsPointers: number;
 	skills: number;
 	dirs: number;
 	blocks: number;
@@ -711,7 +696,6 @@ export function estimate(
 		text: walk.files.filter((f) => f.kind === "text").length,
 		images: images.length,
 		imageBytes: images.reduce((n, f) => n + f.size, 0),
-		lfsPointers: images.filter((f) => f.lfsPointer).length,
 		skills,
 		dirs: walk.dirs.length,
 		blocks,

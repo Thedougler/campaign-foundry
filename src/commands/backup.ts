@@ -150,7 +150,7 @@ Examples:
 				const mb = (est.imageBytes / 1024 / 1024).toFixed(1);
 				const out = [
 					`would back up (${scope.kind}: ${why}) under ${parent}`,
-					`  files      ${est.markdown} Markdown, ${est.text} other text, ${est.images} images (${mb} MB, ${est.lfsPointers} as LFS pointers here)`,
+					`  files      ${est.markdown} Markdown, ${est.text} other text, ${est.images} images (${mb} MB)`,
 					`  skills     ${est.skills} under .agents/skills (.claude/skills not walked: its entries link here)`,
 					`  pages      ${plan.createRoot ? "backup root + " : ""}${plan.createDirs.length} directory and ${plan.createFiles.length} file pages to create`,
 					`  write      ${plan.writeFiles.length} pages, ~${est.blocks} blocks`,

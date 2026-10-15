@@ -11,10 +11,6 @@ import type { Scope } from "../../src/backup/sync.ts";
 import type { ReadBlock } from "../../src/backup/markers.ts";
 import type { CreatedPage, NotionApi, PageInfo, UploadInfo } from "../../src/backup/notion.ts";
 
-export const OID = "a".repeat(64);
-export const lfsPointer = (oid = OID, size = 1234): string =>
-	`version https://git-lfs.github.com/spec/v1\noid sha256:${oid}\nsize ${size}\n`;
-
 /** Writes `files` (path to content) under a fresh temp repo root and returns it. A value of `{ link }` makes a symlink. */
 export function repo(files: Record<string, string | Buffer | { link: string }>): string {
 	const root = mkdtempSync(join(tmpdir(), "cf-backup-"));
@@ -296,8 +292,6 @@ export async function backup(
 	extra: {
 		commit?: string;
 		saves?: BackupMap[];
-		pulled?: string[][];
-		pullFails?: boolean;
 		git?: FakeGit;
 		rewrite?: boolean;
 	} = {},
@@ -323,10 +317,6 @@ export async function backup(
 			return commit;
 		},
 		repoWebUrl: () => "https://github.com/o/r",
-		lfsPull: (paths) => {
-			if (extra.pullFails) throw new Error("git lfs pull failed: batch response: rate limit exceeded");
-			extra.pulled?.push(paths);
-		},
 	};
 	const run = await runBackupPipeline({
 		walk,
