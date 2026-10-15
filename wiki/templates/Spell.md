@@ -13,7 +13,7 @@ revealed: "" # Campaign-bound. Set it per CONTEXT.md **Revealed**; a World-free 
 
 %% `level`, `school` and `classes` let Spells sort and filter in Obsidian. Copy each from the entry below: `level` as the number on its level line, 0 for a cantrip; `school` as that line names it, capitalised; `classes` as a list from its Classes line. %%
 
-%% The entry below is the whole default page, written as a published 2024 Spell entry. Every part after it is optional. %%
+%% The entry below is the whole default page, written as a published 2024 Spell entry that any Campaign can use as written, naming no World, Faction, caste or person. Every part after it is optional. The page holds only the Spell. Who casts it and why, where it is taught and who it is used on go on those subjects' own pages. %%
 
 # <Title>
 
@@ -33,16 +33,8 @@ ___
 **Classes:**
 
 > [!narration] Casting
-> %% Optional. Include it when the Party will see the Spell cast. Spoken. Give what a bystander sees and hears as it takes hold, and what they feel, in the manner of the tradition that casts it. Describe the caster, the target and the Party without naming them. %%
+> %% Optional. Include it when the Party will see the Spell cast. Spoken. Give what a bystander sees and hears as it takes hold, and what they feel. Like the entry, it names no World, tradition, caster, target or Party. %%
 
 ## Rulings
 
-%% Optional. Include it when a Campaign's play raises a question the rules text leaves open, or the DM asks for rulings. DM only. Answer each trick the Players have tried or announced with the Spell. Then give how a target or rival caster counters it. %%
-
-## Tradition
-
-%% Optional. Include it when the Spell has a tradition in a World. DM only. Link the tradition that casts it. Give why the Spell exists and any price beyond the slot. %%
-
-## Who knows it
-
-%% Optional. Include it when someone in a World can teach the Spell or casts it against the Party. DM only. Link the source the Party can learn it from, with the price of learning and the Clue that leads to that source. Add anyone who casts it against the Party, and who notices when a PC first casts it. %%
+%% Optional. Include it when a Campaign's play raises a question the rules text leaves open, or the DM asks for rulings. DM only. Answer each trick the Players have tried or announced with the Spell. Then give how a target or rival caster counters it. Each ruling concerns the Spell's own rules. %%

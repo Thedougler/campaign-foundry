@@ -10,7 +10,7 @@ import { isFixedPage } from "../views.ts";
 
 const LAYER = "template";
 
-const RETIRED_HEADINGS: Record<string, string> = {
+const RETIRED_HEADINGS: Record<string, string | { type: string; message: string }> = {
 	"At a glance":
 		"Deprecated section: 'At a glance'. Migrate now to the shape of wiki/templates/<type>.md and follow its skill. Delete this section; move any fact no other part of the page holds into the section where it belongs.",
 	Play: "Deprecated section: 'Play'. Migrate now to the shape of wiki/templates/<type>.md and follow its skill. Delete this section; move any fact no other part of the page holds into the specific section whose job it is.",
@@ -23,6 +23,16 @@ const RETIRED_HEADINGS: Record<string, string> = {
 	Changes:
 		"Deprecated: Changes. Migrate to the shape of wiki/templates/Recap.md — see ingest; move state changes into Changes to the World.",
 	Next: "Deprecated: Next. Migrate to the shape of wiki/templates/hot.md — see prep-session; move the Party's position, Prep and Hook links and open questions into Next Session.",
+	Tradition: {
+		type: "Spell",
+		message:
+			"Deprecated: Tradition. Migrate each fact to the page of the caster, source or target, which links the Spell (ADR 0051, spell-design steps 4 and 7).",
+	},
+	"Who knows it": {
+		type: "Spell",
+		message:
+			"Deprecated: Who knows it. Migrate each fact to the page of the caster, source or target, which links the Spell (ADR 0051, spell-design steps 4 and 7).",
+	},
 };
 
 interface Resolved {
@@ -48,7 +58,13 @@ function resolvePages(ctx: CheckContext, findings: Finding[]): Resolved[] {
 		};
 		for (const heading of page.headings) {
 			if (heading.depth !== 2) continue;
-			const message = RETIRED_HEADINGS[heading.text.trim()];
+			const retired = RETIRED_HEADINGS[heading.text.trim()];
+			const message =
+				typeof retired === "string"
+					? retired
+					: retired && retired.type === page.frontmatter?.type
+						? retired.message
+						: undefined;
 			if (message) at("retired-heading", heading.line, message, message.slice(message.indexOf("Migrate")));
 		}
 		if (page.frontmatterError) {

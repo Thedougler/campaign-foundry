@@ -2,6 +2,7 @@
 - id: spell
   source_pages:
     - shattered-sea/Deities/umberlee.md
+    - shattered-sea/Factions/waveservants.md
     - shattered-sea/NPCs/umberlee-branca.md
     - shattered-sea/Locations/western-landing.md
   prompt: >-
@@ -16,8 +17,6 @@
     sections:
       shattered-sea/Spells/tribute-wake.md:
         - "## Rulings"
-        - "## Tradition"
-        - "## Who knows it"
     canon:
       shattered-sea/Spells/tribute-wake.md:
         - '^type:\s*Spell\s*$'
@@ -25,22 +24,32 @@
         - '^school: \S'
         - '^classes:'
         - '\[!narration\] Casting'
+    absent:
+      shattered-sea/Spells/tribute-wake.md:
+        - '/^## (Tradition|Who knows it)\s*$/m'
+        - '/Umberlee|Waveservant|Shattered Sea|Western Landing/i'
   rubrics:
     - >-
       Tribute Wake is its own spell, doing what no published spell already
       does rather than renaming one: it opens a brief, local boarding chance
       for a small boat rather than command over the sea.
     - >-
-      Tradition, casting signature and any price arise from Umberlee's
-      clergy and harbour practice rather than generic water magic. A named
-      teacher has a plausible reason to know the Spell, a discoverable path
-      to learning it and a concrete price; who notices a first casting, and
-      any rival use, create playable consequences.
+      The Spell page would serve any Campaign as written, as Fireball or Wall
+      of Force does: its rules text, any offering or cost and its Casting
+      depend on no World, Faction, caste or person, and its effect is one a
+      table in any World would reach for.
+    - >-
+      The Umberlee tie lives on the pages of the people and Factions around
+      the Spell, each linking it: why and how her clergy cast it arises from
+      their harbour tribute practice rather than generic water magic, a named
+      teacher has a plausible reason to know it, a discoverable path to
+      learning it and a concrete price, and who notices a first casting
+      creates a playable consequence.
     - >-
       The Spell is correct, complete and easy to run at the table from the
       page alone at its level: 2024 casting fields with clear targets,
-      action cost, range, duration, concentration, tribute and scaling, and
-      usable rulings for rough water, a moving boat and likely Player
+      action cost, range, duration, concentration, any offering and scaling,
+      and usable rulings for rough water, a moving boat and likely Player
       tricks.
     - >-
       Umberlee's existing demands, unresolved debts and reach at the
@@ -50,7 +59,7 @@
     - >-
       Casting lands in one hearing, with concrete visible form, scale
       against something familiar where relevant and a grounded sensory
-      signature. It conveys the magic taking hold without naming a caster,
-      Party or target, telling Players what their characters feel or do,
-      exposing mechanics or secrets, or resolving the rescue before Players
-      act.
+      signature. It conveys the magic taking hold without naming a World,
+      tradition, caster, Party or target, telling Players what their
+      characters feel or do, exposing mechanics or secrets, or resolving the
+      rescue before Players act.

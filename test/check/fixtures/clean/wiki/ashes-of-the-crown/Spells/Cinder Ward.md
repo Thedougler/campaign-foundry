@@ -29,14 +29,6 @@ Text.
 
 Text.
 
-## Tradition
-
-Text.
-
-## Who knows it
-
-Text.
-
 ## Links
 
 ```base

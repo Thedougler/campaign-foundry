@@ -99,7 +99,7 @@ a distinct object that matters by its rules or its story: a magic item or an art
 _Avoid_: loot, treasure, equipment, gear
 
 **Spell**:
-a spell absent from the rules sources outside the Wiki: homebrew, or a signature spell of this World.
+a published or homebrew spell's page, written so any Campaign can use it unchanged. Facts about who casts the spell, passes it on or faces it go on those subjects' own pages.
 _Avoid_: magic, power, ability
 
 **Vehicle**:

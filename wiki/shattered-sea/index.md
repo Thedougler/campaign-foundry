@@ -315,8 +315,8 @@
 
 ## Spells
 
-- [[golden-presence|Golden Presence]] — A Grung circle rite that harvests the magic worshippers are taught they lack, banking it for mortal gold rulers to spend as gods.
-- [[ossketh|Ossketh]] — A suppressed grung transmutation that sets the caster's caste colour permanently; cast before the diet finishes its work, it lodges and keeps running.
+- [[golden-presence|Golden Presence]] — A circle rite that drains the magic of everyone who believes power belongs to a marked few, and banks it in those few until they shine like gods.
+- [[ossketh|Ossketh]] — A transmutation that sets a body's natural colour change for life; cast before the change finishes, it lodges and keeps running until the body catches up.
 
 ## Vehicles
 

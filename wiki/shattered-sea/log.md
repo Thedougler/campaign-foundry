@@ -7437,3 +7437,14 @@
 - [[huahei|Huahei]]
 - [[huahei-crossing|Huahei Crossing]]
 - [[huahei-coven|Huahei Coven]]
+
+## [2026-10-14] create | Rewrite Golden Presence as a setting-neutral spell and move the Gold Caste facts to their pages
+
+- [[golden-presence|Golden Presence]]
+- [[gold-caste|Gold Caste]]
+- [[jean-claude-tabarnack|Jean-Claude Tabarnack]]
+
+## [2026-10-14] create | Rewrite Ossketh as a setting-neutral spell and move its caste facts to Gold Caste
+
+- [[ossketh|Ossketh]]
+- [[gold-caste|Gold Caste]]
