@@ -66,3 +66,19 @@ reference/
 # Ingest evidence: raw awaits Ingest, archive is provenance for files already ingested
 raw/
 archive/
+
+# Media stays local (no LFS): images, maps, PDFs and audio aren't committed; add a test fixture with `git add -f`
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+*.pdf
+*.uvtt
+*.dd2vtt
+*.mp3
+*.wav
+*.m4a
+*.flac
+*.ogg
+*.aac
