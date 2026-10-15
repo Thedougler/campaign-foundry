@@ -470,6 +470,7 @@
 
 - [[session-11-prep|Session 11 - Prep]] — Aruhe crossing from the Crown Squid's flight to a night watch ambush.
 - [[session-12-prep|Session 12 - Prep]] — Four-hour inland rescue through Hinewai's garden, ending with Skarn's last attempt at the Fate Spinner and Perrin's choice to consume.
+- [[session-13-prep|Session 13 - Prep]] — Jean-Claude's reckoning on Aruhe: Skarn's last stand, the Pantry's reunion, the island's hunt for its only grung, and Hinewai's verdict and army at Memorial Grove.
 
 ## Scenes
 

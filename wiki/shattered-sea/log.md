@@ -7567,3 +7567,8 @@
 ## [2026-10-14] lint | When Hinewai's army can cross
 
 - [[hinewai|Hinewai]]
+
+## [2026-10-14] prep | Session 13 Prep
+
+- [[session-13-prep|Session 13 - Prep]]
+- [[hot|Hot]]

@@ -12,6 +12,7 @@ sources:
   - "archive/collab-2026-10-13-skarn-cause-and-shard.md"
   - "archive/collab-2026-10-13-moucheron-original.md"
   - "archive/collab-2026-10-14-sin-and-sanctuary.md"
+  - "archive/collab-2026-10-14-session-13-plan.md"
   - "archive/agentic-co-dm-Midchain.md"
 date: "1495 DR, date not established"
 revealed: ""
@@ -20,7 +21,7 @@ title: "Hot"
 
 ## Active Threads
 
-- [[take-on-aruhe|Take on Aruhe]]. The keeper's summons stands over Jean-Claude, and the grove waits at the lane's end. Next: the hearing, and whose authority the survivors choose.
+- [[take-on-aruhe|Take on Aruhe]]. The keeper's summons stands over Jean-Claude, and the grove waits at the lane's end. Next: Hinewai's verdict on him, then what the Party does about her army.
 - [[rule-of-two|Rule of Two]]. Skarn fights for his cause without retreat. Next: victory or death, and the Party's response. His [[vantyruss-shard|harness shard]] survives him, and Vantyrus watches its next carrier.
 - [[the-canister|The Canister]]. Jean-Claude's silence about his sister's toxin has held since the gangplank. If the Party raises the canister before Hinewai, she may cast Legend Lore on it.
 - [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]]. Delmar confessed, and Umberlee demands the fist-sized Pearl. Her ghost-ship Dead Lady taunts him until repayment. The Calveno survivors' "fist debt" began as "Fisk's debt".
@@ -40,8 +41,7 @@ title: "Hot"
 
 - **In-world date.** 1495 DR. Month and weekday unknown.
 - **Party at.** A clearing beside [[the-burnt-road|The Burnt Road]] several miles inland on [[aruhe|Aruhe]], the long rest broken by an invisible [[talon-skarn|Talon Skarn]], the fight still joined.
-Rebuild Session 13 from scratch as a hero's journey with Jean-Claude as Lead PC: his reckoning with Hinewai at Memorial Grove closes the Aruhe arc and reveals her army. The Party stays in the Midchain. Ruk brings Calveno news on Nona's Passage ship and warns them off Malone and the HCS Ordinance. Karath follows under Hinewai's army clock; Malone trails by sail, a couple of days behind.
-Hinewai may cast *Detect Magic* on Jean-Claude at the grove: it shows wisps slipping away east towards Karath. [[penance-bar|Penance Bar]] and [[sorrowbell|Sorrowbell]] hold the Siege's confrontation, and [[sin-and-sanctuary|Sin and Sanctuary]] sets the law behind it.
+- **Plan.** [[session-13-prep|Session 13 - Prep]] charts the night. It runs from Skarn's last stand and the Pantry, past the island's hunt for Jean-Claude, to Hinewai's verdict and her army at [[memorial-grove|Memorial Grove]]. A guilty verdict ends the Session at the break-out, and the run to the coast opens Session 14. [[penance-bar|Penance Bar]] and [[sin-and-sanctuary|Sin and Sanctuary]] hold the Siege, unmet by the Party.
 
 - [[sandro|Sandro]] and [[nino|Nino]] sail aboard the [[uncertainty|Uncertainty]] since the Session 10 lift-off, and the broken [[vethka|Vethka]]'s shade on the landing beach stands empty. The Death Bloom's choice waits inland.
 
