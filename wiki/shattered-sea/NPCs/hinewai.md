@@ -31,7 +31,7 @@ title: "Hinewai"
 - **Will not share.** She does not readily trust the Grung, whose hatred she carries into Aruhe's land.
 - **Requests.** She expects visitors to respect Aruhe and leave its living things untouched.
 - **If pressed.** She gestures to the fauna bowing at the Grove and says, \"They'll have bigger problems soon.\"
-- **If ignored.** She keeps her will over the island's wildlife and waits until her beasts can cross the channel.
+- **If ignored.** She keeps her will over the island's wildlife and waits until her beasts can cross the channel. That is most likely months away, with no fixed date.
 - **Invitations.** The Party can ally with her against the Gold caste. She can turn her army on their shared enemy, though once the beasts cross the channel they will kill every Grung on Karath without distinction.
 
 > [!narration] First look
