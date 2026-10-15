@@ -113,7 +113,7 @@ During Session 12, Hinewai's beasts killed the Grung who had accompanied the shi
 - Every Calveno who ate fallen fruit belongs to her garden, and Aruhe's responders spare them. The island's hostility to the Grung is no rule of hers. Her hatred of them, born of her capture and torture, has seeped into the ground, plants and animals over generations.
 - Hinewai is currently suspicious of Jean-Claude. Every Grung she has met came under Gold-caste compulsion and attacked Aruhe. Those assaults made the Burnt Road. Jean-Claude is the only Grung currently alive on Aruhe.
 - At [[memorial-grove|Memorial Grove]] she judges Jean-Claude and the companions who bring him. Either they are Grung under Gold compulsion or messengers from [[karath|Karath]], or they are more survivors of [[calven-and-calveno|Calveno]]. She also watches that no member of the Party takes any of the Calveno survivors. Only those who want to go may leave with them.
-- If she casts *Detect Magic* on Jean-Claude, Hinewai can see that the Golden Presence tether remains: wisps of magic continually leave him despite his lack of a seal, and drift east towards [[karath|Karath]]. She may share that reading with the Party, but it is not a required reveal.
+- If she casts *Detect Magic* on Jean-Claude, Hinewai sees that the Golden Presence tether remains: wisps of magic continually leave him despite his lack of a seal, and drift east towards [[karath|Karath]]. She knows what they mean, for she worked beside the Gold caste's magic in Karath's hatcheries, and she explains it to the Party in her own broken way.
 - If the Party brings the canister up in front of her, Hinewai may cast Legend Lore on it and relay what she learns to them.
 
 ## Threads

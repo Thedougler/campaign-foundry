@@ -7558,3 +7558,8 @@
 ## [2026-10-14] lint | What Hinewai judges at the grove
 
 - [[hinewai|Hinewai]]
+
+## [2026-10-14] lint | Hinewai reads the tether; peaches waiting at the grove
+
+- [[hinewai|Hinewai]]
+- [[memorial-grove|Memorial Grove]]

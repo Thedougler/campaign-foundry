@@ -24,7 +24,7 @@ title: "Memorial Grove"
 
 ## Areas
 
-The black-flower ring encloses the fruit tree, two graves, bound soil and still grass. A ring of saplings marks the clearing's edge. Pale roots descend towards [[lava-tubes|Lava Tubes]]. The Site draws the Party with the answer to Aruhe's law, the Gold caste's attempts to break the graves and a choice that could change the island. Trails approach from Grasslands, Clear Lake, Marshes, Star Cut and the Burnt Road.
+The black-flower ring encloses the fruit tree, two graves, bound soil and still grass. Beneath the tree lie a couple of fallen golden peaches, free for any guest to pick up from the moment the Party arrives. Saplings ring the clearing's edge, and pale roots descend towards [[lava-tubes|Lava Tubes]]. The Site draws the Party with the answer to Aruhe's law, the Gold caste's attempts to break the graves and a choice that could change the island. Trails approach from Grasslands, Clear Lake, Marshes, Star Cut and the Burnt Road.
 
 ## Hazards
 
