@@ -8,44 +8,39 @@ sources:
   - "archive/ssw-nona-black-jaw.md"
   - "archive/ssw-midchain.md"
   - "archive/ssw-session-02.md"
+  - "archive/agentic-co-dm-Midchain.md"
 revealed: "Backstory"
 title: "Passage"
 ---
 
 ![[passage-sigil.webp]]
 
-## At a glance
-
-- **Goal.** Move people, cargo and news beyond Crown inspection, and recover captives.
-- **Next move.** Keep ships on the captive route and open a safe kitchen for rescued people.
-- **Led by.** [[nona-black-jaw|Nona Black-Jaw]] at the Warren anchor [[black-jaw-run|Run]]. The [[tangle|Tangle]] sets wider policy.
-- **Base.** [[warren|Warren]] beneath Calveno.
-- **Strength.** Safe kitchens, family couriers, hidden Holds, ships and commercial cover.
-
 > [!narration] Public face
 > People who cannot use the official docks still move. You eat first in a kitchen that already knows your name, then leave on a boat with the look of ordinary trade. Inspectors find commercial paper, not a passenger list. You ask for Nona if you already know to ask.
 
-## Play
+## Dealings
+
+- **Goal.** Move people, cargo and news beyond Crown inspection, and recover captives.
+- **Faces.** [[nona-black-jaw|Nona Black-Jaw]] leads the [[black-jaw-run|Black-Jaw Run]] from [[warren|Warren]] beneath Calveno. The [[tangle|Tangle]] sets wider policy.
 
 - **When met.** Couriers are moving a person, message or cargo while checking whether the Party respects Passage boundaries.
 - **When opposed.** The Passage reroutes people first, then protects route knowledge and negotiates or cuts contact.
-- **Offers.** Shelter, safe kitchens, route knowledge, courier access, ships and introductions. The Passage knows which [[midchain|Midchain]] back channels are clean for westbound ships avoiding Strait inspection.
+- **When ignored.** Keep ships on the captive route and open a safe kitchen for rescued people.
+- **Offers.** Shelter, safe kitchens, route knowledge, family couriers, hidden Holds, ships, commercial cover and introductions. The Passage knows which [[midchain|Midchain]] back channels are clean for westbound ships avoiding Strait inspection. Its contacts can arrange a main-dock bypass in exchange for a favour.
 - **Costs.** Favours and obligations, though refusal can be reshaped rather than ending the relationship.
 - **How to notice or interfere.** Look for coded marks, commercial cover, sudden kitchen closures and boats carrying more passengers than their lists admit. Expose a route, intercept a captive shipment or keep a rescue off Crown books.
 
-## Depth
-
-### History
+## History
 
 The Passage grew from [[warren|Warren]] around 1240 DR to protect communities that official papers and debt priced out. Its One Law is that people are moved to freedom, never as property. It operates through travelling families, Runs, Holds, kitchens and trusted fronts rather than a public hierarchy. After Mercatura, the missing-person list passed 314 fighting-age men; two Passage ships pursued the raiders, and Perrin received a favour.
 
-### Hidden truths
+## Hidden truths
 
 - The network's paper resembles [[tessarine-concordat|Tessarine Concordat]] cover, but no formal Concordat arrangement exists. This is learned by comparing the papers with a Concordat factor's records.
 - More than 314 fighting-age people are already on a captive route. A courier or rescued captive can confirm this.
 - The Passage's current rescue route crosses Grung raiding routes without sharing the Grung clans' goals. Following a ship or asking Nona reveals the collision.
 
-### Threads
+## Threads
 
 - [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]] and the captive route press the Party to choose between rescue and Crown control.
 - The Taken 314 is the people the Passage wants recovered.

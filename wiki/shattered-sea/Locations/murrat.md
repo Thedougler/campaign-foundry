@@ -6,6 +6,7 @@ sources:
   - "archive/murrat.md"
   - "archive/ssw-midchain.md"
   - "archive/collab-2026-10-13-moucheron-original.md"
+  - "archive/agentic-co-dm-Midchain.md"
 parent: "[[midchain|Midchain]]"
 revealed: "Session 2"
 title: "Murrat"
@@ -22,7 +23,7 @@ Murrat is a mile-and-a-half limestone reef between [[kalowe|Kalowe]] and the [[v
 
 A course that skirts the island outside the swarm's reach keeps the crew offshore. Even a clear route through the reef exposes anyone who closes for the cliff hollows or rope bridges. Landing unnoticed or buying passage with blood isn't viable.
 
-Murrat's only inhabitants are its native Moucherons and local wildlife. The Moucherons are sentient and nearly feral towards anyone else. Their numbers can drain an adult human dry in seconds. Neither law nor government protects an outsider, and nobody can sell a safe landing.
+Murrat's only inhabitants are its native Moucherons and local wildlife. The Moucherons are sentient and nearly feral towards anyone else. They hunt outsiders who reach the shore, and their numbers can drain an adult human dry in seconds. Neither law nor government protects an outsider, and nobody can sell a safe landing.
 
 The Midchain considers shipwrecked crews lost. Nobody mounts a rescue for those who go willingly, either. People who tried to persuade the Moucherons died there. Their bodies were never confirmed, but the wider Sea counted them dead when they chose to go.
 

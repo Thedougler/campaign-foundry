@@ -1,17 +1,20 @@
 ---
+title: "Shelfworks"
 type: Location
 kind: Site
-summary: "The western dive terrace of the Drowned Maw, where salvage crews work
-  the upper Antheri tiers above squid-dark water."
+summary: "The western dive terrace of the Drowned Maw, where salvage crews work the upper Antheri tiers above squid-dark water."
 sources:
   - "archive/drowned-maw.md"
   - "archive/ssw-giant-squid.md"
   - "archive/Episode-09-Transcript.md"
   - "archive/collab-2026-10-12-the-dead-lady-and-the-fist-debt.md"
+  - "archive/agentic-co-dm-Midchain.md"
 parent: "[[drowned-maw|Drowned Maw]]"
 revealed: ""
-title: "Shelfworks"
 ---
+
+> [!narration] Entering
+> The dive floor is a terrace of cut Antheri stone partway down the wall, roped at the shelf end. Dive lines run off the edge into water the lamp cannot light. Air lines cross the stone to a rack of pumps, and their levers rise and fall in a slow thud while a hand in oilskins watches the dials and counts the crew out on the lines. Worked stone runs on to the last arch. Past it the shelf ends over black water, and a board at the rope gives the one rule. Those on the lines stay above the depth the crews agreed.
 
 ## Areas
 
@@ -44,9 +47,6 @@ Past the agreed depth, a pull has taken a diver before. Lines can go taut with n
 ## Likely actions
 
 The Party can sign on with a salvage crew or buy line time on the wall. Orvalle tells his account to one crew each season. The Party can also ask the pump crew what the drop-off has been doing lately.
-
-> [!narration] Entering
-> The dive floor is a terrace of cut Antheri stone partway down the wall, roped at the shelf end. Dive lines run off the edge into water the lamp cannot light. Air lines cross the stone to a rack of pumps, and their levers rise and fall in a slow thud while a hand in oilskins watches the dials and counts the crew out on the lines. Worked stone runs on to the last arch. Past it the shelf ends over black water, and a board at the rope gives the one rule. Those on the lines stay above the depth the crews agreed.
 
 ## History
 

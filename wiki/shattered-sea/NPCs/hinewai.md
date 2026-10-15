@@ -26,11 +26,11 @@ title: "Hinewai"
 - **Leverage.** Hinewai commands Aruhe's animals and plants when she exerts her will, and can control them passively at a high level. She could draw most of the island's life to her. Her [[hinewai-the-blight|Blight]] form is the island's guardian. The Bloodhawks give her army the air.
 - **Opens them up.** Jean-Claude may draw her army's story out if she believes he is a Gold-caste messenger or otherwise non-hostile.
 - **Shuts them down.** The Grung's assault, harm to Aruhe, taking from the island and the prospect of leaving it.
-- **Will share.** She may tell a non-hostile visitor about the army she is building and breeding against the Grung.
+- **Will share.** She may tell a non-hostile visitor about the army she means to send against the Grung: every wild thing on Aruhe.
 - **Will not share.** She does not readily trust the Grung, whose hatred she carries into Aruhe's land.
 - **Requests.** She expects visitors to respect Aruhe and leave its living things untouched.
 - **If pressed.** She gestures to the fauna bowing at the Grove and says, \"They'll have bigger problems soon.\"
-- **If ignored.** She continues building her army on Aruhe and breeding the creatures it needs to cross the channel.
+- **If ignored.** She keeps her will over the island's wildlife and waits until her beasts can cross the channel.
 - **Invitations.** The Party can ally with her against the Gold caste. She can turn her army on their shared enemy, though once the beasts cross the channel they will kill every Grung on Karath without distinction.
 
 > [!narration] First look
@@ -100,8 +100,8 @@ During Session 12, Hinewai's beasts killed the Grung who had accompanied the shi
 
 ## Hidden truths
 
-- Hinewai's army consists of Aruhe's fauna and flora. Its fauna are warriors and its flora are guards. Her hatred of the Grung is leaching into the land itself.
-- Hinewai is building and breeding that army on Aruhe. The Gold caste's scorched-earth attacks have killed roots connecting her to the island's flora and have wounded her. Her phylactery reaches as far as the pale glowing roots do. In Session 12, the Party saw those roots pulse in the [[lava-tubes|Lava Tubes]] but have not learned what the movement means.
+- Hinewai's army is Aruhe's native life itself. Every wild animal on the island lives naturally and answers her command when she exerts her will. Its fauna are warriors and its flora are guards. She doesn't keep pens or breed beasts in captivity. Her hatred of the Grung is leaching into the land itself.
+- The Gold caste's scorched-earth attacks have killed roots connecting her to the island's flora and have wounded her. Her phylactery reaches as far as the pale glowing roots do. In Session 12, the Party saw those roots pulse in the [[lava-tubes|Lava Tubes]] but have not learned what the movement means.
 - Her grief has cost her humanity, but her love of nature remains. Removing her presence realistically means burning most of Aruhe. The Death Bloom began as the two graves, and centuries of death, growth and decay have spread her pale roots beneath the island.
 - The tree over her graves is her revenge on the Grung. In captivity she watched gold and felt its power pull at every living thing around it like a void.
 - At [[memorial-grove|Memorial Grove]], the tree, sapling ring and figure at the grove's edge are one disjointed consciousness speaking to itself and visitors from different perspectives.

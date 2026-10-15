@@ -16,6 +16,7 @@ sources:
   - "archive/session-12-full.md"
   - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
   - "archive/collab-2026-10-12-hinewai-army.md"
+  - "archive/agentic-co-dm-Midchain.md"
 parent: "[[midchain|Midchain]]"
 revealed: "Session 9"
 title: "Aruhe"

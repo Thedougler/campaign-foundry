@@ -37,16 +37,16 @@ Skarn's second attempt for the Fate Spinner is his last. If he loses, he dies fi
 ## Links
 
 ```base
-Filters:
- and:
-  - file.hasLink(this.file)
-Views:
- - type: table
-  name: Linked from
-  groupBy:
-   property: note.type
-   direction: ASC
-  order:
-   - file.name
-   - note.summary
+filters:
+  and:
+    - file.hasLink(this.file)
+views:
+  - type: table
+    name: Linked from
+    groupBy:
+      property: note.type
+      direction: ASC
+    order:
+      - file.name
+      - note.summary
 ```

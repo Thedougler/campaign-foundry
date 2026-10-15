@@ -6,6 +6,7 @@ summary: "A marsh island in the northern Midchain where the Feywild leaks throug
 sources:
   - "archive/ssw-midchain.md"
   - "archive/collab-2026-10-14-glutehorn-and-huahei.md"
+  - "archive/agentic-co-dm-Midchain.md"
 parent: "[[midchain|Midchain]]"
 revealed: ""
 aliases:

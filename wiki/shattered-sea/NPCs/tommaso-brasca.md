@@ -1,38 +1,29 @@
 ---
 type: NPC
-summary: "A Pantry survivor who passes Aruhe's rules to the departing survivors
-  and leaves with the column."
+summary: "A Pantry survivor who built the camp's raft, teaches Aruhe's rules and
+  would take any way off the island."
 sources:
   - "archive/the-pantry.md"
 aliases:
   - "Tommaso"
-creature: "[[commoner|Commoner]]"
 revealed: ""
 title: "Tommaso Brasca"
 ---
 
-## At a glance
-
-- **Role.** One of the seven Calveno survivors camped beneath the great vine at [[the-pantry|The Pantry]].
-- **Wants.** To go when the column goes.
-- **Found at.** The Pantry, until the column sets out.
-
 > [!narration] First look
-> A Calveno man cinches a travel bundle at the camp's edge, ready to walk the moment the column moves.
+> By the channel, a lashed deadwood raft knocks against the bank. A young Calveno man with sawdust-pale hair works a length of cord through his fingers beside it. He watches you look the planks over. “Fallen wood, every piece. Nothing living.”
 
-## Play
+## Roleplaying
 
+- **Wants.** To leave Aruhe the moment someone offers a way, taking the camp's rules with him.
+- **Opening move.** Beside the raft at the edge of [[the-pantry|The Pantry]], one of the seven Calveno survivors camped beneath the great vine. Indifferent.
+- **Leverage.** He built the raft from fallen wood and shed fibre only, and he knows which river stretches hold River Otter families.
 - **Will share.** The camp's rules for the road, taught with [[renzo-canale|Renzo Canale]]: fallen fruit is food, and fallen material is safe to build with. Night travel is forbidden, and water and open ground are hazards.
+- **If pressed.** Offered a way off Aruhe, he gathers the camp's rules and goes. It matches what he has built the raft toward, so he answers it without a roll (SRD 5.2.1, Influence). ==He ties the cord off and pockets it. “We go by day, and nobody picks a thing.”==
 
-## Depth
+## Threads
 
-### History
-
-Tommaso followed Hinewai's law into the clearing with the other survivors. When the column left, he went with it, and he passed the camp's rules to the departing survivors beside [[renzo-canale|Renzo Canale]].
-
-### Threads
-
-He leaves with the survivor column of [[taking-on-aruhe|Taking on Aruhe]].
+He is one of the survivors of [[taking-on-aruhe|Taking on Aruhe]], and a way off Aruhe would take him out of it.
 
 ## Links
 

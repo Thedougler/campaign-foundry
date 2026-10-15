@@ -5,13 +5,14 @@ kind: Settlement
 summary: "A frightened island village in the western Midchain near Kalowe, where a bishop's accusations draw demons and a mob threatens the last hallowed grove."
 sources:
   - "archive/collab-2026-10-14-sin-and-sanctuary.md"
+  - "archive/agentic-co-dm-Midchain.md"
 parent: "[[midchain|Midchain]]"
 revealed: ""
 ---
 
 ## Districts
 
-The island lies near [[kalowe|Kalowe]] in the western Midchain. One street of houses follows a sandspit. A stone causeway leads to the headland shrine, [[sorrowbell|Sorrowbell]], where [[corvin-ashe|Corvin Ashe]] preaches to Tyr. Ash on doorsteps and tally-stones mark the village's siege warnings, and the bell tolls at odd hours. The village is already afraid, but nobody has died here yet.
+Near [[kalowe|Kalowe]] in the western Midchain, Penance Bar's houses follow one street along a sandspit. A stone causeway leads to the headland shrine, [[sorrowbell|Sorrowbell]], where [[corvin-ashe|Corvin Ashe]] preaches to Tyr. Ash on doorsteps and tally-stones mark the village's siege warnings, and the bell tolls at odd hours. The village is already afraid, but nobody has died here yet.
 
 Beyond the last worked field, half a day's walk inland, [[sandy-grove|Sandy Grove]] shelters old-growth trees and the coven. The plough has always gone around that stand. The town's population is not established.
 

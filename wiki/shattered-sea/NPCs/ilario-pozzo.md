@@ -1,37 +1,28 @@
 ---
 type: NPC
-summary: "A Pantry survivor who joins the column when it sets out."
+summary: "A Pantry survivor and ship's cook who dries fallen guava and would walk
+  out if offered a way off Aruhe."
 sources:
   - "archive/the-pantry.md"
 aliases:
   - "Ilario"
-creature: "[[commoner|Commoner]]"
 revealed: ""
 title: "Ilario Pozzo"
 ---
 
-## At a glance
-
-- **Role.** One of seven Calveno survivors who eat what the vine drops at [[the-pantry|The Pantry]].
-- **Wants.** To walk out with the nine.
-- **Found at.** The Pantry clearing.
-
 > [!narration] First look
-> A Calveno man swings a packed bundle onto his shoulder and looks back once at the vine.
+> By the fire, a round-faced Calveno man lays slices of fallen guava on flat stones and turns each one with a fingertip. The sweet smell drifts across the clearing through the smoke. He holds a slice out to the nearest of you. “Dried, it keeps for days.”
 
-## Play
+## Roleplaying
 
-- **Will share.** The column's plan to travel by day and rest by night.
+- **Wants.** To feed a walk out of the island, if anyone offers a way off Aruhe.
+- **Opening move.** At the fire in [[the-pantry|The Pantry]], one of seven Calveno survivors who eat what the vine drops, drying fruit. Indifferent.
+- **Will share.** The camp's rule for any walk: travel by day and rest by night.
+- **If pressed.** Offered a way off Aruhe, he starts packing food for the whole walk. A march gives him a crowd to feed, so he answers it without a roll (SRD 5.2.1, Influence). ==He sweeps the dried slices into a cloth. “Then I pack for all of us. Day marches only.”==
 
-## Depth
+## Threads
 
-### History
-
-Ilario followed Hinewai's law into the clearing, and when the column set out he walked with it.
-
-### Threads
-
-He walks out with the nine, into the work of [[taking-on-aruhe|Taking on Aruhe]].
+He would walk out of the island and into the work of [[taking-on-aruhe|Taking on Aruhe]].
 
 ## Links
 

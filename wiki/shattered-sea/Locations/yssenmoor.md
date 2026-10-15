@@ -5,7 +5,8 @@ kind: Site
 summary: "Ordinary wetland marsh, foggy some days and clear on others, that Sir Quackers the Fowl guards."
 sources:
   - "archive/collab-2026-10-13-sir-quackers.md"
-parent: ""
+  - "archive/agentic-co-dm-Midchain.md"
+parent: "[[midchain|Midchain]]"
 revealed: ""
 ---
 
@@ -14,11 +15,11 @@ revealed: ""
 
 ## Areas
 
-The marsh is one open space with one keeper. A Party comes here to cross it or camp in it, and a Party that gives the duck honest answers can gain a strange ally.
+Yssenmoor stretches three miles across the northern [[midchain|Midchain]]. The marsh is one open space with one keeper. A Party comes here to cross it or camp in it, and a Party that gives the duck honest answers can gain a strange ally.
 
 ==Every duck in the reeds stops calling at once, and then something big hits the water ahead of you hard enough to rock the reeds. "Name. Business. And are you leaving my marsh the way you found it?"==
 
-Anyone can wade in from any side, and nothing blocks the way. Water is ankle-deep to knee-deep, with firm hummocks of grass between the pools, and the reeds hide whatever stands on the far side of them. The weather is normal for a marsh, foggy on some days and clear on others, and nothing about the sound or the light is unnatural. The only danger here is the one who guards it.
+There is no dry landing, but anyone can wade in from any side, and nothing blocks the way. Water is ankle-deep to knee-deep, with firm hummocks of grass between the pools, and the reeds hide whatever stands on the far side of them. The weather is normal for a marsh, foggy on some days and clear on others, and nothing about the sound or the light is unnatural. The only danger here is the one who guards it.
 
 [[sir-quackers-the-fowl|Sir Quackers the Fowl]] finds every stranger who comes in and stops them. He asks for a name, a business and a promise to leave the marsh the way it was found, and he waits for a proper answer. The marsh has no maze, trap or hidden door. Hummocks of firm ground are the best spots to stand, camp or talk. The way out is the way in.
 

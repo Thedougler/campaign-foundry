@@ -10,22 +10,27 @@
 - [[ashwall-islands|Ashwall Islands]] — Cold volcanic spires at the Galewall's edge: the last solid ground outbound, the first proof inbound, and a reckoning point rather than a destination.
 - [[central-strait|Central Strait]] — The inspected east-west corridor between the Crown Islands and the Midchain, run through by an east-setting current and narrowed by the Maw's water at its eastern end.
 - [[crown-islands|Crown Islands]] — An island chain whose name is geographic: the Dravosi Crown and the Tessarine Concordat hold separate harbours across it, and trade credit and old routes meet between them.
+- [[dreth|Dreth]] — The lower, wetter eastern Verdant Tooth, a drowned forest with timber works and no charted shoreline.
 - [[drowned-maw|Drowned Maw]] — A chart-edge trench where currents reverse, the Pearl lies below the waterline and a planar fissure strains containment.
+- [[duskveil|Duskveil]] — An eastern Midchain island under a lasting illusion of evening whose source is unknown.
 - [[galewall|Galewall]] — The permanent western storm belt between the Scatter and the colonial homelands: a three-week crossing that loses one hull in three and prices every mistake.
 - [[grasslands|Grasslands]] — Hot river-cut valleys of eight-foot gold-green grass where water, cover and predators force exposed choices.
 - [[huahei|Huahei]] — A marsh island in the northern Midchain where the Feywild leaks through, home to the Glutehorn and a coven of hags.
 - [[karath|Karath]] — A closed Grung raid and hatchery island where the Gold caste sends compelled raiders toward Aruhe.
 - [[midchain|Midchain]] — The remote island chain whose reefs, harbours and rival powers shape every crossing.
 - [[murrat|Murrat]] — A lethal Midchain reef whose billions of Moucherons swarm ships within half a mile of shore.
+- [[orak|Orak]] — The high karst Verdant Tooth, with stone towers, sinkholes and wet clefts and no sanctioned landing.
 - [[outer-reach|Outer Reach]] — The under-governed water east of the Drowned Maw, where governance stops at the chart edge and pilots sell the easting for as much as cargo.
 - [[redwind-isles|Redwind Isles]] — An under-charted island chain in the Outer Reach, likely held under an ancient blue dragon's sphere of control even when no sighting occurs.
+- [[sorn|Sorn]] — The Verdant Teeth's farm island, with flood-pulse crop lanes behind a guarded trade beach.
 - [[the-doldrums|The Doldrums]] — A windless band of mirror-flat water below the Midchain's southern edge, where sound carries too far and a black dragon hunts becalmed ships.
 - [[the-mangroves|The Mangroves]] — Aruhe's tidal mangrove wall, where the root maze leaves no route from sea to shore.
 - [[the-quiet|The Quiet]] — Aruhe's silent inland rainforest, where silence moths ate small singers and the Calveno trail runs to the Pantry.
 - [[the-river|The River]] — Clear Lake's braided rivers are Aruhe's best road, but River Otter families own the fast clear water.
-- [[the-tail|The Tail]] — The eastern convergence of the island arcs, recorded as aarakocra ground and the water that crosses under the Maw's influence.
+- [[the-tail|The Tail]] — The eastern convergence of the island arcs, where aarakocra range near cold water and the last staging island before the Maw.
 - [[verdant-scatter|Verdant Scatter]] — The primary archipelago of the sea: two island arcs, the Crown Islands and the Midchain, with the inspected Central Strait running between them and the Maw waiting at the eastern convergence.
 - [[verdant-teeth|Verdant Teeth]] — The Grung Clans' closed island cluster: sanctioned beach trade outward, interiors forbidden to outsiders.
+- [[veth|Veth]] — The largest Verdant Tooth, with old rainforest above a narrow western trade beach.
 
 ### Settlements
 
@@ -33,67 +38,122 @@
 - [[calders-tooth-and-port-tidefall|Calder's Tooth and Port Tidefall]] — A cliff-tier fortress-port whose docks, trade shelf and Crestwall guns watch the far side Strait.
 - [[calven-and-calveno|Calven and Calveno]] — Calven's marsh, tidal flats and farms rise to Calveno, a neutral canal city the Tessarine Concordat primarily controls, where Crown law stops at the waterline.
 - [[fathomrush|Fathomrush]] — An eastern boom town near the Drowned Maw that stages Shelfworks dives and supplies the line crews.
-- [[halythion|Halythion]] — The sea elves' primary settlement in the Shattered Sea and the seat of their worship of Deep Sashelas.
+- [[halewick|Halewick]] — An ordinary southern fishing island, ruled for now by Toby and Frankie.
+- [[halythion|Halythion]] — An ancient sea elf city concealed in Teikhinos Reef, outside colonial surveys and devoted to Deep Sashelas.
 - [[kalowe|Kalowe]] — Three reef-linked islets joined by stone bridges, with one navigable gap, a seized fort council and a shrine that charges every hull.
 - [[keth-naar|Keth-Naar]] — A tabaxi city at the Blue Hole's edge, the furthest reliable landmark east of the Drowned Maw and the last harbour on the eastern road.
 - [[mercatura|Mercatura]] — A functioning Calveno city whose closed Season 1 crisis leaves its durable urban identity only partly recorded.
+- [[palutai|Palutai]] — A southern fishing settlement whose feuding families press newcomers into their reef dispute.
 - [[penance-bar|Penance Bar]] — A frightened island village in the western Midchain near Kalowe, where a bishop's accusations draw demons and a mob threatens the last hallowed grove.
+- [[ravasol|Ravasol]] — A southern stilt village where gossiping children run the important business across the rooftops.
 - [[sparhold|Sparhold]] — A timber fortress-market and harbour stop on the raiding-fleet trail, where route information is currency.
 
 ### Sites
 
+- [[adwe|Adwe]] — A storm-shifting mangrove maze where herons keep the routes that charts lose.
 - [[aldenmere|Aldenmere]] — A Crown island whose position off Sandtable Shoal makes it the pilot's mark on the mid-strait lane.
+- [[amberfall|Amberfall]] — An eastern Midchain amber-mining island whose specimens hold small creatures caught in motion.
+- [[ash-caldera|Ash Caldera]] — An eastern Midchain black-glass volcanic cone associated with missing salvage.
 - [[ashkevet|Ashkevet]] — A stop on the Midchain run where a yard bell rings from shore and the hand behind it has never shown itself.
 - [[ashwall-lee|Ashwall Lee]] — Sheltered repair water at the foot of the Ashwall spires, where damaged survivors gather and predators follow the wreckage.
+- [[barrow-ait|Barrow Ait]] — An artificial islet of war graves, where abandoned digging tools lie beside unfinished barrows.
 - [[black-lotus|Black Lotus]] — A mature magic-feeding bloom in Aruhe that clamps shut, drains spell slots and can yield a Black Lotus Heart.
+- [[blackrule|Blackrule]] — A chapterhouse of Tyr cut into southern volcanic rock, chosen by Aleksander Malone as his home.
 - [[blue-hole|Blue Hole]] — A sea mark at Keth-Naar's edge on the eastern road, the one feature the charts agree on.
+- [[calders-verge|Calder's Verge]] — A silica vent worked by glassblowers whose prized wares come with a dangerous apprenticeship.
 - [[calveno-sewer-magazines|Calveno Sewer Magazines]] — Underground powder magazines beneath Calveno where the Grung bombing operation stored supplies and held a live ritual.
+- [[cambreys-fold|Cambrey's Fold]] — An eastern Midchain path that returns walkers sooner than the distance should allow.
 - [[casa-falier|Casa Falier]] — A house paid to the Defenders by Iacopo Fieschi alongside trade credit and a diamond ring.
 - [[casa-lupo|Casa Lupo]] — A general-goods shop in Le Paludi where Jean-Claude Tabarnack bought the Silent Shortbow.
+- [[chronehall|Chronehall]] — An island of clockmakers timing an event they refuse to name.
+- [[coeur-bris|Coeur-Bris]] — An eastern Midchain island with a split arch, a locked chest and an unresolved marriage pact.
+- [[corrigans-rest|Corrigan's Rest]] — A welcoming northern Midchain refuge for pirates who have retired from the sea.
+- [[corvenna|Corvenna]] — A neutral eastern Midchain court where champions fight to settle disputes instead of war.
 - [[cutoff-lip|Cutoff Lip]] — A packed dirt shelf at the Quiet's edge, where Calveno prints run north and a Deer-Stalker marks the trees.
+- [[drovannis|Drovannis]] — A druid-tended bird sanctuary whose returning seabirds carry lost objects from across the sea.
+- [[ferrymoor|Ferrymoor]] — An unaffiliated eastern Midchain fog crossing with a ferry that keeps no timetable.
+- [[feyroa|Feyroa]] — A southern island distillery that exchanges coconut wine for secrets rather than money.
+- [[ghal-idrissa|Ghal Idrissa]] — A Crown quarantine island with a decaying stockade and three empty plague ships.
+- [[gullmoth-reach|Gullmoth Reach]] — An eastern Midchain roost of flame-drawn fey moths where sailors approach with lanterns out.
 - [[harwick|Harwick]] — The Crown island whose naval yard and deep-water anchorage face the Central Strait, and from which the Reach patrols stage.
 - [[high-eyrie|High Eyrie]] — A basalt sea-stack beyond the Crown chain held by the Sentinels for two centuries above the Drowned Maw.
 - [[huahei-crossing|Huahei Crossing]] — Spirals and rings worn into the moss at the heart of Huahei, a Feywild crossing that nobody built or guards.
+- [[ilo-maren|Ilo Maren]] — A matriarchal diving island whose glowing kelp harvest ends in a bay-lighting bonfire.
+- [[kalowe-council-fort|Kalowe Council Fort]] — A seized fort above Kalowe's dry docks, where the Chain Council meets around an empty ruler's seat.
+- [[kalowe-waveservant-shrine|Kalowe Waveservant Shrine]] — A causeway shrine at Kalowe's only navigable reef gap, collecting tribute from every passing hull.
 - [[kats-curios|Kat's Curios]] — A curiosity shop where the sea's oddities are bought, sold, and appraised.
+- [[ket-solane|Ket-Solane]] — An apparently deserted southern island hiding smugglers' caves with false bottoms.
+- [[kwoss|Kwoss]] — A turtle-nesting beach where egg season brings local guards into conflict with poachers.
 - [[la-cenere|La Cenere]] — Lavinia Sordi's Le Paludi shop for grey-market cursed and unusual goods.
 - [[la-vasca|La Vasca]] — A concealed Black-Jaw dry dock in Le Paludi, disguised as a defunct tannery and maintained by Cobb.
 - [[landing-bank|Landing Bank]] — The first river mouth after the terraces, where a used camp, northbound prints and fallen redheart berries mark the inland route.
 - [[lava-tubes|Lava Tubes]] — Broad basalt tubes beneath Aruhe, linking marsh, Grove and Clear Lake. The four Calveno survivors once trapped below the Long Meadow skylight are out and travel with the Party.
 - [[le-paludi|Le Paludi]] — Calveno's canal district of taverns, goods, alchemy and discreet routes below the city toward Warren.
 - [[lesser-black-lotus|Lesser Black Lotus]] — A scorched terrace flower that answers violent disturbance by casting a nearby spell back at its attacker.
+- [[lethys|Lethys]] — An eastern Midchain island whose cliffs shelter generations of feral griffons.
 - [[line-bank|Line Bank]] — A used fruiting margin on the Aruhe River where a fishing line, fresh prints and three fruit piles mark the route upriver.
 - [[memorial-grove|Memorial Grove]] — Aruhe's heart: a golden-peach tree over two unmarked graves, where a changing procession of island fauna bows in silence.
+- [[midchain-council-dock|Midchain Council Dock]] — A free-port council jetty where boats queue beside competing signs and information is paid for with a token, a question, a record or a debt.
+- [[midchain-reef-cut|Midchain Reef Cut]] — A shallow reef channel with broken sightlines, where birds, foam and missing markers mark the bad water and a crew trades time against information.
+- [[munai|Munai]] — A feral orchard where potent cures and poisons look alike.
+- [[nemwe|Nemwe]] — An abandoned Crown watchtower whose working signal-fire can still summon or divert patrols.
+- [[old-correspondence|Old Correspondence]] — A lone scribe's islet, where the same letter has remained unfinished for decades.
 - [[old-gardens|Old Gardens]] — Ancient stone terraces rising from Western Landing, crowded with fruit, water channels and things that hunt among them.
+- [[old-harrows-bones|Old Harrow's Bones]] — A derelict ship large enough to serve as an eastern Midchain island, with an economy inside its ribs.
+- [[ossira|Ossira]] — A narrow coral spit crowded with nesting seabirds and deep drifts of moulted feathers.
+- [[otanu|Otanu]] — A mildly active volcanic island where fishers use the smoke plume to decide when to sail.
+- [[otel-karn|Otel-Karn]] — A remote eastern Midchain island where wounds do not heal, tied to the Flock's older teaching.
 - [[print-braid|Print Braid]] — A braid of packed paths along the Quiet's edge where only one strand carries the Calveno trail north.
+- [[quillane|Quillane]] — A sinking tidal observatory whose scholar-mages trade knowledge for unfamiliar specimens.
 - [[razer-grass|Razer-Grass]] — A pale glass-edged stand that cuts movement and bursts into slashing shards and choking dust when shattered.
+- [[sable-roost|Sable Roost]] — Southern sky-pirate wrecks, each watched by its sole surviving crewmate.
+- [[sabrique|Sabrique]] — A western Midchain salt-pan island near Kalowe, where indentured workers produce salt that buyers know better than to question.
 - [[sandtable-shoal|Sandtable Shoal]] — A mid-strait sandbank south of Aldenmere where the bottom rises fast, the Blue Lane kinks south, and giant octopuses prey on the wrecks in its limestone.
 - [[sandy-grove|Sandy Grove]] — The old-growth home of Penance Bar's harmless coven and the island's last hallowed ground, still protected by an unnamed archfey.
+- [[sanvashti|Sanvashti]] — A mossed southern terrace where rival Grung clans meet under an old truce.
 - [[shelfworks|Shelfworks]] — The western dive terrace of the Drowned Maw, where salvage crews work the upper Antheri tiers above squid-dark water.
 - [[slack-basin|Slack Basin]] — A still turquoise pool owned by an otter family, where Matteo's camp and a bloody Calveno trail mark the route into the Quiet.
+- [[slackwater|Slackwater]] — The shared harbour of the southern Midchain.
+- [[sorn-guarded-beach|Sorn Guarded Beach]] — Sorn's held landing, where a purple garrison watches pale sand and trade passes through blue-caste intermediaries.
 - [[sorrowbell|Sorrowbell]] — Penance Bar's shrine to Tyr, where Corvin Ashe preaches and keeps the true ledger behind a locked door, though divine protection has already lapsed.
+- [[sparhold-isle|Sparhold Isle]] — A half-mile cut-over islet carrying Sparhold's timber walls above Teethward water.
 - [[spiritpollen|Spiritpollen]] — A pale pollen stand whose cloud makes breathing creatures hallucinate hostile spirits and attack their companions.
 - [[spoke-ring|Spoke Ring]] — The Calveno survivors' last camp under the Quiet, a round fire hub where trails leave like spokes toward Hinewai's voice.
 - [[star-cut|Star Cut]] — A straight Quiet aisle beneath a slit of sky where the Calveno kept watch and the route continues toward Memorial Grove.
 - [[stenmark|Stenmark]] — The Crown island whose eastern cliffs and signal tower are the last charted landmark before the Narrows close.
 - [[stillbloom|Stillbloom]] — A vibration-triggered Aruhe plant that launches venomous spines at fast grounded creatures and rewards careful passage.
 - [[studio-orsini|Studio Orsini]] — A Le Paludi studio that buys what nesting things and the sea give up, run by Marta Orsini.
+- [[sump-cradle|Sump Cradle]] — Curative hot mud whose healing always brings a small, strange and permanent side effect.
 - [[sunken-crown|Sunken Crown]] — A broken structure east of the Drowned Maw, structurally unstable and still subsiding.
+- [[tail-staging-island|Tail Staging Island]] — An island in the Tail offering the last supplies and hands before the Drowned Maw, with its local name still unknown.
 - [[tallow-row|Tallow Row]] — A card house of long-running tables where Thunk won silver, Thassos tests the players, and Old Faas holds fifteen years of standing.
 - [[tessarine-trade-house|Tessarine Trade House]] — A three-storey Concordat house on the Shelf that turns trade, salvage and mail into signed terms.
 - [[the-burnt-road|The Burnt Road]] — A fire-cleared scar twenty feet across, burned from the coast deep into Aruhe by compelled Grung and lined with their clean white dead; it runs toward the grove.
 - [[the-cabinet-of-morsani|The Cabinet of Morsani]] — A Velo Quarter curio shop where Prospero Morsani sells rare objects together with the stories of those who lost them.
 - [[the-flat-water|The Flat Water]] — Kalowe's main eating, drinking and lodging house overlooks the lagoon, with Reweti Kahurangi behind the bar and a quiet route to the Five Blades.
+- [[the-foundling-shoals|The Foundling Shoals]] — A reef where unharmed infants appear and local fisherfolk raise them as a sacred trust.
 - [[the-galewall-runners-drop|The Galewall Runner's Drop]] — A legendary colonial-era privateer cache on the Ashwall Islands, named the way crews name a thing they have not found.
+- [[the-hollow-choir|The Hollow Choir]] — Southern tide caves that turn a single voice into several harmonising parts.
 - [[the-long-meadow|The Long Meadow]] — The one Quiet grass cut where the roof breaks open. Two Terror-Birds own its halves, and the four survivors once trapped below the skylight are out with the Party.
+- [[the-long-wager|The Long Wager]] — An island given to a generations-long rivalry, judged by a referee who never ages.
 - [[the-pantry|The Pantry]] — A clearing deep in the Quiet roofed by one fruit-heavy vine, where seven Calveno survivors live on what falls.
 - [[the-ponte-bassa|The Ponte Bassa]] — A canal-side tavern built into Calveno's main crossing, where Oleandro Fuschi serves fish broth and remembers ships.
+- [[the-unplotted|The Unplotted]] — A moving green island whose glass-flat bay appears where ships need shelter.
+- [[thessit|Thessit]] — Whole wrecks arrive here months after sinking elsewhere, with their crews missing.
+- [[tor-vessane|Tor Vessane]] — A cursed island that captains avoid despite disagreeing about what the curse does.
 - [[torn-crossing|Torn Crossing]] — A flood-scoured Grasslands crossing where prints, slick stone, Razer-Grass, deep water and a Spiguar hunting lane constrain movement.
+- [[twineye|Twineye]] — Two southern islets joined by a natural arch and disputed for generations by an estranged family.
 - [[umberlees-shrine|Umberlee's Shrine]] — Umberlee's old shrine on Vel-Orn, cut into black stone off every colonial chart, keeper of drowned names and water-debts.
+- [[vaelspire|Vaelspire]] — A sheer basalt spire whose summit grants one truthful answer to each climber.
 - [[vel-orn|Vel-Orn]] — A small reef-bound island in the ring around the Blue Hole, with Umberlee's hidden shrine cut into its cliff.
+- [[velk-ithera|Velk-Ithera]] — A southern hillside covered by one fungal organism that responds faintly to sound.
+- [[vetau|Vetau]] — A geothermal atoll whose lagoon boil closes its only safe anchorage for an hour at noon.
+- [[veth-west-beach|Veth West Beach]] — Veth's narrow sanctioned trade strip, with blue-caste go-betweens and a closed root stair inland.
 - [[volcanic-vent-caves|Volcanic Vent Caves]] — Steam-warmed fissures in the Ashwall spires, warm enough to shelter in and warm enough to be occupied.
 - [[warren|Warren]] — A Rattkin settlement beneath Le Paludi and deepest Passage anchor, reached through learned routes and trust.
 - [[waveservant-shrine|Waveservant Shrine]] — The Waveservants' harbour shrine in Calveno, where tribute is collected, appointments are kept, and Umberlee has spoken.
 - [[western-landing|Western Landing]] — Aruhe's one known sea approach: a reef half a mile offshore with a boat gap, short shingle beach and Uncertainty waiting beyond.
+- [[whitmoth-hollow|Whitmoth Hollow]] — Albino apes preserve an abandoned druidic garden and leave fruit on its offering stone.
 - [[yssenmoor|Yssenmoor]] — Ordinary wetland marsh, foggy some days and clear on others, that Sir Quackers the Fowl guards.
 
 ## NPCs
@@ -108,10 +168,10 @@
 - [[bastian-crev|Bastian Crev]] — Lizardfolk salvage-hand who rose to captain the Loud Argument in Fisk's Fleet; his fate after the fleet sank is not recorded.
 - [[bazzoth-the-steeped|Bazzoth, the Steeped]] — Old red-caste Grung alchemist who guarded a sewer powder magazine until Session 05.
 - [[beaumont-sel|Beaumont Sel]] — Patient tortle captain of the Saltwright and a trusted Friend of the Passage.
-- [[beppe-sarti|Beppe Sarti]] — A Pantry survivor who stays beneath the vine, wrongly sure Hinewai's protection ends at the clearing.
+- [[beppe-sarti|Beppe Sarti]] — A Pantry survivor who would stay beneath the vine, wrongly sure Hinewai's protection ends at the clearing.
 - [[bisou|Bisou]] — Beaumont Sel's capuchin monkey, the Saltwright's quick delivery hand.
 - [[capn-gorgeous|Cap'n Gorgeous]] — Crown captain and Rupert Knighton's adopted son, lost through an illusory doorway aboard the Saltwright.
-- [[carlo-ferrante|Carlo Ferrante]] — Calveno dock foreman who led survivors to the Pantry and believes his brother died behind him.
+- [[carlo-ferrante|Carlo Ferrante]] — Calveno dock foreman who rose first to follow Hinewai's voice, now at the Pantry and sure his brother died behind him.
 - [[catalina-curio|Catalina Curio]] — Keeper of Kat's Curios, holding Delmar Fisk's whip-shark barb under appraisal.
 - [[catarina-davirelli|Catarina Da'Virelli]] — Calveno artificer and salvage engineer who keeps her workshop in the city.
 - [[cedric-hollowell|Cedric Hollowell]] — Verity Hollowell's father, who met Geoffrey Draves at the dancing spot with terms instead of a daughter.
@@ -135,13 +195,13 @@
 - [[halda-wren|Halda Wren]] — The plain, blunt leader of the harmless hedge-druids at Sandy Grove.
 - [[hinewai|Hinewai]] — Undead elf archdruid bound to Aruhe, whose grief became the island's law and whose army grows around it.
 - [[iacopo-fieschi|Iacopo Fieschi]] — Tessarine factor who turned Calveno's victory into Concordat credit.
-- [[ilario-pozzo|Ilario Pozzo]] — A Pantry survivor who joins the column when it sets out.
+- [[ilario-pozzo|Ilario Pozzo]] — A Pantry survivor and ship's cook who dries fallen guava and would walk out if offered a way off Aruhe.
 - [[impuni|Impuni]] — A name Shepherd Grigori said he needed to reach in Calveno, in time; nothing else on record.
 - [[ket|Ket]] — Ordinary-sized mosquito humanoid, freed from the Surety's cage and remembered for addict urgency, sweet-talk and blood theft.
 - [[lavinia-sordi|Lavinia Sordi]] — Seller of cursed goods who named Osset a second time.
 - [[lenne-vor|Lenne Vor]] — Saltwright's navigator; twenty years of chart work, consulted once, quietly right about everything.
 - [[luca-ferrante|Luca Ferrante]] — Sixteen-year-old wreck survivor who counts everything and knows which way his uncle walked.
-- [[marco-lenzi|Marco Lenzi]] — A Pantry survivor who stays beneath the vine when the column leaves.
+- [[marco-lenzi|Marco Lenzi]] — A Pantry survivor who would stay beneath the vine, afraid Hinewai will stop counting him if he leaves.
 - [[marta-orsini|Marta Orsini]] — Le Paludi's buyer of eggs and curiosities at Studio Orsini, whom the Casa Lupo shopkeeper sends egg inquiries to.
 - [[master-kyzil|Master Kyzil]] — Barn-owl Sentinel master testing Crissdalynn while investigating a foul wind beneath Calveno.
 - [[matteo-scola|Matteo Scola]] — Wreck survivor who lives by Aruhe's fallen-fruit rule, will not approach Hinewai, and now travels inland with the Party.
@@ -156,13 +216,13 @@
 - [[pell|Pell]] — A gnome enslaved as a labourer at Sorn, killed in the reprisal after Jean-Claude freed slaves.
 - [[piero-sorrentino|Piero Sorrentino]] — Weathered Calveno net-mender lifted from the lava tube, marching inland with the Party.
 - [[prospero-morsani|Prospero Morsani]] — Keeper of the Velo Quarter cabinet of lost objects, and a fixture at every Calveno festival whose appearance at the winning stage the crowd reads as an omen.
-- [[renzo-canale|Renzo Canale]] — Eldest Calveno survivor who teaches Aruhe's fallen-fruit rule and will stay at the Pantry.
+- [[renzo-canale|Renzo Canale]] — Eldest Calveno survivor who teaches Aruhe's fallen-fruit rule and would stay at the Pantry.
 - [[reweti-kahurangi|Reweti Kahurangi]] — The Flat Water's tortle proprietor and former deckhand keeps the room peaceful, offers useful facts only once and knows how to reach the Five Blades.
 - [[roka-sten|Roka Sten]] — Zort's Midchain animal supplier, whose name Zort paid to Catarina's workshop and handed the Party in Session 08.
 - [[ruk|Ruk]] — Nona Black-Jaw's literal-minded lizardfolk guardian, a patient physical shield who never ignores a lie or threat.
 - [[ruma-delacroix|Ruma Delacroix]] — Blue-caste Grung handler who became an ally while hiding the party in a sewer nap room.
 - [[rupert-knighton|Rupert Knighton]] — Commodore of the Knight Squadron, tightening the Crown net around the crew.
-- [[sandrino-vale|Sandrino Vale]] — A Pantry survivor who leaves with the column when it sets out.
+- [[sandrino-vale|Sandrino Vale]] — A Pantry survivor and rigger who wants to get home to Calveno and would take any way off the island.
 - [[sandro|Sandro]] — A Calveno captive the Party lifted off Aruhe's landing beach, whose account drew the island's taking-rule, its threats and its hatred of the Grung.
 - [[sem-holst|Sem Holst]] — Lean shipwright aboard Uncertainty who catalogues hull damage unasked and judges people by what they ask about the ship.
 - [[serena|Serena]] — Delmar's most recent mate, warned by his sending stone of the Dravosi warship.
@@ -181,7 +241,7 @@
 - [[thunk|Thunk]] — Enormous orc master gunner whose uncanny powder sense keeps the Uncertainty's guns working.
 - [[toa|Toa]] — Mosquito humanoid and the Five Blades' largest member, a cheerful analyst of fights who collects contract seals.
 - [[toa-kailani|Toa Kailani]] — A person from Sparhold, unrelated to the Moucheron Toa of the Five Blades.
-- [[tommaso-brasca|Tommaso Brasca]] — A Pantry survivor who passes Aruhe's rules to the departing survivors and leaves with the column.
+- [[tommaso-brasca|Tommaso Brasca]] — A Pantry survivor who built the camp's raft, teaches Aruhe's rules and would take any way off the island.
 - [[tomo|Tomo]] — An older Calveno captive who broke Aruhe's fruit taboo the first night ashore and left only drag marks behind.
 - [[umberlee-branca|Umberlee - Branca]] — Senior Calveno Waveservant who delivers Umberlee's command about the Pearl of Souls.
 - [[varet|Varet]] — Mosquito humanoid from Murrat, contract speaker for the Five Blades who states the blood clause before signing.

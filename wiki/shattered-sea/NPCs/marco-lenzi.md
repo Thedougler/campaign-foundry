@@ -1,37 +1,30 @@
 ---
 type: NPC
-summary: "A Pantry survivor who stays beneath the vine when the column leaves."
+summary: "A Pantry survivor who would stay beneath the vine, afraid Hinewai will
+  stop counting him if he leaves."
 sources:
   - "archive/the-pantry.md"
 aliases:
   - "Marco"
-creature: "[[commoner|Commoner]]"
 revealed: ""
 title: "Marco Lenzi"
 ---
 
-## At a glance
-
-- **Role.** A Calveno survivor who keeps to the camp when the column leaves.
-- **Wants.** To stay beneath the vine.
-- **Found at.** The Pantry.
-
 > [!narration] First look
 > A Calveno man works through many fallen branches beside the mats, in no hurry to go anywhere.
 
-## Play
+## Roleplaying
 
+- **Wants.** To stay beneath the vine.
+- **Torn between.** Fear that Hinewai will stop counting him as hers if he leaves, and the offer of a way off Aruhe.
+- **Voice.** A mutter. He recites the island's rules under his breath as he works.
+- **Opening move.** At work near the sleeping ground in [[the-pantry|The Pantry]], a young rigger's apprentice and one of the three who would stay, with [[renzo-canale|Renzo Canale]] and [[beppe-sarti|Beppe Sarti]]. Indifferent.
 - **Will not share.** Much beyond his work at [[renzo-canale|Renzo Canale]]'s side.
+- **If pressed.** Offered a way off Aruhe, he stays. ==He does not look up from the branches. “The ground gives. I'll be here when it does.”==
 
-## Depth
+## Threads
 
-### History
-
-When the column left, Marco kept to the clearing with [[renzo-canale|Renzo Canale]] and [[beppe-sarti|Beppe Sarti]].
-
-### Threads
-
-He stays, and the camp's part in [[taking-on-aruhe|Taking on Aruhe]] stays with him.
+He would stay, and the camp's part in [[taking-on-aruhe|Taking on Aruhe]] would stay with him.
 
 ## Links
 

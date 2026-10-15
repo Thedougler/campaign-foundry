@@ -12,6 +12,7 @@ sources:
   - "archive/collab-2026-10-13-skarn-cause-and-shard.md"
   - "archive/collab-2026-10-13-moucheron-original.md"
   - "archive/collab-2026-10-14-sin-and-sanctuary.md"
+  - "archive/agentic-co-dm-Midchain.md"
 date: "1495 DR, date not established"
 revealed: ""
 title: "Hot"
@@ -45,3 +46,4 @@ Hinewai may cast *Detect Magic* on Jean-Claude at the grove: it shows wisps slip
 - [[sandro|Sandro]] and [[nino|Nino]] sail aboard the [[uncertainty|Uncertainty]] since the Session 10 lift-off, and the broken [[vethka|Vethka]]'s shade on the landing beach stands empty. The Death Bloom's choice waits inland.
 
 - **Midchain navigation.** Avoid [[murrat|Murrat]]'s half-mile swarm reach, where crews are written off. Captains hiring the [[five-blades|Five Blades]] stock chilled blood.
+- **Midchain geography.** The [[midchain|Midchain]] page links each island, sorted by pilot band.

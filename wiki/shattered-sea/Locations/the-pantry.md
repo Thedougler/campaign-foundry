@@ -10,46 +10,55 @@ revealed: ""
 title: "The Pantry"
 ---
 
-## At a glance
-
-- **Draws the Party because.** Survivors, fruit and the route back to the ship meet here.
-- **Entrance.** Fallen-fruit trail from [[the-burnt-road|The Burnt Road]] or Quiet routes.
-- **Occupants.** Renzo Canale and six other Calveno survivors.
-- **Danger.** Three Vine-Lashes answer picked fruit. An invisible hunter may come for the Fate-Spinner.
-- **Prize.** Survivors, fallen Giant's Guava and Stonepear, and a raft.
-
 > [!narration] Entering
 > A vine as thick as a ship's mast roofs a threshing-floor clearing. Guavas and stone-plated pears hang above mats and a small fire. A deep channel slides past a lashed raft while pale pollen glows at the treeline.
 
-## Play
+## Areas
 
-### Areas
+The survivors, the fallen fruit and the way back to the ship meet here, and every offer of a way off Aruhe gets its answer under this vine.
 
-Great vine, bare cords, sleeping ground, fire, channel, raft and pollen drift.
+### The great vine
 
-### Hazards
+==Bare cords sway down between the fruit overhead, and the vine's wood creaks whenever the air moves. Split guavas lie sweet on the packed earth underfoot.== Visitors come by the quarter-mile side trail from [[the-burnt-road|The Burnt Road]], marked with fallen-fruit piles, or by other Quiet routes. [[memorial-grove|Memorial Grove]] lies about an hour north-east. The vine roofs the whole clearing, and its three Vine-Lashes strike anything within fifteen feet of it, which covers the centre. [[giants-guava|Giant's Guava]] and [[stonepear|Stonepear]] drop from it every day, and the survivors eat nothing else. Fallen fruit is safe to take, and picked fruit is a claim (see Hazards).
 
-Picking or cutting fruit wakes up to three Vine-Lashes. The channel can sweep a crosser. Pollen reveals an Invisible creature.
+### Sleeping ground and fire
 
-### Occupants
+==The clearing is ninety feet across, with the small fire in the middle of it. About twenty feet south of the flames, seven mats lie in a row among shelters built of fallen poles.== Everyone sleeps here. Kicked coals show an invisible creature's square until the end of the next turn.
 
-[[renzo-canale|Renzo Canale]], [[carlo-ferrante|Carlo Ferrante]], [[tommaso-brasca|Tommaso Brasca]], [[sandrino-vale|Sandrino Vale]], [[ilario-pozzo|Ilario Pozzo]], [[beppe-sarti|Beppe Sarti]] and [[marco-lenzi|Marco Lenzi]].
+### The channel and raft
 
-### Likely actions
+==The channel along the east edge is twenty feet wide and deep, with open sky above it. A deadwood raft, lashed tight, tugs at its mooring cord against the bank.== The channel lies forty feet east of the fire and runs south to join [[the-river|The River]]. [[tommaso-brasca|Tommaso Brasca]] built the raft from fallen wood and shed fibre only, so it is not a claim. It holds nine people and their gear. The coast is days away by any water, so the raft is no way home.
 
-Talk to survivors, bring Luca and Ettore home, take fallen fruit, cross by raft or expose an invisible intruder.
+### The pollen drift
 
-## Depth
+==Pollen hangs along the north and west treelines in a band thirty feet deep, and it glows where the last light catches it.== The band starts 45 feet out from the fire. An invisible creature inside it shows as a pale shimmer.
 
-### History
+## Hazards
 
-Into this clearing, seven survivors followed Hinewai's law. Four of them want the ship. The last three believe her protection ends here and stay.
+Picking or cutting fruit wakes up to three Vine-Lashes, and cutting the vine is a claim after which it never fruits again. The channel can sweep a crosser downstream. Pollen reveals an Invisible creature, so an invisible hunter after the [[fate-spinner|Fate Spinner]] shows itself here.
 
-### Hidden truths
+## Occupants
+
+- [[renzo-canale|Renzo Canale]] tends the fruit beneath the vine and speaks for the three who would stay. He offers the willing a safe place and answers an offer of passage with a blessing for whoever takes it.
+- [[carlo-ferrante|Carlo Ferrante]] sits at the south edge facing the way he came, sure that Ettore and Luca died in the dark. He would leave the hour he sees them alive.
+- [[tommaso-brasca|Tommaso Brasca]], [[sandrino-vale|Sandrino Vale]] and [[ilario-pozzo|Ilario Pozzo]] want the ship. Offered a way off Aruhe, they would go with Carlo.
+- [[beppe-sarti|Beppe Sarti]] and [[marco-lenzi|Marco Lenzi]] would stay with Renzo whatever is offered, Beppe sure Hinewai's protection ends at the clearing's edge and Marco afraid she will stop counting him if he leaves.
+
+Left alone, all seven keep to the clearing and eat what falls.
+
+## Likely actions
+
+Talk to the survivors, bring Ettore and Luca to Carlo, take fallen fruit, cross by raft or expose an invisible intruder. Offer the survivors a way off Aruhe. Carlo, Tommaso, Sandrino and Ilario would take it. Renzo, Beppe and Marco would stay. If the Party deals with [[hinewai|Hinewai]] on friendly terms, [[nona-black-jaw|Nona]]'s ship can anchor offshore and the remaining Aruhe survivors can walk off.
+
+## History
+
+Nineteen days ago, at Spoke Ring, Carlo rose to follow Hinewai's voice and most of the Calveno camp followed. Seven survivors keep Hinewai's law in this clearing now.
+
+## Hidden truths
 
 [[beppe-sarti|Beppe]] is wrong that Hinewai's protection ends at the clearing. It covers those she counts anywhere on Aruhe.
 
-### Threads
+## Threads
 
 This clearing's seven survivors, sheltering under one fruit-heavy vine, tie it to [[taking-on-aruhe|Taking on Aruhe]], [[perrin-and-nona|Perrin and Nona]], and [[the-crown-inspection|The Crown Inspection]].
 

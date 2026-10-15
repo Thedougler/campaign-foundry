@@ -29,8 +29,8 @@ revealed: "Backstory"
 - **Driven by.** [[perrin-black-jaw|Perrin Black-Jaw]], through his own choices between [[auralis|Auralis]], the Black-Jaw family and the new crew.
 - **Stands at.** Approach to the Inmost Cave, as Session 12 shows it.
 - **Shows up as.** Visions from his patron and Nona's sending stone. The crew's morale, which he keeps up with toasts, inspiration and illusions.
-- **Next development.** His patron's demand climbed from "Grow" in Session 3 to "Consume or die" in Session 12. If nobody acts, Auralis keeps pressing, as [[drowned-maw-awakening|Drowned Maw Awakening]] sets out, and the favour Nona asked of him stays unnamed.
-- **Angles.** Nona's sending stone and her unnamed favour, the Calveno survivors as witnesses, Auralis's account of the rescue, and the [[vestra|Vestra]]'s wreck.
+- **Next development.** His patron's demand climbed from "Grow" in Session 3 to "Consume or die" in Session 12. If nobody acts, Auralis keeps pressing, as [[drowned-maw-awakening|Drowned Maw Awakening]] sets out. The Party paid Nona's favour by rescuing the Calveno survivors, and her Passage ship now brings Ruk with her news.
+- **Angles.** Nona's sending stone and her Passage ship, the Calveno survivors as witnesses, Auralis's account of the rescue, and the [[vestra|Vestra]]'s wreck.
 - **Resolves when.** The Campaign ends, or Perrin leaves play.
 
 ## Hero's journey

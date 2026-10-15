@@ -10,6 +10,7 @@ sources:
   - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
   - "archive/session-10.md"
   - "archive/collab-2026-10-13-moucheron-original.md"
+  - "archive/agentic-co-dm-Midchain.md"
 revealed: "Backstory"
 title: "Dravosi Crown"
 ---
@@ -21,7 +22,7 @@ title: "Dravosi Crown"
 
 ## Dealings
 
-- **Goal.** Keep far side approaches under Crown inspection law. Its authority is local and direct, with might making right.
+- **Goal.** Keep far side approaches under Crown inspection law. Its authority is local and direct, with might making right. Enforcement is thin in the [[midchain|Midchain]], where island councils resist the Crown's demand for records.
 - **Faces.** The Dravosi Admiralty directs the service from Harwick Naval Yard. Governor Voss has local authority.
 - **When ignored.** Compulsory harbour stops continue while the Crown traces the substitute-toxin pipeline.
 

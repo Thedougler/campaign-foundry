@@ -10,6 +10,7 @@ sources:
   - "archive/ssw-session-04-ingest-recap.md"
   - "archive/session-10.md"
   - "archive/collab-2026-10-13-moucheron-original.md"
+  - "archive/agentic-co-dm-Midchain.md"
 revealed: "Session 10"
 title: "Chain Council"
 ---
@@ -22,11 +23,12 @@ title: "Chain Council"
 ## Dealings
 
 - **Goal.** Buy silence about the Pearl theft through increased tribute.
-- **Faces.** Its members are unnamed. The Council meets in a seized fort in [[kalowe|Kalowe]]. The ruler's seat remains empty.
+- **Faces.** Its members are unnamed. The Council meets in the seized [[kalowe-council-fort|Council Fort]] in [[kalowe|Kalowe]]. The ruler's seat remains empty.
 - **Offers.** Harbour decisions and authority to raise tribute. It shares control of arrival with the [[waveservants|Waveservants]].
 - **When ignored.** Complaints about grung raids continue to accumulate at the fort.
 
 - **When met.** Crews bring complaints about worsening grung raids from the [[verdant-teeth|Verdant Teeth]].
+- **When opposed.**
 - **Costs.** Raised tribute at Kalowe, where every hull also pays the shrine.
 - **How to notice or interfere.** Bring raided crews' testimony to the fort, or investigate the sealed mail connecting the Council to the [[tessarine-concordat|Tessarine Concordat]].
 
@@ -41,6 +43,8 @@ The Council governs from a seized fort and shares control of arrival with the Wa
 The [[tessarine-concordat|Tessarine Concordat]] used the Council to arrange the Pearl theft for control rather than protection. Sealed mail can prove the arrangement. The Council raised tribute to buy silence about the theft.
 
 Complaints about grung raids have accumulated at the Council. Beach trade with the Verdant Teeth may become a regional pressure point, though no decision to change it is established.
+
+The southern Midchain islands have not asked the Council for help against Grung pressure. Their landing terms remain matters to settle locally on the beach.
 
 [[murrat|Murrat]] has a Council seat like the other Midchain islands, though a [[moucheron|Moucheron]] delegate rarely fills it. Within the island, government and law remain absent regardless of that seat. Outsiders receive neither protection nor safe passage there.
 

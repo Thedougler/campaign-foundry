@@ -8,10 +8,13 @@ sources:
   - "archive/agentic-co-dm-arc-blight-of-aruhe.md"
   - "archive/collab-2026-10-04-calveno-and-rattkin-bounty.md"
   - "archive/collab-2026-10-12-midchain-arc-plan.md"
-parent: "[[midchain|Midchain]]"
+  - "archive/agentic-co-dm-Midchain.md"
+parent: "[[verdant-teeth|Verdant Teeth]]"
 revealed: "Session 9"
 title: "Karath"
 ---
+
+![[karath-banner.webp]]
 
 ![[karath-handout-art.webp]]
 
@@ -20,7 +23,7 @@ title: "Karath"
 
 ## Travel
 
-Karath is a rainforest island with black river mouths, reef gaps and hidden inland works. The eastern chain route takes days by sail. Only a reef gap leads into the river mouths. It takes about an hour to pilot and is watched. Wet cuts flood quickly, the near channel to Aruhe is half a mile of exposed water and does not shorten Aruhe's crossing, and watchers fire on unapproved hulls.
+Karath is the eastern island of the [[verdant-teeth|Verdant Teeth]], with rainforest, black river mouths, reef gaps and hidden inland works. The eastern chain route takes days by sail. Only a reef gap leads into the river mouths. It takes about an hour to pilot and is watched. Wet cuts flood quickly. At their closest point, [[aruhe|Aruhe]] and Karath are half a mile apart across exposed water. Aruhe's heart is still hundreds of miles inland from that shore. Watchers fire on unapproved hulls.
 
 ## Places
 
@@ -30,7 +33,7 @@ The reef gaps, hatcheries, captive pens and the secret gold farms that grow the 
 
 - The Grung clans and their Gold caste hold Karath. The Gold caste sends fire-bearing expeditions towards Aruhe's Grove. Hinewai's army across the channel is a clock: if her beasts cross to Karath, they will kill every Grung on the island without distinction.
 
-### Encounters
+## Travel events
 
 1. Grung watchers fire from the treeline.
 2. A captive caster works a hatchery pen.

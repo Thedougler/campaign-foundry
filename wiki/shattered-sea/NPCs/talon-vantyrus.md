@@ -68,7 +68,7 @@ When Skarn returned to attack the Party's next camp, he again claimed orders to 
 ## Hidden truths
 
 - Born Osset, once master to Kyzil, and given up for dead decades ago. The Party heard his original name in Session 8. The connection to Vantyrus remains hidden.
-- Through the [[vantyruss-shard|shard on Skarn's harness]], he watches his apprentice and manipulates fate in his favour from afar. Whenever Skarn tries to defy her, [[hinewai|Hinewai]] asserts her own will and overpowers the manipulation.
+- Through the [[vantyruss-shard|shard on Skarn's harness]], he watches his apprentice and manipulates fate in his favour from afar. Whenever Skarn tries to defy [[hinewai|Hinewai]], her will overpowers the manipulation. A perceptive observer may see nearly invisible lines snap as it breaks.
 - He sent Skarn for the Fate Spinner to read Kyzil's lessons and reach the Soul Incarnate technique. His Long Sight weakens before sacrifice, irrational action, and deliberate chaos.
 - Skarn's death leaves the shard intact. If the Party takes it, Vantyrus keeps watching through it, following its carrier without the Party realising.
 
