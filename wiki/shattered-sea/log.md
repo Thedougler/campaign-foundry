@@ -7549,3 +7549,8 @@
 - [[rule-of-two|Rule of Two]]
 - [[journey-of-perrin-black-jaw|Journey of Perrin Black-Jaw]]
 - [[hinewai|Hinewai]]
+
+## [2026-10-14] lint | Hinewai's garden and the land's hatred of the Grung
+
+- [[hinewai|Hinewai]]
+- [[taking-on-aruhe|Taking on Aruhe]]

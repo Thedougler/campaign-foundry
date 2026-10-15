@@ -24,6 +24,7 @@ title: "Hinewai"
 - **Voice.** Calm, loving and regal, with two conversations at once. Each line addresses the listener and someone only she hears, and both halves concern the listener. She drifts at rest. The Grung, harm to the land and taking without leave provoke her.
 - **Opening move.** Hinewai appears at [[memorial-grove|Memorial Grove]] as the island's keeper. If she recognises [[simone-tabarnack|Simone Tabarnack]]'s scent on [[jean-claude-tabarnack|Jean-Claude]], she may ask whether Simone sent him for more peaches or the Gold caste sent him to destroy her tree.
 - **Leverage.** Hinewai commands Aruhe's animals and plants when she exerts her will, and can control them passively at a high level. She could draw most of the island's life to her. Her [[hinewai-the-blight|Blight]] form is the island's guardian. The Bloodhawks give her army the air.
+- **Her garden.** The island's creatures are her garden and her pets. They are never her slaves, and they don't share one mind. Left alone, they live as wild things. She respects the law of nature: things hunt and eat each other, and that's all right with her. When an animal attacks someone, she doesn't punish the victim for defending themselves.
 - **Opens them up.** Jean-Claude may draw her army's story out if she believes he is a Gold-caste messenger or otherwise non-hostile.
 - **Shuts them down.** The Grung's assault, harm to Aruhe, taking from the island and the prospect of leaving it.
 - **Will share.** She may tell a non-hostile visitor about the army she means to send against the Grung: every wild thing on Aruhe.
@@ -101,13 +102,15 @@ During Session 12, Hinewai's beasts killed the Grung who had accompanied the shi
 ## Hidden truths
 
 - Hinewai's army is Aruhe's native life itself. Every wild animal on the island lives naturally and answers her command when she exerts her will. Its fauna are warriors and its flora are guards. She doesn't keep pens or breed beasts in captivity. Her hatred of the Grung is leaching into the land itself.
+- Her promise to Jean-Claude covers her own hand and her law. She will not harm or punish him while he follows her rules, but she won't shield him from the wild either. If a hungry animal crosses his path and attacks him, she leaves it to nature and doesn't punish him for fighting it off.
+- A small patch of gold from her own tree's peaches does not set her off. Her fury is for the Gold caste, and a peach-gilded patch on Jean-Claude is not their gold.
 - The Gold caste's scorched-earth attacks have killed roots connecting her to the island's flora and have wounded her. Her phylactery reaches as far as the pale glowing roots do. In Session 12, the Party saw those roots pulse in the [[lava-tubes|Lava Tubes]] but have not learned what the movement means.
 - Her grief has cost her humanity, but her love of nature remains. Removing her presence realistically means burning most of Aruhe. The Death Bloom began as the two graves, and centuries of death, growth and decay have spread her pale roots beneath the island.
 - The tree over her graves is her revenge on the Grung. In captivity she watched gold and felt its power pull at every living thing around it like a void.
 - At [[memorial-grove|Memorial Grove]], the tree, sapling ring and figure at the grove's edge are one disjointed consciousness speaking to itself and visitors from different perspectives.
 - Hinewai can smell Jean-Claude's family resemblance to Simone Tabarnack.
 - When [[talon-skarn|Talon Skarn]] tries to defy her, she asserts her will and overpowers the fate [[talon-vantyrus|Vantyrus]] manipulates for him from afar. A perceptive observer may see nearly invisible lines snap as she does.
-- Every Calveno who ate fallen fruit belongs to her garden, and Aruhe's responders spare them. The Grung curse comes from her capture and torture.
+- Every Calveno who ate fallen fruit belongs to her garden, and Aruhe's responders spare them. The island's hostility to the Grung is no rule of hers. Her hatred of them, born of her capture and torture, has seeped into the ground, plants and animals over generations.
 - Hinewai is currently suspicious of Jean-Claude. Every Grung she has met came under Gold-caste compulsion and attacked Aruhe. Those assaults made the Burnt Road. Jean-Claude is the only Grung currently alive on Aruhe.
 - If she casts *Detect Magic* on Jean-Claude, Hinewai can see that the Golden Presence tether remains: wisps of magic continually leave him despite his lack of a seal, and drift east towards [[karath|Karath]]. She may share that reading with the Party, but it is not a required reveal.
 - If the Party brings the canister up in front of her, Hinewai may cast Legend Lore on it and relay what she learns to them.
