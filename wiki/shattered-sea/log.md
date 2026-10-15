@@ -7554,3 +7554,7 @@
 
 - [[hinewai|Hinewai]]
 - [[taking-on-aruhe|Taking on Aruhe]]
+
+## [2026-10-14] lint | What Hinewai judges at the grove
+
+- [[hinewai|Hinewai]]
