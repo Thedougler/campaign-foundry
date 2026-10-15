@@ -37,8 +37,8 @@ export interface ScopeRun {
 
 /** Each scope module: filter explicit paths into its domain, list its whole domain, run its tools. */
 export interface ScopeModule {
-	/** Filters paths (files or directories) to the scope's domain, expanded to files. */
-	select(paths: string[]): Promise<string[]>;
+	/** Filters paths to the scope's domain; explicit prose files may also be drafts outside it. */
+	select(paths: string[], explicit?: boolean): Promise<string[]>;
 	/** Informational notes for explicit named paths omitted by selection. */
 	selectionNotes?(paths: string[], selected: string[]): string[];
 	/** Every file in the scope's domain. */

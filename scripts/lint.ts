@@ -33,7 +33,8 @@ Scopes (no scope given runs all three; each takes only paths in its domain):
           schema (name/description, limits), the always-loaded chain's \`@\` imports with its
           word count reported (ADR 0030), and the style gate over content-facing agent text (ADR 0020)
           plus missing/dead \`.claude/skills\` links (always repo-wide; \`--fix\` creates/removes links)
-  prose   the Wiki gate: \`cfcli check\` over wiki/ paths (ADR 0015), \`--fix\` runs its mechanical fixes
+  prose   the Wiki gate: \`cfcli check\` over wiki/ paths (ADR 0015); named drafts use \`cfcli style\`
+          \`--fix\` applies the Wiki gate's mechanical fixes
   code    Biome (lint + format) and tsc for TypeScript, ruff (check + format) for Python
 
 Every run also reports \`names\`: retired names (the old \`cf\` script, ADR 0032) in any text file
@@ -46,6 +47,7 @@ Options:
   -h, --help
 
 Files: no paths means the files changed against HEAD plus untracked, filtered per scope.
+Named prose files are checked even when gitignored or outside the repo; discovery stays filtered.
 Exit: 0 clean, 1 findings, 2 usage error or tool failure.
 
 Examples:
@@ -110,7 +112,8 @@ const main = async (): Promise<void> => {
 	const args = parseArgs(argv);
 	for (let index = 0; index < args.paths.length; index++) {
 		const path = relative(REPO_ROOT, resolve(process.cwd(), args.paths[index]!));
-		if (path === ".." || path.startsWith(`..${sep}`)) usageError(`path is outside the repo: ${args.paths[index]}`);
+		if (args.scope !== "prose" && (path === ".." || path.startsWith(`..${sep}`)))
+			usageError(`path is outside the repo: ${args.paths[index]}`);
 		args.paths[index] = path === "" ? "." : path;
 	}
 	const names = args.scope === undefined ? ["agents", "prose", "code"] : [args.scope];
@@ -122,7 +125,7 @@ const main = async (): Promise<void> => {
 		try {
 			// Default selections omit vanished paths, including dead links removed by the agents fix.
 			const paths = args.paths.length > 0 ? args.paths : changed.filter((path) => existsSync(join(REPO_ROOT, path)));
-			const selected = args.all ? await scope.all() : await scope.select(paths);
+			const selected = args.all ? await scope.all() : await scope.select(paths, args.paths.length > 0);
 			const result = await runScope(scope, { fix: args.fix, files: args.all ? null : selected }, selected);
 			if (args.paths.length > 0 && scope.selectionNotes) {
 				result.notes = [...(result.notes ?? []), ...scope.selectionNotes(args.paths, selected)];

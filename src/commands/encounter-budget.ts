@@ -164,6 +164,7 @@ function formatHuman(
 
 	const total = creatures.reduce((sum, c) => sum + c.xp * c.count, 0);
 	const difficulty = difficultyFor(total, budgets);
+	const force = creatures.map((c) => `${c.count} × ${c.name}`).join(" + ");
 	lines.push(`Total XP: ${total}`, `Difficulty: ${difficulty.toUpperCase()}`);
 	if (target) {
 		const delta = total - budgets[target];
@@ -176,7 +177,10 @@ function formatHuman(
 		"",
 		"--- Encounter Balance (copy into ### Balance) ---",
 		...creatures.map((c) => `- ${c.count} × ${c.name} (CR ${c.cr}, ${c.xp} XP each) = ${c.xp * c.count} XP`),
-		`- Party budgets (${offsetNote}): Low ${budgets.low}, Moderate ${budgets.moderate}, High ${budgets.high}`,
+		`- Party budgets against ${force} (${offsetNote})`,
+		`  - Low ${budgets.low} XP`,
+		`  - Moderate ${budgets.moderate} XP`,
+		`  - High ${budgets.high} XP`,
 		`- **Total: ${total} XP (${difficultyTitle(difficulty)} difficulty)**`,
 	);
 	return `${lines.join("\n")}\n`;
@@ -203,7 +207,10 @@ export function encounterBudgetCommand(): Command {
 				.argParser(collect)
 				.default([] as string[], "none"),
 		)
-		.option("--monsters <json>", 'JSON list [{name, cr, xp, count}] with xp optional (derived from cr); "-" reads stdin')
+		.option(
+			"--monsters <json>",
+			'JSON list [{name, cr, xp, count}] with xp optional (derived from cr); "-" reads stdin',
+		)
 		.addOption(
 			new Option(
 				"--target <difficulty>",

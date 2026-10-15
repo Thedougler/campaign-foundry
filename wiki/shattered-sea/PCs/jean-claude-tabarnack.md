@@ -11,6 +11,8 @@ sources:
   - "archive/session-12-full.md"
   - "archive/collab-2026-10-12-hinewai-reads-jean-claude.md"
 dndbeyond_url: "https://www.dndbeyond.com/profile/nickdavenock/characters/171013670"
+aliases:
+  - "Jean-Claude"
 revealed: "Backstory"
 title: "Jean-Claude Tabarnack"
 ---

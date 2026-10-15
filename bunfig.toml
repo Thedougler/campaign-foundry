@@ -3,3 +3,8 @@
 # and runs foreign modules outside the project.
 [test]
 root = "./test"
+
+# Script output only: no "$ <command>" echo or "error: script … exited" line, so
+# `bun run cfcli -- … --json` prints parseable JSON. Exit codes are unchanged.
+[run]
+silent = true

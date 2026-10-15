@@ -74,4 +74,4 @@ Everything a Simulation produces is a possibility. It becomes Canon only when th
 
    Label the whole report as possibilities for the DM to keep or drop. **Done when** every Persona line has been checked for leaks, and every section above is present or stated as empty.
 
-7. **Persistence.** Within one run, send later scenes to the same Persona ids, so each Persona's own session stores its memory of earlier scenes. A new run spawns fresh Personas. Idle Personas park and revive natively. **Done when** every scene of the run went to the Personas cast in step 3.
+7. **Persistence.** Within one run, send later scenes to the same Persona ids, so each Persona's own session stores its memory of earlier scenes. A new run spawns fresh Personas. Idle Personas park and revive natively. To play a variant of a scene, such as a retake or another Party choice, cast a fresh Persona for that branch (`Persona<NpcNameCamelCase><Variant>`) from the dossier and the events it witnessed up to the branch point. Its session then holds only that branch. **Done when** every scene of the run went to the Personas cast in step 3, and each variant to its own branch Persona.

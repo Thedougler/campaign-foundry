@@ -37,7 +37,7 @@ Give writers disjoint files, or `isolated: true` when they may overlap. Message 
 ## Tools
 
 - **Internal first.** Use the harness tools (LSP, judge, QMD devices) and this repo's `cfcli`. The shell blocks `grep`, `rg`, `cat`, `head` and `tail`. Run `omp` only for the `omp -p` processes a skill names, such as description trigger checks.
-- **Read whole files.** Follow every `read` footer (`Use :N to continue`, `artifact://<id>`) until none remains. Read `:raw` when exact text matters, and take an edit's tag from a plain `read`.
+- **Read whole files.** Follow every `read` footer (`Use :N to continue`, an elided middle, a line truncated at 768 characters, `artifact://<id>`) until none remains, and read in full each line an edit replaces before you edit it. Read `:raw` when exact text matters, and take an edit's tag from a plain `read`.
 - **TypeScript diagnostics.** Request `lsp` diagnostics on touched TypeScript before reporting code complete.
 - **Lint** with `bun run lint [agents|prose|code] [paths…]`, and apply safe fixes with `bun run fix`.
 - **Library docs** come from Context7 (`skill://context7-mcp`) whenever code touches a library, framework, CLI or API.

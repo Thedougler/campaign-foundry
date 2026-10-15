@@ -5,5 +5,4 @@ scope: "tool:write(wiki/**/*.md), tool:edit(wiki/**/*.md)"
 ---
 
 Before writing or changing any Narration, meaning `[!narration]` callout text or a Cue's text between `==` marks, read `skill://theatre-of-the-mind` and follow it, then make the edit.
-If you already loaded that skill this session, continue with the edit.
-If the edit touches no `[!narration]` callout and no Cue, proceed.
+Continue with the edit when you already loaded that skill this session. A move of an unchanged callout or Cue also continues, since its words stay as they were.

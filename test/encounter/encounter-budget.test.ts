@@ -1,5 +1,8 @@
+import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { cf } from "../check/helpers.ts";
+import { cf, type JsonReport, realTemplates, vaultFlags } from "../check/helpers.ts";
 
 const levels5x4 = ["encounter-budget", "--levels", "5,5,5,5", "--level-offset", "0"];
 
@@ -106,7 +109,55 @@ describe("cfcli encounter-budget: target and copy block", () => {
 	it("prints a Balance block agents can copy into the Scene", async () => {
 		const { stdout } = await cf([...levels5x4, "--creature", "Orc,1/2,100,3"]);
 		expect(stdout).toContain("- 3 × Orc (CR 1/2, 100 XP each) = 300 XP");
-		expect(stdout).toContain("Party budgets (4 characters, level 5): Low 2000, Moderate 3000, High 4400");
+		expect(stdout).toContain("Party budgets against 3 × Orc (4 characters, level 5)");
+		expect(stdout).toContain("  - Low 2000 XP");
+		expect(stdout).toContain("  - Moderate 3000 XP");
+		expect(stdout).toContain("  - High 4400 XP");
+	});
+
+	it("pastes different forces for the same Party into Scene Balance sections without style or boilerplate findings", async () => {
+		const root = await mkdtemp(join(tmpdir(), "cf-encounter-balance-"));
+		try {
+			await mkdir(join(root, "wiki/Scenes"), { recursive: true });
+			for (const [slug, creature] of [
+				["orc-ambush", "Orc,1/2,100,3"],
+				["goblin-raid", "Goblin,1/4,50,6"],
+			] as const) {
+				const { code, stdout } = await cf(["encounter-budget", "--levels", "5,5,5,5", "--creature", creature]);
+				expect(code).toBe(0);
+				const marker = "--- Encounter Balance (copy into ### Balance) ---\n";
+				expect(stdout).toContain(marker);
+				const balance = stdout.split(marker)[1]!;
+				for (const [band, xp] of [
+					["Low", 2400],
+					["Moderate", 4000],
+					["High", 5600],
+				]) {
+					expect(balance).toContain(`${band} ${xp}`);
+				}
+				await writeFile(
+					join(root, `wiki/Scenes/${slug}.md`),
+					`---\ntype: Scene\nkind: Cliffhanger\ntitle: ${slug}\n---\n\n## Encounter\n\n### Balance\n\n${balance}`,
+				);
+			}
+			const result = await cf([
+				"check",
+				"--json",
+				"--layer",
+				"style",
+				"--layer",
+				"boilerplate",
+				...vaultFlags(root),
+				"--templates",
+				realTemplates,
+			]);
+			const report = JSON.parse(result.stdout) as JsonReport;
+			expect(report.counts.pages).toBe(2);
+			expect(report.findings.map(({ layer, rule, line }) => ({ layer, rule, line }))).toEqual([]);
+			expect(result.code).toBe(0);
+		} finally {
+			await rm(root, { recursive: true, force: true });
+		}
 	});
 });
 
@@ -131,7 +182,11 @@ describe("cfcli encounter-budget: XP derived from CR", () => {
 		const fraction = await cf([...levels5x4, "--monsters", JSON.stringify([{ name: "Orc", cr: "1/2", count: 2 }])]);
 		expect(fraction.code).toBe(0);
 		expect(fraction.stdout).toContain("- 2 × Orc (CR 1/2, 100 XP each) = 200 XP");
-		const zero = await cf([...levels5x4, "--monsters", JSON.stringify([{ name: "Awakened Shrub", cr: "0", count: 1 }])]);
+		const zero = await cf([
+			...levels5x4,
+			"--monsters",
+			JSON.stringify([{ name: "Awakened Shrub", cr: "0", count: 1 }]),
+		]);
 		expect(zero.code).toBe(0);
 		expect(zero.stdout).toContain("- 1 × Awakened Shrub (CR 0, 10 XP each) = 10 XP");
 	});
