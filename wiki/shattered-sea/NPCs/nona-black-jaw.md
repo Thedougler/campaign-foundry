@@ -30,7 +30,7 @@ title: "Nona Black-Jaw"
 - **Leverage.** The heart of the [[warren|Warren]] and of [[le-paludi|Le Paludi]]. She has been around nearly as long as the Warren has, and knows everyone's names and birthdays: authority given from below, good, and unrecognised by any Crown.
 - **Wants.** To keep the Passage alive and recover the people taken in the Calveno raid.
 - **Voice.** Low kitchen register. Every favour sounds like a route with a cost, and urgency stopped impressing her decades ago.
-- **Opening move.** At her guarded kitchen safe house in the Warren, Calveno. She has sent a Passage ship to support the Party, with Ruk aboard as her messenger.
+- **Opening move.** At her guarded kitchen safe house in the Warren, Calveno. She has sent the Passage ship [[short-manifest|Short Manifest]] to support the Party, with Ruk aboard as her messenger.
 
 - **Torn between.** Her devotion to the Passage and her refusal to put the whole network at risk for one request.
 

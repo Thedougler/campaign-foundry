@@ -7602,3 +7602,22 @@
 - [[session-13-the-pantry|Session 13 - The Pantry]]
 - [[session-13-the-walk|Session 13 - The Walk]]
 - [[session-13-the-way-out|Session 13 - The Way Out]]
+
+## [2026-10-15] create | Name Short Manifest and file its rescue captain and Aruhe links
+
+- [[short-manifest|Short Manifest]]
+- [[marta-venn|Marta Venn]]
+- [[nona-black-jaw|Nona Black-Jaw]]
+- [[ruk|Ruk]]
+- [[perrin-and-nona|Perrin and Nona]]
+- [[journey-of-perrin-black-jaw|Journey of Perrin Black-Jaw]]
+- [[hot|Hot]]
+- [[session-13-the-way-out|Session 13 - The Way Out]]
+- [[shattered-sea/index|]]
+
+## [2026-10-15] prep | Session 13 rulings: level 5 start, mid-Session level 6, Skarn at about 200 hit points
+
+- [[session-13-prep|Session 13 - Prep]]
+- [[session-13-skarns-last-stand|Session 13 - Skarn's Last Stand]]
+- [[session-13-the-walk|Session 13 - The Walk]]
+- [[shattered-sea|Shattered Sea]]

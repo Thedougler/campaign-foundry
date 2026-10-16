@@ -55,15 +55,15 @@ The bad branch has no reactions to play. When the Players protest the sentence o
 
 ## Stinger
 
-- **Allies and Tolerated guests.** The second sail is [[nona-black-jaw|Nona]]'s Passage ship, with [[ruk|Ruk]] aboard as her messenger. Perrin carries Nona's sending stone. He can say whose hull it is, or the stone can warm in his pocket. The cut falls before anyone speaks, and Ruk's news waits for Session 14.
-- **Karath's spies, or Guilty or resisted.** The cut is the stinger. Session 14 opens on the break-out at the grove and plays the flight back through the island, a couple of days downriver to the coast. The Passage ship is unmet. It waits offshore for survivors who now stand an hour from a grove that has turned the Party out.
+- **Allies and Tolerated guests.** The second sail is [[short-manifest|Short Manifest]], [[nona-black-jaw|Nona]]'s Passage ship, with [[ruk|Ruk]] aboard as her messenger. Perrin carries Nona's sending stone. He can say whose hull it is, or the stone can warm in his pocket. The cut falls before anyone speaks, and Ruk's news waits for Session 14.
+- **Karath's spies, or Guilty or resisted.** The cut is the stinger. Session 14 opens on the break-out at the grove and plays the flight back through the island, a couple of days downriver to the coast. [[short-manifest|Short Manifest]] is unmet. It waits offshore for survivors who now stand an hour from a grove that has turned the Party out.
 
 ## Threads
 
-Next Session's start differs by branch. Both good branches start on the beach beside [[western-landing|Western Landing]] with the nine and the Party together, [[uncertainty|Uncertainty]] standing off the reef and the Passage ship arriving. Resources are as spent in the earlier rows, and Ruk's news is the first beat. [[sandro|Sandro]] and [[nino|Nino]] are aboard the cutter. The bad branch starts inside the grove's ring with the Party together and the island moving, then runs the river.
+Next Session's start differs by branch. Both good branches start on the beach beside [[western-landing|Western Landing]] with the nine and the Party together, [[uncertainty|Uncertainty]] standing off the reef and [[short-manifest|Short Manifest]] arriving. Resources are as spent in the earlier rows, and Ruk's news is the first beat. [[sandro|Sandro]] and [[nino|Nino]] are aboard the cutter. The bad branch starts inside the grove's ring with the Party together and the island moving, then runs the river.
 
 - [[take-on-aruhe|Take on Aruhe]]. Allies: resolved, since the survivors are reached and the law learned. The army stays a clock over Karath that the Party can feed or aim. Tolerated guests: resolved, with the welcome cooled and no pact. Karath's spies, or Guilty or resisted: open and turned against the Party, with the island hunting its only grung and the survivors left behind.
-- [[perrin-and-nona|Perrin and Nona]]. Good branches: nine more survivors reach Nona's ship beyond the favour already paid, and Ruk's news is held. Bad branch: the Passage ship waits offshore and the nine remain on Aruhe.
+- [[perrin-and-nona|Perrin and Nona]]. Good branches: nine more survivors reach [[short-manifest|Short Manifest]] beyond the favour already paid, and Ruk's news is held. Bad branch: Short Manifest waits offshore and the nine remain on Aruhe.
 - [[the-canister|The Canister]]. [[session-13-the-grove|Session 13 - The Grove]] sets its state, and this Scene leaves it alone.
 - [[journey-of-jean-claude-tabarnack|Journey of Jean-Claude Tabarnack]]. Good branches: he stays in Tests, Allies, Enemies, with the tether still draining him and Karath's clock over his people. Bad branch: the island that hated him first hunts him alone.
 - [[rule-of-two|Rule of Two]]. [[session-13-skarns-last-stand|Session 13 - Skarn's Last Stand]] resolves it, where Skarn dies fighting. [[vantyruss-shard|Vantyrus's shard]] passes to whoever looted it.

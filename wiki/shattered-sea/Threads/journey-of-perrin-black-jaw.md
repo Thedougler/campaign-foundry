@@ -29,8 +29,8 @@ revealed: "Backstory"
 - **Driven by.** [[perrin-black-jaw|Perrin Black-Jaw]], through his own choices between [[auralis|Auralis]], the Black-Jaw family and the new crew.
 - **Stands at.** Approach to the Inmost Cave, as Session 12 shows it.
 - **Shows up as.** Visions from his patron and Nona's sending stone. The crew's morale, which he keeps up with toasts, inspiration and illusions.
-- **Next development.** His patron's demand climbed from "Grow" in Session 3 to "Consume or die" in Session 12. If nobody acts, Auralis keeps pressing, as [[drowned-maw-awakening|Drowned Maw Awakening]] sets out. The Party paid Nona's favour by rescuing the Calveno survivors, and her Passage ship now brings Ruk with her news.
-- **Angles.** Nona's sending stone and her Passage ship, the Calveno survivors as witnesses, Auralis's account of the rescue, and the [[vestra|Vestra]]'s wreck.
+- **Next development.** His patron's demand climbed from "Grow" in Session 3 to "Consume or die" in Session 12. If nobody acts, Auralis keeps pressing, as [[drowned-maw-awakening|Drowned Maw Awakening]] sets out. The Party paid Nona's favour by rescuing the Calveno survivors, and her Passage ship [[short-manifest|Short Manifest]] now brings Ruk with her news.
+- **Angles.** Nona's sending stone and [[short-manifest|Short Manifest]], the Calveno survivors as witnesses, Auralis's account of the rescue, and the [[vestra|Vestra]]'s wreck.
 - **Resolves when.** The Campaign ends, or Perrin leaves play.
 
 ## Hero's journey
@@ -46,7 +46,7 @@ revealed: "Backstory"
 - **Now.** Approach to the Inmost Cave. His Fear is learning what his patron expects him to become, and in Session 12 he defied that patron with the threat spoken. It tests whether the crew and the Black-Jaw bond hold against the power that keeps him alive. The evidence sits between the Approach and the Ordeal. The Ordeal would show once the patron's "or die" comes due, or once Perrin stakes something he can't take back.
 - **Possibilities.** The DM may put these in Perrin's path, and his Player owns whatever comes of them.
   - **A possibility from [[drowned-maw-awakening|Drowned Maw Awakening]].** Auralis speaks again where others can see it, at the crew's fire or before the rescued survivors. The demand comes with the question of why Auralis held him alive. Ignored, the demand keeps climbing.
-  - **A possibility from [[perrin-and-nona|Perrin and Nona]].** The Calveno survivors with the Party are the first living witnesses of the raid. Nona's sending stone carries her call for their account, or for the favour Perrin accepted unheard in Session 3. Unanswered, Nona's two ships keep chasing the raiders on her own count.
+  - **A possibility from [[perrin-and-nona|Perrin and Nona]].** The Calveno survivors with the Party are the first living witnesses of the raid. Nona's sending stone brings her request for their account and the whereabouts of those still missing. [[short-manifest|Short Manifest]] waits off Aruhe to take survivors home, whether Perrin answers or not.
   - **A possibility from [[what-sunk-the-vestra|What Sunk the Vestra]].** The same water took the Vestra and Delmar's fleet. The [[chain-council|Chain Council]]'s hand in the Pearl job (Session 10) leads to why the Vestra was near the Maw on her last day. Left alone, the two disasters keep separate explanations.
 - **Crosses.** [[drowned-maw-awakening|Drowned Maw Awakening]], [[perrin-and-nona|Perrin and Nona]], [[what-sunk-the-vestra|What Sunk the Vestra]] and [[take-on-aruhe|Take on Aruhe]], whose living fruit is what Auralis demanded. [[journey-of-delmar-fisk|Journey of Delmar Fisk]] meets it in the water that took the Vestra and the fleet. [[journey-of-crissdalynn-khinriss|Journey of Crissdalynn Khinriss]] meets it in her maps of the Maw. [[journey-of-jean-claude-tabarnack|Journey of Jean-Claude Tabarnack]] meets it in the captive route Nona's network chases.
 

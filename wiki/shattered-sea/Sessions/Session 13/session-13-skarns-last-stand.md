@@ -19,9 +19,9 @@ revealed: ""
 
 The Party stands in a clearing beside [[the-burnt-road|The Burnt Road]], several miles inland on [[aruhe|Aruhe]], in the last hour of dark. [[talon-skarn|Talon Skarn]] came back for the [[fate-spinner|Fate Spinner]] a second time, and the fight from [[session-12-recap|Session 12]] resumes mid-round. [[perrin-black-jaw|Perrin]] acts next and Skarn follows.
 
-- **Entry state.** [[crissdalynn-khinriss|Crissdalynn]]'s Stunning Strike halved Skarn's speed (20 feet walking, 40 flying) and gives the next attack against him Advantage, both until the start of her next turn. Her arm has healed and the cooked guava still holds her Dexterity at 25. [[delmar-fisk|Delmar]] hovers about thirty feet up, Invisible from a [[ghost-plum|ghost plum]], with the Spinner in his Bag of Holding. [[jean-claude-tabarnack|Jean-Claude]] carries a new neon-purple patch and the decanter keeps pouring. Skarn knows Delmar lied to him about the Spinner, though he doesn't know the bag is magical. The Sheets read level 5, and a long rest has refilled every resource.
+- **Entry state.** [[crissdalynn-khinriss|Crissdalynn]]'s Stunning Strike halved Skarn's speed (20 feet walking, 40 flying) and gives the next attack against him Advantage, both until the start of her next turn. Her arm has healed and the cooked guava still holds her Dexterity at 25. [[delmar-fisk|Delmar]] hovers about thirty feet up, Invisible from a [[ghost-plum|ghost plum]], with the Spinner in his Bag of Holding. [[jean-claude-tabarnack|Jean-Claude]] carries a new neon-purple patch and the decanter keeps pouring. Skarn knows Delmar lied to him about the Spinner, though he doesn't know the bag is magical. The PCs play at their level 5 Sheets, and a long rest has refilled every resource. Each takes level 6 at a moment of their Player's choosing during the Session.
 - **The Calveno.** [[matteo-scola|Matteo Scola]], [[ettore-ferrante|Ettore Ferrante]], [[luca-ferrante|Luca Ferrante]], Piero Sorrentino and [[gianni-moro|Gianni Moro]] crouch forty feet from the fire, frightened and unarmed.
-- **Skarn's state.** He stands at about 100 of 314 hit points. The river camp took him down to 12, the stolen fruit healed him, and the two fights since have cost him again. The record never counted the figure, so it is the DM's dial. His three Legendary Resistances are spent, so every save is his own. The ghost plum keeps him Invisible, and attacks against him have Disadvantage. The decanter's spray outlines him for as long as he stands inside it, about thirty feet around the fire, and the outline gives half cover (+4 AC). Outside the spray he shows as nothing at all.
+- **Skarn's state.** He stands at about 200 of 314 hit points. The river camp took him down to 12, the stolen fruit healed him, and the two fights since have cost him again. The record never counted the figure, and the DM set it for a good, fair fight. His three Legendary Resistances are spent, so every save is his own. The ghost plum keeps him Invisible, and attacks against him have Disadvantage. The decanter's spray outlines him for as long as he stands inside it, about thirty feet around the fire, and the outline gives half cover (+4 AC). Outside the spray he shows as nothing at all.
 - **Skarn's want.** The Spinner, and with it his own fate. He will not retreat, surrender or be taken. His orders forbid him to kill Crissdalynn and leave everyone else with her fair game.
 - **The clock.** Skarn works through his options in order and takes the next step on each of his turns.
   1. His first turn, while the slow holds. He plants himself in the spray, katana up, and demands the Spinner on open stone. When that fails he opens the Kyzil half-truth.
@@ -59,7 +59,7 @@ Each PC has a first action.
 
 ![[talon-skarn-creature#Statblock|Talon Skarn (Creature)]]
 
-- **Forces.** Talon Skarn alone, at about 100 of 314 hit points.
+- **Forces.** Talon Skarn alone, at about 200 of 314 hit points.
 - **Battlefield.** A clearing beside the road with black flowers underfoot and the low fire at its centre. The decanter's spray falls over the fire out to about thirty feet. The Calveno crouch forty feet off at the road's edge, and black trees close in past the twenty feet of open ground. Dawn is an hour away or less.
 - **Tactics.** His first turn is the half-truth (see Situation). Once it is a fight, he opens with Kusarigama Tempest when it is ready and hauls the nearest carrier ten feet with the chain. He goes for Delmar first, because he knows who lied. Stunning Strike goes to whoever stands closest, and Legendary Actions buy him a step or a strike. Vantyrus straightens one Disadvantage attack of his each round until Hinewai breaks the thread. Below 30 hit points he spends everything on whoever carries the Spinner.
 - **Break and escape conditions.** He never flees or surrenders, and whatever drops him kills him.
@@ -70,7 +70,7 @@ Each PC has a first action.
 - Party budgets for the four PCs, whose Sheets read level 5 and whose combat offset makes them level 6, come to Low 2400 and Moderate 4000, with High at 5600
 - **Total: 10000 XP (Beyond High difficulty)**
 
-The figure is 4400 XP over High, and it counts none of Skarn's state. He is at about a third of his hit points, slowed through his first turn, outlined in the spray and out of Legendary Resistances, and he spends turns talking. Expect two or three rounds of fighting once the alliance is refused. Raise his hit points to lengthen the fight and lower them to cut it short.
+The figure is 4400 XP over High, and it counts none of Skarn's state. He is at about two thirds of his hit points, slowed through his first turn, outlined in the spray and out of Legendary Resistances, and he spends turns talking. Expect four or five rounds of fighting once the alliance is refused. A Player who levels mid-fight gets the new level's hit points and features at once, which makes the fight's middle a strong moment to take it.
 
 ## Outcomes
 

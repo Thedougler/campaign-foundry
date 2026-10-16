@@ -73,7 +73,7 @@ The Party starts in the middle of the burnt road with Jean-Claude among them. Th
 
 ![[wolfrabbit#Statblock|Wolfrabbit]]
 
-Four wolfrabbits at the sheet levels below. Two start 40 feet north of the road and two 75 feet south, all inside the regrowth. If the Party has taken level 6, as the Session 12 Recap records, a fifth starts 90 feet behind the Party and cuts off the retreat. One has a split left ear, so the table can call it by that. It reappears at the grove.
+Four wolfrabbits. Two start 40 feet north of the road and two 75 feet south, all inside the regrowth. One has a split left ear, so the table can call it by that. It reappears at the grove.
 
 - **Opening tactic.** ==The first one uncoils out of its crouch and clears the road in two bounds, claws already swinging.==
 - **Answer to interference.** ==It ignores the blade in its flank and the bodies in its way, and swings round them for the small blue one.==
@@ -98,12 +98,7 @@ The source is `bun run cfcli -- encounter-budget`, with the four PCs at their sh
 - For four characters at level 6 after the +1 combat offset (recorded 5, 5, 5, 5), Low is 2400 XP and Moderate 4000 XP. High is 5600 XP.
 - **Total: 5300 XP (High difficulty)**
 
-The Session 12 Recap records the Party starting this Session at level 6, though the PC pages still read level 5. At level 6 the DM adds the fifth wolfrabbit, the force the Prep names, and the same command prints it.
-
-- 5 × Wolfrabbit (CR 4, 1100 XP each) = 5500 XP
-- 2 × Young Bloodhawk (CR 2, 450 XP each) = 900 XP
-- For four characters at level 7 after the +1 combat offset (recorded 6, 6, 6, 6), Low is 3000 XP and Moderate 5200 XP. High is 6800 XP.
-- **Total: 6400 XP (High difficulty)**
+The pack is balanced for the Party's current Sheets. A PC who takes level 6 before this fight still faces the same four, and finds them a little easier.
 
 XP does not measure the pack's single-minded focus. Four wolfrabbits that reach Jean-Claude can deal over 100 damage in a round against his 51 hit points, and Pack Rend and the frenzy on a dead pack mate make a bad round worse. XP also leaves out what lowers the danger. The regrowth blunts both the bound and the dive, and the pack arrives in stages. The stone ends the contest outright. Responders joining on a claim are the only reinforcements, and every other opponent is on the page from the start. Hinewai hears the fight and takes no part in it.
 

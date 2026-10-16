@@ -23,7 +23,7 @@ title: "Ruk"
 - **Wants.** To protect Nona and the young people under her protection with his body and presence.
 - **Torn between.** His absolute loyalty to Nona and the need to let people make their own choices.
 - **Voice.** Measured, flat, and literal. He states threats and lies plainly.
-- **Opening move.** Nona's employee Ruk is aboard her Passage ship as messenger to the Party.
+- **Opening move.** Nona's employee Ruk is aboard her Passage ship [[short-manifest|Short Manifest]] as messenger to the Party.
 - **Leverage.** His body shields Nona and the people under his protection. He observes physical danger and notices a liar's fear-sweat.
 - **Opens them up.** Direct statements, food offered before demands, and respect for territory and the safety of the young.
 - **Shuts them down.** Lies, threats to Nona or a protected person, and crossing him twice.

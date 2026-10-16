@@ -18,10 +18,10 @@ title: "Perrin and Nona"
 ## State and angles
 
 - **Driven by.** Nona Black-Jaw's family bond, the Passage, and Perrin's survival after the Vestra sank.
-- **Stands at.** The Party paid Nona's favour with its rescue of the Calveno survivors. She counts it complete, though survivors remain on Aruhe and Karath. Nona sent a Passage ship to support the Party, with her employee [[ruk|Ruk]] as messenger.
+- **Stands at.** The Party paid Nona's favour with its rescue of the Calveno survivors. She counts it complete, though survivors remain on Aruhe and Karath. Nona sent the Passage ship [[short-manifest|Short Manifest]] to support the Party, with her employee [[ruk|Ruk]] as messenger.
 - **Shows up as.** Safe houses, coded messages, people Nona has rescued, and questions about what happened to the Vestra.
-- **Next development.** The Aruhe survivors may leave the island aboard Nona's ship if the Party makes friendly terms with Hinewai. The remaining survivors must be found on Karath, which may be harder.
-- **Angles.** The sending stone, the Passage ship and Ruk's message, Nona's rescue network, and what Perrin shares about the Vestra.
+- **Next development.** The Aruhe survivors may leave the island aboard [[short-manifest|Short Manifest]] if the Party makes friendly terms with Hinewai. The remaining survivors must be found on Karath, which may be harder.
+- **Angles.** The sending stone, [[short-manifest|Short Manifest]] and Ruk's message, Nona's rescue network, and what Perrin shares about the Vestra.
 - **Resolves when.** Perrin decides how far to bind the Party to Passage rescue work and what to reveal about the Vestra and Auralis.
 
 ## Origin

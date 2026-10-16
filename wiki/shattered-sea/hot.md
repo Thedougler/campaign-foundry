@@ -26,7 +26,7 @@ title: "Hot"
 - [[the-canister|The Canister]]. Jean-Claude's silence about his sister's toxin has held since the gangplank. If the Party raises the canister before Hinewai, she may cast Legend Lore on it.
 - [[bring-the-pearl-of-souls-to-umberlee|Bring the Pearl of Souls to Umberlee]]. Delmar confessed, and Umberlee demands the fist-sized Pearl. Her ghost-ship Dead Lady taunts him until repayment. The Calveno survivors' "fist debt" began as "Fisk's debt".
 - [[drowned-maw-awakening|Drowned Maw Awakening]]. Auralis pressed Perrin twice to consume the living fruit, and he refused. Next: what the Maw is after, and what the island flinches from.
-- [[perrin-and-nona|Perrin and Nona]]. The Party paid Nona's favour by rescuing Calveno survivors. Others remain on Aruhe and Karath, and Nona sent a Passage ship with Ruk as messenger.
+- [[perrin-and-nona|Perrin and Nona]]. The Party paid Nona's favour by rescuing Calveno survivors. Others remain on Aruhe and Karath, and Nona sent [[short-manifest|Short Manifest]] with Ruk as messenger.
 - [[penance-bar-siege|Penance Bar Siege]]. Unmet by the Party. Bishop Ashe's lie feeds a demon swarm while a mob prepares to burn the coven's grove. Next: the shrine confrontation, then truth to the crowd in time. Rule: [[sin-and-sanctuary|Sin and Sanctuary]].
 
 ## Last Session

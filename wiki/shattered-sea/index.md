@@ -203,6 +203,7 @@
 - [[luca-ferrante|Luca Ferrante]] — Sixteen-year-old wreck survivor who counts everything and knows which way his uncle walked.
 - [[marco-lenzi|Marco Lenzi]] — A Pantry survivor who would stay beneath the vine, afraid Hinewai will stop counting him if he leaves.
 - [[marta-orsini|Marta Orsini]] — Le Paludi's buyer of eggs and curiosities at Studio Orsini, whom the Casa Lupo shopkeeper sends egg inquiries to.
+- [[marta-venn|Marta Venn]] — White-browed captain of Short Manifest, who keeps rescue headcounts and refuses to put passengers' names on paper.
 - [[master-kyzil|Master Kyzil]] — Barn-owl Sentinel master testing Crissdalynn while investigating a foul wind beneath Calveno.
 - [[matteo-scola|Matteo Scola]] — Wreck survivor who lives by Aruhe's fallen-fruit rule, will not approach Hinewai, and now travels inland with the Party.
 - [[nino|Nino]] — A Calveno captive's name the table has used twice: the Mercatura metalworker aboard since Session 9, and Sandro's wordless beach companion. Which man is Nino is open.
@@ -388,6 +389,7 @@
 - [[loud-argument|Loud Argument]] — Bastian Crev's ship in Fisk's Fleet, lost with the whole fleet over the Drowned Maw.
 - [[red-lady|Red Lady]] — Fisk's fleet ship sunk by Umberlee's storm over the Drowned Maw, her wreck holding the Pearl of Souls and the fleet's commission records.
 - [[saltwright|Saltwright]] — Beaumont Sel's battered brig and the Party's first berth, carrying four strangers toward Calveno when the Crown inspection began.
+- [[short-manifest|Short Manifest]] — Nona Black-Jaw's patched rescue ship, with concealed berths for twenty and Ruk aboard on the Aruhe run.
 - [[the-dead-lady|The Dead Lady]] — The ghost-ship copy Umberlee sends when her Waveservants are not enough, known by the red wake she leaves.
 - [[uncertainty|Uncertainty]] — A Crown cutter taken as HCS Surety, renamed Uncertainty and kept moving as the Party's mobile base.
 - [[velvet-noose|Velvet Noose]] — A deep-water flagship of the water east of the Drowned Maw and the Galewall's recovery lanes; its crew is not established.
