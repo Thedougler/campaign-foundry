@@ -5,11 +5,18 @@ kind: Development
 summary: ""
 sources: []
 revealed: ""
+cssclasses:
+  - cf-scene
+  - cf-development
 ---
 
 %% Optional. Include it when the Scene has a scene-setter from `skill://visuals`: the bare embed below, named with the page's slug. %%
 
 ![[<slug>-scene.webp]]
+
+> [!cast]
+>
+> %% Optional. Include it when an NPC or Creature is on stage. Give one item per NPC or Creature in `## Situation`, its portrait embed then its link: `- ![[<page-slug>-portrait.webp]] [[<page-slug>|<page title>]]`. An item whose page has no portrait yet holds the link alone. %%
 
 > [!narration] Opening
 > %% Spoken, second person, present tense, under 150 words. Give the texture of the Location with the new information source as its anchor, and end on the point where the Party reacts, which may be one situation-specific handoff question or either/or. %%
@@ -22,9 +29,17 @@ revealed: ""
 
 %% Optional. Include it when NPCs take part. Give one Angle per participating NPC, linked. Each gives their current goal and knowledge, their offer and price, what they hold back or lie about with the tell of each lie, and what changes their posture, each posture change ending on a Cue (`==…==`). %%
 
+> [!tiles]
+>
+> %% Optional. Include it whenever the page has `## Angles`. One item per NPC, led by their linked name in bold: `- **[[<page-slug>|<page title>]].** …`. %%
+
 ## Checks
 
 %% Optional. Include it when an action's result is in doubt. Sensible actions with no real doubt succeed and yield their Clue. Each uncertain action gives the trigger and the Ability (Skill) with its DC, then each result the check can produce as a Cue (`==…==`): success, failure, and a critical success where its tier can land, paying world-law. Failure installs a false belief, a constraint or a caused consequence, never a blank. %%
+
+> [!checks]
+>
+> %% Optional. Include it whenever the page has `## Checks`. One item per roll in the format of `docs/agents/scene-pages.md` § Page format, **Checks**: the action in bold, then the Ability (Skill), DC and cost, with one nested item per result, such as `- **Success.** ==…==`. %%
 
 ## Clues
 
@@ -36,7 +51,7 @@ revealed: ""
 
 ## Outcomes
 
-%% Give one row per outcome the Scene can plausibly produce, refusal and delay included. Each row gives the trigger and the change, then the Scene it hands to. %%
+%% Give one row per outcome the Scene can plausibly produce, refusal and delay included. Each row gives the trigger and the change, then the Scene it hands to, linked under its short title: `[[session-13-the-pantry\|The Pantry]]`. %%
 
 | If  | Then | Hands to |
 | --- | ---- | -------- |

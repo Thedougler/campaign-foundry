@@ -31,7 +31,8 @@
   background-color: rgba(var(--callout-color), 0.1);
 }
 
-/* Cues (`==…==`): the same gold as [!narration], italic with a baseline rule, so spoken lines read as one family. */
+/* Cues (`==…==`): the same gold as [!narration], italic on a gold tint, so spoken lines read as one family.
+   No underline: a rule under every wrapped line turns a run of Cues into a wall of stripes. */
 body {
   --narration-rgb: 201, 150, 71;
 }
@@ -42,8 +43,11 @@ body {
 
 .markdown-rendered mark,
 .cm-highlight {
-  background-color: rgba(var(--narration-rgb), 0.14);
-  color: inherit;
+  padding: 0.05em 0.25em;
+  border-radius: 3px;
+  background-color: rgba(var(--narration-rgb), 0.12);
+  color: rgb(var(--narration-rgb));
   font-style: italic;
-  border-bottom: 2px solid rgb(var(--narration-rgb));
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }

@@ -203,7 +203,7 @@ prose for the DM to speak or show to the Players. The Previously On, a Handout's
 _Avoid_: boxed text, read-aloud, flavour text
 
 **Cue**:
-a one-to-three-sentence spoken line for a situational moment, inline on a DM-side line right after its trigger, between `==` marks: `Success: ==One stone sits smoother than the rest…==`. Trigger, rules terms and DCs stay outside the marks. The gate checks it as Narration.
+a one-to-three-sentence spoken line for a situational moment, inline on a DM-side line right after its trigger, between `==` marks: `- **Success.** ==One stone sits smoother than the rest…==`. Trigger, rules terms and DCs stay outside the marks. The gate checks it as Narration.
 _Avoid_: blurb, aside, boxed text
 
 **Transcript**:

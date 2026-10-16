@@ -41,6 +41,7 @@ summary: "The next Session."
 sources: []
 date: ""
 revealed: ""
+cssclasses: [cf-prep]
 ---
 
 ## Session question
@@ -54,6 +55,10 @@ revealed: ""
 | Scene | Kind | Minutes |
 | --- | --- | --- |
 | The door | Hook | 30 |
+
+> [!tiles]
+>
+> 1. **The door.** The Party reaches the door.
 
 ## Links
 

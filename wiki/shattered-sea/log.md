@@ -7621,3 +7621,17 @@
 - [[session-13-skarns-last-stand|Session 13 - Skarn's Last Stand]]
 - [[session-13-the-walk|Session 13 - The Walk]]
 - [[shattered-sea|Shattered Sea]]
+
+## [2026-10-15] prep | Session 13 pages moved to the table-ready layout with scene-setters, cast strips, Angle and Check cards and a Prep storyboard, plus four Calveno portraits
+
+- [[session-13-prep|Session 13 - Prep]]
+- [[session-13-skarns-last-stand|Session 13 - Skarn's Last Stand]]
+- [[session-13-the-pantry|Session 13 - The Pantry]]
+- [[session-13-the-walk|Session 13 - The Walk]]
+- [[session-13-the-grove|Session 13 - The Grove]]
+- [[session-13-the-army|Session 13 - The Army]]
+- [[session-13-the-way-out|Session 13 - The Way Out]]
+- [[carlo-ferrante|Carlo Ferrante]]
+- [[renzo-canale|Renzo Canale]]
+- [[ettore-ferrante|Ettore Ferrante]]
+- [[luca-ferrante|Luca Ferrante]]

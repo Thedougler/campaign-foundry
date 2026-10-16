@@ -8,11 +8,14 @@ revealed: ""
 title: "Carlo Ferrante"
 ---
 
+![[carlo-ferrante-portrait.webp]]
+
 > [!narration] First look
 > At the clearing's south edge, a tall man with a grey streak through his dark beard sits facing the trail behind you. His lips move over a count. Then he sees Ettore limping on his splint, and his big hands open and tremble at his sides. He rises halfway and says, "Brother."
 
 ## Roleplaying
 
+- **Appearance.** Tall and broad through the shoulders, with olive skin, brown eyes and a square nose. A grey streak divides his dark beard. His dark hair is tied at the nape. He wears a faded blue waistcoat over a coarse linen shirt with rolled sleeves, and a rope belt cinches his patched brown breeches.
 - **Wants.** To bring his brother Ettore out and protect his nephew Luca.
 - **Voice.** Clipped orders from the quays, with numbers murmured between them. He speaks more easily about a load to shift than a person he fears he lost.
 - **Opening move.** Sits at the south edge of [[the-pantry|The Pantry]], facing the way he came, sure that Ettore and Luca died in the dark. Indifferent.

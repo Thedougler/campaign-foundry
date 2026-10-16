@@ -5,11 +5,18 @@ kind: Hook
 summary: ""
 sources: []
 revealed: ""
+cssclasses:
+  - cf-scene
+  - cf-hook
 ---
 
 %% Optional. Include it when the Scene has a scene-setter from `skill://visuals`: the bare embed below, named with the page's slug. %%
 
 ![[<slug>-scene.webp]]
+
+> [!cast]
+>
+> %% Optional. Include it when an NPC or Creature is on stage. Give one item per NPC or Creature in `## Situation`, its portrait embed then its link: `- ![[<page-slug>-portrait.webp]] [[<page-slug>|<page title>]]`. An item whose page has no portrait yet holds the link alone. %%
 
 > [!narration] Opening
 > %% Spoken, second person, present tense, under 120 words. Put the disturbance in the first sentence and make the Location felt, then end on the point where the Party reacts, which may be one situation-specific handoff question or either/or. %%
@@ -22,9 +29,21 @@ revealed: ""
 
 %% Give at least three materially different Angles, each with its upside and cost and the World's answer. Give each PC present a first action. %%
 
+> [!tiles]
+>
+> %% One item per Angle, led by its name in bold: `- **Strike now.** …`. %%
+
+> [!tiles]
+>
+> %% One item per PC present, led by the PC's name in bold: `- **Perrin.** …`, giving the first actions open to that PC. %%
+
 ## Checks
 
 %% Optional. Include it when an outcome is in doubt. Give the trigger and the Ability (Skill) with its DC, then each result the check can produce as a Cue (`==…==`): success, failure, and a critical success where its tier can land, paying world-law. Failure installs a false belief, a constraint or a caused consequence, never a blank. %%
+
+> [!checks]
+>
+> %% Optional. Include it whenever the page has `## Checks`. One item per roll in the format of `docs/agents/scene-pages.md` § Page format, **Checks**: the action in bold, then the Ability (Skill), DC and cost, with one nested item per result, such as `- **Success.** ==…==`. %%
 
 ## Encounter
 
@@ -34,7 +53,7 @@ revealed: ""
 
 ## Outcomes
 
-%% Give one row per outcome the Scene can plausibly produce, waiting and refusal included. Each row gives the trigger and the change, then the Scene it hands to. %%
+%% Give one row per outcome the Scene can plausibly produce, waiting and refusal included. Each row gives the trigger and the change, then the Scene it hands to, linked under its short title: `[[session-13-the-pantry\|The Pantry]]`. %%
 
 | If  | Then | Hands to |
 | --- | ---- | -------- |

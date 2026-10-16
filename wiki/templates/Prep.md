@@ -5,6 +5,8 @@ summary: ""
 sources: []
 date: ""
 revealed: ""
+cssclasses:
+  - cf-prep
 ---
 
 ## Session question
@@ -13,11 +15,15 @@ revealed: ""
 
 ## Scene Chart
 
-%% Order the Scenes as a Hook, alternating Developments and Cliffhangers, a Climax and a Resolution, at about half an hour each. The chart paces the Session and leaves outcomes to play. Link each Scene page. Under the table, add one numbered planning note per row. Each note gives the row's situation and independent trigger with its card and Spotlight. Then it gives the incoming alternatives and conditional destination, with any escalation. %%
+%% Order the Scenes as a Hook, alternating Developments and Cliffhangers, a Climax and a Resolution, at about half an hour each. The chart paces the Session and leaves outcomes to play. Link each Scene page. Under the table, add one planning note per row. Each note gives the row's situation and independent trigger with its card and Spotlight. Then it gives the incoming alternatives and conditional destination, with any escalation. %%
 
 | #   | Scene | Kind | Minutes | Threads |
 | --- | ----- | ---- | ------- | ------- |
 | 1   |       | Hook |         |         |
+
+> [!tiles]
+>
+> %% One ordered item per row, in chart order, led by the Scene's scene-setter embed and its name in bold: `1. ![[<scene-slug>-scene.webp]] **Skarn's last stand.** …`. An item whose Scene has no scene-setter yet opens on the bold name. %%
 
 ## Threads
 
@@ -25,7 +31,11 @@ revealed: ""
 
 ### Spotlights
 
-%% Optional. Include it when the Session has PCs. The first line, `- **Lead PC.**`, links the Lead PC and their journey Thread, then the possibilities this Session offers that hero's journey and the Scenes that hold them. It never says what the PC will choose. Then one line per other PC: the linked Scene and the goal, bond or fear their Player may act on. %%
+%% Optional. Include it when the Session has PCs. One item per PC in the callout below. The first item, `- **Lead PC.**`, links the Lead PC and their journey Thread, then the possibilities this Session offers that hero's journey and the Scenes that hold them. It never says what the PC will choose. Then one item per other PC, led by the PC and their rows in bold (`- **Delmar, rows 2 and 4.**`), giving the linked Scene and the goal, bond or fear their Player may act on. %%
+
+> [!tiles]
+>
+> %% Optional. Include it whenever the page has `### Spotlights`. %%
 
 ## Opposition
 

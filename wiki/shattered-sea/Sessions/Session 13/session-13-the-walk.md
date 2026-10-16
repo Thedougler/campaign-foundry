@@ -7,7 +7,17 @@ sources:
   - "archive/session-12-full.md"
   - "archive/collab-2026-10-14-session-13-plan.md"
 revealed: ""
+cssclasses:
+  - cf-scene
+  - cf-cliffhanger
 ---
+
+![[session-13-the-walk-scene.webp]]
+
+> [!cast]
+>
+> - ![[wolfrabbit-portrait.webp]] [[wolfrabbit|Wolfrabbit]]
+> - ![[young-bloodhawk-portrait.webp]] [[young-bloodhawk|Young Bloodhawk]]
 
 > [!narration] Opening
 > Red eyes open in the dark beyond the roadside trees, three pairs and then more, and each one watches Jean-Claude. The nearest wolfrabbit crouches forty feet off across the burnt road, long in the leg, with a rabbit's ears and a wolf's jaw. Leaves thrash overhead with the beat of wings. A hundred feet ahead the ground has caved into a ragged black hole, its lip laced with roots that glow faintly pale. The crouch tightens.
@@ -54,14 +64,32 @@ Contrast beat, once the fighting is behind them: ==Down here your own breath is 
 
 ## Checks
 
-- **Spot the pack before it springs.** Wisdom (Perception) DC 17, no action, once per PC as the road opens up. The wolfrabbits' Stealth sets the DC. Success: ==A low body between the trunks sits too still, with its ears cocked into the wind.== Failure: the PC is Surprised and rolls Initiative at Disadvantage. ==You see trunks and hanging dark and nothing else, until the quiet gets up and runs at you.==
-- **Read why they hunt.** Intelligence (Nature) DC 12 as an action. A PC who spends a breath watching the plants makes the check for free. The law's tell is plants leaning towards a taker within 30 feet. Success: ==The flowers lie flat and the roots lie still. Nobody here has taken a thing, and the pack comes anyway.== Failure: ==You watch the flowers for a lean and think you see one, so you start counting who picked what.== Critical: ==You know the island's law only ever came for those who took. This is something else, a grudge older than the law, and it looks at him the way the law looks at no one.==
-- **Run for the hole.** Dash, with Opportunity Attacks from any adjacent wolfrabbit. The cleft is 100 feet from the Party's first position, about two rounds of Dashing for anyone who moves 25 to 30 feet. Crissdalynn flies, and a young Bloodhawk's Flush Dive drives a flier 30 feet straight down with any rider falling too, so flying out is the trap. Success: ==You hit the lip with claws behind you and drop over it, and the pale roots flare bright under your hands.== Failure: ==A wolfrabbit drops onto the road across your path, and the hole is still thirty feet off.==
-- **Keep your footing down the slope.** Dexterity (Acrobatics) DC 10, part of the move down. Success: ==You skid down the rubble on your heels while a pale ripple spreads across the roots and chases you down.== Failure: 1d6 Bludgeoning and Prone. ==The rubble slides out from under you, and you ride it down on your back.==
-- **Splash Jean-Claude with rum.** One action for Delmar, no check, with Jean-Claude within reach. Wolfrabbits that have not yet attacked him choose the nearest creature until the start of their next turn. The hawks hunt by sight and keep their dive. This is a design ruling from Session 12, when Delmar soaked a coat in rum to mask his grung scent. Success: ==The rum stink rolls off him in a wave, and the wolfrabbit in mid-leap swings its head as if it had lost something.==
-- **Climb the break.** Strength (Athletics) DC 15, one action, or DC 10 with a rope anchored above. Success: ==You find a hold and then another, and you haul yourself up onto the ledge.== Failure: a fall of 30 feet, 3d6 Bludgeoning and Prone. ==A hold crumbles under your hand, and the ledge drops away below you.==
-- **Cross a dead stretch.** Constitution saving throw DC 12 for each creature, once per stretch. A PC who stops at the last well and breathes for a minute first has Advantage, and one who Dashes through has Disadvantage. Failure: 1 level of Exhaustion, gone at the next long rest. Success: ==The air is flat and thin and tastes of nothing, and you hold your breath until the next column of daylight.== Failure: ==Your torch bends short and blue, and your head goes light. A step later the floor tilts.==
-- **Pick the fork.** Wisdom (Survival) DC 12, one check for the Party at each fork. The mat of pale roots thickens towards the grove. Success: ==The roots run thicker down the left branch, and the glow pools there like water running downhill.== Failure: ==The right branch looks the better road, and an hour later it ends in rock.== The wrong fork costs an hour and one more dead-stretch save.
+> [!checks]
+>
+> - **Spot the pack before it springs.** Wisdom (Perception) DC 17, no action, once per PC as the road opens up. The wolfrabbits' Stealth sets the DC.
+>   - **Success.** ==A low body between the trunks sits too still, with its ears cocked into the wind.==
+>   - **Failure.** The PC is Surprised and rolls Initiative at Disadvantage. ==You see trunks and hanging dark and nothing else, until the quiet gets up and runs at you.==
+> - **Read why they hunt.** Intelligence (Nature) DC 12 as an action. A PC who spends a breath watching the plants makes the check for free. The law's tell is plants leaning towards a taker within 30 feet.
+>   - **Success.** ==The flowers lie flat and the roots lie still. Nobody here has taken a thing, and the pack comes anyway.==
+>   - **Failure.** ==You watch the flowers for a lean and think you see one, so you start counting who picked what.==
+>   - **Critical.** ==You know the island's law only ever came for those who took. This is something else, a grudge older than the law, and it looks at him the way the law looks at no one.==
+> - **Run for the hole.** Dash, with Opportunity Attacks from any adjacent wolfrabbit. The cleft is 100 feet from the Party's first position, about two rounds of Dashing for anyone who moves 25 to 30 feet. Crissdalynn flies, and a young Bloodhawk's Flush Dive drives a flier 30 feet straight down with any rider falling too, so flying out is the trap.
+>   - **Success.** ==You hit the lip with claws behind you and drop over it, and the pale roots flare bright under your hands.==
+>   - **Failure.** ==A wolfrabbit drops onto the road across your path, and the hole is still thirty feet off.==
+> - **Keep your footing down the slope.** Dexterity (Acrobatics) DC 10, part of the move down.
+>   - **Success.** ==You skid down the rubble on your heels while a pale ripple spreads across the roots and chases you down.==
+>   - **Failure.** 1d6 Bludgeoning and Prone. ==The rubble slides out from under you, and you ride it down on your back.==
+> - **Splash Jean-Claude with rum.** One action for Delmar, no check, with Jean-Claude within reach. Wolfrabbits that have not yet attacked him choose the nearest creature until the start of their next turn. The hawks hunt by sight and keep their dive. This is a design ruling from Session 12, when Delmar soaked a coat in rum to mask his grung scent.
+>   - **Success.** ==The rum stink rolls off him in a wave, and the wolfrabbit in mid-leap swings its head as if it had lost something.==
+> - **Climb the break.** Strength (Athletics) DC 15, one action, or DC 10 with a rope anchored above.
+>   - **Success.** ==You find a hold and then another, and you haul yourself up onto the ledge.==
+>   - **Failure.** A fall of 30 feet, 3d6 Bludgeoning and Prone. ==A hold crumbles under your hand, and the ledge drops away below you.==
+> - **Cross a dead stretch.** Constitution saving throw DC 12 for each creature, once per stretch. A PC who stops at the last well and breathes for a minute first has Advantage, and one who Dashes through has Disadvantage.
+>   - **Success.** ==The air is flat and thin and tastes of nothing, and you hold your breath until the next column of daylight.==
+>   - **Failure.** 1 level of Exhaustion, gone at the next long rest. ==Your torch bends short and blue, and your head goes light. A step later the floor tilts.==
+> - **Pick the fork.** Wisdom (Survival) DC 12, one check for the Party at each fork. The mat of pale roots thickens towards the grove.
+>   - **Success.** ==The roots run thicker down the left branch, and the glow pools there like water running downhill.==
+>   - **Failure.** ==The right branch looks the better road, and an hour later it ends in rock.== The wrong fork costs an hour and one more dead-stretch save.
 
 ## Encounter
 
@@ -106,11 +134,11 @@ XP does not measure the pack's single-minded focus. Four wolfrabbits that reach 
 
 | If | Then | Hands to |
 | --- | --- | --- |
-| The Party stands on the road and the pack breaks | The surviving wolfrabbits lope up the road. The Party arrives by the burnt road, wounded and short of spell slots, with no claim on it. The split-eared wolfrabbit and its fellows stand among the mourners beyond the black-flower ring. | [[session-13-the-grove\|Session 13 - The Grove]] |
-| The whole Party goes down the cleft | The pack mills at the lip and the hawks wheel away. After about two hours below, with a dead-stretch save for each stretch crossed, the Party climbs out through a root shaft at the edge of the sapling ring. Hinewai knows they are coming by her own roots. | [[session-13-the-grove\|Session 13 - The Grove]] |
-| The Party splits, some for the stone and some on the road | Those on the road face the pack alone and arrive by the burnt road. Those below come out through the root shaft. The road group arrives first if its fight ends fast. | [[session-13-the-grove\|Session 13 - The Grove]] |
-| Someone makes a claim | The taker is marked until dawn, and responders add one beast a round while the taker stays above ground. The marked PC arrives still marked. | [[session-13-the-grove\|Session 13 - The Grove]] |
-| Jean-Claude drops to 0 hit points | The pack rends him while he is down, and each hit at 0 costs him a failed death save. Delmar's promise from the Burnt Road covers her own hand, so Hinewai does not shield him. If he dies, the Grove opens on a carried body and the DM decides what the grove's question becomes. | [[session-13-the-grove\|Session 13 - The Grove]] |
+| The Party stands on the road and the pack breaks | The surviving wolfrabbits lope up the road. The Party arrives by the burnt road, wounded and short of spell slots, with no claim on it. The split-eared wolfrabbit and its fellows stand among the mourners beyond the black-flower ring. | [[session-13-the-grove\|The Grove]] |
+| The whole Party goes down the cleft | The pack mills at the lip and the hawks wheel away. After about two hours below, with a dead-stretch save for each stretch crossed, the Party climbs out through a root shaft at the edge of the sapling ring. Hinewai knows they are coming by her own roots. | [[session-13-the-grove\|The Grove]] |
+| The Party splits, some for the stone and some on the road | Those on the road face the pack alone and arrive by the burnt road. Those below come out through the root shaft. The road group arrives first if its fight ends fast. | [[session-13-the-grove\|The Grove]] |
+| Someone makes a claim | The taker is marked until dawn, and responders add one beast a round while the taker stays above ground. The marked PC arrives still marked. | [[session-13-the-grove\|The Grove]] |
+| Jean-Claude drops to 0 hit points | The pack rends him while he is down, and each hit at 0 costs him a failed death save. Delmar's promise from the Burnt Road covers her own hand, so Hinewai does not shield him. If he dies, the Grove opens on a carried body and the DM decides what the grove's question becomes. | [[session-13-the-grove\|The Grove]] |
 
 ## Hidden truths
 

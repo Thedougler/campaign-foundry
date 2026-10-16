@@ -128,7 +128,7 @@ export function pageViews(page: Page): PageViews {
 		itemProperties,
 		pulledPc: pulledPcView(page),
 		get sentences() {
-			if (comparable === undefined) comparable = proseSentences(page, itemProperties);
+			if (comparable === undefined) comparable = proseSentences(page, itemProperties, narration);
 			return comparable;
 		},
 	};
@@ -188,14 +188,17 @@ function sentences(line: string): string[] {
 }
 
 /** Comparable body prose: syntax exclusions and published Item Properties are not repeated authorial prose. */
-function proseSentences(page: Page, itemProperties: ReadonlySet<number>): Map<number, Sentence[]> {
+function proseSentences(
+	page: Page,
+	itemProperties: ReadonlySet<number>,
+	narration: ReadonlySet<number>,
+): Map<number, Sentence[]> {
 	const sentencesByLine = new Map<number, Sentence[]>();
 	const source = bodyLines(page);
 	const proseLines = new Set<number>();
 	const visit = (node: Root | RootContent): void => {
 		// The parsed tree owns syntax exclusions; no second frontmatter/fence/blockquote parser.
 		if (
-			node.type === "blockquote" ||
 			node.type === "heading" ||
 			node.type === "table" ||
 			node.type === "code" ||
@@ -210,8 +213,8 @@ function proseSentences(page: Page, itemProperties: ReadonlySet<number>): Map<nu
 	};
 	visit(page.tree);
 	for (const line of proseLines) {
-		if (itemProperties.has(line)) continue;
-		const trimmed = (source[line - 1] ?? "").trim();
+		if (itemProperties.has(line) || narration.has(line)) continue;
+		const trimmed = (source[line - 1] ?? "").replace(/^[ \t]*(?:>[ \t]?)+/, "").trim();
 		if (!trimmed) continue;
 		const prose = trimmed
 			.replace(/^[-*+]\s+/, "")

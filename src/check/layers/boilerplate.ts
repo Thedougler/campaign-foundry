@@ -11,7 +11,7 @@ const labelKey = (label: string): string => label.replace(/\s+/g, " ").trim().to
 
 /**
  * Repeated authorial sentences are boilerplate, outside the places templates hold in common
- * (frontmatter, headings, callouts, fences and fixed field labels). Published Item Properties, proved corpus
+ * (frontmatter, headings, Narration callouts, fences and fixed field labels). Published Item Properties, proved corpus
  * lines and pulled sheet text shared by Campaign versions of the same D&D Beyond PC are not authorial repeats.
  */
 export const boilerplateLayer: Layer = {

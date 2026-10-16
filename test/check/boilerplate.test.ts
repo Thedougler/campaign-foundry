@@ -59,6 +59,35 @@ describe("cfcli check --layer boilerplate", () => {
 		expect(report.findings.filter((finding) => finding.path.endsWith("Three.md"))).toEqual([]);
 	});
 
+	it.each([
+		["tiles", 2],
+		["checks", 2],
+		["cast", 2],
+		["narration", 0],
+		["", 2],
+	])("compares shared list-item prose in '%s' blockquotes (%i findings)", async (type, count) => {
+		const quoted = await mkdtemp(join(tmpdir(), "cf-boilerplate-callout-"));
+		try {
+			await mkdir(join(quoted, "wiki/Scenes"), { recursive: true });
+			const sentence = "The harbour bell rings twice before the tide turns.";
+			for (const name of ["One", "Two"]) {
+				await writeFile(
+					join(quoted, `wiki/Scenes/${name}.md`),
+					`---\ntype: Scene\n---\n\n${type ? `> [!${type}]\n` : ""}> - **${name}.** ${sentence}\n`,
+				);
+			}
+			const { report } = await runCheck(quoted);
+			expect(report.findings).toHaveLength(count);
+			for (const finding of report.findings) {
+				expect(finding.rule).toBe("shared-line");
+				expect(finding.line).toBe(type ? 6 : 5);
+				expect(finding.message).toContain(`"${sentence}"`);
+			}
+		} finally {
+			await rm(quoted, { recursive: true, force: true });
+		}
+	});
+
 	it("reports 0 findings for identical pulled sheets of one PC in two Campaigns", async () => {
 		const pulled = await mkdtemp(join(tmpdir(), "cf-boilerplate-pulled-pc-"));
 		try {

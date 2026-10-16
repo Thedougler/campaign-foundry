@@ -411,7 +411,7 @@ Examples:
 				listRunEntries(p.runs).map((entry) => entry.name),
 			);
 			const runDir = join(p.runs, name);
-			const aliases = drawAliases(samples.length);
+			const aliases = drawAliases(samples.length, amend === undefined ? undefined : Object.keys(amend.mapping));
 			const seats: Record<string, SeatRecord> = {};
 			const mapping: Mapping = {};
 			samples.forEach((sample, index) => {

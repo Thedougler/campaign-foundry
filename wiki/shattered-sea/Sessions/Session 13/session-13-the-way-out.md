@@ -8,7 +8,24 @@ sources:
   - "archive/collab-2026-10-12-midchain-arc-plan.md"
   - "archive/collab-2026-10-14-session-13-plan.md"
 revealed: ""
+cssclasses:
+  - cf-scene
+  - cf-resolution
 ---
+
+![[session-13-the-way-out-scene.webp]]
+
+> [!cast]
+>
+> - ![[hinewai-portrait.webp]] [[hinewai|Hinewai]]
+> - ![[carlo-ferrante-portrait.webp]] [[carlo-ferrante|Carlo Ferrante]]
+> - ![[renzo-canale-portrait.webp]] [[renzo-canale|Renzo Canale]]
+> - ![[ettore-ferrante-portrait.webp]] [[ettore-ferrante|Ettore Ferrante]]
+> - ![[luca-ferrante-portrait.webp]] [[luca-ferrante|Luca Ferrante]]
+> - ![[matteo-scola-portrait.webp]] [[matteo-scola|Matteo Scola]]
+> - ![[wolfrabbit-portrait.webp]] [[wolfrabbit|Wolfrabbit]]
+> - ![[terror-bird-portrait.webp]] [[terror-bird|Terror-bird]]
+> - ![[deer-stalker-portrait.webp]] [[deer-stalker|Deer-stalker]]
 
 Read when the Party walked the nine out, whether Hinewai took them as allies or only tolerated them.
 

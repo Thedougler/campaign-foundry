@@ -48,6 +48,28 @@ describe("renderMarkdown", () => {
 		expect(html).toContain("<td>b</td>");
 	});
 
+	it.each([
+		["paragraph", "==The root moves.=="],
+		["list item", "- **Success.** ==The root moves.=="],
+		["table cell", "| Result |\n| --- |\n| ==The root moves.== |"],
+		["callout", "> [!checks]\n> - **Success.** ==The root moves.=="],
+	])("renders a Cue in a %s as a mark", (_place, body) => {
+		const html = render(body);
+		expect(html).toContain("<mark>The root moves.</mark>");
+		expect(html).not.toContain("==");
+	});
+
+	it("keeps links and HTML escaping inside Cues, and leaves code and incomplete marks alone", () => {
+		const html = render(
+			"==Follow [[Sable]] & watch.== Then ==Wait.==\n\n`==code==`\n\n```text\n==fenced==\n```\n\n==unfinished",
+		);
+		expect(html).toContain("<mark>Follow @UUID[Actor.abc123def456ghij]{Sable} &#x26; watch.</mark>");
+		expect(html).toContain("<mark>Wait.</mark>");
+		expect(html).toContain("<code>==code==</code>");
+		expect(html).toContain("==fenced==");
+		expect(html).toContain("==unfinished");
+	});
+
 	it("can keep only the narration callouts and the image right under each (a Handout)", () => {
 		const html = render(
 			"## At a glance\n\n- **Kind.** Letter.\n\n> [!narration] Handout text\n> To the three.\n\n![[note-handout-art.webp]]\n\n## Play\n\nDM only.",

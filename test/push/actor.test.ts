@@ -71,6 +71,51 @@ describe("buildActor", () => {
 		expect(grasp.system.description.value).toContain("<em>Melee Attack Roll:</em>");
 	});
 
+	it.each([
+		{
+			name: "Katana",
+			desc: "Melee Attack Roll: +11, reach 5 ft. Hit: 17 (2d10 + 6) Slashing damage.",
+			reach: 5,
+			bonus: "11",
+			parts: [{ number: 2, denomination: 10, bonus: "6", types: ["slashing"] }],
+		},
+		{
+			name: "Claw",
+			desc: "Melee Attack Roll: +8, reach 10 feet, one target. Hit: 14 (2d8 + 5) Slashing damage. If the target is Medium or smaller and the deer-stalker isn't grappling another creature, the target has the Grappled condition (escape DC 16).",
+			reach: 10,
+			bonus: "8",
+			parts: [{ number: 2, denomination: 8, bonus: "5", types: ["slashing"] }],
+		},
+		{
+			name: "Rotten Claw",
+			desc: "Melee Attack Roll: +11, reach 10 ft. Hit: 16 (2d10 + 5) Slashing damage plus 10 (3d6) Poison damage.",
+			reach: 10,
+			bonus: "11",
+			parts: [
+				{ number: 2, denomination: 10, bonus: "5", types: ["slashing"] },
+				{ number: 3, denomination: 6, bonus: "", types: ["poison"] },
+			],
+		},
+	])("builds an attack activity from the real unstyled $name description", ({ desc, reach, bonus, parts }) => {
+		const source = readFileSync(join(vault, "Creatures/Mire Drowner.md"), "utf8").replace(
+			/desc: "\*Melee Attack Roll:[^\n]+/,
+			`desc: ${JSON.stringify(desc)}`,
+		);
+		const actor = buildActor(parsePage("Creatures/Mire Drowner.md", source), {
+			campaign: "salt-and-lantern",
+			name: "Mire Drowner",
+			biography: "",
+		});
+		const weapon = item(actor, "Drowning Grasp");
+		const activity = Object.values(weapon.system.activities as Record<string, Bag>)[0]!;
+		expect(activity.type).toBe("attack");
+		expect(activity.attack.bonus).toBe(bonus);
+		expect(activity.range.value).toBe(String(reach));
+		expect(weapon.system.range.reach).toBe(reach);
+		expect(activity.damage.parts).toMatchObject(parts);
+		expect(actor.warnings).not.toContainEqual(expect.stringContaining("the attack text did not parse"));
+	});
+
 	it("takes reach and range from the attack text and leaves a conditional rider out of the damage", () => {
 		const goblin = actorFor("Goblin Warrior");
 		const scimitar = Object.values(item(goblin, "Scimitar").system.activities as Record<string, Bag>)[0]!;

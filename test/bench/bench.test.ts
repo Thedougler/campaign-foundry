@@ -97,9 +97,10 @@ describe("bench prompts", () => {
 describe("bench anonymisation", () => {
 	it("draws fresh, distinct animal aliases", () => {
 		const first = drawAliases(3);
-		const second = drawAliases(3);
+		const second = drawAliases(3, first);
 		expect(new Set(first).size).toBe(3);
 		expect(first).not.toEqual(second);
+		for (const alias of second) expect(first).not.toContain(alias);
 	});
 
 	it("renders a sample as the page plus its Sources list, with no family or model", () => {
@@ -293,6 +294,7 @@ describe("cfcli bench alias → reveal → render", () => {
 		const thirdAlias = Object.keys(secondMapping).find((alias) => secondMapping[alias]!.family === "anthropic")!;
 		const allAliases = [carriedZai, carriedXai, thirdAlias].sort();
 		expect(thirdAlias).not.toBe(zaiAlias);
+		for (const alias of allAliases) expect(firstAliases).not.toContain(alias);
 
 		// Grades that miss a sample: reveal exits 1 naming the grades file.
 		for (const family of ["anthropic", "xai", "zai"])

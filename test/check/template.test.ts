@@ -245,6 +245,7 @@ kind: Hook
 summary: "An opening."
 sources: []
 revealed: ""
+cssclasses: [cf-scene, cf-hook]
 ---
 
 ## Situation
@@ -253,7 +254,9 @@ Situation.
 
 ## Angles
 
-Choices.
+> [!tiles]
+>
+> - **Choice.** Choices.
 
 ## Outcomes
 

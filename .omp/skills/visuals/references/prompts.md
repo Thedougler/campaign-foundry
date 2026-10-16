@@ -13,7 +13,7 @@ The **Category** column gives the row of the art guide's § Categories whose ren
 | `render` | Item | Items | `1:1`, `1024x1024` | 1024×1024 webp | Three-quarter view on a plain or period surface, lit to show its material, wear and marks. |
 | `sigil` | Faction | Items | `1:1`, `1024x1024` | 1024×1024 webp | The emblem as a painted flag, wax seal or brass badge, flat on and centred. |
 | `symbol` | Deity | Items | `1:1`, `1024x1024` | 1024×1024 webp | The holy symbol as a made object, flat on and centred. |
-| `scene` | Scene, Recap, Lore, Spell | Scenes | `16:9`, `1536x1024` | 1536×864 webp | Keep heads clear of the top and bottom twelfth. |
+| `scene` | Scene, Recap, Lore, Spell | Scenes | `16:9`, `1536x1024` | 1536×864 webp | Keep heads and the subject inside the middle two thirds of the height, because a Scene page shows its scene-setter cropped to a strip that cuts about a sixth from the top and bottom. |
 | `battle-map` | Scene the Party may fight, Site | Maps | `3:2`, `1536x1024` or `1024x1536` | the same, png | Orthographic top-down, even light, the playable area edge to edge, at 64 px per 5-foot square: 24 by 16 squares landscape, 16 by 24 portrait. A door or a person takes one square, and a cart two by three. State the square count and size the features to it. |
 | `handout-art` | Handout | follows its subject, per the line under § Categories | the object's proportions, from the three sizes | the same, webp | The thing as the Players see or hold it, flat on. A letter or poster is drawn as its paper, seal and wear, with illegible marks where words would be, since the callout states every word. |
 | `map` | Region overview, player map | Maps | `3:2`, `1536x1024` | the same, webp | Top-down. |
@@ -52,7 +52,7 @@ A character's look is the page's own words, copied whole:
 - **Creature**: the `[!narration] First sight` callout and the physical lines of `## Ecology`, with size and type from `## Statblock` when the page has one.
 - **Location**: its `[!narration]` callout and the features its sections name.
 
-A person's look is too thin to draw when the page lacks their build, face, colouring or clothing. Ask the DM for exactly the parts it lacks.
+A person's look is too thin to draw when the page lacks their build, face, colouring or clothing. Choose the parts it lacks to fit Canon and write them onto the page before building the prompt.
 
 ## Continuity
 
@@ -101,7 +101,7 @@ The callout holds everything a later run needs to make the image. Write it in th
 
 ````markdown
 > [!visual-aid] <Kind>: <subject>
-> <Why it waits: generation failed (the error), viewing missed twice (each miss), the DM's description of <subject>'s <missing parts> is needed, or the DM deferred it.> Target `<slug>-<kind>.<ext>`.
+> <Why it waits: generation failed (the error), viewing missed twice (each miss), the art guide is missing, or the DM deferred it.> Target `<slug>-<kind>.<ext>`.
 >
 > ```text
 > <the prompt JSON, continuity inputs included>

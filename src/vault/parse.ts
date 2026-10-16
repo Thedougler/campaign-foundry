@@ -165,16 +165,17 @@ export function parsePage(path: string, source: string): Page {
 		}
 	}
 	// A Cue's trigger keeps its reading text (wikilink alias, else the target's page name; no markdown) and drops
-	// the list marker and the trailing colon. Earlier Cue spans on the line blank out, so a later trigger reads as
-	// its own lead-in.
+	// the blockquote and list markers and the trailing colon or full stop. Earlier Cue spans on the line blank out,
+	// so a later trigger reads as its own lead-in.
 	const triggerOf = (raw: string): string =>
 		raw
 			.replace(CUE_SPAN, " ")
 			.replace(WIKILINK, (_, _embed: string, inner: string) => wikilinkDisplay(inner).text)
+			.replace(/^[ \t]*(?:>[ \t]?)+/, "")
 			.replace(/[*_`]+/g, "")
 			.replace(/^[ \t]*(?:[-*+]|\d+\.)[ \t]+/, "")
 			.trim()
-			.replace(/:$/, "")
+			.replace(/[.:]$/, "")
 			.trim();
 	const cues: Cue[] = [];
 	for (let index = 0; index < linkLines.length; index++) {

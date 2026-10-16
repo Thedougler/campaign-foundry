@@ -10,7 +10,20 @@ sources:
   - "archive/collab-2026-10-13-skarn-cause-and-shard.md"
   - "archive/collab-2026-10-14-session-13-plan.md"
 revealed: ""
+cssclasses:
+  - cf-scene
+  - cf-hook
 ---
+
+![[session-13-skarns-last-stand-scene.webp]]
+
+> [!cast]
+>
+> - ![[talon-skarn-portrait.webp]] [[talon-skarn|Talon Skarn]]
+> - ![[matteo-scola-portrait.webp]] [[matteo-scola|Matteo Scola]]
+> - ![[ettore-ferrante-portrait.webp]] [[ettore-ferrante|Ettore Ferrante]]
+> - ![[luca-ferrante-portrait.webp]] [[luca-ferrante|Luca Ferrante]]
+> - ![[hinewai-portrait.webp]] [[hinewai|Hinewai]]
 
 > [!narration] Opening
 > Rain from Jean-Claude's decanter hisses over the dying fire, and in the falling water a falcon takes shape, drawn drop by drop with his katana level and one wing hanging. A chain swings at his forearm, and he moves like a man wading through tar. Behind you the Calveno press themselves into the road's black verge, Ettore's splinted leg stuck out stiff, and thirty feet overhead a patch of stars has gone missing where Delmar hovers. Crissdalynn's last blow left Skarn's guard open, and the outline has just turned its head towards Perrin. Perrin, your next swing at him lands with Advantage. What do you do?
@@ -36,33 +49,47 @@ At first light a line of windfall piles, each on a broad leaf, leads east off th
 
 ## Angles
 
-- **Strike now.** The obvious first move, because Skarn is slowed, outlined and past his last Legendary Resistance. **Cost.** The Party never hears the half-truth, so Kyzil's teacher stays a name Skarn dropped. **Answer.** The full fight runs, with Vantyrus's thumb on the scales each round until Hinewai breaks the thread.
-- **Hear him out.** Crissdalynn lets him talk, or Delmar plays for time. The upside is the Kyzil lead and a round or two for the Calveno to crawl clear. **Cost.** Each line shows Skarn where the Spinner is, and his stare finds Delmar's bag. **Answer.** He offers the alliance once the half-truth fails, and the first blow still ends the talk.
-- **Take the alliance.** The Party hands him the toy and he walks. The upside is a Talon turned against Vantyrus. **Cost.** Kyzil's lesson ends up in Skarn's hands. **Answer.** Skarn takes the Spinner into the dark with the katana never lowered, and Vantyrus follows it in person.
-- **Use the garden.** Skarn grabs a Calveno survivor, or the Party baits him towards one. The upside is Hinewai snapping Vantyrus's thread and leaving Skarn staggered. **Cost.** A frightened civilian stands inside his reach. **Answer.** His chain hauls the survivor ten feet closer before Hinewai's will breaks what he draws on.
+> [!tiles]
+>
+> - **Strike now.** The obvious first move, because Skarn is slowed, outlined and past his last Legendary Resistance. **Cost.** The Party never hears the half-truth, so Kyzil's teacher stays a name Skarn dropped. **Answer.** The full fight runs, with Vantyrus's thumb on the scales each round until Hinewai breaks the thread.
+> - **Hear him out.** Crissdalynn lets him talk, or Delmar plays for time. The upside is the Kyzil lead and a round or two for the Calveno to crawl clear. **Cost.** Each line shows Skarn where the Spinner is, and his stare finds Delmar's bag. **Answer.** He offers the alliance once the half-truth fails, and the first blow still ends the talk.
+> - **Take the alliance.** The Party hands him the toy and he walks. The upside is a Talon turned against Vantyrus. **Cost.** Kyzil's lesson ends up in Skarn's hands. **Answer.** Skarn takes the Spinner into the dark with the katana never lowered, and Vantyrus follows it in person.
+> - **Use the garden.** Skarn grabs a Calveno survivor, or the Party baits him towards one. The upside is Hinewai snapping Vantyrus's thread and leaving Skarn staggered. **Cost.** A frightened civilian stands inside his reach. **Answer.** His chain hauls the survivor ten feet closer before Hinewai's will breaks what he draws on.
 
 Each PC has a first action.
 
-- **Perrin.** He acts first, with Advantage on the next attack against Skarn. He can swing, laugh the falcon down with *Tasha's Hideous Laughter* (Skarn's save is his own now), or mock his tail feathers again, as he did at the river camp to spoil a dive.
-- **Crissdalynn.** She can grapple him and follow with Stunning Strike. She can answer his question about her master with what she knows, that Kyzil gave her the Spinner blind and seemed sorry about it.
-- **Delmar.** He can shoot the outline from the air, drop on Skarn or keep the Spinner out of sight. His lie about Jean-Claude already failed once, so a second bluff has to be better.
-- **Jean-Claude.** He can keep the spray on Skarn or swing it to follow him, and he can shoot or mark him. Aruhe's rules are on him, and fighting for his life breaks none of them.
+> [!tiles]
+>
+> - **Perrin.** He acts first, with Advantage on the next attack against Skarn. He can swing, laugh the falcon down with *Tasha's Hideous Laughter* (Skarn's save is his own now), or mock his tail feathers again, as he did at the river camp to spoil a dive.
+> - **Crissdalynn.** She can grapple him and follow with Stunning Strike. She can answer his question about her master with what she knows, that Kyzil gave her the Spinner blind and seemed sorry about it.
+> - **Delmar.** He can shoot the outline from the air, drop on Skarn or keep the Spinner out of sight. His lie about Jean-Claude already failed once, so a second bluff has to be better.
+> - **Jean-Claude.** He can keep the spray on Skarn or swing it to follow him, and he can shoot or mark him. Aruhe's rules are on him, and fighting for his life breaks none of them.
 
 ## Checks
 
-- **Hear through the half-truth.** Wisdom (Insight) DC 15, one action during his half-truth. Success: ==Each sentence he says is so, and he knows you will check. He has laid the facts out like a road and walked himself to the far end of it.== Failure: ==Every word rings true, and so does the conclusion they point to. Kyzil handed it over blind, and nobody has told you why.== Critical, a total of 25 or higher: ==A man who believed it wouldn't say "ask yourself". His eyes never leave the straps, and he doesn't think Kyzil sent you into anything.==
-- **Weigh the alliance.** Wisdom (Insight) DC 12, one action once he makes the offer. Success: ==He means it, and he holds the katana up only because he trusts nobody. What he wants is his master dead.== Failure: ==It looks like one more feint, with the katana creeping a hand's width towards Delmar while he talks.==
-- **Catch the thread.** Wisdom (Perception) DC 15, when Hinewai snaps Vantyrus's hold. Success: ==Threads finer than spider silk run from his harness up past the rain and go taut, and then they part.== Failure: ==His whole body jolts as though he leaned on a wall that was never there. You can't tell what he lost.==
-- **Hit the outline.** Attacks use the Disadvantage and half cover already given for an Invisible foe in the spray, and a spell that needs sight can target the outline. Hit: ==The rain bends round a wing, and the blade bites something that was not there a moment before.==
+> [!checks]
+>
+> - **Hear through the half-truth.** Wisdom (Insight) DC 15, one action during his half-truth.
+>   - **Success.** ==Each sentence he says is so, and he knows you will check. He has laid the facts out like a road and walked himself to the far end of it.==
+>   - **Failure.** ==Every word rings true, and so does the conclusion they point to. Kyzil handed it over blind, and nobody has told you why.==
+>   - **Critical, 25 or higher.** ==A man who believed it wouldn't say "ask yourself". His eyes never leave the straps, and he doesn't think Kyzil sent you into anything.==
+> - **Weigh the alliance.** Wisdom (Insight) DC 12, one action once he makes the offer.
+>   - **Success.** ==He means it, and he holds the katana up only because he trusts nobody. What he wants is his master dead.==
+>   - **Failure.** ==It looks like one more feint, with the katana creeping a hand's width towards Delmar while he talks.==
+> - **Catch the thread.** Wisdom (Perception) DC 15, when Hinewai snaps Vantyrus's hold.
+>   - **Success.** ==Threads finer than spider silk run from his harness up past the rain and go taut, and then they part.==
+>   - **Failure.** ==His whole body jolts as though he leaned on a wall that was never there. You can't tell what he lost.==
+> - **Hit the outline.** Attacks use the Disadvantage and half cover already given for an Invisible foe in the spray, and a spell that needs sight can target the outline.
+>   - **Hit.** ==The rain bends round a wing, and the blade bites something that was not there a moment before.==
 
 ## Encounter
-
-![[talon-skarn-creature#Statblock|Talon Skarn (Creature)]]
 
 - **Forces.** Talon Skarn alone, at about 200 of 314 hit points.
 - **Battlefield.** A clearing beside the road with black flowers underfoot and the low fire at its centre. The decanter's spray falls over the fire out to about thirty feet. The Calveno crouch forty feet off at the road's edge, and black trees close in past the twenty feet of open ground. Dawn is an hour away or less.
 - **Tactics.** His first turn is the half-truth (see Situation). Once it is a fight, he opens with Kusarigama Tempest when it is ready and hauls the nearest carrier ten feet with the chain. He goes for Delmar first, because he knows who lied. Stunning Strike goes to whoever stands closest, and Legendary Actions buy him a step or a strike. Vantyrus straightens one Disadvantage attack of his each round until Hinewai breaks the thread. Below 30 hit points he spends everything on whoever carries the Spinner.
 - **Break and escape conditions.** He never flees or surrenders, and whatever drops him kills him.
+
+![[talon-skarn-creature#Statblock|Talon Skarn (Creature)]]
 
 ### Balance
 
@@ -76,11 +103,11 @@ The figure is 4400 XP over High, and it counts none of Skarn's state. He is at a
 
 | If | Then | Hands to |
 | --- | ---- | -------- |
-| The Party hears him out, refuses the offer and kills him | He dies fighting. His last words are ==This end is mine. Vantyrus never chose it for me.== His katana, sai and chain lie where he fell, with Matteo's hat on the body, and anyone who strips the harness takes the shard. At first light the Party leaves with Matteo and the four Calveno along the fruit-pile trail. | [[session-13-the-pantry\|Session 13 - The Pantry]] |
-| The Party strikes first and kills him before he speaks | The Party never hears the Kyzil half-truth or the offer. The corpse, the shard and the trail are as above. | [[session-13-the-pantry\|Session 13 - The Pantry]] |
-| The Party waits in silence after the offer | After one full round Skarn takes silence for refusal and goes for the carrier, who is Delmar. The fight runs as above. | [[session-13-the-pantry\|Session 13 - The Pantry]] |
-| Skarn seizes a survivor | Hinewai snaps the thread and he lets go, unharmed, as the lines part. Vantyrus's help is gone for the rest of the Scene, and the jolt costs Skarn his reaction that round. The fight runs as above. | [[session-13-the-pantry\|Session 13 - The Pantry]] |
-| The Party hands over the Spinner | Skarn takes it, never lowers the katana and leaves into the dark. The hunt becomes open war between master and apprentice, and Vantyrus comes after the Spinner himself. The Party leaves at first light with the Calveno along the fruit-pile trail, and Crissdalynn must win the toy back. There is no corpse and no shard. | [[session-13-the-pantry\|Session 13 - The Pantry]] |
+| The Party hears him out, refuses the offer and kills him | He dies fighting. His last words are ==This end is mine. Vantyrus never chose it for me.== His katana, sai and chain lie where he fell, with Matteo's hat on the body, and anyone who strips the harness takes the shard. At first light the Party leaves with Matteo and the four Calveno along the fruit-pile trail. | [[session-13-the-pantry\|The Pantry]] |
+| The Party strikes first and kills him before he speaks | The Party never hears the Kyzil half-truth or the offer. The corpse, the shard and the trail are as above. | [[session-13-the-pantry\|The Pantry]] |
+| The Party waits in silence after the offer | After one full round Skarn takes silence for refusal and goes for the carrier, who is Delmar. The fight runs as above. | [[session-13-the-pantry\|The Pantry]] |
+| Skarn seizes a survivor | Hinewai snaps the thread and he lets go, unharmed, as the lines part. Vantyrus's help is gone for the rest of the Scene, and the jolt costs Skarn his reaction that round. The fight runs as above. | [[session-13-the-pantry\|The Pantry]] |
+| The Party hands over the Spinner | Skarn takes it, never lowers the katana and leaves into the dark. The hunt becomes open war between master and apprentice, and Vantyrus comes after the Spinner himself. The Party leaves at first light with the Calveno along the fruit-pile trail, and Crissdalynn must win the toy back. There is no corpse and no shard. | [[session-13-the-pantry\|The Pantry]] |
 
 When the light comes, the trail shows: ==First grey light picks out piles of windfall on broad leaves, strung east along the road. Matteo spits at the nearest and mutters, "That's Renzo's way, biggest on the bottom."==
 

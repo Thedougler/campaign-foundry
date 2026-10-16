@@ -9,18 +9,14 @@ revealed: "Session 12"
 title: "Ettore Ferrante"
 ---
 
-> [!visual-aid] Portrait: Ettore Ferrante
-> It waits on the DM's description of Ettore's face, hair and colouring. The page gives his build, his splinted left shin and his apologetic manner, which is not enough to draw. Target `ettore-ferrante-portrait.webp`.
->
-> ```text
-> {"subject": "Ettore Ferrante, a heavy Calveno bridge-toll clerk, <face, hair and colouring from the DM>, in the working clothes of a Renaissance clerk, his left shin bound in a splint. Exclude: lettering of any kind, watermarks, logos and gore; modern and industrial-era dress, zips, modern eyewear, contemporary tailoring and electronics; photorealism and photographic faces, painterly, oil and watercolour rendering, 3D-render lighting and plastic skin, stock-photo composition, anime, chibi and manga speed lines, pixel art, superhero muscle, children's-cartoon softness, and any palette so dark it hides the linework.", "scene": "a muted lava-tube skylight pit behind him", "action": "sitting propped against black rock, a hand lifted in apology", "lighting": "dim daylight from the skylight above", "composition": "3:4 portrait, chest up. A neutral, apologetic expression, never mid-action. A muted background hinting at his surroundings. Three-quarter view. Leave headroom.", "style": "Adult animated adventure art in the look of the Archer TV show: polished television animation staged as a dramatic tabletop still. Thick-to-medium black outlines, cel shading with hard shadow edges, expressive adult faces at grounded proportions, a saturated controlled palette. The Shattered Sea is a Renaissance and Age of Sail world.", "aspect_ratio": "3:4", "image_size": "1024x1536"}
-> ```
+![[ettore-ferrante-portrait.webp]]
 
 > [!narration] First look
 > A heavy man lies against the black rock with his left leg in a splint. He tries to rise, then sags back and lifts a hand in apology. “Forgive me. I would stand, but the leg disagrees.”
 
 ## Roleplaying
 
+- **Appearance.** Heavy-set, with olive skin, brown eyes and the same square nose as Carlo. His thinning dark curls are grey at the temples, and a short dark beard follows his round jaw. He wears a worn brown clerk's waistcoat over a cream linen shirt, with a missing lower button. His left shin remains splinted.
 - **Wants.** To avoid being left behind and see his brother Carlo again.
 - **Voice.** Exact, polite, and apologetic. “It is arithmetic” means hopeless.
 - **Opening move.** Out of the pit and marching inland with the Party, his mended shin splinted and not fully working.

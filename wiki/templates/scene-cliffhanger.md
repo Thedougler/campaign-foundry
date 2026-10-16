@@ -5,11 +5,18 @@ kind: Cliffhanger
 summary: ""
 sources: []
 revealed: ""
+cssclasses:
+  - cf-scene
+  - cf-cliffhanger
 ---
 
 %% Optional. Include it when the Scene has a scene-setter from `skill://visuals`: the bare embed below, named with the page's slug. %%
 
 ![[<slug>-scene.webp]]
+
+> [!cast]
+>
+> %% Optional. Include it when an NPC or Creature is on stage. Give one item per NPC or Creature in `## Stakes`, its portrait embed then its link: `- ![[<page-slug>-portrait.webp]] [[<page-slug>|<page title>]]`. An item whose page has no portrait yet holds the link alone. %%
 
 > [!narration] Opening
 > %% Spoken, second person, present tense, under 120 words. Put the threat in the first sentence and end on the point where the Party reacts, which may be one situation-specific handoff question or either/or. %%
@@ -29,6 +36,10 @@ revealed: ""
 ## Checks
 
 %% Give each check or save with its Ability (Skill) and DC and the action it costs. Then give each result the check can produce as a Cue (`==…==`): success, failure, and a critical success where its tier can land, paying world-law. Failure installs a false belief, a constraint or a caused consequence, never a blank. Match any reused rule to its owner page. %%
+
+> [!checks]
+>
+> %% One item per check or save in the format of `docs/agents/scene-pages.md` § Page format, **Checks**: the action in bold, then the Ability (Skill), DC and cost, with one nested item per result, such as `- **Success.** ==…==`. %%
 
 ## Encounter
 
@@ -50,7 +61,7 @@ revealed: ""
 
 ## Outcomes
 
-%% Give one row per outcome the Scene can plausibly produce, withdrawal and surrender included. Each row gives the trigger and the change, the cost that remains, and the Scene it hands to. %%
+%% Give one row per outcome the Scene can plausibly produce, withdrawal and surrender included. Each row gives the trigger and the change, the cost that remains, and the Scene it hands to, linked under its short title: `[[session-13-the-grove\|The Grove]]`. %%
 
 | If  | Then | Hands to |
 | --- | ---- | -------- |

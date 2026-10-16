@@ -9,11 +9,14 @@ revealed: ""
 title: "Renzo Canale"
 ---
 
+![[renzo-canale-portrait.webp]]
+
 > [!narration] First look
 > Beneath the great vine ahead of you, an old man with close-cropped grey hair turns fallen fruit between palms scrubbed clean. He puts each sound piece by his knee and clears a patch of ground in front of him. Then he looks at the injured man's leg and beckons you closer. "Bring him over. I can set that."
 
 ## Roleplaying
 
+- **Appearance.** A spare old man with sun-browned skin and deep-set hazel eyes. Grey stubble covers his scalp above a clean-shaven face and bent nose. He scrubs his big palms clean before handling fruit. His loose shirt is cream linen, worn over faded russet breeches. A strip torn from its hem binds one cuff.
 - **Wants.** To remain beneath the vine and give the willing a safe place.
 - **Voice.** Slow and certain: “The ground gives.”
 - **Opening move.** Beneath the vine in [[the-pantry|The Pantry]] with Beppe Sarti and Marco Lenzi, sorting windfall. Indifferent.

@@ -1,0 +1,267 @@
+/* Campaign Foundry: Session pages (Prep and Scenes) in reading view, layered on ITS Theme.
+   Pages opt in through the `cssclasses` their template sets: `cf-prep`, or `cf-scene` plus
+   one of `cf-hook`, `cf-development`, `cf-cliffhanger`, `cf-climax`, `cf-resolution`.
+   Layout lives in block-level hooks only (callout types, embed targets, heading text on the
+   heading itself), because reading view drops off-screen blocks from the DOM and a
+   sibling selector reaching back to a section heading breaks while scrolling.
+   Layout callouts: [!cast] portrait strip, [!tiles] card grid, [!checks] roll cards. */
+
+/* ---------- Tokens ---------- */
+.markdown-preview-view:is(.cf-scene, .cf-prep) {
+  --file-line-width: 54rem;
+  --cf-kind-rgb: var(--color-accent-rgb, 138, 92, 245);
+  --cf-kind: rgb(var(--cf-kind-rgb));
+  --cf-card-bg: var(--background-secondary);
+  --cf-card-border: var(--background-modifier-border);
+  --cf-radius: 8px;
+  --cf-gap: 0.75rem;
+}
+.markdown-preview-view.cf-hook { --cf-kind-rgb: var(--color-blue-rgb); }
+.markdown-preview-view.cf-development { --cf-kind-rgb: var(--color-green-rgb); }
+.markdown-preview-view.cf-cliffhanger { --cf-kind-rgb: var(--color-orange-rgb); }
+.markdown-preview-view.cf-climax { --cf-kind-rgb: var(--color-red-rgb); }
+.markdown-preview-view.cf-resolution { --cf-kind-rgb: var(--color-purple-rgb); }
+
+/* ---------- Header: the Scene kind as a badge above the title, drawn from the page's cssclass.
+   The vault shows properties only in source mode, so the header reads nothing from them. ---------- */
+.cf-scene .inline-title::before {
+  display: block;
+  width: fit-content;
+  margin-bottom: 0.6rem;
+  padding: 0.2em 0.8em;
+  border-radius: 999px;
+  background: rgba(var(--cf-kind-rgb), 0.16);
+  color: var(--cf-kind);
+  font-family: var(--font-interface);
+  font-size: var(--font-ui-smaller);
+  font-weight: var(--font-bold);
+  letter-spacing: 0.12em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+.cf-hook .inline-title::before { content: "Hook"; }
+.cf-development .inline-title::before { content: "Development"; }
+.cf-cliffhanger .inline-title::before { content: "Cliffhanger"; }
+.cf-climax .inline-title::before { content: "Climax"; }
+.cf-resolution .inline-title::before { content: "Resolution"; }
+.cf-prep .inline-title::before {
+  content: "Session Prep";
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--text-faint);
+  font-family: var(--font-interface);
+  font-size: var(--font-ui-smaller);
+  font-weight: var(--font-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.markdown-preview-view:is(.cf-scene, .cf-prep) .metadata-container {
+  display: none;
+}
+
+/* ---------- Lede: scene-setter hero ---------- */
+.cf-scene .image-embed[src*="-scene."] img {
+  display: block;
+  width: 100%;
+  max-height: 20rem;
+  object-fit: cover;
+  border-radius: var(--cf-radius);
+}
+
+/* ---------- Layout callouts: no callout chrome, no title ---------- */
+.cf-scene .callout:is([data-callout="cast"], [data-callout="tiles"], [data-callout="checks"]),
+.cf-prep .callout[data-callout="tiles"] {
+  margin: 0.75rem 0 1.25rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+:is(.cf-scene, .cf-prep) .callout:is([data-callout="cast"], [data-callout="tiles"], [data-callout="checks"]) > .callout-title {
+  display: none;
+}
+:is(.cf-scene, .cf-prep) .callout:is([data-callout="cast"], [data-callout="tiles"], [data-callout="checks"]) > .callout-content {
+  padding: 0;
+}
+:is(.cf-scene, .cf-prep) .callout:is([data-callout="cast"], [data-callout="tiles"], [data-callout="checks"]) > .callout-content > :is(ul, ol) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+:is(.cf-scene, .cf-prep) .callout:is([data-callout="cast"], [data-callout="tiles"], [data-callout="checks"]) > .callout-content > :is(ul, ol) > li {
+  margin: 0;
+}
+:is(.cf-scene, .cf-prep) .callout:is([data-callout="cast"], [data-callout="tiles"], [data-callout="checks"]) > .callout-content > :is(ul, ol) > li::before,
+:is(.cf-scene, .cf-prep) .callout:is([data-callout="cast"], [data-callout="tiles"], [data-callout="checks"]) > .callout-content > :is(ul, ol) > li > .list-bullet {
+  display: none;
+}
+
+/* [!cast]: portrait cards, each captioned with its page link. */
+.cf-scene .callout[data-callout="cast"] > .callout-content > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+  gap: var(--cf-gap);
+}
+.cf-scene .callout[data-callout="cast"] > .callout-content > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
+  font-size: var(--font-ui-small);
+  line-height: 1.25;
+}
+.cf-scene .callout[data-callout="cast"] .image-embed {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+.cf-scene .callout[data-callout="cast"] .image-embed img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top;
+  border: 1px solid var(--cf-card-border);
+  border-radius: var(--cf-radius);
+}
+
+/* [!tiles]: a grid of cards, one per bold-led item; an image leading an item becomes the card's thumbnail. */
+:is(.cf-scene, .cf-prep) .callout[data-callout="tiles"] > .callout-content > :is(ul, ol) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: var(--cf-gap);
+}
+:is(.cf-scene, .cf-prep) .callout[data-callout="tiles"] > .callout-content > :is(ul, ol) > li {
+  overflow: hidden;
+  padding: 0.8rem 1rem 0.9rem;
+  border: 1px solid var(--cf-card-border);
+  border-top: 3px solid var(--cf-kind);
+  border-radius: var(--cf-radius);
+  background: var(--cf-card-bg);
+}
+:is(.cf-scene, .cf-prep) .callout[data-callout="tiles"] > .callout-content > :is(ul, ol) > li > .image-embed:first-child {
+  display: block;
+  width: calc(100% + 2rem);
+  margin: -0.8rem -1rem 0.7rem;
+}
+:is(.cf-scene, .cf-prep) .callout[data-callout="tiles"] > .callout-content > :is(ul, ol) > li > .image-embed:first-child img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+}
+:is(.cf-scene, .cf-prep) .callout[data-callout="tiles"] > .callout-content > :is(ul, ol) > li > br:first-of-type {
+  display: none;
+}
+:is(.cf-scene, .cf-prep) .callout[data-callout="tiles"] > .callout-content > :is(ul, ol) > li > strong:first-of-type {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 1.05em;
+}
+.cf-prep .callout[data-callout="tiles"] > .callout-content > ol {
+  counter-reset: cf-row;
+}
+.cf-prep .callout[data-callout="tiles"] > .callout-content > ol > li {
+  counter-increment: cf-row;
+}
+.cf-prep .callout[data-callout="tiles"] > .callout-content > ol > li > strong:first-of-type::before {
+  content: counter(cf-row) " · ";
+  color: var(--text-faint);
+}
+
+/* [!checks]: one card per roll, one labelled row per result. */
+.cf-scene .callout[data-callout="checks"] > .callout-content > ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cf-gap);
+}
+.cf-scene .callout[data-callout="checks"] > .callout-content > ul > li {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--cf-card-border);
+  border-left: 3px solid var(--cf-kind);
+  border-radius: var(--cf-radius);
+  background: var(--cf-card-bg);
+}
+.cf-scene .callout[data-callout="checks"] > .callout-content > ul > li > ul {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  border: 0;
+}
+.cf-scene .callout[data-callout="checks"] > .callout-content > ul > li > ul > li {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  column-gap: 0.75rem;
+  margin: 0;
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--cf-card-border);
+}
+.cf-scene .callout[data-callout="checks"] > .callout-content > ul > li > ul > li::before,
+.cf-scene .callout[data-callout="checks"] > .callout-content > ul > li > ul > li > .list-bullet {
+  display: none;
+}
+.cf-scene .callout[data-callout="checks"] > .callout-content > ul > li > ul > li > strong:first-of-type {
+  padding-top: 0.15em;
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ---------- Run-in labels: the bold lead of every bullet ---------- */
+:is(.cf-scene, .cf-prep) li > strong:first-of-type {
+  color: var(--text-normal);
+}
+
+/* ---------- Headings ---------- */
+/* ITS sizes both h2 pseudo-elements as its underline bar, so the badge on ::before
+   overrides that sizing and floats to the heading's right edge. */
+.cf-scene h2[data-heading="Hidden truths"]::before {
+  content: "Secret";
+  display: inline-block !important;
+  float: right;
+  width: auto !important;
+  height: auto !important;
+  margin: 0.7em 0 0 !important;
+  padding: 0.15em 0.7em;
+  border-radius: 999px;
+  background: rgba(var(--color-red-rgb), 0.15);
+  color: var(--color-red);
+  font-family: var(--font-interface);
+  font-size: var(--font-ui-smaller);
+  font-weight: var(--font-bold);
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+/* ---------- Encounter: a statblock embed without its owner page's chrome ---------- */
+.cf-scene .internal-embed.markdown-embed[src*="#Statblock"] {
+  margin: 1rem 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.cf-scene .internal-embed.markdown-embed[src*="#Statblock"] :is(.markdown-embed-link, .el-h2, .el-ul) {
+  display: none;
+}
+
+/* ---------- Tables: full width, top-aligned. Outcomes is the three-column table whose last
+   column holds the Scene links (`Hands to`); it gets set widths. Other three-column tables
+   (testimony, rosters) keep automatic widths. ---------- */
+:is(.cf-scene, .cf-prep) .el-table table {
+  width: 100%;
+}
+:is(.cf-scene, .cf-prep) .el-table td {
+  vertical-align: top;
+}
+.cf-scene .el-table table:has(thead th:nth-child(3):last-child):has(tbody td:nth-child(3):last-child > a.internal-link) th:first-child {
+  width: 26%;
+}
+.cf-scene .el-table table:has(thead th:nth-child(3):last-child):has(tbody td:nth-child(3):last-child > a.internal-link) th:last-child {
+  width: 17%;
+}
+.cf-scene .el-table table:has(thead th:nth-child(3):last-child):has(tbody td:nth-child(3):last-child > a.internal-link) td:first-child {
+  font-weight: var(--font-semibold);
+}

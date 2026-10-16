@@ -17,9 +17,11 @@ The **lede** is the space between a page's frontmatter and its first `##` headin
 | Faction with a structure | mermaid hierarchy or relationship web | `## Structure` | none |
 | Deity | holy symbol | lede | `<slug>-symbol.webp` |
 | Scene, any kind | scene-setter | lede | `<slug>-scene.webp` |
+| Scene with an NPC or Creature on stage | cast strip, one portrait per NPC or Creature | `[!cast]` in the lede, after the scene-setter | each cast page's `<page-slug>-portrait.webp`, reused |
 | Cliffhanger with an `## Encounter` | battle map | first line under `### Battlefield` | `<slug>-battle-map.png` |
 | Hook or Climax the Party may fight | battle map | first line under `## Encounter` | `<slug>-battle-map.png` |
 | Recap | recap illustration | lede | `<slug>-scene.webp` |
+| Prep | storyboard, one thumbnail per Scene | each item of the `[!tiles]` under `## Scene Chart` | each Scene's `<scene-slug>-scene.webp`, reused |
 | Handout with an image | reveal art | directly under its `[!narration]` callout | `<slug>-handout-art.webp` |
 | story-so-far | mermaid `timeline` | `## Timeline`, after `## Arc position` | none |
 | Lore, Spell, House Rule | only when the test below passes | lede | `<slug>-scene.webp` or a diagram |
@@ -38,12 +40,12 @@ A PC page may also embed a `<slug>-reference-sheet.png` in its lede. Tokens (`<s
 ## Embed rules
 
 - Each embed is bare, `![[<file>]]`, without alt text or a size, on its own line with a blank line above and below.
-- A slot takes one Visual. Embeds stay out of callouts, except the image under a Handout's callout, which follows the callout as its own block.
+- A slot takes one Visual. Embeds stay out of callouts, with three exceptions. The image under a Handout's callout follows the callout as its own block. Each `[!cast]` item and each item of Prep's Scene Chart `[!tiles]` opens on another page's file, then that page's link or the Scene's bold name, in the format the Scene and Prep templates give: `- ![[talon-skarn-portrait.webp]] [[talon-skarn|Talon Skarn]]`. Neither of those two creates a file.
 - A page's existing extra embeds (several portraits, a token beside a portrait) are the DM's. Leave them where they are.
 
 ## Session and Prep
 
-- **Prep.** Prep hands this skill the Session's pages. Fill each Scene's scene-setter and battle map, and the depictions of the draft pages the Prep links. Plan **reveal art** for each moment the Players first see a key person, place or object. It is a Handout page whose `[!narration]` callout is the caption, with the image directly under the callout. Reveal art shows only what the Players see at that moment, leaving out every hidden truth and every detail from a page they have not met. When a depiction already shows exactly that, embed the existing file under the callout.
+- **Prep.** Prep hands this skill the Session's pages. Fill each Scene's scene-setter and battle map, and the depictions of the draft pages the Prep links, so each `[!cast]` portrait and each storyboard thumbnail exists. Find existing files with the glob tool's `gitignore: false` (`SKILL.md` step 2). Once a file exists, add its embed to the `[!cast]` item or storyboard item that lacks it. Plan **reveal art** for each moment the Players first see a key person, place or object. It is a Handout page whose `[!narration]` callout is the caption, with the image directly under the callout. Reveal art shows only what the Players see at that moment, leaving out every hidden truth and every detail from a page they have not met. When a depiction already shows exactly that, embed the existing file under the callout.
 - **Ingest.** After the Recap is filed, Ingest hands over the Recap and every page it changed. Fill the recap illustration. Pages the Session revealed now get their depictions. A look the Session changed (a scar, a new coat, a transformation) is an open slot, filled by editing the portrait as `prompts.md` § Continuity sets out.
 - **story-arc** keeps the story-so-far's `## Timeline` current when it rewrites the page.
 - **Push** ships each Handout's callout with the image under it. It builds a Foundry scene from each embedded file whose name contains `battle-map`, on the Scene or on a Site it links, and uses `<slug>-portrait.webp` as the Actor image and token of an NPC or Creature. Push is the only route a Visual takes to the Players.

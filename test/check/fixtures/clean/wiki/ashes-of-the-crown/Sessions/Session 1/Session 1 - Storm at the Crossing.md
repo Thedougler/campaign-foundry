@@ -5,6 +5,7 @@ summary: "A storm pins the Party at the bridge."
 sources: []
 revealed: ""
 title: "Session 1 - Storm at the Crossing"
+cssclasses: [cf-scene, cf-hook]
 ---
 
 - **Pressure.** Text.
@@ -23,11 +24,15 @@ Hand over [[Wanted Poster]] here.
 
 ## Angles
 
-Text.
+> [!tiles]
+>
+> - **Choice.** Text.
 
 ## Checks
 
-Text.
+> [!checks]
+>
+> - **Check.** Text.
 
 ## Outcomes
 

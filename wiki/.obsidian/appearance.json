@@ -1,5 +1,7 @@
 {
   "enabledCssSnippets": [
-    "callouts"
-  ]
+    "callouts",
+    "session-pages"
+  ],
+  "cssTheme": "ITS Theme"
 }

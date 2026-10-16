@@ -5,6 +5,7 @@ sources: []
 date: "14 Emberfall 1492"
 revealed: ""
 title: "Session 1 - Prep"
+cssclasses: [cf-prep]
 ---
 
 ## Session question
@@ -16,13 +17,15 @@ title: "Session 1 - Prep"
 
 ## Scene Chart
 
-1. [[Session 1 - Storm at the Crossing]] (Hook)
-
 Opposition: ![[Bandit Captain#Statblock]]
 
 | #   | Scene | Kind | Minutes | Threads |
 | --- | ----- | ---- | ------- | ------- |
 | 1   |       | Hook |         |         |
+
+> [!tiles]
+>
+> 1. **[[Session 1 - Storm at the Crossing]].** (Hook)
 
 ## Threads
 

@@ -9,7 +9,19 @@ sources:
   - "archive/collab-2026-10-12-hinewai-reads-jean-claude.md"
   - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
 revealed: ""
+cssclasses:
+  - cf-scene
+  - cf-development
 ---
+
+![[session-13-the-grove-scene.webp]]
+
+> [!cast]
+>
+> - ![[hinewai-portrait.webp]] [[hinewai|Hinewai]]
+> - ![[deer-stalker-portrait.webp]] [[deer-stalker|Deer-Stalker]]
+> - ![[terror-bird-portrait.webp]] [[terror-bird|Terror-Bird]]
+> - ![[wolfrabbit-portrait.webp]] [[wolfrabbit|Wolfrabbit]]
 
 > [!narration] Opening
 > Wind has shoved the canopy around behind you all the way here, and at the black flowers it stops. The grass within stands dead still and greener than the soil outside, and one fruit tree rises over two bare mounds, near enough that an arm could span the gap. It smells of peach under there, sweet and thick as a distillery, and saplings crowd the mounds from every side. A deer-stalker, a Terror-Bird and a loose pack of wolfrabbits wait outside the ring in the shadows like mourners, and none of them looks your way. Two golden peaches lie beside the roots. They shine like new brass, a few paces inside the ring.
@@ -58,23 +70,44 @@ Delmar can force the reason. At the Burnt Road he asked for Jean-Claude's safety
 
 ## Angles
 
-- [[hinewai|Hinewai]], as the three-bodied keeper above. **Goal:** learn what the Party is, keep her promise to Delmar while Jean-Claude follows her rules and watch that nobody takes a survivor. **Knows:** the seed and the farms at Karath, her companion's grave and her own, Simone's scent, the orders on the spent seals, what the tether is and that the hunt is her seeped hatred. She is a powerful caster, an archdruid lich, and any fitting druidic or necromantic magic is hers when the fiction calls for it. *Detect Magic* and *Legend Lore* are two among many. **Offer and price:** the Party may leave whole, Jean-Claude may live and any Calveno who want to go may follow them. In return the Party's hands stay off the Bloom, nobody who doesn't wish to go is taken, and Jean-Claude answers truly. **Withholds:** her companion's name, which she lost. She also withholds what she means to do with the island. Tell: the tree stops mid-word and the saplings stop swaying together, and she turns her eyes back to Jean-Claude. She never lies. **Posture changes**, and each closes on a Cue:
-  - Toward kindness, when the Party eats, asks and listens: ==You took what fell. *He was thin once, like this one.* Sit, child, and the grove won't hurt you.==
-  - Toward the survivors waiting at the Pantry: ==They may go if they want to. *They never want to.* I'll let nobody drag one off unasked.==
-  - Toward the first hand on a grave: ==Nobody gave you that. *It's crying.* Return it and I'll forget the hand that took it.==
-  - Toward a taker who persists: ==The island will have you back, then. *Don't watch.* It's gentle, always.==
-  - Toward a lie she can disprove, or a bowed head for Karath: ==That is gold's answer, in gold's voice. *They answered the same way.* My promise stops where my hand stops, and the island has hands of its own.==
-  - Toward anyone who flees: ==Go, then. *They went too.* The roots have learned your weight by now.==
-- [[jean-claude-tabarnack|Jean-Claude]] is what the hearing turns on. He wears no seal and still leaks, because a part of him still believes the caste order and the golds' power. He may admit it, hide it or rage at it. He may also pretend the leak is Simone's or the Crown's. Hinewai judges the ring of each answer, and the wisps stay out of it.
+> [!tiles]
+>
+> - **[[hinewai|Hinewai]].** As the three-bodied keeper above. **Goal:** learn what the Party is, keep her promise to Delmar while Jean-Claude follows her rules and watch that nobody takes a survivor. **Knows:** the seed and the farms at Karath, her companion's grave and her own, Simone's scent, the orders on the spent seals, what the tether is and that the hunt is her seeped hatred. She is a powerful caster, an archdruid lich, and any fitting druidic or necromantic magic is hers when the fiction calls for it. *Detect Magic* and *Legend Lore* are two among many. **Offer and price:** the Party may leave whole, Jean-Claude may live and any Calveno who want to go may follow them. In return the Party's hands stay off the Bloom, nobody who doesn't wish to go is taken, and Jean-Claude answers truly. **Withholds:** her companion's name, which she lost. She also withholds what she means to do with the island. Tell: the tree stops mid-word and the saplings stop swaying together, and she turns her eyes back to Jean-Claude. She never lies. **Posture changes**, and each closes on a Cue:
+>   - Toward kindness, when the Party eats, asks and listens: ==You took what fell. *He was thin once, like this one.* Sit, child, and the grove won't hurt you.==
+>   - Toward the survivors waiting at the Pantry: ==They may go if they want to. *They never want to.* I'll let nobody drag one off unasked.==
+>   - Toward the first hand on a grave: ==Nobody gave you that. *It's crying.* Return it and I'll forget the hand that took it.==
+>   - Toward a taker who persists: ==The island will have you back, then. *Don't watch.* It's gentle, always.==
+>   - Toward a lie she can disprove, or a bowed head for Karath: ==That is gold's answer, in gold's voice. *They answered the same way.* My promise stops where my hand stops, and the island has hands of its own.==
+>   - Toward anyone who flees: ==Go, then. *They went too.* The roots have learned your weight by now.==
+> - **[[jean-claude-tabarnack|Jean-Claude]].** Is what the hearing turns on. He wears no seal and still leaks, because a part of him still believes the caste order and the golds' power. He may admit it, hide it or rage at it. He may also pretend the leak is Simone's or the Crown's. Hinewai judges the ring of each answer, and the wisps stay out of it.
 
 ## Checks
 
-- **Eat a fallen peach.** No check to pick one up. Constitution saving throw DC 10 for the first peach of the day, DC 12 for the second and DC 14 for the third, one action each. Success: a patch of skin as broad as a palm turns soft metallic gold for eight hours, wherever the eater chooses. ==Juice runs down your wrist as a patch of skin turns soft metallic gold, bright as a fresh coin. Saffron lingers on your lip.== Failure: only a saffron stain at the lips for the day, and the next peach is harder. ==It's the sweetest thing you've eaten in weeks. The gold doesn't take, and a saffron stain is all you have to show.== The gilding is a passing disguise. Armour, saves and senses stay as they were.
-- **Read which half of her is speaking.** Wisdom (Insight) DC 14, one action, on any exchange. Success: ==She says one thing to you and a gentler thing to someone at the trunk's foot, and both are about you.== Failure: ==Her warm half sounds like laughter at the cold half's charge, and you take it for mockery.== Critical: ==You catch the rule of her. She takes her own sentence apart, and the half the room answers gets the last word.==
-- **Read what the pale roots do while she speaks.** Intelligence (Nature) DC 12, one action. Success: ==The pale roots under the flowers brighten with each word she says and dim when she drifts.== Failure: ==The glow looks like the grove breathing in its sleep, on its own slow time.== Critical: ==The glow spans the whole of what she touches, and the roots the fire killed have gone dark.==
-- **Identify the wisps.** Intelligence (Arcana) DC 19, one action, for any PC who sees them. Success: ==The threads gather far to the east at one place, a heart where they all end.== Failure: ==The wisps look like a hunter's tracer, a leash drawn after him by someone who knows where he walks.== Critical: ==Here's what you'd know. Break the heart and the drain ends, though a believing mind still believes.== Hinewai explains the tether regardless, and a missed roll costs the Party nothing.
-- **Hands on the grave.** A PC who touches a mound, pulls a flower, digs, picks living fruit or strikes the tree gets her first warning from Angles, and the hand comes off. She forgets it. A second claim is a taker's, and so is a first one made with intent to dig or break. Then the roots rise and she comes to fight. Intent decides, and fingers resting on a mound by accident are forgiven. A roll never decides it.
-- **The unspent seal.** If Jean-Claude brings Solange's seal into the reading, he may hand it to her or explain it. Handing it over unasked reads as trust. Hiding it after she names it reads as a lie she can disprove. No roll decides it, and his answer does.
+> [!checks]
+>
+> - **Eat a fallen peach.** No check to pick one up. Constitution saving throw DC 10 for the first peach of the day, DC 12 for the second and DC 14 for the third, one action each.
+>   - **Success.** A patch of skin as broad as a palm turns soft metallic gold for eight hours, wherever the eater chooses. ==Juice runs down your wrist as a patch of skin turns soft metallic gold, bright as a fresh coin. Saffron lingers on your lip.==
+>   - **Failure.** Only a saffron stain at the lips for the day, and the next peach is harder. ==It's the sweetest thing you've eaten in weeks. The gold doesn't take, and a saffron stain is all you have to show.==
+>
+>   The gilding is a passing disguise. Armour, saves and senses stay as they were.
+>
+> - **Read which half of her is speaking.** Wisdom (Insight) DC 14, one action, on any exchange.
+>   - **Success.** ==She says one thing to you and a gentler thing to someone at the trunk's foot, and both are about you.==
+>   - **Failure.** ==Her warm half sounds like laughter at the cold half's charge, and you take it for mockery.==
+>   - **Critical.** ==You catch the rule of her. She takes her own sentence apart, and the half the room answers gets the last word.==
+> - **Read what the pale roots do while she speaks.** Intelligence (Nature) DC 12, one action.
+>   - **Success.** ==The pale roots under the flowers brighten with each word she says and dim when she drifts.==
+>   - **Failure.** ==The glow looks like the grove breathing in its sleep, on its own slow time.==
+>   - **Critical.** ==The glow spans the whole of what she touches, and the roots the fire killed have gone dark.==
+> - **Identify the wisps.** Intelligence (Arcana) DC 19, one action, for any PC who sees them.
+>   - **Success.** ==The threads gather far to the east at one place, a heart where they all end.==
+>   - **Failure.** ==The wisps look like a hunter's tracer, a leash drawn after him by someone who knows where he walks.==
+>   - **Critical.** ==Here's what you'd know. Break the heart and the drain ends, though a believing mind still believes.==
+>
+>   Hinewai explains the tether regardless, and a missed roll costs the Party nothing.
+>
+> - **Hands on the grave.** A PC who touches a mound, pulls a flower, digs, picks living fruit or strikes the tree gets her first warning from Angles, and the hand comes off. She forgets it. A second claim is a taker's, and so is a first one made with intent to dig or break. Then the roots rise and she comes to fight. Intent decides, and fingers resting on a mound by accident are forgiven. A roll never decides it.
+> - **The unspent seal.** If Jean-Claude brings Solange's seal into the reading, he may hand it to her or explain it. Handing it over unasked reads as trust. Hiding it after she names it reads as a lie she can disprove. No roll decides it, and his answer does.
 
 ## Clues
 
@@ -93,13 +126,13 @@ The Prep's Clues table in [[session-13-prep|Session 13 - Prep]] gives the other 
 
 | If | Then | Hands to |
 | -- | ---- | -------- |
-| The Party leaves the Bloom alone and Jean-Claude answers the reading truly, admitting the pull whether or not he can name it. | Her warm half decides it. Jean-Claude is spared and the Party stands inside the ring. The tether has been read aloud and Simone's visit is known. If the canister was raised, her toxin is known too. Hinewai's promise to Delmar remains in force. | [[session-13-the-army\|Session 13 - The Army]] |
+| The Party leaves the Bloom alone and Jean-Claude answers the reading truly, admitting the pull whether or not he can name it. | Her warm half decides it. Jean-Claude is spared and the Party stands inside the ring. The tether has been read aloud and Simone's visit is known. If the canister was raised, her toxin is known too. Hinewai's promise to Delmar remains in force. | [[session-13-the-army\|The Army]] |
 | The hearing stalls or the Party refuses to engage with the pieces. | She looks at Jean-Claude regardless and casts, and the result follows his answer. | the matching row |
-| Delmar reminds her of her promise while she leans guilty. | She must state the rule broken. If the Party kept clear of the Bloom and Jean-Claude didn't lie, she states none and her own word spares him. | [[session-13-the-army\|Session 13 - The Army]] |
-| Jean-Claude pledges himself to Karath or denies the reading after the wisps showed. | Guilty. Her promise ends at her own hand and she says the island will walk them out. The Party stands together at the grove, unbound, and hurt only if they fought. Every bowed head comes up. | [[session-13-the-way-out\|Session 13 - The Way Out]] |
-| Jean-Claude lies about the toxin after *Legend Lore*. | Guilty, with the same result. | [[session-13-the-way-out\|Session 13 - The Way Out]] |
-| After the warning, a PC touches the Bloom again or strikes the tree. Digging and picking living fruit count as touching. | Resisted. The roots rise, the black flowers close and the island turns. | [[session-13-the-way-out\|Session 13 - The Way Out]] |
-| The Party flees the grove before the verdict. | Resisted. "Go, then." The beasts' heads come up. | [[session-13-the-way-out\|Session 13 - The Way Out]] |
+| Delmar reminds her of her promise while she leans guilty. | She must state the rule broken. If the Party kept clear of the Bloom and Jean-Claude didn't lie, she states none and her own word spares him. | [[session-13-the-army\|The Army]] |
+| Jean-Claude pledges himself to Karath or denies the reading after the wisps showed. | Guilty. Her promise ends at her own hand and she says the island will walk them out. The Party stands together at the grove, unbound, and hurt only if they fought. Every bowed head comes up. | [[session-13-the-way-out\|The Way Out]] |
+| Jean-Claude lies about the toxin after *Legend Lore*. | Guilty, with the same result. | [[session-13-the-way-out\|The Way Out]] |
+| After the warning, a PC touches the Bloom again or strikes the tree. Digging and picking living fruit count as touching. | Resisted. The roots rise, the black flowers close and the island turns. | [[session-13-the-way-out\|The Way Out]] |
+| The Party flees the grove before the verdict. | Resisted. "Go, then." The beasts' heads come up. | [[session-13-the-way-out\|The Way Out]] |
 
 The Pantry's leavers stay at the Pantry in every row. The Party takes nothing off the island from here, and nobody is taken.
 

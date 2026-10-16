@@ -118,14 +118,14 @@ const ANIMALS = [
 	"zoril",
 ];
 
-/** Fresh, distinct animal aliases — one per sample, drawn anew on every `bench alias`, carried samples included. */
-export function drawAliases(count: number): string[] {
-	if (count > ANIMALS.length)
+/** Fresh, distinct animal aliases, excluding names already revealed by the entry being amended. */
+export function drawAliases(count: number, excluded?: readonly string[]): string[] {
+	const pool = excluded ? ANIMALS.filter((alias) => !excluded.includes(alias)) : [...ANIMALS];
+	if (count > pool.length)
 		throw new UsageError(
-			`Cannot alias ${count} samples: the animal list holds ${ANIMALS.length}.`,
+			`Cannot alias ${count} samples: the animal list holds ${pool.length} unused names.`,
 			"A run draws at most the four Matrix families per entry; split the entry if that changes.",
 		);
-	const pool = [...ANIMALS];
 	const aliases: string[] = [];
 	for (let drawn = 0; drawn < count; drawn++) aliases.push(pool.splice(randomInt(pool.length), 1)[0]!);
 	return aliases;

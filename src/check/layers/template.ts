@@ -232,10 +232,6 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 	const add = (rule: string, line: number, message: string, hint: string): void => {
 		out.push({ layer: LAYER, severity: "error", rule, path, line, message, hint });
 	};
-	const example = (key: string): string => {
-		const value = template.keys.find((k) => k.key === key)?.value;
-		return Array.isArray(value) ? `${key}: []` : `${key}: ""`;
-	};
 
 	if (fm.type === "NPC" && "creature" in fm) {
 		add(
@@ -246,13 +242,12 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 		);
 	}
 
-	const missing = missingKeys(page, template).map((k) => k.key);
-	for (const key of missing) {
+	for (const { key, value } of missingKeys(page, template)) {
 		add(
 			"missing-key",
 			1,
 			`Property \`${key}\` is missing (required by templates/${template.name}.md).`,
-			`Add \`${example(key)}\` to the frontmatter; a blank value is fine unless the key is \`summary\` or \`title\`. \`cfcli check --fix\` adds it.`,
+			`Add \`${key}: ${JSON.stringify(value)}\` to the frontmatter, using the template's value; fill \`summary\` and \`title\` with this page's own text. \`cfcli check --fix\` adds it.`,
 		);
 	}
 	if ("title" in fm) {
@@ -358,11 +353,15 @@ function checkPage(ctx: CheckContext, { page, template }: Resolved, out: Finding
 		const callout = template.page.callouts.find((c) => c.type === type);
 		const home = template.page.headings.filter((h) => h.depth === 2 && h.line < (callout?.line ?? 0)).at(-1)?.text;
 		const title = callout?.title ?? "Title";
+		const body =
+			type === "cast" || type === "tiles" || type === "checks"
+				? ">\n> - **Label.** Content for this item."
+				: "> Spoken text for the table.";
 		add(
 			"missing-callout",
 			1,
 			`Missing \`[!${type}]\` callout (required by templates/${template.name}.md).`,
-			`Add a callout ${home ? `under \`## ${home}\`` : `where templates/${template.name}.md puts it`}, e.g.\n> [!${type}] ${title}\n> Spoken text for the table.`,
+			`Add a callout ${home ? `under \`## ${home}\`` : `where templates/${template.name}.md puts it`}, e.g.\n> [!${type}] ${title}\n${body}`,
 		);
 	}
 	for (const callout of page.callouts) {
@@ -444,17 +443,11 @@ function lineRange(lines: string[], offsets: number[], first: number, last: numb
 	return [start, end];
 }
 
-function blankValue(value: unknown): unknown {
-	if (Array.isArray(value)) return [];
-	if (typeof value === "string") return "";
-	return null;
-}
-
 function fixFrontmatter(source: string, keys: Template["keys"], stripComments: boolean): string {
 	const match = /^---\r?\n([\s\S]*?)\r?\n---/.exec(source);
 	if (!match) return source;
 	const doc = parseDocument(match[1] ?? "");
-	for (const { key, value } of keys) doc.set(key, blankValue(value));
+	for (const { key, value } of keys) doc.set(key, value);
 	if (stripComments) {
 		doc.comment = null;
 		doc.commentBefore = null;

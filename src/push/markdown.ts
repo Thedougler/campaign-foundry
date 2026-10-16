@@ -36,23 +36,32 @@ const compiler = unified()
 	.use(remarkRehype, { allowDangerousHtml: true })
 	.use(rehypeStringify, { allowDangerousHtml: true });
 
+// Match Cues before links so a Cue can contain a resolved wikilink.
+const INLINE = new RegExp(`==([^=\\n]+)==|${WIKILINK.source}`, "g");
 const esc = (s: string): string => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
 function nameOf(link: WikiLink): string {
 	return link.alias ?? link.target.slice(link.target.lastIndexOf("/") + 1);
 }
 
-/** Text with wikilinks and embeds resolved: page links become `@UUID[...]{label}`, images `<img>`, the rest plain text. */
+/** Text with Cues marked and wikilinks resolved: page links become `@UUID[...]{label}`, images `<img>`. */
 function rewriteText(value: string, ctx: RenderContext): PhrasingContent[] {
 	const out: PhrasingContent[] = [];
 	let cursor = 0;
 	const pushText = (text: string): void => {
 		if (text) out.push({ type: "text", value: text } satisfies Text);
 	};
-	for (const match of value.matchAll(WIKILINK)) {
+	for (const match of value.matchAll(INLINE)) {
 		pushText(value.slice(cursor, match.index));
 		cursor = (match.index ?? 0) + match[0].length;
-		const link = parseWikiLinkText(match[0], match[1] === "!", match[2] ?? "", 0, false);
+		if (match[1] !== undefined) {
+			out.push({ type: "html", value: "<mark>" }, ...rewriteText(match[1], ctx), {
+				type: "html",
+				value: "</mark>",
+			});
+			continue;
+		}
+		const link = parseWikiLinkText(match[0], match[2] === "!", match[3] ?? "", 0, false);
 		const image = link.embed ? ctx.image(link) : undefined;
 		if (image) {
 			out.push({

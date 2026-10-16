@@ -9,12 +9,14 @@ revealed: "Session 12"
 title: "Luca Ferrante"
 ---
 
+![[luca-ferrante-portrait.webp]]
 
 > [!narration] First look
 > A lanky boy's lips move over a count he has not finished, and he gives you the numbers, "We are four. One cannot walk. How many can you carry?"
 
 ## Roleplaying
 
+- **Appearance.** Sixteen and lanky, with olive skin, wide brown eyes and Carlo's square nose still narrow in his young face. Dark curls fall over his brow. He has outgrown his faded green waistcoat, and a strip of cord gathers his cream linen shirt beneath it. He keeps his tally bark in one hand.
 - **Wants.** His father safe on the march, and his uncle Carlo found.
 - **Voice.** Short sentences with numbers first. Counting keeps him calm.
 - **Opening move.** Out of the lava tube, marching inland with the Party along the fruit-pile trail. The walk in search of Carlo still lies ahead.

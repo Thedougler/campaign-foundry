@@ -222,10 +222,10 @@ export function parseAttack(desc: string): AttackText | undefined {
 	const head = ATTACK.exec(desc.trim());
 	if (!head) return undefined;
 	const [, kindText = "", bonusText = "", rest = ""] = head;
-	const [reachAndRange = "", hit = ""] = rest.split(/\*Hit:\*/i);
+	const [reachAndRange = "", hit = ""] = rest.split(/\*?Hit:\*?/i);
 	if (!hit) return undefined;
-	const reach = /reach (\d+)\s*ft/i.exec(reachAndRange)?.[1];
-	const range = /range (\d+)(?:\s*\/\s*(\d+))?\s*ft/i.exec(reachAndRange);
+	const reach = /reach (\d+)\s*(?:ft|feet)\b/i.exec(reachAndRange)?.[1];
+	const range = /range (\d+)(?:\s*\/\s*(\d+))?\s*(?:ft|feet)\b/i.exec(reachAndRange);
 	const parts: AttackText["parts"] = [];
 	let previousEnd = 0;
 	for (const match of hit.matchAll(DAMAGE_CLAUSE)) {

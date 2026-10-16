@@ -8,7 +8,7 @@ Run every command from the repo root. A page path in a `cfcli` command starts wi
 
 - **Content pages.** `wiki/<campaign>/<Folder>/<slug>.md`, in the folders `Locations`, `NPCs`, `Creatures`, `Factions`, `Deities`, `Items`, `Spells`, `Vehicles`, `Lore`, `House Rules`, `PCs`, `Threads` and `Quests`. `<slug>` is the slug of the page's `title` (`docs/wiki-layout.md` **Page names**). `<campaign>` is the Campaign folder (`shattered-sea`), which `user-config.md` names.
 - **Session pages.** `wiki/<campaign>/Sessions/Session <N>/session-<N>-<slug>.md`, titled `Session <N> - <Title>`. The titles are `Prep`, `Recap`, `Previously On` (recounting Session N−1) and one per Scene, named for the Scene.
-- **Template.** `wiki/templates/Scene - <Kind>.md`.
+- **Template.** `wiki/templates/scene-<kind>.md`, the kind in lowercase (`scene-hook.md`).
 - **Links.** A `[[<slug>|<Title>]]` link targets a page in its kind's folder above and shows its title. A Creature's or NPC's fighting statistics sit under its own page's `## Statblock`.
 - **Archived sources.** Repo-relative paths under `archive/`, listed in each page's `sources` property.
 - **PC level.** The `**Class, species and level.**` line in the PC page's `## Sheet`. A multiclass character's level is the sum of its class levels.
@@ -22,7 +22,7 @@ Run every command from the repo root. A page path in a `cfcli` command starts wi
    - `wiki/<campaign>/story-so-far.md` when it exists, whose Open promises and PC trajectories are the continuity a Scene can put back within the Party's reach;
    - `wiki/<campaign>/index.md`, the catalogue for looking up page names;
    - the last ten entries of `wiki/<campaign>/log.md`;
-   - `wiki/templates/Scene - <Kind>.md`.
+   - `wiki/templates/scene-<kind>.md`.
 
    Reuse a caller's completed orientation when it covers this Campaign and request.
 2. Resolve the Campaign, Session number, exact kind, destination path and completion owner:
@@ -71,17 +71,22 @@ Reuse the first fitting source in `AGENTS.md` **Sourcing** order. Start with the
 
 Start from the existing page for a redo, or from the template copied to `wiki/<campaign>/Sessions/Session <N>/session-<N>-<scene-slug>.md` for a new Scene.
 
-- **Properties.** `title: "Session <N> - <Scene title>"`, `type: Scene`, `kind: <Kind>`, a one-line `summary` in double quotes, and `sources` as a list of quoted archive paths.
+- **Properties.** `title: "Session <N> - <Scene title>"`, `type: Scene`, `kind: <Kind>`, a one-line `summary` in double quotes, `sources` as a list of quoted archive paths, and `cssclasses` holding `cf-scene` and `cf-<kind>` as the template sets them.
 - **Spine.** Keep every required `##` heading at its depth and in template order, and every required callout type. A `##` whose guidance opens with `Optional.` appears, in template order, only when its guidance condition holds for this Scene (`docs/wiki-layout.md` **Templates define pages**). A template `###` is optional structure: keep it where it has content. Add subheadings inside a section as its content calls for them, each titled for its content.
 - **Guidance.** Delete every `%% %%` comment after filling its section with the content the comment specifies.
-- **Checks.** One bullet per uncertain action, in this format. Give the trigger and action or time cost, the Ability (Skill) and DC, then each result's ruling and its Cue (**Narration** below):
+- **Layout callouts.** Three DM-side callouts lay the page out as cards in Obsidian's reading view: `[!cast]` in the lede, `[!tiles]` around a bold-led list and `[!checks]` in `## Checks`. The template places each one. Each contains one list, with a `>` line left blank between its header and the list, and the list's words follow their section's rules (`docs/wiki-layout.md` **Callouts**).
+- **Checks.** One `[!checks]` callout with one item per uncertain action, in this format. The item gives the action in bold, then the Ability (Skill) and DC with the trigger and action or time cost. Under it, one nested item per result gives its label in bold, its ruling and its Cue (**Narration** below):
 
   ```markdown
-  - **Climb the wall without rope.** Strength (Athletics) DC 15, one action. Success: ==You get your fingers over the lip of the ledge, and the whole yard opens below you.== Failure: 1d6 Bludgeoning damage. ==The stone crumbles under your boot and drops you back into the ditch, and the guard on the walk turns his lantern your way.==
+  > [!checks]
+  >
+  > - **Climb the wall without rope.** Strength (Athletics) DC 15, one action.
+  >   - **Success.** ==You get your fingers over the lip of the ledge, and the whole yard opens below you.==
+  >   - **Failure.** 1d6 Bludgeoning damage. ==The stone crumbles under your boot and drops you back into the ditch, and the guard on the walk turns his lantern your way.==
   ```
 
-  A failure Cue installs a false belief, a constraint or a consequence with its cause, never a blank. A check that can critically succeed adds `Critical:` with its own Cue paying out world-law (`theatre-of-the-mind` `references/recipes.md` § Cues). For a save, specify the ability, DC and effects. For a contest, specify both sides and the tie. A sensible action without real doubt simply works, without a bullet.
-- **Outcomes.** Keep the template's `| If | Then | Hands to |` table, one row per result. `Hands to` holds the receiving Scene's link, such as `[[session-12-terror-birds\|Session 12 - Terror-Birds]]` (a pipe inside a table cell is escaped).
+  A failure Cue installs a false belief, a constraint or a consequence with its cause, never a blank. A check that can critically succeed adds a `**Critical.**` result with its own Cue paying out world-law (`theatre-of-the-mind` `references/recipes.md` § Cues). For a save, specify the ability, DC and effects. For a contest, specify both sides and the tie. A sensible action without real doubt simply works, without an item.
+- **Outcomes.** Keep the template's `| If | Then | Hands to |` table, one row per result. `Hands to` links the receiving Scene under its short title, the title without its `Session <N> -` prefix, which fits on one line: `[[session-13-the-pantry\|The Pantry]]` (a pipe inside a table cell is escaped).
 - **Statblocks.** Statistics stay on the Creature or NPC page that holds them. The Scene shows them only as `![[<page-slug>#Statblock|<page title>]]` embeds in its Encounter.
 - **Prep link.** Link the page from Prep's Scene Chart when Prep exists, and update the row's planning notes or Clue routes where this Scene changes them.
 
@@ -120,7 +125,7 @@ Place callouts and Cues in these formats:
 
   The narration gate compares variants with each other, so give each its own wording rather than shared runs of four or more words.
 - When the Scene expects the Party to split across places, give each place its own first-look callout in `## Situation`, titled with the place's name and built with recipes `## Openings and first looks`, and give the places contrasting tones. Cuts between them follow recipe `### Transition`, and the DM chooses their order.
-- A Cue is written on a DM-side line, such as a Checks bullet, an Angles line or a Creatures tactic, right after its trigger, between `==` marks: `Failure: ==One stone sits smoother than the rest, and your thumb finds the groove before your eyes do.==` The trigger, rules terms, DCs and damage numbers stay outside the marks. One to three sentences, 60 words at most. The gate reads each Cue as Narration.
+- A Cue is written on a DM-side line, such as a `[!checks]` result, an Angles line or a Creatures tactic, right after its trigger, between `==` marks: `- **Failure.** ==One stone sits smoother than the rest, and your thumb finds the groove before your eyes do.==` The trigger, rules terms, DCs and damage numbers stay outside the marks. One to three sentences, 60 words at most. The gate reads each Cue as Narration.
 - When an established result settles an unplayed cut of time or space, put a `Transition` callout immediately before the destination's opening or closing slot. Leave unresolved travel choices to the Players.
 
 Check the filed prose against the Final check items that apply, quoting its actual words, then against every entry that can select it. Repair mismatched carriers, companions, possessions or positions.
