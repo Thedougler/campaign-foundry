@@ -32,6 +32,7 @@ build/
 # qmd: local index database and refresh state (config index.yml is tracked)
 .qmd/index.sqlite*
 .qmd/refresh.*
+.qmd/.qmd-embed.lock
 
 # Vale: `bun run setup` syncs packages into .vale/styles/; only our own Narration style is committed
 .vale/styles/*
