@@ -17,6 +17,8 @@ cssclasses:
 
 ![[session-13-skarns-last-stand-scene.webp]]
 
+![[session-13-skarns-last-stand-teaser.webp]]
+
 > [!cast]
 >
 > - ![[talon-skarn-portrait.webp]] [[talon-skarn|Talon Skarn]]
