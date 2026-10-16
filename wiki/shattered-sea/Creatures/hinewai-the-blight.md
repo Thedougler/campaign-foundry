@@ -1,29 +1,29 @@
 ---
 type: Creature
-summary: "Hinewai the Blight, a unique Creature stat block from the archived NPC
-  record."
+summary: "Hinewai's war form at Memorial Grove: a fanged elf woman gowned in
+  roots, her cracked skin lit from inside, who rises when the Death Bloom is
+  harmed."
 aliases:
   - "Blight"
 sources:
   - "archive/hinewai.md"
   - "archive/campaign-os-raw-blight.md"
   - "archive/collab-2026-10-10-hinewai-gold-peaches.md"
+  - "archive/hinewai-blight.jpg"
+cr: 19
+creature_type: "Undead"
+size: "Large"
+habitat:
+  - "Forest"
+sourcebooks: []
 revealed: "Session 11"
 title: "Hinewai the Blight"
 ---
 
 ![[hinewai-the-blight-portrait.webp]]
 
-## At a glance
-
-- **Role at the table.** Unique named Creature represented by the NPC, the blight at the grove's heart.
-- **Threat.** See the stat block, CR 19. She fights with rotten claws, acid blooms and grasping roots.
-- **Tell.** The plants lean toward her target before she moves, and thorned vines rise where the next blow will fall.
-- **Weak to.** The archived record specifies the Death Bloom as her weakness, and her pale roots have spread it across [[aruhe|Aruhe]] since the graves were dug. What began at the graves is now one part of her among many.
-- **Used by.** The NPC of the same name, whose archived record this block renders.
-
 > [!narration] First sight
-> Between the grove's trees, a tall figure steps out, once a woman, and the undergrowth bends out of her way as she comes. Her long claws are green with rot. Thorned vines trail after her, and moss curls back where her feet fall. The air tastes of spores. She halts. Under the great tree, her gaze finds you through the leaves.
+> Between the grove's trees, an elf woman steps out, and the undergrowth bends out of her way as she comes. Long black hair hangs past her waist. Her skin is pale and split all over with fine cracks, and a warm light glows up through each of them, like sun through a dry riverbed. She's wearing the forest, basically, roots and vines and green leaves wound tight round her like a gown, with white flowers caught in the tangle. Her eyes burn ice-blue. Then she opens her mouth, and it's full of long needle teeth. The air tastes of spores. She halts, and her gaze finds you through the leaves.
 
 ## Statblock
 
@@ -84,25 +84,33 @@ legendary_actions:
     desc: "Hinewai regains 20 Hit Points, drawn from the Death Bloom."
 ```
 
-## Play
+## Tactics
 
-### Tactics
+Hinewai fights only at [[memorial-grove|Memorial Grove]]. She takes this form when someone strikes the tree, the graves or the flowers. Harm to one of her beasts or a broken promise brings it out too. Until then the Party has seen only the shadowed woman in the woods. At the table she is a solo boss far past the Party, and her fight exists to make the grove's danger real and hand the DM a clean break-out. On her first turn she pins the nearest offender with Grasping Roots and closes on the one who struck, claws first.
 
-Her archived record lists the full tactics, and she spends every ability to defend the Death Bloom or draw power from it. Show the leaning plants and the rising thorns before the Grasping Roots close, and let the Party answer with positioning, cover, or focused fire. She falls back toward the Bloom when her purpose is lost or her edge is gone.
+Her tell comes before every Grasping Roots and Acid Bloom: ==Every fern and sapling in the ring leans toward you at once, like grass before wind. Thorned vines rise from the soil at your feet.== The light in her cracked skin flares brighter whenever she heals from the Bloom.
 
-### Outside a fight
+- **Spread out.** Acid Bloom covers a wide circle. A Party that scatters at the lean loses less, and her claws can reach only one of them.
+- **Leave the roots.** Her body walks only as far as her pale roots run. Retreat down the Burnt Road or into the Lava Tubes ends the chase, and the wild takes it up instead.
+- **Stop and answer her.** A Party that lowers its weapons and speaks to the grief under the rage can still talk her down, since her quarrel is with the Gold caste.
 
-Sickened ground along her paths and vines that reach for passers-by identify her before an encounter. Away from a fight she keeps the role and habits the NPC record established for her.
+She stops when the offenders leave her ground or yield. A destroyed body sinks into the earth, and while the Death Bloom holds it re-forms at the tree within days. She is an archdruid lich and casts far beyond the spells her statblock names, so as the fight drags on she calls the island's beasts to the ring and any druidic or necromantic working that fits the moment.
 
-## Depth
+## Outside a fight
 
-### Ecology
+Nobody meets this form at rest. At peace, Hinewai shows as dark between the trunks with orange eyes and a voice in one listener's head. At the grove, the tree, the saplings and her figure speak as one broken mind. The Blight rises only when she is wronged, and she lays it down again once the Party leaves or stops. After the fight, she talks only to someone who kneels at the graves or offers to make amends.
 
-Habitat, diet, and signs follow her archived record. A traveller working Wisdom (Survival) reads them in the blighted ground, the thorned thickets, and the drifting spores.
+## Ecology
 
-### Hidden truths
+The Blight lives where Hinewai's grief is rooted. [[memorial-grove|Memorial Grove]] on [[aruhe|Aruhe]] holds the tree she grew over two graves, her companion's and her own. The Death Bloom is her phylactery, and it began as those graves. Centuries of death, growth and decay have since spread her pale roots under the whole island, so breaking the graves now destroys one part of her among many. She eats nothing, and draws strength from the Bloom and the life around it.
 
-Her history and her motives under the rot are in the archived record, and examination of the grove or the right questions reveal them. What the Death Bloom means to her waits in that record.
+Traces show before contact. Plants that bend toward the grove from every side mark Corrupted Ground and her reach. Pale roots that pulse and glow underfoot carry her attention and her healing. A taste of spores in the air means she is close.
+
+## Hidden truths
+
+- **She is Hinewai.** The figure in the grove and the Blight are one woman, an elf druid turned lich by grief after the Grung took her. A Party that names her companion's grave or hears her speak of him can learn it, and so can one that casts a reading on the tree.
+- **She can't be killed at the grove.** While the Bloom's roots hold, the body comes back. The Party can learn this from the roots' glow flaring as she heals, or from watching her re-form after a kill. Ending her permanently means burning most of Aruhe.
+- **Her eyes change.** The Blight's ice-blue eyes replace the orange ones she shows in shadow. Anyone who has seen both can work out that the dark between the trees and the fanged woman are the same being.
 
 ## Links
 

@@ -7635,3 +7635,8 @@
 - [[renzo-canale|Renzo Canale]]
 - [[ettore-ferrante|Ettore Ferrante]]
 - [[luca-ferrante|Luca Ferrante]]
+
+## [2026-10-15] ingest | hinewai-blight.jpg, the DM's Blight form portrait, replaces the wrong image and sets her Blight look
+
+- [[hinewai-the-blight|Hinewai the Blight]]
+- [[session-13-the-army|Session 13 - The Army]]

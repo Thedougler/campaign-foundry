@@ -140,7 +140,7 @@ The figure is 16400 XP over High, and it leaves out the ring. The wild things al
 - **Opening move.** The plants lean towards the nearest PC before she moves. ==Thorned vines climb out of the moss beside the nearest of you, and the blossoms turn your way like a crowd.== She opens with Grasping Roots on the loudest voice.
 - **While the ring stands.** The beasts don't enter until she calls them. Her aside keeps pace as she fights, and she answers it between blows.
 - **Break or escape.** She follows only as far as her roots run. A Party that leaves the ring and doesn't return has left her behind, and the wild runs it down on the walk.
-- **Kill hand-off.** ==The vines go slack and the long claws hang at her sides. Her body folds into the moss beneath the gilded boughs, and blossoms close over it. Who lands the last blow, and how?== The body re-forms in days.
+- **Kill hand-off.** ==The light in the cracks of her skin gutters out, and her blue eyes go dark. Her gown of roots slackens and she folds into the moss beneath the gilded boughs, and blossoms close over her. Who lands the last blow, and how?== The body re-forms in days.
 
 ## Outcomes
 
