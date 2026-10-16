@@ -15,7 +15,6 @@ import { dirname, join, relative, resolve, sep } from "node:path";
 export const EXTERNAL_SKILL_NAMES: Record<string, true> = {
 	"agent-design": true,
 	"cli-for-agents": true,
-	"context7-mcp": true,
 	"domain-modeling": true,
 	"find-skills": true,
 	"oh-my-pi-session-history": true,

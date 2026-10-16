@@ -40,7 +40,7 @@ Give writers disjoint files, or `isolated: true` when they may overlap. Message 
 - **Read whole files.** Follow every `read` footer (`Use :N to continue`, an elided middle, a line truncated at 768 characters, `artifact://<id>`) until none remains, and read in full each line an edit replaces before you edit it. Read `:raw` when exact text matters, and take an edit's tag from a plain `read`.
 - **TypeScript diagnostics.** Request `lsp` diagnostics on touched TypeScript before reporting code complete.
 - **Lint** with `bun run lint [agents|prose|code] [paths…]`, and apply safe fixes with `bun run fix`.
-- **Library docs** come from Context7 (`skill://context7-mcp`) whenever code touches a library, framework, CLI or API.
+- **Library docs** come from the Context7 MCP (`xd://mcp__context7_resolve_library_id`, then `xd://mcp__context7_query_docs`) whenever code touches a library, framework, CLI or API.
 - **Judge** bounded classification with eval `judge`/`judge_batch` (`xd://eval/judge`), batching questions over the same evidence, and inspect `item.error` before concluding. Beyond that, build with TypeSafe (`skill://typesafe-ai`), whose code outside the session reads `TYPESAFE_API_KEY`.
 - **Grade** authored prose with `prose-grader` (`skill://dogfood` `references/evals.md`). Check generated pages from the command's output, and open a browser only when the DM asks.
 - **Track goals.** The top-level session turns each goal and acceptance criterion into a `todo` and finishes only when none is pending.

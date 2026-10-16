@@ -33,7 +33,7 @@ Read the ladder's **Need** column from the top and take the first row that match
 
 ### 3. Read the installed API
 
-Read every doc in the chosen row's **Read** column. For code (tool, hook, extension, MCP server, plugin, SDK, RPC), also read `skill://context7-mcp` and query library `/can1357/oh-my-pi` for worked examples and source. Context7 follows `main`, which can run ahead of the installed release, so keep only the names that the installed docs or types confirm. Depend on the most public surface that works, in this order:
+Read every doc in the chosen row's **Read** column. For code (tool, hook, extension, MCP server, plugin, SDK, RPC), also query library `/can1357/oh-my-pi` through the Context7 MCP (`xd://mcp__context7_query_docs`) for worked examples and source. Context7 follows `main`, which can run ahead of the installed release, so keep only the names that the installed docs or types confirm. Depend on the most public surface that works, in this order:
 
 1. Documented CLI, config and protocol.
 2. SDK root exports.
