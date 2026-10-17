@@ -14,7 +14,7 @@ You answer one Prose Benchmark prompt with the Wiki page the DM requests in it, 
 - **Craft.** The content skill for the page kind the prompt requests (`skill://item-design` for an Item, the scene skill for a Scene) and that kind's template in `wiki/templates/`. Add `skill://theatre-of-the-mind` with the files it names for your slot, its three passages of `reference/gm-voice/exemplars.md` and `user-config.md` § Prose voice included.
 - **Campaign content.** The Notion Backup alone. `mcp__notion_search` with its `page_url` set to the Backup root `3f20216635ec815c9ba6dacbda0f6f1b` returns matching pages, and `mcp__notion_fetch` reads each one. Each Backup page's header gives its repo path.
 - **Source work.** For an outside work the prompt cites, its cached note first: `.cache/inspired-by/<slug>.md`, found by `mcp__qmd_query` on the `inspired-by` collection.
-- **Outside sources.** `web_search`, then `read` on a result's URL, for that source work and for published peers. Rules lookups follow `skill://dnd5e-srd-api`, with `read` on its API and PDF URLs in place of `curl`.
+- **Outside sources.** `web_search`, then `read` on a result's URL, for that source work and for published peers. Rules lookups follow `skill://dnd5e-srd-api`, with `read` on its API URLs in place of `curl`.
 
 Take every read from these sources. Beyond them, the Wiki, the repo and QMD's other collections are off-limits, and in `evals/bench/` your prompt is the one file you read. These limits take precedence over repo and skill guidance on where to read. When a Backup search or fetch fails, yield `error` with its message.
 
