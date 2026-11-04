@@ -10,8 +10,6 @@ Use this branch for a Settlement. A village may have a landing, market and share
 4. **Show local power.** Link each involved Faction, give its local objective and leverage, and link the NPC who represents its current move here. For every law or custom that changes a choice, state the enforcer, enforcement method and penalty. Keep ordinary background laws out unless they affect the request.
 5. **Give competing sides approaches.** For each live situation, state who wants what and who opposes it, the service/district affected, signs a visitor can notice, and the next consequence with its time. Provide at least two approaches or a costly way around the dispute, explaining what each risks or buys. Let the Party bargain, investigate, aid, expose or leave, and keep the outcome open. Rumours pair the street claim with the DM's truth and a person, record or Site that can reveal it.
 
-## Table-use criterion
+## Table use
 
-The Party can arrive, orient, obtain the relevant services at known costs and decide whom to approach from this page alone. Authority has faces and enforceable consequences. Opposed situations advance at stated times and offer more than one response. The number of districts and service pages matches the Settlement and requested visit. A hamlet needs only a hamlet's few places and services.
-
-State these facts on the page. For each offered service, give its keeper, access terms and cost, or link the nearest alternative. For each live dispute, give the opposed sides, noticeable signs, at least two approaches or a costly bypass, and its timed next consequence. A service listed without a keeper or price fails this criterion.
+From this page alone, the Party can arrive, orient, get the services it needs at their stated keeper, terms and cost, and decide whom to approach. Authority has faces and enforceable consequences, and each live dispute advances at its stated time with more than one response. Scale the districts and service pages to the Settlement and the requested visit. A hamlet needs only a hamlet's few places and services.

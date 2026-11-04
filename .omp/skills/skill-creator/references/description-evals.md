@@ -4,7 +4,7 @@ Read this when the DM accepts a trigger check (`skill-creator` step 3, or `dogfo
 
 ## 1. Query set
 
-Write 10 to 20 realistic queries the DM would actually type. Make them concrete and detailed, with real-looking paths and personal context, casual speech, abbreviations, typos and mixed lengths. Each is substantive enough that consulting a skill plausibly helps, because a trivial one-step ask doesn't trigger a skill whatever the description says.
+Write 10 to 20 realistic queries the DM would actually type, covering each trigger branch and its adjacent near-misses. Make them concrete and detailed, with real-looking paths and personal context, casual speech, abbreviations, typos and mixed lengths. Each is substantive enough that consulting a skill plausibly helps, because a trivial one-step ask doesn't trigger a skill whatever the description says.
 
 - About half should trigger. These are obvious requests and paraphrases of the same intent in formal and casual registers, including asks that need the skill without mentioning it.
 - About half should not. These are unrelated requests and near-misses from adjacent domains, where keyword overlap would fire a naive match but another skill is right.
@@ -15,8 +15,6 @@ Save as `trigger-eval.json`:
 [{"query": "…", "should_trigger": true}, {"query": "…", "should_trigger": false}]
 ```
 
-**Done when** the saved set covers each trigger branch and its adjacent near-misses, every query with its expected outcome.
-
 ## 2. DM review
 
 ```bash
@@ -25,9 +23,7 @@ bun run cfcli -- eval description-review <workspace>/description-evals/trigger-e
   --static <workspace>/description-evals/review.html
 ```
 
-Give the DM the returned path to open. The DM edits queries and toggles should-trigger, adding or removing entries as needed. **Export Eval Set** downloads `eval_set.json`, which becomes the working set. Labels decide what is measured, and the DM reviews them before any observation.
-
-**Done when** the DM's export is saved as `<workspace>/description-evals/eval_set.json`.
+Give the DM the returned path to open. The DM edits queries and toggles should-trigger, adding or removing entries as needed. **Export Eval Set** downloads `eval_set.json`; save it as `<workspace>/description-evals/eval_set.json`, the working set. Labels decide what is measured, and the DM reviews them before any observation.
 
 ## 3. Observe
 
@@ -55,10 +51,6 @@ One observation per query decides that query's pass or fail.
 
 `1` is a `read` tool call on the skill's `SKILL.md` or `skill://<name>`; a name appearing in the catalog, prompt or tool output does not count. A file without `agent_end` is a missing observation, not a `0`. A query passes when its score matches `should_trigger`.
 
-**Done when** every query has a scored observation or is listed as missing.
-
 ## 4. Report
 
-Report passing queries over completed observations, should-trigger misses, near-miss false positives and missing observations. When any query fails, dispatch `skill-writer` once with the failing queries, written as the trigger branches the description misses or wrongly fires on rather than as query text; it revises the frontmatter `description` alone, and `bun run cfcli -- eval validate <skill-dir>` must pass after.
-
-**Done when** the results are reported from scored events and the description in `SKILL.md` validates.
+Report passing queries over completed observations, should-trigger misses, near-miss false positives and missing observations. When any query fails, dispatch one `skill-writer` with the failing queries, written as the trigger branches the description misses or wrongly fires on rather than as query text. The writer revises the frontmatter `description` alone. Then run `bun run cfcli -- eval validate <skill-dir>`.

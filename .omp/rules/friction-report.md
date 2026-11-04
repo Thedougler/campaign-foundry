@@ -5,4 +5,4 @@ scope: "text"
 interruptMode: never
 ---
 
-Fix the friction at its source; report only what you cannot fix. Use `skill://friction-report` for the report format.
+Fix the friction at its source. Report only what you cannot fix, in the format `skill://friction-report` sets.

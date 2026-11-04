@@ -94,9 +94,9 @@ Put every table-use fact on the page. State who wants what and by which means, a
 
 Write each `[!narration]` callout and each Cue yourself with `theatre-of-the-mind`, once the DM-side facts exist. Read exactly these parts:
 
-- `.agents/skills/theatre-of-the-mind/SKILL.md`: its drafting and revision steps, Craft and Hard lines. File the prose with this Scene and follow the lint gate in root `AGENTS.md` **Gate scope**.
+- `.agents/skills/theatre-of-the-mind/SKILL.md`: its drafting and revision steps, Craft and Hard lines. File the prose with this Scene and bring the page to `ok: 0 findings` with `bun run cfcli -- check "<page>"`.
 - `.agents/skills/theatre-of-the-mind/references/recipes.md`: the shared rules at its top, `## Openings and first looks`, `## Scene openings`, `## Cues`, and the recipe heading for each callout you write. The template callout uses the kind's heading (`### Hook`, `### Development`, `### Cliffhanger`, `### Climax` or `### Closing image`). A callout titled with an NPC's or Creature's name uses `### NPC entering` or `### Creature entering`. A major reveal uses `### Revelation`, and a cut across unplayed time or space uses `### Transition`.
-- `.agents/skills/theatre-of-the-mind/references/critique.md`, once, at its Step 4.
+- `.agents/skills/theatre-of-the-mind/references/critique.md` at its Step 4.
 - `reference/gm-voice/exemplars.md`: the three exemplar passages theatre-of-the-mind Step 2 reads, as that step sets out.
 
 Its caller-supplied pages are this Scene and the pages you read in **Ground**. Give each callout its title, the Scene kind, the actual viewpoint, the entry condition and the spatial facts. Add what the Scene must change, and each speaker's want with the secret they talk around.

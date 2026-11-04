@@ -4,15 +4,13 @@
 
 ## Wiki access
 
-Read `docs/agents/wiki-search.md` for query grammar and citation mapping. `user-config.md` defines the vault and repository roots.
-- **Backup:** Notion page `campaign-foundry backup` (`3f20216635ec815c9ba6dacbda0f6f1b`) mirrors main; scope searches to it and cite pages by their repository-path headers.
-- **Writes:** edit `wiki/`, reading each page immediately before changing it; Notion edits are overwritten by sync.
-- **Local reads:** QMD and `wiki/` cover unpushed work, other Campaigns, Raw, Archive, aliases and sessions without Notion tools. Read Campaign configuration, hot, index and log files locally.
+Read from the Backup and write to `wiki/`. `user-config.md` **Wiki access** defines the vault and repo roots. Before a run's first Backup or QMD search, read `docs/agents/wiki-search.md` for query grammar and citation mapping.
 
-## Native delegation
-
-`docs/agents/delegation.md` describes project agents and dispatch mechanics.
+- **Read from the Backup**, the Notion page "campaign-foundry backup" (`3f20216635ec815c9ba6dacbda0f6f1b`), synced on each push to `main` (`docs/notion-backup.md`). Answer general questions, surveys and task context through `xd://mcp__notion_search` scoped to that root, citing each page by the repo path its header gives. Read `campaign-config.md`, `hot.md`, `index.md` and `log.md` by path from `wiki/`.
+- **Write to `wiki/`.** Read each page from `wiki/` immediately before editing it, since the next sync overwrites any edit made in Notion. The Wiki takes precedence over the Second Brain.
+- **QMD and `wiki/`** answer what the Backup can't: unpushed Wiki work (`git status --short wiki/`, `git diff --name-only @{u} -- wiki/`), pages outside the Shattered Sea Wiki, `raw/`, `archive/`, aliases, and every read in a session without `xd://mcp__notion_search` (Eval Runners, `omp -p`).
 
 ## Tools
 
-The Notion MCP configuration lives in user `~/.omp/agent/mcp.json`. Library documentation uses the `ctx7` CLI. The mnemopi memory backend supplies background context; repository facts and current DM instructions take precedence.
+- **Delegation:** `docs/agents/delegation.md` holds the agent roster, model mechanics and `linter` protocol.
+- **Configuration:** the Notion MCP server is configured in user-level `~/.omp/agent/mcp.json`.

@@ -5,7 +5,7 @@ description: Model evidence — gather the evidence for a model choice or compar
 
 # Model evidence
 
-Each question about a model has one source, listed below. The run is finished when every model the ask names is resolved to an omp selector and an EQ-Bench result or `missing`, and every question the ask poses has its source's answer or a stated gap. The reply cites the command or tool behind each figure. The sources return evidence only. Choosing a model from it is your judgement, by the role criteria in `.omp/AGENTS.md` **Model choice**.
+Each question about a model has one source, listed below. Resolve every model the ask names to an omp selector and an EQ-Bench result or `missing`. Answer every question the ask poses from its source or state the gap. Cite the command or tool behind each figure. The sources return evidence only; choosing a model from it is your judgement, by the role criteria in `docs/agents/delegation.md` § Models.
 
 ## Sources
 
@@ -23,11 +23,11 @@ A provider is available when every one of its `capacity` windows has `remainingA
 
 ## Resolve each name
 
-1. **Selector.** Run `omp models find <the DM's words, shortened to the model id> --json` (for "Sol 6.1", `omp models find 6.1-sol --json`). Several providers can serve one model (`openai-codex/gpt-6.1-sol`, `github-copilot/gpt-6.1-sol`). Report each provider's availability from `omp usage --json` by the rule in § Sources, for each provider the ask needs. **Done when** every model in the ask has its selectors and their availability.
-2. **EQ-Bench row.** Query `model_evidence` with the selector's model id, the part after `/` (`gpt-6.1-sol`). Exact name matches come before substring matches unless `variants` is set, so check that each returned row's `model` is the model asked about. **Done when** each model id has its row or is listed in `missing`.
+1. **Selector.** Run `omp models find <the DM's words, shortened to the model id> --json` (for "Sol 6.1", `omp models find 6.1-sol --json`). Several providers can serve one model (`openai-codex/gpt-6.1-sol`, `github-copilot/gpt-6.1-sol`). Report each provider's availability from `omp usage --json` by the rule in § Sources, for each provider the ask needs.
+2. **EQ-Bench row.** Query `model_evidence` with the selector's model id, the part after `/` (`gpt-6.1-sol`). Exact name matches come before substring matches unless `variants` is set, so check that each returned row's `model` is the model asked about.
 
 A model in `missing` has no EQ-Bench run: report it as missing. A sibling's score (`gpt-6-sol` for `gpt-6.1-sol`) stays labelled as that sibling's and is never reported as the asked model's score.
 
 ## Refresh Benchmark seats
 
-A family's Benchmark seat is the `model` and `thinking-level` in the frontmatter of `.omp/agents/bench-runner-<family>.md` and `.omp/agents/bench-grader-<family>.md`, set identically in both. When the DM asks to refresh the seats, run `bun run cfcli -- bench status --json` first: its `quota` for each seat applies the availability rule above. Gather the evidence above for every candidate in each family, then apply the **Benchmark seats** criteria in `docs/agents/delegation.md` § Models. Pass `excludeModels: ["fable"]` to every `model_evidence` call. **Done when** `omp models --json` lists each seat's selector with the seat's level in its `thinking` list, and its provider is available with quota data in `omp usage --json`. Both definitions give the seat, and the reply gives each seat's writing scores and quota with why it was chosen over the other candidates. A cheap pin in `evals/models.yaml` is refreshed from the same evidence by that file's header rules.
+A family's Benchmark seat is the `model` and `thinking-level` in the frontmatter of `.omp/agents/bench-runner-<family>.md` and `.omp/agents/bench-grader-<family>.md`, set identically in both. When the DM asks to refresh the seats, run `bun run cfcli -- bench status --json` first: its `quota` for each seat applies the availability rule above. Gather the evidence above for every candidate in each family, then choose each family's best reasonable model and reasoning effort with confirmed usage. Fable is never seated: pass `excludeModels: ["fable"]` to every `model_evidence` call. Confirm that `omp models --json` lists each seat's selector with the seat's level in its `thinking` list and that `omp usage --json` shows its provider available with quota data. Write the seat into both definitions, and reply with each seat's writing scores and quota and why it ranked above the other candidates. A cheap pin in `evals/models.yaml` is refreshed from the same evidence by that file's header rules.

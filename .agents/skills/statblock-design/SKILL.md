@@ -15,9 +15,9 @@ A statblock is a being's D&D 2024 combat statistics: one Fantasy Statblocks fenc
 
 A PC's Sheet carries the same fence, which `pull-pcs` writes from a public D&D Beyond character. When the pull can't, because the character is private or the page has no `dndbeyond_url`, this skill writes or repairs that fence from what the PC page and the Player's words establish, migrating a `## Sheet` still in the retired bullet shape. That run follows [references/fence.md](references/fence.md) § PC sheet in place of steps 1 to 7, then closes by step 8.
 
-- [references/sourcing.md](references/sourcing.md): the source ladder, the five paths, attribution and the 2024 rules ledger.
+- [references/sourcing.md](references/sourcing.md): the source ladder and the five paths, plus attribution and the 2024 rules ledger.
 - [references/tuning.md](references/tuning.md): the Party dossier, encounter budget, three-round model, probability and CR.
-- [references/fence.md](references/fence.md): the fence's fields, 2024 entry forms, derived numbers and its check.
+- [references/fence.md](references/fence.md): the fence's fields and 2024 entry forms, plus derived numbers and its check.
 
 ## Steps
 

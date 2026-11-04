@@ -27,7 +27,7 @@ Canon precedence follows `CONTEXT.md` **Canon**, with the DM first and the Wiki 
 
 A World-free page (`CONTEXT.md` **World-free page**) stays as it is. Campaign work fleshes out its Campaign version, made per `docs/wiki-layout.md` **Campaign versions**.
 
-When the page is missing, or its structure falls short of its owner skill, run the owner first and return here for presence:
+When the page is missing, or its structure doesn't satisfy its owner skill, run the owner first and return here for presence:
 
 | Need | Owner |
 | --- | --- |
@@ -46,7 +46,7 @@ A Deity has no design skill. Its template gives the structure, and this pass is 
 
 ### 2. Diagnose the flat
 
-Name the two to four weakest of these, and spend detail only on them:
+Pick the two to four weakest of these, and spend detail only on them:
 
 1. **Image:** what can the Players picture at once?
 2. **Identity:** what makes this unmistakably itself rather than its category?

@@ -41,6 +41,4 @@ timeline
 - Label nodes with page titles as the Wiki writes them, and write every label in double quotes (`id["Talon Skarn"]`), since mermaid breaks on unquoted brackets, colons and apostrophes.
 - In a `timeline`, a colon separates a period from its events, so write each event without a colon of its own.
 - Keep a diagram to about fifteen nodes. A larger structure splits into one diagram per branch, each under its own sentence.
-- The gate skips fenced blocks, so it cannot catch a broken diagram. Copy the two examples above and check each label against these syntax rules before embedding.
-
-**Done when** the slot contains one mermaid block, every node and edge traces to a Wiki fact, and no table or list on the page already shows the same structure.
+- The gate's `mermaid` layer fails a block Obsidian cannot render. Copy the two examples above and check each label against these syntax rules before embedding.

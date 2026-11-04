@@ -68,7 +68,7 @@ On the several-Visuals route, each `task` item's `task` is this brief, filled in
 
 ```text
 1. Write this JSON to xd://generate_image: <prompt JSON>
-2. Read the saved image with `read`. It passes when <each detail taken from a page, listed>, it is drawn in this rendering: <the category's Rendering>, the framing is <Frame cell and kind framing>, and it carries no letters, watermark or logo. On a miss, regenerate with one targeted change that names the miss, at most twice.
+2. Read the saved image with `read`. It passes when <each detail taken from a page, listed>, it is drawn in this rendering: <the category's Rendering>, the framing is <Frame cell and kind framing>, and it carries no letters, watermark or logo. On a miss, regenerate with one targeted change that names the miss, until targeted changes stop improving it.
 3. Finish it: <finishing command filled with the image path, target path and canvas>. Then print its size: <dimensions command filled with the target path>.
 Return the target path, its dimensions and your verdict, or every miss when it never passed.
 ```
@@ -101,7 +101,7 @@ The callout holds everything a later run needs to make the image. Write it in th
 
 ````markdown
 > [!visual-aid] <Kind>: <subject>
-> <Why it waits: generation failed (the error), viewing missed twice (each miss), the art guide is missing, or the DM deferred it.> Target `<slug>-<kind>.<ext>`.
+> <Why it waits: generation failed (the error), viewing kept missing (each miss), the art guide is missing, or the DM deferred it.> Target `<slug>-<kind>.<ext>`.
 >
 > ```text
 > <the prompt JSON, continuity inputs included>

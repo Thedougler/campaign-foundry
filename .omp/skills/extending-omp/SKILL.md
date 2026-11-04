@@ -5,9 +5,9 @@ description: Extending omp, least-power first. Use when omp's current tools, ski
 
 # Extending omp
 
-Extend omp with the **least-power** mechanism: the first row of the [ladder](#least-power-ladder) that expresses the requirement. Move down a row only when the row above cannot express the requirement, and state what it cannot express. The running session and the installed release are the source of truth. Where research notes or `main`-branch docs disagree with their tool lists, settings and `omp://` docs, follow the installed release. The extension serves the user's objective, so finish by meeting that objective with it.
+Extend omp with the **least-power** mechanism: the first row of the [ladder](#least-power-ladder) that expresses the requirement. The running session and the installed release are the source of truth; where research notes or `main`-branch docs disagree with their tool lists, settings and `omp://` docs, follow the installed release. The extension serves the user's objective, so finish by meeting that objective with it.
 
-Agent actions use the running session's tools and installed docs. CLI administration and host launch commands below belong to the human terminal or external host, except the explicitly named isolated `omp -p` checks. Read configuration files for discovery. Ask for human-terminal output only when those files and the installed docs cannot resolve the required state.
+CLI administration and host launch commands below belong to the human terminal or external host, except the isolated `omp -p` checks this skill names. Read configuration files for discovery, and ask for human-terminal output only when those files and the installed docs cannot resolve the required state.
 
 ## Steps
 
@@ -16,24 +16,20 @@ Agent actions use the running session's tools and installed docs. CLI administra
 Establish what this session and this install already have before designing anything:
 
 - Your system prompt lists the loaded tools, skills, rules, MCP routes and agents. Read those first.
-- Read `.omp/config.yml`, user `~/.omp/agent/config.yml` and the installed `omp://settings.md` for the settings the objective touches. Establish the installed version from the running session or installed package metadata. Plugin and TTSR discovery starts with their project and user files below. When resolved state is unavailable through those sources, ask the user for the corresponding configuration or listing from their terminal.
-- Glob `.omp/` and `~/.omp/agent/` for agents, skills, rules, prompts, commands, tools, hooks, extensions and `mcp.json`, then read `.omp/config.yml`.
-- Read the `omp://` index, then the doc of every built-in that sounds close to the objective, such as `omp://tools/task.md` or `omp://settings.md`. When a published skill may already cover the gap, read `skill://find-skills`.
+- Glob `.omp/` and `~/.omp/agent/` for agents, skills, rules, prompts, commands, tools, hooks, extensions and `mcp.json`. Read `.omp/config.yml`, user `~/.omp/agent/config.yml` and the installed `omp://settings.md` for the settings the objective touches.
+- Establish the installed version from the running session or installed package metadata.
+- Read the `omp://` index, then the doc of every built-in that sounds close to the objective, such as `omp://tools/task.md`. When a published skill may already cover the gap, read `skill://find-skills`.
 - `/tools`, `/extensions`, `/mcp test <server>` and `/advisor status` are views the user types. Ask for their output when the files and installed docs cannot show the same state.
 
-Write three lines in your working notes, labelled **Objective**, **Existing** (each relevant capability found) and **Gap** (one sentence: "omp cannot yet …").
-
-**Done when** a built-in or setting meets the objective (use it, report it and stop), or the Gap states a requirement that every listed capability fails, with the reason each one fails.
+When a built-in or setting already meets the objective, use it and stop.
 
 ### 2. Choose the row
 
-Read the ladder's **Need** column from the top and take the first row that matches the Gap. Choose the scope with it. Use project `.omp/` for this repository's behaviour and user `~/.omp/agent/` for the user's behaviour across projects. A capability shipped to other installs becomes a plugin.
-
-**Done when** your notes state the mechanism and scope, with one sentence on why the row above it cannot express the requirement.
+Read the ladder's **Need** column from the top and take the first row that matches the gap. Choose the scope with it: project `.omp/` for this repository's behaviour, user `~/.omp/agent/` for the user's behaviour across projects. A capability shipped to other installs becomes a plugin.
 
 ### 3. Read the installed API
 
-Read every doc in the chosen row's **Read** column. For code (tool, hook, extension, MCP server, plugin, SDK, RPC), also query library `/can1357/oh-my-pi` through the Context7 MCP (`xd://mcp__context7_query_docs`) for worked examples and source. Context7 follows `main`, which can run ahead of the installed release, so keep only the names that the installed docs or types confirm. Depend on the most public surface that works, in this order:
+Read every doc in the chosen row's **Read** column. For code (tool, hook, extension, MCP server, plugin, SDK, RPC), also query worked examples and source with `ctx7 docs /can1357/oh-my-pi "<one-topic question>"`; `ctx7 library oh-my-pi "<question>"` lists the indexed versions, and `/can1357/oh-my-pi/<version>` pins one when it matches the installed release. The unversioned library follows `main`, which can run ahead of the installed release. Use only events, fields, functions, paths and settings that an installed `omp://` doc or the `@oh-my-pi/pi-coding-agent` types at the installed version confirm. Depend on the most public surface that works, in this order:
 
 1. Documented CLI, config and protocol.
 2. SDK root exports.
@@ -41,18 +37,13 @@ Read every doc in the chosen row's **Read** column. For code (tool, hook, extens
 4. Documented package subpaths.
 5. Internals.
 
-**Done when** every event, field, function, path and setting you will use appears in an installed `omp://` doc or in the `@oh-my-pi/pi-coding-agent` types at the installed version.
-
 ### 4. Build
 
 Write each file at the row's **Where** location for your scope:
 
-- **Agent-facing text** (context, rule, skill, prompt, agent definition). This project routes a new skill through `skill://skill-creator`, a change to an existing skill or other agent-facing text through `skill://dogfood`, and the writing itself to the `skill-writer` agent, per `.omp/AGENTS.md` § Native delegation.
-- **Settings**: edit `.omp/config.yml` by hand for project keys, since `omp config set` writes the global file. Keep unrelated overrides as they are (`.omp/AGENTS.md` § Configuration).
-- **Code**: apply [Authority and cost](#authority-and-cost). Pin `@oh-my-pi/pi-coding-agent` as a dev dependency at the installed version established in step 1. A globally installed copy can lag the binary. A new package declares its entry points under `omp.extensions` in `package.json`. `.omp/hooks/post/qmd-refresh.js` is this project's model of a bounded hook.
+- **Settings**: edit `.omp/config.yml` by hand for project keys, since `omp config set` writes the global file. Keep unrelated overrides as they are.
+- **Code**: build it to every [Authority and cost](#authority-and-cost) rule that applies. Pin `@oh-my-pi/pi-coding-agent` as a dev dependency at the installed version. A globally installed copy can lag the binary. A new package declares its entry points under `omp.extensions` in `package.json`.
 - **Embedding**: apply [Host integration](#host-integration).
-
-**Done when** each file is at its discovered location and you have checked it against each Authority and cost rule that applies to it.
 
 ### 5. Verify reach
 
@@ -65,9 +56,7 @@ Hooks and extensions load at session start, so prove each change in a fresh proc
 | Plugin | Ask the user to run `omp plugin doctor` |
 | Everything else, including judged `question` rules | `omp -p --no-session "<prompt that needs the new capability>"`, adding `-e <path>` for an extension or hook still in development |
 
-Report the mechanism, why the rows above it fail, the files written and the verification output. Then return to the user's objective and meet it with the new capability.
-
-**Done when** a fresh run shows the objective reached through the new mechanism and the report quotes that run's output.
+Report the files written and quote the fresh run's output showing the objective reached through the new mechanism. Then meet the user's objective with it.
 
 ## Least-power ladder
 

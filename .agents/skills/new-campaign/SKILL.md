@@ -57,13 +57,13 @@ Each run founds its Campaign on one of three settings, which step 1 settles:
 
    Read the finished config before authoring the remaining Campaign pages.
 
-5. **Register the config.** In `user-config.md`, under `## Campaign configs`, add a `### <Campaign>` heading after the last entry, with the line `@wiki/<campaign-folder>/campaign-config.md` beneath it, leaving every earlier entry unchanged.
+5. **Register the config.** In `user-config.md`, under `## Campaign configs`, add a `### <Campaign>` heading after the last entry, with the line `@wiki/<campaign-folder>/campaign-config.md` beneath it. Leave every earlier entry unchanged.
 
 6. **PCs and sheets.** Read `wiki/templates/pc.md` and `skill://pull-pcs`. Create one page per intended PC in `<campaign-folder>/PCs/`, set `dndbeyond_url` to the public character URL, and link each PC from the overview's Party. Title the page with the PC's name; when an earlier Campaign already has a page of that title, add the Campaign as a parenthetical, `title: <PC name> (<Campaign>)` in `<pc-name>-<campaign-folder>.md`, and link it as `[[<pc-name>-<campaign-folder>|<PC name>]]`. With the Party a recorded gap from step 2, skip the PC pages and the pull, and state the gap in the report.
 
    The story side is yours. Put the DM's story, including any PC pulls the prompts drew out, in `Backstory`, `Goals and bonds` and `Plans`, retaining supplied story passages and facts. `Plans` holds the DM's plans for this PC when the DM gave them, and step 7 adds the link to the PC's journey Thread. For a returning PC, write the story side fresh for this Campaign and link the earlier Campaign's PC page for the full Backstory, since the gate flags sentences copied verbatim between pages. When the Player or DM gives the PC's appearance, follow `theatre-of-the-mind` for the optional `Portrait` callout, using its **Slots** row for Portrait and grounding it in that appearance. Keep the Player-to-PC mapping in the overview because the pull replaces the sheet side.
 
-   The sheet side (`Sheet`, `Spells`, `Inventory`) comes from D&D Beyond through a live pull from the public service, which leaves `Backstory`, `Goals and bonds` and `Plans` as they stand. Run an actual pull, not a preview, adding `--vault "<wiki>" --root "<root>" --templates "<templates>"` for a target outside this repo (`skill://lint` § Commands **Another root**):
+   The sheet side (`Sheet`, `Spells`, `Inventory`) comes from D&D Beyond through a live pull from the public service, which leaves `Backstory`, `Goals and bonds` and `Plans` as they stand. Run the pull itself rather than a preview, adding `--vault "<wiki>" --root "<root>" --templates "<templates>"` for a target outside this repo (`skill://lint` § Commands **Another root**):
 
    ```bash
    bun run cfcli -- pull --campaign "<Campaign>"

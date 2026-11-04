@@ -1,6 +1,6 @@
 # Transcript
 
-A Transcript is ingested in stages, and the **orchestrator** runs them: the top-level session, the one the DM talks to. Only the orchestrator dispatches subagents, since nested ingest dispatch lost a run 13 minutes ([ADR 0021](../../../../docs/adr/0021-transcripts-are-read-into-a-session-ledger.md)). Each stage is one subagent turn. The subagent does its stage and returns its outputs with the dispatches it requests. You then dispatch those requests and the next stage. Run every stage whose inputs are ready at once, in one `task` batch. A subagent assigned a Transcript returns at once and asks you to run it here.
+A Transcript is ingested in stages, and the **orchestrator** runs them: the top-level session, the one the DM talks to. Only the orchestrator dispatches subagents ([ADR 0021](../../../../docs/adr/0021-transcripts-are-read-into-a-session-ledger.md)). Each stage is one subagent turn. The subagent does its stage and returns its outputs with the dispatches it requests. You then dispatch those requests and the next stage. Run every stage whose inputs are ready at once, in one `task` batch. A subagent assigned a Transcript returns at once and asks you to run it here.
 
 The **Session Ledger** is the contract between stages: the Ledger stages build it, and every later stage writes the Wiki from it. You read the stages' returns. The Transcript, the chunk files and the Ledger's body stay with the stages. The dispatches, the hand-offs, the touched list and the gate are yours.
 
@@ -32,7 +32,7 @@ task({
 
 - The task text is exactly the line its stage gives, values filled in. A sentence whose value is empty is dropped.
 - `agent: "transcript-reader"` goes on each reader. Every other stage leaves `agent` out.
-- Leave `tools` and `model` out. Every subagent inherits the built-in tools, `tools` names only eval-kernel tools, and the native reader brings its own model.
+- Leave `tools` and `model` out: the model comes from the agent's frontmatter (`docs/agents/delegation.md` § Models).
 - Name each item `S<N><Stage><k>`. Its transcript is then at `history://<name>`.
 
 `<transcript>` is `archive/<file>`, the Transcript's archive path from C0 on, which every stage reads and every `sources` list cites. `<summary>` is the Summary's archive path. `<work>` is the work directory C0 makes. `<recording>` is the recording's path, or each of its parts in order.
@@ -52,8 +52,6 @@ task({
 4. **Archive copies.** Copy the Transcript and its Summary into `archive/` with `cp`, so every `sources` path exists from the first page a writer checks, and `mv` a recording in `raw/` to `archive/`. A file already in `archive/` stays where it is. SKILL.md step 11 removes the `raw/` copies.
 5. **Detect.** With a recording and `timestamps: true`, start the laugh detector in the background (`async`), so it scores the audio while C1 and C2 run: `bun run cfcli -- transcript highlights <recording> --transcript <transcript> --top 20 --json > <work>/highlights.json`. Its first run installs the model and downloads its weights. Add `--clip-dir <dir>` when the DM asks for clips, with the folder the DM names. Without a recording or timestamps, the Session has no Laugh Highlights: note why for the report.
 
-Done when `profile.json` and the archive copies exist, the detector is running or its absence has its reason, and you hold `N` with the rule that decided it and the Summary's path or `none`.
-
 ### C1 Brief
 
 Dispatch in one batch the Brief and, when there is a Summary, the Summary check:
@@ -66,7 +64,7 @@ Read skill://ingest/references/ledger.md, then write the brief for Session <N> i
 Read skill://ingest/references/ledger.md, then check the Summary <summary> against the Transcript <transcript>. Write: <work>/summary-check.md.
 ```
 
-Done when the Brief has returned the brief's path. The Summary check runs on through C2 and C3.
+The Summary check runs on through C2 and C3. C2 starts once the Brief returns.
 
 ### C2 Read
 
@@ -76,7 +74,7 @@ Dispatch one `transcript-reader` per chunk in `profile.json`, all in one batch, 
 Chunk mode. Brief: <work>/brief.md. Transcript: <transcript>. Lines <A>-<B>. Write: <work>/chunk-<NN>.md.
 ```
 
-`<NN>` is the chunk's `n`, zero-padded to 2. A chunk file that is missing or breaks the reader's Chunk file format gets one redispatch. Done when every chunk has a file in that format, or has failed twice (the Merge then reads that range itself by the reader's rules).
+`<NN>` is the chunk's `n`, zero-padded to 2. Redispatch a reader whose chunk file is missing or breaks the reader's Chunk file format; a range that fails again goes to the Merge, which reads it itself by the reader's rules.
 
 ### C3 Merge
 
@@ -94,11 +92,11 @@ Read skill://ingest/references/ledger.md, then resolve the names in <work>/chunk
 Read skill://ingest/references/ledger.md, then judge the laughs in <work>/highlights.json for Session <N>. Transcript: <transcript>. Write: <work>/highlights.md.
 ```
 
-A detector that exits non-zero gives the Session no Laugh Highlights: keep its error for the report. Keep the Merge agent's id for C5. Done when the Merge, every Names and the Highlights (or the detector's error) have returned.
+A detector that exits non-zero gives the Session no Laugh Highlights: keep its error for the report. Keep the Merge agent's id for C5.
 
 ### C4 Verify
 
-The C3 returns list Verify task lines, each with its question count. One reader answers at most 15 questions, and a dispatched question file has at least 4 unless the last C3 stage has returned. Dispatch a line as its return arrives when its file has four or more questions, one `transcript-reader` per line, `effort: lo`, without waiting for the other C3 stages. A file of three or fewer goes into the **pool** instead: append its question lines to `<work>/verify-P<j>-in.md` (starting at `P1`) with `tee -a`. Dispatch the pool when it reaches four questions, or when the last C3 stage has returned, with the task line `Verify mode. Brief: <work>/brief.md. Transcript: <transcript>. Questions: <work>/verify-P<j>-in.md. Write: <work>/verify-P<j>.md.`, then start the next pool at `P<j+1>`. Done when every question sits in exactly one dispatched file and every Verify reader has returned.
+The C3 returns list Verify task lines. Dispatch each line as its return arrives, one `transcript-reader` per line, `effort: lo`, without waiting for the other C3 stages.
 
 ### C5 Ledger
 
@@ -108,7 +106,7 @@ Once every C3 and C4 stage and the Summary check have returned, send the Merge a
 Finish the Ledger. Verify answers: <work>/verify-*.md paths. Names: <work>/names-*.md paths. Summary check: <work>/summary-check.md or none. Highlights: <work>/highlights.md or none.
 ```
 
-Done when it has returned the Ledger path, the unresolved flags and the dictionary lines.
+It returns the Ledger path, the unresolved flags and the dictionary lines.
 
 ### C6 Units
 
@@ -118,7 +116,7 @@ Dispatch:
 Read skill://ingest/references/units.md, then plan the units of the Session Ledger archive/<stem>.ledger.md for Session <N>. Work: <work>. Sources: <transcript>. The DM says: "<words>".
 ```
 
-Done when it has returned its pages files, the new page titles and any dispatch it requests.
+It returns its pages files, the new page titles and any dispatch it requests.
 
 ### C7 Write
 
@@ -136,7 +134,7 @@ Read skill://ingest/references/writer.md, then write the Session <N> Recap from 
 Read skill://ingest/references/writer.md, then write the Session <N+1> Previously On from the Session Ledger archive/<stem>.ledger.md. Transcript: <transcript>.
 ```
 
-For a one-shot, dispatch only the page writers. Keep each writer's id for C8. Units gives each page to one pages file, so each page has one writer. A writer whose work needs a change on another writer's page makes it on a fresh read ([writer.md](writer.md) § Drafting), and its return lists the change. Done when every writer has returned its pages, each checked clean, with its kept-out claims and its notes for the report.
+For a one-shot, dispatch only the page writers. Keep each writer's id for C8. Units gives each page to one pages file, so each page has one writer. A writer whose work needs a change on another writer's page makes it on a fresh read ([writer.md](writer.md) § Drafting), and its return lists the change. Each writer returns its pages, checked clean, with its kept-out claims and its notes for the report.
 
 ### C8 Gate
 
@@ -146,6 +144,6 @@ The touched list is every path the writers returned. Dispatch the Close:
 Read skill://ingest/references/writer.md, then close Session <N> from the Session Ledger archive/<stem>.ledger.md. Transcript: <transcript>. Touched: <touched-list paths>.
 ```
 
-While it runs, run SKILL.md step 10 over the touched list. Repair each finding it reports, or send it back to the writer whose page it is (root `AGENTS.md` **Message with work**). A finding still flagged after two repairs has its cause fixed by `skill://lint` step 7. Add each stub a writer made for an unowned name to the touched list. When the Close returns, add the paths it changed to the touched list and check those pages the same way. Done when step 10's criterion holds over the whole touched list.
+While it runs, run SKILL.md step 10 over the touched list. Repair each finding it reports, or send it to the writer whose page it is by `agent://<id>`. Add each stub a writer made for an unowned name to the touched list. When the Close returns, add the paths it changed to the touched list and check those pages the same way.
 
-Then do SKILL.md steps 11 and 12 over the whole touched list, and step 13's index: its Threads, `hot.md` and `story-so-far.md` are done. The step 14 report gathers every stage's return. Done when step 14's criterion holds.
+Then do SKILL.md steps 11 and 12 over the whole touched list, and step 13's index: its Threads, `hot.md` and `story-so-far.md` are done. The step 14 report gathers every stage's return.

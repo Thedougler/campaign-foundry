@@ -22,3 +22,5 @@ Consequences:
 - The `ingest` `SKILL.md`, `writer.md` and `transcript.md` let page writers edit a sibling's page and make stubs.
 - `skill://friction-report`, `skill://collab-with-me`, `docs/agents/delegation.md` § Linter, `skill://dogfood` `references/evals.md` and `skill://npc-design` lose their carve-outs.
 - ADR 0045's handoff to the dispatcher is void, and so are its "failed twice" quote for the DM and ADR 0047's.
+
+Superseded (2026-11): The rules live in the user-level `RULES.md` (**Fix at the source**) and root `AGENTS.md` **Gate scope**; a friction report lists only what the agent could not fix, and a finding a recast cannot clear goes to its cause without a repair count.

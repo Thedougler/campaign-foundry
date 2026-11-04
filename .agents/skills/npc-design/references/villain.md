@@ -26,5 +26,3 @@ After each Party choice that changes the villain's position, state what the vill
 ## Endings
 
 Write at least three live endings, each reachable through choices and consequences, drawn from defeat, escape, exposure, compromise, alliance, sacrifice or surrender. Do not require one roll, a cutscene, or a predetermined redemption. If reform is possible, require recognition of harm, restitution, a costly refusal, and changed conduct. The villain may still reject it.
-
-**Check:** the Thread or World plan has a visible trigger, sign, cost, ignored consequence, interruption, fallback, and three distinct endings. The NPC links it without duplicating an existing future plan.

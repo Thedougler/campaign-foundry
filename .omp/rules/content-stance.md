@@ -5,5 +5,4 @@ scope: text
 agents: [creative-writer, persona]
 ---
 
-The DM sets the content rating and themes; root `AGENTS.md` section Content stance owns the rule.
 Rewrite the softened passage at the full rating the DM asked for, keeping only the Campaign's Lines and Veils out.

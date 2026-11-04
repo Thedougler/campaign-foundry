@@ -27,14 +27,14 @@ Steps 1 and 4 are native `task` dispatches; steps 2, 3 and 5 run in Bash from th
    !f && /^````+markdown file=".+"$/ { fence = $0; sub(/markdown.*/, "", fence); f = d "/" fname($0); system("mkdir -p \"$(dirname \"" f "\")\""); printf "" > f; next }
    !f && /^````+delete file=".+"$/ { fence = $0; sub(/delete.*/, "", fence); del = del sep "\"" fname($0) "\""; sep = ","; f = "/dev/null"; next }
    f && $0 == fence { f = ""; next }
-   !f && /^(Orchestrator|Model|Gap|Friction): / { print > fr; next }
+   !f && /^(Model|Gap|Friction): / { print > fr; next }
    { print > (f ? f : r) }
    END { if (del) print "[" del "]" > (d "/.deleted.json") }' "$out/reply.txt"
    ```
 
    Read `$out/reply.txt` with `read` and use `glob` on `$out/outputs/**/*.md`. When the reply has no page blocks, take the directory from its `Drafts:` line and copy its pages with `cp -R <drafts>/. <out>/outputs/`.
 
-   `$out/outputs` then holds each returned page at its Wiki-relative path, `reply.md`, and `.deleted.json` when the Runner removed pages. The friction report goes to `$out/friction.txt`, outside `outputs`, so graders never see the skill paths it cites. A Runner that failed, or left neither page blocks nor a `Drafts:` directory with pages, is an execution error.
+   `$out/outputs` then contains each returned page at its Wiki-relative path, `reply.md`, and `.deleted.json` when the Runner removed pages. The friction report goes to `$out/friction.txt`, outside `outputs`, so graders never see the skill paths it cites. A Runner that failed, or left neither page blocks nor a `Drafts:` directory with pages, is an execution error.
 
 3. **Checks.**
 
@@ -55,7 +55,7 @@ Steps 1 and 4 are native `task` dispatches; steps 2, 3 and 5 run in Bash from th
 
    The grade brief lists the case `rubrics` verbatim and numbered, then, for a case with `source_pages`, the `evals/README.md` § Wiki agreement criterion verbatim as the last numbered item; `Outputs: <run>/<case-id>/outputs (pages, reply.md, .deleted.json)` with the literal path; and `Sources:` each `source_pages` entry as `wiki/<path>`, plus each `raw_sources` and `fixtures` path. Grading is blind: no brief says baseline or with-skill, and a baseline gets its own run root so no path names it either.
 
-   Save each grader's output to its case directory as it returns, in Bash with the grader's agent id: `cp agent://<id> <run>/<case-id>/grades.json`. Steps 5 and 6 read grades from that file. A grader that fails leaves a grading error; name it.
+   Save each grader's output to its case directory as it returns, in Bash with the grader's agent id: `cp agent://<id> <run>/<case-id>/grades.json`. Steps 5 and 6 read grades from that file. A grader that fails leaves a grading error. Name it.
 
 5. **Human-audit page**, one per case, for the DM's review. Create the audit root once per session with `cd "$(mktemp -d)" && pwd -P` beneath OS `$TMPDIR` and reuse it for every later run. Write `<audit>/<skill>/<case-id>.md` holding the case's current sample: the Runner task, `reply.md`, each output page, `friction.txt`, `checks.txt`, then each criterion beside its grade and reason. Each run overwrites the case's page.
 
@@ -81,7 +81,7 @@ git status --porcelain wiki raw archive | cmp -s <run>/wiki-before.txt - && echo
 
 Playtest drives these beats; table feeling is a Sample for Design, never a merge gate.
 
-1. **Record evidence.** After a home Session, preserve the DM's report and any Player feedback the DM supplies on a GitHub issue, so it outlives the chat. Record the Session number and affected Wiki pages. State what failed or worked at the table and the expected behaviour, with a concrete quotation or example. Ingest actual Session events into Canon through the normal Ingest workflow.
+1. **Record evidence.** After a home Session, preserve the DM's report and any Player feedback the DM supplies on a GitHub issue, which remains readable after the chat ends. Record the Session number and affected Wiki pages. State what failed or worked at the table and the expected behaviour, with a concrete quotation or example. Ingest actual Session events into Canon through the normal Ingest workflow.
 2. **Add the criterion.** Express a reported defect as a Check or rubric on consumer-visible behaviour, decidable from the saved outputs and the live sources the case names. Put it on the skill's default case, or on a unique-circumstance case when the default case cannot expose it (`evals/README.md` § Design step 2). Link the issue in a `#` comment beside the criterion. A requested task is not evidence that its alleged failure occurred.
 3. **Improve.** A DM-started `dogfood` run takes the case as its unit and its failed criteria as findings. Attach each round's table and findings to the issue.
 4. **Return to play.** Apply approved content changes through the normal live Campaign workflow. Eval outputs are not added to the Wiki on their own. The DM uses the resulting Wiki at the next home Session and records the next observation on the issue. Close verified, committed issues for completed changes with their evidence. Reopen or file a new issue when play exposes another defect.

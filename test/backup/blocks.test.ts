@@ -228,3 +228,90 @@ describe("Notion limits", () => {
 		expect(validUrl(`https://x.y/${"a".repeat(2001)}`)).toBeUndefined();
 	});
 });
+
+describe("markdown the converter keeps whole", () => {
+	const flat = (b: Block | undefined): string =>
+		rich(b)
+			.map((r) => r.text.content)
+			.join("");
+	const linked: ConvertContext = {
+		...ctx,
+		relative: (h) => (decodeURI(h) === "../NPCs/Ilse Corran.md" ? "https://www.notion.so/ilse" : undefined),
+	};
+
+	it("keeps hard breaks and inline HTML as written", () => {
+		expect(flat(markdownToBlocks("first  \nsecond\n", ctx)[0])).toBe("first\nsecond");
+		expect(flat(markdownToBlocks("line one\\\nline two\n", ctx)[0])).toBe("line one\nline two");
+		expect(flat(markdownToBlocks("a<br>b and <b>bold</b> html\n", ctx)[0])).toBe("a<br>b and <b>bold</b> html");
+	});
+
+	it("keeps a footnote reference in its text and its definition as paragraphs", () => {
+		const blocks = markdownToBlocks("A fact[^1] here.\n\n[^1]: The note.\n", ctx);
+		expect(blocks.map(flat)).toEqual(["A fact[^1] here.", "[^1]:", "The note."]);
+		expect(rich(blocks[1])[0]?.annotations).toMatchObject({ bold: true });
+	});
+
+	it("keeps dollar amounts literal in a paragraph, heading, list item and table cell", () => {
+		expect(flat(markdownToBlocks("I paid $5 and $10 today.\n", ctx)[0])).toBe("I paid $5 and $10 today.");
+		expect(flat(markdownToBlocks("# Cost $5 and $10\n", ctx)[0])).toBe("Cost $5 and $10");
+		expect(flat(markdownToBlocks("- price $5 and $10\n", ctx)[0])).toBe("price $5 and $10");
+		const table = markdownToBlocks("| Item | Cost |\n| - | - |\n| gem | $5 and $10 |\n", ctx);
+		expect(textOf(table)).toBe("Item|Cost|gem|$5 and $10");
+	});
+
+	it("keeps an empty list item and an item that opens with a code block", () => {
+		expect(markdownToBlocks("-\n- real\n", ctx).map((b) => [b.type, flat(b)])).toEqual([
+			["bulleted_list_item", ""],
+			["bulleted_list_item", "real"],
+		]);
+		const items = markdownToBlocks("- ```ts\n  const x = 1;\n  ```\n- after\n", ctx);
+		expect(items.map((b) => b.type)).toEqual(["bulleted_list_item", "bulleted_list_item"]);
+		const [code] = body(items[0]).children as Block[];
+		expect([code?.type, body(code).language]).toEqual(["code", "typescript"]);
+	});
+
+	it("pads a ragged table to its widest row", () => {
+		const [table] = markdownToBlocks("| A | B | C |\n| - | - | - |\n| 1 | 2 |\n| 1 | 2 | 3 | 4 |\n", ctx);
+		expect(body(table)).toMatchObject({ table_width: 4, has_column_header: true, has_row_header: false });
+		const rows = body(table).children as Block[];
+		expect(rows.map((r) => (body(r).cells as unknown[]).length)).toEqual([4, 4, 4]);
+	});
+
+	it("keeps a link URL up to Notion's 2000-character limit", () => {
+		const url = `https://example.com/${"a".repeat(1500)}`;
+		const [p] = markdownToBlocks(`[long](${url}) text\n`, ctx);
+		expect(rich(p).find((r) => r.text.content === "long")?.text.link?.url).toBe(url);
+	});
+
+	it("renders a reference-style link as its text and drops an image reference", () => {
+		const md = "See [ref][r] and ![img][i].\n\n[r]: https://example.com\n[i]: https://example.com/a.png\n";
+		expect(markdownToBlocks(md, ctx).map(flat)).toEqual(["See ref and ."]);
+	});
+
+	it("lifts an image out of a link or bold text and keeps the surrounding text", () => {
+		const inLink = markdownToBlocks(
+			"[![GitHub stars](https://img.example.com/stars.svg)](https://github.com/x/y) after\n",
+			ctx,
+		);
+		expect(inLink.map((b) => b.type)).toEqual(["paragraph", "image"]);
+		expect(flat(inLink[0])).toBe(" after");
+		expect(body(inLink[1])).toMatchObject({ type: "external", external: { url: "https://img.example.com/stars.svg" } });
+		const inBold = markdownToBlocks("**bold ![alt](https://img.example.com/a.png) tail**\n", ctx);
+		expect(inBold.map((b) => b.type)).toEqual(["paragraph", "image"]);
+		expect(flat(inBold[0])).toBe("bold  tail");
+		expect(rich(inBold[0])[0]?.annotations).toMatchObject({ bold: true });
+	});
+
+	it("links inline code only to URLs Notion accepts", () => {
+		const [p] = markdownToBlocks(
+			"See [`Ilse`](../NPCs/Ilse%20Corran.md) and [`odd`](obsidian://open) and [`site`](https://example.com).\n",
+			linked,
+		);
+		const code = rich(p).filter((r) => r.annotations?.code);
+		expect(code.map((r) => [r.text.content, r.text.link?.url])).toEqual([
+			["Ilse", "https://www.notion.so/ilse"],
+			["odd", undefined],
+			["site", "https://example.com"],
+		]);
+	});
+});

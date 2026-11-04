@@ -35,7 +35,7 @@ Build voice from what the NPC cares about, so a listener with eyes shut still kn
 - **Bounds.** What they will not do for the Party and why ("to the edge of our duty, and no further"). Their confidence rides on each fact they share: "I believe he's there, unless they moved him by another road." A good Influence roll changes what they say and what they give, never what they want.
 - **Pairs.** Two people of one Faction, or two companions on the road, take opposed stances in two registers, the warm one beside the one who smells blood. Their argument keeps the Campaign's question in play between set pieces.
 
-Prove it in the Roleplaying bullets with three short lines, the **ask** and the **refusal** plus the line **under pressure** when the limit or secret is touched, each a Cue: the NPC's action first, then the line. The Cue is the spoken line itself in their diction, never a report that they answered. Write the lines in the World's own words per root `AGENTS.md` In-world voice. An accent or gag is not a voice.
+Prove it in the Roleplaying bullets with three short lines, the **ask** and the **refusal** plus the line **under pressure** when the limit or secret is touched, each a Cue: the NPC's action first, then the line. The Cue is the spoken line itself in their diction, never a report that they answered, in the World's own words. An accent or gag is not a voice.
 
 ## Tells
 

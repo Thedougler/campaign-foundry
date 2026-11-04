@@ -7,7 +7,7 @@ description: "Cliffhanger — build or revise a physical contest from a Prep Sce
 
 A Cliffhanger puts bodies, a Vehicle or a Location at physical risk, with the result decided in play. It turns the preceding Development's information into a test. The following Scene deals with the resulting change.
 
-The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scene-pages.md); read it whole at step 1. Each step below references the section of it that applies.
+The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scene-pages.md). Read it whole at step 1. Each step below references the section of it that applies.
 
 ## Steps
 
@@ -21,7 +21,7 @@ The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scen
    - `## Pressure`: give a tick each round or turn. It moves the goal, alters an exit or increases danger. State its timing, effect, counterplay and terminal state.
    - `## Checks`: each check and save in the Page format Checks bullets with its action cost. Give every result its Cue, and add a Critical Cue wherever the roll can critically succeed.
    - `## Encounter`, whenever a Creature can be fought, including a fight avoided by negotiation: scene-pages **Encounters**. Under `### Creatures`, give each side its opening tactic, response to interference, break point and departure route or surrender terms. Write the opening tactic and each enemy turn's reasoning as Cues, add a top-of-round repaint Cue under `## Pressure`, and give each NPC or Creature the Party can kill a kill-hand-off Cue (`theatre-of-the-mind` `references/recipes.md` § Cues). A creature-free contest leaves `## Encounter` out and follows the Hazard **Calibration** bullet.
-7. **Opening.** Write the `Opening` and any Creature or NPC entering callouts with scene-pages **Narration**, recipe `### Cliffhanger`. Its caller input includes every incoming state that changes the visible cast, carrier, passengers or threat, and each such state gets its own variant that fits its facts. The first sentence is the immediate threat, and the block ends before its resolution, so the Players act before danger or an outcome is resolved.
+7. **Opening.** Write the `Opening` and any Creature or NPC entering callouts with scene-pages **Narration**, recipe `### Cliffhanger`. Its caller input includes every incoming state that changes the visible cast, carrier, passengers or threat, and each such state gets its own variant that fits its facts. The first sentence is the immediate threat, and the block ends before its resolution. The Players act before danger or an outcome is resolved.
 8. **Carry the result forward.** Fill `## Outcomes` with scene-pages **Outcomes**, distinguishing success, failure, withdrawal or surrender, and any plausible split result, a prevented escape and a declined fight included. Each row states its trigger, changed positions, conditions, resources or possession, the cost that remains, and the receiving Scene's entry state.
    - A loss creates a playable problem, such as capture with terms and a destination or separation with known positions. When the Party loses an Item, state its holder. A closed route leaves remaining options.
    - State lethal consequences where the fiction and Campaign tone allow them, with their triggers and escape opportunities.

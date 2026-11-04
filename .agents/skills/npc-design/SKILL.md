@@ -10,9 +10,9 @@ An NPC is a named person who wants something now, with agency and a story. This 
 ## Guardrails
 
 - The caller's `root`, `vault`, and Campaign are authoritative. In an isolated fixture, scope every read, search, edit, command, index, and log to that target. Leave the ambient live Wiki untouched.
-- Read `CONTEXT.md`, `docs/wiki-layout.md`, and `wiki/templates/npc.md`. The NPC template alone defines the page's sections and properties. Do not copy headings, fields, or paths from intent material.
-- Canon precedence is explicit DM instruction, what the DM or Players established at the table and the played Session record, then the Wiki, then Raw. Preserve heard Narration, played Session pages, and `hot.md`, and change each other page as its `revealed` property allows (`CONTEXT.md` **Revealed**). An explicit DM change overrides them. Every new fact this run writes on any page, from a limit or secret to tactics or morale, agrees with that Canon and tells played events with the actor and outcome the record gives. History holds recorded events only, and an event this run invents goes in `Plan`, `If ignored` or its Thread as something that may happen. When Canon is silent, choose one concrete answer at the selected scale, file it as Canon, and report the decision with the pages it grew from. Never ask for bookkeeping approval or confirmation of edits.
-- Before invention, read the target Campaign folder's `index.md`, its `hot.md`, and the last ten entries of its `log.md`. Then search the Wiki, scoped to the caller's target (`.omp/AGENTS.md` § Wiki access), for the NPC, backlinks, home Location, Faction, connected people, relevant Threads and Recaps, and each relevant PC's `Goals and bonds` and `Plans`. Record every used hit or a reason it is irrelevant.
+- Read `docs/wiki-layout.md` and `wiki/templates/npc.md`. The NPC template alone defines the page's sections and properties.
+- Canon precedence is explicit DM instruction, what the DM or Players established at the table and the played Session record, then the Wiki, then Raw. Preserve heard Narration, played Session pages, and `hot.md`, and change each other page as its `revealed` property allows (`CONTEXT.md` **Revealed**). An explicit DM change overrides them. Every new fact this run writes on any page, from a limit or secret to tactics or morale, agrees with that Canon and tells played events with the actor and outcome the record gives. History holds recorded events only, and an event this run invents goes in `Plan`, `If ignored` or its Thread as something that may happen. When Canon is silent, choose one concrete answer at the selected scale, file it as Canon, and report the decision with the pages it grew from.
+- Before invention, search the Wiki, scoped to the caller's target, for the NPC, backlinks, home Location, Faction, connected people, relevant Threads and Recaps, and each relevant PC's `Goals and bonds` and `Plans`.
 - Page links make pages reachable. Every new page this run files, NPC or Thread, gets an incoming link other than an index link before the gate runs.
 
 ## Scale
@@ -30,22 +30,18 @@ An incidental NPC still follows `wiki/templates/npc.md` if filed. Write each req
 
 ### 1. Establish the target and canon
 
-Resolve the target before searching. Read the target files named above, then retrieve the NPC's page if it exists and every backlink that bears on the NPC. Search for existing NPC candidates in the same Location, Faction, and role before inventing. Read the relevant PCs' actual Goals, bonds, and Plans; a PC connection is an invitation from one of those records, never an invented prior relationship.
-
-**Gate:** the working inventory lists the target, scale, canon facts to preserve, heard Narration and played records, relevant pages, each relevant PC's invitation or `none`, and every proposed new page's owner. Each played event the run will retell is quoted from its record line, actor and outcome included.
+Resolve the target before searching. Retrieve the NPC's page if it exists and every backlink that bears on the NPC. Search for existing NPC candidates in the same Location, Faction, and role before inventing. Read the relevant PCs' actual Goals, bonds, and Plans; a PC connection is an invitation from one of those records, never an invented prior relationship. Quote each played event the run will retell from its record line, actor and outcome included.
 
 ### 2. Source before inventing
 
 Use this order:
 
-1. Reuse a fitting Wiki NPC, role, or existing Thread, from the Campaign folder or the vault-root kind folders. State why each plausible role candidate does not fit before creating a new person.
+1. Reuse a fitting Wiki NPC, role, or existing Thread, from the Campaign folder or the vault-root kind folders, before creating a new person.
 2. Search official material outside the SRD, then existing published or homebrew material, when identity is still missing.
 3. Fall back on the 2024 SRD through `dnd5e-srd-api` for an archetype the earlier sources lack.
 4. Invent only what remains, inspired by the closest material found.
 
-Record where each fact came from. NPC frontmatter `sources` contains only repo-relative paths under `archive/` for archived Raw used by the page. Put external provenance in the page body where relevant. If a required source cannot be retrieved, say exactly what was unavailable and do not present an unverified rule, statistic, or attribution as sourced.
-
-**Gate:** the working notes state the reuse, web, SRD, or invention path, its reason, the role candidates considered, and any missing retrieval. The page's `sources` contains no URL or unarchived path.
+NPC frontmatter `sources` contains only repo-relative paths under `archive/` for archived Raw used by the page. Put external provenance in the page body where relevant. If a required source cannot be retrieved, say exactly what was unavailable, and present only retrieved rules, statistics and attributions as sourced.
 
 ### 3. Build the person
 
@@ -62,8 +58,6 @@ Write facts that change play, each in the NPC template's field named after it:
 
 Make the person distinctive. Build their face and voice per [references/craft.md](references/craft.md), and apply the swap test against a plausible NPC from the same place or Faction. Put every hidden truth's tell in the DM-facing material, not in Player-facing Narration. A filed NPC whose drives are sound but whose presence reads generic gets a `flesh-out` pass in place of a rebuild.
 
-**Gate:** every required drive field is concrete and filled in its template field. The secret has stakes and three non-duplicate routes. Truth and NPC knowledge are separate, the face and voice fail the swap test, and every hidden truth has a testable tell.
-
 ### 4. Plan the first meeting and social play
 
 Use `references/craft.md` for face, voice, and tells. For a Scene or larger, write the first meeting:
@@ -76,9 +70,7 @@ Use `references/craft.md` for face, voice, and tells. For a Scene or larger, wri
 
 For every Influence request, apply `references/influence.md`: it holds the sourced 2024 rule (Attitude, willingness, the check and its DC) and the procedure for running it.
 
-Do not put an essential clue behind one roll. Give each essential conclusion about three independent routes such as a statement, trace, witness, document, or consequence; a miss can add cost, danger, delay, or uncertainty while leaving a way forward.
-
-**Gate:** the DM can run the first five minutes, and every likely request has an answer and outcome. Attitude and willingness are separate. Each roll cites `SRD 5.2.1, Influence` and gives its Ability (Skill), DC, the Advantage or Disadvantage each recorded Attitude sets, success and a miss that changes the situation, and each result's answer is a Cue. Every success and miss is an act the NPC's Leverage and Limit allow, and a success the Limit defers gives the step it starts. Essential information has independent routes.
+Do not put an essential clue behind one roll. Give each essential conclusion about three independent routes such as a statement, trace, witness, document, or consequence; a miss can add cost, danger, delay, or uncertainty while leaving a way forward. Write it so the DM can run the first five minutes, and each result's answer as a Cue.
 
 ### 5. Hand off the statistics
 
@@ -86,13 +78,9 @@ When the NPC fights or their rules matter at the table, invoke `skill://statbloc
 
 Supporters, guards, beasts, crews and other fighters the NPC can call on are linked by their own Creature or NPC pages, each with its own statblock. A missing kind of fighter goes to `creature-design`.
 
-**Gate:** a fighting NPC's `## Statblock` passed `statblock-design`'s check, and a non-fighting NPC has none. Every fighter the NPC can call on links a page with a statblock.
-
 ### 6. Branch: recurring NPC
 
-Tie the NPC to each relevant PC only through an existing Goal, bond, or Plan. Each connection is optional and offers that PC a choice built from their own Goals, bonds or Plans. Link existing Threads rather than duplicating future plans. Give the NPC a next move and a cost if ignored. Write their opposition, escalation included, on the page of the Thread that tracks it (`CONTEXT.md` **Thread**) in this run, with its trigger and the Party's interruption point, re-reading that page just before the edit. A Quest is a task the Party took on and never owns opposition.
-
-**Gate:** every relevant PC has a distinct invitation or an explicit `none`, and each invitation has a choice and a cost. The NPC's next move differs from every existing Thread's. The escalation is written on its Thread's page, whichever run owns that page.
+Tie the NPC to each relevant PC only through an existing Goal, bond, or Plan. Give each relevant PC a distinct invitation or an explicit `none`. Each connection is optional and offers that PC a choice, with its cost, built from their own Goals, bonds or Plans. Link existing Threads rather than duplicating future plans. Give the NPC a next move, different from every existing Thread's, and a cost if ignored. Write their opposition, escalation included, on the page of the Thread that tracks it (`CONTEXT.md` **Thread**) in this run, with its trigger and the Party's interruption point, re-reading that page just before the edit. A Quest is a task the Party took on and never owns opposition.
 
 ### 7. Branch: villain
 
@@ -100,20 +88,12 @@ Read `references/villain.md`. In an active Campaign, put the plan on an existing
 
 With no active Campaign, retain the plan on the NPC in the World, do not invent a Campaign or Campaign Thread. Keep the plan active, interruptible, and consequential at World scale.
 
-**Gate:** the plan's owner and location are correct, and its ignored consequences and interruption points are visible. Each plan step has a fallback, and at least three distinct endings remain live.
-
 ### 8. Write Narration and file the pages
 
-When the Party will meet this person, load `theatre-of-the-mind` for the NPC template's optional `[!narration] First look` and write it to the recipe in [references/craft.md](references/craft.md#first-look). Write the `Requests` and `If pressed` answers as Cues (`==…==` after their trigger) to its `references/recipes.md` § Cues. Preserve Narration already heard at the table unless the DM explicitly requests a rewrite.
+When the Party will meet this person, load `theatre-of-the-mind` for the NPC template's optional `[!narration] First look` and write it to the recipe in [references/craft.md](references/craft.md#first-look). Write the `Requests` and `If pressed` answers as Cues (`==…==` after their trigger) to its `references/recipes.md` § Cues. Keep the First look and every Cue speakable and Player-safe, with only details the Party can sense from where it stands and counts that match Canon. Preserve Narration already heard at the table unless the DM explicitly requests a rewrite.
 
-Copy `wiki/templates/npc.md` exactly in `<campaign-folder>/NPCs/`. A page already filed keeps its folder, and a World-free page and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**. Fill its required `Roleplaying` section with only the facts and bullets the selected scale needs. Add the First look and each optional section when its guidance condition holds (`docs/wiki-layout.md` **Templates define pages**). Fill the optional `Quotes` only with lines the DM, a Transcript or a source gives this person, word for word, and leave it out when there are none. Link the Location, Faction, PCs, Threads, supporters, and other owners. If a Thread was created, file it with its own template and link it from the owner page. Hand the filed pages to `visuals`.
+Copy `wiki/templates/npc.md` exactly in `<campaign-folder>/NPCs/`. A page already filed keeps its folder, and a World-free page and its Campaign versions file per `docs/wiki-layout.md` **One vault, many Campaigns**. Fill its required `Roleplaying` section with only the facts and bullets the selected scale needs, keeping rules text inside `## Statblock`. Add the First look and each optional section when its guidance condition holds (`docs/wiki-layout.md` **Templates define pages**). Fill the optional `Quotes` only with lines the DM, a Transcript or a source gives this person, word for word, and leave it out when there are none. Link the Location, Faction, PCs, Threads, supporters, and other owners. If a Thread was created, file it with its own template and link it from the owner page. Hand the filed pages to `visuals`.
 
-**Gate:** the page has the template's required properties and sections, and each optional part present has the content its condition calls for. Each new page has an inbound link. A First look and every Cue are speakable and Player-safe, and each First look detail is one the Party can sense from where it stands. Every count in a Narration block matches the things it describes and Canon. No page contains agent process notes, rules text outside its `## Statblock`, or empty filler.
+### 9. Close
 
-### 9. Close against the caller's target
-
-Close per `skill://lint` § Commands over the NPC and Thread pages and every other page this run touched, using the caller's target, not an ambient default (**Another root** there: every command takes `--vault "$VAULT" --root "$ROOT"`, each check `--templates "$VAULT/templates"`). The page gate checks them for placement, links, orphans, statblock arithmetic, Markdown, spelling, grammar and style, and `skill://lint` **Page gate** names the layers it leaves out. Never hand-edit `index.md`.
-
-Omit absent `--page` values (`$NPC_PATH`, `$THREAD_PATH`). If an enclosing Ingest, Prep, Push, Audit, Pull, or Query operation called this skill, that operation writes the log entry for the work and this skill writes none.
-
-**Done:** the selected-scale result is complete. Canon and explicit inventions are preserved and reported, and every source limitation is stated. All relevant supporter and Thread pages are linked, and the close is complete, with one log entry under the standalone-versus-enclosing rule. A standalone run logs op `create`, worldbuilding outside Ingest and Prep (`docs/wiki-layout.md` **`log.md`**), whether it created or updated pages, and its title says which.
+Close per `skill://lint` § Commands over the NPC and Thread pages and every other page this run touched, using the caller's target and that section's **Another root** flags, not an ambient default.

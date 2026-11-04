@@ -11,3 +11,5 @@ Decision:
 - **The orchestrator equips the writer.** It triages the issues and gathers the DM's words and the evidence or docs each diagnosis needs before dispatch. An issue that recurs across units or rounds is stubborn, and the writer gets it with every occurrence to rework the whole passage or process behind it.
 
 Consequences: `skill://friction-report` holds the format and the division of labour. `skill://dogfood` steps 3 to 5 route every issue to `skill-writer` and escalate stubborn ones, and `.omp/AGENTS.md` **Route friction** dispatches each `coder` request the writer returns. ADR 0034's **Specialists fix in parallel** no longer holds.
+
+Superseded (2026-11): The agent that meets friction fixes it at its source and reports only what it cannot fix (`skill://friction-report`); `.omp/AGENTS.md` no longer carries **Route friction**.

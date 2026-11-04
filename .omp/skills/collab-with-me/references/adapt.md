@@ -20,11 +20,11 @@ Convert every bible section through the row that names it. Each owner defines th
 |PC arcs (PC cards)|invitations from the PC's Goals and bonds|`npc-design` step 6 (Branch: recurring NPC), `plan-session` PC pull|
 |NPC cards (`[Character Descriptions]`)|NPC pages|`npc-design`|
 |Simulation voice lines|NPC Play lines: the ask, the refusal and the line under pressure|`npc-design` [`references/craft.md`](../../../../.agents/skills/npc-design/references/craft.md) Voice|
-|Simulation off-screen moves|a Thread's `Next development` or `If nobody acts`|[`wiki/templates/thread.md`](../../../../wiki/templates/thread.md)|
+|Simulation off-screen moves|a Thread's `Next development` or `If nobody acts`|[`wiki/templates/Thread.md`](../../../../wiki/templates/Thread.md)|
 |Story prose|Narration, written fresh for its callout|`theatre-of-the-mind`|
 |Setting (`[Setting]`)|Location pages|`location-design`|
 
 ## Steps
 
-1. **Convert.** For each table row that matches a bible section, write the adapted form under the idea in the notes, as a pitch the DM keeps or drops, and tell him in talk what changed from the Story. Done when every bible section has an adapted form in the notes.
-2. **Test for the railroad.** Read each adapted item as the Party would meet it. Ask what happens when the Party chooses differently from the Story, whether it refuses or arrives late, sides with the antagonist or never shows up. Rework each item that works for one choice alone until every choice leaves it playable. Done when no adapted item requires a specific PC choice.
+1. **Convert.** For each table row that matches a bible section, write the adapted form under the idea in the notes, as a pitch the DM keeps or drops, and tell him in talk what changed from the Story.
+2. **Test for the railroad.** Read each adapted item as the Party would meet it. Ask what happens when the Party chooses differently from the Story, whether it refuses or arrives late, sides with the antagonist or never shows up. Rework each item that works for one choice alone until every choice leaves it playable.

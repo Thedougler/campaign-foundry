@@ -13,3 +13,5 @@ Decision:
 - **Rules and templates match first.** The `linter` applies each rule and template exactly as written. Before the first dispatch, the dispatcher brings the rules and templates in line with the DM's current intent. It sends one `linter` and reads its return before it sends more. A return that shows a rule, template or instruction out of line with that intent is fixed at that source, or returned as a `coder` request or a question for the DM.
 
 Consequences: root `AGENTS.md` **Gate scope** states the rule once. The skill steps that check a page now have their writer repair its findings, and `skill://lint` repairs its own slice. `.omp/agents/linter.md` keeps each untouched sentence verbatim when one line contains a whole paragraph. The `wiki-check` hook's repair hint still names the `linter`, which needs a code change.
+
+Superseded (2026-11): A `linter` dispatch takes the files its brief names, and the dispatcher no longer aligns rules and templates before the first dispatch; a return that shows one out of line is fixed at its source (`docs/agents/delegation.md` § Linter).

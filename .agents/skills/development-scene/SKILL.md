@@ -10,7 +10,7 @@ A Development changes what the Party knows, can reach or can choose between. Its
 
 The Scene Chart follows Scripting the Game, where a Development is the non-action turn between physical contests and an Encounter belongs to another Scene. A threatening meeting can reveal danger or offer terms here. A fight, chase or hazardous journey belongs in a Cliffhanger. Keep the Scene to its charted half-hour: once the Party has a usable direction and has chosen what to do with it, hand on.
 
-The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scene-pages.md); read it whole at step 1. Each step below references the section of it that applies.
+The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scene-pages.md). Read it whole at step 1. Each step below references the section of it that applies.
 
 ## Steps
 
@@ -24,7 +24,7 @@ The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scen
    - A lie belongs to its speaker. The Clue is the evidence exposing or testing it.
    - Clues come from limited witnesses. Each person or object holds part of the answer along with the cause of what it knows, and the Party puts the parts together. Witnesses who contradict each other, or NPCs overheard on their own business, hand over their parts with the motive attached.
 5. **People.** Under `## Angles`, write one linked bullet per participating NPC, enough for the DM to answer likely questions and play each person's response to help, pressure or rejection. State their goal and knowledge, then their offer and price. Give what they withhold or lie about with the tell of each lie, and what changes their posture. End each posture change on a Cue in their voice. They give lore only when a player asks or a roll buys it, and that answer is a Cue too. Ground these in their page and the current situation. Put cooperation, refusal and renegotiation within the Party's reach. An NPC's intended betrayal is a plan with tells and an intervention point the Party can use.
-6. **Choices and rulings.** Complete `## Situation`, `## Angles` and `## Checks` with the distinct approaches this source of information invites. Straightforward examination or a willing answer yields its Clue. Roll only where the result is uncertain, in the Page format Checks bullets, every result with its ruled consequence and Cue, a Critical one included wherever the roll can critically succeed. An essential lead stays reachable after refusal or failure.
+6. **Choices and rulings.** Complete `## Situation`, `## Angles` and `## Checks` with the distinct approaches this source of information invites. Straightforward examination or a willing answer yields its Clue. Roll only where the result is uncertain, in the Page format Checks bullets, every result with its ruled consequence and Cue, a Critical one included wherever the roll can critically succeed. An essential lead remains reachable after refusal or failure.
    - Consult `dnd5e-srd-api` when an action, condition, Item or learned advantage needs 2024 rules, with Canon House Rules taking precedence.
    - State the price of valuable help or preparation in concrete terms: time, a favour, a promise, exposure or resources.
    - Give a puzzle its answer, discoverable reasoning, wrong-attempt consequence and costly bypass.

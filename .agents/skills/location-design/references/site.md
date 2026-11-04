@@ -10,8 +10,6 @@ Use this branch for an ordinary Site: a shop, landmark, small building or other 
 4. **Account for people and objects.** Give the keeper or inhabitants a location, immediate purpose, offer and response to likely approaches, and link the NPCs and Creatures needed for interaction. Place each important Item where the Party can get at it, stating its owner and access conditions. A fixed hazard belongs to this Site, and its full running procedure goes in the Site's DM-facing content.
 5. **Prepare change and return.** Connect the conflict between opposed sides to a visible next event at a stated time. Give an inhabitant or the Site a concrete response to likely intervention, with a trigger and lasting change in access, stock, trust or evidence. On a revisited Site, preserve established history and consequences, showing what is different now instead of resetting a cleared or repaired feature.
 
-## Table-use criterion
+## Table use
 
-The DM can find a feature's occupants, object, hazard or hidden truth quickly, resolve likely actions and identify where the Party can go next. Important interactions change something even without enemies, the timed situation has a visible consequence, and a basic visit remains runnable without expedition machinery.
-
-Put these facts on the page. Give each space its own keyed entry, which opens with its Cue and then gives occupants and activity, usable objects, immediate danger, hidden answers and onward connections. A sentence listing several space names fails this criterion.
+From this page, the DM can find a feature's occupants, object, hazard or hidden truth quickly, resolve likely actions and identify where the Party can go next. Give each space its own keyed entry. Important interactions change something even without enemies, the timed situation has a visible consequence, and a basic visit runs without expedition machinery.

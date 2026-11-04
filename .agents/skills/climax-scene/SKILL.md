@@ -7,19 +7,19 @@ description: Climax — build or revise the Session's highest-stakes Scene where
 
 The Climax settles the Session's central question under its greatest pressure. Earlier Scenes supply the Party's leverage and the opposition's threat. Play determines the result. A fight, exposure, bargain or rescue can each hold that weight.
 
-The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scene-pages.md); read it whole at step 1. Each step below references the section of it that applies.
+The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scene-pages.md). Read it whole at step 1. Each step below references the section of it that applies.
 
 ## Steps
 
 1. **Orient and ground.** Apply scene-pages **Orient** and **Ground**. The template is `wiki/templates/scene-climax.md`.
-2. **Trace the payoff.** Read the Session's earlier Scenes and their conditional outcomes, not just the Scene immediately before this one. Every converging Thread gets a traceable setup and a usable payoff, and each plausible entry state can reach the confrontation.
+2. **Trace the payoff.** Read the Session's earlier Scenes and their conditional outcomes, not just the Scene immediately before this one. Each converging Thread gets a traceable setup and a usable payoff, and each plausible entry state can reach the confrontation.
    - For each Thread converging here, state the question this confrontation decides and the Angle the Party gained for it earlier: a Clue, ally, Item, weakness or earlier choice.
    - Carry earlier losses, spent resources and opposition preparation into the relevant entry branches.
    - Resolve an unplanted dependency through the enclosing Prep, or use established material that serves the same purpose. Promised earlier success remains conditional.
    - A standalone brief without earlier Scene pages grounds the Party's Angles in the supplied entry and Canon. Return any proposed earlier setup as a planning requirement rather than a played event.
 3. **Choose the confrontation.** Use the chart's card when the incoming fiction supports it. Otherwise choose from **Cards** below and reconcile the row with the enclosing Prep, recorded as scene-pages **Card** directs. The card fits every possible arrival state, and its stakes exceed the earlier Scenes'. Follow scene-pages **Scripting the Game** for chart order and table-time allocation. That method governs where Lazy DM differs. Prefer a Development before an action Climax and a Cliffhanger before a cerebral one. If earlier play can settle the central question, that result hands directly to the Resolution rather than staging a second showdown. Give the page a concrete compression option that preserves the decisive choice when time runs short.
 4. **Resolve the cast.** Apply scene-pages **Cast**.
-5. **Make the brink playable.** Start the page as scene-pages **Page format** directs, then fill the sections below so the DM runs every offered approach, stage feature, roll and escalation from the page and its embeds. Essential information stays reachable beyond one successful check.
+5. **Make the brink playable.** Start the page as scene-pages **Page format** directs, then fill the sections below so the DM runs every offered approach, stage feature, roll and escalation from the page and its embeds. Essential information remains reachable beyond one successful check.
    - `## Threads`: one line per converging Thread, linked, with the question this confrontation decides and the Angle from step 2.
    - `## Situation`: open on the decisive question and what can be saved or lost. Give starting positions and access to the objective. State each Angle's concrete effect and what happens if the Party arrives without it.
    - `## Pressure`: give the opposition's first move and its response to interference. Add its desperate move and its exit or surrender terms. Pressure has a trigger, visible warning, consequence and means of interruption. State the next move that changes the situation when play stalls. Each phase used has a trigger, perceptible signal, changed situation and new opportunity. Write the opposition's turns as enemy-turn Cues and each phase signal as a repaint Cue, and give each NPC or Creature the Party can kill a kill-hand-off Cue (`theatre-of-the-mind` `references/recipes.md` § Cues).

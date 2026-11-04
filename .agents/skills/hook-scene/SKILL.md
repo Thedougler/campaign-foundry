@@ -7,7 +7,7 @@ description: Hook authoring — fill Prep's first Scene from its Scene Chart row
 
 The Hook puts one pressure within the Party's reach and ends at the moment they commit to a response. The Session's problem is still unsolved at that point. Use Mike Pondsmith's *Scripting the Game*. In it the Hook sets the pace and the middle Scenes change the stakes, and the Climax resolves the question the Hook opened.
 
-The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scene-pages.md); read it whole at step 1. Each step below references the section of it that applies.
+The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scene-pages.md). Read it whole at step 1. Each step below references the section of it that applies.
 
 ## Steps
 
@@ -20,7 +20,7 @@ The shared procedure is [`docs/agents/scene-pages.md`](../../../docs/agents/scen
    - `## Checks`: each uncertain action in the Page format Checks bullets. Give every result its Cue, and add a Critical Cue wherever the roll can critically succeed.
    - `## Encounter`, only when the Party may fight: scene-pages **Encounters**.
    - `## Hidden truths`, `## Threads` and `## Spotlight` where their conditions hold. The row's Spotlight sharpens one PC's personal pull in `## Spotlight`, while every other PC keeps a reason to act.
-5. **Open at the decision.** Write the `Opening` and any entering or Revelation callouts with scene-pages **Narration**, recipe `### Hook`, from the finished Situation and owner pages. The first spoken sentence presents the pressure. The Opening starts inside the disturbance and stops before an unresolved seizure, attack or escape succeeds, leaving the table something to act on. No callout chooses a PC's response or resolves the live contest. Already-played events remain established. New events remain answerable. A memory gap or revelation that rewrites a PC's history needs that Player's established agreement. Without it, make the uncertainty external evidence the PC can investigate.
+5. **Open at the decision.** Write the `Opening` and any entering or Revelation callouts with scene-pages **Narration**, recipe `### Hook`, from the finished Situation and owner pages. The first spoken sentence presents the pressure. The Opening starts inside the disturbance and stops before an unresolved seizure, attack or escape succeeds. The table has something to act on. No callout chooses a PC's response or resolves the live contest. Already-played events remain established. New events remain answerable. A memory gap or revelation that rewrites a PC's history needs that Player's established agreement. Without it, make the uncertainty external evidence the PC can investigate.
 6. **Cut on commitment.** Fill `## Outcomes` with scene-pages **Outcomes**. Give each Angle's result with its trigger, then a concrete pressure advance if the Party waits and the World response if they refuse. Write the changed state into the linked destination or standalone carry-forward instead of forcing every approach through the same success. An action Hook normally hands to a Development as the first middle Scene, and a cerebral Hook to a Cliffhanger. With no middle Scenes, use the chart's Climax destination. Plant the question the Climax will answer.
 7. **Cold read.** Apply scene-pages **Cold read** to confirm that one pressure opens the Session question and the Opening stops at the commitment point. Check each PC's first action, then the results of waiting and refusal.
 

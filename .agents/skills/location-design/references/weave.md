@@ -24,5 +24,3 @@ State any check/save and what follows on success or failure. Honour actual capab
 ## Other evidence
 
 For an Item, state its position, owner, why it is here and how it can be reached, and link its full rules. For an inhabitant, state what it is doing and wanting now, or the trace it left if absent. For history, place surviving evidence and its explicit explanation beside the relevant structure. For a Faction, show how its local claim affects access, trade or behaviour and link its owner.
-
-**Complete when** every relevant inventory fact is retained in an identifiable place or excluded from local play with a reason, every consequential hidden truth has independent discoverable Clues, and each hazard has a complete, answerable procedure.

@@ -21,16 +21,16 @@ Everything a Simulation produces is a possibility. It becomes Canon only when th
    - Do not add any event, only reorder original events mentioned in <Outline> provided.
    ```
 
-   Each scene occupies its own stretch of in-world time. Split any scene that overlaps another into separate scenes. **Done when** the purpose and slug are stated, every input has its label, and the scene list runs in chronological order with no two scenes sharing in-world time.
+   Each scene occupies its own stretch of in-world time. Split any scene that overlaps another into separate scenes.
 
 2. **Dossiers.** For each NPC, read its Wiki page and, when a Story Bible exists, its card in `local://collab/bible.md`. Write `local://collab/sim/<slug>/<Npc>.md` holding:
    - Yu's profile fields: name, gender, age, narrative role, setup, speaking characteristics and the goal for each scene the NPC plays
-   - the NPC's knowledge, drawn from the page's `Roleplaying` bullets (Will share, Will not share) and its `History` and `Hidden truths`: the facts it knows, the things it wrongly believes and the lies it tells. Keep only this NPC's own knowledge. Leave out another NPC's secrets and DM truths this NPC lacks. Retell every rules term as what the NPC perceived, per [In-world voice](../../../AGENTS.md#in-world-voice). The dossier contains only in-world words
+   - the NPC's knowledge, drawn from the page's `Roleplaying` bullets (Will share, Will not share) and its `History` and `Hidden truths`: the facts it knows, the things it wrongly believes and the lies it tells. Keep only this NPC's own knowledge. Leave out another NPC's secrets and DM truths this NPC lacks. Retell every rules term as what the NPC perceived. The dossier contains only in-world words
    - physical state: body, wounds, gear and the NPC's position when the first scene opens
    - three sample lines: an ask, a refusal and a line under pressure. Copy them from the bible card or the page's Requests and If pressed Cues when they exist; otherwise write them from the page's Voice bullet per the `Voice` section and closing check of [npc-design's craft reference](../npc-design/references/craft.md), with the NPC's diction, length, status move and bounds
    - the lines from the page's `Quotes`, when it has one, each with only the context this NPC knows, as the voice its new lines match
 
-3. **Cast.** In one `task` batch, spawn one `persona` agent per NPC, named `Persona<NpcNameCamelCase>` (`PersonaTalonSkarn`). Each task is that NPC's dossier text, pasted whole, followed by your first Director command for it. The batch's shared `context` contains only what every Persona may know, such as the scene's place and in-world time. PCs stay with you: the Party enters the Simulation only as events you narrate, each labelled `Possible Party action:`. **Done when** every NPC in the scene list has exactly one running Persona and every PC appears only through labelled Director events.
+3. **Cast.** In one `task` batch, spawn one `persona` agent per NPC, named `Persona<NpcNameCamelCase>` (`PersonaTalonSkarn`). Each task is that NPC's dossier text, pasted whole, followed by your first Director command for it. The batch's shared `context` contains only what every Persona may know, such as the scene's place and in-world time. PCs stay with you: the Party enters the Simulation only as events you narrate, each labelled `Possible Party action:`.
 
 4. **Direct.** Run each scene in chronological order. Before every command, apply Yu's termination check, reading `<ChatHistories>` as the scene's ledger entries:
 
@@ -49,7 +49,7 @@ Everything a Simulation produces is a possibility. It becomes Canon only when th
 
    For the `offscreen` purpose, run `echo $((RANDOM % 10))` before each command. On 0 to 2, StoryBox's Abnormal Factor of 0.3, the command invites the NPC to break from routine in a way true to its dossier.
 
-   A scene ends when the termination check finds the outline covered, or at 12 commands. **Done when** every scene has ended, each with its termination reasoning or the cap recorded in the ledger.
+   A scene ends when the termination check finds the outline covered. Record that termination reasoning in the ledger.
 
 5. **Ledger.** Keep `local://collab/sim/<slug>/ledger.md` as one entry per event, every Persona reply and every Director-narrated event alike, with StoryBox's fields: id, in-world time, place, participants, witnesses, description and detail. The description is one line. The detail follows StoryBox's definition:
 
@@ -57,12 +57,12 @@ Everything a Simulation produces is a possibility. It becomes Canon only when th
    incorporates factors such as the environment, the time of day, the status of the characters involved, and the location … including their actions, emotional states, and possible motivations.
    ```
 
-   Witnesses are the NPCs present at the place who could perceive the event. Each Persona hears next only the events that list it as a witness. **Done when** every turn and narrated event of the run has a ledger entry with all seven fields filled.
+   Witnesses are the NPCs present at the place who could perceive the event. Each Persona hears next only the events that list it as a witness. Fill all seven fields for every entry.
 
 6. **Report.** Return to your caller:
    - each NPC's decisions
    - surprises against the Story Bible or the NPC's page
-   - knowledge leaks: each Persona line using knowledge outside its dossier and its witnessed events, judged with CharacterBox's Knowledge Accuracy criterion
+   - knowledge leaks: check every Persona line. List each line using knowledge outside its dossier and its witnessed events, judged with CharacterBox's Knowledge Accuracy criterion
 
      ```text
      Ensures information provided by character is factually correct and aligned with their background knowledge
@@ -72,6 +72,6 @@ Everything a Simulation produces is a possibility. It becomes Canon only when th
    - off-screen moves, each with its in-world time and the sign a Party could perceive
    - the ledger path
 
-   Label the whole report as possibilities for the DM to keep or drop. **Done when** every Persona line has been checked for leaks, and every section above is present or stated as empty.
+   Label the whole report as possibilities for the DM to keep or drop.
 
-7. **Persistence.** Within one run, send later scenes to the same Persona ids, so each Persona's own session stores its memory of earlier scenes. A new run spawns fresh Personas. Idle Personas park and revive natively. To play a variant of a scene, such as a retake or another Party choice, cast a fresh Persona for that branch (`Persona<NpcNameCamelCase><Variant>`) from the dossier and the events it witnessed up to the branch point. Its session then holds only that branch. **Done when** every scene of the run went to the Personas cast in step 3, and each variant to its own branch Persona.
+7. **Persistence.** Within one run, send later scenes to the same Persona ids, so each Persona's own session stores its memory of earlier scenes. A new run spawns fresh Personas. Idle Personas park and revive natively. To play a variant of a scene, such as a retake or another Party choice, cast a fresh Persona for that branch (`Persona<NpcNameCamelCase><Variant>`) from the dossier and the events it witnessed up to the branch point. Its session then holds only that branch.

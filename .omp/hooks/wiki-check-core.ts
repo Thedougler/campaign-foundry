@@ -37,7 +37,10 @@ export function shouldCheck(toolName: string, isError: boolean, agent?: { kind: 
 	return (
 		!isError &&
 		mutations[toolName] === true &&
-		!(agent?.kind === "sub" && ["test-subject", "smart-test-subject", "prose-grader"].includes((agent.name ?? "").toLowerCase()))
+		!(
+			agent?.kind === "sub" &&
+			["test-subject", "smart-test-subject", "prose-grader"].includes((agent.name ?? "").toLowerCase())
+		)
 	);
 }
 
@@ -110,9 +113,9 @@ function isFinding(value: unknown): value is Finding {
 }
 
 const repairGuidance =
-	"wiki-check is read-only page-check feedback. Load skill://lint and repair findings yourself under root AGENTS.md Gate scope (ADR 0047); a linter dispatch is optional. Clean means zero findings, including warnings, regardless of ok or exit code. The final combined slice gate still applies.";
+	"wiki-check is read-only page-check feedback. Load skill://lint and repair findings yourself; a linter dispatch is optional. Clean means zero findings, including warnings, regardless of ok or exit code. The final combined slice gate still applies.";
 const manualGuidance =
-	"wiki-check did not provide a complete page check. Do not treat any unchecked page or capped list as clean. Run `bun run cfcli -- check` for all affected pages yourself, then load skill://lint and repair findings yourself under root AGENTS.md Gate scope (ADR 0047); a linter dispatch is optional. The final combined slice gate still applies.";
+	"wiki-check did not provide a complete page check. Do not treat any unchecked page or capped list as clean. Run `bun run cfcli -- check` for all affected pages yourself, then load skill://lint and repair findings yourself; a linter dispatch is optional. The final combined slice gate still applies.";
 
 /** Raw findings stay in tool data. Only fixed, hook-authored guidance enters trusted context. */
 export function feedback(
