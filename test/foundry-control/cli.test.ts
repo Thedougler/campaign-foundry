@@ -1,4 +1,5 @@
-import { spawnSync } from "node:child_process";
+import { Client } from "@modelcontextprotocol/client";
+import { StdioClientTransport } from "@modelcontextprotocol/client/stdio";
 import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -156,41 +157,25 @@ describe("cfcli foundry mutating commands gate on --yes", () => {
 });
 
 describe("cfcli foundry serve", () => {
-	it("answers MCP initialize and tools/list on stdio, then exits when stdin closes", async () => {
-		const script = statusReplies();
-		const path = await fixture(script);
-		const env = { ...process.env, CF_FOUNDRY_SCRIPTED: path };
-		const lines = [
-			JSON.stringify({ jsonrpc: "2.0", id: 1, method: "initialize", params: { protocolVersion: "2025-06-18" } }),
-			JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized" }),
-			JSON.stringify({ jsonrpc: "2.0", id: 2, method: "tools/list" }),
-			JSON.stringify({ jsonrpc: "2.0", id: 3, method: "tools/call", params: { name: "host.status", arguments: {} } }),
-		].join("\n");
-		const child = spawnSync("bun", ["run", "cfcli", "--", "foundry", "serve", "--port", "0", "--token", "test-token"], {
+	it("serves tools over stdio and exits when its client closes", async () => {
+		const path = await fixture(statusReplies());
+		const transport = new StdioClientTransport({
+			command: "node",
+			args: ["src/cli.ts", "foundry", "serve", "--port", "0", "--token", "test-token"],
 			cwd: repoRoot,
-			env,
-			encoding: "utf8",
-			input: `${lines}\n`,
-			timeout: 30_000,
+			env: { ...process.env, CF_FOUNDRY_SCRIPTED: path } as Record<string, string>,
+			stderr: "pipe",
 		});
-		expect(child.status).toBe(0);
-		const stdout = child.stdout ?? "";
-		const replies = stdout
-			.trim()
-			.split("\n")
-			.filter((line) => line.startsWith("{"))
-			.map(
-				(line) =>
-					JSON.parse(line) as {
-						id?: number;
-						result?: { protocolVersion?: string; tools?: { name: string }[]; content?: { text: string }[] };
-					},
-			);
-		expect(replies).toHaveLength(3);
-		expect(replies[0]?.result?.protocolVersion).toBe("2025-06-18");
-		expect(replies[1]?.result?.tools?.length).toBe(23);
-		const status = JSON.parse(replies[2]?.result?.content?.[0]?.text ?? "{}") as { version: string | null };
-		expect(status.version).toBe("14.368");
-		expect(child.stderr).toContain("listening");
+		const client = new Client({ name: "cli-test", version: "1" });
+		try {
+			await client.connect(transport);
+			expect(client.getServerVersion()?.name).toBe("campaign-foundry-foundry-control");
+			expect((await client.listTools()).tools).toHaveLength(23);
+			expect(await client.callTool({ name: "host.status", arguments: {} })).toMatchObject({
+				content: [{ text: expect.stringContaining("14.368") }],
+			});
+		} finally {
+			await client.close();
+		}
 	});
 });
