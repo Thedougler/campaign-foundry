@@ -1,6 +1,6 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-	// Issue #66, `bun run lint code`: Biome lint + format for TS/JS/JSON (the `code` scope).
+	// `bun run lint:code`: Biome lint + format for TS/JS/JSON.
 	// `vcs` makes Biome honour .gitignore, so ignored trees (node_modules, build/, raw/,
 	// archive/, prior/, reference/, .cache/, …) are already out; the negations below cover
 	// the out-of-domain paths that ARE tracked.

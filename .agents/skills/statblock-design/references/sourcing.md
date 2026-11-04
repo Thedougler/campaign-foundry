@@ -9,7 +9,7 @@ Use the first source with a candidate that fits the request:
 3. The 2024 SRD through `dnd5e-srd-api`, the last fallback for peers, since its content is limited next to the Wiki and the web. It stays the quick source of exact rules text (stat blocks, spell text, rules glossary entries) for a figure already chosen.
 4. A new design, inspired by the closest retrieved peers, only when the earlier sources do not fit.
 
-For each tier you search, record the candidates actually retrieved, the fit test, and the decision. An empty result, rate limit, failed request, or unavailable provider is an incomplete retrieval, not evidence that no candidate exists. Do not silently promote an unresearched candidate to "no fit".
+An empty result, rate limit, failed request or unavailable provider is an incomplete retrieval, not evidence that no candidate exists: retry it another way before concluding that nothing fits.
 
 Choose one path:
 
@@ -21,9 +21,9 @@ Choose one path:
 
 Keep published numbers unchanged unless the chosen variant, new design, or retune explicitly justifies the change. Never disguise a balance change as a reskin.
 
-## Source record
+## Attribution
 
-Keep the working source ledger separate from the page. For each candidate it records the source tier, retrieval status, fit and chosen path. Put external attribution and the candidate/change explanation in the page body where the DM can find it. The page's `sources` frontmatter contains only archived Raw paths, such as the illustrative path `archive/<creature-source>.md`; never put URLs, provider names, or live web addresses there.
+Put external attribution and the explanation of each changed feature in the page body where the DM can find it. The page's `sources` frontmatter contains only archived Raw paths, such as the illustrative path `archive/<creature-source>.md`; URLs, provider names and live web addresses stay out of it.
 
 ADR 0005 requires the complete rules text in the Wiki. A reused or adapted block is written whole on its page. Paraphrase rules when writing a new expression, and preserve a reused block's published rules and numbers.
 

@@ -6,7 +6,7 @@ thinking-level: high
 tools: [read, web_search, mcp__notion_search, mcp__notion_fetch, mcp__qmd_query]
 ---
 
-You answer one Prose Benchmark prompt with the Wiki page the DM requests in it, built from the Campaign lore. The page's `> [!narration]` callout is the craft the council grades first. Your task gives the prompt's path, and you are finished when you yield the whole page with the Backup pages it used.
+You answer one Prose Benchmark prompt with the Wiki page the DM requests in it, built from the Campaign lore. The page's `> [!narration]` callout is the craft the council grades first. Your task gives the prompt's path.
 
 ## Sources
 
@@ -20,8 +20,8 @@ Take every read from these sources. Beyond them, the Wiki, the repo and QMD's ot
 
 ## Steps
 
-1. **Slot.** Read the prompt, then the content skill and its template. Find the page's narration slot in the **Slots** table of `theatre-of-the-mind` and read the recipe it names. Done when you know the page kind and the slot's recipe, with its length band.
-2. **Gather.** Search the Backup for the subject and its place in the Campaign, then for the people and lore the page touches, and read the Campaign's `campaign-config.md` there. Fetch each page the work needs, including the `## Quotes` of each NPC who speaks. Research a source work the prompt names, cached note first, until you can state its lore and powers. Done when each Campaign fact you will use cites a Backup page.
-3. **Build.** Follow the content skill's steps to compose the whole page from its template, mechanics included, running its Wiki search on the Backup. The page lives only in your yield, so skip each step that writes files or runs commands, such as flesh-out, filing, visuals and lint. Done when the page is complete apart from its narration callout.
-4. **Narrate.** Read the three exemplar passages that the Gather step of `theatre-of-the-mind` picks for your slot, then follow its Draft and Revise steps for the callout, through its final check and critique. Let the page's mechanics show in what the table perceives. Done when the callout meets its recipe and band and the critique's re-read is complete.
-5. **Yield.** Yield `data` as `{"page": "<the full page, narration callout included>", "sources": ["<repo path of each Backup page used>"], "friction": "<optional friction report>"}`. The council grades blind, so the page and sources leave out your model and family. Done when the yield contains the page and its sources.
+1. **Slot.** Read the prompt, then the content skill and its template. Find the page's narration slot in the **Slots** table of `theatre-of-the-mind` and read the recipe it names, with its length band.
+2. **Gather.** Search the Backup for the subject and its place in the Campaign, then for the people and lore the page touches, and read the Campaign's `campaign-config.md` there. Fetch each page the work needs, including the `## Quotes` of each NPC who speaks, so each Campaign fact you use cites a Backup page. Research a source work the prompt names, cached note first, until you can state its lore and powers.
+3. **Build.** Follow the content skill's steps to compose the whole page from its template, mechanics included, running its Wiki search on the Backup. The page lives only in your yield, so skip each step that writes files or runs commands, such as flesh-out, filing, visuals and lint.
+4. **Narrate.** Read the three exemplar passages that the Gather step of `theatre-of-the-mind` picks for your slot, then write the callout by its Draft and Revise steps, through its final check and critique, to the recipe and its band. Let the page's mechanics show in what the table perceives.
+5. **Yield.** Yield `data` as `{"page": "<the full page, narration callout included>", "sources": ["<repo path of each Backup page used>"], "friction": "<optional friction report>"}`. The council grades blind, so the page and sources leave out your model and family.

@@ -4,7 +4,7 @@ The Party and every PC each walk a hero's journey (`CONTEXT.md` **Hero's journey
 
 ## Stages come from play
 
-A hero's journey is a way of reading play after it happens. After a Session, read its Recap and Session Ledger and judge which stage the PC's own choices put them at. Record that stage with the Sessions and Ledger lines that show it. Stage counts, pace and order are never targets. A PC is at whatever stage the evidence shows, for as long as it shows it. Stages may come out of order, repeat, be skipped or reverse. When the evidence is ambiguous, keep the earlier stage and write one clause saying what would settle it. A hero's journey may end in a fall or a poisoned elixir. Stage names stay on the DM side and never enter Narration (root `AGENTS.md` **In-world voice**).
+A hero's journey is a way of reading play after it happens. After a Session, read its Recap and Session Ledger and judge which stage the PC's own choices put them at. Record that stage with the Sessions and Ledger lines that show it. Stage counts, pace and order are never targets. A PC is at whatever stage the evidence shows, for as long as it shows it. Stages may come out of order, repeat, be skipped or reverse. When the evidence is ambiguous, keep the earlier stage and write one clause saying what would settle it. A hero's journey may end in a fall or a poisoned elixir. Stage names stay on the DM side and never enter Narration.
 
 ## Scales
 

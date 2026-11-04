@@ -16,7 +16,7 @@ The event count comes from the class and ignores the number of days. The chart s
 
 Split the route into legs where its terrain, mode or exposure changes. Each leg is a middle row of the Scene Chart and takes its Kind from its strongest event. Every leg counts against step 4's middle-Scene ceiling. A Close route is one leg.
 
-When the Party has yet to choose among the Region's routes, the departure offers them as a named fork, each route tagged with its time and its chief cost or exposure. Chart each route's legs as a labelled branch (step 4), and fit the longer branch to the ceiling. **Done when** the trip has a class, an event total within it, legs that fit the ceiling, and every route at an unchosen fork has its tag.
+When the Party has yet to choose among the Region's routes, the departure offers them as a named fork, each route tagged with its time and its chief cost or exposure. Chart each route's legs as a labelled branch (step 4), and fit the longer branch to the ceiling.
 
 ## Fill each leg
 
@@ -29,5 +29,3 @@ Write each leg's five slots into its row's planning notes, and hand them to the 
 5. **Arrival.** One line on how the Party arrives changed: what it knows, holds, owes or has lost at the leg's end.
 
 Assign travel roles from the Region's navigation, lookout and supply needs, and state for each role the complication its failed check opens. That complication is a situation the Party answers, carried into the next row's entry state in place of a flat penalty.
-
-**Done when** each leg's planning notes fill all five slots, every event's derivation clause states a PC and a leg fact, the trip's event total matches its class, and each assigned travel role states the complication its failure opens.
