@@ -4,6 +4,8 @@ The daemon and CLI that read and write the DM's Foundry VTT through two planes b
 
 ## Architecture
 
+The bridge transport uses `ws`; stdio MCP uses the official `@modelcontextprotocol/server` SDK and its stdio transport.
+
 ```
 agent ── MCP (stdio JSON-RPC) ── daemon (`cfcli foundry serve`)
                                    │ ToolRegistry (discipline: plan, gate, verify)
@@ -110,8 +112,8 @@ The live round-trip requires a world on rpi4. Public-interface tests follow v14'
 
 ## Layout
 
-- `src/foundry-control/bridge/`: the wire contract (`schema.ts`) and the mutation planner with its idempotency store (`mutations.ts`). The transport layer is the WebSocket codec, listener and client. `module/` holds the Foundry module itself: `module.json`, `main.mjs`, `handlers.mjs`, `ring.mjs`.
-- `src/foundry-control/daemon/`: `specs.ts` (the tool table), `registry.ts` (the discipline enforcer), `mcp.ts` (stdio MCP).
+- `src/foundry-control/bridge/`: the wire contract (`schema.ts`), mutation planner and idempotency store (`mutations.ts`), and `ws` listener and client. `module/` holds the Foundry module itself.
+- `src/foundry-control/daemon/`: `specs.ts` (the tool table), `registry.ts` (the discipline enforcer), and `mcp.ts` (official MCP SDK stdio adapter).
 - `src/foundry-control/host/`: SSH host adapter for status, logs, options, service, backup, assets and installs, plus `connect.ts` (env and scripted-fixture resolution).
 - `src/commands/foundry.ts`: the `cfcli foundry` CLI.
 - `test/foundry-control/`: module, bridge, registry, MCP, host and CLI tests (public seams: fake `game`/`fromUuid`/WebSocket, `ScriptedHost`, spawn runs).
