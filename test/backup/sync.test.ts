@@ -478,27 +478,17 @@ describe("notion client write retries", () => {
 			sent.push(`${init?.method} ${new URL(url).pathname}`);
 			return (responses.shift() ?? page)();
 		}) as unknown as typeof fetch;
-		return { sent, api: notionClient("t", { fetch: fake, intervalMs: 0, sleep: async () => {} }) };
+		return { sent, api: notionClient("t", { fetch: fake, intervalMs: 0 }) };
 	};
 
-	it("resends an idempotent write after a server error, and a create only when the edge proxy answered", async () => {
-		const retitle = client([api500, edge502]);
-		await retitle.api.retitle("p1", "Ilse", "📄");
-		expect(retitle.sent).toHaveLength(3);
-
-		const created = client([edge502]);
-		expect((await created.api.createPage("parent", "Ilse", "📄")).id).toBe("p1");
-		expect(created.sent).toHaveLength(2);
-
-		// The API itself failed a create: it may have made the page, so it is not sent twice.
-		const failed = client([api500]);
-		await expect(failed.api.createPage("parent", "Ilse", "📄")).rejects.toThrow("boom");
-		expect(failed.sent).toHaveLength(1);
-	});
-
-	it("gives up on a write after five attempts", async () => {
-		const down = client(Array.from({ length: 10 }, () => edge502));
-		await expect(down.api.retitle("p1", "Ilse", "📄")).rejects.toThrow(/502/);
-		expect(down.sent).toHaveLength(5);
+	it("leaves server failures on writes to the caller rather than duplicating an uncertain write", async () => {
+		for (const failure of [api500, edge502]) {
+			const retitle = client([failure]);
+			await expect(retitle.api.retitle("p1", "Ilse", "📄")).rejects.toThrow();
+			expect(retitle.sent).toHaveLength(1);
+			const created = client([failure]);
+			await expect(created.api.createPage("parent", "Ilse", "📄")).rejects.toThrow();
+			expect(created.sent).toHaveLength(1);
+		}
 	});
 });

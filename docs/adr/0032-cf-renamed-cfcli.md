@@ -19,3 +19,5 @@ Decision:
 
 - **Keeping `cf` as an alias of `cfcli`**: rejected. Two names keep the ambiguity alive in docs and history, and the repo cuts over cleanly without shims.
 - **Renaming the command name only in docs**: rejected. The script name is what collides, so a doc-only change leaves the wrong binary one keystroke away.
+
+Superseded (2026-11): Retired-command enforcement is removed and help tests assert successful help exits rather than pinned examples; the `cfcli` name remains.

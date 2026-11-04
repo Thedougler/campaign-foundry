@@ -1,7 +1,9 @@
-import type { Blockquote, List, ListItem, PhrasingContent, Root, RootContent, Table } from "mdast";
+import { markdownToBlocks as martianBlocks, markdownToRichText } from "@tryfabric/martian";
+import type { Blockquote, PhrasingContent, Root, RootContent } from "mdast";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
+import remarkStringify from "remark-stringify";
 import { unified } from "unified";
 import { BLOCK_ID, CALLOUT_TITLE, parseWikiLinkText, WIKILINK } from "../vault/dialect.ts";
 import type { WikiLink } from "../vault/types.ts";
@@ -84,99 +86,6 @@ const CALLOUT_ICON: Record<string, string> = {
 	missing: "❌",
 };
 
-/** Code languages Notion accepts; others fall back to `plain text`. */
-const NOTION_LANGUAGES = new Set([
-	"abap",
-	"abc",
-	"agda",
-	"arduino",
-	"ascii art",
-	"assembly",
-	"bash",
-	"basic",
-	"bnf",
-	"c",
-	"c#",
-	"c++",
-	"clojure",
-	"coffeescript",
-	"coq",
-	"css",
-	"dart",
-	"dhall",
-	"diff",
-	"docker",
-	"ebnf",
-	"elixir",
-	"elm",
-	"erlang",
-	"f#",
-	"flow",
-	"fortran",
-	"gherkin",
-	"glsl",
-	"go",
-	"graphql",
-	"groovy",
-	"haskell",
-	"hcl",
-	"html",
-	"idris",
-	"java",
-	"javascript",
-	"json",
-	"julia",
-	"kotlin",
-	"latex",
-	"less",
-	"lisp",
-	"livescript",
-	"llvm ir",
-	"lua",
-	"makefile",
-	"markdown",
-	"markup",
-	"matlab",
-	"mathematica",
-	"mermaid",
-	"nix",
-	"notion formula",
-	"objective-c",
-	"ocaml",
-	"pascal",
-	"perl",
-	"php",
-	"plain text",
-	"powershell",
-	"prolog",
-	"protobuf",
-	"purescript",
-	"python",
-	"r",
-	"racket",
-	"reason",
-	"ruby",
-	"rust",
-	"sass",
-	"scala",
-	"scheme",
-	"scss",
-	"shell",
-	"smalltalk",
-	"solidity",
-	"sql",
-	"swift",
-	"toml",
-	"typescript",
-	"vb.net",
-	"verilog",
-	"vhdl",
-	"visual basic",
-	"webassembly",
-	"xml",
-	"yaml",
-	"java/c/c++/c#",
-]);
 const LANGUAGE_ALIASES: Record<string, string> = {
 	sh: "shell",
 	zsh: "shell",
@@ -208,10 +117,26 @@ export function notionLanguage(lang: string | null | undefined): string {
 	const l = (lang ?? "").trim().toLowerCase();
 	if (!l) return "plain text";
 	const mapped = LANGUAGE_ALIASES[l] ?? l;
-	return NOTION_LANGUAGES.has(mapped) ? mapped : "plain text";
+	const markdown = serializer.stringify({ type: "root", children: [{ type: "code", lang: mapped, value: "" }] });
+	const [converted] = martianBlocks(markdown, conversionOptions);
+	// Martian owns Notion's supported-language list and aliases.
+	const code = converted as { code: { language: string } };
+	return code.code.language;
 }
 
 const parser = unified().use(remarkParse).use(remarkFrontmatter, ["yaml"]).use(remarkGfm);
+const serializer = unified().use(remarkStringify).use(remarkGfm);
+const conversionOptions = {
+	strictImageUrls: false,
+	notionLimits: {
+		truncate: false,
+		onError(error: Error): void {
+			// Rich-text overflow is split losslessly by textBlocks below.
+			if (error.message.startsWith("Resulting richTexts array exceeds")) return;
+			throw new Error(`Markdown exceeds Notion conversion limits: ${error.message}`, { cause: error });
+		},
+	},
+};
 const block = (type: string, body: Record<string, unknown>): Block => ({ object: "block", type, [type]: body });
 
 /** Splits text into rich text objects of at most LIMITS.text characters, keeping surrogate pairs whole. */
@@ -222,7 +147,8 @@ export function textItems(content: string, annotations: Annotations = {}, url?: 
 	for (let i = 0; i < chars.length; i += LIMITS.text) {
 		const item: RichText = { type: "text", text: { content: chars.slice(i, i + LIMITS.text).join("") } };
 		if (url) item.text.link = { url };
-		if (Object.values(annotations).some(Boolean)) item.annotations = { ...annotations };
+		const compact = Object.fromEntries(Object.entries(annotations).filter(([, value]) => value && value !== "default"));
+		if (Object.keys(compact).length) item.annotations = compact;
 		out.push(item);
 	}
 	return out;
@@ -299,55 +225,31 @@ class Converter {
 		out.rich.push(...textItems(value.slice(cursor), ann));
 	}
 
-	private phrasing(nodes: PhrasingContent[], ann: Annotations, out: Inline, url?: string): void {
-		for (const node of nodes) {
-			switch (node.type) {
-				case "text":
-					if (url) out.rich.push(...textItems(node.value, ann, url));
-					else this.text(node.value, ann, out);
-					break;
-				case "strong":
-					this.phrasing(node.children, { ...ann, bold: true }, out, url);
-					break;
-				case "emphasis":
-					this.phrasing(node.children, { ...ann, italic: true }, out, url);
-					break;
-				case "delete":
-					this.phrasing(node.children, { ...ann, strikethrough: true }, out, url);
-					break;
-				case "inlineCode":
-					out.rich.push(...textItems(node.value, { ...ann, code: true }, url));
-					break;
-				case "break":
-					out.rich.push(...textItems("\n", ann));
-					break;
-				case "link": {
-					const target = validUrl(node.url) ?? this.ctx.relative(node.url);
-					this.phrasing(node.children, ann, out, target);
-					break;
-				}
-				case "image": {
-					const image = this.imageBlock(node.url, node.alt ?? "");
-					if (image) out.images.push(image);
-					else out.rich.push(...textItems(node.alt || node.url, ann, validUrl(node.url)));
-					break;
-				}
-				case "html":
-					out.rich.push(...textItems(node.value, ann));
-					break;
-				case "footnoteReference":
-					out.rich.push(...textItems(`[^${node.identifier}]`, ann));
-					break;
-				default:
-					if ("children" in node) this.phrasing(node.children as PhrasingContent[], ann, out, url);
-					else if ("value" in node) out.rich.push(...textItems(String(node.value), ann));
-			}
-		}
-	}
-
 	inline(nodes: PhrasingContent[]): Inline {
 		const out: Inline = { rich: [], images: [] };
-		this.phrasing(nodes, {}, out);
+		const content = nodes.flatMap((node): PhrasingContent[] => {
+			if (node.type !== "image") return [node];
+			const image = this.imageBlock(node.url, node.alt ?? "");
+			if (image) out.images.push(image);
+			else return [{ type: "text", value: node.alt || node.url }];
+			return [];
+		});
+		const source = serializer.stringify({ type: "root", children: [{ type: "paragraph", children: content }] });
+		const rich = markdownToRichText(source, conversionOptions) as RichText[];
+		const adapted = this.rich(rich);
+		adapted.images.unshift(...out.images);
+		return adapted;
+	}
+
+	private rich(items: RichText[]): Inline {
+		const out: Inline = { rich: [], images: [] };
+		for (const item of items) {
+			if (item.annotations?.code) out.rich.push(...textItems(item.text.content, item.annotations, item.text.link?.url));
+			else if (item.text.link?.url) {
+				const url = validUrl(item.text.link.url) ?? this.ctx.relative(item.text.link.url);
+				out.rich.push(...textItems(item.text.content, item.annotations, url));
+			} else this.text(item.text.content, item.annotations ?? {}, out);
+		}
 		const last = out.rich.at(-1);
 		if (last && !last.annotations?.code) last.text.content = last.text.content.replace(BLOCK_ID, "");
 		out.rich = mergeRich(out.rich).filter((r) => r.text.content !== "");
@@ -384,16 +286,6 @@ class Converter {
 		return out;
 	}
 
-	private list(node: List): Block[] {
-		return node.children.flatMap((item: ListItem) => {
-			const [first, ...rest] = item.children;
-			const head = first?.type === "paragraph" ? this.inline(first.children) : { rich: [], images: [] };
-			const children = [...head.images, ...this.nodes(first?.type === "paragraph" ? rest : item.children)];
-			if (typeof item.checked === "boolean")
-				return this.textBlocks("to_do", head.rich, { checked: item.checked }, children);
-			return this.textBlocks(node.ordered ? "numbered_list_item" : "bulleted_list_item", head.rich, {}, children);
-		});
-	}
 
 	private blockquote(node: Blockquote): Block[] {
 		const [first, ...rest] = node.children;
@@ -447,43 +339,36 @@ class Converter {
 		return [...(rich.length > 0 ? this.textBlocks("paragraph", rich) : []), ...images];
 	}
 
-	private table(node: Table): Block[] {
-		const rows = node.children.map((row) =>
-			row.children.map((cell) => this.inline(cell.children).rich.slice(0, LIMITS.richTextItems)),
-		);
-		const width = Math.max(1, ...rows.map((r) => r.length));
-		const pad = (r: RichText[][]): RichText[][] =>
-			[...r, ...Array.from({ length: width - r.length }, () => [])].slice(0, width);
-		const [header = [], ...body] = rows;
-		const out: Block[] = [];
-		const perTable = LIMITS.tableRows - 1;
-		for (let i = 0; i === 0 || i < body.length; i += perTable) {
-			const slice = [header, ...body.slice(i, i + perTable)];
-			out.push(
-				block("table", {
-					table_width: width,
-					has_column_header: true,
-					has_row_header: false,
-					children: slice.map((cells) => block("table_row", { cells: pad(cells) })),
-				}),
-			);
-		}
-		return out;
-	}
 
 	node(node: RootContent): Block[] {
 		switch (node.type) {
 			case "yaml":
 				return this.codeBlocks(node.value, "yaml", "Frontmatter");
 			case "heading": {
+				const converted = martianBlocks(serializer.stringify({ type: "root", children: [node] }), conversionOptions) as Block[];
+				const first = converted[0]!;
 				const { rich, images } = this.inline(node.children);
-				const type = node.depth === 1 ? "heading_1" : node.depth === 2 ? "heading_2" : "heading_3";
-				return [...this.textBlocks(type, rich), ...images];
+				return [...this.textBlocks(first.type, rich), ...images];
 			}
+			case "list":
+				return node.children.flatMap((item) => {
+					// Martian selects the list/to-do block; Obsidian adaptations also apply to its descendants.
+					const [converted] = martianBlocks(serializer.stringify({
+						type: "root", children: [{ ...node, children: [item] }],
+					}), conversionOptions) as Block[];
+					if (!converted) throw new Error("Markdown list item could not be converted to Notion");
+					const [first, ...rest] = item.children;
+					const head = first?.type === "paragraph" ? this.inline(first.children) : { rich: [], images: [] };
+					const body = converted[converted.type] as Record<string, unknown>;
+					const { rich_text: _, children: __, ...extra } = body;
+					return this.textBlocks(converted.type, head.rich, extra, [
+						...head.images, ...this.nodes(first?.type === "paragraph" ? rest : item.children),
+					]);
+				});
+			case "table":
+				return this.adapt(martianBlocks(serializer.stringify({ type: "root", children: [node] }), conversionOptions) as Block[]);
 			case "paragraph":
 				return this.paragraph(node.children);
-			case "list":
-				return this.list(node);
 			case "blockquote":
 				return this.blockquote(node);
 			case "code": {
@@ -492,8 +377,6 @@ class Converter {
 			}
 			case "thematicBreak":
 				return [block("divider", {})];
-			case "table":
-				return this.table(node);
 			case "html":
 				return this.textBlocks("paragraph", textItems(node.value));
 			case "footnoteDefinition": {
@@ -505,6 +388,35 @@ class Converter {
 			default:
 				return "children" in node ? this.nodes(node.children as RootContent[]) : [];
 		}
+	}
+
+	private adapt(blocks: Block[]): Block[] {
+		return blocks.flatMap((b) => {
+			const body = b[b.type] as Record<string, unknown>;
+			if (body.rich_text) {
+				const out = this.rich(body.rich_text as RichText[]);
+				const { rich_text: _, children, ...extra } = body;
+				return [...this.textBlocks(b.type, mergeRich(out.rich), extra, [...out.images, ...this.adapt((children ?? []) as Block[])] )];
+			}
+			if (b.type === "table") {
+				const rows = body.children as Block[];
+				for (const row of rows) {
+					// Martian constructs these table-row bodies in-process.
+					const rowBody = row.table_row as { cells: RichText[][] };
+					rowBody.cells = rowBody.cells.map((cell) => {
+						const out = this.rich(cell);
+						if (out.rich.length > LIMITS.richTextItems) throw new Error("Table cell exceeds Notion's rich text limit");
+						return out.rich;
+					});
+				}
+				const result: Block[] = [];
+				for (let i = 1; i < rows.length || i === 1; i += LIMITS.tableRows - 1) {
+					result.push(block("table", { ...body, children: [rows[0], ...rows.slice(i, i + LIMITS.tableRows - 1)] }));
+				}
+				return result;
+			}
+			return [b];
+		});
 	}
 
 	nodes(nodes: RootContent[]): Block[] {

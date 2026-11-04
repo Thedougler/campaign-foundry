@@ -100,9 +100,9 @@ The Director sends each Persona its turns with `write agent://<id>`. Personas ar
 |---|---|
 |`bun run cfcli -- context [file\|-]`|every Wiki page whose title or alias the text writes as whole, case-matched words, one line each as path, type and matched name, sorted by type and then name; `--json` gives the same as objects|
 |`bun run cfcli -- style [paths\|-]`|findings from the style (Vale) and narration layers alone, over any markdown files or directories, with the output and exit codes of `cfcli check`|
-|`bun run lint agents [paths]`|objective findings in agent-facing text, with `cfcli style` over the content-facing paths in `STYLE_PATHS` (`scripts/lint/agents.ts`, ADR 0020); without paths, it checks changed and untracked files|
+|`bun run lint`|project lint checks, as defined by `package.json`|
 
-The helpers are diagnostic: their output is input the agent reads, and every call about relevance or meaning is the agent's. A page from `cfcli context` is a candidate to read, and a page the text means without writing its name (another case, a mishearing, a description) comes from a Wiki search (`.omp/AGENTS.md` § Wiki access). A finding from `cfcli style` marks text for the agent to rewrite with judgement.
+The helpers are diagnostic: their output is input the agent reads, and every call about relevance or meaning is the agent's. A page from `cfcli context` is a candidate to read, and a page the text means without writing its name (another case, a mishearing, a description) comes from a Wiki search (`.omp/AGENTS.md` § Wiki access). Findings from `cfcli style` and `bun run lint` guide repairs at the source.
 
 ## TTSR rules
 
@@ -148,12 +148,11 @@ For Shattered Sea Narration and table craft, the DM's Prose voice and the exempl
 |Cue craft|[`theatre-of-the-mind`](../.agents/skills/theatre-of-the-mind/SKILL.md), its recipes' Cues section|
 |Flagged words and phrases|the Vale YAML in [`.vale/styles/ai-tells/`](../.vale/styles/ai-tells/) and [`.vale/styles/Narration/`](../.vale/styles/Narration/); each finding gives its rule ID and passing form (ADR 0036)|
 |Gate layers and passing-form hints|[`src/check/layers/`](../src/check/layers/)|
-|Every gate finding binds|[`AGENTS.md`](../AGENTS.md) Working rules, Zero findings|
-|What counts as agent-facing content text|`STYLE_PATHS` in `scripts/lint/agents.ts`|
+|Gate layers and their findings|[`.omp/RULES.md`](../.omp/RULES.md)|
 
 ## Iterating on the system
 
 - **Friction.** Run [`dogfood`](../.omp/skills/dogfood/SKILL.md) on collab or on one handoff with real ideas, and let `skill-writer` turn verified friction into text changes.
 - **Content skills.** When a content skill's text changes materially, rerun its committed `evals/cases.yaml` through [`dogfood`](../.omp/skills/dogfood/SKILL.md) against the case contract in [`evals/README.md`](../evals/README.md).
-- **Agent text.** After any edit to an agent-facing content path, run `bun run lint agents` until it exits 0, and `bun run cfcli -- eval validate <skill-dir>` for each touched skill.
+- **Agent text.** After changing agent-facing text, run `bun run lint` and `bun run cfcli -- eval validate <skill-dir>` for each touched skill.
 - **Research.** The sources behind every handoff are in [`docs/research/creative-writing/`](research/creative-writing/README.md). Quoted prompts there are verbatim, so carry them into skills and briefs in fenced blocks with their wording intact.

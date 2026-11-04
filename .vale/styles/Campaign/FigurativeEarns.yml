@@ -1,0 +1,6 @@
+# XP is an awarded game currency.
+extends: ai-tells.FigurativeEarns
+tokens-:
+  - earn(?:s|ed|ing)?
+tokens+:
+  - earn(?:s|ed|ing)?\b(?! (?:[0-9][0-9,.]* )?XP\b)

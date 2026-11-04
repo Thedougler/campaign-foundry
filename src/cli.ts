@@ -149,7 +149,7 @@ function exitCodeOf(error: unknown): number | undefined {
 
 /**
  * Runs one async function at a time: concurrent `runCli` calls queue, because they share the
- * process's cwd, argv, exit code and stdio and each needs its own view of all four.
+ * process's cwd, exit code and stdio and each needs its own view of all three.
  */
 let lastRun: Promise<unknown> = Promise.resolve();
 
@@ -169,11 +169,9 @@ export function runCli(argv: string[], options: { cwd?: string; stdin?: string }
 	return exclusive(async () => {
 		const program = await buildProgram(argv);
 		const savedCwd = process.cwd();
-		const savedArgv = process.argv;
 		const savedExit = process.exitCode;
 		const savedStdin = Object.getOwnPropertyDescriptor(process, "stdin")!;
 		if (savedCwd !== (options.cwd ?? savedCwd)) process.chdir(options.cwd ?? savedCwd);
-		process.argv = ["cfcli", "cfcli", ...argv];
 		process.exitCode = 0;
 		if (options.stdin !== undefined) {
 			Object.defineProperty(process, "stdin", {
@@ -185,7 +183,7 @@ export function runCli(argv: string[], options: { cwd?: string; stdin?: string }
 			let code = 0;
 			try {
 				if (argv.length === 0) program.outputHelp();
-				else await program.parseAsync(process.argv);
+				else await program.parseAsync(argv, { from: "user" });
 				code = typeof process.exitCode === "number" ? process.exitCode : 0;
 			} catch (error) {
 				const mapped = exitCodeOf(error);
@@ -195,7 +193,6 @@ export function runCli(argv: string[], options: { cwd?: string; stdin?: string }
 			return code;
 		}).finally(() => {
 			if (options.stdin !== undefined) Object.defineProperty(process, "stdin", savedStdin);
-			process.argv = savedArgv;
 			process.exitCode = savedExit as number | undefined;
 			if (process.cwd() !== savedCwd) process.chdir(savedCwd);
 		});

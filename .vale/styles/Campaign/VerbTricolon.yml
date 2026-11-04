@@ -1,0 +1,3 @@
+# Message reworded for campaign prose: states what the rule matches and its passing form.
+extends: ai-tells.VerbTricolon
+message: "AI tricolon: '%s'. Three comma-joined parts in one sentence after a verb, modal, pronoun or colon, adjective runs and appositives included. Give two parts or four, or split the sentence."

@@ -11,3 +11,5 @@ Decision:
 - **Quoted sources in fences.** A source prompt or rubric that must keep its wording goes in a fenced code block. The gate's prose view drops fenced blocks, and the quote keeps its exact words with no finding on it.
 
 Run `bun run lint agents <files>` after editing agent-facing text: its style check runs `cfcli style` over those files.
+
+Superseded (2026-11): Direct standard-tool package scripts replace the custom lint dispatcher and agent-text enforcement; Vale extensions and vocabulary live in local declarative configuration.

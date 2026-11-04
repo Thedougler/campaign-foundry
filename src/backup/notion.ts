@@ -1,9 +1,7 @@
 import {
 	APIErrorCode,
 	Client,
-	isHTTPResponseError,
 	isNotionClientError,
-	UnknownHTTPResponseError,
 } from "@notionhq/client";
 import type { Block } from "./blocks.ts";
 import type { ReadBlock } from "./markers.ts";
@@ -133,27 +131,12 @@ const titleProp = (title: string) => ({
 	title: { title: [{ type: "text", text: { content: title.slice(0, 2000) } }] },
 });
 
-/** Server and gateway failures worth another try; the SDK retries them itself only for GET and DELETE. */
-const TRANSIENT = new Set([500, 502, 503, 504]);
-
-/**
- * Whether a failed write can be sent again. An idempotent write (a retitle, a trash, a block update, a clear, a
- * move) repeats safely after any transient failure. A create or append repeats only when Notion's edge proxy
- * answered without a Notion response (an HTML 502 and the like), so the API never saw it and nothing was made.
- */
-export function retryableWrite(error: unknown, idempotent: boolean): boolean {
-	if (!isHTTPResponseError(error) || !TRANSIENT.has(error.status)) return false;
-	return idempotent || error instanceof UnknownHTTPResponseError;
-}
-
-/** The live API through the official SDK: it retries 429 and 529 (and 5xx on GET and DELETE) with back-off, honouring Retry-After; writes get {@link retryableWrite}. */
+/** The SDK owns retries, including Retry-After and safe-method handling for server errors. */
 export function notionClient(
 	token: string,
 	options: {
 		intervalMs?: number;
 		fetch?: typeof fetch;
-		retryDelayMs?: number;
-		sleep?: (ms: number) => Promise<void>;
 	} = {},
 ): NotionApi {
 	const client = new Client({
@@ -163,29 +146,13 @@ export function notionClient(
 		retry: { maxRetries: 6, initialRetryDelayMs: 1000, maxRetryDelayMs: 60_000 },
 		timeoutMs: 120_000,
 	});
-	const sleep = options.sleep ?? ((ms: number) => new Promise<void>((r) => setTimeout(r, ms)));
-	const retryDelayMs = options.retryDelayMs ?? 2000;
-	const request = async <T extends object>(
+	const request = <T extends object>(
 		method: "get" | "post" | "patch" | "delete",
 		path: string,
 		body?: Record<string, unknown>,
 		query?: Record<string, string>,
-		idempotent = false,
-	): Promise<T> => {
-		for (let attempt = 0; ; attempt++) {
-			try {
-				return await client.request<T>({ method, path, ...(body ? { body } : {}), ...(query ? { query } : {}) });
-			} catch (error) {
-				if (method === "get" || method === "delete" || attempt >= 4 || !retryableWrite(error, idempotent)) throw error;
-				await sleep(retryDelayMs * 2 ** attempt);
-			}
-		}
-	};
-	const idempotentWrite = <T extends object>(
-		method: "post" | "patch",
-		path: string,
-		body: Record<string, unknown>,
-	): Promise<T> => request<T>(method, path, body, undefined, true);
+	): Promise<T> =>
+		client.request<T>({ method, path, ...(body ? { body } : {}), ...(query ? { query } : {}) });
 
 	return {
 		async createPage(parentId, title, icon, children = []) {
@@ -205,13 +172,13 @@ export function notionClient(
 			return r.results.map((b) => b.id);
 		},
 		async updateBlock(blockId, block) {
-			await idempotentWrite("patch", `blocks/${blockId}`, { [block.type]: block[block.type] });
+			await request("patch", `blocks/${blockId}`, { [block.type]: block[block.type] });
 		},
 		async move(pageId, parentId) {
-			await idempotentWrite("post", `pages/${pageId}/move`, { parent: { type: "page_id", page_id: parentId } });
+			await request("post", `pages/${pageId}/move`, { parent: { type: "page_id", page_id: parentId } });
 		},
 		async trash(pageId) {
-			await idempotentWrite("patch", `pages/${pageId}`, { in_trash: true });
+			await request("patch", `pages/${pageId}`, { in_trash: true });
 		},
 		async removeBlock(blockId) {
 			await request("delete", `blocks/${blockId}`);
@@ -282,7 +249,7 @@ export function notionClient(
 		},
 		async clear(pageId) {
 			try {
-				await idempotentWrite("patch", `pages/${pageId}/markdown`, {
+				await request("patch", `pages/${pageId}/markdown`, {
 					type: "replace_content",
 					replace_content: { new_str: "" },
 				});
@@ -317,7 +284,7 @@ export function notionClient(
 			for (const id of ids) await request("delete", `blocks/${id}`);
 		},
 		async retitle(pageId, title, icon) {
-			await idempotentWrite("patch", `pages/${pageId}`, {
+			await request("patch", `pages/${pageId}`, {
 				icon: { type: "emoji", emoji: icon },
 				properties: titleProp(title),
 			});

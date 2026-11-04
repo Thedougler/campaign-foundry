@@ -20,9 +20,11 @@ Commands run from the repo root through `package.json` scripts:
 
 - `bun run py:test` runs pytest, which skips tests marked `slow`. `bun run py:lint` runs `ruff check`, `bun run py:fmt` runs `ruff format`, and `bun run py:fmt:check` verifies formatting.
 - `bun run py:test:slow` runs the `slow` tests, which load the real PANNs model (below) and download its checkpoint on first run.
-- `bun run check:all` runs every gate in one pass: `bun run lint --all` (agent text, the Wiki gate, Biome, tsc and ruff), then vitest and pytest.
+- `bun run check:all` runs the repository lint, Vitest and pytest checks.
 
 Agents call Python features through `cfcli`, the one command entry point. `bun run cfcli -- transcript highlights <recording or parts…> --transcript <export> [--json] [--clip-dir <dir>]` ranks a Session recording's laughs (PANNs `Cnn14_DecisionLevelMax` sound-event detection, ported from `shattered-sea-wiki`) and aligns each with the lines of its timestamped TranscribeX export, markdown or CSV, which the command tells apart by reading the file. `src/commands/transcript.ts` hands the arguments to `uv run --project python --extra highlights python -m campaign_foundry.highlights`. The `highlights` extra (torch, panns-inference) installs on the first scan, which also downloads the model checkpoint (about 330 MB) to `~/panns_data/` with `wget`. `ffmpeg` decodes the audio and cuts clips. `--help` lists every option and runs without either tool.
+
+For combat simulation, repeat `--side <page>` once per side. Each value accepts a file, directory or quoted glob; a brace glob groups distinct files on one side, for example `--side 'wiki/shattered-sea/PCs/{jean-claude-tabarnack,delmar-fisk}.md' --side wiki/shattered-sea/Creatures/grung-creature.md`.
 
 Add dependencies where they belong: a JS package with `bun add <pkg>`, a Python package with `uv add --directory python <pkg>` (dev tools with `--dev`). Commit `python/pyproject.toml` and `python/uv.lock` together, as you do `package.json` and `bun.lock`. Toolchain versions are pinned by `.node-version` and `packageManager` for Node and Bun, and by `python/.python-version` and `requires-python` for Python 3.14.
 

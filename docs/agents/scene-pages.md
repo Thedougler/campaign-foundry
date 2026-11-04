@@ -31,8 +31,6 @@ Run every command from the repo root. A page path in a `cfcli` command starts wi
    - A bounded brief without Prep supplies the kind, premise, entry state, Threads, Spotlight and intended carry-forward. Author the Scene from that brief and link it from the Campaign overview rather than inventing an incomplete Prep.
 3. Add or update only this Scene's planning material, preserving the Session's objective. Missing Session intent goes to `plan-session`. Assembling or changing the whole chart belongs to `prep-session`.
 
-**Done when** the Scene's purpose, destination path and inputs are named, and either a composing caller or this standalone operation is set to run the final gate and log.
-
 ## Ground
 
 Find the pages that bear on this Scene by searching the Wiki (`.omp/AGENTS.md` § Wiki access) and following links on the pages you read, then read each page behind a hit. Which pages matter is your judgement. Look for:
@@ -49,23 +47,23 @@ Apply what you read:
 - Match each reused table-use fact to its owner passage: terrain costs, damage, checks, escape procedures and encounter state keep their sourced values and conditions. Read the linked owner before replacing a rule with local improvisation.
 - Decide a truly missing design fact consistently with Canon and the DM's intent, and mark it apart from established events in the return.
 
-**Done when** each opening dependency and reused rule has a read source passage or a stated missing-fact decision, and every reachable predecessor branch has an entry state rather than an assumed victory.
+Give every reachable predecessor branch its own entry state rather than assuming victory.
 
 ## Card
 
 Select the kind's card against the entry state, Thread and requested purpose. When the chart row supplies a card, use it unless it conflicts with the established fiction, and return the reason for any local correction. Record the card in Prep's planning material, outside Scene properties and spoken Narration. Without Prep, give it in the return for later charting. Apply **Scripting the Game** below.
 
-**Done when** the chosen card, pressure or turn, table-time allotment, Spotlight and next destination fit the exact kind and the chart or bounded standalone brief.
+Fit the card's pressure or turn, table-time allotment, Spotlight and next destination to the kind and the chart or standalone brief.
 
 ## Cast
 
-Reuse the first fitting source in `AGENTS.md` **Sourcing** order. Start with the Wiki, then the 2024 SRD through `dnd5e-srd-api`. Next come official or existing published or homebrew material through the harness's web search and fetch tools, then novel design. Read the full facts on the page itself before using them.
+Reuse the first fitting source in `AGENTS.md` **Sourcing** order. Read the full facts on the page itself before using them.
 
 - Create only missing owners, through the matching skill: `npc-design`, `creature-design`, `location-design`, `item-design`, `faction-design`, `vehicle-design`, `spell-design` or `lore-design`, and `statblock-design` for a fought Creature or NPC with no statblock. Supply Canon, local purpose, Party facts, intended paths and the enclosing operation. Wait for complete pages and touched paths before relying on them.
 - Take each fighter's statistics from the `## Statblock` on its own Creature or NPC page.
 - Copy each `sources` path exactly from a page or file you read, and confirm the file opens. List only archived-Raw paths there, and use `sources: []` when none applies. External rule sources go in a body attribution.
 
-**Done when** every needed named entity and rules owner exists, its links and provenance paths resolve, and each new page has a content link in from the Scene or another relevant page.
+Link each new owner page from the Scene or another relevant content page.
 
 ## Page format
 
@@ -92,13 +90,11 @@ Start from the existing page for a redo, or from the template copied to `wiki/<c
 
 Put every table-use fact on the page. State who wants what and by which means, and how each side responds. Give useful spatial relationships, pressure triggers, accessible choices and consequences. Each hidden truth has a concrete way to learn it. Each required conclusion is discoverable through three independent routes across the chart or the standalone Scene. A failed check changes cost or position and leaves a way forward open. It can also be what exposes something the Scene hides. Use **Encounters** wherever physical danger is present.
 
-**Done when** the page matches the template's actual spine and the DM can adjudicate each offered action from its sourced rules and rendered owner embeds.
-
 ## Narration
 
 Write each `[!narration]` callout and each Cue yourself with `theatre-of-the-mind`, once the DM-side facts exist. Read exactly these parts:
 
-- `.agents/skills/theatre-of-the-mind/SKILL.md`, Steps 1 to 4, Craft, Hard lines and Final check. Its Step 5 gate runs once, in **Completion** below.
+- `.agents/skills/theatre-of-the-mind/SKILL.md`: its drafting and revision steps, Craft and Hard lines. File the prose with this Scene and follow the lint gate in root `AGENTS.md` **Gate scope**.
 - `.agents/skills/theatre-of-the-mind/references/recipes.md`: the shared rules at its top, `## Openings and first looks`, `## Scene openings`, `## Cues`, and the recipe heading for each callout you write. The template callout uses the kind's heading (`### Hook`, `### Development`, `### Cliffhanger`, `### Climax` or `### Closing image`). A callout titled with an NPC's or Creature's name uses `### NPC entering` or `### Creature entering`. A major reveal uses `### Revelation`, and a cut across unplayed time or space uses `### Transition`.
 - `.agents/skills/theatre-of-the-mind/references/critique.md`, once, at its Step 4.
 - `reference/gm-voice/exemplars.md`: the three exemplar passages theatre-of-the-mind Step 2 reads, as that step sets out.
@@ -128,9 +124,7 @@ Place callouts and Cues in these formats:
 - A Cue is written on a DM-side line, such as a `[!checks]` result, an Angles line or a Creatures tactic, right after its trigger, between `==` marks: `- **Failure.** ==One stone sits smoother than the rest, and your thumb finds the groove before your eyes do.==` The trigger, rules terms, DCs and damage numbers stay outside the marks. One to three sentences, 60 words at most. The gate reads each Cue as Narration.
 - When an established result settles an unplayed cut of time or space, put a `Transition` callout immediately before the destination's opening or closing slot. Leave unresolved travel choices to the Players.
 
-Check the filed prose against the Final check items that apply, quoting its actual words, then against every entry that can select it. Repair mismatched carriers, companions, possessions or positions.
-
-**Done when** every required spoken slot and every Cue is filed, its applicable Narration checks have quoted evidence, each variant's visible facts are true on its own condition, and live events stop where the Players can respond.
+Read the filed prose against each entry that can select it. Repair mismatched carriers, companions, possessions or positions, and stop live events where the Players can respond.
 
 ## Outcomes
 
@@ -143,7 +137,7 @@ For Hook, Development, Cliffhanger and Climax, fill `## Outcomes`. Each material
 
 A Resolution instead gives its Climax-conditioned payoffs, reactions, rewards and next-Session carry-forward in `## Payoffs`, `## Reactions`, `## Rewards`, `## Stinger` and `## Threads`, as its template requires.
 
-**Done when** each prepared result has a usable successor state or Session-ending carry-forward and every existing receiving page accounts for it. Return pending entry variants to the caller for pages not yet authored.
+Update existing receiving pages for each prepared result. Return pending entry variants to the caller for pages not yet authored.
 
 ## Encounters
 
@@ -155,7 +149,7 @@ Read `bun run cfcli -- encounter-budget --help` before budgeting. The invocation
 
    `bun run cfcli -- encounter-budget --levels 5,5,5,5`
 
-   Apply sourced House Rules first. Take every total from the CLI output, never from a table, memory or hand arithmetic. The CLI adds a +1 combat offset to each level because this Party fights above the calculator, so pass sheet levels without adding it. **Done when** the contributing PCs and levels match the entry and the CLI has printed that Party's Low, Moderate and High totals.
+    Apply sourced House Rules first. Take every total from the CLI output, never from a table, memory or hand arithmetic. The CLI adds a +1 combat offset to each level because this Party fights above the calculator, so pass sheet levels without adding it.
 
 2. **Spend.** Take each opposing type's count, CR and XP from its read Wiki or 2024 SRD statblock (Canon, then `dnd5e-srd-api`, then published material). Pass them to the same command, one `--creature` per type:
 
@@ -167,52 +161,19 @@ Read `bun run cfcli -- encounter-budget --help` before budgeting. The invocation
    - State when reinforcements arrive and whether waves overlap. Count every distinct opponent that can take part, once, however its tactics change.
    - Give mutually exclusive opposing forces a run each. A duel uses only the PCs actually fighting.
 
-   **Done when** each comparison is the CLI's printed totals for that force and the page's description of danger matches the planned contest, including what XP does not cover.
-
 3. **Expose the plan.** Copy the CLI's Encounter Balance lines under `### Balance` in the Scene's `## Encounter`.
    - Identify `bun run cfcli -- encounter-budget` as the source, with the participating PCs and the Creature and NPC pages supplying XP.
    - Give quantities, deployment, battlefield features, opposition objectives, opening tactics, adaptations and break or escape conditions.
    - Embed each fought Creature or NPC as `![[<page-slug>#Statblock|<page title>]]` here and link it elsewhere.
    - State how terrain, surprise, allies, depleted resources, hazards and objectives change the actual danger.
 
-   **Done when** the DM has the entire playable opposition, every XP figure traces to the CLI output and a read statblock, and the page states what the XP comparison does not measure.
-
 A creature-free chase or hazard has no Creature XP to spend. A Cliffhanger of that kind leaves out its optional `## Encounter` and calibrates its danger in `## Stakes`, `## Pressure` and `## Terrain` with sourced DCs, damage or conditions, action costs, duration, escape routes and resource demands. A non-action Development or Resolution stays non-action, without an unplanned fight.
 
 ## Cold read
 
-Read the Scene and its rendered embeds as the DM would, with no sourcebooks or chat available. Run the kind skill's cold-read criteria, then trace each entry through its options to an exit. Confirm on the way:
-
-- names resolve, and rules and statistics are on the page or its embeds;
-- pressure advances on stated triggers;
-- critical information has several routes;
-- the Narration fits each entry;
-- the Scene plants one detail for a later callback and has one contrast beat, both as DM-side material (`docs/agents/narrative-devices.md` § Callbacks and § Contrast);
-- no result depends on the Party accepting a predetermined answer.
+Read the Scene and its rendered embeds as the DM would, with no sourcebooks or chat available. Apply the kind skill's cold-read guidance, then trace each entry through its options to an exit. Resolve names and put rules and statistics on the page or its embeds. Advance pressure on stated triggers, give critical information several routes and fit Narration to each entry. Plant a detail for a later callback and include a contrast beat as DM-side material (`docs/agents/narrative-devices.md` § Callbacks and § Contrast). Leave the Party's answer open.
 
 Compare the heading spine with the template, each `sources` path with its file, each reused ruling with its owner passage, and Balance numbers with the `bun run cfcli -- encounter-budget` output and Party evidence. Correct mismatches in the Scene and its local Prep material, and return any required chart recomputation to its owner.
-
-**Done when** the kind's criteria hold in the actual page, every entry and exit is runnable, every source and template comparison agrees, and each cited table-use fact is on the page.
-
-## Completion
-
-### Standalone
-
-From the repo root, close per `skill://lint` § Commands over the Scene and every page this run touched, reading `bun run cfcli -- check --help` first for the installed syntax. Gate findings are unfinished authoring: rewrite the flagged sentence for every finding while keeping Canon, then rerun the gate to `ok: 0 findings` (`AGENTS.md` **Zero findings**). Keep every layer enabled. For an assigned filesystem root, see **Another root** there.
-
-After the page gate passes, append one log entry listing every touched content page by its vault-relative path:
-
-```bash
-bun run cfcli -- log --op create --title "Author Session <N> <Scene title>" --page "<campaign>/Sessions/Session <N>/session-<N>-<scene-slug>.md"
-```
-
-**Done when** the page and all dependencies are runnable, the index is current, the page gate reported `ok: 0 findings`, and the log entry exists.
-
-When an explicit caller runs the final operation, check each page you write by its **Page check** (`skill://lint` § Commands) and repair its findings (root `AGENTS.md` **Gate scope**). Return the authored Scene, owner pages, changed Prep material, every touched path, design decisions, conditional incoming and outgoing states, and any tooling findings. Give the caller the actual pending destination paths and entry variants, not name-only promises.
-
-The caller closes per `skill://lint` § Commands over every touched path. Once the gate prints `ok: 0 findings`, the caller records one log entry for all touched pages, then performs its remaining hot and Push steps. Leave those duties with that caller. A child return is not a claim that Prep or Push has completed.
-
-**Done when** every local craft and cold-read criterion holds, each page you wrote passed its own check, and the caller has the full return needed to finish end to end. A handover with a failing gate is still an incomplete operation.
 
 ## Scripting the Game
 

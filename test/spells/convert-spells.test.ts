@@ -338,10 +338,7 @@ describe("convert-spells CLI", () => {
 		expect(await readdir(join(root, "wiki"))).toEqual([]);
 	});
 
-	it("has archive-first help, actionable missing-file errors and malformed input errors", async () => {
-		const help = await cf(["convert-spells", "--help"]);
-		expect(help.stdout).toContain("Examples:");
-		expect(help.stdout).toContain("mv raw/all-spells.md archive/all-spells.md");
+	it("reports actionable missing-file and malformed input errors", async () => {
 		const missing = await cf(["convert-spells", "missing-export.md"]);
 		expect(missing.code).toBe(2);
 		expect(missing.stderr).toContain("bun run cfcli -- convert-spells archive/<file>.md");

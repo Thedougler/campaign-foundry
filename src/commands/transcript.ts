@@ -135,7 +135,7 @@ function highlightsCommand(): Command {
 			"Rank the biggest laughs in a Session's recording and align them with its timestamped Transcript (Python, under uv).",
 		)
 		.argument("[audio...]", "the recording, or its parts")
-		.option("--transcript <file>", "a Transcript export aligned with the recording; repeat for several")
+		.option("--transcript <file>", "a Transcript export aligned with the recording; repeat for several", (value: string, previous: string[]) => [...previous, value], [])
 		.option("--top <n>", "highlights to align and print", "20")
 		.option("--json", "print JSON instead of tab-separated rows")
 		.option("--context-seconds <s>", "Transcript before each laugh", "60")
@@ -146,8 +146,7 @@ function highlightsCommand(): Command {
 		.option("--merge-gap <s>", "join bursts closer than this, s", "1.5")
 		.option("--smooth <s>", "smoothing window, s", "0.5")
 		.option("--chunk <s>", "model input length, s", "240")
-		.option("--device <device>", "model device")
-		.allowUnknownOption();
+		.option("--device <device>", "model device");
 	highlights
 		.addHelpText(
 			"after",
@@ -178,13 +177,18 @@ Examples:
   ${CF} transcript highlights s12-part*.m4a --transcript raw/s12.csv --json > h.json
   ${CF} transcript highlights rec.m4a --top 7 --clip-dir /tmp/s12-clips`,
 		)
-		.action(async () => {
-			// The detector owns its own argv: everything after `highlights` passes through to Python untouched
-			// (after --, every argument is a positional audio path), so its flags stay whatever uv runs.
-			const args = process.argv.slice(process.argv.indexOf("highlights") + 1);
+		.action(async (audio: string[], flags: Record<string, unknown>, command: Command) => {
 			const project = fileURLToPath(new URL("../../python", import.meta.url));
-			// The Transcript module owns parsing: each --transcript export is read here once and handed to Python as a payload file.
-			const parsed = await writeTranscriptPayloads(args);
+			const parsed = await writeTranscriptPayloads(flags.transcript as string[]);
+			const args: string[] = [];
+			for (const option of command.options) {
+				const name = option.attributeName();
+				if (name === "transcript" || command.getOptionValueSource(name) !== "cli") continue;
+				args.push(option.long!);
+				if (!option.isBoolean()) args.push(String(flags[name]));
+			}
+			for (const file of parsed.files) args.push("--transcript", file);
+			args.push("--", ...audio);
 			const result = spawnSync(
 				"uv",
 				[
@@ -196,7 +200,7 @@ Examples:
 					"python",
 					"-m",
 					"campaign_foundry.highlights",
-					...parsed.args,
+					...args,
 				],
 				{ encoding: "utf8" },
 			);
@@ -214,8 +218,8 @@ Examples:
 	return highlights;
 }
 
-/** Rewrites the command's `--transcript <file>` arguments into parsed payload files the detector reads; after `--` every argument is a positional audio path. */
-async function writeTranscriptPayloads(args: string[]): Promise<{ args: string[]; cleanup: () => void }> {
+/** Parse Transcript exports before the detector runs; temporary payloads are removed after the call. */
+async function writeTranscriptPayloads(files: string[]): Promise<{ files: string[]; cleanup: () => void }> {
 	const dir = mkdtempSync(join(tmpdir(), "cf-highlights-"));
 	const forward: string[] = [];
 	const payload = async (file: string): Promise<string> => {
@@ -233,35 +237,12 @@ async function writeTranscriptPayloads(args: string[]): Promise<{ args: string[]
 	};
 	const cleanup = (): void => rmSync(dir, { recursive: true, force: true });
 	try {
-		for (let i = 0; i < args.length; i++) {
-			const arg = args[i] ?? "";
-			if (arg === "--") {
-				forward.push(...args.slice(i));
-				break;
-			}
-			const value =
-				arg === "--transcript"
-					? args[i + 1]
-					: arg.startsWith("--transcript=")
-						? arg.slice("--transcript=".length)
-						: undefined;
-			if (value === undefined || value === "" || (value.startsWith("-") && value !== "-")) {
-				forward.push(arg); // not ours, or a missing value: let Python's argparse report it
-				continue;
-			}
-			const file = await payload(value);
-			if (arg === "--transcript") {
-				forward.push("--transcript", file);
-				i++;
-			} else {
-				forward.push(`--transcript=${file}`);
-			}
-		}
+		for (const file of files) forward.push(await payload(file));
 	} catch (error) {
 		cleanup();
 		throw error;
 	}
-	return { args: forward, cleanup };
+	return { files: forward, cleanup };
 }
 
 function parsePairs(text: string): { source: string; target: string }[] {

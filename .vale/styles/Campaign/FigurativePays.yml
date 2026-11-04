@@ -1,0 +1,6 @@
+# "at 0 Hit Points" is the hit-point readout.
+extends: ai-tells.FigurativePays
+tokens-:
+  - \bat (?:\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:-(?:one|two|three|four|five|six|seven|eight|nine))?|a hundred|hundreds|zero|about \w+|roughly \w+|around \w+) (?:[a-z-]+ )?(?:corpus )?hits?\b(?! (?:per|a|an|each|every)\b)
+tokens+:
+  - \bat (?:\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:-(?:one|two|three|four|five|six|seven|eight|nine))?|a hundred|hundreds|zero|about \w+|roughly \w+|around \w+) (?:[a-z-]+ )?(?:corpus )?hits?\b(?! (?:per|a|an|each|every|points?)\b)

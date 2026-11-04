@@ -1,0 +1,5 @@
+ignores:
+  - evals/bench/prompts/**
+  - '**/evals/fixtures/**'
+config:
+  extends: .markdownlint.yaml

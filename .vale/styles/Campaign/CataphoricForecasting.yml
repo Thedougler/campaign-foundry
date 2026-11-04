@@ -1,0 +1,6 @@
+# In-world narrative counts ("Three otters ... roll"): the third word must be a forward-pointing verb.
+extends: ai-tells.CataphoricForecasting
+tokens-:
+  - \b(?:Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|Eleven|Twelve) (?!(?i:of|or|to|and|in|out|more|percent|dozen|hundred|thousand|million|billion|seconds?|minutes?|hours?|days?|weeks?|months?|quarters?|years?|decades?|times)\b)[A-Za-z][a-z]+ [A-Za-z][a-z]+
+tokens+:
+  - \b(?:Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|Eleven|Twelve) (?!(?i:of|or|to|and|in|out|more|percent|dozen|hundred|thousand|million|billion|seconds?|minutes?|hours?|days?|weeks?|months?|quarters?|years?|decades?|times)\b)[A-Za-z][a-z]+ (?:(?:define|shape|drive|guide|underpin|govern|anchor|frame|characterize|distinguish|separate|comprise|structure|determine|dominate|inform|explain|power|fuel|motivate|unite)s?|seed|exist)\b

@@ -5,5 +5,4 @@ scope: "text"
 interruptMode: never
 ---
 
-Before you write a friction report or act on `Gap:` and `Friction:` lines, read `skill://friction-report` and follow it. Acting on lines includes triaging those a subagent returned and starting a friction-started `skill://dogfood` run.
-If you already read that skill this session, carry on.
+Fix the friction at its source; report only what you cannot fix. Use `skill://friction-report` for the report format.

@@ -1,0 +1,12 @@
+# Pinches and handfuls of physical spell materials are literal component quantities.
+extends: ai-tells.FigurativeQuantities
+tokens-:
+  - a handful
+  - the handful of
+  - handfuls of
+  - a pinch of
+tokens+:
+  - a handful\b(?! of (?:oak bark|sand|thorns|(?:grave(?:yard)? )?dirt)\b)
+  - the handful of\b(?! (?:oak bark|sand|thorns|(?:grave(?:yard)? )?dirt)\b)
+  - handfuls of\b(?! (?:oak bark|sand|thorns|(?:grave(?:yard)? )?dirt)\b)
+  - a pinch of\b(?! (?:(?:bone|diamond) dust|(?:powdered )?iron|colou?rful sand|sand|(?:graveyard )?dirt|soot|salt|sulfur|sulphur|phosphorus|sesame seeds|talc|confetti|dust)\b)

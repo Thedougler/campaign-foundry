@@ -14,3 +14,5 @@ Decision:
 - **New always-loaded text needs a home.** Instructions every run needs join one of the four substrates at the home named above. Everything else lives behind a pointer, as the ledger's progressive-disclosure entries record.
 
 The lint reports a broken `@` import as a finding, so a missing file cannot quietly shrink the reported chain.
+
+Superseded (2026-11): Instruction-budget accounting and import enforcement are removed; short instructions and native context discovery replace that machinery.

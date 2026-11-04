@@ -1,0 +1,10 @@
+# The Party and PCs/NPCs are people who arrive. A fifteen-foot tendril reach is the attack-range noun.
+extends: ai-tells.BareReaches
+message: "AI arrival metaphor: '%s'. A thing, group or unnamed role reaches something. Name the person or vessel that travels or carries it ('a Crown courier finds him'), or say where it is sent. Disable this rule for transit or physics prose."
+tokens-:
+  - \b(?:a|an|the|each|every|its|their|this|that|one|no) (?:[a-z'-]+ )?(?!(?:is|are|was|were|be|been|being|get|gets|got|getting)\b)[a-z]+ (?:never |ever |still |also |only |already |actually |can |could |will |would |may |might |must |can't |cannot |won't )?reach(?:es|ed)?(?=[.,;:)]|$| (?:and|or|but|then|now|first|last|too|either)\b)
+tokens+:
+  - \b(?:a|an|the|each|every|its|their|this|that|one|no) (?!(?:[a-z'-]+-)?(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred)[a-z'-]* )(?:[a-z'-]+ )?(?!(?:is|are|was|were|be|been|being|get|gets|got|getting)\b)[a-z]+ (?:never |ever |still |also |only |already |actually |can |could |will |would |may |might |must |can't |cannot |won't )?reach(?:es|ed)?(?=[.,;:)]|$| (?:and|or|but|then|now|first|last|too|either)\b)
+exceptions+:
+  - (?i)\b(?:PCs?|NPCs?)\b
+  - (?i)\bpart(?:y|ies)\b

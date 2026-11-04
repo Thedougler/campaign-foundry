@@ -1,0 +1,6 @@
+# En dashes between digits are numeric ranges.
+extends: ai-tells.EmDashUsage
+tokens-:
+  - –
+tokens+:
+  - (?<![0-9])–|–(?![0-9])

@@ -1,0 +1,24 @@
+# People ask, know, want, teach and hunt. A named person, the DM, the Party, a Player, a PC or NPC, or a determiner-less pronoun subject is literal; the rule keeps firing on things and unnamed roles.
+extends: ai-tells.AnthropomorphicCognition
+message: "AI anthropomorphism: '%s'. A verb of mind (asks, knows, wants, decides) has a thing or an unnamed role as its subject. Give it a named person or a pronoun ('Malone asks', 'he decides'), or say what the thing checks or contains. Disable this rule for prose about people."
+tokens-:
+  - (?<!ing )\b(?:a|an|the|this|that|these|those|each|every|its|their) (?:[a-z]+ )?[a-z]+ (?:really |only |always |never |still |also |just |often |actually )?want(?:s|ed)?\b
+  - \bt(?:each(?:es|ing)?|aught)(?= (?:the|a|an|its|this|that|every|each) (?:[a-z]+ )?[a-z]+ (?:a|an|the|its|this|that|which|what|how|to|about|nothing|something|everything|one)\b)
+  - \bt(?:each(?:es|ing)?|aught) (?:the |a |an |its |this |that |every |each )?(?!in |at |by |about |over |during |through |for |with |from )[a-z][a-z-]*
+  - \bhunt(?:s|ed)\b
+  - \btell(?:s|ing)? the truth\b
+  - \btold the truth\b
+tokens+:
+  - (?<!ing )\b(?:a|an|the|this|that|these|those|each|every|its|their) (?:[a-z]+ )?(?!(?:and|or|but|nor|yet|so)\b)[a-z]+ (?:really |only |always |never |still |also |just |often |actually )?want(?:s|ed)?\b(?! to\b)
+  - \bt(?:each(?:es|ing)?|aught)(?= (?:the|a|an|its|this|that|every|each) (?:[a-z]+ )?(?!how\b)[a-z]+ (?:a|an|the|its|this|that|which|what|to|about|nothing|something|everything|one)\b)
+  - \bt(?:each(?:es|ing)?|aught) (?:the |a |an |its |this |that |every |each )?(?!in |at |by |about |over |during |through |for |with |from |the |a |an |its |this |that |every |each )[a-z][a-z-]*\b(?! how\b)
+  - \b(?:a|an|the|this|that|these|those|each|every|its|their|both|all|one|any|some|no) (?:[a-z'-]+ )?[a-z]+ (?:then |also |never |still |only |always |simply |just )?hunt(?:s|ed)\b
+  - \btell(?:s|ing)? the truth(?= about\b)
+  - \btold the truth(?= about\b)
+exceptions+:
+  - (?i)\bplayers?\b
+  - (?i)\bpart(?:y|ies)\b
+  - (?i)\bthem\b
+  - (?i)\bDMs?\b
+  - (?i)\b(?:PCs?|NPCs?)\b
+  - (?i)\bt(?:each(?:es|ing)?|aught) (?:(?:the|a|an|its|this|that|every|each) )?(?-i:[A-Z])[a-z'-]*\b

@@ -34,9 +34,13 @@ build/
 .qmd/refresh.*
 .qmd/.qmd-embed.lock
 
-# Vale: `bun run setup` syncs packages into .vale/styles/; only our own Narration style is committed
+# Vale packages are synced; local styles and vocabularies are committed.
 .vale/styles/*
 !.vale/styles/Narration/
+!.vale/styles/Campaign/
+!.vale/styles/config/
+.vale/styles/config/*
+!.vale/styles/config/vocabularies/
 
 # Scratch space for experiments
 .scratch/

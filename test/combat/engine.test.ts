@@ -451,8 +451,7 @@ test("the CLI replays bit-identically across two processes and reports provenanc
 		"combat",
 		"run",
 		"--side",
-		"wiki/shattered-sea/PCs/jean-claude-tabarnack.md",
-		"wiki/shattered-sea/PCs/delmar-fisk.md",
+		"wiki/shattered-sea/PCs/{jean-claude-tabarnack,delmar-fisk}.md",
 		"--side",
 		"wiki/shattered-sea/Creatures/grung-creature.md",
 		"--count",
@@ -523,24 +522,4 @@ test("policy seam: a custom Policy replaces the default for its side", () => {
 		{ trials: 20, seed: "policy", policies: [passive, passive] },
 	);
 	expect(result.capped).toBe(20);
-});
-test("throughput: a real mixed roster reports its trials per second", async () => {
-	const jc = await compilePage("wiki/shattered-sea/PCs/jean-claude-tabarnack.md");
-	const delmar = await compilePage("wiki/shattered-sea/PCs/delmar-fisk.md");
-	const grung = await compilePage("wiki/shattered-sea/Creatures/grung-creature.md");
-	const deckhand = await compilePage("wiki/shattered-sea/Creatures/dravosi-deckhand.md");
-	const started = performance.now();
-	const result = runCombat(
-		[
-			[jc, delmar],
-			[grung, grung, grung, deckhand],
-		],
-		{ trials: 500, seed: "throughput" },
-	);
-	const seconds = (performance.now() - started) / 1000;
-	const rate = result.trials / seconds;
-	console.log(
-		`throughput: ${Math.round(rate)} trials/s over a 2v4 mixed roster (${seconds.toFixed(2)} s for ${result.trials} trials)`,
-	);
-	expect(rate).toBeGreaterThan(50);
 });

@@ -1,0 +1,4 @@
+# PCs and NPCs are people.
+extends: ai-tells.BareNames
+exceptions+:
+  - (?i)\b(?:PCs?|NPCs?)\b

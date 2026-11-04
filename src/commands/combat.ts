@@ -95,7 +95,12 @@ Examples:
 	command
 		.command("run")
 		.description("Play seeded Trials of two or more sides. Exits 0 on a completed run, 2 usage error.")
-		.requiredOption("--side <page...>", "one side's pages; repeat the flag once per side (supports page=N copies)")
+		.requiredOption(
+			"--side <page>",
+			"one side's page, directory or quoted glob; repeat once per side",
+			(value: string, previous: string[][]) => [...previous, [value]],
+			[],
+		)
 		.option(
 			"--count <page=N>",
 			"name copies of one page, such as dravosi-deckhand=4",
@@ -120,28 +125,18 @@ Examples:
   ${CF} combat run --side "wiki/shattered-sea/PCs/delmar-fisk.md" --side "wiki/shattered-sea/Creatures/bloodhawk.md" --trials 200 --seed demo-1v1
   ${CF} combat run --side "wiki/shattered-sea/PCs/*.md" --side "wiki/shattered-sea/Creatures/grung-creature.md" --count grung-creature=4 --trials 500 --seed party-v-patrol --json`,
 		)
-		.action(async (flags: { count: string[]; trials: number; seed: string; json?: boolean }) => {
-			// Commander flattens repeated variadic options, so side membership is read from argv:
-			// every `--side` occurrence starts one side, and its pages run to the next flag.
-			const tokens = process.argv.slice(2);
-			const sidesArg: string[][] = [];
-			for (let i = 0; i < tokens.length; i++) {
-				if (tokens[i] === "--side") {
-					const group: string[] = [];
-					for (let j = i + 1; j < tokens.length && !tokens[j]!.startsWith("-"); j++) group.push(tokens[j]!);
-					sidesArg.push(group);
-				} else if (tokens[i]!.startsWith("--side=")) sidesArg.push([tokens[i]!.slice("--side=".length)]);
-			}
+		.action(async (flags: { side: string[][]; count: string[]; trials: number; seed: string; json?: boolean }) => {
+			const sidesArg = flags.side;
 			if (sidesArg.length < 2 || sidesArg.some((side) => side.length === 0)) {
 				process.stderr.write(
-					`Error: --side is required at least twice, once per side with at least one page each.\n  ${CF} combat run --side <page...> --side <page...> --trials N --seed S\n`,
+					`Error: --side is required at least twice, once per side with a page, directory or quoted glob.\n  ${CF} combat run --side <page> --side <page> --trials N --seed S\n`,
 				);
 				process.exitCode = 2;
 				return;
 			}
 			if (!Number.isSafeInteger(flags.trials) || flags.trials < 1) {
 				process.stderr.write(
-					`Error: --trials must be a positive integer.\n  ${CF} combat run --side <page...> --side <page...> --trials 200 --seed demo\n`,
+					`Error: --trials must be a positive integer.\n  ${CF} combat run --side <page> --side <page> --trials 200 --seed demo\n`,
 				);
 				process.exitCode = 2;
 				return;
@@ -153,7 +148,7 @@ Examples:
 				const name = page?.replace(/\.md$/, "").split("/").pop();
 				if (!name || !Number.isSafeInteger(amount) || amount < 1) {
 					process.stderr.write(
-						`Error: --count takes page=N with N a positive integer, got '${entry}'.\n  ${CF} combat run --side <pages...> --count ${name ?? "page"}=4 --trials N --seed S\n`,
+						`Error: --count takes page=N with N a positive integer, got '${entry}'.\n  ${CF} combat run --side <page> --count ${name ?? "page"}=4 --trials N --seed S\n`,
 					);
 					process.exitCode = 2;
 					return;
@@ -209,7 +204,7 @@ Examples:
 				engineVersion: commit,
 				seed: flags.seed,
 				pages: sides.flatMap((side, i) => side.map((c) => ({ side: i, path: c.source.path, hash: c.source.hash }))),
-				command: tokens.join(" "),
+				command: `combat run ${sidesArg.map(([page]) => `--side ${JSON.stringify(page)}`).join(" ")} --trials ${flags.trials} --seed ${JSON.stringify(flags.seed)}${flags.count.map((count) => ` --count ${JSON.stringify(count)}`).join("")}${flags.json ? " --json" : ""}`,
 				assumption: "until #96, every enemy is in range of every attack and aura",
 			};
 			if (flags.json) process.stdout.write(`${JSON.stringify({ ...result, provenance }, null, 2)}\n`);

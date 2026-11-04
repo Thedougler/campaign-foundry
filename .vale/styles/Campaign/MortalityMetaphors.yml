@@ -1,0 +1,13 @@
+# Creatures and targets die, people survive hazards, and a summoned creature dies if you die.
+extends: ai-tells.MortalityMetaphors
+tokens-:
+  - \b(?:it|they|which|that) (?:then |never |still |also |just |simply )?(?:dies|died)\b(?! (?:down|off|out|hard|young|old|of|peacefully)\b)
+  - \b(?:a|an|the|this|that|these|those|each|every|its|their|both|all|one|any|some|no) (?:[a-z'-]+ )?[a-z]+ (?:that |which |then |never |still |also |just |simply )?(?:survives?|survived|surviving)\b(?! (?:all|every)\b)
+  - \b(?:survives?|survived|surviving) (?:a|an|the|this|that|these|those|each|its|their|both|any|unchanged|intact|untouched|as|into|too|to|as-is)\b
+tokens+:
+  - \b(?:it|they|which|that) (?:then |never |still |also |just |simply )?(?:dies|died)\b(?! if you die\b)(?! (?:down|off|out|hard|young|old|of|peacefully)\b)
+  - \b(?:a|an|the|this|that|these|those|each|every|its|their|both|all|one|any|some|no) (?:[a-z'-]+ )?(?!(?:must|should|will|would|can|could|may|might|cannot|can't)\b)[a-z]+ (?:that |which |then |never |still |also |just |simply )?(?:survives?|survived|surviving)\b(?! (?:all|every)\b)
+  - \b(?<!\b(?:he|she|they|we|i|you) )(?<!\b(?-i:[A-Z])[a-z'’]*(?:-(?-i:[A-Z])[a-z'’]*)* )(?:(?:survives|survived|surviving)|survive (?! (?:a|an|the|this|that|these|those|each|its|their|both|any)\b)) (?:a|an|the|this|that|these|those|each|its|their|both|any|unchanged|intact|untouched|as|into|too|to|as-is)\b
+exceptions+:
+  - (?i)\b(?:creatures?|targets?) (?:that |which |then |never |still |also |just |simply )?(?:(?:dies|died|dying)|(?:can|could|may|might|will|would|should|must|to|cannot|can't) (?:not |never |also |still )?die)\b
+  - (?i)\b(?:PCs?|NPCs?)\b

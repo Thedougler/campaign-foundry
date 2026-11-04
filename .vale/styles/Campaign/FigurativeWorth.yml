@@ -1,0 +1,6 @@
+# A person's price and a material component's price in coin are literal.
+extends: ai-tells.FigurativeWorth
+tokens-:
+  - "(?<!net )(?<!-)\\bworth\\b(?! of\\b)(?: [a-z']+){0,2}"
+tokens+:
+  - "(?<!net )(?<!-)(?<!\\b(?:man|men|woman|women|person|people|players?|PCs?) (?:is|was|are|were) )\\bworth\\b(?! of\\b)(?! (?:[0-9][0-9,.]*\\+? (?:[ecsgp]p|gold pieces?|silver pieces?|copper pieces?|platinum pieces?|electrum pieces?|dollars?|pounds?|euros?)\\b|[$£€][0-9]))(?: [a-z']+){0,2}"

@@ -1,0 +1,4 @@
+# PCs and NPCs are people.
+extends: ai-tells.FigurativeLives
+exceptions+:
+  - (?i)\b(?:PCs?|NPCs?)\b

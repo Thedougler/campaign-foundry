@@ -359,8 +359,7 @@ describe("convert-items CLI", () => {
 		);
 	});
 
-	it("has discoverable examples and actionable missing-input errors", async () => {
-		expect((await cf(["convert-items", "--help"])).stdout).toContain("Examples:");
+	it("reports actionable missing-input errors", async () => {
 		const missing = await cf(["convert-items", "missing-export.md"]);
 		expect(missing.code).toBe(2);
 		expect(missing.stderr).toContain("bun run cfcli -- convert-items archive/<file>.md");

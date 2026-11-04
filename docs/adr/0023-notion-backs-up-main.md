@@ -16,3 +16,5 @@ Decisions:
 - **Images through the File Upload API.** Each image is uploaded once, and a rebuilt map reuses the upload rather than sending it again. It is shown on its own page and reused by id wherever a page embeds it. Images are read from the working file's bytes and keyed by their sha256. Media is local-only and not committed, so the CI Backup uploads only images present in its checkout; run the Backup locally to include local media.
 
 The conversion's limits are listed in `docs/notion-backup.md`.
+
+Superseded (2026-11): Markdown conversion uses `@tryfabric/martian` and retries use the Notion SDK's configuration; wikilink and attachment adaptations and reconciliation remain.
