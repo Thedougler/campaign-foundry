@@ -56,7 +56,7 @@ describe("corpus-provenance exemption", () => {
 		for (const path of ["wiki/hand-written.md", "wiki/hand-written-twin.md"]) {
 			expect(result.findings).toEqual(
 				expect.arrayContaining([
-					expect.objectContaining({ path, layer: "style", rule: "ai-tells.VerbTricolon", line: 6 }),
+					expect.objectContaining({ path, layer: "style", rule: "Campaign.VerbTricolon", line: 6 }),
 					expect.objectContaining({ path, layer: "grammar", rule: "PronounVerbAgreement", line: 8 }),
 					expect.objectContaining({ path, layer: "boilerplate", rule: "shared-line", line: 6 }),
 				]),
@@ -79,7 +79,7 @@ describe("corpus-provenance exemption", () => {
 		for (const path of ["wiki/campaign/Spells/copy.md", "wiki/campaign/Spells/other-copy.md"]) {
 			expect(result.findings.filter((finding) => finding.path === path)).toEqual(
 				expect.arrayContaining([
-					expect.objectContaining({ layer: "style", rule: "ai-tells.VerbTricolon", line: 6 }),
+					expect.objectContaining({ layer: "style", rule: "Campaign.VerbTricolon", line: 6 }),
 					expect.objectContaining({ layer: "boilerplate", rule: "shared-line", line: 6 }),
 				]),
 			);
@@ -102,8 +102,8 @@ describe("corpus-provenance exemption", () => {
 		expect(result.findings.some(({ path }) => path === "wiki/Spells/published.md")).toBe(true);
 		expect(result.findings).toEqual(
 			expect.arrayContaining([
-				expect.objectContaining({ path: "wiki/campaign/Spells/copy.md", rule: "ai-tells.VerbTricolon", line: 6 }),
-				expect.objectContaining({ path: "wiki/campaign/Spells/copy.md", rule: "ai-tells.EmDashUsage", line: 6 }),
+				expect.objectContaining({ path: "wiki/campaign/Spells/copy.md", rule: "Campaign.VerbTricolon", line: 6 }),
+				expect.objectContaining({ path: "wiki/campaign/Spells/copy.md", rule: "Campaign.EmDashUsage", line: 6 }),
 			]),
 		);
 	});
@@ -122,7 +122,7 @@ describe("corpus-provenance exemption", () => {
 		for (const line of [7, 9]) {
 			expect(result.findings).toEqual(
 				expect.arrayContaining([
-					expect.objectContaining({ path: "wiki/hand-written.md", rule: "ai-tells.EmDashUsage", line }),
+					expect.objectContaining({ path: "wiki/hand-written.md", rule: "Campaign.EmDashUsage", line }),
 					expect.objectContaining({ path: "wiki/hand-written.md", rule: "Narration.NoEmDash", line }),
 				]),
 			);
@@ -143,7 +143,7 @@ describe("corpus-provenance exemption", () => {
 		for (const path of ["wiki/wrong-source.md", "wiki/remote-source.md"]) {
 			expect(result.findings).toEqual(
 				expect.arrayContaining([
-					expect.objectContaining({ path, layer: "style", rule: "ai-tells.VerbTricolon" }),
+					expect.objectContaining({ path, layer: "style", rule: "Campaign.VerbTricolon" }),
 					expect.objectContaining({ path, layer: "boilerplate", rule: "shared-line" }),
 				]),
 			);
@@ -157,7 +157,7 @@ describe("corpus-provenance exemption", () => {
 		await writeFile(join(root, "archive/rules.md"), "Unrelated published rules.\n");
 		expect((await check()).findings).toEqual(
 			expect.arrayContaining([
-				expect.objectContaining({ layer: "style", rule: "ai-tells.VerbTricolon", line: 6 }),
+				expect.objectContaining({ layer: "style", rule: "Campaign.VerbTricolon", line: 6 }),
 				expect.objectContaining({ layer: "grammar", rule: "PronounVerbAgreement", line: 8 }),
 			]),
 		);
@@ -178,7 +178,7 @@ describe("corpus-provenance exemption", () => {
 		const result = await check();
 		expect(result.findings.filter(({ path }) => path === "wiki/Spells/published.md")).toEqual([]);
 		expect(result.findings).toEqual([
-			expect.objectContaining({ path: "wiki/campaign/Spells/copy.md", rule: "ai-tells.FigurativeWorth", line: 9 }),
+			expect.objectContaining({ path: "wiki/campaign/Spells/copy.md", rule: "Campaign.FigurativeWorth", line: 9 }),
 		]);
 	});
 

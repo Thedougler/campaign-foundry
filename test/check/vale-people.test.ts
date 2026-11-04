@@ -122,7 +122,7 @@ describe("DM-confirmed people in Vale style checks", () => {
 			registry: [styleLayerWith(valeSubprocess())],
 			files: { markdown: new Map(files), attachments: [] },
 		});
-		const found = result.findings.filter((finding) => finding.rule === `ai-tells.${rule}`);
+		const found = result.findings.filter((finding) => finding.rule === `Campaign.${rule}`);
 		expect(found.filter(({ path }) => literal.some((_, index) => path === `wiki/example-${index}.md`))).toEqual([]);
 		for (const index of figurative.keys()) {
 			expect(found).toEqual(

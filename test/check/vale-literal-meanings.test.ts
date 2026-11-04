@@ -1,13 +1,10 @@
-import { execFile } from "node:child_process";
-import { cp, mkdir, mkdtemp, readFile, rm } from "node:fs/promises";
+import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { promisify } from "node:util";
 import { afterEach, describe, expect, it } from "vitest";
 import { styleLayerWith } from "../../src/check/layers/style.ts";
 import { runCheck } from "../../src/check/run.ts";
 import { valeSubprocess } from "../../src/check/vale.ts";
-import { repoRoot } from "./helpers.ts";
 
 const roots: string[] = [];
 afterEach(async () => {
@@ -89,7 +86,7 @@ describe("DM-confirmed literal Vale meanings", () => {
 				registry: [styleLayerWith(valeSubprocess())],
 				files: { markdown: new Map(files), attachments: [] },
 			});
-			const found = result.findings.filter((finding) => finding.rule === `ai-tells.${rule}`);
+			const found = result.findings.filter((finding) => finding.rule === `Campaign.${rule}`);
 			expect(found.filter(({ path }) => literal.some((_, index) => path === `wiki/example-${index}.md`))).toEqual([]);
 			for (const index of figurative.keys()) {
 				expect(found).toEqual(
@@ -100,17 +97,4 @@ describe("DM-confirmed literal Vale meanings", () => {
 			}
 		},
 	);
-
-	it("applies the literal narrowings idempotently to synced styles", async () => {
-		const root = await mkdtemp(join(tmpdir(), "cf-vale-patch-"));
-		roots.push(root);
-		const styles = join(root, ".vale/styles/ai-tells");
-		await mkdir(join(root, ".vale/styles"), { recursive: true });
-		await cp(join(repoRoot, ".vale/styles/ai-tells"), styles, { recursive: true });
-		const run = promisify(execFile);
-		await run(process.execPath, [join(repoRoot, "scripts/vale-patch.ts")], { cwd: root });
-		const before = await Promise.all(cases.map(({ rule }) => readFile(join(styles, `${rule}.yml`), "utf8")));
-		await run(process.execPath, [join(repoRoot, "scripts/vale-patch.ts")], { cwd: root });
-		expect(await Promise.all(cases.map(({ rule }) => readFile(join(styles, `${rule}.yml`), "utf8")))).toEqual(before);
-	});
 });

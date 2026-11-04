@@ -67,7 +67,7 @@ describe("published Item Properties", () => {
 		const findings = await styleLayerWith(valeSubprocess()).run(ctx);
 		expect(findings.map(({ rule, line }) => [rule, line])).toEqual(
 			expect.arrayContaining([
-				["ai-tells.VerbTricolon", 7],
+				["Campaign.VerbTricolon", 7],
 				["ai-tells.DefensiveHedges", 8],
 			]),
 		);
@@ -83,7 +83,7 @@ describe("published Item Properties", () => {
 			expect(findings.every(({ line }) => line >= firstRuleLine)).toBe(true);
 			expect(findings.map(({ rule, line }) => [rule, line])).toEqual(
 				expect.arrayContaining([
-					["ai-tells.VerbTricolon", firstRuleLine],
+					["Campaign.VerbTricolon", firstRuleLine],
 					["ai-tells.DefensiveHedges", firstRuleLine + 1],
 				]),
 			);

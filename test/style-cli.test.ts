@@ -49,7 +49,7 @@ describe("cfcli style", () => {
 			const aloneReport = JSON.parse(alone.stdout) as JsonReport;
 			const togetherReport = JSON.parse(together.stdout) as JsonReport;
 			const findings = aloneReport.findings.filter((finding) => finding.path === draft);
-			expect(findings).toContainEqual(expect.objectContaining({ layer: "style", rule: "ai-tells.BareHolds", line: 1 }));
+			expect(findings).toContainEqual(expect.objectContaining({ layer: "style", rule: "Campaign.BareHolds", line: 1 }));
 			expect(togetherReport.findings.filter((finding) => finding.path === draft)).toEqual(findings);
 		},
 	);

@@ -21,7 +21,6 @@ Only these tests still spawn processes, each for a reason the in-process runner 
 1. `test/cli.test.ts` — one smoke test through `bun run cfcli --`, pinning the npm-script invocation channel.
 2. `test/foundry-control/cli.test.ts` — `foundry serve`, a real stdio MCP server that must own a process.
 3. `test/check/prose-layers.test.ts` — two tests that put a stub `vale` on a child's `PATH` (env-shim tests).
-4. `test/lint-agents-cli.test.ts` and `test/lint-prose-cli.test.ts` — the `bun run lint` wrapper (`scripts/lint.ts`), which has no in-process runner.
 
 Everything else (backup git repos, the wiki-check hook) shells out to `git`/`node` for non-CLI tools.
 
