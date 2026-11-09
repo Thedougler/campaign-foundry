@@ -1,4 +1,28 @@
+# Model roles and overrides for campaign-foundry's own agents (.omp/agents/*.md `model: "@ROLE"`).
+modelRoles:
+  CODER: openai-codex/gpt-6.1-sol
+  TEST-SUBJECT: openai-codex/gpt-6-luna:auto
+  SMART-TEST-SUBJECT: zai/glm-5.3:auto
+  PROSE-GRADER: openai-codex/gpt-6.1-sol:high
+  CREATIVE-WRITER: zai/glm-5.3:high
+  PERSONA: zai/glm-5.3-flash:auto
+  TRANSCRIPT-READER: openai-codex/gpt-6-luna:auto
+  LINTER: openai-codex/gpt-6-luna:auto
+  LOOKUP: anthropic/claude-haiku-5-5
+retry:
+  fallbackChains:
+    CODER:
+      - anthropic/claude-sonnet-5-5
+      - zai/glm-5.3
+    TEST-SUBJECT:
+      - zai/glm-5.3-flash
 task:
+  agentModelOverrides:
+    bench-grader-anthropic: opus-5.5
+    bench-grader-openai: sol-6.1
+    bench-grader-xai: grok-4.7
+    bench-grader-zai: glm-5.3
+    transcript-reader: openai-codex/gpt-6-luna
   enableLsp: true
   maxRecursionDepth: 3
   # Dogfood units run `isolated: true`: each works in its own copy of the checkout,
