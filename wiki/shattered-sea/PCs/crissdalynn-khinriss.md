@@ -21,6 +21,7 @@ title: "Crissdalynn Khinriss"
 
 - **Player.** Courtney
 - **Class, species and level.** Monk 5 (Way of the Kensei), aarakocra
+- **Background.** Sailor
 
 ```statblock
 layout: Basic 5e Layout

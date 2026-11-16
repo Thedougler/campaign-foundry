@@ -23,6 +23,7 @@ title: "Perrin Black-Jaw"
 
 - **Player.** Kaden
 - **Class, species and level.** Warlock 2 / Bard 3 (College of Lore), Shattered Sea Rattkin
+- **Background.** Custom Background
 
 ```statblock
 layout: Basic 5e Layout

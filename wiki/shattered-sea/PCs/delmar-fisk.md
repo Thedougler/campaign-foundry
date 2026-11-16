@@ -27,6 +27,7 @@ title: "Delmar Fisk"
 
 - **Player.** Frederick
 - **Class, species and level.** Rogue 5 (Swashbuckler), human
+- **Background.** Sailor
 
 ```statblock
 layout: Basic 5e Layout

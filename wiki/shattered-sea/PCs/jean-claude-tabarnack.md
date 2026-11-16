@@ -25,6 +25,7 @@ title: "Jean-Claude Tabarnack"
 
 - **Player.** Chad
 - **Class, species and level.** Ranger 5 (Gloom Stalker), Grung
+- **Background.** Guide
 
 ```statblock
 layout: Basic 5e Layout
